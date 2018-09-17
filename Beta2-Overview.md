@@ -5,7 +5,7 @@ Welcome to the latest release of ROS 2 software! We hope that you try it out and
 ### Supported Platforms
 
 We support ROS 2 Beta 2 on three platforms: Ubuntu 16.04 (Xenial), Mac OS X 10.12 (Sierra), and Windows 10.
-We provide both binary packages and instructions for how to compile from source for all 3 platforms (see [install instructions](Installation) as well as [documentation](http://docs.ros2.org/beta2/)).
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see [install instructions](Installation.md) as well as [documentation](http://docs.ros2.org/beta2/)).
 
 ### Features
 
@@ -14,7 +14,7 @@ Improvements since the Beta 1 release:
 * Debian packages for Ubuntu Xenial (see [Debian install instructions](Linux-Install-Debians.md)).
 * Typesupport has been redesigned so that you only build a single executable and can choose one of the available RMW implementations by setting an environment variable (see [documentation](Working-with-multiple-RMW-implementations.md)).
 * Namespace support for nodes and topics (see [design article](http://design.ros2.org/articles/topic_and_service_names.html), see known issues below).
-* A set of command-line tools using the extensible `ros2` command (see [tutorial](https://github.com/ros2/ros2/wiki/Introspection-with-command-line-tools)).
+* A set of command-line tools using the extensible `ros2` command (see [tutorial](Introspection-with-command-line-tools.md)).
 * A set of macros for logging messages in C / C++ (see API docs of [rcutils](http://docs.ros2.org/beta2/api/rcutils/index.html)).
 
 New demo application:
@@ -29,7 +29,7 @@ New demo application:
   * [teleop_twist_keyboard](https://github.com/ros2/teleop_twist_keyboard.git)
   * [joystick_drivers](https://github.com/ros2/joystick_drivers.git)
   * [teleop_twist_joy](https://github.com/ros2/teleop_twist_joy.git)
-* [Dummy_robot demo](https://github.com/ros2/ros2/wiki/dummy-robot-demo):
+* [Dummy_robot demo](dummy-robot-demo.md):
   * [robot_model](https://github.com/ros2/robot_model)
   * [robot_state_publisher](https://github.com/ros2/robot_state_publisher)
 

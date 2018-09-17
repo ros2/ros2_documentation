@@ -10,7 +10,7 @@ The package providing this framework is `launch_ros`, which uses the non-ROS-spe
 The [design document (in review)](https://github.com/ros2/design/pull/163) details the goal of the design of ROS 2's launch system (not all functionality is currently available).
 ## Example of ROS 2 launch concepts
 
-The launch file in [this example](https://github.com/ros2/launch/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py) launches two nodes, one of which is a node with a [managed lifecycle](https://github.com/ros2/ros2/wiki/Managed-Nodes) (a "lifecycle node").
+The launch file in [this example](https://github.com/ros2/launch/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py) launches two nodes, one of which is a node with a [managed lifecycle](Managed-Nodes.md) (a "lifecycle node").
 Lifecycle nodes launched through `launch_ros` automatically emit _events_ when they transition between states.
 The events can then be acted on through the launch framework, e.g. by emitting other events (such as requesting another state transition, which lifecycle nodes launched through `launch_ros` automatically have event handlers for) or triggering other _actions_ (e.g. starting another node).
 

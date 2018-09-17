@@ -71,7 +71,7 @@ Create a workspace and clone all repos:
     wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
     vcs import src < ros2.repos
 
-> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the url above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](https://github.com/ros2/ros2/wiki/Maintaining-a-Source-Checkout).
+> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the url above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](Maintaining-a-Source-Checkout.md).
 
 ## Optional: Install additional DDS vendors
 
@@ -146,7 +146,7 @@ source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin1
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 ## Troubleshooting
 

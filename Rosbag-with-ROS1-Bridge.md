@@ -2,7 +2,7 @@
 
 This tutorial is a follow up to the "Bridge communication between ROS 1 and ROS 2" tutorial linked to from the [Tutorials page on this wiki](Tutorials), and this tutorial assumes you have completed that tutorial already.
 
-The ros1_bridge can either be installed from [packages](https://github.com/ros2/ros2/wiki/Installation) or [built from source](https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source); both work for these examples. 
+The ros1_bridge can either be installed from [packages](Installation.md) or [built from source](https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source); both work for these examples. 
 
 What follows is a series of additional examples, like that ones that come at the end of the aforementioned "Bridge communication between ROS 1 and ROS 2" tutorial.
 

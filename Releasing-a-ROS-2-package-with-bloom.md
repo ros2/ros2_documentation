@@ -12,7 +12,7 @@ For ROS 2 Bouncy:
 
 See above version requirements.
 
-* Make sure you have the ros repositories in your sources (see [Instructions](https://github.com/ros2/ros2/wiki/Linux-Install-Debians#setup-sources))
+* Make sure you have the ros repositories in your sources (see [Instructions](Linux-Install-Debians.md#setup-sources))
 
 * Install the latest version of bloom and catkin_pkg:
 ```

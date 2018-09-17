@@ -4,9 +4,7 @@ This guide is about how to setup a development environment for ROS2 on Windows.
 
 ## Prerequisites
 
-First follow the steps for Installing Prerequisites on the Binary Installation page:
-
-https://github.com/ros2/ros2/wiki/Windows-Install-Binary#installing-prerequisites
+First follow the steps for [Installing Prerequisites](Windows-Install-Binary.md#installing-prerequisites) on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -141,7 +139,7 @@ Get the `ros2.repos` file which defines the repositories to clone from:
 > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
 ```
 
-> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the URL above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](https://github.com/ros2/ros2/wiki/Maintaining-a-Source-Checkout).
+> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the URL above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](Maintaining-a-Source-Checkout.md).
 
 Next you can use `vcs` to import the repositories listed in the `ros2.repos` file:
 
@@ -183,7 +181,7 @@ call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
@@ -202,7 +200,7 @@ To build the `\dev\ros2` folder tree:
 Note, we're using `--merge-install` here to avoid a `PATH` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
 
 Note, if you are doing a debug build use `python_d path\to\colcon_executable` `colcon`.
-See: https://github.com/ros2/ros2/wiki/Windows-Development-Setup#extra-stuff-for-debug-mode for more info on running Python code in debug builds on Windows.
+See [this page](Windows-Development-Setup.md#extra-stuff-for-debug-mode) for more info on running Python code in debug builds on Windows.
 
 ### Testing and Running
 
@@ -236,7 +234,7 @@ In a separate shell you can do the same, but instead run the `listener`:
 > ros2 run demo_nodes_py listener
 ```
 
-For more explanations see the [Python Programming](Python-Programming) demo or [other tutorials](https://github.com/ros2/ros2/wiki/Tutorials)
+For more explanations see the [Python Programming](Python-Programming.md) demo or [other tutorials](Tutorials.md).
 
 Note: it is not recommended to build in the same cmd prompt that you've sourced the `local_setup.bat`.
 
@@ -245,7 +243,7 @@ Note: it is not recommended to build in the same cmd prompt that you've sourced 
 The demos will attempt to build against any detected DDS vendor.
 The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.0.
 To build for other vendors, make sure that your chosen DDS vendor(s) are exposed in your environment when you run the build.
-If you would like to change which vendor is being used see: [Working with Multiple RMW Implementations](https://github.com/ros2/ros2/wiki/Working-with-multiple-RMW-implementations)
+If you would like to change which vendor is being used see: [Working with Multiple RMW Implementations](Working-with-multiple-RMW-implementations.md)
 
 ## Troubleshooting
 

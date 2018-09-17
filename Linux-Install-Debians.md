@@ -89,7 +89,7 @@ sudo apt install ros-$ROS_DISTRO-rmw-connext-cpp # for RTI Connext (requires lic
 By setting the environment variable `RMW_IMPLEMENTATION=rmw_opensplice_cpp` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, `RMW_IMPLEMENTATION=rmw_connext_cpp` can also be selected to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 ## Additional packages using ROS 1 packages
 

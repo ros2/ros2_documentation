@@ -72,7 +72,7 @@ You will need to accept a license from RTI.
         sudo apt update && sudo apt install -q -y \
             rti-connext-dds-5.3.1
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 ## Try some examples
 
@@ -87,9 +87,9 @@ In another terminal source the setup file and then run a `listener`:
 You should see the `talker` saying that it's `Publishing` messages and the `listener` saying `I heard` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see [this page](https://github.com/ros2/ros2/wiki/Working-with-multiple-RMW-implementations) for details on how to use that vendor.
+If you have installed support for an optional vendor, see [this page](Working-with-multiple-RMW-implementations.md) for details on how to use that vendor.
 
-See the [demos](Tutorials) for other things to try, including how to [run the talker-listener example in Python](Python-Programming).
+See the [demos](Tutorials.md) for other things to try, including how to [run the talker-listener example in Python](Python-Programming.md).
 
 ### ROS 1 bridge
 

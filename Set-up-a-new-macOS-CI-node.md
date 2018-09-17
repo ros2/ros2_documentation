@@ -71,9 +71,7 @@ $ git config --global user.name "HOSTNAME"
 
 ### Install ROS 2 Dependencies
 
-Install them according to our install instructions:
-
-https://github.com/ros2/ros2/wiki/OSX-Development-Setup
+Install them according to [our install instructions](OSX-Development-Setup.md).
 
 Including:
 
