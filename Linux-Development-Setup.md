@@ -18,7 +18,7 @@ export LANG=en_US.UTF-8
 
 ### Add the ROS 2 apt repository
 
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to the Setup Sources section of [this guide](https://github.com/ros2/ros2/wiki/Linux-Install-Debians#setup-sources)
+First make sure you have the ROS 2 apt repositories added to your system, if not refer to the Setup Sources section of [this guide](Linux-Install-Debians.md#setup-sources)
 
 ### Install development tools and ROS tools
 
@@ -69,7 +69,7 @@ wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
 vcs import src < ros2.repos
 ```
 
-> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the URL above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](https://github.com/ros2/ros2/wiki/Maintaining-a-Source-Checkout).
+> Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing `release-latest` in the URL above with `master`. The `release-latest` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also [Maintaining a Source Checkout](Maintaining-a-Source-Checkout.md).
 
 ### Install dependencies using rosdep
 
@@ -150,7 +150,7 @@ Note: when using `zsh` you need to be in the directory of the script when sourci
 
 Now you can build as normal and support for RTI will be built as well.
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 <!--
 ##### Official binary packages from RTI
 

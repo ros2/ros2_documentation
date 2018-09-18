@@ -34,7 +34,7 @@ ros2 run composition manual_composition talker:__node:=my_talker listener:__node
 
 ## Logger configuration
 
-See [the logging page](https://github.com/ros2/ros2/wiki/Logging#command-line-configuration-of-the-default-severity-level).
+See [the logging page](Logging.md#command-line-configuration-of-the-default-severity-level).
 
 ## Parameters
 

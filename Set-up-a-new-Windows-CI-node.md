@@ -8,9 +8,7 @@ We use the normal Windows 10 version, not the enterprise, but other than that we
 
 ### Install Dependencies for ROS 2
 
-Follow our Windows "from source" installation instructions:
-
-https://github.com/ros2/ros2/wiki/Windows-Development-Setup
+Follow our Windows "from source" [installation instructions](Windows-Development-Setup.md).
 
 ### Setup git
 

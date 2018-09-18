@@ -102,7 +102,7 @@ Set the `NDDSHOME` environment variable:
 set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 ```
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 ### Install OpenCV
 
@@ -199,7 +199,7 @@ Start another command shell and run a `listener`:
 You should see the `talker` saying that it's `Publishing` messages and the `listener` saying `I heard` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see [this page](https://github.com/ros2/ros2/wiki/Working-with-multiple-RMW-implementations) for details on how to use that vendor.
+If you have installed support for an optional vendor, see [this page](Working-with-multiple-RMW-implementations.md) for details on how to use that vendor.
 
 ### Troubleshooting
 * If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your `PATH` variable.

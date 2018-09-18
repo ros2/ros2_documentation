@@ -13,10 +13,10 @@ Improvements since the Alpha 8 release:
  * A standard lifecycle for managed nodes.
  * Improved support for Quality of Service tuning and tests.
  * [New and updated design documents](http://design.ros2.org/)
- * More [tutorials](https://github.com/ros2/ros2/wiki/Tutorials) and [examples](https://github.com/ros2/examples)
+ * More [tutorials](Tutorials.md) and [examples](https://github.com/ros2/examples)
  * Bridging services to / from ROS1 (in addition to topics)
 
-Selected features from previous Alpha releases (for the complete list, see the [earlier release notes](https://github.com/ros2/ros2/wiki/Releases)):
+Selected features from previous Alpha releases (for the complete list, see the [earlier release notes](Releases.md)):
  * C++ and Python implementations of ROS 2 client libraries including APIs for:
   * Publishing and subscribing to ROS topics
   * Requesting and replying ROS services (synchronous (C++ only) and asynchronous)

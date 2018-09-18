@@ -93,7 +93,7 @@ export NDDSHOME=/Applications/rti_connext_dds-5.3.1/
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to [this page](https://github.com/ros2/ros2/wiki/Install-Connext-Security-Plugins)
+If you want to install the Connext DDS-Security plugins please refer to [this page](Install-Connext-Security-Plugins.md)
 
 ## Set up the ROS 2 environment
 
@@ -120,6 +120,6 @@ In another terminal, set up the ROS 2 environment and then run a `listener`:
 You should see the `talker` saying that it's `Publishing` messages and the `listener` saying `I heard` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see [this page](https://github.com/ros2/ros2/wiki/Working-with-multiple-RMW-implementations) for details on how to use that vendor.
+If you have installed support for an optional vendor, see [this page](Working-with-multiple-RMW-implementations.md) for details on how to use that vendor.
 
-If you run into issues, see the troubleshooting section on the source installation page: https://github.com/ros2/ros2/wiki/OSX-Development-Setup#troubleshooting
+If you run into issues, see [the troubleshooting section](OSX-Development-Setup.md#troubleshooting) on the source installation page.

@@ -29,7 +29,7 @@ See below for how to specify which RMW implementation is to be used when running
 
 ---
 
-To have multiple RMW implementations available for use you must have installed our binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (they are included by default) and their dependencies are met (for example see the Linux install instructions: https://github.com/ros2/ros2/wiki/Linux-Development-Setup#install-more-dds-implementations-optional).
+To have multiple RMW implementations available for use you must have installed our binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (they are included by default) and their dependencies are met (for example see [the Linux install instructions](Linux-Development-Setup.md#install-more-dds-implementations-optional)).
 
 ---
 

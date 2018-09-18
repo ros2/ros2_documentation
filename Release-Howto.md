@@ -55,10 +55,9 @@ Once the current state is ready to be released, follow these steps:
   - Use the title `ROS 2 Beta N release` (matching the style of previous releases)
 - Upload the renamed artifacts to the Release on GitHub using the web interface:
   - E.g. https://github.com/ros2/ros2/releases/edit/release-beta2
-- Create an overview page for the beta release, e.g. https://github.com/ros2/ros2/wiki/Beta2-Overview
-- Update the releases page to point to it: https://github.com/ros2/ros2/wiki/Releases
-- Update the [Features page](https://github.com/ros2/ros2/wiki/Features) if appropriate
-- Edit the side bar to point to the latest overview: https://github.com/ros2/ros2/wiki/_Sidebar/_edit
-- Update the link on the home page: https://github.com/ros2/ros2/wiki
+- Create an overview page for the beta release, e.g. https://github.com/ros2/ros2_documentation/Beta2-Overview
+- Update the releases page to point to it: https://github.com/ros2/ros2_documentation/Releases
+- Update the [Features page](https://github.com/ros2/ros2_documentation/Features.md) if appropriate
+- Update the link on the home page: https://github.com/ros2/ros2_documentation/README.md
 - [Run the documentation generation](https://github.com/ros2/docs.ros2.org/tree/doc_gen) and upload and link the results from http://docs.ros2.org/
 - Draft and send an announcement to discourse about that release

@@ -81,10 +81,10 @@ The usual workflow is (this list is a work in progress):
 - Discuss design (GitHub ticket, and a meeting if needed)
 - Assign implementation to a team member
 - Write implementation on a feature branch
-  - Please check out the [developer guide](https://github.com/ros2/ros2/wiki/Developer-Guide) for guidelines and best practices
+  - Please check out the [developer guide](Developer-Guide.md) for guidelines and best practices
 - Write tests
 - Enable and run linters
-- Run tests locally using `colcon test` (see [colcon tutorial](https://github.com/ros2/ros2/wiki/Colcon-Tutorial))
+- Run tests locally using `colcon test` (see [colcon tutorial](Colcon-Tutorial.md))
 - Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
   - Go to ci.ros2.org
   - Log in (top right corner)

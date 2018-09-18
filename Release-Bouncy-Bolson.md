@@ -12,7 +12,7 @@ This version of ROS 2 is supported on four platforms (see [REP 2000](http://www.
 - Mac OS X 10.12 (Sierra)
 - Windows 10 with Visual Studio 2017
 
-Binary packages as well as instructions for how to compile from source are provided (see [install instructions](Installation) as well as [documentation](http://docs.ros2.org/bouncy/)).
+Binary packages as well as instructions for how to compile from source are provided (see [install instructions](Installation.md) as well as [documentation](http://docs.ros2.org/bouncy/)).
 
 ### Features
 
@@ -34,7 +34,7 @@ For an overview of all features available, including those from earlier releases
 
 #### Changes since the Ardent release
 
-Changes since the [Ardent Apalone](Release-Ardent-Apalone) release:
+Changes since the [Ardent Apalone](Release-Ardent-Apalone.md) release:
 - The Python package `launch` has been redesigned.
   The previous Python API has been moved into a submodule `launch.legacy`.
   You can update existing launch files to continue to use the legacy API if a transition to the new Python API is not desired.

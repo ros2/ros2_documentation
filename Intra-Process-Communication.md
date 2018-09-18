@@ -21,7 +21,7 @@ If you've installed the binaries, simply source the ROS 2 setup file and then sk
 ### Building from source
 
 Make sure you have OpenCV installed and then follow the source instructions.
-You can find the from source instructions linked from the main [ros2 installation page](https://github.com/ros2/ros2/wiki/Installation).
+You can find the from source instructions linked from the main [ros2 installation page](Installation.md).
 Once built source the setup file and continue down to one of the specific demos to read about them and for instructions on how to run them.
 
 ## Running and understanding the demos

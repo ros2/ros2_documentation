@@ -36,7 +36,7 @@ If you are finishing your stint as either build cop or build farmer you should:
 
 ## Build Cop
 
-This section assumes that you have reviewed the [ROS 2 on boarding document](https://github.com/ros2/ros2/wiki/ROS-2-On-boarding-Guide).
+This section assumes that you have reviewed the [ROS 2 on boarding document](ROS-2-On-boarding-Guide.md).
 
 ### Mission
 
@@ -111,7 +111,7 @@ In each case different actions should be taken by the build cop:
 
 ## Build Farmer
 
-This section assumes that you have reviewed the [ROS 2 on boarding document](https://github.com/ros2/ros2/wiki/ROS-2-On-boarding-Guide).
+This section assumes that you have reviewed the [ROS 2 on boarding document](ROS-2-On-boarding-Guide.md).
 
 ### Mission
 
@@ -208,13 +208,9 @@ Every so often the router reboots. The mac machines usually don’t reconnect to
 
 ### Resources
 
-- How to setup the Jenkins master:
-  - https://github.com/ros2/ros2/wiki/CI-Server-Setup
-- How to setup Linux Jenkins nodes:
-  - https://github.com/ros2/ros2/wiki/Set-up-a-new-Linux-CI-node
-- How to setup a macOS Jenkins node:
-  - https://github.com/ros2/ros2/wiki/Set-up-a-new-macOS-CI-node
+- [How to setup the Jenkins master](CI-Server-Setup.md).
+- [How to setup Linux Jenkins nodes](Set-up-a-new-Linux-CI-node.md).
+- [How to setup a macOS Jenkins node](Set-up-a-new-macOS-CI-node.md).
   - (old instructions) https://docs.google.com/a/osrfoundation.org/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit?usp=sharing
-- How to setup a Windows Jenkins node:
-  - https://github.com/ros2/ros2/wiki/Set-up-a-new-Windows-CI-node
+- [How to setup a Windows Jenkins node](Set-up-a-new-Windows-CI-node.md).
   - (old instructions) https://docs.google.com/a/osrfoundation.org/document/d/1SmmWa7MVnwjmMw9XJF33-fsa0dtkYj2AeEXBa8BCsYs/edit?usp=sharing
