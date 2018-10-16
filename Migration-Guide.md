@@ -101,7 +101,7 @@ Apply the following changes to use `ament_cmake` instead of `catkin`:
   ``` cmake
   find_package(ament_cmake REQUIRED)
   find_package(component1 REQUIRED)
-  ...
+  # ...
   find_package(componentN REQUIRED)
   ```
 
