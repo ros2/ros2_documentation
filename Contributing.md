@@ -1,6 +1,3 @@
----
----
-
 # Contributing to ROS 2
 
 There are a number of ways you can contribute to the ROS 2 project.
