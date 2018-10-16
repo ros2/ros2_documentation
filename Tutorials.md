@@ -2,7 +2,7 @@
 * [Overview of ROS 2 concepts](Overview-of-ROS-2-concepts.md)
 * [DDS and ROS middleware implementations](DDS-and-ROS-middleware-implementations.md)
 * [ROS 2 Client Libraries](ROS-2-Client-Libraries.md)
-* [About ROS interfaces](About-ROS-interfaces.md)
+* [About ROS Interfaces](About-ROS-Interfaces.md)
 * [About Quality of Service Settings](About-Quality-of-Service-Settings.md)
 
 
