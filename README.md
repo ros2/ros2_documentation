@@ -9,29 +9,29 @@ See below for more information on ROS 2.
 
 If you're looking for information on ROS 1 (i.e., ROS as it has existed for several years and what you might be using right now), check the [ROS website](http://www.ros.org) or the [documentation wiki](http://wiki.ros.org).
 
-**Before you proceed here, please read the [features page](Features.md) to get an idea of what is in the current ROS 2 release.**
+**Before you proceed here, please read the [features page](Features) to get an idea of what is in the current ROS 2 release.**
 
 ## Releases
-See [the releases page](Releases.md).
+See [the releases page](Releases).
 
 ## Installation
-See [the installation page](Installation.md).
+See [the installation page](Installation).
 
 ## Tutorials and Features
 ROS 2 is under heavy development.
-You can check out the [tutorials page](Tutorials.md) to see a range of examples of what the system can do in its current state, if it fits your project *today* depending on the exact requirement.
-For details of the current features, see [Features](Features.md).
-If migrating code from ROS to ROS 2, check [the migration guide](Migration-guide.md).
+You can check out the [tutorials page](Tutorials) to see a range of examples of what the system can do in its current state, if it fits your project *today* depending on the exact requirement.
+For details of the current features, see [Features](Features).
+If migrating code from ROS to ROS 2, check [the migration guide](Migration-guide).
 
 ## What's ahead
 ROS 2 is currently planning to release new versions every six month (which is twice as often as ROS 1) to give the community members an opportunity to provide early feedback on the evolving system.
-See the [Roadmap](Roadmap.md) for details on the planned upcoming features for ROS 2.
+See the [Roadmap](Roadmap) for details on the planned upcoming features for ROS 2.
 
 ## Contributing
-See [the contributing page](Contributing.md) and [the developer guide](Developer-Guide.md) for details on how to contribute to ROS 2 developments.
+See [the contributing page](Contributing) and [the developer guide](Developer-Guide) for details on how to contribute to ROS 2 developments.
 
 ## Reporting problems and asking questions
-See [the contact page](Contact.md).
+See [the contact page](Contact).
 
 # About ROS 2
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
