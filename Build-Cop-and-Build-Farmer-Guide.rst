@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 Build Cop and Build Farmer Guide
 ================================
 
@@ -231,10 +227,10 @@ If you need to access a machine:
   * https://docs.google.com/a/osrfoundation.org/spreadsheets/d/1OSwqbE3qPF8v3HSMr8JOaJ6r4QOiQFk6pwgaudXVE-4/edit?usp=sharing
 
 * For machines hosted at OSRF, you'll need to be on the OSRF network or have a VPN connection.
-* For machines which require :raw-html-m2r:`<ssh keys>` ask on ros@osrfoundation.org for your public keys to be added.
+* For machines which require `<ssh keys>` ask on ros@osrfoundation.org for your public keys to be added.
 * The Packet.net nodes (with "packet" in the name):
 
-  * Can be managed by logging in at https://packet.net with <brian’s email address>/\ :raw-html-m2r:`<the usual company password>`
+  * Can be managed by logging in at https://packet.net with <brian’s email address>/\ `<the usual company password>`
 
     * This will change after we set up a team account to manage servers.
 

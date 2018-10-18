@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the `colcon tutorial <Colcon-Tutorial>`.**
 
 Overview
@@ -221,24 +217,21 @@ The recommended build types are ``ament_cmake`` and ``ament_python``.
 Also supported are pure ``cmake`` packages.
 It's expected to add support for more `build types <https://github.com/ament/ament_tools/blob/master/doc/development/build_types.rst>`__.
 
-An example of an ``ament_python`` build is the `\ ``ament_tools`` package <https://github.com/ament/ament_tools>`__\ , where the setup.py is the primary entry point for building.
+An example of an ``ament_python`` build is the `ament_tools package <https://github.com/ament/ament_tools>`__, where the setup.py is the primary entry point for building.
 
-A package such as `\ ``demo_nodes_cpp`` <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
+A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 Tips
 ----
 
 
-* 
-  If you do not want to build a specific package place an empty file named ``AMENT_IGNORE`` in the directory and it will not be indexed.
+* If you do not want to build a specific package place an empty file named ``AMENT_IGNORE`` in the directory and it will not be indexed.
 
     "Catch all" options like --cmake-args should be placed after other options, or delimited with '--':
-
+    
 .. code-block:: bash
 
    ament build . --force-cmake-configure --cmake-args -DCMAKE_BUILD_TYPE=Debug -- --ament-cmake-args -DCMAKE_BUILD_TYPE=Release
-
-:raw-html-m2r:`<br>`
 
 
 * If you want to run a single particular test from a package:

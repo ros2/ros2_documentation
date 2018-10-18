@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 Eclipse Oxygen with ROS 2 and rviz2
 
 Table of Content
@@ -203,8 +199,6 @@ Now you can use code-completion, egit annotations, eclipse C/C++ Tools, etc.
    :alt: eclipse-28
 
 
-:raw-html-m2r:`<a name="Eclipse-indexer"/>`
-
 Eclipse-indexer
 ---------------
 
@@ -268,8 +262,6 @@ After that right-click on the rviz2 project and select "Indexer->Rebuild", after
    :target: https://i.imgur.com/uGZaHau.png
    :alt: eclipse-28
 
-
-:raw-html-m2r:`<a name="Debugging_with_eclipse"/>`
 
 Debugging with eclipse
 ----------------------

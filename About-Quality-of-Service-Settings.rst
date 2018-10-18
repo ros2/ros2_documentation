@@ -61,34 +61,29 @@ A QoS profile defines a set of policies that are expected to go well together fo
 The currently-defined QoS profiles are:
 
 
-* 
-  Default QoS settings for publishers and subscribers
+* Default QoS settings for publishers and subscribers
 
   In order to make the transition from ROS 1 to ROS 2, exercising a similar network behavior is desirable.
   By default, publishers and subscribers are reliable in ROS 2, have volatile durability, and "keep last" history.
 
-* 
-  Services
+* Services
 
   In the same vein as publishers and subscribers, services are reliable.
   It is especially important for services to use volatile durability, as otherwise service servers that re-start may receive outdated requests.
   While the client is protected from receiving multiple responses, the server is not protected from side-effects of receiving the outdated requests.
 
-* 
-  Sensor data
+* Sensor data
 
   For sensor data, in most cases it's more important to receive readings in a timely fashion, rather than ensuring that all of them arrive.
   That is, developers want the latest samples as soon as they are captured, at the expense of maybe losing some.
   For that reason the sensor data profile uses best effort reliability and a smaller queue depth.
 
-* 
-  Parameters
+* Parameters
 
   Parameters in ROS 2 are based on services, and as such have a similar profile.
   The difference is that parameters use a much larger queue depth so that requests do not get lost when, for example, the parameter client is unable to reach the parameter service server.
 
-* 
-  System default
+* System default
 
    This uses the system default for all of the policies.
 
