@@ -32,7 +32,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
 #. 
    Run the following commands
 
-   .. code-block::
+   .. code-block:: bash
 
        sudo apt update
        sudo apt install -y git
@@ -49,7 +49,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
 #. 
    Make sure the jenkins user can run docker
 
-   .. code-block::
+   .. code-block:: bash
 
        sudo su jenkins
        docker run hello-world
@@ -58,7 +58,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
 
    #. SSH into the jenkins master and get the contents of the public key (probably at /var/lib/jenkins/.ssh/id_rsa.pub, or wherever the home directory of the jenkins user is)
    #. SSH into the new slave and add that key to the authorized keylist
-      .. code-block::
+      .. code-block:: bash
 
          # on new slave
          cd /home/jenkins/

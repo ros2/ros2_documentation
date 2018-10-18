@@ -71,7 +71,7 @@ Static code analysis as part of the ament package build
 
 * Insert into the packages ``CMakeLists.txt`` file.
 
-.. code-block::
+.. code-block:: bash
 
    ...
    if(BUILD_TESTING)
@@ -84,7 +84,7 @@ Static code analysis as part of the ament package build
 
 * Insert the ``ament_lint`` test dependencies into the packages ``package.xml`` file.
 
-.. code-block::
+.. code-block:: bash
 
    ...
    <package format="2">

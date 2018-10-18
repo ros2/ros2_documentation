@@ -43,7 +43,7 @@ ROS 2 CI Host Setup
 
 Install XCode tools:
 
-.. code-block::
+.. code-block:: bash
 
    $ xcode select --install
 
@@ -55,7 +55,7 @@ Install Homebrew following instructions at https://brew.sh
 
 Install ``ssh-askpass`` via homebrew
 
-.. code-block::
+.. code-block:: bash
 
    $ brew tap theseal/ssh-askpass
    $ brew install ssh-askpass
@@ -74,7 +74,7 @@ create ``~/.bashrc`` with one line:
 
 set up dummy git names:
 
-.. code-block::
+.. code-block:: bash
 
    $ git config --global user.email "nobody@osrfoundation.org"
    $ git config --global user.name "HOSTNAME"
@@ -115,7 +115,7 @@ RTI Connext Specific Instructions
 Setting up the Jenkins Workspace and Agent
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
    $ mkdir jenkins jenkins-agent
    $ cd jenkins-agent
@@ -126,7 +126,7 @@ Copy the jenkins agent plist from https://gist.github.com/nuclearsandwich/c9546e
 Edit the file to match the jnlp url and secret of the host you’re setting up.
 You may need to create a new agent if you’re not re-imaging an existing one.
 
-.. code-block::
+.. code-block:: bash
 
    $ mkdir ~/Library/LaunchAgents
    $ cp ~/jenkins-agent/org.ros2.ci.jenkins-agent.plist ~/Library/LaunchAgents

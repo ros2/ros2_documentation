@@ -24,7 +24,7 @@ Example
 The following invocation will cause the ``talker`` node to be started under the node name ``my_talker``\ , publishing on the topic named ``my_topic`` instead of the default of ``chatter``.
 The namespace, which must start with a forward slash, is set to ``/demo``\ , which means that topics are created in that namespace (\ ``/demo/my_topic``\ ), as opposed to globally (\ ``/my_topic``\ ).
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp talker __ns:=/demo __node:=my_talker chatter:=my_topic
 
@@ -34,7 +34,7 @@ Passing remapping arguments to specific nodes
 If multiple nodes are being run within a single process (e.g. using `Composition <Composition>`_\ ), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener
 
@@ -64,13 +64,13 @@ Setting parameters from the command-line is currently supported in the form of y
 
 Then run the following:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp talker __params:=demo_params.yaml
 
 Other nodes will be able to retrieve the parameter values, e.g.:
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 param list talker
      a_string

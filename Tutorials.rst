@@ -76,12 +76,12 @@ You can verify that your current setup allows multicast with the ROS 2 tool:
 
 In Terminal 1:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 multicast receive
 
 In Terminal 2:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 multicast send

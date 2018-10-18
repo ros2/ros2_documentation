@@ -21,7 +21,7 @@ msgs are just simple text files with a field type and field name per line. The f
 
 Here is an example of a msg that uses a string primitive, and two other msgs:
 
-.. code-block::
+.. code-block:: bash
 
      string child_frame_id
      geometry_msgs/PoseWithCovariance pose
@@ -29,7 +29,7 @@ Here is an example of a msg that uses a string primitive, and two other msgs:
 
 srv files are just like msg files, except they contain two parts: a request and a response. The two parts are separated by a '---' line. Here is an example of a srv file:
 
-.. code-block::
+.. code-block:: bash
 
    float64 A
    float64 B
@@ -50,7 +50,7 @@ Creating a msg package
 
 For this tutorial we will use the packages stored in the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_overlway_ws/src
    git clone -b rosidl_tutorials https://github.com/ros2/tutorials.git
@@ -63,7 +63,7 @@ Here we will create a message meant to carry information about an individual.
 
 Open ``msg/Contact.msg`` and you will see:
 
-.. code-block::
+.. code-block:: bash
 
    bool FEMALE=true
    bool MALE=false
@@ -136,7 +136,7 @@ We will now add a srv declaration to our package.
 
 Open the srv/AddTwoFloats.srv file and paste this srv declaration:
 
-.. code-block::
+.. code-block:: bash
 
    float64 a
    float64 b
@@ -307,7 +307,7 @@ We will create a message in our rosidl_tutorials package.
 Create a msg directory in the rosidl_tutorials package and AddressBook.msg inside that directory.
 In that msg paste:
 
-.. code-block::
+.. code-block:: bash
 
    rosidl_tutorials_msgs/Contact[] address_book
 

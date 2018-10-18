@@ -106,7 +106,7 @@ Variation: Building ROS packages with ``ament build``
 Let's say that you love the new ``ament`` tool and want to use it to build your existing ROS packages that use ``catkin`` internally.
 Here's an example of how to do that, by doing a minimal installation of ``ament`` and then using it to build a workspace full of ROS ``catkin`` packages:
 
-.. code-block::
+.. code-block:: bash
 
    mkdir -p ~/ament_ws/src
    cd ~/ament_ws/src
@@ -123,7 +123,7 @@ Here's an example of how to do that, by doing a minimal installation of ``ament`
 
 Now build the ROS packages:
 
-.. code-block::
+.. code-block:: bash
 
    . $HOME/ament_ws/install/setup.bash
    cd ~/ros_catkin_ws
@@ -139,7 +139,7 @@ Let's say that you're building on top of ROS2, which internally uses the ``ament
 To make this work, we need a Python3 installation of ``catkin`` (the binary debians use Python2.7).
 Here's an example of doing that, installing to ``$HOME/catkin``\ :
 
-.. code-block::
+.. code-block:: bash
 
    # install catkin_pkg
    git clone https://github.com/ros-infrastructure/catkin_pkg.git
@@ -162,7 +162,7 @@ Add to that workspace the ``image_tools_catkin`` package from https://github.com
 It's a simple port of the ROS2 ``image_tools`` package, taking it from the ``ament`` API to the ``catkin`` API.
 To build it:
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws
    . $HOME/catkin/setup.bash
@@ -195,7 +195,7 @@ Here is a patch that allows you to do that:
 
 Because we're going to call out to ``ament build``\ , we will also need a minimal installation of ``ament``\ , as did in a previous example:
 
-.. code-block::
+.. code-block:: bash
 
    mkdir -p ~/ament_ws/src
    cd ~/ament_ws/src
@@ -212,7 +212,7 @@ Because we're going to call out to ``ament build``\ , we will also need a minima
 
 Then we need to install the modified version of catkin somewhere:
 
-.. code-block::
+.. code-block:: bash
 
    # install catkin_pkg
    git clone https://github.com/ros-infrastructure/catkin_pkg.git
@@ -230,7 +230,7 @@ Then we need to install the modified version of catkin somewhere:
 
 Now build the ROS2 packages:
 
-.. code-block::
+.. code-block:: bash
 
    . $HOME/catkin/setup.bash
    . $HOME/ament_ws/install/setup.bash

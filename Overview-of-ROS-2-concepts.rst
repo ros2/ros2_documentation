@@ -60,13 +60,13 @@ Example: talker-listener
 
 In one terminal, start a node (written in C++) that will publish messages on a topic.
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
 In another terminal, start a second node (written in Python) that will subscribe to messages on the same topic.
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_py listener
 

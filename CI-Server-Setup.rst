@@ -21,7 +21,7 @@ Temporary rewrite for changed job name
 
 We renamed some of the jobs, so I added rewrite rules in Apache (\ ``/etc/apache2/sites-enabled/ci.ros2.org.conf``\ ):
 
-.. code-block::
+.. code-block:: bash
 
    # Temporary rewrite rule because we changed the Windows job name.
    RewriteEngine On
@@ -53,7 +53,7 @@ We renamed some of the jobs, so I added rewrite rules in Apache (\ ``/etc/apache
 Install stuff (needed on master and slaves)
 -------------------------------------------
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt update
    sudo apt install -y git
@@ -130,7 +130,7 @@ Jenkins needs a valid ssh key in order to pull from some of our private reposito
 
 So I created an ssh key for the jenkins user on the webserver:
 
-.. code-block::
+.. code-block:: bash
 
    sudo su jenkins
    cd
@@ -146,19 +146,19 @@ Creating Jobs
 
 I cloned the ``ros2/ci`` repository to the default branch (\ ``master``\ ):
 
-.. code-block::
+.. code-block:: bash
 
    git clone https://github.com/ros2/ci.git
 
 Then I cloned the ``ros_buildfarm`` repository:
 
-.. code-block::
+.. code-block:: bash
 
    git clone https://github.com/ros-infrastructure/ros_buildfarm.git
 
 I also install the ``jenkinsapi`` and ``EmPy`` Python packages:
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install python3-pip
    sudo -H python3 -m pip install -U pip
@@ -166,14 +166,14 @@ I also install the ``jenkinsapi`` and ``EmPy`` Python packages:
 
 Then I setup auth:
 
-.. code-block::
+.. code-block:: bash
 
    mkdir -p ~/.buildfarm
    vim ~/.buildfarm/jenkins.ini
 
 Put this in the ``jenkins.ini`` file:
 
-.. code-block::
+.. code-block:: bash
 
    [http://ci.ros2.org]
    username=wjwwood
@@ -189,7 +189,7 @@ Copy that field for your password.
 
 Now I can create the jobs:
 
-.. code-block::
+.. code-block:: bash
 
    $ PYTHONPATH=`pwd`/../ros_buildfarm ./create_jenkins_job.py -u http://ci.ros2.org
    Connecting to Jenkins 'http://ci.ros2.org'
@@ -215,7 +215,7 @@ Disk space
 Over time docker images and particularly containers will pile up.
 To clean up use:
 
-.. code-block::
+.. code-block:: bash
 
    docker rm $(docker ps -a -q)
    docker rmi $(docker images -q -f dangling=true)

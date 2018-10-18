@@ -11,7 +11,7 @@ See below for more information on ROS 2.
 
 If you're looking for information on ROS 1 (i.e., ROS as it has existed for several years and what you might be using right now), check the `ROS website <http://www.ros.org>`__ or the `documentation wiki <http://wiki.ros.org>`__.
 
-**Before you proceed here, please read the `features page <Features>` to get an idea of what is in the current ROS 2 release.**
+**Before you proceed here, please read the** `features page <Features>` **to get an idea of what is in the current ROS 2 release.**
 
 Releases
 --------

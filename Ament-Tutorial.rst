@@ -50,7 +50,7 @@ To make the basic structure in the directory ``~/ros2_ws``\ :
 
 This is the directory structure of ``~/ros2_ws`` that you can expect at this point:
 
-.. code-block::
+.. code-block:: bash
 
    .
    └── src
@@ -71,7 +71,7 @@ Note: if you do not have ``vcs`` installed, instructions are `here <https://gith
 
 This is the directory structure of ``~/ros2_ws`` that you can expect after adding sources (note the exact structure and number of directories/files may change over time):
 
-.. code-block::
+.. code-block:: bash
 
    .
    ├── ros2.repos
@@ -235,6 +235,6 @@ Tips
 
 
 * If you want to run a single particular test from a package:
-  .. code-block::
+  .. code-block:: bash
 
      ament test --only-packages YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG

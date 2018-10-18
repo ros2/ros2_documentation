@@ -96,7 +96,7 @@ In order to run this demo, we open three terminals and source our ROS2 environme
 
 Alternatively, these three programs can be run together in the same terminal using the launch file (as of ROS 2 Bouncy):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 launch lifecycle lifecycle_demo.launch.py
 
@@ -107,14 +107,14 @@ The interesting part starts with the third terminal. In there we launch our ``li
 Triggering transition 1 (configure)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    [lc_client] Transition 1 successfully triggered.
    [lc_client] Node lc_talker has current state inactive.
 
 makes the lifecycle talker change its state to inactive. Inactive means that all publishers and timers are created and configured. However, the node is still not active. Therefore no messages are getting published.
 
-.. code-block::
+.. code-block:: bash
 
    [lc_talker] on_configure() is called.
    Lifecycle publisher is currently inactive. Messages are not published.
@@ -122,7 +122,7 @@ makes the lifecycle talker change its state to inactive. Inactive means that all
 
 The lifecycle listener on the same time receives a notification as it listens to every state change notification of the lifecycle talker. In fact, the listener receives two consecutive notifications. One for changing from the primary state "unconfigured" to "configuring". Because the configuring step was successful within the lifecycle talker, a second notification from "configuring" to "inactive". 
 
-.. code-block::
+.. code-block:: bash
 
    [lc_listener] notify callback: Transition from state unconfigured to configuring
    [lc_listener] notify callback: Transition from state configuring to inactive
@@ -130,14 +130,14 @@ The lifecycle listener on the same time receives a notification as it listens to
 Triggering transition 2 (activate)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    [lc_client] Transition 2 successfully triggered.
    [lc_client] Node lc_talker has current state active.
 
 makes the lifecycle talker change its state to active. Active means that all publishers and timers are now activated. Therefore the messages are now getting published. 
 
-.. code-block::
+.. code-block:: bash
 
    [lc_talker] on_activate() is called.
    [lc_talker] Lifecycle publisher is active. Publishing: [Lifecycle HelloWorld #11]
@@ -146,14 +146,14 @@ makes the lifecycle talker change its state to active. Active means that all pub
 
 The lifecycle listener receives the same set of notifications as before. Lifecycle talker changed its state from inactive to active.
 
-.. code-block::
+.. code-block:: bash
 
    [lc_listener] notify callback: Transition from state unconfigured to configuring
    [lc_listener] notify callback: Transition from state configuring to inactive
 
 The difference to the transition event before is that our listener now also receives the actual published data.
 
-.. code-block::
+.. code-block:: bash
 
    [lc_listener] data_callback: Lifecycle HelloWorld #11
    [lc_listener] data_callback: Lifecycle HelloWorld #12
@@ -171,7 +171,7 @@ lifecycle_talker, lifecycle_listener and lifecycle_service_client
 
 If we have a look at the code, there is one significant change for the lifecycle talker compared to a regular talker. Our node does not inherit from the regular ``rclcpp::node::Node`` but from ``rclcpp_lifecycle::LifecycleNode``.
 
-.. code-block::
+.. code-block:: bash
 
    class LifecycleTalker : public rclcpp_lifecycle::LifecycleNode
 
@@ -206,7 +206,7 @@ lifecycle_service_client_py.py
 
 The ``lifecycle_service_client`` application is a fixed order script for this demo purpose only. It explains the use and the API calls made for this lifecycle implementation, but may be inconvenient to use otherwise. For this reason, we implemented a separate python script, which lets you dynamically change states or various nodes.
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 run lifecycle lifecycle_service_client_py.py
    usage: lifecycle_service_client_py.py [-h]
@@ -216,20 +216,20 @@ The ``lifecycle_service_client`` application is a fixed order script for this de
 
 In the case you want to get the current state of the ``lc_talker`` node, you'd call:
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 run lifecycle lifecycle_service_client_py.py get_state lc_talker
    lc_talker is in state unconfigured(1)
 
 The next step would be to execute a state change:
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 run lifecycle lifecycle_service_client_py.py change_state --change-state-args configure lc_talker
 
 All of the above commands are nothing else than calling the lifecycle node's services. With that being said, we can also call these services directly with the ros2 command line interface:
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState "{node_name: lc_talker}"
    requester: making request: lifecycle_msgs.srv.GetState_Request(node_name='lc_talker')
@@ -239,7 +239,7 @@ All of the above commands are nothing else than calling the lifecycle node's ser
 
 In order to trigger a transition, we call the ``change_state`` service
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{node_name: lc_talker, transition: {id: 2}}"
    requester: making request: lifecycle_msgs.srv.ChangeState_Request(node_name='lc_talker', transition=lifecycle_msgs.msg.Transition(id=2, label=''))

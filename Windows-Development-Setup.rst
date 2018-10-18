@@ -21,7 +21,7 @@ Install Additional Prerequisites from Chocolatey
 
 First install git:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y git
 
@@ -30,7 +30,7 @@ In the resulting dialog, click "Environment Variables", the click "Path" on the 
 
 Then install ``patch``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y patch
 
@@ -43,7 +43,7 @@ Now we are ready to install some our tools that we use to help in developing ROS
 
 Let's start with ``vcstool``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > pip install -U vcstool
 
@@ -51,7 +51,7 @@ You can test it out by just running ``vcs`` (you should be able to do this in th
 
 Next, install ``colcon``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > pip install -U colcon-common-extensions
 
@@ -59,7 +59,7 @@ You can test it out by just running ``colcon`` (you should be able to do this in
 
 Also, you should install ``curl``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y curl
 
@@ -68,7 +68,7 @@ Install dependencies
 
 Next install the latest version of ``setuptools`` and ``pip``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > <PATH_TO_PYTHON_EXECUTABLE> -m pip install -U setuptools pip
 
@@ -76,25 +76,25 @@ Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python37\python.exe``
 
 Then you can continue installing other Python dependencies:
 
-.. code-block::
+.. code-block:: bash
 
    > pip install -U catkin_pkg EmPy pyparsing pyyaml
 
 Next install testing tools like ``pytest`` and others:
 
-.. code-block::
+.. code-block:: bash
 
    > pip install -U pytest coverage mock
 
 Next install linters and checkers like ``flake8`` and others:
 
-.. code-block::
+.. code-block:: bash
 
    > pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes pep8 pydocstyle
 
 Next install cppcheck:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y cppcheck
 
@@ -120,7 +120,7 @@ After that, the default settings are fine.
 
 Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you intend to build so that CMake can find it:
 
-.. code-block::
+.. code-block:: bash
 
    > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
    : You could set it permanently with `setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64` instead, but that requires Administrator.
@@ -134,14 +134,14 @@ Now that we have the development tools we can get the ROS 2 source code.
 
 First setup a development folder, I use ``C:\dev\ros2``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > md \dev\ros2\src
    > cd \dev\ros2
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
@@ -156,7 +156,7 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > vcs import src < ros2.repos
@@ -177,7 +177,7 @@ Adlink OpenSplice
 If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice 6.7.180404 <https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804>`__.
 Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
 
-.. code-block::
+.. code-block:: bash
 
    call "C:\opensplice67\HDE\x86_64.win64\release.bat"
 
@@ -190,7 +190,7 @@ If you would like to also build against RTI Connext, you will need to first visi
 After installing, use the RTI Launcher to load your license file.
 Then before building ROS 2, set up the Connext environment:
 
-.. code-block::
+.. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
@@ -210,7 +210,7 @@ FastRTPS is bundled with the ROS 2 source and will always be built unless you pu
 
 To build the ``\dev\ros2`` folder tree:
 
-.. code-block::
+.. code-block:: bash
 
    > colcon build --merge-install
 
@@ -226,13 +226,13 @@ Note that the first time you run any executable you will have to allow access to
 
 You can run the tests using this command:
 
-.. code-block::
+.. code-block:: bash
 
    > colcon test
 
 Afterwards you can get a summary of the tests using this command:
 
-.. code-block::
+.. code-block:: bash
 
    > colcon test-result
 
@@ -240,14 +240,14 @@ To run the examples, first open a clean new ``cmd.exe`` and set up the workspace
 This is done by sourcing the ``local_setup.bat`` file, which will automatically set up the environment for any DDS vendors that support was built for.
 Then execute the examples, e.g.:
 
-.. code-block::
+.. code-block:: bash
 
    > call install\local_setup.bat
    > ros2 run demo_nodes_py talker
 
 In a separate shell you can do the same, but instead run the ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > call install\local_setup.bat
    > ros2 run demo_nodes_py listener
@@ -275,7 +275,7 @@ If you run into the CMake error ``file INSTALL cannot set modification time on .
 260 Character Path Limit
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
    The input line is too long.
    The syntax of the command is incorrect.
@@ -310,14 +310,14 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 * To be able to extract the Python source tarball, you can use PeaZip:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y peazip
 
 
 * You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y svn hg
 
@@ -330,7 +330,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
-.. code-block::
+.. code-block:: bash
 
    > cd C:\dev\Python-3.7.0\PCbuild
    > get_externals.bat
@@ -339,7 +339,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 * Finally, copy the build products into the Python37 installation directories, next to the Release-mode Python executable and DLL's:
 
-.. code-block::
+.. code-block:: bash
 
    > cd C:\dev\Python-3.7.0\PCbuild\amd64
    > copy python_d.exe C:\Python37 /Y
@@ -352,7 +352,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
 
-.. code-block::
+.. code-block:: bash
 
    > python_d
    > import _ctypes
@@ -360,7 +360,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 * To create executables python scripts(.exe), python_d should be used to invoke colcon
 
-.. code-block::
+.. code-block:: bash
 
    > python_d path\to\colcon_executable build
 

@@ -131,7 +131,7 @@ This demonstrates that intra process communication is indeed working and unneces
 
 Let's run the demo by executing ``ros2 run intra_process_demo two_node_pipeline`` executable (don't forget to source the setup file first):
 
-.. code-block::
+.. code-block:: bash
 
    $ ros2 run intra_process_demo two_node_pipeline
    Published message with value: 0, and address: 0x7fb02303faf0
@@ -253,7 +253,7 @@ Because the message is being published and subscribed to as a ``unique_ptr`` the
 
 To test those expectations, let's run it:
 
-.. code-block::
+.. code-block:: bash
 
    % ros2 run intra_process_demo cyclic_pipeline
    Published first message with value:  42, and address: 0x7fd2ce0a2bc0
@@ -290,7 +290,7 @@ In this demo we'll use OpenCV to capture, annotate, and then view images.
 
 Note for OS X users: If you these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
-.. code-block::
+.. code-block:: bash
 
    $ sudo sysctl -w net.inet.udp.recvspace=209715
    $ sudo sysctl -w net.inet.udp.maxdgram=65500
@@ -315,7 +315,7 @@ In this situation, the pipeline is still running.
 
 Let's run the demo by executing the following executable:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run intra_process_demo image_pipeline_all_in_one
 
@@ -339,7 +339,7 @@ Now let's look at an example just the one above, except it has two image view no
 All the nodes are still in the same process, but now two image view windows should show up. (Note for OS X users: your image view windows might be on top of each other.)
 Let's run it with the command
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run intra_process_demo image_pipeline_with_two_image_view
 

@@ -8,7 +8,7 @@ Once the current state is ready to be released, follow these steps:
 
 
 * 
-  Get a fresh copy of all repositories using the master `\ ``ros2.repos`` file <https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos>`__
+  Get a fresh copy of all repositories using the master `ros2.repos file <https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos>`__
 
 
   * ``curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos | vcs import ./src``
@@ -61,7 +61,7 @@ Once the current state is ready to be released, follow these steps:
   * Edit ``tags.repos`` and replace the version attribute for all repositories (except the ones skipped before) with ``release-betaN`` (adjust the tag name appropriately)
 
 * 
-  Repeat the tagging and ``.repos`` file generation for the `\ ``turtlebot2_demo.repos`` file <https://github.com/ros2/turtlebot2_demo/blob/release-latest/turtlebot2_demo.repos>`__
+  Repeat the tagging and ``.repos`` file generation for the `turtlebot2_demo.repos file <https://github.com/ros2/turtlebot2_demo/blob/release-latest/turtlebot2_demo.repos>`__
 
 
   * At beta3, only the turtlebot2_demo repo had packages that needed their version bumped, and no repos used a fixed hash instead of the release tag.

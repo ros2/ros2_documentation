@@ -22,7 +22,7 @@ You need the following things installed to build ROS 2:
    * 
      If you don't already have it installed, install Xcode and the Command Line Tools:
 
-     .. code-block::
+     .. code-block:: bash
 
         xcode-select --install
 
@@ -34,7 +34,7 @@ You need the following things installed to build ROS 2:
    * 
      *Optional*\ : Check that ``brew`` is happy with your system configuration by running:
 
-     .. code-block::
+     .. code-block:: bash
 
         brew doctor
 
@@ -43,7 +43,7 @@ You need the following things installed to build ROS 2:
 #. 
    Use ``brew`` to install more stuff:
 
-   .. code-block::
+   .. code-block:: bash
 
        brew install cmake cppcheck eigen pcre poco python3 tinyxml wget
 
@@ -55,7 +55,7 @@ You need the following things installed to build ROS 2:
 #. 
    Install rviz dependencies
 
-   .. code-block::
+   .. code-block:: bash
 
        # install depepndencies for Rviz
        brew install qt freetype assimp
@@ -66,7 +66,7 @@ You need the following things installed to build ROS 2:
 #. 
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
-   .. code-block::
+   .. code-block:: bash
 
        python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock nose pep8 pydocstyle pyparsing setuptools vcstool
 
@@ -78,7 +78,7 @@ You need the following things installed to build ROS 2:
    * 
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
 
-     .. code-block::
+     .. code-block:: bash
 
           rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
           wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
@@ -97,7 +97,7 @@ Get the ROS 2 code
 
 Create a workspace and clone all repos:
 
-.. code-block::
+.. code-block:: bash
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
@@ -129,7 +129,7 @@ Build the ROS 2 code
 
 Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial <Colcon-Tutorial>`\ ):
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws/
    colcon build --symlink-install
@@ -140,7 +140,7 @@ Try some examples
 
 In a clean new terminal, source the setup file (this will automatically set up the environment for any DDS vendors that support was built for) and then run a ``talker``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_ws/install/setup.bash
    ros2 run demo_nodes_cpp talker
@@ -148,7 +148,7 @@ In a clean new terminal, source the setup file (this will automatically set up t
 
 In another terminal source the setup file and then run a ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_ws/install/setup.bash
    ros2 run demo_nodes_cpp listener
@@ -175,7 +175,7 @@ To install OpenSplice, download the latest release from https://github.com/ADLIN
 
 Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
 
-.. code-block::
+.. code-block:: bash
 
    source <path_to_opensplice>/x86_64.darwin10_clang/release.com
 
@@ -192,7 +192,7 @@ After installing, run RTI launcher and point it to your license file.
 
 Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace:
 
-.. code-block::
+.. code-block:: bash
 
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin16clang8.0.bash
 
@@ -215,7 +215,7 @@ Library not loaded; image not found
 
 If you are seeing library loading issues at runtime (either running tests or running nodes), such as the following:
 
-.. code-block::
+.. code-block:: bash
 
    ImportError: dlopen(.../ros2_install/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so, 2): Library not loaded: @rpath/librcl_interfaces__rosidl_typesupport_c.dylib
      Referenced from: .../ros2_install/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
@@ -229,7 +229,7 @@ Qt build errors e.g. ``unknown type name 'Q_ENUM'``
 
 If you see build errors related to Qt, e.g.:
 
-.. code-block::
+.. code-block:: bash
 
    In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
    /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error: 
@@ -244,7 +244,7 @@ Missing symbol when opencv (and therefore libjpeg, libtiff, and libpng) are inst
 
 If you have opencv installed you might get this:
 
-.. code-block::
+.. code-block:: bash
 
    dyld: Symbol not found: __cg_jpeg_resync_to_restart
      Referenced from: /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
@@ -254,13 +254,13 @@ If you have opencv installed you might get this:
 
 If so, to build you'll have to do this:
 
-.. code-block::
+.. code-block:: bash
 
    $ brew unlink libpng libtiff libjpeg
 
 But this will break opencv, so you'll also need to update it to continue working:
 
-.. code-block::
+.. code-block:: bash
 
    $ sudo install_name_tool -change /usr/local/lib/libjpeg.8.dylib /usr/local/opt/jpeg/lib/libjpeg.8.dylib /usr/local/lib/libopencv_highgui.2.4.dylib
    $ sudo install_name_tool -change /usr/local/lib/libpng16.16.dylib /usr/local/opt/libpng/lib/libpng16.16.dylib /usr/local/lib/libopencv_highgui.2.4.dylib

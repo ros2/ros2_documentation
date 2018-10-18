@@ -23,7 +23,7 @@ You need the following things installed before installing ROS 2.
   * 
     *Optional*\ : Check that ``brew`` is happy with your system configuration by running:
 
-    .. code-block::
+    .. code-block:: bash
 
         brew doctor
 
@@ -33,7 +33,7 @@ You need the following things installed before installing ROS 2.
 * 
   Use ``brew`` to install more stuff:
 
-  .. code-block::
+  .. code-block:: bash
 
        brew install python3
 
@@ -55,7 +55,7 @@ You need the following things installed before installing ROS 2.
 * 
   Install additional runtime dependencies for command-line tools:
 
-  .. code-block::
+  .. code-block:: bash
 
        python3 -m pip install catkin_pkg empy pyparsing pyyaml setuptools argcomplete
 
@@ -77,7 +77,7 @@ Downloading ROS 2
 * 
   Unpack it:
 
-  .. code-block::
+  .. code-block:: bash
 
        mkdir -p ~/ros2_install
        cd ~/ros2_install
@@ -117,7 +117,7 @@ After installing, run RTI launcher and point it to your license file.
 
 Set the ``NDDSHOME`` environment variable:
 
-.. code-block::
+.. code-block:: bash
 
    export NDDSHOME=/Applications/rti_connext_dds-5.3.1/
 
@@ -130,7 +130,7 @@ Set up the ROS 2 environment
 
 Source the ROS 2 setup file:
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_install/ros2-osx/setup.bash
 
@@ -138,7 +138,7 @@ Source the ROS 2 setup file:
 For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).
 Only do this **after** you have sourced the ROS 2 one:
 
-.. code-block::
+.. code-block:: bash
 
    . <path_to_opensplice>/x86_64.darwin10_clang/release.com
 
@@ -149,14 +149,14 @@ Try some examples
 
 In one terminal, set up the ROS 2 environment as described above and then run a ``talker``\ :
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
 
 In another terminal, set up the ROS 2 environment and then run a ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp listener
 

@@ -20,7 +20,7 @@ The C++11 library provides something called ``allocator_traits``. The C++11 stan
 
 For example, the following declaration for a custom allocator would satisfy ``allocator_traits`` (of course, you would still need to implement the declared functions in this struct):
 
-.. code-block::
+.. code-block:: bash
 
    template <class T>
    struct custom_allocator {
@@ -43,7 +43,7 @@ To learn about the full capabilities of ``allocator_traits``\ , see: http://en.c
 
 However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally. Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
 
-.. code-block::
+.. code-block:: bash
 
    template<typename T>
    struct pointer_traits {
@@ -95,7 +95,7 @@ Writing an example main
 
 Once you have written a valid C++ allocator, you must pass it as a shared pointer to your publisher, subscriber, and executor.
 
-.. code-block::
+.. code-block:: bash
 
      auto alloc = std::make_shared<MyAllocator<void>>();
      auto publisher = node->create_publisher<std_msgs::msg::UInt32>("allocator_example", 10, alloc);
@@ -111,13 +111,13 @@ Once you have written a valid C++ allocator, you must pass it as a shared pointe
 
 You will also need to use your allocator to allocate any messages that you pass along the execution codepath.
 
-.. code-block::
+.. code-block:: bash
 
      auto alloc = std::make_shared<MyAllocator<void>>();
 
 Once you've instantiated the node and added the executor to the node, it's time to spin:
 
-.. code-block::
+.. code-block:: bash
 
      uint32_t i = 0;
      while (rclcpp::ok()) {
@@ -135,7 +135,7 @@ Even though we instantiated a publisher and subscriber in the same process, we a
 
 The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context. The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default new.
 
-.. code-block::
+.. code-block:: bash
 
      auto context = rclcpp::contexts::default_context::get_global_default_context();
      auto ipm_state =
@@ -155,7 +155,7 @@ The obvious thing to do would be to count the calls made to your custom allocato
 
 Adding counting to the custom allocator is easy:
 
-.. code-block::
+.. code-block:: bash
 
      T * allocate(size_t size, const void * = 0) {
        // ...
@@ -171,7 +171,7 @@ Adding counting to the custom allocator is easy:
 
 You can also override the global new and delete operators:
 
-.. code-block::
+.. code-block:: bash
 
    void operator delete(void * ptr) noexcept {
      if (ptr != nullptr) {
@@ -197,19 +197,19 @@ where the variables we are incrementing are just global static integers, and ``i
 
 The `example executable <https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables. To run the example executable, use:
 
-.. code-block::
+.. code-block:: bash
 
    allocator_example
 
 or, to run the example with the intra-process pipeline on:
 
-.. code-block::
+.. code-block:: bash
 
    allocator_example intra-process
 
 You should get numbers like:
 
-.. code-block::
+.. code-block:: bash
 
    Global new was called 15590 times during spin
    Global delete was called 15590 times during spin

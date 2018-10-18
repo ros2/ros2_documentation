@@ -11,7 +11,7 @@ Publishing transform data
 
 First run the `static_transform_publisher <http://wiki.ros.org/tf2_ros#static_transform_publisher>`__ to generate ``tf2`` data:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run tf2_ros static_transform_publisher 1 2 3 0.5 0.1 -1.0 foo bar
 
@@ -23,14 +23,14 @@ Receiving transform data
 
 Now we can check whether it's possible to receive that transform data with ``tf2_echo``\ :
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run tf2_ros tf2_echo foo bar
 
 
 You should see repeated output similar to this:
 
-.. code-block::
+.. code-block:: bash
 
    At time 0.0
    - Translation: [1.000, 2.000, 3.000]

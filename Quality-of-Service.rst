@@ -32,19 +32,19 @@ Before running the demo, make sure you have a working webcam connected to your c
 
 Once you've installed ROS 2, if you're on Linux, source your setup.bash file:
 
-.. code-block::
+.. code-block:: bash
 
    . <path to ROS 2 install space>/setup.bash
 
 or if you're on Windows *\ *cmd*\ :
 
-.. code-block::
+.. code-block:: bash
 
    call <path to ROS 2 install space>/local_setup.bat
 
 Then run:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run image_tools showimage
 
@@ -56,19 +56,19 @@ You can't just close the window.
 
 In a separate terminal, source the install file and run the publisher node:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run image_tools cam2image
 
 This will publish an image from your webcam. In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run image_tools cam2image -b
 
 In this window, you'll see terminal output:
 
-.. code-block::
+.. code-block:: bash
 
    Publishing image #1
    Publishing image #2
@@ -78,7 +78,7 @@ In this window, you'll see terminal output:
 A window will pop up with the title "view" showing your camera feed.
 In the first window, you'll see output from the subscriber:
 
-.. code-block::
+.. code-block:: bash
 
    Received image #1
    Received image #2
@@ -87,14 +87,14 @@ In the first window, you'll see output from the subscriber:
 
 Note for OS X users: If you these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
-.. code-block::
+.. code-block:: bash
 
    $ sudo sysctl -w net.inet.udp.recvspace=209715
    $ sudo sysctl -w net.inet.udp.maxdgram=65500
 
 These changes will not persist a reboot. If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
 
-.. code-block::
+.. code-block:: bash
 
    net.inet.udp.recvspace=209715
    net.inet.udp.maxdgram=65500
@@ -104,7 +104,7 @@ Command line options
 
 In one of your terminals, add a -h flag to the original command:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run image_tools showimage -- -h
 
@@ -150,7 +150,7 @@ However, for OS X and Windows you can achieve a similar effect with the utilitie
 
 We are going to use the Linux network traffic control utility, ``tc`` (http://linux.die.net/man/8/tc).
 
-.. code-block::
+.. code-block:: bash
 
    sudo tc qdisc add dev lo root netem loss 5%
 
@@ -174,6 +174,6 @@ We see now that some of the frame on the ``showimage`` side were dropped, the fr
 
 When you're done, remember to delete the queueing discipline:
 
-.. code-block::
+.. code-block:: bash
 
    sudo tc qdisc delete dev lo root netem loss 5%

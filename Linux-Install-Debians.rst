@@ -20,14 +20,14 @@ Setup Sources
 To install the Debian packages you will need to add our Debian repository to your apt sources.
 First you will need to authorize our gpg key with apt like this:
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt update && sudo apt install curl
    curl http://repo.ros2.org/repos.key | sudo apt-key add -
 
 And then add the repository to your sources list:
 
-.. code-block::
+.. code-block:: bash
 
    sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
@@ -36,20 +36,20 @@ Install ROS 2 packages
 
 First set an environment variable for the ROS 2 release you want to install so it can be used in other commands.
 
-.. code-block::
+.. code-block:: bash
 
    export ROS_DISTRO=bouncy  # or ardent
    sudo apt update
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install ros-$ROS_DISTRO-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install ros-$ROS_DISTRO-ros-base
 
@@ -66,7 +66,7 @@ ROS 2 commadline tools use argcomplete to autocompletion. So if you want autocom
 Ubuntu 18.04
 ~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install python3-argcomplete
 
@@ -75,7 +75,7 @@ Ubuntu 16.04 (argcomplete >= 0.8.5)
 
 To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, because the version available through ``apt`` will not work due to a bug in that version of ``argcomplete``\ :
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install python3-pip
    sudo pip3 install argcomplete
@@ -85,7 +85,7 @@ Sourcing the setup script
 
 Set up your environment by sourcing the following file (you may want to add this to your ``.bashrc``\ ).
 
-.. code-block::
+.. code-block:: bash
 
    source /opt/ros/$ROS_DISTRO/setup.bash
 
@@ -97,7 +97,7 @@ If using Ardent OpenSplice is also installed.
 
 To install support for OpenSplice or RTI Connext on Bouncy:
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt update
    sudo apt install ros-$ROS_DISTRO-rmw-opensplice-cpp # for OpenSplice
@@ -119,7 +119,7 @@ This will also avoid the need to setup the ROS sources as they will already be i
 
 Now you can install the remaining packages:
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt update
    sudo apt install ros-$ROS_DISTRO-ros1-bridge ros-$ROS_DISTRO-turtlebot2-*

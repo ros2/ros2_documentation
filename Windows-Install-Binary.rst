@@ -26,7 +26,7 @@ Install Python
 
 Open a Command Prompt and type the following to install Python via Chocolatey:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y python
 
@@ -120,7 +120,7 @@ After installing, run RTI launcher and point it to your license file.
 
 Set the ``NDDSHOME`` environment variable:
 
-.. code-block::
+.. code-block:: bash
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
@@ -135,7 +135,7 @@ You can download a precompiled version of OpenCV 3.4.1 from https://github.com/r
 
 Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
 
-.. code-block::
+.. code-block:: bash
 
    setx -m OpenCV_DIR C:\opencv
 
@@ -155,7 +155,7 @@ There are a few dependencies not available in the Chocolatey package database. I
 
 As some chocolatey packages rely on it, we start by installing CMake
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y cmake
 
@@ -172,7 +172,7 @@ Please download these packages from `this <https://github.com/ros2/choco-package
 
 Once these packages are downloaded, open an administrative shell and execute the following command:
 
-.. code-block::
+.. code-block:: bash
 
    > choco install -y -s <PATH\TO\DOWNLOADS\> asio eigen tinyxml-usestl tinyxml2
 
@@ -180,7 +180,7 @@ Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packag
 
 You must also install some python dependencies for command-line tools:
 
-.. code-block::
+.. code-block:: bash
 
    python -m pip install -U catkin_pkg empy pyparsing pyyaml setuptools
 
@@ -205,7 +205,7 @@ Set up the ROS 2 environment
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block::
+.. code-block:: bash
 
    > call C:\dev\ros2\local_setup.bat
 
@@ -213,7 +213,7 @@ For ROS 2 releases up to and including Ardent, if you downloaded a release with 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 Only do this step **after** you have sourced the ROS 2 setup file:
 
-.. code-block::
+.. code-block:: bash
 
    > call "C:\opensplice67\HDE\x86_64.win64\release.bat"
 
@@ -222,13 +222,13 @@ Try some examples
 
 In a command shell, set up the ROS 2 environment as described above and then run a ``talker``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > ros2 run demo_nodes_cpp talker
 
 Start another command shell and run a ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    > ros2 run demo_nodes_py listener
 

@@ -88,13 +88,13 @@ ROS 2 Ardent and later
 
 If the ``RMW_IMPLEMENTATION`` environment variable is set to an RMW implementation for which support is not installed, you will see an error message similar to the following if you have only one implementation installed:
 
-.. code-block::
+.. code-block:: bash
 
    Expected RMW implementation identifier of 'rmw_connext_cpp' but instead found 'rmw_fastrtps_cpp', exiting with 102.
 
 If you have support for multiple RMW implementations installed and you request use of one that is not installed, you will see something similar to:
 
-.. code-block::
+.. code-block:: bash
 
    Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of 'rmw_connext_cpp'), exiting with 1.
 

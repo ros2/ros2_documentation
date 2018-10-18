@@ -11,7 +11,7 @@ Make sure that you have a locale set which supports ``UTF-8`` We test with the f
 If you are in a minimal environment such as a docker containers the locale may be set to something minimal like POSIX.
 To set the locale an example is below. It should be fine if you're using a different UTF-8 supported locale.
 
-.. code-block::
+.. code-block:: bash
 
    sudo locale-gen en_US en_US.UTF-8
    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
@@ -69,7 +69,7 @@ Get ROS 2.0 code
 
 Create a workspace and clone all repos:
 
-.. code-block::
+.. code-block:: bash
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
@@ -104,13 +104,13 @@ By default we include eProsima's FastRTPS in the workspace and it is the default
 PrismTech OpenSplice Debian Packages built by OSRF
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install libopensplice67  # from repo.ros2.org
 
 Add this to your ``~/.bashrc``
 
-.. code-block::
+.. code-block:: bash
 
    export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
 
@@ -144,7 +144,7 @@ RTI Connext (version 5.3.1)
 To use RTI Connext you will need to have obtained a license from RTI.
 Add the following line to your ``.bashrc`` file pointing to your copy of the license.
 
-.. code-block::
+.. code-block:: bash
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
@@ -154,14 +154,14 @@ Debian packages provided in the ROS 2 apt repositories
 You can install a Debian package of RTI Connext availabel on the ROS 2 apt repositories.
 You will need to accept a license from RTI.
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install -q -y \
        rti-connext-dds-5.3.1  # from repo.ros2.org
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 
-.. code-block::
+.. code-block:: bash
 
    cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
 
@@ -184,7 +184,7 @@ The default location is ``~/rti_connext_dds-5.3.1``
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 
-.. code-block::
+.. code-block:: bash
 
    source ~/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash
 
@@ -198,7 +198,7 @@ Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://git
 
 More info on working with a ROS workspace can be found in `this tutorial <Colcon-Tutorial>`.
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws/
    colcon build --symlink-install
@@ -210,7 +210,7 @@ Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
 On Windows due to limitations of the length of environment variables you should use this option when building workspaces with many (~ >> 100 packages).
 
-.. code-block::
+.. code-block:: bash
 
    colcon build --symlink-install --merge-install
 
@@ -221,14 +221,14 @@ Try some examples
 
 In one terminal, source the setup file and then run a ``talker``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_ws/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_ws/install/local_setup.bash
    ros2 run demo_nodes_py listener
@@ -248,7 +248,7 @@ Clang
 
 To configure CMake to detect and use Clang:
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install clang
    export CC=clang

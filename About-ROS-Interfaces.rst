@@ -21,7 +21,7 @@ Messages description are defined in ``.msg`` files in the ``msg/`` directory of 
 
 Each field consists of a type and a name, separated by a space, i.e:
 
-.. code-block::
+.. code-block:: bash
 
    fieldtype1 fieldname1
    fieldtype2 fieldname2
@@ -29,7 +29,7 @@ Each field consists of a type and a name, separated by a space, i.e:
 
 For example:
 
-.. code-block::
+.. code-block:: bash
 
    int32 my_int
    string my_string
@@ -141,7 +141,7 @@ Field types can be:
 
 *Example of message definition using arrays and bounded types:*
 
-.. code-block::
+.. code-block:: bash
 
    int32[] unbounded_integer_array
    int32[5] five_integers_array
@@ -167,13 +167,13 @@ Currently default values are not supported for string arrays and complex types (
 
 Defining a default value is done by adding a third element to the field definition line, i.e:
 
-.. code-block::
+.. code-block:: bash
 
    fieldtype fieldname fielddefaultvalue
 
 For example:
 
-.. code-block::
+.. code-block:: bash
 
    uint8 x 42
    int16 y -2000
@@ -191,13 +191,13 @@ Note:
 
 Each constant definition is like a field description with a default value, except that this value can never be changed programatically. This value assignment is indicated by use of an equal '=' sign, e.g.
 
-.. code-block::
+.. code-block:: bash
 
    constanttype CONSTANTNAME=constantvalue
 
 For example:
 
-.. code-block::
+.. code-block:: bash
 
    int32 X=123
    int32 Y=-123
@@ -215,7 +215,7 @@ A service description file consists of a request and a response msg type, separa
 
 Here is a very simple example of a service that takes in a string and returns a string:
 
-.. code-block::
+.. code-block:: bash
 
    string str
    ---
@@ -223,7 +223,7 @@ Here is a very simple example of a service that takes in a string and returns a 
 
 We can of course get much more complicated (if you want to refer to a message from the same package you must not mention the package name):
 
-.. code-block::
+.. code-block:: bash
 
    #request constants
    int8 FOO=1

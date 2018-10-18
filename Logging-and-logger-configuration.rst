@@ -8,7 +8,7 @@ In this demo, different types of log calls are shown and the severity level of d
 
 Start the demo with:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run logging_demo logging_demo_main
 
@@ -34,7 +34,7 @@ In the meantime, this demo provides an **example** service that can be called ex
 The demo previously started is already running this example service.
 To set the level of the demo's logger back to ``INFO``\ , call the service with:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
 
@@ -42,7 +42,7 @@ This service call will work on any logger that is running in the process provide
 This includes the loggers in the ROS 2 core, such as ``rcl`` (the common client library package).
 To enable debug logging for ``rcl``\ , call:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
 
@@ -58,13 +58,13 @@ As an example, if you want to debug the ``composition::Talker`` demo, you can st
 
 Shell 1:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition
 
 Shell 2:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition_cli composition composition::Talker
 
@@ -72,7 +72,7 @@ And then when you want to enable debug logging, load the ``LoggerConfig`` compon
 
 Shell 2
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition_cli logging_demo logging_demo::LoggerConfig
 
@@ -81,7 +81,7 @@ Note that loggers that have been specifically configured to use a particular sev
 
 Shell 2:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: '', level: DEBUG}"
 
@@ -93,7 +93,7 @@ Logger level configuration: command line
 As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
 Restart the demo including the following command line argument:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run logging_demo logging_demo_main __log_level:=debug
 
@@ -108,7 +108,7 @@ Console output formatting
 If you would like more or less verbose formatting, you can use `the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable <Logging#console-output-configuration>`.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
-.. code-block::
+.. code-block:: bash
 
    export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
    # Or, on Windows:

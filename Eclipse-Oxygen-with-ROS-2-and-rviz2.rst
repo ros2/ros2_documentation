@@ -229,7 +229,7 @@ then you see something like the next image. You could also add "excludes" (filte
 
 Goto C++General->Preprocessor includes, select CDT-GCC-Built-in-compiler-settings[shared] and enter into the text-box "command to get compiler specs" the following
 
-.. code-block::
+.. code-block:: bash
 
    -std=c++14
 
@@ -268,7 +268,7 @@ Debugging with eclipse
 
 Goto "C/C++-Build" and add to the build command
 
-.. code-block::
+.. code-block:: bash
 
    -DCMAKE_BUILD_TYPE=Debug
 

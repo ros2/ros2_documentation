@@ -34,7 +34,7 @@ This is all pieced together from a couple of pages here:
 
 Once you are the system user, set the git config:
 
-.. code-block::
+.. code-block:: bash
 
    > git config --global user.email "noreply@osrfoundation.org"
    > git config --global user.name "nobody"
@@ -56,7 +56,7 @@ Hit the "launch" button to download the "Java Web Start App" and save it on the 
 
 Open an Administrator ``cmd.exe`` and then:
 
-.. code-block::
+.. code-block:: bash
 
    > cd \path\to\downloaded\file
    > .\slave-agent.jnlp

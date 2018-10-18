@@ -25,7 +25,7 @@ See above version requirements.
 * 
   Install the latest version of bloom and catkin_pkg:
 
-  .. code-block::
+  .. code-block:: bash
 
      sudo apt install python-catkin-pkg python-bloom
 
@@ -37,7 +37,7 @@ If you've bloomed packages before in ROS 1, ROS 2's requirements will look famil
 ROS 2 uses a forked rosdistro index located at https://github.com/ros2/rosdistro.
 You can configure bloom to use it by setting the ``ROSDISTRO_INDEX_URL`` environment variable.
 
-.. code-block::
+.. code-block:: bash
 
    export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros2/rosdistro/ros2/index.yaml'
 

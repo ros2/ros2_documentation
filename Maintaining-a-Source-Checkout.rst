@@ -18,7 +18,7 @@ To download the repository list from the latest ROS 2 release, run:
 *Linux/OS X*
 ~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws
    mv -i ros2.repos ros2.repos.old
@@ -27,7 +27,7 @@ To download the repository list from the latest ROS 2 release, run:
 *Windows*
 ~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > cd \dev\ros2
@@ -45,7 +45,7 @@ If you wish to checkout a particular release, you can get its repository list by
 *Linux/OS X*
 ~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws
    mv -i ros2.repos ros2.repos.old
@@ -54,7 +54,7 @@ If you wish to checkout a particular release, you can get its repository list by
 *Windows*
 ~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > cd \dev\ros2
@@ -74,7 +74,7 @@ If you wish to checkout the bleeding-edge development code, you can get the rele
 *Linux/OS X*
 ~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws
    mv -i ros2.repos ros2.repos.old
@@ -83,7 +83,7 @@ If you wish to checkout the bleeding-edge development code, you can get the rele
 *Windows*
 ~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > cd \dev\ros2
@@ -100,7 +100,7 @@ You will notice that in the `ros2.repos <https://raw.githubusercontent.com/ros2/
 It is possible that these versions refer to new tags/branches that your local copy of the repositories will not recognize as they are out-of-date.
 Because of this, you should update the repositories that you have already checked out with the following command:
 
-.. code-block::
+.. code-block:: bash
 
    vcs custom --args remote update
 
@@ -112,7 +112,7 @@ You should now be able to download the sources associated with the new repositor
 *Linux/OS X*
 ~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    vcs import src < ros2.repos
    vcs pull src
@@ -120,7 +120,7 @@ You should now be able to download the sources associated with the new repositor
 *Windows*
 ~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    # CMD
    > vcs import src < ros2.repos
@@ -135,7 +135,7 @@ Rebuild your workspace
 
 Now that the workspace is up to date with the latest sources, remove your previous install and rebuild your workspace with, for example:
 
-.. code-block::
+.. code-block:: bash
 
    colcon build --symlink-install
 
@@ -148,7 +148,7 @@ If you wish to know the versions of the set of repositories in your workspace, y
 *Linux/OS X*
 ~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/ros2_ws
    vcs export src > my_ros2.repos
@@ -156,7 +156,7 @@ If you wish to know the versions of the set of repositories in your workspace, y
 *Windows*
 ~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: bash
 
    > cd \dev\ros2
    > vcs export src > my_ros2.repos

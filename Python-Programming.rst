@@ -20,7 +20,7 @@ Open two terminals, source the appropriate ``setup.*``\ /\ ``local_setup.*`` fil
 
 Once executed you should see the following on the terminal running the listener:
 
-.. code-block::
+.. code-block:: bash
 
    I heard: [Hello World: 1]
    I heard: [Hello World: 2]

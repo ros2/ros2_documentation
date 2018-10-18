@@ -13,55 +13,55 @@ Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable 
 
 We create a directory in our home dir with 
 
-.. code-block::
+.. code-block:: bash
 
    mkdir ~/kernel
 
 and switch into it with
 
-.. code-block::
+.. code-block:: bash
 
    cd ~/kernel
 
 We can go with a browser to https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/ and see if the version is there, then download it with
 
-.. code-block::
+.. code-block:: bash
 
    wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.84.tar.gz
 
 unpack it with
 
-.. code-block::
+.. code-block:: bash
 
    tar -xzf linux-4.9.84.tar.gz
 
 rename it to the same name with postfix of the patch version
 
-.. code-block::
+.. code-block:: bash
 
    mv linux-4.9.84 linux-4.9.84-rt62
 
 download rt_preempt patch with
 
-.. code-block::
+.. code-block:: bash
 
    wget ftp.ntu.edu.tw/linux/kernel/projects/rt/4.9/older/patch-4.9.84-rt62.patch.gz
 
 unpack it with
 
-.. code-block::
+.. code-block:: bash
 
    gunzip patch-4.9.84-rt62.patch.gz
 
 Then switch into the linux directory with
 
-.. code-block::
+.. code-block:: bash
 
    cd linux-4.9.84-rt62/
 
 and patch the kernel with the realtime patch
 
-.. code-block::
+.. code-block:: bash
 
    patch -p1 < ../patch-4.9.84-rt62.patch
 
@@ -73,25 +73,25 @@ and patch the kernel with the realtime patch
 
 We simply wanna use the config of our ubuntu installation, so we use the ubuntu config with
 
-.. code-block::
+.. code-block:: bash
 
    cp /boot/config-4.13.0-38-generic .config
 
 To enable all ubuntu-configurations, we simply use
 
-.. code-block::
+.. code-block:: bash
 
    yes '' | make oldconfig
 
 We need some tools, install them with
 
-.. code-block::
+.. code-block:: bash
 
    sudo apt install libncurses5-dev build-essential libssl-dev ccache
 
 Then we need to enable rt_preempt in the kernel. We call 
 
-.. code-block::
+.. code-block:: bash
 
    make menuconfig
 
@@ -105,7 +105,7 @@ and choose under “Processor Type and Features”  ---  “Preemption Model” 
 
 Exit menuconfig and run
 
-.. code-block::
+.. code-block:: bash
 
    make
 
@@ -113,13 +113,13 @@ You could use “make -j4” if you got 4-cpu-cores to build faster.
 
 Then we need to build the kernel modules with
 
-.. code-block::
+.. code-block:: bash
 
    sudo make modules_install
 
 Then we install the kernel to /boot and update grub with
 
-.. code-block::
+.. code-block:: bash
 
    sudo make install
 

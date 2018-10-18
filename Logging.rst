@@ -57,7 +57,7 @@ Command line configuration of the default severity level
 
 As of the Bouncy ROS 2 release, the default severity level for loggers can be configured from the command line with the following, for example (the level string is not case sensitive):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run demo_nodes_cpp listener __log_level:=debug
 
@@ -72,13 +72,13 @@ For now, the severity level of individual loggers can be configured programmatic
 
 In C++:
 
-.. code-block::
+.. code-block:: bash
 
    rcutils_logging_set_logger_level("logger_name", RCUTILS_LOG_SEVERITY_DEBUG);
 
 In Python:
 
-.. code-block::
+.. code-block:: bash
 
    logger.set_level(rclpy.logging.LoggingSeverity.DEBUG)
    rclpy.logging.set_logger_level('logger_name', rclpy.logging.LoggingSeverity.DEBUG)

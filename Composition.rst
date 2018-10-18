@@ -64,14 +64,14 @@ Run-time composition using ROS services (1.) with a publisher and subscriber
 
 In the first shell:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition
 
 
 In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition_cli composition composition::Talker
 
@@ -80,7 +80,7 @@ Now the first shell should show a message that the component was loaded as well 
 
 Another command in the second shell (see `listener <https://github.com/ros2/demos/blob/master/composition/src/listener_component.cpp>`__ source code):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition_cli composition composition::Listener
 
@@ -100,14 +100,14 @@ The example with a server and a client is very similar.
 
 In the first shell:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition
 
 
 In the second shell (see `server <https://github.com/ros2/demos/blob/master/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/master/composition/src/client_component.cpp>`__ source code):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition api_composition_cli composition composition::Server
    ros2 run composition api_composition_cli composition composition::Client
@@ -123,7 +123,7 @@ The executable contains all four components from above: talker and listener as w
 
 In the shell call (see `source code <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__\ ):
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition manual_composition
 
@@ -138,28 +138,28 @@ The process will open each library and create one instance of each "rclcpp::Node
 
 **Linux** In the shell call:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.so `ros2 pkg prefix composition`/lib/liblistener_component.so
 
 
 **OSX** In the shell call:
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.dylib `ros2 pkg prefix composition`/lib/liblistener_component.dylib
 
 
 **Windows** In cmd.exe call
 
-.. code-block::
+.. code-block:: bash
 
    ros2 pkg prefix composition
 
 
 to get the path to where composition is installed. Then call
 
-.. code-block::
+.. code-block:: bash
 
    ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
 

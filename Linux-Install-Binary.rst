@@ -30,7 +30,7 @@ Downloading ROS 2
 * 
   Unpack it:
 
-  .. code-block::
+  .. code-block:: bash
 
        mkdir -p ~/ros2_install
        cd ~/ros2_install
@@ -39,7 +39,7 @@ Downloading ROS 2
 Installing and initializing rosdep
 ----------------------------------
 
-.. code-block::
+.. code-block:: bash
 
        sudo apt install -y python-rosdep
        rosdep init
@@ -49,7 +49,7 @@ Installing and initializing rosdep
 Installing the missing dependencies
 -----------------------------------
 
-.. code-block::
+.. code-block:: bash
 
        rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
@@ -61,7 +61,7 @@ Installing the missing dependencies
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block::
+.. code-block:: bash
 
        sudo apt install -y libpython3-dev
 
@@ -81,7 +81,7 @@ Adlink OpenSplice
 
 To use OpenSplice you can install a Debian package built by OSRF.
 
-.. code-block::
+.. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
            libopensplice67
@@ -93,14 +93,14 @@ RTI Connext
 To use RTI Connext you will need to have obtained a license from RTI.
 Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
 
-.. code-block::
+.. code-block:: bash
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
 You can install a Debian package of RTI Connext built by OSRF.
 You will need to accept a license from RTI.
 
-.. code-block::
+.. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
            rti-connext-dds-5.3.1
@@ -113,14 +113,14 @@ Try some examples
 
 In one terminal, source the setup file and then run a ``talker``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_install/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
-.. code-block::
+.. code-block:: bash
 
    . ~/ros2_install/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp listener
@@ -139,7 +139,7 @@ If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing you
 
 If you haven't already, start a roscore:
 
-.. code-block::
+.. code-block:: bash
 
    . /opt/ros/kinetic/setup.bash
    roscore
@@ -147,7 +147,7 @@ If you haven't already, start a roscore:
 
 In another terminal, start the bridge:
 
-.. code-block::
+.. code-block:: bash
 
    . /opt/ros/kinetic/setup.bash
    . ~/ros2_install/ros2-linux/setup.bash

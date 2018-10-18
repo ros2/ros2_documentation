@@ -37,7 +37,7 @@ configure the middleware that it fragements large data into messages
 
 use Asynchronous publication mode:
 
-.. code-block::
+.. code-block:: bash
 
    <publishMode>
      <kind>ASYNCHRONOUS</kind>
@@ -69,7 +69,7 @@ mechanism) and prioritize the last frame.
 * configure "best effort" reliability mechanism
 * configure Quality of service history to keep last frame
 
-.. code-block::
+.. code-block:: bash
 
    <reliability>
      <kind>BEST_EFFORT</kind>
@@ -100,7 +100,7 @@ Use a reliable communication mechanism. Use fast response by writer and reader.
 * configure NACK reponse delay and suppression duration of writer to 0
 * configure heartbeat response delay of reader to 0
 
-.. code-block::
+.. code-block:: bash
 
    <reliability>
      <kind>RELIABLE</kind>
