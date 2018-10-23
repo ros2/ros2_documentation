@@ -3,9 +3,11 @@ Using Sphinx for cross-referencing packages
 
 This is an example of how you can cross-reference documentation between different packages with rosindex using Sphinx.
 
-Inventory files must be added to Sphinx's `conf.py` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__.
+Inventory files must be added to ROSIndex Sphinx's `conf.py` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__.
 
-Small caveat: the `URI` added to the configuration file must point to the directory where the `.inv` file is rather than to the file itself (i.e: `http://docs.ros.org/independent/api/catkin_pkg` instead of `http://docs.ros.org/independent/api/catkin_pkg/objects.inv`).
+.. note::
+
+   The `URI` added to the configuration file must point to the directory where the `.inv` file is rather than to the file itself (i.e: `http://docs.ros.org/independent/api/catkin_pkg` instead of `http://docs.ros.org/independent/api/catkin_pkg/objects.inv`).
 
 
 Showing all links of an Intersphinx mapping file
@@ -22,7 +24,7 @@ To show all Intersphinx links and their targets of an Intersphinx mapping file, 
 This is helpful when searching for the root cause of a broken Intersphinx link in a documentation project.
 
 
-Linking to Other Sites Using Intersphinx
+Linking to other sites using Intersphinx
 ========================================
 
 (Partially borrowed from `here <https://my-favorite-documentation-test.readthedocs.io/en/latest/using_intersphinx.html>`__).
@@ -38,10 +40,9 @@ Examples of intersphinx in action
 Linking to source code
 ----------------------
 
-* I really like the class :class:`vcstools.VcsClient` because it have the method :meth:`vcstools.VcsClient.checkout`.
-
+* Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 
 Linking to specific documentation parts
 ---------------------------------------
 
-* You can refer to rosinstall's developer guide by visiting the :doc:`Developer's Guide <developers_guide>`.
+* Refer to vcstools :doc:`Developer's Guide <developers_guide>` document.
