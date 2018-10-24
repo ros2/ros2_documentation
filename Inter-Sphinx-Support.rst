@@ -1,13 +1,9 @@
 Using Sphinx for cross-referencing packages
 ===========================================
 
-This is an example of how you can cross-reference documentation between different packages with rosindex using Sphinx.
+This is an example of how you can cross-reference packages documentation within rosindex using Sphinx.
 
-Inventory files must be added to ROSIndex Sphinx's `conf.py` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__.
-
-.. note::
-
-   The `URI` added to the configuration file must point to the directory where the `.inv` file is rather than to the file itself (i.e: `http://docs.ros.org/independent/api/catkin_pkg` instead of `http://docs.ros.org/independent/api/catkin_pkg/objects.inv`).
+Inventory files must be added to ROSIndex Sphinx's `conf.py` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__. Note that the `URI` added to the configuration file must point to the directory where the `.inv` file is rather than to the file itself (i.e: `http://docs.ros.org/independent/api/catkin_pkg` instead of `http://docs.ros.org/independent/api/catkin_pkg/objects.inv`).
 
 
 Showing all links of an Intersphinx mapping file
@@ -15,11 +11,11 @@ Showing all links of an Intersphinx mapping file
 
 (Partially borrowed from `here <http://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html>`__).
 
-To show all Intersphinx links and their targets of an Intersphinx mapping file, run:
+To show all Intersphinx links and their targets of an Intersphinx mapping file, either local or remote, run:
 
 .. code-block:: bash
 
-    python -msphinx.ext.intersphinx url-or-path
+    python -msphinx.ext.intersphinx url-or-path-to-inv-file
 
 This is helpful when searching for the root cause of a broken Intersphinx link in a documentation project.
 
@@ -42,7 +38,9 @@ Linking to source code
 
 * Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 
-Linking to specific documentation parts
----------------------------------------
+Linking to documentation pages
+------------------------------
 
-* Refer to vcstools :doc:`Developer's Guide <developers_guide>` document.
+* Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
+
+* See `the installation page <Installation>`.
