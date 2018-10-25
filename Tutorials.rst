@@ -1,4 +1,7 @@
 
+Tutorials
+=========
+
 About ROS 2
 -----------
 
@@ -6,7 +9,7 @@ About ROS 2
 * `Overview of ROS 2 concepts <Overview-of-ROS-2-concepts>`
 * `DDS and ROS middleware implementations <DDS-and-ROS-middleware-implementations>`
 * `ROS 2 Client Libraries <ROS-2-Client-Libraries>`
-* `About ROS interfaces <About-ROS-interfaces>`
+* `About ROS interfaces <About-ROS-Interfaces>`
 * `About Quality of Service Settings <About-Quality-of-Service-Settings>`
 
 ROS 2 Tutorials
