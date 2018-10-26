@@ -1,5 +1,5 @@
 **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the `colcon tutorial <Colcon-Tutorial>`.**
-The current default branch as well as releases after Bouncy do not include `ament_tools` anymore.
+The current default branch as well as releases after Bouncy do not include ``ament_tools`` anymore.
 
 Overview
 ========

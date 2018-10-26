@@ -218,16 +218,16 @@ Variable Naming
 Function and Method Naming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Name style: Google style guide says `CamelCase`, but the C++ std library's style of `snake_case` is also allowed
+* Name style: Google style guide says ``CamelCase``, but the C++ std library's style of ``snake_case`` is also allowed
 
-  * rationale: ROS 2 core packages currently use `snake_case`
+  * rationale: ROS 2 core packages currently use ``snake_case``
 
     * reason: either an historical oversight or a personal preference that didn't get checked by the linter
     * reason for not changing: retroactively changing would be too disruptive
   * other considerations:
 
-    * `cpplint.py` does not check this case (hard to enforce other than with review)
-    * `snake_case` can result in more consistency across languages
+    * ``cpplint.py`` does not check this case (hard to enforce other than with review)
+    * ``snake_case`` can result in more consistency across languages
   * specific guidance:
 
     * for existing projects, prefer the existing style
@@ -235,7 +235,7 @@ Function and Method Naming
     * final decision is always developer discretion
 
       * special cases like function pointers, callable types, etc. may require bending the rules
-    * Note that classes should still use `CamelCase` by default
+    * Note that classes should still use ``CamelCase`` by default
 
 Access Control
 ~~~~~~~~~~~~~~
