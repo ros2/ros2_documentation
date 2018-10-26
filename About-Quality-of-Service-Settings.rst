@@ -100,7 +100,7 @@ QoS compatibilities
 QoS profiles may be configured for publishers and subscribers independently.
 A connection between a publisher and a subscriber is only made if the pair has compatible QoS profiles.
 QoS profile compatibility is determined based on a "Request vs Offerer" model, wherein connections are only made if the requested policy of the subscriber is not more stringent than the that of the publisher.
-The stricter of the two policies will be the one used for the connection.
+The less strict of the two policies will be the one used for the connection.
 
 The QoS policies exposed in ROS 2 that affect compatibility are the durability and reliability policies.
 The following tables show the compatibility of the different policy settings and the result:
