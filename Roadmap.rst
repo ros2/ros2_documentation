@@ -17,22 +17,7 @@ This is a list of the features targeted for development in the future.
 Next release - Crystal Clemmys (December 2018)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The `meta ticket <https://github.com/ros2/ros2/issues/529>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
-
-
-* Support parameters in rclpy
-* Time: support for simtime, clock / time in Python, rates / timers using specific clocks, using same clock in tf2
-* Port image_transport to ROS 2
-* Launch: support life cycle, support components, nesting, launch in containers, pass parameters
-* Rosbag: record / playback binary messages, C++ API, Python CLI
-* Port gazebo_ros_pkgs to ROS 2: the "main" plugins
-* Port robot_web_tools
-* Actions: code generation, server / client API
-* IDL format: using ``IDL 4.2`` to specify ROS interfaces (msgs, srvs, actions), leverage new features like grouping and various annotations (comments, units)
-* Improve MISRA compliance, audit memory management
-* Buildfarm: keep non-latest .deb files, "incremental" CI job building of fat archive, CI jobs testing branches across repos, support nvidia-docker for testing with e.g. Gazebo
-* Documentation infrastructure: rosindex-like page to browse/search metadata of ROS 2 packages, support generating docs from e.g. ``.rst`` files
-* Performance testing
+The `Crystal meta ticket <https://github.com/ros2/ros2/issues/529>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
 Future (in no specific order)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
