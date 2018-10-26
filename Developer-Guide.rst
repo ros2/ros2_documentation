@@ -50,7 +50,7 @@ When filing an issue please make sure to:
     - **The operating system and version.** Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
     - **The installation method.** Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians. This can help us determine if the issue is with the packaging process.
     - **The specific version of ROS 2.** Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed. It is important to know if your installation includes these fixes.
-    - **The DDS/RMW implementation being used;** see [[this page|Working-with-multiple-RMW-implementations]] for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
+    - **The DDS/RMW implementation being used;** see `this page <Working-with-multiple-RMW-implementations>` for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
     - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
 - Include a list of steps to reproduce the issue.
 - In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__. Issues are much more likely to be resolved if others can reproduce them easily.
@@ -219,16 +219,21 @@ Function and Method Naming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Name style: Google style guide says `CamelCase`, but the C++ std library's style of `snake_case` is also allowed
+
   * rationale: ROS 2 core packages currently use `snake_case`
+
     * reason: either an historical oversight or a personal preference that didn't get checked by the linter
     * reason for not changing: retroactively changing would be too disruptive
   * other considerations:
+
     * `cpplint.py` does not check this case (hard to enforce other than with review)
     * `snake_case` can result in more consistency across languages
   * specific guidance:
+
     * for existing projects, prefer the existing style
     * for new projects, either is acceptable, but a preference for matching related existing projects is advised
     * final decision is always developer discretion
+
       * special cases like function pointers, callable types, etc. may require bending the rules
     * Note that classes should still use `CamelCase` by default
 
