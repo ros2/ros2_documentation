@@ -16,18 +16,18 @@ Over time you will see output from various log calls with different properties.
 To start with you will only see output from log calls with severity ``INFO`` and above (\ ``WARN``\ , ``ERROR``\ , ``FATAL``\ ).
 Note that the first message will only be logged once, though the line is reached on each iteration, as that is a property of the log call used for that message.
 
-Logger level configuration: progammatically
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Logger level configuration: programmatically
+--------------------------------------------
 
 After 10 iterations the level of the logger will be set to ``DEBUG``\ , which will cause additional messages to be logged.
 
 Some of these debug messages cause additional functions/expressions to be evaluated, which were previously skipped as ``DEBUG`` log calls were not enabled.
-See `the source code <https://github.com/ros2/demos/blob/master/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the `\ ``rclcpp`` logging documentation <>` for a full list of supported logging calls.
+See `the source code <https://github.com/ros2/demos/blob/master/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
 
 Logger level configuration: externally
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------------------
 
-In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `\ ``rqt_logger_level`` <http://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
+In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <http://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
 **This concept is not yet officially supported in ROS 2.**
 In the meantime, this demo provides an **example** service that can be called externally to request configuration of logger levels for known names of loggers in the process.
 
@@ -49,10 +49,10 @@ To enable debug logging for ``rcl``\ , call:
 You should see debug output from ``rcl`` start to show.
 
 Using the logger config component
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The server that responds to the logger configuration requests has been developed as a component so that it may be added to an existing composition-based system.
-For example, if you are using `a container to run your nodes <Composition#using-components>`\ , to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
+For example, if you are using `a container to run your nodes <composition-using-components>`_, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
 
 As an example, if you want to debug the ``composition::Talker`` demo, you can start the talker as normal with:
 
@@ -88,7 +88,7 @@ Shell 2:
 You should see debug output from any previously unset loggers in the process start to appear, including from the ROS 2 core.
 
 Logger level configuration: command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------
 
 As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
 Restart the demo including the following command line argument:
@@ -103,9 +103,9 @@ You should see debug output from loggers from the demo itself and from the ROS 2
 The ability to configure specific loggers from the command line is forthcoming.
 
 Console output formatting
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like more or less verbose formatting, you can use `the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable <Logging#console-output-configuration>`.
+If you would like more or less verbose formatting, you can use `the RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable <logging-console-output-configuration>`_.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
 .. code-block:: bash

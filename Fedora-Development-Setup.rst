@@ -14,4 +14,4 @@ Then install vcstool from pip:
 
    $ pip3 install vcstool
 
-With this done, you can follow the rest of the `instructions <Linux-Development-Setup#get-ros-20-code>` to fetch and build ROS2.
+With this done, you can follow the rest of the `instructions <linux-dev-get-ros2-code>` to fetch and build ROS2.

@@ -8,20 +8,20 @@ Table of Contents
 -----------------
 
 
-* `General Principles <#general-principles>`
-* `General Practices <#general-practices>`
-* `Language Versions and Code Format <#language-versions-and-code-format>`
+* `General Principles`_
+* `General Practices`_
+* `Language Versions and Code Format`_
 
-  * `C <#c>`
-  * `C++ <#c-1>`
-  * `Python <#python>`
-  * `CMake <#cmake>`
-  * `Markdown <#markdown>`
+  * `C`_
+  * `C++`_
+  * `Python`_
+  * `CMake`_
+  * `Markdown`_
 
-* `Testing <#testing>`
-* `Versioning <#versioning>`
-* `Filesystem layout <#filesystem-layout>`
-* `Documentation <#documentation>`
+* `Testing`_
+* `Versioning`_
+* `Filesystem Layout`_
+* `Documentation`_
 
 General Principles
 ------------------
@@ -66,7 +66,7 @@ Pull requests
     Plus, you're going to squash before merging anyway; there's no benefit to doing it early.
 
 * A minimum of 1 ``+1`` from a fellow developer is required to consider a pull request to be approved, which is required before merging.
-* Any developer is welcome to review and approve a pull request (see `General Principles <#general-principles>`\ ).
+* Any developer is welcome to review and approve a pull request (see `General Principles`_).
 * When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
 * Pull-request review is not read-only, with the reviewer making comments and then waiting for the author to address them.
   As a reviewer, feel free to make minor improvements (typos, style issues, etc.) in-place.
@@ -408,37 +408,34 @@ Most of these styles and restrictions can be checked with a combination of Googl
 We provide command line tools with custom configurations:
 
 
-* `\ ``ament_cpplint`` <https://github.com/ament/ament_lint/blob/master/ament_cpplint/doc/index.rst>`__
-* `\ ``ament_uncrustify`` <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/doc/index.rst>`__\ : `configuration <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
+* `ament_cpplint <https://github.com/ament/ament_lint/blob/master/ament_cpplint/doc/index.rst>`__
+* `ament_uncrustify <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
 
 We also run other tools to detect and eliminate as many warnings as possible.
 Here's a non-exhaustive list of additional things we try to do on all of our packages:
 
 
 * use compiler flags like ``-Wall -Wextra -Wpedantic``
-* run static code analysis like ``cppcheck``\ , which we have integrated in `\ ``ament_cppcheck`` <https://github.com/ament/ament_lint/blob/master/ament_cppcheck/doc/index.rst>`__
+* run static code analysis like ``cppcheck``, which we have integrated in `ament_cppcheck <https://github.com/ament/ament_lint/blob/master/ament_cppcheck/doc/index.rst>`__
 
 Python
 ^^^^^^
 
 We will target Python 3 for our development.
 
-We will use the PEP8 guidelines for code format:
-
-http://legacy.python.org/dev/peps/pep-0008/
+We will use the `PEP8 guidelines <http://legacy.python.org/dev/peps/pep-0008/>`_ for code format.
 
 We chose the following more precise rule where PEP 8 leaves some freedom:
 
 
-* We allow up to 100 character per line (fifth paragraph http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length)
-* We pick single quotes over double quotes as long as no escaping is necessary (http://legacy.python.org/dev/peps/pep-0008/#string-quotes)
+* `We allow up to 100 character per line (fifth paragraph) <http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length>`_
+* `We pick single quotes over double quotes as long as no escaping is necessary <http://legacy.python.org/dev/peps/pep-0008/#string-quotes>`_
 
 Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
 The pep8 configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pep8/ament_pep8/configuration/ament_pep8.ini>`__
 
 Integration with editors:
-
 
 * atom: https://atom.io/packages/linter-pep8
 * emacs: http://kwbeam.com/emacs-for-python-i.html
@@ -571,7 +568,7 @@ Package layout
 * ``<package_name>``\ : contains all Python code
 * ``test``\ : contains all automated tests and test data
 * ``doc``\ : contains all the documentation
-* `package.xml`: as defined by [REP-0140](http://www.ros.org/reps/rep-0140.html) (may be updated for prototyping)
+* ``package.xml``: as defined by `REP-0140 <http://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``\ : only ROS packages which use CMake
 * ``setup.py``\ : only ROS packages which use Python code only
 * ``README``\ : README which can be rendered on Github as a landing page for the project
@@ -581,7 +578,7 @@ Package layout
   * It can also be ``.rst`` or anything else that Github supports
 
 * ``LICENSE``\ : A copy of the license or licenses for this package
-* `CHANGELOG.rst`: [REP-0132](http://www.ros.org/reps/rep-0132.html) compliant changelog
+* ``CHANGELOG.rst``\ : `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
 
 Repository layout
 ~~~~~~~~~~~~~~~~~

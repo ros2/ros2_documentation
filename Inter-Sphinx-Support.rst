@@ -3,7 +3,7 @@ Using Sphinx for cross-referencing packages
 
 This is an example of how you can cross-reference packages documentation within rosindex using Sphinx.
 
-Inventory files must be added to ROSIndex Sphinx's `conf.py` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__. Note that the `URI` added to the configuration file must point to the directory where the `.inv` file is rather than to the file itself (i.e: `http://docs.ros.org/independent/api/catkin_pkg` instead of `http://docs.ros.org/independent/api/catkin_pkg/objects.inv`).
+Inventory files must be added to ROSIndex Sphinx's ``conf.py`` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__. Note that the ``URI`` added to the configuration file must point to the directory where the ``.inv`` file is rather than to the file itself (i.e: ``http://docs.ros.org/independent/api/catkin_pkg`` instead of ``http://docs.ros.org/independent/api/catkin_pkg/objects.inv``).
 
 
 Showing all links of an Intersphinx mapping file
@@ -25,9 +25,9 @@ Linking to other sites using Intersphinx
 
 (Partially borrowed from `here <https://my-favorite-documentation-test.readthedocs.io/en/latest/using_intersphinx.html>`__).
 
-* You may supply an explicit title and reference target: `\:role\:\`title \<target\>\`` will refer to target, but the link text will be title.
+* You may supply an explicit title and reference target: ``:role:\`title <target>\``` will refer to target, but the link text will be title.
 * If you prefix the content with !, no reference/hyperlink will be created.
-* If you prefix the content with ~, the link text will only be the last component of the target. For example, `\`\:py\:meth\:\`~Queue.Queue.get\`` will refer to `Queue.Queue.get` but only display get as the link text.
+* If you prefix the content with ~, the link text will only be the last component of the target. For example, ``:py:meth:\`~Queue.Queue.get\``` will refer to ``Queue.Queue.get`` but only display get as the link text.
 
 
 Examples of intersphinx in action

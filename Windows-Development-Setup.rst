@@ -7,7 +7,7 @@ This guide is about how to setup a development environment for ROS2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <Windows-Install-Binary#installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -123,7 +123,7 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 .. code-block:: bash
 
    > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
-   : You could set it permanently with `setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64` instead, but that requires Administrator.
+   : You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64`` instead, but that requires Administrator.
 
 Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
 
@@ -217,7 +217,7 @@ To build the ``\dev\ros2`` folder tree:
 Note, we're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
 
 Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
-See `this page <Windows-Development-Setup#extra-stuff-for-debug-mode>` for more info on running Python code in debug builds on Windows.
+See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Testing and Running
 ^^^^^^^^^^^^^^^^^^^

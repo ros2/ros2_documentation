@@ -73,13 +73,13 @@ New features
 The trailing stars indicate the rough effort: 1 star for small, 2 stars for medium, 3 stars for large.
 
 
-* Expose matched publisher / subscriber count (rather than only based on the topic name) [**]
+* Expose matched publisher / subscriber count (rather than only based on the topic name) [\*\*]
 
   * E.g. a best effort publisher and a reliable subscriber, the current API returns 1 subscriber for the topic, so the publisher might do computational intensive work even though no subscriber needs the messages
   * Querying this information requires a publisher / subscriber handle (against which the matched count is determined)
   * Requires knowledge of the rmw interface which needs to be extended
 
-* Logging improvements [* / **]
+* Logging improvements [\* / \*\*]
 
   * Configuration specified in a file
   * Log to file
@@ -88,22 +88,22 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * Most of the implementation should be done in ``rcl``
   * C++ stream operators
 
-* Additional Graph API features [\ ** / ***\ ]
+* Additional Graph API features [\*\* / \*\*\*]
 
   * a la ROS 1 Master API: http://wiki.ros.org/ROS/Master_API
   * Event-based notification
   * Requires knowledge of the rmw interface which needs to be extended
 
-* Remapping [\ ** / ***\ ]
+* Remapping [\*\* / \*\*\*]
 
   * Dynamic remapping and aliasing through a Service interface
 
-* Type masquerading [***]
+* Type masquerading [\*\*\*]
 
   * a la ROS 1's message traits: http://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
   * Requires knowledge of the typesupport system
 
-* Expand on real-time safety [***]
+* Expand on real-time safety [\*\*\*]
 
   * With FastRTPS
   * For services, clients, and parameters
@@ -111,27 +111,27 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * Expose more quality of service parameters related to real-time performance
   * Real-time-safe intra-process messaging
 
-* Multi-robot supporting features and demos [***]
+* Multi-robot supporting features and demos [\*\*\*]
 
   * Undesired that all nodes across all robots share the same domain (and discover each other)
   * Design how to “partition” the system
 
-* Implement C client library ``rclc`` [**]
+* Implement C client library ``rclc`` [\*\*]
 * Support more DDS / RTPS implementations:
 
-  * Connext dynamic [*]
-  * RTI's micro implementation [*]
-  * Eclipse Cyclone DDS (former ADLINK OpenSplice) [*]
+  * Connext dynamic [\*]
+  * RTI's micro implementation [\*]
+  * Eclipse Cyclone DDS (former ADLINK OpenSplice) [\*]
 
 * security improvements:
 
-  * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [*]
-  * extend access control permission generation to support services [*]
-  * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\ * *\ ]
-  * key storage security (right now, keys are just stored in the filesystem) [\ * *\ ]
-  * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\ * * *]
-  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running. [\ * * *]
-  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already. [\ * * *]
+  * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [\*]
+  * extend access control permission generation to support services [\*]
+  * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
+  * key storage security (right now, keys are just stored in the filesystem) [\*\*]
+  * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]
+  * A way to say "please secure this running system" with some UI that would auto-generate keys and policies for everything that is currently running. [\*\*\*]
+  * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already. [\*\*\*]
 
 Port of existing ROS 1 functionality
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,9 +155,9 @@ Port of existing ROS 1 functionality
 
 * Rqt
 
-  * ``python_qt_binding`` needs support for Python 3 (nothing ROS specific in this package) [*]
-  * ``rqt_gui`` / ``rqt_gui_cpp`` need to be migrated to use ROS 2 API [*]
-  * convert each plugin [* each when dependencies are available]
+  * ``python_qt_binding`` needs support for Python 3 (nothing ROS specific in this package) [\*]
+  * ``rqt_gui`` / ``rqt_gui_cpp`` need to be migrated to use ROS 2 API [\*]
+  * convert each plugin [\* each when dependencies are available]
   * User-friendly plugin registration
 
 * Diagnostics

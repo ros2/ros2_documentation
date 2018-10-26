@@ -7,7 +7,7 @@ The configuration of the system includes what programs to run, where to run them
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
 The ROS 2 Bouncy release includes a framework in which launch files, written in Python, can start and stop different nodes as well as trigger and act on various events.
-The package providing this framework is ``launch_ros``\ , which uses the non-ROS-specific ``launch`` framework underneath.
+The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
 
 The `design document (in review) <https://github.com/ros2/design/pull/163>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
 
@@ -25,7 +25,7 @@ Usage
 
 While launch files can be written as standalone scripts, the typical usage in ROS is to have launch files invoked by ROS 2 tools.
 
-For example, `this launch file <https://github.com/ros2/demos/blob/master/demo_nodes_cpp/launch/services/add_two_ints.launch.py>`__ has been designed such that it can be invoked by ``ros2 launch``\ :
+For example, `this launch file <https://github.com/ros2/demos/blob/master/demo_nodes_cpp/launch/services/add_two_ints.launch.py>`__ has been designed such that it can be invoked by ``ros2 launch``:
 
 .. code-block:: bash
 
@@ -34,7 +34,7 @@ For example, `this launch file <https://github.com/ros2/demos/blob/master/demo_n
 Documentation
 -------------
 
-`The ``launch`` documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
+`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
 
 Additional documentation/examples of capabilities are forthcoming.
 See `the source code <https://github.com/ros2/launch>`__ in the meantime.

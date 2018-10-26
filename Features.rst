@@ -14,19 +14,19 @@ For planned future development, see the `Roadmap <Roadmap>`.
      - Fine print
    * - Discovery, transport and serialization over DDS
      - `Article <http://design.ros2.org/articles/ros_on_dds.html>`__
-     - 
+     -
    * - Support for multiple DDS implementations, chosen at runtime
      - `Tutorial <DDS-and-ROS-middleware-implementations>`
      - Currently eProsima Fast RTPS, RTI Connext and PrismTech Opensplice are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
-     - `Tutorial <ROS 2 Client Libraries>`
-     - 
+     - `Tutorial <ROS-2-Client-Libraries>`
+     -
    * - Publish/subscribe over topics
      - `Sample code <https://github.com/ros2/examples>`__\ , `Article <http://design.ros2.org/articles/topic_and_service_names.html>`__
-     - 
+     -
    * - Clients and services
      - `Sample code <https://github.com/ros2/examples>`__
-     - 
+     -
    * - Set/retrieve parameters
      - `Sample code <https://github.com/ros2/demos/tree/0.5.1/demo_nodes_cpp/src/parameters>`__
      - Parameters not yet available in ``rcl``\ /Python.
@@ -34,8 +34,8 @@ For planned future development, see the `Roadmap <Roadmap>`.
      - `Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README>`__
      - Available for topics and services, not yet available for actions.
    * - Quality of service settings for handling non-ideal networks
-     - `Demo <Quality-Of-Service>`
-     - 
+     - `Demo <Quality-of-Service>`
+     -
    * - Inter- and intra-process communication using the same API
      - `Demo <Intra-Process-Communication>`
      - Currently only in C++.

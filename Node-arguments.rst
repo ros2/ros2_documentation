@@ -31,7 +31,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``\ , whi
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If multiple nodes are being run within a single process (e.g. using `Composition <Composition>`_\ ), remapping arguments can be passed to a specific node using its name as a prefix.
+If multiple nodes are being run within a single process (e.g. using `Composition <Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
 .. code-block:: bash
@@ -41,7 +41,7 @@ For example, the following will pass the remapping arguments to the specified no
 Logger configuration
 --------------------
 
-See `the logging page <Logging#command-line-configuration-of-the-default-severity-level>`.
+See `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
 
 Parameters
 ----------

@@ -112,6 +112,8 @@ This allows the installed files to be changed by changing the files in the ``sou
 
    colcon build --symlink-install
 
+.. _colcon-run-the-tests:
+   
 Run the tests
 -------------
 
@@ -207,9 +209,9 @@ colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
 Also supported are pure ``cmake`` packages.
 
-An example of an ``ament_python`` build is the `\ ``ament_index_python`` package <https://github.com/ament/ament_index/tree/master/ament_index_python>`__\ , where the setup.py is the primary entry point for building.
+An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/master/ament_index_python>`__ , where the setup.py is the primary entry point for building.
 
-A package such as `\ ``demo_nodes_cpp`` <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
+A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 Tips
 ----

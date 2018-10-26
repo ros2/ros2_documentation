@@ -16,13 +16,13 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-See the `development instructions <Linux-Development-Setup#add-the-ros-2-apt-repository>`.
+See the `development instructions <linux-dev-add-ros2-repo>`.
 
 Downloading ROS 2
 -----------------
 
 
-* Go the releases page: https://github.com/ros2/ros2/releases
+* Go `the releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-bouncy-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.

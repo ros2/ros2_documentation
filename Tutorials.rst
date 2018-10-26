@@ -23,8 +23,8 @@ ROS 2 Tutorials
 * `Launching/monitoring multiple nodes with Launch <Launch-system>`
 * `Working with multiple RMW implementations <Working-with-multiple-RMW-implementations>`
 * `Composing multiple nodes in a single process <Composition>`
-* `Defining custom interfaces (msg/srv) <Defining-custom-interfaces-(msg/srv>`)
-* `New features in ROS 2 interfaces (msg srv) <New-features-in-ROS-2-interfaces-(msg-srv>`)
+* `Defining custom interfaces (msg/srv) <Defining-custom-interfaces-(msg-srv)>`)
+* `New features in ROS 2 interfaces (msg srv) <New-features-in-ROS-2-interfaces-(msg-srv)>`)
 * `Eclipse Oxygen with ROS 2 and rviz2 <Eclipse-Oxygen-with-ROS-2-and-rviz2>` [community-contributed]
 * `Building ROS 2 on Linux with Eclipse Oxygen <Building-ROS-2-on-Linux-with-Eclipse-Oxygen>` [community-contributed]
 * `Building Realtime rt_preempt kernel for ROS 2 <Building-Realtime-rt_preempt-kernel-for-ROS-2>` [community-contributed]
@@ -40,7 +40,7 @@ Docker
 
 
 * `Run 2 nodes in a single docker container <Run-2-nodes-in-a-single-docker-container>` [community-contributed]
-* `Run 2 nodes in two separate docker containers <Run-2-nodes-in-two-separate-docker-containers.asciidoc>` [community-contributed]
+* `Run 2 nodes in two separate docker containers <Run-2-nodes-in-two-separate-docker-containers>` [community-contributed]
 
 ROS 2 Demos
 -----------

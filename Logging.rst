@@ -5,7 +5,7 @@ Logging and logger configuration
 The logging functionality currently supported is:
 
 
-* Client libraries (\ ``rclcpp`` and ``rclpy``\ ) using a common logging library to provide:
+* Client libraries (``rclcpp`` and ``rclpy``) using a common logging library to provide:
 
   * Log calls with a variety of filters.
   * Hierarchy of loggers.
@@ -13,7 +13,7 @@ The logging functionality currently supported is:
 
 * Console output.
 
-  * File output and functionality akin to `\ ``rosout`` <http://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
+  * File output and functionality akin to `rosout <http://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
 
 * Programmatic configuration of logger levels.
 
@@ -22,11 +22,11 @@ The logging functionality currently supported is:
 Logger concepts
 ---------------
 
-Log messages have a severity level associated with them: ``DEBUG``\ , ``INFO``\ , ``WARN``\ , ``ERROR`` or ``FATAL``\ , in ascending order.
+Log messages have a severity level associated with them: ``DEBUG``, ``INFO``, ``WARN``, ``ERROR`` or ``FATAL``, in ascending order.
 
 A logger will only process log messages with severity at or higher than a specified level chosen for the logger.
 
-Each node (in ``rclcpp`` and ``rclpy``\ ) has a logger associated with it that automatically includes the node's name and namespace.
+Each node (in ``rclcpp`` and ``rclpy``) has a logger associated with it that automatically includes the node's name and namespace.
 If the node's name is externally remapped to something other than what is defined in the source code, it will be reflected in the logger name.
 Non-node loggers can also be created that use a specific name.
 
@@ -41,16 +41,18 @@ In C++:
 
 
 * See the `logging demo <Logging-and-logger-configuration>` for example usage.
-* See the `\ ``rclcpp`` documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
+* See the `rclcpp documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
 
 In Python:
 
 
-* See the `\ ``rclpy`` examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/client.py>`__ for example usage of a node's logger.
-* See the `\ ``rclpy`` tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``\ , ``once``\ ).
+* See the `rclpy examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/client.py>`__ for example usage of a node's logger.
+* See the `rclpy tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
 
 Logger configuration
 --------------------
+
+.. _logging-command-line-configuration-of-the-default-severity-level:
 
 Command line configuration of the default severity level
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -85,10 +87,12 @@ In Python:
 
 The `logging demo <Logging-and-logger-configuration>` provides an example of manually exposing a service so that loggers can be configured externally; in the future we expect runtime configuration capabilities of loggers to be exposed automatically.
 
+.. _logging-console-output-configuration:
+
 Console output configuration
 ----------------------------
 
 By default, console output will be formatted to include the message severity, logger name, and the message.
 Information such as the file name, function name and line number of the log call are also available.
-Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `\ ``rcutils`` documentation for details <http://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
+Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `rcutils documentation for details <http://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
 As ``rclpy`` and ``rclcpp`` both use ``rcutils`` for logging, this will effect all Python and C++ nodes.

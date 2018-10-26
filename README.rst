@@ -13,14 +13,14 @@ Overview
    Features
    Tutorials
    Installation
-   Migration-guide
+   Migration-Guide
    About
 
 The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications.
 From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS has what you need for your next robotics project.
 And it's all open source.
 
-Here you will find documentation on how to install and use software from **ROS 2**\ , which is a new version of ROS that is under heavy development.
+Here you will find documentation on how to install and use software from **ROS 2**, which is a new version of ROS that is under heavy development.
 See below for more information on ROS 2.
 
 If you're looking for information on ROS 1 (i.e., ROS as it has existed for several years and what you might be using right now), check the `ROS website <http://www.ros.org>`__ or the `documentation wiki <http://wiki.ros.org>`__.
@@ -43,7 +43,7 @@ Tutorials and Features
 ROS 2 is under heavy development.
 You can check out the `tutorials page <Tutorials>` to see a range of examples of what the system can do in its current state, if it fits your project *today* depending on the exact requirement.
 For details of the current features, see `Features <Features>`.
-If migrating code from ROS to ROS 2, check `the migration guide <Migration-guide>`.
+If migrating code from ROS to ROS 2, check `the migration guide <Migration-Guide>`.
 
 What's ahead
 ------------

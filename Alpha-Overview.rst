@@ -7,17 +7,17 @@ This is a merged version of the previously separated pages for the 8 alpha relea
 ROS 2 alpha8 release (code name *Hook-and-Loop*\ ; October 2016)
 ------------------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 supports multiple middleware implementations (see `this page <DDS-and-ROS-middleware-implementations>` for more details).
 Until Alpha 8, ROS 2 was supporting ROS middleware implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's OpenSplice.
-To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (\ `now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__\ ) shipped as the default.
+To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (`now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__) shipped as the default.
 
 Scope
-^^^^^
+~~~~~
 
 As the "alpha" qualifier suggests, this release of ROS 2 is far from complete.
 You should not expect to switch from ROS 1 to ROS 2, nor should you expect to build a new robot control system with ROS 2.
@@ -41,7 +41,7 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha7 release (code name *Glue Gun*\ ; July 2016)
 ----------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 New version of Ubuntu required
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha6 release (code name *Fastener*\ ; June 2016)
 ----------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Scope
 ^^^^^
@@ -107,7 +107,7 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha5 release (code name *Epoxy*\ ; April 2016)
 --------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Scope
 ^^^^^
@@ -133,18 +133,19 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha4 release (code name *Duct tape*\ ; February 2016)
 ---------------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Table of Contents
 ^^^^^^^^^^^^^^^^^
 
+* `Background <alpha4-release-background>`
+* `Status <alpha4-release-status>`
+* `Intended audience <alpha4-release-intended-audience>`
+* `Scope <alpha4-release-scope>`
 
-* `Background <#background>`
-* `Status <#status>`
-* `Intended audience <#intended-audience>`
-* `Scope <#scope>`
-* `Contact us <#contact-us>`
 
+.. _alpha4-release-background:
+  
 Background
 ^^^^^^^^^^
 
@@ -159,77 +160,7 @@ For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <http://design.ros2.org>`__.
 
-Status
-^^^^^^
-
-On February 17, 2016, we are releasing ROS 2 alpha4,
-code-named **Duct tape**.
-Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous releases.
-To that end, we built a set of `demos <Tutorials>` that
-show some of the key features of ROS 2.
-We encourage you to try out those
-demos, look at the code that implements them, and `provide
-feedback <#contact-us>`.
-We're especially interested to know how well (or
-poorly) we're addressing use cases that are important to you.
-
-Intended audience
-^^^^^^^^^^^^^^^^^
-
-While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
-At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
-
-Scope
-^^^^^
-
-As the "alpha" qualifier suggests, this release of ROS 2 is far from
-complete.
-You should not expect to switch from ROS 1 to ROS 2, nor should
-you expect to build a new robot control system with ROS 2.
-Rather, you
-should expect to try out some demos, explore the code, and perhaps write
-your own demos.
-
-The major features included in this release are:
-
-
-* Improved type support infrastructure, including support for C
-* Preliminary Python client library, only publishers and subscriptions are supported. Beware, the API is subject to change and is far from complete!
-* Added structures for ROS time in C API (still needs C++ API)
-
-  * New concept of extensible "time sources" for ROS Time, the default time source will be like ROS 1 (implementation pending)
-
-Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <Roadmap>`.
-
-ROS 2 alpha4 release (code name *Duct tape*\ ; February 2016)
----------------------------------------------------------------
-
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
-
-Table of Contents
-^^^^^^^^^^^^^^^^^
-
-
-* `Background <#background>`
-* `Status <#status>`
-* `Intended audience <#intended-audience>`
-* `Scope <#scope>`
-* `Contact us <#contact-us>`
-
-Background
-^^^^^^^^^^
-
-As explained in a `design
-article <http://design.ros2.org/articles/why_ros2.html>`__\ , we are engaged in
-the development of a new major version of ROS, called "ROS 2." While the
-underlying concepts (e.g., publish / subscribe messaging) and goals (e.g.,
-flexibility and reusability) are the same as for ROS 1, we are taking this
-opportunity to make substantial changes to the system, including changing
-some of the core APIs.
-For a deeper treatment of those changes and their
-rationale, consult the other `ROS 2 design
-articles <http://design.ros2.org>`__.
+.. _alpha4-release-status:
 
 Status
 ^^^^^^
@@ -241,15 +172,19 @@ To that end, we built a set of `demos <Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <#contact-us>`.
+feedback <Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
+
+.. _alpha4-release-intended-audience:
 
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
+
+.. _alpha4-release-scope:
 
 Scope
 ^^^^^
@@ -277,18 +212,18 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha3 release (code name *Cement*\ ; December 2015)
 ------------------------------------------------------------
 
-Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the latest release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Table of Contents
 ^^^^^^^^^^^^^^^^^
 
+* `Background <alpha3-release-background>`
+* `Status <alpha3-release-status>`
+* `Intended audience <alpha3-release-intended-audience>`
+* `Scope <alpha3-release-scope>`
 
-* `Background <#background>`
-* `Status <#status>`
-* `Intended audience <#intended-audience>`
-* `Scope <#scope>`
-* `Contact us <#contact-us>`
-
+.. _alpha3-release-background:
+     
 Background
 ^^^^^^^^^^
 
@@ -303,6 +238,8 @@ For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <http://design.ros2.org>`__.
 
+.. _alpha3-release-status:
+
 Status
 ^^^^^^
 
@@ -313,15 +250,19 @@ To that end, we built a set of `demos <Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <#contact-us>`.
+feedback <Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
+
+.. _alpha3-release-intended-audience:
 
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
+
+.. _alpha3-release-scope:
 
 Scope
 ^^^^^
@@ -341,7 +282,7 @@ The major features included in this release are:
 
   * This interface will be wrapped in order to create language bindings, e.g. ``rclpy``.
   * This interface has improved documentation and test coverage over existing interfaces we currently have, e.g. ``rmw`` and ``rclcpp``.
-  * See: https://github.com/ros2/rcl/tree/release-alpha3/rcl/include/rcl
+  * See `rcl headers <https://github.com/ros2/rcl/tree/release-alpha3/rcl/include/rcl>`_.
 
 * Added support in rclcpp for using the TLSF (two-level segregate fit) allocator, a memory allocator design for embedded and real-time systems.
 * Improved efficiency of MultiThreadedExecutor and fixed numerous bugs with multi-threaded execution, which is now test on CI.
@@ -358,23 +299,24 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha2 release (code name *Baling wire*\ ; October 2015)
 ----------------------------------------------------------------
 
-Welcome to the second release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the second release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Table of Contents
 ^^^^^^^^^^^^^^^^^
 
 
-* `Background <#background>`
-* `Status <#status>`
-* `Intended audience <#intended-audience>`
-* `Scope <#scope>`
-* `Contact us <#contact-us>`
+* `Background <alpha2-release-background>`
+* `Status <alpha2-release-status>`
+* `Intended audience <alpha2-release-intended-audience>`
+* `Scope <alpha2-release-scope>`
+
+.. _alpha2-release-background:
 
 Background
 ^^^^^^^^^^
 
 As explained in a `design
-article <http://design.ros2.org/articles/why_ros2.html>`__\ , we are engaged in
+article <http://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
 the development of a new major version of ROS, called "ROS 2." While the
 underlying concepts (e.g., publish / subscribe messaging) and goals (e.g.,
 flexibility and reusability) are the same as for ROS 1, we are taking this
@@ -383,6 +325,8 @@ some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <http://design.ros2.org>`__.
+
+.. _alpha2-release-status:
 
 Status
 ^^^^^^
@@ -394,15 +338,19 @@ To that end, we built a set of `demos <Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <#contact-us>`.
+feedback <Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
+
+.. _alpha2-release-intended-audience:
 
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
+
+.. _alpha2-release-scope:
 
 Scope
 ^^^^^
@@ -429,23 +377,24 @@ The next steps are described in the `Roadmap <Roadmap>`.
 ROS 2 alpha1 release (code name *Anchor*\ ; August 2015)
 ----------------------------------------------------------
 
-Welcome to the first release of ROS 2 software!  We hope that you try it out and `provide feedback <#contact-us>`.
+Welcome to the first release of ROS 2 software!  We hope that you try it out and `provide feedback <Contact>`.
 
 Table of Contents
 ^^^^^^^^^^^^^^^^^
 
 
-* `Background <#background>`
-* `Status <#status>`
-* `Intended audience <#intended-audience>`
-* `Scope <#scope>`
-* `Contact us <#contact-us>`
+* `Background <alpha1-release-background>`
+* `Status <alpha1-release-status>`
+* `Intended audience <alpha1-release-intended-audience>`
+* `Scope <alpha1-release-scope>`
+
+.. _alpha1-release-background:
 
 Background
 ^^^^^^^^^^
 
 As explained in a `design
-article <http://design.ros2.org/articles/why_ros2.html>`__\ , we are engaged in
+article <http://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
 the development of a new major version of ROS, called "ROS 2." While the
 underlying concepts (e.g., publish / subscribe messaging) and goals (e.g.,
 flexibility and reusability) are the same as for ROS 1, we are taking this
@@ -454,6 +403,8 @@ some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
 articles <http://design.ros2.org>`__.
+
+.. _alpha1-release-status:
 
 Status
 ^^^^^^
@@ -467,15 +418,19 @@ To that end, we built a set of `demos <Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <#contact-us>`.
+feedback <Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
+
+.. _alpha1-release-intended-audience:
 
 Intended audience
 ^^^^^^^^^^^^^^^^^
 
 While everyone is welcome to try out the demos and look through the code, we're aiming this release at people who are already experienced with ROS 1 development.
 At this point, the ROS 2 documentation is pretty sparse and much of the system is explained by way of how it compares to ROS 1.
+
+.. _alpha1-release-scope:
 
 Scope
 ^^^^^
@@ -495,7 +450,7 @@ The major features included in this release are:
 * Support `multiple DDS vendors <http://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
 * Support messaging primitives: topics (publish / subscribe), services (request / response), and parameters
 * Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)
-* `Use quality-of-service settings to handle lossy networks <Quality-Of-Service>`
+* `Use quality-of-service settings to handle lossy networks <Quality-of-Service>`
 * `Communicate inter-process or intra-process with the same API <Intra-Process-Communication>`
 * `Write real-time safe code that uses the ROS 2 APIs <Real-Time-Programming>`
 * `Run ROS 2 on "bare-metal" microcontrollers (no operating system) <https://github.com/ros2/freertps/wiki>`__

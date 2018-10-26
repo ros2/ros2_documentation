@@ -23,7 +23,7 @@ From source
 
 OpenCV is a prerequisite for the QoS demo.
 See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for installation instructions.
-Follow the instructions on the `installation page <Installation#building-from-source>` for your particular platform.
+Follow the instructions on the `installation page <building-from-source>` for your particular platform.
 
 Run the demo
 ------------

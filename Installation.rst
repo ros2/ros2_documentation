@@ -16,6 +16,9 @@ We provide ROS 2 binary packages for the following platforms:
 * `OS X <OSX-Install-Binary>`
 * `Windows <Windows-Install-Binary>`
 
+
+.. _building-from-source:
+
 Building from source
 --------------------
 

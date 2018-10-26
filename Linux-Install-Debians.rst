@@ -14,6 +14,8 @@ Resources:
   * ROS 2 Bouncy (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_bouncy_ubv8.html>`__
   * ROS 2 Ardent (Ubuntu Xenial): `amd64 <http://repo.ros2.org/status_page/ros_ardent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_ardent_uxv8.html>`__
 
+.. _linux-install-debians-setup-sources:
+
 Setup Sources
 -------------
 
