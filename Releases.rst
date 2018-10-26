@@ -30,7 +30,7 @@ Core packages
 ~~~~~~~~~~~~~
 
 New ROS 2 distributions are currently released every 6 months.
-During the release process, Open Robotics packages what is in the ```ros2.repos``
+During the release process, Open Robotics packages what is in the `ros2.repos
 file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__ into installables for the supported platforms.
 These installables take the form of "fat archives" on MacOS, Windows and Linux, and additionally debian packages are created for Linux.
 Check the release page for a distribution for details of the supported platform versions.
@@ -47,7 +47,8 @@ Internal notes on how a release is made: `Release-Howto <Release-Howto>`
 External packages
 ~~~~~~~~~~~~~~~~~
 
-Packages outside of the ```ros2.repos``
+Packages outside of the `ros2.repos
 file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__ may be released by community members into a ROS 2 distribution.
-This is currently supported for Linux debian packages, following [[these instructions|Releasing-a-ROS-2-package-with-bloom]].
+This is currently supported for Linux debian packages, following `these instructions <Releasing-a-ROS-2-package-with-bloom>`.
 These packages can be released at any time during the lifecycle of a ROS 2 distribution.
+

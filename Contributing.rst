@@ -19,7 +19,7 @@ Support
 One of the easiest ways that you can contribute to ROS 2 is by helping other community members troubleshoot their system.
 ROS 2 users come from a range of technical backgrounds, use a variety of different operating systems/platforms, and don’t necessarily have any prior experience with ROS (1 or 2).
 
-If you see an issue on the [ROS Answers](http://answers.ros.org/questions/tags:ros2/) that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
+If you see an issue on `ROS Answers <http://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
 +Don’t worry if you are not sure if your response is correct - simply say so, and other community members will jump in if necessary.
 
 Contributing code

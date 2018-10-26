@@ -53,10 +53,10 @@ When filing an issue please make sure to:
     - **The DDS/RMW implementation being used;** see [[this page|Working-with-multiple-RMW-implementations]] for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
     - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
 - Include a list of steps to reproduce the issue.
-- In case of a bug consider to provide a [short, self contained, correct (compilable), example](http://sscce.org/). Issues are much more likely to be resolved if others can reproduce them easily.
+- In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__. Issues are much more likely to be resolved if others can reproduce them easily.
 - Mention troubleshooting steps that have been tried already, including:
-    - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. Select "building from source" on [[this page|Installation#building-from-source]] and follow the instructions to get the "master" branches.
-    - Trying with a different RMW implementation. See [[this page|Working-with-multiple-RMW-implementations]] for how to do that.
+    - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. Select "building from source" on `this page <Installation#building-from-source>` and follow the instructions to get the "master" branches.
+    - Trying with a different RMW implementation. See `this page <Working-with-multiple-RMW-implementations>` for how to do that.
 
 Pull requests
 ^^^^^^^^^^^^^
@@ -218,19 +218,19 @@ Variable Naming
 Function and Method Naming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Name style: Google style guide says `CamelCase`, but the C++ std library's style of `snake_case` is also allowed
-  - rationale: ROS 2 core packages currently use `snake_case`
-    - reason: either an historical oversight or a personal preference that didn't get checked by the linter
-    - reason for not changing: retroactively changing would be too disruptive
-  - other considerations:
-    - `cpplint.py` does not check this case (hard to enforce other than with review)
-    - `snake_case` can result in more consistency across languages
-  - specific guidance:
-    - for existing projects, prefer the existing style
-    - for new projects, either is acceptable, but a preference for matching related existing projects is advised
-    - final decision is always developer discretion
-      - special cases like function pointers, callable types, etc. may require bending the rules
-    - Note that classes should still use `CamelCase` by default
+* Name style: Google style guide says `CamelCase`, but the C++ std library's style of `snake_case` is also allowed
+  * rationale: ROS 2 core packages currently use `snake_case`
+    * reason: either an historical oversight or a personal preference that didn't get checked by the linter
+    * reason for not changing: retroactively changing would be too disruptive
+  * other considerations:
+    * `cpplint.py` does not check this case (hard to enforce other than with review)
+    * `snake_case` can result in more consistency across languages
+  * specific guidance:
+    * for existing projects, prefer the existing style
+    * for new projects, either is acceptable, but a preference for matching related existing projects is advised
+    * final decision is always developer discretion
+      * special cases like function pointers, callable types, etc. may require bending the rules
+    * Note that classes should still use `CamelCase` by default
 
 Access Control
 ~~~~~~~~~~~~~~
