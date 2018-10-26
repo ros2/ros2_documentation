@@ -5,9 +5,9 @@ catment: On the mixing of ament and catkin
 **All that follows is experimental and speculative.**
 
 
-* `Background <#background>`
-* `Postulates <#postulates>`
-* `Use cases, with experimental implementations <#use-cases-with-experimental-implementations>`
+* `Background`_
+* `Postulates`_
+* `Use cases, with experimental implementations`_
 
 Background
 ----------

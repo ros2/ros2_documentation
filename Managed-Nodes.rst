@@ -77,22 +77,16 @@ In order to run this demo, we open three terminals and source our ROS2 environme
    * - ``$ ros2 run lifecycle lifecycle_talker``
      - ``$ ros2 run lifecycle lifecycle_listener``
      - ``$ ros2 run lifecycle lifecycle_service_client``
-   * - 
-     .. image:: https://asciinema.org/a/e0f11qvpberltp8r1w04wzw9t.png
-        :target: https://asciinema.org/a/e0f11qvpberltp8r1w04wzw9t
-        :alt: asciicast
+   * - .. image:: https://asciinema.org/a/e0f11qvpberltp8r1w04wzw9t.png
+          :target: https://asciinema.org/a/e0f11qvpberltp8r1w04wzw9t
+          :alt: asciicast
+     - .. image:: https://asciinema.org/a/442pjcu729t3vsld7n225orl7.png
+          :target: https://asciinema.org/a/442pjcu729t3vsld7n225orl7
+          :alt: asciicast
+     - .. image:: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5.png
+          :target: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5
+          :alt: asciicast
      
-     - 
-     .. image:: https://asciinema.org/a/442pjcu729t3vsld7n225orl7.png
-        :target: https://asciinema.org/a/442pjcu729t3vsld7n225orl7
-        :alt: asciicast
-     
-     - 
-     .. image:: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5.png
-        :target: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5
-        :alt: asciicast
-     
-
 
 Alternatively, these three programs can be run together in the same terminal using the launch file (as of ROS 2 Bouncy):
 
@@ -105,7 +99,7 @@ The same behavior can be seen for the ``lifecycle_listener``\ , which is less su
 The interesting part starts with the third terminal. In there we launch our ``lifecycle_service_client`` which is responsible for changing the states of the ``lifecycle_talker``. 
 
 Triggering transition 1 (configure)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -128,7 +122,7 @@ The lifecycle listener on the same time receives a notification as it listens to
    [lc_listener] notify callback: Transition from state configuring to inactive
 
 Triggering transition 2 (activate)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -167,7 +161,7 @@ The demo code
 -------------
 
 lifecycle_talker, lifecycle_listener and lifecycle_service_client
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If we have a look at the code, there is one significant change for the lifecycle talker compared to a regular talker. Our node does not inherit from the regular ``rclcpp::node::Node`` but from ``rclcpp_lifecycle::LifecycleNode``.
 

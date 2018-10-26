@@ -41,6 +41,8 @@ Additionally it can create publishers, subscribers, servers, and clients.
 An important aspect of making such a class a component is that the class registers itself using the package ``class_loader`` (see last line in the source code).
 This makes the component discoverable when its library is being loaded into a running process - it acts as kind of an entry point.
 
+.. _composition-using-components:
+
 Using components
 ----------------
 

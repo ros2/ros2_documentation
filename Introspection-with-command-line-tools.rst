@@ -7,7 +7,7 @@ ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system.
 Usage
 -----
 
-The main entry point for the tools is the command ``ros2``\ , which itself has various sub-commands for introspecting and working with nodes, topics, services, and more.
+The main entry point for the tools is the command ``ros2``, which itself has various sub-commands for introspecting and working with nodes, topics, services, and more.
 
 To see all available sub-commands run:
 
@@ -71,4 +71,4 @@ Implementation
 The source code for the ``ros2`` command is available at https://github.com/ros2/ros2cli
 
 The ``ros2`` tool has been implemented as a framework that can be extended via plugins.
-For example, `the ``sros2`` package <https://github.com/ros2/sros2>`__ provides a ``security`` sub-command that is automatically detected by the ``ros2`` tool if the ``sros2`` package is installed.
+For example, the `sros2 <https://github.com/ros2/sros2>`__ package provides a ``security`` sub-command that is automatically detected by the ``ros2`` tool if the ``sros2`` package is installed.

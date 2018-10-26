@@ -222,15 +222,12 @@ If the node failed to build: look at the console output of the failing build;
 If you need to access a machine:
 
 
-* See this spreadsheet (private) for credentials for all the different Jenkins Nodes:
-
-  * https://docs.google.com/a/osrfoundation.org/spreadsheets/d/1OSwqbE3qPF8v3HSMr8JOaJ6r4QOiQFk6pwgaudXVE-4/edit?usp=sharing
-
+* See `this spreadsheet (private) for credentials <https://docs.google.com/a/osrfoundation.org/spreadsheets/d/1OSwqbE3qPF8v3HSMr8JOaJ6r4QOiQFk6pwgaudXVE-4/edit?usp=sharing>`_ for all the different Jenkins Nodes:
 * For machines hosted at OSRF, you'll need to be on the OSRF network or have a VPN connection.
-* For machines which require `<ssh keys>` ask on ros@osrfoundation.org for your public keys to be added.
+* For machines which require ssh keys ask on ros@osrfoundation.org for your public keys to be added.
 * The Packet.net nodes (with "packet" in the name):
 
-  * Can be managed by logging in at https://packet.net with <brian’s email address>/\ `<the usual company password>`
+  * Can be managed by logging in at https://packet.net with ``<brian’s email address>/<the usual company password>``
 
     * This will change after we set up a team account to manage servers.
 
@@ -253,7 +250,7 @@ Other tips:
 
 ----
 
-The environment variables on Windows machines are output at the beginning of Jenkins jobs (search for ``==> set``\ ).
+The environment variables on Windows machines are output at the beginning of Jenkins jobs (search for ``==> set``).
 If you are modifying environment variables on Windows nodes, you may need to restart the machine before the changes are reflected in the jobs.
 This is due to the Jenkins slave session caching the environment variables to some degree.
 
@@ -287,8 +284,8 @@ Resources
 * `How to setup Linux Jenkins nodes <Set-up-a-new-Linux-CI-node>`.
 * `How to setup a macOS Jenkins node <Set-up-a-new-macOS-CI-node>`.
 
-  * (old instructions) https://docs.google.com/a/osrfoundation.org/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit?usp=sharing
+  * `Old instructions for macOS Jenkins node setup <https://docs.google.com/a/osrfoundation.org/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit?usp=sharing>`_
 
 * `How to setup a Windows Jenkins node <Set-up-a-new-Windows-CI-node>`.
 
-  * (old instructions) https://docs.google.com/a/osrfoundation.org/document/d/1SmmWa7MVnwjmMw9XJF33-fsa0dtkYj2AeEXBa8BCsYs/edit?usp=sharing
+  * `Old instructions Windows Jenkins node setup <https://docs.google.com/a/osrfoundation.org/document/d/1SmmWa7MVnwjmMw9XJF33-fsa0dtkYj2AeEXBa8BCsYs/edit?usp=sharing>`_

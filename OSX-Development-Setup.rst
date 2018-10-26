@@ -200,6 +200,8 @@ You may need to increase shared memory resources following https://community.rti
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
 
+.. _osx-development-setup-troubleshooting:
+
 Troubleshooting
 ---------------
 

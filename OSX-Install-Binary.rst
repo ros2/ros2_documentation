@@ -9,6 +9,8 @@ System requirements
 
 We support OS X El Capitan and Sierra (10.11.x and 10.12.x).
 
+.. _osx-install-binary-installling-prerequisites:
+
 Installing prerequisites
 ------------------------
 
@@ -166,4 +168,4 @@ Hooray!
 
 If you have installed support for an optional vendor, see `this page <Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
-If you run into issues, see `the troubleshooting section <OSX-Development-Setup#troubleshooting>` on the source installation page.
+If you run into issues, see `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.

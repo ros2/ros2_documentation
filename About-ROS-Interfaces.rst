@@ -41,9 +41,9 @@ Field types can be:
 
 
 * a built-in-type
-* names of Message description defined on their own, such as "geometry_msgs/PoseStamped"
+* names of Message descriptions defined on their own, such as "geometry_msgs/PoseStamped"
 
-*built-in-types currently supported:*
+*Built-in-types currently supported:*
 
 .. list-table::
    :header-rows: 1
@@ -137,7 +137,7 @@ Field types can be:
      - string
 
 
-*All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software
+All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software
 
 *Example of message definition using arrays and bounded types:*
 

@@ -28,7 +28,7 @@ Contributing code
 Setting up your development environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get started, you'll want to install from source; follow `the source installation instructions <Installation#building-from-source>` for your platform.
+To get started, you'll want to install from source; follow `the source installation instructions <building-from-source>` for your platform.
 
 What to work on
 ^^^^^^^^^^^^^^^
@@ -47,4 +47,4 @@ Code contributions should be made via pull requests to `the appropriate ros2 rep
 
 We ask all contributors to follow the practices explained in `the developer guide <Developer-Guide>`.
 
-Please be sure to `run tests <Colcon-Tutorial#run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
+Please be sure to `run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.

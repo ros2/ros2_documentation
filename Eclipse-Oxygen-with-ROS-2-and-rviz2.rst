@@ -4,9 +4,9 @@ Table of Content
 """"""""""""""""
 
 
-#. `Setup <#Setup>`
-#. `Eclipse Indexer <#Eclipse_indexer>`
-#. `Debugging with eclipse <#Debugging_with_eclipse>`
+#. `Setup`_
+#. `Eclipse-indexer`_
+#. `Debugging with eclipse`_
 
 Setup
 -----

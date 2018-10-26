@@ -20,7 +20,7 @@ See above version requirements.
 
 
 * 
-  Make sure you have the ros repositories in your sources (see `Instructions <Linux-Install-Debians#setup-sources>`\ )
+  Make sure you have the ros repositories in your sources (see `Instructions <linux-install-debians-setup-sources>`\ )
 
 * 
   Install the latest version of bloom and catkin_pkg:

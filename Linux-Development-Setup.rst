@@ -20,10 +20,12 @@ To set the locale an example is below. It should be fine if you're using a diffe
 System setup
 ------------
 
+.. _linux-dev-add-ros2-repo:
+
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to the Setup Sources section of `this guide <Linux-Install-Debians#setup-sources>`
+First make sure you have the ROS 2 apt repositories added to your system, if not refer to the Setup Sources section of `this guide <linux-install-debians-setup-sources>`
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,6 +66,8 @@ Install development tools and ROS tools
      libasio-dev \
      libtinyxml2-dev
 
+.. _linux-dev-get-ros2-code:
+     
 Get ROS 2.0 code
 ^^^^^^^^^^^^^^^^
 
@@ -203,7 +207,7 @@ More info on working with a ROS workspace can be found in `this tutorial <Colcon
    cd ~/ros2_ws/
    colcon build --symlink-install
 
-Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `\ ``CATKIN_IGNORE`` <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
+Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 

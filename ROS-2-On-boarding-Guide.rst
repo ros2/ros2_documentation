@@ -25,7 +25,7 @@ To request access send an email to ros@osrfoundation.org.
 How to give access?
 ^^^^^^^^^^^^^^^^^^^
 
-Your GitHub username must be added with the same permissions as existing users to Jenkins (http://ci.ros2.org/configureSecurity/).
+Your GitHub username must be added with the same permissions as existing users to Jenkins (http://ci.ros2.org/configureSecurity/\ ).
 This can be done by any existing user.
 
 How to access the machines running the ci.ros2.org?
@@ -76,7 +76,7 @@ We try to spread our responsibilities out across the team and so we ask everyone
 
 * Which repositories should I watch?
 
-  * All the repositories listed in the `\ ``ros2.repos`` file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__\ , included the commented out ones,
+  * All the repositories listed in the `ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__, included the commented out ones,
   * Also all of these extra repositories from the ROS 2 organization:
 
     * https://github.com/ros2/ci

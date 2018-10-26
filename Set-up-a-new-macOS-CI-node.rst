@@ -1,7 +1,7 @@
 
-Note: Last installed/updated on 2017-11-20 (Mac OS 10.13.1 High Sierra) and see this older (private) document for previous instructions:
+Note: Last installed/updated on 2017-11-20 (Mac OS 10.13.1 High Sierra) and see `this older (private) document for previous instructions <https://docs.google.com/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit>`_.
 
-https://docs.google.com/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit
+
 
 ----
 

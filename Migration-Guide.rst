@@ -8,13 +8,12 @@ Future versions will aim to make migration smoother and less effort up to the po
 
 Migration Steps:
 
-
-* `Package Manifests <#Package-manifests>`
-* `Message and service definitions <#Message-and-service-definitions>`
-* `Source Code <#Update-source-code>`
-* `Build System <#Build-system>`
-* `Launch Files <#Launch-files>_
-* `Licensing <#licensing>`
+* `Package manifests`_
+* `Message and service definitions`_
+* `Update source code`_
+* `Build system`_
+* `Launch files`_
+* `Licensing`_
 
 Prerequisite
 ------------
@@ -40,7 +39,7 @@ Message files must end in ``.msg`` and must be located in the subfolder ``msg``.
 Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
 
 These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/interface_definition.html>`__.
-Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `\ ``builtin_interfaces`` <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
+Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
 Also some naming conventions are stricter then in ROS 1.
 
 In your ``package.xml`` you will need to add:
