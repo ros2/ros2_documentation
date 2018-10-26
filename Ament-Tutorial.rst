@@ -1,4 +1,5 @@
 **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the `colcon tutorial <Colcon-Tutorial>`.**
+The current default branch as well as releases after Bouncy do not include ``ament_tools`` anymore.
 
 Overview
 ========
@@ -228,7 +229,7 @@ Tips
 * If you do not want to build a specific package place an empty file named ``AMENT_IGNORE`` in the directory and it will not be indexed.
 
     "Catch all" options like --cmake-args should be placed after other options, or delimited with '--':
-    
+
 .. code-block:: bash
 
    ament build . --force-cmake-configure --cmake-args -DCMAKE_BUILD_TYPE=Debug -- --ament-cmake-args -DCMAKE_BUILD_TYPE=Release

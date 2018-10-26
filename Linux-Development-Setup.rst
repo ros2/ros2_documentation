@@ -67,7 +67,7 @@ Install development tools and ROS tools
      libtinyxml2-dev
 
 .. _linux-dev-get-ros2-code:
-     
+
 Get ROS 2.0 code
 ^^^^^^^^^^^^^^^^
 
@@ -155,7 +155,7 @@ Add the following line to your ``.bashrc`` file pointing to your copy of the lic
 Debian packages provided in the ROS 2 apt repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install a Debian package of RTI Connext availabel on the ROS 2 apt repositories.
+You can install a Debian package of RTI Connext available on the ROS 2 apt repositories.
 You will need to accept a license from RTI.
 
 .. code-block:: bash

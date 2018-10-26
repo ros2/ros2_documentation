@@ -88,6 +88,12 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - Title
      - Type
      - Links
+   * - Hands-on ROS 2: A Walkthrough
+     - ROSCon 2018 presentation
+     - `slides <https://roscon.ros.org/2018/presentations/ROSCon2018_ROS2HandsOn.pdf>`__ / `video <https://vimeo.com/292693129>`__
+   * - Launch for ROS 2
+     - ROSCon 2018 presentation
+     - `slides <https://roscon.ros.org/2018/presentations/ROSCon2018_launch.pdf>`__ / `video <https://vimeo.com/292699162>`__
    * - The ROS 2 vision for advancing the future of robotics development
      - ROSCon 2017 presentation
      - `slides <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Vision.pdf>`__ / `video <https://vimeo.com/236161417>`__

@@ -63,7 +63,7 @@ Environment setup
 (optional) Install argcomplete
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 commadline tools use argcomplete to autocompletion. So if you want autocompletion, installing argcomplete is necessary.
+ROS 2 command line tools use argcomplete to autocompletion. So if you want autocompletion, installing argcomplete is necessary.
 
 Ubuntu 18.04
 ~~~~~~~~~~~~

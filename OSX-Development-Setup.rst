@@ -15,23 +15,23 @@ Install prerequisites
 You need the following things installed to build ROS 2:
 
 
-#. 
+#.
    **Xcode**
 
 
-   * 
+   *
      If you don't already have it installed, install Xcode and the Command Line Tools:
 
      .. code-block:: bash
 
         xcode-select --install
 
-#. 
+#.
    **brew** *(needed to install more stuff; you probably already have this)*\ :
 
 
    * Follow installation instructions at http://brew.sh/
-   * 
+   *
      *Optional*\ : Check that ``brew`` is happy with your system configuration by running:
 
      .. code-block:: bash
@@ -40,7 +40,7 @@ You need the following things installed to build ROS 2:
 
      Fix any problems that it identifies.
 
-#. 
+#.
    Use ``brew`` to install more stuff:
 
    .. code-block:: bash
@@ -52,30 +52,30 @@ You need the following things installed to build ROS 2:
 
        brew install opencv
 
-#. 
+#.
    Install rviz dependencies
 
    .. code-block:: bash
 
-       # install depepndencies for Rviz
+       # install dependencies for Rviz
        brew install qt freetype assimp
 
        # Add the Qt directory to the CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
 
-#. 
+#.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
 
        python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock nose pep8 pydocstyle pyparsing setuptools vcstool
 
-#. 
+#.
    *Optional*\ : if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
 
    * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
-   * 
+   *
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
 
      .. code-block:: bash
@@ -234,7 +234,7 @@ If you see build errors related to Qt, e.g.:
 .. code-block:: bash
 
    In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
-   /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error: 
+   /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error:
          unknown type name 'Q_ENUM'
        Q_ENUM(Action)
        ^
