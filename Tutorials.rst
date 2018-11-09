@@ -49,7 +49,7 @@ ROS 2 Demos
 * `Use quality-of-service settings to handle lossy networks <Quality-of-Service>`
 * `Management of nodes with managed lifecycles <Managed-Nodes>`
 * `Efficient intra-process communication <Intra-Process-Communication>`
-* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README>`__
+* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
 * `Recording and playback of topic data with rosbag using the ROS 1 bridge <Rosbag-with-ROS1-Bridge>`
 * `Turtlebot 2 demo using ROS 2 <https://github.com/ros2/turtlebot2_demo>`__
 * `TurtleBot 3 demo using ROS 2 <http://emanual.robotis.com/docs/en/platform/turtlebot3/applications/#ros2>`__ [community-contributed]
@@ -57,7 +57,7 @@ ROS 2 Demos
 * `Write real-time safe code that uses the ROS 2 APIs <Real-Time-Programming>`
 * `Use the rclpy API to write ROS 2 programs in Python <Python-Programming>`
 * `Use the robot state publisher to publish joint states and TF <dummy-robot-demo>`
-* `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README>`__
+* `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__
 * `Logging and logger configuration <Logging-and-logger-configuration>`
 
 ROS 2 Examples
