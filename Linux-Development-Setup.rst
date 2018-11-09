@@ -5,7 +5,14 @@ Building ROS 2 on Linux
 System Requirements
 -------------------
 
-We support Ubuntu Linux Xenial Xerus 16.04 on 64-bit (until alpha 6 we supported Trusty Tahr 14.04).  These instructions should also work for later Ubuntu as well as Debian Stretch, though these are not actively tested or supported.  Fedora 26 also works if you follow `alternate <Fedora-Development-Setup>` instructions, though it is not actively tested or supported. The same goes for `Arch Linux <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
+Tier 1
+- Ubuntu Linux Xenial Xerus 16.04 64-bit
+- Ubuntu Linux Bionic Beaver 18.04 64-bit
+
+Tier 2 (not actively tested or supported)
+- Debian Stretch
+- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
+- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
 
 Make sure that you have a locale set which supports ``UTF-8`` We test with the following settings.
 If you are in a minimal environment such as a docker containers the locale may be set to something minimal like POSIX.
