@@ -133,13 +133,14 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``\ :
 
   * 
     The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
-    All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``.
+    All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``:
+
+    * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
+    * Instead of passing ``INCLUDE_DIRS ...`` call ``ament_export_include_directories(...)`` before.
+    * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
 
   *
-    The different sections of the ``catkin_package`` command have been moved to separate commands.
-    * CATKIN_DEPENDS ==> ament_export_dependencies
-    * INCLUDE_DIRS ==> ament_export_include_directories
-    * LIBRARIES ==> ament_export_libraries
+    **TODO document ament_export_interfaces?**
 
 * 
   Replace the invocation of ``add_message_files``\ , ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
