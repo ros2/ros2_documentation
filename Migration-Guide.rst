@@ -133,9 +133,13 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``\ :
 
   * 
     The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
-    All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``.
+    All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``:
 
-  * 
+    * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
+    * Instead of passing ``INCLUDE_DIRS ...`` call ``ament_export_include_directories(...)`` before.
+    * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
+
+  *
     **TODO document ament_export_interfaces?**
 
 * 
