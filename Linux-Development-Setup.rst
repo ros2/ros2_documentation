@@ -5,11 +5,11 @@ Building ROS 2 on Linux
 System Requirements
 -------------------
 
-Tier 1
+Target platforms for Bouncy Bolson (see [REP](http://www.ros.org/reps/rep-2000.html)).
 - Ubuntu Linux Xenial Xerus 16.04 64-bit
 - Ubuntu Linux Bionic Beaver 18.04 64-bit
 
-Tier 2 (not actively tested or supported)
+Recommended Support (not actively tested or supported)
 - Debian Stretch
 - Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
