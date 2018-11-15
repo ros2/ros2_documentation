@@ -312,7 +312,8 @@ There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in
 ROS client library
 ~~~~~~~~~~~~~~~~~~
 
-**NOTE: to be written**
+ * `Python Client Library <Migration-Guide-Python.rst>`
+ * **NOTE: Others to be written**
 
 Boost
 ~~~~~
