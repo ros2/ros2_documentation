@@ -94,6 +94,8 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 rti-connext-dds-5.3.1 urdfdom_headers"
 
+.. _linux-development-setup-install-more-dds-implementations-optional:
+
 Install more DDS implementations (Optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
