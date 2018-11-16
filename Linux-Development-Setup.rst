@@ -53,6 +53,7 @@ Install development tools and ROS tools
      flake8-docstrings \
      flake8-import-order \
      flake8-quotes \
+     git+https://github.com/lark-parser/lark.git@0.7b \
      pytest-repeat \
      pytest-rerunfailures
    # [Ubuntu 16.04] install extra packages not available or recent enough on Xenial
