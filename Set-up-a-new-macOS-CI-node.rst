@@ -95,11 +95,14 @@ Including:
 rqt dependencies
 ~~~~~~~~~~~~~~~~
 
-* `brew install sip pyqt5`
-* `ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5`
-* `brew install graphviz`
-* `python3 -m pip install pygraphviz pydot`
-* `brew link --force qt`
+* ``brew install sip pyqt5``
+* Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
+
+  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
+
+* ``brew install graphviz``
+* ``python3 -m pip install pygraphviz pydot``
+* ``brew link --force qt``
 
 RTI Connext Specific Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
