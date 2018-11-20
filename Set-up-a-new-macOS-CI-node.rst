@@ -92,6 +92,15 @@ Including:
 * the optional RTI Connext and OpenSplice packages
 * everything but downloading the source and building ROS 2 (unless you want to do so for testing the setup)
 
+rqt dependencies
+~~~~~~~~~~~~~~~~
+
+* `brew install sip pyqt5`
+* `ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5`
+* `brew install graphviz`
+* `python3 -m pip install pygraphviz pydot`
+* `brew link --force qt`
+
 RTI Connext Specific Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
