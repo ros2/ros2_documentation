@@ -102,11 +102,15 @@ rqt dependencies
 
 * ``brew install graphviz``
 * ``python3 -m pip install pygraphviz pydot``
-* ``brew link --force qt`` This is the quickest solution but may cause issues when upgrading qt or if other packages are expecting qt4. Another option is to update your PATH and CMAKE_PREFIX_PATH to include the qt install location.
-``
-export PATH="$(brew --prefix qt)/bin:$PATH"
-export CMAKE_PREFIX_PATH="$(brew --prefix qt):$CMAKE_PREFIX_PATH"
-``
+* ``brew link --force qt``
+
+  This is the quickest solution but may cause issues when upgrading Qt or if other packages are expecting Qt 4.
+  Another option is to update your ``PATH`` and ``CMAKE_PREFIX_PATH`` to include the Qt install location:
+
+  .. code-block:: bash
+
+     $ export PATH="$(brew --prefix qt)/bin:$PATH"
+     $ export CMAKE_PREFIX_PATH="$(brew --prefix qt):$CMAKE_PREFIX_PATH"
 
 RTI Connext Specific Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
