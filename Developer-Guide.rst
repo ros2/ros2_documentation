@@ -94,6 +94,18 @@ Development Process
   Besides using automated tests, also run the modified code path manually to ensure that the patch works as intended.
 * Always run CI jobs for all platforms for every pull request and include links to the jobs in the pull request.
 
+Changes to RMW API
+^^^^^^^^^^^^^^^^^^
+
+
+When updating `RMW API <https://github.com/ros2/rmw>`__, it is mandatory that the default supported RMW implementations are updated as well.
+For example, a new function ``foo()`` introduced to the RMW API must be implemented in the following packages:
+
+* `rmw_connext <https://github.com/ros2/rmw_connext>`__
+* `rmw_fastrtsp <https://github.com/ros2/rmw_fastrtps/tree/master/rmw_fastrtps_cpp>`__
+* `rmw_fastrtsp (dynamic) <https://github.com/ros2/rmw_fastrtps/tree/master/rmw_fastrtps_dynamic_cpp>`__
+* `rmw_opensplice <https://github.com/ros2/rmw_opensplice>`__
+
 kanban board (waffle.io)
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
