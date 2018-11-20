@@ -13,6 +13,13 @@ For ROS 2 Bouncy:
 * ``bloom`` >= 0.6.6
 * ``catkin_pkg`` >= 0.4.5
 
+for ROS 2 Crystal:
+
+
+* ``bloom`` >= 0.6.9
+* ``catkin_pkg`` >= 0.4.5
+
+
 Ensure that you have the latest version of bloom and catkin_pkg
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -39,7 +46,14 @@ You can configure bloom to use it by setting the ``ROSDISTRO_INDEX_URL`` environ
 
 .. code-block:: bash
 
+   export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros2/rosdistro/ros2/index-v4.yaml'
+
+If you're using a version of bloom older than 0.6.8 you'll need to use the v3 index url for releasing into Bouncy.
+
+.. code-block:: bash
+
    export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros2/rosdistro/ros2/index.yaml'
+
 
 Procedure
 ---------
