@@ -98,7 +98,7 @@ Changes to RMW API
 ^^^^^^^^^^^^^^^^^^
 
 
-When updating `RMW API <https://github.com/ros2/rmw>`__, it is mandatory that the default supported RMW implementations are updated as well.
+When updating `RMW API <https://github.com/ros2/rmw>`__, it is mandatory that the RMW implementations from the Tier 1 platforms are updated as well.
 For example, a new function ``foo()`` introduced to the RMW API must be implemented in the following packages:
 
 * `rmw_connext <https://github.com/ros2/rmw_connext>`__
