@@ -33,7 +33,7 @@ default_role = 'any'
 suppress_warnings = ['image.nonlocal_uri']
 
 # General information about the project.
-project = u'rosindex'
+project = u'ros2 documentation'
 copyright = u'2018, Open Robotics'
 author = u'Open Robotics'
 

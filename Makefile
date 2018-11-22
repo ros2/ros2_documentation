@@ -1,13 +1,13 @@
 # Make file to generate documentation
 
 SOURCE     = source
-BUILD      = build
+OUT        = build
 BUILD      = sphinx-build
 OPTS       =-c .
 
 help:
-	@$(BUILD) -M help "$(SOURCE)" "$(BUILD)" $(OPTS) $(O)
+	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS) $(O)
 
 .PHONY: help Makefile
 %: Makefile
-	@$(BUILD) -M $@ "$(SOURCE)" "$(BUILD)" $(OPTS) $(O)
+	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS) $(O)
