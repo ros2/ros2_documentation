@@ -155,13 +155,6 @@ Add this to your ``~/.bashrc``
 RTI Connext (version 5.3.1)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To use RTI Connext you will need to have obtained a license from RTI.
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
-
 Debian packages provided in the ROS 2 apt repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -184,12 +177,18 @@ Note: when using ``zsh`` you need to be in the directory of the script when sour
 Now you can build as normal and support for RTI will be built as well.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
-<!--
 
 Official binary packages from RTI
 """""""""""""""""""""""""""""""""
 
 You can install the Connext 5.3.1 package for Linux provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
+
+To use RTI Connext you will need to have obtained a license from RTI.
+Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
@@ -203,7 +202,6 @@ Source the setup file to set the ``NDDSHOME`` environment variable.
    source ~/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash
 
 Now you can build as normal and support for RTI will be built as well.
--->
 
 Build the code in the workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
