@@ -24,7 +24,7 @@
 #
 
 # The master toctree document.
-master_doc = 'README'
+master_doc = 'index'
 
 # The default role
 default_role = 'any'
