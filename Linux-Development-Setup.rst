@@ -120,7 +120,7 @@ PrismTech OpenSplice Debian Packages built by OSRF
 
 .. code-block:: bash
 
-   sudo apt install libopensplice67  # from repo.ros2.org
+   sudo apt install libopensplice69  # from repo.ros2.org
 
 Add this to your ``~/.bashrc``
 
