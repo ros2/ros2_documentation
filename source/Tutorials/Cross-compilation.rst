@@ -176,7 +176,7 @@ Export the resulting container to a tarball and extract it:
 
     docker container export -o sysroot_docker.tar aarch64_sysroot
     mkdir sysroot_docker
-    tar -C sysroot_docker -xf sysroot_docker.tar lib usr
+    tar -C sysroot_docker -xf sysroot_docker.tar lib usr opt
 
 This container can be used later as virtual target to run the created file-system and run the demo code.
 
@@ -257,6 +257,46 @@ The result of the build will be inside the ``ros2_ws`` directory, which can be e
 .. code-block:: bash
 
     docker cp ros2_cc:/root/cc_ws/ros2_ws .
+
+Cross-compiling against a pre-built ROS2
+========================================
+
+It is possible to cross-compile your packages against a pre-built ROS2. The steps are similar to the previous `Cross-compiling examples for Arm`_ section, with the following modifications:
+
+Instead of downloading the ROS2 stack, just populate your workspace with your package (ros2 examples on this case) and the cross-compilation assets:
+
+.. code-block:: bash
+
+    mkdir -p ~/cc_ws/ros2_ws/src
+    cd ~/cc_ws/ros2_ws/src
+    git clone https://github.com/ros2/examples.git
+    git clone https://github.com/ros2/cross_compile.git
+    cd ..
+
+Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the `binary packages <https://index.ros.org/doc/ros2/Linux-Install-Debians/>`__ to install ROS2 instead of building from source.
+
+Modify the environment variable ``ROS2_INSTALL_PATH`` to point to the installation directory:
+
+.. code-block:: bash
+
+    export ROS2_INSTALL_PATH=~/cc_ws/sysroot_docker/opt/ros/bouncy
+
+Source the ``setup.bash`` script on the target file-system:
+
+.. code-block:: bash
+
+    source $ROS2_INSTALL_PATH/setup.bash
+
+Then, start a build with ``Colcon`` specifying the ``toolchain-file``:
+
+.. code-block:: bash
+
+    colcon build \
+        --merge-install \
+        --cmake-force-configure \
+        --cmake-args \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE="$(pwd)/src/cross_compile/cmake-toolchains/generic_linux.cmake"
 
 Run on the target
 =================
