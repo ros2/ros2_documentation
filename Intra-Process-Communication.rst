@@ -288,7 +288,7 @@ The image pipeline demo
 
 In this demo we'll use OpenCV to capture, annotate, and then view images.
 
-Note for OS X users: If you these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
+Note for OS X users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
 .. code-block:: bash
 
@@ -335,9 +335,9 @@ If you pause the image viewer, you should be able to compare the addresses writt
 Pipeline with two image viewers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now let's look at an example just the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up. (Note for OS X users: your image view windows might be on top of each other.)
-Let's run it with the command
+Now let's look at an example just like the one above, except it has two image view nodes.
+All the nodes are still in the same process, but now two image view windows should show up. (Note for OS X users: your image view windows might be on top of each other).
+Let's run it with the command:
 
 .. code-block:: bash
 
@@ -353,8 +353,10 @@ Just like the last example, you can pause the rendering with the spacebar and co
 
 As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different. To understand why this is happening consider the graph's topology:
 
-``camera_node`` -> ``watermark_node`` -> ``image_view_node``
-                                 -> ``image_view_node2``
+.. code-block:: bash
+   
+   camera_node -> watermark_node -> image_view_node
+                                 -> image_view_node2
 
 The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered. But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both. It can be, however, delivered to one of them. Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 
