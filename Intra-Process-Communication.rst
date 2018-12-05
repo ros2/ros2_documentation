@@ -353,8 +353,10 @@ Just like the last example, you can pause the rendering with the spacebar and co
 
 As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different. To understand why this is happening consider the graph's topology:
 
-``camera_node -> watermark_node -> image_view_node``
-``                              -> image_view_node2``
+.. code-block:: bash
+   
+   camera_node -> watermark_node -> image_view_node
+                                 -> image_view_node2
 
 The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered. But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both. It can be, however, delivered to one of them. Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
 
