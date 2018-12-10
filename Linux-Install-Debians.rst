@@ -11,6 +11,7 @@ Resources:
 * `Repositories <http://repo.ros2.org>`__
 * Status Pages:
 
+  * ROS 2 Crystal (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_crystal_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_crystal_ubv8.html>`__
   * ROS 2 Bouncy (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_bouncy_ubv8.html>`__
   * ROS 2 Ardent (Ubuntu Xenial): `amd64 <http://repo.ros2.org/status_page/ros_ardent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_ardent_uxv8.html>`__
 
@@ -40,7 +41,7 @@ First set an environment variable for the ROS 2 release you want to install so i
 
 .. code-block:: bash
 
-   export ROS_DISTRO=bouncy  # or ardent
+   export ROS_DISTRO=crystal  # or bouncy or ardent
    sudo apt update
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
