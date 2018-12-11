@@ -224,7 +224,7 @@ Only do this step **after** you have sourced the ROS 2 setup file:
 
 .. code-block:: bash
 
-   > call "C:\opensplice67\HDE\x86_64.win64\release.bat"
+   > call "C:\opensplice69\HDE\x86_64.win64\release.bat"
 
 Try some examples
 -----------------

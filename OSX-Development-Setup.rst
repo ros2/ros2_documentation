@@ -168,7 +168,7 @@ When you run the build make sure that your chosen DDS vendor(s) are exposed in y
 When multiple vendors are present, you can choose the used RMW implementation by setting the the environment variable ``RMW_IMPLEMENTATION`` to the package providing the RMW implementation.
 See `Working with multiple RMW implementations <Working-with-multiple-RMW-implementations>` for more details.
 
-Adlink OpenSplice (6.7)
+Adlink OpenSplice (6.9)
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 To install OpenSplice, download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.

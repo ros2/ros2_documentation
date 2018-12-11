@@ -51,7 +51,7 @@ Installing the missing dependencies
 
 .. code-block:: bash
 
-       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 
 
@@ -93,7 +93,7 @@ Bouncy and earlier:
 .. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
-           libopensplice67
+           libopensplice69
 
 
 RTI Connext
