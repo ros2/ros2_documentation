@@ -69,6 +69,11 @@ Install development tools and ROS tools
      pytest-cov \
      pytest-runner \
      setuptools
+
+   # install rviz_ogre_vendor depend [ubuntu 18.04]
+   sudo apt install --no-install-recommends -y \
+     libxaw7-dev
+
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
