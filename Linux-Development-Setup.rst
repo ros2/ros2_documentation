@@ -120,7 +120,7 @@ PrismTech OpenSplice Debian Packages built by OSRF
 
 .. code-block:: bash
 
-   sudo apt install libopensplice69  # from repo.ros2.org
+   sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 Add this to your ``~/.bashrc``
 
@@ -164,7 +164,7 @@ You will need to accept a license from RTI.
 .. code-block:: bash
 
    sudo apt install -q -y \
-       rti-connext-dds-5.3.1  # from repo.ros2.org
+       rti-connext-dds-5.3.1  # from packages.ros.org/ros2/ubuntu
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 
