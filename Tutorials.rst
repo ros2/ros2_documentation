@@ -34,6 +34,7 @@ Advanced
 
 
 * `Implement a custom memory allocator <Allocator-Template-Tutorial>`
+* `Releasing a ROS 2 package with bloom <Releasing-a-ROS-2-package-with-bloom>`
 
 Docker
 ^^^^^^
