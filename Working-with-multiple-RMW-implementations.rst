@@ -18,7 +18,7 @@ Others like OpenSplice or Connext can be enabled by installing additional packag
 
 Also, a ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
-For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
+For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/master/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
 A list of supported inter-vendor communication configurations is forthcoming.
 
