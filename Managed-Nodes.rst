@@ -198,7 +198,7 @@ At the same time, every lifecycle node has by default 5 different communication 
 ros2 lifecycle
 ^^^^^^^^^^^^^^
 
-The ``lifecycle_service_client`` application is a fixed order script for this demo purpose only. It explains the use and the API calls made for this lifecycle implementation, but may be inconvenient to use otherwise. For this reason we implemented a command line too which lets you dynamically change states or various nodes.
+The ``lifecycle_service_client`` application is a fixed order script for this demo purpose only. It explains the use and the API calls made for this lifecycle implementation, but may be inconvenient to use otherwise. For this reason we implemented a command line tool which lets you dynamically change states or various nodes.
 
 In the case you want to get the current state of the ``lc_talker`` node, you would call:
 
