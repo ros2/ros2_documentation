@@ -191,7 +191,7 @@ rqt dependencies
 
 .. code-block:: bash
 
-   python -m pip install -U PyQt5
+   python -m pip install -U pydot PyQt5
 
 Downloading ROS 2
 -----------------

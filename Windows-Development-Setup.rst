@@ -132,7 +132,7 @@ rqt dependencies
 
 .. code-block:: bash
 
-   > pip install -U PyQt5
+   > pip install -U pydot PyQt5
 
 Getting the Source Code
 ^^^^^^^^^^^^^^^^^^^^^^^
