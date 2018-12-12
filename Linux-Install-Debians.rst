@@ -37,7 +37,7 @@ First you will need to authorize our gpg key with apt like this:
 
 .. code-block:: bash
 
-   sudo apt update && sudo apt install curl gnupg2
+   sudo apt update && sudo apt install curl gnupg2 lsb-release
    curl http://repo.ros2.org/repos.key | sudo apt-key add -
 
 And then add the repository to your sources list:
