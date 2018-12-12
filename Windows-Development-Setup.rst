@@ -127,6 +127,13 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 
 Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
 
+rqt dependencies
+~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   > pip install -U PyQt5
+
 Getting the Source Code
 ^^^^^^^^^^^^^^^^^^^^^^^
 

@@ -186,6 +186,13 @@ You must also install some python dependencies for command-line tools:
 
    python -m pip install -U catkin_pkg empy git+https://github.com/lark-parser/lark.git@0.7b pyparsing pyyaml setuptools
 
+rqt dependencies
+~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python -m pip install -U PyQt5
+
 Downloading ROS 2
 -----------------
 
