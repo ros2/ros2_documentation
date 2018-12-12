@@ -220,7 +220,7 @@ All of the above commands are nothing else than calling the lifecycle node's ser
 
    $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState 
    requester: making request: lifecycle_msgs.srv.GetState_Request()
-   
+
    response:
    lifecycle_msgs.srv.GetState_Response(current_state=lifecycle_msgs.msg.State(id=1, label='unconfigured'))
 
@@ -230,7 +230,7 @@ In order to trigger a transition, we call the ``change_state`` service
 
    $ ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{transition: {id: 1}}"
    requester: making request: lifecycle_msgs.srv.ChangeState_Request(transition=lifecycle_msgs.msg.Transition(id=1, label=''))
-   
+
    response:
    lifecycle_msgs.srv.ChangeState_Response(success=True)
 
