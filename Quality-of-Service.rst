@@ -147,6 +147,7 @@ Add network traffic
 
 This next section is Linux-specific.
 However, for OS X and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and "Clumsy" (http://jagt.github.io/clumsy/index.html), respectively, but they will not be covered in this tutorial.
+The following does not apply to connext RMW implementation running on a local computer, because it bypasses the network stack.
 
 We are going to use the Linux network traffic control utility, ``tc`` (http://linux.die.net/man/8/tc).
 
@@ -169,7 +170,7 @@ We see now that some of the frame on the ``showimage`` side were dropped, the fr
 
 .. image:: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
    :target: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
-   :alt: Best effort image transfer 
+   :alt: Best effort image transfer
 
 
 When you're done, remember to delete the queueing discipline:
