@@ -121,7 +121,7 @@ Set the ``NDDSHOME`` environment variable:
 
 .. code-block:: bash
 
-   export NDDSHOME=/Applications/rti_connext_dds-5.3.1/
+   export NDDSHOME=/Applications/rti_connext_dds-5.3.1
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
