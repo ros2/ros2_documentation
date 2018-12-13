@@ -46,6 +46,8 @@ See `the logging page <logging-command-line-configuration-of-the-default-severit
 Parameters
 ----------
 
+*Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*
+
 Setting parameters from the command-line is currently supported in the form of yaml files.
 
 `See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax. As an example, save the following as ``demo_params.yaml``
