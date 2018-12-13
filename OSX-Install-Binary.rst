@@ -67,7 +67,7 @@ You need the following things installed before installing ROS 2.
 
 
   Set a Qt installation to be used.
-  The quickest solutino is ``brew link --force qt`` but this may cause issues when upgrading Qt or if other packages are expecting Qt 4.
+  The quickest solution is ``brew link --force qt`` but this may cause issues when upgrading Qt or if other packages are expecting Qt 4.
   Another option is to update your ``PATH`` and ``CMAKE_PREFIX_PATH`` to include the Qt install location:
 
   .. code-block:: bash
