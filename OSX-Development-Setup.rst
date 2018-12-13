@@ -190,11 +190,16 @@ You also need a Java runtime installed to run the RTI code generator, which you 
 
 After installing, run RTI launcher and point it to your license file.
 
-Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace:
+Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
+
+The setup file and path will depend on your macOS version.
 
 .. code-block:: bash
-
+   # macOS 10.12 Sierra
+   source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin16clang8.0.bash
+   # macOS 10.13 High Sierra
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
+   
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
