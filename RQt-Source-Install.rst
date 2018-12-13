@@ -8,19 +8,19 @@ These instructions are written for the target platforms for Crystal
 Clemmeys (see `REP <http://www.ros.org/reps/rep-2000.html>`_).
 
 - Ubuntu Bionic Beaver 18.04 64-bit
-- Windows 10 with Visual Studio 2017
 - Mac OSX Sierra 10.12.x
+- Windows 10 with Visual Studio 2017
 
 Other Requirements
 ~~~~~~~~~~~~~~~~~~
 
-- In ROS2 Crystal the minimum Qt version is ``Qt5``
+- In ROS 2 Crystal the minimum Qt version is ``Qt5``
 
 Building From Source
 --------------------
 
 In order to build RQt from source, first create a ROS2 workspace at ``~/ros2_ws/``.
-This is step is already covered in `building ROS2 from source <https://index.ros.org/doc/ros2/Installation/>`_. instructions, so we skip it here.
+This is step is already covered in `building ROS 2 from source <https://index.ros.org/doc/ros2/Installation/>`_. instructions, so we skip it here.
 
 Download RQt Repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
