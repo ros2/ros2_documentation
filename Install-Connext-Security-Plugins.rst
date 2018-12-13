@@ -28,13 +28,12 @@ The Launcher is used to install target libraries, security plugins, and other la
 The 'RTI Package Installer' is used to install '.rtipkg' files -- target
 libraries, security plug-ins, etc. Open the Package Installer and select
 all of the .rtipkg files that were included in the Connext DDS Secure
-bundle for installation: \* Target Libraries - such as:
-rti\_connext\_dds-[version]-pro-target-[toolchain].rtipkg \* Security
-Plugin Host - such as:
-rti\_security\_plugins-[version]-host-[toolchain].rtipkg \* Security
-Plugin Target - such as:
-rti\_security\_plugins-[version]-target-[toolchain].rtipkg \* OpenSSL
-Host - such as: openssl-1.0.2x-[version]-host-[toolchain].rtipkg
+bundle for installation:
+
+ * Target Libraries - such as: rti\_connext\_dds-[version]-pro-target-[toolchain].rtipkg
+ * Security Plugin Host - such as: rti\_security\_plugins-[version]-host-[toolchain].rtipkg
+ * Security Plugin Target - such as: rti\_security\_plugins-[version]-target-[toolchain].rtipkg
+ * OpenSSL Host - such as: openssl-1.0.2x-[version]-host-[toolchain].rtipkg
 
 **Extract and Install OpenSSL**
 This is included as an archive (.zip or
