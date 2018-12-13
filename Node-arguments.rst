@@ -46,8 +46,6 @@ See `the logging page <logging-command-line-configuration-of-the-default-severit
 Parameters
 ----------
 
-*Parameters are currently only supported for C++ nodes.*
-
 Setting parameters from the command-line is currently supported in the form of yaml files.
 
 `See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax. As an example, save the following as ``demo_params.yaml``
@@ -72,7 +70,7 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 
 .. code-block:: bash
 
-   $ ros2 param list talker
+   $ ros2 param list /talker
      a_string
      some_int
      some_lists.some_doubles
