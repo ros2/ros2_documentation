@@ -11,6 +11,7 @@ About ROS 2
 * `ROS 2 Client Libraries <ROS-2-Client-Libraries>`
 * `About ROS interfaces <About-ROS-Interfaces>`
 * `About Quality of Service Settings <About-Quality-of-Service-Settings>`
+* `Releasing a ROS 2 package with bloom <Releasing-a-ROS-2-package-with-bloom>`
 
 ROS 2 Tutorials
 ---------------
