@@ -70,7 +70,7 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 
 .. code-block:: bash
 
-   $ ros2 param list /talker
+   $ ros2 param list talker
      a_string
      some_int
      some_lists.some_doubles
