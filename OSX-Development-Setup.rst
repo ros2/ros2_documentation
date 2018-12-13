@@ -199,7 +199,6 @@ The setup file and path will depend on your macOS version.
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin16clang8.0.bash
    # macOS 10.13 High Sierra
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
-   
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
