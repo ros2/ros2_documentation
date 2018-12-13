@@ -60,15 +60,15 @@ Install Visual Studio
 
    Make sure that the Visual C++ features are installed. First choose 'Custom installation':
 
-   ![Custom installation](http://i.imgur.com/tUcOMOA.png)
+   <img alt="Custom installation" src="http://i.imgur.com/tUcOMOA.png">
 
    Next check Visual C++:
 
-   ![Visual C++](http://i.imgur.com/yWVEUkm.png)
+   <img alt="Visual C++" src="http://i.imgur.com/yWVEUkm.png">
 
    Ensure that the correct features will be installed:
 
-   ![Summary](http://i.imgur.com/VxdbA7G.png)
+   <img alt="Summary" src="http://i.imgur.com/VxdbA7G.png">
    </details>
 
 
@@ -89,7 +89,7 @@ Install Visual Studio
    Make sure that the Visual C++ features are installed.
    An easy way to make sure they're installed is to select the `Desktop development with C++` workflow during the install.
 
-   ![Desktop development With C++](https://i.imgur.com/2h0IxCk.png)
+   <img alt="Desktop development With C++" src="https://i.imgur.com/2h0IxCk.png">
 
    </details>
 
