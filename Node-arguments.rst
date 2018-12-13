@@ -72,15 +72,9 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 
 .. code-block:: bash
 
-   $ ros2 param list /talker
+   $ ros2 param list talker
      a_string
      some_int
      some_lists.some_doubles
      some_lists.some_integers
-
-If you are using the bouncy release then the node name must not be fully qualified.
-
-.. code-block:: bash
-
-   ros2 param list talker
 
