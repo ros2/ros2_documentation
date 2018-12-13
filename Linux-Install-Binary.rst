@@ -81,6 +81,15 @@ Adlink OpenSplice
 
 To use OpenSplice you can install a Debian package built by OSRF.
 
+Crystal and above:
+
+.. code-block:: bash
+
+       sudo apt update && sudo apt install -q -y \
+           libopensplice69
+
+Bouncy and earlier:
+
 .. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
