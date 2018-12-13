@@ -35,7 +35,7 @@ As an alternative to the hosted ``.repos`` file you can use ``rosinstall_generat
 
 ::
 
-   rosinstall_generator --rosdistro crystal --repos python_qt_binding qt_gui_core rqt <more-repos-with-rqt-plugins> > rqt2.repos
+   rosinstall_generator --rosdistro crystal --upstream-development --repos python_qt_binding qt_gui_core rqt <more-repos-with-rqt-plugins> > rqt2.repos
 
 Install Dependencies
 ~~~~~~~~~~~~~~~~~~~~
