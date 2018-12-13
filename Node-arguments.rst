@@ -77,4 +77,3 @@ Other nodes will be able to retrieve the parameter values, e.g.:
      some_int
      some_lists.some_doubles
      some_lists.some_integers
-
