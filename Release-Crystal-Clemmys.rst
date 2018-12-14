@@ -21,7 +21,23 @@ Tier 2 platforms:
 New features in this ROS 2 release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* first item goes here
+* Actions in C / C++ (`server <https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_server>`__ / `client <https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_client>`__ examples.)
+* `gazebo_ros_pkgs <http://gazebosim.org/tutorials?tut=ros2_overview>`__
+* `image_transport <https://github.com/ros-perception/image_common/wiki/ROS2-Migration>`__
+* `navigation2 <https://github.com/ros-planning/navigation2/blob/master/README.md>`__
+* `rosbag2 <https://index.ros.org/r/rosbag2/github-ros2-rosbag2/#crystal>`__
+* `rqt <https://index.ros.org/doc/ros2/RQt-Overview-Usage/>`__
+* Improvement in memory management
+* Introspection information about nodes
+* Launch system improvements
+  * `Arguments <https://github.com/ros2/launch/pull/123>`__
+  * `Nested launch files <https://github.com/ros2/launch/issues/116>`__
+  * `Conditions <https://github.com/ros2/launch/issues/105>`__
+  * `Pass params to Nodes <https://github.com/ros2/launch/issues/117>`__
+* Laid the groundwork for `file-based logging and /rosout publishing <https://github.com/ros2/rcl/pull/327>`__
+* `Time and Duration API in Python <https://github.com/ros2/rclpy/issues/186>`__
+* `Parameters work with Python nodes <https://github.com/ros2/rclpy/issues/202>`__
+
 
 Changes since the Bouncy release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
