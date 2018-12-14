@@ -30,10 +30,12 @@ New features in this ROS 2 release
 * Improvement in memory management
 * Introspection information about nodes
 * Launch system improvements
+
   * `Arguments <https://github.com/ros2/launch/pull/123>`__
   * `Nested launch files <https://github.com/ros2/launch/issues/116>`__
   * `Conditions <https://github.com/ros2/launch/issues/105>`__
   * `Pass params to Nodes <https://github.com/ros2/launch/issues/117>`__
+
 * Laid the groundwork for `file-based logging and /rosout publishing <https://github.com/ros2/rcl/pull/327>`__
 * `Time and Duration API in Python <https://github.com/ros2/rclpy/issues/186>`__
 * `Parameters work with Python nodes <https://github.com/ros2/rclpy/issues/202>`__
