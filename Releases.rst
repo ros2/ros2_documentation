@@ -10,6 +10,8 @@ For more details about each release, see the corresponding release overview.
 
    * - Release Overview
      - Date
+   * - `Crystal Clemmys <Release-Crystal-Clemmys>`
+     - 14 December 2018
    * - `Bouncy Bolson <Release-Bouncy-Bolson>`
      - 2 July 2018
    * - `Ardent Apalone <Release-Ardent-Apalone>`
