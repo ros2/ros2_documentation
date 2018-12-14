@@ -23,7 +23,7 @@ Downloading ROS 2
 
 
 * Go `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-bouncy-linux-x86_64.tar.bz2``.
+* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-crystal-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -34,7 +34,7 @@ Downloading ROS 2
 
        mkdir -p ~/ros2_install
        cd ~/ros2_install
-       tar xf ~/Downloads/ros2-bouncy-linux-x86_64.tar.bz2
+       tar xf ~/Downloads/ros2-crystal-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
 ----------------------------------
@@ -49,11 +49,12 @@ Installing and initializing rosdep
 Installing the missing dependencies
 -----------------------------------
 
+Set your rosdistro according to the release you downloaded.
+
 .. code-block:: bash
 
-       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
-
-
+       CHOOSE_ROS_DISTRO=crystal # or bouncy
+       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro $CHOOSE_ROS_DISTRO -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
    Follow the normal install instructions: http://wiki.ros.org/kinetic/Installation/Ubuntu
@@ -144,13 +145,13 @@ See the `demos <Tutorials>` for other things to try, including how to `run the t
 ROS 1 bridge
 ^^^^^^^^^^^^
 
-If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file; we'll assume that it's ``/opt/ros/kinetic/setup.bash``.
+If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file; we'll assume that it's ``/opt/ros/melodic/setup.bash``.
 
 If you haven't already, start a roscore:
 
 .. code-block:: bash
 
-   . /opt/ros/kinetic/setup.bash
+   . /opt/ros/melodic/setup.bash
    roscore
 
 
@@ -158,7 +159,7 @@ In another terminal, start the bridge:
 
 .. code-block:: bash
 
-   . /opt/ros/kinetic/setup.bash
+   . /opt/ros/melodic/setup.bash
    . ~/ros2_install/ros2-linux/setup.bash
    ros2 run ros1_bridge dynamic_bridge
 
