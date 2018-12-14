@@ -1,20 +1,47 @@
 ROS 2 Crystal Clemmys (codename 'crystal'; December 2018)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a placeholder page for the upcoming ROS 2 release *Crystal Clemmys*!
+*Crystal Clemmys* is the third release of ROS 2.
 
 Supported Platforms
 ^^^^^^^^^^^^^^^^^^^
 
-The platforms supported for this release are still pending, see: https://github.com/ros-infrastructure/rep/pull/177
+Crystal Clemmys is primarily supported on the following platforms.
+See `REP 2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for full details.
 
-Features
-^^^^^^^^
+Tier 1 platforms:
+
+* Ubuntu 18.04 (Bionic)
+* Mac OS X 10.12 (Sierra)
+* Windows 10
+
+Tier 2 platforms:
+
+* Ubuntu 16.04 (Xenial)
+
 
 New features in this ROS 2 release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TBD
+* Actions in C / C++ (`server <https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_server>`__ / `client <https://github.com/ros2/examples/tree/af08e6f7ac50f7808dbe6165f1adfd8e6cd3a79c/rclcpp/minimal_action_client>`__ examples.)
+* `gazebo_ros_pkgs <http://gazebosim.org/tutorials?tut=ros2_overview>`__
+* `image_transport <https://github.com/ros-perception/image_common/wiki/ROS2-Migration>`__
+* `navigation2 <https://github.com/ros-planning/navigation2/blob/master/README.md>`__
+* `rosbag2 <https://index.ros.org/r/rosbag2/github-ros2-rosbag2/#crystal>`__
+* `rqt <https://index.ros.org/doc/ros2/RQt-Overview-Usage/>`__
+* Improvement in memory management
+* Introspection information about nodes
+* Launch system improvements
+
+  * `Arguments <https://github.com/ros2/launch/pull/123>`__
+  * `Nested launch files <https://github.com/ros2/launch/issues/116>`__
+  * `Conditions <https://github.com/ros2/launch/issues/105>`__
+  * `Pass params to Nodes <https://github.com/ros2/launch/issues/117>`__
+
+* Laid the groundwork for `file-based logging and /rosout publishing <https://github.com/ros2/rcl/pull/327>`__
+* `Time and Duration API in Python <https://github.com/ros2/rclpy/issues/186>`__
+* `Parameters work with Python nodes <https://github.com/ros2/rclpy/issues/202>`__
+
 
 Changes since the Bouncy release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -116,4 +143,9 @@ Changes since the `Bouncy Bolson <Release-Bouncy-Bolson>` release:
 Known Issues
 ^^^^^^^^^^^^
 
-* first item goes here
+* Cross-vendor communication between rmw_fastrtps_cpp and other implementations is not functioning on Windows (`Issue <https://github.com/ros2/rmw_fastrtps/issues/246>`__)
+* 100% CPU usage in Action Server when cancelling a goal from the client. (`Issue <https://github.com/ros2/examples/issues/221>`__)
+* Action Server can crash when a goal expires. (`Pull Request <https://github.com/ros2/rcl/pull/360>`__)
+* Segfault in `ros2 param get` when a string parameter value contains non-ASCII characters. (`Issue <https://github.com/ros2/ros2cli/issues/176>`__)
+* The latest version of OpenSplice on Windows is not compatible with the available binaries. (`Issue <https://github.com/ros2/build_cop/issues/157>`__)
+
