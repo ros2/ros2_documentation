@@ -46,73 +46,41 @@ Run the installer with default parameters. Then, define environment variables (t
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
-
-.. raw:: html
-
-   <details>
-   <summary>Install Visual Studio 2015 if using Ardent or earlier</summary>
+**A. Install Visual Studio 2015 if using Ardent or earlier**
 
    If you already have a paid version of Visual Studio 2015 (Professional, Enterprise), skip this step.
-
-   <p>
 
    Microsoft provides a free of charge version of Visual Studio 2015, named Community, which can be used to build applications that use ROS 2:
 
    https://www.visualstudio.com/vs/older-downloads/
 
-   <p>
-
    Make sure that the Visual C++ features are installed. First choose 'Custom installation':
 
-   <p>
-
-   <img alt="Custom installation" src="http://i.imgur.com/tUcOMOA.png">
-
-   <p>
+   .. image:: http://i.imgur.com/tUcOMOA.png
 
    Next check Visual C++:
 
-   <p>
-
-   <img alt="Visual C++" src="http://i.imgur.com/yWVEUkm.png">
-
-   <p>
+   .. image:: http://i.imgur.com/yWVEUkm.png
 
    Ensure that the correct features will be installed:
 
-   <p>
-
-   <img alt="Summary" src="http://i.imgur.com/VxdbA7G.png">
-   </details>
+   .. image:: http://i.imgur.com/VxdbA7G.png
 
 
-
-.. raw:: html
-
-   <details>
-   <summary>Install Visual Studio 2017 if using Bouncy or a nightly</summary>
+**B. Install Visual Studio 2017 if using Bouncy or a nightly**
 
    If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
 
-   <p>
-
    :warning: Visual Studio 2017 v15.8 seems to have a compiler bug preventing from building some ROS 2 packages. Please try installing an older version of Visual Studio 2017.
-
-   <p>
 
    Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
    
-   <p>
-
    Make sure that the Visual C++ features are installed.
    An easy way to make sure they're installed is to select the `Desktop development with C++` workflow during the install.
 
-   <p>
-
-   <img alt="Desktop development With C++" src="https://i.imgur.com/2h0IxCk.png">
-   </details>
+   .. image:: https://i.imgur.com/2h0IxCk.png
 
 
 Install additional DDS implementations (optional)
