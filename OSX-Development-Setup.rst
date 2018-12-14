@@ -60,8 +60,9 @@ You need the following things installed to build ROS 2:
        # install dependencies for Rviz
        brew install qt freetype assimp
 
-       # Add the Qt directory to the CMAKE_PREFIX_PATH
+       # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
+       export PATH=$PATH:/usr/local/opt/qt/bin
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:

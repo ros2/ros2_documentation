@@ -66,15 +66,6 @@ You need the following things installed before installing ROS 2.
   ``brew install graphviz``
   ``python3 -m pip install pygraphviz pydot``
 
-
-  Set the Qt installation to be used by updating your ``PATH`` and ``CMAKE_PREFIX_PATH`` to include the Qt install location:
-
-  .. code-block:: bash
-
-     $ export PATH="$(brew --prefix qt)/bin:$PATH"
-     $ export CMAKE_PREFIX_PATH="$(brew --prefix qt):$CMAKE_PREFIX_PATH"
-
-
 * 
   Install additional runtime dependencies for command-line tools:
 
