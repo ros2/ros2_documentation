@@ -33,14 +33,30 @@ Linking to other sites using Intersphinx
 Examples of intersphinx in action
 =================================
 
-Linking to source code
-----------------------
+Links to **source code** can be created as follows:
 
-* Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
+.. code-block:: bash
 
-Linking to documentation pages
-------------------------------
+    Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 
-* Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
+Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 
-* See `the installation page <Installation>`.
+------------
+
+Links to documentation pages:
+
+.. code-block:: bash
+
+    Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
+
+Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
+
+------------
+
+Links to other pages in this documentation:
+
+.. code-block:: bash
+
+    See `the installation page <Installation>`.
+
+See `the installation page <Installation>`.

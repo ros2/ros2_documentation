@@ -127,13 +127,20 @@ KEEP_LAST limits the number of buffered messages to a depth specified by the use
 Only used if the history policy is set to KEEP_LAST.
 The queue depth determines the maximum number of not yet received messages that get buffered on the sender's side before messages start getting dropped.
 
-If you run ``cam2image -h``\ , you'll see the same set of command line options and two extras:
+``-t TOPIC``\ : Topic to use.
+The topic to use (default: image)
+
+If you run ``cam2image -h``\ , you'll see the same set of command line options and some additional ones:
 
 ``-s``\ : Toggle displaying the input camera stream.
 If you run ``cam2image -s`` by itself, you'll see a camera window.
 If you also run ``showimage``\ , you'll see two camera windows.
 
 ``-x`` and ``-y``\ : Set the size of the camera feed (x sets the width, y sets the height).
+
+``-b``\ : Produce images of burgers rather than connecting to a camera
+
+``-f``\ : Publish frequency in Hz. (default: 30)
 
 The default quality of service settings are tuned for maximum reliability: the reliability policy is reliable, and the history policy is "keep all".
 
@@ -169,7 +176,7 @@ We see now that some of the frame on the ``showimage`` side were dropped, the fr
 
 .. image:: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
    :target: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
-   :alt: Best effort image transfer 
+   :alt: Best effort image transfer
 
 
 When you're done, remember to delete the queueing discipline:

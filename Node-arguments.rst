@@ -46,7 +46,7 @@ See `the logging page <logging-command-line-configuration-of-the-default-severit
 Parameters
 ----------
 
-*Parameters are currently only supported for C++ nodes.*
+*Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*
 
 Setting parameters from the command-line is currently supported in the form of yaml files.
 
