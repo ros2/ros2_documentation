@@ -44,9 +44,10 @@ You need the following things installed before installing ROS 2.
 
        # install tinyxml2 for Fast-RTPS
        # currently, the binary installation only supports v6.2
-       # make sure to unlink (or remove) a newer version
-       brew unlink tinyxml2
-       brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/da9a96f093a57eb8ac7c9470c1ec04fd1823a37a/Formula/tinyxml2.rb
+       # make sure remove an existing newer version
+       brew remove tinyxml2
+       brew install osrf/simulation/tinyxml2@6.2.0
+       brew link --force tinyxml2@6.2.0
 
        # install dependencies for robot state publisher
        brew install tinyxml eigen pcre poco
