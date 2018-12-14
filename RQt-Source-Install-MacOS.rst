@@ -1,11 +1,11 @@
-Building RQt from Source on MacOS
+Building RQt from Source on macOS
 =================================
-This page provides specific information to building RQt from source on MacOS.
+This page provides specific information to building RQt from source on macOS.
 Follow these instructions before proceeding with `RQt Source Install <RQt-Source-Install>`_ page.
 
 System Requirements
 -------------------
-RQt is supported on MacOS 10.12, but 10.13 also seems to work.
+RQt is supported on macOS 10.12, but 10.13 also seems to work.
 
 Dependencies
 ------------
