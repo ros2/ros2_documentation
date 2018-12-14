@@ -220,7 +220,10 @@ More info on working with a ROS workspace can be found in `this tutorial <Colcon
 .. code-block:: bash
 
    cd ~/ros2_ws/
+   # On Ubuntu Linux Bionic Beaver 18.04
    colcon build --symlink-install
+   # On Ubuntu Linux Xenial Xerus 16.04
+   colcon build --symlink-install --packages-ignore qt_gui_cpp rqt_gui_cpp
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
