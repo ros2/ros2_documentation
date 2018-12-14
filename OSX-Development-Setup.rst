@@ -171,8 +171,8 @@ See `Working with multiple RMW implementations <Working-with-multiple-RMW-implem
 Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 Bouncy Bolson supports OpenSplice 6.7.
 ROS 2 Crystal Clemmys supports OpenSplice 6.9.
+ROS 2 Bouncy Bolson supports OpenSplice 6.7.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
