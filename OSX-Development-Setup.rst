@@ -168,10 +168,13 @@ When you run the build make sure that your chosen DDS vendor(s) are exposed in y
 When multiple vendors are present, you can choose the used RMW implementation by setting the the environment variable ``RMW_IMPLEMENTATION`` to the package providing the RMW implementation.
 See `Working with multiple RMW implementations <Working-with-multiple-RMW-implementations>` for more details.
 
-Adlink OpenSplice (6.7)
-^^^^^^^^^^^^^^^^^^^^^^^
+Adlink OpenSplice
+^^^^^^^^^^^^^^^^^
 
-To install OpenSplice, download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+ROS 2 Crystal Clemmys supports OpenSplice 6.9.
+ROS 2 Bouncy Bolson supports OpenSplice 6.7.
+
+To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
 Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
 
