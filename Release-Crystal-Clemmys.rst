@@ -1,20 +1,27 @@
 ROS 2 Crystal Clemmys (codename 'crystal'; December 2018)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is a placeholder page for the upcoming ROS 2 release *Crystal Clemmys*!
+*Crystal Clemmys* is the third release of ROS 2.
 
 Supported Platforms
 ^^^^^^^^^^^^^^^^^^^
 
-The platforms supported for this release are still pending, see: https://github.com/ros-infrastructure/rep/pull/177
+Crystal Clemmys is primarily supported on the following platforms.
+See `REP 2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for full details.
 
-Features
-^^^^^^^^
+Tier 1 platforms:
+* Ubuntu 18.04 (Bionic)
+* Mac OS X 10.12 (Sierra)
+* Windows 10
+
+Tier 2 platforms:
+* Ubuntu 16.04 (Xenial)
+
 
 New features in this ROS 2 release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TBD
+* first item goes here
 
 Changes since the Bouncy release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
