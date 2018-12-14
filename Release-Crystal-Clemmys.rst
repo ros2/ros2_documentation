@@ -19,10 +19,20 @@ TBD
 
 Changes since the Bouncy release
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Changes since the `Bouncy Bolson <Release-Bouncy-Bolson>` release:
 
-* first item goes here
+* geometry2 - ``tf2_ros::Buffer`` API Change - 
+   ``tf2_ros::Buffer`` now uses ``rclcpp::Time``, with the constructor requiring a ``shared_ptr`` to a ``rclcpp::Clock`` instance.
+   See https://github.com/ros2/geometry2/pull/67 for details, with example usage::
+   
+    #include <tf2_ros/transform_listener.h>
+    #include <rclcpp/rclcpp.hpp>
+    ...
+    rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
+    tf2_ros::Buffer buffer(clock);
+    tf2_ros::TransformListener tf_listener(buffer);
+
+
 
 Known Issues
 ^^^^^^^^^^^^
