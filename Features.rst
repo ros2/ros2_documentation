@@ -73,9 +73,9 @@ For planned future development, see the `Roadmap <Roadmap>`.
 Beside features of the platform the most impact of ROS comes from its available packages.
 The following are a few high profile packages which are available in the latest release:
 
-* gazebo_ros_packages
-* image_transport
-* navigation2
-* rosbag2
-* RQt
-* rviz2
+* `gazebo_ros_pkgs <https://index.ros.org/r/gazebo_ros_pkgs/>`__
+* `image_transport <https://index.ros.org/r/image_transport>`__
+* `navigation2 <https://index.ros.org/r/navigation2/>`__
+* `rosbag2 <https://index.ros.org/r/rosbag2/>`__
+* `RQt <https://index.ros.org/r/rqt/>`__
+* `RViz2 <https://index.ros.org/r/rviz/>`__
