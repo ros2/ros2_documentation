@@ -94,7 +94,7 @@ Bouncy and earlier:
 .. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
-           libopensplice67
+           libopensplice69
 
 
 RTI Connext

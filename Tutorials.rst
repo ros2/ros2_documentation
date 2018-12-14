@@ -20,6 +20,7 @@ ROS 2 Tutorials
 * `Installation from binary and source, all platforms <Installation>`
 * `Using colcon to build a custom package <Colcon-Tutorial>`
 * `Introspection with command-line tools <Introspection-with-command-line-tools>`
+* `User Interfaces with RQt <RQt-Overview-Usage>`
 * `Passing ROS arguments to nodes via the command-line <Node-arguments>`
 * `Launching/monitoring multiple nodes with Launch <Launch-system>`
 * `Working with multiple RMW implementations <Working-with-multiple-RMW-implementations>`

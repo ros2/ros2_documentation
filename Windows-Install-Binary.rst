@@ -107,7 +107,11 @@ If you would like to use one of the other vendors you will need to install their
 Adlink OpenSplice
 ~~~~~~~~~~~~~~~~~
 
-If you want to use OpenSplice, you will need to `download the latest version <https://github.com/ADLINK-IST/opensplice/releases>`__ (for ROS 2 Bouncy we require at least version 6.7.180404OSS-HDE-x86_64.win-vs2017).
+If you want to use OpenSplice, you will need to download the latest supported version.
+* For ROS 2 Crystal version 6.9.181126OSS-HDE-x86_64.win-vs2017 or later is required.
+* For ROS 2 Bouncy version 6.7.180404OSS-HDE-x86_64.win-vs2017 or later is required.
+
+Download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__
 For ROS 2 releases up to and including Ardent, extract it but do not do anything else at this point.
 For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.bat`` script.
 
@@ -224,7 +228,7 @@ Only do this step **after** you have sourced the ROS 2 setup file:
 
 .. code-block:: bash
 
-   > call "C:\opensplice67\HDE\x86_64.win64\release.bat"
+   > call "C:\opensplice69\HDE\x86_64.win64\release.bat"
 
 Try some examples
 -----------------

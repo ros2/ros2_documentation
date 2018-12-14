@@ -186,7 +186,7 @@ Then run something like the following command before building ROS 2, to set up t
 
 .. code-block:: bash
 
-   call "C:\opensplice67\HDE\x86_64.win64\release.bat"
+   call "C:\opensplice69\HDE\x86_64.win64\release.bat"
 
 where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
 
