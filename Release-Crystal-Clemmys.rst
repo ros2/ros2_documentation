@@ -16,6 +16,7 @@ Tier 1 platforms:
 * Windows 10
 
 Tier 2 platforms:
+
 * Ubuntu 16.04 (Xenial)
 
 
