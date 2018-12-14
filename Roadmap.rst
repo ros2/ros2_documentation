@@ -14,10 +14,10 @@ This is a list of the features targeted for development in the future.
 
 *Subject to change.*
 
-Next release - Crystal Clemmys (December 2018)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Next release - D-turtle (June 2019)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The `Crystal meta ticket <https://github.com/ros2/ros2/issues/529>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+The `D-turtle meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub will in the near future enumerate the ongoing high level tasks as well as references specific tickets with more details.
 
 Future (in no specific order)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -29,8 +29,7 @@ Design / Concept
 * Support for non-ASCII strings in messages / services
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants
-* Python-based launch with stable API, introspectable, optional XML frontend
-* Make ``ament_cmake`` available in ROS 1 and/or ``catkin`` available in ROS 2
+* optional XML or YAML frontend for Python-based launch
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,7 +42,7 @@ Infrastructure and tools
 
 * Documentation
 
-  * Platform for documentation (like wiki.ros.org), allow easy contributions as well as optionally facilitate a review process
+  * Improve documentation platform
   * Support for ``doc`` jobs on the `ROS 2 buildfarm <http://build.ros2.org>`__
   * Consider consolidating with design.ros2.org
   * Provide three different kinds of content:
@@ -58,20 +57,19 @@ New features
 The trailing stars indicate the rough effort: 1 star for small, 2 stars for medium, 3 stars for large.
 
 
-* Expose matched publisher / subscriber count (rather than only based on the topic name) [\*\*]
-
-  * E.g. a best effort publisher and a reliable subscriber, the current API returns 1 subscriber for the topic, so the publisher might do computational intensive work even though no subscriber needs the messages
-  * Querying this information requires a publisher / subscriber handle (against which the matched count is determined)
-  * Requires knowledge of the rmw interface which needs to be extended
+* Actions in Python
 
 * Logging improvements [\* / \*\*]
 
   * Configuration specified in a file
-  * Log to file
-  * Log to ``rosout`` topic
-  * The API has a single callback at the moment, a composition callback could implement the multiple additional "destinations"
-  * Most of the implementation should be done in ``rcl``
   * C++ stream operators
+  * Colorize console output
+
+* Parameters
+
+  * set individual parameters via command line arguments (instead of passing a yaml file)
+  * Specify the value range
+  * Define read-only parameters
 
 * Additional Graph API features [\*\* / \*\*\*]
 
@@ -127,12 +125,6 @@ Port of existing ROS 1 functionality
   * Image pipeline
   * Improvements to the intra process comm. to reduce latency / overhead
 
-* Navigation
-
-  * ``robot_pose_ekf`` or ``robot_localization``
-  * ``move_base``
-  * Working group https://discourse.ros.org/t/ros2-navigation-working-group-kick-off/5559
-
 * MoveIt
 
   * Needs Actions
@@ -140,10 +132,7 @@ Port of existing ROS 1 functionality
 
 * Rqt
 
-  * ``python_qt_binding`` needs support for Python 3 (nothing ROS specific in this package) [\*]
-  * ``rqt_gui`` / ``rqt_gui_cpp`` need to be migrated to use ROS 2 API [\*]
-  * convert each plugin [\* each when dependencies are available]
-  * User-friendly plugin registration
+  * convert more plugins [\* each when dependencies are available]
 
 * Diagnostics
 
