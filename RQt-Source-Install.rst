@@ -39,7 +39,7 @@ As an alternative to the hosted ``.repos`` file you can use ``rosinstall_generat
 
 Install Dependencies
 ~~~~~~~~~~~~~~~~~~~~
-For non-linux platforms, see the `MacOS RQT source install page <RQt-Source-Install-MacOS>`_ or the `Windows 10 RQT source install page <RQt-Source-Install-Windows10>`_ before continuing here.
+For non-Linux platforms, see the `macOS RQt source install page <RQt-Source-Install-MacOS>`_ or the `Windows 10 RQt source install page <RQt-Source-Install-Windows10>`_ before continuing here.
 
 ::
 
@@ -74,7 +74,7 @@ Advanced Colcon usages:
 Source your environment
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Linux or MacOS
+Linux or macOS
 ::
 
    . install/local_setup.bash
