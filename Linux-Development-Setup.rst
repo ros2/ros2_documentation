@@ -100,7 +100,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
 .. _linux-development-setup-install-more-dds-implementations-optional:
 
@@ -120,7 +120,11 @@ PrismTech OpenSplice Debian Packages built by OSRF
 
 .. code-block:: bash
 
+   # For Crystal Clemmys
    sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
+
+   # For Bouncy Bolson
+   sudo apt install libopensplice67  # from packages.ros.org/ros2/ubuntu
 
 Add this to your ``~/.bashrc``
 

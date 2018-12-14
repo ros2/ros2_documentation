@@ -195,38 +195,31 @@ At the same time, every lifecycle node has by default 5 different communication 
 * Service ``<node_name>__get_available_states``\ : This is meant to be an introspection tool. It returns a list of all possible states this node can be. 
 * Service ``<node_name>__get_available_transitions``\ : Same as above, meant to an introspection tool. It returns a list of all possible transitions this node can execute.
 
-lifecycle_service_client_py.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ros2 lifecycle
+^^^^^^^^^^^^^^
 
-The ``lifecycle_service_client`` application is a fixed order script for this demo purpose only. It explains the use and the API calls made for this lifecycle implementation, but may be inconvenient to use otherwise. For this reason, we implemented a separate python script, which lets you dynamically change states or various nodes.
+The ``lifecycle_service_client`` application is a fixed order script for this demo purpose only. It explains the use and the API calls made for this lifecycle implementation, but may be inconvenient to use otherwise. For this reason we implemented a command line tool which lets you dynamically change states or various nodes.
 
-.. code-block:: bash
-
-   $ ros2 run lifecycle lifecycle_service_client_py.py
-   usage: lifecycle_service_client_py.py [-h]
-                                         [--change-state-args {configure,cleanup,shutdown,activate,deactivate}]
-                                         {change_state,get_state,get_available_states,get_available_transitions}
-                                         node
-
-In the case you want to get the current state of the ``lc_talker`` node, you'd call:
+In the case you want to get the current state of the ``lc_talker`` node, you would call:
 
 .. code-block:: bash
 
-   $ ros2 run lifecycle lifecycle_service_client_py.py get_state lc_talker
-   lc_talker is in state unconfigured(1)
+   $ ros2 lifecycle get /lc_talker
+   unconfigured [1]
 
 The next step would be to execute a state change:
 
 .. code-block:: bash
 
-   $ ros2 run lifecycle lifecycle_service_client_py.py change_state --change-state-args configure lc_talker
+   $ ros2 lifecycle set /lc_talker configure
+   Transitioning successful
 
 All of the above commands are nothing else than calling the lifecycle node's services. With that being said, we can also call these services directly with the ros2 command line interface:
 
 .. code-block:: bash
 
-   $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState "{node_name: lc_talker}"
-   requester: making request: lifecycle_msgs.srv.GetState_Request(node_name='lc_talker')
+   $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState 
+   requester: making request: lifecycle_msgs.srv.GetState_Request()
 
    response:
    lifecycle_msgs.srv.GetState_Response(current_state=lifecycle_msgs.msg.State(id=1, label='unconfigured'))
@@ -235,13 +228,17 @@ In order to trigger a transition, we call the ``change_state`` service
 
 .. code-block:: bash
 
-   $ ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{node_name: lc_talker, transition: {id: 2}}"
-   requester: making request: lifecycle_msgs.srv.ChangeState_Request(node_name='lc_talker', transition=lifecycle_msgs.msg.Transition(id=2, label=''))
+   $ ros2 service call /lc_talker/change_state lifecycle_msgs/ChangeState "{transition: {id: 1}}"
+   requester: making request: lifecycle_msgs.srv.ChangeState_Request(transition=lifecycle_msgs.msg.Transition(id=1, label=''))
 
    response:
    lifecycle_msgs.srv.ChangeState_Response(success=True)
 
 It is slightly less convenient, because you have to know the IDs which correspond to each transition. You can find them though in the lifecycle_msgs package.
+
+.. code-block:: bash
+
+   $ ros2 msg show lifecycle_msgs/Transition
 
 Outlook
 -------
