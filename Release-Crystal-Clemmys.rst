@@ -32,6 +32,7 @@ Changes since the `Bouncy Bolson <Release-Bouncy-Bolson>` release:
     tf2_ros::Buffer buffer(clock);
     tf2_ros::TransformListener tf_listener(buffer);
 * All ``rclcpp`` and ``rcutils`` logging macros require semicolons. See https://github.com/ros2/rcutils/issues/113 for details.
+* ``rcutils_get_error_string_safe()`` and ``rcl_get_error_string_safe()`` have been replaced with ``rcutils_get_error_string().str`` and ``rcl_get_error_string().str``. See https://github.com/ros2/rcutils/pull/121 for details.
 
 
 Known Issues
