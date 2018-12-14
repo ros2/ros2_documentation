@@ -130,7 +130,7 @@ The queue depth determines the maximum number of not yet received messages that 
 ``-t TOPIC``\ : Topic to use.
 The topic to use (default: image)
 
-If you run ``cam2image -h``\ , you'll see the same set of command line options and two extras:
+If you run ``cam2image -h``\ , you'll see the same set of command line options and some additional ones:
 
 ``-s``\ : Toggle displaying the input camera stream.
 If you run ``cam2image -s`` by itself, you'll see a camera window.
