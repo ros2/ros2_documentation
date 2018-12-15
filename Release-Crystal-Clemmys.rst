@@ -56,8 +56,8 @@ Changes since the `Bouncy Bolson <Release-Bouncy-Bolson>` release:
     #include <tf2_ros/transform_listener.h>
     #include <rclcpp/rclcpp.hpp>
     ...
-    rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
-    tf2_ros::Buffer buffer(clock);
+    # Assuming you have a rclcpp::Node my_node
+    tf2_ros::Buffer buffer(my_node.get_clock());
     tf2_ros::TransformListener tf_listener(buffer);
 
 * All ``rclcpp`` and ``rcutils`` logging macros require semicolons.
