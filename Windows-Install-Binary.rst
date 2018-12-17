@@ -46,11 +46,7 @@ Run the installer with default parameters. Then, define environment variables (t
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
-
-.. raw:: html
-
-   <details>
-   <summary>Install Visual Studio 2015 if using Ardent or earlier</summary>
+**A. Install Visual Studio 2015 if using Ardent or earlier**
 
    If you already have a paid version of Visual Studio 2015 (Professional, Enterprise), skip this step.
 
@@ -60,23 +56,18 @@ Install Visual Studio
 
    Make sure that the Visual C++ features are installed. First choose 'Custom installation':
 
-   ![Custom installation](http://i.imgur.com/tUcOMOA.png)
+   .. image:: http://i.imgur.com/tUcOMOA.png
 
    Next check Visual C++:
 
-   ![Visual C++](http://i.imgur.com/yWVEUkm.png)
+   .. image:: http://i.imgur.com/yWVEUkm.png
 
    Ensure that the correct features will be installed:
 
-   ![Summary](http://i.imgur.com/VxdbA7G.png)
-   </details>
+   .. image:: http://i.imgur.com/VxdbA7G.png
 
 
-
-.. raw:: html
-
-   <details>
-   <summary>Install Visual Studio 2017 if using Bouncy or a nightly</summary>
+**B. Install Visual Studio 2017 if using Bouncy or a nightly**
 
    If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
 
@@ -85,13 +76,11 @@ Install Visual Studio
    Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
-
+   
    Make sure that the Visual C++ features are installed.
    An easy way to make sure they're installed is to select the `Desktop development with C++` workflow during the install.
 
-   ![Desktop development With C++](https://i.imgur.com/2h0IxCk.png)
-
-   </details>
+   .. image:: https://i.imgur.com/2h0IxCk.png
 
 
 Install additional DDS implementations (optional)
