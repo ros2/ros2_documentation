@@ -1,10 +1,10 @@
 
+Introduction to msg and srv interfaces
+======================================
+
 **INCOMPLETE: this is a draft of an upcoming tutorial for creating and using custom ROS interfaces.**
 
 **Disclaimer: The code provided is to support the explanation, it is likely outdated and should not be expected to compile as is**
-
-Introduction to msg and srv
-===========================
 
 
 * msg: msg files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
@@ -21,7 +21,7 @@ msgs are just simple text files with a field type and field name per line. The f
 
 Here is an example of a msg that uses a string primitive, and two other msgs:
 
-.. code-block:: bash
+::
 
      string child_frame_id
      geometry_msgs/PoseWithCovariance pose
@@ -29,7 +29,7 @@ Here is an example of a msg that uses a string primitive, and two other msgs:
 
 srv files are just like msg files, except they contain two parts: a request and a response. The two parts are separated by a '---' line. Here is an example of a srv file:
 
-.. code-block:: bash
+::
 
    float64 A
    float64 B
@@ -44,11 +44,11 @@ These are just simple examples.
 For more information about how to create msg and srv files please refer to `About ROS Interfaces <../Concepts/About-ROS-Interfaces>`.
 
 Creating a msg package
-======================
+----------------------
 
 **NOTE:** only ament_cmake packages can generate messages currently (not ament_python packages).
 
-For this tutorial we will use the packages stored in the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__
+For this tutorial we will use the packages stored in the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__.
 
 .. code-block:: bash
 
@@ -57,13 +57,13 @@ For this tutorial we will use the packages stored in the `rosidl_tutorials repos
    cd rosidl_tutorials/rosidl_tutorials_msgs
 
 Creating a msg file
--------------------
+^^^^^^^^^^^^^^^^^^^
 
 Here we will create a message meant to carry information about an individual.
 
 Open ``msg/Contact.msg`` and you will see:
 
-.. code-block:: bash
+::
 
    bool FEMALE=true
    bool MALE=false
@@ -83,9 +83,12 @@ This message is composed of 5 fields:
 * age: of type uint8
 * address: of type string
 
-There's one more step, though. We need to make sure that the msg files are turned into source code for C++, Python, and other languages:
+There's one more step, though. We need to make sure that the msg files are turned into source code for C++, Python, and other languages.
 
-Open the ``package.xml``\ , and uncomment these two lines:
+Building msg files
+^^^^^^^^^^^^^^^^^^
+
+Open the ``package.xml``, and uncomment these two lines:
 
 .. code-block:: xml
 
@@ -129,21 +132,24 @@ Also make sure you export the message runtime dependency:
 
 Now you're ready to generate source files from your msg definition.
 
-Creating a srv
-==============
+Creating an srv file
+^^^^^^^^^^^^^^^^^^^^
 
 We will now add a srv declaration to our package.
 
 Open the srv/AddTwoFloats.srv file and paste this srv declaration:
 
-.. code-block:: bash
+::
 
    float64 a
    float64 b
    ---
    float64 sum
 
-Declare the service in the ``CMakeLists.txt``\ :
+Building srv files
+^^^^^^^^^^^^^^^^^^
+
+Declare the service in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
@@ -160,12 +166,12 @@ Modify the existing call to rosidl_generate_interfaces to generate the service i
    )
 
 Using custom messages
-=====================
+---------------------
 
 Using msg/srv from other packages
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's write a C++ node using the Contact.msg we just created.
+Let's write a C++ node using the Contact.msg we created in the previous section.
 
 Go to the rosidl_tutorials package and open the src/publish_contact.cpp file.
 
@@ -224,7 +230,7 @@ Go to the rosidl_tutorials package and open the src/publish_contact.cpp file.
    }
 
 The code explained
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. code-block:: c++
 
@@ -283,7 +289,7 @@ To use this message we need to declare a dependency on rosidl_tutorials_msgs in 
 
      <exec_depend>rosidl_tutorials_msgs</exec_depend>
 
-And also in the ``CMakeLists.txt``\ :
+And also in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
@@ -299,7 +305,7 @@ And finally we must declare the message package as a target dependency for the e
    )
 
 Using msg/srv from the same package
------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While most of the time messages are declared in interface packages, it can be convenient to declare, create and use messages all in the one package.
 
@@ -307,13 +313,13 @@ We will create a message in our rosidl_tutorials package.
 Create a msg directory in the rosidl_tutorials package and AddressBook.msg inside that directory.
 In that msg paste:
 
-.. code-block:: bash
+::
 
    rosidl_tutorials_msgs/Contact[] address_book
 
 As you can see we define a message based on the Contact message we created earlier.
 
-To generate this message we need to declare a dependency on this package in the ``package.xml``\ :
+To generate this message we need to declare a dependency on this package in the ``package.xml``:
 
 .. code-block:: xml
 
@@ -321,7 +327,7 @@ To generate this message we need to declare a dependency on this package in the 
 
      <exec_depend>rosidl_tutorials_msgs</exec_depend>
 
-And in the ``CMakeLists.txt``\ :
+And in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
@@ -410,7 +416,7 @@ Open src/publish_address_book.cpp:
    }
 
 The code explained
-^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~
 
 .. code-block:: c++
 
@@ -493,7 +499,7 @@ Finally send the message periodically.
 Create a 1second timer to call our ``publish_msg`` function every second
 
 Now let's build it!
-We need to create a new target for this node in the ``CMakeLists.txt``\ :
+We need to create a new target for this node in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
 

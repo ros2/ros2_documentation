@@ -1,5 +1,11 @@
 
-**Note: Some people have reported issues about this tutorial. If the steps work for you please leave a comment on https://github.com/ros2/ros2/issues/495 . If they don't then please comment with the first step that didn't work.**
+Building ROS2 on Linux with Eclipse Oxygen [community-contributed]
+==================================================================
+
+.. warning::
+   **Some people have reported issues about this tutorial.
+   If the steps work for you please leave a comment on https://github.com/ros2/ros2/issues/495 .
+   If they don't then please comment with the first step that didn't work.**
 
 This tutorial is based on a clean ubuntu-16.04.2 install and eclipse oxygen with egit. It uses RTI Connext as middleware for Realtime performance. The `original Install page <../Installation/Linux-Development-Setup>` is perhaps more up-to-date, so check it for info.
 

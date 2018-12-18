@@ -1,6 +1,10 @@
 
-Intra-process communication
-===========================
+Efficient intra-process communication
+=====================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 Background
 ----------
@@ -150,7 +154,7 @@ Let's run the demo by executing ``ros2 run intra_process_demo two_node_pipeline`
 One thing you'll notice is that the messages tick along at about one per second.
 This is because we told the timer to fire at about once per second.
 
-Also you may have noticed that the first message (with value ``0``\ ) does not have a corresponding "Received message ..." line.
+Also you may have noticed that the first message (with value ``0``) does not have a corresponding "Received message ..." line.
 This is because publish/subscribe is "best effort" and we do not have any "latching" like behavior enabled.
 This means that if the publisher publishes a message before the subscription has been established, the subscription will not receive that message.
 This race condition can result in the first few messages being lost.
@@ -159,7 +163,7 @@ In this case, since they only come once per second, usually only the first messa
 Finally, you can see that "Published message..." and "Received message ..." lines with the same value also have the same address.
 This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
 This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
-You can also publish and subscribe with ``const &`` and ``std::shared_ptr``\ , but zero-copy will not occur in that case.
+You can also publish and subscribe with ``const &`` and ``std::shared_ptr``, but zero-copy will not occur in that case.
 
 The cyclic pipeline demo
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -304,14 +308,15 @@ First we'll have a pipeline of three nodes, arranged as such: ``camera_node`` ->
 
 The ``camera_node`` reads from camera device ``0`` on your computer, writes some information on the image and publishes it.
 The ``watermark_node`` subscribes to the output of the ``camera_node`` and adds more text before publishing it too.
-Finally, the ``image_view_node`` subscribes to the output of the ``watermark_node``\ , writes more text to the image and then visualizes it with ``cv::imshow``.
+Finally, the ``image_view_node`` subscribes to the output of the ``watermark_node``, writes more text to the image and then visualizes it with ``cv::imshow``.
 
 In each node the address of the message which is being sent, or which has been received, or both, is written to the image.
 The watermark and image view nodes are designed to modify the image without copying it and so the addresses imprinted on the image should all be the same as long as the nodes are in the same process and the graph remains organized in a pipeline as sketched above.
 
-**Note:** On some systems (we've seen it happen on Linux), the address printed to the screen might not change.
-This is because the same unique pointer is being reused.
-In this situation, the pipeline is still running.
+.. note::
+   
+   On some systems (we've seen it happen on Linux), the address printed to the screen might not change.
+   This is because the same unique pointer is being reused. In this situation, the pipeline is still running.
 
 Let's run the demo by executing the following executable:
 
@@ -365,7 +370,7 @@ Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks.
 Pipeline with interprocess viewer
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``\ , and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
+One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
 
 
 .. image:: http://i.imgur.com/MoWRH1u.png

@@ -1,14 +1,14 @@
 
-Rosbag with ROS1 Bridge
-=======================
+Recording and playback of topic data with rosbag using the ROS 1 bridge
+=======================================================================
 
-This tutorial is a follow up to the "Bridge communication between ROS 1 and ROS 2" tutorial linked to from the `Tutorials page on this wiki <../Tutorials>`\ , and this tutorial assumes you have completed that tutorial already.
+This tutorial is a follow up to the *Bridge communication between ROS 1 and ROS 2* demo as can be found listed with the other `demos <../Tutorials>`, and in the following it is assumed you have completed that tutorial already.
 
-The ros1_bridge can either be installed from `packages <../Installation>` or `built from source <https://github.com/ros2/ros1_bridge/blob/master/README#building-the-bridge-from-source>`__\ ; both work for these examples. 
+The ros1_bridge can either be installed from `binary packages <../Installation>` or `built from source <https://github.com/ros2/ros1_bridge/blob/master/README#building-the-bridge-from-source>`__; both work for these examples. 
 
-What follows is a series of additional examples, like that ones that come at the end of the aforementioned "Bridge communication between ROS 1 and ROS 2" tutorial.
+What follows is a series of additional examples, like that ones that come at the end of the aforementioned *Bridge communication between ROS 1 and ROS 2* demo.
 
-Recording Topic Data with rosbag and ROS 1 Bridge
+Recording topic data with rosbag and ROS 1 Bridge
 -------------------------------------------------
 
 In this example, we'll be using the ``cam2image`` demo program that comes with ROS 2 and a Python script to emulate a simple turtlebot-like robot's sensor data so that we can bridge it to ROS 1 and use rosbag to record it.
@@ -56,7 +56,7 @@ TODO: use namespaced topic names
 
 Then we'll run a simple Python script to emulate the ``odom`` and ``imu_data`` topics from a Kobuki base.
 I would use the more accurate ``~sensors/imu_data`` topic name for the imu data, but we don't have namespace support just yet in ROS 2 (it's coming!).
-Place this script in a file called ``emulate_kobuki_node.py``\ :
+Place this script in a file called ``emulate_kobuki_node.py``:
 
 .. code-block:: python
 
@@ -123,7 +123,7 @@ Now that all the data sources and the dynamic bridge are running, we can look at
 
 You should see something like this:
 
-.. code-block:: bash
+::
 
    % rostopic list
    /image
@@ -149,15 +149,15 @@ After a few seconds you can ``Ctrl-c`` the ``rosbag`` command and do an ``ls -lh
 
 Though the file name will be different for your bag (since it is derived from the date and time).
 
-Playing Back Topic Data with rosbag and ROS 1 Bridge
+Playing back topic data with rosbag and ROS 1 Bridge
 ----------------------------------------------------
 
-Now that we have a bag file you can use any of the ROS 1 tools to introspect the bag file, like ``rosbag info <bag file>``\ , ``rostopic list -b <bag file>``\ , or ``rqt_bag <bag file>``.
+Now that we have a bag file you can use any of the ROS 1 tools to introspect the bag file, like ``rosbag info <bag file>``, ``rostopic list -b <bag file>``, or ``rqt_bag <bag file>``.
 However, we can also playback bag data into ROS 2 using ``rosbag play`` and the ROS 1 <=> ROS 2 ``dynamic_bridge``.
 
 First close out all the shells you opened for the previous tutorial, stopping any running programs.
 
-Then in a new shell start the ``roscore``\ :
+Then in a new shell start the ``roscore``:
 
 .. code-block:: bash
 
@@ -208,7 +208,7 @@ Now that the data is being played back and the bridge is running we can see the 
 
 You should see something like:
 
-.. code-block:: bash
+::
 
    % ros2 topic list
    /clock
@@ -221,4 +221,4 @@ You can also see the image being played from the bag by using the ``showimage`` 
 
 .. code-block:: bash
 
-   % ros2 run image_tools showimage
+   ros2 run image_tools showimage

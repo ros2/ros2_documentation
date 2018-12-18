@@ -1,6 +1,10 @@
-Real-Time Programming
-=====================
 
+Real-Time Programming in ROS 2
+==============================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Background
 ----------
@@ -40,12 +44,12 @@ Source your ROS 2 setup.bash.
 
 Run the demo binary, and redirect the output. You may want to use ``sudo`` in case you get permission error:
 
-::
+.. code-block:: bash
 
    pendulum_demo > output.txt
 
 What the heck just happened?
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 First, even though you redirected stdout, you will see some output to the console (from stderr):
 
@@ -96,7 +100,10 @@ To see more output, we have to run the ``pendulum_logger`` node.
 
 In one shell with your ``install/setup.bash`` sourced, invoke:
 
-``pendulum_logger``
+.. code-block:: bash
+
+   pendulum_logger
+
 
 You should see the output message:
 
@@ -130,7 +137,7 @@ After the ``pendulum_demo`` is finished, you'll have to CTRL-C out of the logger
 Latency
 ^^^^^^^
 
-At the ``pendulum_demo`` execution,, you'll see the final statistics collected for the demo:
+At the ``pendulum_demo`` execution, you'll see the final statistics collected for the demo:
 
 ::
 
@@ -176,11 +183,11 @@ However, do NOT set the limit to 99 because then your processes could interfere 
 This demo will attempt to run the control loop at priority 98.
 
 Plotting results
-----------------
+^^^^^^^^^^^^^^^^
 
 You can plot the latency and pagefault statistics that are collected in this demo after the demo runs.
 
-Because the code has been instrumented with `rttest <https://github.com/ros2/rttest>`__\ , there are useful command line tools available to us:
+Because the code has been instrumented with `rttest <https://github.com/ros2/rttest>`__, there are useful command line tools available to us:
 
 -i Specify how many iterations to run the real-time loop.
 Default is 1000.
@@ -194,13 +201,13 @@ Default update period is 1ms.
 
 Run the demo again with the name a file to save results to:
 
-::
+.. code-block:: bash
 
    pendulum_demo -f pendulum_demo_results
 
 Then run the ``rttest_plot`` script on the resulting file:
 
-::
+.. code-block:: bash
 
    rttest_plot pendulum_demo_results
 

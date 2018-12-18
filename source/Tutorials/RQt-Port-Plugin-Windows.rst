@@ -1,5 +1,10 @@
+
 Porting RQt plugins to Windows
 ==============================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 RQt has not been historically supported on Windows, but compatibility is happening, slowly.
 
@@ -18,7 +23,7 @@ Considerations for Windows 10
 -----------------------------
 
 Troubles with TinyXML version 1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 I could not successfully use TinyXML.
 I upgraded to TinyXML-2 where needed.
@@ -27,7 +32,7 @@ It’s a pretty straight forward change.
 Checkout `this PR <https://github.com/ros-visualization/qt_gui_core/pull/147>`__ for an example of porting to TinyXML-2.
 
 Code that uses ``__cplusplus`` and code that requires pluginlib
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In some places, notably in the ROS 2 port of pluginlib, there is use of the ``__cplusplus`` flag.
 Unfortunately on Windows Visual Studio does not set this flag correctly regardless of the C++ standard that is actually being used.
@@ -37,12 +42,12 @@ To set it, you need to add the compile option ``/Zc:__cplusplus``.
 
 For example, in CMake you could do something like this:
 
-::
+.. code-block:: cmake
 
    target_compile_options(${PROJECT_NAME} PUBLIC "/Zc:__cplusplus")
 
 Locations of build artifacts (before install)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This only came up during when building ``qt_gui_cpp``.
 In that package, a custom command depends on a target library in another part of the package.
@@ -61,7 +66,7 @@ The latter will find ``.dll`` files, which cannot be linked against on Windows.
 See an `example here <https://github.com/ros-visualization/qt_gui_core/pull/162/files>`__.
 
 Compiler and linker flags
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In general when porting to Windows, many packages might make use of additional compiler flags.
 You can find the Windows compiler flags on `Microsoft's documentation <https://docs.microsoft.com/en-us/cpp/build/reference/compiler-options-listed-by-category?view=vs-2017>`__.

@@ -1,6 +1,10 @@
 
-Overview
-========
+Using Colcon to build a custom package
+======================================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 This will provide you with a quick summary of how to get up and running using ``colcon`` and a ROS workspace.
 It will be a practical tutorial and is not designed to replace the core documentation.
@@ -19,7 +23,7 @@ Prerequisites
 -------------
 
 Development Environment
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Make sure that you have setup your development environment according to the building-from-source `instructions <../Installation>`.
 
@@ -44,7 +48,7 @@ By default it will create the following directories as peers of the ``src`` dire
 NB: Compared to catkin there is no ``devel`` directory.
 
 Create directory structure
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To make the basic structure in the directory ``~/ros2_ws``\ :
 
@@ -63,7 +67,7 @@ This is the directory structure of ``~/ros2_ws`` that you can expect at this poi
    1 directory, 0 files
 
 Add some sources
-----------------
+^^^^^^^^^^^^^^^^
 
 To start off we need to setup an underlay workspace without any of ROS 2 installed.
 
@@ -103,7 +107,7 @@ This is the directory structure of ``~/ros2_ws`` that you can expect after addin
    51 directories, 1 file
 
 Run the build
--------------
+^^^^^^^^^^^^^
 
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
 This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
@@ -115,7 +119,7 @@ This allows the installed files to be changed by changing the files in the ``sou
 .. _colcon-run-the-tests:
    
 Run the tests
--------------
+^^^^^^^^^^^^^
 
 To run the tests you just built, run the following:
 
@@ -124,7 +128,7 @@ To run the tests you just built, run the following:
    colcon test
 
 Source the environment
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 When colcon has completed building successfully the output will be in the ``install`` directory.
 To use the executables and libraries you need to e.g. add the ``install/bin`` directory to your path.
@@ -140,7 +144,7 @@ The ``local_setup.*`` file is slightly different than the ``setup.*`` file in th
 When using more than one workspace you will still source the ``setup.*`` files to get the environment including all parent workspaces.
 
 Try a demo
-----------
+^^^^^^^^^^
 
 With the environment sourced you can now run executables built by colcon.
 
@@ -166,7 +170,7 @@ colcon uses the same ``package.xml`` specification as defined for catkin in `REP
 You can create your own package inside the ``src`` directory however it is recommended to use an overlay when you are going to iterate only on a few packages.
 
 Create an overlay
------------------
+^^^^^^^^^^^^^^^^^
 
 Let's make a new overlay directory ``~/ros2_overlay_ws``.
 
@@ -175,7 +179,7 @@ Let's make a new overlay directory ``~/ros2_overlay_ws``.
    mkdir -p ~/ros2_overlay_ws/src
    cd ~/ros2_overlay_ws/src
 
-And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__\ :
+And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__:
 
 .. code-block:: bash
 
@@ -200,7 +204,7 @@ If you source ``~/ros2_overlay_ws/install/local_setup.bash`` it will change to r
 If you are returning with a new terminal to your development and want to pick up developing on your overlay you can simply source ``~/ros2_overlay_ws/install/setup.bash`` which will source all parent workspaces environments automatically.
 
 Create your own package
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 You can create your own package.
 The equivalent of ``catkin_create_package`` is available as ``ros2 pkg create``.

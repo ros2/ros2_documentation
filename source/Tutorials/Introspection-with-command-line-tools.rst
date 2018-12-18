@@ -1,6 +1,10 @@
 
-Overview
-========
+Introspection with command line tools
+=====================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system.
 

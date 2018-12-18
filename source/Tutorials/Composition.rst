@@ -2,6 +2,10 @@
 Composing multiple nodes in a single process
 ============================================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 ROS 1 - Nodes vs. Nodelets
 --------------------------
 
@@ -32,7 +36,7 @@ The vision is that a future version of ``ros2 launch`` will support making these
 Writing a Component
 -------------------
 
-Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__\ ).
+Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__).
 A component subclasses from ``rclcpp::Node``.
 Since it is not in control of the thread it shouldn't perform any long running or even blocking tasks in its constructor.
 Instead it can use timers to get periodic notification.
@@ -43,14 +47,14 @@ This makes the component discoverable when its library is being loaded into a ru
 
 .. _composition-using-components:
 
-Using components
+Using Components
 ----------------
 
 The `composition <https://github.com/ros2/demos/tree/master/composition>`__ package contains a couple of different approaches how to use components.
 The two most common ones are:
 
 
-#. You start a generic container process (\ `1 <https://github.com/ros2/demos/blob/master/composition/src/api_composition.cpp>`__\ ) and call the ROS service `load_node <https://github.com/ros2/demos/blob/master/composition/srv/LoadNode.srv>`__ offered by the container.
+#. You start a generic container process (`1 <https://github.com/ros2/demos/blob/master/composition/src/api_composition.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/demos/blob/master/composition/srv/LoadNode.srv>`__ offered by the container.
    The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
    Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/demos/blob/master/composition/src/api_composition_cli.cpp>`__ to invoke the ROS service with the passed command line arguments
 #. You create a `custom executable <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
@@ -123,7 +127,7 @@ Compile-time composition using ROS services (2.)
 This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
 The executable contains all four components from above: talker and listener as well as server and client.
 
-In the shell call (see `source code <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__\ ):
+In the shell call (see `source code <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__):
 
 .. code-block:: bash
 
@@ -136,7 +140,7 @@ Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This demo presents an alternative to 1. by creating a generic container process and pass it explicitly the libraries to load without using ROS interfaces.
-The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/master/composition/src/dlopen_composition.cpp>`__\ ).
+The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/master/composition/src/dlopen_composition.cpp>`__).
 
 **Linux** In the shell call:
 

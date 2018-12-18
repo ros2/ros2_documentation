@@ -1,4 +1,11 @@
 
+Implement a custom memory allocator
+===================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 This tutorial will teach you how to integrate a custom allocator for publishers and subscribers so that the default heap allocator is never called while your ROS nodes are executing.
 The code for this tutorial is available `here <https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__.
 
@@ -20,7 +27,7 @@ The C++11 library provides something called ``allocator_traits``. The C++11 stan
 
 For example, the following declaration for a custom allocator would satisfy ``allocator_traits`` (of course, you would still need to implement the declared functions in this struct):
 
-.. code-block:: bash
+.. code-block:: c++
 
    template <class T>
    struct custom_allocator {
@@ -39,11 +46,11 @@ For example, the following declaration for a custom allocator would satisfy ``al
 
 You could then access other functions and members of the allocator filled in by ``allocator_traits`` like so: ``std::allocator_traits<custom_allocator<T>>::construct(...)``
 
-To learn about the full capabilities of ``allocator_traits``\ , see: http://en.cppreference.com/w/cpp/memory/allocator_traits
+To learn about the full capabilities of ``allocator_traits``, see http://en.cppreference.com/w/cpp/memory/allocator_traits .
 
 However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally. Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
 
-.. code-block:: bash
+.. code-block:: c++
 
    template<typename T>
    struct pointer_traits {
@@ -95,7 +102,7 @@ Writing an example main
 
 Once you have written a valid C++ allocator, you must pass it as a shared pointer to your publisher, subscriber, and executor.
 
-.. code-block:: bash
+.. code-block:: c++
 
      auto alloc = std::make_shared<MyAllocator<void>>();
      auto publisher = node->create_publisher<std_msgs::msg::UInt32>("allocator_example", 10, alloc);
@@ -111,13 +118,13 @@ Once you have written a valid C++ allocator, you must pass it as a shared pointe
 
 You will also need to use your allocator to allocate any messages that you pass along the execution codepath.
 
-.. code-block:: bash
+.. code-block:: c++
 
      auto alloc = std::make_shared<MyAllocator<void>>();
 
 Once you've instantiated the node and added the executor to the node, it's time to spin:
 
-.. code-block:: bash
+.. code-block:: c++
 
      uint32_t i = 0;
      while (rclcpp::ok()) {
@@ -135,7 +142,7 @@ Even though we instantiated a publisher and subscriber in the same process, we a
 
 The IntraProcessManager is a class that is usually hidden from the user, but in order to pass a custom allocator to it we need to expose it by getting it from the rclcpp Context. The IntraProcessManager makes use of several standard library structures, so without a custom allocator it will call the default new.
 
-.. code-block:: bash
+.. code-block:: c++
 
      auto context = rclcpp::contexts::default_context::get_global_default_context();
      auto ipm_state =
@@ -155,7 +162,7 @@ The obvious thing to do would be to count the calls made to your custom allocato
 
 Adding counting to the custom allocator is easy:
 
-.. code-block:: bash
+.. code-block:: c++
 
      T * allocate(size_t size, const void * = 0) {
        // ...
@@ -171,7 +178,7 @@ Adding counting to the custom allocator is easy:
 
 You can also override the global new and delete operators:
 
-.. code-block:: bash
+.. code-block:: c++
 
    void operator delete(void * ptr) noexcept {
      if (ptr != nullptr) {

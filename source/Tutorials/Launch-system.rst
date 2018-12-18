@@ -1,6 +1,9 @@
 
-The ROS 2 Launch System
-=======================
+Launching/monitoring multiple nodes with Launch
+===============================================
+
+ROS 2 launch system
+-------------------
 
 The launch system in ROS 2 is responsible for helping the user describe the configuration of their system and then execute it as described.
 The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS specific conventions which make it easy to reuse components throughout the system by giving them each different configurations.

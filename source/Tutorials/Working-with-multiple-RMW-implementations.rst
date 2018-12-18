@@ -2,12 +2,16 @@
 Working with multiple ROS 2 middleware implementations
 ======================================================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page explains the default RMW implementation and how to specify an alternative.
 
 Pre-requisites
 --------------
 
-You should have already read the `DDS and ROS middleware implementations <../Concepts/DDS-and-ROS-middleware-implementations>` page.
+You should have already read the `DDS and ROS middleware implementations page <../Concepts/DDS-and-ROS-middleware-implementations>`.
 
 Multiple RMW implementations
 ----------------------------

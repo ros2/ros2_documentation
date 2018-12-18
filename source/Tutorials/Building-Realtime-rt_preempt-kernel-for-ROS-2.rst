@@ -1,7 +1,10 @@
 
-This Tutorial begins with a clean ubuntu 16.04.2 install. Actual kernel is 4.13.0-38-generic, but we will install another one.
+Building Realtime Linux for ROS 2 [community-contributed]
+=========================================================
 
-If you are a company or rich person :) using rt_preempt, check https://wiki.linuxfoundation.org/realtime/rtl/blog#preempt-rt-history 
+This tutorial begins with a clean Ubuntu 16.04.2 install. Actual kernel is 4.13.0-38-generic, but we will install another one.
+
+If you are a company or rich person :) using rt_preempt, check https://wiki.linuxfoundation.org/realtime/rtl/blog#preempt-rt-history .
 
 Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 4.9-rt. If we click on the link, we get the exact version, it is patch-4.9.84-rt62.patch.gz 
 

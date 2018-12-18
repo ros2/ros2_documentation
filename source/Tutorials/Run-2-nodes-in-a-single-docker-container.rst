@@ -1,4 +1,7 @@
 
+Running 2 nodes in a single docker container [community-contributed]
+====================================================================
+
 Pull the ROS2 docker image with tag "ardent-basic".
 
 .. code-block:: bash
@@ -37,7 +40,7 @@ E.g. list all executables:
    (you will see a list of <package> <executable>)
 
 
-Run a minimal example of 2 C++ nodes (1 topic subscriber ``listener``\ , 1 topic publisher ``talker``\ ) from the package ``demo_nodes_cpp`` in this container.
+Run a minimal example of 2 C++ nodes (1 topic subscriber ``listener``, 1 topic publisher ``talker``) from the package ``demo_nodes_cpp`` in this container:
 
 .. code-block:: bash
 

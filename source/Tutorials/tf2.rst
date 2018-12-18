@@ -4,7 +4,7 @@ Using tf2 with ROS 2
 
 There is preliminary support for `tf2 <http://wiki.ros.org/tf2>`__ in ROS 2. We rely heavily on tf2 in ROS 1 to manage data about coordinate transforms, and we expect to continue to use extensively in ROS 2.
 
-Here's how to try it out. In each shell, be sure to start by sourcing the ROS 2 setup file as usual (e.g. on Linux ``. ~/ros2_ws/install/setup.bash`` or on Windows ``call C:\dev\ros2\install\setup.bat``\ ).
+Here's how to try it out. In each shell, be sure to start by sourcing the ROS 2 setup file as usual (e.g. on Linux ``. ~/ros2_ws/install/setup.bash`` or on Windows ``call C:\dev\ros2\install\setup.bat``).
 
 Publishing transform data
 -------------------------
@@ -21,7 +21,7 @@ That tool will publish a static transform from the parent frame ``foo`` to the c
 Receiving transform data
 ------------------------
 
-Now we can check whether it's possible to receive that transform data with ``tf2_echo``\ :
+Now we can check whether it's possible to receive that transform data with ``tf2_echo``:
 
 .. code-block:: bash
 

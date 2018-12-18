@@ -1,17 +1,15 @@
-Eclipse Oxygen with ROS 2 and rviz2
 
-Table of Content
-""""""""""""""""
+Eclipse Oxygen with ROS 2 and rviz2 [community-contributed]
+===========================================================
 
-
-#. `Setup`_
-#. `Eclipse-indexer`_
-#. `Debugging with eclipse`_
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
 Setup
 -----
 
-We have installed eclipse Oxygen and git. eclipse-git (Egit) is already installed (http://www.eclipse.org/egit/download/)
+We have installed eclipse Oxygen and git. eclipse-git (Egit) is already installed (http://www.eclipse.org/egit/download/).
 
 We call the eclipse-workspace the same name as the ros2 package. This is not needed.
 

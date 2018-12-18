@@ -1,11 +1,17 @@
-**As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the `colcon tutorial <Colcon-Tutorial>`.**
-The current default branch as well as releases after Bouncy do not include ``ament_tools`` anymore.
 
-Overview
-========
+Using Ament
+===========
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 This will provide you with a quick summary of how to get up and running using an ament workspace.
 It will be a practical tutorial and is not designed to replace the core documentation.
+
+.. warning::
+   **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the `colcon tutorial <Colcon-Tutorial>`.**
+   The current default branch as well as releases after Bouncy do not include ``ament_tools`` anymore.
 
 Background
 ----------
@@ -19,7 +25,7 @@ Prerequisites
 -------------
 
 Development Environment
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Make sure that you have setup your development environment according to the building-from-source `instruction <../Installation>`.
 
@@ -40,9 +46,9 @@ The ``install`` directory is where each package will be installed to.
 NB: Compared to catkin there is no ``devel`` directory.
 
 Create directory structure
---------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To make the basic structure in the directory ``~/ros2_ws``\ :
+To make the basic structure in the directory ``~/ros2_ws``:
 
 .. code-block:: bash
 
@@ -59,7 +65,7 @@ This is the directory structure of ``~/ros2_ws`` that you can expect at this poi
    1 directory, 0 files
 
 Add some sources
-----------------
+^^^^^^^^^^^^^^^^
 
 To start off we need to setup an underlay without any of ROS2 installed.
 
@@ -101,7 +107,7 @@ This is the directory structure of ``~/ros2_ws`` that you can expect after addin
    51 directories, 1 file
 
 Run the build
--------------
+^^^^^^^^^^^^^
 
 Since this is a bootstrap environment we need to call ament.py by its full path.
 
@@ -115,7 +121,7 @@ This allows the installed files to be changed by changing the files in the ``sou
    src/ament/ament_tools/scripts/ament.py build --build-tests --symlink-install
 
 Run the tests
--------------
+^^^^^^^^^^^^^
 
 To run the tests you just built, with the ``--build-tests`` option above, run the following:
 
@@ -123,14 +129,14 @@ To run the tests you just built, with the ``--build-tests`` option above, run th
 
    src/ament/ament_tools/scripts/ament.py test
 
-If you have built (and installed) a workspace before including the tests (using ``build --build-tests``\ ) you can skip the build and install step to speed up the process:
+If you have built (and installed) a workspace before including the tests (using ``build --build-tests``) you can skip the build and install step to speed up the process:
 
 .. code-block:: bash
 
    src/ament/ament_tools/scripts/ament.py test --skip-build --skip-install
 
 Source the environment
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 When ament has completed building successfully the output will be in the ``install`` directory.
 To use the executables and libraries you need to e.g. add the ``install/bin`` directory to your path.
@@ -146,7 +152,7 @@ The ``local_setup.*`` file is slightly different than the ``setup.*`` file in th
 When using more than one workspace you will still source the ``setup.*`` files to get the environment including all parent workspaces.
 
 Try a demo
-----------
+^^^^^^^^^^
 
 With the environment sourced you can now run executables built by ament.
 
@@ -172,7 +178,7 @@ Ament uses the same ``package.xml`` specification as defined for catkin in `REP 
 You can create your own package inside the ``src`` directory however it is recommended to use an overlay when you are going to iterate only on a few packages.
 
 Create an overlay
------------------
+^^^^^^^^^^^^^^^^^
 
 Now that you have setup your bootstrap underlay you will also find ``ament`` is on your path.
 
@@ -183,7 +189,7 @@ Lets make a new overlay directory ``~/ros2_overlay_ws``.
    mkdir -p ~/ros2_overlay_ws/src
    cd ~/ros2_overlay_ws/src
 
-And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__\ :
+And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__:
 
 .. code-block:: bash
 
@@ -208,7 +214,7 @@ If you source ``~/ros2_overlay_ws/install/local_setup.bash`` it will change to r
 If you are returning with a new terminal to your development and want to pick up developing on your overlay you can simply source ``~/ros2_overlay_ws/install/setup.bash`` which will source all parent workspaces environments automatically.
 
 Create your own package
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 You can create your own package.
 The equivalent of ``catkin_create_package`` will be ported to ament but is not available yet.
@@ -236,6 +242,7 @@ Tips
 
 
 * If you want to run a single particular test from a package:
+     
   .. code-block:: bash
 
      ament test --only-packages YOUR_PKG_NAME --ctest-args -R YOUR_TEST_IN_PKG

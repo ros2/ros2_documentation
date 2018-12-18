@@ -1,6 +1,11 @@
 
-Overview
-========
+Passing ROS arguments to nodes via the command-line
+===================================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 
 All ROS nodes take a set of arguments that allow various properties to be reconfigured.
 Examples include configuring the name/namespace of the node, topic/service names used, and parameters on the node.
@@ -21,8 +26,8 @@ See `this design doc <http://design.ros2.org/articles/static_remapping.html>`__ 
 Example
 ^^^^^^^
 
-The following invocation will cause the ``talker`` node to be started under the node name ``my_talker``\ , publishing on the topic named ``my_topic`` instead of the default of ``chatter``.
-The namespace, which must start with a forward slash, is set to ``/demo``\ , which means that topics are created in that namespace (\ ``/demo/my_topic``\ ), as opposed to globally (\ ``/my_topic``\ ).
+The following invocation will cause the ``talker`` node to be started under the node name ``my_talker``, publishing on the topic named ``my_topic`` instead of the default of ``chatter``.
+The namespace, which must start with a forward slash, is set to ``/demo``, which means that topics are created in that namespace (``/demo/my_topic``), as opposed to globally (``/my_topic``).
 
 .. code-block:: bash
 
@@ -41,7 +46,7 @@ For example, the following will pass the remapping arguments to the specified no
 Logger configuration
 --------------------
 
-See `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
+See ``__log_level`` argument usage in `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
 
 Parameters
 ----------
