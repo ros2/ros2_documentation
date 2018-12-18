@@ -1,6 +1,9 @@
 
-ROS Interfaces
-==============
+About ROS 2 Interfaces
+======================
+
+.. contents:: Table of Contents
+   :local:
 
 1. Background
 -------------
@@ -204,7 +207,9 @@ For example:
    string FOO="foo"
    string EXAMPLE='bar'
 
-Note: Constants names have to be UPPERCASE
+.. note::
+
+   Constants names have to be UPPERCASE
 
 3. Service Description Specification
 ------------------------------------

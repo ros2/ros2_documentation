@@ -1,4 +1,10 @@
 
+About ROS2 client libraries
+===========================
+
+.. contents:: Table of Contents
+   :local:
+
 Overview
 --------
 
@@ -23,7 +29,7 @@ For example, here is a list of functionality that can typically be accessed thro
 Supported client libraries
 --------------------------
 
-The C++ client library (\ ``rclcpp``\ ) and the Python client library (\ ``rclpy``\ ) are both client libraries which utilize common functionality in the RCL.
+The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both client libraries which utilize common functionality in the RCL.
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community have created additional client libraries:
 

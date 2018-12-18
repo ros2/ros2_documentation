@@ -1,4 +1,10 @@
 
+Overview of ROS 2 Concepts
+==========================
+
+.. contents:: Table of Contents
+   :local:
+
 ROS is a middleware based on an anonymous publish/subscribe mechanism that allows for message passing between different ROS processes.
 
 At the heart of any ROS 2 system is the ROS graph.

@@ -1,16 +1,15 @@
 
-About ROS 2
-===========
+ROS 2 Concepts 
+==============
 
 .. toctree::
-   :hidden:
-   :glob:
+   :maxdepth: 1
 
-   Concepts/*
+   Concepts/Overview-of-ROS-2-concepts
+   Concepts/DDS-and-ROS-middleware-implementations
+   Concepts/About-Quality-of-Service-Settings
+   Concepts/About-ROS-Interfaces
+   Concepts/ROS-2-Client-Libraries
+   Concepts/Logging
 
-* `Overview of ROS 2 concepts <Concepts/Overview-of-ROS-2-concepts>`
-* `DDS and ROS middleware implementations <Concepts/DDS-and-ROS-middleware-implementations>`
-* `ROS 2 Client Libraries <Concepts/ROS-2-Client-Libraries>`
-* `About ROS interfaces <Concepts/About-ROS-Interfaces>`
-* `About Quality of Service Settings <Tutorials/About-Quality-of-Service-Settings>`
-* `Releasing a ROS 2 package with bloom <Tutorials/Releasing-a-ROS-2-package-with-bloom>`
+See also http://docs.ros2.org/ for ROS 2 high level documentation.

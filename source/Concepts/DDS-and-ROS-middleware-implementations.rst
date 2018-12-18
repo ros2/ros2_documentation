@@ -17,7 +17,7 @@ In order to use a DDS/RTPS implementation with ROS 2, a "\ **R**\ OS **M**\ iddl
 It's a lot of work to implement and maintain RMW packages for supporting DDS implementations, but supporting at least a few implementations is important for ensuring that the ROS 2 codebase is not tied to any one particular implementation, as users may wish to switch out implementations depending on their project's needs.
 
 Supported RMW implementations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------
 
 .. list-table::
    :header-rows: 1
@@ -50,4 +50,4 @@ Supported RMW implementations
 
 *"Partial support" means that one or more of the features required by the rmw interface is not implemented.*
 
-For practical information on working with multiple RMW implementations, see the `Working with multiple RMW implementations <../Tutorials/Working-with-multiple-RMW-implementations>` page.
+For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../Tutorials/Working-with-multiple-RMW-implementations>` tutorial.
