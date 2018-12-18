@@ -1,6 +1,10 @@
 
-ROS 2 Roadmap
-=============
+Roadmap
+=======
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 For more information on the design of ROS 2 please see `design.ros2.org <http://design.ros2.org>`__.
 The core code for ROS 2 is on the `ros2 github organization <https://github.com/ros2>`__.
@@ -15,7 +19,7 @@ This is a list of the features targeted for development in the future.
 *Subject to change.*
 
 Next release - D-turtle (June 2019)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The `D-turtle meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub will in the near future enumerate the ongoing high level tasks as well as references specific tickets with more details.
 
@@ -25,7 +29,6 @@ Future (in no specific order)
 Design / Concept
 ~~~~~~~~~~~~~~~~
 
-
 * Support for non-ASCII strings in messages / services
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants
@@ -33,7 +36,6 @@ Design / Concept
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 * Building
 
@@ -119,7 +121,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 Port of existing ROS 1 functionality
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 * Perception metapackage
 
   * Image pipeline
@@ -130,7 +131,7 @@ Port of existing ROS 1 functionality
   * Needs Actions
   * Moveit Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
 
-* Rqt
+* RQt
 
   * convert more plugins [\* each when dependencies are available]
 
@@ -138,7 +139,6 @@ Port of existing ROS 1 functionality
 
 Reducing Technical Debt
 ~~~~~~~~~~~~~~~~~~~~~~~
-
 
 * Extend testing and resolve bugs in the current code base
 

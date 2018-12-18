@@ -1,7 +1,6 @@
 
-ROS 2 Features Status
-=====================
-
+Features Status
+===============
 
 The features listed below are available in the current ROS 2 release.
 Unless otherwise specified, the features are available for all supported platforms (Ubuntu 18.04, OS X 10.12.x, Windows 10), DDS implementations (eProsima Fast RTPS, RTI Connext and ADLINK Opensplice) and programming language client libraries (C++ and Python).
@@ -65,7 +64,7 @@ For planned future development, see the `Roadmap <Roadmap>`.
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__
      -
    * - Preliminary support for real-time code
-     - `Demo <Tutorials/Real-Time-Programming>`\ , `demo <Tutorials/Allocator-Template-Tutorial>`
+     - `Demo <Tutorials/Real-Time-Programming>`, `demo <Tutorials/Allocator-Template-Tutorial>`
      - Linux only. Not available for Fast RTPS.
    * - Preliminary support for "bare-metal" microcontrollers
      - `Wiki <https://github.com/ros2/freertps/wiki>`__

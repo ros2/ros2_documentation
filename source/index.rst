@@ -49,7 +49,7 @@ ROS 2 is under heavy development.
 
 You can check out the `tutorials page <Tutorials>` to see a range of examples of what the system can do in its current state, if it fits your project *today* depending on the exact requirement.
 
-For details of the current features, see `Features <Features>`.
+For details of the current features, see `features status page <Features>`.
 
 If migrating code from ROS to ROS 2, check `the migration guide <Contributing/Migration-Guide>`.
 
