@@ -1,19 +1,21 @@
 
-Beta 1 (codename Asphalt; December 2016)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Beta 1 (codename 'Asphalt'; December 2016)
+==========================================
 
-Welcome to the latest release of ROS 2 software! We hope that you try it out and provide feedback.
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Supported Platforms
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 We support ROS 2 Beta 1 on three platforms: Ubuntu 16.04 (Xenial), Mac OS X 10.11 (El Capitan), and Windows 8.1 and 10. We provide both binary packages and instructions for how to compile from source for all 3 platforms.
 
 Features
-^^^^^^^^
+--------
 
-Improvements since the Alpha 8 release:
-
+Improvements since Alpha 8 release
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Support for node composition at compile, link, or runtime.
 * A standard lifecycle for managed nodes.
@@ -22,7 +24,10 @@ Improvements since the Alpha 8 release:
 * More `tutorials <../Tutorials>` and `examples <https://github.com/ros2/examples>`__
 * Bridging services to / from ROS1 (in addition to topics)
 
-Selected features from previous Alpha releases (for the complete list, see the `earlier release notes <../Releases>`\ ):
+Selected features from previous Alpha releases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For the complete list, see `earlier release notes <../Releases>`.
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
@@ -49,8 +54,8 @@ Selected features from previous Alpha releases (for the complete list, see the `
   * Bounded arrays
   * Default values
 
-Known issues:
-
+Known issues
+^^^^^^^^^^^^
 
 * We’re tracking issues in various repositories, but the main entry point is the `ros2/ros2 issue tracker <https://github.com/ros2/ros2/issues>`__
 * We’d like to highlight a `known issue <https://github.com/ros2/rmw_fastrtps/issues/81>`__ that we are working with eProsima to fix that results in significantly degrated performance for large messages under FastRTPS.

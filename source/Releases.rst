@@ -2,8 +2,10 @@
 ROS 2 Releases
 ==============
 
+Summary
+-------
+
 A summary of releases of ROS 2 software is listed below.
-For more details about each release, see the corresponding release overview.
 
 .. toctree::
    :hidden:
@@ -31,11 +33,13 @@ For more details about each release, see the corresponding release overview.
    * - `alpha1-8 <Releases/Alpha-Overview>`
      - 31 August 2015 - 4 October 2016
 
+For more details about each release, see the corresponding release overview.
+       
 Release practices
 -----------------
 
 Core packages
-~~~~~~~~~~~~~
+^^^^^^^^^^^^^
 
 New ROS 2 distributions are currently released every 6 months.
 During the release process, Open Robotics packages what is in the `ros2.repos
@@ -53,10 +57,9 @@ While we do aim to keep the API as stable as possible, 100% API compatibility is
 Internal notes on how a release is made: `Release-Howto <Releases/Release-Howto>`
 
 External packages
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
-Packages outside of the `ros2.repos
-file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__ may be released by community members into a ROS 2 distribution.
+Packages outside of the `ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`__ may be released by community members
+into a ROS 2 distribution.
 This is currently supported for Linux Debian packages, following `these instructions <Tutorials/Releasing-a-ROS-2-package-with-bloom>`.
 These packages can be released at any time during the lifecycle of a ROS 2 distribution.
-

@@ -1,13 +1,17 @@
 
 ROS 2 Bouncy Bolson (codename 'bouncy'; June 2018)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+==================================================
 
-Welcome to the latest release of ROS 2 software named *Bouncy Bolson*\ !
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+*Bouncy Bolson* is the second release of ROS 2.
 
 Supported Platforms
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
-This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.ros.org/reps/rep-2000.html#bouncy-bolson-june-2018-june-2019>`__\ ):
+This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.ros.org/reps/rep-2000.html#bouncy-bolson-june-2018-june-2019>`__ for full details):
 
 
 * Ubuntu 18.04 (Bionic)
@@ -21,13 +25,13 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.
 * Mac OS X 10.12 (Sierra)
 * Windows 10 with Visual Studio 2017
 
-Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/bouncy/>`__\ ).
+Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/bouncy/>`__).
 
 Features
-^^^^^^^^
+--------
 
 New features in this ROS 2 release
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 * `New launch system <../Tutorials/Launch-system>` featuring a much more capable and flexible Python API.
@@ -46,7 +50,7 @@ New features in this ROS 2 release
 For an overview of all features available, including those from earlier releases, please see the `Features <../Features>` page.
 
 Changes since the Ardent release
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
 
@@ -62,7 +66,7 @@ Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
 * The argument order of `this rclcpp::Node::create_subscription() signature <http://docs.ros2.org/bouncy/api/rclcpp/classrclcpp_1_1_node.html#a283fb006c46470cf43a4ae5ef4a16ccd>`__ has been modified.
 
 Known Issues
-^^^^^^^^^^^^
+------------
 
 
 * New-style launch files `may hang on shutdown <https://github.com/ros2/launch/issues/89>`__ for some combinations of platform and RMW implementation.
