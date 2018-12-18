@@ -48,7 +48,7 @@ I ran into trouble with Qt 5.11.3 and PyQt5 compiling QtNfc, but it can be easil
 
 ::
 
-   python3 --disable QtNfc
+   python3 configure.py --disable QtNfc
    nmake
    nmake install
 
