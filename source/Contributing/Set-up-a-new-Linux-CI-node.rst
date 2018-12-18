@@ -1,8 +1,15 @@
 
+How to setup Linux Jenkins nodes
+================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 This page describes how to set up a linux machine for ROS2 CI jobs using AWS.
 
 Creating an AWS instance
-========================
+------------------------
 
 In short, use the company AWS account to launch an instance running based off the official Ubuntu 16.04 AMI.
 
@@ -20,7 +27,7 @@ Give the instance a descriptive name like ``ROS2 CI (linux 4)``.
 Record the ip address `here <https://docs.google.com/spreadsheets/d/1OSwqbE3qPF8v3HSMr8JOaJ6r4QOiQFk6pwgaudXVE-4/edit#gid=0>`__ (private).
 
 Setting up the machine
-======================
+----------------------
 
 In short, make sure the jenkins master can ssh into the new node and run docker.
 
@@ -70,7 +77,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
          vim .ssh/authorized_keys
 
 Adding it to the master
-=======================
+-----------------------
 
 
 #. Add a new agent to http://ci.ros2.org/computer/

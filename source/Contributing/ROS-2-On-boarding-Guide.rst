@@ -106,7 +106,7 @@ The usual workflow is (this list is a work in progress):
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see `colcon tutorial <../Tutorials/Colcon-Tutorial>`\ )
+* Run tests locally using ``colcon test`` (see `colcon tutorial <../Tutorials/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org
@@ -116,7 +116,7 @@ The usual workflow is (this list is a work in progress):
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
-* If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__\ )
+* If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
   * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
 
@@ -236,4 +236,4 @@ There several categories of jobs on the buildfarm:
 Learning ROS2 concepts at a high level
 --------------------------------------
 
-All ROS2 design documents are available at http://design.ros2.org/ and there is some generated documentation at http://docs.ros2.org/
+All ROS2 design documents are available at http://design.ros2.org/ and there is some generated documentation at http://docs.ros2.org/.

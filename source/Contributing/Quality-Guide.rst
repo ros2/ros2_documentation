@@ -1,4 +1,7 @@
 
+Quality Guide: Ensuring code quality
+====================================
+
 This section tries to give guidance about how to improve the software quality of ROS2 packages. The guide uses a pattern language based approach to improve the readers experience ("read little, understand fast, understand much, apply easily").
 
 **What this sections is about:**
@@ -18,12 +21,11 @@ This section tries to give guidance about how to improve the software quality of
 **Relation to other sections:**
 
 
-* The `Design Guide <Design-Guide>` summarizes design patterns for ROS2 packages. As quality is highly impacted by design it is a good idea to have a look into there before.
+* The `Design Guide <Design-Guide>` summarizes design patterns for ROS2 packages. As quality is highly impacted by design it is a good idea to have a look into it before.
 * The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these consideration may have an impact on single or several quality attributes.
 
 Patterns
 --------
-
 
 * Static code analysis
 
@@ -36,7 +38,7 @@ Patterns
 
   * (referencing of generic unit test patterns like from `xUnitPatterns <http://xunitpatterns.com/Book%20Outline%20Diagrams.html>`__ with references to C++ gtest+gmock/Python unittest implementations)
   * (ROS2 specific unit test use cases)
-  * Property based test (C++ `RapidCheck <https://github.com/emil-e/rapidcheck>`__ / Python `hypothesis <https://github.com/HypothesisWorks/hypothesis-python>`__\ )
+  * Property based test (C++ `RapidCheck <https://github.com/emil-e/rapidcheck>`__ / Python `hypothesis <https://github.com/HypothesisWorks/hypothesis-python>`__)
   * Code coverage analysis
 
 * ROS2 node unit test
@@ -46,13 +48,13 @@ Patterns
 Static code analysis as part of the ament package build
 -------------------------------------------------------
 
-**Context**\ :
+**Context**:
 
 
 * You have developed your C++ production code.
 * You have created a ROS2 package with build support with ``ament``.
 
-**Problem**\ :
+**Problem**:
 
 
 * Library level static code analysis is not run as part of the package build procedure.
@@ -60,13 +62,13 @@ Static code analysis as part of the ament package build
 * Risk of forgetting to execute library level static code analysis before building
   a new package version.
 
-**Solution**\ :
+**Solution**:
 
 
 * Use the integration capabilities of ``ament`` to execute static code analysis as
   part of the package build procedure.
 
-**Implementation**\ :
+**Implementation**:
 
 
 * Insert into the packages ``CMakeLists.txt`` file.
@@ -94,20 +96,20 @@ Static code analysis as part of the ament package build
      ...
    </package>
 
-**Examples**\ :
+**Examples**:
 
 
-* ``rclcpp``\ :
+* ``rclcpp``:
 
   * `rclcpp/rclcpp/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/master/rclcpp/CMakeLists.txt>`__
   * `rclcpp/rclcpp/package.xml <https://github.com/ros2/rclcpp/blob/master/rclcpp/package.xml>`__
 
-* ``rclcpp_lifecycle``\ :
+* ``rclcpp_lifecycle``:
 
   * `rclcpp/rclcpp_lifecycle/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/master/rclcpp_lifecycle/CMakeLists.txt>`__
   * `rclcpp/rclcpp_lifecycle/package.xml <https://github.com/ros2/rclcpp/blob/master/rclcpp_lifecycle/package.xml>`__
 
-**Resulting context**\ :
+**Resulting context**:
 
 
 * The static code analysis tools supported by ``ament`` are run as part of the package build.
@@ -141,8 +143,8 @@ Dynamic analysis (data races & deadlocks)
 
 * Compile and link the production code with clang using the option ``-fsanitize=thread`` (this instruments the production code).
 * In case different production code shall be executed during anaylsis consider conditional compilation e.g. `ThreadSanatizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
-* In case some code shall not be instrumented consider `ThreadSanatizers _/\ *attribute*\ /_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
-* In case some files shall not be instrumented consider file or function level exclusion `ThreadSanatizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__\ , more specific: `ThreadSanatizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanatizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
+* In case some code shall not be instrumented consider `ThreadSanatizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
+* In case some files shall not be instrumented consider file or function level exclusion `ThreadSanatizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__, more specific: `ThreadSanatizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanatizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
 
 **Resulting context:**
 

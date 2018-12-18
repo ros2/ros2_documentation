@@ -1,10 +1,14 @@
 Build Cop and Build Farmer Guide
 ================================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page covers two rotating developer roles we have on the ROS 2 team, the build cop and the build farmer.
 These two roles are related, but subtly different.
 
-The build cop is responsible for monitoring our `Continuous Integration (CI) server <http://ci.ros2.org/>`__ to make sure our `"nightly" jobs <http://ci.ros2.org/view/nightly/>`__ and `"packaging" jobs <http://ci.ros2.org/view/packaging/>`__ to not accumulate new regressions.
+The build cop is responsible for monitoring our `Continuous Integration (CI) server <http://ci.ros2.org/>`__ to make sure our `"nightly" jobs <http://ci.ros2.org/view/nightly/>`__ and `"packaging" jobs <http://ci.ros2.org/view/packaging/>`__ do not accumulate new regressions.
 This allows us to build on relatively stable `"ci" (or "manual") jobs <http://ci.ros2.org/>`__ when checking to see if a new feature or bug fix introduces any new regressions.
 
 The build farmer, on the other hand, is responsible for ensuring that `the machines that run all of our CI jobs <http://ci.ros2.org/computer/>`__ are up, running, and up-to-date, so that they are available for other developers to check their pull requests.
@@ -27,7 +31,7 @@ If you are becoming the next build cop or build farmer you should:
 
   * https://github.com/ros2/build_cop
 
-* Talk with the previous build cop or build farmer about on-going issues
+* Talk with the previous build cop and/or build farmer about on-going issues
 * Update the description of the main view on Jenkins to the current date and your name:
 
   * http://ci.ros2.org/
@@ -108,7 +112,7 @@ New Failure Actions
 In each case different actions should be taken by the build cop:
 
 
-* Trivial failure should be fixed by the Build Cop right away
+* Trivial failure should be fixed by the Build Cop right away:
 
   * Pushed on a branch
   * Tested on CI
@@ -198,7 +202,7 @@ Build Farmer Tasks
     * Removing the error message in the status column
     * Update the date next to it
 
-* Once investigation is finished: clean the machine: close all your windows, stash or remove any local changes
+* Once investigation is finished, clean the machine: close all your windows, stash or remove any local changes
 
   * Rationale
 
@@ -209,9 +213,9 @@ Build Farmer Tasks
 * Use the existing logbook to put together an FAQ or best practice to rescue nodes
 
 How to Investigate a Failing Node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If the node failed to build: look at the console output of the failing build;
+If the node failed to build, look at the console output of the failing build:
 
 
 * Click on the link of the failing job received by email or go to ci.ros2.org and click on the number (e.g. #2345) next to the failing job(red icon).
@@ -236,7 +240,7 @@ If you need to access a machine:
     * This will change after we set up a team account to manage servers.
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~
 
 If a node goes off-line:
 
@@ -258,11 +262,11 @@ This is due to the Jenkins slave session caching the environment variables to so
 
 On the Windows machines, the Jenkins slave program runs as a service as the System account.
 For this user, the "home" directory seems to be ``C:\Windows\system32\config\systemprofile``.
-You can "become" the system user to debug stuff by downloading ``pxexec``\ :
+You can "become" the system user to debug stuff by downloading ``pxexec``:
 
 https://technet.microsoft.com/en-us/sysinternals/pxexec
 
-Then you extract the zip, then open a command-prompt as administrator, and then run: ``psexec -i -s cmd.exe``
+Then you extract the zip, then open a command-prompt as administrator, and then run ``psexec -i -s cmd.exe``.
 
 This is all pieced together from a couple of pages here:
 
@@ -279,13 +283,12 @@ Every so often the router reboots. The mac machines usually don’t reconnect to
 Resources
 ^^^^^^^^^
 
+.. toctree::
+   :titlesonly:
 
-* `How to setup the Jenkins master <CI-Server-Setup>`.
-* `How to setup Linux Jenkins nodes <Set-up-a-new-Linux-CI-node>`.
-* `How to setup a macOS Jenkins node <Set-up-a-new-macOS-CI-node>`.
+   CI-Server-Setup
+   Set-up-a-new-Linux-CI-node
+   Set-up-a-new-macOS-CI-node
+   Set-up-a-new-Windows-CI-node
 
-  * `Old instructions for macOS Jenkins node setup <https://docs.google.com/a/osrfoundation.org/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit?usp=sharing>`_
 
-* `How to setup a Windows Jenkins node <Set-up-a-new-Windows-CI-node>`.
-
-  * `Old instructions Windows Jenkins node setup <https://docs.google.com/a/osrfoundation.org/document/d/1SmmWa7MVnwjmMw9XJF33-fsa0dtkYj2AeEXBa8BCsYs/edit?usp=sharing>`_

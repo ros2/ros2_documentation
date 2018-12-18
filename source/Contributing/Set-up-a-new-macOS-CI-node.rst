@@ -1,18 +1,24 @@
 
-Note: Last installed/updated on 2017-11-20 (Mac OS 10.13.1 High Sierra) and see `this older (private) document for previous instructions <https://docs.google.com/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit>`_.
+How to setup a macOS Jenkins node
+=================================
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
+.. note::
 
-----
+   Last installed/updated on 2017-11-20 (Mac OS 10.13.1 High Sierra) and see `this older (private) document for previous instructions <https://docs.google.com/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit>`_.
+
 
 Install macOS High Sierra
-^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------
 
 Install: APFS case-sensitive
 Post-install: No Siri, no location services, no cloud anything, no analytics, no filevault disk encryption.
 
 Setup SSH/VNC for Remote Access
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 Make sure you don't use too long of a password.
 That makes VNC auth fail in bizarre ways.
@@ -38,8 +44,8 @@ In particular, VNC auth limits you to 8 characters.
   * uncheck "Require password after 5 minutes" box
   * uncheck "Disable automatic login"
 
-ROS 2 CI Host Setup
-^^^^^^^^^^^^^^^^^^^
+Host Setup
+----------
 
 Install XCode tools:
 
@@ -60,19 +66,19 @@ Install ``ssh-askpass`` via homebrew
    $ brew tap theseal/ssh-askpass
    $ brew install ssh-askpass
 
-create ``~/.bash_profile`` with this one line:
+Create ``~/.bash_profile`` with this one line:
 
 .. code-block:: bash
 
    . ~/.bashrc
 
-create ``~/.bashrc`` with one line:
+Create ``~/.bashrc`` with one line:
 
 .. code-block:: bash
 
    export ROS_DOMAIN_ID=XXX  # where XXX is chosen from this document
 
-set up dummy git names:
+Set up dummy git names:
 
 .. code-block:: bash
 
@@ -80,7 +86,7 @@ set up dummy git names:
    $ git config --global user.name "HOSTNAME"
 
 Install ROS 2 Dependencies
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+--------------------------
 
 Install them according to `our install instructions <../Installation/OSX-Development-Setup>`.
 
@@ -92,7 +98,7 @@ Including:
 * the optional RTI Connext and OpenSplice packages
 * everything but downloading the source and building ROS 2 (unless you want to do so for testing the setup)
 
-rqt dependencies
+RQt dependencies
 ~~~~~~~~~~~~~~~~
 
 * ``brew install sip pyqt5``
@@ -133,7 +139,7 @@ RTI Connext Specific Instructions
   * Do not bother to reboot yet.
 
 Setting up the Jenkins Workspace and Agent
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------------
 
 .. code-block:: bash
 

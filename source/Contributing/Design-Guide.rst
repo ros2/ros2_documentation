@@ -1,6 +1,9 @@
 
+Design Guide: Common patterns in ROS 2
+======================================
+
 Composable nodes as shared libraries
-====================================
+------------------------------------
 
 **Context**
 
@@ -9,17 +12,17 @@ You want to export composable nodes as a shared libraries from some packages and
 **Solution**
 
 
-* add code to the CMake file which imports the actual targets in downstream packages
+* Add code to the CMake file which imports the actual targets in downstream packages
 
-  * install the generated file
-  * export the generated file
+  * Install the generated file
+  * Export the generated file
 
 **Example**
 
 `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
 
 FastRTPS large data transfer
-============================
+----------------------------
 
 **Context**
 
@@ -31,11 +34,11 @@ DDS/RTPS uses UDP with a maximum message size of 64k
 
 **Solution**
 
-configure the middleware that it fragements large data into messages
+Configure the middleware that it fragements large data into messages
 
 **Implementation**
 
-use Asynchronous publication mode:
+Use Asynchronous publication mode:
 
 .. code-block:: bash
 
@@ -46,12 +49,11 @@ use Asynchronous publication mode:
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
 FastRTPS Best Effort Video Streaming
-====================================
+------------------------------------
 
 **Context**
 
-You want to transfer video streams and provide up to date data. It is ok to loose
-some packages.
+You want to transfer video streams and provide up to date data. It is ok to loose some packages.
 
 **Problem**
 
@@ -65,9 +67,8 @@ mechanism) and prioritize the last frame.
 
 **Implementation**
 
-
-* configure "best effort" reliability mechanism
-* configure Quality of service history to keep last frame
+* Configure "best effort" reliability mechanism
+* Configure Quality of service history to keep last frame
 
 .. code-block:: bash
 
@@ -83,7 +84,7 @@ mechanism) and prioritize the last frame.
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
 FastRTPS Reliable Video Streaming
-=================================
+---------------------------------
 
 **Context**
 
@@ -95,10 +96,9 @@ Use a reliable communication mechanism. Use fast response by writer and reader.
 
 **Implementation**
 
-
-* configure "reliable" reliability mechanism
-* configure NACK reponse delay and suppression duration of writer to 0
-* configure heartbeat response delay of reader to 0
+* Configure "reliable" reliability mechanism
+* Configure NACK reponse delay and suppression duration of writer to 0
+* Configure heartbeat response delay of reader to 0
 
 .. code-block:: bash
 

@@ -1,4 +1,7 @@
 
+MISRA Compliance Guide
+======================
+
 This section tries to give guidance about how to integrate ROS2 into a system that is intended to be compliant with the MISRA (Motor Industry Software Reliability Association) guidelines.
 
 **What this section is about:**
@@ -29,7 +32,7 @@ From `MISRA <https://www.misra.org.uk/Activities/MISRAC/tabid/160/Default.aspx>`
    MISRA was originally established as a collaboration between vehicle manufacturers, component suppliers and engineering consultancies, and seeks to promote best practice in developing safety-related electronic systems in road vehicles and other embedded systems. To this end MISRA publishes documents that provide accessible information for engineers and management, and holds events to permit the exchange of experiences between practitioners.
 
 
-MISRA publishes a set of guidelines for both C and C++ that define a subset of the languages that are likely to be free from important programming mistakes for safety-critical systems. The MISRA guidelines are used as a component of `various software standards <https://en.wikipedia.org/wiki/MISRA_C#Adoption>`__\ , such as:
+MISRA publishes a set of guidelines for both C and C++ that define a subset of the languages that are likely to be free from important programming mistakes for safety-critical systems. The MISRA guidelines are used as a component of `various software standards <https://en.wikipedia.org/wiki/MISRA_C#Adoption>`__, such as:
 
 
 * `ISO 26262 <https://en.wikipedia.org/wiki/ISO_26262>`__ - "Road Vehicles - Functional Safety"

@@ -2,26 +2,11 @@
 ROS 2 Developer Guide
 =====================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page defines the practices and policies we employ when developing ROS 2.
-
-Table of Contents
------------------
-
-
-* `General Principles`_
-* `General Practices`_
-* `Language Versions and Code Format`_
-
-  * `C`_
-  * `C++`_
-  * `Python`_
-  * `CMake`_
-  * `Markdown`_
-
-* `Testing`_
-* `Versioning`_
-* `Filesystem Layout`_
-* `Documentation`_
 
 General Principles
 ------------------
@@ -29,11 +14,11 @@ General Principles
 Some principles are common to all ROS 2 development:
 
 
-* **Shared ownership**\ : Everybody working on ROS2 should feel ownership over all parts of the system.
+* **Shared ownership**: Everybody working on ROS2 should feel ownership over all parts of the system.
   The original author of a chunk of code does not have any special permission or obligation to control or maintain that chunk of code.
   Everyone is free to propose changes anywhere, to handle any type of ticket, and to review any pull request.
-* **Be willing to work on anything**\ : As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
-* **Ask for help**\ : If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
+* **Be willing to work on anything**: As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
+* **Ask for help**: If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
 
 General Practices
 -----------------
@@ -50,22 +35,21 @@ When filing an issue please make sure to:
   - **The operating system and version.** Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
   - **The installation method.** Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians. This can help us determine if the issue is with the packaging process.
   - **The specific version of ROS 2.** Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed. It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used;** see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
+  - **The DDS/RMW implementation being used** (see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to determine which one). Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
   - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
-    
+
 - Include a list of steps to reproduce the issue.
 - In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__. Issues are much more likely to be resolved if others can reproduce them easily.
 - Mention troubleshooting steps that have been tried already, including:
-  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. Select "building from source" on `this page <building-from-source>` and follow the instructions to get the "master" branches.
+  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. See `this section <building-from-source>` and follow the instructions to get the "master" branches.
   - Trying with a different RMW implementation. See `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Pull requests
 ^^^^^^^^^^^^^
 
-
 * A pull request should only focus on one change.
   Separate changes should go into separate pull requests.
-  See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__
+  See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
 * A patch should be minimal in size and avoid any kind of unnecessary changes.
 * Always run CI jobs for all platforms for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
@@ -87,7 +71,6 @@ Pull requests
 Development Process
 ^^^^^^^^^^^^^^^^^^^
 
-
 * The default branch (in most cases the master branch) must always build, pass all tests and compile without warnings.
   If at any time there is a regression it is the top priority to restore at least the previous state.
 * Always build with tests enabled.
@@ -97,7 +80,6 @@ Development Process
 
 Changes to RMW API
 ^^^^^^^^^^^^^^^^^^
-
 
 When updating `RMW API <https://github.com/ros2/rmw>`__, it is required that RMW implementations for the Tier 1 middleware libraries are updated as well.
 For example, a new function ``rmw_foo()`` introduced to the RMW API must be implemented in the following packages (as of ROS Crystal):
@@ -117,31 +99,28 @@ The data produced and edited via waffle.io are stored in the underlying GitHub o
 
 Here's how we're using the columns in the board:
 
-
-* **Backlog**\ : cards (issues) that nobody is yet working on.
+* **Backlog**: cards (issues) that nobody is yet working on.
   Their order in the backlog is an approximate indicator of priority, with cards higher in the column having higher priority.
-* **Ready**\ : cards on which work will be started very soon.
+* **Ready**: cards on which work will be started very soon.
   Cards in this column should have an owner assigned.
   Cards should not sit in this column for more than a few days.
-* **In Progress**\ : cards on which work is currently in progress.
+* **In Progress**: cards on which work is currently in progress.
   Cards in this column must have an owner assigned.
   Cards should not sit in this column for more than a week.
   When it is determined that a card will take longer, break it up into multiple cards and put the extras in the backlog.
-* **In Review**\ : cards for which the work is done and the relevant pull request/s is/are ready for review.
+* **In Review**: cards for which the work is done and the relevant pull request/s is/are ready for review.
   Cards remain in this column during review, but if review uncovers significant extra work to be done, move the card into an earlier column as appropriate.
-* **Done**\ : cards for which the work is done, meaning that the relevant pull request/s has/have been merged.
+* **Done**: cards for which the work is done, meaning that the relevant pull request/s has/have been merged.
   This column shows recently completed cards, for informational purposes only.
 
 Tips for working with the kanban board:
 
-
-* Requesting permission to make changes: Simply comment on specific tickets that you want to work on it. Depending on the complexity it might be useful to describe how you want to address it. We will update the status (if you don't have the permission) and you can start working on a pull request. If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
-* Using markup to connect issues and pull requests: see the waffle.io FAQ: https://github.com/waffleio/waffle.io/wiki/FAQs#prs-connect-keywords
-* Doing equivalent things outside waffle.io, directly via GitHub: The column a card is in is determined by the label. The first and last column do not require a specific label. For the other column a label with the same name can be assigned.
+* Requesting permission to make changes. Simply comment on specific tickets that you want to work on it. Depending on the complexity it might be useful to describe how you want to address it. We will update the status (if you don't have the permission) and you can start working on a pull request. If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
+* Using markup to connect issues and pull requests (see the `waffle.io FAQ <https://github.com/waffleio/waffle.io/wiki/FAQs#prs-connect-keywords>`__).
+* Doing equivalent things outside waffle.io, directly via GitHub. The column a card is in is determined by the label. The first and last column do not require a specific label. For the other column a label with the same name can be assigned.
 
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
-
 
 * Defensive programming: ensure that assumptions are held as early as possible.
   E.g. check every return code and make sure to at least throw an exception until the case is handled more gracefully.
@@ -152,9 +131,9 @@ Programming conventions
 C++ specific
 ~~~~~~~~~~~~
 
-
-* Avoid using direct streaming (\ ``<<``\ ) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
+* Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
 * Avoid using references for ``std::shared_ptr`` since that subverts the reference counting. If the original instance goes out of scope and the reference is being used it accesses freed memory.
+
 
 Language Versions and Code Format
 ---------------------------------
@@ -165,19 +144,22 @@ For other things like package layout or documentation layout we will need to com
 Additionally, where ever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
 For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
 
-Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`__\ ).
+Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`__).
 
-C
+C 
 ^
+
+Standard
+~~~~~~~~
+
 
 We will target C99.
 
-We will use Python's PEP7 for our C style guide, with some modifications and additions:
+Style
+~~~~~
 
-http://legacy.python.org/dev/peps/pep-0007/
 
-Some modifications and additions:
-
+We will use `Python's PEP7 <http://legacy.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
 
 * We will target C99, as we do not need to support C89 (as PEP7 recommends)
 
@@ -191,48 +173,50 @@ Some modifications and additions:
 
 All of the following modifications only apply if we are not writing Python modules:
 
-
 * Do not use ``Py_`` as a prefix for everything
 
-  * Instead use a CamelCase version of the package name or other appropriate prefix
+  * instead use a CamelCase version of the package name or other appropriate prefix
 
 * The stuff about documentation strings doesn't apply
 
-We can use the ``pep7`` python module for style checking:
-
-https://github.com/mike-perdide/pep7
-
-The editor integration seems slim, we may need to look into automated checking for C in more detail.
+We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
 
 C++
 ^^^
 
+
+Standard
+~~~~~~~~
+
+
 We will target C++14, using new built-in C++14 features over Boost equivalents where ever possible.
 
-We will use the Google C++ Style Guide, with some modifications:
+Style
+~~~~~
 
-https://google.github.io/styleguide/cppguide.html
+
+We will use the `Google C++ Style Guide <https://google.github.io/styleguide/cppguide.html>`__, with some modifications:
 
 Line Length
-~~~~~~~~~~~
+"""""""""""
 
 
-* Line Length: our maximum line length is 100 characters.
+* Our maximum line length is 100 characters.
 
 Variable Naming
-~~~~~~~~~~~~~~~
+"""""""""""""""
 
-
-* Global variables: use lowercase with underscores prefixed with ``g_``
+* For global variables use lowercase with underscores prefixed with ``g_``
 
   * rationale: keep variable naming case consistent across the project
   * rationale: easy to tell the scope of a variable at a glance
   * consistency across languages
 
 Function and Method Naming
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""""
 
-* Name style: Google style guide says ``CamelCase``, but the C++ std library's style of ``snake_case`` is also allowed
+
+* Google style guide says ``CamelCase``, but the C++ std library's style of ``snake_case`` is also allowed
 
   * rationale: ROS 2 core packages currently use ``snake_case``
 
@@ -252,10 +236,10 @@ Function and Method Naming
     * Note that classes should still use ``CamelCase`` by default
 
 Access Control
-~~~~~~~~~~~~~~
+""""""""""""""
 
 
-* Access Control: drop requirement for all class members to be private and therefore require accessors
+* Drop requirement for all class members to be private and therefore require accessors
 
   * rationale: this is overly constraining for user API design
   * we should prefer private members, only making them public when they are needed
@@ -263,7 +247,7 @@ Access Control
   * we should have a good reason for allowing direct member access, other than because it is convenient for us
 
 Exceptions
-~~~~~~~~~~
+""""""""""
 
 
 * Exceptions are allowed
@@ -278,19 +262,19 @@ Exceptions
   * rationale: most of our dependencies in code we intend to wrap in C do not use exceptions anyways
 
 Function-like Objects
-~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""
 
 
 * No restrictions on Lambda's or ``std::function`` or ``std::bind``
 
 Boost
-~~~~~
+"""""
 
 
 * Boost should be avoided until absolutely required
 
 Comments and Doc Comments
-~~~~~~~~~~~~~~~~~~~~~~~~~
+"""""""""""""""""""""""""
 
 
 * Use ``///`` and ``/** */`` comments for *documentation* purposes and ``//`` style comments for notes and general comments
@@ -301,24 +285,24 @@ Comments and Doc Comments
   * Descriptions of how the code works or notes within classes and functions should use ``//`` style comments
 
 Pointer Syntax Alignment
-~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""
 
 
 * Use ``char * c;`` instead of ``char* c;`` or ``char *c;`` because of this scenario ``char* c, *d, *e;``
 
 Class Privacy Keywords
-~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""
 
 
-* Do not put 1 space before ``public:``\ , ``private:``\ , or ``protected:``\ , it is more consistent for all indentions to be a multiple of 2
+* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentions to be a multiple of 2
 
   * rationale: most editors don't like indentions which are not a multiple of the (soft) tab size
-  * Use zero spaces before ``public:``\ , ``private:``\ , or ``protected:``\ , or 2 spaces
+  * Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2 spaces
   * If you use 2 spaces before, indent other class statements by 2 additional spaces
-  * Prefer zero spaces, i.e. ``public:``\ , ``private:``\ , or ``protected:`` in the same column as the class
+  * Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in the same column as the class
 
 Nested Templates
-~~~~~~~~~~~~~~~~
+""""""""""""""""
 
 
 * Never add whitespace to nested templates
@@ -326,24 +310,24 @@ Nested Templates
   * Prefer ``set<list<string>>`` (C++11 feature) to ``set<list<string> >`` or ``set< list<string> >``
 
 Always Use Braces
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 
 
-* Always use braces following ``if``\ , ``else``\ , ``do``\ , ``while``\ , and ``for``\ , even when the body is a single line.
+* Always use braces following ``if``, ``else``, ``do``, ``while``, and ``for``, even when the body is a single line.
 
   * rationale: less opportunity for visual ambiguity and for complications due to use of macros in the body
 
 Open Versus Cuddled Braces
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+""""""""""""""""""""""""""
 
 
-* Use open braces for ``function``\ , ``class``\ , and ``struct`` definitions, but cuddle braces on ``if``\ , ``else``\ , ``while``\ , ``for``\ , etc...
+* Use open braces for ``function``, ``class``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
 
-  * Exception: when an ``if`` (or ``while``\ , etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
+  * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
+* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
 
-  * Same goes for ``if`` (and ``while``\ , etc.) conditions that are too long to fit on one line.
+  * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
 
 Examples
 """"""""
@@ -386,7 +370,7 @@ This is OK:
      fooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,
      bar, bat);
 
-Bad:
+This is **not** OK:
 
 .. code-block:: c++
 
@@ -401,9 +385,9 @@ Bad:
    }
 
 
-* Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
+Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
 
-OK:
+This is OK:
 
 .. code-block:: c++
 
@@ -425,7 +409,7 @@ OK:
      ...
    }
 
-Bad, weird (the google way?):
+This is **not** OK, even weird (the google way?):
 
 .. code-block:: c++
 
@@ -446,12 +430,11 @@ Bad, weird (the google way?):
    }
 
 Linters
-~~~~~~~
+"""""""
 
-Most of these styles and restrictions can be checked with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__\ , though we may need to modify them slightly for our above changes.
+Most of these styles and restrictions can be checked with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__, though we may need to modify them slightly for our above changes.
 
 We provide command line tools with custom configurations:
-
 
 * `ament_cpplint <https://github.com/ament/ament_lint/blob/master/ament_cpplint/doc/index.rst>`__
 * `ament_uncrustify <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
@@ -459,26 +442,30 @@ We provide command line tools with custom configurations:
 We also run other tools to detect and eliminate as many warnings as possible.
 Here's a non-exhaustive list of additional things we try to do on all of our packages:
 
-
 * use compiler flags like ``-Wall -Wextra -Wpedantic``
-* run static code analysis like ``cppcheck``, which we have integrated in `ament_cppcheck <https://github.com/ament/ament_lint/blob/master/ament_cppcheck/doc/index.rst>`__
+* run static code analysis like ``cppcheck``, which we have integrated in `ament_cppcheck <https://github.com/ament/ament_lint/blob/master/ament_cppcheck/doc/index.rst>`__.
 
 Python
 ^^^^^^
 
+Version
+~~~~~~~
+
 We will target Python 3 for our development.
+
+Style
+~~~~~
 
 We will use the `PEP8 guidelines <http://legacy.python.org/dev/peps/pep-0008/>`_ for code format.
 
 We chose the following more precise rule where PEP 8 leaves some freedom:
 
-
-* `We allow up to 100 character per line (fifth paragraph) <http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length>`_
-* `We pick single quotes over double quotes as long as no escaping is necessary <http://legacy.python.org/dev/peps/pep-0008/#string-quotes>`_
+* `We allow up to 100 character per line (fifth paragraph) <http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
+* `We pick single quotes over double quotes as long as no escaping is necessary <http://legacy.python.org/dev/peps/pep-0008/#string-quotes>`_.
 
 Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
-The pep8 configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pep8/ament_pep8/configuration/ament_pep8.ini>`__
+The pep8 configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pep8/ament_pep8/configuration/ament_pep8.ini>`__.
 
 Integration with editors:
 
@@ -490,24 +477,31 @@ Integration with editors:
 CMake
 ^^^^^
 
+Version
+~~~~~~~
+
 We will target CMake 3.5.
+
+Style
+~~~~~
 
 Since there is not an existing CMake style guide we will define our own:
 
-
-* Use lowercase keywords (functions and macros)
-* Use empty ``else()`` and ``end...()`` commands
-* No whitespace before ``(``\ 's
-* Use two spaces of indention, do not use tabs
+* Use lowercase keywords (functions and macros).
+* Use empty ``else()`` and ``end...()`` commands.
+* No whitespace before ``(``\ 's.
+* Use two spaces of indention, do not use tabs.
 * Do not use aligned indentation for parameters of multi-line macro invocations. Use two spaces only.
-* Prefer functions with ``set(PARENT_SCOPE)`` to macros
-* When using macros prefix local variables with ``_`` or a reasonable prefix
+* Prefer functions with ``set(PARENT_SCOPE)`` to macros.
+* When using macros prefix local variables with ``_`` or a reasonable prefix.
 
 Markdown
 ^^^^^^^^
 
-The following rules to format the markdown syntax is intended to increase readability as well as versioning.
+Style
+~~~~~
 
+The following rules to format the markdown syntax is intended to increase readability as well as versioning.
 
 * Each section title should be preceded by one empty line and succeeded by one empty line.
 
@@ -531,22 +525,25 @@ Javascript
 
 *(Speculative, not yet used)*
 
+Version
+~~~~~~~
+
 We will target Javascript 1.5, which seems to provide the best balance of support in browsers and languages (node.js) and new features.
 
-We will use the airbnb Javascript Style guide:
+Style
+~~~~~
 
-https://github.com/airbnb/javascript
+We will use the `airbnb Javascript Style guide <https://github.com/airbnb/javascript>`__.
 
-The above repository comes with a ``jshintrc`` file which allows the style to be enforced using ``jshint``.
-Editor integration for ``jshint`` include ``vim``\ , ``emacs``\ , ``Sublime Text``\ , and others:
+The repository referred to above comes with a ``jshintrc`` file which allows the style to be enforced using ``jshint``.
 
-http://www.jshint.com/install/
+Editor integration for ``jshint`` include ``vim``, ``emacs``, ``Sublime Text``, and others can be found `here <http://www.jshint.com/install/>`__.
 
 Testing
 -------
 
 All packages should have some level of tests.
-Tests can be broken down into three main categories, System tests, Integration tests, and Unit tests.
+Tests can be broken down into three main categories: System tests, Integration tests, and Unit tests.
 
 Unit tests should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
 Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
@@ -573,12 +570,10 @@ Versioning
 
 *(Planned; not yet used)*
 
-We will use the Semantic Versioning guidelines for versioning:
-
-http://semver.org/
+We will use the `Semantic Versioning guidelines <http://semver.org/>`__ for versioning.
 
 Anything below version ``1.0.0`` is free to make changes at will and for most of our near-term development this will be the case.
-In general though for versions less than ``1.0.0`` we should increment the ``minor`` (as ``major.minor.patch``\ ) when we break existing API and increment ``patch`` for anything else.
+In general though for versions less than ``1.0.0`` we should increment the ``minor`` (as ``major.minor.patch``) when we break existing API and increment ``patch`` for anything else.
 
 Another part of adhering to the Semantic Versioning guidelines is that every package must declare a public API.
 The declaration for most C and C++ packages is simple, it is any header that it installs, but it is acceptable to define a set of symbols which are considered private.
@@ -594,39 +589,39 @@ This keeps library and package versions from diverging and shares reasoning with
 If you need libraries to have different versions then consider splitting them into different packages.
 
 Filesystem Layout
-^^^^^^^^^^^^^^^^^
+-----------------
 
 The filesystem layout of packages and repositories should follow the same conventions in order to provide a consistent experience for users browsing our source code.
 
 Package layout
-~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^
 
 
-* ``src``\ : contains all C and C++ code
+* ``src``: contains all C and C++ code
 
   * Also contains C/C++ headers which are not installed
 
-* ``include``\ : contains all C and C++ headers which are installed
+* ``include``: contains all C and C++ headers which are installed
 
-  * ``<package name>``\ : for all C and C++ installed headers they should be folder namespaced by the package name
+  * ``<package name>``: for all C and C++ installed headers they should be folder namespaced by the package name
 
-* ``<package_name>``\ : contains all Python code
-* ``test``\ : contains all automated tests and test data
-* ``doc``\ : contains all the documentation
+* ``<package_name>``: contains all Python code
+* ``test``: contains all automated tests and test data
+* ``doc``: contains all the documentation
 * ``package.xml``: as defined by `REP-0140 <http://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
-* ``CMakeLists.txt``\ : only ROS packages which use CMake
-* ``setup.py``\ : only ROS packages which use Python code only
-* ``README``\ : README which can be rendered on Github as a landing page for the project
+* ``CMakeLists.txt``: only ROS packages which use CMake
+* ``setup.py``: only ROS packages which use Python code only
+* ``README``: README which can be rendered on Github as a landing page for the project
 
   * This can be as short or detailed as is convenient, but it should at least link to project documentation
   * Consider putting a CI or code coverage tag in this readme
   * It can also be ``.rst`` or anything else that Github supports
 
-* ``LICENSE``\ : A copy of the license or licenses for this package
-* ``CHANGELOG.rst``\ : `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
+* ``LICENSE``: A copy of the license or licenses for this package
+* ``CHANGELOG.rst``: `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
 
 Repository layout
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 Each package should be in a subfolder which has the same name as the package.
 If a repository contains only a single package it can optionally be in the root of the repository.
@@ -641,14 +636,13 @@ Documentation
 
 All packages should have these documentation elements:
 
-
 * Description and purpose
 * Definition and description of the public API
 * Examples
 * How to build and install (should reference external tools/workflows)
 * How to build and run tests
 * How to build documentation
-* How to develop (useful for describing things like ``python setup.py develop``\ )
+* How to develop (useful for describing things like ``python setup.py develop``)
 
 Each package should describe itself and its purpose or how it is used in the larger scope.
 The description should be written, as much as possible, assuming that the reader has stumbled onto it without previous knowledge of ROS or other related projects.
@@ -660,10 +654,9 @@ It should be easy to take any package and from that package's documentation unde
 Obviously we should avoid repeating ourselves for common workflows, like build a package in a workspace, but the basic workflows should be either described or referenced.
 
 Finally, it should include any documentation for developers.
-This might include workflows for testing the code using something like ``python setup.py develop``\ , or it might mean describing how to make use of extension points provided by you package.
+This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by you package.
 
 Examples:
-
 
 * capabilities: http://docs.ros.org/hydro/api/capabilities/html/
 
@@ -673,12 +666,6 @@ Examples:
 
   * This is an example of describing an extension point for a package
 
-Best Practices
-^^^^^^^^^^^^^^
-
-See `the design guide <Design-Guide>`
-
-See `the quality guide <Quality-Guide>`.
 
 Package Categories
 ------------------

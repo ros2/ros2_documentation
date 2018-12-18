@@ -2,21 +2,10 @@
 Contributing to ROS 2
 =====================
 
-.. toctree::
-   :hidden:
-   :glob:
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
 
-   Contributing/*
-
-* `ROS 2 On boarding Guide <Contributing/ROS-2-On-boarding-Guide>`
-* `Developer Guide <Contributing/Developer-Guide>`
-* `Design Guide <Contributing/Design-Guide>`
-* `MISRA Compliance Guide <Contributing/MISRA-Compliance-Guide>`
-* `Migration Guide <Contributing/Migration-Guide>`
-* `Quality Guide <Contributing/Quality-Guide>`
-* `Build Cop & Build Farmer Guide <Contributing/Build-Cop-and-Build-Farmer-Guide>`
-* `Inter-Sphinx Support <Contributing/Inter-Sphinx-Support>`
-  
 There are a number of ways you can contribute to the ROS 2 project.
 
 Design discussions
@@ -44,6 +33,23 @@ Setting up your development environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To get started, you'll want to install from source; follow `the source installation instructions <building-from-source>` for your platform.
+
+Development Guides
+^^^^^^^^^^^^^^^^^^
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   Contributing/ROS-2-On-boarding-Guide
+   Contributing/Developer-Guide
+   Contributing/Design-Guide
+   Contributing/Quality-Guide
+   Contributing/MISRA-Compliance-Guide
+   Contributing/Build-Cop-and-Build-Farmer-Guide
+   Contributing/Migration-Guide
+   Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations
+   Contributing/Inter-Sphinx-Support
 
 What to work on
 ^^^^^^^^^^^^^^^

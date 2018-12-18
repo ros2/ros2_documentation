@@ -2,7 +2,8 @@ Python Migration guide from ROS 1
 =================================
 
 Node Initialization
-~~~~~~~~~~~~~~~~~~~
+-------------------
+
 .. code-block:: python
 
    # rospy.init_node('asdf')
@@ -11,7 +12,8 @@ Node Initialization
 
 
 Creating a Publisher
-~~~~~~~~~~~~~~~~~~~~
+--------------------
+
 .. code-block:: python
 
    # pub = rospy.Publisher('chatter', String)
@@ -19,7 +21,8 @@ Creating a Publisher
 
 
 Creating a Subscriber
-~~~~~~~~~~~~~~~~~~~~~
+---------------------
+
 .. code-block:: python
 
    # sub = rospy.Subscriber('chatter', String, callback)
@@ -27,7 +30,8 @@ Creating a Subscriber
 
 
 Creating a Service
-~~~~~~~~~~~~~~~~~~
+------------------
+
 .. code-block:: python
 
    # srv = rospy.Service('add_two_ints', AddTwoInts, add_two_ints_callback)
@@ -35,7 +39,8 @@ Creating a Service
 
 
 Creating a Service Client
-~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------
+
 .. code-block:: python
 
    # rospy.wait_for_service('add_two_ints')

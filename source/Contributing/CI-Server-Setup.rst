@@ -1,6 +1,10 @@
 
-Setup CI server
-===============
+How to setup the Jenkins master
+===============================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 Installing
 ----------
@@ -19,7 +23,7 @@ I had to remove the ``hudson`` in each of the lines that contained it.
 Temporary rewrite for changed job name
 --------------------------------------
 
-We renamed some of the jobs, so I added rewrite rules in Apache (\ ``/etc/apache2/sites-enabled/ci.ros2.org.conf``\ ):
+We renamed some of the jobs, so I added rewrite rules in Apache (``/etc/apache2/sites-enabled/ci.ros2.org.conf``):
 
 .. code-block:: bash
 
@@ -82,14 +86,14 @@ Adding a Linux slave to the farm
 Approximately:
 
 
-* Shell into the master (\ ``ci.ros2.org``\ ), copy ``/var/lib/jenkins/.ssh/id_rsa.pub`` and paste it into ``/home/jenkins/.ssh/authorized_keys`` on the new machine.
+* Shell into the master (``ci.ros2.org``), copy ``/var/lib/jenkins/.ssh/id_rsa.pub`` and paste it into ``/home/jenkins/.ssh/authorized_keys`` on the new machine.
 * Copy config from the ``linux 2`` machine, rename and otherwise modify as needed (e.g., change the IP/host).
 * Copy ``/etc/ssh/ssh_host_rsa_key.pub`` from the new machine and add it as an entry in ``/var/lib/jenkins/.ssh/known_hosts`` (with the new machine's IP) on the master, then re-hash that file on the master: ``ssh-keygen -H``.
 
 Configuring Jenkins
 -------------------
 
-First I updated all the preinstalled  plugins.
+First I updated all the preinstalled plugins.
 
 Authentication
 ^^^^^^^^^^^^^^
@@ -139,12 +143,12 @@ So I created an ssh key for the jenkins user on the webserver:
 
 Then I added to the jenkins credentials as an "From the jenkins master ~/.ssh" with the user id of ``ros2-buildfarm``.
 
-I added this key to a "machine" GitHub account that I created for this farm and I added that user, ``ros2-buildfarm``\ , to the ``ros2``\ , ``ament``\ , and ``osrf`` organizations.
+I added this key to a "machine" GitHub account that I created for this farm and I added that user, ``ros2-buildfarm``, to the ``ros2``, ``ament``, and ``osrf`` organizations.
 
 Creating Jobs
 -------------
 
-I cloned the ``ros2/ci`` repository to the default branch (\ ``master``\ ):
+I cloned the ``ros2/ci`` repository to the default branch (``master``):
 
 .. code-block:: bash
 
@@ -213,6 +217,7 @@ Disk space
 ----------
 
 Over time docker images and particularly containers will pile up.
+
 To clean up use:
 
 .. code-block:: bash

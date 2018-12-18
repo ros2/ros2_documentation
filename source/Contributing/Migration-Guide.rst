@@ -4,24 +4,19 @@ Migration guide from ROS 1
 
 This article describes the high-level steps to migrate a ROS 1 package to ROS 2.
 It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
-Future versions will aim to make migration smoother and less effort up to the point that maintaining a single package from the same branch for ROS 1 as well as ROS 2
+Future versions will aim to make migration smoother and less effort up to the point that maintaining a single package from the same branch for ROS 1 as well as ROS 2.
 
-Migration Steps:
-
-* `Package manifests`_
-* `Message and service definitions`_
-* `Update source code`_
-* `Build system`_
-* `Launch files`_
-* `Licensing`_
-
-Prerequisite
-------------
+Prerequisites
+-------------
 
 Before being able to migrate a ROS 1 package to ROS 2 all of its dependencies must be available in ROS 2.
 
 Migration steps
 ---------------
+
+.. contents:: 
+   :depth: 1
+   :local:
 
 Package manifests
 ^^^^^^^^^^^^^^^^^
@@ -42,16 +37,16 @@ These files might need to be updated to comply with the `ROS Interface definitio
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
 Also some naming conventions are stricter then in ROS 1.
 
-In your ``package.xml`` you will need to add:
+In your ``package.xml``:
 
 
-* ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``
-* ``<exec_depend>rosidl_default_runtime</exec_depend>``
-* For each dependent message package add ``<depend>message_package</depend>``
+* Add ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``.
+* Add ``<exec_depend>rosidl_default_runtime</exec_depend>``.
+* For each dependent message package, add ``<depend>message_package</depend>``.
 
-In your ``CMakeLists.txt``\ :
+In your ``CMakeLists.txt``:
 
-Start by enabling C++11
+* Start by enabling C++11
 
 .. code-block:: cmake
 
@@ -60,8 +55,8 @@ Start by enabling C++11
    endif()
 
 
-* ``find_package(rosidl_default_generators REQUIRED)``
-* For each dependent message package add ``find_package(message_package REQUIRED)`` and replace the cmake function call to ``generate_messages`` with ``rosidl_generate_interfaces``
+* Add ``find_package(rosidl_default_generators REQUIRED)``
+* For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the cmake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.
 
 This will replace ``add_message_files`` and ``add_service_files`` listing of all the message and service files, which can be removed.
 
@@ -73,7 +68,7 @@ The build system in ROS 2 is called `ament <http://design.ros2.org/articles/amen
 Build tool
 ~~~~~~~~~~
 
-Instead of using ``catkin_make``\ , ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <http://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
+Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <http://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
 
 Pure Python package
 ~~~~~~~~~~~~~~~~~~~
@@ -100,9 +95,9 @@ ROS 2 supports Python 3 only.
 While each package can choose to also support Python 2 it must invoke executables with Python 3 if it uses any API provided by other ROS 2 packages.
 
 Update the *CMakeLists.txt* to use *ament_cmake*
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Apply the following changes to use ``ament_cmake`` instead of ``catkin``\ :
+Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
 
 * 
@@ -143,7 +138,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``\ :
     **TODO document ament_export_interfaces?**
 
 * 
-  Replace the invocation of ``add_message_files``\ , ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 
 
   * 
@@ -174,47 +169,47 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``\ :
   * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/master/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
 
 * 
-  Replace the invocation of ``add_message_files``\ , ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 
 * 
   Remove any occurrences of the *devel space*.
   Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
 
 
-  * ``CATKIN_GLOBAL_BIN_DESTINATION``\ : ``bin``
-  * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``\ : ``include``
-  * ``CATKIN_GLOBAL_LIB_DESTINATION``\ : ``lib``
-  * ``CATKIN_GLOBAL_LIBEXEC_DESTINATION``\ : ``lib``
-  * ``CATKIN_GLOBAL_SHARE_DESTINATION``\ : ``share``
-  * ``CATKIN_PACKAGE_BIN_DESTINATION``\ : ``lib/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_INCLUDE_DESTINATION``\ : ``include/${PROJECT_NAME}``
-  * ``CATKIN_PACKAGE_LIB_DESTINATION``\ : ``lib``
-  * ``CATKIN_PACKAGE_SHARE_DESTINATION``\ : ``share/${PROJECT_NAME}``
+  * ``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``
+  * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``
+  * ``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``
+  * ``CATKIN_GLOBAL_LIBEXEC_DESTINATION``: ``lib``
+  * ``CATKIN_GLOBAL_SHARE_DESTINATION``: ``share``
+  * ``CATKIN_PACKAGE_BIN_DESTINATION``: ``lib/${PROJECT_NAME}``
+  * ``CATKIN_PACKAGE_INCLUDE_DESTINATION``: ``include/${PROJECT_NAME}``
+  * ``CATKIN_PACKAGE_LIB_DESTINATION``: ``lib``
+  * ``CATKIN_PACKAGE_SHARE_DESTINATION``: ``share/${PROJECT_NAME}``
 
 Unit tests
 ~~~~~~~~~~
 
-If you are using gtest
+If you are using gtest:
 
 
-* replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``\ )
-* replace ``catkin_add_gtest`` with ``ament_add_gtest``
-* add a ``<test_depend>ament_cmake_gtest</test_depend>``
+* Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``)
+* Replace ``catkin_add_gtest`` with ``ament_add_gtest``
+* Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
 
 Linters
-"""""""
+~~~~~~~
 
 In ROS 2.0 we are working to maintain clean code using linters.
 The styles for different languages are defined in our `Developer Guide <Developer-Guide>`.
 
-If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unittests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``\ )
+If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unittests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
 
 .. code-block:: cmake
 
    find_package(ament_lint_auto REQUIRED)
    ament_lint_auto_find_test_dependencies()
 
-You will also need to add the following dependencies to your ``package.xml``\ :
+You will also need to add the following dependencies to your ``package.xml``:
 
 .. code-block:: xml
 
@@ -222,7 +217,7 @@ You will also need to add the following dependencies to your ``package.xml``\ :
    <test_depend>ament_lint_common</test_depend>
 
 Continue to use ``catkin`` in CMake
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ROS 2 uses ament as the build system but for backward compatibility ROS 2 has a package called ``catkin`` which provides almost the same API as catkin in ROS 1.
 In order to use this backward compatibility API the ``CMakeLists.txt`` must only be updated to call the function ``catkin_ament_package()`` *after* all targets.
@@ -236,7 +231,7 @@ Update source code
 Messages and services
 ~~~~~~~~~~~~~~~~~~~~~
 
-The namespace of ROS 2 messages and services uses a subnamespace (\ ``msg`` or ``srv``\ ) after the package name.
+The namespace of ROS 2 messages and services uses a subnamespace (``msg`` or ``srv``) after the package name.
 Therefore an include looks like: ``#include <my_interfaces/msg/my_message.hpp>``.
 The C++ type is then named: ``my_interfaces::msg::MyMessage``.
 
@@ -247,9 +242,9 @@ For more details please see the article about the `generated C++ interfaces <htt
 The migration requires includes to change by:
 
 
-* insert the subfolder ``msg`` between the package name and message datatype
-* Change the included filename from CamelCase to underscore separation
-* Change from ``*.h`` to ``*.hpp``
+* inserting the subfolder ``msg`` between the package name and message datatype
+* changing the included filename from CamelCase to underscore separation
+* changing from ``*.h`` to ``*.hpp``
 
 .. code-block:: cpp
 
@@ -292,12 +287,12 @@ Usages of ros::Time
 
 Under the hood we expect to leverage the cross platform ``std::chrono`` library.
 
-Currently for usages of ``ros::Time``\ :
+Currently for usages of ``ros::Time``:
 
 
-* replace all instances of ``ros::Time`` with ``builtin_interfaces::msg::Time``
-* Convert all instances of ``nsec`` to ``nanosec``
-* Convert all single argument double constructors to bare constructor + assignment
+* Replace all instances of ``ros::Time`` with ``builtin_interfaces::msg::Time``
+* Ronvert all instances of ``nsec`` to ``nanosec``
+* Convert all single argument double constructors to bare constructor plus assignment
 
 Field values do not get initialized to zero when constructed.
 You must make sure to set all values instead of relying on them to be zero.
@@ -312,8 +307,13 @@ There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in
 ROS client library
 ~~~~~~~~~~~~~~~~~~
 
- * `Python Client Library <Migration-Guide-Python>`
- * **NOTE: Others to be written**
+.. toctree::
+   :titlesonly:
+
+   Migration-Guide-Python
+
+
+**NOTE: Others to be written**
 
 Boost
 ~~~~~
@@ -367,7 +367,7 @@ Replace:
 Launch files
 ------------
 
-While launch files in ROS 1 are specified using `.xml <http://wiki.ros.org/roslaunch/XML>`__ files ROS 2 uses Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__\ ).
+While launch files in ROS 1 are specified using `.xml <http://wiki.ros.org/roslaunch/XML>`__ files ROS 2 uses Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__).
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -394,7 +394,7 @@ Here's the directory layout of our catkin workspace:
 
 Here is the content of those three files:
 
-``src/talker/package.xml``\ :
+``src/talker/package.xml``:
 
 .. code-block:: xml
 
@@ -411,7 +411,7 @@ Here is the content of those three files:
      <run_depend>std_msgs</run_depend>
    </package>
 
-``src/talker/CMakeLists.txt``\ :
+``src/talker/CMakeLists.txt``:
 
 .. code-block:: cmake
 
@@ -425,7 +425,7 @@ Here is the content of those three files:
    install(TARGETS talker
      RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-``src/talker/talker.cpp``\ :
+``src/talker/talker.cpp``:
 
 .. code-block:: cpp
 
@@ -457,7 +457,7 @@ Building the ROS 1 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 We source an environment setup file (in this case for Jade using bash), then we
-build our package using ``catkin_make install``\ :
+build our package using ``catkin_make install``:
 
 .. code-block:: bash
 
@@ -468,7 +468,7 @@ build our package using ``catkin_make install``\ :
 Running the ROS 1 node
 ~~~~~~~~~~~~~~~~~~~~~~
 
-If there's not already one running, we start a ``roscore``\ , first sourcing the
+If there's not already one running, we start a ``roscore``, first sourcing the
 setup file from our ``catkin`` install tree (the system setup file at
 ``/opt/ros/jade/setup.bash`` would also work here):
 
@@ -478,7 +478,7 @@ setup file from our ``catkin`` install tree (the system setup file at
    roscore
 
 In another shell, we run the node from the ``catkin`` install space using
-``rosrun``\ , again sourcing the setup file first (in this case it must be the one
+``rosrun``, again sourcing the setup file first (in this case it must be the one
 from our workspace):
 
 .. code-block:: bash
@@ -504,7 +504,7 @@ We'll copy the source tree from our ROS 1 package into that workspace, where we 
    cp -a ~/ros1_talker/src/talker src
 
 Now we'll modify the the C++ code in the node.
-The ROS 2 C++ library, called ``rclcpp``\ , provides a different API from that
+The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
 provided by ``roscpp``.
 The concepts are very similar between the two libraries, which makes the changes
 reasonably straightforward to make.
@@ -512,8 +512,8 @@ reasonably straightforward to make.
 Included headers
 ~~~~~~~~~~~~~~~~
 
-In place of ``ros/ros.h``\ , which gave us access to the ``roscpp`` library API, we
-need to include ``rclcpp/rclcpp.hpp``\ , which gives us access to the ``rclcpp``
+In place of ``ros/ros.h``, which gave us access to the ``roscpp`` library API, we
+need to include ``rclcpp/rclcpp.hpp``, which gives us access to the ``rclcpp``
 library API:
 
 .. code-block:: cpp
@@ -522,7 +522,7 @@ library API:
    #include "rclcpp/rclcpp.hpp"
 
 To get the ``std_msgs/String`` message definition, in place of
-``std_msgs/String.h``\ , we need to include ``std_msgs/msg/string.hpp``\ :
+``std_msgs/String.h``, we need to include ``std_msgs/msg/string.hpp``:
 
 .. code-block:: cpp
 
@@ -549,7 +549,7 @@ For the publisher, instead of an integer queue length argument, we pass a
 quality of service (qos) profile, which is a far more flexible way to
 controlling how message delivery is handled.
 In this example, we just pass the default profile ``rmw_qos_profile_default``
-(it's global because it's declared in ``rmw``\ , which is written in C and so
+(it's global because it's declared in ``rmw``, which is written in C and so
 doesn't have namespaces).
 
 .. code-block:: cpp
@@ -569,7 +569,7 @@ with more publish API that accepts const references):
    //  std_msgs::String msg;
      auto msg = std::make_shared<std_msgs::msg::String>();
 
-In place of ``ros::ok()``\ , we call ``rclcpp::ok()``\ :
+In place of ``ros::ok()``, we call ``rclcpp::ok()``:
 
 .. code-block:: cpp
 
@@ -584,7 +584,7 @@ Inside the publishing loop, we use the ``->`` operator to access the ``data`` fi
    //    msg.data = ss.str();
        msg->data = ss.str();
 
-To print a console message, instead of using ``ROS_INFO()``\ , we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument. 
+To print a console message, instead of using ``ROS_INFO()``, we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument. 
 
 .. code-block:: cpp
 
@@ -651,7 +651,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
    }
 
 Changing the ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Starting with ROS 2, only version 2 of the ``package.xml`` format is supported
 (this format is also supported in ROS 1, but isn't used by all packages).
@@ -662,7 +662,7 @@ We start by specifying the format version in the ``package`` tag:
    <!-- <package> -->
    <package format="2">
 
-ROS 2 uses a newer version of ``catkin``\ , called ``ament_cmake``\ , which we specify in the
+ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we specify in the
 ``buildtool_depend`` tag:
 
 .. code-block:: xml
@@ -670,12 +670,12 @@ ROS 2 uses a newer version of ``catkin``\ , called ``ament_cmake``\ , which we s
    <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
 
-In our build dependencies, instead of ``roscpp`` we use ``rclcpp``\ , which provides
+In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides
 the C++ API that we use.
-We additionally depend on ``rmw_implementation``\ , which pulls in the default
+We additionally depend on ``rmw_implementation``, which pulls in the default
 implementation of the ``rmw`` abstraction layer that allows us to support multiple
 DDS implementations (we should consider restructuring / renaming things so that
-it's possible to depend on one thing, analogous to ``roscpp``\ ):
+it's possible to depend on one thing, analogous to ``roscpp``):
 
 .. code-block:: xml
 
@@ -698,7 +698,7 @@ the package format):
 We also need to tell the build tool what *kind* of package we are, so that it knows how
 to build us.
 Because we're using ``ament`` and CMake, we add the following lines to declare our
-build type to be ``ament_cmake``\ :
+build type to be ``ament_cmake``:
 
 .. code-block:: xml
 
@@ -757,10 +757,10 @@ explicitly, which we do by adding this line near the top of the file:
 
    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-Using ``catkin``\ , we specify the packages we want to build against by passing them
+Using ``catkin``, we specify the packages we want to build against by passing them
 as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
-With ``ament_cmake``\ , we find each package individually, starting with ``ament_cmake``
-(and adding our new dependency, ``rmw_implementation``\ ):
+With ``ament_cmake``, we find each package individually, starting with ``ament_cmake``
+(and adding our new dependency, ``rmw_implementation``):
 
 .. code-block:: cmake
 
@@ -804,14 +804,12 @@ We do the same to link against our dependent packages' libraries:
                          ${std_msgs_LIBRARIES})
 
 **TODO: explain how ``ament_target_dependencies()`` simplifies the above steps and
-is also better (also handling ``*_DEFINITIONS``\ , doing target-specific include
+is also better (also handling ``*_DEFINITIONS``, doing target-specific include
 directories, etc.).**
 
-For installation, ``catkin`` defines variables like
-``CATKIN_PACKAGE_BIN_DESTINATION``.
-With ``ament_cmake``\ , we just give a path relative to the installation root, like ``bin``
-for executables (this is in part because we don't yet have an equivalent of
-``rosrun``\ ):
+For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
+With ``ament_cmake``, we just give a path relative to the installation root, like ``bin``
+for executables (this is in part because we don't yet have an equivalent of ``rosrun``):
 
 .. code-block:: cmake
 
@@ -854,8 +852,8 @@ Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 We source an environment setup file (in this case the one generated by following
-the ROS 2 installation tutorial, which builds in ``~/ros2_ws``\ , then we build our
-package using ``colcon build``\ :
+the ROS 2 installation tutorial, which builds in ``~/ros2_ws``, then we build our
+package using ``colcon build``:
 
 .. code-block:: bash
 
@@ -866,9 +864,9 @@ package using ``colcon build``\ :
 Running the ROS 2 node
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Because we installed the ``talker`` executable into ``bin``\ , after sourcing the
+Because we installed the ``talker`` executable into ``bin``, after sourcing the
 setup file, from our install tree, we can invoke it by name directly
-(also, there is not yet a ROS 2 equivalent for ``rosrun``\ ):
+(also, there is not yet a ROS 2 equivalent for ``rosrun``):
 
 .. code-block:: bash
 
@@ -895,3 +893,4 @@ Changing the License
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
 If the package as a small set of contributors then this may be feasible.
+
