@@ -2,6 +2,10 @@
 Building ROS 2 on OS X
 ======================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 System requirements
 -------------------
 
@@ -27,12 +31,12 @@ You need the following things installed to build ROS 2:
         xcode-select --install
 
 #.
-   **brew** *(needed to install more stuff; you probably already have this)*\ :
+   **brew** *(needed to install more stuff; you probably already have this)*:
 
 
    * Follow installation instructions at http://brew.sh/
    *
-     *Optional*\ : Check that ``brew`` is happy with your system configuration by running:
+     *Optional*: Check that ``brew`` is happy with your system configuration by running:
 
      .. code-block:: bash
 
@@ -72,7 +76,7 @@ You need the following things installed to build ROS 2:
        python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes git+https://github.com/lark-parser/lark.git@0.7b mock nose pep8 pydocstyle pyparsing setuptools vcstool
 
 #.
-   *Optional*\ : if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
+   *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
 
    * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
@@ -91,7 +95,7 @@ Disable System Integrity Protection (SIP)
 -----------------------------------------
 
 OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``\ , you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
+So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Get the ROS 2 code
 ------------------
@@ -106,13 +110,13 @@ Create a workspace and clone all repos:
    vcs import src < ros2.repos
 
 
-..
+.. note::
 
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the url above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the url above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
 
 
-Optional: Install additional DDS vendors
-----------------------------------------
+Install additional DDS vendors (optional)
+-----------------------------------------
 
 ROS 2.0 builds on top of DDS.
 It is compatible with `multiple DDS or RTPS (the DDS wire protocol) vendors <../Concepts/DDS-and-ROS-middleware-implementations>`.
@@ -128,7 +132,7 @@ Build the ROS 2 code
 
 **Note**\ : if you are trying to build the ROS 1 <-> ROS 2 bridge, follow instead these `modified instructions <https://github.com/ros2/ros1_bridge/blob/master/README#build-the-bridge-from-source>`__.
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial <../Tutorials/Colcon-Tutorial>`\ ):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial <../Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
 
@@ -139,7 +143,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 Try some examples
 -----------------
 
-In a clean new terminal, source the setup file (this will automatically set up the environment for any DDS vendors that support was built for) and then run a ``talker``\ :
+In a clean new terminal, source the setup file (this will automatically set up the environment for any DDS vendors that support was built for) and then run a ``talker``:
 
 .. code-block:: bash
 
@@ -147,7 +151,7 @@ In a clean new terminal, source the setup file (this will automatically set up t
    ros2 run demo_nodes_cpp talker
 
 
-In another terminal source the setup file and then run a ``listener``\ :
+In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
@@ -207,7 +211,7 @@ The setup file and path will depend on your macOS version.
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 .. _osx-development-setup-troubleshooting:
 
@@ -215,9 +219,9 @@ Troubleshooting
 ---------------
 
 Segmentation Fault when using ``pyenv``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``pyenv`` seems to default to building Python with ``.a`` files, but that causes issues with ``rclpy``\ , so it's recommended to build Python with Frameworks enabled on macOS when using ``pyenv``\ :
+``pyenv`` seems to default to building Python with ``.a`` files, but that causes issues with ``rclpy``, so it's recommended to build Python with Frameworks enabled on macOS when using ``pyenv``:
 
 https://github.com/pyenv/pyenv/wiki#how-to-build-cpython-with-framework-support-on-os-x
 
@@ -236,7 +240,7 @@ then you probably have System Integrity Protection enabled.
 See "Disable System Integrity Protection (SIP)" above for how instructions on how to disable it.
 
 Qt build errors e.g. ``unknown type name 'Q_ENUM'``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you see build errors related to Qt, e.g.:
 

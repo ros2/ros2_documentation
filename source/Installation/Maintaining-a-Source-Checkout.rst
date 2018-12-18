@@ -2,6 +2,10 @@
 Maintaining a Source Checkout of ROS 2
 ======================================
 
+.. contents::
+   :depth: 2
+   :local:
+
 If you have installed ROS 2 from source, there may have been changes made to the source code since the time that you checked it out.
 To keep your source checkout up to date, you will have to periodically update your ``ros2.repos`` file, download the latest sources, and rebuild your workspace.
 

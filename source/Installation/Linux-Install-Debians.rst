@@ -2,18 +2,22 @@
 Installing ROS2 via Debian Packages
 ===================================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 Debian packages for ROS 2 Bouncy (the latest release) are available for Ubuntu Bionic; packages for ROS 2 Ardent are available for Ubuntu Xenial.
 
-Resources:
+Resources
+---------
 
-
-* `Jenkins Instance <http://build.ros2.org/>`__
-* `Repositories <http://repo.ros2.org>`__
 * Status Pages:
 
   * ROS 2 Crystal (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_crystal_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_crystal_ubv8.html>`__
   * ROS 2 Bouncy (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_bouncy_ubv8.html>`__
   * ROS 2 Ardent (Ubuntu Xenial): `amd64 <http://repo.ros2.org/status_page/ros_ardent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_ardent_uxv8.html>`__
+* `Jenkins Instance <http://build.ros2.org/>`__
+* `Repositories <http://repo.ros2.org>`__
 
 .. _linux-install-debians-setup-sources:
 
@@ -69,7 +73,7 @@ ROS-Base Install (Bare Bones): Communication libraries, message packages, comman
 
    sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base
 
-See specific sections below for how to also install the ros1_bridge, TurtleBot packages, or alternative RMW packages.
+See specific sections below for how to also install the `ros1_bridge <Install additional packages using ROS 1 packages>`_, `TurtleBot packages <Install additional packages using ROS 1 packages>`_, or `alternative RMW packages <Installing additional RMW implementations>`_.
 
 Environment setup
 -----------------
@@ -89,7 +93,7 @@ Ubuntu 18.04
 Ubuntu 16.04 (argcomplete >= 0.8.5)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, because the version available through ``apt`` will not work due to a bug in that version of ``argcomplete``\ :
+To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, because the version available through ``apt`` will not work due to a bug in that version of ``argcomplete``:
 
 .. code-block:: bash
 
@@ -111,8 +115,8 @@ You may want to add this to your ``.bashrc``.
 
    echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
-Installing additional RMW implementations
------------------------------------------
+Install additional RMW implementations
+--------------------------------------
 
 By default the RMW implementation ``FastRTPS`` is used.
 If using Ardent OpenSplice is also installed.
@@ -128,10 +132,10 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
-Additional packages using ROS 1 packages
-----------------------------------------
+Install additional packages using ROS 1 packages
+------------------------------------------------
 
 The ``ros1_bridge`` as well as the TurtleBot demos are using ROS 1 packages.
 To be able to install them please start by adding the ROS 1 sources as documented `here <http://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.

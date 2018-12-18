@@ -2,6 +2,10 @@
 Installing ROS 2 on Windows
 ===========================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page explains how to install ROS 2 on Windows from a pre-built binary package.
 
 System requirements
@@ -71,14 +75,14 @@ Install Visual Studio
 
    If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
 
-   :warning: Visual Studio 2017 v15.8 seems to have a compiler bug preventing from building some ROS 2 packages. Please try installing an older version of Visual Studio 2017.
+.. warning:: Visual Studio 2017 v15.8 seems to have a compiler bug preventing from building some ROS 2 packages. Please try installing an older version of Visual Studio 2017.
 
    Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
    
    Make sure that the Visual C++ features are installed.
-   An easy way to make sure they're installed is to select the `Desktop development with C++` workflow during the install.
+   An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
    .. image:: https://i.imgur.com/2h0IxCk.png
 
@@ -119,7 +123,7 @@ Set the ``NDDSHOME`` environment variable:
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -179,7 +183,7 @@ You must also install some python dependencies for command-line tools:
 
    python -m pip install -U catkin_pkg empy git+https://github.com/lark-parser/lark.git@0.7b opencv-python pyparsing pyyaml setuptools
 
-rqt dependencies
+RQt dependencies
 ~~~~~~~~~~~~~~~~
 
 .. code-block:: bash

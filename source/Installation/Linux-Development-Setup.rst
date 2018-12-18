@@ -2,16 +2,21 @@
 Building ROS 2 on Linux
 =======================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+
 System Requirements
 -------------------
 
-Target platforms for Bouncy Bolson (see [REP](http://www.ros.org/reps/rep-2000.html)).
+Target platforms for Bouncy Bolson (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__).
 - Ubuntu Linux Xenial Xerus 16.04 64-bit
 - Ubuntu Linux Bionic Beaver 18.04 64-bit
 
 Recommended Support (not actively tested or supported)
 - Debian Stretch
-- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`.
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
 
 Make sure that you have a locale set which supports ``UTF-8`` We test with the following settings.
@@ -32,7 +37,7 @@ System setup
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to the Setup Sources section of `this guide <linux-install-debians-setup-sources>`
+First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <linux-install-debians-setup-sources>`.
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -75,7 +80,7 @@ Install development tools and ROS tools
 .. _linux-dev-get-ros2-code:
 
 Get ROS 2.0 code
-^^^^^^^^^^^^^^^^
+----------------
 
 Create a workspace and clone all repos:
 
@@ -92,7 +97,7 @@ Create a workspace and clone all repos:
 
 
 Install dependencies using rosdep
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------
 
 .. code-block:: bash
 
@@ -106,7 +111,7 @@ Install dependencies using rosdep
 .. _linux-development-setup-install-more-dds-implementations-optional:
 
 Install more DDS implementations (Optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------
 
 ROS 2.0 builds on top of DDS.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
@@ -117,7 +122,7 @@ The ROS 2.0 build will automatically build support for vendors that have been in
 By default we include eProsima's FastRTPS in the workspace and it is the default middleware. Detailed instructions for installing other DDS vendors are provided below.
 
 PrismTech OpenSplice Debian Packages built by OSRF
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -158,7 +163,7 @@ Add this to your ``~/.bashrc``
 
 
 RTI Connext (version 5.3.1)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Debian packages provided in the ROS 2 apt repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -184,7 +189,7 @@ Now you can build as normal and support for RTI will be built as well.
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
 
 Official binary packages from RTI
-"""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can install the Connext 5.3.1 package for Linux provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
 
@@ -209,7 +214,7 @@ Source the setup file to set the ``NDDSHOME`` environment variable.
 Now you can build as normal and support for RTI will be built as well.
 
 Build the code in the workspace
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------
 
 Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source>`__.
 
@@ -240,7 +245,7 @@ Also, if you have already installed ROS2 from Debian make sure that you run the 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
 
 Try some examples
-^^^^^^^^^^^^^^^^^
+-----------------
 
 In one terminal, source the setup file and then run a ``talker``\ :
 
@@ -286,7 +291,7 @@ Troubleshooting
 Internal compiler error
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-If you experience an ICE when trying to compile on a memory constrained platform like a Raspberry PI you might want to build single threaded (prefix the build invocation with ``MAKEFLAGS=-j1``\ ).
+If you experience an ICE when trying to compile on a memory constrained platform like a Raspberry PI you might want to build single threaded (prefix the build invocation with ``MAKEFLAGS=-j1``).
 
 Out of memory
 ^^^^^^^^^^^^^

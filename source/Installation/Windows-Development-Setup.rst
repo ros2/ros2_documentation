@@ -2,6 +2,10 @@
 Building ROS 2 on Windows
 =========================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This guide is about how to setup a development environment for ROS2 on Windows.
 
 Prerequisites
@@ -28,7 +32,7 @@ First install git:
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
 
-Then install ``patch``\ :
+Then install ``patch``:
 
 .. code-block:: bash
 
@@ -37,11 +41,11 @@ Then install ``patch``\ :
 You may need to close the cmd prompt and open a new one, but at this point you should be able to run ``git``\ , ``python``\ , ``cmake``\ , and ``patch.exe --version``.
 
 Installing Developer Tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 Now we are ready to install some our tools that we use to help in developing ROS 2.
 
-Let's start with ``vcstool``\ :
+Let's start with ``vcstool``:
 
 .. code-block:: bash
 
@@ -49,7 +53,7 @@ Let's start with ``vcstool``\ :
 
 You can test it out by just running ``vcs`` (you should be able to do this in the same cmd prompt).
 
-Next, install ``colcon``\ :
+Next, install ``colcon``:
 
 .. code-block:: bash
 
@@ -57,16 +61,16 @@ Next, install ``colcon``\ :
 
 You can test it out by just running ``colcon`` (you should be able to do this in the same cmd prompt).
 
-Also, you should install ``curl``\ :
+Also, you should install ``curl``:
 
 .. code-block:: bash
 
    > choco install -y curl
 
 Install dependencies
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
-Next install the latest version of ``setuptools`` and ``pip``\ :
+Next install the latest version of ``setuptools`` and ``pip``:
 
 .. code-block:: bash
 
@@ -112,7 +116,7 @@ https://www.qt.io/download
 Select the Open Source version and then the ``Qt Online Installer for Windows``.
 
 Run the installer and install Qt5.
-We recommend you install it to the default location of ``C:\Qt``\ , but if you choose somewhere else, make sure to update the paths below accordingly.
+We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
 When selecting components to install, the only thing you absolutely need for bouncy and later is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.10.0`` tree.
 We're using ``5.10.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later version will probably work too.
 For bouncy and later, be sure to select ``MSVC 2017 64-bit``. For ardent use ``MSVC 2015 64-bit``.
@@ -127,7 +131,7 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 
 Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
 
-rqt dependencies
+RQt dependencies
 ~~~~~~~~~~~~~~~~
 
 .. code-block:: bash
@@ -135,11 +139,11 @@ rqt dependencies
    > pip install -U pydot PyQt5
 
 Getting the Source Code
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2``\ :
+First setup a development folder, I use ``C:\dev\ros2``:
 
 .. code-block:: bash
 
@@ -172,14 +176,14 @@ Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos``
    > vcs import --input ros2.repos src
 
 Getting a DDS Vendor
-^^^^^^^^^^^^^^^^^^^^
+--------------------
 
 You'll also need a DDS Vendor available for ROS to build against.
 There is currently support for eProsima FastRTPS, Adlink's OpenSplice, and RTI's Connext DDS.
 The source distribution of ROS 2 includes FastRTPS, so it will always build unless explicitly ignored.
 
 Adlink OpenSplice
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice 6.7.180404 <https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804>`__.
 Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
@@ -191,7 +195,7 @@ Then run something like the following command before building ROS 2, to set up t
 where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
 
 RTI Connext 5.3
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 If you would like to also build against RTI Connext, you will need to first visit the RTI website and obtain a license (evaluation or purchased) for RTI Connext DDS as well as the installer via their `downloads page <https://www.rti.com/downloads>`__.
 After installing, use the RTI Launcher to load your license file.
@@ -204,12 +208,12 @@ Then before building ROS 2, set up the Connext environment:
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
 Building the ROS 2 Code
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64 Native Tools Command Prompt for VS 2017" for bouncy and later or "x64 Native Tools Command Prompt for VS 2015" for ardent and earlier) running as Administrator.
 
@@ -227,7 +231,7 @@ Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` 
 See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Testing and Running
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
 
@@ -264,7 +268,7 @@ For more explanations see the `Python Programming <../Tutorials/Python-Programmi
 Note: it is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
 Alternative DDS Sources
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 The demos will attempt to build against any detected DDS vendor.
 The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.0.
@@ -289,16 +293,16 @@ If you run into the CMake error ``file INSTALL cannot set modification time on .
 
 You may see path length limit errors when building your own libraries, or maybe even in this guide as ROS2 matures.
 
-Run ``regedit.exe``\ , navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``\ , and set ``LongPathsEnabled`` to 0x00000001 (1).
+Run ``regedit.exe``, navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``, and set ``LongPathsEnabled`` to 0x00000001 (1).
 
-Hit the windows key and type ``Edit Group Policy``. Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem. Right click ``Enable Win32 long paths``\ , click Edit. In the dialog, select Enabled and click OK.
+Hit the windows key and type ``Edit Group Policy``. Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem. Right click ``Enable Win32 long paths``, click Edit. In the dialog, select Enabled and click OK.
 
 Close and open your terminal to reset the environment and try building again.
 
 CMake Packages Unable to Find asio, tinyxml2, tinyxml, or eigen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We've seen, but been unable to identify the root cause, that sometimes the chocolatey packages for ``asio``\ , ``tinyxml2``\ , etc. do not add important registry entries and that will cause CMake to be unable to find them when building ROS 2.
+We've seen, but been unable to identify the root cause, that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and that will cause CMake to be unable to find them when building ROS 2.
 
 It seems that uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time) and then reinstalling them will fix the issue.
 
@@ -330,7 +334,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.0 source from the ``tgz``\ :
+* Get and extract the Python 3.7.0 source from the ``tgz``:
 
   * https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
   * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.0``

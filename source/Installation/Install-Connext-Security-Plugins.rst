@@ -11,7 +11,7 @@ etc.
 A video walk-thru of this installation (tools and security plug-ins) is
 available
 `here <https://www.rti.com/gettingstarted/installwindows_secure>`__ at
-the RTI website; the steps are:
+the RTI website. The steps are:
 
 **Install Connext DDS Pro (Host)**
 This is a host-specific installer application (for Windows, Linux, MacOS) to install a 'Host' bundle which includes the Launcher, tools, and other software services.

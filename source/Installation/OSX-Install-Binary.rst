@@ -2,6 +2,10 @@
 Installing ROS 2 on OS X
 ========================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page explains how to install ROS 2 on OS X from a pre-built binary package.
 
 System requirements
@@ -18,12 +22,12 @@ You need the following things installed before installing ROS 2.
 
 
 * 
-  **brew** *(needed to install more stuff; you probably already have this)*\ :
+  **brew** *(needed to install more stuff; you probably already have this)*:
 
 
   * Follow installation instructions at http://brew.sh/
   * 
-    *Optional*\ : Check that ``brew`` is happy with your system configuration by running:
+    *Optional*: Check that ``brew`` is happy with your system configuration by running:
 
     .. code-block:: bash
 
@@ -66,7 +70,7 @@ You need the following things installed before installing ROS 2.
 
   ``brew install sip pyqt5``
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -84,13 +88,13 @@ Disable System Integrity Protection (SIP)
 -----------------------------------------
 
 OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``\ , you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
+So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Downloading ROS 2
 -----------------
 
 
-* Go the releases page: https://github.com/ros2/ros2/releases
+* Go to the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for OS X; let's assume that it ends up at ``~/Downloads/ros2-package-osx-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
@@ -120,15 +124,15 @@ If you would like to use one of the other vendors you will need to install their
 
 If you downloaded a package that includes support for OpenSplice, you must install OpenSplice as detailed below.
 
-To enable OpenSplice support:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enable OpenSplice support
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 For ROS 2 releases up to and including Ardent, do not do anything else at this point.
 For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
 
-To enable Connext support:
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Enable Connext support
+^^^^^^^^^^^^^^^^^^^^^^
 
 To use RTI Connext you will need to have obtained a license from RTI.
 
@@ -144,7 +148,7 @@ Set the ``NDDSHOME`` environment variable:
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 Set up the ROS 2 environment
 ----------------------------
@@ -168,14 +172,14 @@ Only do this **after** you have sourced the ROS 2 one:
 Try some examples
 -----------------
 
-In one terminal, set up the ROS 2 environment as described above and then run a ``talker``\ :
+In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
 
-In another terminal, set up the ROS 2 environment and then run a ``listener``\ :
+In another terminal, set up the ROS 2 environment and then run a ``listener``:
 
 .. code-block:: bash
 

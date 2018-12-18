@@ -2,6 +2,10 @@
 Installing ROS 2 on Linux
 =========================
 
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
 This page explains how to install ROS 2 on Linux from a pre-built binary package.
 
 As of Beta 2 there are also `Debian packages <Linux-Install-Debians>` available.
@@ -116,19 +120,19 @@ You will need to accept a license from RTI.
            rti-connext-dds-5.3.1
 
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 Try some examples
 -----------------
 
-In one terminal, source the setup file and then run a ``talker``\ :
+In one terminal, source the setup file and then run a ``talker``:
 
 .. code-block:: bash
 
    . ~/ros2_install/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a ``listener``\ :
+In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
@@ -142,10 +146,11 @@ If you have installed support for an optional vendor, see `this page <../Tutoria
 
 See the `demos <../Tutorials>` for other things to try, including how to `run the talker-listener example in Python <../Tutorials/Python-Programming>`.
 
-ROS 1 bridge
-^^^^^^^^^^^^
+Using the ROS 1 bridge
+^^^^^^^^^^^^^^^^^^^^^^
 
-If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file; we'll assume that it's ``/opt/ros/melodic/setup.bash``.
+If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file.
+We'll assume that it is ``/opt/ros/melodic/setup.bash`` in the following.
 
 If you haven't already, start a roscore:
 
@@ -163,4 +168,4 @@ In another terminal, start the bridge:
    . ~/ros2_install/ros2-linux/setup.bash
    ros2 run ros1_bridge dynamic_bridge
 
-For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README>`__.
+For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
