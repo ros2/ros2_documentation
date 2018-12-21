@@ -206,14 +206,6 @@ The following packages still cause errors during the cross-compilation (under in
         ros2_ws/src/ros2/demos/image_tools/COLCON_IGNORE \
         ros2_ws/src/ros2/robot_state_publisher/COLCON_IGNORE
 
-The package ``class-loader`` has a known issue where it is searching for ``libz`` and ``libpcre`` on the host system instead of SYSROOT. As a workaround for the moment, please link both libraries into the the host's file-system
-
-.. code-block:: bash
-
-    mkdir -p /usr/lib/$TARGET_TRIPLE
-    ln -s `pwd`/sysroot_docker/lib/$TARGET_TRIPLE/libz.so.1 /usr/lib/$TARGET_TRIPLE/libz.so
-    ln -s `pwd`/sysroot_docker/lib/$TARGET_TRIPLE/libpcre.so.3 /usr/lib/$TARGET_TRIPLE/libpcre.so
-
 Then, start a build with colcon specifying the toolchain-file:
 
 .. code-block:: bash
