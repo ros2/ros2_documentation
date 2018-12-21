@@ -107,7 +107,7 @@ Set up your environment by sourcing the following file.
 
 You may want to add this to your ``.bashrc``.
 
- .. code-block:: bash
+.. code-block:: bash
 
    echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
