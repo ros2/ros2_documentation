@@ -103,6 +103,7 @@ Set up your environment by sourcing the following file (you may want to add this
 
 .. code-block:: bash
 
+   export ROS_DISTRO=crystal  # or bouncy or ardent
    source /opt/ros/$ROS_DISTRO/setup.bash
 
 Installing additional RMW implementations
