@@ -99,12 +99,17 @@ To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, bec
 Sourcing the setup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set up your environment by sourcing the following file (you may want to add this to your ``.bashrc``\ ).
+Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   export ROS_DISTRO=crystal  # or bouncy or ardent
    source /opt/ros/$ROS_DISTRO/setup.bash
+
+You may want to add this to your ``.bashrc``.
+
+ .. code-block:: bash
+
+   echo "source /opt/ros/$ROS_DISTRO/setup.bash" >> ~/.bashrc
 
 Installing additional RMW implementations
 -----------------------------------------
