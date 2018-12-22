@@ -54,20 +54,20 @@ First set an environment variable for the ROS 2 release you want to install so i
 
 .. code-block:: bash
 
-   export ROS_DISTRO=crystal  # or bouncy or ardent
+   export CHOOSE_ROS_DISTRO=crystal  # or bouncy or ardent
    sudo apt update
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-$ROS_DISTRO-desktop
+   sudo apt install ros-$CHOOSE_ROS_DISTRO-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-$ROS_DISTRO-ros-base
+   sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base
 
 See specific sections below for how to also install the ros1_bridge, TurtleBot packages, or alternative RMW packages.
 
@@ -103,7 +103,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/$ROS_DISTRO/setup.bash
+   source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
 
 You may want to add this to your ``.bashrc``.
 
