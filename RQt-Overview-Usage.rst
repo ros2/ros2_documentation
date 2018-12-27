@@ -19,8 +19,8 @@ For example, RQt Python Console:
 
    ros2 run rqt_py_console rqt_py_console
 
- Users can create their own plugins for RQt with either ``Python`` or ``C++``.
- `Over 20 plugins<http://wiki.ros.org/rqt/Plugins>`_ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
+Users can create their own plugins for RQt with either ``Python`` or ``C++``.
+`Over 20 plugins <http://wiki.ros.org/rqt/Plugins>`_ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
 
 Installing From Debian
 ~~~~~~~~~~~~~~~~~~~~
@@ -40,10 +40,10 @@ RQt Components Structure
 
 RQt consists of three metapackages:
 
- * *rqt* - core infrastucture modules.
- * *rqt_common_plugins* - Backend tools for building tools.
+* *rqt* - core infrastucture modules.
+* *rqt_common_plugins* - Backend tools for building tools.
    TODO: as of Dec 2018 this metapackage isn't available in ROS 2 since not all plugins it contains have been ported yet.
- * *rqt_robot_plugins* - Tools for interacting with robots during runtime.
+* *rqt_robot_plugins* - Tools for interacting with robots during runtime.
    TODO: as of Dec 2018 this metapackage isn't available in ROS 2 since not all plugins it contains have been ported yet.
 
 Advantage of RQt framework
@@ -51,22 +51,22 @@ Advantage of RQt framework
 
 Compared to building your own GUIs from scratch:
 
- * Standardized common procedures for GUI (start-shutdown hook, restore previous states).
- * Multiple widgets can be docked in a single window.
- * Easily turn your existing Qt widgets into RQt plugins.
- * Expect support at `ROS Answers <http://answers.ros.org>`_ (ROS community website for the questions).
+* Standardized common procedures for GUI (start-shutdown hook, restore previous states).
+* Multiple widgets can be docked in a single window.
+* Easily turn your existing Qt widgets into RQt plugins.
+* Expect support at `ROS Answers <http://answers.ros.org>`_ (ROS community website for the questions).
 
 From system architecture's perspective:
 
- * Support multi-platform (basically wherever `QT <http://qt-project.org/>`_ and ROS run) and multi-language (``Python``, ``C++``).
- * Manageable lifecycle: RQt plugins using common API makes maintainance & reuse easier.
+* Support multi-platform (basically wherever `QT <http://qt-project.org/>`_ and ROS run) and multi-language (``Python``, ``C++``).
+* Manageable lifecycle: RQt plugins using common API makes maintainance & reuse easier.
 
 Further Reading
 ~~~~~~~~~~~~~~~
 
 * ROS 2 Discourse `announcment of porting to ROS2 <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
-* `ROS 1 documentation <http://wiki.ros.org/rqt>`_.
-* Brief overview of RQt (from `an intern completion blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`_).
+* `RQt for ROS 1 documentation <http://wiki.ros.org/rqt>`_.
+* Brief overview of RQt (from `a Willow Garage intern blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`_).
 
   .. raw::
 
