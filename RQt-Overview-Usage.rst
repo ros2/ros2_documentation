@@ -20,7 +20,7 @@ For example, RQt Python Console:
    ros2 run rqt_py_console rqt_py_console
 
 Users can create their own plugins for RQt with either ``Python`` or ``C++``.
-`Over 20 plugins<http://wiki.ros.org/rqt/Plugins>`_ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
+`Over 20 plugins <http://wiki.ros.org/rqt/Plugins>`_ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
 
 Installing From Debian
 ~~~~~~~~~~~~~~~~~~~~
