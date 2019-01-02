@@ -1,6 +1,6 @@
 
-Using Colcon to build a custom package
-======================================
+Using Colcon to build packages
+==============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -50,7 +50,7 @@ NB: Compared to catkin there is no ``devel`` directory.
 Create directory structure
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To make the basic structure in the directory ``~/ros2_ws``\ :
+To make the basic structure in the directory ``~/ros2_ws``:
 
 .. code-block:: bash
 

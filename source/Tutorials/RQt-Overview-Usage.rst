@@ -1,6 +1,6 @@
 
-User Interfaces with RQt
-========================
+Overview and Usage of RQt
+=========================
 
 .. contents:: Table of Contents
    :depth: 2

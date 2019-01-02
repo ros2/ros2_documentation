@@ -1,3 +1,5 @@
 
-This page now lives `here <Tutorials/About-Quality-of-Service-Settings>`.
+About Quality of Service Settings
+=================================
 
+This page now lives `here <Concepts/About-Quality-of-Service-Settings>`.
