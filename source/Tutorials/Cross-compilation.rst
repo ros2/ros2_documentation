@@ -108,7 +108,7 @@ These are the main steps:
 The next sections explains in detail each of these steps.
 For a quick-setup, have a look at the `Automated Cross-compilation`_.
 
-.. note:: These steps were tested on an Ubuntu 18.04 (Bionic) and ROS2 Bouncy Balson
+.. note:: These steps were tested on an Ubuntu 18.04 (Bionic)
 
 1. Install development tools
 ----------------------------
@@ -146,7 +146,7 @@ Then create a workspace and download the ROS2 source code:
 
     mkdir -p ~/cc_ws/ros2_ws/src
     cd ~/cc_ws/ros2_ws
-    wget https://raw.githubusercontent.com/ros2/ros2/release-bouncy/ros2.repos
+    wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
     vcs-import src < ros2.repos
     git clone https://github.com/ros2/cross_compile.git src/ros2/cross_compile
     cd ..
@@ -204,7 +204,8 @@ The following packages still cause errors during the cross-compilation (under in
         ros2_ws/src/ros2/rviz/COLCON_IGNORE \
         ros2_ws/src/ros2/demos/intra_process_demo/COLCON_IGNORE \
         ros2_ws/src/ros2/demos/image_tools/COLCON_IGNORE \
-        ros2_ws/src/ros2/robot_state_publisher/COLCON_IGNORE
+        ros2_ws/src/ros2/robot_state_publisher/COLCON_IGNORE \
+        ros2_ws/src/ros-visualization/COLCON_IGNORE
 
 Then, start a build with colcon specifying the toolchain-file:
 
@@ -271,7 +272,7 @@ Modify the environment variable ``ROS2_INSTALL_PATH`` to point to the installati
 
 .. code-block:: bash
 
-    export ROS2_INSTALL_PATH=~/cc_ws/sysroot_docker/opt/ros/bouncy
+    export ROS2_INSTALL_PATH=~/cc_ws/sysroot_docker/opt/ros/crystal
 
 Source the ``setup.bash`` script on the target file-system:
 
