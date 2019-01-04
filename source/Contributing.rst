@@ -2,6 +2,21 @@
 Contributing to ROS 2
 =====================
 
+.. toctree::
+   :hidden:
+   :glob:
+
+   Contributing/*
+
+* `ROS 2 On boarding Guide <Contributing/ROS-2-On-boarding-Guide>`
+* `Developer Guide <Contributing/Developer-Guide>`
+* `Design Guide <Contributing/Design-Guide>`
+* `MISRA Compliance Guide <Contributing/MISRA-Compliance-Guide>`
+* `Migration Guide <Contributing/Migration-Guide>`
+* `Quality Guide <Contributing/Quality-Guide>`
+* `Build Cop & Build Farmer Guide <Contributing/Build-Cop-and-Build-Farmer-Guide>`
+* `Inter-Sphinx Support <Contributing/Inter-Sphinx-Support>`
+  
 There are a number of ways you can contribute to the ROS 2 project.
 
 Design discussions
@@ -49,6 +64,6 @@ Submitting your code changes
 
 Code contributions should be made via pull requests to `the appropriate ros2 repositories <https://github.com/ros2>`__.
 
-We ask all contributors to follow the practices explained in `the developer guide <Developer-Guide>`.
+We ask all contributors to follow the practices explained in `the developer guide <Contributing/Developer-Guide>`.
 
 Please be sure to `run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.

@@ -6,14 +6,19 @@ Overview
 --------
 
 .. toctree::
+   :titlesonly:
    :maxdepth: 1
 
+   Installation
    Roadmap
    Releases
-   Features
+   Concepts
+   Features           
    Tutorials
-   Installation
-   Migration-Guide
+   Troubleshooting
+   Contributing
+   Related-Projects
+   Contact
    About
 
 The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications.
@@ -41,9 +46,12 @@ Tutorials and Features
 ----------------------
 
 ROS 2 is under heavy development.
+
 You can check out the `tutorials page <Tutorials>` to see a range of examples of what the system can do in its current state, if it fits your project *today* depending on the exact requirement.
+
 For details of the current features, see `Features <Features>`.
-If migrating code from ROS to ROS 2, check `the migration guide <Migration-Guide>`.
+
+If migrating code from ROS to ROS 2, check `the migration guide <Contributing/Migration-Guide>`.
 
 What's ahead
 ------------
@@ -54,7 +62,7 @@ See the `Roadmap <Roadmap>` for details on the planned upcoming features for ROS
 Contributing
 ------------
 
-See `the contributing page <Contributing>` and `the developer guide <Developer-Guide>` for details on how to contribute to ROS 2 developments.
+See `the contributing page <Contributing>` and `the developer guide <Contributing/Developer-Guide>` for details on how to contribute to ROS 2 developments.
 
 Reporting problems and asking questions
 ---------------------------------------
