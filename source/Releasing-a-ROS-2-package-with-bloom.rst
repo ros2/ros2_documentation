@@ -60,7 +60,7 @@ Procedure
 
 Same as in ROS 1: `Following this tutorial <http://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__
 
-If porting a ROS 1 package to ROS 2, it's recommended to create a new `-release` repository.
+If porting a ROS 1 package to ROS 2, it's recommended to create a new ``-release`` repository.
 
 Build Status
 ------------

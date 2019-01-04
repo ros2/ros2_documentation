@@ -146,6 +146,6 @@ Known Issues
 * Cross-vendor communication between rmw_fastrtps_cpp and other implementations is not functioning on Windows (`Issue <https://github.com/ros2/rmw_fastrtps/issues/246>`__)
 * 100% CPU usage in Action Server when cancelling a goal from the client. (`Issue <https://github.com/ros2/examples/issues/221>`__)
 * Action Server can crash when a goal expires. (`Pull Request <https://github.com/ros2/rcl/pull/360>`__)
-* Segfault in `ros2 param get` when a string parameter value contains non-ASCII characters. (`Issue <https://github.com/ros2/ros2cli/issues/176>`__)
+* Segfault in ``ros2 param get`` when a string parameter value contains non-ASCII characters. (`Issue <https://github.com/ros2/ros2cli/issues/176>`__)
 * The latest version of OpenSplice on Windows is not compatible with the available binaries. (`Issue <https://github.com/ros2/build_cop/issues/157>`__)
 

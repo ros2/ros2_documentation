@@ -15,7 +15,7 @@ To show all Intersphinx links and their targets of an Intersphinx mapping file, 
 
 .. code-block:: bash
 
-    python -msphinx.ext.intersphinx url-or-path-to-inv-file
+    python -msphinx.ext.intersphinx "url-or-path-to-inv-file"
 
 This is helpful when searching for the root cause of a broken Intersphinx link in a documentation project.
 
@@ -35,7 +35,7 @@ Examples of intersphinx in action
 
 Links to **source code** can be created as follows:
 
-.. code-block:: bash
+.. note::  
 
     Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 
@@ -45,7 +45,7 @@ Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.check
 
 Links to documentation pages:
 
-.. code-block:: bash
+.. note::
 
     Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
 
@@ -55,7 +55,7 @@ Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
 
 Links to other pages in this documentation:
 
-.. code-block:: bash
+.. note::
 
     See `the installation page <Installation>`.
 

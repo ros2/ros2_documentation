@@ -45,18 +45,19 @@ Issues
 
 When filing an issue please make sure to:
 
-* Include enough information for another person to understand the issue.
+- Include enough information for another person to understand the issue.
   In ROS 2, the following points are needed for narrowing down the cause of an issue. Testing with as many alternatives in each category as feasible will be especially helpful.
-    - **The operating system and version.** Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
-    - **The installation method.** Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians. This can help us determine if the issue is with the packaging process.
-    - **The specific version of ROS 2.** Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed. It is important to know if your installation includes these fixes.
-    - **The DDS/RMW implementation being used;** see `this page <Working-with-multiple-RMW-implementations>` for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
-    - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
+  - **The operating system and version.** Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
+  - **The installation method.** Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians. This can help us determine if the issue is with the packaging process.
+  - **The specific version of ROS 2.** Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed. It is important to know if your installation includes these fixes.
+  - **The DDS/RMW implementation being used;** see `this page <Working-with-multiple-RMW-implementations>` for how to determine which one. Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
+  - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
+    
 - Include a list of steps to reproduce the issue.
 - In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__. Issues are much more likely to be resolved if others can reproduce them easily.
 - Mention troubleshooting steps that have been tried already, including:
-    - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. Select "building from source" on `this page <Installation#building-from-source>` and follow the instructions to get the "master" branches.
-    - Trying with a different RMW implementation. See `this page <Working-with-multiple-RMW-implementations>` for how to do that.
+  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. Select "building from source" on `this page <building-from-source>` and follow the instructions to get the "master" branches.
+  - Trying with a different RMW implementation. See `this page <Working-with-multiple-RMW-implementations>` for how to do that.
 
 Pull requests
 ^^^^^^^^^^^^^

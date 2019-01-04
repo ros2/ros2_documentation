@@ -23,7 +23,7 @@ Users can create their own plugins for RQt with either ``Python`` or ``C++``.
 `Over 20 plugins <http://wiki.ros.org/rqt/Plugins>`_ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`_).
 
 Installing From Debian
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~
 
 ::
 
@@ -68,6 +68,6 @@ Further Reading
 * `RQt for ROS 1 documentation <http://wiki.ros.org/rqt>`_.
 * Brief overview of RQt (from `a Willow Garage intern blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`_).
 
-  .. raw::
+  .. raw:: html
 
      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CyP9wHu2PpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
