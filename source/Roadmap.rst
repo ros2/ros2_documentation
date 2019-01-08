@@ -29,7 +29,12 @@ Future (in no specific order)
 Design / Concept
 ~~~~~~~~~~~~~~~~
 
-* Support for non-ASCII strings in messages / services
+* IDL format: using IDL 4.2 to specify ROS interfaces (msgs, srvs, actions)
+
+  * Support for non-ASCII strings in messages / services
+  * Leverage new features like grouping and various annotations (comments, units)
+  * Extend usage to `.idl` files with just constants and/or declare parameters with ranges
+
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants
 * Uniqueness of node names
