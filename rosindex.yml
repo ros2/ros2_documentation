@@ -1,0 +1,20 @@
+# The root location to look at for ReST documentation pages.
+sources_dir: source
+
+# Patterns for page indexing. Unindexed pages will
+# nonetheless be present in rosindex. Useful to keep
+# redirecting pages around to guarantee link-wise
+# backwards compatibility.
+index_pattern:
+  - index.rst
+  - About.rst
+  - Concepts.rst
+  - Contributing.rst
+  - Contact.rst
+  - Features.rst
+  - Installation.rst
+  - Releases.rst
+  - Related-Projects.rst
+  - Roadmap.rst
+  - Tutorials.rst
+  - '**/*.rst'
