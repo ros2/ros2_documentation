@@ -43,24 +43,16 @@ See above version requirements.
 
      sudo apt install python-catkin-pkg python-bloom
 
-Differences from ROS 1 Bloom
-----------------------------
-
-If you've bloomed packages before in ROS 1, ROS 2's requirements will look familiar.
-
-ROS 2 uses a forked rosdistro index located at https://github.com/ros2/rosdistro.
-You can configure bloom to use it by setting the ``ROSDISTRO_INDEX_URL`` environment variable.
+If you're using a version of bloom older than 0.6.8 you'll need to use the v3 index url for releasing.
 
 .. code-block:: bash
 
-   export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros2/rosdistro/ros2/index-v4.yaml'
+   export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros/rosdistro/master/index.yaml'
 
-If you're using a version of bloom older than 0.6.8 you'll need to use the v3 index url for releasing into Bouncy.
+No differences from ROS 1 Bloom
+-------------------------------
 
-.. code-block:: bash
-
-   export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros2/rosdistro/ros2/index.yaml'
-
+If you've bloomed packages before in ROS 1, the ROS 2 process is exactly the same.
 
 Procedure
 ---------
