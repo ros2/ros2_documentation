@@ -105,7 +105,7 @@ The ability to configure specific loggers from the command line is forthcoming.
 Console output formatting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like more or less verbose formatting, you can use `the RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable <logging-console-output-configuration>`_.
+If you would like more or less verbose formatting, you can use `the RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable <logging-console-output-configuration>`.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
 .. code-block:: bash
