@@ -18,6 +18,8 @@ A summary of releases of ROS 2 software is listed below.
 
    * - Release Overview
      - Date
+   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+     - Summer 2019
    * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - 14 December 2018
    * - `Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
