@@ -15,17 +15,21 @@ In the root directory are the files required to locally build the site for testi
 
 ### Prerequisites
 
- You must have sphinx installed. On Debian or Ubuntu you can install it using apt:
+You must have sphinx installed. On Debian or Ubuntu you can install it using apt:
 
-''' apt-get install python3-sphinx '''
+```
+apt-get install python3-sphinx
+```
 
- For other distributions please refer to http://www.sphinx-doc.org/en/master/usage/installation.html
+For other distributions please refer to http://www.sphinx-doc.org/en/master/usage/installation.html
 
 
 ### Build the site
 
 To build the site just execute:
 
-''' make html  '''
+```
+make html
+```
 
 The site will be generated in the build/html directory. The main page is README.html
