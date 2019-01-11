@@ -22,6 +22,10 @@ The source code can be found in the `colcon GitHub organization <https://github.
 Prerequisites
 -------------
 
+Install COLCON
+^^^^^^^^^^^^^^^^^^^^^^^
+Colcon is python3 based tools. Visit https://colcon.readthedocs.io/en/released/user/installation.html for debian installation.
+
 Development Environment
 ^^^^^^^^^^^^^^^^^^^^^^^
 
