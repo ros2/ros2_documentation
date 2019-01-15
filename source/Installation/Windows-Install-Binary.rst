@@ -241,7 +241,7 @@ Start another command shell and run a ``listener``\ :
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page <Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
+If you have installed support for an optional vendor, see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
