@@ -185,7 +185,7 @@ The source distribution of ROS 2 includes FastRTPS, so it will always build unle
 Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice 6.7.180404 <https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804>`__.
+If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
 Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
 
 .. code-block:: bash
