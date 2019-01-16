@@ -156,6 +156,13 @@ We won't see much of a difference if we change the quality of service settings, 
 Add network traffic
 ^^^^^^^^^^^^^^^^^^^
 
+.. warning::
+
+  This section of the demo won't work on RTI's Connext DDS.
+  When running multiple nodes in the same host, the RTI Connext implementation uses shared memory along with the loopback interface.
+  Degrading the loopback interface throughput won't affect shared memory, thus traffic between the two nodes won't be affected.
+  See RMW implementation `code <https://github.com/ros2/rmw_connext/blob/e71347b944a8cd92acfb89b129b2b10f2575f273/rmw_connext_shared_cpp/src/node.cpp#L96>`__ and `RTI Connext Documentation <https://community.rti.com/static/documentation/connext-dds/5.3.1/doc/api/connext_dds/api_dotnet/group__UDPv4Transport__Property__t__ignore__loopback__interface.html>`__  for further reference.
+
 .. note::
 
    This next section is Linux-specific.
