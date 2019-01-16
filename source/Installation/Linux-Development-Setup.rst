@@ -54,7 +54,7 @@ Install development tools and ROS tools
      python3-vcstool \
      wget
    # install some pip packages needed for testing
-   sudo -H python3 -m pip install -U \
+   python3 -m pip install -U \
      argcomplete \
      flake8 \
      flake8-blind-except \
