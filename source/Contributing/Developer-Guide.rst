@@ -50,6 +50,11 @@ Pull requests
 * A pull request should only focus on one change.
   Separate changes should go into separate pull requests.
   See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
+
+  * For some ROS 2 repositories the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ is enforced on pull requests.
+    It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
+    You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
+
 * A patch should be minimal in size and avoid any kind of unnecessary changes.
 * Always run CI jobs for all platforms for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
