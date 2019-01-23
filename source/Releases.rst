@@ -34,7 +34,7 @@ A summary of releases of ROS 2 software is listed below.
      - 31 August 2015 - 4 October 2016
 
 For more details about each release, see the corresponding release overview.
-       
+
 Release practices
 -----------------
 
