@@ -63,7 +63,7 @@ We create a folder inside our project, named "src"
 
 
 We see the folder in our project. This folder also exist in our workspace.
-After that we go to a console and switch to directory /home/ros/ros2_ws/ros2_ws there we enter 
+After that we go to a console and switch to directory /home/ros/ros2_ws/ros2_ws there we enter
 
 .. code-block:: bash
 
@@ -80,7 +80,7 @@ add export RTI_LICENSE_FILE=/home/ros/rti_connext_dds-5.3.1/rti_license.dat to .
 
 We now need a RTI license, which we get on their website. Refer to `Linux Development Setup page <../Installation/Linux-Development-Setup>`. The RTI license file will be directly send per email after sign-up.
 
-In the email is a link to the RTI software to download. We run the .run file after chmod +x 
+In the email is a link to the RTI software to download. We run the .run file after chmod +x
 
 .. image:: https://i.imgur.com/daIBmJA.png
    :target: https://i.imgur.com/daIBmJA.png
@@ -140,9 +140,9 @@ and the openssl package
    :alt: eclipse-1
 
 
-Unpack the openssl-1.0.2n package and copy it to the RTI install directory. source /home/ros/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash on a console and export RMW_IMPLEMENTATION=rmw_connext_cpp. 
+Unpack the openssl-1.0.2n package and copy it to the RTI install directory. source /home/ros/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash on a console and export RMW_IMPLEMENTATION=rmw_connext_cpp.
 
-Close eclipse-IDE and open it from the shell we sourced all the scripts from above.We now open in Eclipse the Project->Preferences and go to Environment. 
+Close eclipse-IDE and open it from the shell we sourced all the scripts from above.We now open in Eclipse the Project->Preferences and go to Environment.
 
 
 .. image:: https://i.imgur.com/lzL0vra.png

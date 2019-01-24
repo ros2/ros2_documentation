@@ -6,7 +6,7 @@ This tutorial begins with a clean Ubuntu 16.04.2 install. Actual kernel is 4.13.
 
 If you are a company or rich person :) using rt_preempt, check https://wiki.linuxfoundation.org/realtime/rtl/blog#preempt-rt-history .
 
-Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 4.9-rt. If we click on the link, we get the exact version, it is patch-4.9.84-rt62.patch.gz 
+Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 4.9-rt. If we click on the link, we get the exact version, it is patch-4.9.84-rt62.patch.gz
 
 
 .. image:: https://i.imgur.com/bAMOzbt.png
@@ -14,7 +14,7 @@ Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable 
    :alt: eclipse-1
 
 
-We create a directory in our home dir with 
+We create a directory in our home dir with
 
 .. code-block:: bash
 
@@ -92,13 +92,13 @@ We need some tools, install them with
 
    sudo apt install libncurses5-dev build-essential libssl-dev ccache
 
-Then we need to enable rt_preempt in the kernel. We call 
+Then we need to enable rt_preempt in the kernel. We call
 
 .. code-block:: bash
 
    make menuconfig
 
-and choose under “Processor Type and Features”  ---  “Preemption Model”  --- “Fully Preemptible kernel (RT)” 
+and choose under “Processor Type and Features”  ---  “Preemption Model”  --- “Fully Preemptible kernel (RT)”
 
 
 .. image:: https://i.imgur.com/Jg5zX6G.png

@@ -44,7 +44,7 @@ Install Dependencies
 
 .. toctree::
    :hidden:
-   
+
    RQt-Source-Install-MacOS
    RQt-Source-Install-Windows10
 

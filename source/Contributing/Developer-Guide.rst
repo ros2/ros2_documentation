@@ -151,7 +151,7 @@ For example, everyone should have a PEP8 checker built into their editor to cut 
 
 Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`__).
 
-C 
+C
 ^
 
 Standard

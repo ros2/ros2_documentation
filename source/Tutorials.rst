@@ -27,14 +27,14 @@ Basic
    Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
    Tutorials/Releasing-a-ROS-2-package-with-bloom
-   
+
 
 Advanced
 --------
 
 .. toctree::
    :maxdepth: 1
-              
+
    Tutorials/Allocator-Template-Tutorial
 
 
@@ -43,7 +43,7 @@ Using Docker
 
 .. toctree::
    :maxdepth: 1
-           
+
    Tutorials/Run-2-nodes-in-a-single-docker-container
    Tutorials/Run-2-nodes-in-two-separate-docker-containers
 
@@ -62,7 +62,7 @@ Demos
    Tutorials/Python-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
-      
+
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
 * `Efficient intra-process communication <Tutorials/Intra-Process-Communication>`.

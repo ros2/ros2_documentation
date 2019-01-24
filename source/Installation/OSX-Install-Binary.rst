@@ -21,12 +21,12 @@ Installing prerequisites
 You need the following things installed before installing ROS 2.
 
 
-* 
+*
   **brew** *(needed to install more stuff; you probably already have this)*:
 
 
   * Follow installation instructions at http://brew.sh/
-  * 
+  *
     *Optional*: Check that ``brew`` is happy with your system configuration by running:
 
     .. code-block:: bash
@@ -36,7 +36,7 @@ You need the following things installed before installing ROS 2.
 
       Fix any problems that it identifies.
 
-* 
+*
   Use ``brew`` to install more stuff:
 
   .. code-block:: bash
@@ -65,7 +65,7 @@ You need the following things installed before installing ROS 2.
        # install Qt for RViz
        brew install qt freetype assimp
 
-* 
+*
   Install rqt dependencies
 
   ``brew install sip pyqt5``
@@ -77,7 +77,7 @@ You need the following things installed before installing ROS 2.
   ``brew install graphviz``
   ``python3 -m pip install pygraphviz pydot``
 
-* 
+*
   Install additional runtime dependencies for command-line tools:
 
   .. code-block:: bash
@@ -99,7 +99,7 @@ Downloading ROS 2
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
-* 
+*
   Unpack it:
 
   .. code-block:: bash

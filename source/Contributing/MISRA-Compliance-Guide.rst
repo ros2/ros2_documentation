@@ -20,7 +20,7 @@ This section tries to give guidance about how to integrate ROS2 into a system th
 **Relation to other sections of this wiki:**
 
 
-* The `Quality Guide <Quality-Guide>` summarizes overall techniques and strategies for producing high quality ROS2 packages.  
+* The `Quality Guide <Quality-Guide>` summarizes overall techniques and strategies for producing high quality ROS2 packages.
 
 What are the MISRA guidelines?
 ------------------------------

@@ -36,7 +36,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
 
    * ``ssh -i ci_ros2_linux_4.pem ubuntu@IPADDRESS``
 
-#. 
+#.
    Run the following commands
 
    .. code-block:: bash
@@ -53,7 +53,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
        sudo usermod -aG docker jenkins
        sudo service docker start
 
-#. 
+#.
    Make sure the jenkins user can run docker
 
    .. code-block:: bash

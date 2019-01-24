@@ -80,7 +80,7 @@ Install Visual Studio
    Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
-   
+
    Make sure that the Visual C++ features are installed.
    An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
@@ -161,7 +161,7 @@ As some chocolatey packages rely on it, we start by installing CMake
 You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
 
-Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository. 
+Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
 
 * asio.1.12.1.nupkg

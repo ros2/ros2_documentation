@@ -33,7 +33,7 @@ Users can create their own plugins for RQt with either ``Python`` or ``C++``.
 
 System setup
 ------------
- 
+
 Installing From Debian
 ^^^^^^^^^^^^^^^^^^^^^^
 
@@ -47,7 +47,7 @@ Building From Source
 
 .. toctree::
    :hidden:
-   
+
    RQt-Source-Install
 
 See `Building RQt from Source <RQt-Source-Install>`.
