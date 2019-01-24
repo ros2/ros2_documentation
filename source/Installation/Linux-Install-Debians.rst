@@ -148,4 +148,10 @@ Now you can install the remaining packages:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-$ROS_DISTRO-ros1-bridge ros-$ROS_DISTRO-turtlebot2-*
+   sudo apt install ros-$ROS_DISTRO-ros1-bridge
+
+The turtlebot2 packages are available in Bouncy but not Crystal.
+
+.. code-block:: bash
+
+   sudo apt install ros-$ROS_DISTRO-turtlebot2-*
