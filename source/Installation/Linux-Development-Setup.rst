@@ -132,13 +132,6 @@ PrismTech OpenSplice Debian Packages built by OSRF
    # For Bouncy Bolson
    sudo apt install libopensplice67  # from packages.ros.org/ros2/ubuntu
 
-Add this to your ``~/.bashrc``
-
-.. code-block:: bash
-
-   export OSPL_URI=file:///usr/etc/opensplice/config/ospl.xml
-
-
 .. raw:: html
 
    <!--
