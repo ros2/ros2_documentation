@@ -10,26 +10,26 @@ Iteratively test either using the artifacts produced by the packaging jobs or fr
 Once the current state is ready to be released, follow these steps:
 
 
-* 
+*
   Get a fresh copy of all repositories using the master `ros2.repos file <https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos>`__.
 
 
   * ``curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos | vcs import ./src``
 
-* 
+*
   Update the version number in (most) packages (excluding the ones which have their own numbering scheme). Also update the version numbers in all python packages that have a setup.py.
 
 
   * Commit and push these changes: ``vcs custom ./src --args commit -m "beta N" -a``, ``vcs custom ./src --args push``
 
 
-* 
+*
   Create a ``.repos`` file with the exact commit hashes you have checked out locally:
 
 
   * ``vcs export --exact ./src > hashes.repos``
 
-* 
+*
   Tag (most) repositories using ``vcstool``.
 
 
@@ -56,20 +56,20 @@ Once the current state is ready to be released, follow these steps:
 
     * ``vcs custom ./src --args push --tags -f``
 
-* 
+*
   Create new ``.repos`` file:
 
 
   * ``cp hashes.repos tags.repos``
   * Edit ``tags.repos`` and replace the version attribute for all repositories (except the ones skipped before) with ``release-betaN`` (adjust the tag name appropriately).
 
-* 
+*
   Repeat the tagging and ``.repos`` file generation for the `turtlebot2_demo.repos file <https://github.com/ros2/turtlebot2_demo/blob/release-latest/turtlebot2_demo.repos>`__.
 
 
   * At beta3, only the turtlebot2_demo repo had packages that needed their version bumped, and no repos used a fixed hash instead of the release tag.
 
-* 
+*
   Run some packaging job using this new ``.repos`` file.
 
 
@@ -79,7 +79,7 @@ Once the current state is ready to be released, follow these steps:
 
     * E.g. ``ros2-beta2-package-linux-fastrtps-x86_64.tar.bz2``
 
-* 
+*
   Create a tag on the ``ros2/ros2`` repository called ``release-betaN`` with the new ``.repos`` file:
 
 
@@ -88,7 +88,7 @@ Once the current state is ready to be released, follow these steps:
   * Commit it with a message like the tag name, e.g. ``release-betaN`` (adjust the tag name appropriately).
   * Tag it with ``git tag release-betaN`` (adjust the tag name appropriately) and ``git tag -f release-latest`` push both with ``git push --tags -f``.
 
-* 
+*
   Create a new release in the `Releases <https://github.com/ros2/ros2/releases>`__ section of ``ros2/ros2`` using this new tag:
 
 

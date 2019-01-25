@@ -14,7 +14,7 @@ Before being able to migrate a ROS 1 package to ROS 2 all of its dependencies mu
 Migration steps
 ---------------
 
-.. contents:: 
+.. contents::
    :depth: 1
    :local:
 
@@ -76,7 +76,7 @@ Pure Python package
 If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does not contain anything beside Python code (e.g. also no messages, services, etc.) it should be converted into a pure Python package in ROS 2:
 
 
-* 
+*
   Update or add the build type in the ``package.xml`` file:
 
   .. code-block:: xml
@@ -85,10 +85,10 @@ If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does no
        <build_type>ament_python</build_type>
      </export>
 
-* 
+*
   Remove the ``CMakeLists.txt`` file
 
-* 
+*
   Update the ``setup.py`` file to be a standard Python setup script
 
 ROS 2 supports Python 3 only.
@@ -100,7 +100,7 @@ Update the *CMakeLists.txt* to use *ament_cmake*
 Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
 
-* 
+*
   Set the build type in the ``package.xml`` file export section:
 
   .. code-block:: xml
@@ -109,7 +109,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
        <build_type>ament_cmake</build_type>
      </export>
 
-* 
+*
   Replace the ``find_package`` invocation with ``catkin`` and the ``COMPONENTS`` with:
 
   .. code-block:: cmake
@@ -119,14 +119,14 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
      # ...
      find_package(componentN REQUIRED)
 
-* 
+*
   Move and update the ``catkin_package`` invocation with:
 
 
-  * 
+  *
     Invoke ``ament_package`` instead but **after** all targets have been registered.
 
-  * 
+  *
     The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
     All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``:
 
@@ -137,21 +137,21 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
   *
     **TODO document ament_export_interfaces?**
 
-* 
+*
   Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 
 
-  * 
+  *
     The first argument is the ``target_name``.
     If you're building just one library it's ``${PROJECT_NAME}``
 
-  * 
+  *
     Followed by the list of message filenames, relative to the package root.
 
 
     * If you will be using the list of filenames multiple times, it is recommended to compose a list of message files and pass the list to the function for clarity.
 
-  * 
+  *
     The final multi-value-keyword argument fpr ``generate_messages`` is ``DEPENDENCIES`` which requires the list of dependent message packages.
 
     .. code-block:: cmake
@@ -161,17 +161,17 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
          DEPENDENCIES std_msgs
        )
 
-* 
+*
   Remove any occurrences of the *devel space*.
   Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
 
 
   * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/master/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
 
-* 
+*
   Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 
-* 
+*
   Remove any occurrences of the *devel space*.
   Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
 
@@ -584,7 +584,7 @@ Inside the publishing loop, we use the ``->`` operator to access the ``data`` fi
    //    msg.data = ss.str();
        msg->data = ss.str();
 
-To print a console message, instead of using ``ROS_INFO()``, we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument. 
+To print a console message, instead of using ``ROS_INFO()``, we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument.
 
 .. code-block:: cpp
 

@@ -31,7 +31,7 @@ Downloading ROS 2
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
-* 
+*
   Unpack it:
 
   .. code-block:: bash

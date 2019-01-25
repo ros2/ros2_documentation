@@ -60,7 +60,7 @@ Furthermore, having the common core means that maintaining multiple client libra
 Language-specific functionality
 -------------------------------
 
-Client library concepts that require language-specific features/properties are not implemented in the RCL but instead are implemented in each client library. 
+Client library concepts that require language-specific features/properties are not implemented in the RCL but instead are implemented in each client library.
 For example, threading models used by “spin” functions will have implementations that are specific to the language of the client library.
 
 Demo

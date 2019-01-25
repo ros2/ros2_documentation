@@ -39,7 +39,7 @@ Examples of intersphinx in action
 
 Links to **source code** can be created as follows:
 
-.. note::  
+.. note::
 
     Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.checkout` method.
 

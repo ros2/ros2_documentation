@@ -1,10 +1,11 @@
 language: python
 sudo: false
 install:
-  - pip install sphinx
+  - pip install doc8 sphinx
 script:
   - make html 2> stderr.log
   - cat stderr.log
+  - doc8 --ignore D001 --ignore-path build
   # fail the build for any stderr output
   - if [ -s "stderr.log" ]; then false; fi
 notifications:

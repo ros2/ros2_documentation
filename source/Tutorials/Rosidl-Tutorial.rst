@@ -503,7 +503,7 @@ We need to create a new target for this node in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
-   add_executable(publish_address_book 
+   add_executable(publish_address_book
      src/publish_address_book.cpp
    )
 

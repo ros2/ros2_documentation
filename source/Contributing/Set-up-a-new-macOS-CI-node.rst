@@ -57,7 +57,7 @@ Install JDK for Jenkins.
 Easiest way is to type ``java`` at the terminal and let Apple link you to Oracle’s JDK download.
 I installed the latest JDK 8 (withholding Java 9 for now).
 
-Install Homebrew following instructions at https://brew.sh 
+Install Homebrew following instructions at https://brew.sh
 
 Install ``ssh-askpass`` via homebrew
 
@@ -122,7 +122,7 @@ RTI Connext Specific Instructions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-* The Open Robotics license is here (private repo): https://github.com/osrf/rticonnextdds-src/blob/license/rti_license.dat 
+* The Open Robotics license is here (private repo): https://github.com/osrf/rticonnextdds-src/blob/license/rti_license.dat
 * Open the RTI launcher application
 
   * In the RTI launcher, open the file dialog to choose the license file.

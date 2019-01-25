@@ -55,7 +55,7 @@ The demo is split into 3 different separate applications.
 
 * lifecycle_talker
 * lifecycle_listener
-* lifecycle_service_client 
+* lifecycle_service_client
 
 The ``lifecycle_talker`` represents a managed node and publishes according to which state the node is in. We split the tasks of the talker node into separate pieces and execute them as followed.
 
@@ -65,11 +65,11 @@ The ``lifecycle_talker`` represents a managed node and publishes according to wh
 #. deactivate: We stop the publisher and timer
 #. cleanup: We destroy the publisher and timer
 
-The principle is implemented in this demo as the typical talker/listener demo. However, imaging a real scenario with attached hardware which may have a rather long booting phase, i.e. a laser or camera. One could image bringing up the device driver in the configuring state, start and stop only the publishing of the device's data and only in the cleanup/shutdown phase actually shutdown the device. 
+The principle is implemented in this demo as the typical talker/listener demo. However, imaging a real scenario with attached hardware which may have a rather long booting phase, i.e. a laser or camera. One could image bringing up the device driver in the configuring state, start and stop only the publishing of the device's data and only in the cleanup/shutdown phase actually shutdown the device.
 
 The ``lifecycle_listener`` is a simple listener which shows the characteristics of the lifecycle talker. The talker enables the message publishing only in the active state and thus making the listener receiving only messages when the talker is in an active state.
 
-The ``lifecycle_service_client`` is a script calling different transitions on the ``lifecycle_talker``. This is meant as the external user controlling the lifecycle of nodes.   
+The ``lifecycle_service_client`` is a script calling different transitions on the ``lifecycle_talker``. This is meant as the external user controlling the lifecycle of nodes.
 
 Run the demo
 ------------
@@ -94,7 +94,7 @@ In order to run this demo, we open three terminals and source our ROS2 environme
      - .. image:: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5.png
           :target: https://asciinema.org/a/6o20wbnhx6tk3y2hr5dk8fwm5
           :alt: asciicast
-     
+
 
 Alternatively, these three programs can be run together in the same terminal using the launch file (as of ROS 2 Bouncy):
 
@@ -104,7 +104,7 @@ Alternatively, these three programs can be run together in the same terminal usi
 
 If we look at the output of the ``lifecycle_talker``, we notice that nothing seems to happen. And this does make sense, since every node starts as ``unconfigured``. The lifecycle_talker is not configured yet and in our example, no publishers and timers are created yet.
 The same behavior can be seen for the ``lifecycle_listener``, which is less surprising given that no publishers are available at this moment.
-The interesting part starts with the third terminal. In there we launch our ``lifecycle_service_client`` which is responsible for changing the states of the ``lifecycle_talker``. 
+The interesting part starts with the third terminal. In there we launch our ``lifecycle_service_client`` which is responsible for changing the states of the ``lifecycle_talker``.
 
 Triggering transition 1 (configure)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,7 +122,7 @@ makes the lifecycle talker change its state to inactive. Inactive means that all
    Lifecycle publisher is currently inactive. Messages are not published.
    ...
 
-The lifecycle listener on the same time receives a notification as it listens to every state change notification of the lifecycle talker. In fact, the listener receives two consecutive notifications. One for changing from the primary state "unconfigured" to "configuring". Because the configuring step was successful within the lifecycle talker, a second notification from "configuring" to "inactive". 
+The lifecycle listener on the same time receives a notification as it listens to every state change notification of the lifecycle talker. In fact, the listener receives two consecutive notifications. One for changing from the primary state "unconfigured" to "configuring". Because the configuring step was successful within the lifecycle talker, a second notification from "configuring" to "inactive".
 
 .. code-block:: bash
 
@@ -137,7 +137,7 @@ Triggering transition 2 (activate)
    [lc_client] Transition 2 successfully triggered.
    [lc_client] Node lc_talker has current state active.
 
-makes the lifecycle talker change its state to active. Active means that all publishers and timers are now activated. Therefore the messages are now getting published. 
+makes the lifecycle talker change its state to active. Active means that all publishers and timers are now activated. Therefore the messages are now getting published.
 
 .. code-block:: bash
 
@@ -163,7 +163,7 @@ The difference to the transition event before is that our listener now also rece
 
 Please note that the index of the published message is already at 11. The purpose of this demo is to show that even though we call ``publish`` at every state of the lifecycle talker, only when the state in active, the messages are actually published. As for the beta1, all other messages are getting ignored. This behavior may change in future versions in order to provide better error handling.
 
-For the rest of the demo, you will see similar output as we deactivate and activate the lifecycle talker and finally shut it down. 
+For the rest of the demo, you will see similar output as we deactivate and activate the lifecycle talker and finally shut it down.
 
 The demo code
 -------------
@@ -186,13 +186,13 @@ Every child of LifecycleNodes have a set of callbacks provided. These callbacks 
 * ``rcl_lifecycle_ret_t on_cleanup(const rclcpp_lifecycle::State & previous_state)``
 * ``rcl_lifecycle_ret_t on_shutdown(const rclcpp_lifecycle::State & previous_state)``
 
-All these callbacks have a positive default return value (``return RCL_LIFECYCLE_RET_OK``). This allows a lifecycle node to change its state even though no explicit callback function was overwritten. 
-There is one other callback function for error handling. Whenever a state transition throws an uncaught exception, we call ``on_error``. 
+All these callbacks have a positive default return value (``return RCL_LIFECYCLE_RET_OK``). This allows a lifecycle node to change its state even though no explicit callback function was overwritten.
+There is one other callback function for error handling. Whenever a state transition throws an uncaught exception, we call ``on_error``.
 
 
 * ``rcl_lifecycle_ret_t on_error(const rclcpp_lifecycle::State & previous_state)``
 
-This gives room for executing a custom error handling. Only (!) in the case that this function returns ``RCL_LIFECYCLE_RET_OK``, the state machine transitions to the state ``unconfigured``. By default, the ``on_error`` returns ``RCL_LIFECYCLE_RET_ERROR`` and the state machine transitions into ``finalized``. 
+This gives room for executing a custom error handling. Only (!) in the case that this function returns ``RCL_LIFECYCLE_RET_OK``, the state machine transitions to the state ``unconfigured``. By default, the ``on_error`` returns ``RCL_LIFECYCLE_RET_ERROR`` and the state machine transitions into ``finalized``.
 
 At the same time, every lifecycle node has by default 5 different communication interfaces.
 
@@ -200,7 +200,7 @@ At the same time, every lifecycle node has by default 5 different communication 
 * Publisher ``<node_name>__transition_event``: publishes in case a transition is happening. This allows users to get notified of transition events within the network.
 * Service ``<node_name>__get_state``: query about the current state of the node. Return either a primary or transition state.
 * Service ``<node_name>__change_state``: triggers a transition for the current node. This service call takes a transition id. Only in the case, that this transition ID is a valid transition of the current state, the transition is fulfilled. All other cases are getting ignored.
-* Service ``<node_name>__get_available_states``: This is meant to be an introspection tool. It returns a list of all possible states this node can be. 
+* Service ``<node_name>__get_available_states``: This is meant to be an introspection tool. It returns a list of all possible states this node can be.
 * Service ``<node_name>__get_available_transitions``: Same as above, meant to an introspection tool. It returns a list of all possible transitions this node can execute.
 
 ros2 lifecycle
@@ -226,7 +226,7 @@ All of the above commands are nothing else than calling the lifecycle node's ser
 
 .. code-block:: bash
 
-   $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState 
+   $ ros2 service call /lc_talker/get_state lifecycle_msgs/GetState
    requester: making request: lifecycle_msgs.srv.GetState_Request()
 
    response:

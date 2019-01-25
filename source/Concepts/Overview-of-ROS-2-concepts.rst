@@ -14,8 +14,8 @@ Quick Overview of Graph Concepts
 --------------------------------
 
 
-* Nodes: A node is an entity that uses ROS to communicate with other nodes. 
-* Messages: ROS data type used when subscribing or publishing to a topic. 
+* Nodes: A node is an entity that uses ROS to communicate with other nodes.
+* Messages: ROS data type used when subscribing or publishing to a topic.
 * Topics: Nodes can publish messages to a topic as well as subscribe to a topic to receive messages.
 * Discovery: The automatic process through which nodes determine how to talk to each other.
 

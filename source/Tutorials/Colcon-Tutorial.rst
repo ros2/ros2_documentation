@@ -117,7 +117,7 @@ This allows the installed files to be changed by changing the files in the ``sou
    colcon build --symlink-install
 
 .. _colcon-run-the-tests:
-   
+
 Run the tests
 ^^^^^^^^^^^^^
 
@@ -221,13 +221,13 @@ Tips
 ----
 
 
-* 
+*
   If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
-* 
+*
   If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
 
-* 
+*
   If you want to run a single particular test from a package:
 
   .. code-block:: bash

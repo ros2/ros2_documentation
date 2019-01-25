@@ -48,7 +48,7 @@ You should see some prints inside your terminal along the lines of the following
    Adding fixed segment from single_rrbot_link3 to single_rrbot_camera_link
    Adding fixed segment from single_rrbot_link3 to single_rrbot_hokuyo_link
 
-If you now open in a next terminal your RViz, you'll see your robot. 🎉 
+If you now open in a next terminal your RViz, you'll see your robot. 🎉
 
 .. code-block:: bash
 
@@ -60,7 +60,7 @@ This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you
 
 .. image:: https://i.imgur.com/pCFDTCv.png
    :target: https://i.imgur.com/pCFDTCv.png
-   :alt: 
+   :alt:
 
 
 What's happening?

@@ -21,7 +21,7 @@ They sit atop other build systems (e.g., CMake, Python setuptools) and provide e
 Each of these meta-build systems does two things:
 
 
-#. 
+#.
    Add API to the underlying build system (e.g,. CMake) that can be used to simplify common tasks (e.g., supplying all the flags exported by depended-upon packages when building an executable).
    There are usually hooks to allow injection of extra API by packages outside of the core meta-build system.
 
@@ -30,7 +30,7 @@ Each of these meta-build systems does two things:
    * ``catkin``: ``catkin_package()``, ``catkin_install_python()``, etc.
    * ``ament``: ``ament_target_dependencies()``, ``ament_export_dependencies()``, ``ament_package()``, etc.
 
-#. 
+#.
    Provide a tool that can be used to iterate in dependency order over a workspace full of packages, building and perhaps installing each one.
 
 
@@ -48,7 +48,7 @@ Postulates
 #. **While we usually consider the two aspects of a meta-build system to be coupled, they needn't be.**
    The API used inside a package and the tool that iterates over the packages can be considered largely independent, with the package manifest forming the interface between them.
    There's no reason in principle why, for example, ``rosmake`` couldn't be modified to iterate over a workspace filled with ``catkin`` packages, stepping into them in dependency order and doing the usual ``mkdir build; cd build; cmake ..; make install`` routine for each one (with appropriate flags passed to ``cmake`` and ``make``).
-#. 
+#.
    **The effort required to migrate from one meta-build system to another should be minimized.**
    The mass migration from ``rosbuild`` to ``catkin`` was difficult and remains a sore point for many in the community.
    While it's reasonable to ask developers to make changes in exchange for getting access to new functionality, the changes that are required should be as small as possible without sacrificing the effectiveness of the new system.
@@ -58,7 +58,7 @@ Postulates
    #. Corollary: **Migration to a new meta-build system should not be required without a very good reason.**
       If a developer doesn't want the functionality offered by the new system, then she shouldn't be coerced into migrating from the old system unless there's something irrevocably broken about the old system (e.g., ``rosbuild``\ 's in-source build pattern and lack of an "install" step).
 
-#. 
+#.
    **Interoperability is a good thing.**
    Whenever possible (not all combinations will be practical), developers should be able to mix and match meta-build systems, including mixing their different aspects (i.e., use the building tool from one system and the API from another).
    Such mixing and matching is especially important when developers want to combine a large existing code base using one meta-build system (e.g., ROS with ``catkin``) with new libraries and tools offered by a code base using another meta-build system (e.g., ROS2 with ``ament``).

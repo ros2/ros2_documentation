@@ -314,7 +314,7 @@ In each node the address of the message which is being sent, or which has been r
 The watermark and image view nodes are designed to modify the image without copying it and so the addresses imprinted on the image should all be the same as long as the nodes are in the same process and the graph remains organized in a pipeline as sketched above.
 
 .. note::
-   
+
    On some systems (we've seen it happen on Linux), the address printed to the screen might not change.
    This is because the same unique pointer is being reused. In this situation, the pipeline is still running.
 
@@ -329,7 +329,7 @@ You should see something like this:
 
 .. image:: http://i.imgur.com/tqiIVgT.png
    :target: http://i.imgur.com/tqiIVgT.png
-   :alt: 
+   :alt:
 
 
 You can pause the rendering of the image by pressing the spacebar and you can resume by pressing the spacebar again.
@@ -351,7 +351,7 @@ Let's run it with the command:
 
 .. image:: http://i.imgur.com/iLIT02t.png
    :target: http://i.imgur.com/iLIT02t.png
-   :alt: 
+   :alt:
 
 
 Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time. You can stop the updating to inspect the pointers written to the screen.
@@ -359,7 +359,7 @@ Just like the last example, you can pause the rendering with the spacebar and co
 As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different. To understand why this is happening consider the graph's topology:
 
 .. code-block:: bash
-   
+
    camera_node -> watermark_node -> image_view_node
                                  -> image_view_node2
 
@@ -375,7 +375,7 @@ One other important thing to get right is to avoid interruption of the intra pro
 
 .. image:: http://i.imgur.com/MoWRH1u.png
    :target: http://i.imgur.com/MoWRH1u.png
-   :alt: 
+   :alt:
 
 
 It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step. This means that the intra process zero-copy is preserved even when an external view is subscribed as well. You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.

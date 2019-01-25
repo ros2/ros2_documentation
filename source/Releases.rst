@@ -42,7 +42,6 @@ Upcoming releases:
      - Date
    * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - Summer 2019
-   
 
 For more details about each release, see the corresponding release overview.
 
