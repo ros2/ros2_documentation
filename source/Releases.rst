@@ -33,6 +33,17 @@ A summary of releases of ROS 2 software is listed below.
    * - `alpha1-8 <Releases/Alpha-Overview>`
      - 31 August 2015 - 4 October 2016
 
+Upcoming releases:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Future Release Overview
+     - Date
+   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+     - Summer 2019
+   
+
 For more details about each release, see the corresponding release overview.
 
 Release practices
