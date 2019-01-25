@@ -130,7 +130,6 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
 .. toctree::
    :hidden:
 
-   About-Quality-of-Service-Settings
    About-ROS-Interfaces
    Allocator-Template-Tutorial
    Alpha-Overview
