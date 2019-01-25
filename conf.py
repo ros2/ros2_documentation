@@ -16,7 +16,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # sys.path.insert(0, os.path.abspath('.'))
 
 # The suffix(es) of source filenames.
@@ -99,3 +99,37 @@ html_theme = 'alabaster'
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
+
+
+redirect_snippet = """\
+<html>
+  <head>
+    <link rel="canonical" href="{rel}.html" />
+    <meta http-equiv="refresh" content="1; url={rel}.html:" />
+    <script>
+      window.location.href = "{rel}.html"
+    </script>
+  </head>
+</html>
+"""
+
+
+def generate_redirects(app, docname):
+    if app.builder.name != 'html':
+        return
+    print('generating html redirects:')
+    redirects = {
+        'About-Quality-of-Service-Settings':
+        'Concepts/About-Quality-of-Service-Settings',
+    }
+    for src, dst in redirects.items():
+        print(' ', src, '->', dst)
+        abs_dst = os.path.join(app.outdir, src + '.html')
+        os.makedirs(os.path.dirname(abs_dst), exist_ok=True)
+        with open(abs_dst, 'w') as h:
+            rel = os.path.relpath(dst, os.path.dirname(src))
+            h.write(redirect_snippet.format_map(locals()))
+
+
+def setup(app):
+    app.connect('build-finished', generate_redirects)
