@@ -23,7 +23,7 @@ To be determined.
 Changes since the Crystal release
 ---------------------------------
 
-Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>`_ release:
+Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
 * New API in ``rmw``, a fini function for ``rmw_context_t``:
 
