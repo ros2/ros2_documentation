@@ -291,7 +291,7 @@ Currently for usages of ``ros::Time``:
 
 
 * Replace all instances of ``ros::Time`` with ``builtin_interfaces::msg::Time``
-* Ronvert all instances of ``nsec`` to ``nanosec``
+* Convert all instances of ``nsec`` to ``nanosec``
 * Convert all single argument double constructors to bare constructor plus assignment
 
 Field values do not get initialized to zero when constructed.
