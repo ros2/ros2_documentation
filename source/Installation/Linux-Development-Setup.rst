@@ -11,7 +11,7 @@ System Requirements
 -------------------
 ROS2 provides varying levels of support for different platforms.  So, the system requirements depend on how comfortable you are with the support level for your specific platform.  To find the latest specification, see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
 
-The complete instructions for building on Ubuntu and Debian are listed below.  However, some alternate instructions must be followed for `Fedora 26 <Fedora-Development-Setup>` and `Arch Linux <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__. 
+The complete instructions for building on Ubuntu and Debian are listed below.  However, some alternate instructions must be followed for `Fedora 26 <Fedora-Development-Setup>` and `Arch Linux <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
 
 
 System setup
@@ -20,7 +20,7 @@ System setup
 
 Set Locale
 ^^^^^^^^^^
-Make sure to set a locale that supports UTF-8. If you are in a minimal environment such as a docker container, the locale may be set to something minimal like POSIX.  
+Make sure to set a locale that supports UTF-8. If you are in a minimal environment such as a docker container, the locale may be set to something minimal like POSIX.
 
 The following is an example for setting locale, and they are the settings we use for testing.  However, it should be fine if you're using a different UTF-8 supported locale.
 
