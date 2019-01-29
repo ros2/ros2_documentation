@@ -32,6 +32,7 @@ To set the locale an example is below. It should be fine if you're using a diffe
 
 System setup
 ------------
+
 .. _linux-dev-add-ros2-repo:
 
 Add the ROS 2 apt repository
