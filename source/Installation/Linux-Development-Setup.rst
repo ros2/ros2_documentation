@@ -11,8 +11,8 @@ System Requirements
 -------------------
 Target platforms for Crystal Clemmys are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
-- Tier 1: Ubuntu Linux - Bionic Beaver (18.04)
-- Tier 2: Ubuntu Linux - Xenial Xerus (16.04)
+- Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
+- Tier 2: Ubuntu Linux - Xenial Xerus (16.04) 64-bit
 
 Tier 3 platforms (not actively tested or supported) include:
 
