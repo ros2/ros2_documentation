@@ -9,26 +9,30 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
-ROS2 provides varying levels of support for different platforms.  So, the system requirements depend on how comfortable you are with the support level for your specific platform.  To find the latest specification, see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
+Target platforms for Crystal Clemmys are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
-The complete instructions for building on Ubuntu and Debian are listed below.  However, some alternate instructions must be followed for `Fedora 26 <Fedora-Development-Setup>` and `Arch Linux <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
+- Tier 1: Ubuntu Linux - Bionic Beaver (18.04)
+- Tier 2: Ubuntu Linux - Xenial Xerus (16.04)
 
+Tier 3 platforms (not actively tested or supported) include:
 
-System setup
-------------
-.. _linux-dev-add-ros2-repo:
+- Debian Linux - Stretch (9)
+- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
+- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
 
-Set Locale
-^^^^^^^^^^
-Make sure to set a locale that supports UTF-8. If you are in a minimal environment such as a docker container, the locale may be set to something minimal like POSIX.
-
-The following is an example for setting locale, and they are the settings we use for testing.  However, it should be fine if you're using a different UTF-8 supported locale.
+Make sure that you have a locale set which supports ``UTF-8`` We test with the following settings.
+If you are in a minimal environment such as a docker containers the locale may be set to something minimal like POSIX.
+To set the locale an example is below. It should be fine if you're using a different UTF-8 supported locale.
 
 .. code-block:: bash
 
    sudo locale-gen en_US en_US.UTF-8
    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
    export LANG=en_US.UTF-8
+
+System setup
+------------
+.. _linux-dev-add-ros2-repo:
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
