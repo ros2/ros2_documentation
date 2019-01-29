@@ -9,15 +9,16 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
+Target platforms for Crystal Clemmys are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
-Target platforms for Bouncy Bolson (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__).
-- Ubuntu Linux Xenial Xerus 16.04 64-bit
-- Ubuntu Linux Bionic Beaver 18.04 64-bit
+- Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
+- Tier 2: Ubuntu Linux - Xenial Xerus (16.04) 64-bit
 
-Recommended Support (not actively tested or supported)
-- Debian Stretch
-- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`.
-- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
+Tier 3 platforms (not actively tested or supported) include:
+
+- Debian Linux - Stretch (9)
+- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
+- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
 
 Make sure that you have a locale set which supports ``UTF-8`` We test with the following settings.
 If you are in a minimal environment such as a docker containers the locale may be set to something minimal like POSIX.
