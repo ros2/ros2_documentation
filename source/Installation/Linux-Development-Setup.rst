@@ -19,20 +19,24 @@ Recommended Support (not actively tested or supported)
 - Fedora 26, see `alternate instructions <Fedora-Development-Setup>`.
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__.
 
-Make sure that you have a locale set which supports ``UTF-8`` We test with the following settings.
-If you are in a minimal environment such as a docker containers the locale may be set to something minimal like POSIX.
-To set the locale an example is below. It should be fine if you're using a different UTF-8 supported locale.
+System setup
+------------
+
+.. _linux-dev-add-ros2-repo:
+
+Set Locale
+^^^^^^^^^^
+Make sure to set a locale that supports UTF-8.
+If you are in a minimal environment such as a docker container, the locale may be set to something minimal like POSIX.
+
+The following is an example for setting locale, and they are the settings we use for testing.
+However, it should be fine if you're using a different UTF-8 supported locale.
 
 .. code-block:: bash
 
    sudo locale-gen en_US en_US.UTF-8
    sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
    export LANG=en_US.UTF-8
-
-System setup
-------------
-
-.. _linux-dev-add-ros2-repo:
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
