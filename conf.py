@@ -16,7 +16,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
+import os
 # sys.path.insert(0, os.path.abspath('.'))
 
 # The suffix(es) of source filenames.
@@ -99,3 +99,104 @@ html_theme = 'alabaster'
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
+
+
+redirect_snippet = """\
+<link rel="canonical" href="{dst}" />
+<meta http-equiv="refresh" content="1; url={dst}:" />
+<script>
+    window.location.href = '/doc/ros2/{dst}';
+</script>
+"""
+
+redirects = {
+    'About-Quality-of-Service-Settings': 'Concepts/About-Quality-of-Service-Settings',
+    'About-ROS-Interfaces': 'Concepts/About-ROS-Interfaces',
+    'Allocator-Template-Tutorial': 'Tutorials/Allocator-Template-Tutorial',
+    'Alpha-Overview': 'Releases/Alpha-Overview',
+    'Ament-Tutorial': 'Tutorials/Ament-Tutorial',
+    'Beta1-Overview': 'Releases/Beta1-Overview',
+    'Beta2-Overview': 'Releases/Beta2-Overview',
+    'Beta3-Overview': 'Releases/Beta3-Overview',
+    'Build-Cop-and-Build-Farmer-Guide': 'Contributing/Build-Cop-and-Build-Farmer-Guide',
+    'Building-ROS-2-on-Linux-with-Eclipse-Oxygen': 'Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen',
+    'Building-Realtime-rt_preempt-kernel-for-ROS-2': 'Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2',
+    'catment': 'Tutorials/catment',
+    'CI-Server-Setup': 'Contributing/CI-Server-Setup',
+    'Colcon-Tutorial': 'Tutorials/Colcon-Tutorial',
+    'Composition': 'Tutorials/Composition',
+    'DDS-and-ROS-middleware-implementations': 'Concepts/DDS-and-ROS-middleware-implementations',
+    'Defining-custom-interfaces-(msg-srv)': 'Tutorials/Defining-custom-interfaces-(msg-srv)',
+    'Design-Guide': 'Contributing/Design-Guide',
+    'Developer-Guide': 'Contributing/Developer-Guide',
+    'dummy-robot-demo': 'Tutorials/dummy-robot-demo',
+    'Eclipse-Oxygen-with-ROS-2-and-rviz2': 'Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2',
+    'Examples-and-Tools-for-ROS1----ROS2-Migrations': 'Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations',
+    'Fedora-Development-Setup': 'Installation/Fedora-Development-Setup',
+    'Install-Connext-Security-Plugins': 'Installation/Install-Connext-Security-Plugins',
+    'Intel-ROS2-Projects': 'Related-Projects/Intel-ROS2-Projects',
+    'Inter-Sphinx-Support': 'Contributing/Inter-Sphinx-Support',
+    'Intra-Process-Communication': 'Tutorials/Intra-Process-Communication',
+    'Introspection-with-command-line-tools': 'Tutorials/Introspection-with-command-line-tools',
+    'Launch-system': 'Tutorials/Launch-system',
+    'Linux-Development-Setup': 'Installation/Linux-Development-Setup',
+    'Linux-Install-Binary': 'Installation/Linux-Install-Binary',
+    'Linux-Install-Debians': 'Installation/Linux-Install-Debians',
+    'Logging': 'Concepts/Logging',
+    'Logging-and-logger-configuration': 'Tutorials/Logging-and-logger-configuration',
+    'MISRA-Compliance-Guide': 'Contributing/MISRA-Compliance-Guide',
+    'Maintaining-a-Source-Checkout': 'Installation/Maintaining-a-Source-Checkout',
+    'Managed-Nodes': 'Tutorials/Managed-Nodes',
+    'Migration-Guide': 'Contributing/Migration-Guide',
+    'Migration-Guide-Python': 'Contributing/Migration-Guide-Python',
+    'New-features-in-ROS-2-interfaces-(msg-srv)': 'Tutorials/New-features-in-ROS-2-interfaces-(msg-srv)',
+    'Node-arguments': 'Tutorials/Node-arguments',
+    'OSX-Development-Setup': 'Installation/OSX-Development-Setup',
+    'OSX-Install-Binary': 'Installation/OSX-Install-Binary',
+    'Overview-of-ROS-2-concepts': 'Concepts/Overview-of-ROS-2-concepts',
+    'Python-Programming': 'Tutorials/Python-Programming',
+    'Quality-Guide': 'Contributing/Quality-Guide',
+    'Quality-of-Service': 'Tutorials/Quality-of-Service',
+    'ROS-2-Client-Libraries': 'Concepts/ROS-2-Client-Libraries',
+    'ROS-2-On-boarding-Guide': 'Contributing/ROS-2-On-boarding-Guide',
+    'RQt-Overview-Usage': 'Tutorials/RQt-Overview-Usage',
+    'RQt-Port-Plugin-Windows': 'Tutorials/RQt-Port-Plugin-Windows',
+    'RQt-Source-Install': 'Tutorials/RQt-Source-Install',
+    'RQt-Source-Install-MacOS': 'Tutorials/RQt-Source-Install-MacOS',
+    'RQt-Source-Install-Windows10': 'Tutorials/RQt-Source-Install-Windows10',
+    'Real-Time-Programming': 'Tutorials/Real-Time-Programming',
+    'Release-Ardent-Apalone': 'Releases/Release-Ardent-Apalone',
+    'Release-Bouncy-Bolson': 'Releases/Release-Bouncy-Bolson',
+    'Release-Crystal-Clemmys': 'Releases/Release-Crystal-Clemmys',
+    'Release-Howto': 'Releases/Release-Howto',
+    'Releasing-a-ROS-2-package-with-bloom': 'Tutorials/Releasing-a-ROS-2-package-with-bloom',
+    'Rosbag-with-ROS1-Bridge': 'Tutorials/Rosbag-with-ROS1-Bridge',
+    'Rosidl-Tutorial': 'Tutorials/Rosidl-Tutorial',
+    'Run-2-nodes-in-a-single-docker-container': 'Tutorials/Run-2-nodes-in-a-single-docker-container',
+    'Run-2-nodes-in-two-separate-docker-containers': 'Tutorials/Run-2-nodes-in-two-separate-docker-containers',
+    'Set-up-a-new-Linux-CI-node': 'Contributing/Set-up-a-new-Linux-CI-node',
+    'Set-up-a-new-Windows-CI-node': 'Contributing/Set-up-a-new-Windows-CI-node',
+    'Set-up-a-new-macOS-CI-node': 'Contributing/Set-up-a-new-macOS-CI-node',
+    'tf2': 'Tutorials/tf2',
+    'Windows-Development-Setup': 'Installation/Windows-Development-Setup',
+    'Windows-Install-Binary': 'Installation/Windows-Install-Binary',
+    'Working-with-multiple-RMW-implementations': 'Tutorials/Working-with-multiple-RMW-implementations',
+}
+
+
+def generate_redirects(app):
+    page_redirects = []
+    template_name = ""
+    for src, dst in redirects.items():
+        page_name = src
+        context = {
+            'title': src,
+            'body': redirect_snippet.format(**locals())
+        }
+        page_redirects.append((page_name, context, template_name))
+    print page_redirects
+    return page_redirects
+
+
+def setup(app):
+    app.connect('html-collect-pages', generate_redirects)
