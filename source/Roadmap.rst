@@ -6,25 +6,17 @@ Roadmap
    :depth: 2
    :local:
 
+Please see the page of the upcoming distribution `Dashing Diademata <Releases/Release-Dashing-Diademata>` for more information what is planned to be part of that release.
+
+Please see the `Distributions page <Releases>` for the timeline of and information about future distributions.
+
 For more information on the design of ROS 2 please see `design.ros2.org <http://design.ros2.org>`__.
 The core code for ROS 2 is on the `ros2 github organization <https://github.com/ros2>`__.
 The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.
 Questions should be asked on `ROS answers <https://answers.ros.org>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``ardent``.
 
-Planned upcoming releases
--------------------------
-
-This is a list of the features targeted for development in the future.
-
-*Subject to change.*
-
-Next release - D-turtle (June 2019)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The `D-turtle meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub will in the near future enumerate the ongoing high level tasks as well as references specific tickets with more details.
-
-Future (in no specific order)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Feature ideas in no specific order
+----------------------------------
 
 Design / Concept
 ~~~~~~~~~~~~~~~~
@@ -161,8 +153,3 @@ Reducing Technical Debt
 
 * Address / classify pending tickets
 * Address TODOs in code / docs
-
-Past releases
--------------
-
-See `list of releases <Releases>`.
