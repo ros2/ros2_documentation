@@ -28,9 +28,9 @@ System setup
 Set Locale
 ^^^^^^^^^^
 Make sure to set a locale that supports UTF-8.
-If you are in a minimal environment such as a docker container, the locale may be set to something minimal like POSIX.
+If you are in a minimal environment such as a Docker container, the locale may be set to something minimal like POSIX.
 
-The following is an example for setting locale, and they are the settings we use for testing.
+The following is an example for setting locale.
 However, it should be fine if you're using a different UTF-8 supported locale.
 
 .. code-block:: bash
