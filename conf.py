@@ -194,7 +194,6 @@ def generate_redirects(app):
             'body': redirect_snippet.format(**locals())
         }
         page_redirects.append((page_name, context, template_name))
-    print page_redirects
     return page_redirects
 
 
