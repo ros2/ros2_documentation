@@ -102,11 +102,11 @@ htmlhelp_basename = 'ros2_docsdoc'
 
 
 redirect_snippet = """\
-<link rel="canonical" href="{dst}" />
-<meta http-equiv="refresh" content="1; url={dst}:" />
-<script>
-    window.location.href = '/doc/ros2/{dst}';
-</script>
+    <link rel="canonical" href="/doc/{repo}/{dst}" />
+    <meta http-equiv="refresh" content="0; url=/doc/{repo}/{dst}" />
+    <script>
+        window.location.href = '/doc/{repo}/{dst}';
+    </script>
 """
 
 redirects = {
@@ -187,11 +187,14 @@ redirects = {
 def generate_redirects(app):
     page_redirects = []
     template_name = ""
+    repo = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
     for src, dst in redirects.items():
         page_name = src
         context = {
             'title': src,
-            'body': redirect_snippet.format(**locals())
+            'body': "",
+            # This is being appended to the head of the page
+            'redirect': redirect_snippet.format(**locals()),
         }
         page_redirects.append((page_name, context, template_name))
     return page_redirects
