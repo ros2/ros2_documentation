@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Rosidl-Tutorial
 
 Introduction to msg and srv interfaces
 ======================================

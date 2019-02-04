@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Ament-Tutorial
 
 Using Ament
 ===========

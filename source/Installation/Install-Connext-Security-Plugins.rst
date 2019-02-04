@@ -1,3 +1,6 @@
+.. redirect-from::
+
+   Install-Connext-Security-Plugins
 
 Installing Connext security plugins
 ===================================

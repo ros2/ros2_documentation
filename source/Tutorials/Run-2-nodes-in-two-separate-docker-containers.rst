@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Run-2-nodes-in-two-separate-docker-containers
 
 Running 2 nodes in 2 separate docker containers [community-contributed]
 =======================================================================

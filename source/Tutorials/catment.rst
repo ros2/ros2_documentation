@@ -1,3 +1,6 @@
+.. redirect-from::
+
+   catment
 
 On the mixing of ament and catkin (catment)
 ===========================================

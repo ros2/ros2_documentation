@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Developer-Guide
 
 ROS 2 Developer Guide
 =====================

@@ -17,12 +17,12 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
-# sys.path.insert(0, os.path.abspath('.'))
+import itertools
+from sphinx.directives import Directive
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-
 # The master toctree document.
 master_doc = 'index'
 
@@ -64,9 +64,6 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 extensions = ['sphinx.ext.intersphinx']
@@ -101,104 +98,86 @@ html_theme = 'alabaster'
 htmlhelp_basename = 'ros2_docsdoc'
 
 
-redirect_snippet = """\
-    <link rel="canonical" href="/doc/{repo}/{dst}" />
-    <meta http-equiv="refresh" content="0; url=/doc/{repo}/{dst}" />
-    <script>
-        window.location.href = '/doc/{repo}/{dst}';
-    </script>
-"""
+class RedirectFrom(Directive):
 
-redirects = {
-    'About-Quality-of-Service-Settings': 'Concepts/About-Quality-of-Service-Settings',
-    'About-ROS-Interfaces': 'Concepts/About-ROS-Interfaces',
-    'Allocator-Template-Tutorial': 'Tutorials/Allocator-Template-Tutorial',
-    'Alpha-Overview': 'Releases/Alpha-Overview',
-    'Ament-Tutorial': 'Tutorials/Ament-Tutorial',
-    'Beta1-Overview': 'Releases/Beta1-Overview',
-    'Beta2-Overview': 'Releases/Beta2-Overview',
-    'Beta3-Overview': 'Releases/Beta3-Overview',
-    'Build-Cop-and-Build-Farmer-Guide': 'Contributing/Build-Cop-and-Build-Farmer-Guide',
-    'Building-ROS-2-on-Linux-with-Eclipse-Oxygen': 'Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen',
-    'Building-Realtime-rt_preempt-kernel-for-ROS-2': 'Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2',
-    'catment': 'Tutorials/catment',
-    'CI-Server-Setup': 'Contributing/CI-Server-Setup',
-    'Colcon-Tutorial': 'Tutorials/Colcon-Tutorial',
-    'Composition': 'Tutorials/Composition',
-    'DDS-and-ROS-middleware-implementations': 'Concepts/DDS-and-ROS-middleware-implementations',
-    'Defining-custom-interfaces-(msg-srv)': 'Tutorials/Defining-custom-interfaces-(msg-srv)',
-    'Design-Guide': 'Contributing/Design-Guide',
-    'Developer-Guide': 'Contributing/Developer-Guide',
-    'dummy-robot-demo': 'Tutorials/dummy-robot-demo',
-    'Eclipse-Oxygen-with-ROS-2-and-rviz2': 'Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2',
-    'Examples-and-Tools-for-ROS1----ROS2-Migrations': 'Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations',
-    'Fedora-Development-Setup': 'Installation/Fedora-Development-Setup',
-    'Install-Connext-Security-Plugins': 'Installation/Install-Connext-Security-Plugins',
-    'Intel-ROS2-Projects': 'Related-Projects/Intel-ROS2-Projects',
-    'Inter-Sphinx-Support': 'Contributing/Inter-Sphinx-Support',
-    'Intra-Process-Communication': 'Tutorials/Intra-Process-Communication',
-    'Introspection-with-command-line-tools': 'Tutorials/Introspection-with-command-line-tools',
-    'Launch-system': 'Tutorials/Launch-system',
-    'Linux-Development-Setup': 'Installation/Linux-Development-Setup',
-    'Linux-Install-Binary': 'Installation/Linux-Install-Binary',
-    'Linux-Install-Debians': 'Installation/Linux-Install-Debians',
-    'Logging': 'Concepts/Logging',
-    'Logging-and-logger-configuration': 'Tutorials/Logging-and-logger-configuration',
-    'MISRA-Compliance-Guide': 'Contributing/MISRA-Compliance-Guide',
-    'Maintaining-a-Source-Checkout': 'Installation/Maintaining-a-Source-Checkout',
-    'Managed-Nodes': 'Tutorials/Managed-Nodes',
-    'Migration-Guide': 'Contributing/Migration-Guide',
-    'Migration-Guide-Python': 'Contributing/Migration-Guide-Python',
-    'New-features-in-ROS-2-interfaces-(msg-srv)': 'Tutorials/New-features-in-ROS-2-interfaces-(msg-srv)',
-    'Node-arguments': 'Tutorials/Node-arguments',
-    'OSX-Development-Setup': 'Installation/OSX-Development-Setup',
-    'OSX-Install-Binary': 'Installation/OSX-Install-Binary',
-    'Overview-of-ROS-2-concepts': 'Concepts/Overview-of-ROS-2-concepts',
-    'Python-Programming': 'Tutorials/Python-Programming',
-    'Quality-Guide': 'Contributing/Quality-Guide',
-    'Quality-of-Service': 'Tutorials/Quality-of-Service',
-    'ROS-2-Client-Libraries': 'Concepts/ROS-2-Client-Libraries',
-    'ROS-2-On-boarding-Guide': 'Contributing/ROS-2-On-boarding-Guide',
-    'RQt-Overview-Usage': 'Tutorials/RQt-Overview-Usage',
-    'RQt-Port-Plugin-Windows': 'Tutorials/RQt-Port-Plugin-Windows',
-    'RQt-Source-Install': 'Tutorials/RQt-Source-Install',
-    'RQt-Source-Install-MacOS': 'Tutorials/RQt-Source-Install-MacOS',
-    'RQt-Source-Install-Windows10': 'Tutorials/RQt-Source-Install-Windows10',
-    'Real-Time-Programming': 'Tutorials/Real-Time-Programming',
-    'Release-Ardent-Apalone': 'Releases/Release-Ardent-Apalone',
-    'Release-Bouncy-Bolson': 'Releases/Release-Bouncy-Bolson',
-    'Release-Crystal-Clemmys': 'Releases/Release-Crystal-Clemmys',
-    'Release-Howto': 'Releases/Release-Howto',
-    'Releasing-a-ROS-2-package-with-bloom': 'Tutorials/Releasing-a-ROS-2-package-with-bloom',
-    'Rosbag-with-ROS1-Bridge': 'Tutorials/Rosbag-with-ROS1-Bridge',
-    'Rosidl-Tutorial': 'Tutorials/Rosidl-Tutorial',
-    'Run-2-nodes-in-a-single-docker-container': 'Tutorials/Run-2-nodes-in-a-single-docker-container',
-    'Run-2-nodes-in-two-separate-docker-containers': 'Tutorials/Run-2-nodes-in-two-separate-docker-containers',
-    'Set-up-a-new-Linux-CI-node': 'Contributing/Set-up-a-new-Linux-CI-node',
-    'Set-up-a-new-Windows-CI-node': 'Contributing/Set-up-a-new-Windows-CI-node',
-    'Set-up-a-new-macOS-CI-node': 'Contributing/Set-up-a-new-macOS-CI-node',
-    'tf2': 'Tutorials/tf2',
-    'Windows-Development-Setup': 'Installation/Windows-Development-Setup',
-    'Windows-Install-Binary': 'Installation/Windows-Install-Binary',
-    'Working-with-multiple-RMW-implementations': 'Tutorials/Working-with-multiple-RMW-implementations',
-}
+    has_content = True
+    template_name = "layout.html"
+    redirections = {}
 
+    @classmethod
+    def register(cls, app):
+        app.connect('html-collect-pages', cls.generate)
+        app.add_directive('redirect-from', cls)
+        return app
 
-def generate_redirects(app):
-    page_redirects = []
-    template_name = ""
-    repo = os.path.split(os.path.dirname(os.path.realpath(__file__)))[1]
-    for src, dst in redirects.items():
-        page_name = src
-        context = {
-            'title': src,
-            'body': "",
-            # This is being appended to the head of the page
-            'redirect': redirect_snippet.format(**locals()),
+    @classmethod
+    def generate(cls, app):
+        from sphinx.builders.html import StandaloneHTMLBuilder
+        if not isinstance(app.builder, StandaloneHTMLBuilder):
+            return
+        redirect_html_fragment = """\
+            <link rel="canonical" href="{url}" />
+            <meta http-equiv="refresh" content="0; url={url}" />
+            <script>
+                window.location.href = '{url}';
+            </script>
+        """
+        redirections = {
+            os.path.splitext(os.path.relpath(
+                document_path, app.srcdir
+            ))[0]: redirect_urls
+            for document_path, redirect_urls in cls.redirections.items()
         }
-        page_redirects.append((page_name, context, template_name))
-    return page_redirects
+        redirection_conflict = next((
+            (canon_1, canon_2, redirs_1.intersection(redirs_2))
+            for (canon_1, redirs_1), (canon_2, redirs_2)
+            in itertools.combinations(redirections.items(), 2)
+            if redirs_1.intersection(redirs_2)
+        ), None)
+        if redirection_conflict:
+            canonical_url_1, canonical_url_2 = redirection_conflict[:2]
+            conflicting_redirect_urls = redirection_conflict[-1]
+            raise RuntimeError(
+                "Documents {} and {} define conflicting redirects: {}".format(
+                    canonical_url_1, canonical_url_2, conflicting_redirect_urls
+                )
+            )
+        all_canonical_urls = set(redirections.keys())
+        all_redirect_urls = {
+            redirect_url
+            for redirect_urls in redirections.values()
+            for redirect_url in redirect_urls
+        }
+        conflicting_urls = all_canonical_urls.intersection(all_redirect_urls)
+        if conflicting_urls:
+            raise RuntimeError(
+                "Some redirects conflict with existing documents: {}".format(
+                    conflicting_urls
+                )
+            )
+
+        for canonical_url, redirect_urls in redirections.items():
+            for redirect_url in redirect_urls:
+                context = {
+                    'canonical_url': os.path.relpath(
+                        canonical_url, redirect_url
+                    ),
+                    'title': os.path.basename(redirect_url),
+                    'metatags': redirect_html_fragment.format(
+                        url=app.builder.get_relative_uri(
+                            redirect_url, canonical_url
+                        )
+                    )
+                }
+            yield (redirect_url, context, cls.template_name)
+
+    def run(self):
+        document_path = self.state.document.current_source
+        if document_path not in RedirectFrom.redirections:
+            RedirectFrom.redirections[document_path] = set()
+        RedirectFrom.redirections[document_path].update(self.content)
+        return []
 
 
 def setup(app):
-    app.connect('html-collect-pages', generate_redirects)
+    RedirectFrom.register(app)

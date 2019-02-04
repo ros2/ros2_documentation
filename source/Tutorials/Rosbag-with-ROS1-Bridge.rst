@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Rosbag-with-ROS1-Bridge
 
 Recording and playback of topic data with rosbag using the ROS 1 bridge
 =======================================================================

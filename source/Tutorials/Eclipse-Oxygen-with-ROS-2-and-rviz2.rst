@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Eclipse-Oxygen-with-ROS-2-and-rviz2
 
 Eclipse Oxygen with ROS 2 and rviz2 [community-contributed]
 ===========================================================

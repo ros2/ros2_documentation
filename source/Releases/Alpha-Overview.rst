@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Alpha-Overview
 
 ROS 2 alpha releases (Aug 2015 - Oct 2016)
 ==========================================

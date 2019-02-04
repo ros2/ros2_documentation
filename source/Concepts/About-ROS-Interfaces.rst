@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    About-ROS-Interfaces
 
 About ROS 2 Interfaces
 ======================

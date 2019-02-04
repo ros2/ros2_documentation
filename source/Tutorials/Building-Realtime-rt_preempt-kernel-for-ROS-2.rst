@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Building-Realtime-rt_preempt-kernel-for-ROS-2
 
 Building Realtime Linux for ROS 2 [community-contributed]
 =========================================================

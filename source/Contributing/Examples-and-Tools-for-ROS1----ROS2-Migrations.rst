@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Examples-and-Tools-for-ROS1----ROS2-Migrations
 
 Examples and tools for ROS1-to-ROS2 Migration
 =============================================

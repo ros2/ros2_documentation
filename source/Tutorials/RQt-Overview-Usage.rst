@@ -1,3 +1,6 @@
+.. redirect-from::
+
+   RQt-Overview-Usage
 
 Overview and Usage of RQt
 =========================

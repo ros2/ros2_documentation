@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Release-Bouncy-Bolson
 
 ROS 2 Bouncy Bolson (codename 'bouncy'; June 2018)
 ==================================================

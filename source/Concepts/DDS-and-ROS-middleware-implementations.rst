@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    DDS-and-ROS-middleware-implementations
 
 ROS 2 and different DDS/RTPS vendors
 ====================================
