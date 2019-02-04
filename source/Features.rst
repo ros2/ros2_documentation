@@ -31,7 +31,7 @@ For planned future development, see the `Roadmap <Roadmap>`.
      - `Sample code <https://github.com/ros2/demos/tree/0.5.1/demo_nodes_cpp/src/parameters>`__
      -
    * - ROS 1 - ROS 2 communication bridge
-     - `Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README>`__
+     - `Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
      - Available for topics and services, not yet available for actions.
    * - Quality of service settings for handling non-ideal networks
      - `Demo <Tutorials/Quality-of-Service>`
