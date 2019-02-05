@@ -101,7 +101,7 @@ htmlhelp_basename = 'ros2_docsdoc'
 class RedirectFrom(Directive):
 
     has_content = True
-    template_name = "layout.html"
+    template_name = 'layout.html'
     redirections = {}
 
     @classmethod
@@ -138,7 +138,7 @@ class RedirectFrom(Directive):
             canonical_url_1, canonical_url_2 = redirection_conflict[:2]
             conflicting_redirect_urls = redirection_conflict[-1]
             raise RuntimeError(
-                "Documents {} and {} define conflicting redirects: {}".format(
+                'Documents {} and {} define conflicting redirects: {}'.format(
                     canonical_url_1, canonical_url_2, conflicting_redirect_urls
                 )
             )
@@ -151,7 +151,7 @@ class RedirectFrom(Directive):
         conflicting_urls = all_canonical_urls.intersection(all_redirect_urls)
         if conflicting_urls:
             raise RuntimeError(
-                "Some redirects conflict with existing documents: {}".format(
+                'Some redirects conflict with existing documents: {}'.format(
                     conflicting_urls
                 )
             )
