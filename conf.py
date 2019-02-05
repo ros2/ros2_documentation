@@ -18,7 +18,7 @@
 #
 import os
 import itertools
-from sphinx.directives import Directive
+from docutils.parsers.rst import Directive
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -115,7 +115,7 @@ class RedirectFrom(Directive):
         from sphinx.builders.html import StandaloneHTMLBuilder
         if not isinstance(app.builder, StandaloneHTMLBuilder):
             return
-        redirect_html_fragment = """\
+        redirect_html_fragment = """
             <link rel="canonical" href="{url}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
