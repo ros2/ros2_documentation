@@ -50,6 +50,7 @@ You need the following things installed before installing ROS 2.
        # currently, the binary installation only supports v6.2
        # make sure remove an existing newer version
        brew remove tinyxml2
+       brew tap osrf/simulation
        brew install osrf/simulation/tinyxml2@6.2.0
        brew link --force tinyxml2@6.2.0
 
