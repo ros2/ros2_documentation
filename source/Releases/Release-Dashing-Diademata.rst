@@ -52,6 +52,28 @@ A few milestone leading up to the release:
 Changes since the Crystal release
 ---------------------------------
 
+ament_cmake
+~~~~~~~~~~~
+
+The CMake function ``ament_index_has_resource`` was returning either ``TRUE`` or ``FALSE``.
+As of `this release <https://github.com/ament/ament_cmake/pull/155>`_ it returns either the prefix path in case the resource was found or ``FALSE``.
+
+If you are using the return value in a CMake condition like this:
+
+.. code-block:: cmake
+
+   ament_index_has_resource(var ...)
+   if(${var})
+
+you need to update the condition to ensure it considers a string value as ``TRUE``:
+
+.. code-block:: cmake
+
+   if(var)
+
+rmw
+~~~
+
 Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
 * New API in ``rmw``, a fini function for ``rmw_context_t``:
