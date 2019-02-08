@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    About-Quality-of-Service-Settings
 
 About Quality of Service Settings
 =================================

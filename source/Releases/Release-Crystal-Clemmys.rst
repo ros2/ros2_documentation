@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Release-Crystal-Clemmys
 
 ROS 2 Crystal Clemmys (codename 'crystal'; December 2018)
 =========================================================

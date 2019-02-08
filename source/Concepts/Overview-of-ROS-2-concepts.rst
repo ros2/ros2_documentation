@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Overview-of-ROS-2-concepts
 
 Overview of ROS 2 Concepts
 ==========================

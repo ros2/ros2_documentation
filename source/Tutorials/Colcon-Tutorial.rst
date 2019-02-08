@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Colcon-Tutorial
 
 Using Colcon to build packages
 ==============================

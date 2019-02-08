@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Beta3-Overview
 
 Beta 3 (codename 'r2b3'; September 2017)
 ========================================

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Design-Guide
+
 
 Design Guide: Common patterns in ROS 2
 ======================================

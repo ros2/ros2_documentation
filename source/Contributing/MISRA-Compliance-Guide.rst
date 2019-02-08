@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    MISRA-Compliance-Guide
 
 MISRA Compliance Guide
 ======================

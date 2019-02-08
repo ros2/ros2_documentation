@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    CI-Server-Setup
 
 How to setup the Jenkins master
 ===============================

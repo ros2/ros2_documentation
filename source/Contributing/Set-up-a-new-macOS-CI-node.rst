@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Set-up-a-new-macOS-CI-node
 
 How to setup a macOS Jenkins node
 =================================

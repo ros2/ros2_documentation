@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Build-Cop-and-Build-Farmer-Guide
 
 Build Cop and Build Farmer Guide
 ================================

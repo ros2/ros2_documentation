@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Linux-Install-Debians
 
 Installing ROS2 via Debian Packages
 ===================================

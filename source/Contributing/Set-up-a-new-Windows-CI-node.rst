@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Set-up-a-new-Windows-CI-node
 
 How to setup a Windows Jenkins node
 ===================================

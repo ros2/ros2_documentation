@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Composition
 
 Composing multiple nodes in a single process
 ============================================

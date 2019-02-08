@@ -2,12 +2,12 @@
 
 SOURCE     = source
 OUT        = build
-BUILD      = sphinx-build
+BUILD      = python -m sphinx
 OPTS       =-c .
 
 help:
-	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS) $(O)
+	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
 
 .PHONY: help Makefile
 %: Makefile
-	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS) $(O)
+	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)

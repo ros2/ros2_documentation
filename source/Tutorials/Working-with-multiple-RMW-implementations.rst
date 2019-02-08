@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Working-with-multiple-RMW-implementations
 
 Working with multiple ROS 2 middleware implementations
 ======================================================

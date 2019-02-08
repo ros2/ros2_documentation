@@ -16,13 +16,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import itertools
+from docutils.parsers.rst import Directive
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-
 # The master toctree document.
 master_doc = 'index'
 
@@ -64,9 +64,6 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
 
-# If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
-
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 extensions = ['sphinx.ext.intersphinx']
@@ -99,3 +96,88 @@ html_theme = 'alabaster'
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
+
+
+class RedirectFrom(Directive):
+
+    has_content = True
+    template_name = 'layout.html'
+    redirections = {}
+
+    @classmethod
+    def register(cls, app):
+        app.connect('html-collect-pages', cls.generate)
+        app.add_directive('redirect-from', cls)
+        return app
+
+    @classmethod
+    def generate(cls, app):
+        from sphinx.builders.html import StandaloneHTMLBuilder
+        if not isinstance(app.builder, StandaloneHTMLBuilder):
+            return
+        redirect_html_fragment = """
+            <link rel="canonical" href="{url}" />
+            <meta http-equiv="refresh" content="0; url={url}" />
+            <script>
+                window.location.href = '{url}';
+            </script>
+        """
+        redirections = {
+            os.path.splitext(os.path.relpath(
+                document_path, app.srcdir
+            ))[0]: redirect_urls
+            for document_path, redirect_urls in cls.redirections.items()
+        }
+        redirection_conflict = next((
+            (canon_1, canon_2, redirs_1.intersection(redirs_2))
+            for (canon_1, redirs_1), (canon_2, redirs_2)
+            in itertools.combinations(redirections.items(), 2)
+            if redirs_1.intersection(redirs_2)
+        ), None)
+        if redirection_conflict:
+            canonical_url_1, canonical_url_2 = redirection_conflict[:2]
+            conflicting_redirect_urls = redirection_conflict[-1]
+            raise RuntimeError(
+                'Documents {} and {} define conflicting redirects: {}'.format(
+                    canonical_url_1, canonical_url_2, conflicting_redirect_urls
+                )
+            )
+        all_canonical_urls = set(redirections.keys())
+        all_redirect_urls = {
+            redirect_url
+            for redirect_urls in redirections.values()
+            for redirect_url in redirect_urls
+        }
+        conflicting_urls = all_canonical_urls.intersection(all_redirect_urls)
+        if conflicting_urls:
+            raise RuntimeError(
+                'Some redirects conflict with existing documents: {}'.format(
+                    conflicting_urls
+                )
+            )
+
+        for canonical_url, redirect_urls in redirections.items():
+            for redirect_url in redirect_urls:
+                context = {
+                    'canonical_url': os.path.relpath(
+                        canonical_url, redirect_url
+                    ),
+                    'title': os.path.basename(redirect_url),
+                    'metatags': redirect_html_fragment.format(
+                        url=app.builder.get_relative_uri(
+                            redirect_url, canonical_url
+                        )
+                    )
+                }
+            yield (redirect_url, context, cls.template_name)
+
+    def run(self):
+        document_path = self.state.document.current_source
+        if document_path not in RedirectFrom.redirections:
+            RedirectFrom.redirections[document_path] = set()
+        RedirectFrom.redirections[document_path].update(self.content)
+        return []
+
+
+def setup(app):
+    RedirectFrom.register(app)

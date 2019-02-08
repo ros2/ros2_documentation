@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    tf2
 
 Using tf2 with ROS 2
 ====================

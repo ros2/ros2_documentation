@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Quality-of-Service
 
 Use quality-of-service settings to handle lossy networks
 ========================================================

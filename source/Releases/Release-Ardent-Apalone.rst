@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Release-Ardent-Apalone
 
 ROS 2 Ardent Apalone (codename 'ardent'; December 2017)
 =======================================================

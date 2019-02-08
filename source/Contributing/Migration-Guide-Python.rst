@@ -1,3 +1,6 @@
+.. redirect-from::
+
+    Migration-Guide-Python
 
 Python Migration guide from ROS 1
 =================================
