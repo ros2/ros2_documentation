@@ -81,6 +81,15 @@ See specific sections below for how to also install the `ros1_bridge <Install ad
 Environment setup
 -----------------
 
+Install additional dependencies
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    python3 -m pip install -U \
+        vcstool \
+        colcon-common-extensions
+
 (optional) Install argcomplete
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
