@@ -27,8 +27,12 @@ Prerequisites
 
 Development Environment
 ^^^^^^^^^^^^^^^^^^^^^^^
+#. 
+  Make sure that you have ROS 2 installed and sourced `instructions <../Installation>`__.
 
-Make sure that you have setup your development environment according to the building-from-source `instructions <../Installation>`.
+#.
+  Install colcon `instructions <https://colcon.readthedocs.io/en/released/user/installation.html>`__.
+
 
 Basics
 ------
@@ -69,45 +73,21 @@ This is the directory structure of ``~/ros2_ws`` that you can expect at this poi
 
    1 directory, 0 files
 
-Add some sources
-^^^^^^^^^^^^^^^^
 
-To start off we need to setup an underlay workspace without any of ROS 2 installed.
+
+Develop your own package
+------------------------
+
+colcon uses the same ``package.xml`` specification as defined for catkin in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__.
+
+You can create your own package inside the ``src`` directory.  It is recommended to use an overlay when you are going to iterate only on a few packages.
+
+And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__:
 
 .. code-block:: bash
 
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
-   vcs import ~/ros2_ws/src < ros2.repos
-
-This is the directory structure of ``~/ros2_ws`` that you can expect after adding sources (note the exact structure and number of directories/files may change over time):
-
-.. code-block:: bash
-
-   .
-   ├── ros2.repos
-   └── src
-       ├── ament
-       │   ├── ament_cmake
-       │   ├── ament_index
-       |   ...
-       │   ├── osrf_pycommon
-       │   └── uncrustify
-       ├── eProsima
-       │   ├── Fast-CDR
-       │   └── Fast-RTPS
-       ├── ros
-       │   ├── class_loader
-       │   └── console_bridge
-       └── ros2
-           ├── ament_cmake_ros
-           ├── common_interfaces
-           ├── demos
-           ...
-           ├── urdfdom
-           ├── urdfdom_headers
-           └── vision_opencv
-
-   51 directories, 1 file
+   cd ~/ros2_ws/src
+   git clone https://github.com/ros2/examples.git
 
 Run the build
 ^^^^^^^^^^^^^
@@ -115,9 +95,11 @@ Run the build
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
 This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
 
+
 .. code-block:: bash
 
-   colcon build --symlink-install
+   cd ~/ros2_ws/
+   colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 .. _colcon-run-the-tests:
 
@@ -146,6 +128,8 @@ NB: This is slightly different than catkin.
 The ``local_setup.*`` file is slightly different than the ``setup.*`` file in that it will only apply settings from the current workspace.
 When using more than one workspace you will still source the ``setup.*`` files to get the environment including all parent workspaces.
 
+If you are returning with a new terminal to your development and want to pick up developing on your overlay you can simply source ``~/ros2_ws/install/setup.bash`` which will source all parent workspaces environments automatically.
+
 Try a demo
 ^^^^^^^^^^
 
@@ -164,47 +148,6 @@ Lets take down the nodes and try creating our own workspace overlay.
 
    ^-C
    kill %1
-
-Develop your own package
-------------------------
-
-colcon uses the same ``package.xml`` specification as defined for catkin in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__.
-
-You can create your own package inside the ``src`` directory however it is recommended to use an overlay when you are going to iterate only on a few packages.
-
-Create an overlay
-^^^^^^^^^^^^^^^^^
-
-Let's make a new overlay directory ``~/ros2_overlay_ws``.
-
-.. code-block:: bash
-
-   mkdir -p ~/ros2_overlay_ws/src
-   cd ~/ros2_overlay_ws/src
-
-And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__:
-
-.. code-block:: bash
-
-   # If you know that you're using the latest branch of all
-   # repositories in the underlay, you can also get the latest
-   # version of the ros2/examples repository, with this command:
-   #   git clone https://github.com/ros2/examples.git
-   # Otherwise, clone a copy from the underlay source code:
-   git clone ~/ros2_ws/src/ros2/examples
-
-And build the overlay, but let's build with debug so we can make sure to get debug symbols:
-
-.. code-block:: bash
-
-   cd ~/ros2_overlay_ws
-   colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
-
-This overlay has not yet been setup to be on top of the existing underlay so you'll still find that ``which talker`` currently refers to the one from the underlay.
-
-If you source ``~/ros2_overlay_ws/install/local_setup.bash`` it will change to refer to talker in the overlay.
-
-If you are returning with a new terminal to your development and want to pick up developing on your overlay you can simply source ``~/ros2_overlay_ws/install/setup.bash`` which will source all parent workspaces environments automatically.
 
 Create your own package
 ^^^^^^^^^^^^^^^^^^^^^^^
