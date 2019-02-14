@@ -167,16 +167,17 @@ The standard `setup <Linux-Development-Setup>`__ process of ROS2 is run inside a
 
 .. code-block:: bash
 
-    docker build -t aarch64_ros2:latest -f ros2_ws/src/ros2/cross_compile/sysroot/Dockerfile_ubuntu_arm64 .
-    docker run --name aarch64_sysroot aarch64_ros2:latest
+    docker build -t arm_ros2:latest -f ros2_ws/src/ros2/cross_compile/sysroot/Dockerfile_ubuntu_arm .
+    docker run --name arm_sysroot arm_ros2:latest
 
 Export the resulting container to a tarball and extract it:
 
 .. code-block:: bash
 
-    docker container export -o sysroot_docker.tar aarch64_sysroot
+    docker container export -o sysroot_docker.tar arm_sysroot
     mkdir sysroot_docker
-    tar -C sysroot_docker -xf sysroot_docker.tar lib usr opt
+    tar -C sysroot_docker -xf sysroot_docker.tar lib usr opt etc
+    docker rm arm_sysroot
 
 This container can be used later as virtual target to run the created file-system and run the demo code.
 
@@ -202,10 +203,16 @@ The following packages still cause errors during the cross-compilation (under in
 
     touch \
         ros2_ws/src/ros2/rviz/COLCON_IGNORE \
-        ros2_ws/src/ros2/demos/intra_process_demo/COLCON_IGNORE \
-        ros2_ws/src/ros2/demos/image_tools/COLCON_IGNORE \
-        ros2_ws/src/ros2/robot_state_publisher/COLCON_IGNORE \
         ros2_ws/src/ros-visualization/COLCON_IGNORE
+
+The ``Poco`` pre-built has a known issue where it is searching for ``libz`` and ``libpcre`` on the host system instead of SYSROOT.
+As a workaround for the moment, please link both libraries into the the host's file-system.
+
+.. code-block:: bash
+
+    mkdir -p /usr/lib/$TARGET_TRIPLE
+    ln -s `pwd`/sysroot_docker/lib/$TARGET_TRIPLE/libz.so.1 /usr/lib/$TARGET_TRIPLE/libz.so
+    ln -s `pwd`/sysroot_docker/lib/$TARGET_TRIPLE/libpcre.so.3 /usr/lib/$TARGET_TRIPLE/libpcre.so
 
 Then, start a build with colcon specifying the toolchain-file:
 
@@ -298,7 +305,7 @@ Copy the file-system on your target or use the previously built docker image:
 
 .. code-block:: bash
 
-    docker run -it --rm -v `pwd`/ros2_ws:/ros2_ws aarch64_ros2:latest
+    docker run -it --rm -v `pwd`/ros2_ws:/ros2_ws arm_ros2:latest
 
 Source the environment:
 
