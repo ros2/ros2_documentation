@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Cross-Compilation
-
 Cross-Compilation
 =================
 
