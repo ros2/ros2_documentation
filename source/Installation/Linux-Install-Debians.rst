@@ -9,7 +9,7 @@ Installing ROS2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 Bouncy (the latest release) are available for Ubuntu Bionic; packages for ROS 2 Ardent are available for Ubuntu Xenial.
+Debian packages for ROS 2 Crystal (the latest release) and ROS 2 Bouncy are available for Ubuntu Bionic; packages for ROS 2 Ardent are available for Ubuntu Xenial.
 
 Resources
 ---------
