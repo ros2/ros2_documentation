@@ -9,15 +9,15 @@ Using Colcon to build packages
    :depth: 2
    :local:
 
-This will provide you with a quick summary of how to get up and running using ``colcon`` and a ROS workspace.
-It will be a practical tutorial and is not designed to replace the core documentation.
+This a brief tutorial of how to create and build a ROS workspace with ``colcon``.
+It is a practical tutorial and not designed to replace the core documentation.
 
 ROS 2 releases before Bouncy were using ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
 
 Background
 ----------
 
-colcon is an iteration on the ROS build tools catkin_make, catkin_make_isolated, catkin_tools and ament_tools.
+``colcon`` is an iteration on the ROS build tools ``catkin_make``, ``catkin_make_isolated``, ``catkin_tools`` and ``ament_tools``.
 For more information on the design of colcon see `this document <http://design.ros2.org/articles/build_tool.html>`__.
 
 The source code can be found in the `colcon GitHub organization <https://github.com/colcon>`__.
@@ -25,10 +25,36 @@ The source code can be found in the `colcon GitHub organization <https://github.
 Prerequisites
 -------------
 
-Development Environment
-^^^^^^^^^^^^^^^^^^^^^^^
+Install ROS 2
+^^^^^^^^^^^^^
 
-Make sure that you have setup your development environment according to the building-from-source `instructions <../Installation>`.
+Make sure that you have installed ROS 2 following the `installation instructions <../Installation>`.
+
+.. attention:: If installing from Debian packages, this tutorial requires the "Desktop installation".
+
+Install colcon
+^^^^^^^^^^^^^^
+
+Linux
+~~~~~
+
+.. code-block:: bash
+
+    sudo apt install python3-colcon-common-extensions
+
+OS X
+~~~~
+
+.. code-block:: bash
+
+    python3 -m pip install colcon-common-extensions
+
+Windows
+~~~~~~~
+
+.. code-block:: bash
+
+    pip install -U colcon-common-extensions
 
 Basics
 ------
@@ -41,90 +67,108 @@ Typically the directory starts otherwise empty.
 colcon does out of source builds.
 By default it will create the following directories as peers of the ``src`` directory:
 
-
 * The ``build`` directory will be where intermediate files are stored.
   For each package a subfolder will be created in which e.g. CMake is being invoked.
 * The ``install`` directory is where each package will be installed to.
   By default each package will be installed into a separate subdirectory.
 * The ``log`` directory contains various logging information about each colcon invocation.
 
-NB: Compared to catkin there is no ``devel`` directory.
+.. note:: Compared to catkin there is no ``devel`` directory.
 
-Create directory structure
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Create a workspace
+^^^^^^^^^^^^^^^^^^
 
-To make the basic structure in the directory ``~/ros2_ws``:
+First, create a directory (``ros2_example_ws``) to contain our workspace:
 
-.. code-block:: bash
-
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws
-
-This is the directory structure of ``~/ros2_ws`` that you can expect at this point:
+Linux/OS X
+~~~~~~~~~~
 
 .. code-block:: bash
 
-   .
-   └── src
+   mkdir -p ~/ros2_example_ws/src
+   cd ~/ros2_example_ws
 
-   1 directory, 0 files
+Windows
+~~~~~~~
+
+.. code-block:: bash
+
+   md \dev\ros2_example_ws\src
+   cd \dev\ros2_example_ws
+
+
+At this point the workspace contains a single empty directory ``src``:
+
+.. code-block:: bash
+
+    .
+    └── src
+
+    1 directory, 0 files
 
 Add some sources
 ^^^^^^^^^^^^^^^^
 
-To start off we need to setup an underlay workspace without any of ROS 2 installed.
+Let's clone the `examples <https://github.com/ros2/examples>`__ repository into the ``src`` directory of the workspace:
 
 .. code-block:: bash
 
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
-   vcs import ~/ros2_ws/src < ros2.repos
+    git clone https://github.com/ros2/examples src/examples
 
-This is the directory structure of ``~/ros2_ws`` that you can expect after adding sources (note the exact structure and number of directories/files may change over time):
+Now the workspace should have the source code to the ROS 2 examples:
 
 .. code-block:: bash
 
-   .
-   ├── ros2.repos
-   └── src
-       ├── ament
-       │   ├── ament_cmake
-       │   ├── ament_index
-       |   ...
-       │   ├── osrf_pycommon
-       │   └── uncrustify
-       ├── eProsima
-       │   ├── Fast-CDR
-       │   └── Fast-RTPS
-       ├── ros
-       │   ├── class_loader
-       │   └── console_bridge
-       └── ros2
-           ├── ament_cmake_ros
-           ├── common_interfaces
-           ├── demos
-           ...
-           ├── urdfdom
-           ├── urdfdom_headers
-           └── vision_opencv
+    .
+    └── src
+        └── examples
+            ├── CONTRIBUTING.md
+            ├── LICENSE
+            ├── rclcpp
+            ├── rclpy
+            └── README.md
 
-   51 directories, 1 file
+    4 directories, 3 files
 
-Run the build
-^^^^^^^^^^^^^
+Source an underlay
+^^^^^^^^^^^^^^^^^^
 
+It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages.
+This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see `Installation <../Installation>`).
+We call this environment an **underlay**.
+
+Our workspace, `ros2_examples_ws`, will be an **overlay** on top of the existing ROS 2 installation.
+In general, it is recommended to use an overlay when you plan to iterate on a small number of packages, rather than putting all of your packages into the same workspace.
+
+Build the workspace
+^^^^^^^^^^^^^^^^^^^
+
+In the root of the workspace, run ``colcon build``.
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
 This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
 
 .. code-block:: bash
 
-   colcon build --symlink-install
+    colcon build --symlink-install
+
+After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
+
+.. code-block:: bash
+
+    .
+    ├── build
+    ├── install
+    ├── log
+    └── src
+
+    4 directories, 0 files
 
 .. _colcon-run-the-tests:
 
-Run the tests
-^^^^^^^^^^^^^
+Run tests
+^^^^^^^^^
 
-To run the tests you just built, run the following:
+To run tests for the packages we just built, run the following:
 
 .. code-block:: bash
 
@@ -138,79 +182,42 @@ To use the executables and libraries you need to e.g. add the ``install/bin`` di
 colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
 These files will both add the required elements to your path and library paths as well as provide any exported bash or shell commands exported by packages.
 
+Linux/OS X
+~~~~~~~~~~
+
 .. code-block:: bash
 
-   . install/local_setup.bash
+   . install/setup.bash
 
-NB: This is slightly different than catkin.
-The ``local_setup.*`` file is slightly different than the ``setup.*`` file in that it will only apply settings from the current workspace.
-When using more than one workspace you will still source the ``setup.*`` files to get the environment including all parent workspaces.
+Windows
+~~~~~~~
+
+.. code-block:: bash
+
+   call install\setup.bat
 
 Try a demo
 ^^^^^^^^^^
 
-With the environment sourced you can now run executables built by colcon.
+With the environment sourced we can run executables built by colcon.
+Let's run a subscriber node from the examples:
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp listener &
-   ros2 run demo_nodes_cpp talker
+    ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function
 
-And you will see the numbers incrementing.
-
-Lets take down the nodes and try creating our own workspace overlay.
+In another terminal, let's run a publisher node (don't forget to source the setup script):
 
 .. code-block:: bash
 
-   ^-C
-   kill %1
+    ros2 run examples_rclcpp_minimal_publisher publisher_member_function
 
-Develop your own package
-------------------------
-
-colcon uses the same ``package.xml`` specification as defined for catkin in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__.
-
-You can create your own package inside the ``src`` directory however it is recommended to use an overlay when you are going to iterate only on a few packages.
-
-Create an overlay
-^^^^^^^^^^^^^^^^^
-
-Let's make a new overlay directory ``~/ros2_overlay_ws``.
-
-.. code-block:: bash
-
-   mkdir -p ~/ros2_overlay_ws/src
-   cd ~/ros2_overlay_ws/src
-
-And to get started we'll overlay the `ros2/examples repository <https://github.com/ros2/examples>`__:
-
-.. code-block:: bash
-
-   # If you know that you're using the latest branch of all
-   # repositories in the underlay, you can also get the latest
-   # version of the ros2/examples repository, with this command:
-   #   git clone https://github.com/ros2/examples.git
-   # Otherwise, clone a copy from the underlay source code:
-   git clone ~/ros2_ws/src/ros2/examples
-
-And build the overlay, but let's build with debug so we can make sure to get debug symbols:
-
-.. code-block:: bash
-
-   cd ~/ros2_overlay_ws
-   colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug
-
-This overlay has not yet been setup to be on top of the existing underlay so you'll still find that ``which talker`` currently refers to the one from the underlay.
-
-If you source ``~/ros2_overlay_ws/install/local_setup.bash`` it will change to refer to talker in the overlay.
-
-If you are returning with a new terminal to your development and want to pick up developing on your overlay you can simply source ``~/ros2_overlay_ws/install/setup.bash`` which will source all parent workspaces environments automatically.
+You should see messages from the publisher and subscriber with numbers incrementing.
 
 Create your own package
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
-You can create your own package.
-The equivalent of ``catkin_create_package`` is available as ``ros2 pkg create``.
+colcon uses the ``package.xml`` specification defined in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__.
 
 colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
@@ -219,6 +226,10 @@ Also supported are pure ``cmake`` packages.
 An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/master/ament_index_python>`__ , where the setup.py is the primary entry point for building.
 
 A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
+
+For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
+
+.. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 
 Tips
 ----
