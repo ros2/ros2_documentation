@@ -31,7 +31,7 @@ Migration steps
 Package manifests
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 only support the format 2 of the package specification which is defined in `REP 140 <http://www.ros.org/reps/rep-0140.html>`__.
+ROS 2 only supports the format 2 of the package specification which is defined in `REP 140 <http://www.ros.org/reps/rep-0140.html>`__.
 Therefore the ``package.xml`` file must be updated to format 2 if it uses format 1.
 Since ROS 1 support both formats (1 as well as 2) it is safe to perform that conversion in the ROS 1 package.
 
@@ -73,7 +73,9 @@ This will replace ``add_message_files`` and ``add_service_files`` listing of all
 Build system
 ^^^^^^^^^^^^
 
-The build system in ROS 2 is called `ament <http://design.ros2.org/articles/ament.html>`__.
+The build system in ROS 2 is called `colcon <http://design.ros2.org/articles/build_tool.html>`__
+and the build system is `ament <https://index.ros.org/doc/ros2/Tutorials/Ament-Tutorial/>`__.
+Ament is based off of CMake.
 
 Build tool
 ~~~~~~~~~~
@@ -903,4 +905,3 @@ Changing the License
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
 If the package as a small set of contributors then this may be feasible.
-
