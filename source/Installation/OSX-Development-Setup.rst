@@ -59,6 +59,9 @@ You need the following things installed to build ROS 2:
 
        brew install opencv
 
+       # install dependencies for rcl_logging_log4cxx
+       brew install log4cxx
+
 #.
    Install rviz dependencies
 
