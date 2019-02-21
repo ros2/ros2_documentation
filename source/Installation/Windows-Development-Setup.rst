@@ -303,7 +303,7 @@ Hit the windows key and type ``Edit Group Policy``. Navigate to Local Computer P
 Close and open your terminal to reset the environment and try building again.
 
 CMake Packages Unable to Find asio, tinyxml2, tinyxml, eigen, or log4cxx
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We've seen, but been unable to identify the root cause, that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and that will cause CMake to be unable to find them when building ROS 2.
 
