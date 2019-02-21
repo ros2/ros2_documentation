@@ -32,8 +32,8 @@ Package manifests
 ^^^^^^^^^^^^^^^^^
 
 ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
-Therefore the ``package.xml`` file must be updated to format 2 if it uses format 1.
-Since ROS 1 support both formats (1 as well as 2) it is safe to perform that conversion in the ROS 1 package.
+Therefore the ``package.xml`` file must be updated to at least format 2 if it uses format 1.
+Since ROS 1 supports all formats it is safe to perform that conversion in the ROS 1 package.
 
 Some packages might have different names in ROS 2 so the dependencies might need to be updated accordingly.
 
