@@ -75,7 +75,7 @@ Build system
 
 The build system in ROS 2 is called `ament <http://design.ros2.org/articles/ament.html>`__
 and the build tool is  `colcon <https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/>`__.
-Ament is built on CMake: `ament_cmake` provides CMake functions to make writing `CMakeLists.txt` files easier.
+Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
 ~~~~~~~~~~
