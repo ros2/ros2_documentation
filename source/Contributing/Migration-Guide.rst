@@ -31,9 +31,9 @@ Migration steps
 Package manifests
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 only support the format 2 of the package specification which is defined in `REP 140 <http://www.ros.org/reps/rep-0140.html>`__.
-Therefore the ``package.xml`` file must be updated to format 2 if it uses format 1.
-Since ROS 1 support both formats (1 as well as 2) it is safe to perform that conversion in the ROS 1 package.
+ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
+Therefore the ``package.xml`` file must be updated to at least format 2 if it uses format 1.
+Since ROS 1 supports all formats it is safe to perform that conversion in the ROS 1 package.
 
 Some packages might have different names in ROS 2 so the dependencies might need to be updated accordingly.
 
@@ -73,7 +73,9 @@ This will replace ``add_message_files`` and ``add_service_files`` listing of all
 Build system
 ^^^^^^^^^^^^
 
-The build system in ROS 2 is called `ament <http://design.ros2.org/articles/ament.html>`__.
+The build system in ROS 2 is called `ament <http://design.ros2.org/articles/ament.html>`__
+and the build tool is  `colcon <https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/>`__.
+Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
 ~~~~~~~~~~
@@ -663,8 +665,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
 Changing the ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Starting with ROS 2, only version 2 of the ``package.xml`` format is supported
-(this format is also supported in ROS 1, but isn't used by all packages).
+ROS 2 doesn't support format 1 of the package specification but only newer format versions (2 and higher).
 We start by specifying the format version in the ``package`` tag:
 
 .. code-block:: xml
@@ -903,4 +904,3 @@ Changing the License
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
 If the package as a small set of contributors then this may be feasible.
-
