@@ -37,11 +37,12 @@ Since ROS 1 supports all formats it is safe to perform that conversion in the RO
 
 Some packages might have different names in ROS 2 so the dependencies might need to be updated accordingly.
 
-Message and service definitions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Message, service, and action definitions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Message files must end in ``.msg`` and must be located in the subfolder ``msg``.
 Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
+Actions files must end in ``.action`` and must be located in the subfolder ``action``.
 
 These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/interface_definition.html>`__.
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
@@ -240,10 +241,10 @@ Due to the amount of changes related to dependencies it has not yet been decided
 Update source code
 ^^^^^^^^^^^^^^^^^^
 
-Messages and services
-~~~~~~~~~~~~~~~~~~~~~
+Messages, services, and actions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The namespace of ROS 2 messages and services uses a subnamespace (``msg`` or ``srv``) after the package name.
+The namespace of ROS 2 messages, services, and actions use a subnamespace (``msg``, ``srv``, or ``action``, respectively) after the package name.
 Therefore an include looks like: ``#include <my_interfaces/msg/my_message.hpp>``.
 The C++ type is then named: ``my_interfaces::msg::MyMessage``.
 
