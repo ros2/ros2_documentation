@@ -220,6 +220,7 @@ Create your own package
 -----------------------
 
 colcon uses the ``package.xml`` specification defined in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__.
+``package.xml`` `format 2 <http://www.ros.org/reps/rep-0140.html>`__ is also supported.
 
 colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
