@@ -199,3 +199,8 @@ Hooray!
 If you have installed support for an optional vendor, see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
 If you run into issues, see `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.
+
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.

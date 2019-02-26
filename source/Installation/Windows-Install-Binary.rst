@@ -253,3 +253,8 @@ Troubleshooting
 
 * If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
+
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.

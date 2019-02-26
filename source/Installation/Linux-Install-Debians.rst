@@ -158,3 +158,8 @@ The turtlebot2 packages are available in Bouncy but not Crystal.
 .. code-block:: bash
 
    sudo apt install ros-$ROS_DISTRO-turtlebot2-*
+
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.

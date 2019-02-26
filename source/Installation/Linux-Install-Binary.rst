@@ -172,3 +172,8 @@ In another terminal, start the bridge:
    ros2 run ros1_bridge dynamic_bridge
 
 For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
+
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.
