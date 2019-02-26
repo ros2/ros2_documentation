@@ -176,4 +176,4 @@ For more information on the bridge, read the `tutorial <https://github.com/ros2/
 Build your own packages
 -----------------------
 
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`__.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.
