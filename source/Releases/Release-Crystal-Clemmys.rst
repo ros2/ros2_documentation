@@ -153,6 +153,6 @@ Known Issues
 ------------
 
 * Cross-vendor communication between rmw_fastrtps_cpp and other implementations is not functioning on Windows (`Issue <https://github.com/ros2/rmw_fastrtps/issues/246>`__).
-* When using OpenSplice (version < 6.9.190227) on macOS and Windows you might experience naming conflicts when referecing field types with names from other packages if the same name also exist in the same package (`Issue <https://github.com/ros2/rmw_opensplice/issues/259>`__).
-  By updating the a newer OpenSplice version as well as at least the third patch release of Crystal the problem should be resolved.
+* When using OpenSplice (version < 6.9.190227) on macOS and Windows you might experience naming conflicts when when referencing field types with names from other packages if the same name also exist in the current package (`Issue <https://github.com/ros2/rmw_opensplice/issues/259>`__).
+  By updating to a newer OpenSplice version as well as at least the third patch release of Crystal the problem should be resolved.
   On Linux updating to the latest Debian packages will include the newest OpenSplice version.
