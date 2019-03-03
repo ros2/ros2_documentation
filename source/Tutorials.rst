@@ -11,6 +11,7 @@ Basic
 
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-Tutorial
+   Tutorials/Ament-CMake-Documentation
    Tutorials/Cross-compilation
    Tutorials/catment
    Tutorials/Introspection-with-command-line-tools
