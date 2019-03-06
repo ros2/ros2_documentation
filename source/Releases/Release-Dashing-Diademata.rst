@@ -71,6 +71,12 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 
    if(var)
 
+launch
+~~~~~~
+
+The ``launch_testing`` package caught up with the ``launch`` package redesign done in Bouncy Bolson.
+The legacy Python API, already moved into the ``launch.legacy`` submodule, has thus been deprecated and removed.
+
 rmw
 ~~~
 
