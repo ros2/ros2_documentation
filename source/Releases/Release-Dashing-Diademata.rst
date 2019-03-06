@@ -71,6 +71,16 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 
    if(var)
 
+launch
+~~~~~~
+
+The ``launch_testing`` package caught up with the ``launch`` package redesign done in Bouncy Bolson.
+The legacy Python API, already moved into the ``launch.legacy`` submodule, has thus been deprecated and removed.
+
+See ``launch`` `examples <https://github.com/ros2/launch/tree/master/launch/examples>`__ and `documentation <https://github.com/ros2/launch/tree/master/launch/doc>`__ for reference on how to use its new API.
+
+See `demos tests <https://github.com/ros2/demos>`__ for reference on how to use the new ``launch_testing`` API.
+
 rmw
 ~~~
 
