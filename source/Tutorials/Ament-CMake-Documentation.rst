@@ -13,9 +13,9 @@ Basics
 ------
 
 A basic CMake outline can be produced using ``ros2 pkg create <package_name>`` on the command line.
-The basic build information is then gathered in two files: the package.xml and the CMakeLists.txt.
-The package.xml must contain all dependencies and a bit of metadata to allow colcon/ament to find the correct build order for your packages.
-The CMakeLists.txt contains the commands to build and package executables and libraries and will be the main focus of this document.
+The basic build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``.
+The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon/ament to find the correct build order for your packages.
+The ``CMakeLists.txt`` contains the commands to build and package executables and libraries and will be the main focus of this document.
 
 See also the basic ament tutorial_
 
@@ -25,7 +25,7 @@ See also the basic ament tutorial_
 Basic project outline
 ^^^^^^^^^^^^^^^^^^^^^
 
-The basic outline of the CMakeLists.txt of an ament package contains:
+The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
@@ -34,11 +34,11 @@ The basic outline of the CMakeLists.txt of an ament package contains:
 
    ament_package()
 
-The argument to ``project`` will be the package name and must be identical to the package name in the package.xml.
+The argument to ``project`` will be the package name and must be identical to the package name in the ``package.xml``.
 
 The project setup is done by ``ament_package()`` and this call must occur exactly once per package.
-``ament_package()`` installs the package.xml and registers the package with the ament index so that it can be found by other packages using ``find_package``.
-Since ``ament_package()`` gathers a lot of information from the CMakeLists.txt it should be the last call in you CMakeLists.
+``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs config (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
+Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in you CMakeLists.
 Although it is possible to follow calls to ``ament_package()`` by calls to ``install`` functions copying files and directories, it is simpler to just keep ``ament_package()`` the last call.
 
 ``ament_package`` can be given additional arguments:
@@ -82,7 +82,7 @@ Adding Dependencies
 ^^^^^^^^^^^^^^^^^^^
 
 There are two ways to link your packages against a new dependency.
-The recommended way in modern CMake is to only use targets, eporting and linking against them.
+The recommended way in modern CMake is to only use targets, exporting and linking against them.
 CMake targets are namespaced, similar to C++. For instance, a target may be Eigen3::Eigen.
 
 If a target version of the dependency exists, it is advised to use this version.
@@ -195,7 +195,7 @@ It is recommended to at least cover the following warning levels:
 
 - For Visual Studio, the default ``W1`` warnings are kept
 
-- For GCC and Clang: ``-Wall, -Wextra, -Wpedantic`` are required and ``-Wshadow, -Werror`` are advisable (the latter makes warnings errors).
+- For GCC and Clang: ``-Wall -Wextra -Wpedantic`` are required and ``-Wshadow -Werror`` are advisable (the latter makes warnings errors).
 
 Although modern CMake advises to add compiler flags on a target basis, i.e. call
 
@@ -221,7 +221,7 @@ To use it for a package called ``my_library``:
 
 - Use the macros "MY_LIBRARY_PUBLIC" for all symbols you need to export (i.e. classes or functions).
 
-- In the project CMakeLists.txt use:
+- In the project ``CMakeLists.txt`` use:
 
 .. code-block:: cmake
 
@@ -249,19 +249,24 @@ While all linters provided by ament can be added separately, it is advised to us
     find_package(ament_lint_auto REQUIRED)
     ament_lint_auto_find_test_dependencies()
 
-This will run all of the following linters:
+This will run linters as defined in the ``package.xml``.
+It is recommended to use the set of linters defined by the package ``ament_lint_common``, which will result in running all of the following linters:
 
-- a copyright linter which checks that copyrights and license headers are present
+- a copyright linter which checks that copyright statements and license headers are present and correct
 
 - cppcheck, a C++ checker which can also find some logic tests
 
-- cpplint, a style check (e.g. comment style)
+- cpplint, a C++ style checker (e.g. comment style)
 
-- uncrustify, a style checker
+- uncrustify, a C++ style checker
 
-- a cmake style linter
+- a cmake linter
 
 - an xml linter
+
+- flake8, a style checker for python files
+
+- pep257, a style checker for python docstrings
 
 Note that ``ament_uncrustify`` comes with a command line tool which can automatically reformat the code according to the style guide by calling
 
@@ -269,18 +274,10 @@ Note that ``ament_uncrustify`` comes with a command line tool which can automati
 
     ament_uncrustify --reformat <path_to_source_folders>
 
-If one of the linters doesn't work for now, it can also be disabled via setting ``<linter>_FOUND`` to ``TRUE``, e.g.:
-
-.. code-block:: cmake
-
-    find_package(ament_lint_auto REQUIRED)
-    set(ament_cmake_copyright_FOUND TRUE)
-    ament_lint_auto_find_test_dependencies()
-
 Testing
 ^^^^^^^
 
-Ament contains CMake macros to simplify setting up GTests. Call
+Ament contains CMake macros to simplify setting up GTests. Call:
 
 .. code-block:: cmake
 
@@ -312,7 +309,7 @@ The macros have additional parameters:
 
 - ``WORKING_DIRECTORY``: set the working directory for the test.
 
-The default working directory otherwise is the ``CMAKE_SOURCE_DIR``, which will be evaluated to the directory of the top-level CMakeLists.txt.
+The default working directory otherwise is the ``CMAKE_SOURCE_DIR``, which will be evaluated to the directory of the top-level ``CMakeLists.txt``.
 
 Similarly, there is a CMake macro to set up GTest including GMock:
 
