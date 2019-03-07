@@ -2,7 +2,7 @@
 
 SOURCE     = source
 OUT        = build
-BUILD      = python -m sphinx
+BUILD      = python3 -m sphinx
 OPTS       =-c .
 
 help:
