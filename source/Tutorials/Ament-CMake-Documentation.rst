@@ -14,7 +14,7 @@ Basics
 
 A basic CMake outline can be produced using ``ros2 pkg create <package_name>`` on the command line.
 The basic build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``.
-The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon/ament to find the correct build order for your packages.
+The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon to find the correct build order for your packages, to install the required dependencies in CI as well as provide the information for a release with ``bloom``.
 The ``CMakeLists.txt`` contains the commands to build and package executables and libraries and will be the main focus of this document.
 
 See also the basic ament tutorial_
@@ -47,9 +47,18 @@ Although it is possible to follow calls to ``ament_package()`` by calls to ``ins
   For an example of when to use these arguments, see the discussion in `Adding resources`_.
   For more information on how to use template files, see `the official documentation <https://cmake.org/cmake/help/v3.5/command/configure_file.html>`__.
 
-- ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``
+- ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``, but the order in which the files are added differs: Those files will be added after files marked with ``CONFIG_EXTRAS`` are added.
 
-Instead of adding to ``ament_package``, you can also add to the variable ``${PROJECT_NAME}_CONFIG_EXTRAS`` with the same effect.
+Instead of adding to ``ament_package``, you can also add to the variable ``${PROJECT_NAME}_CONFIG_EXTRAS`` and ``${PROJECT_NAME}_CONFIG_EXTRAS_POST`` with the same effect.
+The only difference is again the order in which the files are added with the following total order:
+
+- files added by ``CONFIG_EXTRAS``
+
+- files added by appending to ``${PROJECT_NAME}_CONFIG_EXTRAS``
+
+- files added by appending to ``${PROJECT_NAME}_CONFIG_EXTRAS_POST``
+
+- files added by ``CONFIG_EXTRAS_POST``
 
 Adding files and headers
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -60,7 +69,7 @@ With the separation of header files and implementation in C/C++, it is not alway
 
 The following best practice is proposed:
 
-- if you are building a library, put all headers which should be usable by clients and therefore must be installed into and ``include`` folder, while all other files (``.c/.cpp`` and header files which should not be exported) are inside the ``src`` folder.
+- if you are building a library, put all headers which should be usable by clients and therefore must be installed into a subdirectory of the ``include`` folder named like the package, while all other files (``.c/.cpp`` and header files which should not be exported) are inside the ``src`` folder.
 
 - only cpp files are explicitly referenced in the call to ``add_library`` or ``add_executable``
 
@@ -76,33 +85,45 @@ The following best practice is proposed:
 This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and
 all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
 
-In principle, this is not necessary if both folders are called ``include`` and top-level with respect to ``${CMAKE_CURRENT_SOURCE_DIR}`` and ``${CMAKE_INSTALL_DIR}``, but it is very common.
+In principle, using generator expressions here is not necessary if both folders are called ``include`` and top-level with respect to ``${CMAKE_CURRENT_SOURCE_DIR}`` and ``${CMAKE_INSTALL_DIR}``, but it is very common.
 
 Adding Dependencies
 ^^^^^^^^^^^^^^^^^^^
 
 There are two ways to link your packages against a new dependency.
+
+The first and recommended way is to use the ament macro ``ament_target_dependencies``.
+As an example, suppose we want to link ``my_target`` against the linear algebra library Eigen3.
+
+.. code-block:: cmake
+
+    find_package(Eigen3 REQUIRED)
+    ament_target_dependencies(my_target Eigen3)
+
+It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
+It will also ensure that the include directories of all dependencies are ordered correctly when using overlay workspaces.
+
+The second way is to use ``target_link_libraries``.
+
 The recommended way in modern CMake is to only use targets, exporting and linking against them.
-CMake targets are namespaced, similar to C++. For instance, a target may be Eigen3::Eigen.
+CMake targets are namespaced, similar to C++.
+For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
 
-If a target version of the dependency exists, it is advised to use this version.
-As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3. Then it suffices to call
-
-.. code-block:: cmake
-
-    find_package(Eigen3 REQUIRED)
-    target_link_libraries(my_library Eigen3::Eigen)
-
-This will immediately find the correct Eigen3 headers and link the library (if it exists - Eigen3 for instance is a header-only library).
-
-If no target build exists, you can alternatively use the ament macro ``ament_target_dependencies``
+At least until ``Crystal Clemmys`` target names are not supported in the ``ament_target_dependencies`` macro.
+Sometimes it will be necessary to call the ``target_link_libaries`` CMake function.
+In the example of Eigen3, the call should then look like
 
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_library Eigen3)
+    target_link_libraries(my_target Eigen3::Eigen)
 
-This will work very similar to the target version.
+This will also include necessary headers, libraries and their dependencies, but in contrast to ``ament_target_dependencies`` it might not correctly order the dependencies when using overlay workspaces.
+
+.. note::
+
+   It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
+   If that is the case, file a bug against the corresponding package.
 
 Building a Library
 ^^^^^^^^^^^^^^^^^^
@@ -144,7 +165,6 @@ Here is what's happening in the snippet above:
 
 - The last large install command installs the library.
   Archives and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
-  ``ament_cmake`` will make sure that the paths are adapted according to the mode of installation (merge-install or not)
 
 .. note::
 
@@ -178,7 +198,9 @@ Documentation of these options can be found in the source code itself.
 Compiler and linker options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 targets compilers which comply with the C++14 and C99 standard. Therefore it is customary to set the corresponding CMake flags:
+ROS 2 targets compilers which comply with the C++14 and C99 standard until at least ``Crystal Clemmys``.
+Newer versions might be targeted in the future and are referenced `here <http://www.ros.org/reps/rep-2000.html>`__.
+Therefore it is customary to set the corresponding CMake flags:
 
 .. code-block:: cmake
 
@@ -288,13 +310,14 @@ to add a GTest.
 This is then a regular target which can be linked against other libraries (such as the project library).
 The macros have additional parameters:
 
-- ``APPEND_ENV``: append environment variables, for instance, you can add to the ament prefix path by calling:
+- ``APPEND_ENV``: append environment variables.
+  For instance you can add to the ament prefix path by calling:
 
 .. code-block:: cmake
 
     find_package(ament_gtest REQUIRED)
     ament_add_gtest(some_test <test_sources>
-      APPEND_ENV AMENT_PREFIX_PATH=${CMAKE_INSTALL_PREFIX})
+      APPEND_ENV PATH=some/addtional/path/for/testing/resources)
 
 - ``APPEND_LIBRARY_DIRS``: append libraries so that they can be found by the linker at runtime.
   This can be achieved by setting environment variables like ``PATH`` on Windows and ``LD_LIBRARY_PATH`` on Linux, but this makes the call platform specific.
@@ -336,8 +359,8 @@ This can be done by appending the ``${PROJECT_NAME}_CONFIG_EXTRAS`` variable, wh
 .. code-block:: cmake
 
     list(APPEND ${PROJECT_NAME}_CONFIG_EXTRAS
-      "${CMAKE_CURRENT_SOURCE_DIR}/path/to/file.cmake"
-      "${CMAKE_CURRENT_SOURCE_DIR}/other/pathto/file.cmake"
+      path/to/file.cmake"
+      other/pathto/file.cmake"
     )
 
 Alternatively, you can directly add the files to the ``ament_package()`` call:
@@ -345,18 +368,18 @@ Alternatively, you can directly add the files to the ``ament_package()`` call:
 .. code-block:: cmake
 
     ament_package(CONFIG_EXTRAS
-      ${CMAKE_SOURCE_DIR}/path/to/file.cmake
-      ${CMAKE_CURRENT_SOURCE_DIR}/other/pathto/file.cmake
+      path/to/file.cmake
+      other/pathto/file.cmake
     )
 
 Adding to extension points
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In addition to simple files with functions that can be used in other packages, you can also add extensions to ament.
-Those extensions are scripts which are executed with ``ament_package()``.
+Those extensions are scripts which are executed with the function which defines the extension point.
 The most common use-case for ament extensions is probably registering rosidl message generators:
 When writing a generator, you normally want to generate all messages and services with your generator also without modifying the code for the message/service definition packages.
-This is possible by regisetring the generator as an extension to ``rosidl_generate_interfaces``.
+This is possible by registering the generator as an extension to ``rosidl_generate_interfaces``.
 
 As an example, see
 
@@ -386,20 +409,39 @@ This extension point is useful when registering resources (see below).
 
    It is possible to define custom extension points in a similar manner to ``ament_package`` and ``rosidl_generate_interfaces``, but this should hardly be necessary.
 
+Adding extension points
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Very rarely, it might be interesting to define a new extension point to ament.
+
+Extension points can be registered within a macro so that all extensions will be executed when the corresponding macro is called.
+To do so:
+
+- Define and document a name for your extension (e.g. ``my_extension_point``), which is the name passed to the ``ament_register_extension`` macro when using the extension point.
+
+- In the macro/function which should execute the extensions call:
+
+.. code-block:: cmake
+
+   ament_execute_extensions(my_extension_point)
+
+Ament extensions work by defining a variable containing the name of the extension point and filling it with the macros to be executed.
+Upon calling ``ament_execute_extensions``, the scripts defined in the variable are then executed one after another.
+
 Adding resources
 ----------------
 
 Especially when developing plugins or packages which allow plugins it is often essential to add resources to one ROS package from another (e.g. a plugin).
 Examples can be plugins for tools using the pluginlib.
 
-This can be achieved using the resource index within the ament index.
+This can be achieved using the ament index (also called "resource index").
 
-The resource index explained
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The ament index explained
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/doc/resource_index.md>`__
 
-In principle, the resource index is a folder in ament_index within the install/share folder of your package.
+In principle, the ament index is contained in a folder within the install/share folder of your package.
 It contains shallow subfolders named after different types of resources.
 Within the subfolder, each package providing said resource is referenced by name with a "marker file".
 The file may contain whatever content necessary to obtain the resources, e.g. relative paths to the installation directories of the resource, it may also be simply empty.
@@ -425,7 +467,7 @@ To achieve this, RViz provides a function:
 
     register_rviz_ogre_media_exports(DIRECTORIES <my_dirs>)
 
-This registers the directories as an ogre_media resource in the resource index.
+This registers the directories as an ogre_media resource in the ament index.
 In short, it installs a file named after the project which calls the function into a subfolder called ``rviz_ogre_media_exports``.
 The file contains the install folder relative paths to the directories listed in the macros.
 On startup time, RViz can now search for all folders called ``rviz_ogre_media_exports`` and load resources in all folders provided.
@@ -433,8 +475,8 @@ These searches are done using ``ament_index_cpp`` (or ``ament_index_py`` for Pyt
 
 In the following sections we will explore how to add your own resources to the ament index and provide best practices for doing so.
 
-Querying the resource index
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Querying the ament index
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 If necessary, it is possible to query the ament index for resources via CMake.
 To do so, use there are three functions
@@ -447,7 +489,7 @@ To do so, use there are three functions
 
 - ``resource_name``: The name of the resource which usually amounts to the name of the package having added the resource of type resource_type (e.g. ``rviz_default_plugins``)
 
-``ament_index_get_resource``: Obtain the content of a specific resource, i.e. the contents of the marker file in the resource index.
+``ament_index_get_resource``: Obtain the content of a specific resource, i.e. the contents of the marker file in the ament index.
 
 - ``var``: the output parameter: filled with the content of the resource marker file if it exists.
 
@@ -467,8 +509,8 @@ Note that ``ament_index_get_resource`` will throw an error if the resource does 
 
 - ``PREFIX_PATH``: The prefix path to search for (usually, the default ``ament_index_get_prefix_path()`` will be enough).
 
-Adding to the resource index
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding to the ament index
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Defining a resource requires two bits of information:
 
