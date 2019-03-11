@@ -38,7 +38,7 @@ The argument to ``project`` will be the package name and must be identical to th
 
 The project setup is done by ``ament_package()`` and this call must occur exactly once per package.
 ``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs config (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
-Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in you CMakeLists.
+Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in your `` CMakeLists.txt``.
 Although it is possible to follow calls to ``ament_package()`` by calls to ``install`` functions copying files and directories, it is simpler to just keep ``ament_package()`` the last call.
 
 ``ament_package`` can be given additional arguments:
@@ -82,8 +82,7 @@ The following best practice is proposed:
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)
 
-This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and
-all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
+This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
 
 In principle, using generator expressions here is not necessary if both folders are called ``include`` and top-level with respect to ``${CMAKE_CURRENT_SOURCE_DIR}`` and ``${CMAKE_INSTALL_DIR}``, but it is very common.
 
@@ -136,8 +135,8 @@ When building a reusable library, some information needs to be exported for down
     ament_export_dependencies(some_dependency)
 
     install(
-      DIRECTORY includes/
-      DESTINATION includes
+      DIRECTORY include/
+      DESTINATION include
     )
 
     install(my_library
@@ -149,7 +148,7 @@ When building a reusable library, some information needs to be exported for down
       INCLUDES DESTINATION include
     )
 
-Here, we assume that the folder ``includes`` contains the headers which need to be exported.
+Here, we assume that the folder ``include`` contains the headers which need to be exported.
 Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
 
 Here is what's happening in the snippet above:
@@ -171,7 +170,7 @@ Here is what's happening in the snippet above:
    Windows dlls are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
    It is therefore advised to not leave out the ``RUNTIME`` install even when developing libraries on Unix based systems.
 
-- Regarding the includes directory, the install command only adds information to CMake, it does not actually install the includes folder.
+- Regarding the ``include directory``, the install command only adds information to CMake, it does not actually install the includes folder.
   This is done by copying the headers via ``install(DIRECTORY <dir> DESTINATION <dest>)`` as described above.
 
 - The ``EXPORT`` notation of the install call requires additional attention:
@@ -479,7 +478,7 @@ Querying the ament index
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 If necessary, it is possible to query the ament index for resources via CMake.
-To do so, use there are three functions
+To do so, there are three functions:
 
 ``ament_index_has_resource``: obtain a prefix path to the resource if it exists with the following parameters:
 
