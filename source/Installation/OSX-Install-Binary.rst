@@ -85,6 +85,11 @@ You need the following things installed before installing ROS 2.
   ``python3 -m pip install pygraphviz pydot``
 
 *
+  Install SROS2 dependencies
+
+  ``python3 -m pip install lxml``
+
+*
   Install additional runtime dependencies for command-line tools:
 
   .. code-block:: bash
