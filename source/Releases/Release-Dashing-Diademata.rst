@@ -71,6 +71,21 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 
    if(var)
 
+rosidl
+~~~~~~
+
+Until Crystal each message generator package registered itself using the ``ament_cmake`` extension point ``rosidl_generate_interfaces`` and was passed a set of ``.msg`` / ``.srv`` / ``.action`` files.
+As of Dashing the message generation pipeline is based on ``.idl`` files instead.
+
+Any message generator package needs to change and register itself using the new extension point ``rosidl_generate_idl_interfaces`` which passes only ``.idl`` insteads.
+The message generator for the commonly supported languages C, C++, and Python as well as the typesupport packages for introspection, FastRTPS, Connext and OpenSplice have already been updated (see `ros2/rosidl#334 <https://github.com/ros2/rosidl/pull/334/files>`__).
+The CMake code calling ``rosidl_generate_interfaces()`` can either pass ``.idl`` files directly or pass ``.msg`` / ``.srv`` / ``.action`` which will then internally be converted into ``.idl`` files before being passed to each message generator.
+
+The format of ``.msg`` / ``.srv`` / ``.action`` files is not being involved in the future.
+The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files is described in `this <http://design.ros2.org/articles/legacy_interface_definition.html>`__ design article.
+A `second <http://design.ros2.org/articles/idl_interface_definition.html>`__ design article describes the supoorted features in ``.idl`` files.
+In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
+
 launch
 ~~~~~~
 
