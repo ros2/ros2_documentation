@@ -378,5 +378,30 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    > python_d path\to\colcon_executable build
 
-
 * Hooray, you're done!
+
+SROS2 Debug Mode
+^^^^^^^^^^^^^^^^
+
+In order to use SROS2 in Debug mode on Windows, a corresponding debug build for ``lxml`` must be installed.
+
+* A pre-built Python wheel binary for ``lxml`` debug is provided, to install:
+
+.. code-block:: bash
+
+   > pip install https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.3.2-cp37-cp37dm-win_amd64.whl
+
+* To verify installation
+
+.. code-block:: bash
+
+   > python_d
+   > from lxml import etree
+
+* No import errors should appear.
+
+* Note, in order to switch back to release, reinstall the release wheel of lxml via pip:
+
+.. code-block:: bash
+
+   > pip install lxml

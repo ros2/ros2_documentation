@@ -194,6 +194,13 @@ RQt dependencies
 
    python -m pip install -U pydot PyQt5
 
+SROS2 dependencies
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python -m pip install -U lxml
+
 Downloading ROS 2
 -----------------
 
