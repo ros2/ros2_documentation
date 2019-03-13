@@ -47,7 +47,8 @@ Although it is possible to follow calls to ``ament_package()`` by calls to ``ins
   For an example of when to use these arguments, see the discussion in `Adding resources`_.
   For more information on how to use template files, see `the official documentation <https://cmake.org/cmake/help/v3.5/command/configure_file.html>`__.
 
-- ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``, but the order in which the files are added differs: Those files will be added after files marked with ``CONFIG_EXTRAS`` are added.
+- ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``, but the order in which the files are added differs.
+  While ``CONFIG_EXTRAS`` files are included before the files generated for the ``ament_export_*`` calls the files from ``CONFIG_EXTRAS_POST`` are included afterwards.
 
 Instead of adding to ``ament_package``, you can also add to the variable ``${PROJECT_NAME}_CONFIG_EXTRAS`` and ``${PROJECT_NAME}_CONFIG_EXTRAS_POST`` with the same effect.
 The only difference is again the order in which the files are added with the following total order:
