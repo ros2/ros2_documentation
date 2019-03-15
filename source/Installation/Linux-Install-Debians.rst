@@ -78,6 +78,8 @@ ROS-Base Install (Bare Bones): Communication libraries, message packages, comman
 
 See specific sections below for how to also install the `ros1_bridge <Install additional packages using ROS 1 packages>`_, `TurtleBot packages <Install additional packages using ROS 1 packages>`_, or `alternative RMW packages <Installing additional RMW implementations>`_.
 
+*NOTE*: If `python3-empy` cannot be found by the OS, add the Multiverse repository using `sudo apt-add-repository multiverse && sudo apt-get update`.
+
 Environment setup
 -----------------
 
