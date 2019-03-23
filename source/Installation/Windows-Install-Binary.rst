@@ -48,7 +48,11 @@ Run the installer with default parameters. Then, define environment variables (t
 
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
-* Add ``C:\OpenSSL-Win64\bin\`` to your PATH
+
+You will need to append the OpenSSL-Win64 bin folder to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
+In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path below).
+
+* ``C:\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
@@ -161,8 +165,7 @@ As some chocolatey packages rely on it, we start by installing CMake
 
    > choco install -y cmake
 
-You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
-In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to the PATH.
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
