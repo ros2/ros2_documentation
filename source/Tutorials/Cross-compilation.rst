@@ -169,7 +169,7 @@ It will be used to install the ros2 dependencies on the target file-system with 
     mkdir qemu-user-static
     cp /usr/bin/qemu-*-static qemu-user-static
 
-The standard `setup <Linux-Development-Setup>`__ process of ROS2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
+The standard `setup <https://index.ros.org/doc/ros2/Linux-Development-Setup>`__ process of ROS2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
 
 .. code-block:: bash
 
