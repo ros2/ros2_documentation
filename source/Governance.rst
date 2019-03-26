@@ -25,6 +25,7 @@ The current members of the ROS 2 TSC are (13 as of 2019-01-25):
 * Open Robotics: Dirk Thomas
 * ROBOTIS: Yoonseok Pyo
 * TARDEC: Jonathon Smereka
+* Tier IV: Geoffrey Biggs
 * Toyota Research Institute: Allison Thackston
 
 Working Groups (WGs)
