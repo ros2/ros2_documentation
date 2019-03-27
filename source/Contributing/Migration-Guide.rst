@@ -212,7 +212,7 @@ If you are using gtest:
 Linters
 ~~~~~~~
 
-In ROS 2.0 we are working to maintain clean code using linters.
+In ROS 2 we are working to maintain clean code using linters.
 The styles for different languages are defined in our `Developer Guide <Developer-Guide>`.
 
 If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unittests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).

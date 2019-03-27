@@ -79,7 +79,7 @@ There's a full article on the motivation of ROS 2 `here <http://design.ros2.org/
 Where to find more information
 ------------------------------
 
-There are various articles on the design of ROS 2 at `design.ros2.org <http://design.ros2.org>`__\ , such as: `\ *Why ROS 2.0?* <http://design.ros2.org/articles/why_ros2.html>`__\ , `\ *ROS on DDS* <http://design.ros2.org/articles/ros_on_dds.html>`__\ , and `\ *Changes between ROS 1 and ROS 2* <http://design.ros2.org/articles/changes.html>`__.
+There are various articles on the design of ROS 2 at `design.ros2.org <http://design.ros2.org>`__\ , such as: `\ *Why ROS 2?* <http://design.ros2.org/articles/why_ros2.html>`__\ , `\ *ROS on DDS* <http://design.ros2.org/articles/ros_on_dds.html>`__\ , and `\ *Changes between ROS 1 and ROS 2* <http://design.ros2.org/articles/changes.html>`__.
 
 The code for ROS 2 is open source and broken into various repositories.
 You can find the code for most of the repositories on the `ros2 github organization <https://github.com/ros2>`__.
@@ -117,7 +117,7 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - ROS 2 on "small" embedded systems
      - ROSCon 2015 presentation
      - `slides <http://roscon.ros.org/2015/presentations/ros2_on_small_embedded_systems.pdf>`__ / `video <https://vimeo.com/142150576>`__
-   * - Real-time control in ROS and ROS 2.0
+   * - Real-time control in ROS and ROS 2
      - ROSCon 2015 presentation
      - `slides <http://roscon.ros.org/2015/presentations/RealtimeROS2.pdf>`__ / `video <https://vimeo.com/142621778>`__
    * - Why you want to use ROS 2

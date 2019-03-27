@@ -124,11 +124,11 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-ROS 2.0 builds on top of DDS.
+ROS 2 builds on top of DDS.
 It is compatible with `multiple DDS or RTPS (the DDS wire protocol) vendors <../Concepts/DDS-and-ROS-middleware-implementations>`.
-The repositories you downloaded for ROS 2.0 includes eProsima's Fast RTPS, which is the only bundled vendor.
+The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
 If you would like to use one of the other vendors you will need to install their software separately before building.
-The ROS 2.0 build will automatically build support for vendors that have been installed and sourced correctly.
+The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
 By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
 Detailed instructions for installing other DDS vendors are provided in the "Alternative DDS sources" section below.
@@ -172,7 +172,7 @@ Alternative DDS sources
 -----------------------
 
 The demos will attempt to build against any detected DDS vendor.
-The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.0.
+The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.
 If you would like to switch out the vendor below are the instructions.
 When you run the build make sure that your chosen DDS vendor(s) are exposed in your environment.
 
