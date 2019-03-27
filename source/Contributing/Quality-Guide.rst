@@ -183,7 +183,6 @@ The code migration suggestions here are by no means complete - when writing (or 
     * Add the ``RCPPUTILS_TSA_GUARDED_BY(mutex_name)`` annotation to the data that is protected by the mutex
 
     .. code-block:: cpp
-      :emphasize-lines: 14
 
       class Foo {
       public:
@@ -206,7 +205,6 @@ The code migration suggestions here are by no means complete - when writing (or 
     * In the above example - ``Foo::get`` will produce a compiler warning! To fix it, lock before returning bar
 
     .. code-block:: cpp
-      :emphasize-lines: 2
 
       void get() const {
         std::lock_guard<std::mutex> lock(mutex_);
