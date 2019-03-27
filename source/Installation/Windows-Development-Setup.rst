@@ -274,7 +274,7 @@ Alternative DDS Sources
 -----------------------
 
 The demos will attempt to build against any detected DDS vendor.
-The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.0.
+The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.
 To build for other vendors, make sure that your chosen DDS vendor(s) are exposed in your environment when you run the build.
 If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations <../Tutorials/Working-with-multiple-RMW-implementations>`
 
