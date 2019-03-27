@@ -86,6 +86,13 @@ The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files i
 A `second design article <http://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
 In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
 
+Mapping of char in .msg files
+"""""""""""""""""""""""""""""
+
+In `ROS 1 <http://wiki.ros.org/msg#Fields>`__ ``char`` has been deprecated for a long time and is being mapped to ``uint8``.
+In ROS 2 until Crystal ``char`` was mapped to a single character (``char`` in C / C++, ``str`` with length 1 in Python) in an effort to provide a more natural mapping.
+As of Dashing the ROS 1 semantic has been restored and ``char`` maps to ``uint8`` again.
+
 rosidl_generator_cpp
 ~~~~~~~~~~~~~~~~~~~~
 
