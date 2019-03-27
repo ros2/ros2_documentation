@@ -85,6 +85,7 @@ The format of ``.msg`` / ``.srv`` / ``.action`` files is not being evolved in th
 The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files is described in `this design article <http://design.ros2.org/articles/legacy_interface_definition.html>`__.
 A `second design article <http://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
 In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
+The type ``char`` in ``msg`` is now mapping to the IDL type ``uint8``, so members of ``msg`` interfaces using the type ``char`` will result in IDL members of type ``uint8``.
 
 rosidl_generator_cpp
 ~~~~~~~~~~~~~~~~~~~~
@@ -92,6 +93,10 @@ rosidl_generator_cpp
 The C++ data structures generated for messages, services and actions provide setter methods for each field.
 Until Crystal each setter returned a pointer to the data structure itself to enable the named parameter idiom.
 As of Dashing these setters `return a reference <https://github.com/ros2/rosidl/pull/353>`__ instead since that seems to be the more common signature as well as it clarifies that the returned value can't be a ``nullptr``.
+
+rosidl_generator_py
+~~~~~~~~~~~~~~~~~~~
+Message members of ``msg`` types ``char`` are now treated as ``uint8``; these members now expect integral values in the range ``[0, 255]`` and not a ``builtin.str`` of length 1.
 
 launch
 ~~~~~~
