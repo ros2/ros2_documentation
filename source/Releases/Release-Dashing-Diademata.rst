@@ -93,6 +93,23 @@ The C++ data structures generated for messages, services and actions provide set
 Until Crystal each setter returned a pointer to the data structure itself to enable the named parameter idiom.
 As of Dashing these setters `return a reference <https://github.com/ros2/rosidl/pull/353>`__ instead since that seems to be the more common signature as well as it clarifies that the returned value can't be a ``nullptr``.
 
+rosidl_generator_py
+~~~~~~~~~~~~~~~~~~~
+
+Until Crystal an array (fixed size) or sequence (dynamic size, optionally with an upper boundary) field in a message was stored as a ``list`` in Python.
+As of Dashing the Python type for arrays / sequences of numeric values has been changed:
+
+* an array of numeric values is stored as a ``numpy.ndarray`` (the ``dtype`` is chosen to match the type of the numeric value)
+* a sequence of numeric values is stored as an ``array.array`` (the ``typename`` is chosen to match the type of the numeric value)
+
+As before an array / sequence of non-numeric types is still represented as a ``list`` in Python.
+
+This change brings a number of benefits:
+
+* The new data structures ensure that each item in the array / sequence complies with the value range restrictions of the numeric type.
+* The numeric values can be stored more efficiently in memory which avoid the overhead of Python objects for each item.
+* The memory layout of both data structures allows to read and write all items of the array / sequence in a single operation which makes the conversion from and to Python significantly faster / more efficient.
+
 launch
 ~~~~~~
 
