@@ -98,7 +98,7 @@ The ``toolchain-file`` provide to CMake the information of the ``cross-compiler`
 Cross-compiling examples for Arm
 --------------------------------
 
-After `downloading the ROS2 source code <../Installation/Linux-Development-Setup/>`__, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros2/cross_compile.git src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
+After `downloading the ROS2 source code <../Installation/Linux-Development-Setup>`__, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros2/cross_compile.git src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
 
 The following targets are supported:
  - Ubuntu-arm64: To be used with any ARMv8-A based system.
@@ -169,7 +169,7 @@ It will be used to install the ros2 dependencies on the target file-system with 
     mkdir qemu-user-static
     cp /usr/bin/qemu-*-static qemu-user-static
 
-The standard `setup <https://index.ros.org/doc/ros2/Linux-Development-Setup>`__ process of ROS2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
+The standard `setup <../Installation/Linux-Development-Setup>`__ process of ROS2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
 
 .. code-block:: bash
 
