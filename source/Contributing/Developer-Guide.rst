@@ -525,12 +525,12 @@ The following rules to format text is intended to increase readability as well a
   * ``"``
   * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
 
-* *[.md only]* In Markdown the headings should follow the ATX-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>__`
+* *[.md only]* In Markdown the headings should follow the atx-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>__`
 
+  * Atx-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
+  * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
   * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>__`
-  * Atx-style headers use 1-6 hash characters at the start of the line to denote header levels 1-6.
-  * Add a space to headers (such as ``# Heading 1``) to make it easier to visually identify.
-  * Rationale: Atx-style headers are easier to search and maintain, and make H1 and H2 consistent with the rest of the header levels.
+  * Rationale: Atx-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
 
 * *[any]* Each sentence must start on a new line.
 
