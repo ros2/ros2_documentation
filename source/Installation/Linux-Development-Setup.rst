@@ -57,6 +57,7 @@ Install development tools and ROS tools
      cmake \
      git \
      python3-colcon-common-extensions \
+     python3-lark-parser \
      python3-pip \
      python-rosdep \
      python3-vcstool \
@@ -73,7 +74,6 @@ Install development tools and ROS tools
      flake8-docstrings \
      flake8-import-order \
      flake8-quotes \
-     git+https://github.com/lark-parser/lark.git@0.7d \
      pytest-repeat \
      pytest-rerunfailures \
      pytest \
@@ -115,6 +115,7 @@ Install dependencies using rosdep
    rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
    # [Ubuntu 16.04]
    rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 python3-lark-parser rti-connext-dds-5.3.1 urdfdom_headers"
+   python3 -m pip install -U lark-parser
 
 .. _linux-development-setup-install-more-dds-implementations-optional:
 
