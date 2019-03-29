@@ -85,7 +85,7 @@ Then you can continue installing other Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U catkin_pkg EmPy git+https://github.com/lark-parser/lark.git@0.7d pyparsing pyyaml
+   > pip install -U catkin_pkg EmPy lark-parser pyparsing pyyaml
 
 Next install testing tools like ``pytest`` and others:
 
