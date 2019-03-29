@@ -503,30 +503,47 @@ Since there is not an existing CMake style guide we will define our own:
 * Prefer functions with ``set(PARENT_SCOPE)`` to macros.
 * When using macros prefix local variables with ``_`` or a reasonable prefix.
 
-Markdown
-^^^^^^^^
+Markdown / reStructured Text / docblocks
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Style
 ~~~~~
 
-The following rules to format the markdown syntax is intended to increase readability as well as versioning.
+The following rules to format text is intended to increase readability as well as versioning.
 
-* Each section title should be preceded by one empty line and succeeded by one empty line.
+* *[.md, .rst only]* Each section title should be preceded by one empty line and succeeded by one empty line.
 
   * Rationale: It expedites to get an overview about the structure when screening the document.
 
-* Each sentence must start on a new line.
+* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
+
+  * ``#`` with overline (only once, used for the document title)
+  * ``*`` with overline
+  * ``=``
+  * ``-``
+  * ``^``
+  * ``"``
+  * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
+
+* *[.md only]* In Markdown the headings should follow the atx-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
+
+  * Atx-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
+  * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
+  * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
+  * Rationale: Atx-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
+
+* *[any]* Each sentence must start on a new line.
 
   * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
 
-* Each sentence can optionally be wrapped to keep each line short.
-* The lines should not have any trailing white spaces.
-* A code block must be preceded and succeeded by an empty line.
+* *[any]* Each sentence can optionally be wrapped to keep each line short.
+* *[any]* The lines should not have any trailing white spaces.
+* *[.md, .rst only]* A code block must be preceded and succeeded by an empty line.
 
   * Rationale: Whitespace is significant only directly before and directly after fenced code blocks.
     Following these instructions will ensure that highlighting works properly and consistently.
 
-* A code block should specify a syntax after the opening triple backticks.
+* *[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``).
 
 Javascript
 ^^^^^^^^^^
