@@ -163,8 +163,8 @@ PrismTech OpenSplice Debian Packages built by OSRF
 
 
 
-RTI Connext (version 5.3.1)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RTI Connext (version 5.3.1, amd64 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Debian packages provided in the ROS 2 apt repositories
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
