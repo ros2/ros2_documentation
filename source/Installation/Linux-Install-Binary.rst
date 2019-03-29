@@ -104,8 +104,8 @@ Bouncy and earlier:
            libopensplice69
 
 
-RTI Connext
-^^^^^^^^^^^
+RTI Connext (version 5.3.1, amd64 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use RTI Connext you will need to have obtained a license from RTI.
 Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
