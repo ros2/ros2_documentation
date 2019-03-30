@@ -115,7 +115,7 @@ Let's clone the `examples <https://github.com/ros2/examples>`__ repository into 
 
     git clone https://github.com/ros2/examples src/examples
 
-.. attention:: It is recommened to checkout a branch that is compatible with the version of ROS that was installed (e.g. ``crystal``).
+.. attention:: It is recommended to checkout a branch that is compatible with the version of ROS that was installed (e.g. ``crystal``).
 
 Now the workspace should have the source code to the ROS 2 examples:
 
