@@ -17,6 +17,7 @@ Overview
    Tutorials
    Troubleshooting
    Contributing
+   Governance
    Related-Projects
    Contact
    About
@@ -63,6 +64,11 @@ Contributing
 ------------
 
 See `the contributing page <Contributing>` and `the developer guide <Contributing/Developer-Guide>` for details on how to contribute to ROS 2 developments.
+
+Governance
+----------
+
+See `the governance page <Governance>`.
 
 Reporting problems and asking questions
 ---------------------------------------
