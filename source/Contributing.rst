@@ -6,6 +6,26 @@ Contributing to ROS 2
    :depth: 1
    :local:
 
+A few things to remember before you start contributing to the ROS 2 project.
+
+Tenets
+------
+* Respect what came before
+
+  ROS has been around for more than a decade and is used by developers and across the world. Keep a humble attitude and an open mindset while contributing.
+
+* Embed OSRF as early as possible
+
+  OSRF acts as a gate-keeper and advocate for the ROS community. Rely on their expertise and technical judgement from the design phase. Explicit approval from OSRF is required for any non-trivial work.
+
+* Don't fork unnecessarily, adopt community practices whenever possible
+
+  Think about your end-customer's experience when developing and contributing. Avoid using non-standard tools or libraries that may not be accessible for everyone.
+
+* Think like ROS product owners
+
+  Be mindful of the whole community. You may have to interact with other contributors in the future and it is important to build trust with everyone from early on.
+
 There are a number of ways you can contribute to the ROS 2 project.
 
 Design discussions

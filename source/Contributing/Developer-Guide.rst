@@ -54,6 +54,7 @@ Pull requests
   Separate changes should go into separate pull requests.
   See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
 
+  * As a rule of thumb, a pull request should avoid modifying more than 200 lines at once and must not modify more than 700 lines at once
   * For some ROS 2 repositories the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ is enforced on pull requests.
     It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
     You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
@@ -61,6 +62,10 @@ Pull requests
 * A patch should be minimal in size and avoid any kind of unnecessary changes.
 * Always run CI jobs for all platforms for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
+
+* A pull request must ideally contain a single commit.
+  Feedback can be integrated by amending the commit.
+
 * Before merging a pull request all changes should be squashed into a small number of semantic commits to keep the history clear.
 
   * But avoid squashing commits while a pull request is under review.
@@ -85,6 +90,8 @@ Development Process
 * Always run tests locally after changes and before proposing them in a pull request.
   Besides using automated tests, also run the modified code path manually to ensure that the patch works as intended.
 * Always run CI jobs for all platforms for every pull request and include links to the jobs in the pull request.
+
+For more details on recommended software development workflow, see `software development lifecycle <https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#software-development-lifecycle>`_ section.
 
 Changes to RMW API
 ^^^^^^^^^^^^^^^^^^
@@ -141,6 +148,124 @@ C++ specific
 
 * Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
 * Avoid using references for ``std::shared_ptr`` since that subverts the reference counting. If the original instance goes out of scope and the reference is being used it accesses freed memory.
+
+Software Development Lifecycle
+------------------------------
+
+This section describes step-by-step how to plan, design and implement a new feature:
+
+1. Task Creation
+2. Creating the Design Document
+3. Design Review
+4. Implementation
+5. Code Review
+
+Task creation
+^^^^^^^^^^^^^
+Tasks requiring changes to critical parts of ROS 2 should have their design scheduled during the first half of the release cycle.
+If a design review is happening in the second half of the release cycle, it should be targeted toward the N+2 release.
+In case an exception is necessary, OSRF leaders should be notified in advanced and a clear path should be provided (for example, what type of changes will be tolerated in patch releases).
+
+* An issue should be created in the `ros2/ros2 <https://github.com/ros2/ros2/issues>`__ org, clearly describing the task being worked on.
+
+  * It should have a clear success criteria and highlight the concrete improvements expect from it.
+  * If the feature is targeting a ROS release, ensure this is tracked in the ROS release ticket (`example <https://github.com/ros2/ros2/issues/607>`__).
+
+Writing the design document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Design docs must never include confidential information.
+Whether or not a design document is required for your change depends on how big the task is.
+
+1. You are making a small change or fixing a bug
+
+  A design document is not required, but an issue should be opened in the appropriate repository to track the work and avoid duplication of efforts.
+
+2. You are implementing a new feature or would like to contribute to OSRF-owned infrastructure (like Jenkins CI)
+
+  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on http://design.ros2.org/
+  * You should fork the repository and submit a pull request detailing the design.
+
+  The commit in the pull request must include a link to the ros2/ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``).
+  Detailed instructions are on the `ROS2 Contribute <http://design.ros2.org/contribute.html>`__ page. Design comments will made directly on the pull request.
+
+If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
+
+Design document review
+^^^^^^^^^^^^^^^^^^^^^^
+Once the design is ready for review, a pull request should be opened and the following reviewers should be assigned:
+
+1. Project owner(s) – Maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__ for details).
+2. OSRF point of contact for the task.
+
+* The pull request must include a due date for the review (for example, ``To be reviewed before YYYY-MM-DD``).
+  We recommend a review period of 5 business days.
+* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be setup. In this case,
+
+  **Before the meeting**
+
+  * Send a meeting invite at least one week in advance
+  * Meeting duration of one hour is recommended
+  * Booking a meeting room with video conferencing capabilities is recommended
+  * Meeting invite should list all decisions to be made during the review (decisions requiring OSRF approval)
+  * Meeting required attendees: design pull request reviewers
+      Meeting optional attendees: all OSRF engineers
+
+  **During the meeting**
+
+  * The task owner drives the meeting, presents their ideas and manages discussions to ensure an agreement is reached on time.
+
+  **After the meeting**
+
+  * The task owner should snd back meeting notes to all attendees
+  * If minor issues have been raised about the design:
+
+    * The task owner should update the design doc pull request based on the feedback
+    * Additional review is not required
+
+  * If major issues have been raised about the design:
+
+    * It is acceptable to remove sections for which there is no clear agreement.
+      Those parts of the design can be resubmitted as a separate task in the future.
+    * If removing the debatable parts is not an option, work directly with OSRF engineers to reach an agreement
+
+* Once consensus is reached:
+
+  * Ensure the `ros2/design <https://github.com/ros2/design/>`__ pull request has been merged, if applicable
+  * Update and close the github issue associated with this design task
+
+Implementation
+^^^^^^^^^^^^^^
+Before starting writing code, learn how to `setup the development environment <https://w.amazon.com/bin/view/AWS_B9/Platform/ROS2_Workspace_Setup/>`__
+and go through `pull request best practices <https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#pull-requests>`_.
+
+* For each repo to modified:
+
+  * Modify the code. Go to next step if finished or at regular interval to backup your work.
+  * `Self review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``
+  * Create a new commit using ``git commit -s``
+
+    * A pull request should contain minimal semantically meaningful commits (for instance, a large number of 1-line commits is not acceptable).
+      Already existing commits can be amended to avoid creating a new commit every time, using ``git commit --amend``
+    * Each commit must have a properly written, meaningful, commit message. More instructions `here <https://chris.beams.io/posts/git-commit/>`__.
+    * Moving files must be done in a separate commit, otherwise git may fail to accurately track the file history
+    * The last commit message must contain a reference to the ros2/ros2 issue to ensure that merging the PR will close the issue.
+      See the `doc here <https://help.github.com/articles/closing-issues-using-keywords/>`__.
+    * Push the new commits
+
+Code Review
+^^^^^^^^^^^
+Once the change is ready for code review:
+
+* Open a pull request for each modified repository
+
+  * Remember to follow `pull request best practices <https://index.ros.org/doc/ros2/Contributing/Developer-Guide/#pull-requests>`_
+  * `hub <https://hub.github.com/>`__ can be used to create pull requests from the command line
+  * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request
+
+* OSRF engineers who reviewed the design document should be set as reviewers for the pull request
+* Code review SLO: reviewers should review pull requests within a week and code authors should reply to comments within a week
+* Iterate on feedback as usual, amend and ``push -f`` to update the development branch as needed
+* Once the PR is approved, OSRF engineers will merge it in
 
 
 Language Versions and Code Format
