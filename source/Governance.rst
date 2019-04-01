@@ -11,7 +11,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the `charter <https://discourse-cdn-sjc2.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (13 as of 2019-01-25):
+The current members of the ROS 2 TSC are (14 as of 2019-04-01):
 
 * Acutronic Robotics: Victor Mayoral Vilches
 * Amazon: Rutvik Hora
@@ -28,7 +28,33 @@ The current members of the ROS 2 TSC are (13 as of 2019-01-25):
 * Tier IV: Geoffrey Biggs
 * Toyota Research Institute: Allison Thackston
 
+If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
+
 Working Groups (WGs)
 --------------------
 
-As described in the TSC charter...
+As described in its `charter <https://discourse-cdn-sjc2.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
+
+The current WGs are (4 as of 2019-04-01):
+
+* Embedded Systems:
+ * Lead(s): Borja Outerelo
+ * Resources:
+  * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
+* Navigation
+ * Lead(s): Matt Hansen
+ * Resources:
+  * `2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__
+* Real-time
+ * Lead(s): Dejan Pangercic
+ * Resources: TODO
+* Safety
+ * Lead(s): Dejan Pangercic
+ * Resources: TODO
+* Security
+ * Lead(s): Rutvik Hora
+ * Resources:
+  * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
+
+If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
+If you'd like to create a new WG, please inquire via info@openrobotics.org.
