@@ -13,35 +13,108 @@ As described in the `charter <https://discourse-cdn-sjc2.com/standard17/uploads/
 
 The current members of the ROS 2 TSC are (14 as of 2019-04-01):
 
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/acutronic.jpg                 | Acutronic Robotics: Victor Mayoral Vilches   |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/amazon.svg                    | Amazon: Rutvik Hora                          |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/apex.png                      | Apex.AI: Dejan Pangercic                     |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/arm.svg                       | Arm: Filipe Rinaldi                          |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/bosch_75h.jpg                 | Bosch: Karsten Knese                         |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/eprosima.svg                  | eProsima: Jaime Martin Losa                  |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/intel.svg                     | Intel: Matt Hansen                           |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/lge.svg                       | LG Electronics: Brian Shin                   |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/microsoft.svg                 | Microsoft: Lou Amadio                        |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/openrobotics-logo-stacked.svg | Open Robotics: Dirk Thomas                   |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/robotis.png                   | ROBOTIS: Yoonseok Pyo                        |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/tardec.png                    | TARDEC: Jonathon Smereka                     |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/TierIV.png                    | Tier IV: Geoffrey Biggs                      |
-+-----------------------------------------------------+----------------------------------------------+
-| .. image:: Governance/tri.jpg                       | Toyota Research Institute: Allison Thackston |
-+-----------------------------------------------------+----------------------------------------------+
+.. |acutronic| image:: Governance/acutronic.jpg
+   :alt: Acutronic Robotics logo
+   :height: 35px
+   :target: https://acutronicrobotics.com/
+
+.. |amazon| image:: Governance/amazon.svg
+   :alt: Amazon logo
+   :height: 35px
+   :target: https://www.amazon.com
+
+.. |apex| image:: Governance/apex.png
+   :alt: Apex.AI logo
+   :height: 35px
+   :target: https://www.apex.ai
+
+.. |arm| image:: Governance/arm.svg
+   :alt: Arm logo
+   :height: 35px
+   :target: https://www.arm.com/
+
+.. |bosch| image:: Governance/bosch_75h.jpg
+   :alt: Bosch logo
+   :height: 35px
+   :target: https://www.bosch.com/
+
+.. |eprosima| image:: Governance/eprosima.svg
+   :alt: eProsima logo
+   :height: 35px
+   :target: https://eprosima.com/
+
+.. |intel| image:: Governance/intel.svg
+   :alt: Intel logo
+   :height: 35px
+   :target: https://www.intel.com
+
+.. |lge| image:: Governance/lge.svg
+   :alt: LG Electronics logo
+   :height: 35px
+   :target: https://www.lg.com/
+
+.. |microsoft| image:: Governance/microsoft.svg
+   :alt: Microsoft logo
+   :height: 35px
+   :target: https://www.microsoft.com
+
+.. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
+   :alt: Open Robotics logo
+   :height: 35px
+   :target: https://www.openrobotics.org
+
+.. |robotis| image:: Governance/robotis.png
+   :alt: ROBOTIS logo
+   :height: 35px
+   :target: https://www.robotis.com/
+
+.. |tardec| image:: Governance/tardec.png
+   :alt: TARDEC logo
+   :height: 35px
+   :target: https://tardec.army.mil/
+
+.. |tieriv| image:: Governance/TierIV.png
+   :alt: Tier IV logo
+   :height: 35px
+   :target: https://www.tier4.jp/
+
+.. |tri| image:: Governance/tri.jpg
+   :alt: TRI logo
+   :height: 35px
+   :target: https://www.tri.global/
+
+.. list-table::
+   :align: center
+   :widths: auto
+
+   * - |acutronic|
+     - Acutronic Robotics: Victor Mayoral Vilches
+   * - |amazon|
+     - Amazon: Rutvik Hora
+   * - |apex|
+     - Apex.AI: Dejan Pangercic
+   * - |arm|
+     - Arm: Filipe Rinaldi
+   * - |bosch|
+     - Bosch: Karsten Knese
+   * - |eprosima|
+     - eProsima: Jaime Martin Losa
+   * - |intel|
+     - Intel: Matt Hansen
+   * - |lge|
+     - LG Electronics: Brian Shin
+   * - |microsoft|
+     - Microsoft: Lou Amadio
+   * - |openrobotics|
+     - Open Robotics: Dirk Thomas
+   * - |robotis|
+     - ROBOTIS: Yoonseok Pyo
+   * - |tardec|
+     - TARDEC: Jonathon Smereka
+   * - |tieriv|
+     - Tier IV: Geoffrey Biggs
+   * - |tri|
+     - Toyota Research Institute: Allison Thackston
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
