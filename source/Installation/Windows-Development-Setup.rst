@@ -218,6 +218,8 @@ If you don't install any additional DDS vendors, ROS 2 will default to using ePr
 Building the ROS 2 Code
 -----------------------
 
+.. _windows-dev-build-ros2:
+
 To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64 Native Tools Command Prompt for VS 2017" for bouncy and later or "x64 Native Tools Command Prompt for VS 2015" for ardent and earlier) running as Administrator.
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
