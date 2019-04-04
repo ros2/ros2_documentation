@@ -145,6 +145,10 @@ In general, it is recommended to use an overlay when you plan to iterate on a sm
 Build the workspace
 ^^^^^^^^^^^^^^^^^^^
 
+.. attention::
+
+   To build packages on Windows you need to be in a Visual Studio environment, see `Building the ROS 2 Code <windows-dev-build-ros2>` for more details.
+
 In the root of the workspace, run ``colcon build``.
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
 This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
