@@ -24,6 +24,7 @@ Basic
    Tutorials/Rosidl-Tutorial.rst
    Tutorials/New-features-in-ROS-2-interfaces-(msg-srv)
    Tutorials/Defining-custom-interfaces-(msg-srv)
+   Tutorials/RViz-Tutorials
    Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
    Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
