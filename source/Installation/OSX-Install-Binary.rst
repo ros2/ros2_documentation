@@ -46,16 +46,8 @@ You need the following things installed before installing ROS 2.
 
        brew install python3
 
-       # install asio for Fast-RTPS
-       brew install asio
-
-       # install tinyxml2 for Fast-RTPS
-       # currently, the binary installation only supports v6.2
-       # make sure remove an existing newer version
-       brew remove tinyxml2
-       brew tap osrf/simulation
-       brew install osrf/simulation/tinyxml2@6.2.0
-       brew link --force tinyxml2@6.2.0
+       # install asio and tinyxml2 for Fast-RTPS
+       brew install asio tinyxml2
 
        # install dependencies for robot state publisher
        brew install tinyxml eigen pcre poco
