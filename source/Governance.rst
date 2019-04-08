@@ -78,7 +78,7 @@ The current members of the ROS 2 TSC are (14 as of 2019-04-01):
    :height: 35px
    :target: https://www.tier4.jp/
 
-.. |tri| image:: Governance/tri.jpg
+.. |tri| image:: Governance/tri_logo_landscape-web.svg
    :alt: TRI logo
    :height: 35px
    :target: https://www.tri.global/
