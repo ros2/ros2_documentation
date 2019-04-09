@@ -10,6 +10,7 @@ A few things to remember before you start contributing to the ROS 2 project.
 
 Tenets
 ------
+
 * Respect what came before
 
   ROS has been around for more than a decade and is used by developers and across the world.
@@ -26,13 +27,14 @@ Tenets
 
 * Adopt community best-practices whenever possible instead of ad-hoc processes
 
-  Think about your end-customer's experience when developing and contributing.
+  Think about your end-user's experience when developing and contributing.
   Avoid using non-standard tools or libraries that may not be accessible to everyone.
 
 * Think about the community as a whole
 
-  Be mindful of the whole community.
-  You may have to interact with other contributors in the future and it is important to build trust with everyone from early on.
+  Think about the bigger picture.
+  There are developers building different robots with different constraints.
+  ROS needs to accommodate requirements of the whole community.
 
 There are a number of ways you can contribute to the ROS 2 project.
 

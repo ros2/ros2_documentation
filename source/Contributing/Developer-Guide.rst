@@ -162,6 +162,7 @@ This section describes step-by-step how to plan, design, and implement a new fea
 
 Task creation
 ^^^^^^^^^^^^^
+
 Tasks requiring changes to critical parts of ROS 2 should have design reviews during early stages of the release cycle.
 If a design review is happening in the later stages, the changes will be part of a future release.
 In case an exception is necessary, OSRF leaders should be notified in advanced and a clear path should be provided (for example, what type of changes will be tolerated in patch releases).
@@ -173,6 +174,7 @@ In case an exception is necessary, OSRF leaders should be notified in advanced a
 
 Writing the design document
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Design docs must never include confidential information.
 Whether or not a design document is required for your change depends on how big the task is.
 
@@ -186,12 +188,14 @@ Whether or not a design document is required for your change depends on how big 
   * You should fork the repository and submit a pull request detailing the design.
 
   Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
-  Detailed instructions are on the `ROS2 Contribute <http://design.ros2.org/contribute.html>`__ page. Design comments will made directly on the pull request.
+  Detailed instructions are on the `ROS2 Contribute <http://design.ros2.org/contribute.html>`__ page.
+  Design comments will made directly on the pull request.
 
 If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
 
 Design document review
 ^^^^^^^^^^^^^^^^^^^^^^
+
 Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
 It is recommended to include project owner(s) -
 maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
@@ -231,6 +235,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 
 Implementation
 ^^^^^^^^^^^^^^
+
 Before starting, go through `pull request best practices <pull-requests>`_.
 
 * For each repo to be modified:
@@ -250,6 +255,7 @@ Before starting, go through `pull request best practices <pull-requests>`_.
 
 Code Review
 ^^^^^^^^^^^
+
 Once the change is ready for code review:
 
 * Open a pull request for each modified repository.
@@ -264,7 +270,6 @@ Once the change is ready for code review:
   code authors to reply back to comments within a week, so there is no loss of context.
 * Iterate on feedback as usual, amend and update the development branch as needed.
 * Once the PR is approved, package maintainers will merge the changes in.
-
 
 Language Versions and Code Format
 ---------------------------------
