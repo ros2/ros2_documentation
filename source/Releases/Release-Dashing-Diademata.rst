@@ -25,7 +25,7 @@ Timeline before the release
 
 A few milestone leading up to the release:
 
-    Mon. Apr 8th (alpha)
+    Tue. Apr 16th (alpha)
         First releases of core packages available.
         Testing can happen from now on (some features might not have landed yet).
 
