@@ -76,7 +76,7 @@ ROS-Base Install (Bare Bones): Communication libraries, message packages, comman
 
    sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base
 
-See specific sections below for how to also install the `ros1_bridge <Install additional packages using ROS 1 packages>`_, `TurtleBot packages <Install additional packages using ROS 1 packages>`_, or `alternative RMW packages <Installing additional RMW implementations>`_.
+See specific sections below for how to also install the :ref:`ros1_bridge <linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <linux-install-additional-rmw-implementations>`.
 
 Environment setup
 -----------------
@@ -118,6 +118,8 @@ You may want to add this to your ``.bashrc``.
 
    echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
 
+.. _linux-install-additional-rmw-implementations:
+
 Install additional RMW implementations
 --------------------------------------
 
@@ -136,6 +138,8 @@ By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` yo
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+
+.. _linux-ros1-add-pkgs:
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------
