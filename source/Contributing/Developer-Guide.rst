@@ -165,7 +165,6 @@ Task creation
 
 Tasks requiring changes to critical parts of ROS 2 should have design reviews during early stages of the release cycle.
 If a design review is happening in the later stages, the changes will be part of a future release.
-In case an exception is necessary, OSRF leaders should be notified in advanced and a clear path should be provided (for example, what type of changes will be tolerated in patch releases).
 
 * An issue should be created in the appropriate `ros2 repository <https://github.com/ros2/>`__, clearly describing the task being worked on.
 
@@ -206,9 +205,9 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 
   * Send a meeting invite at least one week in advance
   * Meeting duration of one hour is recommended
-  * Meeting invite should list all decisions to be made during the review (decisions requiring OSRF approval)
+  * Meeting invite should list all decisions to be made during the review (decisions requiring package maintainer approval)
   * Meeting required attendees: design pull request reviewers
-      Meeting optional attendees: all OSRF engineers
+      Meeting optional attendees: all OSRF engineers, if applicable
 
   **During the meeting**
 
@@ -226,7 +225,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 
     * It is acceptable to remove sections for which there is no clear agreement
     * The debatable parts of the design can be resubmitted as a separate task in the future
-    * If removing the debatable parts is not an option, work directly with OSRF engineers to reach an agreement
+    * If removing the debatable parts is not an option, work directly with package owners to reach an agreement
 
 * Once consensus is reached:
 
@@ -236,7 +235,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 Implementation
 ^^^^^^^^^^^^^^
 
-Before starting, go through `pull request best practices <pull-requests>`_.
+Before starting, go through the `Pull requests`_ section for best practices.
 
 * For each repo to be modified:
 
@@ -260,11 +259,11 @@ Once the change is ready for code review:
 
 * Open a pull request for each modified repository.
 
-  * Remember to follow `pull request best practices <pull-requests>`_.
+  * Remember to follow `Pull requests`_ best practices.
   * `hub <https://hub.github.com/>`__ can be used to create pull requests from the command line.
   * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
 
-* OSRF engineers who reviewed the design document should be mentioned in the pull request.
+* Package owners who reviewed the design document should be mentioned in the pull request.
 * Code review SLO: although reviewing pull requests is best-effort,
   it is helpful to have reviewers comment on pull requests within a week and
   code authors to reply back to comments within a week, so there is no loss of context.
