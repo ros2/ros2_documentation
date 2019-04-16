@@ -61,6 +61,11 @@ Pull requests
 * A patch should be minimal in size and avoid any kind of unnecessary changes.
 * Always run CI jobs for all platforms for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
+
+* A pull request must contain minimum number of meaningful commits.
+
+  * You can create new commits while the pull request is under review.
+
 * Before merging a pull request all changes should be squashed into a small number of semantic commits to keep the history clear.
 
   * But avoid squashing commits while a pull request is under review.
@@ -85,6 +90,8 @@ Development Process
 * Always run tests locally after changes and before proposing them in a pull request.
   Besides using automated tests, also run the modified code path manually to ensure that the patch works as intended.
 * Always run CI jobs for all platforms for every pull request and include links to the jobs in the pull request.
+
+For more details on recommended software development workflow, see `Software Development Lifecycle`_ section.
 
 Changes to RMW API
 ^^^^^^^^^^^^^^^^^^
@@ -142,6 +149,126 @@ C++ specific
 * Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
 * Avoid using references for ``std::shared_ptr`` since that subverts the reference counting. If the original instance goes out of scope and the reference is being used it accesses freed memory.
 
+Software Development Lifecycle
+------------------------------
+
+This section describes step-by-step how to plan, design, and implement a new feature:
+
+1. Task Creation
+2. Creating the Design Document
+3. Design Review
+4. Implementation
+5. Code Review
+
+Task creation
+^^^^^^^^^^^^^
+
+Tasks requiring changes to critical parts of ROS 2 should have design reviews during early stages of the release cycle.
+If a design review is happening in the later stages, the changes will be part of a future release.
+
+* An issue should be created in the appropriate `ros2 repository <https://github.com/ros2/>`__, clearly describing the task being worked on.
+
+  * It should have a clear success criteria and highlight the concrete improvements expected from it.
+  * If the feature is targeting a ROS release, ensure this is tracked in the ROS release ticket (`example <https://github.com/ros2/ros2/issues/607>`__).
+
+Writing the design document
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Design docs must never include confidential information.
+Whether or not a design document is required for your change depends on how big the task is.
+
+1. You are making a small change or fixing a bug:
+
+  * A design document is not required, but an issue should be opened in the appropriate repository to track the work and avoid duplication of efforts.
+
+2. You are implementing a new feature or would like to contribute to OSRF-owned infrastructure (like Jenkins CI):
+
+  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on http://design.ros2.org/.
+  * You should fork the repository and submit a pull request detailing the design.
+
+  Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
+  Detailed instructions are on the `ROS2 Contribute <http://design.ros2.org/contribute.html>`__ page.
+  Design comments will made directly on the pull request.
+
+If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
+
+Design document review
+^^^^^^^^^^^^^^^^^^^^^^
+
+Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
+It is recommended to include project owner(s) -
+maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
+
+* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be setup. In this case,
+
+  **Before the meeting**
+
+  * Send a meeting invite at least one week in advance
+  * Meeting duration of one hour is recommended
+  * Meeting invite should list all decisions to be made during the review (decisions requiring package maintainer approval)
+  * Meeting required attendees: design pull request reviewers
+      Meeting optional attendees: all OSRF engineers, if applicable
+
+  **During the meeting**
+
+  * The task owner drives the meeting, presents their ideas and manages discussions to ensure an agreement is reached on time
+
+  **After the meeting**
+
+  * The task owner should send back meeting notes to all attendees
+  * If minor issues have been raised about the design:
+
+    * The task owner should update the design doc pull request based on the feedback
+    * Additional review is not required
+
+  * If major issues have been raised about the design:
+
+    * It is acceptable to remove sections for which there is no clear agreement
+    * The debatable parts of the design can be resubmitted as a separate task in the future
+    * If removing the debatable parts is not an option, work directly with package owners to reach an agreement
+
+* Once consensus is reached:
+
+  * Ensure the `ros2/design <https://github.com/ros2/design/>`__ pull request has been merged, if applicable
+  * Update and close the github issue associated with this design task
+
+Implementation
+^^^^^^^^^^^^^^
+
+Before starting, go through the `Pull requests`_ section for best practices.
+
+* For each repo to be modified:
+
+  * Modify the code, go to the next step if finished or at regular interval to backup your work.
+  * `Self review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
+  * Create a new signed commit using ``git commit -s``.
+
+    * A pull request should contain minimal semantically meaningful commits (for instance, a large number of 1-line commits is not acceptable).
+      Create new fixup commits while iterating on feedback, or optionally, amend existing commits using ``git commit --amend`` if you don't want to create a new commit every time.
+    * Each commit must have a properly written, meaningful, commit message.
+      More instructions `here <https://chris.beams.io/posts/git-commit/>`__.
+    * Moving files must be done in a separate commit, otherwise git may fail to accurately track the file history.
+    * Either the pull request description or the commit message must contain a reference to the related ros2 issue, so it gets automatically closed when the pull request is merged.
+      See this `doc <https://help.github.com/articles/closing-issues-using-keywords/>`__ for more details.
+    * Push the new commits.
+
+Code Review
+^^^^^^^^^^^
+
+Once the change is ready for code review:
+
+* Open a pull request for each modified repository.
+
+  * Remember to follow `Pull requests`_ best practices.
+  * `hub <https://hub.github.com/>`__ can be used to create pull requests from the command line.
+  * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
+
+* Package owners who reviewed the design document should be mentioned in the pull request.
+* Code review SLO: although reviewing pull requests is best-effort,
+  it is helpful to have reviewers comment on pull requests within a week and
+  code authors to reply back to comments within a week, so there is no loss of context.
+* Iterate on feedback as usual, amend and update the development branch as needed.
+* Once the PR is approved, package maintainers will merge the changes in.
 
 Language Versions and Code Format
 ---------------------------------
