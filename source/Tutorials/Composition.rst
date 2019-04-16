@@ -67,7 +67,7 @@ The `composition <https://github.com/ros2/demos/tree/master/composition>`__ pack
 The three most common ones are:
 
 
-#. You start a generic container process (`1 <https://github.com/ros2/rclcpp/blob/master/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/master/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
+#. You start a (`generic container process <https://github.com/ros2/rclcpp/blob/master/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/master/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
    The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
    Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/master/ros2component>`__ to invoke the ROS service with the passed command line arguments
 #. You create a `custom executable <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
@@ -274,7 +274,7 @@ In a second shell, components can be loaded by using the updated container name:
 
 .. code-block:: bash
 
-   component load /ns/MyContainer composition composition::Listener
+   ros2 component load /ns/MyContainer composition composition::Listener
 
 Note: Namespace remappings of the container do not affect loaded components.
 
@@ -291,7 +291,7 @@ In the first shell, start the component container:
    ros2 run rclcpp_components component_container
 
 
-Some examples of how to remap names and namespaces
+Some examples of how to remap names and namespaces:
 
 .. code-block:: bash
 
@@ -302,7 +302,7 @@ Some examples of how to remap names and namespaces
    # Remap both
    ros2 component load /ComponentManager composition composition::Talker --node-name talker3 --node-namespace /ns2
 
-The corresponding entries appear in ``ros2 component list``
+The corresponding entries appear in ``ros2 component list``:
 
 .. code-block:: bash
    $ ros2 component list
