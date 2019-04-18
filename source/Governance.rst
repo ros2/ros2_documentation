@@ -146,7 +146,7 @@ The current WGs are (4 as of 2019-04-01):
 
 * Safety
 
- * Lead(s): Dejan Pangercic
+ * Lead(s): Geoffrey Biggs
  * Resources: TODO
 
 * Security
