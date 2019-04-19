@@ -88,7 +88,7 @@ The current members of the ROS 2 TSC are (14 as of 2019-04-01):
    :widths: auto
 
    * - |acutronic|
-     - Acutronic Robotics: Victor Mayoral Vilches
+     - Acutronic Robotics: Víctor Mayoral Vilches
    * - |amazon|
      - Amazon: Rutvik Hora
    * - |apex|
@@ -155,6 +155,11 @@ The current WGs are (4 as of 2019-04-01):
  * Resources:
 
   * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
+
+* Manipulation
+
+ * Lead(s): Víctor Mayoral Vilches
+ * Resources: TODO
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
 If you'd like to create a new WG, please inquire via info@openrobotics.org.
