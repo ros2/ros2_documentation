@@ -1,6 +1,7 @@
 .. redirect-from::
 
    OSX-Development-Setup
+   Installation/OSX-Development-Setup
 
 Building ROS 2 on OS X
 ======================
@@ -125,7 +126,7 @@ Install additional DDS vendors (optional)
 -----------------------------------------
 
 ROS 2 builds on top of DDS.
-It is compatible with `multiple DDS or RTPS (the DDS wire protocol) vendors <../Concepts/DDS-and-ROS-middleware-implementations>`.
+It is compatible with `multiple DDS or RTPS (the DDS wire protocol) vendors </Concepts/DDS-and-ROS-middleware-implementations>`.
 The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
@@ -138,7 +139,7 @@ Build the ROS 2 code
 
 **Note**\ : if you are trying to build the ROS 1 <-> ROS 2 bridge, follow instead these `modified instructions <https://github.com/ros2/ros1_bridge/blob/master/README#build-the-bridge-from-source>`__.
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial <../Tutorials/Colcon-Tutorial>`):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial </Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
 
@@ -177,7 +178,7 @@ If you would like to switch out the vendor below are the instructions.
 When you run the build make sure that your chosen DDS vendor(s) are exposed in your environment.
 
 When multiple vendors are present, you can choose the used RMW implementation by setting the the environment variable ``RMW_IMPLEMENTATION`` to the package providing the RMW implementation.
-See `Working with multiple RMW implementations <../Tutorials/Working-with-multiple-RMW-implementations>` for more details.
+See `Working with multiple RMW implementations </Tutorials/Working-with-multiple-RMW-implementations>` for more details.
 
 Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Windows-Install-Binary
+    Installation/Windows-Install-Binary
 
 Installing ROS 2 on Windows
 ===========================
@@ -255,7 +256,7 @@ Start another command shell and run a ``listener``\ :
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
+If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
@@ -267,4 +268,4 @@ Troubleshooting
 Build your own packages
 -----------------------
 
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.

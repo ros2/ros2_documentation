@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Linux-Install-Debians
+    Installation/Linux-Install-Debians
 
 Installing ROS2 via Debian Packages
 ===================================
@@ -166,4 +167,4 @@ The turtlebot2 packages are available in Bouncy but not Crystal.
 Build your own packages
 -----------------------
 
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
