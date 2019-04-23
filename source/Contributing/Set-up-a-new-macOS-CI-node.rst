@@ -91,7 +91,7 @@ Set up dummy git names:
 Install ROS 2 Dependencies
 --------------------------
 
-Install them according to `our install instructions <../Installation/Crystal/OSX-Development-Setup>`.
+Install them according to `our install instructions <../Installation/OSX-Development-Setup>`.
 
 Including:
 

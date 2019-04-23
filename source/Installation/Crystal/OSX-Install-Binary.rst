@@ -1,6 +1,7 @@
 .. redirect-from::
 
    OSX-Install-Binary
+   Installation/OSX-Install-Binary
 
 Installing ROS 2 on OS X
 ========================

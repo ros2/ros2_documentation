@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Linux-Development-Setup
+    Installation/Linux-Development-Setup
 
 Building ROS 2 on Linux
 =======================
