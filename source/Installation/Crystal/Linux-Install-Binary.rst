@@ -145,9 +145,9 @@ In another terminal source the setup file and then run a ``listener``:
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
+If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
-See the `demos <../Tutorials>` for other things to try, including how to `run the talker-listener example in Python <../Tutorials/Python-Programming>`.
+See the `demos </Tutorials>` for other things to try, including how to `run the talker-listener example in Python </Tutorials/Python-Programming>`.
 
 Using the ROS 1 bridge
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -176,4 +176,4 @@ For more information on the bridge, read the `tutorial <https://github.com/ros2/
 Build your own packages
 -----------------------
 
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" <../Tutorials/Colcon-Tutorial>`.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.

@@ -268,7 +268,7 @@ In a separate shell you can do the same, but instead run the ``listener``\ :
    > call install\local_setup.bat
    > ros2 run demo_nodes_py listener
 
-For more explanations see the `Python Programming <../Tutorials/Python-Programming>` demo or `other tutorials <../Tutorials>`.
+For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
 
 Note: it is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
@@ -278,7 +278,7 @@ Alternative DDS Sources
 The demos will attempt to build against any detected DDS vendor.
 The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.
 To build for other vendors, make sure that your chosen DDS vendor(s) are exposed in your environment when you run the build.
-If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations <../Tutorials/Working-with-multiple-RMW-implementations>`
+If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
 
 Troubleshooting
 ---------------
