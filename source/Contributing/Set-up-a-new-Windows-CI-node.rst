@@ -23,7 +23,7 @@ We use the normal Windows 10 version, not the enterprise, but other than that we
 Install Dependencies for ROS 2
 ------------------------------
 
-Follow our Windows "from source" `installation instructions <../Installation/Windows-Development-Setup>`.
+Follow our Windows "from source" `installation instructions <../Installation/Crystal/Windows-Development-Setup>`.
 
 Setup git
 ---------

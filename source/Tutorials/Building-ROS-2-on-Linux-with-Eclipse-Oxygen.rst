@@ -10,7 +10,7 @@ Building ROS2 on Linux with Eclipse Oxygen [community-contributed]
    If the steps work for you please leave a comment on https://github.com/ros2/ros2/issues/495 .
    If they don't then please comment with the first step that didn't work.**
 
-This tutorial is based on a clean ubuntu-16.04.2 install and eclipse oxygen with egit. It uses RTI Connext as middleware for Realtime performance. The `original Install page <../Installation/Linux-Development-Setup>` is perhaps more up-to-date, so check it for info.
+This tutorial is based on a clean ubuntu-16.04.2 install and eclipse oxygen with egit. It uses RTI Connext as middleware for Realtime performance. The `original Install page <../Installation/Crystal/Linux-Development-Setup>` is perhaps more up-to-date, so check it for info.
 
 Install:
 
@@ -81,7 +81,7 @@ add export RTI_LICENSE_FILE=/home/ros/rti_connext_dds-5.3.1/rti_license.dat to .
    :alt: eclipse-1
 
 
-We now need a RTI license, which we get on their website. Refer to `Linux Development Setup page <../Installation/Linux-Development-Setup>`. The RTI license file will be directly send per email after sign-up.
+We now need a RTI license, which we get on their website. Refer to `Linux Development Setup page <../Installation/Crystal/Linux-Development-Setup>`. The RTI license file will be directly send per email after sign-up.
 
 In the email is a link to the RTI software to download. We run the .run file after chmod +x
 
