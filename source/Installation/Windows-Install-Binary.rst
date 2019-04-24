@@ -44,11 +44,15 @@ Install OpenSSL
 
 Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*. Don't download the Win32 or Light versions.
 
-Run the installer with default parameters. Then, define environment variables (the following commands assume you used the default installation directory):
-
+Run the installer with default parameters. The following commands assume you used the default installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
-* Add ``C:\OpenSSL-Win64\bin\`` to your PATH
+
+You will need to append the OpenSSL-Win64 bin folder to your PATH.
+You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
+In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
+
+* ``C:\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
@@ -148,7 +152,7 @@ In ardent and earlier
 
 These releases used OpenCV 2. You can download a precompiled version of OpenCV 2.4.13.2 from https://github.com/ros2/ros2/releases/download/release-beta2/opencv-2.4.13.2-vc14.VS2015.zip
 
-Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. Assuming you were extracting OpenCV to ``c:\`` you have to extend the ``PATH`` variable to ``c:\opencv-2.4.13.2-vc14.VS2015\x64\vc14\bin``
+Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. Assuming you were extracting OpenCV to ``c:\`` you have to extend your ``PATH`` variable to ``c:\opencv-2.4.13.2-vc14.VS2015\x64\vc14\bin``
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
@@ -161,8 +165,7 @@ As some chocolatey packages rely on it, we start by installing CMake
 
    > choco install -y cmake
 
-You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
-In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to your PATH.
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
