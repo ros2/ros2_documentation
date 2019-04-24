@@ -117,8 +117,9 @@ Let's clone the `examples <https://github.com/ros2/examples>`__ repository into 
 
 .. attention:: It is recommended to checkout a branch that is compatible with the version of ROS that was installed (e.g. ``crystal``).
 
-CD into the directory 
+
 .. code-block:: bash
+
     cd ~/ros2_example_ws/src/examples/
     git checkout ROSDISTRO
     cd ~/ros2_example_ws
