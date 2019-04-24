@@ -48,7 +48,7 @@ Run the installer with default parameters. The following commands assume you use
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
-You will need to append the OpenSSL-Win64 bin folder to your PATH. 
+You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
