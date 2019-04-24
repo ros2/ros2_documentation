@@ -34,7 +34,8 @@ By making the process layout a deploy-time decision the user can choose between:
 * running multiple nodes in separate processes with the benefits of process/fault isolation as well as easier debugging of individual nodes and
 * running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see `Intra Process Communication <Intra-Process-Communication>`).
 
-The vision is that a future version of ``ros2 launch`` will support making these different deployments easily configurable.
+Additionally ``ros2 launch`` can be used to automate these actions through specialized launch actions.
+
 
 Writing a Component
 -------------------
@@ -219,6 +220,9 @@ Note: dlopen-composed components will not be reflected in the ``ros2`` command l
 
 Composition using launch actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+While the command line tools are useful for debugging and diagnosing component configurations, it is frequently more convenient to start a set of components at the same time.
+To automate this action, we can use the functionality in ``ros2 launch``.
 
 
 Advanced Topics
