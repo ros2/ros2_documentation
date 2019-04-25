@@ -316,6 +316,7 @@ Some examples of how to remap names and namespaces:
 The corresponding entries appear in ``ros2 component list``:
 
 .. code-block:: bash
+
    $ ros2 component list
    /ComponentManager
       1  /talker2
