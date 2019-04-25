@@ -226,7 +226,7 @@ To automate this action, we can use the functionality in ``ros2 launch``.
 
 .. code-block:: bash
 
-   ros2 launch composition composition_demo.launch
+   ros2 launch composition composition_demo.launch.py
 
 
 Advanced Topics
