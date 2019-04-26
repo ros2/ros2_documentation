@@ -26,6 +26,22 @@ Tier 2 platforms:
 
 * Ubuntu 16.04 (Xenial)
 
+RMW Implementations
+~~~~~~~~~~~~~~~~~~~
+
+In Crystal Clemmys there is support for multiple RMW implementations (see `REP 2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for full details):
+
+Tier 1:
+
+ * `rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps>`__
+ * `rmw_connext_cpp <https://github.com/ros2/rmw_connext>`__ 
+
+Tier 2:
+
+ * `rmw_opensplice_cpp <https://github.com/ros2/rmw_opensplice>`__ - `Instructions for Setup <../Installation/Linux-Development-Setup/#install-more-dds-implementations-optional>`__
+ * `rmw_fastrtps_dynamic_cpp <https://github.com/ros2/rmw_fastrtps>`__
+ 
+ * `rmw_connext_dynamic_cpp <https://github.com/ros2/rmw_connext>`__ - `Instructions for Setup <../Installation/Linux-Development-Setup/#install-more-dds-implementations-optional>`__
 
 New features in this ROS 2 release
 ----------------------------------
