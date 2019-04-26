@@ -169,7 +169,7 @@ class RedirectFrom(Directive):
                         )
                     )
                 }
-            yield (redirect_url, context, cls.template_name)
+                yield (redirect_url, context, cls.template_name)
 
     def run(self):
         document_path = self.state.document.current_source
