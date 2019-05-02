@@ -70,7 +70,7 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 .. code-block:: cmake
 
    if(var)
-   
+
 
 rclcpp
 ~~~~~~
