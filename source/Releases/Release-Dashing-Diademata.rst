@@ -70,6 +70,11 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 .. code-block:: cmake
 
    if(var)
+   
+
+rclcpp
+~~~~~~
+The function ``NodeGraph::get_node_names()`` now returns a ``vector`` of fully qualified names and namespaces, instead of just names.
 
 rosidl
 ~~~~~~
