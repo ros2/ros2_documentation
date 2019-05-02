@@ -294,7 +294,7 @@ Style
 ~~~~~
 
 
-We will use `Python's PEP7 <http://legacy.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
+We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
 
 * We will target C99, as we do not need to support C89 (as PEP7 recommends)
 
@@ -591,12 +591,12 @@ We will target Python 3 for our development.
 Style
 ~~~~~
 
-We will use the `PEP8 guidelines <http://legacy.python.org/dev/peps/pep-0008/>`_ for code format.
+We will use the `PEP8 guidelines <https://www.python.org/dev/peps/pep-0008/>`_ for code format.
 
 We chose the following more precise rule where PEP 8 leaves some freedom:
 
-* `We allow up to 100 character per line (fifth paragraph) <http://legacy.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
-* `We pick single quotes over double quotes as long as no escaping is necessary <http://legacy.python.org/dev/peps/pep-0008/#string-quotes>`_.
+* `We allow up to 100 character per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
+* `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
 
 Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
