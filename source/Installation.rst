@@ -6,7 +6,7 @@ Installation
    :hidden:
    :glob:
 
-   Installation/Crystal/index.rst
+   Installation/Crystal
 
 ROS 2 Installation Options
 --------------------------
@@ -19,7 +19,7 @@ Select your ROS distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| `ROS 2 Bouncy Bolson <Installation/Crystal>`_ | `ROS 2 Crystal Clemmys <Installation/Crystal>`_ | `ROS 2 Dashing Diademata <Installation/Dashing>`_ |
+| `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Crystal>`  |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 | Released July 2018                            | Released December 2018                          | To be released May 2019 (In progress)             |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
