@@ -107,6 +107,12 @@ Next install cppcheck:
 
 You will need to add ``C:\Program Files\Cppcheck`` to the ``PATH``.
 
+Next install xmllint:
+
+* Download binary archives of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
+* Unpack all archives into e.g. ``C:\xmllint``
+* Add ``C:\xmllint\bin`` to the ``PATH``.
+
 Install Qt5
 ^^^^^^^^^^^
 
