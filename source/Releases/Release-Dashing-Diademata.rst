@@ -73,7 +73,69 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 
 rclcpp
 ~~~~~~
+
 The function ``NodeGraph::get_node_names()`` now returns a ``vector`` of fully qualified names and namespaces, instead of just names.
+
+Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
+See `ros2/rclcpp#622 <https://github.com/ros2/rclcpp/pull/622/files>`__ for details about the structure and default values of the options.
+
+If you are using any of the extended arguments to ``rclcpp::Node()`` like this:
+
+.. code-block:: cpp
+
+  auto context = rclcpp::contexts::default_context::get_global_default_context();
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", context, args, params);
+
+You need to update to use the ``NodeOptions`` structure
+
+.. code-block:: cpp
+
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  rclcpp::NodeOptions node_options;
+  node_options.arguments(args);
+  node_options.initial_parameters(params);
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
+
+rclcpp_components
+~~~~~~~~~~~~~~~~~
+
+The correct way to implement composition in Dashing is by utilizing the ``rclcpp_components`` package.
+
+The following changes must be made to nodes in order to correctly implement runtime composition:
+
+The Node must have a constructor that takes ``rclcpp::NodeOptions``:
+
+.. code-block:: cpp
+
+  class Listener: public rclcpp::Node {
+    Listener(const rclcpp::NodeOptions & options)
+    : Node("listener", options)
+    {
+    }
+  };
+
+C++ registration macros (if present) need to be updated to use the ``rclcpp_components`` equivalent.
+If not present, registration macros must be added in one translation unit.
+
+.. code-block:: cpp
+
+  // Insert at bottom of translation unit, e.g. listener.cpp
+  #include "rclcpp_components/register_node_macro.hpp"
+  // Use fully-qualifed name in registration
+  RCLCPP_COMPONENTS_REGISTER_NODE(composition::Listener);
+
+CMake registration macros (if present) need to be updated.
+If not present, registration macros must be added to the project's CMake.
+
+.. code-block:: cmake
+
+  add_library(listener src/listener.cpp)
+  rclcpp_components_register_nodes(listener "composition::Listener")
+
+For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
 
 rosidl
 ~~~~~~
@@ -143,6 +205,20 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 * Modification of ``rmw``, now passes ``rmw_context_t`` to ``rmw_create_wait_set``:
 
  * `rmw_create_wait_set <https://github.com/ros2/rmw/blob/c518842f6f82910482470b40c221c268d30691bd/rmw/include/rmw/rmw.h#L522-L543>`_
+
+* New APIs in ``rmw`` for preallocating space for published and subscribed messages:
+
+ * `rmw_init_publisher_allocation <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L262>`_
+ * `rmw_fini_publisher_allocation <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L279>`_
+ * `rmw_init_subscription_allocation <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L489>`_
+ * `rmw_fini_subscription_allocation <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L506>`_
+ * `rmw_serialized_message_size <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L395>`_
+
+* Modification of ``rmw``, now passes ``rmw_publisher_allocation_t`` or ``rmw_subscription_allocation_t`` to ``rmw_publish`` and ``rmw_take``, respectively.
+  Note that this argument can be ``NULL`` or ``nullptr``, which keeps existing Crystal behavior.
+
+ * `rmw_publish <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L310>`_
+ * `rmw_take <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
 
 Known Issues
 ------------
