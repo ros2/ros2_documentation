@@ -218,7 +218,7 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
   Note that this argument can be ``NULL`` or ``nullptr``, which keeps existing Crystal behavior.
 
  * `rmw_publish <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L310>`_
- * `rmw_take<https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
+ * `rmw_take <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
 
 Known Issues
 ------------
