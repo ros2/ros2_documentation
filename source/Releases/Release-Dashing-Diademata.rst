@@ -99,6 +99,44 @@ You need to update to use the ``NodeOptions`` structure
   node_options.initial_parameters(params);
   auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
+rclcpp_components
+~~~~~~~~~~~~~~~~~
+
+The correct way to implement composition in Dashing is by utilizing the ``rclcpp_components`` package.
+
+The following changes must be made to nodes in order to correctly implement runtime composition:
+
+The Node must have a constructor that takes ``rclcpp::NodeOptions``:
+
+.. code-block:: cpp
+
+  class Listener: public rclcpp::Node {
+    Listener(const rclcpp::NodeOptions & options)
+    : Node("listener", options)
+    {
+    }
+  };
+
+C++ registration macros (if present) need to be updated to use the ``rclcpp_components`` equivalent.
+If not present, registration macros must be added in one translation unit.
+
+.. code-block:: cpp
+
+  // Insert at bottom of translation unit, e.g. listener.cpp
+  #include "rclcpp_components/register_node_macro.hpp"
+  // Use fully-qualifed name in registration
+  RCLCPP_COMPONENTS_REGISTER_NODE(composition::Listener);
+
+CMake regsitration macros (if present) need to be updated.
+If not present, registration macros must be added to the project's CMake.
+
+.. code-block:: cmake
+
+  add_library(listener src/listener.cpp)
+  rclcpp_components_register_nodes(listener "composition::Listener")
+
+For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
+
 rosidl
 ~~~~~~
 
