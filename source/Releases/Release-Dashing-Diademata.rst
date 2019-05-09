@@ -73,7 +73,31 @@ you need to update the condition to ensure it considers a string value as ``TRUE
 
 rclcpp
 ~~~~~~
+
 The function ``NodeGraph::get_node_names()`` now returns a ``vector`` of fully qualified names and namespaces, instead of just names.
+
+Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
+See `ros2/rclcpp#622 <https://github.com/ros2/rclcpp/pull/622/files>`__ for details about the structure and default values of the options.
+
+If you are using any of the extended arguments to ``rclcpp::Node()`` like this:
+
+.. code-block:: cpp
+
+  auto context = rclcpp::contexts::default_context::get_global_default_context();
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", context, args, params);
+
+You need to update to use the ``NodeOptions`` structure
+
+.. code-block:: cpp
+
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  rclcpp::NodeOptions node_options;
+  node_options.arguments(args);
+  node_options.initial_parameters(params);
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
 rosidl
 ~~~~~~
