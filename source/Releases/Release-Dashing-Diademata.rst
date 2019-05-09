@@ -127,7 +127,7 @@ If not present, registration macros must be added in one translation unit.
   // Use fully-qualifed name in registration
   RCLCPP_COMPONENTS_REGISTER_NODE(composition::Listener);
 
-CMake regsitration macros (if present) need to be updated.
+CMake registration macros (if present) need to be updated.
 If not present, registration macros must be added to the project's CMake.
 
 .. code-block:: cmake
