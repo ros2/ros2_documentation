@@ -58,7 +58,7 @@ Declaring Parameters
 There have been some changes to the behavior of parameters starting in Dashing, which have also lead to some new API's and the deprecation of other API's.
 See the ``rclcpp`` and ``rclpy`` sections below for more information about API changes.
 
-Getting and Setting Undecalred Parameters
+Getting and Setting Undeclared Parameters
 """""""""""""""""""""""""""""""""""""""""
 
 As of Dashing, parameters now need to be declared before being accessed set.
