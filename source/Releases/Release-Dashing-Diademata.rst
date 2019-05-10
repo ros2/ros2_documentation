@@ -61,7 +61,7 @@ See the ``rclcpp`` and ``rclpy`` sections below for more information about API c
 Getting and Setting Undeclared Parameters
 """""""""""""""""""""""""""""""""""""""""
 
-As of Dashing, parameters now need to be declared before being accessed set.
+As of Dashing, parameters now need to be declared before being accessed or set.
 
 Before Dashing, you could call ``get_parameter(name)`` and get either a value, if it had been previously set, or a parameter of type ``PARAMETER_NOT_SET``.
 You could also call ``set_parameter(name, value)`` at any point, even if the parameter was previously unset.
