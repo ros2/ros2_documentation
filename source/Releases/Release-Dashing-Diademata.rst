@@ -53,7 +53,7 @@ Changes since the Crystal release
 ---------------------------------
 
 ament_cmake
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 The CMake function ``ament_index_has_resource`` was returning either ``TRUE`` or ``FALSE``.
 As of `this release <https://github.com/ament/ament_cmake/pull/155>`_ it returns either the prefix path in case the resource was found or ``FALSE``.
@@ -72,8 +72,7 @@ you need to update the condition to ensure it considers a string value as ``TRUE
    if(var)
 
 rclcpp
-~~~~~~
-
+^^^^^^
 The function ``NodeGraph::get_node_names()`` now returns a ``vector`` of fully qualified names and namespaces, instead of just names.
 
 Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
@@ -138,7 +137,7 @@ If not present, registration macros must be added to the project's CMake.
 For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
 
 rosidl
-~~~~~~
+^^^^^^
 
 Until Crystal each message generator package registered itself using the ``ament_cmake`` extension point ``rosidl_generate_interfaces`` and was passed a set of ``.msg`` / ``.srv`` / ``.action`` files.
 As of Dashing the message generation pipeline is based on ``.idl`` files instead.
@@ -160,14 +159,14 @@ In ROS 2 until Crystal ``char`` was mapped to a single character (``char`` in C 
 As of Dashing the ROS 1 semantic has been restored and ``char`` maps to ``uint8`` again.
 
 rosidl_generator_cpp
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 The C++ data structures generated for messages, services and actions provide setter methods for each field.
 Until Crystal each setter returned a pointer to the data structure itself to enable the named parameter idiom.
 As of Dashing these setters `return a reference <https://github.com/ros2/rosidl/pull/353>`__ instead since that seems to be the more common signature as well as it clarifies that the returned value can't be a ``nullptr``.
 
 rosidl_generator_py
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 Until Crystal an array (fixed size) or sequence (dynamic size, optionally with an upper boundary) field in a message was stored as a ``list`` in Python.
 As of Dashing the Python type for arrays / sequences of numeric values has been changed:
@@ -184,7 +183,7 @@ This change brings a number of benefits:
 * The memory layout of both data structures allows to read and write all items of the array / sequence in a single operation which makes the conversion from and to Python significantly faster / more efficient.
 
 launch
-~~~~~~
+^^^^^^
 
 The ``launch_testing`` package caught up with the ``launch`` package redesign done in Bouncy Bolson.
 The legacy Python API, already moved into the ``launch.legacy`` submodule, has thus been deprecated and removed.
@@ -194,7 +193,7 @@ See ``launch`` `examples <https://github.com/ros2/launch/tree/master/launch/exam
 See `demos tests <https://github.com/ros2/demos>`__ for reference on how to use the new ``launch_testing`` API.
 
 rmw
-~~~
+^^^
 
 Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
