@@ -220,6 +220,35 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
  * `rmw_publish <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L310>`_
  * `rmw_take <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
 
+actions
+~~~~~~~
+
+* Changes to ``rclcpp_action::Client`` signatures:
+
+  The signature of `rclcpp_action::Client::async_send_goal <https://github.com/ros2/rclcpp/blob/ef41059a751702274667e2164182c062b47c453d/rclcpp_action/include/rclcpp_action/client.hpp#L343>`_ has changed.
+  Now users can optionally provide callback functions for the **goal response** and the **result** using the new
+  `SendGoalOptions <https://github.com/ros2/rclcpp/blob/ef41059a751702274667e2164182c062b47c453d/rclcpp_action/include/rclcpp_action/client.hpp#L276>`_ struct.
+  The goal response callback is called when an action server accepts or rejects the goal and the result callback is called when the result for the goal is received.
+  Optional callbacks were also added to `rclcpp_action::Client::async_cancel_goal <https://github.com/ros2/rclcpp/blob/ef41059a751702274667e2164182c062b47c453d/rclcpp_action/include/rclcpp_action/client.hpp#L432-L434>`_
+  and `rclcpp_action::Client::async_get_result <https://github.com/ros2/rclcpp/blob/ef41059a751702274667e2164182c062b47c453d/rclcpp_action/include/rclcpp_action/client.hpp#L399-L401>`_.
+
+* Changes to goal transition names:
+
+  The names of goal state transitions have been refactored to reflect the design documention.
+  This affects ``rcl_action``, ``rclcpp_action``, and ``rclpy``.
+  Here is a list of the event name changes (*Old name -> New name*):
+
+  * GOAL_EVENT_CANCEL -> GOAL_EVENT_CANCEL_GOAL
+  * GOAL_EVENT_SET_SUCCEEDED -> GOAL_EVENT_SUCCEED
+  * GOAL_EVENT_SET_ABORTED -> GOAL_EVENT_ABORT
+  * GOAL_EVENT_SET_CANCELED -> GOAL_EVENT_CANCELED
+
+* Changes to ``CancelGoal.srv``:
+
+  A ``return_code`` field was added to the response message of the ``CancelGoal`` service.
+  This is to better communicate a reason for a failed service call.
+  See the `pull request <https://github.com/ros2/rcl_interfaces/pull/76>`_ and connected issue for details.
+
 Known Issues
 ------------
 
