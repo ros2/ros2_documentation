@@ -52,8 +52,63 @@ A few milestone leading up to the release:
 Changes since the Crystal release
 ---------------------------------
 
+Declaring Parameters
+^^^^^^^^^^^^^^^^^^^^
+
+There have been some changes to the behavior of parameters starting in Dashing, which have also lead to some new API's and the deprecation of other API's.
+See the ``rclcpp`` and ``rclpy`` sections below for more information about API changes.
+
+Getting and Setting Undeclared Parameters
+"""""""""""""""""""""""""""""""""""""""""
+
+As of Dashing, parameters now need to be declared before being accessed or set.
+
+Before Dashing, you could call ``get_parameter(name)`` and get either a value, if it had been previously set, or a parameter of type ``PARAMETER_NOT_SET``.
+You could also call ``set_parameter(name, value)`` at any point, even if the parameter was previously unset.
+
+Since Dashing, you need to first declare a parameter before getting or setting it.
+If you try to get or set an undeclared parameter you will either get an exception thrown, e.g. ParameterNotDeclaredException, or in certain cases you will get an unsuccessful result communicated in a variety of ways (see specific functions for more details).
+
+However, you can get the old behavior by using the ``allow_undeclared_parameters`` option when creating your node.
+You might want to do this in order to avoid code changes for now, or in order to fulfill some uncommon use cases.
+For example, a "global parameter server" or "parameter blackboard" may want to allow external nodes to set new parameters on itself without first declaring them, so it may use the ``allow_undeclared_parameters`` option to accomplish that.
+In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
+
+Declaring a Parameter with a ParameterDescriptor
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+Another benefit to declaring your parameters before using them, is that it allows you to declare a parameter descriptor at the same time.
+
+Now when declaring a parameter you may include a custom ``ParameterDescriptor`` as well as a name and default value.
+The ``ParameterDescriptor`` is defined as a message in ``rcl_interfaces/msg/ParameterDescriptor`` and contains meta data like ``description`` and constraints like ``read_only`` or ``integer_range``.
+These constraints can be used to reject invalid values when setting parameters and/or as hints to external tools about what values are valid for a given parameter.
+The ``read_only`` constraint will prevent the parameter's value from changing after being declared, as well as prevent if from being undeclared.
+
+For reference, here's a link to the ``ParameterDescriptor`` message as of the time of writing this:
+
+https://github.com/ros2/rcl_interfaces/blob/0aba5a142878c2077d7a03977087e7d74d40ee68/rcl_interfaces/msg/ParameterDescriptor.msg#L1
+
+Parameter Configuration using a YAML File
+"""""""""""""""""""""""""""""""""""""""""
+
+As of Dashing, parameters in a YAML configuration file, e.g. passed to the node via the command line argument ``__params:=``, are only used to override a parameter's default value when declaring the parameter.
+
+Before Dashing, any parameters you passed via a YAML file would be implicitly set on the node.
+
+Since Dashing, this is no longer the case, as parameters need to be declared in order to appear on the node to external observers, like ``ros2 param list``.
+
+The old behavior may be achieved using the ``automatically_declare_initial_parameters`` option when creating a node.
+This option, if set to ``true``, will automatically declare all parameters in the input YAML file when the node is constructed.
+This may be used to avoid major changes to your existing code or to serve specific use cases.
+For example, a "global parameter server" may want to be seeded with arbitrary parameters on launch, which it could not have declared ahead of time.
+Most of the time, however, this option is not recommended, as it may lead to setting a parameter in a YAML file with the assumption that the node will use it, even if the node does not actually use it.
+
+In the future we hope to have a checker that will warn you if you pass a parameter to a node that it was not expecting.
+
+The parameters in the YAML file will continue to influence the value of parameters when they are first declared.
+
 ament_cmake
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 The CMake function ``ament_index_has_resource`` was returning either ``TRUE`` or ``FALSE``.
 As of `this release <https://github.com/ament/ament_cmake/pull/155>`_ it returns either the prefix path in case the resource was found or ``FALSE``.
@@ -72,9 +127,15 @@ you need to update the condition to ensure it considers a string value as ``TRUE
    if(var)
 
 rclcpp
-~~~~~~
+^^^^^^
 
-The function ``NodeGraph::get_node_names()`` now returns a ``vector`` of fully qualified names and namespaces, instead of just names.
+Behavior Change for ``Node::get_node_names()``
+""""""""""""""""""""""""""""""""""""""""""""""
+
+The function ``NodeGraph::get_node_names()``, and therefore also ``Node::get_node_names()``, now returns a ``std::vector<std::string>`` containing fully qualified node names with their namespaces included, instead of just the node names.
+
+Changed the Way that Options are Passed to Nodes
+""""""""""""""""""""""""""""""""""""""""""""""""
 
 Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
 See `ros2/rclcpp#622 <https://github.com/ros2/rclcpp/pull/622/files>`__ for details about the structure and default values of the options.
@@ -99,8 +160,114 @@ You need to update to use the ``NodeOptions`` structure
   node_options.initial_parameters(params);
   auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
+Changes Due to Declare Parameter Change
+"""""""""""""""""""""""""""""""""""""""
+
+For details about the actual behavior change, see `Declaring Parameters`_ above.
+
+There are several new API calls in the ``rclcpp::Node``'s interface:
+
+- Methods that declare parameters given a name, optional default value, optional descriptor, and return the value actually set:
+
+  .. code-block:: c++
+
+    const rclcpp::ParameterValue &
+    rclcpp::Node::declare_parameter(
+      const std::string & name,
+      const rclcpp::ParameterValue & default_value = rclcpp::ParameterValue(),
+      const rcl_interfaces::msg::ParameterDescriptor & parameter_descriptor =
+      rcl_interfaces::msg::ParameterDescriptor());
+
+    template<typename ParameterT>
+    auto
+    rclcpp::Node::declare_parameter(
+      const std::string & name,
+      const ParameterT & default_value,
+      const rcl_interfaces::msg::ParameterDescriptor & parameter_descriptor =
+      rcl_interfaces::msg::ParameterDescriptor());
+
+    template<typename ParameterT>
+    std::vector<ParameterT>
+    rclcpp::Node::declare_parameters(
+      const std::string & namespace_,
+      const std::map<std::string, ParameterT> & parameters);
+
+    template<typename ParameterT>
+    std::vector<ParameterT>
+    rclcpp::Node::declare_parameters(
+      const std::string & namespace_,
+      const std::map<
+        std::string,
+        std::pair<ParameterT, rcl_interfaces::msg::ParameterDescriptor>
+      > & parameters);
+
+- A method to undeclare parameters and to check if a parameter has been declared:
+
+  .. code-block:: c++
+
+    void
+    rclcpp::Node::undeclare_parameter(const std::string & name);
+
+    bool
+    rclcpp::Node::has_parameter(const std::string & name) const;
+
+- Some convenience methods that did not previously exist:
+
+  .. code-block:: c++
+
+    rcl_interfaces::msg::SetParametersResult
+    rclcpp::Node::set_parameter(const rclcpp::Parameter & parameter);
+
+    std::vector<rclcpp::Parameter>
+    rclcpp::Node::get_parameters(const std::vector<std::string> & names) const;
+
+    rcl_interfaces::msg::ParameterDescriptor
+    rclcpp::Node::describe_parameter(const std::string & name) const;
+
+- A new method to set the callback which is called anytime a parameter will be changed, giving you the opportunity to reject it:
+
+  .. code-block:: c++
+
+    using OnParametersSetCallbackType =
+      rclcpp::node_interfaces::NodeParametersInterface::OnParametersSetCallbackType;
+
+    OnParametersSetCallbackType
+    rclcpp::Node::set_on_parameters_set_callback(
+      OnParametersSetCallbackType callback);
+
+There were also several deprecated methods:
+
+  .. code-block:: c++
+
+    template<typename ParameterT>
+    [[deprecated("use declare_parameter() instead")]]
+    void
+    rclcpp::Node::set_parameter_if_not_set(
+      const std::string & name,
+      const ParameterT & value);
+
+    template<typename ParameterT>
+    [[deprecated("use declare_parameters() instead")]]
+    void
+    rclcpp::Node::set_parameters_if_not_set(
+      const std::string & name,
+      const std::map<std::string, ParameterT> & values);
+
+    template<typename ParameterT>
+    [[deprecated("use declare_parameter() and it's return value instead")]]
+    void
+    rclcpp::Node::get_parameter_or_set(
+      const std::string & name,
+      ParameterT & value,
+      const ParameterT & alternative_value);
+
+    template<typename CallbackT>
+    [[deprecated("use set_on_parameters_set_callback() instead")]]
+    void
+    rclcpp::Node::register_param_change_callback(CallbackT && callback);
+
 rclcpp_components
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 The correct way to implement composition in Dashing is by utilizing the ``rclcpp_components`` package.
 
@@ -138,7 +305,7 @@ If not present, registration macros must be added to the project's CMake.
 For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
 
 rosidl
-~~~~~~
+^^^^^^
 
 Until Crystal each message generator package registered itself using the ``ament_cmake`` extension point ``rosidl_generate_interfaces`` and was passed a set of ``.msg`` / ``.srv`` / ``.action`` files.
 As of Dashing the message generation pipeline is based on ``.idl`` files instead.
@@ -160,14 +327,14 @@ In ROS 2 until Crystal ``char`` was mapped to a single character (``char`` in C 
 As of Dashing the ROS 1 semantic has been restored and ``char`` maps to ``uint8`` again.
 
 rosidl_generator_cpp
-~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^
 
 The C++ data structures generated for messages, services and actions provide setter methods for each field.
 Until Crystal each setter returned a pointer to the data structure itself to enable the named parameter idiom.
 As of Dashing these setters `return a reference <https://github.com/ros2/rosidl/pull/353>`__ instead since that seems to be the more common signature as well as it clarifies that the returned value can't be a ``nullptr``.
 
 rosidl_generator_py
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 Until Crystal an array (fixed size) or sequence (dynamic size, optionally with an upper boundary) field in a message was stored as a ``list`` in Python.
 As of Dashing the Python type for arrays / sequences of numeric values has been changed:
@@ -184,7 +351,7 @@ This change brings a number of benefits:
 * The memory layout of both data structures allows to read and write all items of the array / sequence in a single operation which makes the conversion from and to Python significantly faster / more efficient.
 
 launch
-~~~~~~
+^^^^^^
 
 The ``launch_testing`` package caught up with the ``launch`` package redesign done in Bouncy Bolson.
 The legacy Python API, already moved into the ``launch.legacy`` submodule, has thus been deprecated and removed.
@@ -194,7 +361,7 @@ See ``launch`` `examples <https://github.com/ros2/launch/tree/master/launch/exam
 See `demos tests <https://github.com/ros2/demos>`__ for reference on how to use the new ``launch_testing`` API.
 
 rmw
-~~~
+^^^
 
 Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
