@@ -134,6 +134,32 @@ Behavior Change for ``Node::get_node_names()``
 
 The function ``NodeGraph::get_node_names()``, and therefore also ``Node::get_node_names()``, now returns a ``std::vector<std::string>`` containing fully qualified node names with their namespaces included, instead of just the node names.
 
+Changed the Way that Options are Passed to Nodes
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
+See `ros2/rclcpp#622 <https://github.com/ros2/rclcpp/pull/622/files>`__ for details about the structure and default values of the options.
+
+If you are using any of the extended arguments to ``rclcpp::Node()`` like this:
+
+.. code-block:: cpp
+
+  auto context = rclcpp::contexts::default_context::get_global_default_context();
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", context, args, params);
+
+You need to update to use the ``NodeOptions`` structure
+
+.. code-block:: cpp
+
+  std::vector<std::string> args;
+  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
+  rclcpp::NodeOptions node_options;
+  node_options.arguments(args);
+  node_options.initial_parameters(params);
+  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
+
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""
 
@@ -240,31 +266,8 @@ There were also several deprecated methods:
     void
     rclcpp::Node::register_param_change_callback(CallbackT && callback);
 
-Extended arguments (beyond name and namespace) to the ``rclcpp::Node()`` constructor have been replaced with a ``rclcpp::NodeOptions`` structure.
-See `ros2/rclcpp#622 <https://github.com/ros2/rclcpp/pull/622/files>`__ for details about the structure and default values of the options.
-
-If you are using any of the extended arguments to ``rclcpp::Node()`` like this:
-
-.. code-block:: cpp
-
-  auto context = rclcpp::contexts::default_context::get_global_default_context();
-  std::vector<std::string> args;
-  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
-  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", context, args, params);
-
-You need to update to use the ``NodeOptions`` structure
-
-.. code-block:: cpp
-
-  std::vector<std::string> args;
-  std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
-  rclcpp::NodeOptions node_options;
-  node_options.arguments(args);
-  node_options.initial_parameters(params);
-  auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
-
 rclcpp_components
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 The correct way to implement composition in Dashing is by utilizing the ``rclcpp_components`` package.
 
