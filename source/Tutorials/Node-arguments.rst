@@ -54,34 +54,73 @@ See ``__log_level`` argument usage in `the logging page <logging-command-line-co
 Parameters
 ----------
 
-*Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*
+Note: The behavior of parameters changed for Dashing and newer, so if you're using Crystal or older, see the section below for the old tutorial content.
 
-Setting parameters from the command-line is currently supported in the form of yaml files.
+Setting parameters from the command-line is currently only supported in the form of yaml files.
 
-`See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax. As an example, save the following as ``demo_params.yaml``
+`See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
+
+As an example, save the following as ``demo_params.yaml``:
 
 .. code-block:: yaml
 
-   talker:
-       ros__parameters:
-           some_int: 42
-           a_string: "Hello world"
-           some_lists:
-               some_integers: [1, 2, 3, 4]
-               some_doubles : [3.14, 2.718]
+  parameter_blackboard:
+      ros__parameters:
+          some_int: 42
+          a_string: "Hello world"
+          some_lists:
+              some_integers: [1, 2, 3, 4]
+              some_doubles : [3.14, 2.718]
 
 Then run the following:
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp talker __params:=demo_params.yaml
+  ros2 run demo_nodes_cpp parameter_blackboard __params:=demo_params.yaml
 
 Other nodes will be able to retrieve the parameter values, e.g.:
 
 .. code-block:: bash
 
-   $ ros2 param list talker
-     a_string
-     some_int
-     some_lists.some_doubles
-     some_lists.some_integers
+  $ ros2 param list parameter_blackboard
+  a_string
+  some_int
+  some_lists.some_doubles
+  some_lists.some_integers
+
+Crystal and Older
+^^^^^^^^^^^^^^^^^
+
+*Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*
+
+Setting parameters from the command-line is currently supported in the form of yaml files.
+
+`See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
+
+As an example, save the following as ``demo_params.yaml``:
+
+.. code-block:: yaml
+
+  talker:
+      ros__parameters:
+          some_int: 42
+          a_string: "Hello world"
+          some_lists:
+              some_integers: [1, 2, 3, 4]
+              some_doubles : [3.14, 2.718]
+
+Then run the following:
+
+.. code-block:: bash
+
+  ros2 run demo_nodes_cpp talker __params:=demo_params.yaml
+
+Other nodes will be able to retrieve the parameter values, e.g.:
+
+.. code-block:: bash
+
+  $ ros2 param list talker
+  a_string
+  some_int
+  some_lists.some_doubles
+  some_lists.some_integers
