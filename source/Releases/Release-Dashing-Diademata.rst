@@ -319,7 +319,7 @@ The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files i
 A `second design article <http://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
 In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
 
-To distinguish same type names, but with different namespaces, the introspection structs now contain a namespace field that replaces the package name (see `ros2/rosidl#335 <https://github.com/ros2/rosidl/pull/355/files>_`).
+To distinguish same type names, but with different namespaces, the introspection structs now contain a namespace field that replaces the package name (see `ros2/rosidl#335 <https://github.com/ros2/rosidl/pull/355/files>`_).
 
 Mapping of char in .msg files
 """""""""""""""""""""""""""""
