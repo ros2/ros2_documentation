@@ -388,7 +388,8 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
  * `rmw_take <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
 
 actions
-~~~~~~~
+^^^^^^^
+
 
 * Changes to ``rclcpp_action::Client`` signatures:
 
