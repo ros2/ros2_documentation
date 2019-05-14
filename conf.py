@@ -179,5 +179,28 @@ class RedirectFrom(Directive):
         return []
 
 
+def make_router(origin, destination):
+    def _missing_reference(app, env, node, contnode):
+        from docutils import nodes
+        from docutils.utils import relative_path
+        from sphinx.util import docname_join
+
+        doctarget = docname_join(node['refdoc'], node['reftarget'])
+        if doctarget.startswith(origin):
+            routed_doctarget = doctarget.replace(origin, destination)
+            if routed_doctarget in env.all_docs:
+                newnode = nodes.reference(
+                    '', contnode.astext(), internal=True
+                )
+                newnode['refuri'] = app.builder.get_relative_uri(
+                    node['refdoc'], routed_doctarget
+                )
+                return newnode
+    return _missing_reference
+
+
 def setup(app):
     RedirectFrom.register(app)
+    app.connect('missing-reference', make_router(
+        'Installation', 'Installation/Crystal'
+    ))

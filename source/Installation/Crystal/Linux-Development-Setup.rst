@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Linux-Development-Setup
+    Installation/Linux-Development-Setup
 
 Building ROS 2 on Linux
 =======================
@@ -220,7 +221,7 @@ Build the code in the workspace
 
 Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source>`__.
 
-More info on working with a ROS workspace can be found in `this tutorial <../Tutorials/Colcon-Tutorial>`.
+More info on working with a ROS workspace can be found in `this tutorial </Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash
 
@@ -266,7 +267,7 @@ In another terminal source the setup file and then run a ``listener``\ :
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
 
-See the `demos <../Tutorials>` for other things to try.
+See the `demos </Tutorials>` for other things to try.
 
 Alternate compilers
 -------------------

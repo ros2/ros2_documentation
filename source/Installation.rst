@@ -6,30 +6,25 @@ Installation
    :hidden:
    :glob:
 
-   Installation/*
+   Installation/Crystal
 
-Binary packages
----------------
+ROS 2 Installation Options
+--------------------------
 
-We provide ROS 2 binary packages for the following platforms:
+Multiple distributions of ROS 2 are supported at a time.
+Different distributions may be supported for longer time periods or may provide support for more recently released platforms.
+For ROS 2 we recommend using the most recent release available when possible.
 
-* Linux (Ubuntu Xenial(16.04) and Ubuntu Bionic(18.04))
+Select your ROS distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  * `Debian packages <Installation/Linux-Install-Debians>`
-  * `"fat" archive <Installation/Linux-Install-Binary>`
++-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
+| `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Crystal>`  |
++-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
+| Released July 2018                            | Released December 2018                          | To be released May 2019 (In progress)             |
++-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
+| Supported until July 2019                     | Supported until December 2019                   | Supported until May 2021                          |
++-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 
-* `OS X <Installation/OSX-Install-Binary>`
-* `Windows <Installation/Windows-Install-Binary>`
+For more detailed descriptions of each release see `REP-2000 <http://www.ros.org/reps/rep-2000.html>`_
 
-
-.. _building-from-source:
-
-Building from source
---------------------
-
-We support building ROS 2 from source on the following platforms:
-
-
-* `Linux <Installation/Linux-Development-Setup>`
-* `OS X <Installation/OSX-Development-Setup>`
-* `Windows <Installation/Windows-Development-Setup>`
