@@ -319,6 +319,8 @@ The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files i
 A `second design article <http://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
 In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
 
+To distinguish same type names, but with different namespaces, the introspection structs now contain a namespace field that replaces the package name (see `ros2/rosidl#335 <https://github.com/ros2/rosidl/pull/355/files>`_).
+
 Mapping of char in .msg files
 """""""""""""""""""""""""""""
 
@@ -386,6 +388,9 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
  * `rmw_publish <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L310>`_
  * `rmw_take <https://github.com/ros2/rmw/blob/dc7b2f49f1f961d6cf2c173adc54736451be8938/rmw/include/rmw/rmw.h#L556>`_
+
+* Type names returned by ``rmw_get_*_names_and_types*`` functions should have a fully-qualified namespace.
+  For example, instead of ``rcl_interfaces/Parameter`` and ``rcl_interfaces/GetParameters``, the returned type names should be ``rcl_interface/msg/Parameter`` and ``rcl_interfaces/srv/GetParameters``.
 
 actions
 ^^^^^^^
