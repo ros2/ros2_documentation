@@ -159,7 +159,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg empy lark-parser numpy opencv-python pyparsing pyyaml setuptools
+   python -m pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -167,13 +167,6 @@ RQt dependencies
 .. code-block:: bash
 
    python -m pip install -U pydot PyQt5
-
-SROS2 dependencies
-~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   python -m pip install -U lxml
 
 Downloading ROS 2
 -----------------
