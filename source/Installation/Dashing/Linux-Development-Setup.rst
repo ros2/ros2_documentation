@@ -21,7 +21,7 @@ Tier 3 platforms (not actively tested or supported) include:
 System setup
 ------------
 
-.. _linux-dev-add-ros2-repo:
+.. _Dashing_linux-dev-add-ros2-repo:
 
 Set Locale
 ^^^^^^^^^^
@@ -80,7 +80,7 @@ Install development tools and ROS tools
      libasio-dev \
      libtinyxml2-dev
 
-.. _linux-dev-get-ros2-code:
+.. _Dashing_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -108,7 +108,7 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _linux-development-setup-install-more-dds-implementations-optional:
+.. _Dashing_linux-development-setup-install-more-dds-implementations-optional:
 
 Install more DDS implementations (Optional)
 -------------------------------------------

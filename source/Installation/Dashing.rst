@@ -21,7 +21,7 @@ We provide ROS 2 binary packages for the following platforms:
 * `Windows <Dashing/Windows-Install-Binary>`
 
 
-.. _building-from-source:
+.. _Dashing_building-from-source:
 
 Building from source
 --------------------
