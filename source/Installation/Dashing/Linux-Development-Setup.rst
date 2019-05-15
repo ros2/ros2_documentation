@@ -53,6 +53,8 @@ Install development tools and ROS tools
      git \
      python3-colcon-common-extensions \
      python3-lark-parser \
+     python3-lxml \
+     python3-numpy \
      python3-pip \
      python-rosdep \
      python3-vcstool \
