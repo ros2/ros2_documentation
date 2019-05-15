@@ -112,7 +112,10 @@ Install OpenCV
 
 Some of the examples require OpenCV to be installed.
 
-You can download a precompiled version of OpenCV 3.4.1 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.1-vc15.VS2017.zip
+We provide the following precompiled versions of OpenCV 3.4.6:
+
+* Visual Studio 2017: https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc15.VS2017.zip
+* Visual Studio 2019: https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip
 
 Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
 
@@ -156,7 +159,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg empy lark-parser opencv-python pyparsing pyyaml setuptools
+   python -m pip install -U catkin_pkg empy lark-parser numpy opencv-python pyparsing pyyaml setuptools
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
