@@ -81,7 +81,7 @@ Then you can continue installing other Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U catkin_pkg EmPy lark-parser pyparsing pyyaml
+   > pip install -U catkin_pkg EmPy lark-parser numpy pyparsing pyyaml
 
 Next install testing tools like ``pytest`` and others:
 
@@ -375,6 +375,28 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python_d
    > import _ctypes
 
+* Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
+
+.. code-block:: bash
+
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.16.2-cp37-cp37dm-win_amd64.whl
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.3.2-cp37-cp37dm-win_amd64.whl 
+
+* To verify the installation of these dependencies:
+
+.. code-block:: bash
+
+   > python_d
+   # No import errors should appear when executing the following lines
+   > from lxml import etree
+   > import numpy
+
+* When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
+
+.. code-block:: bash
+
+   > python -m pip uninstall numpy lxml 
+   > python -m pip install numpy lxml
 
 * To create executables python scripts(.exe), python_d should be used to invoke colcon
 
