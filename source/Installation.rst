@@ -19,7 +19,7 @@ Select your ROS distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Crystal>`  |
+| `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Dashing>`  |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 | Released July 2018                            | Released December 2018                          | To be released May 2019 (In progress)             |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
