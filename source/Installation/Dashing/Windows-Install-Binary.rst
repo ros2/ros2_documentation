@@ -12,7 +12,7 @@ System requirements
 
 As of beta-2 only Windows 10 is supported.
 
-.. _windows-install-binary-installing-prerequisites:
+.. _Dashing_windows-install-binary-installing-prerequisites:
 
 Installing prerequisites
 ------------------------

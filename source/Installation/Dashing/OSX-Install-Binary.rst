@@ -12,7 +12,7 @@ System requirements
 
 We support OS X El Capitan and Sierra (10.11.x and 10.12.x).
 
-.. _osx-install-binary-installling-prerequisites:
+.. _Dashing_osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------

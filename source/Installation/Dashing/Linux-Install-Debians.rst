@@ -16,7 +16,7 @@ Resources
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
-.. _linux-install-debians-setup-sources:
+.. _Dashing_linux-install-debians-setup-sources:
 
 Setup Locale
 ------------
@@ -99,7 +99,7 @@ You may want to add this to your ``.bashrc``.
 
    echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
 
-.. _linux-install-additional-rmw-implementations:
+.. _Dashing_linux-install-additional-rmw-implementations:
 
 Install additional RMW implementations
 --------------------------------------
@@ -120,7 +120,7 @@ For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can 
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
-.. _linux-ros1-add-pkgs:
+.. _Dashing_linux-ros1-add-pkgs:
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------

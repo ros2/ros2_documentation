@@ -7,6 +7,7 @@ Installation
    :glob:
 
    Installation/Crystal
+   Installation/Dashing
 
 ROS 2 Installation Options
 --------------------------
