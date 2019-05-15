@@ -1,8 +1,3 @@
-.. redirect-from::
-
-    Maintaining-a-Source-Checkout
-    Installation/Maintaining-a-Source-Checkout
-
 Maintaining a Source Checkout of ROS 2
 ======================================
 
