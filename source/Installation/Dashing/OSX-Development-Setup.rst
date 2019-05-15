@@ -1,8 +1,3 @@
-.. redirect-from::
-
-   OSX-Development-Setup
-   Installation/OSX-Development-Setup
-
 Building ROS 2 on OS X
 ======================
 
