@@ -30,6 +30,7 @@ If so make sure to install all the dependencies listed in the "Installing prereq
 
 If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
 
-If you are still having issues, you can use the `Dependency Walker <http://www.dependencywalker.com/>` tool to determine which dependencies are missing on your system.
+If you are still having issues, you can use the `Dependencies <https://github.com/lucasg/Dependencies>`_ tool to determine which dependencies are missing on your system.
 Use the tool to load the corresponding ``.pyd`` file, and it should report unavailable ``DLL`` modules.
+Be sure that the current workspace is sourced before you execute the tool, otherwise there will be unresolved ROS DLL files.
 Use this information to install additional dependencies or adjust your path as necessary.
