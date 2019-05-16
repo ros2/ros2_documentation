@@ -1,7 +1,10 @@
 Writing an Action Server (Python)
 ---------------------------------
 
-Here we look at implementing an action server in Python.
+In this tutorial, we look at implementing an action server in Python.
+
+We assume you have the `prequisites <../Actions>` and have completed the `Creating an Action tutorial <Creating-an-Action>`.
+
 Let's walk through the following action server implementation (``fibonacci_action_server.py``):
 
 .. code-block:: python
@@ -9,7 +12,7 @@ Let's walk through the following action server implementation (``fibonacci_actio
 
     import time
 
-    from action_tutorial.action import Fibonacci
+    from action_tutorials.action import Fibonacci
 
     import rclpy
     from rclpy.action import ActionServer
@@ -35,18 +38,19 @@ Let's walk through the following action server implementation (``fibonacci_actio
             self.get_logger().info('Executing goal...')
 
             feedback_msg = Fibonacci.Feedback()
-            feedback_msg.sequence = [0, 1]
+            feedback_msg.partial_sequence = [0, 1]
 
             for i in range(1, goal_handle.request.order):
-                feedback_msg.sequence.append(feedback_msg.sequence[i] + feedback_msg.sequence[i-1])
-                self.get_logger().info('Publishing feedback: {0}'.format(feedback_msg.sequence))
+                feedback_msg.partial_sequence.append(
+                    feedback_msg.partial_sequence[i] + feedback_msg.partial_sequence[i-1])
+                self.get_logger().info('Feedback: {0}'.format(feedback_msg.partial_sequence))
                 goal_handle.publish_feedback(feedback_msg)
                 time.sleep(1)
 
             goal_handle.succeed()
 
             result = Fibonacci.Result()
-            result.sequence = feedback_msg.sequence
+            result.sequence = feedback_msg.partial_sequence
             self.get_logger().info('Returning result: {0}'.format(result.sequence))
             return result
 
@@ -65,7 +69,7 @@ Let's walk through the following action server implementation (``fibonacci_actio
     if __name__ == '__main__':
         main()
 
-At line 3 we import our custom action definition from the previous tutorial on `Creating a new Action`_.
+At line 3 we import our custom action definition from the previous tutorial on `Creating an Action <Creating-an-Action>`.
 Lines 5-7 are importing types from the client library that we need.
 
 Starting at line 10 we define a new class to encapsulate our action server implementation.
@@ -95,14 +99,14 @@ Note, all goals are accepted by default.
 
 Line 21-23 defines a ``destroy`` method that is useful for freeing resources used by the node and action server.
 
-Lines 25-42 is the method called whenever we get a new goal request.
+Lines 25-43 is the method called whenever we get a new goal request.
 It takes one argument that is a handle to the goal.
 After logging a message, we create a feedback message:
 
 .. code-block:: python
 
     feedback_msg = Fibonacci.Feedback()
-    feedback_msg.sequence = [0, 1]
+    feedback_msg.partial_sequence = [0, 1]
 
 Then, we loop up to the requested Fibonacci order (accessed from the goal handle):
 
@@ -114,18 +118,20 @@ And update the feedback message, publish it, and sleep for dramatic effect:
 
 .. code-block:: python
 
-    feedback_msg.sequence.append(feedback_msg.sequence[i] + feedback_msg.sequence[i-1])
-    self.get_logger().info('Publishing feedback: {0}'.format(feedback_msg.sequence))
+    feedback_msg.partial_sequence.append(
+        feedback_msg.partial_sequence[i] + feedback_msg.partial_sequence[i-1])
+    self.get_logger().info('Feedback: {0}'.format(feedback_msg.partial_sequence))
     goal_handle.publish_feedback(feedback_msg)
     time.sleep(1)
 
-After computing the sequence, we mark the goal as successful:
+Now that the goal is done, we need to tell the client the result.
+We'll use a method on the ``goal_handle`` to tell the client the goal was successfully reached:
 
 .. code-block:: python
 
     goal_handle.succeed()
 
-Finally, we populate the result message and return it:
+Finally, populate the result message and return it:
 
 .. code-block:: python
 
@@ -134,7 +140,7 @@ Finally, we populate the result message and return it:
     self.get_logger().info('Returning result: {0}'.format(result.sequence))
     return result
 
-On lines 45-57 We define a main function and call to create an executable.
+On lines 46-58 We define a main function and call to create an executable.
 Because ``FibonacciActionServer`` is a subclass of ``Node`` we can spin on it, which will process our callbacks for any action requests.
 
 Let's run the action server:
@@ -150,13 +156,3 @@ In another terminal, try sending a goal with the command line tool:
     ros2 action send_goal -f fibonacci action_tutorial/Fibonacci "{order: 5}"
 
 You should see feedback and the final result sequence printed to both terminals.
-
-Rejecting goals
-^^^^^^^^^^^^^^^
-
-Coming soon.
-
-Allowing goals to be canceled
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Coming soon.

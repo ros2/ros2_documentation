@@ -14,21 +14,32 @@ Actions are a form of asynchronous communication in ROS.
 For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
 
 This document contains a list of tutorials related to actions.
-Each tutorial builds on the previous, and so it is recommended that they are completed in order.
-By the end of all the tutorials, you should expect to have a ROS package that looks the package `action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
+For reference, after completing all of the tutorials you should expect to have a ROS package that looks like the package `action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
 
 Prequisites
 -----------
 
-- `Install ROS <../Installation>
+- `Install ROS (Dashing) <../Installation>`
+
 - `Install colcon <https://colcon.readthedocs.org>`__
-- Setup a workspace create a package named ``action_tutorials``:
 
-.. code-block:: bash
+- Setup a workspace and create a package named ``action_tutorials``:
 
-    mkdir -p action_ws/src
-    cd action_ws/src
-    ros2 pkg create action_tutorials
+  Linux / OSX:
+
+  .. code-block:: bash
+
+      mkdir -p action_ws/src
+      cd action_ws/src
+      ros2 pkg create action_tutorials
+
+  Windows:
+
+  .. code-block:: bash
+
+      mkdir -p action_ws\src
+      cd action_ws\src
+      ros2 pkg create action_tutorials
 
 Tutorials
 ---------
@@ -37,7 +48,7 @@ Tutorials
    :maxdepth: 1
 
    Actions/Creating-an-Action
-   Actions/Create-an-Action-Server-CPP
-   Actions/Create-an-Action-Client-CPP
-   Actions/Create-an-Action-Server-Python
-   Actions/Create-an-Action-Client-Python
+   Actions/Writing-an-Action-Server-CPP
+   Actions/Writing-an-Action-Client-CPP
+   Actions/Writing-an-Action-Server-Python
+   Actions/Writing-an-Action-Client-Python

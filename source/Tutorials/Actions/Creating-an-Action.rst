@@ -3,6 +3,7 @@ Creating an Action
 
 In this tutorial we look how to define an action in a ROS package.
 
+Make sure you have the `prequisites <../Actions>`.
 
 Defining an Action
 ------------------
@@ -24,15 +25,9 @@ A *result* message is sent from an action server to an action client when a goal
 *Feedback* messages are periodically sent from an action server to an action client to updates about a goal.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
-Let's start by creating a new package ``actions_tutorial`` in a colcon workspace:
 
-.. code-block:: bash
-
-    mkdir -p action_ws/src
-    cd action_ws/src
-    ros2 pkg create action_tutorial
-
-Next we add the file ``action/Fibonacci.action`` with the following content:
+First, create a directory ``action`` in our ROS package.
+With your favorite editor, add the file ``action/Fibonacci.action`` with the following content:
 
 .. code-block:: bash
 
@@ -40,12 +35,15 @@ Next we add the file ``action/Fibonacci.action`` with the following content:
     ---
     int32[] sequence
     ---
-    int32[] sequence
+    int32[] partial_sequence
 
-The goal request is the order of the Fibonacci sequence we want to compute, the result is the final sequence, and the feedback is the sequence computed so far.
+The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 
-Similar to ROS messages and services, we need to generate language specific types for this action by passing our Fibonacci action defintition to the rosidl pipeline.
-This is accomplished by adding the following to our ``CMakeLists.txt``:
+Building an Action
+------------------
+
+Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
+This is accomplished by adding the following lines to our ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
@@ -65,17 +63,32 @@ We should also add the required dependencies to our ``package.xml``:
 
     <depend>action_msgs</depend>
 
-    <!-- We need to use package format 3 for this tag -->
     <member_of_group>rosidl_interface_packages</member_of_group>
 
 Note, we need to depend on ``action_msgs`` since action definitions include additional metadata (e.g. goal IDs).
 
-We're done! We should now be able to build the package containing the "Fibonacci" action definition.
+We should now be able to build the package containing the "Fibonacci" action definition:
 
 .. code-block:: bash
 
-    # Change to the root of the workspace
-    cd ..
+    # Change to the root of the workspace (ie. action_ws)
+    cd ../..
     # Build
     colcon build
 
+We're done!
+
+By convention, action types will be prefixed by their package name and the word ``action``.
+So when we want to refer to our new action, it will have the full name ``action_tutorials/action/Fibonacci``.
+
+We can check that our action built successfully with the command line tool:
+
+.. code-block:: bash
+
+    # Source our workspace
+    # On Windows: call install/setup.bat
+    . install/setup.bash
+    # Check that our action definition exists
+    ros2 action show action_tutorials/action/Fibonacci
+
+You should see the Fibonacci action definition printed to the screen.
