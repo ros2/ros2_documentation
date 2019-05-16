@@ -346,16 +346,16 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.0 source from the ``tgz``:
+* Get and extract the Python 3.7.3 source from the ``tgz``:
 
-  * https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.0``
+  * https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
+  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.3``
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.0\PCbuild
+   > cd C:\dev\Python-3.7.3\PCbuild
    > get_externals.bat
    > build.bat -p x64 -d
 
@@ -364,7 +364,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.0\PCbuild\amd64
+   > cd C:\dev\Python-3.7.3\PCbuild\amd64
    > copy python_d.exe C:\Python37 /Y
    > copy python37_d.dll C:\Python37 /Y
    > copy python3_d.dll C:\Python37 /Y
