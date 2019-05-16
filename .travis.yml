@@ -6,7 +6,9 @@ install:
 script:
   - make html 2> stderr.log
   - cat stderr.log
-  - doc8 --ignore D001 --ignore-path build
+  - doc8 --ignore D001 --ignore-path build --ignore-path source/Tutorials/Actions
+  # ignore D000 in action tutorials to allow for :linenos:
+  - doc8 --ignore D000 --ignore D001 --ignore-path build source/Tutorials/Actions
   # fail the build for any stderr output
   - if [ -s "stderr.log" ]; then false; fi
 notifications:
