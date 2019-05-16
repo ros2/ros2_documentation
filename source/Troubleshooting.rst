@@ -29,3 +29,7 @@ Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your sy
 If so make sure to install all the dependencies listed in the "Installing prerequisites" sections of the installation instructions (`Windows <windows-install-binary-installing-prerequisites>`, `MacOS <osx-install-binary-installling-prerequisites>`).
 
 If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
+
+If you are still having issues, you can use the `Dependency Walker <http://www.dependencywalker.com/>` tool to determine which dependencies are missing on your system.
+Use the tool to load the corresponding ``.pyd`` file, and it should report unavailable ``DLL`` modules.
+Use this information to install additional dependencies or adjust your path as necessary.
