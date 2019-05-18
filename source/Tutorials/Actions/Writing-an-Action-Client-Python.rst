@@ -18,7 +18,7 @@ Open a new file, let's call it ``fibonacci_action_client.py``, and add the follo
     :linenos:
     :lines: 1,3,6-11,13-22
 
-Right now, we define a class ``FibonacciActionClient`` that is a subclass of ``Node``.
+We've define a class ``FibonacciActionClient`` that is a subclass of ``Node``.
 The class is initialized by calling the ``Node`` constructor, naming our node "fibonacci_action_client":
 
 .. code-block:: python
@@ -26,8 +26,7 @@ The class is initialized by calling the ``Node`` constructor, naming our node "f
     super().__init__('fibonacci_action_server')
 
 
-After the class defintion, we define a function ``main`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
-
+After the class defintion, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
 Finally, we call ``main()`` in the entry point of our Python program.
 
 You can try running the program:
@@ -48,7 +47,7 @@ Let's import and create an action client using the custom action definition from
 
 At line 12 we create an ``ActionClient`` by passing it three arguments:
 
-1. the node to add the action client to: ``self``.
+1. a ROS node to add the action client to: ``self``.
 2. the type of the action: ``Fibonacci``.
 3. the action name: ``'fibonacci'``.
 
