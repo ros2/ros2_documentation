@@ -58,28 +58,8 @@ In the resulting dialog, click "Environment Variables", then click "Path" on the
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
-**A. Install Visual Studio 2015 if using Ardent or earlier**
 
-   If you already have a paid version of Visual Studio 2015 (Professional, Enterprise), skip this step.
-
-   Microsoft provides a free of charge version of Visual Studio 2015, named Community, which can be used to build applications that use ROS 2:
-
-   https://www.visualstudio.com/vs/older-downloads/
-
-   Make sure that the Visual C++ features are installed. First choose 'Custom installation':
-
-   .. image:: http://i.imgur.com/tUcOMOA.png
-
-   Next check Visual C++:
-
-   .. image:: http://i.imgur.com/yWVEUkm.png
-
-   Ensure that the correct features will be installed:
-
-   .. image:: http://i.imgur.com/VxdbA7G.png
-
-
-**B. Install Visual Studio 2017 if using Bouncy or a nightly**
+B. Install Visual Studio 2017 if using Bouncy or a nightly**
 
    If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
 
@@ -109,8 +89,7 @@ Adlink OpenSplice
 ~~~~~~~~~~~~~~~~~
 
 If you want to use OpenSplice, you will need to download the latest supported version.
-* For ROS 2 Crystal version 6.9.181126OSS-HDE-x86_64.win-vs2017 or later is required.
-* For ROS 2 Bouncy version 6.7.180404OSS-HDE-x86_64.win-vs2017 or later is required.
+* For ROS 2 Dashing version 6.9.181126OSS-HDE-x86_64.win-vs2017 or later is required.
 
 Download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__
 For ROS 2 releases up to and including Ardent, extract it but do not do anything else at this point.
@@ -119,7 +98,7 @@ For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable
 RTI Connext
 ~~~~~~~~~~~
 
-To use RTI Connext (available as of ROS 2 Bouncy) you will need to have obtained a license from RTI.
+To use RTI Connext you will need to have obtained a license from RTI.
 
 You can install the Windows package of Connext version 5.3.1 provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
 
@@ -147,13 +126,6 @@ Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Pro
    setx -m OpenCV_DIR C:\opencv
 
 Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. You have to extend the ``PATH`` variable to ``c:\opencv\x64\vc15\bin``
-
-In ardent and earlier
-~~~~~~~~~~~~~~~~~~~~~
-
-These releases used OpenCV 2. You can download a precompiled version of OpenCV 2.4.13.2 from https://github.com/ros2/ros2/releases/download/release-beta2/opencv-2.4.13.2-vc14.VS2015.zip
-
-Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. Assuming you were extracting OpenCV to ``c:\`` you have to extend your ``PATH`` variable to ``c:\opencv-2.4.13.2-vc14.VS2015\x64\vc14\bin``
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^

@@ -10,16 +10,14 @@ Installing ROS2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 Crystal (the latest release) and ROS 2 Bouncy are available for Ubuntu Bionic; packages for ROS 2 Ardent are available for Ubuntu Xenial.
+Debian packages for ROS 2 Dashing Diademata are available for Ubuntu Bionic.
 
 Resources
 ---------
 
-* Status Pages:
+* Status Page:
 
-  * ROS 2 Crystal (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_crystal_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_crystal_ubv8.html>`__
-  * ROS 2 Bouncy (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_bouncy_ubv8.html>`__
-  * ROS 2 Ardent (Ubuntu Xenial): `amd64 <http://repo.ros2.org/status_page/ros_ardent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_ardent_uxv8.html>`__
+  * ROS 2 Dashing (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_dashing_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_dashing_ubv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -58,24 +56,23 @@ And then add the repository to your sources list:
 Install ROS 2 packages
 ----------------------
 
-First set an environment variable for the ROS 2 release you want to install so it can be used in other commands.
+Update your apt repository caches after setting up the repositories.
 
 .. code-block:: bash
 
-   export CHOOSE_ROS_DISTRO=crystal  # or bouncy or ardent
    sudo apt update
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-desktop
+   sudo apt install ros-dashing-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base
+   sudo apt install ros-dashing-ros-base
 
 See specific sections below for how to also install the :ref:`ros1_bridge <linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <linux-install-additional-rmw-implementations>`.
 
@@ -87,22 +84,10 @@ Environment setup
 
 ROS 2 command line tools use argcomplete to autocompletion. So if you want autocompletion, installing argcomplete is necessary.
 
-Ubuntu 18.04
-~~~~~~~~~~~~
-
 .. code-block:: bash
 
    sudo apt install python3-argcomplete
 
-Ubuntu 16.04 (argcomplete >= 0.8.5)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, because the version available through ``apt`` will not work due to a bug in that version of ``argcomplete``:
-
-.. code-block:: bash
-
-   sudo apt install python3-pip
-   sudo pip3 install argcomplete
 
 Sourcing the setup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,13 +96,13 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash
+   source /opt/ros/dashing/setup.bash
 
 You may want to add this to your ``.bashrc``.
 
 .. code-block:: bash
 
-   echo "source /opt/ros/$CHOOSE_ROS_DISTRO/setup.bash" >> ~/.bashrc
+   echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
 
 .. _linux-install-additional-rmw-implementations:
 
@@ -132,8 +117,8 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-rmw-opensplice-cpp # for OpenSplice
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-rmw-connext-cpp # for RTI Connext (requires license agreement)
+   sudo apt install ros-dashing-rmw-opensplice-cpp # for OpenSplice
+   sudo apt install ros-dashing-rmw-connext-cpp # for RTI Connext (requires license agreement)
 
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
@@ -153,16 +138,12 @@ This will also avoid the need to setup the ROS sources as they will already be i
 
 Now you can install the remaining packages:
 
-.. code-block:: bash
+. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-ros1-bridge
+   sudo apt install ros-dashing-ros1-bridge
 
-The turtlebot2 packages are available in Bouncy but not Crystal.
-
-.. code-block:: bash
-
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-turtlebot2-*
+The turtlebot2 packages are not currently available in Dashing.
 
 Build your own packages
 -----------------------

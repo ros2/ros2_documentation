@@ -13,15 +13,14 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
-Target platforms for Crystal Clemmys are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Dashing Diademata are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
-- Tier 2: Ubuntu Linux - Xenial Xerus (16.04) 64-bit
 
 Tier 3 platforms (not actively tested or supported) include:
 
 - Debian Linux - Stretch (9)
-- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
 
 System setup
@@ -112,11 +111,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   # [Ubuntu 18.04]
-   rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
-   # [Ubuntu 16.04]
-   rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 python3-lark-parser rti-connext-dds-5.3.1 urdfdom_headers"
-   python3 -m pip install -U lark-parser
+   rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
 .. _linux-development-setup-install-more-dds-implementations-optional:
 
@@ -136,11 +131,7 @@ PrismTech OpenSplice Debian Packages built by OSRF
 
 .. code-block:: bash
 
-   # For Crystal Clemmys
    sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
-
-   # For Bouncy Bolson
-   sudo apt install libopensplice67  # from packages.ros.org/ros2/ubuntu
 
 .. raw:: html
 
@@ -226,10 +217,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 .. code-block:: bash
 
    cd ~/ros2_ws/
-   # On Ubuntu Linux Bionic Beaver 18.04
    colcon build --symlink-install
-   # On Ubuntu Linux Xenial Xerus 16.04
-   colcon build --symlink-install --packages-ignore qt_gui_cpp rqt_gui_cpp
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.

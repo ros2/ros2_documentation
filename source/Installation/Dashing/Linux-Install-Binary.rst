@@ -31,7 +31,7 @@ Downloading ROS 2
 
 
 * Go `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-crystal-linux-x86_64.tar.bz2``.
+* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-dashing-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -42,7 +42,7 @@ Downloading ROS 2
 
        mkdir -p ~/ros2_install
        cd ~/ros2_install
-       tar xf ~/Downloads/ros2-crystal-linux-x86_64.tar.bz2
+       tar xf ~/Downloads/ros2-dashing-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
 ----------------------------------
@@ -61,11 +61,10 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       CHOOSE_ROS_DISTRO=crystal # or bouncy
-       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro $CHOOSE_ROS_DISTRO -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/kinetic/Installation/Ubuntu
+   Follow the normal install instructions: http://wiki.ros.org/melodic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,15 +88,6 @@ Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^
 
 To use OpenSplice you can install a Debian package built by OSRF.
-
-Crystal and above:
-
-.. code-block:: bash
-
-       sudo apt update && sudo apt install -q -y \
-           libopensplice69
-
-Bouncy and earlier:
 
 .. code-block:: bash
 
