@@ -160,6 +160,185 @@ You need to update to use the ``NodeOptions`` structure
   node_options.initial_parameters(params);
   auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
+Changes to Creating Publishers and Subscriptions
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+There have been a few changes to creating publishers and subscriptions which are new in Dashing:
+
+- QoS settings are now passed using the new ``rclcpp::QoS`` class, and the API encourages the user to specify at least the history depth.
+- Options are now passed as an object, i.e. ``rclcpp::PublisherOptions`` and ``rclcpp::SubscriptionOptions``.
+
+All changes are backwards compatible (no code changes are required), but several existing call styles have been deprecated.
+Users are encouraged to update to the new signatures.
+
+----
+
+In the past, when creating a publisher or subscription, you could either not specify any QoS settings (e.g. just provide topic name for a publisher) or you could specify a "qos profile" data structure (of type ``rmw_qos_profile_t``) with all the settings already set.
+Now you must use the new ``rclcpp::QoS`` object to specify your QoS and at least the history settings for your QoS.
+This encourages the user to specify a history depth when using ``KEEP_LAST``, rather than defaulting it to a value that may or may not be appropriate.
+
+In ROS 1, this was known as the ``queue_size`` and it was required in both C++ and Python.
+We're changing the ROS 2 API to bring this requirement back.
+
+----
+
+Also, any options which could previously be passed during creation of a publisher or subscription have now been encapsulated in an ``rclcpp::PublisherOptions`` and ``rclcpp::SubscriptionOptions`` class respectively.
+This allows for shorter signatures, more convenient use, and for adding new future options without breaking API.
+
+----
+
+Some signatures for creating publishers and subscribers are now deprecated, and new signatures have been added to allow you to use the new ``rclcpp::QoS`` and publisher/subscription option classes.
+
+These are the new and recommended API's:
+
+.. code-block:: cpp
+
+  template<
+    typename MessageT,
+    typename AllocatorT = std::allocator<void>,
+    typename PublisherT = ::rclcpp::Publisher<MessageT, AllocatorT>>
+  std::shared_ptr<PublisherT>
+  create_publisher(
+    const std::string & topic_name,
+    const rclcpp::QoS & qos,
+    const PublisherOptionsWithAllocator<AllocatorT> & options =
+    PublisherOptionsWithAllocator<AllocatorT>()
+  );
+
+  template<
+    typename MessageT,
+    typename CallbackT,
+    typename AllocatorT = std::allocator<void>,
+    typename SubscriptionT = rclcpp::Subscription<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, AllocatorT>>
+  std::shared_ptr<SubscriptionT>
+  create_subscription(
+    const std::string & topic_name,
+    const rclcpp::QoS & qos,
+    CallbackT && callback,
+    const SubscriptionOptionsWithAllocator<AllocatorT> & options =
+    SubscriptionOptionsWithAllocator<AllocatorT>(),
+    typename rclcpp::message_memory_strategy::MessageMemoryStrategy<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, AllocatorT
+    >::SharedPtr
+    msg_mem_strat = nullptr);
+
+And these are the deprecated ones:
+
+.. code-block:: cpp
+
+  template<
+    typename MessageT,
+    typename AllocatorT = std::allocator<void>,
+    typename PublisherT = ::rclcpp::Publisher<MessageT, AllocatorT>>
+  [[deprecated("use create_publisher(const std::string &, const rclcpp::QoS &, ...) instead")]]
+  std::shared_ptr<PublisherT>
+  create_publisher(
+    const std::string & topic_name,
+    size_t qos_history_depth,
+    std::shared_ptr<AllocatorT> allocator);
+
+  template<
+    typename MessageT,
+    typename AllocatorT = std::allocator<void>,
+    typename PublisherT = ::rclcpp::Publisher<MessageT, AllocatorT>>
+  [[deprecated("use create_publisher(const std::string &, const rclcpp::QoS &, ...) instead")]]
+  std::shared_ptr<PublisherT>
+  create_publisher(
+    const std::string & topic_name,
+    const rmw_qos_profile_t & qos_profile = rmw_qos_profile_default,
+    std::shared_ptr<AllocatorT> allocator = nullptr);
+
+  template<
+    typename MessageT,
+    typename CallbackT,
+    typename Alloc = std::allocator<void>,
+    typename SubscriptionT = rclcpp::Subscription<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, Alloc>>
+  [[deprecated(
+    "use create_subscription(const std::string &, const rclcpp::QoS &, CallbackT, ...) instead"
+  )]]
+  std::shared_ptr<SubscriptionT>
+  create_subscription(
+    const std::string & topic_name,
+    CallbackT && callback,
+    const rmw_qos_profile_t & qos_profile = rmw_qos_profile_default,
+    rclcpp::callback_group::CallbackGroup::SharedPtr group = nullptr,
+    bool ignore_local_publications = false,
+    typename rclcpp::message_memory_strategy::MessageMemoryStrategy<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, Alloc>::SharedPtr
+    msg_mem_strat = nullptr,
+    std::shared_ptr<Alloc> allocator = nullptr);
+
+  template<
+    typename MessageT,
+    typename CallbackT,
+    typename Alloc = std::allocator<void>,
+    typename SubscriptionT = rclcpp::Subscription<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, Alloc>>
+  [[deprecated(
+    "use create_subscription(const std::string &, const rclcpp::QoS &, CallbackT, ...) instead"
+  )]]
+  std::shared_ptr<SubscriptionT>
+  create_subscription(
+    const std::string & topic_name,
+    CallbackT && callback,
+    size_t qos_history_depth,
+    rclcpp::callback_group::CallbackGroup::SharedPtr group = nullptr,
+    bool ignore_local_publications = false,
+    typename rclcpp::message_memory_strategy::MessageMemoryStrategy<
+      typename rclcpp::subscription_traits::has_message_type<CallbackT>::type, Alloc>::SharedPtr
+    msg_mem_strat = nullptr,
+    std::shared_ptr<Alloc> allocator = nullptr);
+
+----
+
+The change to how QoS is passed is most likely to impact users.
+
+A typical change for a publisher looks like this:
+
+.. code-block:: diff
+
+  - pub_ = create_publisher<std_msgs::msg::String>("chatter");
+  + pub_ = create_publisher<std_msgs::msg::String>("chatter", 10);
+
+And for a subscription:
+
+.. code-block:: diff
+
+  - sub_ = create_subscription<std_msgs::msg::String>("chatter", callback);
+  + sub_ = create_subscription<std_msgs::msg::String>("chatter", 10, callback);
+
+If you have no idea what depth to use and don't care right now (maybe just prototyping), then we recommend using ``10``, as that was the default before and should preserve existing behavior.
+
+More in depth documentation about how to select an appropriate depth is forthcoming.
+
+This is an example of a slightly more involved change to avoid the newly deprecated API's:
+
+.. code-block:: diff
+
+  - // Creates a latched topic
+  - rmw_qos_profile_t qos = rmw_qos_profile_default;
+  - qos.depth = 1;
+  - qos.durability = RMW_QOS_POLICY_DURABILITY_TRANSIENT_LOCAL;
+  -
+    model_xml_.data = model_xml;
+    node_handle->declare_parameter("robot_description", model_xml);
+    description_pub_ = node_handle->create_publisher<std_msgs::msg::String>(
+  -   "robot_description", qos);
+  +   "robot_description",
+  +   // Transient local is similar to latching in ROS 1.
+  +   rclcpp::QoS(1).transient_local());
+
+See the pull request (and connected pull requests) that introduced the QoS change for more examples and details:
+
+- https://github.com/ros2/rclcpp/pull/713
+
+  - https://github.com/ros2/demos/pull/332
+  - https://github.com/ros2/robot_state_publisher/pull/19
+  - and others...
+
+
 Changes Due to Declare Parameter Change
 """""""""""""""""""""""""""""""""""""""
 
@@ -394,7 +573,6 @@ Changes since the `Crystal Clemmys <Release-Crystal-Clemmys>` release:
 
 actions
 ^^^^^^^
-
 
 * Changes to ``rclcpp_action::Client`` signatures:
 
