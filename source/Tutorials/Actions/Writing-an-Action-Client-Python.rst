@@ -1,12 +1,12 @@
 Writing an Action Client (Python)
----------------------------------
+=================================
 
 In this tutorial, we look at implementing an action client in Python.
 
-We assume you have the `prequisites <../Actions>`.
+Make sure you have satisfied all `prequisites <../Actions>`.
 
 Sending a Goal
-^^^^^^^^^^^^^^
+--------------
 
 Let's get started!
 
@@ -18,13 +18,12 @@ Open a new file, let's call it ``fibonacci_action_client.py``, and add the follo
     :linenos:
     :lines: 1,3,6-11,13-22
 
-We've define a class ``FibonacciActionClient`` that is a subclass of ``Node``.
+We've defined a class ``FibonacciActionClient`` that is a subclass of ``Node``.
 The class is initialized by calling the ``Node`` constructor, naming our node "fibonacci_action_client":
 
-.. code-block:: python
-
-    super().__init__('fibonacci_action_server')
-
+.. literalinclude:: client_0.py
+    :language: python
+    :lines: 11
 
 After the class defintion, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
 Finally, we call ``main()`` in the entry point of our Python program.
@@ -89,7 +88,7 @@ In another terminal, run the action client:
 Tada! You should see messages printed by the action server as it successfully executes the goal.
 
 Getting Feedback
-^^^^^^^^^^^^^^^^
+----------------
 
 Our action client can send goals.
 Nice!
@@ -126,7 +125,7 @@ Let's add it:
 We're all set. If we run our action client, you should see feedback being printed to the screen.
 
 Getting a Result
-^^^^^^^^^^^^^^^^
+----------------
 
 So we can send a goal, but how do we know when it is completed?
 We can get the result information with a couple steps.

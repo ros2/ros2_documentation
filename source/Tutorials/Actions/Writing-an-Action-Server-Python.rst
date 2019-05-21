@@ -1,12 +1,12 @@
 Writing an Action Server (Python)
----------------------------------
+=================================
 
 In this tutorial, we look at implementing an action server in Python.
 
-We assume you have the `prequisites <../Actions>`.
+Make sure you have satisfied all `prequisites <../Actions>`.
 
 Executing Goals
-^^^^^^^^^^^^^^^
+---------------
 
 Let's focus on writing an action server that computes the Fibonacci sequence using the action we created in the `Creating an Action <Creating-an-Action>` tutorial.
 
@@ -21,9 +21,9 @@ Open a new file, let's call it ``fibonacci_action_server.py``, and add the follo
 We've defined a class ``FibonacciActionServer`` that is a subclass of ``Node``.
 The class is initialized by calling the ``Node`` constructor, naming our node "fibonacci_action_server":
 
-.. code-block:: python
-
-    super().__init__('fibonacci_action_server')
+.. literalinclude:: server_0.py
+    :language: python
+    :lines: 11
 
 After the class defintion, we define a function ``main()`` that initializes ROS, creates an instance of our ``FibonacciActionServer`` node, and calls `rclpy.spin() <http://docs.ros2.org/latest/api/rclpy/api/init_shutdown.html#rclpy.spin>`_ on our node.
 The spin will keep our action sever alive and responsive to incoming goals.
@@ -59,7 +59,7 @@ In another terminal, we can use the command line interface to send a goal:
 
     ros2 action  send_goal fibonacci action_tutorials/Fibonacci "{order: 5}"
 
-You should see our logged message "Executing goal..." folowed by a warning that the goal state was not set.
+You should see our logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
 
 We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeeded>`_ on the goal handle to indicate that the goal was successful:
@@ -85,7 +85,7 @@ After computing the sequence, we assign it to the result message field before re
 Again restarting the action server and send another goal, you should see the goal finished, this time with the proper result sequence.
 
 Publishing Feedback
-^^^^^^^^^^^^^^^^^^^
+-------------------
 
 One of the nice things about actions is the ability to provide feedback to an action client during goal execution.
 We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.

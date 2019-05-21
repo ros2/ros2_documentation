@@ -19,7 +19,7 @@ For reference, after completing all of the tutorials you should expect to have a
 Prequisites
 -----------
 
-- `Install ROS (Dashing) <../Installation>`
+- `Install ROS (Dashing or later) <../Installation>`
 
 - `Install colcon <https://colcon.readthedocs.org>`__
 

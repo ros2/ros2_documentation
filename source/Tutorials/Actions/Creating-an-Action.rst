@@ -3,12 +3,12 @@ Creating an Action
 
 In this tutorial we look how to define an action in a ROS package.
 
-Make sure you have the `prequisites <../Actions>`.
+Make sure you have satisfied all `prequisites <../Actions>`.
 
 Defining an Action
 ------------------
 
-Identical to ROS 1, actions are be defined with ``.action`` files of the form:
+Just like in ROS 1, actions are defined in ``.action`` files of the form:
 
 .. code-block:: bash
 
@@ -18,11 +18,11 @@ Identical to ROS 1, actions are be defined with ``.action`` files of the form:
     ---
     # Feedback
 
-An action defintion is made up of three message definitions separated by ``---``.
+An action definition is made up of three message definitions separated by ``---``.
 An instance of an action is typically referred to as a *goal*.
 A *request* message is sent from an action client to an action server initiating a new goal.
 A *result* message is sent from an action server to an action client when a goal is done.
-*Feedback* messages are periodically sent from an action server to an action client to updates about a goal.
+*Feedback* messages are periodically sent from an action server to an action client with updates about a goal.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
