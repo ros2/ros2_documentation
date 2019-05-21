@@ -483,6 +483,75 @@ If not present, registration macros must be added to the project's CMake.
 
 For more information on composition, see `the tutorial <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__
 
+rclpy
+^^^^^
+
+Changes to Creating Publishers, Subscriptions, and QoS Profiles
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Prior to Dashing, you could optionally provide a ``QoSProfile`` object when creating a publisher or subscription.
+In an effort to encourage users to specify a history depth for message queues, we now **require** that a depth value or ``QoSProfile`` object is given when creating publishers or subscriptions.
+
+To create a publisher, previously you would have written:
+
+.. code-block:: python
+
+  node.create_publisher(Empty, 'chatter')
+  # Or using a keyword argument for QoSProfile
+  node.create_publisher(Empty, 'chatter', qos_profile=qos_profile_sensor_data)
+
+In Dashing, prefer the following API that provides a depth value or ``QoSProfile`` object as a third positional argument:
+
+.. code-block:: python
+
+  # Assume a history setting of KEEP_LAST with depth 10
+  node.create_publisher(Empty, 'chatter', 10)
+  # Or pass a QoSProfile object directly
+  node.create_publisher(Empty, 'chatter', qos_profile_sensor_data)
+
+Likewise for subscriptions, previously you would have written:
+
+.. code-block:: python
+
+  node.create_subscription(BasicTypes, 'chatter', lambda msg: print(msg))
+  # Or using a keyword argument for QoSProfile
+  node.create_subscription(BasicTypes, 'chatter', lambda msg: print(msg), qos_profile=qos_profile_sensor_data)
+
+In Dashing:
+
+.. code-block:: python
+
+  # Assume a history setting of KEEP_LAST with depth 10
+  node.create_subscription(BasicTypes, 'chatter', lambda msg: print(msg), 10)
+  # Or pass a QoSProfile object directly
+  node.create_subscription(BasicTypes, 'chatter', lambda msg: print(msg), qos_profile_sensor_data)
+
+To ease the transition, users who do not use the new API will see deprecation warnings.
+
+Furthermore, we also require that when constructing ``QoSProfile`` objects that a history policy and/or depth is set.
+If a history policy of ``KEEP_LAST`` is provided, then a depth argument is also required.
+For example, these calls are valid:
+
+.. code-block:: python
+
+  QoSProfile(history=QoSHistoryPolicy.RMW_QOS_POLICY_HISTORY_KEEP_ALL)
+  QoSProfile(history=QoSHistoryPolicy.RMW_QOS_POLICY_HISTORY_KEEP_LAST, depth=10)
+  QoSProfile(depth=10)  # equivalent to the previous line
+
+And these calls will cause a deprecation warning:
+
+.. code-block:: python
+
+  QoSProfile()
+  QoSProfile(reliability=QoSReliabilityPolicy.RMW_QOS_POLICY_RELIABILITY_BEST_EFFORT)
+  # KEEP_LAST but no depth
+  QoSProfile(history=QoSHistoryPolicy.RMW_QOS_POLICY_HISTORY_KEEP_LAST)
+
+See the issue and pull request related to introducing this change for more details:
+
+- https://github.com/ros2/rclpy/issues/342
+- https://github.com/ros2/rclpy/pull/344
+
 rosidl
 ^^^^^^
 
