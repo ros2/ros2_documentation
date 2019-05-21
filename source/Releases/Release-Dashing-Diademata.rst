@@ -422,6 +422,13 @@ actions
   This is to better communicate a reason for a failed service call.
   See the `pull request <https://github.com/ros2/rcl_interfaces/pull/76>`_ and connected issue for details.
 
+rviz
+^^^^
+
+* Plugins should use fully qualified type names otherwise a warning will be logged.
+  For `example <https://github.com/ros2/rviz/blob/dfceae319d49546f1e4ad39689853c18fef0001e/rviz_default_plugins/plugins_description.xml#L13>`_, use the type ``sensor_msgs/msg/Image`` instead of ``sensor_msgs/Image``.
+  See `PR introducing this change <https://github.com/ros2/rviz/pull/387>`_ for more details.
+
 Known Issues
 ------------
 
