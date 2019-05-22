@@ -17,8 +17,7 @@ One of the most popular features of ROS 1 is the ability of writing robot applic
 Install
 -------
 
-The ``rclpy`` module enables developers to use the ROS 2 API from Python. As of Alpha 4, ``rclpy`` is still under development and its API might change, but for now the basics (publishers and subscriptions) can be accessed from Python.
-
+The ``rclpy`` module enables developers to use the ROS 2 API from Python.
 ``rclpy`` is part of the standard ROS 2 distribution, so it'll be installed alongside the rest of the ROS 2 packages.
 
 Run the examples
