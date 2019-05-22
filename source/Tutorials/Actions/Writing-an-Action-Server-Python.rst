@@ -11,7 +11,8 @@ Executing Goals
 Let's focus on writing an action server that computes the Fibonacci sequence using the action we created in the `Creating an Action <Creating-an-Action>` tutorial.
 
 To keep things simple, we'll scope this tutorial to a single file.
-Open a new file, let's call it ``fibonacci_action_server.py``, and add the following boilerplate code:
+First, create a directory ``scripts`` in our ROS package.
+Open a new file, let's call it ``scripts/fibonacci_action_server.py``, and add the following boilerplate code:
 
 .. literalinclude:: server_0.py
     :language: python
@@ -47,11 +48,29 @@ The action server requires four arguments:
 
 Note, all goals are accepted by default.
 
+Next, add the following lines to our ``CMakeLists.txt``:
+
+.. code-block:: cmake
+
+    install(
+      PROGRAMS scripts/fibonacci_action_server.py
+      DESTINATION lib/${PROJECT_NAME}
+    )
+
+We should now be able to build the package containing our action server node script:
+
+.. code-block:: bash
+
+    # Change to the root of the workspace (ie. action_ws)
+    cd ../..
+    # Build
+    colcon build
+
 Let's try running our action server:
 
 .. code-block:: bash
 
-    python3 fibonacci_action_server.py
+    ros2 run action_tutorials fibonacci_action_server.py
 
 In another terminal, we can use the command line interface to send a goal:
 
@@ -70,7 +89,7 @@ We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/acti
     :lines: 18-21
     :emphasize-lines: 3
 
-Now if you restart the action server and send another goal, you should see the goal finished with the status ``SUCCEEDED``.
+Now if you rebuild the package, restart the action server and send another goal, you should see the goal finished with the status ``SUCCEEDED``.
 
 Alright, let's make our goal execution actually compute and return the requested Fibonacci sequence:
 
@@ -82,7 +101,7 @@ Alright, let's make our goal execution actually compute and return the requested
 
 After computing the sequence, we assign it to the result message field before returning.
 
-Again restarting the action server and send another goal, you should see the goal finished, this time with the proper result sequence.
+Again after rebuilding our package, restarting the action server and sending another goal, you should see the goal finished, this time with the proper result sequence.
 
 Publishing Feedback
 -------------------
@@ -99,7 +118,7 @@ After every update of the feedback message in the for-loop, we publish the feedb
     :lines: 1-37
     :emphasize-lines: 1,23,24,27-31,36
 
-After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
+After rebuilding our package and restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
 
 .. code-block:: bash
 

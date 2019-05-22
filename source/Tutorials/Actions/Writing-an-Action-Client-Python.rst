@@ -11,7 +11,8 @@ Sending a Goal
 Let's get started!
 
 To keep things simple, we'll scope this tutorial to a single file.
-Open a new file, let's call it ``fibonacci_action_client.py``, and add the following boilerplate code:
+First, create a directory ``scripts`` in our ROS package if not present already.
+Open a new file, let's call it ``scripts/fibonacci_action_client.py``, and add the following boilerplate code:
 
 .. literalinclude:: client_0.py
     :language: python
@@ -25,14 +26,32 @@ The class is initialized by calling the ``Node`` constructor, naming our node "f
     :language: python
     :lines: 11
 
-After the class defintion, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
+After the class definition, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
 Finally, we call ``main()`` in the entry point of our Python program.
+
+Next, add the following lines to our ``CMakeLists.txt``:
+
+.. code-block:: cmake
+
+    install(
+      PROGRAMS scripts/fibonacci_action_client.py
+      DESTINATION lib/${PROJECT_NAME}
+    )
+
+We should now be able to build the package containing our action client node script:
+
+.. code-block:: bash
+
+    # Change to the root of the workspace (ie. action_ws)
+    cd ../..
+    # Build
+    colcon build
 
 You can try running the program:
 
 .. code-block:: bash
 
-    python3 fibonacci_action_client.py
+    ros2 run action_tutorials fibonacci_action_client.py
 
 It doesn't do anything interesting...yet.
 
@@ -73,6 +92,8 @@ Finally, call the ``send_goal`` method with a value:
     :lines: 27-32
     :emphasize-lines: 6
 
+Remember now to rebuild our package.
+
 Let's test our action client by first running an action server built in the tutorial on `Writing an Action Server (Python) <Writing-an-Action-Server-Python>`:
 
 .. code-block:: bash
@@ -83,7 +104,7 @@ In another terminal, run the action client:
 
 .. code-block:: bash
 
-    python3 fibonacci_action_client.py
+    ros2 run action_tutorials fibonacci_action_client.py
 
 Tada! You should see messages printed by the action server as it successfully executes the goal.
 
@@ -93,7 +114,7 @@ Getting Feedback
 Our action client can send goals.
 Nice!
 But it would be great if we could get some feedback about the goals we send from the action server.
-Easy, let's write a callback function for feedback messsages:
+Easy, let's write a callback function for feedback messages:
 
 .. literalinclude:: client_1.py
     :language: python
@@ -163,10 +184,10 @@ Let's register a callback just like we did for the goal response:
 
 In the callback, we log the result sequence and shutdown ROS for a clean exit.
 
-With an action server running in a separate terminal, go ahead and try running our Fibonacci action client!
+After rebuilding our package, With an action server running in a separate terminal, go ahead and try running our Fibonacci action client!
 
 .. code-block:: bash
 
-    python3 fibonacci_action_client.py
+    ros2 run action_tutorials fibonacci_action_client.py
 
 You should see logged messages for the goal being accepted, feedback, and the final result.
