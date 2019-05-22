@@ -63,13 +63,13 @@ Shell 1:
 
 .. code-block:: bash
 
-   ros2 run composition api_composition
+   ros2 run rclcpp_components component_container
 
 Shell 2:
 
 .. code-block:: bash
 
-   ros2 run composition api_composition_cli composition composition::Talker
+   ros2 component load /ComponentManager composition composition::Talker
 
 And then when you want to enable debug logging, load the ``LoggerConfig`` component with:
 
@@ -77,7 +77,7 @@ Shell 2
 
 .. code-block:: bash
 
-   ros2 run composition api_composition_cli logging_demo logging_demo::LoggerConfig
+   ros2 component load /ComponentManager logging_demo logging_demo::LoggerConfig
 
 And finally, configure all unset loggers to the debug severity by addressing the empty-named logger.
 Note that loggers that have been specifically configured to use a particular severity will not be affected by this call.
