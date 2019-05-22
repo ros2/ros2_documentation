@@ -39,7 +39,7 @@ To set the level of the demo's logger back to ``INFO``\ , call the service with:
 
 .. code-block:: bash
 
-   ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
+   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
 
 This service call will work on any logger that is running in the process provided that you know its name.
 This includes the loggers in the ROS 2 core, such as ``rcl`` (the common client library package).
@@ -47,7 +47,7 @@ To enable debug logging for ``rcl``, call:
 
 .. code-block:: bash
 
-   ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
+   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
 
 You should see debug output from ``rcl`` start to show.
 
@@ -86,7 +86,7 @@ Shell 2:
 
 .. code-block:: bash
 
-   ros2 service call /config_logger logging_demo/ConfigLogger "{logger_name: '', level: DEBUG}"
+   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: '', level: DEBUG}"
 
 You should see debug output from any previously unset loggers in the process start to appear, including from the ROS 2 core.
 
