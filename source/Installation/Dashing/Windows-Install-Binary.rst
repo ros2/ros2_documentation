@@ -168,11 +168,11 @@ Downloading ROS 2
 * Go the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for Windows, e.g., ``ros2-dashing-*-windows-AMD64.zip``.
 
-.. note:: 
+.. note::
 
     There may be more than one binary download option which might cause the file name to differ.
 
-.. note:: 
+.. note::
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-dashing-*-windows-debug-AMD64.zip``
 
