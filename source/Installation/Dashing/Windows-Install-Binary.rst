@@ -53,19 +53,16 @@ In the resulting dialog, click "Environment Variables", then click "Path" on the
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
+Install Visual Studio 2019 if using Dashing or a nightly
 
-B. Install Visual Studio 2017 if using Bouncy or a nightly**
+If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
 
-   If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
-
-.. warning:: Visual Studio 2017 v15.8 seems to have a compiler bug preventing from building some ROS 2 packages. Please try installing an older version of Visual Studio 2017.
-
-   Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
+Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
 
-   Make sure that the Visual C++ features are installed.
-   An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
+Make sure that the Visual C++ features are installed.
+An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
    .. image:: https://i.imgur.com/2h0IxCk.png
 
@@ -83,10 +80,9 @@ If you would like to use one of the other vendors you will need to install their
 Adlink OpenSplice
 ~~~~~~~~~~~~~~~~~
 
-If you want to use OpenSplice, you will need to download the latest supported version.
-* For ROS 2 Dashing version 6.9.181126OSS-HDE-x86_64.win-vs2017 or later is required.
+If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
+For ROS 2 Dashing version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
 
-Download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__
 For ROS 2 releases up to and including Ardent, extract it but do not do anything else at this point.
 For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.bat`` script.
 
@@ -112,10 +108,7 @@ Install OpenCV
 
 Some of the examples require OpenCV to be installed.
 
-We provide the following precompiled versions of OpenCV 3.4.6:
-
-* Visual Studio 2017: https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc15.VS2017.zip
-* Visual Studio 2019: https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip
+You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
 
 Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
 
@@ -123,7 +116,8 @@ Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Pro
 
    setx -m OpenCV_DIR C:\opencv
 
-Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. You have to extend the ``PATH`` variable to ``c:\opencv\x64\vc15\bin``
+Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries.
+You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
@@ -139,7 +133,6 @@ As some chocolatey packages rely on it, we start by installing CMake
 You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to your PATH.
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
-
 
 * asio.1.12.1.nupkg
 * eigen-3.3.4.nupkg
@@ -171,18 +164,22 @@ RQt dependencies
 Downloading ROS 2
 -----------------
 
-
 * Go the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 
-  * Notes:
+.. note:: 
 
-    * there may be more than one binary download option which might cause the file name to differ.
-    * [ROS Bouncy only] To download the ROS 2 debug libraries you'll need to download ``ros2-bouncy-windows-Debug-AMD64.zip``
+    There may be more than one binary download option which might cause the file name to differ.
+
+.. note:: 
+
+    [ROS Bouncy only] To download the ROS 2 debug libraries you'll need to download ``ros2-bouncy-windows-Debug-AMD64.zip``
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
 
-  * Note (Ardent and earlier): There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
+.. note::
+
+    [On ROS Ardent or earlire] There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
 Set up the ROS 2 environment
 ----------------------------
@@ -223,7 +220,6 @@ If you have installed support for an optional vendor, see `this page </Tutorials
 
 Troubleshooting
 ^^^^^^^^^^^^^^^
-
 
 * If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
