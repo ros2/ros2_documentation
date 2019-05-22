@@ -120,7 +120,7 @@ The command will return the unique ID of the loaded component as well as the nod
 .. code-block:: bash
 
    $ ros2 component load /ComponentManager composition composition::Talker
-   1 /talker
+   Loaded component 1 into '/ComponentManager' container node as '/talker'
 
 
 Now the first shell should show a message that the component was loaded as well as repeated message for publishing a message.
@@ -130,7 +130,7 @@ Another command in the second shell (see `listener <https://github.com/ros2/demo
 .. code-block:: bash
 
    $ ros2 component load /ComponentManager composition composition::Listener
-   2 /listener
+   Loaded component 2 into '/ComponentManager' container node as '/listener'
 
 The ``ros2`` command line utility can now be used to inspect the state of the container:
 
@@ -178,7 +178,7 @@ In the shell call (see `source code <https://github.com/ros2/demos/blob/master/c
    ros2 run composition manual_composition
 
 This should show repeated messages from both pairs, the talker and the listener as well as the server and the client.
-Note: Manually-composed components will not be reflected in the ``ros2`` command line tool output.
+Note: Manually-composed components will not be reflected in the ``ros2 component list`` command line tool output.
 
 Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +215,7 @@ to get the path to where composition is installed. Then call
 
 
 Now the shell should show repeated output for each sent and received message.
-Note: dlopen-composed components will not be reflected in the ``ros2`` command line tool output.
+Note: dlopen-composed components will not be reflected in the ``ros2 component list`` command line tool output.
 
 
 Composition using launch actions
@@ -257,17 +257,17 @@ The command will return the unique ID of the loaded component as well as the nod
 .. code-block:: bash
 
    $ ros2 component load /ComponentManager composition composition::Talker
-   1 /talker
+   Loaded component 1 into '/ComponentManager' container node as '/talker'
    $ ros2 component load /ComponentManager composition composition::Listener
-   2 /listener
+   Loaded component 2 into '/ComponentManager' container node as '/listener'
 
 Use the unique ID to unload the node from the component container.
 
 .. code-block:: bash
 
    $ ros2 component unload /ComponentManager 1 2
-   Unloaded component 1 from /ComponentManager container
-   Unloaded component 2 from /ComponentManager container
+   Unloaded component 1 from '/ComponentManager' container
+   Unloaded component 2 from '/ComponentManager' container
 
 In the first shell, verify that the repeated messages from talker and listener have stopped.
 
