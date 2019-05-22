@@ -121,7 +121,7 @@ Let's clone the `examples <https://github.com/ros2/examples>`__ repository into 
 .. code-block:: bash
 
     cd ~/ros2_example_ws/src/examples/
-    git checkout ROSDISTRO
+    git checkout $ROS_DISTRO
     cd ~/ros2_example_ws
 
 Now the workspace should have the source code to the ROS 2 examples:
