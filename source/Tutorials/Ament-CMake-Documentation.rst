@@ -17,9 +17,7 @@ The basic build information is then gathered in two files: the ``package.xml`` a
 The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon to find the correct build order for your packages, to install the required dependencies in CI as well as provide the information for a release with ``bloom``.
 The ``CMakeLists.txt`` contains the commands to build and package executables and libraries and will be the main focus of this document.
 
-See also the basic ament tutorial_
-
-.. _tutorial: Ament_Tutorial.rst
+See also the `basic ament tutorial<Ament-Tutorial>`.
 
 
 Basic project outline
