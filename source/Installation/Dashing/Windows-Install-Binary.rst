@@ -53,7 +53,7 @@ In the resulting dialog, click "Environment Variables", then click "Path" on the
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
-Install Visual Studio 2019 if using Dashing or a nightly
+Install Visual Studio 2019.
 
 If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
 
@@ -62,10 +62,12 @@ Microsoft provides a free of charge version of Visual Studio 2019, named Communi
    https://visualstudio.microsoft.com/downloads/
 
 Make sure that the Visual C++ features are installed.
+
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
    .. image:: https://i.imgur.com/2h0IxCk.png
 
+Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +75,7 @@ Install additional DDS implementations (optional)
 ROS 2 builds on top of DDS.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, Adlink OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
+The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, Adlink OpenSplice, and RTI Connext as the middleware options.
 Run-time support for eProsima's Fast RTPS is included bundled by default.
 If you would like to use one of the other vendors you will need to install their software separately.
 
@@ -83,8 +85,7 @@ Adlink OpenSplice
 If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
 For ROS 2 Dashing version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
 
-For ROS 2 releases up to and including Ardent, extract it but do not do anything else at this point.
-For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.bat`` script.
+After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
 RTI Connext
 ~~~~~~~~~~~
@@ -165,7 +166,7 @@ Downloading ROS 2
 -----------------
 
 * Go the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+* Download the latest package for Windows, e.g., ``ros2-dashing-*-windows-AMD64.zip``.
 
 .. note:: 
 
@@ -173,13 +174,10 @@ Downloading ROS 2
 
 .. note:: 
 
-    [ROS Bouncy only] To download the ROS 2 debug libraries you'll need to download ``ros2-bouncy-windows-Debug-AMD64.zip``
+    To download the ROS 2 debug libraries you'll need to download ``ros2-dashing-*-windows-debug-AMD64.zip``
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
 
-.. note::
-
-    [On ROS Ardent or earlire] There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
 Set up the ROS 2 environment
 ----------------------------
@@ -190,13 +188,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
    > call C:\dev\ros2\local_setup.bat
 
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent; this step can be skipped).
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
-Only do this step **after** you have sourced the ROS 2 setup file:
-
-.. code-block:: bash
-
-   > call "C:\opensplice69\HDE\x86_64.win64\release.bat"
 
 Try some examples
 -----------------
