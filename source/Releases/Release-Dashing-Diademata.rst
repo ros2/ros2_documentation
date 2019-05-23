@@ -552,6 +552,79 @@ See the issue and pull request related to introducing this change for more detai
 - https://github.com/ros2/rclpy/issues/342
 - https://github.com/ros2/rclpy/pull/344
 
+
+Changes Due to Declare Parameter Change
+"""""""""""""""""""""""""""""""""""""""
+
+For details about the actual behavior change, see `Declaring Parameters`_ above. The changes are analogous to the ones in ``rclcpp``.
+
+These are the new API methods available in ``rclpy.node.Node`` interface:
+
+- To declare parameters given a name, an optional default value (supported by ``rcl_interfaces.msg.ParameterValue``) and an optional descriptor, returning the value actually set:
+
+  .. code-block:: python
+
+      def declare_parameter(
+          name: str,
+          value: Any = None,
+          descriptor: ParameterDescriptor = ParameterDescriptor()
+      ) -> Parameter
+
+      def declare_parameters(
+        namespace: str,
+        parameters: List[Union[
+            Tuple[str],
+            Tuple[str, Any],
+            Tuple[str, Any, ParameterDescriptor],
+        ]]
+      ) -> List[Parameter]
+
+- To undeclare previously declared parameters and to check if a parameter has been declared beforehand:
+
+  .. code-block:: python
+
+      def undeclare_parameter(name: str) -> None
+
+      def has_parameter(name: str) -> bool
+
+- To get and set parameter descriptors:
+
+  .. code-block:: python
+
+      def describe_parameter(name: str) -> ParameterDescriptor
+
+      def describe_parameters(names: List[str]) -> List[ParameterDescriptor]
+
+      def set_descriptor(
+          name: str,
+          descriptor: ParameterDescriptor,
+          alternative_value: Optional[ParameterValue] = None
+      ) -> ParameterValue
+
+- A convenience method to get parameters that may not have been declared:
+
+  .. code-block:: python
+
+      def get_parameter_or(name: str, alternative_value: Optional[Parameter] = None) -> Parameter
+
+Other changes
+"""""""""""""
+
+``rclpy.parameter.Parameter`` can now guess its type without explicitly setting it (as long as it's one of the supported ones by ``rcl_interfaces.msg.ParameterValue``).
+For example, this code:
+
+  .. code-block:: python
+
+      p = Parameter('myparam', Parameter.Type.DOUBLE, 2.41)
+
+Is equivalent to this code:
+
+  .. code-block:: python
+
+      p = Parameter('myparam', value=2.41)
+
+This change does not break existing API.
+
 rosidl
 ^^^^^^
 
