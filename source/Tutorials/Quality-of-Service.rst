@@ -92,19 +92,21 @@ In the first window, you'll see output from the subscriber:
    Received image #3
    ...
 
-Note for OS X users: If you these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
+.. note::
 
-.. code-block:: bash
+   OS X users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
-   $ sudo sysctl -w net.inet.udp.recvspace=209715
-   $ sudo sysctl -w net.inet.udp.maxdgram=65500
+   .. code-block:: bash
 
-These changes will not persist a reboot. If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
+      $ sudo sysctl -w net.inet.udp.recvspace=209715
+      $ sudo sysctl -w net.inet.udp.maxdgram=65500
 
-.. code-block:: bash
+   These changes will not persist a reboot. If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
 
-   net.inet.udp.recvspace=209715
-   net.inet.udp.maxdgram=65500
+   .. code-block:: bash
+
+      net.inet.udp.recvspace=209715
+      net.inet.udp.maxdgram=65500
 
 Command line options
 ^^^^^^^^^^^^^^^^^^^^
@@ -170,7 +172,7 @@ Add network traffic
 
    This next section is Linux-specific.
 
-However, for OS X and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and "Clumsy" (http://jagt.github.io/clumsy/index.html), respectively, but they will not be covered in this tutorial.
+   However, for OS X and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and "Clumsy" (http://jagt.github.io/clumsy/index.html), respectively, but they will not be covered in this tutorial.
 
 We are going to use the Linux network traffic control utility, ``tc`` (http://linux.die.net/man/8/tc).
 
