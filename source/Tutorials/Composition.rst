@@ -23,7 +23,7 @@ In ROS 2 the recommended way of writing your code is similar to a nodelet - we c
 This makes is easy to add common concepts to existing code, like a `life cycle <http://design.ros2.org/articles/node_lifecycle.html>`__.
 The biggest drawback of different APIs is avoided in ROS 2 since both approaches use the same API in ROS 2.
 
-..
+.. note::
 
    It is still possible to use the node-like style of "writing your own main" but for the common case it is not recommended.
 
@@ -59,7 +59,9 @@ Additionally, once a component is created, it must be registered with the index 
    # To register multiple components in the same shared library, use multiple calls
    # rclcpp_components_register_nodes(talker_component "composition::Talker2")
 
-Note: In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
+.. note::
+
+   In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
 
 .. _composition-using-components:
 
@@ -178,7 +180,10 @@ In the shell call (see `source code <https://github.com/ros2/demos/blob/master/c
    ros2 run composition manual_composition
 
 This should show repeated messages from both pairs, the talker and the listener as well as the server and the client.
-Note: Manually-composed components will not be reflected in the ``ros2 component list`` command line tool output.
+
+.. note::
+
+   Manually-composed components will not be reflected in the ``ros2 component list`` command line tool output.
 
 Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +220,10 @@ to get the path to where composition is installed. Then call
 
 
 Now the shell should show repeated output for each sent and received message.
-Note: dlopen-composed components will not be reflected in the ``ros2 component list`` command line tool output.
+
+.. note::
+
+   dlopen-composed components will not be reflected in the ``ros2 component list`` command line tool output.
 
 
 Composition using launch actions
@@ -287,7 +295,9 @@ In a second shell, components can be loaded by using the updated container name:
 
    ros2 component load /ns/MyContainer composition composition::Listener
 
-Note: Namespace remappings of the container do not affect loaded components.
+.. note::
+
+   Namespace remappings of the container do not affect loaded components.
 
 
 Remap component names and namespaces
@@ -323,4 +333,6 @@ The corresponding entries appear in ``ros2 component list``:
       2  /ns/talker
       3  /ns2/talker3
 
-Note: Namespace remappings of the container do not affect loaded components.
+.. note::
+
+   Namespace remappings of the container do not affect loaded components.
