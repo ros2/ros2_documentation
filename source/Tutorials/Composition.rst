@@ -91,7 +91,7 @@ To see what components are registered and available in the workspace, execute th
 
 .. code-block:: bash
 
-   $ ros2 component types
+   ros2 component types
    composition
      composition::Talker
      composition::Listener
@@ -111,7 +111,7 @@ Verify that the container is running via ``ros2`` command line tools:
 
 .. code-block:: bash
 
-   $ ros2 component list
+   ros2 component list
    /ComponentManager
 
 In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
@@ -119,7 +119,7 @@ The command will return the unique ID of the loaded component as well as the nod
 
 .. code-block:: bash
 
-   $ ros2 component load /ComponentManager composition composition::Talker
+   ros2 component load /ComponentManager composition composition::Talker
    Loaded component 1 into '/ComponentManager' container node as '/talker'
 
 
@@ -129,14 +129,14 @@ Another command in the second shell (see `listener <https://github.com/ros2/demo
 
 .. code-block:: bash
 
-   $ ros2 component load /ComponentManager composition composition::Listener
+   ros2 component load /ComponentManager composition composition::Listener
    Loaded component 2 into '/ComponentManager' container node as '/listener'
 
 The ``ros2`` command line utility can now be used to inspect the state of the container:
 
 .. code-block:: bash
 
-   $ ros2 component list
+   ros2 component list
    /ComponentManager
       1  /talker
       2  /listener
@@ -248,7 +248,7 @@ Verify that the container is running via ``ros2`` command line tools:
 
 .. code-block:: bash
 
-   $ ros2 component list
+   ros2 component list
    /ComponentManager
 
 In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
@@ -256,16 +256,16 @@ The command will return the unique ID of the loaded component as well as the nod
 
 .. code-block:: bash
 
-   $ ros2 component load /ComponentManager composition composition::Talker
+   ros2 component load /ComponentManager composition composition::Talker
    Loaded component 1 into '/ComponentManager' container node as '/talker'
-   $ ros2 component load /ComponentManager composition composition::Listener
+   ros2 component load /ComponentManager composition composition::Listener
    Loaded component 2 into '/ComponentManager' container node as '/listener'
 
 Use the unique ID to unload the node from the component container.
 
 .. code-block:: bash
 
-   $ ros2 component unload /ComponentManager 1 2
+   ros2 component unload /ComponentManager 1 2
    Unloaded component 1 from '/ComponentManager' container
    Unloaded component 2 from '/ComponentManager' container
 
@@ -317,7 +317,7 @@ The corresponding entries appear in ``ros2 component list``:
 
 .. code-block:: bash
 
-   $ ros2 component list
+   ros2 component list
    /ComponentManager
       1  /talker2
       2  /ns/talker
