@@ -32,7 +32,10 @@ You can try running the program:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 It doesn't do anything interesting...yet.
 
@@ -83,7 +86,10 @@ In another terminal, run the action client:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 Tada! You should see messages printed by the action server as it successfully executes the goal.
 
@@ -167,6 +173,9 @@ With an action server running in a separate terminal, go ahead and try running o
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 You should see logged messages for the goal being accepted, feedback, and the final result.

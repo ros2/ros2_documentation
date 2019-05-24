@@ -51,7 +51,10 @@ Let's try running our action server:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_server.py
+    # Windows
+    python fibonacci_action_server.py
 
 In another terminal, we can use the command line interface to send a goal:
 
