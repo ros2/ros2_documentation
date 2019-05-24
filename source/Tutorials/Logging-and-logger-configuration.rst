@@ -120,3 +120,33 @@ For example, to additionally get the timestamp and location of the log calls, st
 
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
 *The ``time`` option is only supported as of the ROS 2 Bouncy release.*
+
+Console output colorizing
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, the output is colorized when it's targeting a terminal. If you would like to force enabling or disabling it, you can use the `RCUTILS_COLORIZED_OUTPUT` environment variable. For example:
+
+.. code-block:: bash
+
+   export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
+   # Or, on Windows:
+   # set "RCUTILS_COLORIZED_OUTPUT=0"
+   ros2 run logging_demo logging_demo_main
+
+You should see that debug, warn, error and fatal logs aren't colorized now.
+
+Note: In Linux/macOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it. In windows, it's not useful.
+
+Console output line buffered
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+By default, info and debug log calls aren't line buffered. You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable. For example:
+
+.. code-block:: bash
+
+   export RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1
+   # Or, on Windows:
+   # set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
+   ros2 run logging_demo logging_demo_main
+
+The output should look as before.
