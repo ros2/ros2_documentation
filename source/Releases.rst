@@ -21,7 +21,8 @@ List of Distributions
    <style>
      .distros td {border: 0px;}
      .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2) {background-color: #33cc66;}
+     .distros tbody tr:nth-child(1) {background-color: #77ccff;}
+     .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
      .distros td {vertical-align: middle;}
    </style>
 
@@ -43,6 +44,10 @@ List of Distributions
      - Release date
      - Logo
      - EOL date
+   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+     - Prerelease. Coming May 2019
+     - TBA
+     - May 2021
    * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - December 14th, 2018
      - |crystal|
