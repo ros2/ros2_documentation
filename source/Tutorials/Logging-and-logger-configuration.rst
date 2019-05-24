@@ -137,7 +137,7 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 
 Note: In Linux/macOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it. In windows, it's not useful.
 
-Console output line buffered
+Line buffered console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, info and debug log calls aren't line buffered. You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable. For example:
