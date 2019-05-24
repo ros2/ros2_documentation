@@ -115,15 +115,9 @@ Install additional DDS implementations (optional)
 ROS 2 builds on top of DDS.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 
-*For ROS 2 Bouncy and newer:*
-
 The package you downloaded has been built with *optional* support for three vendors.
 Run-time support for eProsima's Fast RTPS is included bundled by default.
 If you would like to use one of the other vendors you will need to install their software separately.
-
-*For ROS 2 Ardent and older:*
-
-If you downloaded a package that includes support for OpenSplice, you must install OpenSplice as detailed below.
 
 Enable OpenSplice support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
