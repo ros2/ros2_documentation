@@ -45,7 +45,7 @@ List of Distributions
      - Logo
      - EOL date
    * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
-     - Prerelease. Coming May 2019
+     - May 31st, 2019
      - TBA
      - May 2021
    * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
@@ -106,10 +106,6 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
-     - May 31st, 2019
-     - 2 years
-     -
    * - <E-turtle>
      - November 22nd, 2019
      - 1 year
