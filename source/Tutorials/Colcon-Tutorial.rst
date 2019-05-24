@@ -25,13 +25,6 @@ The source code can be found in the `colcon GitHub organization <https://github.
 Prerequisites
 -------------
 
-Install ROS 2
-^^^^^^^^^^^^^
-
-Make sure that you have installed ROS 2 following the `installation instructions <../Installation>`.
-
-.. attention:: If installing from Debian packages, this tutorial requires the "Desktop installation".
-
 Install colcon
 ^^^^^^^^^^^^^^
 
@@ -55,6 +48,16 @@ Windows
 .. code-block:: bash
 
     pip install -U colcon-common-extensions
+
+
+Install ROS 2
+^^^^^^^^^^^^^
+
+To build the samples, you will need to install ROS2
+
+Follow the `installation instructions <../Installation>`.
+
+.. attention:: If installing from Debian packages, this tutorial requires the "Desktop installation".
 
 Basics
 ------
