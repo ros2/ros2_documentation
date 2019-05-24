@@ -57,6 +57,9 @@ You need the following things installed before installing ROS 2.
        # install Qt for RViz
        brew install qt freetype assimp
 
+       # install console_bridge for rosbag2
+       brew install console_bridge
+
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
