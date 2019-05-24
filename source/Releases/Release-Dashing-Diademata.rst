@@ -58,21 +58,55 @@ Declaring Parameters
 There have been some changes to the behavior of parameters starting in Dashing, which have also lead to some new API's and the deprecation of other API's.
 See the ``rclcpp`` and ``rclpy`` sections below for more information about API changes.
 
-Getting and Setting Undeclared Parameters
-"""""""""""""""""""""""""""""""""""""""""
+Behavior Changes for Parameters in Dashing
+""""""""""""""""""""""""""""""""""""""""""
 
-As of Dashing, parameters now need to be declared before being accessed or set.
+As of Dashing, two major behavior changes related to parameters have happened:
 
-Before Dashing, you could call ``get_parameter(name)`` and get either a value, if it had been previously set, or a parameter of type ``PARAMETER_NOT_SET``.
+- parameters now need to be declared with ``declare_parameter()`` before getting or setting them, and
+- parameters values given via a YAML file are not automatically made part of the node.
+
+----
+
+Before Dashing, you could call ``get_parameter(name)`` and get either a value, if it had been previously set, or an "empty" parameter of type ``PARAMETER_NOT_SET``.
 You could also call ``set_parameter(name, value)`` at any point, even if the parameter was previously unset.
 
-Since Dashing, you need to first declare a parameter before getting or setting it.
+Since Dashing, you need to first declare a parameter with one of the ``declare_parameter()`` signatures before you get or set that parameter.
 If you try to get or set an undeclared parameter you will either get an exception thrown, e.g. ParameterNotDeclaredException, or in certain cases you will get an unsuccessful result communicated in a variety of ways (see specific functions for more details).
 
-However, you can get the old behavior by using the ``allow_undeclared_parameters`` option when creating your node.
+----
+
+Also, before Dashing, you could pass any number of parameters in a YAML file to a node via the command-line and those parameters would appear in the node.
+For example, we had a tutorial in Crystal where you could run the demo node ``talker``, which did not interact with parameters at all in its source code, and pass it a YAML file will parameters in it.
+Then while it was running you could use ``ros2 param list /talker`` to see those parameters from the YAML file (again even though the code in ``talker`` itself never accessed them or set them explicitly).
+
+Since Dashing, parameters in the YAML file will not appear in the node (e.g. if you use ``ros2 param list`` to look) unless that node explicitly declares those parameters.
+Since Dashing, the values in the YAML file are only used as overrides for the default value, if and only if the node declares that it has that parameter in its code.
+
+----
+
+We recommend that you update your code to always use ``declare_parameter()``, as this prevents nodes from having parameters on them which are never used, and it sets your code up to use parameter descriptors, as described in `Declaring a Parameter with a ParameterDescriptor`_ below.
+
+However, you can get the old behavior (for both points above) by using the ``allow_undeclared_parameters`` option when creating your node.
+Setting this option to ``true`` will make it so that ``get_parameter`` and ``set_parameter`` like methods will not throw exceptions if the parameter has not been previously declared and it will automatically add parameters from the YAML file to your node.
+
 You might want to do this in order to avoid code changes for now, or in order to fulfill some uncommon use cases.
+
 For example, a "global parameter server" or "parameter blackboard" may want to allow external nodes to set new parameters on itself without first declaring them, so it may use the ``allow_undeclared_parameters`` option to accomplish that.
+
 In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
+
+----
+
+If you want a mix between the old and new behaviors, then there is another option called ``automatically_declare_initial_parameters``, which has three possible states: "default", "on", and "off".
+The default setting for this option is "default", which means it will be on if ``allow_undeclared_parameters`` is ``true`` but off otherwise.
+This option gives you explicit control on how parameters in the YAML file are used by the node.
+If "on" (explicitly or implicitly due to "default" and ``allow_undeclared_parameters``), this option will cause the node to automatically declare all of the parameters in the YAML file.
+If "off" (again, explicitly or implicitly), then the parameters in the YAML file will only be used to override the value of the parameter when it is first declared.
+
+For example, to get the behavior where parameters can be accessed or set without explicitly declaring them first, but also that the YAML file does not cause parameters to be added to the node automatically, you could use ``allow_undeclared_parameters = true`` and ``automatically_declare_initial_parameters = "off"``.
+
+As another example, if you wanted to "seed" a node's parameters using a YAML file, but afterwards you didn't want any new parameters to be set without first declaring them, then you could use ``allow_undeclared_parameters = false`` and ``automatically_declare_initial_parameters = "on"``.
 
 Declaring a Parameter with a ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -87,25 +121,6 @@ The ``read_only`` constraint will prevent the parameter's value from changing af
 For reference, here's a link to the ``ParameterDescriptor`` message as of the time of writing this:
 
 https://github.com/ros2/rcl_interfaces/blob/0aba5a142878c2077d7a03977087e7d74d40ee68/rcl_interfaces/msg/ParameterDescriptor.msg#L1
-
-Parameter Configuration using a YAML File
-"""""""""""""""""""""""""""""""""""""""""
-
-As of Dashing, parameters in a YAML configuration file, e.g. passed to the node via the command line argument ``__params:=``, are only used to override a parameter's default value when declaring the parameter.
-
-Before Dashing, any parameters you passed via a YAML file would be implicitly set on the node.
-
-Since Dashing, this is no longer the case, as parameters need to be declared in order to appear on the node to external observers, like ``ros2 param list``.
-
-The old behavior may be achieved using the ``automatically_declare_initial_parameters`` option when creating a node.
-This option, if set to ``true``, will automatically declare all parameters in the input YAML file when the node is constructed.
-This may be used to avoid major changes to your existing code or to serve specific use cases.
-For example, a "global parameter server" may want to be seeded with arbitrary parameters on launch, which it could not have declared ahead of time.
-Most of the time, however, this option is not recommended, as it may lead to setting a parameter in a YAML file with the assumption that the node will use it, even if the node does not actually use it.
-
-In the future we hope to have a checker that will warn you if you pass a parameter to a node that it was not expecting.
-
-The parameters in the YAML file will continue to influence the value of parameters when they are first declared.
 
 ament_cmake
 ^^^^^^^^^^^
