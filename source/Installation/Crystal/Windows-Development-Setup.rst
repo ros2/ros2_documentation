@@ -251,7 +251,9 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test
+   > colcon test --merge-install
+
+Note, ``--merge-install`` should only be used if it was also used in the build step.
 
 Afterwards you can get a summary of the tests using this command:
 

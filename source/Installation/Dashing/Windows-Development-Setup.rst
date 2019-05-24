@@ -101,8 +101,6 @@ Next install cppcheck:
 
    > choco install -y cppcheck
 
-You will need to add ``C:\Program Files\Cppcheck`` to the ``PATH``.
-
 Next install xmllint:
 
 * Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
@@ -222,7 +220,7 @@ Building the ROS 2 Code
 
 .. _windows-dev-build-ros2:
 
-To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64 Native Tools Command Prompt for VS 2017" for bouncy and later or "x64 Native Tools Command Prompt for VS 2015" for ardent and earlier) running as Administrator.
+To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019" for dashing) running as Administrator.
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
@@ -246,7 +244,9 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test
+   > colcon test --merge-install
+
+Note, ``--merge-install`` should only be used if it was also used in the build step.
 
 Afterwards you can get a summary of the tests using this command:
 
