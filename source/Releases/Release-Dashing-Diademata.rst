@@ -445,6 +445,15 @@ There were also several deprecated methods:
     void
     rclcpp::Node::register_param_change_callback(CallbackT && callback);
 
+Memory Strategy
+"""""""""""""""
+
+The interface ``rclcpp::memory_strategy::MemoryStrategy`` was using the typedef ``WeakNodeVector`` in various method signatures.
+As of Dashing the typedef has been been changed to ``WeakNodeList`` and with it the type of the parameter in various methods.
+Any custom memory strategy needs to be updated to match the modified interface.
+
+The relevant API change can be found in `ros2/rclcpp#741 <https://github.com/ros2/rclcpp/pull/741>`__.
+
 rclcpp_components
 ^^^^^^^^^^^^^^^^^
 
