@@ -51,7 +51,10 @@ Let's try running our action server:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_server.py
+    # Windows
+    python fibonacci_action_server.py
 
 In another terminal, we can use the command line interface to send a goal:
 
@@ -82,7 +85,8 @@ Alright, let's make our goal execution actually compute and return the requested
 
 After computing the sequence, we assign it to the result message field before returning.
 
-Again restarting the action server and send another goal, you should see the goal finished, this time with the proper result sequence.
+Again, restart the action server and send another goal.
+You should see the goal finish with the proper result sequence.
 
 Publishing Feedback
 -------------------

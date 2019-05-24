@@ -25,14 +25,17 @@ The class is initialized by calling the ``Node`` constructor, naming our node "f
     :language: python
     :lines: 11
 
-After the class defintion, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
+After the class definition, we define a function ``main()`` that initializes ROS and creates an instance of our ``FibonacciActionClient`` node.
 Finally, we call ``main()`` in the entry point of our Python program.
 
 You can try running the program:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 It doesn't do anything interesting...yet.
 
@@ -83,7 +86,10 @@ In another terminal, run the action client:
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 Tada! You should see messages printed by the action server as it successfully executes the goal.
 
@@ -93,7 +99,7 @@ Getting Feedback
 Our action client can send goals.
 Nice!
 But it would be great if we could get some feedback about the goals we send from the action server.
-Easy, let's write a callback function for feedback messsages:
+Easy, let's write a callback function for feedback messages:
 
 .. literalinclude:: client_1.py
     :language: python
@@ -167,6 +173,9 @@ With an action server running in a separate terminal, go ahead and try running o
 
 .. code-block:: bash
 
+    # Linux/OSX
     python3 fibonacci_action_client.py
+    # Windows
+    python fibonacci_action_client.py
 
 You should see logged messages for the goal being accepted, feedback, and the final result.
