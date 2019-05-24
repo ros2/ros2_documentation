@@ -82,7 +82,8 @@ Alright, let's make our goal execution actually compute and return the requested
 
 After computing the sequence, we assign it to the result message field before returning.
 
-Again restarting the action server and send another goal, you should see the goal finished, this time with the proper result sequence.
+Again, restart the action server and send another goal.
+You should see the goal finish with the proper result sequence.
 
 Publishing Feedback
 -------------------
