@@ -75,6 +75,7 @@ You need the following things installed before installing ROS 2.
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
   ``brew install graphviz``
+
   ``python3 -m pip install pygraphviz pydot``
 
 *
