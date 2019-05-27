@@ -153,8 +153,8 @@ The lifecycle listener receives the same set of notifications as before. Lifecyc
 
 .. code-block:: bash
 
-   [lc_listener] notify callback: Transition from state unconfigured to configuring
-   [lc_listener] notify callback: Transition from state configuring to inactive
+   [lc_listener] notify callback: Transition from state inactive to activating
+   [lc_listener] notify callback: Transition from state activating to active
 
 The difference to the transition event before is that our listener now also receives the actual published data.
 
