@@ -132,7 +132,9 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
    > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
    : You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64`` instead, but that requires Administrator.
 
-Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -163,9 +165,9 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
    # PowerShell
    > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
 
-..
+.. note::
 
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
 
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
@@ -208,8 +210,10 @@ Then before building ROS 2, set up the Connext environment:
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
-The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
+.. note::
+
+   This path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
+   The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
@@ -220,7 +224,7 @@ Building the ROS 2 Code
 
 .. _windows-dev-build-ros2:
 
-To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019" for dashing) running as Administrator.
+To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019") running as Administrator.
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
@@ -230,10 +234,14 @@ To build the ``\dev\ros2`` folder tree:
 
    > colcon build --merge-install
 
-Note, we're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+.. note::
 
-Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
-See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
+   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+
+.. note::
+
+   If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
+   See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Testing and Running
 -------------------
@@ -246,7 +254,9 @@ You can run the tests using this command:
 
    > colcon test --merge-install
 
-Note, ``--merge-install`` should only be used if it was also used in the build step.
+.. note::
+
+   ``--merge-install`` should only be used if it was also used in the build step.
 
 Afterwards you can get a summary of the tests using this command:
 
@@ -272,7 +282,9 @@ In a separate shell you can do the same, but instead run the ``listener``\ :
 
 For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
 
-Note: it is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+.. note::
+
+   It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
 Alternative DDS Sources
 -----------------------

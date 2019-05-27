@@ -237,7 +237,9 @@ To build the ``\dev\ros2`` folder tree:
 
    > colcon build --merge-install
 
-Note, we're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+.. note::
+
+   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
 
 Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
 See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
