@@ -125,7 +125,7 @@ Console output colorizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the output is colorized when it's targeting a terminal.
-If you would like to force enabling or disabling it, you can use the `RCUTILS_COLORIZED_OUTPUT` environment variable.
+If you would like to force enabling or disabling it, you can use the ``RCUTILS_COLORIZED_OUTPUT`` environment variable.
 For example:
 
 .. code-block:: bash
