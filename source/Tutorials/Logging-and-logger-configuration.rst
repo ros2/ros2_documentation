@@ -124,7 +124,9 @@ You should see the timestamp in seconds and the function name, filename and line
 Console output colorizing
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, the output is colorized when it's targeting a terminal. If you would like to force enabling or disabling it, you can use the `RCUTILS_COLORIZED_OUTPUT` environment variable. For example:
+By default, the output is colorized when it's targeting a terminal.
+If you would like to force enabling or disabling it, you can use the `RCUTILS_COLORIZED_OUTPUT` environment variable.
+For example:
 
 .. code-block:: bash
 
@@ -135,12 +137,17 @@ By default, the output is colorized when it's targeting a terminal. If you would
 
 You should see that debug, warn, error and fatal logs aren't colorized now.
 
-Note: In Linux/macOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it. In windows, it's not useful.
+.. note::
+
+   In Linux/macOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it.
+   In windows, it's not useful.
 
 Line buffered console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, info and debug log calls aren't line buffered. You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable. For example:
+By default, info and debug log calls aren't line buffered.
+You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable.
+For example:
 
 .. code-block:: bash
 
