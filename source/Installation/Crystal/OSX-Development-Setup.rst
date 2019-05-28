@@ -274,7 +274,7 @@ Qt build errors
 
            "/usr/local/.//mkspecs/macx-clang"
 
-        but this file does not exist.  Possible reasons include:
+        but this file does not exist. Possible reasons include:
 
         * The file was deleted, renamed, or moved to another location.
 
