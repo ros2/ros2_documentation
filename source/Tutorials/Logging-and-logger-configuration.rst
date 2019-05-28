@@ -55,7 +55,7 @@ Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The server that responds to the logger configuration requests has been developed as a component so that it may be added to an existing composition-based system.
-For example, if you are using `a container to run your nodes <composition-using-components>`_, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
+For example, if you are using `a container to run your nodes <Composition>`, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
 
 As an example, if you want to debug the ``composition::Talker`` demo, you can start the talker as normal with:
 
