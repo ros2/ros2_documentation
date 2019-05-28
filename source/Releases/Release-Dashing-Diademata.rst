@@ -75,7 +75,7 @@ For example, a "global parameter server" or "parameter blackboard" may want to a
 In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
 
 Note that using ``allow_undeclared_parameters`` will get you most of the old behavior specifically for "get" and "set" methods, but it will not revert all the behavior changes related to parameters back to how it was for ROS Crystal.
-For that you need to also set the ``automatically_declare_initial_parameters`` option to ``true``, which is described below in :ref:`Parameter Configuration using a YAML File <parameter-configuration-using-a-yaml-file>`.
+For that you need to also set the ``automatically_declare_parameters_from_overrides`` option to ``true``, which is described below in :ref:`Parameter Configuration using a YAML File <parameter-configuration-using-a-yaml-file>`.
 
 Declaring a Parameter with a ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -102,7 +102,7 @@ Before Dashing, any parameters you passed via a YAML file would be implicitly se
 
 Since Dashing, this is no longer the case, as parameters need to be declared in order to appear on the node to external observers, like ``ros2 param list``.
 
-The old behavior may be achieved using the ``automatically_declare_initial_parameters`` option when creating a node.
+The old behavior may be achieved using the ``automatically_declare_parameters_from_overrides`` option when creating a node.
 This option, if set to ``true``, will automatically declare all parameters in the input YAML file when the node is constructed.
 This may be used to avoid major changes to your existing code or to serve specific use cases.
 For example, a "global parameter server" may want to be seeded with arbitrary parameters on launch, which it could not have declared ahead of time.
@@ -162,7 +162,7 @@ You need to update to use the ``NodeOptions`` structure
   std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
   rclcpp::NodeOptions node_options;
   node_options.arguments(args);
-  node_options.initial_parameters(params);
+  node_options.parameter_overrides(params);
   auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
 Changes to Creating Publishers and Subscriptions
