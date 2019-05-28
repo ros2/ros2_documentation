@@ -246,20 +246,55 @@ If you are seeing library loading issues at runtime (either running tests or run
 then you probably have System Integrity Protection enabled.
 See "Disable System Integrity Protection (SIP)" above for how instructions on how to disable it.
 
-Qt build errors e.g. ``unknown type name 'Q_ENUM'``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Qt build errors
+^^^^^^^^^^^^^^^
 
-If you see build errors related to Qt, e.g.:
+#. ``unknown type name 'Q_ENUM'``
 
-.. code-block:: bash
+   If you see build errors like:
 
-   In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
-   /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error:
-         unknown type name 'Q_ENUM'
-       Q_ENUM(Action)
-       ^
+   .. code-block:: bash
 
-you may be using qt4 instead of qt5: see https://github.com/ros2/ros2/issues/441
+      In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
+      /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error:
+            unknown type name 'Q_ENUM'
+          Q_ENUM(Action)
+          ^
+
+   you may be using qt4 instead of qt5: see https://github.com/ros2/ros2/issues/441
+
+#. ``"mkspecs/macx-clang" but this file does not exist``
+
+   To fix this error:
+
+   .. code-block:: bash
+
+      CMake Error at /usr/local/lib/cmake/Qt5Core/Qt5CoreConfig.cmake:15 (message):
+        The imported target "Qt5::Core" references the file
+
+           "/usr/local/.//mkspecs/macx-clang"
+
+        but this file does not exist. Possible reasons include:
+
+        * The file was deleted, renamed, or moved to another location.
+
+        * An install or uninstall procedure did not complete successfully.
+
+        * The installation package was faulty and contained
+
+           "/usr/local/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake"
+
+        but not all the files it references.
+
+   link ``mkspecs`` and ``plugins`` folders to ``/usr/local/``:
+
+   .. code-block:: bash
+
+      export HOMEBREW_QT5_VERSION=5.12.3 # Specify appropriate Qt5 version here
+      sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs
+      sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/plugins /usr/local/plugins
+
+   If you are on a previous version of Homebrew, the ``qt`` formula could still be called ``qt5``, so make corresponding changes to the paths above.
 
 Missing symbol when opencv (and therefore libjpeg, libtiff, and libpng) are installed with Homebrew
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
