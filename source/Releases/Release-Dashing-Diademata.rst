@@ -69,10 +69,13 @@ You could also call ``set_parameter(name, value)`` at any point, even if the par
 Since Dashing, you need to first declare a parameter before getting or setting it.
 If you try to get or set an undeclared parameter you will either get an exception thrown, e.g. ParameterNotDeclaredException, or in certain cases you will get an unsuccessful result communicated in a variety of ways (see specific functions for more details).
 
-However, you can get the old behavior by using the ``allow_undeclared_parameters`` option when creating your node.
+However, you can get the old behavior (mostly, see the note in the next paragraph) by using the ``allow_undeclared_parameters`` option when creating your node.
 You might want to do this in order to avoid code changes for now, or in order to fulfill some uncommon use cases.
 For example, a "global parameter server" or "parameter blackboard" may want to allow external nodes to set new parameters on itself without first declaring them, so it may use the ``allow_undeclared_parameters`` option to accomplish that.
 In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
+
+Note that using ``allow_undeclared_parameters`` will get you most of the old behavior specifically for "get" and "set" methods, but it will not revert all the behavior changes related to parameters back to how it was for ROS Crystal.
+For that you need to also set the ``automatically_declare_initial_parameters`` option to ``true``, which is described below in :ref:`Parameter Configuration using a YAML File <parameter-configuration-using-a-yaml-file>`.
 
 Declaring a Parameter with a ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -87,6 +90,8 @@ The ``read_only`` constraint will prevent the parameter's value from changing af
 For reference, here's a link to the ``ParameterDescriptor`` message as of the time of writing this:
 
 https://github.com/ros2/rcl_interfaces/blob/0aba5a142878c2077d7a03977087e7d74d40ee68/rcl_interfaces/msg/ParameterDescriptor.msg#L1
+
+.. _parameter-configuration-using-a-yaml-file:
 
 Parameter Configuration using a YAML File
 """""""""""""""""""""""""""""""""""""""""
