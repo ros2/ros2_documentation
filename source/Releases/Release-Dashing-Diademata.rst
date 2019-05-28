@@ -75,7 +75,7 @@ For example, a "global parameter server" or "parameter blackboard" may want to a
 In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
 
 Note that using ``allow_undeclared_parameters`` will get you most of the old behavior specifically for "get" and "set" methods, but it will not revert all the behavior changes related to parameters back to how it was for ROS Crystal.
-For that you need to also set the ``automatically_declare_initial_parameters`` option to ``true``, which is described below in `Parameter Configuration using a YAML File`_.
+For that you need to also set the ``automatically_declare_initial_parameters`` option to ``true``, which is described below in :ref:`Parameter Configuration using a YAML File <parameter-configuration-using-a-yaml-file>`.
 
 Declaring a Parameter with a ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -90,6 +90,8 @@ The ``read_only`` constraint will prevent the parameter's value from changing af
 For reference, here's a link to the ``ParameterDescriptor`` message as of the time of writing this:
 
 https://github.com/ros2/rcl_interfaces/blob/0aba5a142878c2077d7a03977087e7d74d40ee68/rcl_interfaces/msg/ParameterDescriptor.msg#L1
+
+.. _parameter-configuration-using-a-yaml-file:
 
 Parameter Configuration using a YAML File
 """""""""""""""""""""""""""""""""""""""""
