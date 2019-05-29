@@ -139,8 +139,8 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 
 .. note::
 
-   In Linux/macOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it.
-   In windows, it's not useful.
+   In Linux and MacOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it.
+   In windows, as the colorization method is only supported in a console, if it is forced you could get a new warning saying that colorization failed. The auto behavior already check if the output is a console or not, so forcing it is not recommended.
 
 Line buffered console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,4 +156,4 @@ For example:
    # set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
    ros2 run logging_demo logging_demo_main
 
-The output should look as before.
+The output should look as before. For details about I/O buffering, see `buffering concepts <https://www.gnu.org/software/libc/manual/html_node/Buffering-Concepts.html>`_.
