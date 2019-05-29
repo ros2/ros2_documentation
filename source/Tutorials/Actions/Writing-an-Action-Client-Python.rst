@@ -3,7 +3,7 @@ Writing an Action Client (Python)
 
 In this tutorial, we look at implementing an action client in Python.
 
-Make sure you have satisfied all `prequisites <../Actions>`.
+Make sure you have satisfied all `prerequisites <../Actions>`.
 
 Sending a Goal
 --------------
