@@ -3,7 +3,7 @@ Creating an Action
 
 In this tutorial we look how to define an action in a ROS package.
 
-Make sure you have satisfied all `prequisites <../Actions>`.
+Make sure you have satisfied all `prerequisites <../Actions>`.
 
 Defining an Action
 ------------------
