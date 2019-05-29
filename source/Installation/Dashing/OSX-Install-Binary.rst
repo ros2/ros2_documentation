@@ -78,6 +78,15 @@ You need the following things installed before installing ROS 2.
 
   ``python3 -m pip install pygraphviz pydot``
 
+  .. note::
+
+      You may run into an issue installing ``pygraphviz``, "error: Error locating graphviz".
+      Try the following install command instead:
+
+      .. code-block:: bash
+
+         python3 -m pip install --install-option="--include-path=/usr/local/include/" --install-option="--library-path=/usr/local/lib/" pygraphviz
+
 *
   Install SROS2 dependencies
 
