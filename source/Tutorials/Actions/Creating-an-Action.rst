@@ -89,6 +89,6 @@ We can check that our action built successfully with the command line tool:
     # On Windows: call install/setup.bat
     . install/setup.bash
     # Check that our action definition exists
-    ros2 action show action_tutorials/Fibonacci
+    ros2 action show action_tutorials/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.

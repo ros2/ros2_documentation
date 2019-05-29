@@ -60,7 +60,7 @@ In another terminal, we can use the command line interface to send a goal:
 
 .. code-block:: bash
 
-    ros2 action send_goal fibonacci action_tutorials/Fibonacci "{order: 5}"
+    ros2 action send_goal fibonacci action_tutorials/action/Fibonacci "{order: 5}"
 
 You should see our logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
@@ -107,4 +107,4 @@ After restarting the action server, we can confirm that feedback is now publishe
 
 .. code-block:: bash
 
-    ros2 action send_goal --feedback fibonacci action_tutorials/Fibonacci "{order: 5}"
+    ros2 action send_goal --feedback fibonacci action_tutorials/action/Fibonacci "{order: 5}"
