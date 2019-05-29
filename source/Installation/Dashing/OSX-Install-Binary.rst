@@ -53,6 +53,8 @@ You need the following things installed before installing ROS 2.
 
        # install OpenSSL for DDS-Security
        brew install openssl
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install Qt for RViz
        brew install qt freetype assimp

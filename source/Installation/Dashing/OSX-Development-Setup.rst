@@ -58,6 +58,11 @@ You need the following things installed to build ROS 2:
        # install console_bridge for rosbag2
        brew install console_bridge
 
+       # install OpenSSL for DDS-Security
+       brew install openssl
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
+
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
