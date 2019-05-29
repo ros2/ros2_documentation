@@ -46,6 +46,12 @@ For example, the following will pass the remapping arguments to the specified no
 
    ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener
 
+The following example will both change the node name and remap a topic (node and namespace changes are applied *before* topic remapping):
+
+.. code-block:: bash
+
+   ros2 run composition manual_composition talker:__node:=my_talker my_talker:chatter:=my_topic listener:__node:=my_listener my_listener:chatter:=my_topic
+
 Logger configuration
 --------------------
 
