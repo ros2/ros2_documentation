@@ -13,7 +13,7 @@ This will provide you with a quick summary of how to get up and running using an
 It will be a practical tutorial and is not designed to replace the core documentation.
 
 .. warning::
-   **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the** `colcon tutorial <Colcon-Tutorial/>`__.
+   **As of ROS 2 Bouncy the recommended build tool is ``colcon`` described in the** `colcon tutorial <Colcon-Tutorial>`__.
    The current default branch as well as releases after Bouncy do not include ``ament_tools`` anymore.
 
 Background
