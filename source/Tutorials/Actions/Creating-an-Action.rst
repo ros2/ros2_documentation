@@ -47,12 +47,10 @@ This is accomplished by adding the following lines to our ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
-    find_package(action_msgs REQUIRED)
     find_package(rosidl_default_generators REQUIRED)
 
     rosidl_generate_interfaces(${PROJECT_NAME}
       "action/Fibonacci.action"
-      DEPENDENCIES action_msgs
     )
 
 We should also add the required dependencies to our ``package.xml``:
