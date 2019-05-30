@@ -55,11 +55,11 @@ To run the talker demo using the C++ and listener using python with the RMW impl
 
 .. code-block:: bash
 
-   RMW_IMPLEMENTATION=rmw_connext_cpp
+   export RMW_IMPLEMENTATION=rmw_connext_cpp
    ros2 run demo_nodes_cpp talker
 
    # Run in another terminal
-   RMW_IMPLEMENTATION=rmw_connext_cpp
+   export RMW_IMPLEMENTATION=rmw_connext_cpp
    ros2 run demo_nodes_py listener
 
 *Windows cmd.exe*
