@@ -40,7 +40,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <linux-install-debians-setup-sources>`.
+First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <Dashing_linux-install-debians-setup-sources>`.
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

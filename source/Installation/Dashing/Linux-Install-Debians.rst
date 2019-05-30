@@ -69,7 +69,7 @@ ROS-Base Install (Bare Bones): Communication libraries, message packages, comman
 
    sudo apt install ros-dashing-ros-base
 
-See specific sections below for how to also install the :ref:`ros1_bridge <linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <linux-install-additional-rmw-implementations>`.
+See specific sections below for how to also install the :ref:`ros1_bridge <Dashing_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Dashing_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Dashing_linux-install-additional-rmw-implementations>`.
 
 Environment setup
 -----------------
