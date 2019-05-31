@@ -42,7 +42,7 @@ A few features and improvements we would like to highlight:
 * Support for Deadline, Lifespan & Liveliness quality of service settings.
 * MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
 
-Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub which contains more informations as well as references specific tickets with more details.
+Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub, which contains more information as well as references to specific tickets with additional details.
 
 
 Changes since the Crystal release
