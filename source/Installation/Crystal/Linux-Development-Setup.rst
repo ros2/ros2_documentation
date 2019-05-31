@@ -23,6 +23,7 @@ Tier 3 platforms (not actively tested or supported) include:
 - Debian Linux - Stretch (9)
 - Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
+- OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
 ------------
