@@ -741,7 +741,7 @@ None yet.
 Timeline before the release
 ---------------------------
 
-A few milestone leading up to the release:
+A few milestones leading up to the release:
 
     Mon. Apr 8th (alpha)
         First releases of core packages available.
