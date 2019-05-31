@@ -21,10 +21,12 @@ List of Distributions
    <style>
      .distros td {border: 0px;}
      .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1) {background-color: #77ccff;}
-     .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
+     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
      .distros td {vertical-align: middle;}
    </style>
+
+.. |dashing| image:: Releases/dashing-small.png
+   :alt: Dashing logo
 
 .. |crystal| image:: Releases/crystal-small.png
    :alt: Crystal logo
@@ -46,7 +48,7 @@ List of Distributions
      - EOL date
    * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - May 31st, 2019
-     - TBA
+     - |dashing|
      - May 2021
    * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - December 14th, 2018
@@ -106,7 +108,7 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - <E-turtle>
+   * - Eloquent Elusor
      - November 22nd, 2019
      - 1 year
      -
