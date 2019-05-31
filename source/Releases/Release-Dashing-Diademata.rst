@@ -32,35 +32,6 @@ New features in this ROS 2 release
 During the development the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
 
-Timeline before the release
----------------------------
-
-A few milestone leading up to the release:
-
-    Mon. Apr 8th (alpha)
-        First releases of core packages available.
-        Testing can happen from now on (some features might not have landed yet).
-
-    Thu. May 2nd
-        API freeze for core packages
-
-    Mon. May 6th (beta)
-        Updated releases of core packages available.
-        Additional testing of the latest features.
-
-    Thu. May 16th
-        Feature freeze.
-        Only bug fix releases should be made after this point.
-        New packages can be released independently.
-
-    Mon. May 20th (release candidate)
-        Updated releases of core packages available.
-
-    Wed. May 29th
-        Freeze rosdistro.
-        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
-
-
 Changes since the Crystal release
 ---------------------------------
 
@@ -765,3 +736,32 @@ Known Issues
 ------------
 
 None yet.
+
+
+Timeline before the release
+---------------------------
+
+A few milestone leading up to the release:
+
+    Mon. Apr 8th (alpha)
+        First releases of core packages available.
+        Testing can happen from now on (some features might not have landed yet).
+
+    Thu. May 2nd
+        API freeze for core packages
+
+    Mon. May 6th (beta)
+        Updated releases of core packages available.
+        Additional testing of the latest features.
+
+    Thu. May 16th
+        Feature freeze.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. May 20th (release candidate)
+        Updated releases of core packages available.
+
+    Wed. May 29th
+        Freeze rosdistro.
+        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
