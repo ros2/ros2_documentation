@@ -202,7 +202,14 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext, you will need to first visit the RTI website and obtain a license (evaluation or purchased) for RTI Connext DDS as well as the installer via their `downloads page <https://www.rti.com/downloads>`__.
+RTI Connext 5.3 it's not more available for download, except you have a support subscription from them.
+In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
+
+.. note::
+
+   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't curretly supporting that version.
+
+You will also need a license in order to be able to use it.
 After installing, use the RTI Launcher to load your license file.
 Then before building ROS 2, set up the Connext environment:
 

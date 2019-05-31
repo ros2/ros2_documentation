@@ -143,9 +143,15 @@ For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext you will need to have obtained a license from RTI.
+RTI Connext 5.3 it's not more available for download, except you have a support subscription from them.
 
-You can install the OS X package of Connext version 5.3.1 provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
+In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
+
+.. note::
+
+   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't curretly supporting that version.
+
+You will also need a license in order to be able to use it.
 
 After installing, run RTI launcher and point it to your license file.
 
