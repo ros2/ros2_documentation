@@ -762,7 +762,9 @@ rviz
 Known Issues
 ------------
 
-None yet.
+* `[ros2/rclcpp#715] <https://github.com/ros2/rclcpp/issues/715>`_ There is an inconsistency in the way that parameter YAML files are loaded between standalone ROS2 nodes and composed ROS2 nodes.
+  Currently available workarounds are noted in an `issue comment <https://github.com/ros2/rclcpp/issues/715#issuecomment-497392626>`_
+* `[ros2/rclpy#360] <https://github.com/ros2/rclpy/issues/360>`_ rclpy nodes ignore ``ctrl-c`` when using Opensplice on Windows.
 
 
 Timeline before the release
