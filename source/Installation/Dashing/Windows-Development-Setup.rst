@@ -202,7 +202,7 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-RTI Connext 5.3 it's not more available for download, except you have a support subscription from them.
+RTI Connext 5.3 is not available for download unless you have a support subscription from them.
 In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
 
 .. note::
