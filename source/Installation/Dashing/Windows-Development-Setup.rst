@@ -332,6 +332,13 @@ This will also cause the build of packages which need to use patch to fail, even
 
 The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator. On some machines canceling the prompt without selecting "Yes" will also work.
 
+Failed to load FastRTPS shared library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
+Although it is usually installed by default in Windows 10, we know that some Windows 10 like version don't have it installed by default (e.g.: Windows Server 2019).
+In case you haven't it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
+
 Extra stuff for Debug mode
 --------------------------
 
