@@ -37,7 +37,7 @@ A few features and improvements we would like to highlight:
 * The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
 * Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
 * By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use `.idl` files (beside `.msg` / `.srv` / `.action` files).
-  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte string (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
+  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte strings (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
 * Command line tools related to `actions` and `components`.
 * Support for Deadline, Lifespan & Liveliness quality of service settings.
 * MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
