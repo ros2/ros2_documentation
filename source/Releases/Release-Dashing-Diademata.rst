@@ -29,7 +29,20 @@ For more information about RMW implementations, compiler / interpreter versions,
 New features in this ROS 2 release
 ----------------------------------
 
-During the development the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+A few features and improvements we would like to highlight:
+
+* `Components <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__ are now the recommended way to write your node.
+  They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
+* The `intra-process communication <https://github.com/ros2/ros2_documentation/edit/master/source/Tutorials/Intra-Process-Communication.rst>`__ (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
+* Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
+* By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use `.idl` files (beside `.msg` / `.srv` / `.action` files).
+  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte string (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
+* Command line tools related to `actions` and `components`.
+* Support for Deadline, Lifespan & Liveliness quality of service settings.
+* MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
+
+Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub which contains more informations as well as references specific tickets with more details.
 
 
 Changes since the Crystal release
