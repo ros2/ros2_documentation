@@ -199,9 +199,15 @@ Source the ``release.com`` file provided to set up the environment before buildi
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-To use RTI Connext you will need to have obtained a license from RTI.
+RTI Connext 5.3 it's not more available for download, except you have a support subscription from them.
 
-You can install the OS X package of Connext version 5.3 provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
+In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
+
+.. note::
+
+   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't currently supporting that version.
+
+You will also need a license in order to be able to use it.
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
