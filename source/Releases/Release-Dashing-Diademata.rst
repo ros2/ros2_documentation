@@ -6,7 +6,7 @@ ROS 2 Dashing Diademata (codename 'dashing'; May 31st, 2019)
    :depth: 2
    :local:
 
-*Dashing Diademata* will be the fourth release of ROS 2.
+*Dashing Diademata* is the fourth release of ROS 2.
 
 Supported Platforms
 -------------------
