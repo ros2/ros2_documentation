@@ -32,4 +32,5 @@ We support building ROS 2 from source on the following platforms:
 * `Linux <Dashing/Linux-Development-Setup>`
 * `OS X <Dashing/OSX-Development-Setup>`
 * `Windows <Dashing/Windows-Development-Setup>`
+* `OpenEmbedded / webOS OSE <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 

@@ -32,4 +32,5 @@ We support building ROS 2 from source on the following platforms:
 * `Linux <Crystal/Linux-Development-Setup>`
 * `OS X <Crystal/OSX-Development-Setup>`
 * `Windows <Crystal/Windows-Development-Setup>`
+* `OpenEmbedded / webOS OSE <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
