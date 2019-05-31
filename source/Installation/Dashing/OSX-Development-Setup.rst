@@ -205,7 +205,7 @@ In that case, you can download it after logging in `RTI support page <https://rt
 
 .. note::
 
-   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't curretly supporting that version.
+   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't currently supporting that version.
 
 You will also need a license in order to be able to use it.
 
