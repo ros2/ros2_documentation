@@ -16,12 +16,12 @@ Dashing Diademata is primarily supported on the following platforms:
 Tier 1 platforms:
 
 * Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
+* Mac OS X 10.12 (Sierra)
 * Windows 10 (Visual Studio 2019)
 
 Tier 2 platforms:
 
 * Ubuntu 18.04 (Bionic): ``arm32``
-* Mac OS X 10.12 (Sierra)
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
