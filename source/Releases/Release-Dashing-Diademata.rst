@@ -6,47 +6,43 @@ ROS 2 Dashing Diademata (codename 'dashing'; May 31st, 2019)
    :depth: 2
    :local:
 
-*Dashing Diademata* will be the fourth release of ROS 2.
+*Dashing Diademata* is the fourth release of ROS 2.
 
 Supported Platforms
 -------------------
 
-To be determined.
+Dashing Diademata is primarily supported on the following platforms:
+
+Tier 1 platforms:
+
+* Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019)
+
+Tier 2 platforms:
+
+* Ubuntu 18.04 (Bionic): ``arm32``
+* Mac OS X 10.12 (Sierra)
+
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
 
 New features in this ROS 2 release
 ----------------------------------
 
-During the development the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+A few features and improvements we would like to highlight:
 
+* `Components <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__ are now the recommended way to write your node.
+  They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
+* The `intra-process communication <https://github.com/ros2/ros2_documentation/edit/master/source/Tutorials/Intra-Process-Communication.rst>`__ (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
+* Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
+* By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).
+  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte strings (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
+* Command line tools related to ``actions`` and ``components``.
+* Support for Deadline, Lifespan & Liveliness quality of service settings.
+* MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
 
-Timeline before the release
----------------------------
-
-A few milestone leading up to the release:
-
-    Mon. Apr 8th (alpha)
-        First releases of core packages available.
-        Testing can happen from now on (some features might not have landed yet).
-
-    Thu. May 2nd
-        API freeze for core packages
-
-    Mon. May 6th (beta)
-        Updated releases of core packages available.
-        Additional testing of the latest features.
-
-    Thu. May 16th
-        Feature freeze.
-        Only bug fix releases should be made after this point.
-        New packages can be released independently.
-
-    Mon. May 20th (release candidate)
-        Updated releases of core packages available.
-
-    Wed. May 29th
-        Freeze rosdistro.
-        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
+Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub, which contains more information as well as references to specific tickets with additional details.
 
 
 Changes since the Crystal release
@@ -767,3 +763,32 @@ Known Issues
 ------------
 
 None yet.
+
+
+Timeline before the release
+---------------------------
+
+A few milestones leading up to the release:
+
+    Mon. Apr 8th (alpha)
+        First releases of core packages available.
+        Testing can happen from now on (some features might not have landed yet).
+
+    Thu. May 2nd
+        API freeze for core packages
+
+    Mon. May 6th (beta)
+        Updated releases of core packages available.
+        Additional testing of the latest features.
+
+    Thu. May 16th
+        Feature freeze.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. May 20th (release candidate)
+        Updated releases of core packages available.
+
+    Wed. May 29th
+        Freeze rosdistro.
+        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
