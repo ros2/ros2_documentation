@@ -23,6 +23,11 @@ Tier 2 platforms:
 * Ubuntu 18.04 (Bionic): ``arm32``
 * Mac OS X 10.12 (Sierra)
 
+Tier 3 platforms:
+
+* Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
+* OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
+
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
 
