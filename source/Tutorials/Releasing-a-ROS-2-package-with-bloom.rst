@@ -17,18 +17,8 @@ This page describes how to prepare a repository for release on the public ROS 2 
 Required Tools
 --------------
 
-For ROS 2 Bouncy:
-
-
-* ``bloom`` >= 0.6.6
-* ``catkin_pkg`` >= 0.4.5
-
-for ROS 2 Crystal:
-
-
-* ``bloom`` >= 0.6.9
-* ``catkin_pkg`` >= 0.4.5
-
+* ``bloom`` >= 0.8.0
+* ``catkin_pkg`` >= 0.4.10
 
 Ensure that you have the latest version of bloom and catkin_pkg
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
