@@ -16,9 +16,13 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
+
 import itertools
+import os
+
 from docutils.parsers.rst import Directive
+
+from recommonmark.transform import AutoStructify
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -66,7 +70,10 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx']
+extensions = [
+    'sphinx.ext.intersphinx',
+    'recommonmark',
+]
 
 # Intersphinx mapping
 
@@ -182,9 +189,14 @@ class RedirectFrom(Directive):
 def make_router(origin, destination):
     def _missing_reference(app, env, node, contnode):
         from docutils import nodes
-        from docutils.utils import relative_path
         from sphinx.util import docname_join
 
+        if 'refdoc' not in node:
+            # The case came up in a few of the Markdown examples.
+            # Returning None here will cause the event handling to continue
+            # when you use:
+            #   http://www.sphinx-doc.org/en/master/extdev/appapi.html#sphinx.application.Sphinx.emit_firstresult
+            return None
         doctarget = docname_join(node['refdoc'], node['reftarget'])
         if doctarget.startswith(origin):
             routed_doctarget = doctarget.replace(origin, destination)
@@ -204,3 +216,4 @@ def setup(app):
     app.connect('missing-reference', make_router(
         'Installation', 'Installation/Crystal'
     ))
+    app.add_transform(AutoStructify)
