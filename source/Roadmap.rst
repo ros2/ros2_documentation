@@ -23,8 +23,7 @@ Design / Concept
 
 * IDL format: using IDL 4.2 to specify ROS interfaces (msgs, srvs, actions)
 
-  * Support for non-ASCII strings in messages / services
-  * Leverage new features like grouping and various annotations (comments, units)
+  * Leverage new features like grouping constants into enums
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
 
 * Progress on migration plan
@@ -57,19 +56,16 @@ New features
 The trailing stars indicate the rough effort: 1 star for small, 2 stars for medium, 3 stars for large.
 
 
-* Actions in Python
-
 * Logging improvements [\* / \*\*]
 
+  * Revisit log4cxx
   * Configuration specified in a file
   * C++ stream operators
-  * Colorize console output
 
 * Parameters
 
   * set individual parameters via command line arguments (instead of passing a yaml file)
-  * Specify the value range
-  * Define read-only parameters
+  * enforce type
 
 * Additional Graph API features [\*\* / \*\*\*]
 
@@ -122,11 +118,9 @@ Port of existing ROS 1 functionality
 * Perception metapackage
 
   * Image pipeline
-  * Improvements to the intra process comm. to reduce latency / overhead
 
 * MoveIt
 
-  * Needs Actions
   * Moveit Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
 
 * RQt
@@ -142,7 +136,6 @@ Reducing Technical Debt
 
   * Waitset inconsistency
   * Multi-threading problems with components
-  * Reduce overhead / latency of intra-process communication
 
 * Fix flaky tests.
 * Ability to run (all) unit tests with tools e.g. valgrind
