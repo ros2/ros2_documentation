@@ -29,6 +29,7 @@ Design / Concept
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants
 * Uniqueness of node names
+* optional XML or YAML frontend for Python-based launch
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
