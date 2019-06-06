@@ -66,6 +66,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Parameters
 
   * set individual parameters via command line arguments (instead of passing a yaml file)
+  * enforce type
 
 * Additional Graph API features [\*\* / \*\*\*]
 
