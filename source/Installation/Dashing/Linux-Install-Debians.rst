@@ -133,7 +133,7 @@ This will also avoid the need to setup the ROS sources as they will already be i
 
 Now you can install the remaining packages:
 
-. code-block:: bash
+.. code-block:: bash
 
    sudo apt update
    sudo apt install ros-dashing-ros1-bridge
