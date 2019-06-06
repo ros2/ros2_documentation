@@ -61,7 +61,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * Revisit log4cxx
   * Configuration specified in a file
   * C++ stream operators
-  * Colorize console output
 
 * Parameters
 
