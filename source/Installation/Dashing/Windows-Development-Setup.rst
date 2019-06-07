@@ -243,7 +243,8 @@ To build the ``\dev\ros2`` folder tree:
 
 .. note::
 
-   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build.
+   If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
 
 .. note::
 
@@ -321,7 +322,10 @@ You may see path length limit errors when building your own libraries, or maybe 
 
 Run ``regedit.exe``, navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``, and set ``LongPathsEnabled`` to 0x00000001 (1).
 
-Hit the windows key and type ``Edit Group Policy``. Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem. Right click ``Enable Win32 long paths``, click Edit. In the dialog, select Enabled and click OK.
+Hit the windows key and type ``Edit Group Policy``.
+Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem.
+Right click ``Enable Win32 long paths``, click Edit.
+In the dialog, select Enabled and click OK.
 
 Close and open your terminal to reset the environment and try building again.
 
@@ -337,7 +341,8 @@ patch.exe Opens a New Command Window and Asks for Administrator
 
 This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
 
-The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator. On some machines canceling the prompt without selecting "Yes" will also work.
+The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator.
+On some machines canceling the prompt without selecting "Yes" will also work.
 
 Failed to load FastRTPS shared library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

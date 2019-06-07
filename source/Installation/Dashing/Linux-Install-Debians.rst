@@ -63,7 +63,8 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
    sudo apt install ros-dashing-desktop
 
-ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools. No GUI tools.
+ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
+No GUI tools.
 
 .. code-block:: bash
 
@@ -77,7 +78,8 @@ Environment setup
 (optional) Install argcomplete
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 command line tools use argcomplete to autocompletion. So if you want autocompletion, installing argcomplete is necessary.
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
 
 .. code-block:: bash
 
