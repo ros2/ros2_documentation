@@ -1,7 +1,8 @@
 # Contribute
 
-The source files for all the ROS2 documentation are under the /source directory. The sources are in [ReStructuredText](http://docutils.sourceforge.net/rst.html) format (.rst).
-
+The source files for all the ROS2 documentation are under the `/source` directory.
+The sources are in [ReStructuredText](http://docutils.sourceforge.net/rst.html) format (`.rst`).
+You may also use the [Markdown](https://daringfireball.net/projects/markdown/) format (`.md`), though there are some restrictions, see the `source/Contributing/MarkdownExample.md` file for more details.
 
 ## Building documentation locally
 
