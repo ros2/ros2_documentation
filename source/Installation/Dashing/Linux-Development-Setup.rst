@@ -99,7 +99,9 @@ Create a workspace and clone all repos:
 
 .. note::
 
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``.
+   The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do.
+   See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
 
 Install dependencies using rosdep
 ---------------------------------
@@ -121,7 +123,8 @@ The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which i
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-By default we include eProsima's FastRTPS in the workspace and it is the default middleware. Detailed instructions for installing other DDS vendors are provided below.
+By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
+Detailed instructions for installing other DDS vendors are provided below.
 
 PrismTech OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -223,7 +226,8 @@ Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
 On Windows due to limitations of the length of environment variables you should use this option when building workspaces with many (~ >> 100 packages).
 
-Also, if you have already installed ROS2 from Debian make sure that you run the ``build`` command in a fresh environment. You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
+Also, if you have already installed ROS2 from Debian make sure that you run the ``build`` command in a fresh environment.
+You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 
 
 .. code-block:: bash
@@ -293,4 +297,5 @@ Multiple Host Interference
 If you're running multiple instances on the same network you may get interference.
 To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a different integer, the default is zero.
 This will define the DDS domain id for your system.
-Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly. The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
+Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
+The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.

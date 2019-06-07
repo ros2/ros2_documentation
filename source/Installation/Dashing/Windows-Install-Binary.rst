@@ -38,9 +38,12 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*. Don't download the Win32 or Light versions.
+Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*.
+Don't download the Win32 or Light versions.
 
-Run the installer with default parameters. The following commands assume you used the default installation directory:
+Run the installer with default parameters.
+The following commands assume you used the default installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
@@ -128,7 +131,8 @@ You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
-There are a few dependencies not available in the Chocolatey package database. In order to ease the manual installation process, we provide the necessary Chocolatey packages.
+There are a few dependencies not available in the Chocolatey package database.
+In order to ease the manual installation process, we provide the necessary Chocolatey packages.
 
 As some chocolatey packages rely on it, we start by installing CMake
 
