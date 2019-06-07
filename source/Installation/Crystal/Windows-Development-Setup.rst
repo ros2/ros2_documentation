@@ -167,15 +167,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-crystal-20190408/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-crystal-20190408/ros2.repos -o ros2.repos
-
-.. note::
-
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-crystal-20190408`` in the URL above with ``crystal``. The ``release-crystal-20190408`` is preferred by default because it goes through more rigorous testing on release than changes to ``crystal`` do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
-
+   > curl https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
