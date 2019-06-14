@@ -121,7 +121,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
 Working Groups (WGs)
 --------------------
 
-As described in its `charter <https://discourse-cdn-sjc2.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
+As described in its `charter <https://aws1.discourse-cdn.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 The current WGs are (4 as of 2019-04-01):
 
