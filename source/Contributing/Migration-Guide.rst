@@ -61,9 +61,7 @@ In your ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
-   if(NOT WIN32)
-     add_definitions(-std=c++11)
-   endif()
+   set(CMAKE_CXX_STANDARD 11)
 
 
 * Add ``find_package(rosidl_default_generators REQUIRED)``
@@ -767,7 +765,7 @@ explicitly, which we do by adding this line near the top of the file:
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+   set(CMAKE_CXX_STANDARD 11)
 
 Using ``catkin``, we specify the packages we want to build against by passing them
 as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
@@ -836,7 +834,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
    project(talker)
-   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+   set(CMAKE_CXX_STANDARD 11)
    #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
