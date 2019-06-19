@@ -1,6 +1,6 @@
 
-ROS 2 Concepts
-==============
+Concepts
+========
 
 .. toctree::
    :maxdepth: 1
