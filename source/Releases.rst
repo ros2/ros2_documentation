@@ -1,6 +1,6 @@
 
-ROS 2 Distributions
-===================
+Distributions
+=============
 
 What is a Distribution?
 -----------------------
