@@ -4,7 +4,7 @@ Installing University or Evaluation Versions of RTI Connext DDS
 A libraries-only version of RTI Connext DDS 5.3.1 may be installed per the `installation instructions <Linux-Install-Debians>` for 
 Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial license <https://www.rti.com/ncl>`__.
 
-A full-suite installation of RTI Connext DDS is available for many additional platforms, for Universities, evaluation, or purchase.
+A full-suite installation of RTI Connext DDS is available for many additional platforms, for universities, evaluation, or purchase.
 This installation includes diagnostic tools, layered services, and security.  See below for installation details.
 
 .. note::
@@ -15,8 +15,9 @@ This installation includes diagnostic tools, layered services, and security.  Se
 RTI University Program
 ----------------------
 
-University research and classroom users are eligible for a free academic license through the `RTI University Program <https://www.rti.com/free-trial/university-program>`__.
-This includes an extendable full-year license to the unabridged version of Connext DDS Secure, which includes diagnostic tools and layered services.
+University researchers and classroom users may be eligible for a free academic license through the `RTI University Program <https://www.rti.com/free-trial/university-program>`__.
+This includes a one-year (renewable) license to the unabridged version of Connext DDS Secure, which includes diagnostic tools and layered services.
+The university license application can be found `here <https://www.rti.com/free-trial/university-program>`__.
 
 
 RTI Connext DDS Evaluation
