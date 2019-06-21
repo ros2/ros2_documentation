@@ -142,6 +142,8 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 
 .. _linux-ros1-add-pkgs:
 
+`University, purchase or evaluation <Install-Connext-University-Eval>` options are also available for RTI Connext.
+
 Install additional packages using ROS 1 packages
 ------------------------------------------------
 
