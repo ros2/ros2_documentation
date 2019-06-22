@@ -57,11 +57,11 @@ In your ``package.xml``:
 
 In your ``CMakeLists.txt``:
 
-* Start by enabling C++11
+* Start by enabling C++14
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_STANDARD 11)
+   set(CMAKE_CXX_STANDARD 14)
 
 
 * Add ``find_package(rosidl_default_generators REQUIRED)``
@@ -757,15 +757,15 @@ ROS 2 relies on a higher version of CMake:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
 
-ROS 2 relies on the C++11 standard.
-Depending on what compiler you're using, support for C++11 might not be enabled
+ROS 2 relies on the C++14 standard.
+Depending on what compiler you're using, support for C++14 might not be enabled
 by default.
 Using ``gcc`` 5.3 (which is what is used on Ubuntu Xenial), we need to enable it
 explicitly, which we do by adding this line near the top of the file:
 
 .. code-block:: cmake
 
-   set(CMAKE_CXX_STANDARD 11)
+   set(CMAKE_CXX_STANDARD 14)
 
 Using ``catkin``, we specify the packages we want to build against by passing them
 as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
@@ -834,7 +834,7 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
    project(talker)
-   set(CMAKE_CXX_STANDARD 11)
+   set(CMAKE_CXX_STANDARD 14)
    #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
