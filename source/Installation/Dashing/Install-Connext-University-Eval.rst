@@ -1,7 +1,7 @@
 Installing University or Evaluation Versions of RTI Connext DDS
 ===============================================================
 
-A libraries-only version of RTI Connext DDS 5.3.1 may be installed per the `installation instructions <Linux-Install-Debians>` for 
+A libraries-only version of RTI Connext DDS 5.3.1 may be installed per the `installation instructions <Linux-Install-Debians>` for
 Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial license <https://www.rti.com/ncl>`__.
 
 A full-suite installation of RTI Connext DDS is available for many additional platforms, for universities, evaluation, or purchase.
@@ -9,7 +9,7 @@ This installation includes diagnostic tools, layered services, and security.  Se
 
 .. note::
     As of the ROS2 'Dashing' release, the Connext RMW layer in ROS2 is compatible with version 5.3.x of RTI Connext DDS, but not with the most-recent version (6.0.0).
-    
+
     The Connext RMW layer is being modified for 6.0.x compatibility and will be available prior to the next release of ROS2.
 
 RTI University Program

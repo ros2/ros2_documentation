@@ -93,8 +93,8 @@ To use OpenSplice you can install a Debian package built by OSRF.
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <Install-Connext-University-Eval>` 
-or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt respository 
+To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt respository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
 To install the libs-only Debian package:
