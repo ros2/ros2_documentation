@@ -185,19 +185,20 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
-
-To use RTI Connext you will need to have obtained a license from RTI.
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
 
 The default location is ``~/rti_connext_dds-5.3.1``
+
+After installation, run RTI launcher and point it to your license file (obtained from RTI).
+
+Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 

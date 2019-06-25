@@ -201,14 +201,7 @@ Source the ``release.com`` file provided to set up the environment before buildi
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-RTI Connext 5.3 is not available for download unless you have a support subscription from them.
-In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
-
-.. note::
-
-   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't currently supporting that version.
-
-You will also need a license in order to be able to use it.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 

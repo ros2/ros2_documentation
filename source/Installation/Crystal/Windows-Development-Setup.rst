@@ -204,15 +204,17 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext, you will need to first visit the RTI website and obtain a license (evaluation or purchased) for RTI Connext DDS as well as the installer via their `downloads page <https://www.rti.com/downloads>`__.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`.
+
 After installing, use the RTI Launcher to load your license file.
+
 Then before building ROS 2, set up the Connext environment:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
+Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.

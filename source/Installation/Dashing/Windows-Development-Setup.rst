@@ -202,25 +202,18 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-RTI Connext 5.3 is not available for download unless you have a support subscription from them.
-In that case, you can download it after logging in `RTI support page <https://rti.com/support>`__.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
 
-.. note::
-
-   A free trial download of RTI Connext 6.0 is available in RTI website, although we aren't currently supporting that version.
-
-You will also need a license in order to be able to use it.
 After installing, use the RTI Launcher to load your license file.
+
 Then before building ROS 2, set up the Connext environment:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-.. note::
-
-   This path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
-   The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
+Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
+The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
