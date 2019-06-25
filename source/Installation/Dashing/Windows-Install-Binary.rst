@@ -93,7 +93,7 @@ After unpacking, set the ``OSPL_HOME`` environment variable so that it points to
 RTI Connext
 ~~~~~~~~~~~
 
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -103,7 +103,7 @@ Set the ``NDDSHOME`` environment variable:
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
