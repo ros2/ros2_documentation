@@ -329,16 +329,16 @@ ROS client library
 Boost
 ~~~~~
 
-Much of the functionality previously provided by Boost has been integrated into C++11.
+Much of the functionality previously provided by Boost has been integrated into the C++ standard library.
 As such we would like to take advantage of the new core features and avoid the dependency on boost where possible.
 
 Shared Pointers
 """""""""""""""
 
-To switch shared pointers from boost to C++11 replace instances of:
+To switch shared pointers from boost to standard C++ replace instances of:
 
 
-* ``#include <boost/shared_ptr.hpp>`` with ``<memory>``
+* ``#include <boost/shared_ptr.hpp>`` with ``#include <memory>``
 * ``boost::shared_ptr`` with ``std::shared_ptr``
 
 There may also be variants such as ``weak_ptr`` which you want to convert as well.
@@ -545,7 +545,7 @@ Changing C++ library calls
 
 Instead of passing the node's name to the library initialization call, we do
 the initialization, then pass the node name to the creation of the node object
-(we can use the ``auto`` keyword because now we're requiring a C++11 compiler):
+(we can use the ``auto`` keyword because now we're requiring a C++14 compiler):
 
 .. code-block:: cpp
 
