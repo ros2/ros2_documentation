@@ -16,5 +16,5 @@ Then install colcon from pip:
 
    $ pip3 install --upgrade colcon-common-extensions pytest>=3.10
 
-With this done, you can follow the rest of the `instructions <#get-ros-2-code>` to fetch and build ROS2.
+With this done, you can follow the rest of the `instructions <Dashing_linux-dev-get-ros2-code>` to fetch and build ROS2.
 
