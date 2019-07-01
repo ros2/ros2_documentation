@@ -193,10 +193,10 @@ To run tests for the packages we just built, run the following:
 Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
 
-When colcon has completed building successfully the output will be in the ``install`` directory.
-To use the executables and libraries you need to e.g. add the ``install/bin`` directory to your path.
+When colcon has completed building successfully, the output will be in the ``install`` directory.
+Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths.
 colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
-These files will both add the required elements to your path and library paths as well as provide any exported bash or shell commands exported by packages.
+These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
 Linux/OS X
 ~~~~~~~~~~
