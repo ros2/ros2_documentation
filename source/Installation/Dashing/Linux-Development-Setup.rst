@@ -22,8 +22,6 @@ Tier 3 platforms (not actively tested or supported) include:
 System setup
 ------------
 
-.. _Dashing_linux-dev-add-ros2-repo:
-
 Set Locale
 ^^^^^^^^^^
 Make sure to set a locale that supports UTF-8.
