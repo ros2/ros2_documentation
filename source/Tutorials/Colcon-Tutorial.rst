@@ -194,8 +194,9 @@ Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
 
 When colcon has completed building successfully, the output will be in the ``install`` directory.
+Please note that the ``bin`` directory will only be directly beneath the ``install`` directory when the ``--merge-install`` command is used with ``colcon build``.
 To use the executables and libraries, you need to add the ``install/bin`` directory to your path.
-colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.  Please note that the ``bin`` directory will only be directly beneath the ``install`` directory when the ``--merge-install`` command is used with ``colcon build``.
+colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.  
 These files will add both of the required elements to your path and library paths as well as provide any exported bash or shell commands exported by packages.
 
 Linux/OS X
