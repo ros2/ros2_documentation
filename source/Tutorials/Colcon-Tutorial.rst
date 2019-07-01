@@ -2,17 +2,17 @@
 
     Colcon-Tutorial
 
-Using Colcon to build packages
+Using colcon to build packages
 ==============================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This a brief tutorial of how to create and build a ROS workspace with ``colcon``.
+This is a brief tutorial of how to create and build a ROS 2 workspace with ``colcon``.
 It is a practical tutorial and not designed to replace the core documentation.
 
-ROS 2 releases before Bouncy were using ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
+ROS 2 releases before Bouncy used ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
 
 Background
 ----------
