@@ -53,11 +53,11 @@ Windows
 Install ROS 2
 ^^^^^^^^^^^^^
 
-To build the samples, you will need to install ROS2
+To build the samples, you will need to install ROS 2.
 
 Follow the `installation instructions <../Installation>`.
 
-.. attention:: If installing from Debian packages, this tutorial requires the "Desktop installation".
+.. attention:: If installing from Debian packages, this tutorial requires the `desktop installation <Dashing_linux-install-debians-install-ros-2-packages>`.
 
 Basics
 ------

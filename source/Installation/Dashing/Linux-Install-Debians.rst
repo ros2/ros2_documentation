@@ -48,6 +48,8 @@ And then add the repository to your sources list:
 
    sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
 
+.. _Dashing_linux-install-debians-install-ros-2-packages:
+
 Install ROS 2 packages
 ----------------------
 
