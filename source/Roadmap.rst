@@ -105,7 +105,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * security improvements:
 
   * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [\*]
-  * extend access control permission generation to support services [\*]
   * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
   * key storage security (right now, keys are just stored in the filesystem) [\*\*]
   * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]
