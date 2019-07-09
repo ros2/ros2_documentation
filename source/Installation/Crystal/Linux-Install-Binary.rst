@@ -91,20 +91,10 @@ Adlink OpenSplice
 
 To use OpenSplice you can install a Debian package built by OSRF.
 
-Crystal and above:
-
 .. code-block:: bash
 
        sudo apt update && sudo apt install -q -y \
            libopensplice69
-
-Bouncy and earlier:
-
-.. code-block:: bash
-
-       sudo apt update && sudo apt install -q -y \
-           libopensplice69
-
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -119,7 +109,7 @@ To install the libs-only Debian package:
        sudo apt update && sudo apt install -q -y \
            rti-connext-dds-5.3.1
 
-You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
+You will need to accept a license agreement from RTI, and will find an 'rti_license.dat' file in the installation.
 
 Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
 
