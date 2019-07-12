@@ -48,7 +48,7 @@ In short, make sure the jenkins master can ssh into the new node and run docker.
        sudo apt install -y git
        sudo apt install -y openjdk-8-jre-headless
        sudo bash -c 'echo "deb http://repositories.ros.org/ubuntu/testing/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
-       sudo bash -c 'curl --silent http://repositories.ros.org/repos.key |sudo apt-key add -'
+       sudo bash -c 'curl --silent https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc |sudo apt-key add -'
        sudo apt update
        sudo apt install -y python-vcstool
        curl -fsSL https://get.docker.com/ | sh
