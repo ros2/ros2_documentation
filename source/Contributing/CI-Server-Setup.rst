@@ -73,7 +73,7 @@ Install stuff (needed on master and slaves)
    # qemu and vcs are required for ARM builds
    sudo apt install -y qemu-user-static
    sudo bash -c 'echo "deb http://repositories.ros.org/ubuntu/testing/ `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
-   sudo bash -c 'curl --silent http://repositories.ros.org/repos.key |sudo apt-key add -'
+   sudo bash -c 'curl --silent https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc |sudo apt-key add -'
    # Or, on aarch64:
    #sudo apt install docker.io
    sudo apt update
