@@ -8,6 +8,8 @@ Installation
 
    Installation/Crystal
    Installation/Dashing
+   Installation/Install-Connext-Security-Plugins
+   Installation/Install-Connext-University-Eval
 
 ROS 2 Installation Options
 --------------------------

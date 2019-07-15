@@ -122,11 +122,11 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Dashing_linux-ros1-add-pkgs:
 
-`University, purchase or evaluation <Install-Connext-University-Eval>` options are also available for RTI Connext.
+`University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------

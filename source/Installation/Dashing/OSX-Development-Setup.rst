@@ -201,7 +201,7 @@ Source the ``release.com`` file provided to set up the environment before buildi
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
@@ -220,7 +220,7 @@ The setup file and path will depend on your macOS version.
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Dashing_osx-development-setup-troubleshooting:
 

@@ -202,7 +202,7 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 After installing, use the RTI Launcher to load your license file.
 
@@ -215,7 +215,7 @@ Then before building ROS 2, set up the Connext environment:
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
