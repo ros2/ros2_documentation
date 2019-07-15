@@ -20,7 +20,7 @@ The `design document (in review) <https://github.com/ros2/design/pull/163>`__ de
 Example of ROS 2 launch concepts
 --------------------------------
 
-The launch file in `this example <https://github.com/ros2/launch/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py>`__ launches two nodes, one of which is a node with a `managed lifecycle <Managed-Nodes>` (a "lifecycle node").
+The launch file in `this example <https://github.com/ros2/launch_ros/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py>`__ launches two nodes, one of which is a node with a `managed lifecycle <Managed-Nodes>` (a "lifecycle node").
 Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when they transition between states.
 The events can then be acted on through the launch framework, e.g. by emitting other events (such as requesting another state transition, which lifecycle nodes launched through ``launch_ros`` automatically have event handlers for) or triggering other *actions* (e.g. starting another node).
 
