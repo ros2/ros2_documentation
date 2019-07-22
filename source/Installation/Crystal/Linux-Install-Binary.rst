@@ -24,8 +24,7 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-Make sure you have the ROS 2 apt repositories added to your system.
-If not, refer to `the Setup Sources section <linux-install-debians-setup-sources>`, and then return here.
+.. include:: ../Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------

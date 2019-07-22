@@ -16,7 +16,6 @@ Resources
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
-.. _Dashing_linux-install-debians-setup-sources:
 
 Setup Locale
 ------------
@@ -34,19 +33,7 @@ It should be fine if you're using a different UTF-8 supported locale.
 Setup Sources
 -------------
 
-To install the Debian packages you will need to add our Debian repository to your apt sources.
-First you will need to authorize our gpg key with apt like this:
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install curl gnupg2 lsb-release
-   curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-
-And then add the repository to your sources list:
-
-.. code-block:: bash
-
-   sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+.. include:: ../Apt-Repositories.rst
 
 .. _Dashing_linux-install-debians-install-ros-2-packages:
 
