@@ -289,7 +289,7 @@ There are some changes with ROS 1:
 * ``anon`` hasn't an alternative at the moment.
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined with ``arg`` or ``let`` tag.
-* It has not alternative at the moment.
+* ``eval`` has not alternative at the moment.
 * ``dirname`` has the same behaviour as before.
 
 Type inference rules
