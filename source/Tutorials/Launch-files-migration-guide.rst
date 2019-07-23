@@ -252,8 +252,8 @@ There are some changes with ROS 1:
 * There is not ``env`` alternative.
   ``optenv`` has been renamed as ``env``.
 * ``find`` has been replaced with ``find-package``.
-* There is a new ``exec_in_package`` substitution.
-  e.g.: ``$(exec_in_package package_name exec_name)``
+* There is a new ``exec-in-package`` substitution.
+  e.g.: ``$(exec-in-package <package_name> <exec_name>)``
 * There is a new ``find-exec`` substitution.
 * ``anon`` hasn't an alternative at the moment.
 * ``arg`` has been replaced with ``var``.
