@@ -25,7 +25,7 @@ As in `ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__, it allows launching a n
 The following summarize the differences:
 
 * ``pkg`` attribute is now ``package``.
-* ``type`` attribute is now executable.
+* ``type`` attribute is now ``executable``.
 * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
 
 param
