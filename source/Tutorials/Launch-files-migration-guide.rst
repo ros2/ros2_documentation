@@ -14,7 +14,7 @@ Migrating tags from ROS1 to ROS2
 launch
 ^^^^^^
 
-Consider This tag serves the same purpose as its `ROS 1 counterpart <http://wiki.ros.org/roslaunch/XML/launch>`__.
+This tag serves the same purpose as its `ROS 1 counterpart <http://wiki.ros.org/roslaunch/XML/launch>`__.
 It works as the root element of any ROS 2 launch XML file.
 The deprecated attribute isn't available.
 
