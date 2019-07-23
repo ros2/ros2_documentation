@@ -41,7 +41,7 @@ It should be fine if you're using a different UTF-8 supported locale.
 Setup Sources
 -------------
 
-.. include:: ../Apt-Repositories.rst
+.. include:: /_includes/Apt-Repositories.rst
 
 Install ROS 2 packages
 ----------------------

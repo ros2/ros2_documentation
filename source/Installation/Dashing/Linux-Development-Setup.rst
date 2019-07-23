@@ -39,7 +39,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../Apt-Repositories.rst
+.. include:: /_includes/Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
