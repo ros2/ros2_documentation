@@ -1,72 +1,43 @@
-.. redirect-from::
-
-    Launch-filse-migration-guide
-
 Migrating ROS 1 launchfiles
 ===========================
 
 Background
 ----------
 
-A description of the ROS 2 launch system and its python api can be found in `this tutorial<Launch-system>`.
-In this tutorial, will be describe how to write XML launch files, which allow an easy migration from ROS 1.
+A description of the ROS 2 launch system and its Python API can be found in `this tutorial<Launch-system>`.
+In this tutorial, will be described how to write XML launch files, which allow an easy migration from ROS 1.
 
 
 Migrating tags from ROS1 to ROS2
 --------------------------------
 
-In each subsection, we will describe how to get the same behavior in ros 2.
-
 launch
 ^^^^^^
 
-`This tag <http://wiki.ros.org/roslaunch/XML/launch>`__ hasn't been changed.
-It works as the root element of any ROS 2 XML launch file.
+Consider This tag serves the same purpose as its `ROS 1 counterpart <http://wiki.ros.org/roslaunch/XML/launch>`__.
+It works as the root element of any ROS 2 launch XML file.
 The deprecated attribute isn't available.
 
 node
 ^^^^
 
 As in `ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__, it allows launching a new node.
-This table summarize some attribute renaming needed when porting ROS 1 launchfiles to ROS 2.
-If the attribute is not available, it's indicated with ATTNA.
+The following summarize the differences:
 
-.. list-table::
-   :header-rows: 1
-
-   *  - Attribute
-      - ROS 2 equivalent
-   *  - pkg
-      - package
-   *  - type
-      - executable
-   *  - machine
-      - ATTNA: No implementation in current ros 2 launch.
-   *  - respawn
-      - ATTNA: Similar functionality will be available after adding event handlers to the XML format.
-   *  - respawn_delay
-      - ATTNA
-   *  - clear_params
-      - ATTNA: Global parameters are not allowed in ROS 2.
+* ``pkg`` attribute is now ``package``.
+* ``type`` attribute is now executable.
+* The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
 
 param
 ^^^^^
 
-ROS 2 doesn't allow global parameter.
+In ROS 2, there's no global parameters concept.
+Application using global parameters should be refactored.
 This tag can only be used nested in a node tag.
 `ROS 1 reference <http://wiki.ros.org/roslaunch/XML/param>`__.
 
-.. list-table::
-   :header-rows: 1
-
-   *  - type
-      - ATTNA: See type deduction rules below.
-   *  - textfile
-      - ATTNA
-   *  - binfile
-      - executable
-   *  - command
-      - ATTNA
+* There is not ``type`` attribute. See type deduction rules below.
+* The following attributes aren't available: ``textfile``, ``binfile``, ``executable``, ``command``.
 
 Type inference rules
 """"""""""""""""""""
@@ -135,12 +106,12 @@ remap
 ^^^^^
 
 Its usage is the same as in `ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__.
+The only difference, is that it can only be used nested in a ``node`` tag.
 
 machine
 ^^^^^^^
 
 There's not implementation of this feature in ROS 2 at the moment.
-Contributions are welcomed.
 
 include
 ^^^^^^^
@@ -151,11 +122,9 @@ There is some difference from how it worked in ROS 1:
   In ROS 2, they should be nested inside a ``group`` tag for this.
 * ``ns`` attribute is not supported.
   See example of ``push_ros_namespace`` tag for a workaround.
-* ``pass_all_args`` hasn't been implemented.
-  It will be added in the future.
-* ``clear_params`` attribute won't be supported.
 * ``arg`` tags nested in ``include`` tag doesn't support conditionals (``if`` or ``unless``).
 * There is not support of ``env`` child tags. ``set_env`` and ``unset_env`` can be used as a workaround.
+* ``clear_params``, ``pass_all_args`` attributes aren't supported.
 
 arg
 ^^^
