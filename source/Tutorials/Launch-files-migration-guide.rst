@@ -1,11 +1,16 @@
-Migrating ROS 1 launchfiles
-===========================
+Migration of launch files from ROS 1 to ROS 2
+=============================================
+
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
+This tutorial describes how to write XML launch files for an easy migration from ROS 1.
 
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in `this tutorial<Launch-system>`.
-In this tutorial, will be described how to write XML launch files, which allow an easy migration from ROS 1.
+A description of the ROS 2 launch system and its Python API can be found in `Launch System tutorial <Launch-system>`.
 
 
 Migrating tags from ROS1 to ROS2
@@ -14,33 +19,51 @@ Migrating tags from ROS1 to ROS2
 launch
 ^^^^^^
 
-This tag serves the same purpose as its `ROS 1 counterpart <http://wiki.ros.org/roslaunch/XML/launch>`__.
-It works as the root element of any ROS 2 launch XML file.
-The deprecated attribute isn't available.
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__
+* ``launch`` is the root element of any ROS 2 launch XML file
+* In ROS 2, the ``deprecated`` attribute isn't available
 
 node
 ^^^^
 
-As in `ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__, it allows launching a new node.
-The following summarize the differences:
+* `In ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__
+* It allows launching a new node
+* There are some differences with ROS 1:
+   * ``type`` attribute is now ``executable``
+   * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``
 
-* ``pkg`` attribute is now ``package``.
-* ``type`` attribute is now ``executable``.
-* The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
+Example
+~~~~~~~
+
+.. code-block:: xml
+
+   <launch>
+      <node package="demo_nodes_cpp" executable="talker"/>
+      <node package="demo_nodes_cpp" executable="listener"/>
+   </launch>
 
 param
 ^^^^^
 
-In ROS 2, there's no global parameters concept.
-Application using global parameters should be refactored.
-This tag can only be used nested in a node tag.
-`ROS 1 reference <http://wiki.ros.org/roslaunch/XML/param>`__.
+* `In ROS1 <http://wiki.ros.org/roslaunch/XML/param>`__
+* Used for passing a parameter to a node
+* There's no global parameter concept in ROS 2.
+  For that reason, it can only be used nested in a ``node`` tag.
+  Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``, ``command``
 
-* There is not ``type`` attribute. See type deduction rules below.
-* The following attributes aren't available: ``textfile``, ``binfile``, ``executable``, ``command``.
+Example
+~~~~~~~
+
+.. code-block:: xml
+
+   <launch>
+      <node package="demo_nodes_cpp" executable="parameter_event">
+         <param name="foo" value="5"/>
+      </node>
+   </launch>
 
 Type inference rules
-""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~
 
 Here are some examples of how to write parameters:
 
@@ -70,7 +93,7 @@ Here are some examples of how to write parameters:
    </node>
 
 Parameter grouping
-""""""""""""""""""
+~~~~~~~~~~~~~~~~~~
 
 In ROS 2, param tags are allowed to be nested.
 For example:
@@ -87,14 +110,27 @@ For example:
    </node>
 
 That will create two parameters:
-   - ``group1.group2.my_param`` of value ``1``, hosted by node ``/an_absolute_ns/my_node``.
-   - ``group1.another_param`` of value ``2`` hosted by node ``/an_absolute_ns/my_node``.
+   - ``group1.group2.my_param`` of value ``1``, hosted by node ``/an_absolute_ns/my_node``
+   - ``group1.another_param`` of value ``2`` hosted by node ``/an_absolute_ns/my_node``
+
+It's also possible to use the full parameter name:
+
+.. code-block:: xml
+
+   <node package="my_package" executable="my_executable" name="my_node" ns="/an_absoulute_ns">
+      <param name="group1.group2.my_param" value="1"/>
+      <param name="group1.another_param" value="2"/>
+   </node>
 
 rosparam
 ^^^^^^^^
 
-`This tag <http://wiki.ros.org/roslaunch/XML/rosparam>`__ can be replaced using ``from`` attribute in ``param`` tag.
-For example:
+* `In ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__
+* It allowed loading parameters from a yaml file
+* It has been replaced with ``from`` atribute of ``param`` tag
+
+Example
+~~~~~~~
 
 .. code-block:: xml
 
@@ -105,37 +141,70 @@ For example:
 remap
 ^^^^^
 
-Its usage is the same as in `ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__.
-The only difference, is that it can only be used nested in a ``node`` tag.
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__
+* Used for passing remappings to a node
+* At the moment, it can only be used nested in a ``node`` tag
 
-machine
-^^^^^^^
+Example
+~~~~~~~
 
-There's not implementation of this feature in ROS 2 at the moment.
+.. code-block:: xml
+
+   <launch>
+      <node package="demo_nodes_cpp" executable="talker">
+         <remap from="chatter" to="my_topic"/>
+      </node>
+      <node package="demo_nodes_cpp" executable="listener">
+         <remap from="chatter" to="my_topic"/>
+      </node>
+   </launch>
 
 include
 ^^^^^^^
 
-There is some difference from how it worked in ROS 1:
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__
+* It allows including another launch file
+* There are several differences with ROS 1:
+   * In ROS 1, includes were scoped
+     In ROS 2, they should be nested inside a ``group`` tag for this
+   * ``ns`` attribute is not supported
+     See example of ``push_ros_namespace`` tag for a workaround
+   * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``)
+   * There is not support of nested ``env`` tags
+     ``set_env`` and ``unset_env`` can be used as a workaround
+   * ``clear_params``, ``pass_all_args`` attributes aren't supported
 
-* In ros1, includes were scoped.
-  In ROS 2, they should be nested inside a ``group`` tag for this.
-* ``ns`` attribute is not supported.
-  See example of ``push_ros_namespace`` tag for a workaround.
-* ``arg`` tags nested in ``include`` tag doesn't support conditionals (``if`` or ``unless``).
-* There is not support of ``env`` child tags. ``set_env`` and ``unset_env`` can be used as a workaround.
-* ``clear_params``, ``pass_all_args`` attributes aren't supported.
+Examples
+~~~~~~~~
+
+See `Replacing an include tag`_.
 
 arg
 ^^^
 
-Similar behavior to `ROS 1 tag <http://wiki.ros.org/roslaunch/XML/arg>`__.
-There are some minor changes:
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__
+* ``arg`` is used for declaring a launch argument, or for passing an argument
+  when using ``include`` tag
+* There are some differences with ROS 1:
+   * ``value`` attribute is not allowed
+     Use ``let`` tag for this
+   * ``doc`` is now ``description``
+   * When used nested in an ``include`` tag, ``if`` and ``unless``  attributes aren't allowed
 
-* ``value`` attribute is not allowed.
-  Use ``let`` tag for this.
-* ``doc`` is now ``description``.
-* When used nested in an include action, ``if`` and ``unless``  attributes aren't allowed.
+Example
+~~~~~~~
+
+.. code-block:: xml
+
+   <launch>
+      <arg name="topic_name" default="chatter"/>
+      <node package="demo_nodes_cpp" executable="talker">
+         <remap from="chatter" to="$(var topic_name)"/>
+      </node>
+      <node package="demo_nodes_cpp" executable="listener">
+         <remap from="chatter" to="$(var topic_name)"/>
+      </node>
+   </launch>
 
 Passing an argument via the command line
 """"""""""""""""""""""""""""""""""""""""
@@ -146,40 +215,79 @@ See `ROS 2 launch tutorial <Launch-system>`__.
 env
 ^^^
 
-This has been replaced with ``env``, ``set_env`` and ``unset_env``.
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/env>`__
+* It allows setting an environment variable.
+* It has been replaced with ``env``, ``set_env`` and ``unset_env``:
+   * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
+     Conditionals aren't supported.
+   * ``set_env`` can be used in the root tag ``launch`` or in ``group``.
+     It accepts the same attributes than ``env``, and also conditionals.
+   * ``unset_env`` unsets an environment variable.
+     It accepts a ``name`` attribute and conditionals.
 
-* ``env`` can be used nested in a ``node`` or ``executable`` tag.
-  It accepts the same attributes as the `ROS 1 version <http://wiki.ros.org/roslaunch/XML/env>`__, except ``if`` and ``unless`` condition.
-* ``set_env`` can be used in the root tag ``launch``.
-  It also accepts the same attributes, including conditionals.
-* ``unset_env`` unsets an environment variable.
-  It accepts a ``name`` attribute, and conditionals.
+Example
+~~~~~~~
+
+.. code-block:: xml
+
+   <launch>
+      <set_env name="MY_ENV_VAR" value="MY_VALUE" if="CONDITION_A"/>
+      <set_env name="ANOTHER_ENV_VAR" value="ANOTHER_VALUE" unless="CONDITION_B"/>
+      <set_env name="SOME_ENV_VAR" value="SOME_VALUE"/>
+      <node package="MY_PACKAGE" executable="MY_EXECUTABLE" name="MY_NODE">
+         <env name="NODE_ENV_VAR" value="SOME_VALUE"/>
+      </node>
+      <unset_env name="MY_ENV_VAR" if="CONDITION_A"/>
+      <node package="ANOTHER_PACKAGE" executable="ANOTHER_EXECUTABLE" name="ANOTHER_NODE"/>
+      <unset_env name="ANOTHER_ENV_VAR" unless="CONDITION_B"/>
+      <unset_env name="SOME_ENV_VAR"/>
+   </launch>
+
 
 group
 ^^^^^
 
-There is some differences with `ROS 1 tag <http://wiki.ros.org/roslaunch/XML/group>`__.
+* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__
+* It allows limiting the scope of launch configurations.
+  Usually used together with ``let``, ``include`` or ``push_ros_namespace`` tags.
+* Differences with ROS 1:
+   * There is no ``ns`` attribute.
+     See the new ``push_ros_namespace`` tag as a workaround.
+   * ``clear_params`` attribute isn't available.
+   * It doesn't accept ``remap`` and ``param`` tags as children.
 
-* There is not ``ns`` attribute.
-  See the new ``push_ros_namespace`` tag as a workaround.
-* ``clear_params`` attribute won't be available.
-* It doesn't accept ``remap`` and ``param`` tags as children.
+Example
+~~~~~~~
+
+``launch-prefix`` configuration is used by all the ``executable`` and ``node`` tags.
+This example will use ``time`` as a prefix, if ``use_time_prefix_in_talker`` argument is ``1``, only for the talker.
+
+.. code-block:: xml
+
+   <launch>
+      <arg name="use_time_prefix_in_talker" default="0"/>
+      <group>
+         <let name="launch-prefix" value="time" if="$(var use_time_prefix_in_talker)"/>
+         <node package="demo_nodes_cpp" executable="talker"/>
+      </group>
+      <node package="demo_nodes_cpp" executable="listener"/>
+   </launch>
 
 machine and test
 ^^^^^^^^^^^^^^^^
 
 They aren't supported at the moment.
 
-New tags
-^^^^^^^^
+New tags in ROS 2
+-----------------
 
 set_env and unset_env
-"""""""""""""""""""""
+^^^^^^^^^^^^^^^^^^^^^
 
-See ``env`` tag decription.
+See `env`_ tag decription.
 
 push_ros_namespace
-""""""""""""""""""
+^^^^^^^^^^^^^^^^^^
 
 ``include`` and ``group`` tags don't accept ``ns`` attribute.
 This action can be used as a workaround:
@@ -203,19 +311,21 @@ This action can be used as a workaround:
    <!-Other tags-->
 
 let
-"""
+^^^
 
-It replaces ``arg`` tag with value attribute.
+It's a replacement of ``arg`` tag with a value attribute.
 
 .. code-block:: xml
 
    <let var="foo" value="asd"/>
 
 executable
-""""""""""
+^^^^^^^^^^
 
-Allows running any executable.
-For example:
+It allows running any executable.
+
+Example
+~~~~~~~
 
 .. code-block:: xml
 
@@ -223,10 +333,10 @@ For example:
       <env name="LD_LIBRARY" value="/lib/some.so"/>
    </executable>
 
-Replacing include tag
-^^^^^^^^^^^^^^^^^^^^^
+Replacing an include tag
+------------------------
 
-For having exactly the same behavior as ROS 1, they should be nested in a ``group`` tag.
+To have exactly the same behavior as in ROS 1, they must be nested in a ``group`` tag.
 
 .. code-block:: xml
 
@@ -234,7 +344,7 @@ For having exactly the same behavior as ROS 1, they should be nested in a ``grou
       <include file="another_launch_file"/>
    </group>
 
-For replacing the ``ns`` attribute usage:
+To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
 
 .. code-block:: xml
 
@@ -246,20 +356,23 @@ For replacing the ``ns`` attribute usage:
 Substitutions
 -------------
 
+Documentation about ROS 1's substitutions in `roslaunch XML wiki <http://wiki.ros.org/roslaunch/XML>`__.
 Substitutions syntax haven't changed, it's still ``$(sub-name val1 val2 ...)``.
-There are some changes with ROS 1:
+There are some changes compared to ROS 1:
 
-* There is not ``env`` alternative.
-  ``optenv`` has been renamed as ``env``.
+* ``env`` and ``optenv`` have been replaced by only one tag: ``env``.
+  ``$(env <NAME>)`` will fail if the environment variable doesn't exist.
+  ``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``.
+  ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)``
+  or ``$(optenv <NAME> <DEFAULT>)``.
 * ``find`` has been replaced with ``find-package``.
 * There is a new ``exec-in-package`` substitution.
   e.g.: ``$(exec-in-package <package_name> <exec_name>)``
 * There is a new ``find-exec`` substitution.
-* ``anon`` hasn't an alternative at the moment.
 * ``arg`` has been replaced with ``var``.
-  It looks at configurations defined with ``arg`` or ``let`` tag.
-* ``eval`` has not alternative at the moment.
-* ``dirname`` has the same behaviour as before.
+  It looks at configurations defined either with ``arg`` or ``let`` tag.
+* ``eval`` and ``dirname`` substitutions haven't changed.
+* ``anon`` substitution is not supported..
 
 Type inference rules
 --------------------
@@ -270,17 +383,17 @@ For example:
 .. code-block:: xml
 
    <!--Setting a string value to an attribute expecting an int will raise an error.-->
-   <tag1 int-attr="'1'"/>
+   <tag1 attr-expecting-an-int="'1'"/>
    <!--Correct version.-->
-   <tag1 int-attr="1"/>
+   <tag1 attr-expecting-an-int="1"/>
    <!--Setting an integer in an attribute expecting a string will raise an error.-->
-   <tag2 str-attr="1"/>
+   <tag2 attr-expecting-a-str="1"/>
    <!--Correct version.-->
-   <tag2 str-attr="'1'"/>
+   <tag2 attr-expecting-a-str="'1'"/>
    <!--Setting a list of strings in an attribute expecting a string will raise an error.-->
-   <tag3 str-attr="asd, bsd" str-attr-sep=", "/>
+   <tag3 attr-expecting-a-str="asd, bsd" str-attr-sep=", "/>
    <!--Correct version.-->
-   <tag3 str-attr="don't use a separator"/>
+   <tag3 attr-expecting-a-str="don't use a separator"/>
 
 Some attributes accept more than a single type, for example ``value`` attribute of ``param`` tag.
 It's usual that parameters that are of type ``int`` (or ``float``) also accept an ``str``, that will be later
