@@ -1,5 +1,5 @@
-Migration of launch files from ROS 1 to ROS 2
-=============================================
+Migrating launch files from ROS 1 to ROS 2
+==========================================
 
 .. contents:: Table of Contents
    :depth: 1
@@ -26,8 +26,8 @@ node
 ^^^^
 
 * `In ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__
-* It allows launching a new node
-* There are some differences with ROS 1:
+* Launches a new node
+* Differences from ROS 1:
    * ``type`` attribute is now ``executable``
    * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``
 
@@ -109,6 +109,7 @@ For example:
    </node>
 
 That will create two parameters:
+
    - ``group1.group2.my_param`` of value ``1``, hosted by node ``/an_absolute_ns/my_node``
    - ``group1.another_param`` of value ``2`` hosted by node ``/an_absolute_ns/my_node``
 
@@ -125,7 +126,7 @@ rosparam
 ^^^^^^^^
 
 * `In ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__
-* It allowed loading parameters from a yaml file
+* Loads parameters from a yaml file
 * It has been replaced with ``from`` atribute of ``param`` tag
 
 Example
@@ -162,14 +163,14 @@ include
 ^^^^^^^
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__
-* It allows including another launch file
-* There are several differences with ROS 1:
+* Allows including another launch file
+* Differences from ROS 1:
    * In ROS 1, includes were scoped
      In ROS 2, they should be nested inside a ``group`` tag for this
    * ``ns`` attribute is not supported
      See example of ``push_ros_namespace`` tag for a workaround
    * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``)
-   * There is not support of nested ``env`` tags
+   * There is no support of nested ``env`` tags
      ``set_env`` and ``unset_env`` can be used as a workaround
    * ``clear_params``, ``pass_all_args`` attributes aren't supported
 
@@ -184,7 +185,7 @@ arg
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__
 * ``arg`` is used for declaring a launch argument, or for passing an argument
   when using ``include`` tag
-* There are some differences with ROS 1:
+* Differences from ROS 1:
    * ``value`` attribute is not allowed
      Use ``let`` tag for this
    * ``doc`` is now ``description``
@@ -215,12 +216,12 @@ env
 ^^^
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/env>`__
-* It allows setting an environment variable.
+* Sets an environment variable
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
      Conditionals aren't supported.
    * ``set_env`` can be used in the root tag ``launch`` or in ``group``.
-     It accepts the same attributes than ``env``, and also conditionals.
+     It accepts the same attributes as ``env``, and also conditionals.
    * ``unset_env`` unsets an environment variable.
      It accepts a ``name`` attribute and conditionals.
 
@@ -247,9 +248,9 @@ group
 ^^^^^
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__
-* It allows limiting the scope of launch configurations.
+* Allows limiting the scope of launch configurations.
   Usually used together with ``let``, ``include`` or ``push_ros_namespace`` tags.
-* Differences with ROS 1:
+* Differences from ROS 1:
    * There is no ``ns`` attribute.
      See the new ``push_ros_namespace`` tag as a workaround.
    * ``clear_params`` attribute isn't available.
@@ -335,7 +336,7 @@ Example
 Replacing an include tag
 ------------------------
 
-To have exactly the same behavior as in ROS 1, they must be nested in a ``group`` tag.
+To have exactly the same behavior as in ROS 1, ``include`` tags must be nested in a ``group`` tag.
 
 .. code-block:: xml
 
@@ -356,7 +357,7 @@ Substitutions
 -------------
 
 Documentation about ROS 1's substitutions in `roslaunch XML wiki <http://wiki.ros.org/roslaunch/XML>`__.
-Substitutions syntax haven't changed, it's still ``$(sub-name val1 val2 ...)``.
+Substitutions syntax hasn't changed, it's still ``$(sub-name val1 val2 ...)``.
 There are some changes compared to ROS 1:
 
 * ``env`` and ``optenv`` have been replaced by only one tag: ``env``.
