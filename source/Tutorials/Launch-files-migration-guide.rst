@@ -21,7 +21,6 @@ launch
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__
 * ``launch`` is the root element of any ROS 2 launch XML file
-* In ROS 2, the ``deprecated`` attribute isn't available
 
 node
 ^^^^
@@ -38,8 +37,8 @@ Example
 .. code-block:: xml
 
    <launch>
-      <node package="demo_nodes_cpp" executable="talker"/>
-      <node package="demo_nodes_cpp" executable="listener"/>
+      <node pkg="demo_nodes_cpp" exec="talker"/>
+      <node pkg="demo_nodes_cpp" exec="listener"/>
    </launch>
 
 param
@@ -57,7 +56,7 @@ Example
 .. code-block:: xml
 
    <launch>
-      <node package="demo_nodes_cpp" executable="parameter_event">
+      <node pkg="demo_nodes_cpp" exec="parameter_event">
          <param name="foo" value="5"/>
       </node>
    </launch>
@@ -69,7 +68,7 @@ Here are some examples of how to write parameters:
 
 .. code-block:: xml
 
-   <node package="my_package" executable="my_executable" name="my_node">
+   <node pkg="my_package" exec="my_executable" name="my_node">
       <!--A string parameter with value "1"-->
       <param name="a_string" value="'1'"/>
       <!--A integer parameter with value 1-->
@@ -100,7 +99,7 @@ For example:
 
 .. code-block:: xml
 
-   <node package="my_package" executable="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
       <param name="group1">
          <param name="group2">
             <param name="my_param" value="1"/>
@@ -117,7 +116,7 @@ It's also possible to use the full parameter name:
 
 .. code-block:: xml
 
-   <node package="my_package" executable="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
       <param name="group1.group2.my_param" value="1"/>
       <param name="group1.another_param" value="2"/>
    </node>
@@ -134,7 +133,7 @@ Example
 
 .. code-block:: xml
 
-   <node package="my_package" executable="my_executable" name="my_node" ns="/an_absoulute_ns">
+   <node pkg="my_package" exec="my_executable" name="my_node" ns="/an_absoulute_ns">
       <param from="/path/to/file"/>
    </node>
 
@@ -151,10 +150,10 @@ Example
 .. code-block:: xml
 
    <launch>
-      <node package="demo_nodes_cpp" executable="talker">
+      <node pkg="demo_nodes_cpp" exec="talker">
          <remap from="chatter" to="my_topic"/>
       </node>
-      <node package="demo_nodes_cpp" executable="listener">
+      <node pkg="demo_nodes_cpp" exec="listener">
          <remap from="chatter" to="my_topic"/>
       </node>
    </launch>
@@ -198,10 +197,10 @@ Example
 
    <launch>
       <arg name="topic_name" default="chatter"/>
-      <node package="demo_nodes_cpp" executable="talker">
+      <node pkg="demo_nodes_cpp" exec="talker">
          <remap from="chatter" to="$(var topic_name)"/>
       </node>
-      <node package="demo_nodes_cpp" executable="listener">
+      <node pkg="demo_nodes_cpp" exec="listener">
          <remap from="chatter" to="$(var topic_name)"/>
       </node>
    </launch>
@@ -234,11 +233,11 @@ Example
       <set_env name="MY_ENV_VAR" value="MY_VALUE" if="CONDITION_A"/>
       <set_env name="ANOTHER_ENV_VAR" value="ANOTHER_VALUE" unless="CONDITION_B"/>
       <set_env name="SOME_ENV_VAR" value="SOME_VALUE"/>
-      <node package="MY_PACKAGE" executable="MY_EXECUTABLE" name="MY_NODE">
+      <node pkg="MY_PACKAGE" exec="MY_EXECUTABLE" name="MY_NODE">
          <env name="NODE_ENV_VAR" value="SOME_VALUE"/>
       </node>
       <unset_env name="MY_ENV_VAR" if="CONDITION_A"/>
-      <node package="ANOTHER_PACKAGE" executable="ANOTHER_EXECUTABLE" name="ANOTHER_NODE"/>
+      <node pkg="ANOTHER_PACKAGE" exec="ANOTHER_EXECUTABLE" name="ANOTHER_NODE"/>
       <unset_env name="ANOTHER_ENV_VAR" unless="CONDITION_B"/>
       <unset_env name="SOME_ENV_VAR"/>
    </launch>
@@ -268,9 +267,9 @@ This example will use ``time`` as a prefix, if ``use_time_prefix_in_talker`` arg
       <arg name="use_time_prefix_in_talker" default="0"/>
       <group>
          <let name="launch-prefix" value="time" if="$(var use_time_prefix_in_talker)"/>
-         <node package="demo_nodes_cpp" executable="talker"/>
+         <node pkg="demo_nodes_cpp" exec="talker"/>
       </group>
-      <node package="demo_nodes_cpp" executable="listener"/>
+      <node pkg="demo_nodes_cpp" exec="listener"/>
    </launch>
 
 machine and test
@@ -305,7 +304,7 @@ This action can be used as a workaround:
       <!--Nodes here are namespaced with "/absolute_ns".-->
       <!--The following node receives an absolute namespace, so it will ignore the others previously pushed.-->
       <!--The full path of the node will be /asd/my_node.-->
-      <node package="my_pkg" executable="my_executable" name="my_node" ns="/asd"/>
+      <node pkg="my_pkg" exec="my_executable" name="my_node" ns="/asd"/>
    </group>
    <!--Nodes outside the group action won't be namespaced.-->
    <!-Other tags-->
@@ -365,9 +364,9 @@ There are some changes compared to ROS 1:
   ``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``.
   ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)``
   or ``$(optenv <NAME> <DEFAULT>)``.
-* ``find`` has been replaced with ``find-package``.
-* There is a new ``exec-in-package`` substitution.
-  e.g.: ``$(exec-in-package <package_name> <exec_name>)``
+* ``find`` has been replaced with ``find-pkg``.
+* There is a new ``exec-in-pkg`` substitution.
+  e.g.: ``$(exec-in-pkg <package_name> <exec_name>)``
 * There is a new ``find-exec`` substitution.
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined either with ``arg`` or ``let`` tag.
