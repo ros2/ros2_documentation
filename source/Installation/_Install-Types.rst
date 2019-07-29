@@ -6,7 +6,7 @@ Installing from binary packages or from source will both result in a fully-funct
 Differences between the options only depend on what you plan to do with ROS 2.
 
 **Binary packages** are for general use.
-They will give you an already-built, unalterable (or highly-difficult-to-alter) install of ROS 2.
+They will give you an already-built install of ROS 2.
 This is great for people who want to dive in and start using ROS 2 as-is, right away.
 
 Linux users have two further options:
@@ -18,4 +18,4 @@ Linux users have two further options:
 
 **Building from source** is meant for developers looking to alter or explicitly omit parts of ROS 2's base.
 
-.. TODO: add reference to "General Install" instructions "...if you don't see your operating system" 
+.. TODO: add reference to "General Install" instructions "...if you don't see your operating system"
