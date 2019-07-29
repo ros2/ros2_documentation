@@ -33,7 +33,7 @@ It should be fine if you're using a different UTF-8 supported locale.
 Setup Sources
 -------------
 
-.. include:: /_includes/Apt-Repositories.rst
+.. include:: ../_Apt-Repositories.rst
 
 .. _Dashing_linux-install-debians-install-ros-2-packages:
 

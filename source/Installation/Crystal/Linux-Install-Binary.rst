@@ -24,7 +24,7 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-.. include:: /_includes/Apt-Repositories.rst
+.. include:: ../_Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
