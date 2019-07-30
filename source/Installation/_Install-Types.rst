@@ -10,11 +10,12 @@ This is great for people who want to dive in and start using ROS 2 as-is, right 
 
 Linux users have two further options:
 
-- Debian packages. A combination of syncs and patch releases.
+- Debian packages.
+  A combination of syncs and patch releases.
   Semi-frequent syncs incorporate changes to higher-level packages.
   Less-frequent patch releases incorporate changes to ROS 2's core packages along with changes from recent syncs.
 
-- "fat" archive. Archived code of most recent patch release (won't include syncs since the last patch release).
+- "fat" archive. Archived code of the most recent patch release (won't include syncs since the last patch release).
 
 Installing from Debian packages is the recommended method.
 It's more convenient and updates alongside regular system updates.
