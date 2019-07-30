@@ -44,8 +44,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Make sure you have the ROS 2 apt repositories added to your system.
-If not, refer to `the Setup Sources section <linux-install-debians-setup-sources>`, and then return here.
+.. include:: ../_Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
