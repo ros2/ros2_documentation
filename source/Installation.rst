@@ -10,6 +10,7 @@ Installation
    Installation/Dashing
    Installation/Install-Connext-Security-Plugins
    Installation/Install-Connext-University-Eval
+   Installation/Upcoming-Release
 
 ROS 2 Installation Options
 --------------------------
