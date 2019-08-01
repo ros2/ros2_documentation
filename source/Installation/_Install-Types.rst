@@ -12,8 +12,9 @@ Linux users have two options for installing binary packages:
 
 - Debian packages.
   A combination of syncs and patch releases.
-  Semi-frequent syncs incorporate changes to higher-level packages.
-  Less-frequent patch releases incorporate changes to ROS 2's core packages along with changes from recent syncs.
+
+  - Semi-frequent syncs incorporate changes to higher-level packages.
+  - Less-frequent patch releases incorporate changes to ROS 2's core packages along with changes from recent syncs.
 
 - "fat" archive. Archived code of the most recent patch release (won't include syncs since the last patch release).
 
