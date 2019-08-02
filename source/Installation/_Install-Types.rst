@@ -25,6 +25,6 @@ OS X and Windows users who choose to install from binary packages only have the 
 
 **Building from source** is meant for developers looking to alter or explicitly omit parts of ROS 2's base.
 It is also recommended for platforms that don't support binaries.
-Building from source also gives you the option to install the absolute latest version of ROS 2. 
+Building from source also gives you the option to install the absolute latest version of ROS 2.
 
 .. TODO: add reference to "General Install" instructions "...if you don't see your operating system"
