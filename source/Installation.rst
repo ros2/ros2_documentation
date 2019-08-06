@@ -8,6 +8,7 @@ Installation
 
    Installation/Crystal
    Installation/Dashing
+   Installation/Eloquent
    Installation/Install-Connext-Security-Plugins
    Installation/Install-Connext-University-Eval
 

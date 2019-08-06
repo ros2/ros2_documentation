@@ -1,11 +1,11 @@
-Installing ROS 2 Dashing Diademata
-==================================
+Installing ROS 2 Eloquent Elusor
+================================
 
 .. toctree::
    :hidden:
    :glob:
 
-   Dashing/*
+   Eloquent/*
 
 Binary packages
 ---------------
@@ -14,14 +14,14 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Bionic(18.04))
 
-  * `Debian packages <Dashing/Linux-Install-Debians>`
-  * `"fat" archive <Dashing/Linux-Install-Binary>`
+  * `Debian packages <Eloquent/Linux-Install-Debians>`
+  * `"fat" archive <Eloquent/Linux-Install-Binary>`
 
-* `OS X <Dashing/OSX-Install-Binary>`
-* `Windows <Dashing/Windows-Install-Binary>`
+* `OS X <Eloquent/OSX-Install-Binary>`
+* `Windows <Eloquent/Windows-Install-Binary>`
 
 
-.. _Dashing_building-from-source:
+.. _Eloquent_building-from-source:
 
 Building from source
 --------------------
@@ -29,8 +29,8 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Dashing/Linux-Development-Setup>`
-* `OS X <Dashing/OSX-Development-Setup>`
-* `Windows <Dashing/Windows-Development-Setup>`
+* `Linux <Eloquent/Linux-Development-Setup>`
+* `OS X <Eloquent/OSX-Development-Setup>`
+* `Windows <Eloquent/Windows-Development-Setup>`
 
 .. include:: _Install-Types.rst

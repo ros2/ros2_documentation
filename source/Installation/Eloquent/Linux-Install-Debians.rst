@@ -5,14 +5,14 @@ Installing ROS2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 Dashing Diademata are available for Ubuntu Bionic.
+Debian packages for ROS 2 Eloquent Elusor are available for Ubuntu Bionic.
 
 Resources
 ---------
 
 * Status Page:
 
-  * ROS 2 Dashing (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_dashing_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_dashing_ubv8.html>`__
+  * ROS 2 Eloquent (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_eloquent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_eloquent_ubv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -35,7 +35,7 @@ Setup Sources
 
 .. include:: ../_Apt-Repositories.rst
 
-.. _Dashing_linux-install-debians-install-ros-2-packages:
+.. _Eloquent_linux-install-debians-install-ros-2-packages:
 
 Install ROS 2 packages
 ----------------------
@@ -50,16 +50,16 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-dashing-desktop
+   sudo apt install ros-eloquent-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-dashing-ros-base
+   sudo apt install ros-eloquent-ros-base
 
-See specific sections below for how to also install the :ref:`ros1_bridge <Dashing_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Dashing_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Dashing_linux-install-additional-rmw-implementations>`.
+See specific sections below for how to also install the :ref:`ros1_bridge <Eloquent_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Eloquent_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Eloquent_linux-install-additional-rmw-implementations>`.
 
 Environment setup
 -----------------
@@ -82,15 +82,15 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/dashing/setup.bash
+   source /opt/ros/eloquent/setup.bash
 
 You may want to add this to your ``.bashrc``.
 
 .. code-block:: bash
 
-   echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
+   echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
 
-.. _Dashing_linux-install-additional-rmw-implementations:
+.. _Eloquent_linux-install-additional-rmw-implementations:
 
 Install additional RMW implementations
 --------------------------------------
@@ -103,15 +103,15 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-dashing-rmw-opensplice-cpp # for OpenSplice
-   sudo apt install ros-dashing-rmw-connext-cpp # for RTI Connext (requires license agreement)
+   sudo apt install ros-eloquent-rmw-opensplice-cpp # for OpenSplice
+   sudo apt install ros-eloquent-rmw-connext-cpp # for RTI Connext (requires license agreement)
 
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-.. _Dashing_linux-ros1-add-pkgs:
+.. _Eloquent_linux-ros1-add-pkgs:
 
 `University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
@@ -129,9 +129,9 @@ Now you can install the remaining packages:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-dashing-ros1-bridge
+   sudo apt install ros-eloquent-ros1-bridge
 
-The turtlebot2 packages are not currently available in Dashing.
+The turtlebot2 packages are not currently available in Eloquent.
 
 Build your own packages
 -----------------------

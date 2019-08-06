@@ -11,7 +11,7 @@ ROS 2 Eloquent Elusor (codename 'eloquent'; November 22nd, 2019)
 Supported Platforms
 -------------------
 
-Dashing Diademata is primarily supported on the following platforms:
+Eloquent Elusor is primarily supported on the following platforms:
 
 Tier 1 platforms:
 

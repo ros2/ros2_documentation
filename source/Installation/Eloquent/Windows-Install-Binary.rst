@@ -12,7 +12,7 @@ System requirements
 
 As of beta-2 only Windows 10 is supported.
 
-.. _Dashing_windows-install-binary-installing-prerequisites:
+.. _Eloquent_windows-install-binary-installing-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -86,7 +86,7 @@ Adlink OpenSplice
 ~~~~~~~~~~~~~~~~~
 
 If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-For ROS 2 Dashing version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+For ROS 2 Eloquent version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
 
 After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
@@ -168,7 +168,7 @@ Downloading ROS 2
 -----------------
 
 * Go the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for Windows, e.g., ``ros2-dashing-*-windows-AMD64.zip``.
+* Download the latest package for Windows, e.g., ``ros2-eloquent-*-windows-AMD64.zip``.
 
 .. note::
 
@@ -176,7 +176,7 @@ Downloading ROS 2
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-dashing-*-windows-debug-AMD64.zip``
+    To download the ROS 2 debug libraries you'll need to download ``ros2-eloquent-*-windows-debug-AMD64.zip``
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
 
