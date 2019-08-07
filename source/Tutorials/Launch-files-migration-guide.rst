@@ -46,7 +46,7 @@ param
 
 * `In ROS1 <http://wiki.ros.org/roslaunch/XML/param>`__
 * Used for passing a parameter to a node
-* There's no global parameter concept in ROS 2.
+* There's no global parameter concept in ROS 2
   For that reason, it can only be used nested in a ``node`` tag.
   Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``, ``command``
 
@@ -94,7 +94,7 @@ Here are some examples of how to write parameters:
 Parameter grouping
 ~~~~~~~~~~~~~~~~~~
 
-In ROS 2, param tags are allowed to be nested.
+In ROS 2, ``param`` tags are allowed to be nested.
 For example:
 
 .. code-block:: xml
@@ -110,10 +110,10 @@ For example:
 
 That will create two parameters:
 
-   - ``group1.group2.my_param`` of value ``1``, hosted by node ``/an_absolute_ns/my_node``
-   - ``group1.another_param`` of value ``2`` hosted by node ``/an_absolute_ns/my_node``
+* A ``group1.group2.my_param`` of value ``1``, hosted by node ``/an_absolute_ns/my_node``
+* A ``group1.another_param`` of value ``2`` hosted by node ``/an_absolute_ns/my_node``
 
-It's also possible to use the full parameter name:
+It's also possible to use full parameter names:
 
 .. code-block:: xml
 
@@ -127,7 +127,7 @@ rosparam
 
 * `In ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__
 * Loads parameters from a yaml file
-* It has been replaced with ``from`` atribute of ``param`` tag
+* It has been replaced with a ``from`` atribute in ``param`` tags
 
 Example
 ~~~~~~~
@@ -219,11 +219,11 @@ env
 * Sets an environment variable
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
-     Conditionals aren't supported.
+     Conditionals aren't supported
    * ``set_env`` can be used in the root tag ``launch`` or in ``group``.
-     It accepts the same attributes as ``env``, and also conditionals.
+     It accepts the same attributes as ``env``, and also conditionals
    * ``unset_env`` unsets an environment variable.
-     It accepts a ``name`` attribute and conditionals.
+     It accepts a ``name`` attribute and conditionals
 
 Example
 ~~~~~~~
@@ -249,17 +249,17 @@ group
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__
 * Allows limiting the scope of launch configurations.
-  Usually used together with ``let``, ``include`` or ``push_ros_namespace`` tags.
+  Usually used together with ``let``, ``include`` and ``push_ros_namespace`` tags
 * Differences from ROS 1:
    * There is no ``ns`` attribute.
-     See the new ``push_ros_namespace`` tag as a workaround.
-   * ``clear_params`` attribute isn't available.
-   * It doesn't accept ``remap`` and ``param`` tags as children.
+     See the new ``push_ros_namespace`` tag as a workaround
+   * ``clear_params`` attribute isn't available
+   * It doesn't accept ``remap`` nor ``param`` tags as children
 
 Example
 ~~~~~~~
 
-``launch-prefix`` configuration is used by all the ``executable`` and ``node`` tags.
+``launch-prefix`` configuration is used by all the actions represented by ``executable`` and ``node`` tags.
 This example will use ``time`` as a prefix, if ``use_time_prefix_in_talker`` argument is ``1``, only for the talker.
 
 .. code-block:: xml
@@ -289,7 +289,7 @@ See `env`_ tag decription.
 push_ros_namespace
 ^^^^^^^^^^^^^^^^^^
 
-``include`` and ``group`` tags don't accept ``ns`` attribute.
+``include`` and ``group`` tags don't accept an ``ns`` attribute.
 This action can be used as a workaround:
 
 .. code-block:: xml
@@ -363,16 +363,15 @@ There are some changes compared to ROS 1:
 * ``env`` and ``optenv`` have been replaced by only one tag: ``env``.
   ``$(env <NAME>)`` will fail if the environment variable doesn't exist.
   ``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``.
-  ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)``
-  or ``$(optenv <NAME> <DEFAULT>)``.
-* ``find`` has been replaced with ``find-pkg``.
+  ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)`` or ``$(optenv <NAME> <DEFAULT>)``
+* ``find`` has been replaced with ``find-pkg``
 * There is a new ``exec-in-pkg`` substitution.
   e.g.: ``$(exec-in-pkg <package_name> <exec_name>)``
-* There is a new ``find-exec`` substitution.
+* There is a new ``find-exec`` substitution
 * ``arg`` has been replaced with ``var``.
-  It looks at configurations defined either with ``arg`` or ``let`` tag.
-* ``eval`` and ``dirname`` substitutions haven't changed.
-* ``anon`` substitution is not supported..
+  It looks at configurations defined either with ``arg`` or ``let`` tag
+* ``eval`` and ``dirname`` substitutions haven't changed
+* ``anon`` substitution is not supported
 
 Type inference rules
 --------------------
