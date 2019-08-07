@@ -115,7 +115,7 @@ We should now be able to build the package containing the ``Fibonacci`` action d
 We're done!
 
 By convention, action types will be prefixed by their package name and the word ``action``.
-So when we want to refer to our new action, it will have the full name ``action_tutorials/action/Fibonacci``.
+So when we want to refer to our new action, it will have the full name ``action_tutorials_interfaces/action/Fibonacci``.
 
 We can check that our action built successfully with the command line tool:
 
