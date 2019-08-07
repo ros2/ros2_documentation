@@ -142,8 +142,8 @@ remap
 ^^^^^
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__
-* Used for passing remappings to a node
-* At the moment, it can only be used nested in a ``node`` tag
+* Used to pass remapping rules to a node
+* It can only be used within ``node`` tags
 
 Example
 ~~~~~~~
@@ -165,14 +165,15 @@ include
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__
 * Allows including another launch file
 * Differences from ROS 1:
-   * In ROS 1, includes were scoped
-     In ROS 2, they should be nested inside a ``group`` tag for this
+   * In ROS 1, included content was scoped.
+     In ROS 2, it's not.
+     Nest includes with ``group`` tags to scope them
    * ``ns`` attribute is not supported
      See example of ``push_ros_namespace`` tag for a workaround
    * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``)
    * There is no support of nested ``env`` tags
      ``set_env`` and ``unset_env`` can be used as a workaround
-   * ``clear_params``, ``pass_all_args`` attributes aren't supported
+   * Both ``clear_params``, ``pass_all_args`` attributes aren't supported
 
 Examples
 ~~~~~~~~
@@ -183,13 +184,12 @@ arg
 ^^^
 
 * `In ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__
-* ``arg`` is used for declaring a launch argument, or for passing an argument
-  when using ``include`` tag
+* ``arg`` is used for declaring a launch argument, or to pass an argument when using ``include`` tags
 * Differences from ROS 1:
    * ``value`` attribute is not allowed
      Use ``let`` tag for this
    * ``doc`` is now ``description``
-   * When used nested in an ``include`` tag, ``if`` and ``unless``  attributes aren't allowed
+   * When nested within an ``include`` tag, ``if`` and ``unless``  attributes aren't allowed
 
 Example
 ~~~~~~~
@@ -219,9 +219,9 @@ env
 * Sets an environment variable
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
-     Conditionals aren't supported
-   * ``set_env`` can be used in the root tag ``launch`` or in ``group``.
-     It accepts the same attributes as ``env``, and also conditionals
+     ``if`` and ``unless`` tags aren't supported
+   * ``set_env`` can be nested within the root tag ``launch`` or in ``group`` tags.
+     It accepts the same attributes as ``env``, and also ``if`` and ``unless`` tags
    * ``unset_env`` unsets an environment variable.
      It accepts a ``name`` attribute and conditionals
 
