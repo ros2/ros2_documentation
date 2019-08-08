@@ -9,6 +9,7 @@ Installation
    Installation/Crystal
    Installation/Dashing
    Installation/Eloquent
+   Installation/Maintaining-a-Source-Checkout
    Installation/Install-Connext-Security-Plugins
    Installation/Install-Connext-University-Eval
 

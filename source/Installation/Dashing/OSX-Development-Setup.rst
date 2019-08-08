@@ -124,7 +124,7 @@ Create a workspace and clone all repos:
 
    If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the url above with ``master``.
    The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do.
-   See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+   See also `Maintaining a Source Checkout <../Maintaining-a-Source-Checkout>`.
 
 
 Install additional DDS vendors (optional)

@@ -167,7 +167,7 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. note::
 
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <../Maintaining-a-Source-Checkout>`.
 
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
