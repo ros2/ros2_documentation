@@ -116,16 +116,8 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
    vcs import src < ros2.repos
-
-
-.. note::
-
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the url above with ``master``.
-   The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do.
-   See also `Maintaining a Source Checkout <../Maintaining-a-Source-Checkout>`.
-
 
 Install additional DDS vendors (optional)
 -----------------------------------------
