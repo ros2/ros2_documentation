@@ -8,7 +8,7 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
-Target platforms for Dashing Diademata are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Eloquent Elusor are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 
@@ -78,7 +78,7 @@ Install development tools and ROS tools
      libasio-dev \
      libtinyxml2-dev
 
-.. _Dashing_linux-dev-get-ros2-code:
+.. _Eloquent_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -105,9 +105,9 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _Dashing_linux-development-setup-install-more-dds-implementations-optional:
+.. _Eloquent_linux-development-setup-install-more-dds-implementations-optional:
 
 Install more DDS implementations (Optional)
 -------------------------------------------

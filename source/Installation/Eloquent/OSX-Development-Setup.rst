@@ -188,7 +188,7 @@ See `Working with multiple RMW implementations </Tutorials/Working-with-multiple
 Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 Dashing Diademata supports OpenSplice 6.9.
+ROS 2 Eloquent Elusor supports OpenSplice 6.9.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
@@ -222,7 +222,7 @@ You may need to increase shared memory resources following https://community.rti
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-.. _Dashing_osx-development-setup-troubleshooting:
+.. _Eloquent_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------
