@@ -21,7 +21,7 @@ List of Distributions
    <style>
      .distros td {border: 0px;}
      .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
+     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2) {background-color: #33cc66;}
      .distros td {vertical-align: middle;}
    </style>
 
