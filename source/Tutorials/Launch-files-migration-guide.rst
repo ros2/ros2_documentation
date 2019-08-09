@@ -167,13 +167,13 @@ include
 * Differences from ROS 1:
    * In ROS 1, included content was scoped.
      In ROS 2, it's not.
-     Nest includes with ``group`` tags to scope them.
+     Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
      See example of ``push_ros_namespace`` tag for a workaround.
    * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``).
-   * There is no support of nested ``env`` tags.
-     ``set_env`` and ``unset_env`` can be used as a workaround.
-   * Both ``clear_params``, ``pass_all_args`` attributes aren't supported.
+   * There is no support for nested ``env`` tags.
+     ``set_env`` and ``unset_env`` can be used instead.
+   * Both ``clear_params`` and ``pass_all_args`` attributes aren't supported.
 
 Examples
 ~~~~~~~~
@@ -189,7 +189,7 @@ arg
    * ``value`` attribute is not allowed.
      Use ``let`` tag for this.
    * ``doc`` is now ``description``.
-   * When nested within an ``include`` tag, ``if`` and ``unless``  attributes aren't allowed.
+   * When nested within an ``include`` tag, ``if`` and ``unless`` attributes aren't allowed.
 
 Example
 ~~~~~~~
@@ -259,8 +259,8 @@ group
 Example
 ~~~~~~~
 
-``launch-prefix`` configuration is used by all the actions represented by ``executable`` and ``node`` tags.
-This example will use ``time`` as a prefix, if ``use_time_prefix_in_talker`` argument is ``1``, only for the talker.
+``launch-prefix`` configuration affects both ``executable`` and ``node`` tags' actions.
+This example will use ``time`` as a prefix if ``use_time_prefix_in_talker`` argument is ``1``, only for the talker.
 
 .. code-block:: xml
 
@@ -273,10 +273,15 @@ This example will use ``time`` as a prefix, if ``use_time_prefix_in_talker`` arg
       <node pkg="demo_nodes_cpp" exec="listener"/>
    </launch>
 
-machine and test
-^^^^^^^^^^^^^^^^
+machine
+^^^^^^^
 
-They aren't supported at the moment.
+It is not supported at the moment.
+
+test
+^^^^
+
+It is not supported at the moment.
 
 New tags in ROS 2
 -----------------
@@ -356,11 +361,11 @@ To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
 Substitutions
 -------------
 
-Documentation about ROS 1's substitutions in `roslaunch XML wiki <http://wiki.ros.org/roslaunch/XML>`__.
-Substitutions syntax hasn't changed, it's still ``$(sub-name val1 val2 ...)``.
-There are some changes compared to ROS 1:
+Documentation about ROS 1's substitutions can be found in `roslaunch XML wiki <http://wiki.ros.org/roslaunch/XML>`__.
+Substitutions syntax hasn't changed, i.e. it still follows the ``$(substitution-name arg1 arg2 ...)`` pattern.
+There are, however, some changes w.r.t. ROS 1:
 
-* ``env`` and ``optenv`` have been replaced by only one tag: ``env``.
+* ``env`` and ``optenv`` tags have been replaced by the ``env`` tag.
   ``$(env <NAME>)`` will fail if the environment variable doesn't exist.
   ``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``.
   ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)`` or ``$(optenv <NAME> <DEFAULT>)``.
