@@ -19,7 +19,7 @@ Migrating tags from ROS1 to ROS2
 launch
 ^^^^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__.
+* `Available Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__.
 * ``launch`` is the root element of any ROS 2 launch XML file.
 
 node
@@ -141,7 +141,7 @@ Example
 remap
 ^^^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__.
 * Used to pass remapping rules to a node.
 * It can only be used within ``node`` tags.
 
@@ -162,10 +162,10 @@ Example
 include
 ^^^^^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__.
 * Allows including another launch file.
 * Differences from ROS 1:
-   * In ROS 1, included content was scoped.
+   * Available in ROS 1, included content was scoped.
      In ROS 2, it's not.
      Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
@@ -183,7 +183,7 @@ See `Replacing an include tag`_.
 arg
 ^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__.
 * ``arg`` is used for declaring a launch argument, or to pass an argument when using ``include`` tags.
 * Differences from ROS 1:
    * ``value`` attribute is not allowed.
@@ -215,7 +215,7 @@ See `ROS 2 launch tutorial <Launch-system>`__.
 env
 ^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/env>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/env>`__.
 * Sets an environment variable.
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
@@ -247,7 +247,7 @@ Example
 group
 ^^^^^
 
-* `In ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__.
 * Allows limiting the scope of launch configurations.
   Usually used together with ``let``, ``include`` and ``push_ros_namespace`` tags.
 * Differences from ROS 1:
@@ -341,7 +341,7 @@ Example
 Replacing an include tag
 ------------------------
 
-To have exactly the same behavior as in ROS 1, ``include`` tags must be nested in a ``group`` tag.
+To have exactly the same behavior as Available in ROS 1, ``include`` tags must be nested in a ``group`` tag.
 
 .. code-block:: xml
 
