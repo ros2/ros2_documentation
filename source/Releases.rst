@@ -108,7 +108,7 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - Eloquent Elusor
+   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22nd, 2019
      - 1 year
      -
@@ -117,4 +117,4 @@ The following information are best estimates and are subject to change.
      - 3+ years
      - Target Ubuntu 20.04
 
-After F-turtle the expectations is to release new ROS 2 distributions once per year.
+After F-turtle the expectation is to release new ROS 2 distributions once per year.
