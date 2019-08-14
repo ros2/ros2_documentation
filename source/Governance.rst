@@ -11,12 +11,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (14 as of 2019-04-01):
-
-.. |acutronic| image:: Governance/acutronic.jpg
-   :alt: Acutronic Robotics logo
-   :height: 35px
-   :target: https://acutronicrobotics.com/
+The current members of the ROS 2 TSC are (14 as of 2019-08-14):
 
 .. |amazon| image:: Governance/amazon.svg
    :alt: Amazon logo
@@ -68,6 +63,11 @@ The current members of the ROS 2 TSC are (14 as of 2019-04-01):
    :height: 35px
    :target: https://www.robotis.com/
 
+.. |samsung| image:: Governance/samsung.svg
+   :alt: Samsung logo
+   :height: 35px
+   :target: https://www.samsung.com
+
 .. |tardec| image:: Governance/tardec.png
    :alt: TARDEC logo
    :height: 35px
@@ -87,10 +87,8 @@ The current members of the ROS 2 TSC are (14 as of 2019-04-01):
    :align: center
    :widths: auto
 
-   * - |acutronic|
-     - Acutronic Robotics: Víctor Mayoral Vilches
    * - |amazon|
-     - Amazon: Rutvik Hora
+     - Amazon: Adam Duncan
    * - |apex|
      - Apex.AI: Dejan Pangercic
    * - |arm|
@@ -104,17 +102,19 @@ The current members of the ROS 2 TSC are (14 as of 2019-04-01):
    * - |lge|
      - LG Electronics: Brian Shin
    * - |microsoft|
-     - Microsoft: Lou Amadio
+     - Microsoft: Sean Yen
    * - |openrobotics|
      - Open Robotics: Dirk Thomas
    * - |robotis|
      - ROBOTIS: Yoonseok Pyo
+   * - |samsung|
+     - Samsung: Steven Macenski
    * - |tardec|
      - TARDEC: Jonathon Smereka
    * - |tieriv|
      - Tier IV: Geoffrey Biggs
    * - |tri|
-     - Toyota Research Institute: Allison Thackston
+     - Toyota Research Institute: Toffee Albina
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
