@@ -138,7 +138,7 @@ When building a reusable library, some information needs to be exported for down
       DESTINATION include
     )
 
-    install(my_library
+    install(
       TARGETS my_library
       EXPORT export_my_library
       LIBRARY DESTINATION lib
