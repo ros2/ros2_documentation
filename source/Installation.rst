@@ -9,6 +9,7 @@ Installation
    Installation/Crystal
    Installation/Dashing
    Installation/Eloquent
+   Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
    Installation/Install-Connext-Security-Plugins
    Installation/Install-Connext-University-Eval
@@ -41,3 +42,7 @@ You may want to install an older distribution if you need ROS 2 to:
 * Be supported for a longer period of time (the latest release isn’t necessarily supported the longest)
 
 General users with no special considerations should use the most recent release available.
+
+Contributing to ROS 2 core?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you plan to contribute directly to ROS 2 core packages, you can install the `latest development from source <Installation/Latest-Development-Setup>`.

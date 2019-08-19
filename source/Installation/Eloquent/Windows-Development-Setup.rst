@@ -1,3 +1,5 @@
+.. _windows-latest:
+
 Building ROS 2 on Windows
 =========================
 
@@ -160,15 +162,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
-
-.. note::
-
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <../Maintaining-a-Source-Checkout>`.
-
+   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
