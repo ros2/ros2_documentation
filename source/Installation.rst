@@ -24,11 +24,11 @@ Select your ROS distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Dashing>`  |
+| `ROS 2 Dashing Diademata (newest) <Installation/Dashing>` | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Bouncy Bolson <Installation/Crystal>`  |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| Released July 2018                            | Released December 2018                          | Released May 2019                                 |
+| Released May 2019                               | Released December 2018                          | Released July 2018                              |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| Supported until July 2019                     | Supported until December 2019                   | Supported until May 2021                          |
+| Supported until May 2021                     | Supported until December 2019                   | Supported until July 2019                          |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 
 For more detailed descriptions of each release see `REP-2000 <http://www.ros.org/reps/rep-2000.html>`_
