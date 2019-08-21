@@ -1,6 +1,6 @@
 
-Contributing to ROS 2
-=====================
+Contributing
+============
 
 .. contents:: Table of Contents
    :depth: 1

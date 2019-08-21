@@ -17,11 +17,10 @@ Tier 3 platforms (not actively tested or supported) include:
 - Debian Linux - Stretch (9)
 - Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
+- OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
 ------------
-
-.. _Dashing_linux-dev-add-ros2-repo:
 
 Set Locale
 ^^^^^^^^^^
@@ -40,7 +39,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <linux-install-debians-setup-sources>`.
+.. include:: ../_Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,9 +51,6 @@ Install development tools and ROS tools
      cmake \
      git \
      python3-colcon-common-extensions \
-     python3-lark-parser \
-     python3-lxml \
-     python3-numpy \
      python3-pip \
      python-rosdep \
      python3-vcstool \
@@ -93,13 +89,8 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
    vcs import src < ros2.repos
-
-..
-
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
-
 
 Install dependencies using rosdep
 ---------------------------------
@@ -121,7 +112,8 @@ The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which i
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-By default we include eProsima's FastRTPS in the workspace and it is the default middleware. Detailed instructions for installing other DDS vendors are provided below.
+By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
+Detailed instructions for installing other DDS vendors are provided below.
 
 PrismTech OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,24 +169,25 @@ Note: when using ``zsh`` you need to be in the directory of the script when sour
 
 Now you can build as normal and support for RTI will be built as well.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`
 
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
-
-To use RTI Connext you will need to have obtained a license from RTI.
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
 
 The default location is ``~/rti_connext_dds-5.3.1``
+
+After installation, run RTI launcher and point it to your license file (obtained from RTI).
+
+Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 
@@ -223,7 +216,8 @@ Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
 On Windows due to limitations of the length of environment variables you should use this option when building workspaces with many (~ >> 100 packages).
 
-Also, if you have already installed ROS2 from Debian make sure that you run the ``build`` command in a fresh environment. You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
+Also, if you have already installed ROS2 from Debian make sure that you run the ``build`` command in a fresh environment.
+You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 
 
 .. code-block:: bash
@@ -293,4 +287,5 @@ Multiple Host Interference
 If you're running multiple instances on the same network you may get interference.
 To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a different integer, the default is zero.
 This will define the DDS domain id for your system.
-Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly. The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
+Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
+The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.

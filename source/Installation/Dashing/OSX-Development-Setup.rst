@@ -58,6 +58,11 @@ You need the following things installed to build ROS 2:
        # install console_bridge for rosbag2
        brew install console_bridge
 
+       # install OpenSSL for DDS-Security
+       brew install openssl
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
+
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
@@ -78,7 +83,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pyparsing setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pyparsing setuptools vcstool
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -111,14 +116,8 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
    vcs import src < ros2.repos
-
-
-.. note::
-
-   If you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the url above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
-
 
 Install additional DDS vendors (optional)
 -----------------------------------------
@@ -194,9 +193,7 @@ Source the ``release.com`` file provided to set up the environment before buildi
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-To use RTI Connext you will need to have obtained a license from RTI.
-
-You can install the OS X package of Connext version 5.3 provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
@@ -215,7 +212,7 @@ The setup file and path will depend on your macOS version.
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Dashing_osx-development-setup-troubleshooting:
 

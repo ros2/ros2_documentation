@@ -8,13 +8,17 @@ Installation
 
    Installation/Crystal
    Installation/Dashing
+   Installation/Eloquent
+   Installation/Latest-Development-Setup
+   Installation/Maintaining-a-Source-Checkout
+   Installation/Install-Connext-Security-Plugins
+   Installation/Install-Connext-University-Eval
 
 ROS 2 Installation Options
 --------------------------
 
 Multiple distributions of ROS 2 are supported at a time.
-Different distributions may be supported for longer time periods or may provide support for more recently released platforms.
-For ROS 2 we recommend using the most recent release available when possible.
+We recommend using the most recent release available when possible.
 
 Select your ROS distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -22,10 +26,23 @@ Select your ROS distribution
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 | `ROS 2 Bouncy Bolson <Installation/Crystal>`  | `ROS 2 Crystal Clemmys <Installation/Crystal>`  | `ROS 2 Dashing Diademata <Installation/Dashing>`  |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
-| Released July 2018                            | Released December 2018                          | To be released May 2019 (In progress)             |
+| Released July 2018                            | Released December 2018                          | Released May 2019                                 |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 | Supported until July 2019                     | Supported until December 2019                   | Supported until May 2021                          |
 +-----------------------------------------------+-------------------------------------------------+---------------------------------------------------+
 
 For more detailed descriptions of each release see `REP-2000 <http://www.ros.org/reps/rep-2000.html>`_
 
+Why you might want an older distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+You may want to install an older distribution if you need ROS 2 to:
+
+* Operate on an older platform
+* Support an older package that hasn’t been optimized for the latest release
+* Be supported for a longer period of time (the latest release isn’t necessarily supported the longest)
+
+General users with no special considerations should use the most recent release available.
+
+Contributing to ROS 2 core?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you plan to contribute directly to ROS 2 core packages, you can install the `latest development from source <Installation/Latest-Development-Setup>`.

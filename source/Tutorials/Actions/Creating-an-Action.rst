@@ -3,7 +3,7 @@ Creating an Action
 
 In this tutorial we look how to define an action in a ROS package.
 
-Make sure you have satisfied all `prequisites <../Actions>`.
+Make sure you have satisfied all `prerequisites <../Actions>`.
 
 Defining an Action
 ------------------
@@ -47,12 +47,10 @@ This is accomplished by adding the following lines to our ``CMakeLists.txt``:
 
 .. code-block:: cmake
 
-    find_package(action_msgs REQUIRED)
     find_package(rosidl_default_generators REQUIRED)
 
     rosidl_generate_interfaces(${PROJECT_NAME}
       "action/Fibonacci.action"
-      DEPENDENCIES action_msgs
     )
 
 We should also add the required dependencies to our ``package.xml``:
@@ -89,6 +87,6 @@ We can check that our action built successfully with the command line tool:
     # On Windows: call install/setup.bat
     . install/setup.bash
     # Check that our action definition exists
-    ros2 action show action_tutorials/Fibonacci
+    ros2 action show action_tutorials/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.

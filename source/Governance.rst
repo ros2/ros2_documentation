@@ -1,6 +1,6 @@
 
-ROS 2 Project Governance
-========================
+Project Governance
+==================
 
 Technical Steering Committee (TSC)
 ----------------------------------
@@ -9,7 +9,7 @@ That approach has worked well enough, as evidenced by the widespread adoption of
 
 But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, starting with these areas: determining the roadmap, developing core tools and libraries, and establishing working groups to focus on important topics.
 To that end, we've established a Technical Steering Committee (TSC).
-As described in the `charter <https://discourse-cdn-sjc2.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
+As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
 The current members of the ROS 2 TSC are (14 as of 2019-04-01):
 
@@ -121,7 +121,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
 Working Groups (WGs)
 --------------------
 
-As described in its `charter <https://discourse-cdn-sjc2.com/standard17/uploads/ros/original/2X/5/51feec4148e3c458856526ad4bcf44d9912c4c9a.pdf>`__, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
+As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 The current WGs are (4 as of 2019-04-01):
 

@@ -38,9 +38,12 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*. Don't download the Win32 or Light versions.
+Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*.
+Don't download the Win32 or Light versions.
 
-Run the installer with default parameters. The following commands assume you used the default installation directory:
+Run the installer with default parameters.
+The following commands assume you used the default installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
@@ -90,9 +93,7 @@ After unpacking, set the ``OSPL_HOME`` environment variable so that it points to
 RTI Connext
 ~~~~~~~~~~~
 
-To use RTI Connext you will need to have obtained a license from RTI.
-
-You can install the Windows package of Connext version 5.3.1 provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -102,7 +103,7 @@ Set the ``NDDSHOME`` environment variable:
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -123,7 +124,8 @@ You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
-There are a few dependencies not available in the Chocolatey package database. In order to ease the manual installation process, we provide the necessary Chocolatey packages.
+There are a few dependencies not available in the Chocolatey package database.
+In order to ease the manual installation process, we provide the necessary Chocolatey packages.
 
 As some chocolatey packages rely on it, we start by installing CMake
 
@@ -215,6 +217,7 @@ Troubleshooting
 
 * If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
+* If you see an error related with FastRTPS failing to be loaded, see `troubleshooting section in development install instructions <Windows-Development-Setup>`.
 
 Build your own packages
 -----------------------

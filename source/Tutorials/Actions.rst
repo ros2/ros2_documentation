@@ -25,6 +25,8 @@ Prequisites
 
 - Setup a workspace and create a package named ``action_tutorials``:
 
+  Remember to source your ROS 2 installation.
+
   Linux / OSX:
 
   .. code-block:: bash

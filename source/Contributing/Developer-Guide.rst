@@ -597,6 +597,7 @@ We chose the following more precise rule where PEP 8 leaves some freedom:
 
 * `We allow up to 100 character per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
 * `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
+* `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
 
 Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 

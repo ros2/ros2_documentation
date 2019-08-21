@@ -33,3 +33,4 @@ We support building ROS 2 from source on the following platforms:
 * `OS X <Crystal/OSX-Development-Setup>`
 * `Windows <Crystal/Windows-Development-Setup>`
 
+.. include:: _Install-Types.rst

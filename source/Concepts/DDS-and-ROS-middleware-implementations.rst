@@ -41,8 +41,8 @@ Supported RMW implementations
      - commercial, research
      - ``rmw_connext_dynamic_cpp``
      - Support paused. Full support until alpha 8.*
-   * - PrismTech *Opensplice*
-     - LGPL (only v6.4), commercial
+   * - ADLINK *Opensplice*
+     - Apache 2, commercial
      - ``rmw_opensplice_cpp``
      - Partial support. Support included in binaries, but OpenSplice installed separately.
    * - OSRF *FreeRTPS*

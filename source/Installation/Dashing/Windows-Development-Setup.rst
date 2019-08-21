@@ -10,7 +10,7 @@ This guide is about how to setup a development environment for ROS2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <Dashing_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -101,8 +101,6 @@ Next install cppcheck:
 
    > choco install -y cppcheck
 
-You will need to add ``C:\Program Files\Cppcheck`` to the ``PATH``.
-
 Next install xmllint:
 
 * Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
@@ -134,7 +132,9 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
    > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
    : You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64`` instead, but that requires Administrator.
 
-Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -160,15 +160,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
-
-..
-
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
-
+   > curl https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
@@ -202,18 +197,20 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext, you will need to first visit the RTI website and obtain a license (evaluation or purchased) for RTI Connext DDS as well as the installer via their `downloads page <https://www.rti.com/downloads>`__.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
+
 After installing, use the RTI Launcher to load your license file.
+
 Then before building ROS 2, set up the Connext environment:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
+Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
@@ -222,7 +219,7 @@ Building the ROS 2 Code
 
 .. _windows-dev-build-ros2:
 
-To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64 Native Tools Command Prompt for VS 2017" for bouncy and later or "x64 Native Tools Command Prompt for VS 2015" for ardent and earlier) running as Administrator.
+To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019") running as Administrator.
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
@@ -232,10 +229,15 @@ To build the ``\dev\ros2`` folder tree:
 
    > colcon build --merge-install
 
-Note, we're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+.. note::
 
-Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
-See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
+   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build.
+   If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+
+.. note::
+
+   If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
+   See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Testing and Running
 -------------------
@@ -246,7 +248,11 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test
+   > colcon test --merge-install
+
+.. note::
+
+   ``--merge-install`` should only be used if it was also used in the build step.
 
 Afterwards you can get a summary of the tests using this command:
 
@@ -272,7 +278,9 @@ In a separate shell you can do the same, but instead run the ``listener``\ :
 
 For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
 
-Note: it is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+.. note::
+
+   It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
 Alternative DDS Sources
 -----------------------
@@ -302,7 +310,10 @@ You may see path length limit errors when building your own libraries, or maybe 
 
 Run ``regedit.exe``, navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``, and set ``LongPathsEnabled`` to 0x00000001 (1).
 
-Hit the windows key and type ``Edit Group Policy``. Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem. Right click ``Enable Win32 long paths``, click Edit. In the dialog, select Enabled and click OK.
+Hit the windows key and type ``Edit Group Policy``.
+Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem.
+Right click ``Enable Win32 long paths``, click Edit.
+In the dialog, select Enabled and click OK.
 
 Close and open your terminal to reset the environment and try building again.
 
@@ -318,7 +329,15 @@ patch.exe Opens a New Command Window and Asks for Administrator
 
 This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
 
-The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator. On some machines canceling the prompt without selecting "Yes" will also work.
+The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator.
+On some machines canceling the prompt without selecting "Yes" will also work.
+
+Failed to load FastRTPS shared library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
+Although it is usually installed by default in Windows 10, we know that some Windows 10 like version don't have it installed by default (e.g.: Windows Server 2019).
+In case you haven't it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
 
 Extra stuff for Debug mode
 --------------------------

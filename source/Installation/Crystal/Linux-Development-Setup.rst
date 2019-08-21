@@ -23,11 +23,10 @@ Tier 3 platforms (not actively tested or supported) include:
 - Debian Linux - Stretch (9)
 - Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
+- OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
 ------------
-
-.. _linux-dev-add-ros2-repo:
 
 Set Locale
 ^^^^^^^^^^
@@ -45,8 +44,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <linux-install-debians-setup-sources>`.
+.. include:: ../_Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,12 +95,8 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
    vcs import src < ros2.repos
-
-..
-
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
 
 
 Install dependencies using rosdep
@@ -189,24 +183,25 @@ Note: when using ``zsh`` you need to be in the directory of the script when sour
 
 Now you can build as normal and support for RTI will be built as well.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`
 
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI from their `downloads page <https://www.rti.com/downloads>`__.
-
-To use RTI Connext you will need to have obtained a license from RTI.
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`.
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
 
 The default location is ``~/rti_connext_dds-5.3.1``
+
+After installation, run RTI launcher and point it to your license file (obtained from RTI).
+
+Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 

@@ -6,47 +6,48 @@ ROS 2 Dashing Diademata (codename 'dashing'; May 31st, 2019)
    :depth: 2
    :local:
 
-*Dashing Diademata* will be the fourth release of ROS 2.
+*Dashing Diademata* is the fourth release of ROS 2.
 
 Supported Platforms
 -------------------
 
-To be determined.
+Dashing Diademata is primarily supported on the following platforms:
+
+Tier 1 platforms:
+
+* Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
+* Mac OS X 10.12 (Sierra)
+* Windows 10 (Visual Studio 2019)
+
+Tier 2 platforms:
+
+* Ubuntu 18.04 (Bionic): ``arm32``
+
+Tier 3 platforms:
+
+* Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
+* OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
+
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
 
 New features in this ROS 2 release
 ----------------------------------
 
-During the development the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+A few features and improvements we would like to highlight:
 
+* `Components <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__ are now the recommended way to write your node.
+  They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
+* The `intra-process communication <https://github.com/ros2/ros2_documentation/edit/master/source/Tutorials/Intra-Process-Communication.rst>`__ (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
+* Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
+* By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).
+  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte strings (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
+* Command line tools related to ``actions`` and ``components``.
+* Support for Deadline, Lifespan & Liveliness quality of service settings.
+* MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
 
-Timeline before the release
----------------------------
-
-A few milestone leading up to the release:
-
-    Mon. Apr 8th (alpha)
-        First releases of core packages available.
-        Testing can happen from now on (some features might not have landed yet).
-
-    Thu. May 2nd
-        API freeze for core packages
-
-    Mon. May 6th (beta)
-        Updated releases of core packages available.
-        Additional testing of the latest features.
-
-    Thu. May 16th
-        Feature freeze.
-        Only bug fix releases should be made after this point.
-        New packages can be released independently.
-
-    Mon. May 20th (release candidate)
-        Updated releases of core packages available.
-
-    Wed. May 29th
-        Freeze rosdistro.
-        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
+Please see the `Dashing meta ticket <https://github.com/ros2/ros2/issues/607>`__ on GitHub, which contains more information as well as references to specific tickets with additional details.
 
 
 Changes since the Crystal release
@@ -69,10 +70,13 @@ You could also call ``set_parameter(name, value)`` at any point, even if the par
 Since Dashing, you need to first declare a parameter before getting or setting it.
 If you try to get or set an undeclared parameter you will either get an exception thrown, e.g. ParameterNotDeclaredException, or in certain cases you will get an unsuccessful result communicated in a variety of ways (see specific functions for more details).
 
-However, you can get the old behavior by using the ``allow_undeclared_parameters`` option when creating your node.
+However, you can get the old behavior (mostly, see the note in the next paragraph) by using the ``allow_undeclared_parameters`` option when creating your node.
 You might want to do this in order to avoid code changes for now, or in order to fulfill some uncommon use cases.
 For example, a "global parameter server" or "parameter blackboard" may want to allow external nodes to set new parameters on itself without first declaring them, so it may use the ``allow_undeclared_parameters`` option to accomplish that.
 In most cases, however, this option is not recommended because it makes the rest of the parameter API less safe to bugs like parameter name typos and "use before set" logical errors.
+
+Note that using ``allow_undeclared_parameters`` will get you most of the old behavior specifically for "get" and "set" methods, but it will not revert all the behavior changes related to parameters back to how it was for ROS Crystal.
+For that you need to also set the ``automatically_declare_parameters_from_overrides`` option to ``true``, which is described below in :ref:`Parameter Configuration using a YAML File <parameter-configuration-using-a-yaml-file>`.
 
 Declaring a Parameter with a ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -88,6 +92,8 @@ For reference, here's a link to the ``ParameterDescriptor`` message as of the ti
 
 https://github.com/ros2/rcl_interfaces/blob/0aba5a142878c2077d7a03977087e7d74d40ee68/rcl_interfaces/msg/ParameterDescriptor.msg#L1
 
+.. _parameter-configuration-using-a-yaml-file:
+
 Parameter Configuration using a YAML File
 """""""""""""""""""""""""""""""""""""""""
 
@@ -97,7 +103,7 @@ Before Dashing, any parameters you passed via a YAML file would be implicitly se
 
 Since Dashing, this is no longer the case, as parameters need to be declared in order to appear on the node to external observers, like ``ros2 param list``.
 
-The old behavior may be achieved using the ``automatically_declare_initial_parameters`` option when creating a node.
+The old behavior may be achieved using the ``automatically_declare_parameters_from_overrides`` option when creating a node.
 This option, if set to ``true``, will automatically declare all parameters in the input YAML file when the node is constructed.
 This may be used to avoid major changes to your existing code or to serve specific use cases.
 For example, a "global parameter server" may want to be seeded with arbitrary parameters on launch, which it could not have declared ahead of time.
@@ -157,7 +163,7 @@ You need to update to use the ``NodeOptions`` structure
   std::vector<rclcpp::Parameter> params = { rclcpp::Parameter("use_sim_time", true) };
   rclcpp::NodeOptions node_options;
   node_options.arguments(args);
-  node_options.initial_parameters(params);
+  node_options.parameter_overrides(params);
   auto node = std::make_shared<rclcpp::Node>("foo_node", "bar_namespace", node_options);
 
 Changes to Creating Publishers and Subscriptions
@@ -761,4 +767,36 @@ rviz
 Known Issues
 ------------
 
-None yet.
+* `[ros2/rclcpp#715] <https://github.com/ros2/rclcpp/issues/715>`_ There is an inconsistency in the way that parameter YAML files are loaded between standalone ROS 2 nodes and composed ROS 2 nodes.
+  Currently available workarounds are noted in an `issue comment <https://github.com/ros2/rclcpp/issues/715#issuecomment-497392626>`_
+* `[ros2/rclpy#360] <https://github.com/ros2/rclpy/issues/360>`_ rclpy nodes ignore ``ctrl-c`` when using OpenSplice on Windows.
+* `[ros2/rosidl_typesupport_opensplice#30] <https://github.com/ros2/rosidl_typesupport_opensplice/issues/30>`_ There is a bug preventing nesting a message inside of a service or action definition with the same name when using OpenSplice.
+* `[ros2/rclcpp#781] <https://github.com/ros2/rclcpp/pull/781>`_ Calling ``get_parameter``/``list_parameter`` from within ``on_set_parameter_callback`` causes a deadlock on Dashing.  This is fixed for Eloquent, but is an ABI break so has not been backported to Dashing.
+
+Timeline before the release
+---------------------------
+
+A few milestones leading up to the release:
+
+    Mon. Apr 8th (alpha)
+        First releases of core packages available.
+        Testing can happen from now on (some features might not have landed yet).
+
+    Thu. May 2nd
+        API freeze for core packages
+
+    Mon. May 6th (beta)
+        Updated releases of core packages available.
+        Additional testing of the latest features.
+
+    Thu. May 16th
+        Feature freeze.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. May 20th (release candidate)
+        Updated releases of core packages available.
+
+    Wed. May 29th
+        Freeze rosdistro.
+        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).

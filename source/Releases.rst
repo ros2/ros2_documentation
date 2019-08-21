@@ -1,6 +1,6 @@
 
-ROS 2 Distributions
-===================
+Distributions
+=============
 
 What is a Distribution?
 -----------------------
@@ -25,6 +25,9 @@ List of Distributions
      .distros td {vertical-align: middle;}
    </style>
 
+.. |dashing| image:: Releases/dashing-small.png
+   :alt: Dashing logo
+
 .. |crystal| image:: Releases/crystal-small.png
    :alt: Crystal logo
 
@@ -43,6 +46,10 @@ List of Distributions
      - Release date
      - Logo
      - EOL date
+   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+     - May 31st, 2019
+     - |dashing|
+     - May 2021
    * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - December 14th, 2018
      - |crystal|
@@ -101,11 +108,7 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
-     - May 31st, 2019
-     - 2 years
-     -
-   * - <E-turtle>
+   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22nd, 2019
      - 1 year
      -
@@ -114,4 +117,4 @@ The following information are best estimates and are subject to change.
      - 3+ years
      - Target Ubuntu 20.04
 
-After F-turtle the expectations is to release new ROS 2 distributions once per year.
+After F-turtle the expectation is to release new ROS 2 distributions once per year.

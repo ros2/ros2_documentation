@@ -18,6 +18,7 @@ Overview
    Troubleshooting
    Contributing
    Governance
+   Marketing
    Related-Projects
    Contact
    About
@@ -28,6 +29,7 @@ And it's all open source.
 
 Here you will find documentation on how to install and use software from **ROS 2**, which is a new version of ROS that is under heavy development.
 See below for more information on ROS 2.
+Also have a look at our `promotional material <Marketing>`.
 
 If you're looking for information on ROS 1 (i.e., ROS as it has existed for several years and what you might be using right now), check the `ROS website <http://www.ros.org>`__ or the `documentation wiki <http://wiki.ros.org>`__.
 
@@ -69,6 +71,11 @@ Governance
 ----------
 
 See `the governance page <Governance>`.
+
+Marketing
+----------
+
+See `the marketing page <Marketing>`.
 
 Reporting problems and asking questions
 ---------------------------------------

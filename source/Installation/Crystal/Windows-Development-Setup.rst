@@ -139,7 +139,9 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
    > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
    : You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64`` instead, but that requires Administrator.
 
-Note, this path might change based on which MSVC version you're using or if you installed it to a different directory.
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -165,15 +167,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
-
-..
-
-   Note: if you want to get all of the latest bug fixes then you can try the "tip" of development by replacing ``release-latest`` in the URL above with ``master``. The ``release-latest`` is preferred by default because it goes through more rigorous testing on release than changes to master do. See also `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
-
+   > curl https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
@@ -207,18 +204,20 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext, you will need to first visit the RTI website and obtain a license (evaluation or purchased) for RTI Connext DDS as well as the installer via their `downloads page <https://www.rti.com/downloads>`__.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`.
+
 After installing, use the RTI Launcher to load your license file.
+
 Then before building ROS 2, set up the Connext environment:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS.
+Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
@@ -237,10 +236,14 @@ To build the ``\dev\ros2`` folder tree:
 
    > colcon build --merge-install
 
-Note, we're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+.. note::
 
-Note, if you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
-See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
+   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build. If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+
+.. note::
+
+   If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
+   See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Testing and Running
 -------------------
@@ -251,7 +254,11 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test
+   > colcon test --merge-install
+
+.. note::
+
+   ``--merge-install`` should only be used if it was also used in the build step.
 
 Afterwards you can get a summary of the tests using this command:
 
@@ -277,7 +284,9 @@ In a separate shell you can do the same, but instead run the ``listener``\ :
 
 For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
 
-Note: it is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+.. note::
+
+   It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
 Alternative DDS Sources
 -----------------------
@@ -346,16 +355,16 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.3 source from the ``tgz``:
+* Get and extract the Python 3.7.4 source from the ``tgz``:
 
-  * https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.3``
+  * https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.4``
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild
+   > cd C:\dev\Python-3.7.4\PCbuild
    > get_externals.bat
    > build.bat -p x64 -d
 
@@ -364,7 +373,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild\amd64
+   > cd C:\dev\Python-3.7.4\PCbuild\amd64
    > copy python_d.exe C:\Python37 /Y
    > copy python37_d.dll C:\Python37 /Y
    > copy python3_d.dll C:\Python37 /Y

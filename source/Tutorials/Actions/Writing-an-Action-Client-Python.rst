@@ -3,7 +3,7 @@ Writing an Action Client (Python)
 
 In this tutorial, we look at implementing an action client in Python.
 
-Make sure you have satisfied all `prequisites <../Actions>`.
+Make sure you have satisfied all `prerequisites <../Actions>`.
 
 Sending a Goal
 --------------
@@ -80,7 +80,10 @@ Let's test our action client by first running an action server built in the tuto
 
 .. code-block:: bash
 
-    ros2 run action_tutorials fibonacci_action_server.py
+    # Linux/OSX
+    python3 fibonacci_action_server.py
+    # Windows
+    python fibonacci_action_server.py
 
 In another terminal, run the action client:
 

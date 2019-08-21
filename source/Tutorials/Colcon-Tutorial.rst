@@ -2,17 +2,17 @@
 
     Colcon-Tutorial
 
-Using Colcon to build packages
+Using colcon to build packages
 ==============================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This a brief tutorial of how to create and build a ROS workspace with ``colcon``.
+This is a brief tutorial of how to create and build a ROS 2 workspace with ``colcon``.
 It is a practical tutorial and not designed to replace the core documentation.
 
-ROS 2 releases before Bouncy were using ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
+ROS 2 releases before Bouncy used ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
 
 Background
 ----------
@@ -24,13 +24,6 @@ The source code can be found in the `colcon GitHub organization <https://github.
 
 Prerequisites
 -------------
-
-Install ROS 2
-^^^^^^^^^^^^^
-
-Make sure that you have installed ROS 2 following the `installation instructions <../Installation>`.
-
-.. attention:: If installing from Debian packages, this tutorial requires the "Desktop installation".
 
 Install colcon
 ^^^^^^^^^^^^^^
@@ -55,6 +48,16 @@ Windows
 .. code-block:: bash
 
     pip install -U colcon-common-extensions
+
+
+Install ROS 2
+^^^^^^^^^^^^^
+
+To build the samples, you will need to install ROS 2.
+
+Follow the `installation instructions <../Installation>`.
+
+.. attention:: If installing from Debian packages, this tutorial requires the `desktop installation <Dashing_linux-install-debians-install-ros-2-packages>`.
 
 Basics
 ------
@@ -190,10 +193,10 @@ To run tests for the packages we just built, run the following:
 Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
 
-When colcon has completed building successfully the output will be in the ``install`` directory.
-To use the executables and libraries you need to e.g. add the ``install/bin`` directory to your path.
+When colcon has completed building successfully, the output will be in the ``install`` directory.
+Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths.
 colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
-These files will both add the required elements to your path and library paths as well as provide any exported bash or shell commands exported by packages.
+These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
 Linux/OS X
 ~~~~~~~~~~
