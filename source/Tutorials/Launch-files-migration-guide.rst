@@ -19,13 +19,13 @@ Migrating tags from ROS1 to ROS2
 launch
 ^^^^^^
 
-* `Available Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__.
+* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__.
 * ``launch`` is the root element of any ROS 2 launch XML file.
 
 node
 ^^^^
 
-* `In ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__.
+* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__.
 * Launches a new node.
 * Differences from ROS 1:
    * ``type`` attribute is now ``executable``.
@@ -44,7 +44,7 @@ Example
 param
 ^^^^^
 
-* `In ROS1 <http://wiki.ros.org/roslaunch/XML/param>`__.
+* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/param>`__.
 * Used for passing a parameter to a node.
 * There's no global parameter concept in ROS 2.
   For that reason, it can only be used nested in a ``node`` tag.
@@ -125,7 +125,7 @@ It's also possible to use full parameter names:
 rosparam
 ^^^^^^^^
 
-* `In ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__.
+* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__.
 * Loads parameters from a yaml file.
 * It has been replaced with a ``from`` atribute in ``param`` tags.
 
