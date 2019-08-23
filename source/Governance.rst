@@ -11,7 +11,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (14 as of 2019-08-14):
+The current members of the ROS 2 TSC are (15 as of 2019-08-23):
 
 .. |amazon| image:: Governance/amazon.svg
    :alt: Amazon logo
@@ -32,6 +32,11 @@ The current members of the ROS 2 TSC are (14 as of 2019-08-14):
    :alt: Bosch logo
    :height: 35px
    :target: https://www.bosch.com/
+
+.. |canonical| image:: Governance/ubuntu.svg
+   :alt: Ubuntu logo
+   :height: 35px
+   :target: https://ubuntu.com/
 
 .. |eprosima| image:: Governance/eprosima.svg
    :alt: eProsima logo
@@ -95,6 +100,8 @@ The current members of the ROS 2 TSC are (14 as of 2019-08-14):
      - Arm: Filipe Rinaldi
    * - |bosch|
      - Bosch: Karsten Knese
+   * - |canonical|
+     - Canonical: Kyle Fazzari
    * - |eprosima|
      - eProsima: Jaime Martin Losa
    * - |intel|
