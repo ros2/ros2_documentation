@@ -17,6 +17,159 @@ The package providing this framework is ``launch_ros``, which uses the non-ROS-s
 
 The `design document (in review) <https://github.com/ros2/design/pull/163>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
 
+Writing a ROS 2 launch file
+---------------------------
+ROS 2 uses Python to create launch files which are executed by the ROS 2 CLI verb, ``launch``.
+We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and
+creating a new ``launch`` directory.
+
+Python Packages
+~~~~~~~~~~~~~~~
+If you are creating a Python package, remove the ``CMakeLists.txt`` file and replace it with ``setup.py`` and
+``setup.cfg`` files.
+Your directory should look like this:
+
+.. code-block:: shell
+
+    src/
+        my_package/
+            launch/
+            setup.py
+            setup.cfg
+            package.xml
+
+In order for colcon to find the launch files, we need to inform Python's setup tools of our launch files using
+the ``data_files`` parameter of ``setup``.
+
+Inside our ``setup.py`` file.
+
+.. code-block:: python
+
+    import os
+    from glob import glob
+    from setuptools import setup
+
+    package_name = 'my_package'
+
+    setup(
+        name=package_name,
+        version='0.0.0',
+        packages=[package_name],
+        data_files=[
+            ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
+            # Include our package.xml file
+            (os.path.join('share', package_name), ['package.xml']),
+            # Include all launch files. This is the most important line here!
+            (os.path.join('share', package_name, 'launch'), glob('*.launch.py'))
+        ],
+        install_requires=['setuptools'],
+        zip_safe=True,
+        author='ROS 2 Developer',
+        author_email='ros2@ros.com',
+        maintainer='ROS 2 Developer',
+        maintainer_email='ros2@ros.com',
+        keywords=['foo', 'bar'],
+        classifiers=[
+            'Intended Audience :: Developers',
+            'License :: TODO',
+            'Programming Language :: Python',
+            'Topic :: Software Development',
+        ],
+        description='My awesome package.',
+        license='TODO',
+        entry_points={
+            'console_scripts': [
+                'my_script = my_package.script:main'
+            ],
+        },
+    )
+
+and ``setup.cfg`` file:
+
+.. code-block:: bash
+
+    [develop]
+    script-dir=$base/lib/my_package
+    [install]
+    install-scripts=$base/lib/my_package
+
+Finally, make sure your ``package.xml`` file is setup to indicate that you are creating a Python package.
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <!-- Make sure to use version 3 -->
+    <package format="3">
+      <name>my_package</name>
+      <version>0.0.0</version>
+      <description>My awesome package.</description>
+      <license>TODO</license>
+      <author email="ros2@ros.com">ROS 2 Developer</author>
+      <maintainer email="ros2@ros.com">ROS 2 Developer</maintainer>
+      <exec_depend>rclpy</exec_depend>
+
+      <!-- This indicates you have a python package -->
+      <export>
+        <build_type>ament_python</build_type>
+      </export>
+
+    </package>
+
+C++ Packages
+~~~~~~~~~~~~
+
+If you are creating a C++ package, we will only be adjusting the ``CMakeLists.txt`` file by adding
+
+.. code-block:: cmake
+
+    # Install launch files.
+    install(DIRECTORY
+      launch
+      DESTINATION share/${PROJECT_NAME}/
+    )
+
+to the end of the file (but before ``ament_package()``).
+
+
+Writing the launch file
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Inside your launch directory, create a new launch file with the ``.launch.py`` suffix. For example ``script.launch.py``.
+Your launch file should define the ``generate_launch_description`` which returns a ``launch.LaunchDescription()``
+to be used by the ``ros2 launch`` verb.
+
+The ``RegisterEventHandler`` action here makes sure that the launch process shuts down when the node exits.
+
+.. code-block:: python
+
+    import launch
+    import launch_ros.actions
+
+
+    def generate_launch_description():
+        script = launch_ros.actions.Node(
+            package='my_package', node_executable='script', output='screen')
+        return launch.LaunchDescription([
+            script,
+            launch.actions.RegisterEventHandler(
+                event_handler=launch.event_handlers.OnProcessExit(
+                    target_action=client,
+                    on_exit=[launch.actions.EmitEvent(event=launch.events.Shutdown())],
+                )),
+        ])
+
+Usage
+~~~~~
+
+While launch files can be written as standalone scripts, the typical usage in ROS is to have launch files invoked by ROS 2 tools.
+
+After running ``colcon build`` and sourcing your workspace, you should be able to launch the launch file as follows:
+
+.. code-block:: bash
+
+   ros2 launch my_package script.launch.py
+
+
 Example of ROS 2 launch concepts
 --------------------------------
 
@@ -25,17 +178,6 @@ Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when
 The events can then be acted on through the launch framework, e.g. by emitting other events (such as requesting another state transition, which lifecycle nodes launched through ``launch_ros`` automatically have event handlers for) or triggering other *actions* (e.g. starting another node).
 
 In the aforementioned example, various transition requests are requested of the ``talker`` lifecycle node, and  its transition events are reacted to by, for example, launching a ``listener`` node when the lifecycle talker reaches the appropriate state.
-
-Usage
------
-
-While launch files can be written as standalone scripts, the typical usage in ROS is to have launch files invoked by ROS 2 tools.
-
-For example, `this launch file <https://github.com/ros2/demos/blob/master/demo_nodes_cpp/launch/services/add_two_ints.launch.py>`__ has been designed such that it can be invoked by ``ros2 launch``:
-
-.. code-block:: bash
-
-   ros2 launch demo_nodes_cpp add_two_ints.launch.py
 
 Documentation
 -------------
