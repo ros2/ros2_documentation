@@ -19,12 +19,14 @@ The `design document (in review) <https://github.com/ros2/design/pull/163>`__ de
 
 Writing a ROS 2 launch file
 ---------------------------
+
 ROS 2 uses Python to create launch files which are executed by the ROS 2 CLI verb, ``launch``.
 We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and
 creating a new ``launch`` directory.
 
 Python Packages
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
+
 If you are creating a Python package, remove the ``CMakeLists.txt`` file and replace it with ``setup.py`` and
 ``setup.cfg`` files.
 Your directory should look like this:
@@ -116,7 +118,7 @@ Finally, make sure your ``package.xml`` file is setup to indicate that you are c
     </package>
 
 C++ Packages
-~~~~~~~~~~~~
+^^^^^^^^^^^^
 
 If you are creating a C++ package, we will only be adjusting the ``CMakeLists.txt`` file by adding
 
@@ -132,7 +134,7 @@ to the end of the file (but before ``ament_package()``).
 
 
 Writing the launch file
-~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside your launch directory, create a new launch file with the ``.launch.py`` suffix. For example ``script.launch.py``.
 Your launch file should define the ``generate_launch_description`` which returns a ``launch.LaunchDescription()``
@@ -159,7 +161,7 @@ The ``RegisterEventHandler`` action here makes sure that the launch process shut
         ])
 
 Usage
-~~~~~
+^^^^^
 
 While launch files can be written as standalone scripts, the typical usage in ROS is to have launch files invoked by ROS 2 tools.
 
