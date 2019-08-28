@@ -1,7 +1,7 @@
 Developing a ROS 2 Package
 ##########################
 
-This tutorial goes through how to develop a ROS 2 package end-to-end. It is suggested you
+This tutorial goes through how to create your first ROS 2 application. It is suggested you
 follow this guide as part of the quickstart tutorials.
 
 All ROS 2 packages begin by running the command
@@ -10,7 +10,19 @@ All ROS 2 packages begin by running the command
 
   ros2 pkg create <pkg-name> --dependencies [deps]
 
-in your workspace (usually ``~/ros2_ws/src``)
+in your workspace (usually ``~/ros2_ws/src``).
+
+To explicitly create a C++ package
+
+.. code-block:: bash
+
+  ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_cmake
+
+To explicitly create a Python package
+
+.. code-block:: bash
+
+  ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_python
 
 You can then update the ``package.xml`` with your package info such as dependencies,
 descriptions, and authorship.
