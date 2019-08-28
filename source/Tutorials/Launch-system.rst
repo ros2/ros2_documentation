@@ -54,36 +54,12 @@ Inside our ``setup.py`` file.
     package_name = 'my_package'
 
     setup(
-        name=package_name,
-        version='0.0.0',
-        packages=[package_name],
+        # Other parameters ...
         data_files=[
-            ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
-            # Include our package.xml file
-            (os.path.join('share', package_name), ['package.xml']),
+            # ... Other data files
             # Include all launch files. This is the most important line here!
             (os.path.join('share', package_name, 'launch'), glob('*.launch.py'))
-        ],
-        install_requires=['setuptools'],
-        zip_safe=True,
-        author='ROS 2 Developer',
-        author_email='ros2@ros.com',
-        maintainer='ROS 2 Developer',
-        maintainer_email='ros2@ros.com',
-        keywords=['foo', 'bar'],
-        classifiers=[
-            'Intended Audience :: Developers',
-            'License :: TODO',
-            'Programming Language :: Python',
-            'Topic :: Software Development',
-        ],
-        description='My awesome package.',
-        license='TODO',
-        entry_points={
-            'console_scripts': [
-                'my_script = my_package.script:main'
-            ],
-        },
+        ]
     )
 
 and ``setup.cfg`` file:
