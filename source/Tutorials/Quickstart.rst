@@ -8,8 +8,9 @@ Quickstart
 About
 -----
 
-This a series of articles that should help you get up and running with creating your first
-ROS 2 package.
+This a series  is intended for developers who want to learn how to create their
+own packages in ROS 2.
+It is not meant for people who want to use ROS 2 with it's existing packages.
 
 Prequisites
 -----------
