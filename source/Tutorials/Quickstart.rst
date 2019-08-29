@@ -8,7 +8,7 @@ Quickstart
 About
 -----
 
-This a series  is intended for developers who want to learn how to create their
+This series is intended for developers who want to learn how to create their
 own packages in ROS 2.
 It is not meant for people who want to use ROS 2 with it's existing packages.
 
