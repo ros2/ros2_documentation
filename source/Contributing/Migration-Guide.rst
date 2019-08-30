@@ -14,7 +14,7 @@ There are two different kinds of package migrations:
 
 This article focuses on the former case and describes the high-level steps to migrate a ROS 1 package to ROS 2.
 It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
-Future versions will aim to make migration smoother and less effort up to the point that maintaining a single package from the same branch for ROS 1 as well as ROS 2.
+Future versions will aim to make migration smoother and less effort up to the point of maintaining a single package from the same branch for ROS 1 as well as ROS 2.
 
 Prerequisites
 -------------
