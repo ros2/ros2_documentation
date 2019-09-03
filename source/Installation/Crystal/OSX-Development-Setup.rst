@@ -49,6 +49,10 @@ You need the following things installed to build ROS 2:
      Fix any problems that it identifies.
 
 #.
+  You also need a Java runtime installed, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
+
+
+#.
    Use ``brew`` to install more stuff:
 
    .. code-block:: bash
