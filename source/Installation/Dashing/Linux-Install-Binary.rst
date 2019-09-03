@@ -25,7 +25,7 @@ Downloading ROS 2
 -----------------
 
 
-* Go `the releases page <https://github.com/ros2/ros2/releases>`_
+* Go to `the releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-dashing-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.

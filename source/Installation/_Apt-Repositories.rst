@@ -1,5 +1,5 @@
-You will need to add the ROS 2 apt repositories  to your system.
-To do so, first authorize our gpg key with apt like this:
+You will need to add the ROS 2 apt repositories to your system.
+To do so, first authorize our GPG key with apt like this:
 
 .. code-block:: bash
 

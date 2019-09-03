@@ -7,7 +7,7 @@ Migration guide from ROS 1
 
 There are two different kinds of package migrations:
 
-* Migrating the source code of an existing package from ROS 1 to ROS 2 with the intend that a significant part of the source code will stay the same or at least similar.
+* Migrating the source code of an existing package from ROS 1 to ROS 2 with the intent that a significant part of the source code will stay the same or at least similar.
   An example for this could be `pluginlib <https://github.com/ros/pluginlib>`_ where the source code is maintained in different branches within the same repository and commonly patches can be ported between those branches when necessary.
 * Implementing the same or similar functionality of a ROS 1 package for ROS 2 but with the assumption that the source code will be significantly different.
   An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/master/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
@@ -213,7 +213,7 @@ Linters
 In ROS 2 we are working to maintain clean code using linters.
 The styles for different languages are defined in our `Developer Guide <Developer-Guide>`.
 
-If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unittests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
+If you are starting a project from scratch it is recommended to follow the style guide and turn on the automatic linter unit tests by adding these lines just below ``if(BUILD_TESTING)`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``).
 
 .. code-block:: cmake
 
@@ -558,7 +558,7 @@ The creation of the publisher and rate objects looks pretty similar, with some
 changes to the names of namespace and methods.
 For the publisher, instead of an integer queue length argument, we pass a
 quality of service (qos) profile, which is a far more flexible way to
-controlling how message delivery is handled.
+control how message delivery is handled.
 In this example, we just pass the default profile ``rmw_qos_profile_default``
 (it's global because it's declared in ``rmw``, which is written in C and so
 doesn't have namespaces).
@@ -886,14 +886,15 @@ setup file, from our install tree, we can invoke it by name directly
 Licensing
 ---------
 
-In ROS 2 our recommended license is the `Apache 2.0 License <https://www.apache.org/licenses/LICENSE-2.0>`__
-In ROS 1 our recommended license was the `3-Clause BSD License <https://opensource.org/licenses/BSD-3-Clause>`__
+In ROS 2 our recommended license is the `Apache 2.0 License <https://www.apache.org/licenses/LICENSE-2.0>`__.
+In ROS 1 our recommended license was the `3-Clause BSD License <https://opensource.org/licenses/BSD-3-Clause>`__.
 
 For any new project we recommend using the Apache 2.0 License, whether ROS 1 or ROS 2.
 
-However when migrating code from ROS 1 to ROS 2 we cannot simply change the license, the existing license must be preserved for any preexisting contributions.
+However, when migrating code from ROS 1 to ROS 2 we cannot simply change the license.
+The existing license must be preserved for any preexisting contributions.
 
-To that end if a package is being migrated we recommend keeping the existing license and continuing to contributing to that package under the existing OSI license, which we expect to be the BSD license for core elements.
+To that end if a package is being migrated we recommend keeping the existing license and continuing to contribute to that package under the existing OSI license, which we expect to be the BSD license for core elements.
 
 This will keep things clear and easy to understand.
 
@@ -902,4 +903,4 @@ Changing the License
 
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
-If the package as a small set of contributors then this may be feasible.
+If the package has a small set of contributors then this may be feasible.
