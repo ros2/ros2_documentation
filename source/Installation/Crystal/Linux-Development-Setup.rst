@@ -125,7 +125,7 @@ The ROS 2 build will automatically build support for vendors that have been inst
 
 By default we include eProsima's FastRTPS in the workspace and it is the default middleware. Detailed instructions for installing other DDS vendors are provided below.
 
-PrismTech OpenSplice Debian Packages built by OSRF
+ADLINK OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -139,9 +139,9 @@ PrismTech OpenSplice Debian Packages built by OSRF
 .. raw:: html
 
    <!--
-   ##### Official binary packages from PrismTech
+   ##### Official binary packages from ADLINK
 
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
+   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_9_181127OSS_RELEASE).
    Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
    Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
    After that, your shell is ready to run ROS2 binaries with the official OpenSplice distribution.
