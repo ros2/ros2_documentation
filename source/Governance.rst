@@ -137,7 +137,7 @@ The current WGs are (4 as of 2019-04-01):
  * Lead(s): Borja Outerelo
  * Resources:
 
-  * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
+  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
 
 * Navigation
 
