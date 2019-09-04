@@ -141,7 +141,7 @@ ADLINK OpenSplice Debian Packages built by OSRF
    <!--
    ##### Official binary packages from ADLINK
 
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
+   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_9_181127OSS_RELEASE).
    Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
    Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
    After that, your shell is ready to run ROS2 binaries with the official OpenSplice distribution.
