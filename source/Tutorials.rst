@@ -19,6 +19,7 @@ Basic
    Tutorials/RQt-Port-Plugin-Windows
    Tutorials/Node-arguments
    Tutorials/Launch-system
+   Tutorials/Launch-files-migration-guide
    Tutorials/Working-with-multiple-RMW-implementations
    Tutorials/Composition
    Tutorials/Rosidl-Tutorial.rst

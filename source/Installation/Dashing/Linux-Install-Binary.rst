@@ -19,13 +19,13 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-See the `development instructions <Dashing_linux-dev-add-ros2-repo>`.
+.. include:: ../_Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
 
 
-* Go `the releases page <https://github.com/ros2/ros2/releases>`_
+* Go to `the releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-dashing-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
@@ -93,7 +93,7 @@ To use OpenSplice you can install a Debian package built by OSRF.
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt respository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
@@ -119,7 +119,7 @@ All options need you to source the setup file to set the ``NDDSHOME`` environmen
 
 Note: the above may need modification to match your RTI installation location
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 Try some examples
 -----------------

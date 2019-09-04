@@ -16,7 +16,6 @@ Resources
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
-.. _Dashing_linux-install-debians-setup-sources:
 
 Setup Locale
 ------------
@@ -34,19 +33,9 @@ It should be fine if you're using a different UTF-8 supported locale.
 Setup Sources
 -------------
 
-To install the Debian packages you will need to add our Debian repository to your apt sources.
-First you will need to authorize our gpg key with apt like this:
+.. include:: ../_Apt-Repositories.rst
 
-.. code-block:: bash
-
-   sudo apt update && sudo apt install curl gnupg2 lsb-release
-   curl http://repo.ros2.org/repos.key | sudo apt-key add -
-
-And then add the repository to your sources list:
-
-.. code-block:: bash
-
-   sudo sh -c 'echo "deb [arch=amd64,arm64] http://packages.ros.org/ros2/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+.. _Dashing_linux-install-debians-install-ros-2-packages:
 
 Install ROS 2 packages
 ----------------------
@@ -120,11 +109,11 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Dashing_linux-ros1-add-pkgs:
 
-`University, purchase or evaluation <Install-Connext-University-Eval>` options are also available for RTI Connext.
+`University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------

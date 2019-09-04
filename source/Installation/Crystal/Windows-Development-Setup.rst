@@ -204,7 +204,7 @@ where the exact paths may need to be slightly altered depending on where you sel
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`.
 
 After installing, use the RTI Launcher to load your license file.
 
@@ -217,7 +217,7 @@ Then before building ROS 2, set up the Connext environment:
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
@@ -355,16 +355,16 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.3 source from the ``tgz``:
+* Get and extract the Python 3.7.4 source from the ``tgz``:
 
-  * https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.3``
+  * https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.4``
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild
+   > cd C:\dev\Python-3.7.4\PCbuild
    > get_externals.bat
    > build.bat -p x64 -d
 
@@ -373,7 +373,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild\amd64
+   > cd C:\dev\Python-3.7.4\PCbuild\amd64
    > copy python_d.exe C:\Python37 /Y
    > copy python37_d.dll C:\Python37 /Y
    > copy python3_d.dll C:\Python37 /Y

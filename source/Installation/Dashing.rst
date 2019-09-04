@@ -33,3 +33,4 @@ We support building ROS 2 from source on the following platforms:
 * `OS X <Dashing/OSX-Development-Setup>`
 * `Windows <Dashing/Windows-Development-Setup>`
 
+.. include:: _Install-Types.rst

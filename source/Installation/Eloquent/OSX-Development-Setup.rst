@@ -1,7 +1,4 @@
-.. redirect-from::
-
-   OSX-Development-Setup
-   Installation/OSX-Development-Setup
+.. _osx-latest:
 
 Building ROS 2 on OS X
 ======================
@@ -49,10 +46,6 @@ You need the following things installed to build ROS 2:
      Fix any problems that it identifies.
 
 #.
-  You also need a Java runtime installed, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
-
-
-#.
    Use ``brew`` to install more stuff:
 
    .. code-block:: bash
@@ -63,6 +56,14 @@ You need the following things installed to build ROS 2:
        brew install asio tinyxml2
 
        brew install opencv
+
+       # install console_bridge for rosbag2
+       brew install console_bridge
+
+       # install OpenSSL for DDS-Security
+       brew install openssl
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
@@ -84,7 +85,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pyparsing setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy lark-parser mock nose pep8 pydocstyle pyparsing pytest-mock setuptools vcstool
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -117,7 +118,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -181,8 +182,7 @@ See `Working with multiple RMW implementations </Tutorials/Working-with-multiple
 Adlink OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 Crystal Clemmys supports OpenSplice 6.9.
-ROS 2 Bouncy Bolson supports OpenSplice 6.7.
+ROS 2 Eloquent Elusor supports OpenSplice 6.9.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
@@ -195,7 +195,7 @@ Source the ``release.com`` file provided to set up the environment before buildi
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`.
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
@@ -216,7 +216,7 @@ You may need to increase shared memory resources following https://community.rti
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-.. _osx-development-setup-troubleshooting:
+.. _Eloquent_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------
@@ -242,55 +242,20 @@ If you are seeing library loading issues at runtime (either running tests or run
 then you probably have System Integrity Protection enabled.
 See "Disable System Integrity Protection (SIP)" above for how instructions on how to disable it.
 
-Qt build errors
-^^^^^^^^^^^^^^^
+Qt build errors e.g. ``unknown type name 'Q_ENUM'``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. ``unknown type name 'Q_ENUM'``
+If you see build errors related to Qt, e.g.:
 
-   If you see build errors like:
+.. code-block:: bash
 
-   .. code-block:: bash
+   In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
+   /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error:
+         unknown type name 'Q_ENUM'
+       Q_ENUM(Action)
+       ^
 
-      In file included from /usr/local/opt/qt/lib/QtGui.framework/Headers/qguiapplication.h:46:
-      /usr/local/opt/qt/lib/QtGui.framework/Headers/qinputmethod.h:87:5: error:
-            unknown type name 'Q_ENUM'
-          Q_ENUM(Action)
-          ^
-
-   you may be using qt4 instead of qt5: see https://github.com/ros2/ros2/issues/441
-
-#. ``"mkspecs/macx-clang" but this file does not exist``
-
-   To fix this error:
-
-   .. code-block:: bash
-
-      CMake Error at /usr/local/lib/cmake/Qt5Core/Qt5CoreConfig.cmake:15 (message):
-        The imported target "Qt5::Core" references the file
-
-           "/usr/local/.//mkspecs/macx-clang"
-
-        but this file does not exist. Possible reasons include:
-
-        * The file was deleted, renamed, or moved to another location.
-
-        * An install or uninstall procedure did not complete successfully.
-
-        * The installation package was faulty and contained
-
-           "/usr/local/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake"
-
-        but not all the files it references.
-
-   link ``mkspecs`` and ``plugins`` folders to ``/usr/local/``:
-
-   .. code-block:: bash
-
-      export HOMEBREW_QT5_VERSION=5.12.3 # Specify appropriate Qt5 version here
-      sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs
-      sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/plugins /usr/local/plugins
-
-   If you are on a previous version of Homebrew, the ``qt`` formula could still be called ``qt5``, so make corresponding changes to the paths above.
+you may be using qt4 instead of qt5: see https://github.com/ros2/ros2/issues/441
 
 Missing symbol when opencv (and therefore libjpeg, libtiff, and libpng) are installed with Homebrew
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

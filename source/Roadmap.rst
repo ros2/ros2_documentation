@@ -6,7 +6,7 @@ Roadmap
    :depth: 2
    :local:
 
-Please see the page of the upcoming distribution `Dashing Diademata <Releases/Release-Dashing-Diademata>` for more information what is planned to be part of that release.
+Please see the page of the upcoming distribution `Eloquent Elusor <Releases/Release-Eloquent-Elusor>` for more information what is planned to be part of that release.
 
 Please see the `Distributions page <Releases>` for the timeline of and information about future distributions.
 
@@ -105,7 +105,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * security improvements:
 
   * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [\*]
-  * extend access control permission generation to support services [\*]
   * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
   * key storage security (right now, keys are just stored in the filesystem) [\*\*]
   * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]

@@ -1,3 +1,5 @@
+.. _linux-latest:
+
 Building ROS 2 on Linux
 =======================
 
@@ -8,7 +10,7 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
-Target platforms for Dashing Diademata are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Eloquent Elusor are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 
@@ -78,7 +80,7 @@ Install development tools and ROS tools
      libasio-dev \
      libtinyxml2-dev
 
-.. _Dashing_linux-dev-get-ros2-code:
+.. _Eloquent_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -89,7 +91,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_ws/src
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
 Install dependencies using rosdep
@@ -99,9 +101,9 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _Dashing_linux-development-setup-install-more-dds-implementations-optional:
+.. _Eloquent_linux-development-setup-install-more-dds-implementations-optional:
 
 Install more DDS implementations (Optional)
 -------------------------------------------
@@ -115,7 +117,7 @@ The ROS 2 build will automatically build support for vendors that have been inst
 By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
 Detailed instructions for installing other DDS vendors are provided below.
 
-ADLINK OpenSplice Debian Packages built by OSRF
+PrismTech OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
@@ -125,9 +127,9 @@ ADLINK OpenSplice Debian Packages built by OSRF
 .. raw:: html
 
    <!--
-   ##### Official binary packages from ADLINK
+   ##### Official binary packages from PrismTech
 
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_9_190403OSS_RELEASE).
+   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
    Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
    Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
    After that, your shell is ready to run ROS2 binaries with the official OpenSplice distribution.

@@ -1,3 +1,5 @@
+.. _windows-latest:
+
 Building ROS 2 on Windows
 =========================
 
@@ -10,7 +12,7 @@ This guide is about how to setup a development environment for ROS2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <Dashing_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <Eloquent_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -81,19 +83,19 @@ Then you can continue installing other Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U catkin_pkg EmPy lark-parser lxml numpy pyparsing pyyaml
+   > pip install -U catkin_pkg cryptography EmPy lark-parser lxml numpy pyparsing pyyaml
 
 Next install testing tools like ``pytest`` and others:
 
 .. code-block:: bash
 
-   > pip install -U pytest coverage mock
+   > pip install -U pytest pytest-mock coverage mock
 
 Next install linters and checkers like ``flake8`` and others:
 
 .. code-block:: bash
 
-   > pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes pep8 pydocstyle
+   > pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy pep8 pydocstyle
 
 Next install cppcheck:
 
@@ -160,10 +162,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
+   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 

@@ -28,8 +28,6 @@ Tier 3 platforms (not actively tested or supported) include:
 System setup
 ------------
 
-.. _linux-dev-add-ros2-repo:
-
 Set Locale
 ^^^^^^^^^^
 Make sure to set a locale that supports UTF-8.
@@ -46,8 +44,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-First make sure you have the ROS 2 apt repositories added to your system, if not refer to `the following section <linux-install-debians-setup-sources>`.
+.. include:: ../_Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -186,12 +183,12 @@ Note: when using ``zsh`` you need to be in the directory of the script when sour
 
 Now you can build as normal and support for RTI will be built as well.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`
 
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <Install-Connext-University-Eval>`.
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`.
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
