@@ -130,7 +130,7 @@ Working Groups (WGs)
 
 As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
-The current WGs are (4 as of 2019-04-01):
+The current WGs are (6 as of 2019-09-04):
 
 * Embedded Systems:
 
