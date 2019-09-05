@@ -37,6 +37,13 @@ Since ROS 1 supports all formats it is safe to perform that conversion in the RO
 
 Some packages might have different names in ROS 2 so the dependencies might need to be updated accordingly.
 
+Metapackages
+^^^^^^^^^^^^
+
+ROS 2 doesn't have a special package type for metapackages.
+Metapacakges can still exist as regular packages that only contain runtime dependencies.
+When migrating metapackages from ROS 1, simply remove the ``<metapackage />`` tag in your package manifest.
+
 Message, service, and action definitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
