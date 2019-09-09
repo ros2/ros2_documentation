@@ -9,7 +9,7 @@ Eclipse Cyclone DDS is a very performant and robust open-source DDS implementati
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.
 See also: https://projects.eclipse.org/projects/iot.cycloned
 
-Build Eclipse Cyclone DDS and rmw_cyclonedds  
+Build Eclipse Cyclone DDS and rmw_cyclonedds
 --------------------------------------------
 
 First, we should clone Cyclone DDS and rmw_cyclonedds in the ROS2 workspace source directory.
