@@ -9,7 +9,7 @@ Basic
 .. toctree::
    :maxdepth: 1
 
-   Tutorials/Quickstart
+   Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-Tutorial
    Tutorials/Ament-CMake-Documentation

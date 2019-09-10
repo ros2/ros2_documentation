@@ -5,8 +5,24 @@
 Developing a ROS 2 Package
 ##########################
 
-This tutorial goes through how to create your first ROS 2 application. It is
-suggested you follow this guide as part of the quickstart tutorials.
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+This tutorial will teach you how to create your first ROS 2 application.
+It is intended for developers who want to learn how to create custom packages in ROS 2, not for people who want to use ROS 2 with it's existing packages.
+
+Prerequisites
+-------------
+
+- `Install ROS (Dashing or later) <../Installation>`__
+
+- `Install colcon <https://colcon.readthedocs.io/en/released/user/installation.html>`__
+
+- Setup your workspace by sourcing your ROS 2 installation.
+
+Creating a package
+------------------
 
 All ROS 2 packages begin by running the command
 
@@ -28,19 +44,12 @@ To explicitly create a Python package
 
    ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_python
 
-You can then update the ``package.xml`` with your package info such as
-dependencies, descriptions, and authorship.
+You can then update the ``package.xml`` with your package info such as dependencies, descriptions, and authorship.
 
 C++ Packages
-************
+^^^^^^^^^^^^
 
-You will mostly use the
-
-.. code-block:: cmake
-
-   add_executable(<executable-name> <executable-file>)
-
-macro along with
+You will mostly use the ``add_executable()`` CMake macro along with
 
 .. code-block:: cmake
 
@@ -48,15 +57,16 @@ macro along with
 
 to create executable nodes and link dependencies.
 
-To install your launch files and nodes, you can use the ``install`` macro
-placed towards the end of the file but before the ``ament_package()`` macro.
+To install your launch files and nodes, you can use the ``install()`` macro placed towards the end of the file but before the ``ament_package()`` macro.
+
+An example for launch files and nodes:
 
 .. code-block:: cmake
 
-   # Install launch files.
+   # Install launch files
    install(
      DIRECTORY launch
-     DESTINATION share/${PROJECT_NAME}/
+     DESTINATION share/${PROJECT_NAME}
    )
 
    # Install nodes
@@ -66,9 +76,13 @@ placed towards the end of the file but before the ``ament_package()`` macro.
    )
 
 Python Packages
-***************
+^^^^^^^^^^^^^^^
 
-Your ``setup.cfg`` file should look like
+ROS2 follows Python's standard module distribution process that uses ``setuptools``.
+For Python packages, the ``setup.py`` file complements a C++ package's ``CMakeLists.txt``.
+More details on distribution can be found in the `official documentation <https://docs.python.org/3/distributing/index.html#distributing-index>`_.
+
+In your ROS2 package, you should have a ``setup.cfg`` file which looks like:
 
 .. code-block:: bash
 
@@ -77,7 +91,7 @@ Your ``setup.cfg`` file should look like
    [install]
    install-scripts=$base/lib/<package-name>
 
-and your ``setup.py`` file should look like
+and a ``setup.py`` file that looks like:
 
 .. code-block:: python
 
@@ -120,9 +134,7 @@ and your ``setup.py`` file should look like
        # scripts here.
        entry_points={
            'console_scripts': [
-               'my_script = my_package.script:main'
+               'my_script = my_package.my_script:main'
            ],
        },
    )
-
-Follow the next tutorial on how to create your first node.
