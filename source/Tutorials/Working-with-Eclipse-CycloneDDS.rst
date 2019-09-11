@@ -2,17 +2,29 @@
 
     Working-with-Eclipse-CycloneDDS
 
-Working with Eclipse CycloneDDS [community-contributed]
+Working with Eclipse Cyclone DDS [community-contributed]
 =========================================================
 
 Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.
-See also: https://projects.eclipse.org/projects/iot.cycloned
+See also: https://projects.eclipse.org/projects/iot.cyclonedds
 
-Build Eclipse Cyclone DDS and rmw_cyclonedds
---------------------------------------------
+Install packages
+----------------
 
-First, we should clone Cyclone DDS and rmw_cyclonedds in the ROS2 workspace source directory.
+The easiest way is to install from ROS 2 apt repository.
+``${ROS_DISTRO}`` should be your ROS 2 version.
+
+.. code-block:: bash
+
+   sudo apt install ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+
+Build from source code
+----------------------
+
+Building from source code is also another way to install.
+
+First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source directory.
 
 .. code-block:: bash
 
@@ -20,7 +32,13 @@ First, we should clone Cyclone DDS and rmw_cyclonedds in the ROS2 workspace sour
    git clone https://github.com/atolab/rmw_cyclonedds atolab/rmw_cyclonedds
    git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds
 
-Then, we can run colcon build.
+Then, install Java and Maven to build the IDL preprocessor of Cyclone DDS.
+
+.. code-block:: bash
+
+   sudo apt-get install maven default-jdk
+
+Finally, run colcon build.
 
 .. code-block:: bash
 
@@ -30,8 +48,7 @@ Then, we can run colcon build.
 Switch to rmw_cyclonedds
 ------------------------
 
-Switching from other rmw to rmw_cyclonedds is very easy.
-You can seamlessly switch to rmw_cyclonedds by specifying the environment:
+Switch from other rmw to rmw_cyclonedds by specifying the environment variable.
 
 .. code-block:: bash
 
@@ -42,7 +59,7 @@ See also: https://index.ros.org/doc/ros2/Tutorials/Working-with-multiple-RMW-imp
 Run the talker and listener
 ---------------------------
 
-Now you can test the ``talker`` and ``listener``.
+Now run ``talker`` and ``listener`` to test Cyclone DDS.
 
 .. code-block:: bash
 
