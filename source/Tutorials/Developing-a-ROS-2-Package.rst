@@ -10,7 +10,7 @@ Developing a ROS 2 Package
    :local:
 
 This tutorial will teach you how to create your first ROS 2 application.
-It is intended for developers who want to learn how to create custom packages in ROS 2, not for people who want to use ROS 2 with it's existing packages.
+It is intended for developers who want to learn how to create custom packages in ROS 2, not for people who want to use ROS 2 with its existing packages.
 
 Prerequisites
 -------------
@@ -111,7 +111,7 @@ and a ``setup.py`` file that looks like:
            ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
            # Include our package.xml file
            (os.path.join('share', package_name), ['package.xml']),
-           # Include all launch files. This is the most important line here!
+           # Include all launch files.
            (os.path.join('share', package_name, 'launch'), glob('*.launch.py'))
        ],
        # This is important as well
