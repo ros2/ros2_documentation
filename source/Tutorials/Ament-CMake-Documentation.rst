@@ -36,7 +36,7 @@ The argument to ``project`` will be the package name and must be identical to th
 
 The project setup is done by ``ament_package()`` and this call must occur exactly once per package.
 ``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs config (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
-Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in your `` CMakeLists.txt``.
+Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in your ``CMakeLists.txt``.
 Although it is possible to follow calls to ``ament_package()`` by calls to ``install`` functions copying files and directories, it is simpler to just keep ``ament_package()`` the last call.
 
 ``ament_package`` can be given additional arguments:
