@@ -623,7 +623,8 @@ Style
 
 Since there is not an existing CMake style guide we will define our own:
 
-* Use lowercase keywords (functions and macros).
+* Use lowercase command names (`find_package`, not `FIND_PACKAGE`).
+* Use `snake_case` identifiers (variables, functions, macros).
 * Use empty ``else()`` and ``end...()`` commands.
 * No whitespace before ``(``\ 's.
 * Use two spaces of indention, do not use tabs.
