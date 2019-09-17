@@ -155,7 +155,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools ifcfg
+   python -m pip install -U catkin_pkg empy ifcfg lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
