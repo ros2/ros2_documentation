@@ -97,7 +97,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install catkin_pkg empy lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
+       python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------
