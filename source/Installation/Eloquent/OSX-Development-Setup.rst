@@ -85,7 +85,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy lark-parser mock nose pep8 pydocstyle pyparsing pytest-mock setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy lark-parser mock nose pep8 pydocstyle pyparsing pytest-mock setuptools vcstool ifcfg
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
