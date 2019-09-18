@@ -91,13 +91,15 @@ There's one more step, though. We need to make sure that the msg files are turne
 Building msg files
 ^^^^^^^^^^^^^^^^^^
 
-Open the ``package.xml``, and uncomment these two lines:
+Open the ``package.xml``, and make sure it contains the following lines:
 
 .. code-block:: xml
 
      <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
      <exec_depend>rosidl_default_runtime</exec_depend>
+     
+     <member_of_group>rosidl_interface_packages</member_of_group>
 
 Note that at build time, we need "rosidl_default_generators", while at runtime, we only need "rosidl_default_runtime".
 
