@@ -158,7 +158,7 @@ The current WGs are (4 as of 2019-04-01):
 
 * Security
 
- * Lead(s): Thomas Moulard
+ * Lead(s): Joe McManus, Kyle Fazzari
  * Resources:
 
   * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
