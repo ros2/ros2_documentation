@@ -2,9 +2,16 @@
 Tutorials
 =========
 
-Basic
------
+Beginner level
+--------------
 
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/ConfiguringROS2Environment
+
+Miscellaneous
+-------------
 
 .. toctree::
    :maxdepth: 1
