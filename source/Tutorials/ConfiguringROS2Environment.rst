@@ -25,7 +25,7 @@ In other words, you won’t be able to use ROS 2.
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`Installation` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`InstallationGuide` page.
 
 Tasks
 -----
@@ -73,7 +73,7 @@ Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can get answers from the community.
-See :ref:`GettingAnswers`.
+See :ref:`GettingAnswers`
 
 Summary
 -------
@@ -86,4 +86,4 @@ If you ever face any problems locating or using packages with ROS 2, the first t
 Next steps
 ----------
 
-Now that your environment is ready, you can begin learning the core concepts of ROS 2, starting with :ref:`ROS2Nodes`.
+Now that your environment is ready, you can begin learning the core concepts of ROS 2, starting with :ref:`ROS2Nodes`
