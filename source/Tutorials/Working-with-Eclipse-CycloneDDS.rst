@@ -29,7 +29,7 @@ First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source direct
 .. code-block:: bash
 
    cd ros2_ws/src
-   git clone https://github.com/atolab/rmw_cyclonedds atolab/rmw_cyclonedds
+   git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds
    git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds
 
 Then, install Java and Maven to build the IDL preprocessor of Cyclone DDS.
