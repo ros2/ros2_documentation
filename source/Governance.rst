@@ -11,7 +11,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (15 as of 2019-08-23):
+The current members of the ROS 2 TSC are (14 as of 2019-09-20):
 
 .. |amazon| image:: Governance/amazon.svg
    :alt: Amazon logo
@@ -22,11 +22,6 @@ The current members of the ROS 2 TSC are (15 as of 2019-08-23):
    :alt: Apex.AI logo
    :height: 35px
    :target: https://www.apex.ai
-
-.. |arm| image:: Governance/arm.svg
-   :alt: Arm logo
-   :height: 35px
-   :target: https://www.arm.com/
 
 .. |bosch| image:: Governance/bosch_75h.jpg
    :alt: Bosch logo
@@ -42,6 +37,11 @@ The current members of the ROS 2 TSC are (15 as of 2019-08-23):
    :alt: eProsima logo
    :height: 35px
    :target: https://eprosima.com/
+
+.. |gvsc| image:: Governance/gvsc.png
+   :alt: GVSC logo
+   :height: 35px
+   :target: https://gvsc.army.mil/
 
 .. |intel| image:: Governance/intel.svg
    :alt: Intel logo
@@ -73,11 +73,6 @@ The current members of the ROS 2 TSC are (15 as of 2019-08-23):
    :height: 35px
    :target: https://www.samsung.com
 
-.. |tardec| image:: Governance/tardec.png
-   :alt: TARDEC logo
-   :height: 35px
-   :target: https://tardec.army.mil/
-
 .. |tieriv| image:: Governance/TierIV.png
    :alt: Tier IV logo
    :height: 35px
@@ -96,8 +91,6 @@ The current members of the ROS 2 TSC are (15 as of 2019-08-23):
      - Amazon: Adam Duncan
    * - |apex|
      - Apex.AI: Dejan Pangercic
-   * - |arm|
-     - Arm: Filipe Rinaldi
    * - |bosch|
      - Bosch: Karsten Knese
    * - |canonical|
@@ -116,8 +109,8 @@ The current members of the ROS 2 TSC are (15 as of 2019-08-23):
      - ROBOTIS: Yoonseok Pyo
    * - |samsung|
      - Samsung: Steven Macenski
-   * - |tardec|
-     - TARDEC: Jonathon Smereka
+   * - |gvsc|
+     - GVSC: Jerry Towler (SwRI)
    * - |tieriv|
      - Tier IV: Geoffrey Biggs
    * - |tri|
