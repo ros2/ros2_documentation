@@ -1,0 +1,23 @@
+{
+  "name": "ros2_documentation",
+  "scripts": {},
+  "env": {},
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "https://github.com/weibeld/heroku-buildpack-graphviz.git"
+    },
+    {
+      "url": "https://github.com/mjcarroll/heroku-buildpack-sphinx.git"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-18"
+}
