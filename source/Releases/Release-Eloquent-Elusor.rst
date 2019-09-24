@@ -36,7 +36,23 @@ New features in this ROS 2 release
 
 During the development the `Eloquent meta ticket <https://github.com/ros2/ros2/issues/734>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
+Changes since the Dashing release
+---------------------------------
 
+rclcpp
+^^^^^^
+
+API Break with Publisher and Subscription Classes
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+In an effort to streamline the construction of Publishers and Subscriptions, the API of the constructors were changed.
+
+It would be impossible to support a deprecation cycle, because the old signature takes an rcl type and the new one takes the ``NodeBaseInterface`` type so that it can get additional information it now needs, and there's no way to get the additional information needed from just the rcl type.
+The new signature could possibly be backed ported if that would help contributors, but since the publishers and subscriptions are almost always created using the factory functions or some other higher level API, we do not expect this to be a problem for most users.
+
+Please see the original pr for more detail and comment there if this causes issues:
+
+`https://github.com/ros2/rclcpp/pull/867 <https://github.com/ros2/rclcpp/pull/867>`_
 
 Timeline before the release
 ---------------------------
