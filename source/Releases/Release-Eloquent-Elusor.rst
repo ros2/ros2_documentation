@@ -48,7 +48,7 @@ API Break with Publisher and Subscription Classes
 In an effort to streamline the construction of Publishers and Subscriptions, the API of the constructors were changed.
 
 It would be impossible to support a deprecation cycle, because the old signature takes an rcl type and the new one takes the ``NodeBaseInterface`` type so that it can get additional information it now needs, and there's no way to get the additional information needed from just the rcl type.
-The new signature could possibly be backed ported if that would help contributors, but since the publishers and subscriptions are almost always created using the factory functions or some other higher level API, we do not expect this to be a problem for most users.
+The new signature could possibly be backported if that would help contributors, but since the publishers and subscriptions are almost always created using the factory functions or some other higher level API, we do not expect this to be a problem for most users.
 
 Please see the original pr for more detail and comment there if this causes issues:
 
