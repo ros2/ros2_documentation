@@ -133,8 +133,7 @@ Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can get answers from the community.
-.. todo: once all tutorials are done (no empty references)
-  See :ref:`GettingAnswers`
+.. todo: link to "Getting Answers" once all tutorials are done (no empty references)
 
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,8 +149,4 @@ This can be done in two ways: either sourcing the setup files in every new shell
 
 If you ever face any problems locating or using packages with ROS 2, the first thing you should do is check your environment variables and ensure they are set to the version and distro you intended.
 
-.. todo: once all tutorials are done (no empty references)
-  Next steps
-  ----------
-
-  Now that your environment is ready, you'll be introduced to turtlesim, a light-weight simulator that will help you visualize the core concepts of ROS 2.
+.. todo: "Next steps section" link to "Introducing turtlesim" once all tutorials are done (no empty references)
