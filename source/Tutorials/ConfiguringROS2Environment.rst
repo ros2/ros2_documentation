@@ -1,7 +1,7 @@
 Configuring your ROS 2 environment
 ==================================
 
-**Goal:** This tutorial will explain how to ensure your ROS 2 environment is ready for use.
+**Goal:** This tutorial will show you how to prepare your ROS 2 environment for use.
 
 **Tutorial level:** Beginner
 
@@ -14,8 +14,13 @@ Configuring your ROS 2 environment
 Background
 ----------
 
-ROS 2 relies on the notion of combining spaces using the shell environment.
-This makes developing against different versions of ROS 2, or against different sets of packages, easier.
+ROS 2 relies on the notion of combining workspaces using the shell environment.
+"Workspace" is a ROS term for the location on your system where you're developing with ROS 2.
+The core ROS 2 workspace is called the underlay.
+Subsequent local workspaces are called overlays.
+When developing with ROS 2, you will typically have several workspaces active concurrently.
+
+Combining workspaces makes developing against different versions of ROS 2, or against different sets of packages, easier.
 It also allows the installation of several ROS 2 distributions (or “distros”, e.g. Dashing and Eloquent) on the same computer and switching between them.
 
 This is accomplished by sourcing setup files every time you open a new shell, or by adding the source command to your shell startup script once.
@@ -27,6 +32,8 @@ Prerequisites
 
 Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`InstallationGuide` page.
 
+If you are using Linux or macOS, but are not already familiar with the shell, `this tutorial <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__ will help.
+
 Tasks
 -----
 
@@ -35,33 +42,86 @@ Tasks
 
 You will need to run this command on every new shell you open to have access to the ROS 2 commands, like so:
 
-.. code-block:: bash
+.. tabs::
 
-    $ source /opt/ros/<distro>/setup.bash
-    # where <distro> is the short name of you ROS 2 distro, e.g. dashing, eloquent, etc.
+   .. group-tab:: Linux
 
+      .. code-block:: bash
 
+        source /opt/ros/<distro>/setup.bash
+
+      For example, if you installed ROS 2 Dashing:
+
+      .. code-block:: bash
+
+        source /opt/ros/dashing/setup.bash
+
+   .. group-tab:: macOS
+
+      .. code-block:: bash
+
+        . ~/ros2_install/ros2-osx/setup.bash
+
+   .. group-tab:: Windows
+
+      .. code-block:: bash
+
+        > call C:\dev\ros2\local_setup.bat
+
+.. note::
+    The exact command depends on where you installed ROS 2.
+    If you're having problems, ensure the file path leads to your installation.
 
 2 Add sourcing to your shell startup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you don’t want to have to source the setup file every time you open a new shell (skipping task 1), then you can add the command to your shell startup script:
 
-.. code-block:: bash
+.. tabs::
 
-    $ echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
+   .. group-tab:: Linux
 
-To undo this (to change to another distro), locate your system’s shell startup script and remove the appended source command.
+      .. code-block:: bash
+
+        echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: bash
+
+        echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
+
+   .. group-tab:: Windows
+
+      Requires registry edits
+
+To undo this (to change to another distro) in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
 3 Check environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sourcing ROS 2 setup files will set your environment variables.
-If you are ever having problems finding or using your ROS 2 packages, make sure that your environment is properly setup using the following command:
+Sourcing ROS 2 setup files will set several environment variables necessary for operating ROS 2.
+If you ever have problems finding or using your ROS 2 packages, make sure that your environment is properly setup using the following command:
 
-.. code-block:: bash
+.. tabs::
 
-    $ printenv | grep ROS
+   .. group-tab:: Linux
+
+      .. code-block:: bash
+
+        printenv | grep -i ROS
+
+   .. group-tab:: macOS
+
+      .. code-block:: bash
+
+        printenv | grep -i ROS
+
+   .. group-tab:: Windows
+
+      .. code-block:: bash
+
+        set | findstr -i ROS
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
@@ -73,7 +133,14 @@ Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can get answers from the community.
-See :ref:`GettingAnswers`
+.. todo: once all tutorials are done (no empty references)
+  See :ref:`GettingAnswers`
+
+3.1 The ``ROS_DOMAIN_ID`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If your lab or office has multiple computers running ROS 2, it is important that each system sets a unique value for the environment variable ``ROS_DOMAIN_ID``.
+You can find out how to do that `here <https://index.ros.org/doc/ros2/Contributing/ROS-2-On-boarding-Guide/#choose-a-dds-domain-id>`__.
 
 Summary
 -------
@@ -83,7 +150,8 @@ This can be done in two ways: either sourcing the setup files in every new shell
 
 If you ever face any problems locating or using packages with ROS 2, the first thing you should do is check your environment variables and ensure they are set to the version and distro you intended.
 
-Next steps
-----------
+.. todo: once all tutorials are done (no empty references)
+  Next steps
+  ----------
 
-Now that your environment is ready, you can begin learning the core concepts of ROS 2, starting with :ref:`ROS2Nodes`
+  Now that your environment is ready, you'll be introduced to turtlesim, a light-weight simulator that will help you visualize the core concepts of ROS 2.

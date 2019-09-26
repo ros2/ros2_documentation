@@ -1,4 +1,0 @@
-.. _GettingAnswers:
-
-Getting answers
-===============
