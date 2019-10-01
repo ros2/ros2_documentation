@@ -87,7 +87,7 @@ To start turtlesim, enter the following command in your terminal:
 
 The simulator window should appear, with a random turtle in the center.
 
-.. image::
+.. image:: turtlesim.png
 
 The ``ros2 run`` command requires a package name (``turtlesim``), and a node name (``turtlesim_node``).
 
