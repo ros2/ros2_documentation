@@ -169,9 +169,9 @@ Once you have determined a unique integer for yourself, you can set the environm
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-        .. code-block:: bash
+      .. code-block:: bash
 
-          echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
+        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
