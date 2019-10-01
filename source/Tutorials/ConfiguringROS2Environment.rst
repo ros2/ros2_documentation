@@ -3,7 +3,7 @@
 Configuring your ROS 2 environment
 ==================================
 
-**Goal:** This tutorial will show you how to prepare your ROS 2 environment for use.
+**Goal:** This tutorial will show you how to prepare your ROS 2 environment.
 
 **Tutorial level:** Beginner
 
