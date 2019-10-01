@@ -3,7 +3,7 @@
 Introducing turtlesim and rqt
 =============================
 
-**Goal:** You will install and use the turtlesim and rqt tools to prepare for upcoming tutorials.
+**Goal:** Install and use the turtlesim and rqt tools to prepare for upcoming tutorials.
 
 **Tutorial level:** Beginner
 
