@@ -147,7 +147,6 @@ If your lab or office has multiple computers running ROS 2, it is important that
 The domain ID is used to segment the network in order to avoid interference between ROS 2 programs.
 Once you have determined a unique integer for yourself, you can set the environment variable with the following command:
 
-
 .. tabs::
 
    .. group-tab:: Linux
@@ -156,25 +155,31 @@ Once you have determined a unique integer for yourself, you can set the environm
 
         export ROS_DOMAIN_ID=<your_domain_id>
 
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: bash
+
+        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
+
    .. group-tab:: macOS
 
       .. code-block:: bash
 
         export ROS_DOMAIN_ID=<your_domain_id>
 
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+        .. code-block:: bash
+
+          echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
+
    .. group-tab:: Windows
 
       .. code-block:: bash
 
-        set ROS_DOMAIN_ID <your_domain_id>
+        setx ROS_DOMAIN_ID <your_domain_id>
 
-To maintain this setting between sessions on Linux and macOS, you can add the above command to your shell startup script using the syntax from section 2 of this tutorial.
-
-On Windows, you can use the command:
-
-.. code-block:: bash
-
-  setx ROS_DOMAIN_ID <your_domain_id>
+      This command will maintain the domain ID setting between shell sessions.
 
 .. todo: Test this on Windows
 
