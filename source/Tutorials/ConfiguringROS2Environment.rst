@@ -71,7 +71,7 @@ You will need to run this command on every new shell you open to have access to 
 
       .. code-block:: bash
 
-        > call C:\dev\ros2\local_setup.bat
+        call C:\dev\ros2\local_setup.bat
 
 .. note::
     The exact command depends on where you installed ROS 2.
