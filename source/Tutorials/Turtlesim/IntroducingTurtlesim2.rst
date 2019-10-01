@@ -175,7 +175,7 @@ No worries; just select **Plugins** > **Services** > **Service Caller** from the
   It may take some time for rqt to locate all the plugins itself.
   If you click on **Plugins**, but don’t see **Services** or any other options, you can wait (though it may take hours), or close rqt, enter the command ``rqt --force-discover`` in your terminal, then reopen rqt.
 
-.. image::
+.. image:: rqt.png
 
 Use the refresh button to the left of the **Service** dropdown list to make sure all the services of your turtlesim node are available.
 
@@ -190,7 +190,7 @@ You can see that this expression corresponds to the **name** value, and is of ty
 
 Enter new coordinates for the turtle to spawn at, like ``x = 1.0`` and ``y = 1.0``.
 
-.. image::
+.. image:: spawn.png
 
 .. note::
 
@@ -211,14 +211,14 @@ If you refresh the service list in rqt, you will also see that now there are ser
 
 Now let's give turtle1 a unique pen using the ``/set_pen`` service:
 
-.. image::
+.. image:: set_pen.png
 
 The values for **r**, **g** and **b**, between 0 and 255, will set the color of the pen turtle1 draws with, and **width** sets the thickness of the line.
 Don't forget to call the service after updating the values.
 
 If you return to the terminal where ``turtle_teleop_node`` is running and press the arrow keys, you will see turtle1’s pen has changed.
 
-.. image::
+.. image:: new_pen.png
 
 You've probably noticed that there's no way to move turtle2.
 You can accomplish this by remapping turtle1's ``cmd_vel`` topic onto turtle2.
@@ -234,7 +234,7 @@ In a new terminal, source ROS 2, and run:
 
 Now you can move turtle2 when this terminal is active, and turtle1 when the other terminal running the ``turtle_teleop_key`` is active.
 
-.. image::
+.. image:: remap.png
 
 7 Close turtlesim
 ^^^^^^^^^^^^^^^^^
