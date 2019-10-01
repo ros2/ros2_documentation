@@ -144,7 +144,7 @@ If you need more specific help (because environment setup files can come from di
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your lab or office has multiple computers running ROS 2, it is important that each system sets a unique value for the environment variable ``ROS_DOMAIN_ID``.
+If your lab or office has multiple computers running ROS 2, it is important that each system sets a unique integer for the environment variable ``ROS_DOMAIN_ID``.
 You can find out how to do that `here <https://index.ros.org/doc/ros2/Contributing/ROS-2-On-boarding-Guide/#choose-a-dds-domain-id>`__.
 
 Summary
