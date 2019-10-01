@@ -15,6 +15,7 @@ Beginner level
    :maxdepth: 1
 
    Tutorials/ConfiguringROS2Environment
+   Tutorials/IntroducingTurtlesim2
 
 Miscellaneous
 -------------
