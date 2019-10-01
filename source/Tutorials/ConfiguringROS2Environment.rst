@@ -177,11 +177,13 @@ Once you have determined a unique integer for yourself, you can set the environm
 
       .. code-block:: bash
 
+        set ROS_DOMAIN_ID <your_domain_id>
+
+      If you want to make this permenant between shell sessions, also run:
+
+      .. code-block:: bash
+
         setx ROS_DOMAIN_ID <your_domain_id>
-
-      This command will maintain the domain ID setting between shell sessions.
-
-.. todo: Test this on Windows
 
 Summary
 -------
