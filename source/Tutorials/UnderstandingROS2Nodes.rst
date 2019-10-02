@@ -35,7 +35,7 @@ In ROS 2, a single executable (C++ program, Python program, etc.) can contain mu
 Prerequisites
 -------------
 
-The previous tutorial, :ref:`Turtlesim2`, shows you how to install the turtlesim package used here.
+.. The previous tutorial, :ref:`Turtlesim2`, shows you how to install the turtlesim package used here.
 
 As always, don’t forget to source ROS 2 in **every new terminal you open**.
 
@@ -176,4 +176,4 @@ Hopefully now you can understand how these tools would be vital to understanding
 Related content
 ---------------
 
-The :ref:`Overview-of-ROS-2-concepts` page adds some more detail to the concept of nodes.
+The :ref:`Concepts` page adds some more detail to the concept of nodes.
