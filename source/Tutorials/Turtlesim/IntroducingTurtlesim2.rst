@@ -196,7 +196,7 @@ Enter new coordinates for the turtle to spawn at, like ``x = 1.0`` and ``y = 1.0
 
   .. code-block:: bash
 
-    [ERROR] [turtlesim]: A turtled named [turtle1] already exists
+    [ERROR] [turtlesim]: A turtle named [turtle1] already exists
 
 To spawn turtle2, you have to call the service by clicking the **Call** button on the upper right side of the rqt window.
 
