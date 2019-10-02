@@ -89,8 +89,6 @@ The simulator window should appear, with a random turtle in the center.
 
 .. image:: turtlesim.png
 
-The ``ros2 run`` command requires a package name (``turtlesim``), and a node name (``turtlesim_node``).
-
 In the terminal under the command, you will see messages from the node:
 
 .. code-block:: bash
