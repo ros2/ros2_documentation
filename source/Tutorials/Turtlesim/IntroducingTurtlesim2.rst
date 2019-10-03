@@ -36,7 +36,7 @@ Tasks
 1 Install turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
-As always, start by sourcing your setup files, as described in the previous tutorial.
+As always, start by sourcing your setup files in a new terminal, as described in the previous tutorial.
 
 Install the turtlesim package for your ROS 2 distro:
 
@@ -60,21 +60,18 @@ Install the turtlesim package for your ROS 2 distro:
 
 Check that the package installed:
 
-.. tabs::
+.. code-block:: bash
 
-   .. group-tab:: Linux
+  ros2 pkg executables turtlesim
 
-      .. code-block:: bash
+The above command should return a list of turtlesim's executables:
 
-        dpkg -l | grep ros-<distro>-turtlesim
+.. code-block:: bash
 
-   .. group-tab:: macOS
-
-      ?
-
-   .. group-tab:: Windows
-
-      ?
+  turtlesim draw_square
+  turtlesim mimic
+  turtlesim turtle_teleop_key
+  turtlesim turtlesim_node
 
 2 Start turtlesim
 ^^^^^^^^^^^^^^^^^
@@ -102,7 +99,7 @@ Here you can see your default turtle’s name is ``turtle1``, and the default co
 3 Use turtlesim
 ^^^^^^^^^^^^^^^
 
-Open a new terminal, or ideally a new tab in your terminal, and source ROS 2 again.
+Open a new terminal and source ROS 2 again.
 
 Now you will run a new node to control the turtle in the first node:
 
@@ -110,14 +107,15 @@ Now you will run a new node to control the turtle in the first node:
 
   ros2 run turtlesim turtle_teleop_key
 
-Keep the terminal window active and use the arrow keys to move the turtle around in the simulator window.
+At this point you should have three windows open: a terminal running ``turtlesim_node``, a terminal running ``turtle_teleop_key`` and the turtlesim window.
+Arrange these windows so that you can see the turtlesim window, but also have the terminal running ``turtle_teleop_key`` active so that you can control the turtle in turtlesim.
+Use the arrow keys on your keyboard to control it.
 
 .. note::
 
   Pressing an arrow key will only cause the turtle to move a short distance and then stop.
   This is because, realistically, you wouldn’t want a robot to continue carrying on an instruction without verification from the operator (you).
 
-These are your two nodes, ``turtlesim`` and ``turtle_teleop_key``.
 You can see the nodes and their associated services, topics, and actions using the ``list`` command:
 
 .. code-block:: bash
@@ -128,14 +126,12 @@ You can see the nodes and their associated services, topics, and actions using t
   ros2 action list
 
 You will learn more about these concepts in the coming tutorials.
-Normally, you would interact with services, topics, and actions using the command line.
-Now, however, your only goal is to get a general overview of turtlesim.
-So, we will use rqt, a graphical user interface for ROS 2, to look at services a little closer.
+Since the goal of this tutorial is only to get a general overview of turtlesim, we will use rqt (a graphical user interface for ROS 2) to look at services a little closer.
 
 4 Install rqt
 ^^^^^^^^^^^^^
 
-To install rqt:
+Open a new terminal to install rqt and its plugins:
 
 .. tabs::
 
@@ -145,7 +141,7 @@ To install rqt:
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt
+      sudo apt install ros-<distro>-rqt-*
 
   .. group-tab:: macOS
 
@@ -171,11 +167,13 @@ No worries; just select **Plugins** > **Services** > **Service Caller** from the
 .. note::
 
   It may take some time for rqt to locate all the plugins itself.
-  If you click on **Plugins**, but don’t see **Services** or any other options, you can wait (though it may take hours), or close rqt, enter the command ``rqt --force-discover`` in your terminal, then reopen rqt.
+  If you click on **Plugins**, but don’t see **Services** or any other options, you should close rqt, enter the command ``rqt --force-discover`` in your terminal, then reopen rqt.
 
 .. image:: rqt.png
 
-Use the refresh button to the left of the **Service** dropdown list to make sure all the services of your turtlesim node are available.
+Use the refresh button to the left of the **Service** dropdown list to ensure all the services of your turtlesim node are available.
+
+Click on the **Service** dropdown list to see turtlesim's services, and select the ``/spawn`` service.
 
 5.1 Try the spawn service
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,6 +210,8 @@ Now let's give turtle1 a unique pen using the ``/set_pen`` service:
 .. image:: set_pen.png
 
 The values for **r**, **g** and **b**, between 0 and 255, will set the color of the pen turtle1 draws with, and **width** sets the thickness of the line.
+
+To have turtle1 draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
 Don't forget to call the service after updating the values.
 
 If you return to the terminal where ``turtle_teleop_node`` is running and press the arrow keys, you will see turtle1’s pen has changed.
