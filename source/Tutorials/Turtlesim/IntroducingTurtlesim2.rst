@@ -1,9 +1,9 @@
-.. _Turtlesim2:
+.. _Turtlesim:
 
 Introducing turtlesim and rqt
 =============================
 
-**Goal:** Install and use the turtlesim and rqt tools to prepare for upcoming tutorials.
+**Goal:** Install and use the turtlesim package and rqt tools to prepare for upcoming tutorials.
 
 **Tutorial level:** Beginner
 
@@ -114,7 +114,7 @@ Use the arrow keys on your keyboard to control it.
 .. note::
 
   Pressing an arrow key will only cause the turtle to move a short distance and then stop.
-  This is because, realistically, you wouldn’t want a robot to continue carrying on an instruction without verification from the operator (you).
+  This is because, realistically, you wouldn’t want a robot to continue carrying on an instruction if, for example, the operator lost the connection to the robot.
 
 You can see the nodes and their associated services, topics, and actions using the ``list`` command:
 
@@ -146,7 +146,6 @@ Open a new terminal to install rqt and its plugins:
   .. group-tab:: macOS
 
     As long as the archive you installed ROS 2 from contains the ``ros_visualization`` repository, you should already have rqt installed.
-
 
   .. group-tab:: Windows
 
