@@ -58,7 +58,9 @@ Recall from the previous tutorial that the names of these nodes are ``/turtlesim
 
 Throughout this tutorial, we will use rqt_graph to visualize the changing nodes and topics and the connections between them.
 
-The :ref:`Turtlesim` tutorial tells you how to install rqt and all its plugins, including rqt_graph.
+The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
+
+.. todo: :ref:`Turtlesim` for turtlesim
 
 To run rqt_graph, open a new terminal and enter the command:
 
