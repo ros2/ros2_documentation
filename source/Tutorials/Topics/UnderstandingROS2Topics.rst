@@ -113,7 +113,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/pose [turtlesim/msg/Pose]
 
 Topics have names and types.
-These attributes, particularly the type, are how nodes know they’re talking about the same information as it moves over topics. (?)
+These attributes, particularly the type, are how nodes know they’re talking about the same information as it moves over topics.
 
 If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
 
