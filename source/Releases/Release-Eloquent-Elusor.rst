@@ -54,6 +54,25 @@ Please see the original pr for more detail and comment there if this causes issu
 
 `https://github.com/ros2/rclcpp/pull/867 <https://github.com/ros2/rclcpp/pull/867>`_
 
+rmw
+^^^
+
+API Break Due to Addition of Publisher and Subscription Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``rmw_create_publisher()`` method had a new argument added of type ``const rmw_publisher_options_t *``.
+This new structure holds options (beyond the typesupport, topic name, and QoS) for new publishers.
+
+The ``rmw_create_subscription()`` method had one argument removed, ``bool ignore_local_publications``, and replaced by the new options of type ``const rmw_subscription_options_t *``.
+The ``ignore_local_publications`` option was moved into the new ``rmw_subscription_options_t`` type.
+
+In both cases the new argument, which are pointers, may never be null, and so the rmw implementations should check to make sure the options are not null.
+Additionally, the options should be copied into the corresponding rmw structure.
+
+See this pull request, and the associated pull requests for more details:
+
+`https://github.com/ros2/rmw/pull/187 <https://github.com/ros2/rmw/pull/187>`_
+
 Timeline before the release
 ---------------------------
 
