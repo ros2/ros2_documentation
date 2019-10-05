@@ -109,7 +109,9 @@ Now you will run a new node to control the turtle in the first node:
 
 At this point you should have three windows open: a terminal running ``turtlesim_node``, a terminal running ``turtle_teleop_key`` and the turtlesim window.
 Arrange these windows so that you can see the turtlesim window, but also have the terminal running ``turtle_teleop_key`` active so that you can control the turtle in turtlesim.
-Use the arrow keys on your keyboard to control it.
+
+Use the arrow keys on your keyboard to control the turtle.
+It will move around the screen, using its attached "pen" to draw the path it followed so far.
 
 .. note::
 
@@ -237,7 +239,7 @@ Now you can move turtle2 when this terminal is active, and turtle1 when the othe
 ^^^^^^^^^^^^^^^^^
 
 To stop the simulation, you can simply close the terminal windows where you ran ``turtlesim_node`` and ``turtle_teleop_key``.
-If you want to keep those terminals open, but end the simulation, you can enter ``Ctrl``+``C`` in the ``turtlesim_node`` terminal, and ``q`` in the teleop terminal.
+If you want to keep those terminals open, but end the simulation, you can enter ``Ctrl + C`` in the ``turtlesim_node`` terminal, and ``q`` in the teleop terminal.
 
 Summary
 -------
