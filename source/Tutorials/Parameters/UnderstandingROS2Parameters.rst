@@ -3,7 +3,7 @@
 Understanding ROS 2 parameters
 ==============================
 
-**Goal:**
+**Goal:** Learn how to get, set, save and reload parameters in ROS 2.
 
 **Tutorial level:** Beginner
 
