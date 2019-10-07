@@ -27,7 +27,7 @@ Prerequisites
 This tutorial uses turtlesim.
 .. link on turtlesim
 
-As always, don’t forget to source ROS 2 in *every new terminal you open.*
+As always, don’t forget to source ROS 2 in **every new terminal you open.**
 
 Tasks
 -----
