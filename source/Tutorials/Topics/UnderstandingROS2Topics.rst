@@ -142,7 +142,7 @@ At first, this command won’t return any data.
 That’s because it’s waiting for ``/teleop_turtle`` to publish something.
 
 Return to the terminal where ``turtle_teleop_key`` is running and use the arrows to move the turtle around.
-Watch the terminal where you ``echo`` is running at the same time, and you’ll see position data being published for every movement you make:
+Watch the terminal where your ``echo`` is running at the same time, and you’ll see position data being published for every movement you make:
 
 .. code-block:: bash
 
