@@ -3,7 +3,7 @@
 Understanding ROS 2 topics
 ==========================
 
-**Goal:** Use rqt_graph and command line tools to introspect on ROS 2 topics.
+**Goal:** Use rqt_graph and command line tools to introspect ROS 2 topics.
 
 **Tutorial level:** Beginner
 
