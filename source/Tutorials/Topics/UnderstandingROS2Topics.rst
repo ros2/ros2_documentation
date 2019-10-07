@@ -88,7 +88,7 @@ The ``/teleop_turtle`` node is publishing data (the keystrokes you enter to move
 The highlighting feature of rqt_graph is very helpful when examining more complex systems where with many nodes and topics connected in many different ways.
 
 rqt_graph is a graphical introspection tool.
-Now we’ll look at some command line introspection for topics.
+Now we’ll look at some command line tools for introspecting topics.
 
 
 3 ros2 topic list
