@@ -21,7 +21,7 @@ The nodes on either end of a topic path are referred to as publishers that publi
 
 Topics are a vital element of the ROS graph.
 As you know, ROS 2 breaks complex systems down into many modular nodes.
-Topics are what allow data to move between those nodes, and therefore between different parts of the system.
+Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
 
 Prerequisites
 -------------
