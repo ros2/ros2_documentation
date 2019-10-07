@@ -22,7 +22,7 @@ Background
 Over the next few tutorials, you will learn about a series of core ROS 2 concepts that make up what is referred to as the “ROS (2) graph”.
 
 The ROS graph is the collection of ROS 2 elements processing data together at one time.
-It encompasses all executables and the connections between them, if you were to map them all out and `visualize them <https://www.researchgate.net/figure/An-example-of-a-ROS-program-It-is-a-graph-where-a-node-is-a-process-providing-or_fig1_319138847>`__.
+It encompasses all executables and the connections between them if you were to map them all out and visualize them.
 
 2 Nodes in ROS 2
 ^^^^^^^^^^^^^^^^
@@ -76,7 +76,11 @@ Open a new terminal while turtlesim is still running in the other one, and enter
 
     ros2 node list
 
-The terminal will return the node name ``/turtlesim``
+The terminal will return the node name:
+
+.. code-block:: bash
+
+  /turtlesim
 
 Open another new terminal and start the teleop node with the command:
 
@@ -87,12 +91,17 @@ Open another new terminal and start the teleop node with the command:
 Here, we are searching the ``turtlesim`` package again, this time for the executable named ``turtle_teleop_key``.
 
 Return to the terminal where you ran ``ros2 node list`` and run it again.
-You will now see the names of two active nodes, ``/turtlesim`` and ``/teleop_turtle``.
+You will now see the names of two active nodes:
+
+.. code-block:: bash
+
+  /turtlesim
+  /teleop_turtle
 
 2.1 Remapping
 ~~~~~~~~~~~~~
 
-Remapping allows you to reassign default node properties from the command line.
+Remapping allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
 In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the default turtle being controlled.
 
 Now, lets reassign the name of our ``/turtlesim`` node.
