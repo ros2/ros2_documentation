@@ -268,7 +268,7 @@ The difference here is the removal of the ``--once`` option and the addition of 
 .. image:: pub_stream.png
 
 You can refresh rqt_graph to see what’s happening graphically.
-You will see the topic pub node (``/_ros2cli_publisher_…``) is publishing over the ``cmd_vel`` topic to both the topic echo node (``/_ros2cli_24…``) and the ``/turtlesim`` node now.
+You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_publisher_…``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_24…``) and the ``/turtlesim`` node now.
 
 .. image:: rqt_graph2.png
 
