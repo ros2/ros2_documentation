@@ -256,7 +256,7 @@ And you will see your turtle move like so:
 
 .. image:: pub_once.png
 
-The turtle (and the real robots it represents) require a steady stream of commands to operate continuously.
+The turtle (and commonly real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
 So, to get the turtle to keep moving, you can run:
 
 .. code-block:: bash
