@@ -132,7 +132,7 @@ To see the data being published on a topic, use:
 
     ros2 topic echo <topic_name>
 
-Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``cmd_vel`` topic, lets use ``echo`` to introspect on that process:
+Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``cmd_vel`` topic, lets use ``echo`` to introspect on that topic:
 
 .. code-block:: bash
 
