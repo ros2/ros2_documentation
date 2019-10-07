@@ -123,8 +123,8 @@ You can see the nodes and their associated services, topics, and actions using t
 .. code-block:: bash
 
   ros2 node list
-  ros2 service list
   ros2 topic list
+  ros2 service list
   ros2 action list
 
 You will learn more about these concepts in the coming tutorials.
@@ -147,11 +147,11 @@ Open a new terminal to install rqt and its plugins:
 
   .. group-tab:: macOS
 
-    As long as the archive you installed ROS 2 from contains the ``ros_visualization`` repository, you should already have rqt installed.
+    The standard archive for installing ROS 2 on macOS contains ``rqt`` and its plugins, so you should already have ``rqt`` installed.
 
   .. group-tab:: Windows
 
-    As long as the archive you installed ROS 2 from contains the ``ros_visualization`` repository, you should already have rqt installed.
+    The standard archive for installing ROS 2 on Windows contains ``rqt`` and its plugins, so you should already have ``rqt`` installed.
 
 To run rqt:
 
@@ -168,7 +168,7 @@ No worries; just select **Plugins** > **Services** > **Service Caller** from the
 .. note::
 
   It may take some time for rqt to locate all the plugins itself.
-  If you click on **Plugins**, but don’t see **Services** or any other options, you should close rqt, enter the command ``rqt --force-discover`` in your terminal, then reopen rqt.
+  If you click on **Plugins**, but don’t see **Services** or any other options, you should close rqt, enter the command ``rqt --force-discover`` in your terminal.
 
 .. image:: rqt.png
 
