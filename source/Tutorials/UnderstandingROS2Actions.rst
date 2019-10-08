@@ -258,7 +258,7 @@ This tells us what we learned earlier from running ``ros2 node info`` on each no
 
 One more piece of information you will need before executing an action goal yourself is the structure of the action type.
 
-Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t ``.
+Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t``.
 Enter the following command with the action type in your terminal:
 
 .. code-block:: bash
