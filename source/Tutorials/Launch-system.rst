@@ -55,7 +55,7 @@ Inside our ``setup.py`` file:
         data_files=[
             # ... Other data files
             # Include all launch files. This is the most important line here!
-            (os.path.join('share', package_name, 'launch'), glob('*.launch.py'))
+            (os.path.join('share', package_name), glob('launch/*.launch.py'))
         ]
     )
 
