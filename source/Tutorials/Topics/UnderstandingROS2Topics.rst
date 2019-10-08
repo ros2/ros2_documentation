@@ -16,11 +16,12 @@ Understanding ROS 2 topics
 Background
 ----------
 
-Topics are named paths over which nodes exchange messages.
-The nodes on either end of a topic path are referred to as publishers that publish information to a topic, and subscribers that receive information from a topic.
+Topics act as a bus over which nodes exchange messages.
+A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
 
 Topics are a vital element of the ROS graph.
-As you know, ROS 2 breaks complex systems down into many modular nodes.
+ROS 2 breaks complex systems down into many modular nodes; this concept is covered in the tutorial "Understanding ROS 2 nodes".
+.. link on nodes tutorial
 Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
 
 Prerequisites
@@ -56,7 +57,7 @@ Recall from the previous tutorial that the names of these nodes are ``/turtlesim
 2 rqt_graph
 ^^^^^^^^^^^
 
-Throughout this tutorial, we will use rqt_graph to visualize the changing nodes and topics and the connections between them.
+Throughout this tutorial, we will use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 
 The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
 
@@ -132,7 +133,7 @@ To see the data being published on a topic, use:
 
     ros2 topic echo <topic_name>
 
-Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``cmd_vel`` topic, lets use ``echo`` to introspect on that topic:
+Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect on that topic:
 
 .. code-block:: bash
 
