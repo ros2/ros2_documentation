@@ -42,6 +42,27 @@ Changes since the Dashing release
 rclcpp
 ^^^^^^
 
+API Break with ``get_actual_qos()``
+"""""""""""""""""""""""""""""""""""
+
+Introduced in Dashing, the ``get_actual_qos()`` method on the ``PublisherBase`` and ``SubscriptionBase`` previously returned an rmw type, ``rmw_qos_profile_t``, but that made it awkward to reuse with the creation of other entities.
+Therefore it was updated to return a ``rclcpp::QoS`` instead.
+
+Existing code will need to use the ``rclcpp::QoS::get_rmw_qos_profile()`` method if the rmw profile is still required.
+For example:
+
+.. code-block:: cpp
+
+    void my_func(const rmw_qos_profile_t & rmw_qos);
+
+    /* Previously: */
+    // my_func(some_pub->get_actual_qos());
+    /* Now: */
+    my_func(some_pub->get_actual_qos()->get_rmw_qos_profile());
+
+The rationale for breaking this directly rather than doing a tick-tock is that it is a new function and is expected to be used infrequently by users.
+Also, since only the return type is changing, adding a new function with a different would be to only way to do a deprecation cycle and ``get_actual_qos()`` is the most appropriate name, so we would be forced to pick a less obvious name for the method.
+
 API Break with Publisher and Subscription Classes
 """""""""""""""""""""""""""""""""""""""""""""""""
 
