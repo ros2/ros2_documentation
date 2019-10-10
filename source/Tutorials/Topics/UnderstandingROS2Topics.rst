@@ -16,13 +16,12 @@ Understanding ROS 2 topics
 Background
 ----------
 
-Topics act as a bus over which nodes exchange messages.
+ROS 2 breaks complex systems down into many module nodes; this concept is covered in the tutorial "Understanding ROS 2 nodes".
+Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
 A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
-
-Topics are a vital element of the ROS graph.
-ROS 2 breaks complex systems down into many modular nodes; this concept is covered in the tutorial "Understanding ROS 2 nodes".
-.. link on nodes tutorial
 Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
+
+.. link on nodes tutorial
 
 Prerequisites
 -------------
