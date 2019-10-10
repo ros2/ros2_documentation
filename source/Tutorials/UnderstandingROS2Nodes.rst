@@ -178,7 +178,7 @@ A node is a fundamental ROS 2 element that serves a single, modular purpose in a
 In this tutorial, you utilized nodes created from the ``turtlesim`` package by running the executables ``turtlesim_node`` and ``turtle_teleop_key``.
 
 You learned how to use ``ros2 node list`` to discover active node names and ``ros2 node info`` to introspect on a single node.
-Hopefully now you can understand how these tools would be vital to understanding the flow of data in a complex, real-world robot system.
+These tools are vital to understanding the flow of data in a complex, real-world robot system.
 
 .. todo: "Next steps section" link to "Understanding ROS 2 topics" once all tutorials are done (no empty references)
 
