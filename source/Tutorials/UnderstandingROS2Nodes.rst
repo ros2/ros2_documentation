@@ -30,7 +30,7 @@ It encompasses all executables and the connections between them if you were to m
 Nodes are the fundamental communication type in the ROS graph.
 A node represents a single modular process.
 A robot system would be comprised of many nodes; for example, one controlling wheel motors, another controlling a laser range-finder, and so on.
-In ROS 2, a single executable (C++ program, Python program, etc.) can contain multiple nodes.
+In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 
 Prerequisites
 -------------
