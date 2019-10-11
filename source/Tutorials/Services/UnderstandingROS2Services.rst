@@ -78,6 +78,7 @@ Running the ``ros2 service list`` command in a new terminal will return a list o
 You will see that both nodes have the same six services with ``parameters`` in their names.
 Every node in ROS 2 has these infrastructure services that parameters are built off of.
 There will be more about parameters in the next tutorial.
+In this tutorial, the parameter services will be omitted from discussion.
 
 For now, let’s focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
 You may recall interacting with some of these services using rqt in the :ref:`“Introducing turtlesim and rqt” <Turtlesim>` tutorial.
@@ -127,21 +128,11 @@ Which will return:
   /kill [turtlesim/srv/Kill]
   /reset [std_srvs/srv/Empty]
   /spawn [turtlesim/srv/Spawn]
-  /teleop_turtle/describe_parameters [rcl_interfaces/srv/DescribeParameters]
-  /teleop_turtle/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
-  /teleop_turtle/get_parameters [rcl_interfaces/srv/GetParameters]
-  /teleop_turtle/list_parameters [rcl_interfaces/srv/ListParameters]
-  /teleop_turtle/set_parameters [rcl_interfaces/srv/SetParameters]
-  /teleop_turtle/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+  ...
   /turtle1/set_pen [turtlesim/srv/SetPen]
   /turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute]
   /turtle1/teleport_relative [turtlesim/srv/TeleportRelative]
-  /turtlesim/describe_parameters [rcl_interfaces/srv/DescribeParameters]
-  /turtlesim/get_parameter_types [rcl_interfaces/srv/GetParameterTypes]
-  /turtlesim/get_parameters [rcl_interfaces/srv/GetParameters]
-  /turtlesim/list_parameters [rcl_interfaces/srv/ListParameters]
-  /turtlesim/set_parameters [rcl_interfaces/srv/SetParameters]
-  /turtlesim/set_parameters_atomically [rcl_interfaces/srv/SetParametersAtomically]
+  ...
 
 4 ros2 service find
 ^^^^^^^^^^^^^^^^^^^
