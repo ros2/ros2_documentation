@@ -35,7 +35,7 @@ It also uses the ``turtlesim`` package.
 
 .. link
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`__.
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 
 Tasks
