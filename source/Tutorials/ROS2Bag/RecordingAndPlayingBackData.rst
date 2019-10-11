@@ -30,10 +30,8 @@ However, if your system doesn’t recognize the command, install it like so:
 
 .. ??
 
-This tutorial talks about concepts covered in previous tutorials, like nodes and topics.
-It also uses the ``turtlesim`` package.
-
-.. link
+This tutorial talks about concepts covered in previous tutorials, like nodes and :ref:`topics <ROS2Topics>`.
+It also uses the :ref:`turtlesim package <Turtlesim>`.
 
 As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
