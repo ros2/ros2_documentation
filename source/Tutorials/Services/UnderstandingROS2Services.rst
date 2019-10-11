@@ -23,11 +23,11 @@ While topics allow any nodes to subscribe to data streams published by any other
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like nodes and topics, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like nodes and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
 
-.. add links on "nodes" and "topics"
+You will need the :ref:`turtlesim package <Turtlesim>`
 
-As always, don’t forget to source ROS 2 in **every new terminal you open**
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 Tasks
 -----
@@ -80,9 +80,7 @@ Every node in ROS 2 has these infrastructure services that parameters are built 
 There will be more about parameters in the next tutorial.
 
 For now, let’s focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the “Introducing turtlesim and rqt” tutorial.
-
-.. link for turtlesim tutorial
+You may recall interacting with some of these services using rqt in the :ref:`“Introducing turtlesim and rqt” <Turtlesim>` tutorial.
 
 
 3 ros2 service type
