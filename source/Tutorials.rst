@@ -17,6 +17,9 @@ Beginner level
    Tutorials/ConfiguringROS2Environment
    Tutorials/Turtlesim/IntroducingTurtlesim
    Tutorials/UnderstandingROS2Nodes
+   Tutorials/Topics/UnderstandingROS2Topics
+
+
 
 Miscellaneous
 -------------
