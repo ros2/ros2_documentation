@@ -16,8 +16,10 @@ Beginner level
 
    Tutorials/ConfiguringROS2Environment
    Tutorials/Turtlesim/IntroducingTurtlesim
+   Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/LaunchFiles/CreatingLaunchFiles
 
+  
 Miscellaneous
 -------------
 
