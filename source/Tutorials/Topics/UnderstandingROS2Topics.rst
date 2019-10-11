@@ -85,7 +85,7 @@ You should see the above nodes and topic, and if you hover your mouse over any o
 The graph is depicting how the ``/turtlesim`` node and the ``/teleop_turtle`` node are communicating with each other over a topic.
 The ``/teleop_turtle`` node is publishing data (the keystrokes you enter to move the turtle around) to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
 
-The highlighting feature of rqt_graph is very helpful when examining more complex systems where with many nodes and topics connected in many different ways.
+The highlighting feature of rqt_graph is very helpful when examining more complex systems with many nodes and topics connected in many different ways.
 
 rqt_graph is a graphical introspection tool.
 Now we’ll look at some command line tools for introspecting topics.
@@ -232,9 +232,9 @@ Now that you have the message structure, you can publish data onto a topic direc
 
 .. code-block:: bash
 
-    ros2 topic pub <topic_name> <msg_type> ‘<args>’
+    ros2 topic pub <topic_name> <msg_type> '<args>'
 
-The ``’<args>’`` argument is the actual data you’ll pass to the topic, in the structure you just discovered in the previous section.
+The ``'<args>'`` argument is the actual data you’ll pass to the topic, in the structure you just discovered in the previous section.
 
 It’s important to note that this argument needs to be input in YAML syntax.
 Input the full command like so:
@@ -256,7 +256,7 @@ And you will see your turtle move like so:
 
 .. image:: pub_once.png
 
-The turtle (and commonly real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
+The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
 So, to get the turtle to keep moving, you can run:
 
 .. code-block:: bash
@@ -298,6 +298,9 @@ It will return data on the rate at which the ``/turtlesim`` node is publishing d
   average rate: 59.354
     min: 0.005s max: 0.027s std dev: 0.00284s window: 58
 
+Recall that you set the rate of ``turtle1/cmd_vel`` to publish at a steady 1 Hz using ``ros2 topic pub --rate 1``.
+If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose``, you will see an average reflecting that rate.
+
 .. 9 rqt_plot
    ^^^^^^^^^^
    Can't do this section now because there's some significant UI issues with rqt_plot for ROS 2
@@ -306,14 +309,14 @@ It will return data on the rate at which the ``/turtlesim`` node is publishing d
 ^^^^^^^^^^
 
 At this point you'll have a lot of nodes running.
-Don’t forget to stop them, either by closing the terminal window or entering ``Ctrl``+``C`` in each terminal.
+Don’t forget to stop them, either by closing the terminal windows or entering ``Ctrl+C`` in each terminal.
 
 Summary
 -------
 
 Nodes publish information over topics, which allows any number of other nodes to subscribe to and access that information.
 In this tutorial you examined the connections between several nodes over topics using rqt_graph and command line tools.
-You should now have a good idea of how data moves around a system in ROS 2.
+You should now have a good idea of how data moves around a ROS 2 system.
 
 
 .. todo: "Next steps section" link to "Understanding ROS 2 services" once all tutorials are done (no empty references)
