@@ -247,7 +247,7 @@ You will get this method-style view of what’s happening, and then the service 
 
 .. note::
 
-    Service calls in ROS 2 start with ``waiting for service to become available…`` because a service will actually wait indefinitely for the service to become available, as opposed to canceling once realizing the service is not available.
+    Service calls in ROS 2 start with ``waiting for service to become available…`` because synchronous services will actually wait indefinitely for the service to become available.
     Try stopping the ``turtlesim`` and ``teleop`` nodes and calling the service again to see.
 
 Your turtlesim window will update with the newly spawned turtle right away:
