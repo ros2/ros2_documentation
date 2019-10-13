@@ -181,10 +181,10 @@ Getting a DDS Vendor
 --------------------
 
 You'll also need a DDS Vendor available for ROS to build against.
-There is currently support for eProsima FastRTPS, Adlink's OpenSplice, and RTI's Connext DDS.
+There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, and RTI's Connext DDS.
 The source distribution of ROS 2 includes FastRTPS, so it will always build unless explicitly ignored.
 
-Adlink OpenSplice
+ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
 If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.

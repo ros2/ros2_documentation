@@ -101,11 +101,11 @@ Install additional DDS implementations (optional)
 ROS 2 builds on top of DDS.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, Adlink OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
+The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
 Run-time support for eProsima's Fast RTPS is included bundled by default.
 If you would like to use one of the other vendors you will need to install their software separately.
 
-Adlink OpenSplice
+ADLINK OpenSplice
 ~~~~~~~~~~~~~~~~~
 
 If you want to use OpenSplice, you will need to download the latest supported version.
