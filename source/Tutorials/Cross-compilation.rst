@@ -15,8 +15,6 @@ Open Robotics provides pre-built ROS2 packages for multiple platforms, but a num
 
 This document provides you with details on how to cross-compile the ROS2 software stack as well as provide examples for cross-compiling to systems based on the Arm cores.
 
-.. note:: There are a few ROS2 packages that fail cross-compilation and have to be disabled during the build. See `4. Build`_ section.
-
 How does it work ?
 ------------------
 
@@ -29,6 +27,19 @@ There are a number of factors which make this process more complex:
 
 Cross-compiling ROS2
 --------------------
+
+The ROS2 cross-compile tool is under shared ownership of Open Robotics and ROS Tooling Working Group.
+
+It is a Python script that compiles ROS2 source files for supported target architectures using an emulator in a docker container.
+Detailed design of the tool can be found on `ROS2 design <http://design.ros2.org/articles/cc_build_tools.html>`__.
+Instructions to use the tool are in the `cross_compile package <https://github.com/ros-tooling/cross_compile>`__.
+
+If you are using an older version, please follow the `legacy tool instructions`_.
+
+Legacy tool instructions
+------------------------
+
+.. note:: Follow the steps below only if you are using the old version (release `0.0.1 <https://github.com/ros-tooling/cross_compile/releases/tag/0.0.1>`__) of the cross-compile tool. For all other purposes, follow the `cross_compile <https://github.com/ros-tooling/cross_compile>`__ package documentation.
 
 Although ROS2 is a rich software stack with a number of dependencies, it primarily uses two different types of packages:
  - Python based software, which requires no cross-compilation.
@@ -66,7 +77,7 @@ Setting ``CMAKE_SYSROOT`` to a target file-system with all the dependencies inst
 
 .. note:: You can find more information on the CMake `documentation <https://cmake.org/cmake/help/latest/manual/cmake-toolchains.7.html>`__ page.
 
-When dowloading the ROS2 source code, a generic toolchain-file is available in the repository `ros2/cross_compile/cmake-toolchains <https://github.com/ros2/cross_compile>`__ which can be downloaded separately. Further examples on using it can be found on the `Cross-compiling examples for Arm`_ section.
+When downloading the ROS2 source code, a generic toolchain-file is available in the repository `ros-tooling/cross_compile/cmake-toolchains <https://github.com/ros-tooling/cross_compile>`__ which can be downloaded separately. Further examples on using it can be found on the `Cross-compiling examples for Arm`_ section.
 
 Target file-system
 ^^^^^^^^^^^^^^^^^^
@@ -96,9 +107,8 @@ The ``toolchain-file`` provide to CMake the information of the ``cross-compiler`
 ``Colcon`` will call CMake with the given toolchain-file on every package of ROS2.
 
 Cross-compiling examples for Arm
---------------------------------
-
-After `downloading the ROS2 source code <../../Installation/Linux-Development-Setup>`__, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros2/cross_compile.git src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+After `downloading the ROS2 source code <../../Installation/Linux-Development-Setup>`__, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1 src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
 
 The following targets are supported:
  - Ubuntu-arm64: To be used with any ARMv8-A based system.
@@ -117,7 +127,7 @@ For a quick-setup, have a look at the `Automated Cross-compilation`_.
 .. note:: These steps were tested on an Ubuntu 18.04 (Bionic)
 
 1. Install development tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 This step is similar to when building natively. The difference is that some of the libraries and tools are not required because they will be in the sysroot instead.
 The following packages are required
@@ -144,7 +154,7 @@ The following packages are required
 Docker is used to build the target environment. Follow the official `documentation <https://docs.docker.com/install/linux/docker-ce/ubuntu/>`__ for the installation.
 
 2. Download ROS2 source code
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Then create a workspace and download the ROS2 source code:
 
@@ -154,11 +164,11 @@ Then create a workspace and download the ROS2 source code:
     cd ~/cc_ws/ros2_ws
     wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
     vcs-import src < ros2.repos
-    git clone https://github.com/ros2/cross_compile.git src/ros2/cross_compile
+    git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1 src/ros2/cross_compile
     cd ..
 
 3. Prepare the sysroot
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Build an arm Ubuntu image with all the ROS2 dependencies using Docker and qemu:
 Copy the ``qemu-static`` binary to the workspace.
@@ -188,7 +198,7 @@ Export the resulting container to a tarball and extract it:
 This container can be used later as virtual target to run the created file-system and run the demo code.
 
 4. Build
-^^^^^^^^
+~~~~~~~~
 
 Set the variables used by the generic toolchain-file
 
@@ -236,7 +246,7 @@ Then, start a build with colcon specifying the toolchain-file:
 Done! The install and build directories will contain the cross-compiled assets.
 
 Automated Cross-compilation
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 All the steps above are also included into a Dockerfile and can be used for automation/CI.
 
@@ -244,7 +254,7 @@ First, download the dockerfile and build the image:
 
 .. code-block:: bash
 
-    wget https://raw.githubusercontent.com/ros2/cross_compile/master/Dockerfile_cc_for_arm
+    wget https://raw.githubusercontent.com/ros-tooling/cross_compile/master/Dockerfile_cc_for_arm
     docker build -t ros2-crosscompiler:latest - < Dockerfile_cc_for_arm
 
 Now run the image with:
@@ -265,7 +275,7 @@ The result of the build will be inside the ``ros2_ws`` directory, which can be e
     docker cp ros2_cc:/root/cc_ws/ros2_ws .
 
 Cross-compiling against a pre-built ROS2
-----------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is possible to cross-compile your packages against a pre-built ROS2. The steps are similar to the previous `Cross-compiling examples for Arm`_ section, with the following modifications:
 
@@ -276,7 +286,7 @@ Instead of downloading the ROS2 stack, just populate your workspace with your pa
     mkdir -p ~/cc_ws/ros2_ws/src
     cd ~/cc_ws/ros2_ws/src
     git clone https://github.com/ros2/examples.git
-    git clone https://github.com/ros2/cross_compile.git
+    git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1
     cd ..
 
 Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the `binary packages <https://index.ros.org/doc/ros2/Linux-Install-Debians/>`__ to install ROS2 instead of building from source.
@@ -305,7 +315,7 @@ Then, start a build with ``Colcon`` specifying the ``toolchain-file``:
             -DCMAKE_TOOLCHAIN_FILE="$(pwd)/src/cross_compile/cmake-toolchains/generic_linux.cmake"
 
 Run on the target
------------------
+^^^^^^^^^^^^^^^^^
 
 Copy the file-system on your target or use the previously built docker image:
 
