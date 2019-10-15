@@ -11,12 +11,23 @@ Getting started
 Beginner level
 --------------
 
+Users
+^^^^^
+
 .. toctree::
    :maxdepth: 1
 
    Tutorials/ConfiguringROS2Environment
    Tutorials/Turtlesim/IntroducingTurtlesim
    Tutorials/Topics/UnderstandingROS2Topics
+
+Developers
+^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Workspace/CreatingAWorkspace
 
 Miscellaneous
 -------------
