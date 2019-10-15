@@ -18,7 +18,7 @@ Background
 
 Before using ROS 2, it’s necessary to source your main ROS 2 installation in the terminal you plan to work in.
 This makes ROS 2’s packages available for you to use in that terminal.
-You also have the option of sourcing an “overlay” – a secondary workspace where you can work on packages without interfering the main ROS 2 installation, or “underlay”.
+You also have the option of sourcing an “overlay” – a secondary workspace where you can work on packages without interfering with the main ROS 2 installation, or “underlay”.
 Your underlay must contain the dependencies of all the packages in your overlay.
 Modifications and developments in your overlay will override packages in the underlay.
 
