@@ -67,11 +67,6 @@ Now start ``turtlesim`` with the following command:
 
 When ``turtlesim`` starts, you will see two messages appear in ``rqt_console``:
 
-.. code-block:: bash
-
-         Starting turtlesim with node name /turtlesim
-         Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
-
 .. image:: info.png
 
 Notice the severity column; both messages have the ``Info`` severity level.
@@ -105,7 +100,7 @@ ROS 2’s logger levels are ordered by severity:
     Info
     Debug
 
-As mentioned earlier, the person who creates the node writes the log messages and assigns a severity level to each message.
+As mentioned earlier, the author who creates the node writes the log messages and assigns a severity level to each message.
 There is no exact standard for what each level indicates, but it’s safe to assume that:
 
 * ``Fatal`` messages indicate when something goes wrong, and causes the system to crash.
@@ -137,6 +132,6 @@ Summary
 -------
 
 ``rqt_console`` can be very helpful if you need to closely examine the log messages from your system.
-You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of processes leading up to that.
+You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of events leading up to that.
 
 .. todo: "Next steps section" link to "Creating launch files" once all tutorials are done (no empty references)
