@@ -18,6 +18,8 @@ Beginner level
    Tutorials/Turtlesim/IntroducingTurtlesim
    Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/Services/UnderstandingROS2Services
+   Tutorials/Parameters/UnderstandingROS2Parameters
+
 
 Miscellaneous
 -------------
