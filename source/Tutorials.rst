@@ -17,7 +17,7 @@ Beginner level
    Tutorials/ConfiguringROS2Environment
    Tutorials/Turtlesim/IntroducingTurtlesim
    Tutorials/Topics/UnderstandingROS2Topics
-   Tutorials/rqt_console/UsingRqt_console
+   Tutorials/Rqt_Console/UsingRqt_Console
 
 
 Miscellaneous

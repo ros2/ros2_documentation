@@ -27,11 +27,10 @@ Usually log messages are included in a node to explain things happening behind t
 Prerequisites
 -------------
 
-You will need ``rqt_console`` and ``turtlesim`` installed.
+You will need :ref:`rqt_console and turtlesim <Turtlesim>` installed.
 
-.. link to turtlesim tutorial
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
-As always, don’t forget to source ROS 2 in **every new terminal you open**.
 
 Tasks
 -----
@@ -49,7 +48,7 @@ The ``rqt_console`` window will open:
 
 .. image:: console.png
 
-The top section of the console is where log messages from your system will display.
+The first section of the console is where log messages from your system will display.
 
 In the middle you have the option to filter messages by excluding severity levels.
 You can also add more exclusion filters using the plus-sign button to the right.
@@ -57,7 +56,7 @@ You can also add more exclusion filters using the plus-sign button to the right.
 The bottom section is for highlighting messages that include a string you input.
 You can add more filters to this section as well.
 
-Now start ``turtlesim`` in a new terminal with the following command:
+Now start ``turtlesim`` with the following command:
 
 .. code-block:: bash
 
@@ -84,9 +83,9 @@ In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in 
 
 .. code-block:: bash
 
-    ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+    ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
 
-Since we'll be publishing velocity commands at a steady rate, the turtle will continuously run into the wall, even after hitting it.
+Since the above command is publishing the topic at a steady rate, the turtle is continuously running into the wall.
 In ``rqt_console`` you will see the same message with the ``Warn`` severity level displayed over and over, like so:
 
 .. image:: warn.png
