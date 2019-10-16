@@ -88,7 +88,7 @@ You may recall interacting with some of these services using rqt in the :ref:`â€
 ^^^^^^^^^^^^^^^^^^^
 
 Services have types that describe how the request and response data of a service is structured.
-Service types are defined the same way as topic types, except service types have two parts: one message for the request and another for the response.
+Service types are defined similarly to topic types, except service types have two parts: one message for the request and another for the response.
 
 To find out the type of a service, use the command:
 
