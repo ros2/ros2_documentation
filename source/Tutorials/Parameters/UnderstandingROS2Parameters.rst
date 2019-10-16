@@ -18,16 +18,16 @@ Background
 
 A parameter is a configuration value of a node.
 You can think of parameters as node settings.
-A node can store parameters as integers, floats, booleans, and lists.
+A node can store parameters as integers, floats, booleans, strings and lists.
 In ROS 2, each node maintains its own parameters.
 All parameters are dynamically reconfigurable, and built off of ROS 2 services.
 
 Prerequisites
 -------------
-This tutorial uses turtlesim.
-.. link on turtlesim
 
-As always, don’t forget to source ROS 2 in **every new terminal you open.**
+This tutorial uses the :ref:`turtlesim package <Turtlesim>`.
+
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 Tasks
 -----
@@ -59,15 +59,19 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
     ros2 param list
 
-You will see the node subnamespace, ``/turtlesim``, followed by that node’s parameters:
+You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
 
 .. code-block:: bash
 
-    /turtlesim:
-       background_b
-       background_g
-       background_r
-       use_sim_time
+  /teleop_turtle:
+    scale_angular
+    scale_linear
+    use_sim_time
+  /turtlesim:
+    background_b
+    background_g
+    background_r
+    use_sim_time
 
 Every node has the parameter ``use_sim_time``; it’s not unique to turtlesim.
 
