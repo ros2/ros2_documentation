@@ -35,9 +35,9 @@ In ROS 2, a single executable (C++ program, Python program, etc.) can contain on
 Prerequisites
 -------------
 
-.. The previous tutorial, :ref:`Turtlesim2`, shows you how to install the turtlesim package used here.
+The :ref:`previous tutorial <Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
-As always, don’t forget to source ROS 2 in **every new terminal you open**.
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 Tasks
 -----
@@ -186,7 +186,11 @@ In this tutorial, you utilized nodes created from the ``turtlesim`` package by r
 You learned how to use ``ros2 node list`` to discover active node names and ``ros2 node info`` to introspect on a single node.
 These tools are vital to understanding the flow of data in a complex, real-world robot system.
 
-.. todo: "Next steps section" link to "Understanding ROS 2 topics" once all tutorials are done (no empty references)
+Next steps
+----------
+
+Now that you understand nodes in ROS 2, you can move on to the :ref:`topics tutorial <ROS2Topics>`.
+Topics are one of the communication types that connects nodes.
 
 Related content
 ---------------
