@@ -83,7 +83,8 @@ Each key’s position around ``F`` corresponds to that orientation in turtlesim.
 For example, the ``E`` will rotate the turtle’s orientation to the upper left corner.
 
 Pay attention to the terminal where the ``/turtlesim`` node is running.
-Each time you press one of these keys, you are giving the action a goal to rotate.
+Each time you press one of these keys, you are sending a goal to an action server that is part of the ``/turtlesim`` node.
+The goal is to rotate the turtle to face a particular direction.
 A message relaying the result of the goal should display once the turtle completes its rotation:
 
 .. code-block:: bash
