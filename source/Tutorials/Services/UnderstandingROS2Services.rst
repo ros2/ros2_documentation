@@ -179,7 +179,7 @@ Which will return:
 
 The ``---`` separates the request structure (above) from the response structure (below).
 But, as you learned earlier, the ``Empty`` type doesn’t send or receive any data.
-So, naturally, it’s structure is blank.
+So, naturally, its structure is blank.
 
 Let’s introspect a service with a type that sends and receives data, like ``/spawn``.
 From the results of ``ros2 service list -t``, we know ``/spawn``’s type is ``turtlesim/srv/Spawn``.
