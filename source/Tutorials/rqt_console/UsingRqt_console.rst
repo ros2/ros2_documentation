@@ -57,7 +57,7 @@ You can also add more exclusion filters using the plus-sign button to the right.
 The bottom section is for highlighting messages that include a string you input.
 You can add more filters to this section as well.
 
-Now start ``turtlesim`` with the following command:
+Now start ``turtlesim`` in a new terminal with the following command:
 
 .. code-block:: bash
 
