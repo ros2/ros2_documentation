@@ -176,7 +176,7 @@ If you’re using Windows, you will need to append the ``merge-install`` argumen
 
 Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
-The cosole will return the following message:
+The console will return the following message:
 
 .. code-block:: bash
 
