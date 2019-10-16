@@ -233,7 +233,7 @@ Enter the command:
 
 .. code-block:: bash
 
-  ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ""}"
+  ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
 
 You will get this method-style view of what’s happening, and then the service response:
 
