@@ -24,7 +24,7 @@ Their functionality is similar to services, except actions are preemptable (you 
 They also provide steady feedback, as opposed to services which return a single response.
 
 Actions use a client-server model, similar to the publisher-subscriber model (described in the topics tutorial).
-The “action client” node publishes a goal over a topic, and the “action server” node acknowledges the goal and returns a stream of feedback and a result.
+The “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
 
 .. link topics tutorial
 
