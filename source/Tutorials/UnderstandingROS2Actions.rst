@@ -158,7 +158,7 @@ Which will return a list of ``/turtlesim``’s subscribers, publishers, services
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
-The ``/teleop_turtle`` node has the ``/turtle1/rotate_absolute`` under ``Action Clients`` because it executes the goal:
+The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients`` meaning that it sends goals for that action name.
 
 .. code-block:: bash
 
@@ -192,7 +192,7 @@ Which will return:
 4 ros2 action list
 ^^^^^^^^^^^^^^^^^^
 
-To identify all the actions in your current system, run the command:
+To identify all the actions in the ROS graph, run the command:
 
 .. code-block:: bash
 
@@ -204,9 +204,9 @@ Which will return:
 
     /turtle1/rotate_absolute
 
-This is the only action in the system right now.
+This is the only action in the ROS graph right now.
 It controls the turtle’s rotation, as you saw earlier.
-You also already know that this action is an action client for ``/teleop_turtle`` and an action server for ``/turtlesim`` from using the ``ros2 node info <node_name>`` command.
+You also already know that there is one action client (part of ``/teleop_turtle``) and one action server (part of ``/turtlesim``) for this action from using the ``ros2 node info <node_name>`` command.
 
 4.1 ros2 action list -t
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -225,7 +225,7 @@ Which will return:
     /turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]
 
 In brackets to the left of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
-You will need this when you want to execute an action from the command line.
+You will need this when you want to execute an action from the command line or from code.
 
 5 ros2 action info
 ^^^^^^^^^^^^^^^^^^
@@ -247,12 +247,13 @@ Which will return
       /turtlesim
 
 This tells us what we learned earlier from running ``ros2 node info`` on each node:
-``/turtle1/rotate_absolute`` is an action client for the ``/teleop_turtle`` node, and an action server for the ``/turtlesim`` node.
+The ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
+
 
 6 ros2 action show
 ^^^^^^^^^^^^^^^^^^
 
-One more piece of information you will need before executing an action goal yourself is the structure of the action type.
+One more piece of information you will need before sending or executing an action goal yourself is the structure of the action type.
 
 Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t``.
 Enter the following command with the action type in your terminal:
@@ -281,7 +282,7 @@ The last section is the structure of the feedback.
 7 ros2 action send_goal
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Now let’s execute an action goal from the command line with the following syntax:
+Now let’s send an action goal from the command line with the following syntax:
 
 .. code-block:: bash
 
@@ -351,10 +352,10 @@ Summary
 Actions are like services that allow you to execute long running tasks, provide regular feedback, and are cancelable.
 
 A robot system would likely use actions for navigation.
-An action could tell a robot to travel a position.
-The goal would navigate and send updates along the way, and then a final result message once it's reached its destination.
+An action goal could tell a robot to travel to a position.
+While the robot navigates to the position, it can send updates along the way (i.e. feedback), and then a final result message once it's reached its destination.
 
-Turtlesim has one action that acts as a client for one node and server for the other.
+Turtlesim has an action server that action clients can send goals to for rotating turtles.
 In this tutorial, you introspected that action, ``/turtle1/rotate_absolute``, to get a better idea of what actions are and how they work.
 
 .. todo: "Next steps section" link to "rqt_console" once all tutorials are done (no empty references)
