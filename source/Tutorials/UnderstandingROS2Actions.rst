@@ -21,7 +21,7 @@ They consist of three parts: a goal, a result, and feedback.
 
 Actions are built on topics and services.
 Their functionality is similar to services, except actions are preemptable (you can cancel them while executing).
-They also provide steady feedback, as opposed to services which return a single response right away.
+They also provide steady feedback, as opposed to services which return a single response.
 
 Actions use a client-server model, similar to the publisher-subscriber model (described in the topics tutorial).
 The “action client” node publishes a goal over a topic, and the “action server” node acknowledges the goal and returns a stream of feedback and a result.
