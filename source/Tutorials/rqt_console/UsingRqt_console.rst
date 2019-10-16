@@ -49,7 +49,7 @@ The ``rqt_console`` window will open:
 
 .. image:: console.png
 
-The first section of the console is where log messages from your system will display.
+The top section of the console is where log messages from your system will display.
 
 In the middle you have the option to filter messages by excluding severity levels.
 You can also add more exclusion filters using the plus-sign button to the right.
