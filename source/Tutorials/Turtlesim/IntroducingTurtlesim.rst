@@ -227,9 +227,19 @@ You can accomplish this by remapping turtle1's ``cmd_vel`` topic onto turtle2.
 
 In a new terminal, source ROS 2, and run:
 
-.. code-block::
+.. tabs::
 
-  ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
+   .. group-tab:: Eloquent
+
+      .. code-block::
+
+        ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
+
+   .. group-tab:: Dashing
+
+      .. code-block:: bash
+
+        ros2 run turtlesim turtle_teleop_key turtle1/cmd_vel:=turtle2/cmd_vel
 
 Now you can move turtle2 when this terminal is active, and turtle1 when the other terminal running the ``turtle_teleop_key`` is active.
 
