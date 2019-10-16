@@ -86,7 +86,7 @@ In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in 
 
     ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
-Since the above command is publishing the topic at a steady rate, the turtle is continuously running into the wall.
+Since we'll be publishing velocity commands at a steady rate, the turtle will continuously run into the wall, even after hitting it.
 In ``rqt_console`` you will see the same message with the ``Warn`` severity level displayed over and over, like so:
 
 .. image:: warn.png
