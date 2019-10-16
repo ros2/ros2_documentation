@@ -76,7 +76,7 @@ Running the ``ros2 service list`` command in a new terminal will return a list o
   /turtlesim/set_parameters_atomically
 
 You will see that both nodes have the same six services with ``parameters`` in their names.
-Every node in ROS 2 has these infrastructure services that parameters are built off of.
+Nearly every node in ROS 2 has these infrastructure services that parameters are built off of.
 There will be more about parameters in the next tutorial.
 In this tutorial, the parameter services will be omitted from discussion.
 
@@ -87,8 +87,8 @@ You may recall interacting with some of these services using rqt in the :ref:`�
 3 ros2 service type
 ^^^^^^^^^^^^^^^^^^^
 
-Services have types that describe how the call and response data of a service is structured.
-Service types are defined the same way as topic types, except service types have two parts: one message for the call and another for the response.
+Services have types that describe how the request and response data of a service is structured.
+Service types are defined the same way as topic types, except service types have two parts: one message for the request and another for the response.
 
 To find out the type of a service, use the command:
 
@@ -156,20 +156,20 @@ Which will return:
   /clear
   /reset
 
-5 ros2 srv show
-^^^^^^^^^^^^^^^
+5 ros2 interface show
+^^^^^^^^^^^^^^^^^^^^^
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
 .. code-block:: bash
 
-  ros2 srv show <type_name>
+  ros2 interface show <type_name>.srv
 
 To run this command on the ``/clear`` service’s type, ``Empty``:
 
 .. code-block:: bash
 
-  ros2 srv show std_srvs/srv/Empty
+  ros2 interface show std_srvs/srv/Empty.srv
 
 Which will return:
 
@@ -188,7 +188,7 @@ To see the arguments in a ``/spawn`` call-and-request, run the command:
 
 .. code-block:: bash
 
-  ros2 srv show turtlesim/srv/Spawn
+  ros2 interface show turtlesim/srv/Spawn.srv
 
 Which will return:
 
@@ -244,11 +244,6 @@ You will get this method-style view of what’s happening, and then the service 
 
   response:
   turtlesim.srv.Spawn_Response(name='None')
-
-.. note::
-
-    Service calls in ROS 2 start with ``waiting for service to become available…`` because synchronous services will actually wait indefinitely for the service to become available.
-    Try stopping the ``turtlesim`` and ``teleop`` nodes and calling the service again to see.
 
 Your turtlesim window will update with the newly spawned turtle right away:
 
