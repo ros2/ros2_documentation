@@ -100,7 +100,7 @@ In the terminal where the ``/turtlesim`` node is running, you will see the messa
 
   [INFO] [turtlesim]: Rotation goal canceled
 
-Not only can the client-side (your input in the teleop) cancel goal, but the server-side (the ``/turtlesim`` node) can as well.
+Not only can the client-side (your input in the teleop) preempt goals, but the server-side (the ``/turtlesim`` node) can as well.
 When the server-side cancels an action, it “aborts” the goal.
 
 Try hitting the ``D`` key, then the ``G`` key before the first rotation can complete.
