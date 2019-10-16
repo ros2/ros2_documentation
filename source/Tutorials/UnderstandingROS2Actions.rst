@@ -31,16 +31,13 @@ The “action client” node sends a goal to an “action server” node that ac
 Prerequisites
 -------------
 
-This tutorial builds off concepts, like nodes and topics, covered in previous tutorials.
+This tutorial builds off concepts, like nodes and :ref:`topics <ROS2Topics>`, covered in previous tutorials.
 
-.. link those tutorials
+.. link nodes tutorials
 
-This tutorial uses turtlesim.
+This tutorial uses the :ref:`turtlesim package <Turtlesim>`.
 
-.. link turtlesim tutorial
-
-As always, don’t forget to source ROS 2 in **every new terminal you open**.
-
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 Tasks
 -----
@@ -74,9 +71,7 @@ When you launch the ``/teleop_turtle`` node, you will see the following message 
     Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
 
 Let’s focus on the second line, which corresponds to an action.
-(The first instruction corresponds to the “cmd_vel” topic, discussed previously in the topics tutorial.)
-
-.. link topics tutorial
+(The first instruction corresponds to the “cmd_vel” topic, discussed previously in the :ref:`topics tutorial <ROS2Topics>`.)
 
 Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a “box” around the ``F`` key on your keyboard.
 Each key’s position around ``F`` corresponds to that orientation in turtlesim.
@@ -101,7 +96,7 @@ In the terminal where the ``/turtlesim`` node is running, you will see the messa
   [INFO] [turtlesim]: Rotation goal canceled
 
 Not only can the client-side (your input in the teleop) preempt goals, but the server-side (the ``/turtlesim`` node) can as well.
-When the server-side cancels an action, it “aborts” the goal.
+When the server-side preempts an action, it “aborts” the goal.
 
 Try hitting the ``D`` key, then the ``G`` key before the first rotation can complete.
 In the terminal where the ``/turtlesim`` node is running, you will see the message:
@@ -127,43 +122,43 @@ Which will return a list of ``/turtlesim``’s subscribers, publishers, services
 
   /turtlesim
     Subscribers:
-        /parameter_events: rcl_interfaces/msg/ParameterEvent
-        /turtle1/cmd_vel: geometry_msgs/msg/Twist
+      /parameter_events: rcl_interfaces/msg/ParameterEvent
+      /turtle1/cmd_vel: geometry_msgs/msg/Twist
     Publishers:
-        /parameter_events: rcl_interfaces/msg/ParameterEvent
-        /rosout: rcl_interfaces/msg/Log
-        /turtle1/color_sensor: turtlesim/msg/Color
-        /turtle1/pose: turtlesim/msg/Pose
-        /turtle1/rotate_absolute/_action/feedback: turtlesim/action/RotateAbsolute_FeedbackMessage
-        /turtle1/rotate_absolute/_action/status: action_msgs/msg/GoalStatusArray
+      /parameter_events: rcl_interfaces/msg/ParameterEvent
+      /rosout: rcl_interfaces/msg/Log
+      /turtle1/color_sensor: turtlesim/msg/Color
+      /turtle1/pose: turtlesim/msg/Pose
+      /turtle1/rotate_absolute/_action/feedback: turtlesim/action/RotateAbsolute_FeedbackMessage
+      /turtle1/rotate_absolute/_action/status: action_msgs/msg/GoalStatusArray
     Services:
-        /clear: std_srvs/srv/Empty
-        /kill: turtlesim/srv/Kill
-        /reset: std_srvs/srv/Empty
-        /spawn: turtlesim/srv/Spawn
-        /turtle1/rotate_absolute/_action/cancel_goal: action_msgs/srv/CancelGoal
-        /turtle1/rotate_absolute/_action/get_result: turtlesim/action/RotateAbsolute_GetResult
-        /turtle1/rotate_absolute/_action/send_goal: turtlesim/action/RotateAbsolute_SendGoal
-        /turtle1/set_pen: turtlesim/srv/SetPen
-        /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
-        /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
-        /turtlesim/describe_parameters: rcl_interfaces/srv/DescribeParameters
-        /turtlesim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
-        /turtlesim/get_parameters: rcl_interfaces/srv/GetParameters
-        /turtlesim/list_parameters: rcl_interfaces/srv/ListParameters
-        /turtlesim/set_parameters: rcl_interfaces/srv/SetParameters
-        /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
-    Actions Servers:
-        /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
-    Actions Clients:
+      /clear: std_srvs/srv/Empty
+      /kill: turtlesim/srv/Kill
+      /reset: std_srvs/srv/Empty
+      /spawn: turtlesim/srv/Spawn
+      /turtle1/rotate_absolute/_action/cancel_goal: action_msgs/srv/CancelGoal
+      /turtle1/rotate_absolute/_action/get_result: turtlesim/action/RotateAbsolute_GetResult
+      /turtle1/rotate_absolute/_action/send_goal: turtlesim/action/RotateAbsolute_SendGoal
+      /turtle1/set_pen: turtlesim/srv/SetPen
+      /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
+      /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
+      /turtlesim/describe_parameters: rcl_interfaces/srv/DescribeParameters
+      /turtlesim/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+      /turtlesim/get_parameters: rcl_interfaces/srv/GetParameters
+      /turtlesim/list_parameters: rcl_interfaces/srv/ListParameters
+      /turtlesim/set_parameters: rcl_interfaces/srv/SetParameters
+      /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+    Action Servers:
+      /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+    Action Clients:
 
 
 .. todo: change this once hidden things are removed from the list
 
-Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Actions Servers``.
+Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
-The ``/teleop_turtle`` node has the ``/turtle1/rotate_absolute`` under ``Actions Clients`` because it executes the goal:
+The ``/teleop_turtle`` node has the ``/turtle1/rotate_absolute`` under ``Action Clients`` because it executes the goal:
 
 .. code-block:: bash
 
@@ -279,7 +274,7 @@ Which will return:
   # The remaining rotation in radians
   float32 remaining
 
-The first section of this message, above the ``---``, is the structure (data type and name) of the goal input.
+The first section of this message, above the ``---``, is the structure (data type and name) of the goal request.
 The next section is the structure of the result.
 The last section is the structure of the feedback.
 
