@@ -114,7 +114,7 @@ The ``Empty`` type means the service call sends no data when making a request an
 3.1 ros2 service list -t
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-To see the types of all the active services at the same time, you can append the ``--show-types`` option, abbreviated as ``-t`` to the ``list`` command:
+To see the types of all the active services at the same time, you can append the ``--show-types`` option, abbreviated as ``-t``, to the ``list`` command:
 
 .. code-block:: bash
 
