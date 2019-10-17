@@ -39,6 +39,20 @@ During the development the `Eloquent meta ticket <https://github.com/ros2/ros2/i
 Changes since the Dashing release
 ---------------------------------
 
+geometry_msgs
+^^^^^^^^^^^^^
+
+The ``geometry_msgs/msg/Quaternion.msg`` interface now default initializes to a valid quaternion, with the following values:
+
+.. math::
+
+    x = 0 \\
+    y = 0 \\
+    z = 0 \\
+    w = 1
+
+Here is the pull request for more detail: `https://github.com/ros2/common_interfaces/pull/74 <https://github.com/ros2/common_interfaces/pull/74>`_
+
 rclcpp
 ^^^^^^
 
