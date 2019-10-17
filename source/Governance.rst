@@ -131,6 +131,8 @@ The current WGs are (4 as of 2019-04-01):
  * Resources:
 
   * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
+  * Meeting invite group `ros-embedded-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-embedded-working-group-invites>`_
+  * Discourse tag: `wg-embedded <https://discourse.ros.org/tags/wg-embedded>`_
 
 * Navigation
 
@@ -139,15 +141,24 @@ The current WGs are (4 as of 2019-04-01):
 
   * `2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__
 
+  * Meeting invite group `ros-navigation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-navigation-working-group-invites>`_
+  * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
+
 * Real-time
 
  * Lead(s): Dejan Pangercic
  * Resources: TODO
 
+  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
+  * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
+
 * Safety
 
  * Lead(s): Geoffrey Biggs
- * Resources: TODO
+ * Resources:
+
+  * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
+  * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tags/wg-safety-critical>`_
 
 * Security
 
@@ -155,11 +166,38 @@ The current WGs are (4 as of 2019-04-01):
  * Resources:
 
   * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
+  * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
+  * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
 
-* Manipulation
+* Tooling
 
- * Lead(s): Víctor Mayoral Vilches
- * Resources: TODO
+ * Lead(s): Thomas Moulard
+ * Resources:
+
+  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
+  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
+
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
 If you'd like to create a new WG, please inquire via info@openrobotics.org.
+
+
+Working Group Policies
+
+ * Meetings should be posted to the google calendar as well as announced on Discourse.
+ * Meetings should have notes and be posted to Discoures using appropriate working group tag.
+ * For attending the groups meetings please join the associated google group to get invites automatically.
+
+Upcoming ROS Events
+-------------------
+
+Upcoming Working group meetings can be found in this `Google Calendar <https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles>`_.
+It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kajirket8khktupm9go748%40group.calendar.google.com/public/basic.ics>`_.
+
+.. raw:: html
+
+    <iframe src="https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+
+If you have an individial event or series of events that you'd like to post please contact info@openrobotics.org
