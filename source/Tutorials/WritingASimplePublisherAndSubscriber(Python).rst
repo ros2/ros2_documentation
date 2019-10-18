@@ -68,7 +68,7 @@ Now there will be a new file named ``publisher_member_function.py`` adjacent to 
 Open the file using your preferred text editor.
 
 .. code-block:: python
-  :linenos:
+ :linenos:
 
   # Copyright 2016 Open Source Robotics Foundation, Inc.
   #
@@ -288,7 +288,7 @@ Entering ``ls`` in the console will now return:
 Open the ``subscriber_member_function.py`` with your text editor.
 
 .. code-block:: python
-  :linenos:
+ :linenos:
 
   # Copyright 2016 Open Source Robotics Foundation, Inc.
   #
