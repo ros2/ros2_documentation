@@ -184,9 +184,9 @@ Which will return:
         /teleop_turtle/list_parameters: rcl_interfaces/srv/ListParameters
         /teleop_turtle/set_parameters: rcl_interfaces/srv/SetParameters
         /teleop_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
-    Actions Servers:
+    Action Servers:
 
-    Actions Clients:
+    Action Clients:
         /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
 
 4 ros2 action list
@@ -250,8 +250,8 @@ This tells us what we learned earlier from running ``ros2 node info`` on each no
 The ``/teleop_turtle`` node has an action client and the ``/turtlesim`` node has an action server for the ``/turtle1/rotate_absolute`` action.
 
 
-6 ros2 action show
-^^^^^^^^^^^^^^^^^^
+6 ros2 interface show
+^^^^^^^^^^^^^^^^^^^^^
 
 One more piece of information you will need before sending or executing an action goal yourself is the structure of the action type.
 
@@ -260,7 +260,7 @@ Enter the following command with the action type in your terminal:
 
 .. code-block:: bash
 
-    ros2 action show turtlesim/action/RotateAbsolute
+    ros2 interface show turtlesim/action/RotateAbsolute.action
 
 Which will return:
 
