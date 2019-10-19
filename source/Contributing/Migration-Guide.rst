@@ -209,10 +209,37 @@ Unit tests
 
 If you are using gtest:
 
+Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``). Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
 
-* Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``)
-* Replace ``catkin_add_gtest`` with ``ament_add_gtest``
-* Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
+.. code-block:: cmake
+
+   #if (CATKIN_ENABLE_TESTING)
+   #  find_package(GTest REQUIRED)  # or rostest
+   #  include_directories(${GTEST_INCLUDE_DIRS})
+   #  catkin_add_gtest(${PROJECT_NAME}-some-test src/test/some_test.cpp)
+   #  target_link_libraries(${PROJECT_NAME}-some-test
+   #                        ${PROJECT_NAME}_some_dependency
+   #                        ${catkin_LIBRARIES}
+   #                        ${GTEST_LIBRARIES}
+   #                      )
+   #endif()
+   if (BUILD_TESTING)
+     find_package(ament_cmake_gtest REQUIRED)
+     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
+     ament_target_dependencies(${PROJECT_NAME)-some-test
+       "rclcpp"
+       "std_msgs")
+     target_link_libraries(${PROJECT_NAME}-some-test
+       ${PROJECT_NAME}_some_dependency)
+   endif()
+
+Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
+
+.. code-block:: xml
+
+   <!--  <test_depend>rostest</test_depend> -->
+   <test_depend>ament_cmake_gtest</test_depend>
+
 
 Linters
 ~~~~~~~
@@ -547,6 +574,12 @@ To get the ``std_msgs/String`` message definition, in place of
    //#include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
 
+To get the new quality of service ``QoS`` API, we include ``rclcpp/qos.hpp``:
+
+.. code-block:: cpp
+
+   #include "rclcpp/qos.hpp"
+
 Changing C++ library calls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -563,29 +596,27 @@ the initialization, then pass the node name to the creation of the node object
 
 The creation of the publisher and rate objects looks pretty similar, with some
 changes to the names of namespace and methods.
-For the publisher, instead of an integer queue length argument, we pass a
-quality of service (qos) profile, which is a far more flexible way to
-control how message delivery is handled.
-In this example, we just pass the default profile ``rmw_qos_profile_default``
-(it's global because it's declared in ``rmw``, which is written in C and so
-doesn't have namespaces).
 
 .. code-block:: cpp
 
    //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
      auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter",
-       rmw_qos_profile_default);
+       rclcpp::QoS(1000));
      rclcpp::Rate loop_rate(10);
 
-The creation of the outgoing message is different in both the namespace and the
-fact that we go ahead and create a shared pointer (this may change in the future
-with more publish API that accepts const references):
+Instead of an integer depth argument, we could pass in a quality of service
+(``QoS``) profile, which is a far more flexible way to control how message
+delivery is handled.
+The default profile is ``rmw_qos_profile_default`` (it's global because it's
+declared in ``rmw``, which is written in C and so doesn't have namespaces).
+
+The creation of the outgoing message is different in the namespace:
 
 .. code-block:: cpp
 
    //  std_msgs::String msg;
-     auto msg = std::make_shared<std_msgs::msg::String>();
+     std_msgs::msg::String msg;
 
 In place of ``ros::ok()``, we call ``rclcpp::ok()``:
 
@@ -594,27 +625,23 @@ In place of ``ros::ok()``, we call ``rclcpp::ok()``:
    //  while (ros::ok())
      while (rclcpp::ok())
 
-Inside the publishing loop, we use the ``->`` operator to access the ``data`` field
-(because now ``msg`` is a shared pointer):
+Inside the publishing loop, we access the ``data`` field as before:
 
 .. code-block:: cpp
 
-   //    msg.data = ss.str();
-       msg->data = ss.str();
+       msg.data = ss.str();
 
 To print a console message, instead of using ``ROS_INFO()``, we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument.
 
 .. code-block:: cpp
 
    //    ROS_INFO("%s", msg.data.c_str());
-       RCLCPP_INFO(node->get_logger(), "%s\n", msg->data.c_str());
+       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
 
-Publishing the message is very similar, the only noticeable difference being
-that the publisher is now a shared pointer:
+Publishing the message is the same as before:
 
 .. code-block:: cpp
 
-   //    chatter_pub.publish(msg);
        chatter_pub->publish(msg);
 
 Spinning (i.e., letting the communications system process any pending
@@ -637,6 +664,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
    #include "rclcpp/rclcpp.hpp"
    // #include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
+   #include "rclcpp/qos.hpp"
    int main(int argc, char **argv)
    {
    //  ros::init(argc, argv, "talker");
@@ -645,21 +673,19 @@ Putting it all together, the new ``talker.cpp`` looks like this:
      auto node = rclcpp::Node::make_shared("talker");
    //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", rmw_qos_profile_default);
+     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", rclcpp::QoS(1000));
      rclcpp::Rate loop_rate(10);
      int count = 0;
    //  std_msgs::String msg;
-     auto msg = std::make_shared<std_msgs::msg::String>();
+     std_msgs::msg::String msg;
    //  while (ros::ok())
      while (rclcpp::ok())
      {
        std::stringstream ss;
        ss << "hello world " << count++;
-   //    msg.data = ss.str();
-       msg->data = ss.str();
+       msg.data = ss.str();
    //    ROS_INFO("%s", msg.data.c_str());
-       RCLCPP_INFO(node->get_logger(), "%s\n", msg->data.c_str());
-   //    chatter_pub.publish(msg);
+       RCLCPP_INFO(node->get_logger(), "%s\n", msg.data.c_str());
        chatter_pub->publish(msg);
    //    ros::spinOnce();
        rclcpp::spin_some(node);
@@ -689,16 +715,11 @@ ROS 2 uses a newer version of ``catkin``, called ``ament_cmake``, which we speci
 
 In our build dependencies, instead of ``roscpp`` we use ``rclcpp``, which provides
 the C++ API that we use.
-We additionally depend on ``rmw_implementation``, which pulls in the default
-implementation of the ``rmw`` abstraction layer that allows us to support multiple
-DDS implementations (we should consider restructuring / renaming things so that
-it's possible to depend on one thing, analogous to ``roscpp``):
 
 .. code-block:: xml
 
    <!--  <build_depend>roscpp</build_depend> -->
      <build_depend>rclcpp</build_depend>
-     <build_depend>rmw_implementation</build_depend>
 
 We make the same addition in the run dependencies and also update from the
 ``run_depend`` tag to the ``exec_depend`` tag (part of the upgrade to version 2 of
@@ -708,9 +729,16 @@ the package format):
 
    <!--  <run_depend>roscpp</run_depend> -->
      <exec_depend>rclcpp</exec_depend>
-     <exec_depend>rmw_implementation</exec_depend>
    <!--  <run_depend>std_msgs</run_depend> -->
      <exec_depend>std_msgs</exec_depend>
+
+A simpler way to specify both ``<build_depend>`` and ``<exec_depend>`` is to
+use the simpolified ``<depend>``:
+
+.. code-block:: xml
+
+     <depend>rclcpp</depend>
+     <depend>std_msgs</depend>
 
 We also need to tell the build tool what *kind* of package we are, so that it knows how
 to build us.
@@ -737,14 +765,10 @@ Putting it all together, our ``package.xml`` now looks like this:
    <!--  <buildtool_depend>catkin</buildtool_depend> -->
      <buildtool_depend>ament_cmake</buildtool_depend>
    <!--  <build_depend>roscpp</build_depend> -->
-     <build_depend>rclcpp</build_depend>
-     <build_depend>rmw_implementation</build_depend>
-     <build_depend>std_msgs</build_depend>
    <!--  <run_depend>roscpp</run_depend> -->
-     <exec_depend>rclcpp</exec_depend>
-     <exec_depend>rmw_implementation</exec_depend>
    <!--  <run_depend>std_msgs</run_depend> -->
-     <exec_depend>std_msgs</exec_depend>
+     <depend>rclcpp</depend>
+     <depend>std_msgs</depend>
      <export>
        <build_type>ament_cmake</build_type>
      </export>
@@ -774,18 +798,33 @@ explicitly, which we do by adding this line near the top of the file:
 
    set(CMAKE_CXX_STANDARD 14)
 
+The preferred way to work on all platforms is this:
+
+.. code-block:: cmake
+
+   if(NOT CMAKE_CXX_STANDARD)
+     set(CMAKE_CXX_STANDARD 14)
+   endif()
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic)
+   endif()
+
 Using ``catkin``, we specify the packages we want to build against by passing them
 as ``COMPONENTS`` arguments when initially finding ``catkin`` itself.
-With ``ament_cmake``, we find each package individually, starting with ``ament_cmake``
-(and adding our new dependency, ``rmw_implementation``):
+With ``ament_cmake``, we find each package individually, starting with ``ament_cmake``:
 
 .. code-block:: cmake
 
    #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
-   find_package(rmw_implementation REQUIRED)
    find_package(std_msgs REQUIRED)
+
+System dependencies can be found as before:
+
+.. code-block:: cmake
+
+   find_package(Boost REQUIRED COMPONENTS system filesystem thread)
 
 We call ``catkin_package()`` to auto-generate things like CMake configuration
 files for other packages that use our package.
@@ -798,41 +837,67 @@ analogous ``ament_package()`` *after* the targets:
    # At the bottom of the file:
    ament_package()
 
-Similarly to how we found each dependent package separately, instead of finding
-them as parts of catkin, we also need to add their include directories
-separately (see also ``ament_target_dependencies()`` below, which is a more
-concise and more thorough way of handling dependent packages' build flags):
+The only directories that need to be manually included are local directories
+and dependencies that are not ament packages:
 
 .. code-block:: cmake
 
    #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(${rclcpp_INCLUDE_DIRS}
-                       ${rmw_implementation_INCLUDE_DIRS}
-                       ${std_msgs_INCLUDE_DIRS})
+   include_directories(include ${Boost_INCLUDE_DIRS})
 
-We do the same to link against our dependent packages' libraries:
+A better alternative is to specify include directories for each target
+individually, rather than including all the directories for all targets:
+
+.. code-block:: cmake
+
+   target_include_directories(target include ${Boost_INCLUDE_DIRS})
+
+Similar to how we found each dependent package separately, we need to link
+each one to the build target. To link with dependent packages that are ament
+packages, instead of using ``target_link_libraries()``,
+``ament_target_dependencies()`` is a more concise and more thorough way of
+handling build flags. It automatically handles both the include directories
+defined in ``_INCLUDE_DIRS`` and linking libraries defined in ``_LIBRARIES``.
 
 .. code-block:: cmake
 
    #target_link_libraries(talker ${catkin_LIBRARIES})
-   target_link_libraries(talker
-                         ${rclcpp_LIBRARIES}
-                         ${rmw_implementation_LIBRARIES}
-                         ${std_msgs_LIBRARIES})
+   ament_target_dependencies(talker
+                             rclcpp
+                             std_msgs)
 
-**TODO: explain how ``ament_target_dependencies()`` simplifies the above steps and
-is also better (also handling ``*_DEFINITIONS``, doing target-specific include
-directories, etc.).**
+To link with packages that are not ament packages, such as system dependencies
+like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
+``target_link_libraries()``:
+
+.. code-block:: cmake
+
+   target_link_libraries(target ${Boost_LIBRARIES})
 
 For installation, ``catkin`` defines variables like ``CATKIN_PACKAGE_BIN_DESTINATION``.
 With ``ament_cmake``, we just give a path relative to the installation root, like ``bin``
-for executables (this is in part because we don't yet have an equivalent of ``rosrun``):
+for executables:
 
 .. code-block:: cmake
 
    #install(TARGETS talker
    #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-   install(TARGETS talker RUNTIME DESTINATION bin)
+   install(TARGETS talker
+           RUNTIME DESTINATION bin)
+
+Optionally, we can install and export the included directories for downstream packages:
+
+.. code-block:: cmake
+
+   install(DIRECTORY include/
+           DESTINATION include)
+   ament_export_include_directories(include)
+
+Optionally, we can export dependencies for downstream packages:
+
+.. code-block:: cmake
+
+   ament_export_dependencies(std_msgs)
 
 Putting it all together, the new ``CMakeLists.txt`` looks like this:
 
@@ -841,26 +906,31 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    #cmake_minimum_required(VERSION 2.8.3)
    cmake_minimum_required(VERSION 3.5)
    project(talker)
-   set(CMAKE_CXX_STANDARD 14)
+   if(NOT CMAKE_CXX_STANDARD)
+     set(CMAKE_CXX_STANDARD 14)
+   endif()
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic)
+   endif()
    #find_package(catkin REQUIRED COMPONENTS roscpp std_msgs)
    find_package(ament_cmake REQUIRED)
    find_package(rclcpp REQUIRED)
-   find_package(rmw_implementation REQUIRED)
    find_package(std_msgs REQUIRED)
    #catkin_package()
    #include_directories(${catkin_INCLUDE_DIRS})
-   include_directories(${rclcpp_INCLUDE_DIRS}
-                       ${rmw_implementation_INCLUDE_DIRS}
-                       ${std_msgs_INCLUDE_DIRS})
+   include_directories(include)
    add_executable(talker talker.cpp)
    #target_link_libraries(talker ${catkin_LIBRARIES})
-   target_link_libraries(talker
-                         ${rclcpp_LIBRARIES}
-                         ${rmw_implementation_LIBRARIES}
-                         ${std_msgs_LIBRARIES})
+   ament_target_dependencies(talker
+                             rclcpp
+                             std_msgs)
    #install(TARGETS talker
    #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
    install(TARGETS talker RUNTIME DESTINATION bin)
+   install(DIRECTORY include/
+           DESTINATION include)
+   ament_export_include_directories(include)
+   ament_export_dependencies(std_msgs)
    ament_package()
 
 **TODO: Show what this would look like with ``ament_auto``.**
