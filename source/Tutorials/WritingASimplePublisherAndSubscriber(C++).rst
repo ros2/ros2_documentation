@@ -74,7 +74,7 @@ Download the example talker code by entering the following command:
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
 
-.. code-block:: c++
+.. code-block:: C++
 
     #include <chrono>
     #include <memory>
@@ -129,7 +129,7 @@ Last is ``std_msgs/msg/string.hpp``, which includes the pre-made message type yo
 These lines represent the node’s dependencies.
 Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.txt``, which you’ll do in the next section.
 
-.. code-block:: c++
+.. code-block:: C++
 
     #include <chrono>
     #include <memory>
@@ -142,7 +142,7 @@ Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.tx
 The next line creates the node class ``MinimalPublisher`` by inheriting from ``rclcpp::Node``.
 Every ``this`` in the code is referring to the node.
 
-.. code-block:: c++
+.. code-block:: C++
 
     class MinimalPublisher : public rclcpp::Node
 
@@ -150,7 +150,7 @@ The public constructor names the node ``minimal_publisher`` and initializes ``co
 Inside the brackets of the constructor, the publisher is initialized with the ``String`` message type, the topic name ``topic``, and the required queue size to limit messages in the event of a backup.
 Next, ``timer_`` is initialized, which binds the ``timer_callback`` function to the node, and executes twice a second.
 
-.. code-block:: c++
+.. code-block:: C++
 
     public:
       MinimalPublisher()
@@ -164,7 +164,7 @@ Next, ``timer_`` is initialized, which binds the ``timer_callback`` function to 
 The ``timer_callback`` function is where the message data is set and the messages are actually published.
 The ``RCLCPP_INFO`` macro ensures every published message is printed to the console.
 
-.. code-block:: c++
+.. code-block:: C++
 
     Private:
       void timer_callback()
@@ -180,7 +180,7 @@ Last is the declaration of the timer, publisher, and counter fields.
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
 ``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` causes the timer to activate, which causes the callback function the start publishing.
 
-.. code-block:: c++
+.. code-block:: C++
 
     int main(int argc, char * argv[])
     {
@@ -236,7 +236,7 @@ After that, add the executable and name it ``talker`` so you can run your node u
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
-.. code-block:: c++
+.. code-block::
 
     install(TARGETS
     talker
@@ -301,7 +301,7 @@ Entering ``ls`` in the console will now return:
 
 Open the ``subscriber_member_function.py`` with your text editor.
 
-.. code-block:: c++
+.. code-block:: C++
 
     #include <memory>
 
@@ -343,7 +343,7 @@ Now the node is named ``minimal_subscriber``, and the constructor uses the node�
 
 There is no timer because the subscriber simply responds whenever data is published to the ``topic`` topic.
 
-.. code-block:: c++
+.. code-block:: C++
 
     public:
       MinimalSubscriber()
@@ -359,7 +359,7 @@ The ``topic_callback`` function receives the string message date published over 
 
 The only field declaration in this class is the subscription.
 
-.. code-block:: c++
+.. code-block:: C++
 
     private:
       void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
@@ -378,7 +378,7 @@ Since this node has the same dependencies as the publisher node, there’s nothi
 
 Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber node below the publisher’s entries.
 
-.. code-block:: c++
+.. code-block:: C++
 
     ...
     add_executable(listener src/subscriber_member_function.cpp)
