@@ -21,7 +21,7 @@ In this tutorial, you will create nodes that pass information in the form of str
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
-.. link nodes and topics tutorials
+.. link nodes tutorial
 
 
 Prerequisites
@@ -50,8 +50,8 @@ So, navigate into ``dev_ws/src``, and run the package creation command:
 
 Your terminal will return a message verifying the creation of your package ``py_pubsub`` and all its necessary files and folders.
 
-Navigate into ``dev_ws/py_pubsub/py_pubsub``.
-Recall that this is the directory in any ROS Python package (the nested directory with the same name as the package) where executables belong, adjacent to the ``__init__.py`` file.
+Navigate into ``dev_ws/src/py_pubsub/py_pubsub``.
+Recall that this directory is a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`__ with the same name as the ROS 2 package it's nested in.
 
 
 2 Write the publisher node
@@ -59,16 +59,27 @@ Recall that this is the directory in any ROS Python package (the nested director
 
 Download the example talker code by entering the following command:
 
-.. code-block:: bash
+.. tabs::
 
-    wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: bash
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+
+   .. group-tab:: Windows
+
+      Right click this link and select Save As ``publisher_member_function.py``:
+
+      https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+
+
 
 Now there will be a new file named ``publisher_member_function.py`` adjacent to ``__init__.py``.
 
 Open the file using your preferred text editor.
 
 .. code-block:: python
- :linenos:
 
   # Copyright 2016 Open Source Robotics Foundation, Inc.
   #
@@ -128,14 +139,14 @@ Open the file using your preferred text editor.
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The first lines of code after the comments, lines 15-16, import ``rclpy`` so its ``Node`` class can be used.
+The first lines of code after the comments import ``rclpy`` so its ``Node`` class can be used.
 
 .. code-block:: python
 
     import rclpy
     from rclpy.node import Node
 
-Line 18 imports the existing string message type that the node uses to structure the data it passes to the topic.
+The next statement imports the existing string message type that the node uses to structure the data that it passes on the topic.
 
 .. code-block:: python
 
@@ -144,14 +155,20 @@ Line 18 imports the existing string message type that the node uses to structure
 These lines represent the node’s dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you’ll do in the next section.
 
-Line 21 creates the ``MinimalPublisher`` class, which inherits from (or is a subclass of) ``Node``.
+Next, the ``MinimalPublisher`` class is created, which inherits from (or is a subclass of) ``Node``.
 
 .. code-block:: python
 
     class MinimalPublisher(Node):
 
-Lines 23-28 define the class’s constructor.
-Line 24 calls the ``Node`` class’s constructor and gives it your node name, in this case ``minimal_publisher``.
+Following is the definition of the class’s constructor.
+``super().__init__`` calls the ``Node`` class’s constructor and gives it your node name, in this case ``minimal_publisher``.
+
+``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the “queue size" is 10.
+Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
+
+Next, a timer is created with a callback to execute every 0.5 seconds.
+``self.i`` is a counter used in the callback.
 
 .. code-block:: python
 
@@ -162,11 +179,9 @@ Line 24 calls the ``Node`` class’s constructor and gives it your node name, in
             self.timer = self.create_timer(timer_period, self.timer_callback)
             self.i = 0
 
-Line 25 declares that the node publishes messages of type ``String`` (from the imported ``std_msgs.msg`` class, over a topic named ``topic``, and that the “queue size" is 10.
-Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
+``timer_callback`` creates a message with the counter value appended, and publishes it to the console with ``get_logger().info``.
 
-Lines 26-27 create a timer with a callback to execute every 0.5 seconds.
-Line 28 is a counter used in the callback, which is defined on lines 30-35.
+.. link rqt_console tutorial for explanation of logger levels.
 
 .. code-block:: python
 
@@ -177,11 +192,7 @@ Line 28 is a counter used in the callback, which is defined on lines 30-35.
             self.get_logger().info('Publishing: "%s"' % msg.data)
             self.i += 1
 
-``timer_callback`` creates a message along with the counter value (line 32) that is published to the console (line 34).
-
-.. link rqt_console tutorial for explanation of logger levels.
-
-Lines 38-49 define the main function.
+Lastly, the main function is defined.
 
 .. code-block:: python
 
@@ -198,7 +209,7 @@ Lines 38-49 define the main function.
         minimal_publisher.destroy_node()
         rclpy.shutdown()
 
-Line 39 initializes the ``rclpy`` library, line 41 creates the publisher, and line 43 “spins” the publisher so that the timer and callbacks begin.
+First tje ``rclpy`` library is initialized, then the node is created, and then it “spins” the node so its callbacks are called.
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -207,7 +218,7 @@ Navigate one level back to the ``dev_ws/src/py_pubsub`` directory, where the ``s
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the previous tutorial, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags on lines 6-8:
+As mentioned in the previous tutorial, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 
@@ -215,12 +226,14 @@ As mentioned in the previous tutorial, make sure to fill in the ``<description>`
     <maintainer email="you@email.com">Your Name</maintainer>
     <license>Apache License 2.0</license>
 
-Add a new line after line 10 and paste the following dependencies corresponding to your node’s import statements:
+Add a new line after  the ``ament_python`` buildtool dependency and paste the following dependencies corresponding to your node’s import statements:
 
 .. code-block:: xml
 
     <exec_depend>rclpy</exec_depend>
     <exec_depend>std_msgs</exec_depend>
+
+This declares the package needs ``rclpy`` and ``std_msgs`` when its code is executed.
 
 Make sure to save the file.
 
@@ -237,8 +250,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
     description='Examples of minimal publisher/subscriber using rclpy',
     license='Apache License 2.0',
 
-Now focus on line 21, where you’ll see the field ``entry_points``.
-Add the following line within the ``console_scripts`` brackets:
+Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
 
 .. code-block:: python
 
@@ -262,7 +274,7 @@ The contents of the ``setup.cfg`` file should be correctly populated automatical
     [install]
     install-scripts=$base/lib/py_pubsub
 
-This is simply telling the setup tools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
+This is simply telling setuptools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
 
 You could build your package now, source the local setup files, and run it, but let’s create the subscriber node first so you can see the full system at work.
 
@@ -272,9 +284,20 @@ You could build your package now, source the local setup files, and run it, but 
 Return to ``dev_ws/src/py_pubsub/py_pubsub`` to create the next node.
 Enter the following code in your terminal:
 
-.. code-block:: bash
+.. tabs::
 
-    wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: bash
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+
+   .. group-tab:: Windows
+
+      Right click this link and select Save As ``publisher_member_function.py``:
+
+      https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+
 
 Entering ``ls`` in the console will now return:
 
@@ -288,7 +311,6 @@ Entering ``ls`` in the console will now return:
 Open the ``subscriber_member_function.py`` with your text editor.
 
 .. code-block:: python
- :linenos:
 
   # Copyright 2016 Open Source Robotics Foundation, Inc.
   #
@@ -344,7 +366,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 
 The subscriber node’s code is nearly identical to the publisher’s.
-Line 25 is the same, except now it’s creating a subscriber, with the same arguments as the publisher.
+The constructor creates a subscriber with the same arguments as the publisher.
 Recall from the :ref:`topics tutorial <ROS2Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
@@ -355,9 +377,10 @@ Recall from the :ref:`topics tutorial <ROS2Topics>` that the topic name and mess
           self.listener_callback,
           10)
 
-The subscriber’s constructor and callback don’t include any timer definition.
+The subscriber’s constructor and callback don’t include any timer definition, because it doesn't need one.
+It's callback gets called as soon as it receives a message.
 
-On lines 32-33 the callback simply prints an info message to the console declaring that it received a message.
+The callback definition simply prints an info message to the console declaring that it received a message.
 It also adds the message data to the info message.
 Recall that the publisher defines ``msg.data = 'Hello World: %d' % self.i``
 
@@ -366,7 +389,7 @@ Recall that the publisher defines ``msg.data = 'Hello World: %d' % self.i``
     def listener_callback(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
 
-The ``main`` definition is almost exactly the same, except now line 39 creates a ``minimal_subscriber`` node, and line 41 spins the subscriber.
+The ``main`` definition is almost exactly the same, replacing the creation and spinning of the publisher with the subscriber.
 
 .. code-block:: python
 
@@ -397,8 +420,14 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 
 4 Build and run
 ^^^^^^^^^^^^^^^
+You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
+In any case, it's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+.. code-block:: bash
+
+    sudo rosdep install -i --from-path src --rosdistro <distro> -y
+
+In the root of your workspace, ``dev_ws``, build your new package:
 
 .. code-block:: bash
 
@@ -451,5 +480,7 @@ Summary
 
 You created two nodes to publish and subscribe to data over a topic.
 Before being able to run them, you needed to add their dependencies and entry points to the package setup files.
+
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
 
 .. todo: "Next steps section" once all tutorials are done
