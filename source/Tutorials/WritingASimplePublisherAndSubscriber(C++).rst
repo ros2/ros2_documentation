@@ -238,7 +238,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 .. code-block::
 
-    install(TARGETS
+  install(TARGETS
     talker
     DESTINATION lib/${PROJECT_NAME})
 
@@ -251,11 +251,11 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
   # Default to C++14
   if(NOT CMAKE_CXX_STANDARD)
-  set(CMAKE_CXX_STANDARD 14)
+    set(CMAKE_CXX_STANDARD 14)
   endif()
 
   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+    add_compile_options(-Wall -Wextra -Wpedantic)
   endif()
 
   find_package(ament_cmake REQUIRED)
@@ -266,8 +266,8 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
   ament_target_dependencies(talker rclcpp std_msgs)
 
   install(TARGETS
-  talker
-  DESTINATION lib/${PROJECT_NAME})
+    talker
+    DESTINATION lib/${PROJECT_NAME})
 
   ament_package()
 
@@ -380,14 +380,13 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 
 .. code-block::
 
-    ...
-    add_executable(listener src/subscriber_member_function.cpp)
-    ament_target_dependencies(listener rclcpp std_msgs)
+  add_executable(listener src/subscriber_member_function.cpp)
+  ament_target_dependencies(listener rclcpp std_msgs)
 
-    install(TARGETS
-      talker
-      listener
-      DESTINATION lib/${PROJECT_NAME})
+  install(TARGETS
+    talker
+    listener
+    DESTINATION lib/${PROJECT_NAME})
 
 Make sure to save the file, and then your pub/sub system should be ready for use.
 
