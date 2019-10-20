@@ -378,7 +378,7 @@ Since this node has the same dependencies as the publisher node, there’s nothi
 
 Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber node below the publisher’s entries.
 
-.. code-block:: C++
+.. code-block::
 
     ...
     add_executable(listener src/subscriber_member_function.cpp)
