@@ -19,6 +19,8 @@ Beginner level
    Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/Services/UnderstandingROS2Services
 
+   Tutorials/WritingASimplePublisherAndSubscriber(C++)
+
 Miscellaneous
 -------------
 
