@@ -413,6 +413,7 @@ Launch files
 ------------
 
 While launch files in ROS 1 are specified using `.xml <http://wiki.ros.org/roslaunch/XML>`__ files ROS 2 uses Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__).
+See `separate tutorial <https://index.ros.org/doc/ros2/Tutorials/Launch-files-migration-guide/>`__ on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -574,12 +575,6 @@ To get the ``std_msgs/String`` message definition, in place of
    //#include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
 
-To get the new quality of service ``QoS`` API, we include ``rclcpp/qos.hpp``:
-
-.. code-block:: cpp
-
-   #include "rclcpp/qos.hpp"
-
 Changing C++ library calls
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -602,14 +597,13 @@ changes to the names of namespace and methods.
    //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
      auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter",
-       rclcpp::QoS(1000));
+       1000);
      rclcpp::Rate loop_rate(10);
 
-Instead of an integer depth argument, we could pass in a quality of service
-(``QoS``) profile, which is a far more flexible way to control how message
-delivery is handled.
-The default profile is ``rmw_qos_profile_default`` (it's global because it's
-declared in ``rmw``, which is written in C and so doesn't have namespaces).
+To further control how message delivery is handled, a quality of service
+(``QoS``) profile could be passed in. The default profile is
+``rmw_qos_profile_default``. For more details, see the `design document <https://design.ros2.org/articles/qos.html>`__
+and `concept overview <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings>`__.
 
 The creation of the outgoing message is different in the namespace:
 
@@ -664,7 +658,6 @@ Putting it all together, the new ``talker.cpp`` looks like this:
    #include "rclcpp/rclcpp.hpp"
    // #include "std_msgs/String.h"
    #include "std_msgs/msg/string.hpp"
-   #include "rclcpp/qos.hpp"
    int main(int argc, char **argv)
    {
    //  ros::init(argc, argv, "talker");
@@ -673,7 +666,7 @@ Putting it all together, the new ``talker.cpp`` looks like this:
      auto node = rclcpp::Node::make_shared("talker");
    //  ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
    //  ros::Rate loop_rate(10);
-     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", rclcpp::QoS(1000));
+     auto chatter_pub = node->create_publisher<std_msgs::msg::String>("chatter", 1000);
      rclcpp::Rate loop_rate(10);
      int count = 0;
    //  std_msgs::String msg;
@@ -733,7 +726,7 @@ the package format):
      <exec_depend>std_msgs</exec_depend>
 
 A simpler way to specify both ``<build_depend>`` and ``<exec_depend>`` is to
-use the simpolified ``<depend>``:
+use the simplified ``<depend>``:
 
 .. code-block:: xml
 
@@ -853,18 +846,19 @@ individually, rather than including all the directories for all targets:
    target_include_directories(target include ${Boost_INCLUDE_DIRS})
 
 Similar to how we found each dependent package separately, we need to link
-each one to the build target. To link with dependent packages that are ament
-packages, instead of using ``target_link_libraries()``,
-``ament_target_dependencies()`` is a more concise and more thorough way of
-handling build flags. It automatically handles both the include directories
-defined in ``_INCLUDE_DIRS`` and linking libraries defined in ``_LIBRARIES``.
+each one to the build target.
+To link with dependent packages that are ament packages, instead of using
+``target_link_libraries()``, ``ament_target_dependencies()`` is a more
+concise and more thorough way of handling build flags.
+It automatically handles both the include directories defined in
+``_INCLUDE_DIRS`` and linking libraries defined in ``_LIBRARIES``.
 
 .. code-block:: cmake
 
    #target_link_libraries(talker ${catkin_LIBRARIES})
    ament_target_dependencies(talker
-                             rclcpp
-                             std_msgs)
+     rclcpp
+     std_msgs)
 
 To link with packages that are not ament packages, such as system dependencies
 like ``Boost``, or a library being built in the same ``CMakeLists.txt``, use
@@ -883,14 +877,14 @@ for executables:
    #install(TARGETS talker
    #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
    install(TARGETS talker
-           RUNTIME DESTINATION bin)
+     DESTINATION lib/${PROJECT_NAME})
 
 Optionally, we can install and export the included directories for downstream packages:
 
 .. code-block:: cmake
 
    install(DIRECTORY include/
-           DESTINATION include)
+     DESTINATION include)
    ament_export_include_directories(include)
 
 Optionally, we can export dependencies for downstream packages:
@@ -922,13 +916,14 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
    add_executable(talker talker.cpp)
    #target_link_libraries(talker ${catkin_LIBRARIES})
    ament_target_dependencies(talker
-                             rclcpp
-                             std_msgs)
+     rclcpp
+     std_msgs)
    #install(TARGETS talker
    #  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
-   install(TARGETS talker RUNTIME DESTINATION bin)
+   install(TARGETS talker
+     DESTINATION lib/${PROJECT_NAME})
    install(DIRECTORY include/
-           DESTINATION include)
+     DESTINATION include)
    ament_export_include_directories(include)
    ament_export_dependencies(std_msgs)
    ament_package()
