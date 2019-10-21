@@ -209,7 +209,7 @@ Example
 Passing an argument via the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `ROS 2 launch tutorial <Launch-system>`__.
+See `ROS 2 launch tutorial <Launch-system>`.
 
 
 env
