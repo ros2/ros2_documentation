@@ -88,11 +88,11 @@ Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``a
       #include <memory>
 
       void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
-		      std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
+		    std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
       {
         response->sum = request->a + request->b;
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld",
-            request->a, request->b);
+          request->a, request->b);
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
       }
 
@@ -102,8 +102,8 @@ Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``a
 
         std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
 
-	       rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
-            node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
+	      rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
+          node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add two ints.");
 
