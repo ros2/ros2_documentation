@@ -79,6 +79,11 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
+   # install CycloneDDS dependencies
+   sudo apt install --no-install-recommends -y \
+     libcunit1-dev \
+     maven \
+     openjdk-11-jdk
 
 .. _Eloquent_linux-dev-get-ros2-code:
 
