@@ -449,7 +449,7 @@ Summary
 -------
 
 You created two nodes to publish and subscribe to data over a topic.
-Before running them, you added their dependencies and entry points to the package configuration files.
+Before running them, you added their dependencies and executables to the package configuration files.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclcpp>`__.
 
