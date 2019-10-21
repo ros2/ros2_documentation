@@ -725,8 +725,8 @@ the package format):
    <!--  <run_depend>std_msgs</run_depend> -->
      <exec_depend>std_msgs</exec_depend>
 
-A simpler way to specify both ``<build_depend>`` and ``<exec_depend>`` is to
-use the simplified ``<depend>``:
+In ROS 1, we use ``<depend>`` to simplify specifying dependencies for both
+compile-time and runtime. We can do the same in ROS 2:
 
 .. code-block:: xml
 
