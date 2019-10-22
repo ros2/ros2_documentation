@@ -45,7 +45,7 @@ So, navigate into ``dev_ws/src``, and run the package creation command:
 
 .. code-block:: bash
 
-  ros2 pkg create --build-type ament_cmake test --dependencies rclcpp example_interfaces
+  ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``cpp_srvcli`` and all its necessary files and folders.
 
