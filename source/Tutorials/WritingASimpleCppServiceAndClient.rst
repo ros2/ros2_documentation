@@ -50,7 +50,7 @@ Navigate into ``dev_ws/src`` and create a new package:
 Your terminal will return a message verifying the creation of your package ``cpp_srvcli`` and all its necessary files and folders.
 
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
-``example_interfaces`` is the `package <https://github.com/ros2/example_interfaces/blob/master/srv/AddTwoInts.srv>`__ that includes the .``srv`` file you will need to structure your requests and responses:
+``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/master/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
 
 .. code-block::
 
@@ -131,7 +131,7 @@ The ``add`` function adds two integers from the request and gives the sum to the
 
 The ``main`` function accomplishes the following, line by line:
 
-* Initializes ROS 2:
+* Initializes ROS 2 C++ client library:
 
   .. code-block:: C++
 

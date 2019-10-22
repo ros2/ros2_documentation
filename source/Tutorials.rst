@@ -19,7 +19,7 @@ Beginner level
    Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/Services/UnderstandingROS2Services
 
-   Tutorials/WritingASimpleServiceAndClient(C++)
+   Tutorials/WritingASimpleCppServiceAndClient
 
 Miscellaneous
 -------------
