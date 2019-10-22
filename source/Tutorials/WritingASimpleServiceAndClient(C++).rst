@@ -41,7 +41,7 @@ Navigate into the ``dev_ws`` directory created in a previous tutorial.
 .. link
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-So, navigate into ``dev_ws/src``, and run the package creation command:
+Navigate into ``dev_ws/src`` and create a new package:
 
 .. code-block:: bash
 
