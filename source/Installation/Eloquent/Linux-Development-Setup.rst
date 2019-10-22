@@ -209,6 +209,8 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 .. code-block:: bash
 
    cd ~/ros2_ws/
+   colcon version-check
+   sudo apt-get upgrade colcon*
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
