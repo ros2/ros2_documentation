@@ -123,14 +123,14 @@ Working Groups (WGs)
 
 As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
-The current WGs are (4 as of 2019-04-01):
+The current WGs are (6 as of 2019-09-04):
 
 * Embedded Systems:
 
  * Lead(s): Borja Outerelo
  * Resources:
 
-  * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
+  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
 
 * Navigation
 
