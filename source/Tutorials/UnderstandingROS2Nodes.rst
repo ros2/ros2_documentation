@@ -27,9 +27,9 @@ It encompasses all executables and the connections between them if you were to m
 2 Nodes in ROS 2
 ^^^^^^^^^^^^^^^^
 
-Nodes are the fundamental communication type in the ROS graph.
-A node represents a single modular process.
-A robot system would be comprised of many nodes; for example, one controlling wheel motors, another controlling a laser range-finder, and so on.
+Each node in ROS should be responsible for a single, module purpose (e.g. one node for controlling wheel motors, one node for controlling a laser range-finder, etc).
+Each node can send and receive data to other nodes via topics, services, actions, or parameters.
+A full robotic system is comprised of many nodes working in concert.
 In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 
 Prerequisites
@@ -101,7 +101,7 @@ You will now see the names of two active nodes:
 2.1 Remapping
 ~~~~~~~~~~~~~
 
-Remapping allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
+`Remapping <http://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
 In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the default turtle being controlled.
 
 Now, lets reassign the name of our ``/turtlesim`` node.
