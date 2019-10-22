@@ -209,37 +209,36 @@ Unit tests
 
 If you are using gtest:
 
-Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING`` (until alpha 5 this was ``AMENT_ENABLE_TESTING``). Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
+Replace ``CATKIN_ENABLE_TESTING`` with ``BUILD_TESTING``.
+Replace ``catkin_add_gtest`` with ``ament_add_gtest``.
 
-.. code-block:: cmake
+.. code-block:: diff
 
-   #if (CATKIN_ENABLE_TESTING)
-   #  find_package(GTest REQUIRED)  # or rostest
-   #  include_directories(${GTEST_INCLUDE_DIRS})
-   #  catkin_add_gtest(${PROJECT_NAME}-some-test src/test/some_test.cpp)
-   #  target_link_libraries(${PROJECT_NAME}-some-test
-   #                        ${PROJECT_NAME}_some_dependency
-   #                        ${catkin_LIBRARIES}
-   #                        ${GTEST_LIBRARIES}
-   #                      )
-   #endif()
-   if (BUILD_TESTING)
-     find_package(ament_cmake_gtest REQUIRED)
-     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
-     ament_target_dependencies(${PROJECT_NAME)-some-test
-       "rclcpp"
-       "std_msgs")
-     target_link_libraries(${PROJECT_NAME}-some-test
-       ${PROJECT_NAME}_some_dependency)
-   endif()
+   -   if (CATKIN_ENABLE_TESTING)
+   -     find_package(GTest REQUIRED)  # or rostest
+   -     include_directories(${GTEST_INCLUDE_DIRS})
+   -     catkin_add_gtest(${PROJECT_NAME}-some-test src/test/some_test.cpp)
+   -     target_link_libraries(${PROJECT_NAME}-some-test
+   -       ${PROJECT_NAME}_some_dependency
+   -       ${catkin_LIBRARIES}
+   -       ${GTEST_LIBRARIES})
+   -   endif()
+   +   if (BUILD_TESTING)
+   +     find_package(ament_cmake_gtest REQUIRED)
+   +     ament_add_gtest(${PROJECT_NAME}-some-test src/test/test_something.cpp)
+   +     ament_target_dependencies(${PROJECT_NAME)-some-test
+   +       "rclcpp"
+   +       "std_msgs")
+   +     target_link_libraries(${PROJECT_NAME}-some-test
+   +       ${PROJECT_NAME}_some_dependency)
+   +   endif()
 
 Add ``<test_depend>ament_cmake_gtest</test_depend>`` to your ``package.xml``.
 
-.. code-block:: xml
+.. code-block:: diff
 
-   <!--  <test_depend>rostest</test_depend> -->
-   <test_depend>ament_cmake_gtest</test_depend>
-
+   -   <test_depend>rostest</test_depend>
+   +   <test_depend>ament_cmake_gtest</test_depend>
 
 Linters
 ~~~~~~~
@@ -601,8 +600,10 @@ changes to the names of namespace and methods.
      rclcpp::Rate loop_rate(10);
 
 To further control how message delivery is handled, a quality of service
-(``QoS``) profile could be passed in. The default profile is
-``rmw_qos_profile_default``. For more details, see the `design document <https://design.ros2.org/articles/qos.html>`__
+(``QoS``) profile could be passed in.
+The default profile is ``rmw_qos_profile_default``.
+For more details, see the
+`design document <https://design.ros2.org/articles/qos.html>`__
 and `concept overview <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings>`__.
 
 The creation of the outgoing message is different in the namespace:
@@ -625,7 +626,10 @@ Inside the publishing loop, we access the ``data`` field as before:
 
        msg.data = ss.str();
 
-To print a console message, instead of using ``ROS_INFO()``, we use ``RCLCPP_INFO()`` and its various cousins. The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first argument.
+To print a console message, instead of using ``ROS_INFO()``, we use
+``RCLCPP_INFO()`` and its various cousins.
+The key difference is that ``RCLCPP_INFO()`` takes a Logger object as the first
+argument.
 
 .. code-block:: cpp
 
@@ -726,7 +730,8 @@ the package format):
      <exec_depend>std_msgs</exec_depend>
 
 In ROS 1, we use ``<depend>`` to simplify specifying dependencies for both
-compile-time and runtime. We can do the same in ROS 2:
+compile-time and runtime.
+We can do the same in ROS 2:
 
 .. code-block:: xml
 
