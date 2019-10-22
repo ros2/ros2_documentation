@@ -20,7 +20,7 @@ Beginner level
    Tutorials/Services/UnderstandingROS2Services
 
    Tutorials/WritingASimplePyServiceAndClient
-   
+
 Miscellaneous
 -------------
 
