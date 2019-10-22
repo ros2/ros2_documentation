@@ -75,7 +75,7 @@ As always, though, make sure to add the description, maintainer email and name, 
   <license>Apache License 2.0</license>
 
 1.2 Update ``setup.py``
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Add the same information to the ``setup.py`` file for the ``maintainer``, ``maintainer_email``, ``description`` and ``license`` fields:
 
