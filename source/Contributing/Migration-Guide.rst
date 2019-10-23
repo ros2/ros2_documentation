@@ -41,7 +41,7 @@ Metapackages
 ^^^^^^^^^^^^
 
 ROS 2 doesn't have a special package type for metapackages.
-Metapacakges can still exist as regular packages that only contain runtime dependencies.
+Metapackages can still exist as regular packages that only contain runtime dependencies.
 When migrating metapackages from ROS 1, simply remove the ``<metapackage />`` tag in your package manifest.
 
 Message, service, and action definitions
