@@ -298,7 +298,6 @@ Exception Sourcing setup.bash
 If you encounter exceptions when trying to source the environment after building from source, try to upgrade `colcon` related packages using 
 
 .. code-block:: bash
-   
-   colcon version-check  # check if new versions available
-   sudo apt update && sudo apt ugrade colcon* 
-   python3 -m pip install COLCON_PACKAGE_NAME --upgrade  # optional for packages only upgradable on pip ex. colcon-core
+
+   sudo apt install colcon* --only-upgrade  # upgrade installed colcon packages to latest version
+   colcon version-check  # confirm packages are the latest version
