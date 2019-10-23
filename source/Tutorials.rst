@@ -19,7 +19,7 @@ Beginner level
    Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/LaunchFiles/CreatingLaunchFiles
 
-  
+
 Miscellaneous
 -------------
 
