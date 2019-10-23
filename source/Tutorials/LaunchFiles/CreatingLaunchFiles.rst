@@ -187,7 +187,7 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
 
       ros2 launch <package_name> <launch_file_name>
 
-  You will learn more about creating packages in a later tutorial
+  You will learn more about creating packages in a later tutorial.
 
 .. todo: link to package creation tutorial
 
