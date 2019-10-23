@@ -125,4 +125,7 @@ Summary
 ``rqt_console`` can be very helpful if you need to closely examine the log messages from your system.
 You might want to examine log messages for any number of reasons, usually to find out where something went wrong and the series of events leading up to that.
 
-.. todo: "Next steps section" link to "Creating launch files" once all tutorials are done (no empty references)
+Next steps
+----------
+
+The next tutorial will teach you how to :ref:`create launch files <ROS2Launch>`. 
