@@ -287,7 +287,7 @@ The component manager name and namespace can be remapped via standard command li
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container __node:=MyContainer __ns:=/ns
+   ros2 run rclcpp_components component_container --ros-args -r __node:=MyContainer -r __ns:=/ns
 
 In a second shell, components can be loaded by using the updated container name:
 
