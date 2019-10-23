@@ -88,7 +88,7 @@ At the top of your new ``turtlesim_mimic_launch.py`` file, add the lines:
     from launch import LaunchDescription
     from launch_ros.actions import Node
 
-These import statements pull in the Python modules necessary for launch files.
+These import statements pull in the some Python ``launch`` modules.
 
 Next, begin the launch description itself by adding the lines:
 
