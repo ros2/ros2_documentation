@@ -21,8 +21,10 @@ Beginner level
    Tutorials/Services/UnderstandingROS2Services
    Tutorials/Parameters/UnderstandingROS2Parameters
    Tutorials/UnderstandingROS2Actions
+   Tutorials/Rqt_Console/UsingRqt_Console
    Tutorials/LaunchFiles/CreatingLaunchFiles
-
+   
+   
 
 Miscellaneous
 -------------
