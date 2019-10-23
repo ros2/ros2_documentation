@@ -93,7 +93,9 @@ Parameters
 
 Setting parameters directly in the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 .. note::
+
    Supported since Eloquent.
 
 You can set parameters directly from the command line using the following syntax:
