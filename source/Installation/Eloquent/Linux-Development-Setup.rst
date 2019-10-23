@@ -301,4 +301,3 @@ If you encounter exceptions when trying to source the environment after building
 
    colcon version-check  # check if newer versions available
    sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
-  
