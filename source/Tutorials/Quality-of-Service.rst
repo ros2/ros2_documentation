@@ -67,7 +67,8 @@ In a separate terminal, source the install file and run the publisher node:
 
    ros2 run image_tools cam2image
 
-This will publish an image from your webcam. In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
+This will publish an image from your webcam.
+In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
 .. code-block:: bash
 
