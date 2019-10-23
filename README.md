@@ -15,10 +15,10 @@ In the root directory are the files required to locally build the site for testi
 
 ### Prerequisites
 
-You must have sphinx installed. On Debian or Ubuntu you can install it using apt:
+You must have sphinx and the sphinx-tabs extension installed, preferrably using pip:
 
 ```
-apt-get install python3-sphinx
+pip3 install sphinx sphinx-tabs
 ```
 
 For other distributions please refer to http://www.sphinx-doc.org/en/master/usage/installation.html
