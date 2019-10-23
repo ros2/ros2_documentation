@@ -128,4 +128,4 @@ You might want to examine log messages for any number of reasons, usually to fin
 Next steps
 ----------
 
-The next tutorial will teach you how to :ref:`create launch files <ROS2Launch>`. 
+The next tutorial will teach you how to :ref:`create launch files <ROS2Launch>`.
