@@ -2,6 +2,8 @@
 
     Overview-of-ROS-2-concepts
 
+.. _Concepts:
+
 Overview of ROS 2 Concepts
 ==========================
 
