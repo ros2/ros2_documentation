@@ -181,7 +181,7 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
   ros2 launch turtlesim_mimic_launch.py
 
 .. note::
-  When launching a launch file from inside a package, the syntax is:
+  When launching a launch file provided by a package, the syntax is:
 
   .. code-block::
 
