@@ -291,3 +291,13 @@ To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a differ
 This will define the DDS domain id for your system.
 Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
 The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
+
+Exception Sourcing setup.bash
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you encounter exceptions when trying to source the environment after building from source, try to upgrade ``colcon`` related packages using
+
+.. code-block:: bash
+
+   colcon version-check  # check if newer versions available
+   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
