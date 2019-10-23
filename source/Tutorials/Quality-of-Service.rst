@@ -162,6 +162,7 @@ We see now that some of the frame on the ``showimage`` side were dropped, the fr
 
 
 .. note::
+
    Before Eloquent, use ``-x 640 -y 480`` for changing the resolution and ``-r 0`` for best effort communication.
 
 .. image:: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
