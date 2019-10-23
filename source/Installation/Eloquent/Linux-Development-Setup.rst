@@ -295,7 +295,7 @@ The location of the configuration file is referenced in the ``OSPL_URI`` environ
 Exception Sourcing setup.bash
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you encounter exceptions when trying to source the environment after building from source, try to upgrade `colcon` related packages using 
+If you encounter exceptions when trying to source the environment after building from source, try to upgrade `colcon` related packages using
 
 .. code-block:: bash
 
