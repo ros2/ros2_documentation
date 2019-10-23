@@ -27,7 +27,7 @@ Prerequisites
 ``ros2doctor`` is part of the ``ros2cli`` package.
 As long as you have ``ros2cli`` installed (which any normal install should have), you will be able to use ``ros2doctor``.
 
-This tutorial uses :ref:`turtlesim <Turtlsim>` to illustrate some of the examples.
+This tutorial uses :ref:`turtlesim <Turtlesim>` to illustrate some of the examples.
 
 Tasks
 -----
@@ -69,7 +69,7 @@ If ros2doctor only finds warnings in your system, you will still receive the ``A
 
 Most checks are categorized as warnings as opposed to errors.
 It’s mostly up to you, the user, to determine the importance of the feedback ``ros2doctor`` returns.
-If it does find a rare error in your setup, indicated by ``UserWarning: ERROR: ``, the check is considered “failed”
+If it does find a rare error in your setup, indicated by ``UserWarning: ERROR:``, the check is considered failed.
 
 You will see a message similar to this following the list of issue feedback:
 
