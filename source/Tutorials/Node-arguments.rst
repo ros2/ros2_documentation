@@ -12,14 +12,29 @@ Passing ROS arguments to nodes via the command-line
 
 All ROS nodes take a set of arguments that allow various properties to be reconfigured.
 Examples include configuring the name/namespace of the node, topic/service names used, and parameters on the node.
+All ros specific arguments have to be specified after a ``--ros-args`` flag:
+
+.. code-block:: bash
+
+   ros2 run my_package node_executable --ros-args ...
+
+For more details, see `this design doc <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
+
+.. note::
+
+   Before Eloquent, ``--ros-args`` wasn't needed.
 
 *Note: all features on this page are only available as of the ROS 2 Bouncy release.*
 
 Name remapping
 --------------
 
-Names within a node (e.g. topics/services) can be remapped using the syntax ``<old name>:=<new name>``.
-The name/namespace of the node itself can be remapped using ``__node:=<new node name>`` and ``__ns:=<new node namespace>``.
+Names within a node (e.g. topics/services) can be remapped using the syntax ``-r <old name>:=<new name>``.
+The name/namespace of the node itself can be remapped using ``-r __node:=<new node name>`` and ``-r __ns:=<new node namespace>``.
+
+.. note::
+
+   Before Eloquent, remapping rules were specified directly using ``<old name>:=<new name>``, ``__node:=<new node name>``, ``__ns:=<new node namespace>``.
 
 Note that these remappings are "static" remappings, in that they apply for the lifetime of the node.
 "Dynamic" remapping of names after nodes have been started is not yet supported.
@@ -34,7 +49,11 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp talker __ns:=/demo __node:=my_talker chatter:=my_topic
+   ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker chatter:=my_topic
+
+.. note::
+
+   Before Eloquent, run ``ros2 run demo_nodes_cpp talker __ns:=/demo __node:=my_talker chatter:=my_topic``.
 
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -44,25 +63,65 @@ For example, the following will pass the remapping arguments to the specified no
 
 .. code-block:: bash
 
-   ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener
+   ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r listener:__node:=my_listener
 
 The following example will both change the node name and remap a topic (node and namespace changes are always applied *before* topic remapping):
 
+.. note::
+
+   Before Eloquent, run ``ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener``.
+
 .. code-block:: bash
 
-   ros2 run composition manual_composition talker:__node:=my_talker my_talker:chatter:=my_topic listener:__node:=my_listener my_listener:chatter:=my_topic
+   ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r my_talker:chatter:=my_topic -r listener:__node:=my_listener -r my_listener:chatter:=my_topic
+
+.. note::
+
+   Before Eloquent, run ``ros2 run composition manual_composition talker:__node:=my_talker my_talker:chatter:=my_topic listener:__node:=my_listener my_listener:chatter:=my_topic``.
 
 Logger configuration
 --------------------
 
-See ``__log_level`` argument usage in `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
+See ``--log-level`` argument usage in `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
 
 Parameters
 ----------
 
-Note: The behavior of parameters changed for Dashing and newer, so if you're using Crystal or older, see the section below for the old tutorial content.
+.. note::
 
-Setting parameters from the command-line is currently only supported in the form of yaml files.
+   The behavior of parameters changed for Dashing and newer, so if you're using Crystal or older, see the sections below.
+
+Setting parameters directly in the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. note::
+   Supported since Eloquent.
+
+You can set parameters directly from the command line using the following syntax:
+
+.. code-block:: bash
+
+  ros2 run package_name executable_name --ros-args -p param_name:=param_value
+
+As an example, you can run:
+
+.. code-block:: bash
+
+  ros2 run demo_nodes_cpp parameter_blackboard --ros-args -p some_int:=42 -p "a_string:=Hello world" -p "some_lists.some_integers:=[1, 2, 3, 4]" -p "some_lists.some_doubles:=[3.14, 2.718]"
+
+Other nodes will be able to retrieve the parameter values, e.g.:
+
+.. code-block:: bash
+
+  $ ros2 param list parameter_blackboard
+  a_string
+  some_int
+  some_lists.some_doubles
+  some_lists.some_integers
+
+Setting parameters from YAML files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Parameters can be set from the command-line in the form of yaml files.
 
 `See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
 
@@ -84,7 +143,11 @@ Then run the following:
 
 .. code-block:: bash
 
-  ros2 run demo_nodes_cpp parameter_blackboard __params:=demo_params.yaml
+  ros2 run demo_nodes_cpp parameter_blackboard --ros-args --params-file demo_params.yaml
+
+.. note::
+
+   In dashing, use ``ros2 run demo_nodes_cpp parameter_blackboard __params:=demo_params.yaml``.
 
 Other nodes will be able to retrieve the parameter values, e.g.:
 
