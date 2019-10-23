@@ -65,7 +65,7 @@ Now start ``turtlesim`` with the following command:
 2 Messages on rqt_console
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To produce log messages for ``rqr_console`` to display, let’s have the turtle run into the wall.
+To produce log messages for ``rqt_console`` to display, let’s have the turtle run into the wall.
 In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :ref:`topics tutorial <ROS2Topics>`) below:
 
 .. code-block:: bash
@@ -114,7 +114,7 @@ Enter the following command in your terminal:
 
 .. code-block:: bash
 
-        ros2 run turtlesim turtlesim_node __log_level:=WARN
+        ros2 run turtlesim turtlesim_node --ros-args --remap __log_level:=WARN
 
 Now you won’t see the initial ``Info`` level warnings that came up in the console last time you started ``turtlesim``.
 That’s because ``Info`` messages are lower priority than the new default severity, ``Warn``.
