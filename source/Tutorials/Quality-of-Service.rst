@@ -73,7 +73,7 @@ This will publish an image from your webcam. In case you don't have a camera att
 
    ros2 run image_tools cam2image --ros-args -p burger_mode:=True
 
-..note::
+.. note::
 
    Before Eloquent, this tutorial was using CLI arguments instead of parameters.
    In that case, run ``ros2 run image_tools cam2image -b``
