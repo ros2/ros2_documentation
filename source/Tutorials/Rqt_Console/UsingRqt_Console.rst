@@ -20,9 +20,9 @@ Background
 Typically, log messages show up in your terminal.
 With ``rqt_console``, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
 
-Nodes use logs to output messages, specifically on the ``/rosout`` topic.
-The information that a node sends as a message is entirely up to the person who creates the node.
-Usually log messages are included in a node to explain things happening behind the scenes that might be useful for users to know.
+Nodes use logs to output messages concerning events and statuses in a variety of ways.
+Their content is usually informational, for the sake of the user.
+The intent of a log message is defined by the author of the node, though the content may be written at runtime.
 
 Prerequisites
 -------------
@@ -65,16 +65,8 @@ Now start ``turtlesim`` with the following command:
 2 Messages on rqt_console
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When ``turtlesim`` starts, you will see two messages appear in ``rqt_console``:
-
-.. image:: info.png
-
-Notice the severity column; both messages have the ``Info`` severity level.
-
-To see messages of a different severity level, let’s have the turtle run into the wall.
-In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the topics tutorial) below:
-
-.. link topics tutorial
+To produce log messages for ``rqr_console`` to display, let’s have the turtle run into the wall.
+In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :ref:`topics tutorial <ROS2Topics>`) below:
 
 .. code-block:: bash
 
@@ -100,14 +92,13 @@ ROS 2’s logger levels are ordered by severity:
     Info
     Debug
 
-As mentioned earlier, the author who creates the node writes the log messages and assigns a severity level to each message.
 There is no exact standard for what each level indicates, but it’s safe to assume that:
 
-* ``Fatal`` messages indicate when something goes wrong, and causes the system to crash.
-* ``Error`` messages indicate when something goes wrong, and the desired behavior will not work.
-* ``Warn`` messages indicate when something goes wrong, but the process will continue regardless.
-* ``Info`` messages indicate significant checkpoints, like a node starting, action goal completing, etc.
-* ``Debug`` messages indicate background processes, and are typically very verbose.
+* ``Fatal`` messages indicate the system is going to terminate to try to protect itself from detriment.
+* ``Error`` messages indicate significant issues that won't necessarily damage the system, but are preventing it from functioning properly.
+* ``Warn`` messages indicate unexpected activity or non-ideal results that might represent a deeper issue, but don't harm functionality outright.
+* ``Info`` messages indicate event and status updates that serve as a visual verification that the system is running as expected.
+* ``Debug`` messages detail the entire step-by-step process of the system execution.
 
 The default level is ``Info``.
 You will only see messages of the default severity level and higher.
