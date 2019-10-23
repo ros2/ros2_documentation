@@ -299,5 +299,6 @@ If you encounter exceptions when trying to source the environment after building
 
 .. code-block:: bash
 
-   sudo apt install colcon* --only-upgrade  # upgrade installed colcon packages to latest version
-   colcon version-check  # confirm packages are the latest version
+   colcon version-check  # check if newer versions available
+   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
+  
