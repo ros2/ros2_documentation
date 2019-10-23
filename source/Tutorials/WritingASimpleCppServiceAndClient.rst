@@ -296,7 +296,7 @@ After removing some unnecessary boilerplate from the automatically generated fil
   ament_target_dependencies(client
     rclcpp example_interfaces)
 
-  install(TARGET
+  install(TARGETS
     server
     client
     DESTINATION lib/${PROJECT_NAME})
