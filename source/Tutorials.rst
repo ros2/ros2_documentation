@@ -21,7 +21,7 @@ Beginner level
    Tutorials/Services/UnderstandingROS2Services
    Tutorials/Parameters/UnderstandingROS2Parameters
 
-
+   Tutorials/GettingStartedWithRos2Doctor
 
 
 Miscellaneous
