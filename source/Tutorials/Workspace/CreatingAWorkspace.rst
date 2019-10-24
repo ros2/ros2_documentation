@@ -142,7 +142,7 @@ To see the packages inside ``ros_tutorials``, enter the command:
 
 Which will list the contents of the repo you just cloned, like so:
 
-.. code-block:: 
+.. code-block::
 
     roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
 
