@@ -60,6 +60,10 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * Configuration specified in a file
   * C++ stream operators
 
+* Parameters
+
+  * enforce type
+
 * Additional Graph API features [\*\* / \*\*\*]
 
   * a la ROS 1 Master API: http://wiki.ros.org/ROS/Master_API
