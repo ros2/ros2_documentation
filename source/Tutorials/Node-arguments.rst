@@ -49,7 +49,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker chatter:=my_topic
+   ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker -r chatter:=my_topic
 
 .. note::
 
