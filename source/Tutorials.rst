@@ -34,10 +34,12 @@ Developers
 
 .. toctree::
    :maxdepth: 1
-
+   
    Tutorials/Workspace/CreatingAWorkspace
-
    Tutorials/CreatingAROS2Package
+   Tutorials/GettingStartedWithRos2Doctor
+
+   
 
 Miscellaneous
 -------------
