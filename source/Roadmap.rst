@@ -21,7 +21,7 @@ Feature ideas in no specific order
 Design / Concept
 ~~~~~~~~~~~~~~~~
 
-* IDL format: using IDL 4.2 to specify ROS interfaces (msgs, srvs, actions)
+* IDL format
 
   * Leverage new features like grouping constants into enums
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
@@ -29,14 +29,13 @@ Design / Concept
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants
 * Uniqueness of node names
-* optional XML or YAML frontend for Python-based launch
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Building
 
-  * Support to generate "fat" packages / archives
+  * Consolidate build.ros2.org and ci.ros2.org
   * Windows and Mac OS packages
 
 * Documentation
@@ -58,13 +57,11 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Logging improvements [\* / \*\*]
 
-  * Revisit log4cxx
   * Configuration specified in a file
   * C++ stream operators
 
 * Parameters
 
-  * set individual parameters via command line arguments (instead of passing a yaml file)
   * enforce type
 
 * Additional Graph API features [\*\* / \*\*\*]
@@ -100,7 +97,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
   * Connext dynamic [\*]
   * RTI's micro implementation [\*]
-  * Eclipse Cyclone DDS (former ADLINK OpenSplice) [\*]
 
 * security improvements:
 
@@ -125,8 +121,6 @@ Port of existing ROS 1 functionality
 * RQt
 
   * convert more plugins [\* each when dependencies are available]
-
-* Diagnostics
 
 Reducing Technical Debt
 ~~~~~~~~~~~~~~~~~~~~~~~
