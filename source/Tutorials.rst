@@ -16,10 +16,14 @@ Beginner level
 
    Tutorials/ConfiguringROS2Environment
    Tutorials/Turtlesim/IntroducingTurtlesim
+   Tutorials/UnderstandingROS2Nodes
    Tutorials/Topics/UnderstandingROS2Topics
    Tutorials/Services/UnderstandingROS2Services
    Tutorials/Parameters/UnderstandingROS2Parameters
+   Tutorials/UnderstandingROS2Actions
+   Tutorials/Rqt_Console/UsingRqt_Console
    Tutorials/ROS2Bag/RecordingAndPlayingBackData
+
 
 
 Miscellaneous
