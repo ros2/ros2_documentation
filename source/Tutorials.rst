@@ -41,6 +41,8 @@ Developers
 
    
 
+   Tutorials/WritingASimpleCppServiceAndClient
+
 Miscellaneous
 -------------
 
