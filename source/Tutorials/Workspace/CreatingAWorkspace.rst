@@ -103,7 +103,7 @@ In the rest of the beginner developer tutorials, you will create your own packag
 The existing packages you will use are from the ``ros_tutorials`` repository (repo).
 If you went through the beginner user tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
 
-You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__
+You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
 
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
@@ -115,17 +115,34 @@ In the ``dev_ws/src`` directory, if your distro is Dashing for example, run the 
   git clone https://github.com/ros/ros_tutorials.git -b dashing-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
-Enter ``ls`` in your terminal, and you will see the new ``ros_tutorials`` directory.
+If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
 
 To see the packages inside ``ros_tutorials``, enter the command:
 
-.. code-block:: bash
+.. tabs::
 
-    ls ros_tutorials
+   .. group-tab:: Linux
+
+      .. code-block:: bash
+
+        ls ros_tutorials
+
+   .. group-tab:: macOS
+
+      .. code-block:: bash
+
+        ls ros_tutorials
+
+   .. group-tab:: Windows
+
+      .. code-block:: bash
+
+        dir ros_tutorials
+
 
 Which will list the contents of the repo you just cloned, like so:
 
-.. code-block:: bash
+.. code-block:: 
 
     roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
 
@@ -267,7 +284,7 @@ In the root, source your overlay:
 
       . install/local_setup.bash
 
-  .. group-tab:: Linux
+  .. group-tab:: Windows
 
     .. code-block:: bash
 
@@ -290,6 +307,7 @@ Now you can run the ``turtlesim`` package from the overlay:
 But how can you tell that this is the overlay turtlesim running, and not your main installation's turtlesim?
 
 Let’s modify turtlesim in the overlay so you can see the effects:
+
 * You can modify and rebuild packages in the overlay separately from the underlay.
 * The overlay takes precedence over the underlay.
 
@@ -318,7 +336,12 @@ You will see the title bar on the turtlesim window now says “MyTurtleSim”.
 
 Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ``dev_ws`` environment takes precedence over the contents of the underlay.
 
-If you open another terminal, only source your main ROS 2 distro, and run turtlesim, the title bar will be back to normal (“TurtleSim”).
+To see that your underlay is still intact, open a brand new terminal and source only your ROS 2 installation.
+Run turtlesim again:
+
+.. code-block::
+
+  ros2 run turtlesim turtlesim_node
 
 .. image:: underlay.png
 
