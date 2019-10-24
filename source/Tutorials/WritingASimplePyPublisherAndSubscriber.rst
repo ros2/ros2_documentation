@@ -401,9 +401,7 @@ In any case, it's good practice to run ``rosdep`` in the root of your workspace 
 
   .. group-tab:: macOS
 
-    ..code-block:: bash
-
-      You will already have ``rclpy`` and ``std_msgs`` from your installation.
+    You will already have ``rclpy`` and ``std_msgs`` from your installation.
 
   .. group-tab:: Windows
 
