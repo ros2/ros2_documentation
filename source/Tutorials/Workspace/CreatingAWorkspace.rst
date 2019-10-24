@@ -65,13 +65,13 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
       .. code-block:: bash
 
-        . ~/ros2_<distro>/ros2-osx/setup.bash
+        . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: bash
 
-        call C:\dev\ros2_<distro>\local_setup.bat
+        call C:\dev\ros2\local_setup.bat
 
 Consult the :ref:`installation guide <InstallationGuide>` you followed if these commands don’t work for you.
 
@@ -184,7 +184,7 @@ From the root of your workspace (``~/dev_ws``), you can now build your packages 
 
       colcon build
 
-  .. group-tab:: Linux
+  .. group-tab:: Windows
 
     .. code-block:: bash
 
@@ -237,13 +237,13 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
       .. code-block:: bash
 
-        . ~/ros2_<distro>/ros2-osx/setup.bash
+        . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: bash
 
-        call C:\dev\ros2_<distro>\setup.bat
+        call C:\dev\ros2\setup.bat
 
 Go into the root of your workspace:
 
