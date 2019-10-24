@@ -227,7 +227,7 @@ This command will clear the turtlesim window of any lines your turtle has drawn.
 .. image:: clear.png
 
 Now let’s spawn a new turtle by calling ``/spawn`` and inputting arguments.
-Input ``<arguments>`` in a service call from the command-line need to be in YAML syntax.
+Input ``<arguments>`` in a service call from the command-line need to be in JSON syntax.
 
 Enter the command:
 
