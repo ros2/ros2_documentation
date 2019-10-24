@@ -17,10 +17,10 @@ Background
 ----------
 
 A workspace is a directory containing ROS 2 packages.
-Before using ROS 2, it’s necessary to source your main ROS 2 installation workspace in the terminal you plan to work in.
+Before using ROS 2, it’s necessary to source your the ROS 2 installation workspace in the terminal you plan to work in.
 This makes ROS 2’s packages available for you to use in that terminal.
 
-You also have the option of sourcing an “overlay” – a secondary workspace where you can work on packages without interfering with the main ROS 2 installation, or “underlay”.
+You also have the option of sourcing an “overlay” – a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you're extending, or “underlay”.
 Your underlay must contain the dependencies of all the packages in your overlay.
 Packages in your overlay will override packages in the underlay.
 It's also possible to have several layers of underlays and overlays, with each successive overlay using the packages of its parent underlays.
