@@ -123,13 +123,13 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
 
 
   if __name__ == '__main__':
-    main()
+      main()
 
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The first ``import`` statement imports the ``AddTwoInts`` package.
+The first ``import`` statement imports the ``AddTwoInts`` service type from the ``example_interfaces`` package.
 The following ``import`` statement imports the ROS 2 Python client library, and specifically the ``Node`` class.
 
 .. code-block:: python
@@ -178,8 +178,9 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
 
 .. code-block:: python
 
-  from example_interfaces.srv import AddTwoInts
   import sys
+
+  from example_interfaces.srv import AddTwoInts
   import rclpy
   from rclpy.node import Node
 
@@ -208,15 +209,15 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
         while rclpy.ok():
             rclpy.spin_once(minimal_client)
             if minimal_client.future.done():
-              try:
-                response = minimal_client.future.result()
-              except Exception as e:
-                minimal_client.get_logger().info(
-                    'Service call failed %r' % (e,))
-              else:
-                minimal_client.get_logger().info(
-                    'Result of add_two_ints: for %d + %d = %d' %
-                    (minimal_client.req.a, minimal_client.req.b, response.sum))
+                try:
+                    response = minimal_client.future.result()
+                except Exception as e:
+                    minimal_client.get_logger().info(
+                        'Service call failed %r' % (e,))
+                else:
+                    minimal_client.get_logger().info(
+                        'Result of add_two_ints: for %d + %d = %d' %
+                        (minimal_client.req.a, minimal_client.req.b, response.sum))
               break
 
         minimal_client.destroy_node()
@@ -224,14 +225,14 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
 
 
   if __name__ == '__main__':
-  main()
+      main()
 
 
 3.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
 The only different ``import`` statement for the client is ``import sys``.
-This library allows you to input custom integers when calling the request.
+The client node code uses `sys.argv <https://docs.python.org/3/library/sys.html#sys.argv>`__ to get access to command line input arguments for the request.
 
 The constructor definition creates a client with the same type and name as the service node.
 The type and name must match for the client and service to be able to communicate.
@@ -282,7 +283,7 @@ Now run the service node:
 
      ros2 run py_srvcli service
 
-The terminal will start to wait for client’s request.
+The node will wait for the client’s request.
 
 Open another terminal and source the setup files from inside ``dev_ws`` again.
 Start the client node, followed by any two integers separated by a space:
@@ -298,7 +299,7 @@ If you chose ``2`` and ``3``, for example, the client would receive a response l
     [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
 
 Return to the terminal where your service node is running.
-You will see that it published log messages when it received the request and the data it received:
+You will see that it published log messages when it received the request:
 
 .. code-block::
 
