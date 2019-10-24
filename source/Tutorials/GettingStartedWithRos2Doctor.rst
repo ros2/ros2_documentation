@@ -20,6 +20,11 @@ When your ROS 2 setup is not running as expected, you can check its settings wit
 
 ``ros2doctor`` checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.
 
+.. note::
+
+  ``ros2doctor`` is under active development.
+  Features may be unstable, and are being updated frequently.
+  We encourage users to submit feature requests and tickets if anything comes up.
 
 Prerequisites
 -------------
@@ -59,7 +64,7 @@ If you do receive a warning, it will look something like this:
 
     <path>: <line>: UserWarning: <message>
 
-For example, ros2doctor will find this error if you’re using an unstable ROS 2 distribution:
+For example, ros2doctor will find this warning if you’re using an unstable ROS 2 distribution:
 
 .. code-block::
 
@@ -79,14 +84,15 @@ You will see a message similar to this following the list of issue feedback:
 
   Failed modules:  network
 
-An error may not stop your system from running either, but should be addressed to avoid bugs.
+An error indicates the system is missing important settings or functions that are crucial to ROS 2.
+Errors should be addressed to ensure the system functions properly.
 
 2 Check a system
 ^^^^^^^^^^^^^^^^
 
-You can also examine a running ROS 2 system or network to identify possible causes for issues.
+You can also examine a running ROS 2 system to identify possible causes for issues.
+To see ``ros2doctor`` working on a running system, let's run Turtlesim, which has nodes actively communicating with each other.
 
-Turtlesim is a system, because it’s comprised of a few nodes communicating with each other.
 Start up the system by opening a new terminal, sourcing ROS 2, and entering the command:
 
 .. code-block::
@@ -157,7 +163,7 @@ Which will return a list of information categorized into five groups:
   PLATFORM INFORMATION
   ...
 
-  RMW Middleware
+  RMW MIDDLEWARE
   ...
 
   ROS 2 INFORMATION
@@ -192,6 +198,7 @@ Related content
 ------------------------
 
 `ros2doctor’s README <https://github.com/ros2/ros2cli/tree/master/ros2doctor>`__ will tell you more about different arguments.
+You might want to take a look around the ros2doctor repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
 
 Next steps
 ----------------
