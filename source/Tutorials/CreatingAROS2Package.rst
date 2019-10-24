@@ -21,7 +21,7 @@ If you want to be able to install your code or share it with others, then you’
 With packages, you can release your ROS 2 work and allow others to build and use it easily.
 
 Package creation in ROS 2 uses ament as its build system and colcon as its build tool.
-You can create a package using either CMake or Python.
+You can create a package using either CMake or Python, which are officially supported, though other build types do exist.
 
 
 Prerequisites
@@ -50,7 +50,8 @@ ROS Python and CMake packages each have their own minimum required contents:
 
       * ``package.xml`` file containing meta information about the package
       * ``setup.py`` containing instructions for how to install the package
-      * An ament index marker file that lets certain package-related ROS 2 tools know your package exists when installed
+      * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
+      * ``your_package_name`` - a directory used by ROS 2 tools to find your package
 
 The simplest possible package may have a file structure that looks like:
 
@@ -78,6 +79,7 @@ The simplest possible package may have a file structure that looks like:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A single workspace can contain as many packages as you want, each in their own folder.
+You can also have a combination of CMake and Python packages in one workspace.
 You cannot have nested packages.
 
 Best practice is to have a ``src`` folder within your workspace, and to create your packages in there.
@@ -85,37 +87,23 @@ This keeps the top level of the workspace “clean”.
 
 A trivial workspace might look like:
 
-.. tabs::
+.. code-block::
 
-   .. group-tab:: CMake
+  workspace_folder/
+      src/
+        package_1/
+            CMakeLists.txt
+            package.xml
 
-      .. code-block:: bash
+        package_2/
+            setup.py
+            package.xml
+            resource/my_package
+        ...
+        package_n/
+            CMakeLists.txt
+            package.xml
 
-        workspace_folder/
-            src/
-              package_1/
-                  CMakeLists.txt
-                  package.xml
-              ...
-              package_n/
-                  CMakeLists.txt
-                 package.xml
-
-   .. group-tab:: Python
-
-      .. code-block:: bash
-
-        workspace_folder/
-            src/
-              package_1/
-                  setup.py
-                  package.xml
-                  resource/my_package
-              ...
-              package_n/
-                  setup.py
-                  package.xml
-                  resource/my_package
 
 3 Create a package
 ^^^^^^^^^^^^^^^^^^
@@ -132,7 +120,7 @@ Make sure you are in the ``src`` folder before running the package creation comm
 
     cd dev_ws/src
 
-The syntax for creating a new package in ROS 2 is:
+The command syntax for creating a new package in ROS 2 is:
 
 .. tabs::
 
@@ -225,7 +213,7 @@ After running the command, your terminal will return the message:
         creating ./my_package/test/test_pep257.py
         creating ./my_package/my_package/my_node.py
 
-You can see the automatically generated files that ament sets up a new package with.
+You can see the automatically generated files for the new package.
 
 4 Build a package
 ^^^^^^^^^^^^^^^^^
@@ -241,11 +229,27 @@ Return to the root of your workspace:
 
 Now you can build your packages:
 
-.. code-block:: bash
+.. tabs::
 
-    colcon build
+  .. group-tab:: Linux
 
-(If you’re on Windows, it’s best to always use ``colcon build --merge-install``)
+    .. code-block:: bash
+
+      colcon build
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      colcon build
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      colcon build --merge-install
+
+    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 Recall from the last tutorial that you also have the ``ros_tutorials`` packages in your ``dev_ws``.
 You might’ve noticed that running ``colcon build`` also built the ``turtlesim`` package.
@@ -323,8 +327,9 @@ Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2
 5.1 Customize package.xml
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You may have noticed in the return message after creating your package that two fields, description and licenses, contained ``TODO`` notes.
+You may have noticed in the return message after creating your package that the fields ``description`` and ``license`` contain ``TODO`` notes.
 That’s because the package description and license declaration are not automatically set, but are required if you ever want to release your package.
+The ``maintainer`` field may also need to be filled in.
 
 From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text editor:
 
@@ -341,7 +346,7 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
       <name>my_package</name>
       <version>0.0.0</version>
       <description>TODO: Package description</description>
-      <maintainer email="...">...</maintainer>
+      <maintainer email="user@todo.todo">user</maintainer>
       <license>TODO: License declaration</license>
 
       <buildtool_depend>ament_cmake</buildtool_depend>
@@ -365,7 +370,7 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
       <name>my_package</name>
       <version>0.0.0</version>
       <description>TODO: Package description</description>
-      <maintainer email="...">...</maintainer>
+      <maintainer email="user@todo.todo">user</maintainer>
       <license>TODO: License declaration</license>
 
       <buildtool_depend>ament_python</buildtool_depend>
@@ -380,7 +385,8 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
       </export>
      </package>
 
-Edit the description on line 6 to summarize the package:
+Input your name and email on line 7 if it hasn't been automatically populated for you.
+Then, edit the description on line 6 to summarize the package:
 
 .. code-block:: xml
 
@@ -389,11 +395,11 @@ Edit the description on line 6 to summarize the package:
 Then, update the license on line 8.
 You can read more about open source licenses `here <https://opensource.org/licenses/alphabetical>`__.
 
-Since this package is only for practice, it’s safe to use any license:
+Since this package is only for practice, it’s safe to use any license. We use ``Apache License 2.0``:
 
 .. code-block:: xml
 
-  <license>BSD</license>
+  <license>Apache License 2.0</license>
 
 Don’t forget to save once you’re done editing.
 
@@ -409,8 +415,9 @@ This is where your ``package.xml`` would list its dependencies on other packages
 
    .. group-tab:: Python
 
-      The ``setup.py`` file contains the same description and license fields as ``package.xml``, so you need to set those as well.
-      The description and licenses need to match exactly in both files.
+      The ``setup.py`` file contains the same description, maintainer and license fields as ``package.xml``, so you need to set those as well.
+      They need to match exactly in both files.
+      The version and name (``package_name``) also need to match exactly, and should be automatically populated in both files.
 
       Open ``setup.py`` with your preferred text editor.
 
@@ -432,8 +439,8 @@ This is where your ``package.xml`` would list its dependencies on other packages
           ],
         install_requires=['setuptools'],
         zip_safe=True,
-        maintainer='...',
-        maintainer_email='...',
+        maintainer='TODO',
+        maintainer_email='TODO',
         description='TODO: Package description',
         license='TODO: License declaration',
         tests_require=['pytest'],
@@ -444,12 +451,7 @@ This is where your ``package.xml`` would list its dependencies on other packages
           },
        )
 
-      Edit lines 18 and 19 to match ``package.xml``:
-
-      .. code-block:: python
-
-        description='Beginner developer tutorials practice package',
-        license='BSD',
+      Edit lines 16-19 to match ``package.xml``.
 
       Don’t forget to save the file.
 
@@ -459,7 +461,7 @@ Summary
 
 You’ve created a package to organize your code and make it easy to use for others.
 
-You used ament to create your package and automatically populate it with the necessary files, and then you used colcon to build it so you can use its executables in your local environment.
+Your package was automatically populated with the necessary files, and then you used colcon to build it so you can use its executables in your local environment.
 
 
 .. todo: "Next steps section" link to "Understanding ROS 2 services" once all tutorials are done (no empty references)
