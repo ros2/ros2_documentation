@@ -168,7 +168,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
-  'client = py_srvcli.client_async_member_function:main',
+  'service = py_srvcli.service_member_function:main',
 
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
