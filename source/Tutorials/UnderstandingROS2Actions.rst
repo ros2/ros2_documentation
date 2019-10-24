@@ -23,17 +23,13 @@ Actions are built on topics and services.
 Their functionality is similar to services, except actions are preemptable (you can cancel them while executing).
 They also provide steady feedback, as opposed to services which return a single response.
 
-Actions use a client-server model, similar to the publisher-subscriber model (described in the topics tutorial).
+Actions use a client-server model, similar to the publisher-subscriber model (described in the :ref:`topics tutorial <ROS2Topics>`).
 The “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
-
-.. link topics tutorial
 
 Prerequisites
 -------------
 
-This tutorial builds off concepts, like nodes and :ref:`topics <ROS2Topics>`, covered in previous tutorials.
-
-.. link nodes tutorials
+This tutorial builds off concepts, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, covered in previous tutorials.
 
 This tutorial uses the :ref:`turtlesim package <Turtlesim>`.
 

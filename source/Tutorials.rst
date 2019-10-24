@@ -25,9 +25,8 @@ Users
    Tutorials/Parameters/UnderstandingROS2Parameters
    Tutorials/UnderstandingROS2Actions
    Tutorials/Rqt_Console/UsingRqt_Console
+   Tutorials/LaunchFiles/CreatingLaunchFiles
    Tutorials/ROS2Bag/RecordingAndPlayingBackData
-
-
 
 Developers
 ^^^^^^^^^^
@@ -46,6 +45,7 @@ Developers
    Tutorials/WritingASimplePyPublisherAndSubscriber
 
    Tutorials/WritingASimplePyServiceAndClient
+
 
 Miscellaneous
 -------------
