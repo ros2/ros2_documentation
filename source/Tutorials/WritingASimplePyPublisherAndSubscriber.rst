@@ -404,7 +404,7 @@ In any case, it's good practice to run ``rosdep`` in the root of your workspace 
 
     ..code-block:: bash
 
-      sudo rosdep install -i --from-paths ./src -y
+      You will already have ``rclpy`` and ``std_msgs`` from your installation.
 
   .. group-tab:: Windows
 
