@@ -126,7 +126,7 @@ Next, the launch description itself begins:
 .. code-block:: python
    :lineno-start: 4
 
-  def generate_launch_description():
+   def generate_launch_description():
       return LaunchDescription([
 
       ])
