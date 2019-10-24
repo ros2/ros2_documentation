@@ -16,11 +16,14 @@ Creating a workspace
 Background
 ----------
 
-Before using ROS 2, it’s necessary to source your main ROS 2 installation in the terminal you plan to work in.
+A workspace is a directory containing ROS 2 packages.
+Before using ROS 2, it’s necessary to source your main ROS 2 installation workspace in the terminal you plan to work in.
 This makes ROS 2’s packages available for you to use in that terminal.
+
 You also have the option of sourcing an “overlay” – a secondary workspace where you can work on packages without interfering with the main ROS 2 installation, or “underlay”.
 Your underlay must contain the dependencies of all the packages in your overlay.
-Modifications and developments in your overlay will override packages in the underlay.
+Packages in your overlay will override packages in the underlay.
+It's also possible to have several layers of underlays and overlays, with each successive overlay using the packages of its parent underlays.
 
 
 Prerequisites
@@ -62,13 +65,13 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
       .. code-block:: bash
 
-        . ~/ros2_install/ros2-osx/setup.bash
+        . ~/ros2_<distro>/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: bash
 
-        call C:\dev\ros2\local_setup.bat
+        call C:\dev\ros2_<distro>\local_setup.bat
 
 Consult the :ref:`installation guide <InstallationGuide>` you followed if these commands don’t work for you.
 
@@ -126,8 +129,10 @@ Which will list the contents of the repo you just cloned, like so:
 
     roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
 
-Now you have populated your workspace with sample packages, but it isn’t a fully-functional workspace yet.
-You need to build the workspace first.
+The first three packages are being ignored; ``turtlesim`` is the only actual ROS 2 package in this repo.
+
+Now you have populated your workspace with a sample package, but it isn’t a fully-functional workspace yet.
+You need to resolve dependencies and build the workspace first.
 
 
 4 Resolve dependencies
@@ -158,23 +163,34 @@ If you already have all your dependencies, the console will return:
 
 Packages declare their dependencies in the package.xml file (you will learn more about packages in the next tutorial).
 This command walks through those declarations and installs the ones that are missing.
+You can learn more about ``rosdep`` in another tutorial (coming soon).
 
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 From the root of your workspace (``~/dev_ws``), you can now build your packages using the command:
 
-.. code-block:: bash
+.. tabs::
 
-  colcon build
+  .. group-tab:: Linux
 
-If you’re using Windows, you will need to append the ``merge-install`` argument like so:
+    .. code-block:: bash
 
-.. code-block:: bash
+      colcon build
 
-  colcon build --merge-install
+  .. group-tab:: macOS
 
-Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    .. code-block:: bash
+
+      colcon build
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      colcon build --merge-install
+
+    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 The console will return the following message:
 
@@ -221,13 +237,13 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
       .. code-block:: bash
 
-        . ~/ros2_install/ros2-osx/setup.bash
+        . ~/ros2_<distro>/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
       .. code-block:: bash
 
-        call C:\dev\ros2\local_setup.bat
+        call C:\dev\ros2_<distro>\setup.bat
 
 Go into the root of your workspace:
 
@@ -237,9 +253,33 @@ Go into the root of your workspace:
 
 In the root, source your overlay:
 
-.. code-block:: bash
+.. tabs::
 
-  . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      . install/local_setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      . install/local_setup.bash
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      . install/local_setup.bat
+
+.. note::
+
+  Sourcing the ``local_setup`` of the overlay will only add the packages available in the overlay to your environment.
+  ``setup`` sources the overlay as well as the underlay it was created in, allowing you to utilize both workspaces.
+
+  So, sourcing your main ROS 2 installation's ``setup`` and then the ``dev_ws`` overlay's ``local_setup``, like you just did,
+  is the same as just sourcing ``dev_ws``'s ``setup``, because that includes the environment of the underlay it was created in.
 
 Now you can run the ``turtlesim`` package from the overlay:
 
@@ -287,7 +327,7 @@ You can see that modifications in the overlay did not actually affect anything i
 
 Summary
 -------
-In this tutorial, you sourced your main ROS 2 distro install as your underlay, and created an overlay by running ``. install/setup.bash`` in your new workspace.
+In this tutorial, you sourced your main ROS 2 distro install as your underlay, and created an overlay by cloning and building packages in a new workspace.
 The overlay gets prepended to the path, and takes precedence over the underlay, as you saw with your modified turtlesim.
 
 Using overlays is recommended for working on a small number of packages, so you don’t have to put everything in the same workspace and rebuild a huge workspace on every iteration.
