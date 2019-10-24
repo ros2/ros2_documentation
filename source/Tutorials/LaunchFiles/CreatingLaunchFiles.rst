@@ -80,7 +80,7 @@ Let’s put together a ROS 2 launch file using the ``turtlesim`` package and its
 Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. code-block:: python
-  :linenos:
+   :linenos:
 
   from  launch import LaunchDescription
   from launch_ros.actions import Node
@@ -116,7 +116,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 These import statements pull in some Python ``launch`` modules.
 
 .. code-block:: python
-  :linenos:
+   :linenos:
 
     from launch import LaunchDescription
     from launch_ros.actions import Node
@@ -124,7 +124,7 @@ These import statements pull in some Python ``launch`` modules.
 Next, the launch description itself begins:
 
 .. code-block:: python
-  :lineno-start: 4
+   :lineno-start: 4
 
   def generate_launch_description():
       return LaunchDescription([
@@ -137,7 +137,7 @@ The goal of the system is to launch two turtlesim windows, and have one turtle m
 The first two actions in the launch description launch two turtlesim windows:
 
 .. code-block:: python
-  :lineno-start: 6
+   :lineno-start: 6
 
       Node(
           package='turtlesim',
@@ -161,7 +161,7 @@ Without unique namespaces, there would be no way to distinguish between messages
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 
 .. code-block:: python
-  :lineno-start: 18
+   :lineno-start: 18
 
       Node(
           package='turtlesim',
