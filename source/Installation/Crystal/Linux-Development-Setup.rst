@@ -93,8 +93,8 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws
+   mkdir -p ~/ros2_crystal/src
+   cd ~/ros2_crystal
    wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
    vcs import src < ros2.repos
 
@@ -220,7 +220,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_ws/
+   cd ~/ros2_crystal/
    # On Ubuntu Linux Bionic Beaver 18.04
    colcon build --symlink-install
    # On Ubuntu Linux Xenial Xerus 16.04
@@ -249,14 +249,14 @@ In one terminal, source the setup file and then run a ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/local_setup.bash
+   . ~/ros2_crystal/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/local_setup.bash
+   . ~/ros2_crystal/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.

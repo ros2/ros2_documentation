@@ -40,8 +40,8 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_install
-       cd ~/ros2_install
+       mkdir -p ~/ros2_crystal
+       cd ~/ros2_crystal
        tar xf ~/Downloads/ros2-crystal-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
@@ -133,14 +133,14 @@ In one terminal, source the setup file and then run a ``talker``:
 
 .. code-block:: bash
 
-   . ~/ros2_install/ros2-linux/setup.bash
+   . ~/ros2_crystal/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_install/ros2-linux/setup.bash
+   . ~/ros2_crystal/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -169,7 +169,7 @@ In another terminal, start the bridge:
 .. code-block:: bash
 
    . /opt/ros/melodic/setup.bash
-   . ~/ros2_install/ros2-linux/setup.bash
+   . ~/ros2_crystal/ros2-linux/setup.bash
    ros2 run ros1_bridge dynamic_bridge
 
 For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.

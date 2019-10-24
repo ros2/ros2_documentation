@@ -155,12 +155,12 @@ Getting the Source Code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2``:
+First setup a development folder, I use ``C:\dev\ros2_crystal``:
 
 .. code-block:: bash
 
-   > md \dev\ros2\src
-   > cd \dev\ros2
+   > md \dev\ros2_crystal\src
+   > cd \dev\ros2_crystal
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
@@ -230,7 +230,7 @@ To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2`` folder tree:
+To build the ``\dev\ros2_crystal`` folder tree:
 
 .. code-block:: bash
 
