@@ -98,7 +98,11 @@ Restart the demo including the following command line argument:
 
 .. code-block:: bash
 
-   ros2 run logging_demo logging_demo_main __log_level:=debug
+   ros2 run logging_demo logging_demo_main --ros-args --log-level debug
+
+.. note::
+
+   Before Eloquent, use ``ros2 run logging_demo logging_demo_main __log_level:=debug``.
 
 This configures the default severity for any unset logger to the debug severity level.
 You should see debug output from loggers from the demo itself and from the ROS 2 core.
