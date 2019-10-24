@@ -22,6 +22,7 @@ Beginner level
    Tutorials/Parameters/UnderstandingROS2Parameters
    Tutorials/UnderstandingROS2Actions
    Tutorials/Rqt_Console/UsingRqt_Console
+   Tutorials/ROS2Bag/RecordingAndPlayingBackData
 
 
 
