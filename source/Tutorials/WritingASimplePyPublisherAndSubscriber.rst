@@ -16,7 +16,6 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-Nodes are executable processes that communicate over the ROS graph.
 In this tutorial, you will create nodes that pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
@@ -50,12 +49,11 @@ So, navigate into ``dev_ws/src``, and run the package creation command:
 
 Your terminal will return a message verifying the creation of your package ``py_pubsub`` and all its necessary files and folders.
 
-Navigate into ``dev_ws/src/py_pubsub/py_pubsub``.
-Recall that this directory is a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`__ with the same name as the ROS 2 package it's nested in.
-
-
 2 Write the publisher node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Navigate into ``dev_ws/src/py_pubsub/py_pubsub``.
+Recall that this directory is a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`__ with the same name as the ROS 2 package it's nested in.
 
 Download the example talker code by entering the following command:
 
@@ -195,7 +193,7 @@ Lastly, the main function is defined.
         minimal_publisher.destroy_node()
         rclpy.shutdown()
 
-First tje ``rclpy`` library is initialized, then the node is created, and then it “spins” the node so its callbacks are called.
+First the ``rclpy`` library is initialized, then the node is created, and then it “spins” the node so its callbacks are called.
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -285,7 +283,7 @@ Enter the following code in your terminal:
       https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
 
-Entering ``ls`` in the console will now return:
+Now the directory should have these files:
 
 .. code-block:: bash
 
@@ -306,35 +304,35 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
   class MinimalSubscriber(Node):
 
-    def __init__(self):
-      super().__init__('minimal_subscriber')
-      self.subscription = self.create_subscription(
-          String,
-          'topic',
-          self.listener_callback,
-          10)
-      self.subscription  # prevent unused variable warning
+      def __init__(self):
+          super().__init__('minimal_subscriber')
+          self.subscription = self.create_subscription(
+              String,
+              'topic',
+              self.listener_callback,
+              10)
+          self.subscription  # prevent unused variable warning
 
-    def listener_callback(self, msg):
-      self.get_logger().info('I heard: "%s"' % msg.data)
+      def listener_callback(self, msg):
+          self.get_logger().info('I heard: "%s"' % msg.data)
 
 
-    def main(args=None):
-      rclpy.init(args=args)
+      def main(args=None):
+          rclpy.init(args=args)
 
-      minimal_subscriber = MinimalSubscriber()
+          minimal_subscriber = MinimalSubscriber()
 
-      rclpy.spin(minimal_subscriber)
+          rclpy.spin(minimal_subscriber)
 
-      # Destroy the node explicitly
-      # (optional - otherwise it will be done automatically
-      # when the garbage collector destroys the node object)
-      minimal_subscriber.destroy_node()
-      rclpy.shutdown()
+          # Destroy the node explicitly
+          # (optional - otherwise it will be done automatically
+          # when the garbage collector destroys the node object)
+          minimal_subscriber.destroy_node()
+          rclpy.shutdown()
 
 
       if __name__ == '__main__':
-        main()
+          main()
 
 
 The subscriber node’s code is nearly identical to the publisher’s.
@@ -350,10 +348,9 @@ Recall from the :ref:`topics tutorial <ROS2Topics>` that the topic name and mess
           10)
 
 The subscriber’s constructor and callback don’t include any timer definition, because it doesn't need one.
-It's callback gets called as soon as it receives a message.
+Its callback gets called as soon as it receives a message.
 
-The callback definition simply prints an info message to the console declaring that it received a message.
-It also adds the message data to the info message.
+The callback definition simply prints an info message to the console, along with the data it received.
 Recall that the publisher defines ``msg.data = 'Hello World: %d' % self.i``
 
 .. code-block:: python
@@ -393,13 +390,27 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 4 Build and run
 ^^^^^^^^^^^^^^^
 You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
-In any case, it's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
+In any case, it's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: bash
+.. tabs::
 
-    sudo rosdep install -i --from-path src --rosdistro <distro> -y
+  .. group-tab:: Linux
 
-In the root of your workspace, ``dev_ws``, build your new package:
+    .. code-block:: bash
+
+      sudo rosdep install -i --from-paths ./src -y
+
+  .. group-tab:: macOS
+
+    ..code-block:: bash
+
+      sudo rosdep install -i --from-paths ./src -y
+
+  .. group-tab:: Windows
+
+    You will already have ``rclpy`` and ``std_msgs`` from your installation.
+
+Still in the root of your workspace, ``dev_ws``, build your new package:
 
 .. code-block:: bash
 
