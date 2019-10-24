@@ -43,6 +43,8 @@ Developers
 
    Tutorials/WritingASimpleCppServiceAndClient
 
+   Tutorials/WritingASimplePyPublisherAndSubscriber
+
 Miscellaneous
 -------------
 
