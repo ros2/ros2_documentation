@@ -37,6 +37,8 @@ Developers
 
    Tutorials/Workspace/CreatingAWorkspace
 
+   Tutorials/CreatingAROS2Package
+
 Miscellaneous
 -------------
 
