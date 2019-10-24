@@ -80,6 +80,7 @@ Let’s put together a ROS 2 launch file using the ``turtlesim`` package and its
 Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. code-block:: python
+  :linenos:
 
   from  launch import LaunchDescription
   from launch_ros.actions import Node
@@ -115,6 +116,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 These import statements pull in some Python ``launch`` modules.
 
 .. code-block:: python
+  :linenos:
 
     from launch import LaunchDescription
     from launch_ros.actions import Node
@@ -122,6 +124,7 @@ These import statements pull in some Python ``launch`` modules.
 Next, the launch description itself begins:
 
 .. code-block:: python
+  :lineno-start: 4
 
   def generate_launch_description():
       return LaunchDescription([
@@ -134,6 +137,7 @@ The goal of the system is to launch two turtlesim windows, and have one turtle m
 The first two actions in the launch description launch two turtlesim windows:
 
 .. code-block:: python
+  :lineno-start: 6
 
       Node(
           package='turtlesim',
@@ -150,12 +154,14 @@ The first two actions in the launch description launch two turtlesim windows:
 
 Note the only difference between the two nodes is their ``node_namespace`` values.
 Unique namespaces allow the system to start two simulators without node name nor topic name conflicts.
-Without unique namespaces, there would be no way to address each turtle individually.
-Both receive commands over the same topic and publish their pose over the same topic; that data wouldn't be able to distinguish between the turtles otherwise.
+
+Both turtles in this system receive commands over the same topic and publish their pose over the same topic.
+Without unique namespaces, there would be no way to distinguish between messages meant for one turtle or the other.
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 
 .. code-block:: python
+  :lineno-start: 18
 
       Node(
           package='turtlesim',
@@ -185,7 +191,9 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
   ros2 launch turtlesim_mimic_launch.py
 
 .. note::
-  When launching a launch file provided by a package, the syntax is:
+
+  It is possible to launch a launch file directly (as we do above), or provided by a package.
+  When it is provided by a package, the syntax is:
 
   .. code-block::
 
@@ -217,7 +225,7 @@ You will see both turtles following the same path.
 4 Introspect the system with rqt_graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-While the system is still running, you can open ``rqt_graph`` to get a better idea of the relationship between the nodes in your launch file.
+While the system is still running, open a new terminal and run ``rqt_graph`` to get a better idea of the relationship between the nodes in your launch file.
 
 Run the command:
 
