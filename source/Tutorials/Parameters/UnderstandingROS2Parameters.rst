@@ -126,16 +126,7 @@ Your terminal should return the message:
 
   Set parameter successful
 
-The turtlesim window’s background color hasn’t changed yet, though.
-To trigger the change, you have to call:
-
-.. code-block:: bash
-
-  ros2 service call /clear std_srvs/srv/Empty
-
-.. link to services tutorial “service call” section
-
-This is an implementation detail left over from turtlesim on ROS 1, where parameters weren’t dynamically reconfigurable.
+And the background of your turtlesim window should change colors:
 
 .. image:: set.png
 
