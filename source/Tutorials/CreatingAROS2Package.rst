@@ -51,7 +51,7 @@ ROS Python and CMake packages each have their own minimum required contents:
       * ``package.xml`` file containing meta information about the package
       * ``setup.py`` containing instructions for how to install the package
       * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
-      * ``your_package_name`` - a directory used by ROS 2 tools to find your package
+      * ``your_package_name`` - a file used by ROS 2 tools to find your package
 
 The simplest possible package may have a file structure that looks like:
 
@@ -79,7 +79,7 @@ The simplest possible package may have a file structure that looks like:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A single workspace can contain as many packages as you want, each in their own folder.
-You can also have a combination of CMake and Python packages in one workspace.
+You can also have packages of different build types in one workspace (CMake, Python, etc.).
 You cannot have nested packages.
 
 Best practice is to have a ``src`` folder within your workspace, and to create your packages in there.
