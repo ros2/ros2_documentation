@@ -138,6 +138,7 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
 * asio.1.12.1.nupkg
+* cunit.2.1.3.nupkg
 * eigen-3.3.4.nupkg
 * tinyxml-usestl.2.6.2.nupkg
 * tinyxml2.6.0.0.nupkg
@@ -147,7 +148,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio eigen tinyxml-usestl tinyxml2 log4cxx
+   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
