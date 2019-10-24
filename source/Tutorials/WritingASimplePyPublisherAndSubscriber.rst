@@ -87,22 +87,22 @@ Open the file using your preferred text editor.
 
   class MinimalPublisher(Node):
 
-    def __init__(self):
-        super().__init__('minimal_publisher')
-        self.publisher_ = self.create_publisher(String, 'topic', 10)
-        timer_period = 0.5  # seconds
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        self.i = 0
+      def __init__(self):
+          super().__init__('minimal_publisher')
+          self.publisher_ = self.create_publisher(String, 'topic', 10)
+          timer_period = 0.5  # seconds
+          self.timer = self.create_timer(timer_period, self.timer_callback)
+          self.i = 0
 
-    def timer_callback(self):
-        msg = String()
-        msg.data = 'Hello World: %d' % self.i
-        self.publisher_.publish(msg)
-        self.get_logger().info('Publishing: "%s"' % msg.data)
-        self.i += 1
+      def timer_callback(self):
+          msg = String()
+          msg.data = 'Hello World: %d' % self.i
+          self.publisher_.publish(msg)
+          self.get_logger().info('Publishing: "%s"' % msg.data)
+          self.i += 1
 
 
-    def main(args=None):
+  def main(args=None):
       rclpy.init(args=args)
 
       minimal_publisher = MinimalPublisher()
@@ -116,8 +116,8 @@ Open the file using your preferred text editor.
       rclpy.shutdown()
 
 
-      if __name__ == '__main__':
-        main()
+  if __name__ == '__main__':
+      main()
 
 
 2.1 Examine the code
@@ -127,14 +127,14 @@ The first lines of code after the comments import ``rclpy`` so its ``Node`` clas
 
 .. code-block:: python
 
-    import rclpy
-    from rclpy.node import Node
+  import rclpy
+  from rclpy.node import Node
 
 The next statement imports the existing string message type that the node uses to structure the data that it passes on the topic.
 
 .. code-block:: python
 
-    from std_msgs.msg import String
+  from std_msgs.msg import String
 
 These lines represent the node’s dependencies.
 Recall that dependencies have to be added to ``package.xml``, which you’ll do in the next section.
@@ -143,7 +143,7 @@ Next, the ``MinimalPublisher`` class is created, which inherits from (or is a su
 
 .. code-block:: python
 
-    class MinimalPublisher(Node):
+  class MinimalPublisher(Node):
 
 Following is the definition of the class’s constructor.
 ``super().__init__`` calls the ``Node`` class’s constructor and gives it your node name, in this case ``minimal_publisher``.
@@ -156,12 +156,12 @@ Next, a timer is created with a callback to execute every 0.5 seconds.
 
 .. code-block:: python
 
-    def __init__(self):
-            super().__init__('minimal_publisher')
-            self.publisher_ = self.create_publisher(String, 'topic', 10)
-            timer_period = 0.5  # seconds
-            self.timer = self.create_timer(timer_period, self.timer_callback)
-            self.i = 0
+  def __init__(self):
+      super().__init__('minimal_publisher')
+      self.publisher_ = self.create_publisher(String, 'topic', 10)
+      timer_period = 0.5  # seconds
+      self.timer = self.create_timer(timer_period, self.timer_callback)
+      self.i = 0
 
 ``timer_callback`` creates a message with the counter value appended, and publishes it to the console with ``get_logger().info``.
 
@@ -169,29 +169,29 @@ Next, a timer is created with a callback to execute every 0.5 seconds.
 
 .. code-block:: python
 
-    def timer_callback(self):
-            msg = String()
-            msg.data = 'Hello World: %d' % self.i
-            self.publisher_.publish(msg)
-            self.get_logger().info('Publishing: "%s"' % msg.data)
-            self.i += 1
+  def timer_callback(self):
+      msg = String()
+      msg.data = 'Hello World: %d' % self.i
+      self.publisher_.publish(msg)
+      self.get_logger().info('Publishing: "%s"' % msg.data)
+      self.i += 1
 
 Lastly, the main function is defined.
 
 .. code-block:: python
 
   def main(args=None):
-        rclpy.init(args=args)
+      rclpy.init(args=args)
 
-        minimal_publisher = MinimalPublisher()
+      minimal_publisher = MinimalPublisher()
 
-        rclpy.spin(minimal_publisher)
+      rclpy.spin(minimal_publisher)
 
-        # Destroy the node explicitly
-        # (optional - otherwise it will be done automatically
-        # when the garbage collector destroys the node object)
-        minimal_publisher.destroy_node()
-        rclpy.shutdown()
+      # Destroy the node explicitly
+      # (optional - otherwise it will be done automatically
+      # when the garbage collector destroys the node object)
+      minimal_publisher.destroy_node()
+      rclpy.shutdown()
 
 First the ``rclpy`` library is initialized, then the node is created, and then it “spins” the node so its callbacks are called.
 
@@ -206,16 +206,16 @@ As mentioned in the previous tutorial, make sure to fill in the ``<description>`
 
 .. code-block:: xml
 
-    <description>Examples of minimal publisher/subscriber using rclpy</description>
-    <maintainer email="you@email.com">Your Name</maintainer>
-    <license>Apache License 2.0</license>
+  <description>Examples of minimal publisher/subscriber using rclpy</description>
+  <maintainer email="you@email.com">Your Name</maintainer>
+  <license>Apache License 2.0</license>
 
 Add a new line after  the ``ament_python`` buildtool dependency and paste the following dependencies corresponding to your node’s import statements:
 
 .. code-block:: xml
 
-    <exec_depend>rclpy</exec_depend>
-    <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
 
 This declares the package needs ``rclpy`` and ``std_msgs`` when its code is executed.
 
@@ -229,20 +229,20 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
 
 .. code-block:: python
 
-    maintainer='YourName',
-    maintainer_email='you@email.com',
-    description='Examples of minimal publisher/subscriber using rclpy',
-    license='Apache License 2.0',
+  maintainer='YourName',
+  maintainer_email='you@email.com',
+  description='Examples of minimal publisher/subscriber using rclpy',
+  license='Apache License 2.0',
 
 Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
 
 .. code-block:: python
 
-    entry_points={
-            'console_scripts': [
-                    'talker = py_pubsub.publisher_member_function:main',
-            ],
-    },
+  entry_points={
+          'console_scripts': [
+                  'talker = py_pubsub.publisher_member_function:main',
+          ],
+  },
 
 Don’t forget to save.
 
@@ -253,10 +253,10 @@ The contents of the ``setup.cfg`` file should be correctly populated automatical
 
 .. code-block::
 
-    [develop]
-    script-dir=$base/lib/py_pubsub
-    [install]
-    install-scripts=$base/lib/py_pubsub
+  [develop]
+  script-dir=$base/lib/py_pubsub
+  [install]
+  install-scripts=$base/lib/py_pubsub
 
 This is simply telling setuptools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
 
@@ -287,7 +287,7 @@ Now the directory should have these files:
 
 .. code-block:: bash
 
-    __init__.py  publisher_member_function.py  subscriber_member_function.py
+  __init__.py  publisher_member_function.py  subscriber_member_function.py
 
 3.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -317,23 +317,22 @@ Open the ``subscriber_member_function.py`` with your text editor.
           self.get_logger().info('I heard: "%s"' % msg.data)
 
 
-      def main(args=None):
-          rclpy.init(args=args)
+  def main(args=None):
+      rclpy.init(args=args)
 
-          minimal_subscriber = MinimalSubscriber()
+      minimal_subscriber = MinimalSubscriber()
 
-          rclpy.spin(minimal_subscriber)
+      rclpy.spin(minimal_subscriber)
 
-          # Destroy the node explicitly
-          # (optional - otherwise it will be done automatically
-          # when the garbage collector destroys the node object)
-          minimal_subscriber.destroy_node()
-          rclpy.shutdown()
+      # Destroy the node explicitly
+      # (optional - otherwise it will be done automatically
+      # when the garbage collector destroys the node object)
+      minimal_subscriber.destroy_node()
+      rclpy.shutdown()
 
 
-      if __name__ == '__main__':
-          main()
-
+  if __name__ == '__main__':
+      main()
 
 The subscriber node’s code is nearly identical to the publisher’s.
 The constructor creates a subscriber with the same arguments as the publisher.
@@ -341,11 +340,11 @@ Recall from the :ref:`topics tutorial <ROS2Topics>` that the topic name and mess
 
 .. code-block:: python
 
-    self.subscription = self.create_subscription(
-          String,
-          'topic',
-          self.listener_callback,
-          10)
+  self.subscription = self.create_subscription(
+      String,
+      'topic',
+      self.listener_callback,
+      10)
 
 The subscriber’s constructor and callback don’t include any timer definition, because it doesn't need one.
 Its callback gets called as soon as it receives a message.
@@ -355,16 +354,16 @@ Recall that the publisher defines ``msg.data = 'Hello World: %d' % self.i``
 
 .. code-block:: python
 
-    def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
+  def listener_callback(self, msg):
+      self.get_logger().info('I heard: "%s"' % msg.data)
 
 The ``main`` definition is almost exactly the same, replacing the creation and spinning of the publisher with the subscriber.
 
 .. code-block:: python
 
-    minimal_subscriber = MinimalSubscriber()
+  minimal_subscriber = MinimalSubscriber()
 
-    rclpy.spin(minimal_subscriber)
+  rclpy.spin(minimal_subscriber)
 
 Since this node has the same dependencies as the publisher, there’s nothing new to add to ``package.xml``.
 The ``setup.cfg`` file can also remain untouched.
@@ -378,12 +377,12 @@ The ``entry_points`` field should now look like this:
 
 .. code-block:: python
 
-    entry_points={
-            'console_scripts': [
-                    'talker = py_pubsub.publisher_member_function:main',
-                    'listener = py_pubsub.subscriber_member_function:main',
-            ],
-    },
+  entry_points={
+          'console_scripts': [
+                  'talker = py_pubsub.publisher_member_function:main',
+                  'listener = py_pubsub.subscriber_member_function:main',
+          ],
+  },
 
 Make sure to save the file, and then your pub/sub system should be ready for use.
 
@@ -414,36 +413,36 @@ Still in the root of your workspace, ``dev_ws``, build your new package:
 
 .. code-block:: bash
 
-    colcon build --packages-select py_pubsub
+  colcon build --packages-select py_pubsub
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
 .. code-block:: bash
 
-    . install/setup.bash
+  . install/setup.bash
 
 Now run the talker node:
 
 .. code-block:: bash
 
-     ros2 run py_pubsub talker
+  ros2 run py_pubsub talker
 
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
 .. code-block:: bash
 
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
-    [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
-    ...
+  [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
+  [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
+  [INFO] [minimal_publisher]: Publishing: "Hello World: 2"
+  [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
+  [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
+  ...
 
 Open another terminal, source the setup files from inside ``dev_ws`` again, and then start the listener node:
 
 .. code-block:: bash
 
-     ros2 run py_pubsub listener
+  ros2 run py_pubsub listener
 
 The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
 
