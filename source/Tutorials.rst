@@ -11,6 +11,9 @@ Getting started
 Beginner level
 --------------
 
+Users
+^^^^^
+
 .. toctree::
    :maxdepth: 1
 
@@ -22,10 +25,21 @@ Beginner level
    Tutorials/Parameters/UnderstandingROS2Parameters
    Tutorials/UnderstandingROS2Actions
    Tutorials/Rqt_Console/UsingRqt_Console
+   Tutorials/ROS2Bag/RecordingAndPlayingBackData
 
+
+
+Developers
+^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+   
+   Tutorials/Workspace/CreatingAWorkspace
+   Tutorials/CreatingAROS2Package
    Tutorials/GettingStartedWithRos2Doctor
 
-
+   
 
 Miscellaneous
 -------------
