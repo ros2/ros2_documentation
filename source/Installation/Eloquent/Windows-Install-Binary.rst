@@ -178,7 +178,7 @@ Downloading ROS 2
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-eloquent-*-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_eloquent``\ ).
 
 
 Set up the ROS 2 environment
@@ -188,7 +188,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2\local_setup.bat
+   > call C:\dev\ros2_eloquent\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 

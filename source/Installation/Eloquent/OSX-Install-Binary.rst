@@ -119,8 +119,8 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_install
-       cd ~/ros2_install
+       mkdir -p ~/ros2_eloquent
+       cd ~/ros2_eloquent
        tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
@@ -164,7 +164,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_install/ros2-osx/setup.bash
+   . ~/ros2_eloquent/ros2-osx/setup.bash
 
 
 For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).

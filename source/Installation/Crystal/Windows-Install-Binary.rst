@@ -215,7 +215,7 @@ Downloading ROS 2
     * there may be more than one binary download option which might cause the file name to differ.
     * [ROS Bouncy only] To download the ROS 2 debug libraries you'll need to download ``ros2-bouncy-windows-Debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_crystal``\ ).
 
   * Note (Ardent and earlier): There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
@@ -226,7 +226,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2\local_setup.bat
+   > call C:\dev\ros2_crystal\local_setup.bat
 
 For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent; this step can be skipped).
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
