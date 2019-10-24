@@ -101,15 +101,15 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
 
   class MinimalService(Node):
 
-    def __init__(self):
-      super().__init__('minimal_service')
-      self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
+      def __init__(self):
+          super().__init__('minimal_service')
+          self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
 
-    def add_two_ints_callback(self, request, response):
-      response.sum = request.a + request.b
-      self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
+      def add_two_ints_callback(self, request, response):
+          response.sum = request.a + request.b
+          self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
 
-      return response
+          return response
 
 
   def main(args=None):
@@ -125,7 +125,6 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
   if __name__ == '__main__':
       main()
 
-
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -134,29 +133,29 @@ The following ``import`` statement imports the ROS 2 Python client library, and 
 
 .. code-block:: python
 
-    from example_interfaces.srv import AddTwoInts
+  from example_interfaces.srv import AddTwoInts
 
-    import rclpy
-    from rclpy.node import Node
+  import rclpy
+  from rclpy.node import Node
 
 The ``MinimalService`` class constructor initializes the node with the name ``minimal_service``.
 Then, it creates a service and defines the type, name, and callback.
 
 .. code-block:: python
 
-    def __init__(self):
-        super().__init__('minimal_service')
-        self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
+  def __init__(self):
+      super().__init__('minimal_service')
+      self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
 
 The definition of the service callback receives the request data, sums it, and returns the sum as a response.
 
 .. code-block:: python
 
-    def add_two_ints_callback(self, request, response):
-        response.sum = request.a + request.b
-        self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
+  def add_two_ints_callback(self, request, response):
+      response.sum = request.a + request.b
+      self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
 
-        return response
+      return response
 
 Finally, the main class initializes the ROS 2 Python client library, instantiates the ``MinimalService`` class to create the service node and spins the node to handle callbacks.
 
@@ -169,7 +168,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
-    'client = py_srvcli.client_async_member_function:main',
+  'client = py_srvcli.client_async_member_function:main',
 
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -187,41 +186,41 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
 
   class MinimalClientAsync(Node):
 
-    def __init__(self):
-        super().__init__('minimal_client_async')
-        self.cli = self.create_client(AddTwoInts, 'add_two_ints')
-        while not self.cli.wait_for_service(timeout_sec=1.0):
-            self.get_logger().info('service not available, waiting again...')
-        self.req = AddTwoInts.Request()
+      def __init__(self):
+          super().__init__('minimal_client_async')
+          self.cli = self.create_client(AddTwoInts, 'add_two_ints')
+          while not self.cli.wait_for_service(timeout_sec=1.0):
+              self.get_logger().info('service not available, waiting again...')
+          self.req = AddTwoInts.Request()
 
-    def send_request(self):
-        self.req.a = int(sys.argv[1])
-        self.req.b = int(sys.argv[2])
-        self.future = self.cli.call_async(self.req)
+      def send_request(self):
+          self.req.a = int(sys.argv[1])
+          self.req.b = int(sys.argv[2])
+          self.future = self.cli.call_async(self.req)
 
 
-    def main(args=None):
-        rclpy.init(args=args)
+  def main(args=None):
+      rclpy.init(args=args)
 
-        minimal_client = MinimalClientAsync()
-        minimal_client.send_request()
+      minimal_client = MinimalClientAsync()
+      minimal_client.send_request()
 
-        while rclpy.ok():
-            rclpy.spin_once(minimal_client)
-            if minimal_client.future.done():
-                try:
-                    response = minimal_client.future.result()
-                except Exception as e:
-                    minimal_client.get_logger().info(
-                        'Service call failed %r' % (e,))
-                else:
-                    minimal_client.get_logger().info(
-                        'Result of add_two_ints: for %d + %d = %d' %
-                        (minimal_client.req.a, minimal_client.req.b, response.sum))
+      while rclpy.ok():
+          rclpy.spin_once(minimal_client)
+          if minimal_client.future.done():
+              try:
+                  response = minimal_client.future.result()
+              except Exception as e:
+                  minimal_client.get_logger().info(
+                      'Service call failed %r' % (e,))
+              else:
+                  minimal_client.get_logger().info(
+                      'Result of add_two_ints: for %d + %d = %d' %
+                      (minimal_client.req.a, minimal_client.req.b, response.sum))
               break
 
-        minimal_client.destroy_node()
-        rclpy.shutdown()
+      minimal_client.destroy_node()
+      rclpy.shutdown()
 
 
   if __name__ == '__main__':
@@ -255,12 +254,12 @@ The ``entry_points`` field of your ``setup.py`` file should look like this:
 
 .. code-block:: python
 
-    entry_points={
-        'console_scripts': [
-            'service = py_srvcli.service_member_function:main',
-            'client = py_srvcli.client_member_function:main',
-        ],
-    },
+  entry_points={
+      'console_scripts': [
+          'service = py_srvcli.service_member_function:main',
+          'client = py_srvcli.client_member_function:main',
+      ],
+  },
 
 4 Build and run
 ^^^^^^^^^^^^^^^
@@ -269,19 +268,19 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
 .. code-block:: bash
 
-    colcon build --packages-select py_srvcli
+  colcon build --packages-select py_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
 .. code-block:: bash
 
-    . install/setup.bash
+  . install/setup.bash
 
 Now run the service node:
 
 .. code-block:: bash
 
-     ros2 run py_srvcli service
+  ros2 run py_srvcli service
 
 The node will wait for the client’s request.
 
@@ -290,13 +289,13 @@ Start the client node, followed by any two integers separated by a space:
 
 .. code-block:: bash
 
-     ros2 run py_srvcli client 2 3
+  ros2 run py_srvcli client 2 3
 
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
 .. code-block::
 
-    [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
+  [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request:
