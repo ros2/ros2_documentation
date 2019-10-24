@@ -26,9 +26,14 @@ Prerequisites
 -------------
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
-However, if your system doesn’t recognize the command, install it like so:
 
-.. ??
+.. note::
+
+  If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
+
+  .. code-block::
+
+    sudo apt-get install ros-<ros-distro>-ros2bag ros-<ros-distro>-rosbag2*
 
 This tutorial talks about concepts covered in previous tutorials, like nodes and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.
@@ -41,8 +46,7 @@ Tasks
 
 1 Setup
 ^^^^^^^
-
-Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
+You'll be recording your keyboard input in the ``turtlesim`` system to save and replay later on, so begin by starting up the ``/turtlesim`` and ``/teleop_turtle`` nodes.
 
 Open a new terminal and run:
 
