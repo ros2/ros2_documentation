@@ -318,7 +318,7 @@ You will see the title bar on the turtlesim window now says “MyTurtleSim”.
 
 Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ``dev_ws`` environment takes precedence over the contents of the underlay.
 
-If you open another terminal, only source your main ROS 2 distro, and run turtlesim, the title bar will be back to normal (“TurtleSim”).
+If you open another terminal, only source your underlay, the main ROS 2 distro, and run turtlesim, the title bar will be back to normal (“TurtleSim”).
 
 .. image:: underlay.png
 
