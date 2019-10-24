@@ -11,6 +11,9 @@ Getting started
 Beginner level
 --------------
 
+Users
+^^^^^
+
 .. toctree::
    :maxdepth: 1
 
@@ -25,6 +28,14 @@ Beginner level
    Tutorials/ROS2Bag/RecordingAndPlayingBackData
 
 
+
+Developers
+^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Workspace/CreatingAWorkspace
 
 Miscellaneous
 -------------

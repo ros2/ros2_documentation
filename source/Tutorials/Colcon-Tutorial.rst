@@ -1,3 +1,5 @@
+.. _Colcon:
+
 .. redirect-from::
 
     Colcon-Tutorial
