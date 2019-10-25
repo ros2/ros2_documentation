@@ -91,7 +91,8 @@ The currently-defined QoS profiles are:
 
 * System default
 
-   This uses the system default for all of the policies.
+  This uses the RMW implementation's default values for all of the policies.
+  Different RMW implementations may have different defaults.
 
 `Click here <https://github.com/ros2/rmw/blob/release-latest/rmw/include/rmw/qos_profiles.h>`__ for the specific policies in use for the above profiles.
 The settings in these profiles are subject to further tweaks, based on the feedback from the community.
