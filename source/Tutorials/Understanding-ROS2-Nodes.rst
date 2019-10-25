@@ -149,28 +149,23 @@ The output should look like this:
       /rosout: rcl_interfaces/msg/Log
       /turtle1/color_sensor: turtlesim/msg/Color
       /turtle1/pose: turtlesim/msg/Pose
-      /turtle1/rotate_absolute/_action/feedback: turtlesim/action/RotateAbsolute_FeedbackMessage
-      /turtle1/rotate_absolute/_action/status: action_msgs/msg/GoalStatusArray
     Services:
       /clear: std_srvs/srv/Empty
       /kill: turtlesim/srv/Kill
+      /reset: std_srvs/srv/Empty
+      /spawn: turtlesim/srv/Spawn
+      /turtle1/set_pen: turtlesim/srv/SetPen
+      /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
+      /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
       /my_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
       /my_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
       /my_turtle/get_parameters: rcl_interfaces/srv/GetParameters
       /my_turtle/list_parameters: rcl_interfaces/srv/ListParameters
       /my_turtle/set_parameters: rcl_interfaces/srv/SetParameters
       /my_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
-      /reset: std_srvs/srv/Empty
-      /spawn: turtlesim/srv/Spawn
-      /turtle1/rotate_absolute/_action/cancel_goal: action_msgs/srv/CancelGoal
-      /turtle1/rotate_absolute/_action/get_result: turtlesim/action/RotateAbsolute_GetResult
-      /turtle1/rotate_absolute/_action/send_goal: turtlesim/action/RotateAbsolute_SendGoal
-      /turtle1/set_pen: turtlesim/srv/SetPen
-      /turtle1/teleport_absolute: turtlesim/srv/TeleportAbsolute
-      /turtle1/teleport_relative: turtlesim/srv/TeleportRelative
-    Actions Servers:
+    Action Servers:
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
-    Actions Clients:
+    Action Clients:
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
 

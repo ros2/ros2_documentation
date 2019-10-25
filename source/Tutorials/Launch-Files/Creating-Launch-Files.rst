@@ -195,9 +195,7 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
 
       ros2 launch <package_name> <launch_file_name>
 
-  You will learn more about creating packages in a later tutorial.
-
-.. todo: link to package creation tutorial
+  You will learn more about :ref:`creating packages <CreatePkg>` in a later tutorial.
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
@@ -240,4 +238,7 @@ Summary
 Launch files simplify running complex systems with many nodes and specific configuration details.
 You can create launch files using Python, and run them using the ``ros2 launch`` command.
 
-.. todo: "Next steps section" link to "Recording and playing feedback" once all tutorials are done (no empty references)
+Next steps
+----------
+
+In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``.

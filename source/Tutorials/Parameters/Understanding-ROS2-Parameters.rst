@@ -20,7 +20,7 @@ A parameter is a configuration value of a node.
 You can think of parameters as node settings.
 A node can store parameters as integers, floats, booleans, strings and lists.
 In ROS 2, each node maintains its own parameters.
-All parameters are dynamically reconfigurable, and built off of ROS 2 services.
+All parameters are dynamically reconfigurable, and built off of :ref:`ROS 2 services <ROS2Services>`.
 
 Prerequisites
 -------------
@@ -194,5 +194,7 @@ Nodes have parameters to define their default configuration values.
 You can ``get`` and ``set`` parameter values from the command line.
 You can also save parameter settings to reload in a new session.
 
+Next steps
+----------
 
-.. todo: "Next steps section" link to "Understanding ROS 2 actions" once all tutorials are done (no empty references)
+Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :ref:`actions <ROS2Actions>`.

@@ -16,17 +16,15 @@ Writing a simple service and client (Python)
 Background
 ----------
 
-When nodes communicate using :ref:`services <ROS2Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+When :ref:`nodes <ROS2Nodes>` communicate using :ref:`services <ROS2Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 The structure of the request and response is determined by a ``.srv`` file.
 
 The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
 
-.. link nodes tutorial
-
 Prerequisites
 -------------
 
-.. In previous tutorials, you learned how to :ref:`create a workspace <>` and :ref:`create a package <>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 
 Tasks
 -----
@@ -37,8 +35,6 @@ Tasks
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial.
-
-.. link
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 Navigate into ``dev_ws/src`` and create a new package:
@@ -314,4 +310,7 @@ Summary
 You created two nodes to request and respond to data over a service.
 You added their dependencies and executables to the package configuration files so that you could build and run them, allowing you to see a service/client system at work.
 
-.. todo: "Next steps section" once all tutorials are done
+Next steps
+----------
+
+Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.

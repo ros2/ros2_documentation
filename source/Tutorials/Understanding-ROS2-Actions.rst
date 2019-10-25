@@ -345,7 +345,11 @@ While the robot navigates to the position, it can send updates along the way (i.
 Turtlesim has an action server that action clients can send goals to for rotating turtles.
 In this tutorial, you introspected that action, ``/turtle1/rotate_absolute``, to get a better idea of what actions are and how they work.
 
-.. todo: "Next steps section" link to "rqt_console" once all tutorials are done (no empty references)
+Next steps
+----------
+
+Now you've covered all of the core ROS 2 concepts.
+The last few tutorials in the "Users" set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :ref:`rqt_console`.
 
 Related content
 ---------------

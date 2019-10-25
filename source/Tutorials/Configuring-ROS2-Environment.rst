@@ -194,4 +194,7 @@ This can be done in two ways: either sourcing the setup files in every new shell
 
 If you ever face any problems locating or using packages with ROS 2, the first thing you should do is check your environment variables and ensure they are set to the version and distro you intended.
 
-.. todo: "Next steps section" link to "Introducing turtlesim" once all tutorials are done (no empty references)
+Next steps
+----------
+
+Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :ref:`turtlesim tool <Turtlesim>`.

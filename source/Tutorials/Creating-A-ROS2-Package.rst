@@ -27,8 +27,8 @@ You can create a package using either CMake or Python, which are officially supp
 Prerequisites
 -------------
 
-.. Create a ROS 2 workspace by following the instructions in the :ref:`previous tutorial <ROS2Workspace>`.
-.. You will create your package in this workspace.
+You should have a ROS 2 workspace after following the instructions in the :ref:`previous tutorial <ROS2Workspace>`.
+You will create your package in this workspace.
 
 
 Tasks
@@ -110,9 +110,7 @@ A trivial workspace might look like:
 
 First, :ref:`source your ROS 2 installation <ConfigROS2>`.
 
-Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for your new package.
-
-.. add link :ref:`previous tutorial <ROS2Workspace>`
+Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for your new package.`
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
@@ -463,5 +461,8 @@ You’ve created a package to organize your code and make it easy to use for oth
 
 Your package was automatically populated with the necessary files, and then you used colcon to build it so you can use its executables in your local environment.
 
+Next steps
+----------
 
-.. todo: "Next steps section" link to "Understanding ROS 2 services" once all tutorials are done (no empty references)
+Next, let's add something meaningful to a package.
+You'll start with a simple publisher/subscriber system, which you can choose to write in either :ref:`C++ <CppPubSub>` or :ref:`Python <PyPubSub>`.
