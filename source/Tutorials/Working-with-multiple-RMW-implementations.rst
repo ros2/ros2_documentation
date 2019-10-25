@@ -19,7 +19,7 @@ You should have already read the `DDS and ROS middleware implementations page <.
 Multiple RMW implementations
 ----------------------------
 
-The current ROS 2 binary releases have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, and ADLink OpenSplice at the time of writing), but only Fast RTPS (the default) works without any additional installation steps, because it is the only one we distribute with our binary packages.
+The current ROS 2 binary releases have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, and ADLINK OpenSplice at the time of writing), but only Fast RTPS (the default) works without any additional installation steps, because it is the only one we distribute with our binary packages.
 
 Others like OpenSplice or Connext can be enabled by installing additional packages, but without having to rebuild anything or replace any existing packages.
 

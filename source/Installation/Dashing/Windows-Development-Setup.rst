@@ -148,12 +148,12 @@ Getting the Source Code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2``:
+First setup a development folder, I use ``C:\dev\ros2_dashing``:
 
 .. code-block:: bash
 
-   > md \dev\ros2\src
-   > cd \dev\ros2
+   > md \dev\ros2_dashing\src
+   > cd \dev\ros2_dashing
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
@@ -179,10 +179,10 @@ Getting a DDS Vendor
 --------------------
 
 You'll also need a DDS Vendor available for ROS to build against.
-There is currently support for eProsima FastRTPS, Adlink's OpenSplice, and RTI's Connext DDS.
+There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, and RTI's Connext DDS.
 The source distribution of ROS 2 includes FastRTPS, so it will always build unless explicitly ignored.
 
-Adlink OpenSplice
+ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
 If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
@@ -223,7 +223,7 @@ To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools C
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2`` folder tree:
+To build the ``\dev\ros2_dashing`` folder tree:
 
 .. code-block:: bash
 

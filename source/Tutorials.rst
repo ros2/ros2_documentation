@@ -51,6 +51,7 @@ Miscellaneous
 .. toctree::
    :maxdepth: 1
 
+   Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-Tutorial
    Tutorials/Ament-CMake-Documentation

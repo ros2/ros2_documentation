@@ -68,6 +68,9 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
+       # install CUnit for CycloneDDS
+       brew install cunit
+
 #.
    Install rviz dependencies
 
@@ -118,8 +121,8 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws
+   mkdir -p ~/ros2_eloquent/src
+   cd ~/ros2_eloquent
    wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
@@ -144,7 +147,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_ws/
+   cd ~/ros2_eloquent/
    colcon build --symlink-install
 
 
@@ -155,7 +158,7 @@ In a clean new terminal, source the setup file (this will automatically set up t
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/setup.bash
+   . ~/ros2_eloquent/install/setup.bash
    ros2 run demo_nodes_cpp talker
 
 
@@ -163,7 +166,7 @@ In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/setup.bash
+   . ~/ros2_eloquent/install/setup.bash
    ros2 run demo_nodes_cpp listener
 
 
@@ -181,7 +184,7 @@ When you run the build make sure that your chosen DDS vendor(s) are exposed in y
 When multiple vendors are present, you can choose the used RMW implementation by setting the the environment variable ``RMW_IMPLEMENTATION`` to the package providing the RMW implementation.
 See `Working with multiple RMW implementations </Tutorials/Working-with-multiple-RMW-implementations>` for more details.
 
-Adlink OpenSplice
+ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
 ROS 2 Eloquent Elusor supports OpenSplice 6.9.
@@ -237,8 +240,8 @@ If you are seeing library loading issues at runtime (either running tests or run
 
 .. code-block:: bash
 
-   ImportError: dlopen(.../ros2_install/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so, 2): Library not loaded: @rpath/librcl_interfaces__rosidl_typesupport_c.dylib
-     Referenced from: .../ros2_install/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
+   ImportError: dlopen(.../ros2_eloquent/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so, 2): Library not loaded: @rpath/librcl_interfaces__rosidl_typesupport_c.dylib
+     Referenced from: .../ros2_eloquent/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
      Reason: image not found
 
 then you probably have System Integrity Protection enabled.

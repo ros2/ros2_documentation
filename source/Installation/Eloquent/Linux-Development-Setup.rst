@@ -79,6 +79,9 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
+   # install CycloneDDS dependencies
+   sudo apt install --no-install-recommends -y \
+     libcunit1-dev
 
 .. _Eloquent_linux-dev-get-ros2-code:
 
@@ -89,8 +92,8 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_ws/src
-   cd ~/ros2_ws
+   mkdir -p ~/ros2_eloquent/src
+   cd ~/ros2_eloquent
    wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
@@ -208,7 +211,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_ws/
+   cd ~/ros2_eloquent/
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
@@ -235,14 +238,14 @@ In one terminal, source the setup file and then run a ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/local_setup.bash
+   . ~/ros2_eloquent/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_ws/install/local_setup.bash
+   . ~/ros2_eloquent/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -291,3 +294,13 @@ To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a differ
 This will define the DDS domain id for your system.
 Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
 The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
+
+Exception Sourcing setup.bash
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you encounter exceptions when trying to source the environment after building from source, try to upgrade ``colcon`` related packages using
+
+.. code-block:: bash
+
+   colcon version-check  # check if newer versions available
+   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version

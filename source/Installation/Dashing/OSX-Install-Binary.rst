@@ -65,6 +65,9 @@ You need the following things installed before installing ROS 2.
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
+       # install CUnit for CycloneDDS
+       brew install cunit
+
 *
   Install rqt dependencies
 
@@ -119,8 +122,8 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_install
-       cd ~/ros2_install
+       mkdir -p ~/ros2_dashing
+       cd ~/ros2_dashing
        tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
@@ -164,7 +167,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_install/ros2-osx/setup.bash
+   . ~/ros2_dashing/ros2-osx/setup.bash
 
 
 For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).

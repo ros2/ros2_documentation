@@ -78,11 +78,11 @@ Install additional DDS implementations (optional)
 ROS 2 builds on top of DDS.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, Adlink OpenSplice, and RTI Connext as the middleware options.
+The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and RTI Connext as the middleware options.
 Run-time support for eProsima's Fast RTPS is included bundled by default.
 If you would like to use one of the other vendors you will need to install their software separately.
 
-Adlink OpenSplice
+ADLINK OpenSplice
 ~~~~~~~~~~~~~~~~~
 
 If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
@@ -138,6 +138,7 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
 * asio.1.12.1.nupkg
+* cunit.2.1.3.nupkg
 * eigen-3.3.4.nupkg
 * tinyxml-usestl.2.6.2.nupkg
 * tinyxml2.6.0.0.nupkg
@@ -147,7 +148,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio eigen tinyxml-usestl tinyxml2 log4cxx
+   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -178,7 +179,7 @@ Downloading ROS 2
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-dashing-*-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_dashing``\ ).
 
 
 Set up the ROS 2 environment
@@ -188,7 +189,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2\local_setup.bat
+   > call C:\dev\ros2_dashing\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
