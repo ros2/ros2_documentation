@@ -29,12 +29,14 @@ You will also need the ROS package ``image_tools``.
    .. group-tab:: Linux Binaries
 
       .. code-block:: bash
+
         # Replace <ROS_DISTRO> with the distribution you're using
         sudo apt-get install ros-<ROS_DISTRO>-image-tools
 
    .. group-tab:: From Source
 
       .. code-block:: bash
+
         # Replace <ROS_DISTRO> with the distribution you're using
         # Clone and build the demos repo using the branch that matches your installation
         git clone https://github.com/ros2/demos.git -b <ROS_DISTRO>
