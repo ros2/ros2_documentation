@@ -2,9 +2,51 @@
 Tutorials
 =========
 
-Basic
------
+Beginner level
+--------------
 
+The beginner level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
+We recommend following the tutorials in order, from the "Users" set to the "Developers" set to gain basic foundational knowledge of ROS 2.
+
+You're welcome to pick tutorials out of the set if you're looking for something specific, just understand that the tutorials build off of each other and are not meant to be comprehensive documentation.
+These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
+
+.. Feedback is placeholder for actual feedback solution in development
+
+Users
+^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Configuring-ROS2-Environment
+   Tutorials/Turtlesim/Introducing-Turtlesim
+   Tutorials/Understanding-ROS2-Nodes
+   Tutorials/Topics/Understanding-ROS2-Topics
+   Tutorials/Services/Understanding-ROS2-Services
+   Tutorials/Parameters/Understanding-ROS2-Parameters
+   Tutorials/Understanding-ROS2-Actions
+   Tutorials/Rqt-Console/Using-Rqt-Console
+   Tutorials/Launch-Files/Creating-Launch-Files
+   Tutorials/Ros2bag/Recording-And-Playing-Back-Data
+
+Developers
+^^^^^^^^^^
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Workspace/Creating-A-Workspace
+   Tutorials/Creating-A-ROS2-Package
+   Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber
+   Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
+   Tutorials/Writing-A-Simple-Cpp-Service-And-Client
+   Tutorials/Writing-A-Simple-Py-Service-And-Client
+   Tutorials/Getting-Started-With-Ros2doctor
+
+
+Miscellaneous
+-------------
 
 .. toctree::
    :maxdepth: 1
