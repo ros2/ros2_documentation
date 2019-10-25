@@ -241,4 +241,4 @@ You can create launch files using Python, and run them using the ``ros2 launch``
 Next steps
 ----------
 
-In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``. 
+In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``.
