@@ -45,10 +45,6 @@ Supported RMW implementations
      - Apache 2, commercial
      - ``rmw_opensplice_cpp``
      - Partial support. Support included in binaries, but OpenSplice installed separately.
-   * - OSRF *FreeRTPS*
-     - Apache 2
-     - --
-     - Partial support. Development paused.
 
 
 *"Partial support" means that one or more of the features required by the rmw interface is not implemented.*
