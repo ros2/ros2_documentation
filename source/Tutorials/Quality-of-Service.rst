@@ -17,20 +17,30 @@ Please read the documentationg page `about QoS settings <../Concepts/About-Quali
 In this demo, we will spawn a node that publishes a camera image and another that subscribes to the image and shows it on the screen.
 We will then simulate a lossy network connection between them and show how different quality of service settings handle the bad link.
 
-Build/install the demo
-----------------------
 
-From pre-compiled binaries
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Prerequisites
+-------------
+This tutorial assumes you have a `working ROS 2 installation <../Installation>` and OpenCV.
+See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for its installation instructions.
+You will also need the ROS package ``image_tools``.
 
-Simply download the binary packages for your OS from the `installation page <../Installation>`.
+.. tabs::
 
-From source
-^^^^^^^^^^^
+   .. group-tab:: Linux Binaries
 
-OpenCV is a prerequisite for the QoS demo.
-See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for installation instructions.
-Follow the instructions on the `installation page <building-from-source>` for your particular platform.
+      .. code-block:: bash
+
+        # Replace <ROS_DISTRO> with the distribution you're using
+        sudo apt-get install ros-<ROS_DISTRO>-image-tools
+
+   .. group-tab:: From Source
+
+      .. code-block:: bash
+
+        # Replace <ROS_DISTRO> with the distribution you're using
+        # Clone and build the demos repo using the branch that matches your installation
+        git clone https://github.com/ros2/demos.git -b <ROS_DISTRO>
+
 
 Run the demo
 ------------
