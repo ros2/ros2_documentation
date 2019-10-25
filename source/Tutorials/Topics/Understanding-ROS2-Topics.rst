@@ -175,7 +175,7 @@ Which will return:
 
 .. code-block:: bash
 
-  Topic: /turtle1/cmd_vel
+  Type: geometry_msgs/msg/Twist
   Publisher count: 1
   Subscriber count: 2
 
