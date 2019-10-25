@@ -173,11 +173,23 @@ Another way to look at this is running:
 
 Which will return:
 
-.. code-block:: bash
+.. tabs::
 
-  Type: geometry_msgs/msg/Twist
-  Publisher count: 1
-  Subscriber count: 2
+  .. group-tab:: Eloquent
+
+    .. code-block:: bash
+
+      Type: geometry_msgs/msg/Twist
+      Publisher count: 1
+      Subscriber count: 2
+
+  .. group-tab:: Dashing/earlier
+
+    .. code-block::
+
+      Topic: /turtle1/cmd_vel
+      Publisher count: 1
+      Subscriber count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
