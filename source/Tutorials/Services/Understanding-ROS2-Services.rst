@@ -258,4 +258,7 @@ You generally don’t want to use a service for continuous calls; topics or even
 
 In this tutorial you used command line tools to identify, elaborate on, and call services.
 
-.. todo: "Next steps section" link to "Understanding ROS 2 parameters" once all tutorials are done (no empty references)
+Next steps
+----------
+
+In the next tutorial, :ref:`ROS2Params`, you will learn about configuring node settings.

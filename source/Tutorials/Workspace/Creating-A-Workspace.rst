@@ -355,5 +355,7 @@ The overlay gets prepended to the path, and takes precedence over the underlay, 
 
 Using overlays is recommended for working on a small number of packages, so you don’t have to put everything in the same workspace and rebuild a huge workspace on every iteration.
 
+Next steps
+----------
 
-.. todo: "Next steps section" link to "Creating a ROS 2 package" once all tutorials are done (no empty references)
+Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :ref:`create your own packages <CreatePkg>`.

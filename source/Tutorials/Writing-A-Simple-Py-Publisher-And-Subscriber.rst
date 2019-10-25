@@ -16,17 +16,16 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-In this tutorial, you will create nodes that pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
+In this tutorial, you will create :ref:`nodes <ROS2Nodes>` that pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
-
-.. link nodes tutorial
-
 
 Prerequisites
 -------------
 
-.. In previous tutorials, you learned how to :ref:`create a workspace <>` and :ref:`create a package <>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+
+A basic understanding of Python is recommended, but not entirely necessary.
 
 Tasks
 -----
@@ -37,8 +36,6 @@ Tasks
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial.
-
-.. link creating a workspace tutorial
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 So, navigate into ``dev_ws/src``, and run the package creation command:
@@ -164,8 +161,6 @@ Next, a timer is created with a callback to execute every 0.5 seconds.
       self.i = 0
 
 ``timer_callback`` creates a message with the counter value appended, and publishes it to the console with ``get_logger().info``.
-
-.. link rqt_console tutorial for explanation of logger levels.
 
 .. code-block:: python
 
@@ -463,4 +458,8 @@ Before running them, you added their dependencies and entry points to the packag
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
 
-.. todo: "Next steps section" once all tutorials are done
+Next steps
+----------
+
+Next you'll create another simple ROS 2 package using the service/client model.
+Again, can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.

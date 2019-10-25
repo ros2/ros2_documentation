@@ -16,16 +16,15 @@ Writing a simple publisher and subscriber (C++)
 Background
 ----------
 
-Nodes are executable processes that communicate over the ROS graph.
+:ref:`Nodes <ROS2Nodes>` are executable processes that communicate over the ROS graph.
 In this tutorial, the nodes will pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
 The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
-.. link nodes tutorial
 
 Prerequisites
 -------------
 
-.. In previous tutorials, you learned how to :ref:`create a workspace <>` and :ref:`create a package <>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 
 Tasks
 -----
@@ -36,8 +35,6 @@ Tasks
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial.
-
-.. link
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 So, navigate into ``dev_ws/src``, and run the package creation command:
@@ -453,4 +450,8 @@ Before running them, you added their dependencies and executables to the package
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclcpp>`__.
 
-.. todo: "Next steps section" once all tutorials are done
+Next steps
+----------
+
+Next you'll create another simple ROS 2 package using the service/client model.
+Again, can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.

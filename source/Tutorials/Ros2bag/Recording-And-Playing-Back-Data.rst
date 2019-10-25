@@ -176,6 +176,7 @@ You will see the following message, confirming that both topics are being record
 You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 
 .. note::
+
     There is another option you can add to the command, ``-a``, which records all the topics on your system.
     However, this might cause a circular dependency and crash your system.
     It’s better to choose a subset of the topics that you need.
@@ -249,8 +250,8 @@ Whether you’re sharing your work with others or introspecting on your own expe
 Next steps
 ----------
 
-You’ve completed the Beginner User tutorials!
-The next step is the Beginner Developer tutorials, starting with Creating a ROS 2 workspace
+You’ve completed the "Beginner User" tutorials!
+The next step is tackling the "Beginner Developer" tutorials, starting with :ref:`ROS2Workspace`.
 
 Related content
 ---------------

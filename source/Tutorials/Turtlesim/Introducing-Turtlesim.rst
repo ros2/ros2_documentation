@@ -133,7 +133,7 @@ Since the goal of this tutorial is only to get a general overview of turtlesim, 
 4 Install rqt
 ^^^^^^^^^^^^^
 
-Open a new terminal to install rqt and its plugins:
+Open a new terminal to install ``rqt`` and its plugins:
 
 .. tabs::
 
@@ -255,6 +255,8 @@ Summary
 -------
 
 Using turtlesim and rqt is a great way to learn the core concepts of ROS 2.
-Now that you have turtlesim and rqt up and running, and an idea of how they work, you’ll be able to use them to expand on more complex ROS 2 concepts.
 
-.. todo: "Next steps section" link to "Understanding ROS 2 nodes" once all tutorials are done (no empty references)
+Next steps
+----------
+
+Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :ref:`ROS2Nodes`.

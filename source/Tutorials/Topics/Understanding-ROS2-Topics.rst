@@ -16,19 +16,18 @@ Understanding ROS 2 topics
 Background
 ----------
 
-ROS 2 breaks complex systems down into many modular nodes; this concept is covered in the tutorial "Understanding ROS 2 nodes".
+ROS 2 breaks complex systems down into many modular nodes.
 Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
 A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
 Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
 
-.. link on nodes tutorial
 
 Prerequisites
 -------------
 
-.. The previous tutorial, :ref:`ROS2Nodes`, provides some useful background information on nodes that is built upon here.
+The :ref:`previous tutorial <ROS2Nodes>` provides some useful background information on nodes that is built upon here.
 
-As always, don’t forget to source ROS 2 in **every new terminal you open**.
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
 Tasks
 -----
@@ -58,9 +57,7 @@ Recall from the previous tutorial that the names of these nodes are ``/turtlesim
 
 Throughout this tutorial, we will use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 
-The turtlesim tutorial tells you how to install rqt and all its plugins, including rqt_graph.
-
-.. todo: :ref:`Turtlesim` for turtlesim
+The :ref:`turtlesim tutorial <Turtlesim>` tells you how to install rqt and all its plugins, including rqt_graph.
 
 To run rqt_graph, open a new terminal and enter the command:
 
@@ -318,5 +315,7 @@ Nodes publish information over topics, which allows any number of other nodes to
 In this tutorial you examined the connections between several nodes over topics using rqt_graph and command line tools.
 You should now have a good idea of how data moves around a ROS 2 system.
 
+Next steps
+----------
 
-.. todo: "Next steps section" link to "Understanding ROS 2 services" once all tutorials are done (no empty references)
+Next you'll learn about another communication type in the ROS graph with the tutorial :ref:`ROS2Services`
