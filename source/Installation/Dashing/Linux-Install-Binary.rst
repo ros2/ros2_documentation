@@ -173,3 +173,9 @@ Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+
+Troubleshooting
+---------------
+
+Troubleshooting techniques can be found `here </Troubleshooting>`.
