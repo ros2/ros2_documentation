@@ -98,7 +98,7 @@ Open the ``package.xml``, and make sure it contains the following lines:
      <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
      <exec_depend>rosidl_default_runtime</exec_depend>
-     
+
      <member_of_group>rosidl_interface_packages</member_of_group>
 
 Note that at build time, we need "rosidl_default_generators", while at runtime, we only need "rosidl_default_runtime".
