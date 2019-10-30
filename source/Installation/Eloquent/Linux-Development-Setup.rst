@@ -52,6 +52,7 @@ Install development tools and ROS tools
      build-essential \
      cmake \
      git \
+     net-tools \
      python3-colcon-common-extensions \
      python3-pip \
      python-rosdep \
