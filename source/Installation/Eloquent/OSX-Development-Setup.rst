@@ -305,21 +305,21 @@ If you recently installed Xcode, you may encounter this error:
 
 To resolve this error, you will need to:
 
-0. Double check that you have the command line tool installed:
+1. Double check that you have the command line tool installed:
 
 .. code-block:: bash
 
    $ xcode-select --install
 
-1. Accept the terms and conditions of Xcode by typing in terminal:
+2. Accept the terms and conditions of Xcode by typing in terminal:
 
 .. code-block:: bash
 
    $ sudo xcodebuild -license accept
 
-2. Ensure Xcode app is in the ``/Applications`` directory (NOT ``/Users/{user}/Applications``)
+3. Ensure Xcode app is in the ``/Applications`` directory (NOT ``/Users/{user}/Applications``)
 
-3. Point ``xcode-select`` to the Xcode app Developer directory using the following command:
+4. Point ``xcode-select`` to the Xcode app Developer directory using the following command:
 
 .. code-block:: bash
 
