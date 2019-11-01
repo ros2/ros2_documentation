@@ -305,6 +305,12 @@ If you recently installed Xcode, you may encounter this error:
 
 To resolve this error, you will need to:
 
+0. Double check that you have the command line tool installed:
+
+..code-block:: bash
+
+   $ xcode-select --install
+
 1. Accept the terms and conditions of Xcode by typing in terminal:
 
 .. code-block:: bash
