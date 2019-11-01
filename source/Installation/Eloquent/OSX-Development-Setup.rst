@@ -226,6 +226,8 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 Troubleshooting
 ---------------
 
+Troubleshooting techniques can also be found `here </Troubleshooting>`.
+
 Segmentation Fault when using ``pyenv``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

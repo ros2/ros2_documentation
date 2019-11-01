@@ -220,6 +220,8 @@ Troubleshooting
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
 * If you see an error related with FastRTPS failing to be loaded, see `troubleshooting section in development install instructions <Windows-Development-Setup>`.
 
+Troubleshooting techniques can also be found `here </Troubleshooting>`.
+
 Build your own packages
 -----------------------
 
