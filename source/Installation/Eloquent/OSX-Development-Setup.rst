@@ -307,7 +307,7 @@ To resolve this error, you will need to:
 
 0. Double check that you have the command line tool installed:
 
-..code-block:: bash
+.. code-block:: bash
 
    $ xcode-select --install
 
