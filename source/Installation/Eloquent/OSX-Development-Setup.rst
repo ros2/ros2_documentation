@@ -292,3 +292,26 @@ But this will break opencv, so you'll also need to update it to continue working
 
 The first command is necessary to avoid things built against the system libjpeg (etc.) from getting the version in /usr/local/lib.
 The others are updating things built by Homebrew so that they can find the version of libjpeg (etc.) without having them in /usr/local/lib.
+
+qt_gui_cpp error: SIP binding generator NOT available
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When building qt_gui_cpp there may be errors look like the following:
+
+.. code-block:: bash
+
+   --- stderr: qt_gui_cpp
+   CMake Warning at /home/kim/ros2_ws/install/python_qt_binding/share/python_qt_binding/cmake/sip_helper.cmake:17 (message):
+     SIP binding generator NOT available.
+   Call Stack (most recent call first):
+     src/qt_gui_cpp_sip/CMakeLists.txt:54 (include)
+
+
+   CMake Error at src/CMakeLists.txt:10 (message):
+     No Python binding generator found.
+
+
+   ---
+   Failed   <<< qt_gui_cpp [ Exited with code 1 ]
+
+To fix this issue, follow steps here https://index.ros.org/doc/ros2/Tutorials/RQt-Source-Install-MacOS/ to install dependencies for RQt.
