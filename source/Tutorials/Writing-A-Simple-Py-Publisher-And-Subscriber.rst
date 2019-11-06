@@ -127,7 +127,7 @@ The first lines of code after the comments import ``rclpy`` so its ``Node`` clas
   import rclpy
   from rclpy.node import Node
 
-The next statement imports the existing string message type that the node uses to structure the data that it passes on the topic.
+The next statement imports the built-in string message type that the node uses to structure the data that it passes on the topic.
 
 .. code-block:: python
 
@@ -462,4 +462,4 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.
+Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.

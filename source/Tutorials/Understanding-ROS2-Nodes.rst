@@ -21,7 +21,7 @@ Background
 
 Over the next few tutorials, you will learn about a series of core ROS 2 concepts that make up what is referred to as the “ROS (2) graph”.
 
-The ROS graph is the collection of ROS 2 elements processing data together at one time.
+The ROS graph is a network of ROS 2 elements processing data together at one time.
 It encompasses all executables and the connections between them if you were to map them all out and visualize them.
 
 2 Nodes in ROS 2
