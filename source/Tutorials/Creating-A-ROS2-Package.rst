@@ -261,8 +261,8 @@ To build only the ``my_package`` package next time, you can run:
 
     colcon build --packages-select my_package
 
-2.1 Source the setup file
-~~~~~~~~~~~~~~~~~~~~~~~~~
+3 Source the setup file
+~~~~~~~~~~~~~~~~~~~~~~~
 
 To use your new package and executable, first open a new terminal and source your main ROS 2 installation.
 
@@ -274,8 +274,8 @@ Then, from inside the ``dev_ws`` directory, run the following command to source 
 
 Now that your workspace has been added to your path, you will be able to use your new package’s executables.
 
-2.2 Use the package
-~~~~~~~~~~~~~~~~~~~
+4 Use the package
+~~~~~~~~~~~~~~~~~
 
 To run the executable you created using the ``--node-name`` argument during package creation, enter the command:
 
@@ -299,7 +299,7 @@ Which will return a message to your terminal:
 
         Hi from my_package.
 
-3 Examine package contents
+5 Examine package contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2 pkg create`` automatically generated:
@@ -324,8 +324,8 @@ Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2
       ``my_node.py`` is inside the ``my_package`` directory.
       This is where all your custom Python nodes will go in the future.
 
-3.1 Customize package.xml
-~~~~~~~~~~~~~~~~~~~~~~~~~
+6 Customize package.xml
+~~~~~~~~~~~~~~~~~~~~~~~
 
 You may have noticed in the return message after creating your package that the fields ``description`` and ``license`` contain ``TODO`` notes.
 That’s because the package description and license declaration are not automatically set, but are required if you ever want to release your package.
