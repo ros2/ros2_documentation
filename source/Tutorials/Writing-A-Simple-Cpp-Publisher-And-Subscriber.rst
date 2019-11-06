@@ -181,7 +181,7 @@ Last is the declaration of the timer, publisher, and counter fields.
     size_t count_;
 
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
-``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` causes the timer to activate, which causes the callback function to start publishing.
+``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` starts processing data from the node, including callbacks from the timer.
 
 .. code-block:: C++
 
