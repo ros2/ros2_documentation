@@ -145,7 +145,7 @@ Every ``this`` in the code is referring to the node.
 
 The public constructor names the node ``minimal_publisher`` and initializes ``count_`` to 0.
 Inside the constructor, the publisher is initialized with the ``String`` message type, the topic name ``topic``, and the required queue size to limit messages in the event of a backup.
-Next, ``timer_`` is initialized, which binds the ``timer_callback`` function to the node to be executed twice a second.
+Next, ``timer_`` is initialized, which causes the ``timer_callback`` function to be executed twice a second.
 
 .. code-block:: C++
 
