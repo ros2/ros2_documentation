@@ -16,6 +16,9 @@ Creating a ROS 2 package
 Background
 ----------
 
+1 What is a ROS 2 package?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 A package can be considered a container for your ROS 2 code.
 If you want to be able to install your code or share it with others, then you’ll need it organized in a package.
 With packages, you can release your ROS 2 work and allow others to build and use it easily.
@@ -23,21 +26,10 @@ With packages, you can release your ROS 2 work and allow others to build and use
 Package creation in ROS 2 uses ament as its build system and colcon as its build tool.
 You can create a package using either CMake or Python, which are officially supported, though other build types do exist.
 
-
-Prerequisites
--------------
-
-You should have a ROS 2 workspace after following the instructions in the :ref:`previous tutorial <ROS2Workspace>`.
-You will create your package in this workspace.
-
-
-Tasks
------
-
-1 What makes up a ROS 2 package?
+2 What makes up a ROS 2 package?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS Python and CMake packages each have their own minimum required contents:
+ROS 2 Python and CMake packages each have their own minimum required contents:
 
 .. tabs::
 
@@ -75,7 +67,7 @@ The simplest possible package may have a file structure that looks like:
               resource/my_package
 
 
-2 Packages in a workspace
+3 Packages in a workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A single workspace can contain as many packages as you want, each in their own folder.
@@ -105,7 +97,17 @@ A trivial workspace might look like:
             package.xml
 
 
-3 Create a package
+Prerequisites
+-------------
+
+You should have a ROS 2 workspace after following the instructions in the :ref:`previous tutorial <ROS2Workspace>`.
+You will create your package in this workspace.
+
+
+Tasks
+-----
+
+1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
 First, :ref:`source your ROS 2 installation <ConfigROS2>`.
@@ -213,7 +215,7 @@ After running the command, your terminal will return the message:
 
 You can see the automatically generated files for the new package.
 
-4 Build a package
+2 Build a package
 ^^^^^^^^^^^^^^^^^
 
 Putting packages in a workspace is especially valuable because you can build many packages at once by running ``colcon build`` in the workspace root.
@@ -259,7 +261,7 @@ To build only the ``my_package`` package next time, you can run:
 
     colcon build --packages-select my_package
 
-4.1 Source the setup file
+2.1 Source the setup file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To use your new package and executable, first open a new terminal and source your main ROS 2 installation.
@@ -272,7 +274,7 @@ Then, from inside the ``dev_ws`` directory, run the following command to source 
 
 Now that your workspace has been added to your path, you will be able to use your new package’s executables.
 
-4.2 Use the package
+2.2 Use the package
 ~~~~~~~~~~~~~~~~~~~
 
 To run the executable you created using the ``--node-name`` argument during package creation, enter the command:
@@ -297,7 +299,7 @@ Which will return a message to your terminal:
 
         Hi from my_package.
 
-5 Examine package contents
+3 Examine package contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2 pkg create`` automatically generated:
@@ -322,7 +324,7 @@ Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2
       ``my_node.py`` is inside the ``my_package`` directory.
       This is where all your custom Python nodes will go in the future.
 
-5.1 Customize package.xml
+3.1 Customize package.xml
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You may have noticed in the return message after creating your package that the fields ``description`` and ``license`` contain ``TODO`` notes.
