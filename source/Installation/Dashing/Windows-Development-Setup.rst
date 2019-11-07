@@ -424,3 +424,8 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python_d path\to\colcon_executable build
 
 * Hooray, you're done!
+
+Troubleshooting
+---------------
+
+Troubleshooting techniques can be found `here </Troubleshooting>`.

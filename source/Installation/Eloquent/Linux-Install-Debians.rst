@@ -61,6 +61,28 @@ No GUI tools.
 
 See specific sections below for how to also install the :ref:`ros1_bridge <Eloquent_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Eloquent_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Eloquent_linux-install-additional-rmw-implementations>`.
 
+Try some examples
+-----------------
+
+In one terminal, source the setup file and then run a ``talker``\ :
+
+.. code-block:: bash
+
+   . ~/ros2_dashing/install/local_setup.bash
+   ros2 run demo_nodes_cpp talker
+
+In another terminal source the setup file and then run a ``listener``\ :
+
+.. code-block:: bash
+
+   . ~/ros2_dashing/install/local_setup.bash
+   ros2 run demo_nodes_py listener
+
+You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+Hooray!
+
+See the `demos </Tutorials>` for other things to try.
+
 Environment setup
 -----------------
 
@@ -137,3 +159,8 @@ Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+Troubleshooting
+---------------
+
+Troubleshooting techniques can be found `here </Troubleshooting>`.
