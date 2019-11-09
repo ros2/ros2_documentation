@@ -15,7 +15,7 @@ These tutorials are under construction, so please share your `feedback <https://
 
 .. note::
 
-  Currently, the beginner level tutorials target **Eloquent**. 
+  Currently, the beginner level tutorials target **Eloquent**.
   Certain features may not be available for older distributions.
 
 Users
