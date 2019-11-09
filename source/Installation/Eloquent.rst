@@ -1,3 +1,5 @@
+.. _EloquentInstall:
+
 Installing ROS 2 Eloquent Elusor
 ================================
 

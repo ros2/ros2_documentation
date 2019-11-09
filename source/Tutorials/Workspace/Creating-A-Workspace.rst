@@ -55,11 +55,11 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
         source /opt/ros/<distro>/setup.bash
 
-      For example, if you installed ROS 2 Dashing:
+      For example, if you installed ROS 2 Eloquent:
 
       .. code-block:: bash
 
-        source /opt/ros/dashing/setup.bash
+        source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
 
@@ -166,11 +166,11 @@ Run the following command, replacing ``<distro>`` with your distro:
 
   sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-For example, if you're using Dashing, you would run:
+For example, if you're using Eloquent, you would run:
 
 .. code-block:: bash
 
-  sudo rosdep install -i --from-path src --rosdistro dashing -y
+  sudo rosdep install -i --from-path src --rosdistro eloquent -y
 
 If you already have all your dependencies, the console will return:
 

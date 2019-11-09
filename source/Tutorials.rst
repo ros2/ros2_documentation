@@ -13,6 +13,11 @@ These tutorials are under construction, so please share your `feedback <https://
 
 .. Feedback is placeholder for actual feedback solution in development
 
+.. note::
+
+  Currently, the beginner level tutorials target **Eloquent**. 
+  Certain features may not be available for older distributions.
+
 Users
 ^^^^^
 
