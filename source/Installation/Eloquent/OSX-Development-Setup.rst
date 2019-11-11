@@ -301,11 +301,6 @@ When building qt_gui_cpp there may be errors look like the following:
 .. code-block:: bash
 
    --- stderr: qt_gui_cpp
-   CMake Warning at /home/kim/ros2_ws/install/python_qt_binding/share/python_qt_binding/cmake/sip_helper.cmake:17 (message):
-     SIP binding generator NOT available.
-   Call Stack (most recent call first):
-     src/qt_gui_cpp_sip/CMakeLists.txt:54 (include)
-
 
    CMake Error at src/CMakeLists.txt:10 (message):
      No Python binding generator found.
