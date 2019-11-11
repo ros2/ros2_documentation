@@ -143,7 +143,7 @@ Now ``ros2 bag`` is recording the data published on the ``/turtle1/cmd_vel`` top
 Return to the teleop terminal and move the turtle around again.
 The movements don’t matter, but try to make a recognizable pattern to see when you replay the data later.
 
-.. image:: record.png
+.. image:: Ros2bag/record.png
 
 Press ``Ctrl+C`` to stop recording.
 
@@ -226,7 +226,7 @@ The terminal will return the message:
 
 Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system’s timing).
 
-.. image:: playback.png
+.. image:: Ros2bag/playback.png
 
 Because the ``subset`` file recorded the ``/turtle1/pose`` topic, the ``ros2 bag play`` command won’t quit for as long as you had turtlesim running, even if you weren’t moving.
 

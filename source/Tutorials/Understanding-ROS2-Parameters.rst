@@ -128,7 +128,7 @@ Your terminal should return the message:
 
 And the background of your turtlesim window should change colors:
 
-.. image:: set.png
+.. image:: Parameters/set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
 However, you can save your settings changes and reload them next time you start a node.

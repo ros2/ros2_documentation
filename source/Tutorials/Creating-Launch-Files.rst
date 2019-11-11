@@ -214,7 +214,7 @@ To see the system in action, run the ``ros2 topic pub`` command on the ``/turtle
 
 You will see both turtles following the same path.
 
-.. image:: mimic.png
+.. image:: Launch-Files/mimic.png
 
 4 Introspect the system with rqt_graph
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -227,7 +227,7 @@ Run the command:
 
   rqt_graph
 
-.. image:: mimic_graph.png
+.. image:: Launch-Files/mimic_graph.png
 
 A hidden node (the ``ros2 topic pub`` command you ran) is publishing data to the ``/turtlesim1/turtle1/cmd_vel`` topic on the left, which the ``/turtlesim1/sim`` node is subscribed to.
 The rest of the graph shows what was described earlier: ``mimic`` is subscribed to ``/turtlesim1/sim``'s pose topic, and publishes to ``/turtlesim2/sim``'s velocity command topic.

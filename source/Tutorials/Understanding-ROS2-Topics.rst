@@ -75,7 +75,7 @@ Additionally, the number of **Namespaces** should be 0.
 
 .. todo: the above 4 sentences can be removed once the “nodes only” problem is fixed
 
-.. image:: rqt_graph.png
+.. image:: Topics/rqt_graph.png
 
 You should see the above nodes and topic, and if you hover your mouse over any of the elements, the color highlighting as well.
 
@@ -116,7 +116,7 @@ These attributes, particularly the type, are how nodes know they’re talking ab
 
 If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
 
-.. image:: unhide.png
+.. image:: Topics/unhide.png
 
 For now, though, leave those options checked to avoid confusion.
 
@@ -155,7 +155,7 @@ Watch the terminal where your ``echo`` is running at the same time, and you’ll
 
 Now return to rqt_graph and uncheck the **Debug** box.
 
-.. image:: debug.png
+.. image:: Topics/debug.png
 
 ``/_ros2cli_22409`` is the node created by the ``echo`` we just ran (the number will change).
 Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed.
@@ -263,7 +263,7 @@ You will receive the following message in the terminal:
 
 And you will see your turtle move like so:
 
-.. image:: pub_once.png
+.. image:: Topics/pub_once.png
 
 The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
 So, to get the turtle to keep moving, you can run:
@@ -274,12 +274,12 @@ So, to get the turtle to keep moving, you can run:
 
 The difference here is the removal of the ``--once`` option and the addition of the ``--rate 1`` option, which tells ``ros2 topic pub`` to publish the command in a steady stream at 1 Hz.
 
-.. image:: pub_stream.png
+.. image:: Topics/pub_stream.png
 
 You can refresh rqt_graph to see what’s happening graphically.
 You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_publisher_…``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_24…``) and the ``/turtlesim`` node now.
 
-.. image:: rqt_graph2.png
+.. image:: Topics/rqt_graph2.png
 
 Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
@@ -287,7 +287,7 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
   ros2 topic echo /turtle1/pose
 
-.. image:: rqt_graph3.png
+.. image:: Topics/rqt_graph3.png
 
 In this case, ``/turtlesim`` is now publishing to the ``pose`` topic, and a new ``echo`` node is subscribed.
 

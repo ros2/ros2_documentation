@@ -46,7 +46,7 @@ Start ``rqt_console`` in a new terminal with the following command:
 
 The ``rqt_console`` window will open:
 
-.. image:: console.png
+.. image:: Rqt-Console/console.png
 
 The first section of the console is where log messages from your system will display.
 
@@ -75,7 +75,7 @@ In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in 
 Since the above command is publishing the topic at a steady rate, the turtle is continuously running into the wall.
 In ``rqt_console`` you will see the same message with the ``Warn`` severity level displayed over and over, like so:
 
-.. image:: warn.png
+.. image:: Rqt-Console/warn.png
 
 Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` command to stop your turtle from running into the wall.
 

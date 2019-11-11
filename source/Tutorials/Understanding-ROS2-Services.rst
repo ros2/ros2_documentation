@@ -224,7 +224,7 @@ For example, you know that ``Empty`` typed services don’t have any arguments:
 
 This command will clear the turtlesim window of any lines your turtle has drawn.
 
-.. image:: clear.png
+.. image:: Services/clear.png
 
 Now let’s spawn a new turtle by calling ``/spawn`` and inputting arguments.
 Input ``<arguments>`` in a service call from the command-line need to be in YAML syntax.
@@ -247,7 +247,7 @@ You will get this method-style view of what’s happening, and then the service 
 
 Your turtlesim window will update with the newly spawned turtle right away:
 
-.. image:: spawn.png
+.. image:: Services/spawn.png
 
 Summary
 -------

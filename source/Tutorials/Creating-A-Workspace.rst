@@ -332,7 +332,7 @@ Return to the second terminal (where the overlay is sourced) and run turtlesim a
 
 You will see the title bar on the turtlesim window now says “MyTurtleSim”.
 
-.. image:: overlay.png
+.. image:: Workspace/overlay.png
 
 Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ``dev_ws`` environment takes precedence over the contents of the underlay.
 
@@ -343,7 +343,7 @@ Run turtlesim again:
 
   ros2 run turtlesim turtlesim_node
 
-.. image:: underlay.png
+.. image:: Workspace/underlay.png
 
 You can see that modifications in the overlay did not actually affect anything in the underlay.
 
