@@ -32,7 +32,7 @@ In other words, you won’t be able to use ROS 2.
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`InstallationGuide` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`EloquentInstall` page.
 
 The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
@@ -55,11 +55,11 @@ You will need to run this command on every new shell you open to have access to 
 
         source /opt/ros/<distro>/setup.bash
 
-      For example, if you installed ROS 2 Dashing:
+      For example, if you installed ROS 2 Eloquent:
 
       .. code-block:: bash
 
-        source /opt/ros/dashing/setup.bash
+        source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
 
@@ -134,7 +134,7 @@ Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
     ROS_VERSION=2
     ROS_PYTHON_VERSION=3
-    ROS_DISTRO=dashing
+    ROS_DISTRO=eloquent
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can `get answers <https://answers.ros.org>`__ from the community.
