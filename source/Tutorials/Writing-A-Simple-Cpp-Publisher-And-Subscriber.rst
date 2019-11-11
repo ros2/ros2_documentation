@@ -46,7 +46,7 @@ So, navigate into ``dev_ws/src``, and run the package creation command:
 Your terminal will return a message verifying the creation of your package ``cpp_pubsub`` and all its necessary files and folders.
 
 Navigate into ``dev_ws/src/cpp_pubsub/src``.
-Recall that this is the directory in any CMake package where executables belong.
+Recall that this is the directory in any CMake package where the source files containing executables belong.
 
 
 2 Write the publisher node
@@ -121,7 +121,7 @@ Open the file using your preferred text editor.
 
 The first line of code includes the ``<chrono>`` header so you can use ``chrono_literals``, or the ``500ms`` later on.
 Following the ``memory`` header is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
-Last is ``std_msgs/msg/string.hpp``, which includes the pre-made message type you will use to publish data.
+Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
 
 These lines represent the node’s dependencies.
 Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.txt``, which you’ll do in the next section.
@@ -144,8 +144,8 @@ Every ``this`` in the code is referring to the node.
     class MinimalPublisher : public rclcpp::Node
 
 The public constructor names the node ``minimal_publisher`` and initializes ``count_`` to 0.
-Inside the brackets of the constructor, the publisher is initialized with the ``String`` message type, the topic name ``topic``, and the required queue size to limit messages in the event of a backup.
-Next, ``timer_`` is initialized, which binds the ``timer_callback`` function to the node, and executes twice a second.
+Inside the constructor, the publisher is initialized with the ``String`` message type, the topic name ``topic``, and the required queue size to limit messages in the event of a backup.
+Next, ``timer_`` is initialized, which causes the ``timer_callback`` function to be executed twice a second.
 
 .. code-block:: C++
 
@@ -174,8 +174,14 @@ The ``RCLCPP_INFO`` macro ensures every published message is printed to the cons
 
 Last is the declaration of the timer, publisher, and counter fields.
 
+.. code-block:: C++
+
+    rclcpp::TimerBase::SharedPtr timer_;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
+    size_t count_;
+
 Following the ``MinimalPublisher`` class is ``main``, where the node actually executes.
-``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` causes the timer to activate, which causes the callback function the start publishing.
+``rclcpp::init`` initializes ROS 2, and ``rclcpp::spin`` starts processing data from the node, including callbacks from the timer.
 
 .. code-block:: C++
 
@@ -209,7 +215,7 @@ Add a new line after the ``ament_cmake`` buildtool dependency and paste the foll
     <exec_depend>rclcpp</exec_depend>
     <exec_depend>std_msgs</exec_depend>
 
-This declares the package needs ``rclpy`` and ``std_msgs`` when its code is executed.
+This declares the package needs ``rclpp`` and ``std_msgs`` when its code is executed.
 
 Make sure to save the file.
 
@@ -352,7 +358,7 @@ There is no timer because the subscriber simply responds whenever data is publis
 
 Recall from the :ref:`topic tutorial <ROS2Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
-The ``topic_callback`` function receives the string message date published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
+The ``topic_callback`` function receives the string message data published over the topic, and simply writes it to the console using the ``RCLCPP_INFO`` macro.
 
 The only field declaration in this class is the subscription.
 
@@ -389,7 +395,7 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
+You likely already have the ``rclpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 In any case, it's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
 .. code-block:: bash
@@ -446,7 +452,7 @@ Summary
 -------
 
 You created two nodes to publish and subscribe to data over a topic.
-Before running them, you added their dependencies and executables to the package configuration files.
+Before compiling and running them, you added their dependencies and executables to the package configuration files.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclcpp>`__.
 
@@ -454,4 +460,4 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.
+Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.

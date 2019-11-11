@@ -226,6 +226,8 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 Troubleshooting
 ---------------
 
+Troubleshooting techniques can also be found `here </Troubleshooting>`.
+
 Segmentation Fault when using ``pyenv``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -324,3 +326,22 @@ To resolve this error, you will need to:
 .. code-block:: bash
 
    $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+qt_gui_cpp error: SIP binding generator NOT available
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When building qt_gui_cpp there may be errors look like the following:
+
+.. code-block:: bash
+
+   --- stderr: qt_gui_cpp
+
+   CMake Error at src/CMakeLists.txt:10 (message):
+     No Python binding generator found.
+
+
+   ---
+   Failed   <<< qt_gui_cpp [ Exited with code 1 ]
+
+To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
+

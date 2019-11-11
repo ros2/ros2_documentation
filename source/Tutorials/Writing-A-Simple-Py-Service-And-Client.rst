@@ -41,7 +41,7 @@ Navigate into ``dev_ws/src`` and create a new package:
 
 .. code-block:: bash
 
-  ros2 pkg create --build-type ament_python py_srvcli --dependencies rclcpp example_interfaces
+  ros2 pkg create --build-type ament_python py_srvcli --dependencies rclpy example_interfaces
 
 Your terminal will return a message verifying the creation of your package ``py_srvcli`` and all its necessary files and folders.
 

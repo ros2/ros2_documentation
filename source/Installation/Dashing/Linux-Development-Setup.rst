@@ -273,6 +273,8 @@ TODO: using ThreadSanitizer, MemorySanitizer
 Troubleshooting
 ---------------
 
+Troubleshooting techniques can also be found `here </Troubleshooting>`.
+
 Internal compiler error
 ^^^^^^^^^^^^^^^^^^^^^^^
 

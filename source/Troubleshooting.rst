@@ -22,6 +22,28 @@ In Terminal 2:
 
    ros2 multicast send
 
+If the first command did not return a response similar to:
+
+.. code-block:: bash
+
+   Received from xx.xxx.xxx.xx:43751: 'Hello World!'
+
+then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+
+.. code-block:: bash
+
+   sudo ufw allow in proto udp to 224.0.0.0/4
+   sudo ufw allow in proto udp from 224.0.0.0/4
+
+
+You can check if the multicast flag is enabled for your network interface using the :code:`ifconfig` tool and looking for :code:`MULITCAST` in the flags section:
+
+.. code-block:: bash
+
+   eno1: flags=4163<...,MULTICAST>
+      ...
+
+
 Import failing even with library present on the system
 ------------------------------------------------------
 
