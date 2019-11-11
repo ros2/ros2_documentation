@@ -295,6 +295,38 @@ But this will break opencv, so you'll also need to update it to continue working
 The first command is necessary to avoid things built against the system libjpeg (etc.) from getting the version in /usr/local/lib.
 The others are updating things built by Homebrew so that they can find the version of libjpeg (etc.) without having them in /usr/local/lib.
 
+Xcode-select error: tool ``xcodebuild`` requires Xcode, but active developer directory is a command line instance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you recently installed Xcode, you may encounter this error:
+
+.. code-block:: bash
+
+   Xcode: xcode-select: error: tool 'xcodebuild' requires Xcode,
+   but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+
+To resolve this error, you will need to:
+
+1. Double check that you have the command line tool installed:
+
+.. code-block:: bash
+
+   $ xcode-select --install
+
+2. Accept the terms and conditions of Xcode by typing in terminal:
+
+.. code-block:: bash
+
+   $ sudo xcodebuild -license accept
+
+3. Ensure Xcode app is in the ``/Applications`` directory (NOT ``/Users/{user}/Applications``)
+
+4. Point ``xcode-select`` to the Xcode app Developer directory using the following command:
+
+.. code-block:: bash
+
+   $ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
 qt_gui_cpp error: SIP binding generator NOT available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -312,3 +344,4 @@ When building qt_gui_cpp there may be errors look like the following:
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
+
