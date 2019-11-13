@@ -86,22 +86,21 @@ To use OpenSplice you can install a Debian package built by OSRF.
 
 .. code-block:: bash
 
-       sudo apt update && sudo apt install -q -y \
-           libopensplice69
+   sudo apt update && sudo apt install -q -y libopensplice69
 
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt respository
+or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
 To install the libs-only Debian package:
+
 .. code-block:: bash
 
-       sudo apt update && sudo apt install -q -y \
-           rti-connext-dds-5.3.1
+   sudo apt update && sudo apt install -q -y rti-connext-dds-5.3.1
 
 You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
 
