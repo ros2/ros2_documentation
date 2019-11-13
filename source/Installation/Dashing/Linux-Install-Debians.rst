@@ -89,8 +89,6 @@ You may want to add this to your ``.bashrc``.
 
    echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
 
-.. _Dashing_linux-install-additional-rmw-implementations:
-
 Try some examples
 -----------------
 
@@ -110,6 +108,8 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 Hooray!
 
 See the `demos </Tutorials>` for other things to try.
+
+.. _Dashing_linux-install-additional-rmw-implementations:
 
 Install additional RMW implementations
 --------------------------------------
