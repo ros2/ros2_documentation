@@ -44,8 +44,9 @@ Installing and initializing rosdep
 
 .. code-block:: bash
 
+       sudo apt update
        sudo apt install -y python-rosdep
-       rosdep init
+       sudo rosdep init
        rosdep update
 
 
