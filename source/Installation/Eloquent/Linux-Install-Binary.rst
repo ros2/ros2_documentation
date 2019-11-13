@@ -69,6 +69,18 @@ Installing the python3 libraries
 
        sudo apt install -y libpython3-dev
 
+Environment setup
+-----------------
+
+Installing python3 argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete for autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
 
 Install additional DDS implementations (optional)
 -------------------------------------------------

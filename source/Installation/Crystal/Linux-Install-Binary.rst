@@ -75,6 +75,30 @@ Installing the python3 libraries
 
        sudo apt install -y libpython3-dev
 
+Environment setup
+-----------------
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion. So if you want autocompletion, installing argcomplete is necessary.
+
+Ubuntu 18.04
+~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
+Ubuntu 16.04 (argcomplete >= 0.8.5)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install ``argcomplete`` on Ubuntu 16.04 (Xenial), you'll need to use pip, because the version available through ``apt`` will not work due to a bug in that version of ``argcomplete``:
+
+.. code-block:: bash
+
+   sudo apt install python3-pip
+   sudo pip3 install argcomplete
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
