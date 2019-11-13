@@ -61,6 +61,7 @@ Set your rosdistro according to the release you downloaded.
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
    Follow the normal install instructions: http://wiki.ros.org/melodic/Installation/Ubuntu
 
+
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -68,6 +69,18 @@ Installing the python3 libraries
 
        sudo apt install -y libpython3-dev
 
+Environment setup
+-----------------
+
+Installing python3 argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete for autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
