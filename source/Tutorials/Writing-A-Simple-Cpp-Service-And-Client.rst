@@ -188,6 +188,9 @@ Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``a
 
 .. code-block:: C++
 
+    #include "rclcpp/rclcpp.hpp"
+    #include "example_interfaces/srv/add_two_ints.hpp"
+
     #include <chrono>
     #include <cstdlib>
     #include <memory>
