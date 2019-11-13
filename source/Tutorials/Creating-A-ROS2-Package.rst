@@ -51,7 +51,7 @@ The simplest possible package may have a file structure that looks like:
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         my_package/
              CMakeLists.txt
@@ -59,7 +59,7 @@ The simplest possible package may have a file structure that looks like:
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         my_package/
               setup.py
@@ -79,7 +79,7 @@ This keeps the top level of the workspace “clean”.
 
 A trivial workspace might look like:
 
-.. code-block::
+.. code-block:: console
 
   workspace_folder/
       src/
@@ -116,7 +116,7 @@ Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for 
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
-.. code-block:: bash
+.. code-block:: console
 
     cd dev_ws/src
 
@@ -126,13 +126,13 @@ The command syntax for creating a new package in ROS 2 is:
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ros2 pkg create --build-type ament_cmake <package_name>
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ros2 pkg create --build-type ament_python <package_name>
 
@@ -144,13 +144,13 @@ Enter the following command in your terminal:
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ros2 pkg create --build-type ament_cmake --node-name my_node my_package
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ros2 pkg create --build-type ament_python --node-name my_node my_package
 
@@ -162,7 +162,7 @@ After running the command, your terminal will return the message:
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         going to create a new package
         package name: my_package
@@ -185,7 +185,7 @@ After running the command, your terminal will return the message:
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         going to create a new package
         package name: my_package
@@ -223,7 +223,7 @@ Otherwise, you would have to build each package individually.
 
 Return to the root of your workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
     cd ~/dev_ws
 
@@ -233,19 +233,19 @@ Now you can build your packages:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build --merge-install
 
@@ -257,7 +257,7 @@ That’s fine when you only have a few packages in your workspace, but when ther
 
 To build only the ``my_package`` package next time, you can run:
 
-.. code-block:: bash
+.. code-block:: console
 
     colcon build --packages-select my_package
 
@@ -268,7 +268,7 @@ To use your new package and executable, first open a new terminal and source you
 
 Then, from inside the ``dev_ws`` directory, run the following command to source your workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
     . install/setup.bash
 
@@ -279,7 +279,7 @@ Now that your workspace has been added to your path, you will be able to use you
 
 To run the executable you created using the ``--node-name`` argument during package creation, enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run my_package my_node
 
@@ -289,13 +289,13 @@ Which will return a message to your terminal:
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         hello world my_package package
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         Hi from my_package.
 
@@ -308,7 +308,7 @@ Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2
 
    .. group-tab:: CMake
 
-      .. code-block:: bash
+      .. code-block:: console
 
         CMakeLists.txt  include  package.xml  src
 
@@ -317,7 +317,7 @@ Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2
 
    .. group-tab:: Python
 
-      .. code-block:: bash
+      .. code-block:: console
 
         my_package  package.xml  resource  setup.cfg  setup.py  test
 

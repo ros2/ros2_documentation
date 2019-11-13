@@ -43,7 +43,7 @@ Tasks
 Let’s examine your general ROS 2 setup as a whole with ``ros2doctor``.
 First, source ROS 2 in a new terminal, then enter the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 doctor
 
@@ -51,7 +51,7 @@ This will conduct checks over all your setup modules and return warnings and err
 
 If your ROS 2 setup is in perfect shape, you’ll see a message similar to this:
 
-.. code-block::
+.. code-block:: console
 
     All <n> checks passed
 
@@ -60,13 +60,13 @@ A ``UserWarning`` doesn’t mean your setup is unusable; it’s more likely just
 
 If you do receive a warning, it will look something like this:
 
-.. code-block::
+.. code-block:: console
 
     <path>: <line>: UserWarning: <message>
 
 For example, ros2doctor will find this warning if you’re using an unstable ROS 2 distribution:
 
-.. code-block::
+.. code-block:: console
 
     UserWarning: Distribution <distro> is not fully supported or tested. To get more consistent features, download a stable version at https://index.ros.org/doc/ros2/Installation/
 
@@ -78,7 +78,7 @@ If it does find a rare error in your setup, indicated by ``UserWarning: ERROR:``
 
 You will see a message similar to this following the list of issue feedback:
 
-.. code-block::
+.. code-block:: console
 
   1/3 checks failed
 
@@ -95,13 +95,13 @@ To see ``ros2doctor`` working on a running system, let's run Turtlesim, which ha
 
 Start up the system by opening a new terminal, sourcing ROS 2, and entering the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
 Open another terminal and source ROS 2 to run the teleop controls:
 
-.. code-block::
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
@@ -109,7 +109,7 @@ Now run ``ros2doctor`` again in its own terminal.
 You will see the warnings and errors you had the last time you ran ``ros2doctor`` on your setup, if you had any.
 Following those will be a couple new warnings relating to the system itself:
 
-.. code-block::
+.. code-block:: console
 
     UserWarning: Publisher without subscriber detected on /turtle1/color_sensor.
     UserWarning: Publisher without subscriber detected on /turtle1/pose.
@@ -120,11 +120,11 @@ If you run commands to echo the ``/color_sensor`` and ``/pose`` topics, those wa
 
 You can try this by opening two new terminals while turtlesim is still running, sourcing ROS 2 in each, and running each of the following commands in their own terminal:
 
-.. code-block::
+.. code-block:: console
 
     ros2 topic echo /turtle1/color_sensor
 
-.. code-block::
+.. code-block:: console
 
     ros2 topic echo /turtle1/pose
 
@@ -149,13 +149,13 @@ You can copy and paste the relevant parts of your report into the ticket so the 
 
 To get a full report, enter the following command in the terminal:
 
-.. code-block::
+.. code-block:: console
 
     ros2 doctor --report
 
 Which will return a list of information categorized into five groups:
 
-.. code-block::
+.. code-block:: console
 
   NETWORK CONFIGURATION
   ...
@@ -175,7 +175,7 @@ Which will return a list of information categorized into five groups:
 You can crosscheck the information here against the warnings you get from running ``ros2 doctor``.
 For example, if ``ros2doctor`` returned the warning (mentioned earlier) that your distribution is “not fully supported or tested”, you might take a look at the ``ROS 2 INFORMATION`` section of the report:
 
-.. code-block::
+.. code-block:: console
 
   distribution name      : <distro>
   distribution type      : ros2
@@ -195,7 +195,7 @@ Keep in mind, ``ros2doctor`` is not a debug tool; it won’t help with errors in
 
 
 Related content
-------------------------
+---------------
 
 `ros2doctor’s README <https://github.com/ros2/ros2cli/tree/master/ros2doctor>`__ will tell you more about different arguments.
 You might want to take a look around the ros2doctor repo as well, since it's fairly beginner friendly and a great place to get started with contributing.

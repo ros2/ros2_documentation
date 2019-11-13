@@ -39,13 +39,13 @@ By now you should be comfortable starting up turtlesim.
 
 Open a new terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
@@ -61,7 +61,7 @@ The :ref:`turtlesim tutorial <Turtlesim>` tells you how to install rqt and all i
 
 To run rqt_graph, open a new terminal and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     rqt_graph
 
@@ -93,7 +93,7 @@ Now we’ll look at some command line tools for introspecting topics.
 
 Running the ``ros2 topic list`` command in a new terminal will return a list of all the topics currently active in the system:
 
-.. code-block:: bash
+.. code-block:: console
 
   /parameter_events
   /rosout
@@ -103,7 +103,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
 
 ``ros2 topic list -t`` will return the same list of topics, this time with the topic type appended in brackets after each:
 
-.. code-block:: bash
+.. code-block:: console
 
   /parameter_events [rcl_interfaces/msg/ParameterEvent]
   /rosout [rcl_interfaces/msg/Log]
@@ -125,13 +125,13 @@ For now, though, leave those options checked to avoid confusion.
 
 To see the data being published on a topic, use:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic echo <topic_name>
 
 Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect on that topic:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic echo /turtle1/cmd_vel
 
@@ -141,7 +141,7 @@ That’s because it’s waiting for ``/teleop_turtle`` to publish something.
 Return to the terminal where ``turtle_teleop_key`` is running and use the arrows to move the turtle around.
 Watch the terminal where your ``echo`` is running at the same time, and you’ll see position data being published for every movement you make:
 
-.. code-block:: bash
+.. code-block:: console
 
   linear:
     x: 2.0
@@ -167,7 +167,7 @@ Topics don’t have to only be point-to-point communication; it can be one-to-ma
 
 Another way to look at this is running:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic info /turtle1/cmd_vel
 
@@ -177,7 +177,7 @@ Which will return:
 
   .. group-tab:: Eloquent
 
-    .. code-block:: bash
+    .. code-block:: console
 
       Type: geometry_msgs/msg/Twist
       Publisher count: 1
@@ -200,7 +200,7 @@ Publishers and subscribers must send and receive the same type of message to com
 The topic types we saw earlier after running ``ros2 topic list -t`` let us know what type of messages each topic can send.
 Recall that the ``cmd_vel`` topic has the type:
 
-.. code-block:: bash
+.. code-block:: console
 
     geometry_msgs/msg/Twist
 
@@ -208,11 +208,11 @@ This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twi
 
 Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the details, specifically, what structure of data the message expects.
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 interface show geometry_msgs/msg/Twist.msg
 
-.. code-block:: bash
+.. code-block:: console
 
   # This expresses velocity in free space broken into its linear and angular parts.
 
@@ -222,7 +222,7 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the 
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
 If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it’s in the same structure:
 
-.. code-block:: bash
+.. code-block:: console
 
   linear:
     x: 2.0
@@ -239,7 +239,7 @@ If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with 
 
 Now that you have the message structure, you can publish data onto a topic directly from the command line using:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic pub <topic_name> <msg_type> '<args>'
 
@@ -248,7 +248,7 @@ The ``'<args>'`` argument is the actual data you’ll pass to the topic, in the 
 It’s important to note that this argument needs to be input in YAML syntax.
 Input the full command like so:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
 
@@ -256,7 +256,7 @@ Input the full command like so:
 
 You will receive the following message in the terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
   publisher: beginning loop
   publishing #1: geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=2.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=1.8))
@@ -268,7 +268,7 @@ And you will see your turtle move like so:
 The turtle (and commonly the real robots which it is meant to emulate) require a steady stream of commands to operate continuously.
 So, to get the turtle to keep moving, you can run:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
 
@@ -283,7 +283,7 @@ You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_publisher_…``) is p
 
 Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 topic echo /turtle1/pose
 
@@ -296,13 +296,13 @@ In this case, ``/turtlesim`` is now publishing to the ``pose`` topic, and a new 
 
 For one last introspection on this process, you can report the rate at which data is published using:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic hz /turtle1/pose
 
 It will return data on the rate at which the ``/turtlesim`` node is publishing data to the ``pose`` topic.
 
-.. code-block:: bash
+.. code-block:: console
 
   average rate: 59.354
     min: 0.005s max: 0.027s std dev: 0.00284s window: 58

@@ -40,7 +40,7 @@ Navigate into the ``dev_ws`` directory created in a previous tutorial.
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 So, navigate into ``dev_ws/src``, and run the package creation command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 pkg create --build-type ament_python py_pubsub
 
@@ -58,7 +58,7 @@ Download the example talker code by entering the following command:
 
    .. group-tab:: Linux/macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
@@ -246,7 +246,7 @@ Don’t forget to save.
 
 The contents of the ``setup.cfg`` file should be correctly populated automatically, like so:
 
-.. code-block::
+.. code-block:: console
 
   [develop]
   script-dir=$base/lib/py_pubsub
@@ -267,7 +267,7 @@ Enter the following code in your terminal:
 
    .. group-tab:: Linux/macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
@@ -280,7 +280,7 @@ Enter the following code in your terminal:
 
 Now the directory should have these files:
 
-.. code-block:: bash
+.. code-block:: console
 
   __init__.py  publisher_member_function.py  subscriber_member_function.py
 
@@ -390,7 +390,7 @@ In any case, it's good practice to run ``rosdep`` in the root of your workspace 
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       sudo rosdep install -i --from-paths ./src -y
 
@@ -404,25 +404,25 @@ In any case, it's good practice to run ``rosdep`` in the root of your workspace 
 
 Still in the root of your workspace, ``dev_ws``, build your new package:
 
-.. code-block:: bash
+.. code-block:: console
 
   colcon build --packages-select py_pubsub
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: bash
+.. code-block:: console
 
   . install/setup.bash
 
 Now run the talker node:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run py_pubsub talker
 
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
-.. code-block:: bash
+.. code-block:: console
 
   [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
   [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
@@ -433,13 +433,13 @@ The terminal should start publishing info messages every 0.5 seconds, like so:
 
 Open another terminal, source the setup files from inside ``dev_ws`` again, and then start the listener node:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run py_pubsub listener
 
 The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
 
-.. code-block:: bash
+.. code-block:: console
 
   [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
   [INFO] [minimal_subscriber]: I heard: "Hello World: 11"

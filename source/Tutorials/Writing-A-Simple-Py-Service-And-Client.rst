@@ -39,7 +39,7 @@ Navigate into the ``dev_ws`` directory created in a previous tutorial.
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 Navigate into ``dev_ws/src`` and create a new package:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 pkg create --build-type ament_python py_srvcli --dependencies rclpy example_interfaces
 
@@ -48,7 +48,7 @@ Your terminal will return a message verifying the creation of your package ``py_
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.
 ``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/master/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
 
-.. code-block::
+.. code-block:: console
 
     int64 a
     int64 b
@@ -262,19 +262,19 @@ The ``entry_points`` field of your ``setup.py`` file should look like this:
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: bash
+.. code-block:: console
 
   colcon build --packages-select py_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: bash
+.. code-block:: console
 
   . install/setup.bash
 
 Now run the service node:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run py_srvcli service
 
@@ -283,20 +283,20 @@ The node will wait for the client’s request.
 Open another terminal and source the setup files from inside ``dev_ws`` again.
 Start the client node, followed by any two integers separated by a space:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run py_srvcli client 2 3
 
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
-.. code-block::
+.. code-block:: console
 
   [INFO] [minimal_client_async]: Result of add_two_ints: for 2 + 3 = 5
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request:
 
-.. code-block::
+.. code-block:: console
 
   [INFO] [minimal_service]: Incoming request
   a: 2 b: 3

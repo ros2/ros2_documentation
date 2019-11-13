@@ -39,13 +39,13 @@ Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
 
 Open a new terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
@@ -55,13 +55,13 @@ Open another terminal and run:
 
 To see the parameters belonging to your nodes, open a new terminal and enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 param list
 
 You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
 
-.. code-block:: bash
+.. code-block:: console
 
   /teleop_turtle:
     scale_angular
@@ -85,19 +85,19 @@ To be certain of a parameter type, you can use ``ros2 param get``.
 
 To get the current value of a parameter, use the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 param get <node_name> <parameter_name>
 
 Let’s find out the current value of ``/turtlesim``’s parameter ``background_g``:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 param get /turtlesim background_g
 
 Which will return the value:
 
-.. code-block:: bash
+.. code-block:: console
 
     Integer value is: 86
 
@@ -110,19 +110,19 @@ If you run the same command on ``background_r`` and ``background_b``, you will g
 
 To change a parameter's value at runtime, use the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 param set <node_name> <parameter_name> <value>
 
 Let’s change ``/turtlesim``’s background color:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 param set /turtlesim background_r 150
 
 Your terminal should return the message:
 
-.. code-block:: bash
+.. code-block:: console
 
   Set parameter successful
 
@@ -138,26 +138,26 @@ However, you can save your settings changes and reload them next time you start 
 
 You can “dump” all of a node’s current parameter values into a file to save for later using the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 param dump <node_name>
 
 To save your current configuration of ``/turtlesim``’s parameters, enter the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 param dump /turtlesim
 
 Your terminal will return the message:
 
-.. code-block:: bash
+.. code-block:: console
 
   Saving to:  ./turtlesim.yaml
 
 You will find a new file in the directory your workspace is running in.
 If you open this file, you’ll see the following contents:
 
-.. code-block:: bash
+.. code-block:: console
 
   turtlesim:
     ros__parameters:
@@ -173,7 +173,7 @@ Dumping parameters comes in handy if you want to reload the node with the same p
 
 To start the same node using your saved parameter values, use:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
 
@@ -181,7 +181,7 @@ This is the same command you always use to start turtlesim, with the added flags
 
 Stop your running turtlesim node so you can try reloading it with your saved parameters, using:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 

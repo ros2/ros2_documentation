@@ -40,7 +40,7 @@ Tasks
 
 Start ``rqt_console`` in a new terminal with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run rqt_console rqt_console
 
@@ -58,7 +58,7 @@ You can add more filters to this section as well.
 
 Now start ``turtlesim`` with the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
@@ -68,7 +68,7 @@ Now start ``turtlesim`` with the following command:
 To produce log messages for ``rqt_console`` to display, let’s have the turtle run into the wall.
 In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :ref:`topics tutorial <ROS2Topics>`) below:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
 
@@ -84,7 +84,7 @@ Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` command to
 
 ROS 2’s logger levels are ordered by severity:
 
-.. code-block:: bash
+.. code-block:: console
 
     Fatal
     Error
@@ -112,7 +112,7 @@ For example, if you set the default level to ``Warn``, you would only see messag
 You can set the default logger level when you first run the ``/turtlesim`` node using remapping.
 Enter the following command in your terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
         ros2 run turtlesim turtlesim_node --ros-args --remap __log_level:=WARN
 

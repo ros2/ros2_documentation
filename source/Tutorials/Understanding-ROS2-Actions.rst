@@ -45,13 +45,13 @@ Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
 
 Open a new terminal and run:
 
-.. code-block::
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
-.. code-block::
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
@@ -61,7 +61,7 @@ Open another terminal and run:
 
 When you launch the ``/teleop_turtle`` node, you will see the following message in your terminal:
 
-.. code-block::
+.. code-block:: console
 
     Use arrow keys to move the turtle.
     Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
@@ -78,7 +78,7 @@ Each time you press one of these keys, you are sending a goal to an action serve
 The goal is to rotate the turtle to face a particular direction.
 A message relaying the result of the goal should display once the turtle completes its rotation:
 
-.. code-block::
+.. code-block:: console
 
     [INFO] [turtlesim]: Rotation goal completed successfully
 
@@ -87,7 +87,7 @@ The ``F`` key will cancel a goal mid-execution, demonstrating the preemptable fe
 Try pressing the ``C`` key, and then pressing the ``F`` key before the turtle can complete its rotation.
 In the terminal where the ``/turtlesim`` node is running, you will see the message:
 
-.. code-block::
+.. code-block:: console
 
   [INFO] [turtlesim]: Rotation goal canceled
 
@@ -97,7 +97,7 @@ When the server-side preempts an action, it “aborts” the goal.
 Try hitting the ``D`` key, then the ``G`` key before the first rotation can complete.
 In the terminal where the ``/turtlesim`` node is running, you will see the message:
 
-.. code-block::
+.. code-block:: console
 
   [WARN] [turtlesim]: Rotation goal received before a previous goal finished. Aborting previous goal
 
@@ -108,13 +108,13 @@ The server-side aborted the first goal because it was interrupted.
 
 To see the ``/turtlesim`` node’s actions, open a new terminal and run the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 node info /turtlesim
 
 Which will return a list of ``/turtlesim``’s subscribers, publishers, services, action servers and action clients:
 
-.. code-block::
+.. code-block:: console
 
   /turtlesim
     Subscribers:
@@ -148,13 +148,13 @@ This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/r
 
 The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients`` meaning that it sends goals for that action name.
 
-.. code-block::
+.. code-block:: console
 
     ros2 node info /teleop_turtle
 
 Which will return:
 
-.. code-block::
+.. code-block:: console
 
   /teleop_turtle
     Subscribers:
@@ -181,13 +181,13 @@ Which will return:
 
 To identify all the actions in the ROS graph, run the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 action list
 
 Which will return:
 
-.. code-block::
+.. code-block:: console
 
     /turtle1/rotate_absolute
 
@@ -201,13 +201,13 @@ You also already know that there is one action client (part of ``/teleop_turtle`
 Actions have types, similar to topics and services.
 To find ``/turtle1/rotate_absolute``'s type, run the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 action list -t
 
 Which will return:
 
-.. code-block::
+.. code-block:: console
 
     /turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]
 
@@ -219,13 +219,13 @@ You will need this when you want to execute an action from the command line or f
 
 You can further introspect the ``/turtle1/rotate_absolute`` action with the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 action info /turtle1/rotate_absolute
 
 Which will return
 
-.. code-block::
+.. code-block:: console
 
   Action: /turtle1/rotate_absolute
   Action clients: 1
@@ -245,13 +245,13 @@ One more piece of information you will need before sending or executing an actio
 Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t``.
 Enter the following command with the action type in your terminal:
 
-.. code-block::
+.. code-block:: console
 
     ros2 interface show turtlesim/action/RotateAbsolute.action
 
 Which will return:
 
-.. code-block::
+.. code-block:: console
 
   # The desired heading in radians
   float32 theta
@@ -271,7 +271,7 @@ The last section is the structure of the feedback.
 
 Now let’s send an action goal from the command line with the following syntax:
 
-.. code-block::
+.. code-block:: console
 
     ros2 action send_goal <action_name> <action_type> <values>
 
@@ -279,13 +279,13 @@ Now let’s send an action goal from the command line with the following syntax:
 
 Keep an eye on the turtlesim window, and enter the following command into your terminal:
 
-.. code-block::
+.. code-block:: console
 
     ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: 1.57'}
 
 You should see the turtle rotating, as well as the following message in your terminal:
 
-.. code-block::
+.. code-block:: console
 
   Waiting for an action server to become available...
   Sending goal:
@@ -305,13 +305,13 @@ To see the feedback of this goal, add ``--feedback`` to the last command you ran
 First, make sure you change the value of ``theta``.
 After running the previous command, the turtle will already be at the orientation of ``1.57`` radians, so it won’t move unless you pass a new ``theta``.
 
-.. code-block::
+.. code-block:: console
 
     ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: -1.57'} --feedback
 
 Your terminal will return the message:
 
-.. code-block::
+.. code-block:: console
 
   Sending goal:
      theta: -1.57
