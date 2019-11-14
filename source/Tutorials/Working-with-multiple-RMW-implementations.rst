@@ -104,3 +104,42 @@ If you have support for multiple RMW implementations installed and you request u
    Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of 'rmw_connext_cpp'), exiting with 1.
 
 If this occurs, double check that your ROS 2 installation includes support for the RMW implementation that you have specified in the ``RMW_IMPLEMENTATION`` environment variable.
+
+RTI Connext on OSX: Failure due to insufficient shared memory kernel settings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you receive an error message similar to below when running RTI Connext on OSX:
+
+.. code-block:: console
+
+   [D0062|ENABLE]DDS_DomainParticipantPresentation_reserve_participant_index_entryports:!enable reserve participant index
+   [D0062|ENABLE]DDS_DomainParticipant_reserve_participant_index_entryports:Unusable shared memory transport. For a more in-   depth explanation of the possible problem and solution, please visit https://community.rti.com/kb/osx510.
+
+This error is caused by an insufficient number or size of shared memory segments allowed by the operating system. As a result, the ``DomainParticipant`` is unable to allocate enough resources and calculate its participant index which causes the error.
+
+You can increase the shared memory resources of your machine either temporarily or permanently.
+
+To increase the settings temporarily, you can run the following commands as user root:
+
+.. code-block:: console
+
+   /usr/sbin/sysctl -w kern.sysv.shmmax=419430400
+   /usr/sbin/sysctl -w kern.sysv.shmmin=1
+   /usr/sbin/sysctl -w kern.sysv.shmmni=128
+   /usr/sbin/sysctl -w kern.sysv.shmseg=1024
+   /usr/sbin/sysctl -w kern.sysv.shmall=262144
+
+To increase the settings permanently, you will need to edit or create the file ``/etc/sysctl.conf``. Creating or editing this file will require root permissions. Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.conf`` with the following lines:
+
+.. code-block:: console
+
+   kern.sysv.shmmax=419430400
+   kern.sysv.shmmin=1
+   kern.sysv.shmmni=128
+   kern.sysv.shmseg=1024
+   kern.sysv.shmall=262144
+
+You will need to reboot the machine after modifying this file to have the changes take effect.
+
+This solution is edited from the RTI Connext community forum.
+See the `original post <https://community.rti.com/kb/osx510>`__ for more detailed explanation.
