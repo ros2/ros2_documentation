@@ -110,7 +110,7 @@ RTI Connext on OSX: Failure due to insufficient shared memory kernel settings
 
 If you receive an error message similar to below when running RTI Connext on OSX:
 
-.. code-block:: bash
+.. code-block:: console
 
    [D0062|ENABLE]DDS_DomainParticipantPresentation_reserve_participant_index_entryports:!enable reserve participant index
    [D0062|ENABLE]DDS_DomainParticipant_reserve_participant_index_entryports:Unusable shared memory transport. For a more in-   depth explanation of the possible problem and solution, please visit https://community.rti.com/kb/osx510.
