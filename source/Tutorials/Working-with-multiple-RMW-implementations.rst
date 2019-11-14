@@ -131,7 +131,7 @@ To increase the settings temporarily, you can run the following commands as user
 
 To increase the settings permanently, you will need to edit or create the file ``/etc/sysctl.conf``. Creating or editing this file will require root permissions. Either add to your existing ``etc/sysctl.conf`` file or create ``/etc/sysctl.conf`` with the following lines:
 
-.. code-block:: bash
+.. code-block:: console
 
    kern.sysv.shmmax=419430400
    kern.sysv.shmmin=1
