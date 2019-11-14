@@ -121,7 +121,7 @@ You can increase the shared memory resources of your machine either temporarily 
 
 To increase the settings temporarily, you can run the following commands as user root:
 
-.. code-block:: bash
+.. code-block:: console
 
    /usr/sbin/sysctl -w kern.sysv.shmmax=419430400
    /usr/sbin/sysctl -w kern.sysv.shmmin=1
