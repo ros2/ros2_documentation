@@ -217,8 +217,6 @@ The setup file and path will depend on your macOS version.
    # macOS 10.13 High Sierra
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
 
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
-
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Eloquent_osx-development-setup-troubleshooting:

@@ -156,8 +156,6 @@ Set the ``NDDSHOME`` environment variable:
 
    export NDDSHOME=/Applications/rti_connext_dds-5.3.1
 
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
-
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 Set up the ROS 2 environment
