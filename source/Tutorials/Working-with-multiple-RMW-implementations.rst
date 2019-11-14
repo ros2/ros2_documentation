@@ -105,7 +105,7 @@ If you have support for multiple RMW implementations installed and you request u
 
 If this occurs, double check that your ROS 2 installation includes support for the RMW implementation that you have specified in the ``RMW_IMPLEMENTATION`` environment variable.
 
-RTI Connext on OSX: Failure due to Insufficient Shared Memory Kernel Settings
+RTI Connext on OSX: Failure due to insufficient shared memory kernel settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you receive an error message similar to below when running RTI Connext on OSX:
