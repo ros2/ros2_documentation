@@ -141,4 +141,5 @@ To increase the settings permanently, you will need to edit or create the file `
 
 You will need to reboot the machine after modifying this file to have the changes take effect.
 
-This solution is edited from RTI Connext community forum. Go to https://community.rti.com/kb/osx510 to see the original post and more detailed explanation.
+This solution is edited from the RTI Connext community forum. 
+See the `original post <https://community.rti.com/kb/osx510>`__ for more detailed explanation.
