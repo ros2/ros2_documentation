@@ -51,25 +51,25 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         source /opt/ros/<distro>/setup.bash
 
       For example, if you installed ROS 2 Eloquent:
 
-      .. code-block:: bash
+      .. code-block:: console
 
         source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         call C:\dev\ros2\local_setup.bat
 
@@ -83,7 +83,7 @@ Best practice is to create a new directory for every new workspace.
 The name doesn’t matter, but it is helpful to have it indicate the purpose of the workspace.
 Let’s choose the directory name ``dev_ws``, for “development workspace”:
 
-.. code-block:: bash
+.. code-block:: console
 
   mkdir dev_ws
   mkdir dev_ws/src
@@ -110,7 +110,7 @@ When you clone this repo, add the ``-b`` argument followed by the branch that co
 
 In the ``dev_ws/src`` directory, if your distro is Dashing for example, run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   git clone https://github.com/ros/ros_tutorials.git -b dashing-devel
 
@@ -123,26 +123,26 @@ To see the packages inside ``ros_tutorials``, enter the command:
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ls ros_tutorials
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ls ros_tutorials
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         dir ros_tutorials
 
 
 Which will list the contents of the repo you just cloned, like so:
 
-.. code-block::
+.. code-block:: console
 
     roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
 
@@ -162,19 +162,19 @@ You wouldn’t want a build to fail after a long wait because of missing depende
 From the root of your workspace (``~/dev_ws``):
 Run the following command, replacing ``<distro>`` with your distro:
 
-.. code-block:: bash
+.. code-block:: console
 
   sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
 For example, if you're using Eloquent, you would run:
 
-.. code-block:: bash
+.. code-block:: console
 
   sudo rosdep install -i --from-path src --rosdistro eloquent -y
 
 If you already have all your dependencies, the console will return:
 
-.. code-block:: bash
+.. code-block:: console
 
   #All required rosdeps installed successfully
 
@@ -191,19 +191,19 @@ From the root of your workspace (``~/dev_ws``), you can now build your packages 
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
       colcon build --merge-install
 
@@ -211,7 +211,7 @@ From the root of your workspace (``~/dev_ws``), you can now build your packages 
 
 The console will return the following message:
 
-.. code-block:: bash
+.. code-block:: console
 
   Starting >>> turtlesim
   Finished <<< turtlesim [5.49s]
@@ -227,7 +227,7 @@ The console will return the following message:
 
 Once the build is finished, enter ``ls`` in the workspace root (``~/dev_ws``) and you will see that colcon has created new directories:
 
-.. code-block:: bash
+.. code-block:: console
 
   build  install  log  src
 
@@ -246,25 +246,25 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         source /opt/ros/<distro>/setup.bash
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         call C:\dev\ros2\setup.bat
 
 Go into the root of your workspace:
 
-.. code-block:: bash
+.. code-block:: console
 
   cd dev_ws
 
@@ -274,19 +274,19 @@ In the root, source your overlay:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       . install/local_setup.bash
 
   .. group-tab:: macOS
 
-    .. code-block:: bash
+    .. code-block:: console
 
       . install/local_setup.bash
 
   .. group-tab:: Windows
 
-    .. code-block:: bash
+    .. code-block:: console
 
       . install/local_setup.bat
 
@@ -300,7 +300,7 @@ In the root, source your overlay:
 
 Now you can run the ``turtlesim`` package from the overlay:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node
 
@@ -326,7 +326,7 @@ Return to first terminal where you ran ``colcon build`` earlier and run it again
 
 Return to the second terminal (where the overlay is sourced) and run turtlesim again:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node
 
@@ -339,7 +339,7 @@ Even though your main ROS 2 environment was sourced in this terminal earlier, th
 To see that your underlay is still intact, open a brand new terminal and source only your ROS 2 installation.
 Run turtlesim again:
 
-.. code-block::
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node
 

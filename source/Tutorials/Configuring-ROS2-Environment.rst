@@ -51,25 +51,25 @@ You will need to run this command on every new shell you open to have access to 
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         source /opt/ros/<distro>/setup.bash
 
       For example, if you installed ROS 2 Eloquent:
 
-      .. code-block:: bash
+      .. code-block:: console
 
         source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         . ~/ros2_install/ros2-osx/setup.bash
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         call C:\dev\ros2\local_setup.bat
 
@@ -86,13 +86,13 @@ If you don’t want to have to source the setup file every time you open a new s
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
@@ -112,25 +112,25 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         printenv | grep -i ROS
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         printenv | grep -i ROS
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         set | findstr -i ROS
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
-.. code-block:: bash
+.. code-block:: console
 
     ROS_VERSION=2
     ROS_PYTHON_VERSION=3
@@ -151,37 +151,37 @@ Once you have determined a unique integer for yourself, you can set the environm
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: bash
+      .. code-block:: console
 
         echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         export ROS_DOMAIN_ID=<your_domain_id>
 
       To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: bash
+      .. code-block:: console
 
         echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         set ROS_DOMAIN_ID=<your_domain_id>
 
       If you want to make this permanant between shell sessions, also run:
 
-      .. code-block:: bash
+      .. code-block:: console
 
         setx ROS_DOMAIN_ID=<your_domain_id>
 

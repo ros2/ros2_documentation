@@ -47,13 +47,13 @@ Tasks
 
 The command ``ros2 run`` launches an executable from a package.
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run <package_name> <executable_name>
 
 To run turtlesim, open a new terminal, and enter the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
@@ -72,19 +72,19 @@ This is especially useful when you want to interact with a node, or when you hav
 
 Open a new terminal while turtlesim is still running in the other one, and enter the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 node list
 
 The terminal will return the node name:
 
-.. code-block:: bash
+.. code-block:: console
 
   /turtlesim
 
 Open another new terminal and start the teleop node with the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
@@ -93,7 +93,7 @@ Here, we are searching the ``turtlesim`` package again, this time for the execut
 Return to the terminal where you ran ``ros2 node list`` and run it again.
 You will now see the names of two active nodes:
 
-.. code-block:: bash
+.. code-block:: console
 
   /turtlesim
   /teleop_turtle
@@ -107,14 +107,14 @@ In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the 
 Now, lets reassign the name of our ``/turtlesim`` node.
 In a new terminal, run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
 Since you’re calling ``ros2 run`` on turtlesim again, another turtlesim window will open.
 However, now if you return to the terminal where you ran ``ros2 node list``, and run it again, you will see three node names:
 
-.. code-block:: bash
+.. code-block:: console
 
     /turtlesim
     /teleop_turtle
@@ -125,20 +125,20 @@ However, now if you return to the terminal where you ran ``ros2 node list``, and
 
 Now that you know the names of your nodes, you can access more information about them with:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 node info <node_name>
 
 To examine your latest node, ``my_turtle``, run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 node info /my_turtle
 
 ``ros2 node info`` returns a list of subscribers, publishers, services, and actions (the ROS graph connections) that interact with that node.
 The output should look like this:
 
-.. code-block:: bash
+.. code-block:: console
 
   /my_turtle
     Subscribers:

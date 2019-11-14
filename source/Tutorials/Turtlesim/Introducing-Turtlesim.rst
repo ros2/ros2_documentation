@@ -44,7 +44,7 @@ Install the turtlesim package for your ROS 2 distro:
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         sudo apt update
 
@@ -60,13 +60,13 @@ Install the turtlesim package for your ROS 2 distro:
 
 Check that the package installed:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 pkg executables turtlesim
 
 The above command should return a list of turtlesim's executables:
 
-.. code-block:: bash
+.. code-block:: console
 
   turtlesim draw_square
   turtlesim mimic
@@ -78,7 +78,7 @@ The above command should return a list of turtlesim's executables:
 
 To start turtlesim, enter the following command in your terminal:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtlesim_node
 
@@ -88,7 +88,7 @@ The simulator window should appear, with a random turtle in the center.
 
 In the terminal under the command, you will see messages from the node:
 
-.. code-block:: bash
+.. code-block:: console
 
   [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
 
@@ -103,7 +103,7 @@ Open a new terminal and source ROS 2 again.
 
 Now you will run a new node to control the turtle in the first node:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 run turtlesim turtle_teleop_key
 
@@ -120,7 +120,7 @@ It will move around the screen, using its attached "pen" to draw the path it fol
 
 You can see the nodes and their associated services, topics, and actions using the ``list`` command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 node list
   ros2 topic list
@@ -139,7 +139,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
   .. group-tab:: Linux
 
-    .. code-block:: bash
+    .. code-block:: console
 
       sudo apt update
 
@@ -155,7 +155,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
 To run rqt:
 
-.. code-block:: bash
+.. code-block:: console
 
   rqt
 
@@ -193,7 +193,7 @@ Enter new coordinates for the turtle to spawn at, like ``x = 1.0`` and ``y = 1.0
 
   If you try to spawn a new turtle with the same name as an existing turtle, like your default ``turtle1``, you will get an error message in the terminal running ``turtlesim_node``:
 
-  .. code-block:: bash
+  .. code-block:: console
 
     [ERROR] [turtlesim]: A turtle named [turtle1] already exists
 
@@ -231,13 +231,13 @@ In a new terminal, source ROS 2, and run:
 
    .. group-tab:: Eloquent
 
-      .. code-block::
+      .. code-block:: console
 
         ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 
    .. group-tab:: Dashing
 
-      .. code-block:: bash
+      .. code-block:: console
 
         ros2 run turtlesim turtle_teleop_key turtle1/cmd_vel:=turtle2/cmd_vel
 

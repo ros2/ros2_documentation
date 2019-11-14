@@ -39,7 +39,7 @@ Navigate into the ``dev_ws`` directory created in a previous tutorial.
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 So, navigate into ``dev_ws/src``, and run the package creation command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 pkg create --build-type ament_cmake cpp_pubsub
 
@@ -58,7 +58,7 @@ Download the example talker code by entering the following command:
 
    .. group-tab:: Linux/macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
             wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_publisher/member_function.cpp
 
@@ -225,21 +225,21 @@ Make sure to save the file.
 Now open the ``CMakeLists.txt`` file.
 Below the existing dependency ``find_package(ament_cmake REQUIRED)``, add the lines:
 
-.. code-block::
+.. code-block:: console
 
     find_package(rclcpp REQUIRED)
     find_package(std_msgs REQUIRED)
 
 After that, add the executable and name it ``talker`` so you can run your node using ``ros2 run``:
 
-.. code-block::
+.. code-block:: console
 
     add_executable(talker src/publisher_member_function.cpp)
     ament_target_dependencies(talker rclcpp std_msgs)
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
-.. code-block::
+.. code-block:: console
 
   install(TARGETS
     talker
@@ -247,7 +247,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 
 You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections and comments, so it looks like this:
 
-.. code-block::
+.. code-block:: console
 
   cmake_minimum_required(VERSION 3.5)
   project(cpp_pubsub)
@@ -286,7 +286,7 @@ Enter the following code in your terminal:
 
    .. group-tab:: Linux/macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
             wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_subscriber/member_function.cpp
 
@@ -298,7 +298,7 @@ Enter the following code in your terminal:
 
 Entering ``ls`` in the console will now return:
 
-.. code-block:: bash
+.. code-block:: console
 
     publisher_member_function.cpp  subscriber_member_function.cpp
 
@@ -381,7 +381,7 @@ Since this node has the same dependencies as the publisher node, there’s nothi
 
 Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber node below the publisher’s entries.
 
-.. code-block::
+.. code-block:: console
 
   add_executable(listener src/subscriber_member_function.cpp)
   ament_target_dependencies(listener rclcpp std_msgs)
@@ -398,31 +398,31 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 You likely already have the ``rclpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 In any case, it's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
-.. code-block:: bash
+.. code-block:: console
 
     sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: bash
+.. code-block:: console
 
     colcon build --packages-select cpp_pubsub
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: bash
+.. code-block:: console
 
     . install/setup.bash
 
 Now run the talker node:
 
-.. code-block:: bash
+.. code-block:: console
 
      ros2 run cpp_pubsub talker
 
 The terminal should start publishing info messages every 0.5 seconds, like so:
 
-.. code-block:: bash
+.. code-block:: console
 
     [INFO] [minimal_publisher]: Publishing: "Hello World: 0"
     [INFO] [minimal_publisher]: Publishing: "Hello World: 1"
@@ -432,13 +432,13 @@ The terminal should start publishing info messages every 0.5 seconds, like so:
 
 Open another terminal, source the setup files from inside ``dev_ws`` again, and then start the listener node:
 
-.. code-block:: bash
+.. code-block:: console
 
      ros2 run cpp_pubsub listener
 
 The listener will start printing messages to the console, starting at whatever message count the publisher is on at that time, like so:
 
-.. code-block:: bash
+.. code-block:: console
 
   [INFO] [minimal_subscriber]: I heard: "Hello World: 10"
   [INFO] [minimal_subscriber]: I heard: "Hello World: 11"

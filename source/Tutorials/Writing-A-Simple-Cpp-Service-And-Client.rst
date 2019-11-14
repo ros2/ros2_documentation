@@ -40,7 +40,7 @@ Navigate into the ``dev_ws`` directory created in a previous tutorial.
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 Navigate into ``dev_ws/src`` and create a new package:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 pkg create --build-type ament_cmake cpp_srvcli --dependencies rclcpp example_interfaces
 
@@ -49,7 +49,7 @@ Your terminal will return a message verifying the creation of your package ``cpp
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
 ``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/master/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
 
-.. code-block::
+.. code-block:: console
 
     int64 a
     int64 b
@@ -77,7 +77,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
 Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_server.cpp`` and paste the following code within:
 
-.. code-block:: c++
+.. code-block:: C++
 
       #include "rclcpp/rclcpp.hpp"
       #include "example_interfaces/srv/add_two_ints.hpp"
@@ -115,7 +115,7 @@ The first two ``#include`` statements are your package dependencies.
 
 The ``add`` function adds two integers from the request and gives the sum to the response, while notifying the console of its status using logs.
 
-.. code-block:: c++
+.. code-block:: C++
 
     void add(const std::shared_ptr<example_interfaces::srv::AddTwoInts::Request> request,
              std::shared_ptr<example_interfaces::srv::AddTwoInts::Response>      response)
@@ -165,7 +165,7 @@ The ``main`` function accomplishes the following, line by line:
 The ``add_executable`` macro generates an executable you can run using ``ros2 run``.
 Add the following code block to create an executable named ``server``:
 
-.. code-block::
+.. code-block:: console
 
     add_executable(server src/add_two_ints_server.cpp)
     ament_target_dependencies(server
@@ -173,7 +173,7 @@ Add the following code block to create an executable named ``server``:
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
-.. code-block::
+.. code-block:: console
 
     install(TARGETS
       server
@@ -279,7 +279,7 @@ Then the client sends its request, and the node spins until it receives its resp
 Return to ``CMakeLists.txt`` to add the executable and target for the new node.
 After removing some unnecessary boilerplate from the automatically generated file, your ``CMakeLists.txt`` should look like this:
 
-.. code-block::
+.. code-block:: console
 
   cmake_minimum_required(VERSION 3.5)
   project(cpp_srvcli)
@@ -309,45 +309,45 @@ After removing some unnecessary boilerplate from the automatically generated fil
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: bash
+.. code-block:: console
 
     colcon build --packages-select cpp_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: bash
+.. code-block:: console
 
     . install/setup.bash
 
 Now run the service node:
 
-.. code-block:: bash
+.. code-block:: console
 
      ros2 run cpp_srvcli server
 
 The terminal should return the following message, and then wait:
 
-.. code-block::
+.. code-block:: console
 
     [INFO] [rclcpp]: Ready to add two ints.
 
 Open another terminal, source the setup files from inside ``dev_ws`` again.
 Start the client node, followed by any two integers separated by a space:
 
-.. code-block:: bash
+.. code-block:: console
 
      ros2 run cpp_srvcli client 2 3
 
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
-.. code-block::
+.. code-block:: console
 
     [INFO] [rclcpp]: Sum: 5
 
 Return to the terminal where your service node is running.
 You will see that it published log messages when it received the request and the data it received, and the response it sent back:
 
-.. code-block::
+.. code-block:: console
 
     [INFO] [rclcpp]: Incoming request
     a: 2 b: 3

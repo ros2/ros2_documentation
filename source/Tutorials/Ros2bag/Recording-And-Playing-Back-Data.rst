@@ -31,7 +31,7 @@ You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
   If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
 
-  .. code-block::
+  .. code-block:: console
 
     sudo apt-get install ros-<ros-distro>-ros2bag ros-<ros-distro>-rosbag2*
 
@@ -50,19 +50,19 @@ You'll be recording your keyboard input in the ``turtlesim`` system to save and 
 
 Open a new terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
 Let’s also make a new directory to store our saved recordings, just as good practice:
 
-.. code-block:: bash
+.. code-block:: console
 
   mkdir bag_files
 
@@ -73,13 +73,13 @@ Let’s also make a new directory to store our saved recordings, just as good pr
 ``ros2 bag`` can only record data from topics that are published on.
 To see a list of your system's topics, open a new terminal and run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 topic list
 
 Which will return:
 
-.. code-block:: bash
+.. code-block:: console
 
   /parameter_events
   /rosout
@@ -91,7 +91,7 @@ In the topics tutorial, you learned that the ``/turtle_teleop`` node publishes c
 
 To see the data that ``/turtle1/cmd_vel`` is publishing, run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 topic echo /turtle1/cmd_vel
 
@@ -99,7 +99,7 @@ Nothing will show up at first because no data is being published by the teleop.
 Return to the terminal where you ran the teleop and select it so it's active.
 Use the arrow keys to move the turtle around, and you will see data being published on the terminal running ``ros2 topic echo``.
 
-.. code-block:: bash
+.. code-block:: console
 
   linear:
     x: 2.0
@@ -118,7 +118,7 @@ Use the arrow keys to move the turtle around, and you will see data being publis
 
 To record the data published to a topic use the command syntax:
 
-.. code-block::
+.. code-block:: console
 
     ros2 bag record <topic_name>
 
@@ -126,13 +126,13 @@ Before running this command on your chosen topic, open a new terminal and move i
 
 Run the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 bag record /turtle1/cmd_vel
 
 You will see the following messages in the terminal (the date and time will be different):
 
-.. code-block::
+.. code-block:: console
 
     [INFO] [rosbag2_storage]: Opened database 'rosbag2_2019_10_11-05_18_45'.
     [INFO] [rosbag2_transport]: Listening for topics...
@@ -156,7 +156,7 @@ You can also record multiple topics, as well as change the name of the file ``ro
 
 Run the following command:
 
-.. code-block:: bash
+.. code-block:: console
 
   ros2 bag record -o subset /turtle1/cmd_vel /turtle1
 
@@ -186,13 +186,13 @@ You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 
 You can see details about your recording by running:
 
-.. code-block::
+.. code-block:: console
 
     ros2 bag info <bag_file_name>
 
 Running this command on the ``subset`` bag file will return a list of information on the file:
 
-.. code-block::
+.. code-block:: console
 
   Files:             subset.db3
   Bag size:          228.5 KiB
@@ -214,13 +214,13 @@ Then make sure your turtlesim window is visible so you can see the bag file in a
 
 Enter the command:
 
-.. code-block::
+.. code-block:: console
 
     ros2 bag play subset
 
 The terminal will return the message:
 
-.. code-block:: bash
+.. code-block:: console
 
     [INFO] [rosbag2_storage]: Opened database 'subset'.
 
@@ -237,7 +237,7 @@ Notice that ``/turtle1/pose`` has a ``Count`` value of over 3000; while we were 
 
 To get an idea of how often position data is published, you can run the command:
 
-.. code-block:: bash
+.. code-block:: console
 
     ros2 topic echo /turtle1/pose
 

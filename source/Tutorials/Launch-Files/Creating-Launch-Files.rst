@@ -42,7 +42,7 @@ Tasks
 
 Create a new directory to store your launch file:
 
-.. code-block:: bash
+.. code-block:: console
 
   mkdir launch
 
@@ -52,19 +52,19 @@ Create a launch file named ``turtlesim_mimic_launch.py`` by entering the followi
 
    .. group-tab:: Linux
 
-      .. code-block:: bash
+      .. code-block:: console
 
         touch turtlesim_mimic_launch.py
 
    .. group-tab:: macOS
 
-      .. code-block:: bash
+      .. code-block:: console
 
         touch turtlesim_mimic_launch.py
 
    .. group-tab:: Windows
 
-      .. code-block:: bash
+      .. code-block:: console
 
         type nul > turtlesim_mimic_launch.py
 
@@ -182,7 +182,7 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 
 To launch ``turtlesim_mimic_launch.py``, run the following command:
 
-.. code-block::
+.. code-block:: console
 
   ros2 launch turtlesim_mimic_launch.py
 
@@ -191,7 +191,7 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
   It is possible to launch a launch file directly (as we do above), or provided by a package.
   When it is provided by a package, the syntax is:
 
-  .. code-block::
+  .. code-block:: console
 
       ros2 launch <package_name> <launch_file_name>
 
@@ -199,7 +199,7 @@ To launch ``turtlesim_mimic_launch.py``, run the following command:
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
-.. code-block::
+.. code-block:: console
 
   [INFO] [launch]: Default logging verbosity is set to INFO
   [INFO] [turtlesim_node-1]: process started with pid [11714]
@@ -208,7 +208,7 @@ Two turtlesim windows will open, and you will see the following ``[INFO]`` messa
 
 To see the system in action, run the ``ros2 topic pub`` command on the ``/turtlesim1/turtle1/cmd_vel`` topic to get the first turtle moving:
 
-.. code-block::
+.. code-block:: console
 
   ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'
 
@@ -223,7 +223,7 @@ While the system is still running, open a new terminal and run ``rqt_graph`` to 
 
 Run the command:
 
-.. code-block::
+.. code-block:: console
 
   rqt_graph
 
