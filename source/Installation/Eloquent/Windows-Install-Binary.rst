@@ -35,6 +35,15 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    > choco install -y python --version 3.7.5
 
+Install Visual C++ Redistributables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open a Command Prompt and type the following to install them via Chocolatey:
+
+.. code-block:: bash
+
+   > choco install -y vcredist2013 vcredist140
+
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
