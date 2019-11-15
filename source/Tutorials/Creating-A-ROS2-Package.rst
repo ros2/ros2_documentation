@@ -243,7 +243,7 @@ Now you can build your packages:
 
       colcon build
 
-  .. group-tab:: Linux
+  .. group-tab:: Windows
 
     .. code-block:: console
 
