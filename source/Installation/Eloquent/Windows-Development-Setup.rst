@@ -341,6 +341,21 @@ FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistribut
 Although it is usually installed by default in Windows 10, we know that some Windows 10 like version don't have it installed by default (e.g.: Windows Server 2019).
 In case you haven't it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
 
+VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When you try to compile ROS 2 you might see an error in your prompt like:
+
+.. code-block:: bash
+
+  > VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
+
+You can fix it running the following command:
+
+.. code-block:: bash
+
+   > "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+
 Extra stuff for Debug mode
 --------------------------
 
