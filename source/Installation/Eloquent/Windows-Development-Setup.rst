@@ -216,6 +216,19 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 
 If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
 
+Install OpenCV
+^^^^^^^^^^^^^^
+
+Some of the examples require OpenCV to be installed.
+
+You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
+
+Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
+
+.. code-block:: bash
+
+    set OpenCV_DIR=C:\opencv
+
 Building the ROS 2 Code
 -----------------------
 
