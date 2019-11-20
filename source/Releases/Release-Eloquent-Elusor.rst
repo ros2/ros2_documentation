@@ -53,7 +53,7 @@ The ``geometry_msgs/msg/Quaternion.msg`` interface now default initializes to a 
 
 Here is the pull request for more detail: `https://github.com/ros2/common_interfaces/pull/74 <https://github.com/ros2/common_interfaces/pull/74>`_
 
-Static transform broadcasters and listeners now use QoS durability ``transient_local``` on the ``/tf_static`` topic.
+Static transform broadcasters and listeners now use QoS durability ``transient_local`` on the ``/tf_static`` topic.
 Similar to the latched setting in ROS 1, static transforms only need to be published once.
 New listeners will receive transforms from all static broadcasters that are alive and have published before.
 All publishers must be updated to use this durability setting or their messages won't be received by transform listeners.
