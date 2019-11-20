@@ -61,28 +61,6 @@ No GUI tools.
 
 See specific sections below for how to also install the :ref:`ros1_bridge <Dashing_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Dashing_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Dashing_linux-install-additional-rmw-implementations>`.
 
-Try some examples
------------------
-
-In one terminal, source the setup file and then run a ``talker``\ :
-
-.. code-block:: bash
-
-   . ~/ros2_dashing/install/local_setup.bash
-   ros2 run demo_nodes_cpp talker
-
-In another terminal source the setup file and then run a ``listener``\ :
-
-.. code-block:: bash
-
-   . ~/ros2_dashing/install/local_setup.bash
-   ros2 run demo_nodes_py listener
-
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-Hooray!
-
-See the `demos </Tutorials>` for other things to try.
-
 Environment setup
 -----------------
 
@@ -95,7 +73,6 @@ So if you want autocompletion, installing argcomplete is necessary.
 .. code-block:: bash
 
    sudo apt install python3-argcomplete
-
 
 Sourcing the setup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -111,6 +88,26 @@ You may want to add this to your ``.bashrc``.
 .. code-block:: bash
 
    echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
+
+Try some examples
+-----------------
+
+In one terminal, source the setup file and then run a ``talker``\ :
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker
+
+In another terminal source the setup file and then run a ``listener``\ :
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_py listener
+
+You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+Hooray!
+
+See the `demos </Tutorials>` for other things to try.
 
 .. _Dashing_linux-install-additional-rmw-implementations:
 
