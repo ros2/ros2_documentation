@@ -124,6 +124,26 @@ The CLI tools ``ros2msg`` and ``ros2srv`` are deprecated.
 They have been replaced by the tool ``ros2interface``, which also supports action and IDL interfaces.
 You can run ``ros2 interface --help`` for usage.
 
+CLI arguments
+^^^^^^^^^^^^^
+
+As of Eloquent, individual parameters can be set from the command-line.
+In order to distinguish parameters from remappings, each instance should be preceded by a flag, ``--param`` (``-p``) or ``--remap`` (``-r``).
+Furthermore, to avoid collisions with non-ROS arguments, all ROS arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
+The scoping is also necessary for ``__node`` and ``__ns`` remap arguments (note, they should be preceded by a remap flag).
+
+Some examples:
+
+.. code:: sh
+
+   # Remapping 'foo' to 'bar'
+   ros2 run some_package some_ros_executable --ros-args --remap foo:=bar
+
+   # Assigning the value 'test' to the parameter 'string_param' and naming the node to 'foonode'
+   ros2 run some_package some_ros_executable --ros-args -p string_param:=test -r __node:=foonode
+
+For more information, see the `design document <http://design.ros2.org/articles/ros_command_line_arguments.html>`_.
+
 Timeline before the release
 ---------------------------
 
