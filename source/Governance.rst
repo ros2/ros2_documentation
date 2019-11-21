@@ -88,7 +88,7 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    :widths: auto
 
    * - |amazon|
-     - Amazon: Adam Duncan
+     - Amazon: Aaron Blasdel
    * - |apex|
      - Apex.AI: Dejan Pangercic
    * - |bosch|
@@ -172,7 +172,7 @@ The current WGs are (6 as of 2019-09-04):
 
 * Tooling
 
- * Lead(s): Thomas Moulard
+ * Lead(s): Emerson Knapp, Thomas Moulard
  * Resources:
 
   * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
