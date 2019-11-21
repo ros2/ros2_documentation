@@ -22,9 +22,12 @@ List of Distributions
    <style>
      .distros td {border: 0px;}
      .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2) {background-color: #33cc66;}
+     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
      .distros td {vertical-align: middle;}
    </style>
+
+.. |eloquent| image:: Releases/eloquent-small.png
+   :alt: Eloquent logo
 
 .. |dashing| image:: Releases/dashing-small.png
    :alt: Dashing logo
@@ -47,6 +50,10 @@ List of Distributions
      - Release date
      - Logo
      - EOL date
+   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
+     - Nov 22nd, 2019
+     - |eloquent|
+     - Nov 2020
    * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - May 31st, 2019
      - |dashing|
@@ -109,10 +116,6 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
-     - November 22nd, 2019
-     - 1 year
-     -
    * - <F-turtle>
      - May 2020
      - 3+ years
