@@ -9,7 +9,7 @@ Roadmap
 
 Please see the page of the upcoming distribution `Eloquent Elusor <Releases/Release-Eloquent-Elusor>` for more information what is planned to be part of that release.
 
-Please see the `Distributions page <Releases>` for the timeline of and information about future distributions.
+Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
 For more information on the design of ROS 2 please see `design.ros2.org <http://design.ros2.org>`__.
 The core code for ROS 2 is on the `ros2 github organization <https://github.com/ros2>`__.
