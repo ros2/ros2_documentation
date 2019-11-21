@@ -16,7 +16,7 @@ Eloquent Elusor is primarily supported on the following platforms:
 Tier 1 platforms:
 
 * Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
-* Mac OS X 10.12 (Sierra)
+* Mac OS X 10.14 (Mojave)
 * Windows 10 (Visual Studio 2019)
 
 Tier 2 platforms:
@@ -33,6 +33,26 @@ For more information about RMW implementations, compiler / interpreter versions,
 
 New features in this ROS 2 release
 ----------------------------------
+
+A few features and improvements we would like to highlight:
+
+* [Support for markup-based launch files (XML/YAML)](https://github.com/ros2/launch/pull/226)
+* [Improved launch-based testing](https://github.com/ros2/ros2/issues/739#issuecomment-555743540)
+* [Passing key-value parameters on CLI](https://github.com/ros2/design/pull/245)
+* [Support stream logging macros](https://github.com/ros2/rclcpp/pull/926)
+* [Per-node logging](https://github.com/ros2/ros2/issues/789) - All stdout/stderr output from nodes are logged in ~/.ros
+* [ros2doctor](https://index.ros.org/doc/ros2/Tutorials/Getting-Started-With-Ros2doctor/)
+* [Improved performance of sourcing setup files](https://github.com/ros2/ros2/issues/764)
+* rviz: [interactive markers](https://github.com/ros2/rviz/pull/457), [torque ring](https://github.com/ros2/rviz/pull/396), [tf message filters](https://github.com/ros2/rviz/pull/375)
+* rqt: [parameter plugin](https://github.com/ros-visualization/rqt_reconfigure/pull/31), [tf tree plugin](https://github.com/ros-visualization/rqt_tf_tree/pull/13), [robot steering plugin](https://github.com/ros-visualization/rqt_robot_steering/pull/7) (also backported to Dashing)
+* [turtlesim](https://github.com/ros/ros_tutorials/pull/53) (also backported to Dashing)
+* RMW implementations:
+  * [API to loan message for zero copy](https://github.com/ros2/design/pull/256), used by [rmw_iceoryx](https://github.com/ros2/rmw_iceoryx)
+  * [FastRTPS 1.9.3](https://github.com/ros2/ros2/issues/734#issuecomment-518018479)
+  * New Tier-2 implementation: [rmw_cyclonedds](https://github.com/ros2/rmw_cyclonedds) (also backported to Dashing)
+* Environment variable [ROS_LOCALHOST_ONLY](https://github.com/ros2/ros2/issues/798) to limit communication to localhost
+* MacOS Mojave Support
+
 
 During the development the `Eloquent meta ticket <https://github.com/ros2/ros2/issues/734>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
