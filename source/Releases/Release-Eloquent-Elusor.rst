@@ -186,6 +186,31 @@ For example:
     // Pass the Buffer to the TransformListener as before
     transform_listener = std::make_shared<tf2_ros::TransformListener>(*tf);
 
+rcl
+^^^
+
+ROS CLI Re-Design
+"""""""""""""""""
+
+To cope with an increasingly complex interface, with a now extended set of configuration options, ROS CLI syntax has been changed. As an example, a command line using Dashing syntax like:
+
+.. code-block:: console
+
+    ros2 run some_package some_node foo:=bar __params:=/path/to/params.yaml __log_level:=WARN --user-flag
+
+is written using Eloquent (and onwards) syntax as:
+
+.. code-block:: console
+
+    ros2 run some_package some_node --ros-args --remap foo:=bar --params-file /path/to/params.yaml --log-level WARN -- --user-flag
+
+This explicit syntax affords new features, like single parameter assignment ``--param name:=value``.
+For further reference and rationale, check the `ROS command line arguments design document <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
+
+.. warning::
+
+   Former syntax has been deprecated and is due for removal in the next release.
+
 Timeline before the release
 ---------------------------
 
