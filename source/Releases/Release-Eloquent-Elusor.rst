@@ -114,6 +114,16 @@ See this pull request, and the associated pull requests for more details:
 
 `https://github.com/ros2/rmw/pull/187 <https://github.com/ros2/rmw/pull/187>`_
 
+ros2cli
+^^^^^^^
+
+ros2msg and ros2srv deprecated
+""""""""""""""""""""""""""""""
+
+The CLI tools ``ros2msg`` and ``ros2srv`` are deprecated.
+They have been replaced by the tool ``ros2interface``, which also supports action and IDL interfaces.
+You can run ``ros2 interface --help`` for usage.
+
 Timeline before the release
 ---------------------------
 
