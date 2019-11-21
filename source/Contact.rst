@@ -1,3 +1,4 @@
+.. _Help:
 
 Contact us
 ==========

@@ -1,3 +1,4 @@
+.. _Features:
 
 Features Status
 ===============

@@ -1,3 +1,4 @@
+.. _Governance:
 
 Project Governance
 ==================
