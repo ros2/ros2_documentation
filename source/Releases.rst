@@ -1,3 +1,4 @@
+.. _Releases:
 
 Distributions
 =============
@@ -88,7 +89,7 @@ For the supported platforms and versions of common dependencies and other consid
 Future Distributions
 --------------------
 
-For details on upcoming features see the `roadmap <Roadmap>`.
+For details on upcoming features see the :ref:`roadmap <Roadmap>`.
 
 Currently there is a new ROS 2 distribution roughly every 6 months.
 The following information are best estimates and are subject to change.

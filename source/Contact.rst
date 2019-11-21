@@ -1,3 +1,4 @@
+.. _Help:
 
 Contact us
 ==========
@@ -33,4 +34,4 @@ When filing an issue, please make sure to:
 * In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
 
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__ to suggest specific code changes!
-See `Contributing <Contributing>` for more details on how to contribute.
+See :ref:`Contributing <Contributing>` for more details on how to contribute.

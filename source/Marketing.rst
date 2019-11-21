@@ -1,3 +1,4 @@
+.. _Marketing:
 
 Marketing Materials
 ===================
@@ -15,4 +16,3 @@ Available formats:
 * :download:`A4 (for print) <Marketing/ros2-brochure-a4-print.pdf>`
 * :download:`US Letter (for web/email) <Marketing/ros2-brochure-ltr-web.pdf>`
 * :download:`US Letter (for print) <Marketing/ros2-brochure-ltr-print.pdf>`
-
