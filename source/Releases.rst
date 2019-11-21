@@ -49,6 +49,10 @@ List of Distributions
      - Release date
      - Logo
      - EOL date
+   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
+     - Nov 22nd, 2019
+     - |eloquent|
+     - Nov 2020
    * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - May 31st, 2019
      - |dashing|
@@ -111,10 +115,6 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
-     - November 22nd, 2019
-     - 1 year
-     -
    * - <F-turtle>
      - May 2020
      - 3+ years
