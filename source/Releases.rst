@@ -25,6 +25,9 @@ List of Distributions
      .distros td {vertical-align: middle;}
    </style>
 
+.. |eloquent| image:: Releases/eloquent-small.png
+   :alt: Eloquent logo
+
 .. |dashing| image:: Releases/dashing-small.png
    :alt: Dashing logo
 
