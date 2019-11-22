@@ -146,6 +146,13 @@ The CLI tools ``ros2msg`` and ``ros2srv`` are deprecated.
 They have been replaced by the tool ``ros2interface``, which also supports action and IDL interfaces.
 You can run ``ros2 interface --help`` for usage.
 
+ros2node
+""""""""""""""""""""""""""""""
+
+Service clients have been added to ros2node info. As part of that change 
+``get_service_info`` has been replaced by ``get_service_server_info`` within
+the API.
+
 Timeline before the release
 ---------------------------
 
