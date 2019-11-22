@@ -48,9 +48,9 @@ A few features and improvements we would like to highlight:
 * `turtlesim <https://github.com/ros/ros_tutorials/pull/53>`__ (also backported to Dashing)
 * RMW implementations:
 
- * `API to loan message for zero copy <https://github.com/ros2/design/pull/256>`__, used by `rmw_iceoryx <https://github.com/ros2/rmw_iceoryx>`__
- * `FastRTPS 1.9.3 <https://github.com/ros2/ros2/issues/734#issuecomment-518018479>`__
- * New Tier-2 implementation: `rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`__ (also backported to Dashing)
+  * `API to loan message for zero copy <https://github.com/ros2/design/pull/256>`__, used by `rmw_iceoryx <https://github.com/ros2/rmw_iceoryx>`__
+  * `FastRTPS 1.9.3 <https://github.com/ros2/ros2/issues/734#issuecomment-518018479>`__
+  * New Tier-2 implementation: `rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`__ (also backported to Dashing)
 
 * Environment variable `ROS_LOCALHOST_ONLY <https://github.com/ros2/ros2/issues/798>`__ to limit communication to localhost
 * MacOS Mojave Support
