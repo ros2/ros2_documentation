@@ -58,6 +58,9 @@ Newcomers and experienced ROS users should consult this overview of our user-cen
 Learn more
 ^^^^^^^^^^
 
+There are plenty of resources available online to learn more about ROS 2.
+Here's a few to start with:
+
 * `design.ros2.org <http://design.ros2.org>`__ contains various articles on the design decisions behind ROS 2, like:
    * `Why ROS 2? <http://design.ros2.org/articles/why_ros2.html>`__
    * `ROS on DDS <http://design.ros2.org/articles/ros_on_dds.html>`__
