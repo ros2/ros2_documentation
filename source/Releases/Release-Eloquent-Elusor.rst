@@ -149,9 +149,9 @@ You can run ``ros2 interface --help`` for usage.
 ros2node
 """"""""
 
-Service clients have been added to ros2node info. As part of that change
-``get_service_info`` has been replaced by ``get_service_server_info`` within
-the API.
+Service clients have been added to ros2node info.
+As part of that change the Python function ``ros2node.api.get_service_info``
+has been renamed to ``ros2node.api.get_service_server_info``.
 
 Timeline before the release
 ---------------------------
