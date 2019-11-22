@@ -64,6 +64,8 @@ See specific sections below for how to also install the :ref:`ros1_bridge <Eloqu
 Try some examples
 -----------------
 
+If you installed ``ros-eloquent-desktop`` above you can try some examples.
+
 In one terminal, source the setup file and then run a ``talker``\ :
 
 .. code-block:: bash
