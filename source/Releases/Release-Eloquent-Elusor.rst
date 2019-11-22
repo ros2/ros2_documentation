@@ -54,6 +54,7 @@ A few features and improvements we would like to highlight:
 
 * Environment variable `ROS_LOCALHOST_ONLY <https://github.com/ros2/ros2/issues/798>`__ to limit communication to localhost
 * MacOS Mojave Support
+* `Tracing instrumentation <https://github.com/ros2/ros2/pull/748>`__ for rcl and rclcpp
 
 
 During the development the `Eloquent meta ticket <https://github.com/ros2/ros2/issues/734>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
