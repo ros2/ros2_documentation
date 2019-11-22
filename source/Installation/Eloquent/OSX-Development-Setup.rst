@@ -123,7 +123,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_eloquent/src
    cd ~/ros2_eloquent
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
