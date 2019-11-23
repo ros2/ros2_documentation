@@ -1,13 +1,13 @@
-.. _EloquentInstall:
+.. _FoxyInstall:
 
-Installing ROS 2 Eloquent Elusor
-================================
+Installing ROS 2 Foxy Fitzroy
+=============================
 
 .. toctree::
    :hidden:
    :glob:
 
-   Eloquent/*
+   Foxy/*
 
 Binary packages
 ---------------
@@ -16,14 +16,14 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Bionic(18.04))
 
-  * `Debian packages <Eloquent/Linux-Install-Debians>`
-  * `"fat" archive <Eloquent/Linux-Install-Binary>`
+  * `Debian packages <Foxy/Linux-Install-Debians>`
+  * `"fat" archive <Foxy/Linux-Install-Binary>`
 
-* `OS X <Eloquent/OSX-Install-Binary>`
-* `Windows <Eloquent/Windows-Install-Binary>`
+* `OS X <Foxy/OSX-Install-Binary>`
+* `Windows <Foxy/Windows-Install-Binary>`
 
 
-.. _Eloquent_building-from-source:
+.. _Foxy_building-from-source:
 
 Building from source
 --------------------
@@ -31,8 +31,8 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Eloquent/Linux-Development-Setup>`
-* `OS X <Eloquent/OSX-Development-Setup>`
-* `Windows <Eloquent/Windows-Development-Setup>`
+* `Linux <Foxy/Linux-Development-Setup>`
+* `OS X <Foxy/OSX-Development-Setup>`
+* `Windows <Foxy/Windows-Development-Setup>`
 
 .. include:: _Install-Types.rst

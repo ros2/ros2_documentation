@@ -10,7 +10,7 @@ Building ROS 2 on Linux
 
 System Requirements
 -------------------
-Target platforms for Eloquent Elusor are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Foxy Fitzroy are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 
@@ -83,7 +83,7 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
-.. _Eloquent_linux-dev-get-ros2-code:
+.. _Foxy_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -92,9 +92,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_eloquent/src
-   cd ~/ros2_eloquent
-   wget https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos
+   mkdir -p ~/ros2_foxy/src
+   cd ~/ros2_foxy
+   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
 Install dependencies using rosdep
@@ -104,9 +104,9 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _Eloquent_linux-development-setup-install-more-dds-implementations-optional:
+.. _Foxy_linux-development-setup-install-more-dds-implementations-optional:
 
 Install more DDS implementations (Optional)
 -------------------------------------------
@@ -211,7 +211,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_eloquent/
+   cd ~/ros2_foxy/
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
@@ -238,14 +238,14 @@ In one terminal, source the setup file and then run a ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/install/local_setup.bash
+   . ~/ros2_foxy/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/install/local_setup.bash
+   . ~/ros2_foxy/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.

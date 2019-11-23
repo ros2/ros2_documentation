@@ -12,7 +12,7 @@ This guide is about how to setup a development environment for ROS2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <Eloquent_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <Foxy_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -150,22 +150,22 @@ Getting the Source Code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2_eloquent``:
+First setup a development folder, I use ``C:\dev\ros2_foxy``:
 
 .. code-block:: bash
 
-   > md \dev\ros2_eloquent\src
-   > cd \dev\ros2_eloquent
+   > md \dev\ros2_foxy\src
+   > cd \dev\ros2_foxy
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos -o ros2.repos
+   > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
@@ -225,7 +225,7 @@ To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools C
 
 FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2_eloquent`` folder tree:
+To build the ``\dev\ros2_foxy`` folder tree:
 
 .. code-block:: bash
 
