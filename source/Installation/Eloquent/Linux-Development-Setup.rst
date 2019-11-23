@@ -1,4 +1,3 @@
-.. _linux-latest:
 
 Building ROS 2 on Linux
 =======================

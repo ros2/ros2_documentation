@@ -1,4 +1,3 @@
-.. _osx-latest:
 
 Building ROS 2 on OS X
 ======================
