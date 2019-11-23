@@ -5,14 +5,14 @@ Installing ROS2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 Eloquent Elusor are available for Ubuntu Bionic.
+Debian packages for ROS 2 Foxy Fitzroy are available for Ubuntu Bionic.
 
 Resources
 ---------
 
 * Status Page:
 
-  * ROS 2 Eloquent (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_eloquent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_eloquent_ubv8.html>`__
+  * ROS 2 Foxy (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_foxy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_foxy_ubv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -35,7 +35,7 @@ Setup Sources
 
 .. include:: ../_Apt-Repositories.rst
 
-.. _Eloquent_linux-install-debians-install-ros-2-packages:
+.. _Foxy_linux-install-debians-install-ros-2-packages:
 
 Install ROS 2 packages
 ----------------------
@@ -50,16 +50,16 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-eloquent-desktop
+   sudo apt install ros-foxy-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-eloquent-ros-base
+   sudo apt install ros-foxy-ros-base
 
-See specific sections below for how to also install the :ref:`ros1_bridge <Eloquent_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Eloquent_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Eloquent_linux-install-additional-rmw-implementations>`.
+See specific sections below for how to also install the :ref:`ros1_bridge <Foxy_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Foxy_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Foxy_linux-install-additional-rmw-implementations>`.
 
 Try some examples
 -----------------
@@ -68,14 +68,14 @@ In one terminal, source the setup file and then run a ``talker``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/eloquent/setup.bash
+   source /opt/ros/foxy/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/eloquent/setup.bash
+   source /opt/ros/foxy/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -104,15 +104,15 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/eloquent/setup.bash
+   source /opt/ros/foxy/setup.bash
 
 You may want to add this to your ``.bashrc``.
 
 .. code-block:: bash
 
-   echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
+   echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 
-.. _Eloquent_linux-install-additional-rmw-implementations:
+.. _Foxy_linux-install-additional-rmw-implementations:
 
 Install additional RMW implementations
 --------------------------------------
@@ -125,15 +125,15 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-eloquent-rmw-opensplice-cpp # for OpenSplice
-   sudo apt install ros-eloquent-rmw-connext-cpp # for RTI Connext (requires license agreement)
+   sudo apt install ros-foxy-rmw-opensplice-cpp # for OpenSplice
+   sudo apt install ros-foxy-rmw-connext-cpp # for RTI Connext (requires license agreement)
 
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-.. _Eloquent_linux-ros1-add-pkgs:
+.. _Foxy_linux-ros1-add-pkgs:
 
 `University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
@@ -151,9 +151,9 @@ Now you can install the remaining packages:
 .. code-block:: bash
 
    sudo apt update
-   sudo apt install ros-eloquent-ros1-bridge
+   sudo apt install ros-foxy-ros1-bridge
 
-The turtlebot2 packages are not currently available in Eloquent.
+The turtlebot2 packages are not currently available in Foxy.
 
 Build your own packages
 -----------------------

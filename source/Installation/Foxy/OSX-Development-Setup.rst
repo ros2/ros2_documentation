@@ -121,9 +121,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_eloquent/src
-   cd ~/ros2_eloquent
-   wget https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos
+   mkdir -p ~/ros2_foxy/src
+   cd ~/ros2_foxy
+   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -147,7 +147,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_eloquent/
+   cd ~/ros2_foxy/
    colcon build --symlink-install
 
 
@@ -158,7 +158,7 @@ In a clean new terminal, source the setup file (this will automatically set up t
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/install/setup.bash
+   . ~/ros2_foxy/install/setup.bash
    ros2 run demo_nodes_cpp talker
 
 
@@ -166,7 +166,7 @@ In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/install/setup.bash
+   . ~/ros2_foxy/install/setup.bash
    ros2 run demo_nodes_cpp listener
 
 
@@ -187,7 +187,7 @@ See `Working with multiple RMW implementations </Tutorials/Working-with-multiple
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 Eloquent Elusor supports OpenSplice 6.9.
+ROS 2 Foxy Fitzroy supports OpenSplice 6.9.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
@@ -219,7 +219,7 @@ The setup file and path will depend on your macOS version.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-.. _Eloquent_osx-development-setup-troubleshooting:
+.. _Foxy_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------
@@ -240,8 +240,8 @@ If you are seeing library loading issues at runtime (either running tests or run
 
 .. code-block:: bash
 
-   ImportError: dlopen(.../ros2_eloquent/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so, 2): Library not loaded: @rpath/librcl_interfaces__rosidl_typesupport_c.dylib
-     Referenced from: .../ros2_eloquent/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
+   ImportError: dlopen(.../ros2_foxy/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so, 2): Library not loaded: @rpath/librcl_interfaces__rosidl_typesupport_c.dylib
+     Referenced from: .../ros2_foxy/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
      Reason: image not found
 
 then you probably have System Integrity Protection enabled.

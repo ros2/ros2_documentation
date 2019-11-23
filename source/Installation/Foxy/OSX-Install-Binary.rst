@@ -12,7 +12,7 @@ System requirements
 
 We support OS X Sierra (10.12.x).
 
-.. _Eloquent_osx-install-binary-installling-prerequisites:
+.. _Foxy_osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -122,8 +122,8 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_eloquent
-       cd ~/ros2_eloquent
+       mkdir -p ~/ros2_foxy
+       cd ~/ros2_foxy
        tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
@@ -165,7 +165,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/ros2-osx/setup.bash
+   . ~/ros2_foxy/ros2-osx/setup.bash
 
 
 For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).
@@ -199,7 +199,7 @@ Hooray!
 
 If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
-If you run into issues, see `the troubleshooting section <Eloquent_osx-development-setup-troubleshooting>` on the source installation page.
+If you run into issues, see `the troubleshooting section <Foxy_osx-development-setup-troubleshooting>` on the source installation page.
 
 Build your own packages
 -----------------------

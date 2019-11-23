@@ -26,7 +26,7 @@ Downloading ROS 2
 
 
 * Go `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-eloquent-linux-x86_64.tar.bz2``.
+* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-foxy-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -35,9 +35,9 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_eloquent
-       cd ~/ros2_eloquent
-       tar xf ~/Downloads/ros2-eloquent-linux-x86_64.tar.bz2
+       mkdir -p ~/ros2_foxy
+       cd ~/ros2_foxy
+       tar xf ~/Downloads/ros2-foxy-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
 ----------------------------------
@@ -57,7 +57,7 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
    Follow the normal install instructions: http://wiki.ros.org/melodic/Installation/Ubuntu
@@ -140,14 +140,14 @@ In one terminal, source the setup file and then run a ``talker``:
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/ros2-linux/setup.bash
+   . ~/ros2_foxy/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/ros2-linux/setup.bash
+   . ~/ros2_foxy/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -176,7 +176,7 @@ In another terminal, start the bridge:
 .. code-block:: bash
 
    . /opt/ros/melodic/setup.bash
-   . ~/ros2_eloquent/ros2-linux/setup.bash
+   . ~/ros2_foxy/ros2-linux/setup.bash
    ros2 run ros1_bridge dynamic_bridge
 
 For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
