@@ -10,6 +10,7 @@ Installation
    Installation/Crystal
    Installation/Dashing
    Installation/Eloquent
+   Installation/Foxy
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
    Installation/Install-Connext-Security-Plugins

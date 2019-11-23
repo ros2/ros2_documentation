@@ -116,9 +116,14 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - <F-turtle>
+   * - Foxy Fitzroy
      - May 2020
      - 3+ years
      - Target Ubuntu 20.04
+   * - <G-turtle>
+     - May 2021 ?
+     -
+     -
 
-After F-turtle the expectation is to release new ROS 2 distributions once per year.
+
+The expectation is to release new ROS 2 distributions once per year.
