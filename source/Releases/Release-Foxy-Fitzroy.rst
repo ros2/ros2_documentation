@@ -39,7 +39,13 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes since the Dashing release
 ---------------------------------
 
-TBD
+Default Console Logging Format
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default console logging output format was changed to include the timestamp by default, see:
+
+- `https://github.com/ros2/rcutils/pull/190 <https://github.com/ros2/rcutils/pull/190>`_
+- `https://discourse.ros.org/t/ros2-logging-format/11549 <https://discourse.ros.org/t/ros2-logging-format/11549>`_
 
 Timeline before the release
 ---------------------------
