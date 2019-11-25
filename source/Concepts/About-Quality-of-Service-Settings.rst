@@ -17,7 +17,7 @@ Given the complexity of choosing the correct QoS policies for a given scenario, 
 At the same time, users are given the flexibility to control specific profiles of the QoS policies.
 
 QoS profiles can be specified for publishers, subscribers, service servers and clients.
-A QoS profile can be applied independently to each instance of the aforementioned entities, but if different profiles are used it is possible that they will not connect.
+A QoS profile can be applied independently to each instance of the aforementioned entities, but if different profiles are used, it is possible that they will not connect.
 
 QoS policies
 ------------
