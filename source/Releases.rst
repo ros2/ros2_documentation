@@ -116,7 +116,7 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - Foxy Fitzroy
+   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - May 2020
      - 3+ years
      - Target Ubuntu 20.04
