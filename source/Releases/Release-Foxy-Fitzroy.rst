@@ -36,8 +36,14 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
 
-Changes since the Dashing release
----------------------------------
+Changes since the Eloquent release
+----------------------------------
+
+Default working directory for ament_add_test
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default working directory for tests added with ``ament_add_test`` has been changed to ``CMAKE_CURRENT_BINARY_DIR`` to match the behavior of CMake ``add_test``.
+Either update the tests to work with the new default or pass ``WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}`` to restore the previous value.
 
 Default Console Logging Format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
