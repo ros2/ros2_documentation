@@ -111,7 +111,6 @@ So that SIP doesn't prevent processes from inheriting dynamic linker environment
 Downloading ROS 2
 -----------------
 
-
 * Go to the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for OS X; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
@@ -158,24 +157,14 @@ Set the ``NDDSHOME`` environment variable:
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Source the ROS 2 setup file:
 
 .. code-block:: bash
 
    . ~/ros2_eloquent/ros2-osx/setup.bash
-
-
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).
-Only do this **after** you have sourced the ROS 2 one:
-
-.. code-block:: bash
-
-   . <path_to_opensplice>/x86_64.darwin10_clang/release.com
-
-
 
 Try some examples
 -----------------
@@ -185,7 +174,6 @@ In one terminal, set up the ROS 2 environment as described above and then run a 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
-
 
 In another terminal, set up the ROS 2 environment and then run a ``listener``:
 
