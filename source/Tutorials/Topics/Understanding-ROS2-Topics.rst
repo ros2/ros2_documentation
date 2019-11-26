@@ -67,7 +67,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
 You can also open rqt_graph by opening rqt and selecting **Plugins** > **Introspection** > **Nodes Graph**.
 
-.. image:: graph.png
+.. image:: rqt_graph.png
 
 You should see the above nodes and topic, as well as two actions around the periphery of the graph (let's ignore those for now).
 If you hover your mouse over the topic in the center, you'll see the color highlighting like in the image above.
