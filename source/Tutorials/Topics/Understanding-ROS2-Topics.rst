@@ -57,7 +57,7 @@ Recall from the previous tutorial that the names of these nodes are ``/turtlesim
 
 Throughout this tutorial, we will use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 
-The :ref:`turtlesim tutorial <Turtlesim>` tells you how to install rqt and all its plugins, including rqt_graph.
+The :ref:`turtlesim tutorial <Turtlesim>` tells you how to install rqt and all its plugins, including ``rqt_graph``.
 
 To run rqt_graph, open a new terminal and enter the command:
 
@@ -67,17 +67,10 @@ To run rqt_graph, open a new terminal and enter the command:
 
 You can also open rqt_graph by opening rqt and selecting **Plugins** > **Introspection** > **Nodes Graph**.
 
-Your graph will be blank.
-Press the refresh button to the left of the dropdown list to see your two nodes.
-
-To see the topic connecting them, choose **Nodes/Topics (active)** from the dropdown list.
-Additionally, the number of **Namespaces** should be 0.
-
-.. todo: the above 4 sentences can be removed once the “nodes only” problem is fixed
-
 .. image:: rqt_graph.png
 
-You should see the above nodes and topic, and if you hover your mouse over any of the elements, the color highlighting as well.
+You should see the above nodes and topic, as well as two actions around the periphery of the graph (let's ignore those for now).
+If you hover your mouse over the topic in the center, you'll see the color highlighting like in the image above.
 
 The graph is depicting how the ``/turtlesim`` node and the ``/teleop_turtle`` node are communicating with each other over a topic.
 The ``/teleop_turtle`` node is publishing data (the keystrokes you enter to move the turtle around) to the ``/turtle1/cmd_vel`` topic, and the ``/turtlesim`` node is subscribed to that topic to receive the data.
@@ -157,7 +150,7 @@ Now return to rqt_graph and uncheck the **Debug** box.
 
 .. image:: debug.png
 
-``/_ros2cli_22409`` is the node created by the ``echo`` we just ran (the number will change).
+``/_ros2cli_26646`` is the node created by the ``echo`` we just ran (the number will change).
 Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed.
 
 5 ros2 topic info
@@ -277,7 +270,7 @@ The difference here is the removal of the ``--once`` option and the addition of 
 .. image:: pub_stream.png
 
 You can refresh rqt_graph to see what’s happening graphically.
-You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_publisher_…``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_24…``) and the ``/turtlesim`` node now.
+You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_30358``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_26646``) and the ``/turtlesim`` node now.
 
 .. image:: rqt_graph2.png
 
