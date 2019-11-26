@@ -67,7 +67,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
 You can also open rqt_graph by opening rqt and selecting **Plugins** > **Introspection** > **Nodes Graph**.
 
-.. image:: new_graph.png
+.. image:: graph.png
 
 You should see the above nodes and topic, as well as two actions around the periphery of the graph (let's ignore those for now).
 If you hover your mouse over the topic in the center, you'll see the color highlighting like in the image above.
@@ -109,7 +109,7 @@ These attributes, particularly the type, are how nodes know they’re talking ab
 
 If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
 
-.. image:: new_unhide.png
+.. image:: unhide.png
 
 For now, though, leave those options checked to avoid confusion.
 
@@ -148,7 +148,7 @@ Watch the terminal where your ``echo`` is running at the same time, and you’ll
 
 Now return to rqt_graph and uncheck the **Debug** box.
 
-.. image:: new_debug.png
+.. image:: debug.png
 
 ``/_ros2cli_26646`` is the node created by the ``echo`` we just ran (the number will change).
 Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed.
@@ -272,7 +272,7 @@ The difference here is the removal of the ``--once`` option and the addition of 
 You can refresh rqt_graph to see what’s happening graphically.
 You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_30358``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_26646``) and the ``/turtlesim`` node now.
 
-.. image:: new_rqt_graph2.png
+.. image:: rqt_graph2.png
 
 Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
@@ -280,7 +280,7 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
   ros2 topic echo /turtle1/pose
 
-.. image:: new_rqt_graph3.png
+.. image:: rqt_graph3.png
 
 In this case, ``/turtlesim`` is now publishing to the ``pose`` topic, and a new ``echo`` node is subscribed.
 
