@@ -133,12 +133,6 @@ Set up your environment by sourcing the following file.
 
   . ~/ros2_eloquent/ros2-linux/setup.bash
 
-You may want to add this to your ``.bashrc``.
-
-.. code-block:: bash
-
-   echo ". ~/ros2_eloquent/ros2-linux/setup.bash" >> ~/.bashrc
-
 Installing python3 argcomplete (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

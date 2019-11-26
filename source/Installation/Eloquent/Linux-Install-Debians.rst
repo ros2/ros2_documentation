@@ -73,12 +73,6 @@ Set up your environment by sourcing the following file.
 
    source /opt/ros/eloquent/setup.bash
 
-You may want to add this to your ``.bashrc``.
-
-.. code-block:: bash
-
-   echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
-
 Install argcomplete (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

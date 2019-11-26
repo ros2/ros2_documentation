@@ -243,12 +243,6 @@ Set up your environment by sourcing the following file.
 
    . ~/ros2_eloquent/install/setup.bash
 
-You may want to add this to your ``.bashrc``.
-
-.. code-block:: bash
-
-   echo ". ~/ros2_eloquent/install/setup.bash" >> ~/.bashrc
-
 Install argcomplete (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
