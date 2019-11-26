@@ -69,19 +69,6 @@ Installing the python3 libraries
 
        sudo apt install -y libpython3-dev
 
-Environment setup
------------------
-
-Installing python3 argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete for autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
@@ -133,6 +120,29 @@ Note: the above may need modification to match your RTI installation location
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
+
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+  . ~/ros2_eloquent/ros2-linux/setup.bash
+
+Installing python3 argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete for autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 
@@ -157,8 +167,9 @@ If you have installed support for an optional vendor, see `this page </Tutorials
 
 See the `demos </Tutorials>` for other things to try, including how to `run the talker-listener example in Python </Tutorials/Python-Programming>`.
 
+
 Using the ROS 1 bridge
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file.
 We'll assume that it is ``/opt/ros/melodic/setup.bash`` in the following.

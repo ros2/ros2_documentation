@@ -230,6 +230,28 @@ You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/s
 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   . ~/ros2_eloquent/install/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 

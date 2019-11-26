@@ -1,5 +1,5 @@
-Installing ROS2 via Debian Packages
-===================================
+Installing ROS 2 via Debian Packages
+====================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -61,6 +61,28 @@ No GUI tools.
 
 See specific sections below for how to also install the :ref:`ros1_bridge <Eloquent_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Eloquent_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Eloquent_linux-install-additional-rmw-implementations>`.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   source /opt/ros/eloquent/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 
@@ -84,35 +106,6 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 Hooray!
 
 See the `demos </Tutorials>` for other things to try.
-
-Environment setup
------------------
-
-(optional) Install argcomplete
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
-
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Set up your environment by sourcing the following file.
-
-.. code-block:: bash
-
-   source /opt/ros/eloquent/setup.bash
-
-You may want to add this to your ``.bashrc``.
-
-.. code-block:: bash
-
-   echo "source /opt/ros/eloquent/setup.bash" >> ~/.bashrc
 
 .. _Eloquent_linux-install-additional-rmw-implementations:
 

@@ -149,25 +149,31 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
    cd ~/ros2_eloquent/
    colcon build --symlink-install
 
-
-Try some examples
+Environment setup
 -----------------
 
-In a clean new terminal, source the setup file (this will automatically set up the environment for any DDS vendors that support was built for) and then run a ``talker``:
+Source the ROS 2 setup file:
 
 .. code-block:: bash
 
    . ~/ros2_eloquent/install/setup.bash
-   ros2 run demo_nodes_cpp talker
 
+This will automatically set up the environment for any DDS vendors that support was built for.
+
+Try some examples
+-----------------
+
+In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_eloquent/install/setup.bash
    ros2 run demo_nodes_cpp listener
-
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
@@ -341,4 +347,3 @@ When building qt_gui_cpp there may be errors look like the following:
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
-
