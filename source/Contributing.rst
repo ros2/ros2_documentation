@@ -39,23 +39,11 @@ Tenets
 
 There are a number of ways you can contribute to the ROS 2 project.
 
-Design discussions
-------------------
+Discussions and support
+-----------------------
 
-Discussions about the design of ROS 2 are ongoing on the `ROS 2 forum <http://discourse.ros.org/c/ng-ros>`__.
-Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and will be implemented.
-
-The diverse community behind the ROS ecosystem is one of its greatest assets.
-We encourage all members of the ROS community to participate in these design discussions so that we can 1) leverage the experience of community members, and 2) keep the varied use cases of ROS in mind.
-
-Support
--------
-
-One of the easiest ways that you can contribute to ROS 2 is by helping other community members troubleshoot their system.
-ROS 2 users come from a range of technical backgrounds, use a variety of different operating systems/platforms, and don’t necessarily have any prior experience with ROS (1 or 2).
-
-If you see an issue on `ROS Answers <http://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
-+Don’t worry if you are not sure if your response is correct - simply say so, and other community members will jump in if necessary.
+Some of the easiest ways to contribute to ROS 2 involve engaging in community discussions and support.
+You can find more information on how to pitch in on the :ref:`Contact <Help>` page.
 
 Contributing code
 -----------------
