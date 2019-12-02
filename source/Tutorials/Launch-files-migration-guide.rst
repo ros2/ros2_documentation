@@ -369,7 +369,8 @@ There are, however, some changes w.r.t. ROS 1:
   ``$(env <NAME>)`` will fail if the environment variable doesn't exist.
   ``$(env <NAME> '')`` does the same as ROS 1's ``$(optenv <NAME>)``.
   ``$(env <NAME> <DEFAULT>)`` does the same as ROS 1's ``$(env <NAME> <DEFAULT>)`` or ``$(optenv <NAME> <DEFAULT>)``.
-* ``find`` has been replaced with ``find-pkg``.
+* ``find`` has been replaced with ``find-pkg-share`` (substituting the share directory of an installed package).
+  *  Alternatively ``find-pkg-prefix`` will return the root of an installed package.
 * There is a new ``exec-in-pkg`` substitution.
   e.g.: ``$(exec-in-pkg <package_name> <exec_name>)``.
 * There is a new ``find-exec`` substitution.
