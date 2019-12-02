@@ -71,5 +71,4 @@ We encourage all members of the ROS community to participate in these design dis
 Private contact
 ---------------
 
-Mail us directly for sensitive information
 If you'd like to contact us privately (e.g., if your question contains information sensitive to your organization or project), you can email us directly at ``ros@osrfoundation.org``.
