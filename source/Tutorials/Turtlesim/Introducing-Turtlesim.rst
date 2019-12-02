@@ -30,6 +30,8 @@ Prerequisites
 
 The previous tutorial, :ref:`ConfigROS2`, will show you how to set up your environment.
 
+Turtlesim and rqt are only available in ROS 2 from Dashing onward.
+
 Tasks
 -----
 
