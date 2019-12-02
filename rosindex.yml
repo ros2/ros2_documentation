@@ -7,19 +7,18 @@ sources_dir: source
 # backwards compatibility.
 index_pattern:
   - index.rst
-  - Roadmap.rst
-  - Releases.rst
-  - Concepts.rst
-  - Features.rst
-  - Tutorials.rst
   - Installation.rst
+  - Tutorials.rst
+  - Concepts.rst
   - Troubleshooting.rst
   - Contributing.rst
+  - Contact.rst
+  - ROSCon-Content.rst
+  - Releases.rst
+  - Features.rst
+  - Roadmap.rst
   - Governance.rst
   - Marketing.rst
-  - ROSCon-Content.rst
   - Related-Projects.rst
-  - Contact.rst
-  - About.rst
   - '*/*.rst'
   - '*/*/*.rst'
