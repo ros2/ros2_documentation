@@ -29,7 +29,7 @@ Simply say so, and other community members will jump in if necessary.
 Issues
 ------
 
-If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub to notify the ROS 2 team.
+If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
 
 For example, if you are following the :ref:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
 you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
