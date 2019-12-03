@@ -11,8 +11,7 @@ We recommend following the tutorials in order, from the "Users" set to the "Deve
 
 You're welcome to pick tutorials out of the set if you're looking for something specific, just understand that the tutorials build off of each other and are not meant to be comprehensive documentation.
 These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
-
-.. Feedback is placeholder for actual feedback solution in development
+The :ref:`Contact <Help>` page includes more ways to get help.
 
 .. note::
 
