@@ -154,6 +154,18 @@ Service clients have been added to ros2node info.
 As part of that change the Python function ``ros2node.api.get_service_info``
 has been renamed to ``ros2node.api.get_service_server_info``.
 
+rviz
+^^^^
+
+Renamed '2D Nav Goal' tool
+""""""""""""""""""""""""""
+
+The tool was renamed to '2D Goal Pose' and the default topic was changed from ``/move_base_simple/goal`` to ``/goal_pose``.
+
+Here is the related pull request:
+
+`https://github.com/ros2/rviz/pull/455 <https://github.com/ros2/rviz/pull/455>`_
+
 Timeline before the release
 ---------------------------
 
