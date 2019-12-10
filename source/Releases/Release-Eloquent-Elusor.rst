@@ -169,7 +169,9 @@ Here is the related pull request:
 TF2 Buffer
 ^^^^^^^^^^
 
-TF2 buffers now have to be given a timer interface. If a timer interface is not given, an exception will be thrown.
+TF2 buffers now have to be given a timer interface.
+
+If a timer interface is not given, an exception will be thrown.
 
 For example:
 
