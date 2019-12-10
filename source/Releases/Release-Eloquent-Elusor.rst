@@ -166,6 +166,26 @@ Here is the related pull request:
 
 `https://github.com/ros2/rviz/pull/455 <https://github.com/ros2/rviz/pull/455>`_
 
+TF2 Buffer
+^^^^^^^^^^
+
+TF2 buffers now have to be given a timer interface.
+
+If a timer interface is not given, an exception will be thrown.
+
+For example:
+
+.. code-block:: cpp
+
+    tf = std::make_shared<tf2_ros::Buffer>(get_clock());
+    // The next two lines are new in Eloquent
+    auto timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
+      this->get_node_base_interface(),
+      this->get_node_timers_interface());
+    tf->setCreateTimerInterface(timer_interface);
+    // Pass the Buffer to the TransformListener as before
+    transform_listener = std::make_shared<tf2_ros::TransformListener>(*tf);
+
 Timeline before the release
 ---------------------------
 
