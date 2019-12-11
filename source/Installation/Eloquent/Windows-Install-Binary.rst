@@ -234,3 +234,12 @@ Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+Uninstall
+---------
+
+If you need to uninstall Eloquent or switch to a source-based install once you have already installed from binaries, delete your source code directory's build folders:
+
+.. code-block:: bash
+
+  rmdir /s /q \ros2_eloquent
