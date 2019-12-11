@@ -247,7 +247,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 .. code-block:: bash
 
    > call C:\dev\ros2_dashing\local_setup.bat
-   
+
 This will automatically set up the environment for any DDS vendors that support was built for.
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
