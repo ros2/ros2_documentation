@@ -347,3 +347,13 @@ When building qt_gui_cpp there may be errors look like the following:
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
+
+Uninstall
+---------
+
+If you need to uninstall Eloquent or switch to a binary-based install once you have already installed from source, navigate to your source code directory's build folders and run ``make uninstall``:
+
+.. code-block:: bash
+
+  cd /ros2_eloquent
+  sudo make uninstall

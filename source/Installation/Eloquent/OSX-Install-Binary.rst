@@ -198,3 +198,13 @@ Troubleshooting
 ---------------
 
 Troubleshooting techniques can be found `here </Troubleshooting>`.
+
+Uninstall
+---------
+
+If you need to uninstall Eloquent or switch to a source-based install once you have already installed from binaries, navigate to your source code directory's build folders and run ``make uninstall``:
+
+.. code-block:: bash
+
+  cd ~/ros2_eloquent
+  sudo make uninstall
