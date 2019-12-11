@@ -144,11 +144,21 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
    cd ~/ros2_crystal/
    colcon build --symlink-install
 
+Environment setup
+-----------------
+
+Source the ROS 2 setup file:
+
+.. code-block:: bash
+
+   . ~/ros2_crystal/install/setup.bash
+
+This will automatically set up the environment for any DDS vendors that support was built for.
 
 Try some examples
 -----------------
 
-In a clean new terminal, source the setup file (this will automatically set up the environment for any DDS vendors that support was built for) and then run a ``talker``:
+In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
 
 .. code-block:: bash
 

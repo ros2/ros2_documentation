@@ -229,6 +229,28 @@ You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/s
 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   . ~/ros2_dashing/install/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 
@@ -244,7 +266,7 @@ In another terminal source the setup file and then run a ``listener``\ :
 .. code-block:: bash
 
    . ~/ros2_dashing/install/local_setup.bash
-   ros2 run demo_nodes_py listener
+   ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!

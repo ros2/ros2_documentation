@@ -1,5 +1,5 @@
-Installing ROS2 via Debian Packages
-===================================
+Installing ROS 2 via Debian Packages
+====================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -61,8 +61,32 @@ No GUI tools.
 
 See specific sections below for how to also install the :ref:`ros1_bridge <Foxy_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Foxy_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Foxy_linux-install-additional-rmw-implementations>`.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   source /opt/ros/foxy/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
+
+If you installed ``ros-foxy-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a ``talker``\ :
 
@@ -76,41 +100,12 @@ In another terminal source the setup file and then run a ``listener``\ :
 .. code-block:: bash
 
    source /opt/ros/foxy/setup.bash
-   ros2 run demo_nodes_py listener
+   ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
 
 See the `demos </Tutorials>` for other things to try.
-
-Environment setup
------------------
-
-(optional) Install argcomplete
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
-
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Set up your environment by sourcing the following file.
-
-.. code-block:: bash
-
-   source /opt/ros/foxy/setup.bash
-
-You may want to add this to your ``.bashrc``.
-
-.. code-block:: bash
-
-   echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 
 .. _Foxy_linux-install-additional-rmw-implementations:
 

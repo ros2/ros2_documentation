@@ -214,7 +214,7 @@ Start another command shell and run a ``listener``\ :
 
 .. code-block:: bash
 
-   > ros2 run demo_nodes_py listener
+   > ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!

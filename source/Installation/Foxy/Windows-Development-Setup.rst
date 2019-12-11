@@ -241,6 +241,19 @@ To build the ``\dev\ros2_foxy`` folder tree:
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
+Environment setup
+-----------------
+
+Start a command shell and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > call C:\dev\ros2_foxy\local_setup.bat
+
+This will automatically set up the environment for any DDS vendors that support was built for.
+
+It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+
 Testing and Running
 -------------------
 
@@ -262,8 +275,7 @@ Afterwards you can get a summary of the tests using this command:
 
    > colcon test-result
 
-To run the examples, first open a clean new ``cmd.exe`` and set up the workspace.
-This is done by sourcing the ``local_setup.bat`` file, which will automatically set up the environment for any DDS vendors that support was built for.
+To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
 Then execute the examples, e.g.:
 
 .. code-block:: bash

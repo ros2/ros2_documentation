@@ -190,9 +190,8 @@ Downloading ROS 2
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_foxy``\ ).
 
-
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
@@ -215,7 +214,7 @@ Start another command shell and run a ``listener``\ :
 
 .. code-block:: bash
 
-   > ros2 run demo_nodes_py listener
+   > ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!

@@ -1,5 +1,5 @@
-Installing ROS2 via Debian Packages
-===================================
+Installing ROS 2 via Debian Packages
+====================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -64,16 +64,6 @@ See specific sections below for how to also install the :ref:`ros1_bridge <Dashi
 Environment setup
 -----------------
 
-(optional) Install argcomplete
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
 Sourcing the setup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -83,26 +73,30 @@ Set up your environment by sourcing the following file.
 
    source /opt/ros/dashing/setup.bash
 
-You may want to add this to your ``.bashrc``.
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
 
 .. code-block:: bash
 
-   echo "source /opt/ros/dashing/setup.bash" >> ~/.bashrc
+   sudo apt install python3-argcomplete
 
 Try some examples
 -----------------
 
-In one terminal, source the setup file and then run a ``talker``\ :
+In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a ``listener``\ :
+In another terminal source the setup file and then run a ``listener``:
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_py listener
+   ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!

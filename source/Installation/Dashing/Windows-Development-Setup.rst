@@ -239,6 +239,19 @@ To build the ``\dev\ros2_dashing`` folder tree:
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
+Environment setup
+-----------------
+
+Start a command shell and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > call C:\dev\ros2_dashing\local_setup.bat
+   
+This will automatically set up the environment for any DDS vendors that support was built for.
+
+It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+
 Testing and Running
 -------------------
 

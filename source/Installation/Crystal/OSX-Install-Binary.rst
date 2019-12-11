@@ -154,24 +154,14 @@ You may need to increase shared memory resources following https://community.rti
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Source the ROS 2 setup file:
 
 .. code-block:: bash
 
    . ~/ros2_crystal/ros2-osx/setup.bash
-
-
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).
-Only do this **after** you have sourced the ROS 2 one:
-
-.. code-block:: bash
-
-   . <path_to_opensplice>/x86_64.darwin10_clang/release.com
-
-
 
 Try some examples
 -----------------
@@ -182,13 +172,11 @@ In one terminal, set up the ROS 2 environment as described above and then run a 
 
    ros2 run demo_nodes_cpp talker
 
-
 In another terminal, set up the ROS 2 environment and then run a ``listener``:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp listener
-
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!

@@ -242,6 +242,29 @@ Also, if you have already installed ROS2 from Debian make sure that you run the 
 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   . ~/ros2_crystal/install/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 

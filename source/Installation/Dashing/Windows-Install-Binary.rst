@@ -182,8 +182,8 @@ Downloading ROS 2
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_dashing``\ ).
 
 
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 

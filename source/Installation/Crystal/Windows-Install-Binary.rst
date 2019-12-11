@@ -219,22 +219,14 @@ Downloading ROS 2
 
   * Note (Ardent and earlier): There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
    > call C:\dev\ros2_crystal\local_setup.bat
-
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent; this step can be skipped).
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
-Only do this step **after** you have sourced the ROS 2 setup file:
-
-.. code-block:: bash
-
-   > call "C:\opensplice69\HDE\x86_64.win64\release.bat"
 
 Try some examples
 -----------------

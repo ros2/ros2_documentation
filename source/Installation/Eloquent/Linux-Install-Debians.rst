@@ -100,7 +100,7 @@ In another terminal source the setup file and then run a ``listener``\ :
 .. code-block:: bash
 
    source /opt/ros/eloquent/setup.bash
-   ros2 run demo_nodes_py listener
+   ros2 run demo_nodes_cpp listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
