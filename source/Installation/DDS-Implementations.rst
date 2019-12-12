@@ -155,7 +155,7 @@ OSX source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 supports OpenSplice 6.9.
+Active ROS 2 distros support OpenSplice 6.9.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
