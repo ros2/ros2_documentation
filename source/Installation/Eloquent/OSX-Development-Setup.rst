@@ -128,14 +128,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-ROS 2 builds on top of DDS.
-It is compatible with `multiple DDS or RTPS (the DDS wire protocol) vendors </Concepts/DDS-and-ROS-middleware-implementations>`.
-The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
-If you would like to use one of the other vendors you will need to install their software separately before building.
-The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
-
-By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
-Detailed instructions for installing other DDS vendors are provided in the "Alternative DDS sources" section below.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-source>`.
 
 Build the ROS 2 code
 --------------------
@@ -177,52 +170,6 @@ In another terminal source the setup file and then run a ``listener``:
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 Hooray!
-
-Alternative DDS sources
------------------------
-
-The demos will attempt to build against any detected DDS vendor.
-The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.
-If you would like to switch out the vendor below are the instructions.
-When you run the build make sure that your chosen DDS vendor(s) are exposed in your environment.
-
-When multiple vendors are present, you can choose the used RMW implementation by setting the the environment variable ``RMW_IMPLEMENTATION`` to the package providing the RMW implementation.
-See `Working with multiple RMW implementations </Tutorials/Working-with-multiple-RMW-implementations>` for more details.
-
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-ROS 2 Eloquent Elusor supports OpenSplice 6.9.
-
-To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-
-Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
-
-.. code-block:: bash
-
-   source <path_to_opensplice>/x86_64.darwin10_clang/release.com
-
-RTI Connext (5.3)
-^^^^^^^^^^^^^^^^^
-
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
-
-After installing, run RTI launcher and point it to your license file.
-
-Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
-
-The setup file and path will depend on your macOS version.
-
-.. code-block:: bash
-
-   # macOS 10.12 Sierra
-   source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin16clang8.0.bash
-   # macOS 10.13 High Sierra
-   source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 .. _Eloquent_osx-development-setup-troubleshooting:
 

@@ -1,0 +1,284 @@
+Install DDS implementations
+===========================
+
+By default, ROS 2 uses DDS as its `middleware <http://design.ros2.org/articles/ros_on_dds.html>`__.
+It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
+There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, RTI's Connext DDS and CycloneDDS.
+The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
+
+If you would like to use one of the other vendors you will need to install their software separately before building.
+The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
+
+Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
+
+Detailed instructions for installing other DDS vendors are provided below.
+
+.. contents:: Platforms / Installation types
+   :depth: 1
+   :local:
+
+.. _dds-linux-source:
+
+Linux source install
+--------------------
+
+ADLINK OpenSplice Debian Packages built by OSRF
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
+
+.. raw:: html
+
+   <!--
+   ##### Official binary packages from PrismTech
+
+   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
+   Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
+   Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
+   After that, your shell is ready to run ROS2 binaries with the official OpenSplice distribution.
+
+   You may also need to add the following line to your `.bashrc` file:
+
+   ```
+   export PTECH_LICENSE_FILE=path/to/prismtech.lic
+   ```
+
+   ##### Building OpenSplice from source
+
+   If you build OpenSplice from source, be sure to remember to following the INSTALL.txt instructions and manually replace the @@INSTALLDIR@@ placeholder in the OpenSplice install/HDE/x86_64.linux/release.com
+   -->
+
+RTI Connext (version 5.3.1, amd64 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Debian packages provided in the ROS 2 apt repositories
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can install a Debian package of RTI Connext available on the ROS 2 apt repositories.
+You will need to accept a license from RTI.
+
+.. code-block:: bash
+
+   sudo apt install -q -y \
+       rti-connext-dds-5.3.1  # from packages.ros.org/ros2/ubuntu
+
+Source the setup file to set the ``NDDSHOME`` environment variable.
+
+.. code-block:: bash
+
+   cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
+
+Note: when using ``zsh`` you need to be in the directory of the script when sourcing it to have it work properly
+
+Now you can build as normal and support for RTI will be built as well.
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
+
+Official binary packages from RTI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+
+After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
+Note that if you're installing to a system directory use ``sudo`` as well.
+
+The default location is ``~/rti_connext_dds-5.3.1``
+
+After installation, run RTI launcher and point it to your license file (obtained from RTI).
+
+Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
+
+Source the setup file to set the ``NDDSHOME`` environment variable.
+
+.. code-block:: bash
+
+   source ~/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash
+
+Now you can build as normal and support for RTI will be built as well.
+
+.. _dds-linux-binary:
+
+Linux binary install
+--------------------
+
+ADLINK OpenSplice
+^^^^^^^^^^^^^^^^^
+
+To use OpenSplice you can install a Debian package built by OSRF.
+
+.. code-block:: bash
+
+   sudo apt update && sudo apt install -q -y libopensplice69
+
+RTI Connext (version 5.3.1, amd64 only)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
+under a `non-commercial license <https://www.rti.com/ncl>`__.
+
+To install the libs-only Debian package:
+
+.. code-block:: bash
+
+   sudo apt update && sudo apt install -q -y rti-connext-dds-5.3.1
+
+You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
+
+Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
+
+.. code-block:: bash
+
+   export RTI_LICENSE_FILE=path/to/rti_license.dat
+
+All options need you to source the setup file to set the ``NDDSHOME`` environment variable:
+
+.. code-block:: bash
+
+   cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
+
+Note: the above may need modification to match your RTI installation location
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+
+.. _dds-osx-source:
+
+OSX source install
+------------------
+
+ADLINK OpenSplice
+^^^^^^^^^^^^^^^^^
+
+Active ROS 2 distros support OpenSplice 6.9.
+
+To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+
+Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
+
+.. code-block:: bash
+
+   source <path_to_opensplice>/x86_64.darwin10_clang/release.com
+
+RTI Connext (5.3)
+^^^^^^^^^^^^^^^^^
+
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+
+You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
+
+After installing, run RTI launcher and point it to your license file.
+
+Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
+
+The setup file and path will depend on your macOS version.
+
+.. code-block:: bash
+
+   # macOS 10.12 Sierra
+   source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin16clang8.0.bash
+   # macOS 10.13 High Sierra
+   source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
+
+You may need to increase shared memory resources following https://community.rti.com/kb/osx510
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+
+.. _dds-osx-binary:
+
+OSX binary install
+------------------
+
+Enable OpenSplice support
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+For ROS 2 releases up to and including Ardent, do not do anything else at this point.
+For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
+
+Enable Connext support
+^^^^^^^^^^^^^^^^^^^^^^
+
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+
+After installing, run RTI launcher and point it to your license file.
+
+Set the ``NDDSHOME`` environment variable:
+
+.. code-block:: bash
+
+   export NDDSHOME=/Applications/rti_connext_dds-5.3.1
+
+You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+
+.. _dds-windows-source:
+
+Windows source install
+----------------------
+
+ADLINK OpenSplice
+^^^^^^^^^^^^^^^^^
+
+If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
+Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
+
+.. code-block:: bash
+
+   call "C:\opensplice69\HDE\x86_64.win64\release.bat"
+
+Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
+
+RTI Connext 5.3
+^^^^^^^^^^^^^^^
+
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+
+After installing, use the RTI Launcher to load your license file.
+
+Then before building ROS 2, set up the Connext environment:
+
+.. code-block:: bash
+
+   call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
+
+Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
+The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+
+If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
+
+.. _dds-windows-binary:
+
+Windows binary install
+----------------------
+
+ADLINK OpenSplice
+^^^^^^^^^^^^^^^^^
+
+If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
+For active ROS 2 distros, version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+
+After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
+
+RTI Connext
+^^^^^^^^^^^
+
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+
+After installing, run RTI launcher and point it to your license file.
+
+Set the ``NDDSHOME`` environment variable:
+
+.. code-block:: bash
+
+   set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
+
+If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
