@@ -84,35 +84,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and RTI Connext as the middleware options.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-ADLINK OpenSplice
-~~~~~~~~~~~~~~~~~
-
-If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-For ROS 2 Eloquent version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
-
-After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
-
-RTI Connext
-~~~~~~~~~~~
-
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find can find instructions :ref:`here <dds-windows-binary>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -221,6 +193,11 @@ Hooray!
 
 If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
 
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
 Troubleshooting
 ^^^^^^^^^^^^^^^
 
@@ -229,8 +206,3 @@ Troubleshooting
 * If you see an error related with FastRTPS failing to be loaded, see `troubleshooting section in development install instructions <Windows-Development-Setup>`.
 
 Troubleshooting techniques can also be found `here </Troubleshooting>`.
-
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
