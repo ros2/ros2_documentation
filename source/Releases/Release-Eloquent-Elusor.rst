@@ -189,8 +189,8 @@ For example:
 rcl
 ^^^
 
-ROS CLI Re-Design
-"""""""""""""""""
+ROS command line argument changes
+"""""""""""""""""""""""""""""""""
 
 To cope with an increasingly complex interface, with a now extended set of configuration options, ROS CLI syntax has been changed.
 As an example, a command line using Dashing syntax like:
