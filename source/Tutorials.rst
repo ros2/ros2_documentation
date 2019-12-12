@@ -15,8 +15,8 @@ The :ref:`Contact <Help>` page includes more ways to get help.
 
 .. note::
 
-  Currently, the beginner level tutorials target **Eloquent**.
-  Certain features may not be available for older distributions.
+  Currently, the beginner level tutorials target **Eloquent**, installed from `Debians on Linux </Installation/Linux-Install-Debians>`.
+  Certain features and commands may not be available for older distributions/other installation types.
 
 Users
 ^^^^^

@@ -159,18 +159,14 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``~/dev_ws``):
-Run the following command, replacing ``<distro>`` with your distro:
+From the root of your workspace (``~/dev_ws``), run the following command, replacing ``<distro>`` with your distro:
 
 .. code-block:: console
 
   sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-For example, if you're using Eloquent, you would run:
-
-.. code-block:: console
-
-  sudo rosdep install -i --from-path src --rosdistro eloquent -y
+If you installed ROS 2 on Linux from source or the "fat" archive, you will need to use the rosdep command from their installation instructions.
+For example, here are the Eloquent :ref:`from-source rosdep section <Eloquent_linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`"fat" archive rosdep section <Eloquent_linux-install-binary-install-missing-dependencies>`.
 
 If you already have all your dependencies, the console will return:
 

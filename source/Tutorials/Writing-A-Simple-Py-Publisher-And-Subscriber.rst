@@ -386,21 +386,9 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 In any case, it's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Linux
-
-    .. code-block:: console
-
-      sudo rosdep install -i --from-paths ./src -y
-
-  .. group-tab:: macOS
-
-    You will already have ``rclpy`` and ``std_msgs`` from your installation.
-
-  .. group-tab:: Windows
-
-    You will already have ``rclpy`` and ``std_msgs`` from your installation.
+  sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
 Still in the root of your workspace, ``dev_ws``, build your new package:
 
