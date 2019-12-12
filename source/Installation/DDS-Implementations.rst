@@ -1,18 +1,17 @@
 Install DDS implementations
 ===========================
 
-ROS 2 builds on top of DDS.
+By default, ROS 2 uses DDS as its `middleware <http://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, and RTI's Connext DDS.
+There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, RTI's Connext DDS and CycloneDDS.
 The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
 
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-By default we include eProsima's FastRTPS in the workspace; it is the default middleware.
-Detailed instructions for installing other DDS vendors are provided below.
-
 If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
+
+Detailed instructions for installing other DDS vendors are provided below.
 
 .. contents:: Platforms / Installation types
    :depth: 1
