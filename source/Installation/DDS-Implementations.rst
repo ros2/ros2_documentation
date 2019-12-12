@@ -22,8 +22,8 @@ Detailed instructions for installing other DDS vendors are provided below.
 Linux source install
 --------------------
 
-PrismTech OpenSplice Debian Packages built by OSRF
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ADLINK OpenSplice Debian Packages built by OSRF
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -155,7 +155,7 @@ OSX source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-ROS 2 Eloquent Elusor supports OpenSplice 6.9.
+ROS 2 supports OpenSplice 6.9.
 
 To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
 
@@ -185,6 +185,8 @@ The setup file and path will depend on your macOS version.
    # macOS 10.13 High Sierra
    source /Applications/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
 
+You may need to increase shared memory resources following https://community.rti.com/kb/osx510
+
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
 .. _dds-osx-binary:
@@ -211,6 +213,8 @@ Set the ``NDDSHOME`` environment variable:
 .. code-block:: bash
 
    export NDDSHOME=/Applications/rti_connext_dds-5.3.1
+
+You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 

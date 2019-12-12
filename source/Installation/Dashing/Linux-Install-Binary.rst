@@ -71,55 +71,9 @@ Installing the python3 libraries
        sudo apt install -y libpython3-dev
 
 Install additional DDS implementations (optional)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-To use OpenSplice you can install a Debian package built by OSRF.
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install -q -y libopensplice69
-
-
-RTI Connext (version 5.3.1, amd64 only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
-under a `non-commercial license <https://www.rti.com/ncl>`__.
-
-To install the libs-only Debian package:
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install -q -y rti-connext-dds-5.3.1
-
-You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
-
-Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
-
-All options need you to source the setup file to set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
-
-Note: the above may need modification to match your RTI installation location
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-binary>`.
 
 Environment setup
 -----------------

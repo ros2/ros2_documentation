@@ -117,42 +117,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-*For ROS 2 Bouncy and newer:*
-
-The package you downloaded has been built with *optional* support for three vendors.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-*For ROS 2 Ardent and older:*
-
-If you downloaded a package that includes support for OpenSplice, you must install OpenSplice as detailed below.
-
-Enable OpenSplice support
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-For ROS 2 releases up to and including Ardent, do not do anything else at this point.
-For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
-
-Enable Connext support
-^^^^^^^^^^^^^^^^^^^^^^
-
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   export NDDSHOME=/Applications/rti_connext_dds-5.3.1
-
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-binary>`.
 
 Environment setup
 -----------------
