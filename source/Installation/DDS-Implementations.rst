@@ -258,7 +258,7 @@ Windows binary install
 ----------------------
 
 ADLINK OpenSplice
-~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^
 
 If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
 For ROS 2 Eloquent version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
@@ -266,7 +266,7 @@ For ROS 2 Eloquent version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is requi
 After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
 RTI Connext
-~~~~~~~~~~~
+^^^^^^^^^^^
 
 To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
 
