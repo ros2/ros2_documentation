@@ -200,19 +200,20 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 Try some examples
 -----------------
 
-In a command shell, set up the ROS 2 environment as described above and then run a ``talker``\ :
+In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_cpp talker
 
-Start another command shell and run a ``listener``\ :
+Start another command shell and run a Python ``listener``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.

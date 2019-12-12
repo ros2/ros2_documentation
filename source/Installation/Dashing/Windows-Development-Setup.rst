@@ -239,23 +239,24 @@ Afterwards you can get a summary of the tests using this command:
 
    > colcon test-result
 
-To run the examples, first open a clean new ``cmd.exe`` and set up the workspace.
-This is done by sourcing the ``local_setup.bat`` file, which will automatically set up the environment for any DDS vendors that support was built for.
-Then execute the examples, e.g.:
+To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
+Then, run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    > call install\local_setup.bat
-   > ros2 run demo_nodes_py talker
+   > ros2 run demo_nodes_cpp talker
 
-In a separate shell you can do the same, but instead run the ``listener``\ :
+In a separate shell you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: bash
 
    > call install\local_setup.bat
    > ros2 run demo_nodes_py listener
 
-For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
+You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
+Hooray!
 
 .. note::
 

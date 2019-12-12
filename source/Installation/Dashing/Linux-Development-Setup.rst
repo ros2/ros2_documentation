@@ -165,21 +165,22 @@ So if you want autocompletion, installing argcomplete is necessary.
 Try some examples
 -----------------
 
-In one terminal, source the setup file and then run a ``talker``\ :
+In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    . ~/ros2_dashing/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a ``listener``\ :
+In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
    . ~/ros2_dashing/install/local_setup.bash
-   ros2 run demo_nodes_cpp listener
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 See the `demos </Tutorials>` for other things to try.
