@@ -9,7 +9,7 @@ The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which i
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
+Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
 
 Detailed instructions for installing other DDS vendors are provided below.
 
