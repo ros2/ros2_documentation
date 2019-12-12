@@ -145,7 +145,6 @@ Try some examples
 In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
 
 .. code-block:: bash
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-binary>`.
 
    ros2 run demo_nodes_cpp talker
 
