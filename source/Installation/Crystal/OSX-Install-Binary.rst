@@ -147,9 +147,13 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you run into issues, see `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.
-
 Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+Troubleshooting
+---------------
+
+See `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.
+Troubleshooting techniques can also be found `here </Troubleshooting>`.
