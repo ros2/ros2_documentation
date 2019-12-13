@@ -1163,7 +1163,7 @@ Package Requirements
 
 *Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
 
-Requirements to be considered a 'Level 2' package:
+Requirements to be considered a 'Level 3' package:
 
 * Version Policy:
 
@@ -1219,7 +1219,7 @@ Package Requirements
 
 *Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
 
-Requirements to be considered a 'Level 3' package:
+Requirements to be considered a 'Level 4' package:
 
 * Version Policy:
 
