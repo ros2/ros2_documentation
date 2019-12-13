@@ -228,3 +228,15 @@ Troubleshooting
 
 * If some examples do not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
+
+Uninstall
+---------
+
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
+   This way, your environment will behave as though there is no Crystal install on your system.
+
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
+
+   .. code-block:: bash
+
+    rmdir /s /q \ros2_crystal

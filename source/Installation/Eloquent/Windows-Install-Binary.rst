@@ -208,11 +208,6 @@ Troubleshooting
 
 Troubleshooting techniques can also be found `here </Troubleshooting>`.
 
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
-
 Uninstall
 ---------
 

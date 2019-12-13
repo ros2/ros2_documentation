@@ -160,3 +160,12 @@ Troubleshooting
 ---------------
 
 Troubleshooting techniques can be found `here </Troubleshooting>`.
+
+Uninstall
+---------
+
+If you need to uninstall ROS 2 or switch to a source-based install once you
+have already installed from binaries, run the following command:
+
+.. code-block:: bash
+  sudo apt remove ros-foxy-* && sudo apt autoremove

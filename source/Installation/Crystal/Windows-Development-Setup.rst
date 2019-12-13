@@ -397,3 +397,15 @@ In order to use SROS2 in Debug mode on Windows, a corresponding debug build for 
 .. code-block:: bash
 
    > pip install lxml
+
+Uninstall
+---------
+
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
+   This way, your environment will behave as though there is no Crystal install on your system.
+
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
+
+   .. code-block:: bash
+
+    rmdir /s /q \ros2_crystal
