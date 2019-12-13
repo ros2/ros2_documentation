@@ -147,8 +147,6 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
-
 If you run into issues, see `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.
 
 Build your own packages
