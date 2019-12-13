@@ -975,7 +975,7 @@ We recommend the use of ``semver`` as it covers all the important points that a 
 The policy should link changes to API and ABI to the version scheme.
 
 Additionally, specifically for the ROS ecosystem, the policy should state that API and ABI will be maintained within a stable ROS distribution.
-For ``semver``, this means only patch releases into an existing ROS distribution.
+For ``semver``, this means only patch and minor increases only into an existing ROS distribution.
 
 Public API
 """"""""""
