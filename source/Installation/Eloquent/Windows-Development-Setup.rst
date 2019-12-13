@@ -176,44 +176,10 @@ Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos``
    # PowerShell
    > vcs import --input ros2.repos src
 
-Getting a DDS Vendor
---------------------
+Install additional DDS implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You'll also need a DDS Vendor available for ROS to build against.
-There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, and RTI's Connext DDS.
-The source distribution of ROS 2 includes FastRTPS, so it will always build unless explicitly ignored.
-
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
-Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
-
-.. code-block:: bash
-
-   call "C:\opensplice69\HDE\x86_64.win64\release.bat"
-
-where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
-
-RTI Connext 5.3
-^^^^^^^^^^^^^^^
-
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, use the RTI Launcher to load your license file.
-
-Then before building ROS 2, set up the Connext environment:
-
-.. code-block:: bash
-
-   call "C:\Program Files\rti_connext_dds-5.3.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
-
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
-The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
-
-If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-source>`.
 
 Building the ROS 2 Code
 -----------------------
@@ -275,33 +241,29 @@ Afterwards you can get a summary of the tests using this command:
    > colcon test-result
 
 To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
-Then execute the examples, e.g.:
+Then, run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    > call install\local_setup.bat
-   > ros2 run demo_nodes_py talker
+   > ros2 run demo_nodes_cpp talker
 
-In a separate shell you can do the same, but instead run the ``listener``\ :
+In a separate shell you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: bash
 
    > call install\local_setup.bat
    > ros2 run demo_nodes_py listener
 
-For more explanations see the `Python Programming </Tutorials/Python-Programming>` demo or `other tutorials </Tutorials>`.
+You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
+Hooray!
+
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 .. note::
 
    It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
-
-Alternative DDS Sources
------------------------
-
-The demos will attempt to build against any detected DDS vendor.
-The only bundled vendor is eProsima's Fast RTPS, which is included in the default set of sources for ROS 2.
-To build for other vendors, make sure that your chosen DDS vendor(s) are exposed in your environment when you run the build.
-If you would like to change which vendor is being used see: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
 
 Troubleshooting
 ---------------
@@ -436,9 +398,4 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    > python_d path\to\colcon_executable build
 
-* Hooray, you're done!
-
-Troubleshooting
----------------
-
-Troubleshooting techniques can be found `here </Troubleshooting>`.
+* Hooray, you\'re done!

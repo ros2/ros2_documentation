@@ -98,38 +98,7 @@ Install Visual Studio
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-ADLINK OpenSplice
-~~~~~~~~~~~~~~~~~
-
-If you want to use OpenSplice, you will need to download the latest supported version.
-* For ROS 2 Crystal version 6.9.181126OSS-HDE-x86_64.win-vs2017 or later is required.
-* For ROS 2 Bouncy version 6.7.180404OSS-HDE-x86_64.win-vs2017 or later is required.
-
-Download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__
-For ROS 2 releases up to and including Ardent, extract it but do not do anything else at this point.
-For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.bat`` script.
-
-RTI Connext
-~~~~~~~~~~~
-
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-binary>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -219,8 +188,8 @@ Downloading ROS 2
 
   * Note (Ardent and earlier): There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
@@ -228,42 +197,34 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
    > call C:\dev\ros2_crystal\local_setup.bat
 
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent; this step can be skipped).
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
-Only do this step **after** you have sourced the ROS 2 setup file:
-
-.. code-block:: bash
-
-   > call "C:\opensplice69\HDE\x86_64.win64\release.bat"
-
 Try some examples
 -----------------
 
-In a command shell, set up the ROS 2 environment as described above and then run a ``talker``\ :
+In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_cpp talker
 
-Start another command shell and run a ``listener``\ :
+Start another command shell and run a Python ``listener``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
-
-Troubleshooting
-^^^^^^^^^^^^^^^
-
-
-* If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
-* If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+Troubleshooting
+---------------
+
+* If some examples do not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
+* If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
