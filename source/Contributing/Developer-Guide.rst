@@ -1055,6 +1055,13 @@ There's obviously a lot of ambiguity in this area, as you could argue for or aga
 However, the point is to require the maintainers of the package to examine each dependency, justify why they do or do not impact the quality, and document that so that peer reviewers and consumers of the package can make their own evaluation.
 
 Dependencies which are other "ROS" packages should have these quality standards applied to them and should meet or exceed the quality level claimed by the package in question.
+
+Dependencies which are not other "ROS" packages should be individually examined for quality.
+You may either try to apply the requirements for the quality levels described here, or you may wish to simply argue the quality without using these requirements as a ruler.
+In either case, for each direct "non-ROS" dependency your "quality declaration" should include a justification as to why it is acceptable to depend on this software and still claim your package's level of quality.
+This may simply be text justification, or it may link to other analysis or discussions had by community members rationalizing the choice.
+The important point is that each dependency is considered, justified, and that the justification is documented, so that users of the package can read the justification and decide for themselves if it is acceptable or not.
+
 Any important caveats or justified exceptions for your dependencies should be mentioned (or referenced) in your own package's "quality declaration" document.
 
 For example, if your package depends on ``rclcpp``, and ``rclcpp`` claims 'level 1' quality with the caveat that this requires you use an rmw implementation that also meets the 'level 1' quality standard, then your package's "quality declaration" document should mention this as well.
