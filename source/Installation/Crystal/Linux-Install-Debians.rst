@@ -173,3 +173,13 @@ Build your own packages
 -----------------------
 
 If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+
+Uninstall
+---------
+
+If you need to uninstall ROS 2 or switch to a source-based install once you
+have already installed from binaries, run the following command:
+
+.. code-block:: bash
+
+  sudo apt remove ros-crystal-* && sudo apt autoremove

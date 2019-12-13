@@ -297,3 +297,15 @@ When building qt_gui_cpp there may be errors look like the following:
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
+
+Uninstall
+---------
+
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
+   This way, your environment will behave as though there is no Eloquent install on your system.
+
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
+
+   .. code-block:: bash
+
+    rm -rf ~/ros2_eloquent
