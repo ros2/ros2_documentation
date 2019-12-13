@@ -164,4 +164,5 @@ If you need to uninstall ROS 2 or switch to a source-based install once you
 have already installed from binaries, run the following command:
 
 .. code-block:: bash
+
   sudo apt remove ros-dashing-* && sudo apt autoremove
