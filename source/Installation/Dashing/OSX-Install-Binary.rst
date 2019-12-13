@@ -129,39 +129,10 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-binary>`.
 
-The package you downloaded has been built with *optional* support for three vendors.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-Enable OpenSplice support
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-For ROS 2 releases up to and including Ardent, do not do anything else at this point.
-For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
-
-Enable Connext support
-^^^^^^^^^^^^^^^^^^^^^^
-
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   export NDDSHOME=/Applications/rti_connext_dds-5.3.1
-
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
-
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Source the ROS 2 setup file:
 
@@ -169,37 +140,26 @@ Source the ROS 2 setup file:
 
    . ~/ros2_dashing/ros2-osx/setup.bash
 
-
-For ROS 2 releases up to and including Ardent, if you downloaded a release with OpenSplice support you must additionally source the OpenSplice setup file manually (this is done automatically for ROS 2 releases later than Ardent).
-Only do this **after** you have sourced the ROS 2 one:
-
-.. code-block:: bash
-
-   . <path_to_opensplice>/x86_64.darwin10_clang/release.com
-
 Try some examples
 -----------------
 
-In one terminal, set up the ROS 2 environment as described above and then run a ``talker``:
+In one terminal, set up the ROS 2 environment as described above and then run a C++ ``talker``:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
-
-In another terminal, set up the ROS 2 environment and then run a ``listener``:
+In another terminal, set up the ROS 2 environment and then run a Python ``listener``:
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp listener
-
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
-
-If you run into issues, see `the troubleshooting section <Dashing_osx-development-setup-troubleshooting>` on the source installation page.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Build your own packages
 -----------------------
@@ -209,4 +169,5 @@ If you would like to build your own packages, refer to the tutorial `"Using Colc
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found `here </Troubleshooting>`.
+See `the troubleshooting section <Dashing_osx-development-setup-troubleshooting>` on the source installation page.
+Troubleshooting techniques can also be found `here </Troubleshooting>`.

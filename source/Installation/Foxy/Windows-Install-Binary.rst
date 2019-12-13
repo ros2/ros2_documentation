@@ -84,35 +84,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and RTI Connext as the middleware options.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-ADLINK OpenSplice
-~~~~~~~~~~~~~~~~~
-
-If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-For ROS 2 Foxy version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
-
-After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
-
-RTI Connext
-~~~~~~~~~~~
-
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-binary>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -190,9 +162,8 @@ Downloading ROS 2
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_foxy``\ ).
 
-
-Set up the ROS 2 environment
-----------------------------
+Environment setup
+-----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
@@ -205,33 +176,34 @@ It is normal that the previous command, if nothing else went wrong, outputs "The
 Try some examples
 -----------------
 
-In a command shell, set up the ROS 2 environment as described above and then run a ``talker``\ :
+In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_cpp talker
 
-Start another command shell and run a ``listener``\ :
+Start another command shell and run a Python ``listener``\ :
 
 .. code-block:: bash
 
    > ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
+See the `tutorials and demos </Tutorials>` for other things to try.
+
+Build your own packages
+-----------------------
+
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
 
 Troubleshooting
-^^^^^^^^^^^^^^^
+---------------
 
 * If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
 * If you see an error related with FastRTPS failing to be loaded, see `troubleshooting section in development install instructions <Windows-Development-Setup>`.
 
 Troubleshooting techniques can also be found `here </Troubleshooting>`.
-
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.

@@ -302,7 +302,7 @@ Entering ``ls`` in the console will now return:
 
     publisher_member_function.cpp  subscriber_member_function.cpp
 
-Open the ``subscriber_member_function.py`` with your text editor.
+Open the ``subscriber_member_function.cpp`` with your text editor.
 
 .. code-block:: C++
 
