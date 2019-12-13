@@ -1048,7 +1048,7 @@ Each package should examine their direct runtime dependencies for their quality 
 Packages should not claim a quality level higher than their dependencies, unless it can be reasonably explained why they do not affect the quality of the package in question.
 
 An example of this would be build or "build tool" dependencies, which are only used during build time and do not impact the runtime quality of the package.
-This would not include, however, build dependencies which contribute only headers to a C++ library, as the quality of those headers impact the quality of the runtime product directly.
+This would not include, however, build dependencies which, for example, contribute only headers to a C++ library or a static library, as the quality of those headers or static library also impact the quality of the runtime product directly.
 This would include, for another example, something like CMake, which in most ways does not impact the quality of the product.
 
 There's obviously a lot of ambiguity in this area, as you could argue for or against a variety of dependencies and how they impact the package.
