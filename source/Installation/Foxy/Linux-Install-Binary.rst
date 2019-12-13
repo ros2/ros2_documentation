@@ -69,8 +69,22 @@ Installing the python3 libraries
 
        sudo apt install -y libpython3-dev
 
+Install additional DDS implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-binary>`.
+
 Environment setup
 -----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+  . ~/ros2_foxy/ros2-linux/setup.bash
 
 Installing python3 argcomplete (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -82,83 +96,32 @@ So if you want autocompletion, installing argcomplete is necessary.
 
    sudo apt install python3-argcomplete
 
-Install additional DDS implementations (optional)
--------------------------------------------------
-
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-
-The package you downloaded has been built with optional support for multiple vendors: eProsima FastRTPS, ADLINK OpenSplice, and (as of ROS 2 Bouncy) RTI Connext as the middleware options.
-Run-time support for eProsima's Fast RTPS is included bundled by default.
-If you would like to use one of the other vendors you will need to install their software separately.
-
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-To use OpenSplice you can install a Debian package built by OSRF.
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install -q -y libopensplice69
-
-
-RTI Connext (version 5.3.1, amd64 only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
-under a `non-commercial license <https://www.rti.com/ncl>`__.
-
-To install the libs-only Debian package:
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install -q -y rti-connext-dds-5.3.1
-
-You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
-
-Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
-
-All options need you to source the setup file to set the ``NDDSHOME`` environment variable:
-
-.. code-block:: bash
-
-   cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
-
-Note: the above may need modification to match your RTI installation location
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
 Try some examples
 -----------------
 
-In one terminal, source the setup file and then run a ``talker``:
+In one terminal, source the setup file and then run a C++ ``talker``:
 
 .. code-block:: bash
 
    . ~/ros2_foxy/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a ``listener``:
+In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: bash
 
    . ~/ros2_foxy/ros2-linux/setup.bash
-   ros2 run demo_nodes_cpp listener
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-If you have installed support for an optional vendor, see `this page </Tutorials/Working-with-multiple-RMW-implementations>` for details on how to use that vendor.
-
-See the `demos </Tutorials>` for other things to try, including how to `run the talker-listener example in Python </Tutorials/Python-Programming>`.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Using the ROS 1 bridge
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file.
 We'll assume that it is ``/opt/ros/melodic/setup.bash`` in the following.

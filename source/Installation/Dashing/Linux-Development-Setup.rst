@@ -16,7 +16,7 @@ Tier 3 platforms (not actively tested or supported) include:
 
 - Debian Linux - Stretch (9)
 - Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
-- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/Ros#Ros_2>`__
+- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
@@ -106,99 +106,10 @@ Install dependencies using rosdep
 
 .. _Dashing_linux-development-setup-install-more-dds-implementations-optional:
 
-Install more DDS implementations (Optional)
--------------------------------------------
+Install additional DDS implementations (optional)
+-------------------------------------------------
 
-ROS 2 builds on top of DDS.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
-If you would like to use one of the other vendors you will need to install their software separately before building.
-The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
-
-By default we include eProsima's FastRTPS in the workspace and it is the default middleware.
-Detailed instructions for installing other DDS vendors are provided below.
-
-ADLINK OpenSplice Debian Packages built by OSRF
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: bash
-
-   sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
-
-.. raw:: html
-
-   <!--
-   ##### Official binary packages from ADLINK
-
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_9_190403OSS_RELEASE).
-   Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
-   Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
-   After that, your shell is ready to run ROS2 binaries with the official OpenSplice distribution.
-
-   You may also need to add the following line to your `.bashrc` file:
-
-   ```
-   export PTECH_LICENSE_FILE=path/to/prismtech.lic
-   ```
-
-   ##### Building OpenSplice from source
-
-   If you build OpenSplice from source, be sure to remember to following the INSTALL.txt instructions and manually replace the @@INSTALLDIR@@ placeholder in the OpenSplice install/HDE/x86_64.linux/release.com
-   -->
-
-
-
-RTI Connext (version 5.3.1, amd64 only)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Debian packages provided in the ROS 2 apt repositories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can install a Debian package of RTI Connext available on the ROS 2 apt repositories.
-You will need to accept a license from RTI.
-
-.. code-block:: bash
-
-   sudo apt install -q -y \
-       rti-connext-dds-5.3.1  # from packages.ros.org/ros2/ubuntu
-
-Source the setup file to set the ``NDDSHOME`` environment variable.
-
-.. code-block:: bash
-
-   cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
-
-Note: when using ``zsh`` you need to be in the directory of the script when sourcing it to have it work properly
-
-Now you can build as normal and support for RTI will be built as well.
-
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`
-
-Official binary packages from RTI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <../Install-Connext-University-Eval>`
-
-After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
-Note that if you're installing to a system directory use ``sudo`` as well.
-
-The default location is ``~/rti_connext_dds-5.3.1``
-
-After installation, run RTI launcher and point it to your license file (obtained from RTI).
-
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
-
-.. code-block:: bash
-
-   export RTI_LICENSE_FILE=path/to/rti_license.dat
-
-Source the setup file to set the ``NDDSHOME`` environment variable.
-
-.. code-block:: bash
-
-   source ~/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash
-
-Now you can build as normal and support for RTI will be built as well.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-source>`.
 
 Build the code in the workspace
 -------------------------------
@@ -229,17 +140,39 @@ You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/s
 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
 
+Environment setup
+-----------------
+
+Sourcing the setup script
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Set up your environment by sourcing the following file.
+
+.. code-block:: bash
+
+   . ~/ros2_dashing/install/setup.bash
+
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
+
 Try some examples
 -----------------
 
-In one terminal, source the setup file and then run a ``talker``\ :
+In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
    . ~/ros2_dashing/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a ``listener``\ :
+In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
@@ -247,9 +180,10 @@ In another terminal source the setup file and then run a ``listener``\ :
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
+This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `demos </Tutorials>` for other things to try.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Alternate compilers
 -------------------
