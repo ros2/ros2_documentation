@@ -1250,6 +1250,12 @@ Requirements to be considered a 'Level 4' package:
 Any package that does not claim to be 'Level 3' or higher is automatically 'Level 4'.
 Refer to the detailed description of the requirements in the Quality Level 1 section above for more information.
 
+Quality Level 5
+^^^^^^^^^^^^^^^
+
+Packages in this category simply do not meet even the 'Level 4' requirements, and for that reason should not be used.
+The rationale being that all packages should have at least a declare license or licenses and should include copyright statements in each file.
+
 Repository Organization
 ^^^^^^^^^^^^^^^^^^^^^^^
 
