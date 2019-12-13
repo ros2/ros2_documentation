@@ -102,7 +102,7 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `demos </Tutorials>` for other things to try.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 .. _Dashing_linux-install-additional-rmw-implementations:
 

@@ -135,7 +135,7 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `demos </Tutorials>` for other things to try, including how to `run the talker-listener example in Python </Tutorials/Python-Programming>`.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Using the ROS 1 bridge
 ----------------------
