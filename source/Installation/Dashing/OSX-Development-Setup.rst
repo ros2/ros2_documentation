@@ -254,5 +254,5 @@ Uninstall
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
-   
+
     rm -rf ~/ros2_dashing
