@@ -331,9 +331,7 @@ If you encounter exceptions when trying to source the environment after building
 Uninstall
 ---------
 
-A source-based install can be "uninstalled" using several methods, depending on the results you want:
-
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup.sh``.
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
    This way, your environment will behave as though there is no Eloquent install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
@@ -341,5 +339,3 @@ A source-based install can be "uninstalled" using several methods, depending on 
    .. code-block:: bash
 
     rm -rf ~/ros2_eloquent
-
-3. If you want to keep the source code, you can remove the ``install`` / ``build`` / ``log`` directories as desired, leaving the ``src`` directory.

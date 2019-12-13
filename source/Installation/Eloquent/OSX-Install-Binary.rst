@@ -202,9 +202,11 @@ Troubleshooting techniques can be found `here </Troubleshooting>`.
 Uninstall
 ---------
 
-If you need to uninstall Eloquent or switch to a source-based install once you have already installed from binaries, navigate to your source code directory's build folders and run ``make uninstall``:
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
+   This way, your environment will behave as though there is no Eloquent install on your system.
 
-.. code-block:: bash
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
-  cd ~/ros2_eloquent
-  sudo make uninstall
+   .. code-block:: bash
+
+    rm -rf ~/ros2_eloquent

@@ -438,20 +438,16 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    > python_d path\to\colcon_executable build
 
-* Hooray, you\'re done!
+* Hooray, you're done!
 
 Uninstall
 ---------
 
-A source-based install can be "uninstalled" using several methods, depending on the results you want:
-
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace\'s ``setup.sh``.
+1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
    This way, your environment will behave as though there is no Eloquent install on your system.
 
-2. If you\'re also trying to free up space, you can delete the entire workspace directory with:
+2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
     rmdir /s /q \ros2_eloquent
-
-3. If you want to keep the source code, you can remove the ``install`` / ``build`` / ``log`` directories as desired, leaving the ``src`` directory.
