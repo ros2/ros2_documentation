@@ -137,6 +137,15 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 
    This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
+Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH to run some of the Qt examples:
+
+.. code-block:: bash
+
+  > set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.12.2\msvc2017_64\plugins\platforms
+  : You could set it permanently with ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.12.2\msvc2017_64\plugins\platforms`` instead, but that requires Administrator.
+
+You can also do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables". In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+
 RQt dependencies
 ~~~~~~~~~~~~~~~~
 
