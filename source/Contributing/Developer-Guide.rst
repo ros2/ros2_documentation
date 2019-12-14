@@ -923,7 +923,10 @@ Requirements to be considered a 'Level 1' package:
     * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
     * Must register with a centralized list of 'Level 1' packages, if one exists, to allow for peer review of the claim
 
-  * [ROS Core] will use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
 
 * Testing:
 
@@ -1128,7 +1131,10 @@ Requirements to be considered a 'Level 2' package:
     * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
     * Must register with a centralized list of 'Level 2' packages, if one exists, to allow for peer review of the claim
 
-  * [ROS Core] will use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
 
 * Testing:
 
@@ -1193,7 +1199,10 @@ Requirements to be considered a 'Level 3' package:
     * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
     * May register with a centralized list of 'Level 3' packages, if one exists, to allow for peer review of the claim
 
-  * [ROS Core] will use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
 
 * Testing:
 
@@ -1236,7 +1245,10 @@ Requirements to be considered a 'Level 4' package:
 
   * Must have a declared license or set of licenses
   * Must have a copyright statement in each source file
-  * [ROS Core] will use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
 
 * Testing:
 
