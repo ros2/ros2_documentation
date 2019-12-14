@@ -989,6 +989,9 @@ Changes to these excluded API's, especially something like a "detail" namespace,
 For Python, it's more important to explicitly declare which parts of the API is public, because all modules are typically installed and accessible to users.
 One easy thing to do is to say all of the API is public and therefore API stable, but "impl" or "detail" namespaces can be used if needed, they just need to be clearly documented as not public and therefore not stable.
 
+There are also other, non-API, things which should be considered and optionally documented as part of the "stable interface" of the package.
+This includes, but isn't limited to, message definitions, command line tools (arguments and output format), ROS names (topic, service, node, etc.), and behaviors of the applications.
+
 For yet other languages the details will be different, but the important thing is that the public API be obviously documented, and that the public API adheres to an API and ABI stability as described in the version policy, and that they are documented and tested.
 
 Feature Documentation
