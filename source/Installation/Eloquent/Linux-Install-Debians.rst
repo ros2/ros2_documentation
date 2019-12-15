@@ -12,7 +12,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 Eloquent (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_eloquent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_eloquent_ubv8.html>`__
+  * ROS 2 Eloquent (Ubuntu Bionic): `amd64 <http://repo.ros2.org/status_page/ros_eloquent_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_eloquent_ubv8.html>`__, `armhf <http://repo.ros2.org/status_page/ros_eloquent_ubhf.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
