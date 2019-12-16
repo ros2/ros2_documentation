@@ -208,37 +208,7 @@ TODO: using ThreadSanitizer, MemorySanitizer
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can also be found `here </Troubleshooting>`.
-
-Internal compiler error
-^^^^^^^^^^^^^^^^^^^^^^^
-
-If you experience an ICE when trying to compile on a memory constrained platform like a Raspberry PI you might want to build single threaded (prefix the build invocation with ``MAKEFLAGS=-j1``).
-
-Out of memory
-^^^^^^^^^^^^^
-
-The ``ros1_bridge`` in its current form requires 4Gb of free RAM to compile.
-If you don't have that amount of RAM available it's suggested to use ``AMENT_IGNORE`` in that folder and skip its compilation.
-
-Multiple Host Interference
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you're running multiple instances on the same network you may get interference.
-To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a different integer, the default is zero.
-This will define the DDS domain id for your system.
-Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
-The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
-
-Exception Sourcing setup.bash
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you encounter exceptions when trying to source the environment after building from source, try to upgrade ``colcon`` related packages using
-
-.. code-block:: bash
-
-   colcon version-check  # check if newer versions available
-   sudo apt install python3-colcon* --only-upgrade  # upgrade installed colcon packages to latest version
+Troubleshooting techniques can be found :ref:`here <linux-troubleshooting>`.
 
 Uninstall
 ---------

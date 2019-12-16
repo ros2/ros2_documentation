@@ -194,11 +194,7 @@ If you would like to build your own packages, refer to the tutorial `"Using Colc
 Troubleshooting
 ---------------
 
-* If at one point your example would not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
-* If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.
-* If you see an error related with FastRTPS failing to be loaded, see `troubleshooting section in development install instructions <Windows-Development-Setup>`.
-
-Troubleshooting techniques can also be found `here </Troubleshooting>`.
+Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 
 Uninstall
 ---------
