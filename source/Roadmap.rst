@@ -64,7 +64,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
   * Configuration specified in a file
   * Per-logger configuration (enabling e.g. ``rqt_logger_level``)
-  * C++ stream operators
 
 * Time related
 
