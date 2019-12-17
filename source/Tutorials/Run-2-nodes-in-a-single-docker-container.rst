@@ -5,18 +5,18 @@
 Running 2 nodes in a single docker container [community-contributed]
 ====================================================================
 
-Pull the ROS2 docker image with tag "ardent-basic".
+Pull the ROS docker image with tag "eloquent-desktop".
 
 .. code-block:: bash
 
-   docker pull osrf/ros2:ardent-basic
+   docker pull osrf/ros:eloquent-desktop
 
 
 Run the image in a container in interactive mode.
 
 .. code-block:: bash
 
-   $ docker run -it osrf/ros2:ardent-basic
+   $ docker run -it osrf/ros:eloquent-desktop
    root@<container-id>:/#
 
 
