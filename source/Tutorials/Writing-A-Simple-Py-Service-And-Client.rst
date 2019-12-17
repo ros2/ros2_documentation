@@ -260,6 +260,12 @@ The ``entry_points`` field of your ``setup.py`` file should look like this:
 4 Build and run
 ^^^^^^^^^^^^^^^
 
+It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+
+.. code-block:: console
+
+  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
 .. code-block:: console

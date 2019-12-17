@@ -49,6 +49,7 @@ Installing and initializing rosdep
        sudo rosdep init
        rosdep update
 
+.. _Eloquent_linux-install-binary-install-missing-dependencies:
 
 Installing the missing dependencies
 -----------------------------------
