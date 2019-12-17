@@ -26,7 +26,7 @@ Design / Concept
 
   * Leverage new features like grouping constants into enums
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
-  * Revisit constraints of IDL interface naming
+  * Revisit constraints of IDL interface naming, see `ros2/design#220 <https://github.com/ros2/design/pull/220>`_
 
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants, see `ros2/design#250 <https://github.com/ros2/design/pull/250>`_
