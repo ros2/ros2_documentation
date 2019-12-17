@@ -956,6 +956,15 @@ Requirements to be considered a 'Level 1' package:
       * If there are performance tests, must choose to either check each change or before each release or both
       * If there are performance tests, must require justification for merging a change or making a release that lowers performance
 
+  * Linters and Static Analysis
+
+    * Must have a code style and enforce it.
+    * Must use static analysis tools where applicable.
+    * [ROS Core]:
+
+      * Must use ROS code style and use linters from `ament_lint_common` to enforce it
+      * Must use all linters/static analysis that are part of `ament_lint_common`
+
 * Dependencies:
 
   * Must not have direct runtime "ROS" dependencies which are not 'Level 1' dependencies, but...
@@ -1147,6 +1156,15 @@ Requirements to be considered a 'Level 2' package:
       * Must provide line coverage statistics
       * May provide branch coverage
       * May exclude code from coverage (test code, debug code, etc.)
+
+  * Linters and Static Analysis
+
+    * Must have a code style and enforce it.
+    * Must use static analysis tools where applicable.
+    * [ROS Core]:
+
+      * Must use ROS code style and use linters from `ament_lint_common` to enforce it
+      * Must use all linters/static analysis that are part of `ament_lint_common`
 
 * Dependencies:
 
