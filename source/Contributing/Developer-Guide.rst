@@ -962,8 +962,8 @@ Requirements to be considered a 'Level 1' package:
     * Must use static analysis tools where applicable.
     * [ROS Core]:
 
-      * Must use ROS code style and use linters from `ament_lint_common` to enforce it
-      * Must use all linters/static analysis that are part of `ament_lint_common`
+      * Must use ROS code style and use linters from ``ament_lint_common`` to enforce it
+      * Must use all linters/static analysis that are part of ``ament_lint_common``
 
 * Dependencies:
 
@@ -1163,8 +1163,8 @@ Requirements to be considered a 'Level 2' package:
     * Must use static analysis tools where applicable.
     * [ROS Core]:
 
-      * Must use ROS code style and use linters from `ament_lint_common` to enforce it
-      * Must use all linters/static analysis that are part of `ament_lint_common`
+      * Must use ROS code style and use linters from ``ament_lint_common`` to enforce it
+      * Must use all linters/static analysis that are part of ``ament_lint_common``
 
 * Dependencies:
 
