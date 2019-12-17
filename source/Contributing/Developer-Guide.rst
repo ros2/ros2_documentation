@@ -821,72 +821,477 @@ Examples:
   * This is an example of describing an extension point for a package
 
 
-Package Categories
-------------------
+Package Quality Categories
+--------------------------
 
-*(Planned; not yet used)*
+*(proposed; not yet being used)*
 
-The policies will apply differently to packages depending on their categorization.
-The categories are meant to give some expectation as to the quality of a package and allows us to be more strict or compliant with some packages and less so with others.
+*Note: this section is planned to be escalated to a REP eventually*
 
-(Level 1)
-^^^^^^^^^
+This section describes a set of categories which are meant to convey the quality, or at least the maturity, of packages in the ROS ecosystem.
+Inclusion in one category or another is based on the policies to which the packages adhere.
+The categories are meant to give some expectation as to the quality of a package and allows the maintainers to be more strict with some packages and less so with others.
+
+The purpose of these categories is not to enforce quality, but to set expectations for consumers of the packages and to encourage maintainers of the packages to document how their package's policies achieve that quality level.
+The documented policies allow consumers of the packages to consider any caveats for the package or its dependencies when deciding whether or not the package meets the standards for their project.
+
+The categories also provide rough goals for packages to strive towards, encouraging better quality across the ecosystem.
+
+There are four quality levels described below, each roughly described as:
+
+* Quality Level 1:
+
+  * highest quality level
+  * packages which are needed for production systems
+  * e.g. ``rclcpp``, ``urdf``, ``tf2``, etc.
+
+* Quality Level 2:
+
+  * high quality packages which are either:
+
+    * on the way to level 1 or
+    * are general solutions used by many people, but are only sometimes used for production systems
+
+  * e.g. ``navigation2``, ``rosbag2``, etc.
+
+* Quality Level 3:
+
+  * tooling quality packages
+  * e.g. ``ros2cli``, ``rviz``, ``rqt``, etc.
+
+* Quality Level 4:
+
+  * demos, tutorials, and experiments
+  * e.g. research packages, ``demo_nodes_cpp``, ``examples_rclcpp_minimal_publisher``, etc.
+
+While each quality level will have different requirements, it's always possible to overachieve in certain requirements even if other requirements prevent a package from moving up to the next quality level.
+
+Quality Level 1
+^^^^^^^^^^^^^^^
 
 This category should be used for packages which are required for a reasonable ROS system in a production environment.
 That is to say that after you remove development tools, build tools, and introspection tools, these packages are still left over as requirements for a basic ROS system to run.
-However, just because you can conceive a system which does not need a particular package does not mean that it shouldn't be called 'Level 1', in fact the opposite is true.
-If we can imagine that any reasonable production scenario where a package would be used in some essential function, then that package should be considered for this category.
-However, packages which we consider essential to getting a robot up and running quickly, but is a generic solution to the problem should probably not start out as 'Level 1'.
+However, that does not mean that packages that would not normally fit this description should never be called 'Level 1'.
+If there is a need for a particular package in a reasonable production scenario, then that package should be considered for this category as well.
+However, packages which we consider essential to getting a robot up and running quickly, but perhaps is a generic solution to the problem should probably not start out as 'Level 1' due to the high effort in getting a package to 'Level 1' and maintaining it there.
 
-For Example, the packages which provide in-process communication, interprocess communication, generated message runtime code, and component lifecycle should probably all be considered 'Level 1'.
-However, a package which provides pose estimation (like ``robot_pose_ekf``\ ) is a generic solution something that most people need, but is often replaced with a domain specific solution in production, and therefore it should probably not start out as 'Level 1'.
+For example, the packages which provide intra-process communication, inter-process communication, generated message runtime code, node lifecycle, etc. should probably all be considered for 'Level 1'.
+However, a package which provides pose estimation (like ``robot_pose_ekf``\ ) is a generic solution for something that most people need, but is often replaced with a domain specific solution in production, and therefore it should probably not start out as 'Level 1'.
 However, it may upgrade to it at a later date, if it proves to be a solution that people want to use in their products.
 
-Tools, like ``rostopic``\ , generally do not fall into this category, but are not categorically excluded.
-For example, it may be the case the tool which launches and verifies a ROS graph (something like ``roslaunch``\ ) may need to be considered 'Level 1' for use in production systems.
+Tools, like ``rostopic``\ , generally do not fall into this category either, but are not categorically excluded.
+For example, it may be the case the tool which launches and verifies a ROS graph (``ros2launch``\ ) may need to be considered 'Level 1' for use in production systems.
 
 Package Requirements
 ~~~~~~~~~~~~~~~~~~~~
 
+*Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
+
 Requirements to be considered a 'Level 1' package:
 
+* Version Policy:
 
-* Have a strictly declared public API
-* Have API documentation coverage for public symbols
-* Have 100 percent branch code coverage from unit and integration tests
-* Have system tests which cover any scenarios covered in documentation
-* Have system tests for any corner cases encountered during testing
-* Must be >= version 1.0.0
+  * Must have a version policy (e.g. ``semver``)
+  * Must be at a stable version (e.g. for ``semver`` that means have a version >= 1.0.0)
+  * Must have a strictly declared public API
+  * Must have a policy for API stability
+  * Must have a policy for ABI stability
+  * Must have a policy that keeps API and ABI stability within a released ROS Distribution
+  * [ROS Core] will use ``semver``, will maintain API and ABI stability according to ``semver`` and will be ABI (and therefore API) stable within a ROS distribution
 
-Change Control Process
-~~~~~~~~~~~~~~~~~~~~~~
+* Change Control Process:
 
-The change control process requires all changes, regardless of trivialness, must go through a pull request.
-This is to ensure a complete memoranda of changes to the code base.
-In order for a pull request to get merged:
+  * Must have all code changes occur through a change request (e.g. pull request, merge request, etc.)
+  * Must have peer review policy for all change requests (e.g. require one or more reviewer)
+  * Must have Continuous Integration (CI) policy for all change requests
+  * Must have documentation policy for all change requests
+  * [ROS Core]:
 
+    * All changes will go through a pull request
+    * All pull requests will require at least one reviewer who did not author the pr (package may choose to increase this number)
+    * All pull requests will be tested via CI, and on all tier 1 platforms (if applicable)
+    * Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes
 
-* Changes must be reviewed by two reviewers
-* Commits must be concise and descriptive
-* All automated tests must be run in CI on all applicable platforms (Windows, versions of Linux, OS X, ARM)
-* Code coverage must stay at 100 percent
-* Any changes which require updates to documentation must be made before merging
+* Documentation:
 
-(Level 2)
-^^^^^^^^^
+  * Must have documentation for each "feature" (e.g. for ``rclcpp``: create a node, publish a message, spin, etc.)
+  * Must have documentation for each item in the public API (e.g. functions, classes, etc.)
+  * Must have a declared license or set of licenses
+  * Must have a copyright statement in each source file
+  * Must have a "quality declaration" document, which declares the quality level and justifies how the package meets each of the requirements
+
+    * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
+    * Must register with a centralized list of 'Level 1' packages, if one exists, to allow for peer review of the claim
+
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+
+* Testing:
+
+  * Must have system tests which cover all items in the "feature" documentation
+  * Must have system, integration, and/or unit tests which cover all of the public API
+  * Code coverage:
+
+    * Must have code coverage tracking for the package
+    * Must have and enforce a code coverage policy for new changes
+    * [ROS Core]:
+
+      * Must provide line coverage
+      * Must achieve a line coverage above 95%
+      * May pick a lower percentage target with justification, but must document it prominently
+      * May provide branch coverage
+      * May exclude code from coverage (test code, debug code, etc.)
+      * Must require coverage to increase or stay the same before merging a change, but...
+      * May accept a change that decreases coverage with proper justification (e.g. deleting code that was previously covered can cause the percentage to drop)
+
+  * Performance:
+
+    * Must have performance tests (exceptions allowed if they don't make sense to have)
+    * Must have a performance regression policy (i.e. blocking either changes or releases on unexpected performance regressions)
+    * [ROS Core]:
+
+      * May have performance tests, strongly recommended, but for some packages it doesn't make sense
+      * If there are performance tests, must choose to either check each change or before each release or both
+      * If there are performance tests, must require justification for merging a change or making a release that lowers performance
+
+  * Linters and Static Analysis
+
+    * Must have a code style and enforce it.
+    * Must use static analysis tools where applicable.
+    * [ROS Core]:
+
+      * Must use ROS code style and use linters from ``ament_lint_common`` to enforce it
+      * Must use all linters/static analysis that are part of ``ament_lint_common``
+
+* Dependencies:
+
+  * Must not have direct runtime "ROS" dependencies which are not 'Level 1' dependencies, but...
+  * May have optional direct runtime "ROS" dependencies which are not 'Level 1', e.g. tracing or debugging features that can be disabled
+  * Must have justification for why each direct runtime "non-ROS" dependency is equivalent to a 'Level 1' package in terms of quality
+
+* Platform Support:
+
+  * Must support all tier 1 platforms for ROS 2, as defined in `REP-2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_
+
+If the above points are satisfied then a package can be considered 'Level 1'.
+Below are some details on the above points.
+
+Version Policy
+""""""""""""""
+
+The most important thing is to have some version policy which developers may use to anticipate and understand changes to the version of the package.
+We recommend the use of ``semver`` as it covers all the important points that a version policy should cover, is well thought out, and is popular in the open source community broadly.
+
+The policy should link changes to API and ABI to the version scheme.
+
+Additionally, specifically for the ROS ecosystem, the policy should state that API and ABI will be maintained within a stable ROS distribution.
+For ``semver``, this means only patch and minor increases only into an existing ROS distribution.
+
+Public API
+""""""""""
+
+The package should also state what the public API includes, and/or state what parts of the API are excluded intentionally.
+
+For C++, it's somewhat obvious that all installed headers are part of the public API, but it's acceptable to have parts of the accessible API not be stable.
+For example, having an "experimental" namespace or a "detail" namespace which does not adhere to the API and ABI stability rules is allowed, but they must be clearly documented as such.
+Changes to these excluded API's, especially something like a "detail" namespace, should still not break API or ABI for other public API's indirectly.
+
+For Python, it's more important to explicitly declare which parts of the API is public, because all modules are typically installed and accessible to users.
+One easy thing to do is to say all of the API is public and therefore API stable, but "impl" or "detail" namespaces can be used if needed, they just need to be clearly documented as not public and therefore not stable.
+
+There are also other, non-API, things which should be considered and optionally documented as part of the "stable interface" of the package.
+This includes, but isn't limited to, message definitions, command line tools (arguments and output format), ROS names (topic, service, node, etc.), and behaviors of the applications.
+
+For yet other languages the details will be different, but the important thing is that the public API be obviously documented, and that the public API adheres to an API and ABI stability as described in the version policy, and that they are documented and tested.
+
+Feature Documentation
+"""""""""""""""""""""
+
+For each feature provided by the public API of the package, or by a tool in the package, there must be corresponding user documentation.
+The term "feature", and the scope of the documentation, is intentionally vague because it's difficult to quantitatively measure this metric.
+However, the spirit of this requirement is that, for a 'Level 1' quality package, all of the things a user might do with the package needs at least basic documentation or a snippet of code as an example on how to use it.
+The `roscpp Overview <https://wiki.ros.org/roscpp/Overview>`_ from the ROS 1 wiki is a good example of this kind of documentation.
+
+Feature Testing and Code Coverage Policy
+""""""""""""""""""""""""""""""""""""""""
+
+This policy should aim for a "high" coverage standard, but the exact number and rules will vary depending on the package in question.
+The policy may be influenced by factors like:
+
+- what programming languages are being used, and whether or not there are multiple languages in use
+- what coverage information is available (statement vs. line vs. branch vs condition/path coverage)
+- what strategy is preferred for dealing with difficult to reach statements/branches
+
+This StackOverflow question is a good summary of the issues:
+
+https://stackoverflow.com/questions/90002/what-is-a-reasonable-code-coverage-for-unit-tests-and-why
+
+In particular, this answer does a good job of summarizing the issue:
+
+https://stackoverflow.com/a/34698711/671658
+
+Importantly, this answer points out that tracking and enforcing code coverage statistics is strictly empirical (rather than theoretical) and that there are different reasons for using them.
+Among those reasons listed is "To satisfy stakeholders", which is the main goal of requiring a code coverage policy for these high quality packages.
+It is summarized nicely:
+
+    For many projects, there are various actors who have an interest in software quality who may not be involved in the day-to-day development of the software (managers, technical leads, etc.)
+    Saying "we're going to write all the tests we really need" is not convincing:
+    They either need to trust entirely, or verify with ongoing close oversight (assuming they even have the technical understanding to do so.)
+    Providing measurable standards and explaining how they reasonably approximate actual goals is better.
+
+The other two reasons "To normalize team behavior" and "To keep yourself honest" are nice reasons to have code coverage goals, but are out of scope for this document.
+
+The general recommendation is to have at least line coverage and aim to achieve and maintain a high percentage of coverage (e.g. above 90%).
+This at least gives you and your stakeholders some confidence that all feature have basic tests.
+Any assurances beyond that would require branch coverage statistics and independent investigation of the tests and how they test the code.
+
+Performance Testing
+"""""""""""""""""""
+
+There are some cases where performance testing does not make sense to have.
+For example, it may be a good idea to have performance tests for a code generator (like ``rosidl_generator_cpp``), but it is not strictly required since its performance does not affect a runtime production system, and so in that case the package could claim to be 'Level 1' without performance tests if properly justified in the "quality declaration".
+
+However, if performance is a reasonable concern for use in a production system, then there must be performance tests and they should be used in conjunction with a regression policy which aims to prevent new versions of the package to be considerably slower without cause.
+Note, the performance regression policy should not prevent regressions, but instead should aim to detect them and either address them directly, plan to address them in the future, or when unavoidable (e.g. fixing a bug required more resources to be safe) explain why the regression has occurred in the memorandum of the change request that introduced it.
+
+Dependencies
+""""""""""""
+
+Each package should examine their direct runtime dependencies for their quality levels.
+Packages should not claim a quality level higher than their dependencies, unless it can be reasonably explained why they do not affect the quality of the package in question.
+
+An example of this would be build or "build tool" dependencies, which are only used during build time and do not impact the runtime quality of the package.
+This would not include, however, build dependencies which, for example, contribute only headers to a C++ library or a static library, as the quality of those headers or static library also impact the quality of the runtime product directly.
+This would include, for another example, something like CMake, which in most ways does not impact the quality of the product.
+
+There's obviously a lot of ambiguity in this area, as you could argue for or against a variety of dependencies and how they impact the package.
+However, the point is to require the maintainers of the package to examine each dependency, justify why they do or do not impact the quality, and document that so that peer reviewers and consumers of the package can make their own evaluation.
+
+Dependencies which are other "ROS" packages should have these quality standards applied to them and should meet or exceed the quality level claimed by the package in question.
+
+Dependencies which are not other "ROS" packages should be individually examined for quality.
+You may either try to apply the requirements for the quality levels described here, or you may wish to simply argue the quality without using these requirements as a ruler.
+In either case, for each direct "non-ROS" dependency your "quality declaration" should include a justification as to why it is acceptable to depend on this software and still claim your package's level of quality.
+This may simply be text justification, or it may link to other analysis or discussions had by community members rationalizing the choice.
+The important point is that each dependency is considered, justified, and that the justification is documented, so that users of the package can read the justification and decide for themselves if it is acceptable or not.
+
+Any important caveats or justified exceptions for your dependencies should be mentioned (or referenced) in your own package's "quality declaration" document.
+
+For example, if your package depends on ``rclcpp``, and ``rclcpp`` claims 'level 1' quality with the caveat that this requires you use an rmw implementation that also meets the 'level 1' quality standard, then your package's "quality declaration" document should mention this as well.
+Perhaps just saying that one of your dependencies, ``rclcpp``, has some caveats and then link to ``rclcpp``'s own "quality declaration".
+
+In this way, caveats and justifications that may be important for peer reviewers and consumers of your package to understand can "bubble up" from any part of the system.
+
+The goal here is for the maintainer of a package to "make the case" to potential users or stakeholders that their dependencies are at least as high quality as the package in question, and to make a best effort attempt to make them aware of any issues or caveats.
+It's up to those users and stakeholders to evaluate that justification and to look at the dependencies themselves as well.
+
+Claiming a Quality Level and Documenting Package Policies
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Each package claiming a quality level should have a "quality declaration" documented somewhere.
+This declaration should include a claimed quality level and then should have a section for each of the requirements in that claimed quality level justifying how the package meets each of those requirements.
+
+Sometimes the justification will be a link to a policy documented in the package itself or it may link to a common policy used by a group of packages.
+If there is additional evidence that these policies are being followed, that should be included as well, e.g. a link to the coverage statistics for the package to show that coverage is being tracked and maintained.
+Other times, justification will be an explanation as to why a requirement was not met or does not apply, e.g. if performance tests do not make sense for the package in question, it should be satisfactorily explained.
+
+There is no enforcement or checking of these claims, but instead it's just sufficient to present this information to potential users.
+If the users feel that the justifications are insufficient or incorrect, they can open issues against the repository and resolve it with the maintainers.
+
+There should be one or more communal lists of 'Level 1' (and maybe 'Level 2' or 'Level 3') quality level packages.
+These lists should be modified via change requests (maybe a text document in a repository) so that there can be peer review.
+This document will not prescribe how or where these lists should be hosted, but one thought is that the list could live on the main ROS 2 documentation website.
+
+Quality Level 2
+^^^^^^^^^^^^^^^
 
 These are packages which need to be solidly developed and might be used in production environments, but are not strictly required, or are commonly replaced by custom solutions.
 This can also include packages which are not yet up to 'Level 1' but intend to be in the future.
 
-(Level 3)
-^^^^^^^^^
+Package Requirements
+~~~~~~~~~~~~~~~~~~~~
+
+*Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
+
+Requirements to be considered a 'Level 2' package:
+
+* Version Policy:
+
+  * The same as 'Level 1' packages
+
+* Change Control Process:
+
+  * Must have all code changes occur through a change request (e.g. pull request, merge request, etc.)
+  * Must have Continuous Integration (CI) policy for all change requests
+  * [ROS Core]:
+
+    * All changes will go through a pull request
+    * All pull requests will be tested via CI
+
+* Documentation:
+
+  * Must have documentation for each "feature" (e.g. for ``rclcpp``: create a node, publish a message, spin, etc.)
+  * Must have a declared license or set of licenses
+  * Must have a copyright statement in each source file
+  * Must have a "quality declaration" document, which declares the quality level and justifies how the package meets each of the requirements
+
+    * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
+    * Must register with a centralized list of 'Level 2' packages, if one exists, to allow for peer review of the claim
+
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+
+* Testing:
+
+  * Must have system tests which cover all items in the "feature" documentation
+  * Code coverage:
+
+    * Must have code coverage tracking for the package
+    * [ROS Core]:
+
+      * Must provide line coverage statistics
+      * May provide branch coverage
+      * May exclude code from coverage (test code, debug code, etc.)
+
+  * Linters and Static Analysis
+
+    * Must have a code style and enforce it.
+    * Must use static analysis tools where applicable.
+    * [ROS Core]:
+
+      * Must use ROS code style and use linters from ``ament_lint_common`` to enforce it
+      * Must use all linters/static analysis that are part of ``ament_lint_common``
+
+* Dependencies:
+
+  * Must not have direct runtime "ROS" dependencies which are not 'Level 2' dependencies, but...
+  * May have optional direct runtime "ROS" dependencies which are not 'Level 2', e.g. tracing or debugging features that can be disabled
+  * Must have justification for why each direct runtime "non-ROS" dependency is equivalent to a 'Level 2' package in terms of quality
+
+* Platform Support:
+
+  * Must support all tier 1 platforms for ROS 2, as defined in `REP-2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_
+
+If the above points are satisfied then a package can be considered 'Level 2'.
+Refer to the detailed description of the requirements in the Quality Level 1 section above for more information.
+
+Quality Level 3
+^^^^^^^^^^^^^^^
 
 These are packages which are useful for development purposes or introspection, but are not recommended for use in embedded products or mission critical scenarios.
 These packages are more lax on documentation, testing, and scope of public API's in order to make development time lower or foster addition of new features.
 
-(Level 4)
-^^^^^^^^^
+Package Requirements
+~~~~~~~~~~~~~~~~~~~~
+
+*Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
+
+Requirements to be considered a 'Level 3' package:
+
+* Version Policy:
+
+  * The same as 'Level 1' packages, except:
+
+    * No public API needs to be explicitly declared, though this can make it harder to maintain API and ABI stability
+    * No requirement to keep API/ABI stability within a stable ROS release, but it is recommended still
+
+* Change Control Process:
+
+  * Must have all code changes occur through a change request (e.g. pull request, merge request, etc.)
+  * Must have Continuous Integration (CI) policy for all change requests
+  * [ROS Core]:
+
+    * All changes will go through a pull request
+    * All pull requests will be tested via CI
+
+* Documentation:
+
+  * Must have a declared license or set of licenses
+  * Must have a copyright statement in each source file
+  * May have a "quality declaration" document, which declares the quality level and justifies how the package meets each of the requirements
+
+    * Must have a section in the repository's ``README`` which contains the "quality declaration" or links to it
+    * May register with a centralized list of 'Level 3' packages, if one exists, to allow for peer review of the claim
+
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+
+* Testing:
+
+  * No explicit testing requirements, though covering some if not all of the features with tests is recommended
+
+* Dependencies:
+
+  * May have direct runtime "ROS" dependencies which are not 'Level 3' dependencies, but they should be documented
+
+* Platform Support:
+
+  * Must support all tier 1 platforms for ROS 2, as defined in `REP-2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_
+
+If the above points are satisfied then a package can be considered 'Level 3'.
+Refer to the detailed description of the requirements in the Quality Level 1 section above for more information.
+
+Quality Level 4
+^^^^^^^^^^^^^^^
 
 These are demos, tutorials, or experiments.
 They don't have strict requirements, but are not excluded from having good documentation or tests.
 For example, this might be a tutorial package which is not intended for reuse but has excellent documentation because it serves primarily as an example to others.
+
+Package Requirements
+~~~~~~~~~~~~~~~~~~~~
+
+*Note: bullets below that start with [ROS Core], will be the prescription for what we do in the core packages in order to meet the associated requirements*
+
+Requirements to be considered a 'Level 4' package:
+
+* Version Policy:
+
+  * No requirements, but having a policy is still recommended (e.g. ``semver``), even if the version is not yet stable (e.g. >= 1.0.0 for ``semver``)
+
+* Change Control Process:
+
+  * No explicit change control process required, but still recommended
+
+* Documentation:
+
+  * Must have a declared license or set of licenses
+  * Must have a copyright statement in each source file
+  * [ROS Core]:
+
+    * Must have automated checks for copyright statements and licenses
+    * Must use the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+
+* Testing:
+
+  * No explicit testing requirements, though covering some if not all of the features with tests is recommended
+
+* Dependencies:
+
+  * No restrictions
+
+* Platform Support:
+
+  * May support all tier 1 platforms for ROS 2, as defined in `REP-2000 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_
+
+Any package that does not claim to be 'Level 3' or higher is automatically 'Level 4'.
+Refer to the detailed description of the requirements in the Quality Level 1 section above for more information.
+
+Quality Level 5
+^^^^^^^^^^^^^^^
+
+Packages in this category simply do not meet even the 'Level 4' requirements, and for that reason should not be used.
+The rationale being that all packages should have at least a declare license or licenses and should include copyright statements in each file.
+
+Repository Organization
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Since these categories are applied on a per package basis, and since there may be more than one package per source repository, it's recommended that the strictest set of policies apply to the whole repository.
+This is recommended, rather than trying to mix processes depending on which packages are changed in a given change request (pull request or merge request, etc.).
+If this is too onerous, then it's recommended to split lower quality packages out into a separate repository.
