@@ -114,7 +114,7 @@ Enter the following command in your terminal:
 
 .. code-block:: console
 
-        ros2 run turtlesim turtlesim_node --ros-args --remap __log_level:=WARN
+        ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
 
 Now you won’t see the initial ``Info`` level warnings that came up in the console last time you started ``turtlesim``.
 That’s because ``Info`` messages are lower priority than the new default severity, ``Warn``.
