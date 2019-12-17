@@ -26,10 +26,12 @@ Design / Concept
 
   * Leverage new features like grouping constants into enums
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
+  * Revisit constraints of IDL interface naming, see `ros2/design#220 <https://github.com/ros2/design/pull/220>`_
 
 * Progress on migration plan
-* Reconsider 1-to-1 mapping of ROS nodes to DDS participants
-* Uniqueness of node names
+* Reconsider 1-to-1 mapping of ROS nodes to DDS participants, see `ros2/design#250 <https://github.com/ros2/design/pull/250>`_
+* Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
+* Specific "API" of a node in terms of topics / services / etc in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,7 +39,9 @@ Infrastructure and tools
 * Building
 
   * Consolidate build.ros2.org and ci.ros2.org
+  * Provision macOS and Windows machines
   * Windows and Mac OS packages
+  * Support profiles in ``colcon``
 
 * Documentation
 
@@ -59,7 +63,11 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Logging improvements [\* / \*\*]
 
   * Configuration specified in a file
-  * C++ stream operators
+  * Per-logger configuration (enabling e.g. ``rqt_logger_level``)
+
+* Time related
+
+  * Support rate and sleep based on clock
 
 * Parameters
 
@@ -67,9 +75,42 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Additional Graph API features [\*\* / \*\*\*]
 
+  * Introspect QoS setting for all (especially remote) topics
   * a la ROS 1 Master API: http://wiki.ros.org/ROS/Master_API
   * Event-based notification
   * Requires knowledge of the rmw interface which needs to be extended
+
+* Executor
+
+  * Performance improvements (mostly around the waitset)
+  * Deterministic ordering (fair scheduling)
+  * Work with callback groups
+  * Decouple waitables
+
+* Message generation
+
+  * Catch-up message generation for languages not support out-of-the-box
+  * Mangle field names in message to avoid language specific keywords
+  * Improve generator performance by running them in the same Python interpreter
+
+* Launch
+
+  * Support use case of using ``xacro`` to perform substitutions before passing the result containing parameters
+  * Use pytest for launch testing
+  * Support for launching multi-node executables (i.e. manual composition)
+  * Extend launch XML/YAML support: events and event handlers, tag namespaces and aliasing
+
+* Rosbag
+
+  * Support recording services (and actions)
+
+* ros1_bridge
+
+  * Support bridging actions
+
+* RMW configuration
+
+  * Unified standard way of configuring the middleware
 
 * Remapping [\*\* / \*\*\*]
 
@@ -84,7 +125,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
   * With FastRTPS
   * For services, clients, and parameters
-  * Support deterministic ordering of executables in Executor (fair scheduling)
   * Expose more quality of service parameters related to real-time performance
   * Real-time-safe intra-process messaging
 
@@ -96,6 +136,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Implement C client library ``rclc`` [\*\*]
 * Support more DDS / RTPS implementations:
 
+  * Connext 6, see `ros2/rmw_connext#375 <https://github.com/ros2/rmw_connext/issues/375>`_
   * Connext dynamic [\*]
   * RTI's micro implementation [\*]
 
@@ -133,7 +174,18 @@ Reducing Technical Debt
 
 * Fix flaky tests.
 * Ability to run (all) unit tests with tools e.g. valgrind
-* API review
+* API review, specifically user facing API in rclcpp and rclpy
+* Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user facing API
+* Revisit message allocators, consider using std::polymorphic_allocator to address problems
+
+* Modernization
+
+  * Support/use exporting CMake targets (rather than using CMake variables like ``*_INCLUDE_DIRS``, ``*_LIBRARIES``)
+  * Use C++17 filesystem features rather than custom code
+  * Use pybind11 for rclpy
+  * Move to f-strings in Python code
+  * Use setup.cfg files for Python packages
+
 * Synchronize / reconcile design docs with the implementation.
 
   * Pre-release retrospective review (APIs, docs, etc.)
