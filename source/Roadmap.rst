@@ -102,7 +102,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Rosbag
 
-  * Support recording service (and actions)
+  * Support recording services (and actions)
 
 * ros1_bridge
 
