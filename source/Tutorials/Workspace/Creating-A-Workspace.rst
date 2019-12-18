@@ -108,11 +108,11 @@ You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
 
-In the ``dev_ws/src`` directory, if your distro is Dashing for example, run the command:
+In the ``dev_ws/src`` directory, if your distro is Eloquent for example, run the command:
 
 .. code-block:: console
 
-  git clone https://github.com/ros/ros_tutorials.git -b dashing-devel
+  git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
