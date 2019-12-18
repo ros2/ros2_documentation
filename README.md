@@ -15,7 +15,7 @@ In the root directory are the files required to locally build the site for testi
 
 ### Prerequisites
 
-You must have sphinx and the sphinx-tabs extension installed, preferrably using pip:
+You must have sphinx and the sphinx-tabs extension installed, preferably using pip:
 
 ```
 pip3 install sphinx sphinx-tabs
