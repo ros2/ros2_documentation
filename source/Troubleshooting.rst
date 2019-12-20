@@ -83,7 +83,7 @@ Out of memory
 ^^^^^^^^^^^^^
 
 The ``ros1_bridge`` in its current form requires 4Gb of free RAM to compile.
-If you don't have that amount of RAM available it's suggested to use ``AMENT_IGNORE`` in that folder and skip its compilation.
+If you don't have that amount of RAM available it's suggested to use ``COLCON_IGNORE`` in that folder and skip its compilation.
 
 Multiple host interference
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -285,7 +285,9 @@ If you run into the CMake error ``file INSTALL cannot set modification time on .
    The input line is too long.
    The syntax of the command is incorrect.
 
-You may see path length limit errors when building your own libraries, or maybe even in this guide as ROS2 matures.
+Depending on your directory hierarchy, you may see path length limit errors when building ROS 2 from source or your own libraries.
+
+To allow deeper path lengths:
 
 Run ``regedit.exe``, navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``, and set ``LongPathsEnabled`` to 0x00000001 (1).
 
@@ -317,8 +319,8 @@ Failed to load FastRTPS shared library
 .. does not apply to Crystal
 
 FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
-Although it is usually installed by default in Windows 10, we know that some Windows 10 like version don't have it installed by default (e.g.: Windows Server 2019).
-In case you haven't it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
+Although it is usually installed by default in Windows 10, we know that some Windows 10-like versions don't have it installed by default (e.g.: Windows Server 2019).
+In case you don't have it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
 
 Binary installation specific
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
