@@ -55,20 +55,6 @@ You can check if the multicast flag is enabled for your network interface using 
    eno1: flags=4163<...,MULTICAST>
       ...
 
-
-Import failing even with library present on the system
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your system.
-If so make sure to install all the dependencies listed in the "Installing prerequisites" sections of the installation instructions (`Windows <windows-install-binary-installing-prerequisites>`, `MacOS <osx-install-binary-installling-prerequisites>`).
-
-If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
-
-If you are still having issues, you can use the `Dependencies <https://github.com/lucasg/Dependencies>`_ tool to determine which dependencies are missing on your system.
-Use the tool to load the corresponding ``.pyd`` file, and it should report unavailable ``DLL`` modules.
-Be sure that the current workspace is sourced before you execute the tool, otherwise there will be unresolved ROS DLL files.
-Use this information to install additional dependencies or adjust your path as necessary.
-
 .. _linux-troubleshooting:
 
 Linux
@@ -129,8 +115,8 @@ If you are seeing library loading issues at runtime (either running tests or run
      Referenced from: .../ros2_<distro>/ros2-osx/lib/python3.7/site-packages/rclpy/_rclpy.cpython-37m-darwin.so
      Reason: image not found
 
-then you probably have System Integrity Protection enabled.
-See "Disable System Integrity Protection (SIP)" above for how instructions on how to disable it.
+Then you probably have System Integrity Protection enabled.
+Follow `these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__ to disable System Integrity Protection (SIP).
 
 Qt build error: ``unknown type name 'Q_ENUM'``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -272,6 +258,19 @@ To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS
 Windows
 -------
 
+Import failing even with library present on the system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your system.
+If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <windows-install-binary-installing-prerequisites>`).
+
+If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
+
+If you are still having issues, you can use the `Dependencies <https://github.com/lucasg/Dependencies>`_ tool to determine which dependencies are missing on your system.
+Use the tool to load the corresponding ``.pyd`` file, and it should report unavailable ``DLL`` modules.
+Be sure that the current workspace is sourced before you execute the tool, otherwise there will be unresolved ROS DLL files.
+Use this information to install additional dependencies or adjust your path as necessary.
+
 CMake error setting modification time
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -301,9 +300,8 @@ Close and open your terminal to reset the environment and try building again.
 CMake packages unable to find asio, tinyxml2, tinyxml, eigen, or log4cxx
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We've seen, but been unable to identify the root cause, that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and that will cause CMake to be unable to find them when building ROS 2.
-
-It seems that uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time) and then reinstalling them will fix the issue.
+We've seen that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and CMake will be unable to find them when building ROS 2.
+We've not yet been able to identify the root cause, but uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time), and then reinstalling them will fix the issue.
 
 patch.exe opens a new command window and asks for administrator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
