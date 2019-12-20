@@ -7,7 +7,7 @@ Roadmap
    :depth: 2
    :local:
 
-Please see the page of the upcoming distribution `Eloquent Elusor <Releases/Release-Eloquent-Elusor>` for more information what is planned to be part of that release.
+Please see the page of the :ref:`upcoming distribution <upcoming-release>` for more information what is planned to be part of that release.
 
 Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
