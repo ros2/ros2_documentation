@@ -51,7 +51,7 @@ Open another terminal and run:
 2 ros2 service list
 ^^^^^^^^^^^^^^^^^^^
 
-Running the ``ros2 service list`` command in a new terminal will return a list of all the topics currently active in the system:
+Running the ``ros2 service list`` command in a new terminal will return a list of all the services currently active in the system:
 
 .. code-block:: console
 
