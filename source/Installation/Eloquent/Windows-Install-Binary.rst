@@ -77,9 +77,10 @@ Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
-   .. image:: https://i.imgur.com/2h0IxCk.png
+Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed as in the image below.
 
-Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
+   .. image:: https://i.imgur.com/F2TONuw.png
+
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
