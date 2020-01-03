@@ -133,7 +133,7 @@ And the background of your turtlesim window should change colors:
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
 However, you can save your settings changes and reload them next time you start a node.
 
-4 ros2 param dump
+5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
 You can “dump” all of a node’s current parameter values into a file to save for later using the command:
@@ -168,7 +168,7 @@ If you open this file, you’ll see the following contents:
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
-4 Load parameter file
+6 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
 
 To start the same node using your saved parameter values, use:
