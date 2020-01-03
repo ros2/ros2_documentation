@@ -158,7 +158,7 @@ Run the following command:
 
 .. code-block:: console
 
-  ros2 bag record -o subset /turtle1/cmd_vel /turtle1
+  ros2 bag record -o subset /turtle1/cmd_vel /turtle1/pose
 
 The ``-o`` option allows you to choose a unique name for your bag file.
 The following string, in this case ``subset``, is the file name.
