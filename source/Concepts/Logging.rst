@@ -57,7 +57,7 @@ In C++:
 In Python:
 
 
-* See the `rclpy examples <https://github.com/ros2/examples/tree/master/rclpy/services/minimal_client>`__ for example usage of a node's logger.
+* See the `rclpy examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__ for example usage of a node's logger.
 * See the `rclpy tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
 
 Logger configuration
