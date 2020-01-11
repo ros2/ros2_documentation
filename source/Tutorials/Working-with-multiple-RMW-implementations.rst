@@ -67,7 +67,7 @@ To run the talker demo using the C++ and listener using python with the RMW impl
    set RMW_IMPLEMENTATION=rmw_connext_cpp
    ros2 run demo_nodes_cpp talker
 
-   REM run in another terminal
+   # Run in another terminal
    set RMW_IMPLEMENTATION=rmw_connext_cpp
    ros2 run demo_nodes_py listener
 
