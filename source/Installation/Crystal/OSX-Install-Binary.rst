@@ -157,8 +157,7 @@ If you would like to build your own packages, refer to the tutorial `"Using Colc
 Troubleshooting
 ---------------
 
-See `the troubleshooting section <osx-development-setup-troubleshooting>` on the source installation page.
-Troubleshooting techniques can also be found `here </Troubleshooting>`.
+Troubleshooting techniques can be found :ref:`here <osx-troubleshooting>`.
 
 Uninstall
 ---------

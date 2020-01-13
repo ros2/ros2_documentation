@@ -267,51 +267,7 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 Troubleshooting
 ---------------
 
-CMake error setting modification time
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you run into the CMake error ``file INSTALL cannot set modification time on ...`` when installing files it is likely that an anti virus software or Windows Defender are interfering with the build. E.g. for Windows Defender you can list the workspace location to be excluded to prevent it from scanning those files.
-
-260 Character Path Limit
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. code-block:: bash
-
-   The input line is too long.
-   The syntax of the command is incorrect.
-
-You may see path length limit errors when building your own libraries, or maybe even in this guide as ROS2 matures.
-
-Run ``regedit.exe``, navigate to ``Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem``, and set ``LongPathsEnabled`` to 0x00000001 (1).
-
-Hit the windows key and type ``Edit Group Policy``.
-Navigate to Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem.
-Right click ``Enable Win32 long paths``, click Edit.
-In the dialog, select Enabled and click OK.
-
-Close and open your terminal to reset the environment and try building again.
-
-CMake Packages Unable to Find asio, tinyxml2, tinyxml, eigen, or log4cxx
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-We've seen, but been unable to identify the root cause, that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and that will cause CMake to be unable to find them when building ROS 2.
-
-It seems that uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time) and then reinstalling them will fix the issue.
-
-patch.exe Opens a New Command Window and Asks for Administrator
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
-
-The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator.
-On some machines canceling the prompt without selecting "Yes" will also work.
-
-Failed to load FastRTPS shared library
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
-Although it is usually installed by default in Windows 10, we know that some Windows 10 like version don't have it installed by default (e.g.: Windows Server 2019).
-In case you haven't it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
+Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 
 Extra stuff for Debug mode
 --------------------------
