@@ -156,20 +156,20 @@ Which will return:
   /clear
   /reset
 
-5 ros2 interface show
+5 ros2 srv show
 ^^^^^^^^^^^^^^^^^^^^^
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
 .. code-block:: console
 
-  ros2 interface show <type_name>.srv
+  ros2 srv show <type_name>.srv
 
 To run this command on the ``/clear`` service’s type, ``Empty``:
 
 .. code-block:: console
 
-  ros2 interface show std_srvs/srv/Empty.srv
+  ros2 srv show std_srvs/srv/Empty.srv
 
 Which will return:
 
@@ -188,7 +188,7 @@ To see the arguments in a ``/spawn`` call-and-request, run the command:
 
 .. code-block:: console
 
-  ros2 interface show turtlesim/srv/Spawn.srv
+  ros2 srv show turtlesim/srv/Spawn.srv
 
 Which will return:
 
