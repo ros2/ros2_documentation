@@ -59,4 +59,20 @@ The default console logging output format was changed to include the timestamp b
 Timeline before the release
 ---------------------------
 
-TBD
+A few milestones leading up to the release:
+
+    Wed. April 8th, 2020
+        API and feature freeze for core packages
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. April 13th, 2020 (beta)
+        Updated releases of core packages available.
+        Testing of the new features.
+
+    Wed. May 13th, 2020 (release candidate)
+        Updated releases of core packages available.
+
+    Wed. May 20, 2020
+        Freeze rosdistro.
+        No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
