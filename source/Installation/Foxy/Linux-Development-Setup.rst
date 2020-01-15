@@ -17,7 +17,7 @@ Target platforms for Foxy Fitzroy are (see `REP 2000 <http://www.ros.org/reps/re
 Tier 3 platforms (not actively tested or supported) include:
 
 - Debian Linux - Buster (10)
-- Fedora 31, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora 32, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
