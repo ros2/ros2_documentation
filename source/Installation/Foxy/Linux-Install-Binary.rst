@@ -12,9 +12,7 @@ As of Beta 2 there are also `Debian packages <Linux-Install-Debians>` available.
 System Requirements
 -------------------
 
-We support Ubuntu Linux Bionic Beaver (18.04) and Ubuntu Xenial Xerus (16.04) on 64-bit x86 and 64-bit ARM.
-
-Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
+We support Ubuntu Linux Focal Fossa (20.04) 64-bit x86 and 64-bit ARM.
 
 Add the ROS 2 apt repository
 ----------------------------
@@ -45,7 +43,7 @@ Installing and initializing rosdep
 .. code-block:: bash
 
        sudo apt update
-       sudo apt install -y python-rosdep
+       sudo apt install -y python3-rosdep
        sudo rosdep init
        rosdep update
 

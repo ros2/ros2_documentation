@@ -12,12 +12,12 @@ System Requirements
 -------------------
 Target platforms for Foxy Fitzroy are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
-- Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
+- Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
 
 Tier 3 platforms (not actively tested or supported) include:
 
-- Debian Linux - Stretch (9)
-- Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
+- Debian Linux - Buster (10)
+- Fedora 31, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
@@ -54,7 +54,7 @@ Install development tools and ROS tools
      git \
      python3-colcon-common-extensions \
      python3-pip \
-     python-rosdep \
+     python3-rosdep \
      python3-vcstool \
      wget
    # install some pip packages needed for testing

@@ -14,7 +14,7 @@ Binary packages
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Linux (Ubuntu Bionic(18.04))
+* Linux (Ubuntu Focal(20.04))
 
   * `Debian packages <Foxy/Linux-Install-Debians>`
   * `"fat" archive <Foxy/Linux-Install-Binary>`
