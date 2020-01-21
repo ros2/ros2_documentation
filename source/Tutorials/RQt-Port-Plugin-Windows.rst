@@ -14,9 +14,8 @@ RQt has not been historically supported on Windows, but compatibility is happeni
 RQt Porting examples
 --------------------
 
-Microsoft pushed an effort to port much of ROS to Windows, their repos are a good resource for necessary changes.
-They live at the ms-iot organization with branches called init-windows.
-For example: https://github.com/ms-iot/qt_gui_core/tree/init_windows
+Microsoft pushed an effort to port much of ROS to Windows, their pull request is a good resource for necessary changes.
+For example: https://github.com/ros-visualization/qt_gui_core/pull/188
 
 Here is the ROS 2 port of `qt_gui_core <https://github.com/ros-visualization/qt_gui_core/pull/146/commits/c3a9630de6fed3c46684925e7688b6d4c7b8baf8>`__.
 
