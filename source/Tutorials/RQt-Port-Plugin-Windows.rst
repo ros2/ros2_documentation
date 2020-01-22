@@ -17,7 +17,7 @@ RQt Porting examples
 Microsoft pushed an effort to port much of ROS to Windows, their pull request is a good resource for necessary changes.
 For example: https://github.com/ros-visualization/qt_gui_core/pull/188
 
-Here is the ROS 2 port of `qt_gui_core <https://github.com/ros-visualization/qt_gui_core/pull/146/commits/c3a9630de6fed3c46684925e7688b6d4c7b8baf8>`__.
+Here is the ROS 2 port of `qt_gui_core <https://github.com/ros-visualization/qt_gui_core/commit/6fb9624033a849f56d1bc1aad0e40d252bf99c2b>`_.
 
 Here is the ROS 2 port of `python_qt_binding <https://github.com/ros-visualization/python_qt_binding/pull/56>`__.
 
