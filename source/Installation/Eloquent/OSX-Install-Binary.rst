@@ -10,7 +10,7 @@ This page explains how to install ROS 2 on OS X from a pre-built binary package.
 System requirements
 -------------------
 
-We support OS X Sierra (10.12.x).
+We support macOS 10.14 (Mojave).
 
 .. _Eloquent_osx-install-binary-installling-prerequisites:
 
@@ -100,7 +100,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
+       python3 -m pip install catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------

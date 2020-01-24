@@ -9,9 +9,9 @@ Building ROS 2 on OS X
 System requirements
 -------------------
 
-We support OS X 10.12.x.
+We support macOS 10.14 (Mojave).
 
-However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
+However, some older versions like 10.13.x are known to work as well.
 
 Install prerequisites
 ---------------------
