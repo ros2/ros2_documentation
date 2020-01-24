@@ -10,7 +10,7 @@ This page explains how to install ROS 2 on OS X from a pre-built binary package.
 System requirements
 -------------------
 
-We support OS X Sierra (10.12.x).
+We support macOS 10.14 (Mojave).
 
 .. _Eloquent_osx-install-binary-installling-prerequisites:
 
