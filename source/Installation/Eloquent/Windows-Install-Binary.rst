@@ -229,10 +229,10 @@ Uninstall
     rmdir /s /q \ros2_eloquent
 
 
-(Alternative) Installation from aka.ms/ros
+(Alternative) Upstream Daily Builds Installation from aka.ms/ros
 ------------------------------------------
 
-https://aka.ms/ros project hosts ROS 2 for Windows daily builds desktop meta-package.
+https://aka.ms/ros project hosts ROS 2 daily builds from the upstream repositories.
 This section explains how to install ROS 2 from this channel.
 
 Install Chocolatey
