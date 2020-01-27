@@ -227,3 +227,31 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_eloquent
+
+
+(Alternative) Installation from aka.ms/ros
+------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 for Windows daily builds desktop meta-package.
+This section explains how to install ROS 2 from this channel.
+
+Install Chocolatey
+^^^^^^^^^^^^^^^^^^
+
+Chocolatey is a package manager for Windows, install it by following their installation instructions:
+
+https://chocolatey.org/
+
+You'll use Chocolatey to install some other developer tools.
+
+Install ROS 2
+^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   mkdir c:\opt\chocolatey
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco source add -n=ros-win -s="https://roswin.azurewebsites.net/api/v2" --priority=1
+   choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
