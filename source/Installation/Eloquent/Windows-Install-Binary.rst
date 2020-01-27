@@ -248,7 +248,6 @@ Install ROS 2 Daily Builds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In an administrative command prompt, run the following commands.
-It downloads all the required C++ 
 
 .. code-block:: bash
 
