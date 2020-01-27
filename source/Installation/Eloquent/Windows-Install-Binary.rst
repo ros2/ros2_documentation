@@ -244,10 +244,11 @@ https://chocolatey.org/
 
 You'll use Chocolatey to install some other developer tools.
 
-Install ROS 2
-^^^^^^^^^^^^^
+Install ROS 2 Daily Builds
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In an administrative command prompt, run the following commands.
+It downloads all the required C++ 
 
 .. code-block:: bash
 
@@ -255,3 +256,32 @@ In an administrative command prompt, run the following commands.
    set ChocolateyInstall=c:\opt\chocolatey
    choco source add -n=ros-win -s="https://roswin.azurewebsites.net/api/v2" --priority=1
    choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > set "PATH=c:\opt\rosdeps\x64\bin;C:\opt\python37amd64\;C:\opt\python37amd64\Scripts;%PATH%"
+   > call C:\opt\ros\eloquent\x64\local_setup.bat
+   
+Stay up-to-dated
+^^^^^^^^^^^^^^^^
+
+To keep up-to-dated with the latest builds, run:
+
+.. code-block:: bash
+
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   rmdir /s /q C:\opt\
