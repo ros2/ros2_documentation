@@ -81,6 +81,15 @@ You need the following things installed to build ROS 2:
        # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
        export PATH=$PATH:/usr/local/opt/qt/bin
+       
+#.
+   Install rqt dependencies
+
+  ``brew install sip pyqt5``
+
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+
+  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
