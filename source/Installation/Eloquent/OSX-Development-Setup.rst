@@ -81,7 +81,7 @@ You need the following things installed to build ROS 2:
        # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
        export PATH=$PATH:/usr/local/opt/qt/bin
-       
+
 #.
    Install rqt dependencies
 
