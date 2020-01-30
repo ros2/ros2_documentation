@@ -230,7 +230,7 @@ Uninstall
 
 
 (Alternative) Upstream Daily Builds Installation from aka.ms/ros
-------------------------------------------
+----------------------------------------------------------------
 
 https://aka.ms/ros project hosts ROS 2 daily builds from the upstream repositories.
 This section explains how to install ROS 2 from this channel.
