@@ -109,12 +109,12 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
-* asio.1.12.1.nupkg
-* cunit.2.1.3.nupkg
-* eigen-3.3.4.nupkg
-* tinyxml-usestl.2.6.2.nupkg
-* tinyxml2.6.0.0.nupkg
-* log4cxx.0.10.0.nupkg
+* `asio.1.12.1.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/asio.1.12.1.nupkg>`_
+* `cunit.2.1.3.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/cunit.2.1.3.nupkg>`_
+* `eigen3.3.4.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/eigen.3.3.4.nupkg>`_
+* `tinyxml-usestl.2.6.2.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/tinyxml-usestl.2.6.2.nupkg>`_
+* `tinyxml2.6.0.0.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/tinyxml2.6.0.0.nupkg>`_
+* `log4cxx.0.10.0.nupkg <https://github.com/ros2/choco-packages/releases/download/2019-10-24/log4cxx.0.10.0.nupkg>`_
 
 Once these packages are downloaded, open an administrative shell and execute the following command:
 
