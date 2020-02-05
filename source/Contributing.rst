@@ -64,7 +64,6 @@ Development Guides
    Contributing/Developer-Guide
    Contributing/Design-Guide
    Contributing/Quality-Guide
-   Contributing/MISRA-Compliance-Guide
    Contributing/Build-Cop-and-Build-Farmer-Guide
    Contributing/Migration-Guide
    Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations
