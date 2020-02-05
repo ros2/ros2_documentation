@@ -105,35 +105,6 @@ For example, a new function ``rmw_foo()`` introduced to the RMW API must be impl
 Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
 See `REP-2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for the list of middleware libraries and their tiers.
 
-kanban board (waffle.io)
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-To help organize the work, the core ROS 2 development team is using a kanban system hosted at waffle.io: `ROS 2 kanban <https://waffle.io/ros2/ros2>`__.
-This board augments the capabilities of GitHub by using labels to give a custom view into issues and pull requests across multiple repositories.
-The data produced and edited via waffle.io are stored in the underlying GitHub objects, so there's no requirement to use waffle.io (or for the core team to be tied to it); it just provides a useful perspective on things.
-
-Here's how we're using the columns in the board:
-
-* **Backlog**: cards (issues) that nobody is yet working on.
-  Their order in the backlog is an approximate indicator of priority, with cards higher in the column having higher priority.
-* **Ready**: cards on which work will be started very soon.
-  Cards in this column should have an owner assigned.
-  Cards should not sit in this column for more than a few days.
-* **In Progress**: cards on which work is currently in progress.
-  Cards in this column must have an owner assigned.
-  Cards should not sit in this column for more than a week.
-  When it is determined that a card will take longer, break it up into multiple cards and put the extras in the backlog.
-* **In Review**: cards for which the work is done and the relevant pull request/s is/are ready for review.
-  Cards remain in this column during review, but if review uncovers significant extra work to be done, move the card into an earlier column as appropriate.
-* **Done**: cards for which the work is done, meaning that the relevant pull request/s has/have been merged.
-  This column shows recently completed cards, for informational purposes only.
-
-Tips for working with the kanban board:
-
-* Requesting permission to make changes. Simply comment on specific tickets that you want to work on it. Depending on the complexity it might be useful to describe how you want to address it. We will update the status (if you don't have the permission) and you can start working on a pull request. If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
-* Using markup to connect issues and pull requests (see the `waffle.io FAQ <https://github.com/waffleio/waffle.io/wiki/FAQs#prs-connect-keywords>`__).
-* Doing equivalent things outside waffle.io, directly via GitHub. The column a card is in is determined by the label. The first and last column do not require a specific label. For the other column a label with the same name can be assigned.
-
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
