@@ -220,7 +220,7 @@ The console will return the following message:
 
     * ``--packages-up-to`` builds the package you want, plus all its dependencies, but not the whole workspace (saves time)
     * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
-    * ``--event-handlers console-direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
+    * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
 
 Once the build is finished, enter ``ls`` in the workspace root (``~/dev_ws``) and you will see that colcon has created new directories:
 
