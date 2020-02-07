@@ -49,7 +49,7 @@ Note that it is a CMake package; there currently isn’t a way to generate a ``.
 You can create a custom interface in a CMake package, and then use it in a Python node, which will be covered in the last section.
 
 It is good practice to keep ``.msg`` and ``.srv`` files in their own directories within a package.
-Create the directories:
+Create the directories in ``dev_ws/src/interfaces``:
 
 .. code-block:: console
 
@@ -163,7 +163,7 @@ should return:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For this step you can use the packages you created in previous tutorials.
-A few simple modifications in the nodes, ``CMakeLists`` and ``package`` files will allow you to see your interfaces in action.
+A few simple modifications to the nodes, ``CMakeLists`` and ``package`` files will allow you to use your new interfaces.
 
 7.1 Testing ``Num.msg`` with pub/sub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -457,10 +457,10 @@ Service:
         {
           rclcpp::init(argc, argv);
 
-          std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
+          std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_server");  // CHANGE
 
-          rclcpp::Service<interfaces::srv::AddThreeInts>::SharedPtr service =               // CHANGE
-            node->create_service<interfaces::srv::AddThreeInts>("add_two_ints",  &add);     // CHANGE
+          rclcpp::Service<interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+            node->create_service<interfaces::srv::AddThreeInts>("add_three_ints",  &add);     // CHANGE
 
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add three ints.");      // CHANGE
 
@@ -482,9 +482,9 @@ Service:
 
           def __init__(self):
               super().__init__('minimal_service')
-              self.srv = self.create_service(AddThreeInts, 'add_three_ints', self.add_two_ints_callback)        # CHANGE
+              self.srv = self.create_service(AddThreeInts, 'add_three_ints', self.add_three_ints_callback)        # CHANGE
 
-          def add_two_ints_callback(self, request, response):
+          def add_three_ints_callback(self, request, response):
               response.sum = request.a + request.b + request.c                                                  # CHANGE
               self.get_logger().info('Incoming request\na: %d b: %d c: %d' % (request.a, request.b, request.c)) # CHANGE
 
@@ -524,15 +524,15 @@ Client:
             rclcpp::init(argc, argv);
 
             if (argc != 4) { // CHANGE
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y Z");      // CHANGE
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");      // CHANGE
                 return 1;
             }
 
-            std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
-            rclcpp::Client<interfaces::srv::AddThreeInts>::SharedPtr client =                       // CHANGE
-              node->create_client<interfaces::srv::AddThreeInts>("add_two_ints");                   // CHANGE
+            std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client"); // CHANGE
+            rclcpp::Client<interfaces::srv::AddThreeInts>::SharedPtr client =                        // CHANGE
+              node->create_client<interfaces::srv::AddThreeInts>("add_three_ints");                  // CHANGE
 
-            auto request = std::make_shared<interfaces::srv::AddThreeInts::Request>();              // CHANGE
+            auto request = std::make_shared<interfaces::srv::AddThreeInts::Request>();               // CHANGE
             request->a = atoll(argv[1]);
             request->b = atoll(argv[2]);
             request->c = atoll(argv[3]);               // CHANGE
@@ -552,7 +552,7 @@ Client:
             {
               RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
             } else {
-              RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+              RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_three_ints");    // CHANGE
             }
 
             rclcpp::shutdown();
