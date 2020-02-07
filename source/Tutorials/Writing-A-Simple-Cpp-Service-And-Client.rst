@@ -372,4 +372,5 @@ You added their dependencies and executables to the package configuration files 
 Next steps
 ----------
 
-Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
+Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
