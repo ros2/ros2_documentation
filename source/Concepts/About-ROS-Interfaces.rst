@@ -2,7 +2,7 @@
 
     About-ROS-Interfaces
 
-About ROS 2 Interfaces
+About ROS 2 interfaces
 ======================
 
 .. contents:: Table of Contents
@@ -11,12 +11,18 @@ About ROS 2 Interfaces
 1. Background
 -------------
 
-ROS applications typically communicate through interfaces of one of two types: messages and services.
-ROS uses a simplified description language to describe these interfaces. This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
+ROS applications typically communicate through interfaces of one of three types: messages, services and actions.
+ROS 2 uses a simplified description language, the interface definition language (IDL), to describe these interfaces.
+This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
 
-In this document we will describe the supported types and how to create your own msg/srv files.
+In this document we will describe the supported types.
 
-2. Message Description Specification
+* msg: ``.msg`` files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
+* srv: ``.srv`` files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
+* action: ``.action`` files describe actions. They are composed of three parts: a goal, a result, and feedback.
+
+
+2. Message description specification
 ------------------------------------
 
 Messages description are defined in ``.msg`` files in the ``msg/`` directory of a ROS package.
@@ -40,7 +46,7 @@ For example:
    int32 my_int
    string my_string
 
-2.1.1 Field Types
+2.1.1 Field types
 ~~~~~~~~~~~~~~~~~
 
 Field types can be:
@@ -160,12 +166,12 @@ All types that are more permissive than their ROS definition enforce the ROS con
    string<=10[] unbounded_array_of_string_up_to_ten_characters each
    string<=10[<=5] up_to_five_strings_up_to_ten_characters_each
 
-2.1.2 Field Names
+2.1.2 Field names
 ~~~~~~~~~~~~~~~~~
 
 Field names must be lowercase alphanumeric characters with underscores for separating words. They must start with an alphabetic character, they must not end with an underscore and never have two consecutive underscores.
 
-2.1.3 Field Default Value
+2.1.3 Field default value
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default values can be set to any field in the message type.
@@ -214,7 +220,7 @@ For example:
 
    Constants names have to be UPPERCASE
 
-3. Service Description Specification
+3. Service description specification
 ------------------------------------
 
 Services description are defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
@@ -248,3 +254,23 @@ We can of course get much more complicated (if you want to refer to a message fr
    uint32 an_integer
 
 You cannot embed another service inside of a service.
+
+.. add "action description specification" section? Or just link to design article
+
+4. New features in ROS 2 Interfaces
+-----------------------------------
+
+The ROS 2 IDL is closely related to the `ROS 1 IDL <http://wiki.ros.org/msg>`__.
+Most existing ROS 1 ``.msg`` and ``.srv`` files should be usable as-is with ROS 2.
+Atop ROS 1's existing feature set, the ROS 2 IDL introduces some new features, namely:
+
+
+* **bounded arrays**: Whereas the ROS 1 IDL allows unbounded arrays (e.g., ``int32[] foo``) and fixed-size arrays (e.g., ``int32[5] bar``), the ROS 2 IDL further allows bounded arrays (e.g., ``int32[<=5] bat``).
+  There are use cases in which it's important to be able to place an upper bound on the size of an array without committing to always using that much space (e.g., in a real-time system in which you need to preallocate all memory that will be used during execution).
+* **bounded strings**: Whereas the ROS 1 IDL allows unbounded strings (e.g., ``string foo``), the ROS 2 IDL further allows bounded strings (e.g., ``string<=5 bar``).
+* **default values**: Whereas the ROS 1 IDL allows constant fields (e.g., ``int32 X=123``), the ROS 2 IDL further allows default values to be specified (e.g., ``int32 X 123``).
+  The default value is used when constructing a message/service object and can be subsequently overridden by assigning to the field.
+
+  *Note: in ROS Ardent, default values are not supported for complex types or string arrays or strings with encoding.*
+
+  *Note: in ROS Bouncy, default values are not supported for complex types or string with encoding.*

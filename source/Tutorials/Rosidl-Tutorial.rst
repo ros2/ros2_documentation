@@ -9,43 +9,6 @@ Introduction to msg and srv interfaces
 
 **Disclaimer: The code provided is to support the explanation, it is likely outdated and should not be expected to compile as is**
 
-
-* msg: msg files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
-* srv: an srv file describes a service. It is composed of two parts: a request and a response. The request and response are message declarations.
-
-msgs are just simple text files with a field type and field name per line. The field types you can use are:
-
-
-* int8, int16, int32, int64 (plus uint*)
-* float32, float64
-* string
-* other msg files
-* variable-length array[], fixed-length array[C], bounded-length array[<=C]
-
-Here is an example of a msg that uses a string primitive, and two other msgs:
-
-::
-
-     string child_frame_id
-     geometry_msgs/PoseWithCovariance pose
-     geometry_msgs/TwistWithCovariance twist
-
-srv files are just like msg files, except they contain two parts: a request and a response. The two parts are separated by a '---' line. Here is an example of a srv file:
-
-::
-
-   float64 A
-   float64 B
-   ---
-   float64 Sum
-
-In the above example, A and B are the request, and Sum is the response.
-
-msg files are stored in the ``msg`` directory of a package, and srv files are stored in the ``srv`` directory.
-
-These are just simple examples.
-For more information about how to create msg and srv files please refer to `About ROS Interfaces <../Concepts/About-ROS-Interfaces>`.
-
 Creating a msg package
 ----------------------
 
