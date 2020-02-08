@@ -115,7 +115,7 @@ Add the following lines to ``package.xml``
   <member_of_group>rosidl_interface_packages</member_of_group>
 
 5 Build the ``tutorial_interfaces`` package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that all the parts of your custom interfaces package are in place, you can build the package.
 In the root of your workspace (``~/dev_ws``), run the following command:
