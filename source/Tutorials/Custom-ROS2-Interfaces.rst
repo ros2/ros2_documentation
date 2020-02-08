@@ -42,14 +42,14 @@ Since we will use the pub/sub and service/client packages created in earlier tut
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake interfaces
+  ros2 pkg create --build-type ament_cmake tutorial_interfaces
 
-``interfaces`` is the name of the new package.
+``tutorial_interfaces`` is the name of the new package.
 Note that it is a CMake package; there currently isn’t a way to generate a ``.msg`` or ``.srv`` file in a pure Python package.
 You can create a custom interface in a CMake package, and then use it in a Python node, which will be covered in the last section.
 
 It is good practice to keep ``.msg`` and ``.srv`` files in their own directories within a package.
-Create the directories in ``dev_ws/src/interfaces``:
+Create the directories in ``dev_ws/src/tutorial_interfaces``:
 
 .. code-block:: console
 
@@ -63,18 +63,18 @@ Create the directories in ``dev_ws/src/interfaces``:
 2.1 msg definition
 ~~~~~~~~~~~~~~~~~~
 
-In the ``interfaces/msg`` directory you just created, make a new file called ``Num.msg`` with one line of code declaring its data structure:
+In the ``tutorial_interfaces/msg`` directory you just created, make a new file called ``Num.msg`` with one line of code declaring its data structure:
 
 .. code-block:: console
 
     int64 num
 
-This is your custom message that transfers a single integer called ``num``.
+This is your custom message that transfers a single 64-bit integer called ``num``.
 
 2.2 srv definition
 ~~~~~~~~~~~~~~~~~~
 
-Back in the ``interfaces/srv`` directory you just created, make a new file called ``AddThreeInts.srv`` with the following request and response structure:
+Back in the ``tutorial_interfaces/srv`` directory you just created, make a new file called ``AddThreeInts.srv`` with the following request and response structure:
 
 .. code-block:: console
 
@@ -86,22 +86,10 @@ Back in the ``interfaces/srv`` directory you just created, make a new file calle
 
 This is your custom service that requests three integers named ``a``, ``b``, and ``c``, and responds with an integer called ``sum``.
 
-3 ``package.xml``
-^^^^^^^^^^^^^^^^^
-
-In order for your custom interfaces to be discoverable by other ROS 2 packages, add the following line to ``interfaces``’ ``package.xml`` file:
-
-.. code-block:: xml
-
-  <member_of_group>rosidl_interface_packages</member_of_group>
-
-.. MORE HERE? IT WORKS WHEN I JUST ADD THIS
-
-4 ``CMakeLists.txt``
+3 ``CMakeLists.txt``
 ^^^^^^^^^^^^^^^^^^^^
 
-Like ``pacakge.xml``, the ``CMakeLists.txt`` of any package with interfaces also needs some declarations in order for its interfaces to become discoverable.
-Add the following lines:
+To convert the interfaces you defined into language-specific code (like C++ and Python) so that they can be used in those languages, add the following lines to ``CMakeLists.txt``:
 
 .. code-block:: console
 
@@ -112,7 +100,21 @@ Add the following lines:
     "srv/AddThreeInts.srv"
    )
 
-5 Build the ``interfaces`` package
+4 ``package.xml``
+^^^^^^^^^^^^^^^^^
+
+Because the interfaces rely on ``rosidl_default_generators`` for generating language-specific code, you need to declare a dependency on it.
+Add the following lines to ``package.xml``
+
+.. code-block:: xml
+
+  <build_depend>rosidl_default_generators</build_depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+5 Build the ``tutorial_interfaces`` package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that all the parts of your custom interfaces package are in place, you can build the package.
@@ -120,7 +122,9 @@ In the root of your workspace (``~/dev_ws``), run the following command:
 
 .. code-block:: console
 
-    colcon build --packages-select interfaces
+    colcon build --packages-select tutorial_interfaces
+
+Now the interfaces will be discoverable by other ROS 2 packages.
 
 6 Confirm msg and srv creation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -135,7 +139,7 @@ Now you can confirm that your interface creation worked by using the ``ros2 inte
 
 .. code-block:: console
 
-    ros2 interface show interfaces/msg/Num
+    ros2 interface show tutorial_interfaces/msg/Num
 
 should return:
 
@@ -147,7 +151,7 @@ And
 
 .. code-block:: console
 
-  ros2 interface show interfaces/srv/AddThreeInts
+  ros2 interface show tutorial_interfaces/srv/AddThreeInts
 
 should return:
 
@@ -168,7 +172,7 @@ A few simple modifications to the nodes, ``CMakeLists`` and ``package`` files wi
 7.1 Testing ``Num.msg`` with pub/sub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With some slight modifications to the publisher/subcriber package created in a previous tutorial, you can see ``Num.msg`` in action.
+With some slight modifications to the publisher/subscriber package created in a previous tutorial, you can see ``Num.msg`` in action.
 Since you’ll be changing the standard string msg to a numerical one, the output will be slightly different.
 
 Publisher:
@@ -183,7 +187,7 @@ Publisher:
           #include <memory>
 
           #include "rclcpp/rclcpp.hpp"
-          #include "interfaces/msg/num.hpp"     // CHANGE
+          #include "tutorial_interfaces/msg/num.hpp"     // CHANGE
 
           using namespace std::chrono_literals;
 
@@ -193,7 +197,7 @@ Publisher:
             MinimalPublisher()
             : Node("minimal_publisher"), count_(0)
             {
-              publisher_ = this->create_publisher<interfaces::msg::Num>("topic", 10);    // CHANGE
+              publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);    // CHANGE
               timer_ = this->create_wall_timer(
                 500ms, std::bind(&MinimalPublisher::timer_callback, this));
             }
@@ -201,13 +205,13 @@ Publisher:
           private:
             void timer_callback()
             {
-              auto message = interfaces::msg::Num();                               // CHANGE
+              auto message = tutorial_interfaces::msg::Num();                               // CHANGE
               message.num = this->count_++;                                        // CHANGE
               RCLCPP_INFO(this->get_logger(), "Publishing: '%d'", message.num);    // CHANGE
               publisher_->publish(message);
             }
             rclcpp::TimerBase::SharedPtr timer_;
-            rclcpp::Publisher<interfaces::msg::Num>::SharedPtr publisher_;         // CHANGE
+            rclcpp::Publisher<tutorial_interfaces::msg::Num>::SharedPtr publisher_;         // CHANGE
             size_t count_;
           };
 
@@ -226,7 +230,7 @@ Publisher:
       import rclpy
       from rclpy.node import Node
 
-      from interfaces.msg import Num    # CHANGE
+      from tutorial_interfaces.msg import Num    # CHANGE
 
 
       class MinimalPublisher(Node):
@@ -272,7 +276,7 @@ Subscriber:
           #include <memory>
 
           #include "rclcpp/rclcpp.hpp"
-          #include "interfaces/msg/num.hpp"     // CHANGE
+          #include "tutorial_interfaces/msg/num.hpp"     // CHANGE
           using std::placeholders::_1;
 
           class MinimalSubscriber : public rclcpp::Node
@@ -281,16 +285,16 @@ Subscriber:
             MinimalSubscriber()
             : Node("minimal_subscriber")
             {
-              subscription_ = this->create_subscription<interfaces::msg::Num>(          // CHANGE
+              subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(          // CHANGE
                 "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
             }
 
           private:
-            void topic_callback(const interfaces::msg::Num::SharedPtr msg) const       // CHANGE
+            void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const       // CHANGE
             {
               RCLCPP_INFO(this->get_logger(), "I heard: '%d'", msg->num);              // CHANGE
             }
-            rclcpp::Subscription<interfaces::msg::Num>::SharedPtr subscription_;       // CHANGE
+            rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;       // CHANGE
           };
 
           int main(int argc, char * argv[])
@@ -308,7 +312,7 @@ Subscriber:
         import rclpy
         from rclpy.node import Node
 
-        from interfaces.msg import Num        # CHANGE
+        from tutorial_interfaces.msg import Num        # CHANGE
 
 
         class MinimalSubscriber(Node):
@@ -351,13 +355,13 @@ Add the following lines (C++ only):
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
-    find_package(interfaces REQUIRED)                         # CHANGE
+    find_package(tutorial_interfaces REQUIRED)                         # CHANGE
 
     add_executable(talker src/publisher_member_function.cpp)
-    ament_target_dependencies(talker rclcpp std_msgs)         # CHANGE
+    ament_target_dependencies(talker rclcpp tutorial_interfaces)         # CHANGE
 
     add_executable(listener src/subscriber_member_function.cpp)
-    ament_target_dependencies(listener rclcpp interfaces)     # CHANGE
+    ament_target_dependencies(listener rclcpp tutorial_interfaces)     # CHANGE
 
     install(TARGETS
       talker
@@ -367,13 +371,13 @@ Add the following lines (C++ only):
     ament_package()
 
 
-Package.xml:
+package.xml:
 
 Add the following line (same for C++ and Python):
 
 .. code-block:: xml
 
-      <exec_depend>interfaces</exec_depend>
+      <exec_depend>tutorial_interfaces</exec_depend>
 
 
 After making the above edits and saving all the changes, build the package:
@@ -440,12 +444,12 @@ Service:
     .. code-block:: c++
 
         #include "rclcpp/rclcpp.hpp"
-        #include "interfaces/srv/add_three_ints.hpp"     // CHANGE
+        #include "tutorial_interfaces/srv/add_three_ints.hpp"     // CHANGE
 
         #include <memory>
 
-        void add(const std::shared_ptr<interfaces::srv::AddThreeInts::Request> request,     // CHANGE
-                  std::shared_ptr<interfaces::srv::AddThreeInts::Response>       response)  // CHANGE
+        void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+                  std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Response>       response)  // CHANGE
         {
           response->sum = request->a + request->b + request->c;                                       // CHANGE
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld" " c: %ld",   // CHANGE
@@ -459,8 +463,8 @@ Service:
 
           std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_server");  // CHANGE
 
-          rclcpp::Service<interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
-            node->create_service<interfaces::srv::AddThreeInts>("add_three_ints",  &add);     // CHANGE
+          rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
+            node->create_service<tutorial_interfaces::srv::AddThreeInts>("add_three_ints",  &add);     // CHANGE
 
           RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add three ints.");      // CHANGE
 
@@ -472,7 +476,7 @@ Service:
 
     .. code-block:: python
 
-      from interfaces.srv import AddThreeInts     # CHANGE
+      from tutorial_interfaces.srv import AddThreeInts     # CHANGE
 
       import rclpy
       from rclpy.node import Node
@@ -511,7 +515,7 @@ Client:
     .. code-block:: c++
 
           #include "rclcpp/rclcpp.hpp"
-          #include "interfaces/srv/add_three_ints.hpp"        // CHANGE
+          #include "tutorial_interfaces/srv/add_three_ints.hpp"        // CHANGE
 
           #include <chrono>
           #include <cstdlib>
@@ -529,10 +533,10 @@ Client:
             }
 
             std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client"); // CHANGE
-            rclcpp::Client<interfaces::srv::AddThreeInts>::SharedPtr client =                        // CHANGE
-              node->create_client<interfaces::srv::AddThreeInts>("add_three_ints");                  // CHANGE
+            rclcpp::Client<tutorial_interfaces::srv::AddThreeInts>::SharedPtr client =                        // CHANGE
+              node->create_client<tutorial_interfaces::srv::AddThreeInts>("add_three_ints");                  // CHANGE
 
-            auto request = std::make_shared<interfaces::srv::AddThreeInts::Request>();               // CHANGE
+            auto request = std::make_shared<tutorial_interfaces::srv::AddThreeInts::Request>();               // CHANGE
             request->a = atoll(argv[1]);
             request->b = atoll(argv[2]);
             request->c = atoll(argv[3]);               // CHANGE
@@ -563,7 +567,7 @@ Client:
 
     .. code-block:: python
 
-        from interfaces.srv import AddThreeInts       # CHANGE
+        from tutorial_interfaces.srv import AddThreeInts       # CHANGE
         import sys
         import rclpy
         from rclpy.node import Node
@@ -624,15 +628,15 @@ Add the following lines (C++ only):
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
-    find_package(interfaces REQUIRED)        # CHANGE
+    find_package(tutorial_interfaces REQUIRED)        # CHANGE
 
     add_executable(server src/add_two_ints_server.cpp)
     ament_target_dependencies(server
-      rclcpp interfaces)                      #CHANGE
+      rclcpp tutorial_interfaces)                      #CHANGE
 
     add_executable(client src/add_two_ints_client.cpp)
     ament_target_dependencies(client
-      rclcpp interfaces)                      #CHANGE
+      rclcpp tutorial_interfaces)                      #CHANGE
 
     install(TARGETS
       server
@@ -642,13 +646,13 @@ Add the following lines (C++ only):
     ament_package()
 
 
-Package.xml:
+package.xml:
 
 Add the following line (same for C++ and Python):
 
 .. code-block:: xml
 
-      <exec_depend>interfaces</exec_depend>
+      <exec_depend>tutorial_interfaces</exec_depend>
 
 
 After making the above edits and saving all the changes, build the package:
