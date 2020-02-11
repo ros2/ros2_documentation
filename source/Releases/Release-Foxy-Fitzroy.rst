@@ -56,6 +56,36 @@ The default console logging output format was changed to include the timestamp b
 - `https://github.com/ros2/rcutils/pull/190 <https://github.com/ros2/rcutils/pull/190>`_
 - `https://discourse.ros.org/t/ros2-logging-format/11549 <https://discourse.ros.org/t/ros2-logging-format/11549>`_
 
+launch_ros
+^^^^^^^^^^
+
+Node name and namespace parameters changed
+""""""""""""""""""""""""""""""""""""""""""
+
+The ``Node`` action parameters related to naming have been changed:
+
+- ``node_name`` has been renamed to ``name``
+- ``node_namespace`` has been renamed to ``namespace``
+- ``exec_name`` has been added for naming the process associated with the node.
+  Previously, users would have used the ``name`` keyword argument.
+
+These changes were made to make the launch frontend more idiomatic.
+For example, instead of
+
+.. code-block:: xml
+
+   <node pkg="demo_nodes_cpp" exec="talker" node-name="foo" />
+
+we can now write
+
+.. code-block:: xml
+
+   <node pkg="demo_nodes_cpp" exec="talker" name="foo" />
+
+The old parameters have been deprecated.
+
+`Related pull request. <https://github.com/ros2/launch_ros/pull/122>`_
+
 Timeline before the release
 ---------------------------
 
