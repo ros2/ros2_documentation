@@ -62,17 +62,21 @@ Timeline before the release
 A few milestones leading up to the release:
 
     Wed. April 8th, 2020
-        API and feature freeze for core packages
+        API and feature freeze for ``ros_core`` [1]_ packages.
+        Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
     Mon. April 13th, 2020 (beta)
-        Updated releases of core packages available.
+        Updated releases of ``desktop`` [2]_ packages available.
         Testing of the new features.
 
     Wed. May 13th, 2020 (release candidate)
-        Updated releases of core packages available.
+        Updated releases of ``desktop`` [2]_ packages available.
 
     Wed. May 20, 2020
         Freeze rosdistro.
         No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
+
+.. [1] The ``ros_core`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
+.. [2] The ``desktop`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
