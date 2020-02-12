@@ -69,6 +69,8 @@ The ``Node`` action parameters related to naming have been changed:
 - ``exec_name`` has been added for naming the process associated with the node.
   Previously, users would have used the ``name`` keyword argument.
 
+The old parameters have been deprecated.
+
 These changes were made to make the launch frontend more idiomatic.
 For example, instead of
 
@@ -82,9 +84,10 @@ we can now write
 
    <node pkg="demo_nodes_cpp" exec="talker" name="foo" />
 
-The old parameters have been deprecated.
+This change also applies to ``ComposableNodeContainer`` and ``LifecycleNode``,
+For examples, see the `relevant changes to the demos. <https://github.com/ros2/demos/pull/431>`_
 
-`Related pull request. <https://github.com/ros2/launch_ros/pull/122>`_
+`Related pull request in launch_ros. <https://github.com/ros2/launch_ros/pull/122>`_
 
 Timeline before the release
 ---------------------------
