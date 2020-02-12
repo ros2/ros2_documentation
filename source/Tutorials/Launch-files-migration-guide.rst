@@ -28,7 +28,7 @@ node
 * `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__.
 * Launches a new node.
 * Differences from ROS 1:
-   * ``type`` attribute is now ``executable``.
+   * ``type`` attribute is now ``exec``.
    * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
 
 Example
