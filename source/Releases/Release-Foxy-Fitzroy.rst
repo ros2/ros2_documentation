@@ -66,6 +66,7 @@ The ``Node`` action parameters related to naming have been changed:
 
 - ``node_name`` has been renamed to ``name``
 - ``node_namespace`` has been renamed to ``namespace``
+- ``node_executable`` has been renamed to ``executable``
 - ``exec_name`` has been added for naming the process associated with the node.
   Previously, users would have used the ``name`` keyword argument.
 
@@ -84,7 +85,7 @@ we can now write
 
    <node pkg="demo_nodes_cpp" exec="talker" name="foo" />
 
-This change also applies to ``ComposableNodeContainer`` and ``LifecycleNode``,
+This change also applies to ``ComposableNodeContainer``, ``ComposableNode``, and ``LifecycleNode``.
 For examples, see the `relevant changes to the demos. <https://github.com/ros2/demos/pull/431>`_
 
 `Related pull request in launch_ros. <https://github.com/ros2/launch_ros/pull/122>`_
