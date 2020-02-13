@@ -211,7 +211,7 @@ Which will return:
 
     /turtle1/rotate_absolute [turtlesim/action/RotateAbsolute]
 
-In brackets to the left of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
+In brackets to the right of each action name (in this case only ``/turtle1/rotate_absolute``) is the action type, ``turtlesim/action/RotateAbsolute``.
 You will need this when you want to execute an action from the command line or from code.
 
 5 ros2 action info
