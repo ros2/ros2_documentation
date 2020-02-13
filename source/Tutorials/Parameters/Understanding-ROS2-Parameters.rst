@@ -103,7 +103,7 @@ Which will return the value:
 
 Now you know ``background_g`` holds an integer value.
 
-If you run the same command on ``background_r`` and ``background_b``, you will get the values ``255`` and ``69``, respectively.
+If you run the same command on ``background_r`` and ``background_b``, you will get the values ``69`` and ``255``, respectively.
 
 4 ros2 param set
 ^^^^^^^^^^^^^^^^
