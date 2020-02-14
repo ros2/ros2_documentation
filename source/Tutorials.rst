@@ -3,23 +3,24 @@
 Tutorials
 =========
 
-Beginner level
---------------
-
-The beginner level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
-We recommend following the tutorials in order, from the "Users" set to the "Developers" set to gain basic foundational knowledge of ROS 2.
-
-You're welcome to pick tutorials out of the set if you're looking for something specific, just understand that the tutorials build off of each other and are not meant to be comprehensive documentation.
-These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
-The :ref:`Contact <Help>` page includes more ways to get help.
-
 .. note::
 
   Currently, the beginner level tutorials target **Eloquent**, installed from `Debians on Linux </Installation/Linux-Install-Debians>`.
   Certain features and commands may not be available for older distributions/other installation types.
 
-Users
-^^^^^
+Beginner
+--------
+
+The beginner level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
+
+.. warning::
+
+   Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
+   These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
+   The :ref:`Contact <Help>` page includes more ways to get help.
+
+Beginner: CLI Tools
+^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 1
@@ -35,51 +36,45 @@ Users
    Tutorials/Launch-Files/Creating-Launch-Files
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
 
-Developers
-^^^^^^^^^^
+Beginner: Client Libraries
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 1
 
    Tutorials/Workspace/Creating-A-Workspace
-   Tutorials/Creating-A-ROS2-Package
+   Tutorials/Creating-Your-First-ROS2-Package
    Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber
    Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
    Tutorials/Writing-A-Simple-Cpp-Service-And-Client
    Tutorials/Writing-A-Simple-Py-Service-And-Client
    Tutorials/Getting-Started-With-Ros2doctor
 
+Intermediate
+------------
 
-Miscellaneous
--------------
+Working With Your First Package & Workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :maxdepth: 1
 
    Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
-   Tutorials/Ament-Tutorial
    Tutorials/Ament-CMake-Documentation
-   Tutorials/Cross-compilation
-   Tutorials/catment
+   Tutorials/Rosidl-Tutorial.rst
+
+Learning the ROS 2 Toolset
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Launch-system
+   Tutorials/Node-arguments
    Tutorials/Introspection-with-command-line-tools
    Tutorials/RQt-Overview-Usage
-   Tutorials/RQt-Port-Plugin-Windows
-   Tutorials/Node-arguments
-   Tutorials/Launch-system
-   Tutorials/Launch-files-migration-guide
-   Tutorials/Working-with-multiple-RMW-implementations
    Tutorials/Composition
-   Tutorials/Rosidl-Tutorial.rst
-   Tutorials/New-features-in-ROS-2-interfaces-(msg-srv)
-   Tutorials/Defining-custom-interfaces-(msg-srv)
    Tutorials/Actions
-   Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
-   Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
-   Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
-   Tutorials/Working-with-Eclipse-CycloneDDS
-   Tutorials/Releasing-a-ROS-2-package-with-bloom
-
 
 Advanced
 --------
@@ -87,8 +82,20 @@ Advanced
 .. toctree::
    :maxdepth: 1
 
+   Tutorials/Working-with-multiple-RMW-implementations
+   Tutorials/Working-with-Eclipse-CycloneDDS
+   Tutorials/catment
+   Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
+   Tutorials/Releasing-a-ROS-2-package-with-bloom
 
+Windows Tutorials
+-----------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/RQt-Port-Plugin-Windows
 
 Using Docker
 ------------
@@ -98,6 +105,18 @@ Using Docker
 
    Tutorials/Run-2-nodes-in-a-single-docker-container
    Tutorials/Run-2-nodes-in-two-separate-docker-containers
+
+Miscellaneous
+-------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Launch-files-migration-guide
+   Tutorials/New-features-in-ROS-2-interfaces-(msg-srv)
+   Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
+   Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
+   Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
 
 Demos
 -----
