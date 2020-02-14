@@ -54,19 +54,19 @@ Create a launch file named ``turtlesim_mimic_launch.py`` by entering the followi
 
       .. code-block:: console
 
-        touch turtlesim_mimic_launch.py
+        touch launch/turtlesim_mimic_launch.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        touch turtlesim_mimic_launch.py
+        touch launch/turtlesim_mimic_launch.py
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        type nul > turtlesim_mimic_launch.py
+        type nul > launch/turtlesim_mimic_launch.py
 
 You can also go into your system’s file directory using the GUI and create a new file that way.
 
@@ -81,7 +81,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. code-block:: python
 
-  from  launch import LaunchDescription
+  from launch import LaunchDescription
   from launch_ros.actions import Node
 
   def generate_launch_description():
@@ -206,7 +206,7 @@ Two turtlesim windows will open, and you will see the following ``[INFO]`` messa
   [INFO] [turtlesim_node-2]: process started with pid [11715]
   [INFO] [mimic-3]: process started with pid [11716]
 
-To see the system in action, run the ``ros2 topic pub`` command on the ``/turtlesim1/turtle1/cmd_vel`` topic to get the first turtle moving:
+To see the system in action, open a new terminal and run the ``ros2 topic pub`` command on the ``/turtlesim1/turtle1/cmd_vel`` topic to get the first turtle moving:
 
 .. code-block:: console
 
