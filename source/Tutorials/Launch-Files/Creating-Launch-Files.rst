@@ -46,7 +46,7 @@ Create a new directory to store your launch file:
 
   mkdir launch
 
-Open the directory and create a launch file named ``turtlesim_mimic_launch.py`` by entering the following command in the terminal:
+Create a launch file named ``turtlesim_mimic_launch.py`` by entering the following command in the terminal:
 
 .. tabs::
 
@@ -54,19 +54,19 @@ Open the directory and create a launch file named ``turtlesim_mimic_launch.py`` 
 
       .. code-block:: console
 
-        touch turtlesim_mimic_launch.py
+        touch launch/turtlesim_mimic_launch.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        touch turtlesim_mimic_launch.py
+        touch launch/turtlesim_mimic_launch.py
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        type nul > turtlesim_mimic_launch.py
+        type nul > launch/turtlesim_mimic_launch.py
 
 You can also go into your system’s file directory using the GUI and create a new file that way.
 
