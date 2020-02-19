@@ -143,10 +143,13 @@ If you need more specific help (because environment setup files can come from di
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If your lab or office has multiple computers running ROS 2, it is important that each system sets a unique integer for the environment variable ``ROS_DOMAIN_ID``.
+If your lab or office has multiple, different groups of computers running ROS 2, and you want to avoid cross-talk between the groups, choose a single integer and set it as the environment variable ``ROS_DOMAIN_ID`` on all the computers in a group. Choose a different, unique integer for each subgroup. (For the default RMW on eProsima Fast RTPS, as of ROS 2 Eloquent, this integer must be between 0-232 for the ROS 2 daemon to successfully start.)
 
-The domain ID is used to segment the network in order to avoid interference between ROS 2 programs.
-Once you have determined a unique integer for yourself, you can set the environment variable with the following command:
+The domain ID is used to segment the network in order to avoid interference between different groups of computers running ROS 2 on the same local area network. Machines with different domain id's will not talk, nor interfere, with each other.
+
+If you run into issues having multiple computers talk to each other check Troubleshooting (https://index.ros.org/doc/ros2/Troubleshooting/). Additionally, there are multiple answers at discouse.ros.org and answers.ros.org with more in-depth information.
+
+Once you have determined a unique integer for your group of ROS 2 agents, you can set the environment variable with the following command:
 
 .. tabs::
 
