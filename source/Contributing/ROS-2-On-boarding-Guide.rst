@@ -46,8 +46,8 @@ To request access send an email to ros@osrfoundation.org (anybody on the mailing
 Choose a DDS domain ID
 ----------------------
 
-ROS2 uses DDS as the underlying transport and DDS supports a physical segmentation of the network based on the "domain ID" (it is used to calculate the multicast port.
-We use a unique value for this on each machine to keep our ROS2 nodes from interfering from each other.
+ROS2 uses DDS as the underlying transport and DDS supports a physical segmentation of the network based on the "domain ID" (it is used to calculate the multicast port).
+We use a unique value for this on each machine (or group of machines) to keep each group's ROS2 nodes from interfering with other developers' testing.
 We expose this setting via the ``ROS_DOMAIN_ID`` environment variable and use a document to ensure we don't accidentally choose the same one as someone else.
 This is, however, only important for people who will be working on the OSRF network, but it isn't a bad idea to set up at any organization with multiple ROS 2 users on the same network.
 
