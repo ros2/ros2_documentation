@@ -33,7 +33,7 @@ You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
   .. code-block:: console
 
-    sudo apt-get install ros-<ros-distro>-ros2bag ros-<ros-distro>-rosbag2*
+    sudo apt-get install ros-<distro>-ros2bag ros-<distro>-rosbag2*
 
 This tutorial talks about concepts covered in previous tutorials, like nodes and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.
