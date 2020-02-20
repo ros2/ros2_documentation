@@ -85,12 +85,14 @@ Add the same information to the ``setup.py`` file for the ``maintainer``, ``main
 2 Write the service node
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``service_member_function.py`` and paste the following code within:
+2.1 Add the source file for the service node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create a new file ``service_member_function.py`` in ``dev_ws/src/py_srvcli/py_srvcli`` with the following content:
 
 .. code-block:: python
 
   from example_interfaces.srv import AddTwoInts
-
   import rclpy
   from rclpy.node import Node
 
@@ -108,8 +110,8 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
           return response
 
 
-  def main(args=None):
-      rclpy.init(args=args)
+  def main():
+      rclpy.init()
 
       minimal_service = MinimalService()
 
@@ -121,8 +123,7 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
   if __name__ == '__main__':
       main()
 
-2.1 Examine the code
-~~~~~~~~~~~~~~~~~~~~
+*Examine the code*
 
 The first ``import`` statement imports the ``AddTwoInts`` service type from the ``example_interfaces`` package.
 The following ``import`` statement imports the ROS 2 Python client library, and specifically the ``Node`` class.
@@ -169,7 +170,97 @@ Add the following line between the ``'console_scripts':`` brackets:
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``client_member_function.py`` and paste the following code within:
+3.1 Add the source file for the synchronous client node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A synchronous client will block upon sending a request to a service until a response has been received and then returns it.
+
+Create a new file ``synchronous_client_member_function.py`` in ``dev_ws/src/py_srvcli/py_srvcli`` with the following content:
+
+.. code-block:: python
+
+  import sys
+  from threading import Thread
+
+  from example_interfaces.srv import AddTwoInts
+  import rclpy
+  from rclpy.node import Node
+
+
+  class MinimalClientSync(Node):
+
+      def __init__(self):
+          super().__init__('minimal_client_sync')
+          self.cli = self.create_client(AddTwoInts, 'add_two_ints')
+          while not self.cli.wait_for_service(timeout_sec=1.0):
+              self.get_logger().info('service not available, waiting again...')
+          self.req = AddTwoInts.Request()
+
+      def send_request(self):
+          self.req.a = int(sys.argv[1])
+          self.req.b = int(sys.argv[2])
+          return self.cli.call(self.req)
+
+
+  def main():
+      rclpy.init()
+
+      minimal_client = MinimalClientSync()
+
+      spin_thread = Thread(target=rclpy.spin, args=(minimal_client,))
+      spin_thread.start()
+
+      response = minimal_client.send_request()
+      minimal_client.get_logger().info(
+          'Result of add_two_ints: for %d + %d = %d' %
+          (minimal_client.req.a, minimal_client.req.b, response.sum))
+
+      minimal_client.destroy_node()
+      rclpy.shutdown()
+
+
+  if __name__ == '__main__':
+      main()
+
+*Examine the code*
+
+The synchronous client has two additional ``import`` statements.
+``import sys`` is simply for `sys.argv <https://docs.python.org/3/library/sys.html#sys.argv>`__, so that the client can access the command line input arguments to set the service request based on user input.
+``from threading import Thread`` is needed because both ``send_request`` and ``rclpy.spin`` are blocking, so they need to be on separate threads.
+
+The constructor definition creates a client with the same type and name as the service node.
+The type and name must match for the client and service to be able to communicate.
+
+The ``while`` loop in the constructor checks if a service matching the type and name of the client is available once a second.
+
+Below the constructor is the request definition, followed by ``main``.
+
+The differences between the ``main`` of the synchronous client and the service node is that the client does ``rclpy.spin`` in a separate thread and also handles the response to a request by writing the result to a log message.
+
+Note that it is not possible to call a service synchronously in a callback.
+For example, if the synchronous client's ``send_request`` is placed in a callback:
+
+.. code-block:: python
+
+  def trigger_request(msg):
+      response = minimal_client.send_request()  # this will deadlock!
+      minimal_client.get_logger().info(
+          'Result of add_two_ints: for %d + %d = %d' %
+          (minimal_client.req.a, minimal_client.req.b, response.sum))
+  subscription = minimal_client.create_subscription(String, 'trigger', trigger_request, 10)
+
+  rclpy.spin(minimal_client)
+
+There will be a deadlock because ``rclpy.spin`` will not preempt the callback with the ``send_request`` call.
+In general, callbacks should only perform light and fast operations.
+
+3.2 Add the source file for the asynchronous client node
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+An asynchronous client will immediately return a ``future`` after sending a request to a service.
+The returned ``future`` may be queried for a response later.
+
+Create a new file ``client_member_function.py`` in ``dev_ws/src/py_srvcli/py_srvcli`` with the following content:
 
 .. code-block:: python
 
@@ -192,20 +283,20 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
       def send_request(self):
           self.req.a = int(sys.argv[1])
           self.req.b = int(sys.argv[2])
-          self.future = self.cli.call_async(self.req)
+          return self.cli.call_async(self.req)
 
 
-  def main(args=None):
-      rclpy.init(args=args)
+  def main():
+      rclpy.init()
 
       minimal_client = MinimalClientAsync()
-      minimal_client.send_request()
+      future = minimal_client.send_request()
 
       while rclpy.ok():
           rclpy.spin_once(minimal_client)
-          if minimal_client.future.done():
+          if future.done():
               try:
-                  response = minimal_client.future.result()
+                  response = future.result()
               except Exception as e:
                   minimal_client.get_logger().info(
                       'Service call failed %r' % (e,))
@@ -222,29 +313,18 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
   if __name__ == '__main__':
       main()
 
+*Examine the code*
 
-3.1 Examine the code
+The asynchronous client also has ``import sys`` to make use of `sys.argv <https://docs.python.org/3/library/sys.html#sys.argv>`__ the same way as the synchronous client.
+
+The only significant difference between the ``main`` of the asynchronous and synchronous clients is the ``while`` loop.
+Since ``send_request`` doesn't block in this case, a loop can be used to both do ``rclpy.spin_once`` and check whether a response from the service has been received, using the same thread.
+If the service has sent a response while the system is still running, the result will be written in a log message.
+
+3.3 Add entry points
 ~~~~~~~~~~~~~~~~~~~~
 
-The only different ``import`` statement for the client is ``import sys``.
-The client node code uses `sys.argv <https://docs.python.org/3/library/sys.html#sys.argv>`__ to get access to command line input arguments for the request.
-
-The constructor definition creates a client with the same type and name as the service node.
-The type and name must match for the client and service to be able to communicate.
-
-The ``while`` loop in the constructor checks if a service matching the type and name of the client is available once a second.
-
-Below the constructor is the request definition, followed by ``main``.
-
-The only significant difference in the client’s ``main`` is the ``while`` loop.
-The loop tries to check whether there is a response from the service, as long as the system is running.
-If the service has sent a response, the result will be written in a log message.
-
-
-3.2 Add an entry point
-~~~~~~~~~~~~~~~~~~~~~~
-
-Like the service node, you also have to add an entry point to be able to run the client node.
+Like the service node, you also have to add some entry points to be able to run the client nodes.
 
 The ``entry_points`` field of your ``setup.py`` file should look like this:
 
@@ -254,6 +334,7 @@ The ``entry_points`` field of your ``setup.py`` file should look like this:
       'console_scripts': [
           'service = py_srvcli.service_member_function:main',
           'client = py_srvcli.client_member_function:main',
+          'synchronous_client = py_srvcli.synchronous_client_member_function:main',
       ],
   },
 
@@ -291,7 +372,8 @@ Start the client node, followed by any two integers separated by a space:
 
 .. code-block:: console
 
-  ros2 run py_srvcli client 2 3
+  ros2 run py_srvcli client 2 3   # or
+  ros2 run py_srvcli synchronous_client 2 3
 
 If you chose ``2`` and ``3``, for example, the client would receive a response like this:
 
@@ -308,7 +390,6 @@ You will see that it published log messages when it received the request:
   a: 2 b: 3
 
 Enter ``Ctrl+C`` in the server terminal to stop the node from spinning.
-
 
 Summary
 -------
