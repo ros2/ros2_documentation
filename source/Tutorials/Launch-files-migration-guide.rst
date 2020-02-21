@@ -169,7 +169,7 @@ include
      In ROS 2, it's not.
      Nest includes in ``group`` tags to scope them.
    * ``ns`` attribute is not supported.
-     See example of ``push_ros_namespace`` tag for a workaround.
+     See example of ``push-ros-namespace`` tag for a workaround.
    * ``arg`` tags nested in an ``include`` tag don't support conditionals (``if`` or ``unless``).
    * There is no support for nested ``env`` tags.
      ``set_env`` and ``unset_env`` can be used instead.
@@ -249,10 +249,10 @@ group
 
 * `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__.
 * Allows limiting the scope of launch configurations.
-  Usually used together with ``let``, ``include`` and ``push_ros_namespace`` tags.
+  Usually used together with ``let``, ``include`` and ``push-ros-namespace`` tags.
 * Differences from ROS 1:
    * There is no ``ns`` attribute.
-     See the new ``push_ros_namespace`` tag as a workaround.
+     See the new ``push-ros-namespace`` tag as a workaround.
    * ``clear_params`` attribute isn't available.
    * It doesn't accept ``remap`` nor ``param`` tags as children.
 
@@ -291,7 +291,7 @@ set_env and unset_env
 
 See `env`_ tag decription.
 
-push_ros_namespace
+push-ros-namespace
 ^^^^^^^^^^^^^^^^^^
 
 ``include`` and ``group`` tags don't accept an ``ns`` attribute.
@@ -301,12 +301,12 @@ This action can be used as a workaround:
 
    <!-Other tags-->
    <group>
-      <push_ros_namespace namespace="my_ns"/>
+      <push-ros-namespace namespace="my_ns"/>
       <!--Nodes here are namespaced with "my_ns".-->
       <!--If there is an include action here, its nodes will also be namespaced.-->
-      <push_ros_namespace namespace="another_ns"/>
+      <push-ros-namespace namespace="another_ns"/>
       <!--Nodes here are namespaced with "another_ns/my_ns".-->
-      <push_ros_namespace namespace="/absolute_ns"/>
+      <push-ros-namespace namespace="/absolute_ns"/>
       <!--Nodes here are namespaced with "/absolute_ns".-->
       <!--The following node receives an absolute namespace, so it will ignore the others previously pushed.-->
       <!--The full path of the node will be /asd/my_node.-->
@@ -349,12 +349,12 @@ To have exactly the same behavior as Available in ROS 1, ``include`` tags must b
       <include file="another_launch_file"/>
    </group>
 
-To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
+To replace the ``ns`` attribute, ``push-ros-namespace`` action must be used:
 
 .. code-block:: xml
 
    <group>
-      <push_ros_namespace namespace="my_ns"/>
+      <push-ros-namespace namespace="my_ns"/>
       <include file="another_launch_file"/>
    </group>
 
