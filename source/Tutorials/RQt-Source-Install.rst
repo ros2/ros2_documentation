@@ -24,7 +24,7 @@ Other Requirements
 Building From Source
 --------------------
 
-In order to build RQt from source, first create a ROS2 workspace at ``~/ros2_ws/``.
+In order to build RQt from source, first create a ROS 2 workspace at ``~/ros2_ws/``.
 This is step is already covered in `building ROS 2 from source instructions <../Installation>`, so we skip it here.
 
 Download RQt Repositories

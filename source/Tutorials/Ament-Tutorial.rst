@@ -70,7 +70,7 @@ This is the directory structure of ``~/ros2_ws`` that you can expect at this poi
 Add some sources
 ^^^^^^^^^^^^^^^^
 
-To start off we need to setup an underlay without any of ROS2 installed.
+To start off we need to setup an underlay without any of ROS 2 installed.
 
 Note: if you do not have ``vcs`` installed, instructions are `here <https://github.com/dirk-thomas/vcstool>`__.
 
