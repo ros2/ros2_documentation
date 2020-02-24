@@ -17,7 +17,7 @@ General Principles
 Some principles are common to all ROS 2 development:
 
 
-* **Shared ownership**: Everybody working on ROS2 should feel ownership over all parts of the system.
+* **Shared ownership**: Everybody working on ROS 2 should feel ownership over all parts of the system.
   The original author of a chunk of code does not have any special permission or obligation to control or maintain that chunk of code.
   Everyone is free to propose changes anywhere, to handle any type of ticket, and to review any pull request.
 * **Be willing to work on anything**: As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
@@ -158,7 +158,7 @@ Whether or not a design document is required for your change depends on how big 
   * You should fork the repository and submit a pull request detailing the design.
 
   Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
-  Detailed instructions are on the `ROS2 Contribute <http://design.ros2.org/contribute.html>`__ page.
+  Detailed instructions are on the `ROS 2 Contribute <http://design.ros2.org/contribute.html>`__ page.
   Design comments will made directly on the pull request.
 
 If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.

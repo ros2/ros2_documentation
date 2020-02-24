@@ -2,8 +2,8 @@
 
    ROS-2-Client-Libraries
 
-About ROS2 client libraries
-===========================
+About ROS 2 client libraries
+============================
 
 .. contents:: Table of Contents
    :local:

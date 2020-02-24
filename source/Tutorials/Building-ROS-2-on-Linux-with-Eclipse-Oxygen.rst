@@ -2,8 +2,8 @@
 
     Building-ROS-2-on-Linux-with-Eclipse-Oxygen
 
-Building ROS2 on Linux with Eclipse Oxygen [community-contributed]
-==================================================================
+Building ROS 2 on Linux with Eclipse Oxygen [community-contributed]
+===================================================================
 
 .. warning::
    **Some people have reported issues about this tutorial.

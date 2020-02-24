@@ -10,7 +10,7 @@ In this demo, we present a simple demo robot with all components from publishing
 Launching the demo
 ------------------
 
-We assume your ROS2 installation dir as ``~/ros2_ws``. Please change the directories according to your platform.
+We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the directories according to your platform.
 
 To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.
 

@@ -19,4 +19,4 @@ If the interfaces are created in the same package that utilizes them, you'll nee
 
    rosidl_target_interfaces(MY_LIBRARY_NAME ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
-Note that the ``package.xml`` format must equal 3 for this to build, this is because the ``member_of_group`` command requires format 3. ROS2's create package generates the ``package.xml`` with a default format of 2, e.i. ``<member_of_group>rosidl_interface_packages</member_of_group>`` required for packages with custom interfaces.
+Note that the ``package.xml`` format must equal 3 for this to build, this is because the ``member_of_group`` command requires format 3. ROS 2's create package generates the ``package.xml`` with a default format of 2, e.i. ``<member_of_group>rosidl_interface_packages</member_of_group>`` required for packages with custom interfaces.

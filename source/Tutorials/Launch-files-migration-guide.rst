@@ -13,8 +13,8 @@ Background
 A description of the ROS 2 launch system and its Python API can be found in `Launch System tutorial <Launch-system>`.
 
 
-Migrating tags from ROS1 to ROS2
---------------------------------
+Migrating tags from ROS 1 to ROS 2
+----------------------------------
 
 launch
 ^^^^^^
