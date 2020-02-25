@@ -23,10 +23,175 @@ Some principles are common to all ROS 2 development:
 * **Be willing to work on anything**: As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
 * **Ask for help**: If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
 
+Quality Practices
+-----------------
+
+Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <>`_.
+The categories are differentiated by their policies on versioning, testing, documentation, and more.
+
+The following sections are the specific development rules we follow to ensure ROSCore packages are of the highest quality ('Level 1').
+We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
+
+Versioning
+^^^^^^^^^^
+
+We will use the `Semantic Versioning guidelines <http://semver.org/>`__ (``semver``) for versioning.
+
+We will also adhere to some ROS-specific rules built on top of ``semver's`` full meaning:
+
+* Major version increments (i.e. breaking changes) will not be made within a released distribution.
+* In addition to avoiding major API increments to ensure API stability according to ``semver``, we will be ABI (and therefore API) stable within a ROS distribution.
+
+  * We will not allow patch (bug-fixes) and minor (non-breaking) version increments to affect API and ABI within a released distribution.
+
+* `Unlike semver <https://semver.org/#spec-item-4>`_, we guarantee API/ABI compatibility within Dashing and Eloquent despite both distributions being under version ``1.0.0``.
+
+  * Subsequently, packages should strive to reach a mature state and increase to version ``1.0.0`` so to match ``semver's`` specifications.
+
+These rules are *best-effort*.
+In unlikely, extreme cases, it may be necessary to break API within a major version/distribution.
+Whether an unplanned break increments the major or minor version will be assessed on a case-by-case basis.
+
+Public API declaration
+~~~~~~~~~~~~~~~~~~~~~~
+
+According to ``semver``, every package must clearly declare a public API.
+We will use the "Public API Declaration" section of the quality declaration of a package to declare what symbols are part of the public API.
+
+For most C and C++ packages the declaration is any header that it installs.
+However, it is acceptable to define a set of symbols which are considered private.
+Avoiding private symbols in headers can help with ABI stability, but is not required.
+
+For other languages like Python, a public API must be explicitly defined, so that it is clear what symbols can be relied on with respect to the versioning guidelines.
+The public API can also be extended to build artifacts like configuration variables, CMake config files, etc. as well as executables and command line options and output.
+Any elements of the public API should be clearly stated in the package's documentation.
+If something you are using is not explicitly listed as part of the public API in the package's documentation, then you cannot depend on it not changing between minor or patch versions.
+
+Deprecation strategy
+~~~~~~~~~~~~~~~~~~~~
+
+Where possible, we will also use the tick-tock deprecation and migration strategy for major version increments.
+New deprecations will come in a new distribution release, accompanied by compiler warnings expressing that the functionality is being deprecated.
+In the next release, the functionality will be completely removed (no warnings).
+We will not add deprecations after a distribution is released.
+
+Example of function ``foo`` deprecated and replaced by function ``bar``:
+
+=========  ========================================================
+ Version    API
+=========  ========================================================
+X-turtle   void foo();
+Y-turtle   [[deprecated("use bar()")]] void foo(); <br> void bar();
+Z-turtle   void bar();
+=========  ========================================================
+
+Change control process
+^^^^^^^^^^^^^^^^^^^^^^
+
+* All changes must go through a pull request.
+
+* We will enforce the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ on pull requests in ROSCore repositories.
+  It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
+  You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
+
+* Always run CI jobs for all tier 1 platforms for every pull request and include links to jobs in the pull request.
+  (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
+
+* A minimum of 1 ``+1`` from a fellow developer who did not author the pull request is required to consider it approved.
+  Approval is required before merging.
+
+  * Packages may choose to increase this number.
+
+* Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
+
+Documentation
+^^^^^^^^^^^^^
+
+All packages should have these documentation elements:
+
+* Description and purpose
+* Definition and description of the public API
+* Examples
+* How to build and install (should reference external tools/workflows)
+* How to build and run tests
+* How to build documentation
+* How to develop (useful for describing things like ``python setup.py develop``)
+* License and copyright statements
+
+  * Each source file must have a license and copyright statement, checked with an automated linter.
+  * Each package must have a LICENSE file, typically the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
+
+Each package should describe itself and its purpose assuming, as much as possible, that the reader has stumbled onto it without previous knowledge of ROS or other related projects.
+
+Each package should define and describe its public API so that there is a reasonable expectation for users about what is covered by the semantic versioning policy.
+Even in C and C++, where the public API can be enforced by API and ABI checking, it is a good opportunity to describe the layout of the code and the function of each part of the code.
+
+It should be easy to take any package and from that package's documentation understand how to build, run, build and run tests, and build the documentation.
+Obviously we should avoid repeating ourselves for common workflows, like build a package in a workspace, but the basic workflows should be either described or referenced.
+
+Finally, it should include any documentation for developers.
+This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by you package.
+
+Examples:
+
+* capabilities: http://docs.ros.org/hydro/api/capabilities/html/
+
+  * This one gives an example of docs which describe the public API
+
+* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
+
+  * This is an example of describing an extension point for a package
+
+*(API docs are not yet being automatically generated)*
+
+Testing
+^^^^^^^
+
+All packages should have some level of system, integration, and/or unit tests.
+
+Unit tests should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
+Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
+
+Integration tests can test interactions between parts of the code or between parts of the code and the system.
+They often test software interfaces in ways that we expect the user to use them.
+Like Unit tests, Integration tests should be in the package which is being tested and should not bring in non-tool test dependencies unless absolutely necessary, i.e. all non-tool dependencies should only be allowed under extreme scrutiny so they should be avoided if possible.
+
+System tests are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
+
+In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
+
+All packages should have some unit tests and possibly integration tests, but the degree to which they should have them is based on the package's quality category.
+The following subsections apply to 'Level 1' packages:
+
+Code coverage
+~~~~~~~~~~~~~
+
+We will provide line coverage, and achieve line coverage above 95%.
+If a lower percentage target is justifiable, it must be prominently documented.
+We may provide branch coverage, or exclude code from coverage (test code, debug code, etc.).
+We require that coverage increase or stay the same before merging a change, but it may be acceptable to make a change that decreases code coverage with proper justification (e.g. deleting code that was previously covered can cause the percentage to drop).
+
+Performance
+~~~~~~~~~~~
+
+We strongly recommend performance tests, but recognize they don't make sense for some packages.
+If there are performance tests, we will choose to either check each change or before each release or both.
+We will also require justification for merging a change or making a release that lowers performance.
+
+Linters and static analysis
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common>`_.
+All linters/static analysis that are part of ``ament_lint_common`` must be used.
+
+.. link to ament_lint_common documentation when it exists
+
+
 General Practices
 -----------------
 
-Some practices are common to all ROS 2 development:
+Some practices are common to all ROS 2 development.
+These practices don't affect the categories described in `REP 2004 <>`_, but are still highly recommended for the development process.
 
 Issues
 ^^^^^^
@@ -47,21 +212,14 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. See `this section <building-from-source>` and follow the instructions to get the "master" branches.
   - Trying with a different RMW implementation. See `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to do that.
 
-Change control process
-^^^^^^^^^^^^^^^^^^^^^^
+Pull requests
+^^^^^^^^^^^^^
 
-* All changes must go through a pull request
 * A pull request should only focus on one change.
   Separate changes should go into separate pull requests.
   See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
 
-  * For some ROS 2 repositories the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ is enforced on pull requests.
-    It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
-    You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
-
 * A patch should be minimal in size and avoid any kind of unnecessary changes.
-* Always run CI jobs for all platforms for every pull request and include links to jobs in the pull request.
-  (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
 
 * A pull request must contain minimum number of meaningful commits.
 
@@ -73,20 +231,24 @@ Change control process
     Your reviewers might not notice that you made the change, thereby introducing potential for confusion.
     Plus, you're going to squash before merging anyway; there's no benefit to doing it early.
 
-* A minimum of 1 ``+1`` from a fellow developer who did not author the pull request is required to consider it approved.
-  Approval is required before merging.
-
-   * Packages may choose to increase this number.
-
-* Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
-
 * Any developer is welcome to review and approve a pull request (see `General Principles`_).
+
 * When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
+
 * Pull-request review is not read-only, with the reviewer making comments and then waiting for the author to address them.
   As a reviewer, feel free to make minor improvements (typos, style issues, etc.) in-place.
   As the opener of a pull-request, if you are working in a fork, checking the box to `allow edits from upstream contributors <https://github.com/blog/2247-improving-collaboration-with-forks>`__ will assist with the aforementioned.
   As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
+
 * Any developer (the author, the reviewer, or somebody else) can merge any approved pull request.
+
+Library versioning
+^^^^^^^^^^^^^^^^^^
+
+We will version all libraries within a package together.
+This means that libraries inherit their version from the package.
+This keeps library and package versions from diverging and shares reasoning with the policy of releasing packages which share a repository together.
+If you need libraries to have different versions then consider splitting them into different packages.
 
 Development process
 ^^^^^^^^^^^^^^^^^^^
@@ -127,8 +289,54 @@ C++ specific
 * Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
 * Avoid using references for ``std::shared_ptr`` since that subverts the reference counting. If the original instance goes out of scope and the reference is being used it accesses freed memory.
 
+Filesystem layout
+^^^^^^^^^^^^^^^^^
+
+The filesystem layout of packages and repositories should follow the same conventions in order to provide a consistent experience for users browsing our source code.
+
+Package layout
+~~~~~~~~~~~~~~
+
+* ``src``: contains all C and C++ code
+
+  * Also contains C/C++ headers which are not installed
+
+* ``include``: contains all C and C++ headers which are installed
+
+  * ``<package name>``: for all C and C++ installed headers they should be folder namespaced by the package name
+
+* ``<package_name>``: contains all Python code
+* ``test``: contains all automated tests and test data
+* ``doc``: contains all the documentation
+* ``package.xml``: as defined by `REP-0140 <http://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
+* ``CMakeLists.txt``: only ROS packages which use CMake
+* ``setup.py``: only ROS packages which use Python code only
+* ``README``: README which can be rendered on Github as a landing page for the project
+
+  * This can be as short or detailed as is convenient, but it should at least link to project documentation
+  * Consider putting a CI or code coverage tag in this readme
+  * It can also be ``.rst`` or anything else that Github supports
+
+* ``LICENSE``: A copy of the license or licenses for this package
+* ``CHANGELOG.rst``: `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
+
+Repository layout
+~~~~~~~~~~~~~~~~~
+
+Each package should be in a subfolder which has the same name as the package.
+If a repository contains only a single package it can optionally be in the root of the repository.
+
+The root of the repository should have a ``CONTRIBUTING`` file describing the contribution guidelines.
+This might include license implication when using e.g. the Apache 2 License.
+
+
+Aspirational Practices
+----------------------
+
+Presently, we don't use adhere to the practices in this section, but believe they would be beneficial to the development process and hope to employ them officially in the future.
+
 Software Development Lifecycle
-------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This section describes step-by-step how to plan, design, and implement a new feature:
 
@@ -139,7 +347,7 @@ This section describes step-by-step how to plan, design, and implement a new fea
 5. Code Review
 
 Task creation
-^^^^^^^^^^^^^
+~~~~~~~~~~~~~
 
 Tasks requiring changes to critical parts of ROS 2 should have design reviews during early stages of the release cycle.
 If a design review is happening in the later stages, the changes will be part of a future release.
@@ -150,7 +358,7 @@ If a design review is happening in the later stages, the changes will be part of
   * If the feature is targeting a ROS release, ensure this is tracked in the ROS release ticket (`example <https://github.com/ros2/ros2/issues/607>`__).
 
 Writing the design document
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Design docs must never include confidential information.
 Whether or not a design document is required for your change depends on how big the task is.
@@ -171,7 +379,7 @@ Whether or not a design document is required for your change depends on how big 
 If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
 
 Design document review
-^^^^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~~~
 
 Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
 It is recommended to include project owner(s) -
@@ -211,7 +419,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
   * Update and close the github issue associated with this design task
 
 Implementation
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 
 Before starting, go through the `Pull requests`_ section for best practices.
 
@@ -231,7 +439,7 @@ Before starting, go through the `Pull requests`_ section for best practices.
     * Push the new commits.
 
 Code review
-^^^^^^^^^^^
+~~~~~~~~~~~
 
 Once the change is ready for code review:
 
@@ -247,614 +455,3 @@ Once the change is ready for code review:
   code authors to reply back to comments within a week, so there is no loss of context.
 * Iterate on feedback as usual, amend and update the development branch as needed.
 * Once the PR is approved, package maintainers will merge the changes in.
-
-Language Versions and Code Format
----------------------------------
-
-In order to achieve a consistent looking product we will all follow externally (if possible) defined style guidelines for each language.
-For other things like package layout or documentation layout we will need to come up with our own guidelines, drawing on current, popular styles in use now.
-
-Additionally, where ever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
-For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
-
-Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`__).
-
-C
-^
-
-Standard
-~~~~~~~~
-
-
-We will target C99.
-
-Style
-~~~~~
-
-
-We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
-
-* We will target C99, as we do not need to support C89 (as PEP7 recommends)
-
-  * rationale: among other things it allows us to use both ``//`` and ``/* */`` style comments
-  * rationale: C99 is pretty much ubiquitous now
-
-* C++ style ``//`` comments are allowed
-* Always place literals on the left hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
-
-  * rationale: ``ret == 0`` too easily turns into ``ret = 0`` by accident
-
-All of the following modifications only apply if we are not writing Python modules:
-
-* Do not use ``Py_`` as a prefix for everything
-
-  * instead use a CamelCase version of the package name or other appropriate prefix
-
-* The stuff about documentation strings doesn't apply
-
-We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
-
-C++
-^^^
-
-
-Standard
-~~~~~~~~
-
-
-We will target C++14, using new built-in C++14 features over Boost equivalents where ever possible.
-
-Style
-~~~~~
-
-
-We will use the `Google C++ Style Guide <https://google.github.io/styleguide/cppguide.html>`__, with some modifications:
-
-Line Length
-"""""""""""
-
-
-* Our maximum line length is 100 characters.
-
-Variable Naming
-"""""""""""""""
-
-* For global variables use lowercase with underscores prefixed with ``g_``
-
-  * rationale: keep variable naming case consistent across the project
-  * rationale: easy to tell the scope of a variable at a glance
-  * consistency across languages
-
-Function and Method Naming
-""""""""""""""""""""""""""
-
-
-* Google style guide says ``CamelCase``, but the C++ std library's style of ``snake_case`` is also allowed
-
-  * rationale: ROS 2 core packages currently use ``snake_case``
-
-    * reason: either an historical oversight or a personal preference that didn't get checked by the linter
-    * reason for not changing: retroactively changing would be too disruptive
-  * other considerations:
-
-    * ``cpplint.py`` does not check this case (hard to enforce other than with review)
-    * ``snake_case`` can result in more consistency across languages
-  * specific guidance:
-
-    * for existing projects, prefer the existing style
-    * for new projects, either is acceptable, but a preference for matching related existing projects is advised
-    * final decision is always developer discretion
-
-      * special cases like function pointers, callable types, etc. may require bending the rules
-    * Note that classes should still use ``CamelCase`` by default
-
-Access Control
-""""""""""""""
-
-
-* Drop requirement for all class members to be private and therefore require accessors
-
-  * rationale: this is overly constraining for user API design
-  * we should prefer private members, only making them public when they are needed
-  * we should consider using accessors before choosing to allow direct member access
-  * we should have a good reason for allowing direct member access, other than because it is convenient for us
-
-Exceptions
-""""""""""
-
-
-* Exceptions are allowed
-
-  * rationale: this is a new code base, so the legacy argument doesn't apply to us
-  * rationale: for user facing API's it is more idiomatic C++ to have exceptions
-  * Exceptions in destructors should be explicitly avoided
-
-* We should consider avoiding Exceptions if we intend to wrap the resulting API in C
-
-  * rationale: it will make it easier to wrap in C
-  * rationale: most of our dependencies in code we intend to wrap in C do not use exceptions anyways
-
-Function-like Objects
-"""""""""""""""""""""
-
-
-* No restrictions on Lambda's or ``std::function`` or ``std::bind``
-
-Boost
-"""""
-
-
-* Boost should be avoided until absolutely required
-
-Comments and Doc Comments
-"""""""""""""""""""""""""
-
-
-* Use ``///`` and ``/** */`` comments for *documentation* purposes and ``//`` style comments for notes and general comments
-
-  * Class and Function comments should use ``///`` and ``/** */`` style comments
-  * rationale: these are recommended for Doxygen and Sphinx in C/C++
-  * rationale: mixing ``/* */`` and ``//`` is convenient for block commenting out code which contains comments
-  * Descriptions of how the code works or notes within classes and functions should use ``//`` style comments
-
-Pointer Syntax Alignment
-""""""""""""""""""""""""
-
-
-* Use ``char * c;`` instead of ``char* c;`` or ``char *c;`` because of this scenario ``char* c, *d, *e;``
-
-Class Privacy Keywords
-""""""""""""""""""""""
-
-
-* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentions to be a multiple of 2
-
-  * rationale: most editors don't like indentions which are not a multiple of the (soft) tab size
-  * Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2 spaces
-  * If you use 2 spaces before, indent other class statements by 2 additional spaces
-  * Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in the same column as the class
-
-Nested Templates
-""""""""""""""""
-
-
-* Never add whitespace to nested templates
-
-  * Prefer ``set<list<string>>`` (C++11 feature) to ``set<list<string> >`` or ``set< list<string> >``
-
-Always Use Braces
-"""""""""""""""""
-
-
-* Always use braces following ``if``, ``else``, ``do``, ``while``, and ``for``, even when the body is a single line.
-
-  * rationale: less opportunity for visual ambiguity and for complications due to use of macros in the body
-
-Open Versus Cuddled Braces
-""""""""""""""""""""""""""
-
-
-* Use open braces for ``function``, ``class``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
-
-  * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
-
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
-
-  * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
-
-Examples
-""""""""
-
-This is OK:
-
-.. code-block:: c++
-
-   int main(int argc, char **argv)
-   {
-     if (condition) {
-       return 0;
-     } else {
-       return 1;
-     }
-   }
-
-   if (this && that || both) {
-     ...
-   }
-
-   // Long condition; open brace
-   if (
-     this && that || both && this && that || both && this && that || both && this && that)
-   {
-     ...
-   }
-
-   // Short function call
-   call_func(foo, bar);
-
-   // Long function call; wrap at the open parenthesis
-   call_func(
-     foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar,
-     foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar, foo, bar);
-
-   // Very long function argument; separate it for readability
-   call_func(
-     bang,
-     fooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,
-     bar, bat);
-
-This is **not** OK:
-
-.. code-block:: c++
-
-   int main(int argc, char **argv) {
-     return 0;
-   }
-
-   if (this &&
-       that ||
-       both) {
-     ...
-   }
-
-
-Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
-
-This is OK:
-
-.. code-block:: c++
-
-   ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
-     Type par_name1,  // 2 space indent
-     Type par_name2,
-     Type par_name3)
-   {
-     DoSomething();  // 2 space indent
-     ...
-   }
-
-   MyClass::MyClass(int var)
-   : some_var_(var),
-     some_other_var_(var + 1)
-   {
-     ...
-     DoSomething();
-     ...
-   }
-
-This is **not** OK, even weird (the google way?):
-
-.. code-block:: c++
-
-   ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
-       Type par_name1,  // 4 space indent
-       Type par_name2,
-       Type par_name3) {
-     DoSomething();  // 2 space indent
-     ...
-   }
-
-   MyClass::MyClass(int var)
-       : some_var_(var),             // 4 space indent
-         some_other_var_(var + 1) {  // lined up
-     ...
-     DoSomething();
-     ...
-   }
-
-Linters
-"""""""
-
-Most of these styles and restrictions can be checked with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__, though we may need to modify them slightly for our above changes.
-
-We provide command line tools with custom configurations:
-
-* `ament_cpplint <https://github.com/ament/ament_lint/blob/master/ament_cpplint/doc/index.rst>`__
-* `ament_uncrustify <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
-
-We also run other tools to detect and eliminate as many warnings as possible.
-Here's a non-exhaustive list of additional things we try to do on all of our packages:
-
-* use compiler flags like ``-Wall -Wextra -Wpedantic``
-* run static code analysis like ``cppcheck``, which we have integrated in `ament_cppcheck <https://github.com/ament/ament_lint/blob/master/ament_cppcheck/doc/index.rst>`__.
-
-Python
-^^^^^^
-
-Version
-~~~~~~~
-
-We will target Python 3 for our development.
-
-Style
-~~~~~
-
-We will use the `PEP8 guidelines <https://www.python.org/dev/peps/pep-0008/>`_ for code format.
-
-We chose the following more precise rule where PEP 8 leaves some freedom:
-
-* `We allow up to 100 character per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
-* `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
-* `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
-
-Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
-
-The pep8 configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pep8/ament_pep8/configuration/ament_pep8.ini>`__.
-
-Integration with editors:
-
-* atom: https://atom.io/packages/linter-pep8
-* emacs: http://kwbeam.com/emacs-for-python-i.html
-* Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
-* vim: https://github.com/nvie/vim-flake8
-
-CMake
-^^^^^
-
-Version
-~~~~~~~
-
-We will target CMake 3.5.
-
-Style
-~~~~~
-
-Since there is not an existing CMake style guide we will define our own:
-
-* Use lowercase command names (``find_package``, not ``FIND_PACKAGE``).
-* Use ``snake_case`` identifiers (variables, functions, macros).
-* Use empty ``else()`` and ``end...()`` commands.
-* No whitespace before ``(``\ 's.
-* Use two spaces of indention, do not use tabs.
-* Do not use aligned indentation for parameters of multi-line macro invocations. Use two spaces only.
-* Prefer functions with ``set(PARENT_SCOPE)`` to macros.
-* When using macros prefix local variables with ``_`` or a reasonable prefix.
-
-Markdown / reStructured Text / docblocks
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Style
-~~~~~
-
-The following rules to format text is intended to increase readability as well as versioning.
-
-* *[.md, .rst only]* Each section title should be preceded by one empty line and succeeded by one empty line.
-
-  * Rationale: It expedites to get an overview about the structure when screening the document.
-
-* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
-
-  * ``#`` with overline (only once, used for the document title)
-  * ``*`` with overline
-  * ``=``
-  * ``-``
-  * ``^``
-  * ``"``
-  * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
-
-* *[.md only]* In Markdown the headings should follow the atx-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
-
-  * Atx-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
-  * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
-  * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
-  * Rationale: Atx-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
-
-* *[any]* Each sentence must start on a new line.
-
-  * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
-
-* *[any]* Each sentence can optionally be wrapped to keep each line short.
-* *[any]* The lines should not have any trailing white spaces.
-* *[.md, .rst only]* A code block must be preceded and succeeded by an empty line.
-
-  * Rationale: Whitespace is significant only directly before and directly after fenced code blocks.
-    Following these instructions will ensure that highlighting works properly and consistently.
-
-* *[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``).
-
-Javascript
-^^^^^^^^^^
-
-*(Speculative, not yet used)*
-
-Version
-~~~~~~~
-
-We will target Javascript 1.5, which seems to provide the best balance of support in browsers and languages (node.js) and new features.
-
-Style
-~~~~~
-
-We will use the `airbnb Javascript Style guide <https://github.com/airbnb/javascript>`__.
-
-The repository referred to above comes with a ``jshintrc`` file which allows the style to be enforced using ``jshint``.
-
-Editor integration for ``jshint`` include ``vim``, ``emacs``, ``Sublime Text``, and others can be found `here <http://www.jshint.com/install/>`__.
-
-Testing
--------
-
-All packages should have some level of tests.
-Tests can be broken down into three main categories: System tests, Integration tests, and Unit tests.
-
-Unit tests should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
-Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
-
-Integration tests can test interactions between parts of the code or between parts of the code and the system.
-They often test software interfaces in ways that we expect the user to use them.
-Like Unit tests, Integration tests should be in the package which is being tested and should not bring in non-tool test dependencies unless absolutely necessary, i.e. all non-tool dependencies should only be allowed under extreme scrutiny so they should be avoided if possible.
-
-System tests are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
-
-In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
-
-All packages should have some unit tests and possibly integration tests, but the degree to which they should have them is based on the package's category (described later).
-
-Code coverage
-^^^^^^^^^^^^^
-
-Some packages should have a mechanism setup to capture test coverage information (if applicable to the language).
-Coverage tools exist for some of the languages described here including C, C++, and Python, but possibly others.
-When possible, coverage should be measured in terms of branch coverage, as opposed to statement or function coverage.
-
-.. The roscore prescription (below) sounds a little contradictory to the generic existing content (above). This would be a good place to explicitly mention that the following requirements are for roscore
-
-We will provide line coverage, and achieve line coverage above 95%.
-If a lower percentage target is justifiable, it must be prominently documented.
-We may provide branch coverage, or exclude code from coverage (test code, debug code, etc.).
-We require that coverage increase or stay the same before merging a change, but it may be acceptable to make a change that increases code coverage with proper justification (e.g. deleting code that was previously covered can cause the percentage to drop).
-
-Performance
-^^^^^^^^^^^
-
-We strongly recommend performance tests, but recognize they don't make sense for some packages.
-If there are performance tests, we will choose to either check each change or before each release or both.
-.. this doesn't make sense
-We will also require justification for merging a change or making a release that lowers performance.
-
-Linters and static analysis
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-We will use ROS code style and enforce it with linters from ``ament_lint_common``.
-All linters/static analysis that are part of ``ament_lint_common`` must be used.
-
-.. describe how to use them or list them out here, or link to an example?
-
-Versioning
-----------
-
-We will use the `Semantic Versioning guidelines <http://semver.org/>`__ (``semver``) for versioning.
-
-We will also adhere to some ROS-specific rules built on top of ``semver's`` full meaning:
-
-* A major version roughly correlates to a ROS distribution. Major version increments (i.e. breaking changes) will not be made within a released distribution.
-* In addition to maintaining API stability according to ``semver``, we will be ABI (and therefore API) stable within a ROS distribution.
-
-   * We will allow patch (bug-fixes) and minor (non-breaking) version increments to affect API and ABI within a released distribution.
-
-* Versions below ``1.0.0`` are inherently unstable; breaking changes are allowed.
-
-   * With the release of Foxy Fitzroy, all packages will increment to version ``1.0.0``, i.e. released distributions from Foxy onward will be at a stable version.
-
-.. is the following paragraph still relevant?
-
-With respect to library versioning, we will version all libraries within a package together.
-This means that libraries inherit their version from the package.
-This keeps library and package versions from diverging and shares reasoning with the policy of releasing packages which share a repository together.
-If you need libraries to have different versions then consider splitting them into different packages.
-
-These rules are *best-effort*.
-In unlikely, extreme cases, it may be necessary to break API within a major version/distribution.
-Whether an unplanned break increments the major or minor version will be assessed on a case-by-case basis.
-
-Public API Declaration
-^^^^^^^^^^^^^^^^^^^^^^
-
-According to ``semver``, every package must clearly declare a public API.
-We will use the "Public API Declaration" section of the quality declaration of a package to declare what symbols are part of the public API.
-
-For most C and C++ packages the declaration is any header that it installs.
-However, it is acceptable to define a set of symbols which are considered private.
-When ever possible, having private symbols in public headers should be avoided.
-
-For other languages like Python, a public API must be explicitly defined, so that it is clear what symbols can be relied on with respect to the versioning guidelines.
-The public API can also be extended to build artifacts like configuration variables, CMake config files, etc. as well as executables and command line options and output.
-Any elements of the public API should be clearly stated in the package's documentation.
-If something you are using is not explicitly listed as part of the public API in the package's documentation, then you cannot depend on it not changing between minor or patch versions.
-
-Deprecation Strategy
-^^^^^^^^^^^^^^^^^^^^
-
-In addition to ``semver``, we will also use the `tick-tock <https://en.wikipedia.org/wiki/Tick–tock_model>`__ deprecation and migration strategy for major version increments.
-New deprecations will come in a new distribution release, accompanied by compiler warnings expressing that the functionality is being deprecated.
-In the next release, the functionality will be completely removed (no warnings).
-We will not add deprecations after a distribution is released.
-
-These rules are also *best-effort*.
-
-Filesystem Layout
------------------
-
-The filesystem layout of packages and repositories should follow the same conventions in order to provide a consistent experience for users browsing our source code.
-
-Package layout
-^^^^^^^^^^^^^^
-
-
-* ``src``: contains all C and C++ code
-
-  * Also contains C/C++ headers which are not installed
-
-* ``include``: contains all C and C++ headers which are installed
-
-  * ``<package name>``: for all C and C++ installed headers they should be folder namespaced by the package name
-
-* ``<package_name>``: contains all Python code
-* ``test``: contains all automated tests and test data
-* ``doc``: contains all the documentation
-* ``package.xml``: as defined by `REP-0140 <http://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
-* ``CMakeLists.txt``: only ROS packages which use CMake
-* ``setup.py``: only ROS packages which use Python code only
-* ``README``: README which can be rendered on Github as a landing page for the project
-
-  * This can be as short or detailed as is convenient, but it should at least link to project documentation
-  * Consider putting a CI or code coverage tag in this readme
-  * It can also be ``.rst`` or anything else that Github supports
-
-* ``LICENSE``: A copy of the license or licenses for this package
-* ``CHANGELOG.rst``: `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
-
-Repository layout
-^^^^^^^^^^^^^^^^^
-
-Each package should be in a subfolder which has the same name as the package.
-If a repository contains only a single package it can optionally be in the root of the repository.
-
-The root of the repository should have a ``CONTRIBUTING`` file describing the contribution guidelines.
-This might include license implication when using e.g. the Apache 2 License.
-
-Documentation
--------------
-
-*(API docs are not yet being automatically generated)*
-
-All packages should have these documentation elements:
-
-* Description and purpose
-* Definition and description of the public API
-* Examples
-* How to build and install (should reference external tools/workflows)
-* How to build and run tests
-* How to build documentation
-* How to develop (useful for describing things like ``python setup.py develop``)
-* Automated checks for copyright statements and licenses
-* The Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
-.. just sticking these on here feels awkward - they're way more specific and technical than the rest of the points here.
-
-Each package should describe itself and its purpose or how it is used in the larger scope.
-The description should be written, as much as possible, assuming that the reader has stumbled onto it without previous knowledge of ROS or other related projects.
-
-Each package should define and describe its public API so that there is a reasonable expectation for users what is covered by the semantic versioning policy.
-Even in C and C++, where the public API can be enforced by API and ABI checking, it is a good opportunity to describe the layout of the code and the function of each part of the code.
-
-It should be easy to take any package and from that package's documentation understand how to build, run, build and run tests, and build the documentation.
-Obviously we should avoid repeating ourselves for common workflows, like build a package in a workspace, but the basic workflows should be either described or referenced.
-
-Finally, it should include any documentation for developers.
-This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by you package.
-
-Examples:
-
-* capabilities: http://docs.ros.org/hydro/api/capabilities/html/
-
-  * This one gives an example of docs which describe the public API
-
-* catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
-
-  * This is an example of describing an extension point for a package
-
-
-Package Quality Categories
---------------------------
-
-.. link to REP 2004
