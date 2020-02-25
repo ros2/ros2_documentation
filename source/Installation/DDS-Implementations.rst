@@ -198,8 +198,7 @@ Enable OpenSplice support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-For ROS 2 releases up to and including Ardent, do not do anything else at this point.
-For ROS 2 releases later than Ardent, set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
+Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
 
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
