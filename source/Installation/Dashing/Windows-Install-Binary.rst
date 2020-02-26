@@ -29,11 +29,15 @@ You'll use Chocolatey to install some other developer tools.
 Install Python
 ^^^^^^^^^^^^^^
 
-Open a Command Prompt and type the following to install Python via Chocolatey:
+Download Python 3.7.6 from python.org: https://www.python.org/ftp/python/3.7.6/python-3.7.6-amd64.exe
+
+Open a Command Prompt and type the following to install Python:
 
 .. code-block:: bash
 
-   > choco install -y python --version 3.7.5
+   > C:\<PATH\TO\DOWNLOADS>\python-3.7.6-amd64.exe /quiet TargetDir=C:\Python37 PrependPath=1 Include_debug=1 Include_symbols=1
+
+Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
