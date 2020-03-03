@@ -29,7 +29,7 @@ Quality Practices
 Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <>`_.
 The categories are differentiated by their policies on versioning, testing, documentation, and more.
 
-The following sections are the specific development rules we follow to ensure ROSCore packages are of the highest quality ('Level 1').
+The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
 Versioning
@@ -94,10 +94,10 @@ Change control process
   It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
   You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
 
-* Always run CI jobs for all tier 1 platforms for every pull request and include links to jobs in the pull request.
+* Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
 
-* A minimum of 1 ``+1`` from a fellow developer who did not author the pull request is required to consider it approved.
+* A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
   Approval is required before merging.
 
   * Packages may choose to increase this number.
@@ -107,7 +107,7 @@ Change control process
 Documentation
 ^^^^^^^^^^^^^
 
-All packages should have these documentation elements:
+All packages should have these documentation elements present in their README or linked to from their README:
 
 * Description and purpose
 * Definition and description of the public API
@@ -149,14 +149,14 @@ Testing
 
 All packages should have some level of system, integration, and/or unit tests.
 
-Unit tests should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
+**Unit tests** should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
 Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
 
-Integration tests can test interactions between parts of the code or between parts of the code and the system.
+**Integration tests** can test interactions between parts of the code or between parts of the code and the system.
 They often test software interfaces in ways that we expect the user to use them.
 Like Unit tests, Integration tests should be in the package which is being tested and should not bring in non-tool test dependencies unless absolutely necessary, i.e. all non-tool dependencies should only be allowed under extreme scrutiny so they should be avoided if possible.
 
-System tests are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
+**System** tests are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
 
 In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
 
