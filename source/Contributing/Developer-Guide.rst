@@ -156,7 +156,7 @@ Unit tests should not bring in test dependencies that are not testing tools, e.g
 They often test software interfaces in ways that we expect the user to use them.
 Like Unit tests, Integration tests should be in the package which is being tested and should not bring in non-tool test dependencies unless absolutely necessary, i.e. all non-tool dependencies should only be allowed under extreme scrutiny so they should be avoided if possible.
 
-**System** tests are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
+**System tests** are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
 
 In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
 
@@ -326,8 +326,9 @@ Repository layout
 Each package should be in a subfolder which has the same name as the package.
 If a repository contains only a single package it can optionally be in the root of the repository.
 
-The root of the repository should have a ``CONTRIBUTING`` file describing the contribution guidelines.
-This might include license implication when using e.g. the Apache 2 License.
+The root of the repository should have ``README``, ``LICENSE`` and ``CONTRIBUTING`` files.
+The ``CONTRIBUTING`` file describes the contribution guidelines.
+This might include license implication, e.g. when using the Apache 2 License.
 
 
 Aspirational Practices
