@@ -99,9 +99,9 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    * - |eprosima|
      - eProsima: Jaime Martin Losa
    * - |intel|
-     - Intel: Matt Hansen
+     - Intel: Harold Yang
    * - |lge|
-     - LG Electronics: Brian Shin
+     - LG Electronics: Lokesh Kumar Goel
    * - |microsoft|
      - Microsoft: Sean Yen
    * - |openrobotics|
@@ -138,13 +138,14 @@ The current WGs are (6 as of 2019-09-04):
 
 * Navigation
 
- * Lead(s): Matt Hansen
+ * Lead(s): Steve Macenski
  * Resources:
 
   * `2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__
 
   * Meeting invite group `ros-navigation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-navigation-working-group-invites>`_
   * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
+  * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
 
 * Real-time
 
