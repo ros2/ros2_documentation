@@ -59,10 +59,9 @@ The default console logging output format was changed to include the timestamp b
 Default Console Logging Output Stream
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As of Foxy, all logging messages at all severity levels get logged to stderr by default.  This ensures
-that logging messages come out immediately, and brings the ROS 2 logging system into alignment with
-most other logging systems.  It is possible to change the stream to stdout at runtime via the
-RCUTILS_LOGGING_USE_STDOUT environment variable, but all logging messages will still go to the same stream.
+As of Foxy, all logging messages at all severity levels get logged to stderr by default.
+This ensures that logging messages come out immediately, and brings the ROS 2 logging system into alignment with most other logging systems.
+It is possible to change the stream to stdout at runtime via the RCUTILS_LOGGING_USE_STDOUT environment variable, but all logging messages will still go to the same stream.
 See `https://github.com/ros2/rcutils/pull/196 <https://github.com/ros2/rcutils/pull/196>`_ for more details.
 
 launch_ros
