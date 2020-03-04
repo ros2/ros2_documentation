@@ -9,13 +9,9 @@ How to setup a macOS Jenkins node
    :depth: 1
    :local:
 
-.. note::
 
-   Last installed/updated on 2017-11-20 (Mac OS 10.13.1 High Sierra) and see `this older (private) document for previous instructions <https://docs.google.com/document/d/1J_8O7Q7eiixC-axyjP_bVpZSALyhn67Y1K_-SAw5eh0/edit>`_.
-
-
-Install macOS High Sierra
--------------------------
+Install macOS Mojave
+--------------------
 
 Install: APFS case-sensitive
 Post-install: No Siri, no location services, no cloud anything, no analytics, no filevault disk encryption.
