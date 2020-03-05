@@ -35,7 +35,7 @@ Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-to
    # Or, on OSX, something like:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS2 from source:
+   # Or, if building ROS 2 from source:
    # . <workspace-with-bridge>/install/setup.bash
    export ROS_MASTER_URI=http://localhost:11311
    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
@@ -51,7 +51,7 @@ First we'll run the ``cam2image`` program with the ``-b`` option so it doesn't r
 
    # Shell C:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS2 from source:
+   # Or, if building ROS 2 from source:
    # . <workspace-with-bridge>/install/setup.bash
    ros2 run image_tools cam2image -- -b
 
@@ -108,7 +108,7 @@ You can run this python script in a new ROS 2 shell:
 
    # Shell D:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS2 from source:
+   # Or, if building ROS 2 from source:
    # . <workspace-with-bridge>/install/setup.bash
    python3 emulate_kobuki_node.py
 
@@ -179,7 +179,7 @@ Then run the ``dynamic_bridge`` in another shell:
    # Or, on OSX, something like:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS2 from source:
+   # Or, if building ROS 2 from source:
    # . <workspace-with-bridge>/install/setup.bash
    export ROS_MASTER_URI=http://localhost:11311
    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
@@ -204,7 +204,7 @@ Now that the data is being played back and the bridge is running we can see the 
 
    # Shell S:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS2 from source:
+   # Or, if building ROS 2 from source:
    # . <workspace-with-bridge>/install/setup.bash
    ros2 topic list
    ros2 topic echo /odom

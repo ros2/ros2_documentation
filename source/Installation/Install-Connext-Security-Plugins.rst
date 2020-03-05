@@ -1,7 +1,7 @@
 Installing Connext security plugins
 ===================================
 
-The Connext DDS Libraries are included with ROS2 under a `non-commercial
+The Connext DDS Libraries are included with ROS 2 under a `non-commercial
 license <https://www.rti.com/ncl>`__ and do not include the security
 plug-in libraries. These libraries are available in the commercial,
 university and research license versions of RTI Connext DDS Pro, which

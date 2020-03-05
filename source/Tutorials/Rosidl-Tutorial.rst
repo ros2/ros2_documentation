@@ -1,3 +1,5 @@
+.. _ros-idl:
+
 .. redirect-from::
 
     Rosidl-Tutorial

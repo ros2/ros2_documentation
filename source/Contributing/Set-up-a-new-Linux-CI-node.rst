@@ -9,7 +9,7 @@ How to setup Linux Jenkins nodes
    :depth: 1
    :local:
 
-This page describes how to set up a linux machine for ROS2 CI jobs using AWS.
+This page describes how to set up a linux machine for ROS 2 CI jobs using AWS.
 
 Creating an AWS instance
 ------------------------
@@ -26,7 +26,7 @@ In short, use the company AWS account to launch an instance running based off th
 
   * Make sure to save it with the other credentials so others can access this machine
 
-Give the instance a descriptive name like ``ROS2 CI (linux 4)``.
+Give the instance a descriptive name like ``ROS 2 CI (linux 4)``.
 Record the ip address `here <https://docs.google.com/spreadsheets/d/1OSwqbE3qPF8v3HSMr8JOaJ6r4QOiQFk6pwgaudXVE-4/edit#gid=0>`__ (private).
 
 Setting up the machine

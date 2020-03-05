@@ -2,7 +2,7 @@ ROS Documentation
 =================
 
 
-This is the ROS2 documentation site.
+This is the ROS 2 documentation site.
 
 
 ## Project structure

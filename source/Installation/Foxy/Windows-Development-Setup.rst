@@ -7,7 +7,7 @@ Building ROS 2 on Windows
    :depth: 2
    :local:
 
-This guide is about how to setup a development environment for ROS2 on Windows.
+This guide is about how to setup a development environment for ROS 2 on Windows.
 
 Prerequisites
 -------------

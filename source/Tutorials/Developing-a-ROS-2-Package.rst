@@ -78,11 +78,11 @@ An example for launch files and nodes:
 Python Packages
 ^^^^^^^^^^^^^^^
 
-ROS2 follows Python's standard module distribution process that uses ``setuptools``.
+ROS 2 follows Python's standard module distribution process that uses ``setuptools``.
 For Python packages, the ``setup.py`` file complements a C++ package's ``CMakeLists.txt``.
 More details on distribution can be found in the `official documentation <https://docs.python.org/3/distributing/index.html#distributing-index>`_.
 
-In your ROS2 package, you should have a ``setup.cfg`` file which looks like:
+In your ROS 2 package, you should have a ``setup.cfg`` file which looks like:
 
 .. code-block:: bash
 
