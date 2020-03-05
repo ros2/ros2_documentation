@@ -14,8 +14,6 @@ Using colcon to build packages
 This is a brief tutorial of how to create and build a ROS 2 workspace with ``colcon``.
 It is a practical tutorial and not designed to replace the core documentation.
 
-ROS 2 releases before Bouncy used ``ament_tools`` described in the `ament tutorial <Ament-Tutorial>`.
-
 Background
 ----------
 
