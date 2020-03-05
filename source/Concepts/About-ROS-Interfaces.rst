@@ -20,6 +20,7 @@ In this document we will describe the supported types.
 * msg: ``.msg`` files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
 * srv: ``.srv`` files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
 * action: ``.action`` files describe actions. They are composed of three parts: a goal, a result, and feedback.
+  Each part is a message declaration itself.
 
 
 2. Message description specification
@@ -255,9 +256,7 @@ We can of course get much more complicated (if you want to refer to a message fr
 
 You cannot embed another service inside of a service.
 
-.. add "action description specification" section? Or just link to design article
-
-4. New features in ROS 2 Interfaces
+4. New features in ROS 2 interfaces
 -----------------------------------
 
 The ROS 2 IDL is closely related to the `ROS 1 IDL <http://wiki.ros.org/msg>`__.
@@ -270,7 +269,4 @@ Atop ROS 1's existing feature set, the ROS 2 IDL introduces some new features, n
 * **bounded strings**: Whereas the ROS 1 IDL allows unbounded strings (e.g., ``string foo``), the ROS 2 IDL further allows bounded strings (e.g., ``string<=5 bar``).
 * **default values**: Whereas the ROS 1 IDL allows constant fields (e.g., ``int32 X=123``), the ROS 2 IDL further allows default values to be specified (e.g., ``int32 X 123``).
   The default value is used when constructing a message/service object and can be subsequently overridden by assigning to the field.
-
-  *Note: in ROS Ardent, default values are not supported for complex types or string arrays or strings with encoding.*
-
-  *Note: in ROS Bouncy, default values are not supported for complex types or string with encoding.*
+* **actions**: Whereas the ROS 1 IDL addressed ``msg`` and ``srv`` interfaces, the ROS 2 IDL incorporated the `action interface <http://design.ros2.org/articles/actions.html>`_.
