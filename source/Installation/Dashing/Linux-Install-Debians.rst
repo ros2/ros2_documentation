@@ -110,9 +110,8 @@ Install additional RMW implementations
 --------------------------------------
 
 By default the RMW implementation ``FastRTPS`` is used.
-If using Ardent OpenSplice is also installed.
 
-To install support for OpenSplice or RTI Connext on Bouncy:
+To install support for OpenSplice or RTI Connext:
 
 .. code-block:: bash
 
@@ -120,8 +119,8 @@ To install support for OpenSplice or RTI Connext on Bouncy:
    sudo apt install ros-dashing-rmw-opensplice-cpp # for OpenSplice
    sudo apt install ros-dashing-rmw-connext-cpp # for RTI Connext (requires license agreement)
 
-By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
-For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
+By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice.
+By setting the environment variable ``RMW_IMPLEMENTATION=rmw_connext_cpp`` you can switch to use RTI Connext.
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
 
