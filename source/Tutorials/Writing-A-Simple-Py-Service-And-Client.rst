@@ -237,7 +237,7 @@ The ``while`` loop in the constructor checks if a service matching the type and 
 Below the constructor is the request definition, followed by ``main``.
 
 The only significant difference in the client’s ``main`` is the ``while`` loop.
-The loop tries to check whether there is a response from the service, as long as the system is running.
+The loop checks the ``future`` to see if there is a response from the service, as long as the system is running.
 If the service has sent a response, the result will be written in a log message.
 
 
