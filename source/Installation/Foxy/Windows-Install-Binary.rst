@@ -47,9 +47,9 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*.
-Don't download the Win32 or Light versions.
+Download the *Win64 OpenSSL v1.0.2u* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2u*.
+Don't download the Win32 or Light versions or version 1.1.0 or newer.
 
 Run the installer with default parameters.
 The following commands assume you used the default installation directory:
@@ -119,6 +119,7 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
 * asio.1.12.1.nupkg
+* bullet.2.89.0.nupkg
 * cunit.2.1.3.nupkg
 * eigen-3.3.4.nupkg
 * tinyxml-usestl.2.6.2.nupkg
@@ -129,7 +130,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx
+   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 

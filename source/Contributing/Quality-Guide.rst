@@ -5,27 +5,27 @@
 Quality Guide: Ensuring code quality
 ====================================
 
-This section tries to give guidance about how to improve the software quality of ROS2 packages. The guide uses a pattern language based approach to improve the readers experience ("read little, understand fast, understand much, apply easily").
+This section tries to give guidance about how to improve the software quality of ROS 2 packages. The guide uses a pattern language based approach to improve the readers experience ("read little, understand fast, understand much, apply easily").
 
 **What this sections is about:**
 
 
-* ROS2 core, application and ecosystem packages.
-* ROS2 core client libraries C++ and Python (right now: mainly C++)
+* ROS 2 core, application and ecosystem packages.
+* ROS 2 core client libraries C++ and Python (right now: mainly C++)
 * Design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements (right now: mainly "Reliability").
 
 **What this section is not about:**
 
 
-* Design and implementation considerations which go beyond a single ROS2 package and a single ROS2 node (means no integration considerations w.r.t. ROS2 graphs, etc.).
+* Design and implementation considerations which go beyond a single ROS 2 package and a single ROS 2 node (means no integration considerations w.r.t. ROS 2 graphs, etc.).
 * Organizational considerations to improve software quality (an organizations structure and processes, etc.).
 * Infrastructural considerations which go beyond a single repository (overall continuous integration infrastructure, etc.)
 
 **Relation to other sections:**
 
 
-* The `Design Guide <Design-Guide>` summarizes design patterns for ROS2 packages. As quality is highly impacted by design it is a good idea to have a look into it before.
-* The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these consideration may have an impact on single or several quality attributes.
+* The `Design Guide <Design-Guide>` summarizes design patterns for ROS 2 packages. As quality is highly impacted by design it is a good idea to have a look into it before.
+* The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS 2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these consideration may have an impact on single or several quality attributes.
 
 Patterns
 --------
@@ -37,14 +37,14 @@ Patterns
   * Static code analysis as part of the ament package build
 
 * Dynamic code analysis
-* ROS2 library test
+* ROS 2 library test
 
   * (referencing of generic unit test patterns like from `xUnitPatterns <http://xunitpatterns.com/Book%20Outline%20Diagrams.html>`__ with references to C++ gtest+gmock/Python unittest implementations)
-  * (ROS2 specific unit test use cases)
+  * (ROS 2 specific unit test use cases)
   * Property based test (C++ `RapidCheck <https://github.com/emil-e/rapidcheck>`__ / Python `hypothesis <https://github.com/HypothesisWorks/hypothesis-python>`__)
   * Code coverage analysis
 
-* ROS2 node unit test
+* ROS 2 node unit test
 
   * (generic use cases of ``launch`` based tests)
 
@@ -55,7 +55,7 @@ Static code analysis as part of the ament package build
 
 
 * You have developed your C++ production code.
-* You have created a ROS2 package with build support with ``ament``.
+* You have created a ROS 2 package with build support with ``ament``.
 
 **Problem**:
 
@@ -140,14 +140,14 @@ Static Thread Safety Analysis via Code Annotation
 **Context For Implementation:**
 
 
-To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the smantics of the code. These annotations are Clang-specific attributes - e.g. ``__atribute__(capability()))``. Instead of using those attributes directly, ROS2 provides preprocessor macros that are erased when using other compilers.
+To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the smantics of the code. These annotations are Clang-specific attributes - e.g. ``__atribute__(capability()))``. Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
 
 These macros can be found in `rcpputils/thread_safety_annotations.h <https://github.com/ros2/rcpputils/blob/master/include/rcpputils/thread_safety_annotations.h>`__
 
 The Thread Safety Analysis documentation states
   Thread safety analysis can be used with any threading library, but it does require that the threading API be wrapped in classes and methods which have the appropriate annotations
 
-We have decided that we want ROS2 developers to be able to use ``std::`` threading primitives directly for their development. We do not want to provide our own wrapped types as is suggested above.
+We have decided that we want ROS 2 developers to be able to use ``std::`` threading primitives directly for their development. We do not want to provide our own wrapped types as is suggested above.
 
 There are three C++ standard libraries to be aware of
 * The GNU standard library ``libstdc++`` - default on Linux, explicitly via the compiler option ``-stdlib=libstdc++``
@@ -233,7 +233,7 @@ The code migration suggestions here are by no means complete - when writing (or 
 
 * How to run the analysis
 
-  * The ROS CI build farm runs a nightly job with ``libcxx``, which will surface any issues in the ROS2 core stack by being marked "Unstable" when Thread Safety Analysis raises warnings
+  * The ROS CI build farm runs a nightly job with ``libcxx``, which will surface any issues in the ROS 2 core stack by being marked "Unstable" when Thread Safety Analysis raises warnings
   * For local runs, you have the following options, all equivalent
 
     * Use the colcon `clang-libcxx mixin <https://github.com/colcon/colcon-mixin-repository/blob/master/clang-libcxx.mixin>`__
@@ -302,7 +302,7 @@ Code coverage analysis
 
 **Context**
 
-You have written tests for the library level production code of a ROS2 package (usually refered to as "unit tests").
+You have written tests for the library level production code of a ROS 2 package (usually refered to as "unit tests").
 
 **Problem**
 

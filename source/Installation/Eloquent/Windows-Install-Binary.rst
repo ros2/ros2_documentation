@@ -47,9 +47,9 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*.
-Don't download the Win32 or Light versions.
+Download the *Win64 OpenSSL v1.0.2u* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2u*.
+Don't download the Win32 or Light versions or version 1.1.0 or newer.
 
 Run the installer with default parameters.
 The following commands assume you used the default installation directory:
@@ -77,9 +77,10 @@ Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
-   .. image:: https://i.imgur.com/2h0IxCk.png
+Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed as in the image below.
 
-Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
+   .. image:: https://i.imgur.com/F2TONuw.png
+
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

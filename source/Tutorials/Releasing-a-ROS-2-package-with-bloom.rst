@@ -58,4 +58,4 @@ Build Status
 ------------
 
 * Individual build details on the build farm `Jenkins <http://build.ros2.org/>`__ frontend.
-* The `ROS2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `Bouncy-Default <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__).
+* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `Bouncy-Default <http://repo.ros2.org/status_page/ros_bouncy_default.html>`__).

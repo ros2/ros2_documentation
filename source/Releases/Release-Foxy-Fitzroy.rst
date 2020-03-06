@@ -56,23 +56,69 @@ The default console logging output format was changed to include the timestamp b
 - `https://github.com/ros2/rcutils/pull/190 <https://github.com/ros2/rcutils/pull/190>`_
 - `https://discourse.ros.org/t/ros2-logging-format/11549 <https://discourse.ros.org/t/ros2-logging-format/11549>`_
 
+Default Console Logging Output Stream
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As of Foxy, all logging messages at all severity levels get logged to stderr by default.
+This ensures that logging messages come out immediately, and brings the ROS 2 logging system into alignment with most other logging systems.
+It is possible to change the stream to stdout at runtime via the RCUTILS_LOGGING_USE_STDOUT environment variable, but all logging messages will still go to the same stream.
+See `https://github.com/ros2/rcutils/pull/196 <https://github.com/ros2/rcutils/pull/196>`_ for more details.
+
+launch_ros
+^^^^^^^^^^
+
+Node name and namespace parameters changed
+""""""""""""""""""""""""""""""""""""""""""
+
+The ``Node`` action parameters related to naming have been changed:
+
+- ``node_name`` has been renamed to ``name``
+- ``node_namespace`` has been renamed to ``namespace``
+- ``node_executable`` has been renamed to ``executable``
+- ``exec_name`` has been added for naming the process associated with the node.
+  Previously, users would have used the ``name`` keyword argument.
+
+The old parameters have been deprecated.
+
+These changes were made to make the launch frontend more idiomatic.
+For example, instead of
+
+.. code-block:: xml
+
+   <node pkg="demo_nodes_cpp" exec="talker" node-name="foo" />
+
+we can now write
+
+.. code-block:: xml
+
+   <node pkg="demo_nodes_cpp" exec="talker" name="foo" />
+
+This change also applies to ``ComposableNodeContainer``, ``ComposableNode``, and ``LifecycleNode``.
+For examples, see the `relevant changes to the demos. <https://github.com/ros2/demos/pull/431>`_
+
+`Related pull request in launch_ros. <https://github.com/ros2/launch_ros/pull/122>`_
+
 Timeline before the release
 ---------------------------
 
 A few milestones leading up to the release:
 
     Wed. April 8th, 2020
-        API and feature freeze for core packages
+        API and feature freeze for ``ros_core`` [1]_ packages.
+        Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
     Mon. April 13th, 2020 (beta)
-        Updated releases of core packages available.
+        Updated releases of ``desktop`` [2]_ packages available.
         Testing of the new features.
 
     Wed. May 13th, 2020 (release candidate)
-        Updated releases of core packages available.
+        Updated releases of ``desktop`` [2]_ packages available.
 
     Wed. May 20, 2020
         Freeze rosdistro.
         No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
+
+.. [1] The ``ros_core`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
+.. [2] The ``desktop`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
