@@ -81,24 +81,50 @@ Inside your launch directory, create a new launch file with the ``.launch.py`` s
 For example ``my_script.launch.py``.
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
-.. code-block:: python
+.. tabs::
 
-    import launch
-    import launch.actions
-    import launch.substitutions
-    import launch_ros.actions
+   .. group-tab:: Dashing or Eloquent
+
+      .. code-block:: python
+
+          import launch
+          import launch.actions
+          import launch.substitutions
+          import launch_ros.actions
 
 
-    def generate_launch_description():
-        return launch.LaunchDescription([
-            launch.actions.DeclareLaunchArgument(
-                'node_prefix',
-                default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
-                description='Prefix for node names'),
-            launch_ros.actions.Node(
-                package='demo_nodes_cpp', node_executable='talker', output='screen',
-                node_name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
-        ])
+          def generate_launch_description():
+              return launch.LaunchDescription([
+                  launch.actions.DeclareLaunchArgument(
+                      'node_prefix',
+                      default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
+                      description='Prefix for node names'),
+                  launch_ros.actions.Node(
+                      package='demo_nodes_cpp', node_executable='talker', output='screen',
+                      node_name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
+              ])
+
+   .. group-tab:: Foxy or newer
+
+      .. code-block:: python
+
+          import launch
+          import launch.actions
+          import launch.substitutions
+          import launch_ros.actions
+
+
+          def generate_launch_description():
+              return launch.LaunchDescription([
+                  launch.actions.DeclareLaunchArgument(
+                      'node_prefix',
+                      default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
+                      description='Prefix for node names'),
+                  launch_ros.actions.Node(
+                      package='demo_nodes_cpp', executable='talker', output='screen',
+                      name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
+              ])
+
 
 Usage
 ^^^^^

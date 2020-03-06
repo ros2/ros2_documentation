@@ -1,7 +1,7 @@
 .. _CreatePkg:
 
-Creating a ROS 2 package
-========================
+Creating Your First ROS 2 package
+=================================
 
 **Goal:** Create a new package using either CMake or Python, and run its executable.
 
