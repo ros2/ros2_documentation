@@ -1,6 +1,6 @@
 .. _SyncAsync:
 
-Synchronous vs. asynchronous clients
+Synchronous vs. asynchronous service clients
 ====================================
 
 **Level:** Intermediate
@@ -44,7 +44,7 @@ Since sending a request doesn’t block anything, a loop can be used to both spi
 The :ref:`Simple Service and Client <PySrvCli>` tutorial for Python illustrates how to perform an async service call and retrieve the ``future`` using a loop.
 
 The ``future`` can also be retrieved using a timer or callback, like in `this example <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_, a dedicated thread, or by another method.
-It is up to you, as the caller, to decide how to check on and store ``future`` and retrieve your response.
+It is up to you, as the caller, to decide how to store ``future``, check on its status, and retrieve your response.
 
 2 Synchronous calls
 -------------------
@@ -107,7 +107,7 @@ Note inside ``main()`` that the client calls ``rclpy.spin`` in a separate thread
 Both ``send_request`` and ``rclpy.spin`` are blocking, so they need to be on separate threads.
 The statement ``from threading import Thread`` makes it possible to create a new thread.
 
-2 Sync deadlock
+3 Sync deadlock
 ---------------
 
 It is not possible to call a service synchronously in a subscription, timer callback or service callback.
