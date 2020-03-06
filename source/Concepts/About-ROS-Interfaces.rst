@@ -269,4 +269,4 @@ Atop ROS 1's existing feature set, the ROS 2 IDL introduces some new features, n
 * **bounded strings**: Whereas the ROS 1 IDL allows unbounded strings (e.g., ``string foo``), the ROS 2 IDL further allows bounded strings (e.g., ``string<=5 bar``).
 * **default values**: Whereas the ROS 1 IDL allows constant fields (e.g., ``int32 X=123``), the ROS 2 IDL further allows default values to be specified (e.g., ``int32 X 123``).
   The default value is used when constructing a message/service object and can be subsequently overridden by assigning to the field.
-* **actions**: Whereas the ROS 1 IDL addressed ``msg`` and ``srv`` interfaces, the ROS 2 IDL incorporated the `action interface <http://design.ros2.org/articles/actions.html>`_.
+  You can also specify default values for action parts.
