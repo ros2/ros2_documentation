@@ -1,11 +1,11 @@
 .. _SyncAsync:
 
 Synchronous vs. asynchronous service clients
-====================================
+============================================
 
 **Level:** Intermediate
 
-**Time:** 20 minutes
+**Time:** 10 minutes
 
 .. contents:: Contents
    :depth: 2
@@ -15,46 +15,26 @@ Synchronous vs. asynchronous service clients
 Introduction
 ------------
 
-We recommend calling services asynchronously, using the ``call_async()`` API in ``rclpy``.
-It is also possible to call services synchronously, using the ``call()`` API.
-However, due to the possibility of deadlock accompanying it, we do not recommend synchronous service calls.
+This guide is intended to warn users of the risks associated with the synchronous client ``call()`` API.
+It is very easy to mistakenly cause deadlock when calling services synchronously, so we do not recommend using ``call()``.
+There are no apparent benefits to using sync calls that outweigh the risk.
 
-C++ service call API are only available in async, so the comparisons and examples in this guide pertain to Python services and clients.
-The definition of async given here still applies to C++ though.
+We provide an example on how to use ``call()`` correctly for experienced users intent on using synchronous calls for whatever reason.
+We also highlight possible scenarios for deadlock that accompany it.
 
+Because we recommend avoiding sync calls, this guide will also address the features and usage of the recommended alternative, async calls (``call_async()``).
 
-1 Asynchronous calls
---------------------
+The C++ service call API is only available in async, so the comparisons and examples in this guide pertain to Python services and clients.
+However, the definition of async given here still applies to C++.
 
-Async calls can be made from anywhere without running the risk of blocking other ROS and non-ROS processes.
-This is not the case for sync calls, which is why async is the more correct and safe option.
-
-An asynchronous client will immediately return a ``future``, a value that indicates whether the call and response is finished (not the value of the response itself), after sending a request to a service.
-The returned ``future`` may be queried for a response at any time.
-
-Since sending a request doesn’t block anything, a loop can be used to both spin ``rclpy`` and check ``future`` in the same thread, for example:
-
-.. code-block::
-
-    while rclpy.ok():
-        rclpy.spin_once(node)
-        if future.done():
-            #Get response
-
-The :ref:`Simple Service and Client <PySrvCli>` tutorial for Python illustrates how to perform an async service call and retrieve the ``future`` using a loop.
-
-The ``future`` can also be retrieved using a timer or callback, like in `this example <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_, a dedicated thread, or by another method.
-It is up to you, as the caller, to decide how to store ``future``, check on its status, and retrieve your response.
-
-2 Synchronous calls
+1 Synchronous calls
 -------------------
 
-A synchronous client will block upon sending a request to a service until a response has been received, and then returns the response.
-There is no concept of a ``future`` value for sync calls.
-The response will return immediately, making synchronous nodes much simpler to code.
-However, you do have to use a separate thread to spin.
+A synchronous client will block the calling thread when sending a request to a service until a response has been received; nothing else can happen during a call.
+The call can take arbitrary amounts of time to complete.
+Once complete, the response returns directly to the client.
 
-The following is an example of a synchronous client node, similar to the async node in the :ref:`Simple Service and Client <PySrvCli>` tutorial.
+The following is an example of how to correctly execute a synchronous client node, similar to the async node in the :ref:`Simple Service and Client <PySrvCli>` tutorial.
 
 .. code-block:: python
 
@@ -64,7 +44,6 @@ The following is an example of a synchronous client node, similar to the async n
   from example_interfaces.srv import AddTwoInts
   import rclpy
   from rclpy.node import Node
-
 
   class MinimalClientSync(Node):
 
@@ -102,26 +81,25 @@ The following is an example of a synchronous client node, similar to the async n
   if __name__ == '__main__':
       main()
 
-
 Note inside ``main()`` that the client calls ``rclpy.spin`` in a separate thread.
 Both ``send_request`` and ``rclpy.spin`` are blocking, so they need to be on separate threads.
 The statement ``from threading import Thread`` makes it possible to create a new thread.
 
-3 Sync deadlock
----------------
+1.1 Sync deadlock
+-----------------
 
-It is not possible to call a service synchronously in a subscription, timer callback or service callback.
-Doing so would block ``rclpy.spin``, causing deadlock: when a client is blocking a thread waiting for a response, but the response can only be returned on that same thread, so the client will never stop waiting.
+There are several ways using the synchronous ``call()`` API can cause deadlock.
 
-When deadlock occurs, you will not receive any indication that the service is blocked.
-There will be no warning or exception thrown, no indication in the stack trace, and the call will not fail.
+As mentioned in the comments of the example above, failing to create a separate thread to spin ``rclpy`` is one cause of deadlock.
+When a client is blocking a thread waiting for a response, but the response can only be returned on that same thread, the client will never stop waiting, and nothing else can happen.
 
-One example of how deadlock might occur is if the synchronous client's ``send_request`` is placed in a callback:
+Another cause of deadlock is blocking ``rclpy.spin`` by calling a service synchronously in a subscription, timer callback or service callback.
+For example, if the synchronous client's ``send_request`` is placed in a callback:
 
 .. code-block:: python
 
   def trigger_request(msg):
-      response = minimal_client.send_request()  # this will deadlock!
+      response = minimal_client.send_request()  # This will cause deadlock
       minimal_client.get_logger().info(
           'Result of add_two_ints: for %d + %d = %d' %
           (minimal_client.req.a, minimal_client.req.b, response.sum))
@@ -132,4 +110,39 @@ One example of how deadlock might occur is if the synchronous client's ``send_re
 Deadlock occurs because ``rclpy.spin`` will not preempt the callback with the ``send_request`` call.
 In general, callbacks should only perform light and fast operations.
 
-.. mention multithreaded executor here, once there's documentation for that
+.. warning::
+
+  When deadlock occurs, you will not receive any indication that the service is blocked.
+  There will be no warning or exception thrown, no indication in the stack trace, and the call will not fail.
+
+2 Asynchronous calls
+--------------------
+
+Async calls are entirely safe and the recommended method of calling services.
+They can be made from anywhere without running the risk of blocking other ROS and non-ROS processes, unlike sync calls.
+
+An asynchronous client will immediately return ``future``, a value that indicates whether the call and response is finished (not the value of the response itself), after sending a request to a service.
+The returned ``future`` may be queried for a response at any time.
+
+Since sending a request doesn’t block anything, a loop can be used to both spin ``rclpy`` and check ``future`` in the same thread, for example:
+
+.. code-block:: python
+
+    while rclpy.ok():
+        rclpy.spin_once(node)
+        if future.done():
+            #Get response
+
+The :ref:`Simple Service and Client <PySrvCli>` tutorial for Python illustrates how to perform an async service call and retrieve the ``future`` using a loop.
+
+The ``future`` can also be retrieved using a timer or callback, like in `this example <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_, a dedicated thread, or by another method.
+It is up to you, as the caller, to decide how to store ``future``, check on its status, and retrieve your response.
+
+Summary
+-------
+
+It is not recommended to implement a synchronous service client.
+They are susceptible to deadlock, but will not provide any indication of issue when deadlock occurs.
+If you must use synchronous calls, the example in section `1 Synchronous calls`_ is a safe method of doing so.
+You should also be aware of the conditions that cause deadlock outlined in section `1.1 Sync deadlock`_.
+We recommend using async service clients instead.
