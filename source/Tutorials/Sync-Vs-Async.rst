@@ -17,7 +17,6 @@ Introduction
 
 This guide is intended to warn users of the risks associated with the Python synchronous service client ``call()`` API.
 It is very easy to mistakenly cause deadlock when calling services synchronously, so we do not recommend using ``call()``.
-There are no apparent benefits to using sync calls that outweigh the risk.
 
 We provide an example on how to use ``call()`` correctly for experienced users who wish to use synchronous calls and are aware of the pitfalls.
 We also highlight possible scenarios for deadlock that accompany it.
@@ -83,7 +82,6 @@ The following is an example of how to correctly execute a synchronous client nod
 
 Note inside ``main()`` that the client calls ``rclpy.spin`` in a separate thread.
 Both ``send_request`` and ``rclpy.spin`` are blocking, so they need to be on separate threads.
-The statement ``from threading import Thread`` makes it possible to create a new thread.
 
 1.1 Sync deadlock
 -----------------
