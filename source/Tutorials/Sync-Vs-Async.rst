@@ -15,11 +15,11 @@ Synchronous vs. asynchronous service clients
 Introduction
 ------------
 
-This guide is intended to warn users of the risks associated with the synchronous client ``call()`` API.
+This guide is intended to warn users of the risks associated with the Python synchronous service client ``call()`` API.
 It is very easy to mistakenly cause deadlock when calling services synchronously, so we do not recommend using ``call()``.
 There are no apparent benefits to using sync calls that outweigh the risk.
 
-We provide an example on how to use ``call()`` correctly for experienced users intent on using synchronous calls for whatever reason.
+We provide an example on how to use ``call()`` correctly for experienced users who wish to use synchronous calls and are aware of the pitfalls.
 We also highlight possible scenarios for deadlock that accompany it.
 
 Because we recommend avoiding sync calls, this guide will also address the features and usage of the recommended alternative, async calls (``call_async()``).
@@ -30,7 +30,7 @@ However, the definition of async given here still applies to C++.
 1 Synchronous calls
 -------------------
 
-A synchronous client will block the calling thread when sending a request to a service until a response has been received; nothing else can happen during a call.
+A synchronous client will block the calling thread when sending a request to a service until a response has been received; nothing else can happen on that thread during the call.
 The call can take arbitrary amounts of time to complete.
 Once complete, the response returns directly to the client.
 
@@ -88,7 +88,7 @@ The statement ``from threading import Thread`` makes it possible to create a new
 1.1 Sync deadlock
 -----------------
 
-There are several ways using the synchronous ``call()`` API can cause deadlock.
+There are several ways that the synchronous ``call()`` API can cause deadlock.
 
 As mentioned in the comments of the example above, failing to create a separate thread to spin ``rclpy`` is one cause of deadlock.
 When a client is blocking a thread waiting for a response, but the response can only be returned on that same thread, the client will never stop waiting, and nothing else can happen.
