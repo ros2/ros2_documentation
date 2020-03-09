@@ -29,7 +29,7 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - Launch Testing - Launch description and integration testing for ros2
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_launch_testing_presentation.pdf>`__ / `video <https://vimeo.com/378683186>`__
-   * - ROS 2 for Consumer Robotics
+   * - ROS 2 for Consumer Robotics: : The iRobot use-case
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_irobot_usecase.pdf>`__ / `video <https://vimeo.com/378916114>`__
    * - Composable Nodes in ROS2
