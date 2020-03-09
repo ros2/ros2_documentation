@@ -11,6 +11,10 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - Title
      - Type
      - Links
+   * - Migrating a large ROS 1
+codebase to ROS 2
+     - ROSCon 2019 presentation
+     - `slides <https://roscon.ros.org/2019/talks/roscon2019_migrating_a_large_ros_1_codebase_to_ros_2.pdf>`__ / `video <https://vimeo.com/378682692>`__
    * - Hands-on ROS 2: A Walkthrough
      - ROSCon 2018 presentation
      - `slides <https://roscon.ros.org/2018/presentations/ROSCon2018_ROS2HandsOn.pdf>`__ / `video <https://vimeo.com/292693129>`__
