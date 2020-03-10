@@ -20,7 +20,7 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - Migrating to ROS 2 Advice from Rover Robotics
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_migrating_to_ros_2.pdf>`__ / `video <https://vimeo.com/378682068>`__
-   * - ROS 2 ON VXWORKS
+   * - ROS 2 on VxWorks
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_ros2onvxworks.pdf>`__ / `video <https://vimeo.com/378682144>`__
    * - Navigation2 Overview
