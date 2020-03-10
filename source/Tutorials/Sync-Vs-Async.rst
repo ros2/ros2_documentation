@@ -24,7 +24,7 @@ We also highlight possible scenarios for deadlock that accompany it.
 Because we recommend avoiding sync calls, this guide will also address the features and usage of the recommended alternative, async calls (``call_async()``).
 
 The C++ service call API is only available in async, so the comparisons and examples in this guide pertain to Python services and clients.
-However, the definition of async given here still applies to C++.
+The definition of async given here generally applies to C++, with some exceptions.
 
 1 Synchronous calls
 -------------------
@@ -116,7 +116,7 @@ In general, callbacks should only perform light and fast operations.
 2 Asynchronous calls
 --------------------
 
-Async calls are entirely safe and the recommended method of calling services.
+Async calls in ``rclpy`` are entirely safe and the recommended method of calling services.
 They can be made from anywhere without running the risk of blocking other ROS and non-ROS processes, unlike sync calls.
 
 An asynchronous client will immediately return ``future``, a value that indicates whether the call and response is finished (not the value of the response itself), after sending a request to a service.
