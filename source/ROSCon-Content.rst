@@ -50,7 +50,7 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
    * - Quality of Service Policies for ROS2 Communications
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_qos.pdf>`__ / `video <https://vimeo.com/379127762>`__
-   * - MICRO-ROS: ROS2 ON MICROCONTROLLERS
+   * - Micro-ROS: ROS2 on Microcontrollers
      - ROSCon 2019 presentation
      - `slides <https://roscon.ros.org/2019/talks/roscon2019_microros.pdf>`__ / `video <https://vimeo.com/379127756>`__
    * - ROS2 on Large Scale Systems: Discovery Server
