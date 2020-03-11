@@ -94,8 +94,8 @@ If you encounter exceptions when trying to source the environment after building
 
 .. _osx-troubleshooting:
 
-OS X
-----
+macOS
+-----
 
 Segmentation fault when using ``pyenv``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

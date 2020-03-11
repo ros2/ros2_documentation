@@ -16,7 +16,7 @@ Dashing Diademata is primarily supported on the following platforms:
 Tier 1 platforms:
 
 * Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
-* Mac OS X 10.12 (Sierra)
+* Mac macOS 10.12 (Sierra)
 * Windows 10 (Visual Studio 2019)
 
 Tier 2 platforms:

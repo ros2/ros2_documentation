@@ -3,19 +3,19 @@
    OSX-Install-Binary
    Installation/OSX-Install-Binary
 
-Installing ROS 2 on OS X
-========================
+Installing ROS 2 on macOS
+=========================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This page explains how to install ROS 2 on OS X from a pre-built binary package.
+This page explains how to install ROS 2 on macOS from a pre-built binary package.
 
 System requirements
 -------------------
 
-We support OS X El Capitan and Sierra (10.11.x and 10.12.x).
+We support OS X El Capitan and macOS Sierra (10.11.x and 10.12.x).
 
 .. _osx-install-binary-installling-prerequisites:
 
@@ -93,7 +93,7 @@ You need the following things installed before installing ROS 2.
 Disable System Integrity Protection (SIP)
 -----------------------------------------
 
-OS X versions >=10.11 have System Integrity Protection enabled by default.
+macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Downloading ROS 2
@@ -101,7 +101,7 @@ Downloading ROS 2
 
 
 * Go to the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for OS X; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
+* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 

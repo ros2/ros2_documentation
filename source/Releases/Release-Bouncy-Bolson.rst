@@ -25,7 +25,7 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.
 
   * no Debian packages but building from source is supported
 
-* Mac OS X 10.12 (Sierra)
+* Mac macOS 10.12 (Sierra)
 * Windows 10 with Visual Studio 2017
 
 Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/bouncy/>`__).

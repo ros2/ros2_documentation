@@ -12,7 +12,7 @@ Beta 2 (codename 'r2b2'; July 2017)
 Supported Platforms
 -------------------
 
-We support ROS 2 Beta 2 on three platforms: Ubuntu 16.04 (Xenial), Mac OS X 10.12 (Sierra), and Windows 10.
+We support ROS 2 Beta 2 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
 We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/beta2/>`__).
 
 Features

@@ -17,7 +17,7 @@ We provide ROS 2 binary packages for the following platforms:
   * `Debian packages <Crystal/Linux-Install-Debians>`
   * `"fat" archive <Crystal/Linux-Install-Binary>`
 
-* `OS X <Crystal/OSX-Install-Binary>`
+* `macOS <Crystal/OSX-Install-Binary>`
 * `Windows <Crystal/Windows-Install-Binary>`
 
 
@@ -30,7 +30,7 @@ We support building ROS 2 from source on the following platforms:
 
 
 * `Linux <Crystal/Linux-Development-Setup>`
-* `OS X <Crystal/OSX-Development-Setup>`
+* `macOS <Crystal/OSX-Development-Setup>`
 * `Windows <Crystal/Windows-Development-Setup>`
 
 .. include:: _Install-Types.rst

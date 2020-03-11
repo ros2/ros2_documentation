@@ -214,7 +214,7 @@ The final step is to fine tune the jobs.
 For each job you'll want to check the ssh key being used for the git clone (only on Linux) and the ssh-agent.
 It should be set to the ssh key setup in the previous steps for the jenkins user.
 
-I also updated the slaves which the jobs will run on to make sure they matched the names of the slaves I added for Linux, OS X and Windows.
+I also updated the slaves which the jobs will run on to make sure they matched the names of the slaves I added for Linux, macOS and Windows.
 
 Disk space
 ----------

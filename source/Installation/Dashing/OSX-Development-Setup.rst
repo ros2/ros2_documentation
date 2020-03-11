@@ -1,5 +1,5 @@
-Building ROS 2 on OS X
-======================
+Building ROS 2 on macOS
+=======================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -8,7 +8,7 @@ Building ROS 2 on OS X
 System requirements
 -------------------
 
-We support OS X 10.12.x.
+We support macOS 10.12.x.
 
 However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
 
@@ -107,7 +107,7 @@ You need the following things installed to build ROS 2:
 Disable System Integrity Protection (SIP)
 -----------------------------------------
 
-OS X versions >=10.11 have System Integrity Protection enabled by default.
+macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Get the ROS 2 code

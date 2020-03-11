@@ -18,7 +18,7 @@ Latest release
 
 To download the repository list from the latest ROS 2 release, run:
 
-**Linux/OS X**
+**Linux/macOS**
 
 .. code-block:: bash
 
@@ -43,7 +43,7 @@ Particular release
 
 If you wish to checkout a particular release, you can get its repository list by specifying the name of the release in the url of the following step, e.g. for alpha 7:
 
-**Linux/OS X**
+**Linux/macOS**
 
 .. code-block:: bash
 
@@ -70,7 +70,7 @@ Development branches
 
 If you wish to checkout the bleeding-edge development code, you can get the relevant repository list by running:
 
-**Linux/OS X**
+**Linux/macOS**
 
 .. code-block:: bash
 
@@ -106,7 +106,7 @@ Download the new source code
 
 You should now be able to download the sources associated with the new repository list with:
 
-**Linux/OS X**
+**Linux/macOS**
 
 .. code-block:: bash
 
@@ -140,7 +140,7 @@ Inspecting your source checkout
 During your development you may have deviated from the original state of your workspace from when you imported the repository list.
 If you wish to know the versions of the set of repositories in your workspace, you can export the information using the following command:
 
-**Linux/OS X**
+**Linux/macOS**
 
 .. code-block:: bash
 

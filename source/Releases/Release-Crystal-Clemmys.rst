@@ -19,7 +19,7 @@ Crystal Clemmys is primarily supported on the following platforms (see `REP 2000
 Tier 1 platforms:
 
 * Ubuntu 18.04 (Bionic)
-* Mac OS X 10.12 (Sierra)
+* Mac macOS 10.12 (Sierra)
 * Windows 10
 
 Tier 2 platforms:

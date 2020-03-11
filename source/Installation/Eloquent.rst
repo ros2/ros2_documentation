@@ -19,7 +19,7 @@ We provide ROS 2 binary packages for the following platforms:
   * `Debian packages <Eloquent/Linux-Install-Debians>`
   * `"fat" archive <Eloquent/Linux-Install-Binary>`
 
-* `OS X <Eloquent/OSX-Install-Binary>`
+* `macOS <Eloquent/OSX-Install-Binary>`
 * `Windows <Eloquent/Windows-Install-Binary>`
 
 
@@ -32,7 +32,7 @@ We support building ROS 2 from source on the following platforms:
 
 
 * `Linux <Eloquent/Linux-Development-Setup>`
-* `OS X <Eloquent/OSX-Development-Setup>`
+* `macOS <Eloquent/OSX-Development-Setup>`
 * `Windows <Eloquent/Windows-Development-Setup>`
 
 .. include:: _Install-Types.rst
