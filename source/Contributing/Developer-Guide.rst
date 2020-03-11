@@ -106,6 +106,15 @@ Change control process
 
 * Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
 
+Guidelines for backport PRs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When changing an older version of ROS:
+
+* Make sure the backported features or fixes are accepted and merged in all [newer, still supported versions](https://index.ros.org/doc/ros2/Releases/) before opening a backport PR.
+* Don't skip a distribution before its EOL, even if it's not an LTS version.
+* If you are backporting a single PR, title the new PR "[Distro] <name of original PR>". If you are backporting a set of PRs, or only some changes from one or more PRs, link to those PRs in the body of the PR.
+
 Documentation
 ^^^^^^^^^^^^^
 
