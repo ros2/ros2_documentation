@@ -12,10 +12,10 @@ The launch system in ROS 2 is responsible for helping the user describe the conf
 The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS specific conventions which make it easy to reuse components throughout the system by giving them each different configurations.
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
-The ROS 2 Bouncy release includes a framework in which launch files, written in Python, can start and stop different nodes as well as trigger and act on various events.
+Launch files written in Python can start and stop different nodes as well as trigger and act on various events.
 The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
 
-The `design document (in review) <https://github.com/ros2/design/pull/163>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
+The `design document <http://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
 
 Writing a ROS 2 launch file
 ---------------------------
@@ -79,6 +79,11 @@ Writing the launch file
 
 Inside your launch directory, create a new launch file with the ``.launch.py`` suffix.
 For example ``my_script.launch.py``.
+
+``.launch.py`` is not specifically required as the file suffix for launch files.
+Another popular option is ``_launch.py``, used in the :ref:`beginner level launch files tutorial <ROS2Launch>`.
+If you do change the suffix, make sure to adjust the ``glob()`` argument in your ``setup.py`` file accordingly.
+
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
 .. tabs::
