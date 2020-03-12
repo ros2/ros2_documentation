@@ -390,7 +390,7 @@ Then, edit the description on line 6 to summarize the package:
 
 .. code-block:: xml
 
-  <description>Beginner developer tutorials practice package</description>
+  <description>Beginner client libraries tutorials practice package</description>
 
 Then, update the license on line 8.
 You can read more about open source licenses `here <https://opensource.org/licenses/alphabetical>`__.

@@ -102,7 +102,7 @@ Ensure you’re still in the ``dev_ws/src`` directory before you clone.
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
 The existing packages you will use are from the ``ros_tutorials`` repository (repo).
-If you went through the beginner user tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
+If you went through the "Beginner: CLI Tools" tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
 
 You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
 

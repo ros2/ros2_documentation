@@ -250,8 +250,8 @@ Whether you’re sharing your work with others or introspecting on your own expe
 Next steps
 ----------
 
-You’ve completed the "Beginner User" tutorials!
-The next step is tackling the "Beginner Developer" tutorials, starting with :ref:`ROS2Workspace`.
+You’ve completed the "Beginner: CLI Tools" tutorials!
+The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :ref:`ROS2Workspace`.
 
 Related content
 ---------------
