@@ -98,6 +98,18 @@ For examples, see the `relevant changes to the demos. <https://github.com/ros2/d
 
 `Related pull request in launch_ros. <https://github.com/ros2/launch_ros/pull/122>`_
 
+rclpy
+^^^^^
+
+Support for multiple on parameter set callbacks
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Use the ``Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
+
+The method ``set_parameters_calblack`` has been deprecated.
+
+Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
+
 Timeline before the release
 ---------------------------
 
