@@ -8,9 +8,9 @@ A full-suite installation of RTI Connext DDS is available for many additional pl
 This installation includes diagnostic tools, layered services, and security.  See below for installation details.
 
 .. note::
-    As of the ROS2 'Dashing' release, the Connext RMW layer in ROS2 is compatible with version 5.3.x of RTI Connext DDS, but not with the most-recent version (6.0.0).
+    As of the ROS 2 'Dashing' release, the Connext RMW layer in ROS 2 is compatible with version 5.3.x of RTI Connext DDS, but not with the most-recent version (6.0.0).
 
-    The Connext RMW layer is being modified for 6.0.x compatibility and will be available prior to the next release of ROS2.
+    The Connext RMW layer is being modified for 6.0.x compatibility and will be available prior to the next release of ROS 2.
 
 RTI University Program
 ----------------------

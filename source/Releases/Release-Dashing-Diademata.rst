@@ -773,6 +773,8 @@ Known Issues
 * `[ros2/rosidl_typesupport_opensplice#30] <https://github.com/ros2/rosidl_typesupport_opensplice/issues/30>`_ There is a bug preventing nesting a message inside of a service or action definition with the same name when using OpenSplice.
 * `[ros2/rclcpp#781] <https://github.com/ros2/rclcpp/pull/781>`_ Calling ``get_parameter``/``list_parameter`` from within ``on_set_parameter_callback`` causes a deadlock on Dashing.  This is fixed for Eloquent, but is an ABI break so has not been backported to Dashing.
 * `[ros2/rclcpp#912] <https://github.com/ros2/rclcpp/issues/912>`_ Inter-process communication forces a message copy when intra-process communication takes place between an ``std::unique_ptr`` publisher and a single ``std::unique_ptr`` subscription (published ``std::unique_ptr`` is internally being promoted to an ``std::shared_ptr``).
+* `[ros2/rosbag2#125] <https://github.com/ros2/rosbag2/issues/125>`_ Topics with unreliable QOS are not recorded.
+* `[ros2/rclcpp#715] <https://github.com/ros2/rclcpp/issues/715>`_ Composable nodes cannot receive parameters via remapping. Supplying parameters to composable nodes can be accomplished using the methods described in `[this comment] <https://github.com/ros2/rclcpp/issues/715#issuecomment-497392626>`_.
 
 Timeline before the release
 ---------------------------

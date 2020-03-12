@@ -141,7 +141,7 @@ Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
 On Windows due to limitations of the length of environment variables you should use this option when building workspaces with many (~ >> 100 packages).
 
-Also, if you have already installed ROS2 from Debian make sure that you run the ``build`` command in a fresh environment. You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
+Also, if you have already installed ROS 2 from Debian make sure that you run the ``build`` command in a fresh environment. You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 
 
 .. code-block:: bash

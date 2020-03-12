@@ -237,7 +237,7 @@ The ``while`` loop in the constructor checks if a service matching the type and 
 Below the constructor is the request definition, followed by ``main``.
 
 The only significant difference in the client’s ``main`` is the ``while`` loop.
-The loop tries to check whether there is a response from the service, as long as the system is running.
+The loop checks the ``future`` to see if there is a response from the service, as long as the system is running.
 If the service has sent a response, the result will be written in a log message.
 
 
@@ -319,4 +319,12 @@ You added their dependencies and executables to the package configuration files 
 Next steps
 ----------
 
-Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
+Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
+
+Related content
+---------------
+
+In this tutorial, you used the ``call_async()`` API in your client node to call the service.
+There is another service call API available for Python called synchronous calls.
+We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :ref:`Synchronous vs. asynchronous clients <SyncAsync>`.

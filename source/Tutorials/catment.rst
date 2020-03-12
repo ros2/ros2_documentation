@@ -64,7 +64,7 @@ Postulates
 #.
    **Interoperability is a good thing.**
    Whenever possible (not all combinations will be practical), developers should be able to mix and match meta-build systems, including mixing their different aspects (i.e., use the building tool from one system and the API from another).
-   Such mixing and matching is especially important when developers want to combine a large existing code base using one meta-build system (e.g., ROS with ``catkin``) with new libraries and tools offered by a code base using another meta-build system (e.g., ROS2 with ``ament``).
+   Such mixing and matching is especially important when developers want to combine a large existing code base using one meta-build system (e.g., ROS with ``catkin``) with new libraries and tools offered by a code base using another meta-build system (e.g., ROS 2 with ``ament``).
    Ideally that kind of combination can be done without requiring changes to the API used by either code base and without telling the developer which builder tool to use.
 
 
@@ -77,10 +77,10 @@ Postulates
 Use cases, with experimental implementations
 --------------------------------------------
 
-Adding ROS packages to a ROS2 workspace and building with ``ament build``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding ROS packages to a ROS 2 workspace and building with ``ament build``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's say that you want to add some existing ROS packages to your ROS2 workspace and don't want to migrate the ROS packages from ``catkin`` to ``ament`` (or vice versa). Here are two patches that let you do that:
+Let's say that you want to add some existing ROS packages to your ROS 2 workspace and don't want to migrate the ROS packages from ``catkin`` to ``ament`` (or vice versa). Here are two patches that let you do that:
 
 
 * `ament_package <https://github.com/ament/ament_package/compare/catkin?expand=1>`__:
@@ -96,7 +96,7 @@ Let's say that you want to add some existing ROS packages to your ROS2 workspace
 Example usage:
 
 
-#. Get the ROS2 code as usual, using the branches mentioned above.
+#. Get the ROS 2 code as usual, using the branches mentioned above.
 #. Add to your workspace some ``catkin`` ROS packages, ensuring that all of their dependencies are satisfied (either also present in the workspace or installed elsewhere with appropriate setup shell files sourced).
 #. Build as usual (e.g., ``./src/ament/ament_tools/scripts/ament.by build``).
 
@@ -133,10 +133,10 @@ Now build the ROS packages:
 
 Voila: you used the ``ament`` build tool to build your ``catkin`` packages, without having to migrate them.
 
-Variation: Using the ``catkin`` API in a ROS2 package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Variation: Using the ``catkin`` API in a ROS 2 package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let's say that you're building on top of ROS2, which internally uses the ``ament`` API, and you want to add a new package using the ``catkin`` API.
+Let's say that you're building on top of ROS 2, which internally uses the ``ament`` API, and you want to add a new package using the ``catkin`` API.
 
 To make this work, we need a Python3 installation of ``catkin`` (the binary debians use Python2.7).
 Here's an example of doing that, installing to ``$HOME/catkin``:
@@ -159,9 +159,9 @@ Here's an example of doing that, installing to ``$HOME/catkin``:
 
 To use that version of catkin, you just need to source the ``$HOME/catkin/setup.bash`` file.
 
-Let's assume that you have the usual ROS2 workspace in ``~/ros2_ws``, and that you're on the ``catkin`` branches in ``ament_package`` and ``ament_tools``.
+Let's assume that you have the usual ROS 2 workspace in ``~/ros2_ws``, and that you're on the ``catkin`` branches in ``ament_package`` and ``ament_tools``.
 Add to that workspace the ``image_tools_catkin`` package from https://github.com/gerkey/catment.
-It's a simple port of the ROS2 ``image_tools`` package, taking it from the ``ament`` API to the ``catkin`` API.
+It's a simple port of the ROS 2 ``image_tools`` package, taking it from the ``ament`` API to the ``catkin`` API.
 To build it:
 
 .. code-block:: bash
@@ -170,7 +170,7 @@ To build it:
    . $HOME/catkin/setup.bash
    ./src/ament/ament_tools/scripts/ament.py build
 
-Voila: when adding new packages atop ROS2, you're free to choose which CMake API you prefer inside your package.
+Voila: when adding new packages atop ROS 2, you're free to choose which CMake API you prefer inside your package.
 
 
 * **Caveat**: I had to comment out the use of ``CATKIN_DEPENDS`` inside ``catkin_package()``, because somewhere somebody was getting upset that things like ``rclcpp`` aren't ``catkin`` packages.
@@ -178,10 +178,10 @@ Voila: when adding new packages atop ROS2, you're free to choose which CMake API
 * **TODO**: The same demo but with a ``ament`` package that depends on a ``catkin`` package (this is easy).
 * **TODO**: The same demo but with a package that has a vanilla ``CMakeLists.txt`` that uses neither ``ament`` nor ``catkin``, and provides a manually generated ``fooConfig.cmake`` file that exports the right stuff to make it look the same to outsiders.
 
-Building ROS2 packages with ``catkin_make_isolated``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Building ROS 2 packages with ``catkin_make_isolated``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's say that you're already familiar with ROS and ``catkin`` and that you're excited to try ROS2, but that you're not in the mood to learn about ``ament``.
+Let's say that you're already familiar with ROS and ``catkin`` and that you're excited to try ROS 2, but that you're not in the mood to learn about ``ament``.
 You'd rather stick to what you know, such as using ``catkin_make_isolated`` to build everything.
 Here is a patch that allows you to do that:
 
@@ -230,7 +230,7 @@ Then we need to install the modified version of catkin somewhere:
    PYTHONPATH=$HOME/catkin/lib/python3/dist-packages/ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/catkin -DPYTHON_EXECUTABLE=/usr/bin/python3
    make install
 
-Now build the ROS2 packages:
+Now build the ROS 2 packages:
 
 .. code-block:: bash
 
@@ -240,23 +240,23 @@ Now build the ROS2 packages:
    touch src/eProsima/AMENT_IGNORE
    PYTHONPATH=$PYTHONPATH:/home/gerkey/ros2_ws_catkin/install_isolated/lib/python3.5/site-packages catkin_make_isolated --install
 
-Voila: you've built ROS2 using the tools that you're familiar with.
+Voila: you've built ROS 2 using the tools that you're familiar with.
 
 
 * **Caveat**: we're ignoring the ``eProsima`` packages in the workspace because they lack ``package.xml`` files, which means that ``catkin`` can't see them.
   ``ament`` has some heuristics for handling such packages.
   Options: backport those heuristics to ``catkin``; switch to installing non-``package.xml``-containing packages outside of the workspace; or just add a ``package.xml`` to each of those packages (e.g., in our own fork).
 
-Combining all of ROS and ROS2 in one workspace and building it (TODO)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Combining all of ROS and ROS 2 in one workspace and building it (TODO)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This step will require sorting out some things, including at least:
 
 * Package name conflicts.
-  We currently have ROS2 versions of ROS message packages, as well as some stuff in ``geometry2``.
+  We currently have ROS 2 versions of ROS message packages, as well as some stuff in ``geometry2``.
   Either the functionality needs to be merged into one package that can support both systems, or the new versions need different names.
 * Message generation.
-  ROS and ROS2 have different message generation steps, the output of which might or not might conflict.
+  ROS and ROS 2 have different message generation steps, the output of which might or not might conflict.
   Something sort of sophisticated needs to be done to allow generation of all the right artifacts from a single message package (or, as indicated above, the new message packages need different name).
 
 Using ``bloom`` to release ``ament`` packages (TODO)

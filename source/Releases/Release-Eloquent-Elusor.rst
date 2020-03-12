@@ -212,6 +212,12 @@ For further reference and rationale, check the `ROS command line arguments desig
 
    Former syntax has been deprecated and is due for removal in the next release.
 
+Known Issues
+------------
+
+* `[ros2/rosidl#402] <https://github.com/ros2/rosidl/issues/402>`_ ``find_package(PCL)`` interferes with ROS interface generation.
+  Workaround: invoke ``find_package(PCL)`` *after* ``rosidl_generate_interfaces()``.
+
 Timeline before the release
 ---------------------------
 
