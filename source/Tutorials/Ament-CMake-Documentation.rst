@@ -259,7 +259,7 @@ In order to separate testing from building the library with colcon, wrap all cal
 Linting
 ^^^^^^^
 
-While all linters provided by ament can be added separately, it is advised to use the combined call:
+It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
 
 .. code-block:: cmake
 
@@ -267,29 +267,11 @@ While all linters provided by ament can be added separately, it is advised to us
     ament_lint_auto_find_test_dependencies()
 
 This will run linters as defined in the ``package.xml``.
-It is recommended to use the set of linters defined by the package ``ament_lint_common``, which will result in running all of the following linters:
+It is recommended to use the set of linters defined by the package ``ament_lint_common``.
+The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs <https://github.com/ament/ament_lint/blob/master/ament_lint_common/doc/index.rst>`_.
 
-- a copyright linter which checks that copyright statements and license headers are present and correct
-
-- cppcheck, a C++ checker which can also find some logic tests
-
-- cpplint, a C++ style checker (e.g. comment style)
-
-- uncrustify, a C++ style checker
-
-- a cmake linter
-
-- an xml linter
-
-- flake8, a style checker for python files
-
-- pep257, a style checker for python docstrings
-
-Note that ``ament_uncrustify`` comes with a command line tool which can automatically reformat the code according to the style guide by calling
-
-.. code-block:: bash
-
-    ament_uncrustify --reformat <path_to_source_folders>
+Linters provided by ament can also be added separately, instead of running ``ament_lint_auto``.
+One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/master/ament_cmake_lint_cmake/doc/index.rst>`_.
 
 Testing
 ^^^^^^^

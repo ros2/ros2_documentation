@@ -195,11 +195,10 @@ We will also require justification for merging a change or making a release that
 Linters and static analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common>`_.
+We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
 All linters/static analysis that are part of ``ament_lint_common`` must be used.
 
-.. link to ament_lint_common documentation when it exists
-
+The `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
 
 General Practices
 -----------------
