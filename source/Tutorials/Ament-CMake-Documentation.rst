@@ -271,7 +271,7 @@ It's advised to use the combined call from `ament_lint_auto <https://github.com/
 
 This will run linters as defined in the ``package.xml``.
 It is recommended to use the set of linters defined by the package ``ament_lint_common``.
-The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs<https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
+The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs <https://github.com/ament/ament_lint/blob/master/ament_lint_common/doc/index.rst>`_.
 
 Linters provided by ament can also be added separately, instead of running ``ament_lint_auto``.
 One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/master/ament_cmake_lint_cmake/doc/index.rst>`_.
