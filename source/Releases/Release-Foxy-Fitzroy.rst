@@ -110,6 +110,16 @@ The method ``set_parameters_calblack`` has been deprecated.
 
 Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
 
+rviz
+^^^^
+
+Tools timestamp messages using ROS time
+"""""""""""""""""""""""""""""""""""""""
+
+'2D Pose Estimate', '2D Nav Goal', and 'Publish Point' tools now timestamp their messages using ROS time instead of system time, in order for the `use_sim_time` parameter to have an effect on them.
+
+Related pull request: https://github.com/ros2/rviz/pull/519
+
 Timeline before the release
 ---------------------------
 
