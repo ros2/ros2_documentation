@@ -116,7 +116,7 @@ rviz
 Tools timestamp messages using ROS time
 """""""""""""""""""""""""""""""""""""""
 
-'2D Pose Estimate', '2D Nav Goal', and 'Publish Point' tools now timestamp their messages using ROS time instead of system time, in order for the `use_sim_time` parameter to have an effect on them.
+'2D Pose Estimate', '2D Nav Goal', and 'Publish Point' tools now timestamp their messages using ROS time instead of system time, in order for the ``use_sim_time`` parameter to have an effect on them.
 
 Related pull request: https://github.com/ros2/rviz/pull/519
 
