@@ -93,7 +93,7 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    :align: center
    :widths: auto
 
-  * - |adlink|
+   * - |adlink|
      - ADLINK Technology: Joe Speed
    * - |amazon|
      - Amazon: Aaron Blasdel
