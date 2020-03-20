@@ -1,4 +1,6 @@
-.. _osx-latest:
+.. redirect-from::
+
+   Crystal/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================
@@ -10,7 +12,7 @@ Building ROS 2 on macOS
 System requirements
 -------------------
 
-We support macOS 10.14 (Mojave).
+We support macOS 10.12.x.
 
 However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
 
@@ -46,30 +48,23 @@ You need the following things installed to build ROS 2:
      Fix any problems that it identifies.
 
 #.
+  You also need a Java runtime installed, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
+
+
+#.
    Use ``brew`` to install more stuff:
 
    .. code-block:: bash
 
-       brew install cmake cppcheck eigen pcre poco python3 tinyxml wget bullet
+       brew install cmake cppcheck eigen pcre poco python3 tinyxml wget
 
        # install dependencies for Fast-RTPS if you are using it
        brew install asio tinyxml2
 
        brew install opencv
 
-       # install console_bridge for rosbag2
-       brew install console_bridge
-
-       # install OpenSSL for DDS-Security
-       brew install openssl
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
-       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
-
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
-
-       # install CUnit for CycloneDDS
-       brew install cunit
 
 #.
    Install rviz dependencies
@@ -88,9 +83,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pyparsing pytest-mock rosdep setuptools vcstool
-
-   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
+       python3 -m pip install argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pyparsing setuptools vcstool
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -121,9 +114,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_crystal/src
+   cd ~/ros2_crystal
+   wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -140,7 +133,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_crystal/
    colcon build --symlink-install
 
 Environment setup
@@ -150,7 +143,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/setup.bash
+   . ~/ros2_crystal/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -161,12 +154,14 @@ In one terminal, set up the ROS 2 environment as described above and then run a 
 
 .. code-block:: bash
 
+   . ~/ros2_crystal/install/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: bash
 
+   . ~/ros2_crystal/install/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -175,7 +170,7 @@ Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
 
-.. _Foxy_osx-development-setup-troubleshooting:
+.. _osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------
@@ -186,10 +181,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Crystal install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_crystal

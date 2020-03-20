@@ -1,7 +1,6 @@
 .. redirect-from::
 
-   OSX-Install-Binary
-   Installation/OSX-Install-Binary
+  Dashing/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================
@@ -15,9 +14,9 @@ This page explains how to install ROS 2 on macOS from a pre-built binary package
 System requirements
 -------------------
 
-We support OS X El Capitan and macOS Sierra (10.11.x and 10.12.x).
+We support macOS Sierra (10.12.x).
 
-.. _osx-install-binary-installling-prerequisites:
+.. _Dashing_osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -58,12 +57,20 @@ You need the following things installed before installing ROS 2.
 
        # install OpenSSL for DDS-Security
        brew install openssl
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install Qt for RViz
        brew install qt freetype assimp
 
+       # install console_bridge for rosbag2
+       brew install console_bridge
+
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
+
+       # install CUnit for CycloneDDS
+       brew install cunit
 
 *
   Install rqt dependencies
@@ -78,6 +85,15 @@ You need the following things installed before installing ROS 2.
 
   ``python3 -m pip install pygraphviz pydot``
 
+  .. note::
+
+      You may run into an issue installing ``pygraphviz``, "error: Error locating graphviz".
+      Try the following install command instead:
+
+      .. code-block:: bash
+
+         python3 -m pip install --install-option="--include-path=/usr/local/include/" --install-option="--library-path=/usr/local/lib/" pygraphviz
+
 *
   Install SROS2 dependencies
 
@@ -88,7 +104,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install catkin_pkg empy lark-parser pyparsing pyyaml setuptools argcomplete
+       python3 -m pip install catkin_pkg empy lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------
@@ -110,8 +126,8 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_crystal
-       cd ~/ros2_crystal
+       mkdir -p ~/ros2_dashing
+       cd ~/ros2_dashing
        tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
@@ -126,7 +142,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_crystal/ros2-osx/setup.bash
+   . ~/ros2_dashing/ros2-osx/setup.bash
 
 Try some examples
 -----------------
@@ -163,10 +179,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Crystal install on your system.
+   This way, your environment will behave as though there is no Dashing install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_crystal
+    rm -rf ~/ros2_dashing

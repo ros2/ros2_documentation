@@ -1,3 +1,9 @@
+.. redirect-from::
+
+  Foxy/OSX-Development-Setup
+
+.. _osx-latest:
+
 Building ROS 2 on macOS
 =======================
 
@@ -8,7 +14,7 @@ Building ROS 2 on macOS
 System requirements
 -------------------
 
-We support macOS 10.12.x.
+We support macOS 10.14 (Mojave).
 
 However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
 
@@ -48,7 +54,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install cmake cppcheck eigen pcre poco python3 tinyxml wget
+       brew install cmake cppcheck eigen pcre poco python3 tinyxml wget bullet
 
        # install dependencies for Fast-RTPS if you are using it
        brew install asio tinyxml2
@@ -86,7 +92,9 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pyparsing setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pyparsing pytest-mock rosdep setuptools vcstool
+
+   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -117,9 +125,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_dashing/src
-   cd ~/ros2_dashing
-   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
+   mkdir -p ~/ros2_foxy/src
+   cd ~/ros2_foxy
+   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -136,7 +144,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_dashing/
+   cd ~/ros2_foxy/
    colcon build --symlink-install
 
 Environment setup
@@ -146,7 +154,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/install/setup.bash
+   . ~/ros2_foxy/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -171,7 +179,7 @@ Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
 
-.. _Dashing_osx-development-setup-troubleshooting:
+.. _Foxy_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------
@@ -182,10 +190,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Dashing install on your system.
+   This way, your environment will behave as though there is no Foxy install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_dashing
+    rm -rf ~/ros2_foxy
