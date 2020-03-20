@@ -116,7 +116,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-binary>`.
 
 Environment setup
 -----------------
@@ -156,7 +156,7 @@ If you would like to build your own packages, refer to the tutorial `"Using Colc
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found :ref:`here <osx-troubleshooting>`.
+Troubleshooting techniques can be found :ref:`here <macOS-troubleshooting>`.
 
 Uninstall
 ---------

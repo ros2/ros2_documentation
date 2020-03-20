@@ -12,7 +12,7 @@ This will give you the latest bug fixes and features.
 Follow the links below for the latest setup instructions for your platform:
 
 * :ref:`Linux <linux-latest>`
-* :ref:`macOS <osx-latest>`
+* :ref:`macOS <macOS-latest>`
 * :ref:`Windows <windows-latest>`
 
 For keeping your source code up-to-date, see `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
