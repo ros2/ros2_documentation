@@ -106,6 +106,18 @@ Change control process
 
 * Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
 
+Guidelines for backport PRs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When changing an older version of ROS:
+
+* Make sure the features or fixes are accepted and merged in the master branch before opening a PR to backport the changes to older versions.
+* When backporting to older versions, also backport to any [newer, still supported versions](https://index.ros.org/doc/ros2/Releases/), even non-LTS versions.
+* If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
+  If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
+* Link to all PRs whose changes you're backporting from the description of your backport PR.
+  In a Dashing backport of a Foxy change, you do not need to link to the Eloquent backport of the same change.
+
 Documentation
 ^^^^^^^^^^^^^
 
@@ -183,11 +195,10 @@ We will also require justification for merging a change or making a release that
 Linters and static analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common>`_.
+We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
 All linters/static analysis that are part of ``ament_lint_common`` must be used.
 
-.. link to ament_lint_common documentation when it exists
-
+The `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
 
 General Practices
 -----------------

@@ -69,8 +69,8 @@ You need the following things installed to build ROS 2:
        # if you are using ZSH, then replace '.bashrc' with '.zshrc'
        echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
-       # install dependencies for rcl_logging_log4cxx
-       brew install log4cxx
+       # install dependencies for rcl_logging
+       brew install log4cxx spdlog
 
        # install CUnit for CycloneDDS
        brew install cunit
