@@ -1,6 +1,9 @@
+.. redirect-from::
 
-Building ROS 2 on OS X
-======================
+  Eloquent/OSX-Development-Setup
+
+Building ROS 2 on macOS
+=======================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -119,7 +122,7 @@ You need the following things installed to build ROS 2:
 Disable System Integrity Protection (SIP)
 -----------------------------------------
 
-OS X versions >=10.11 have System Integrity Protection enabled by default.
+macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Get the ROS 2 code
@@ -137,7 +140,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-source>`.
 
 Build the ROS 2 code
 --------------------
@@ -188,7 +191,7 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found :ref:`here <osx-troubleshooting>`.
+Troubleshooting techniques can be found :ref:`here <macOS-troubleshooting>`.
 
 Uninstall
 ---------

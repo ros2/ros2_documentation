@@ -1,16 +1,20 @@
-Installing ROS 2 on OS X
-========================
+.. redirect-from::
+
+  Dashing/OSX-Install-Binary
+
+Installing ROS 2 on macOS
+=========================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This page explains how to install ROS 2 on OS X from a pre-built binary package.
+This page explains how to install ROS 2 on macOS from a pre-built binary package.
 
 System requirements
 -------------------
 
-We support OS X Sierra (10.12.x).
+We support macOS Sierra (10.12.x).
 
 .. _Dashing_osx-install-binary-installling-prerequisites:
 
@@ -105,7 +109,7 @@ You need the following things installed before installing ROS 2.
 Disable System Integrity Protection (SIP)
 -----------------------------------------
 
-OS X versions >=10.11 have System Integrity Protection enabled by default.
+macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
 Downloading ROS 2
@@ -113,7 +117,7 @@ Downloading ROS 2
 
 
 * Go to the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for OS X; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
+* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -129,7 +133,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-osx-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-binary>`.
 
 Environment setup
 -----------------
@@ -169,7 +173,7 @@ If you would like to build your own packages, refer to the tutorial `"Using Colc
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found :ref:`here <osx-troubleshooting>`.
+Troubleshooting techniques can be found :ref:`here <macOS-troubleshooting>`.
 
 Uninstall
 ---------

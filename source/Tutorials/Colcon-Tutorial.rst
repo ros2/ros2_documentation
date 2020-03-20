@@ -35,8 +35,8 @@ Linux
 
     sudo apt install python3-colcon-common-extensions
 
-OS X
-~~~~
+macOS
+~~~~~
 
 .. code-block:: bash
 
@@ -83,8 +83,8 @@ Create a workspace
 
 First, create a directory (``ros2_example_ws``) to contain our workspace:
 
-Linux/OS X
-~~~~~~~~~~
+Linux/macOS
+~~~~~~~~~~~
 
 .. code-block:: bash
 
@@ -198,8 +198,8 @@ Before you can use any of the installed executables or libraries, you will need 
 colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
 These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
-Linux/OS X
-~~~~~~~~~~
+Linux/macOS
+~~~~~~~~~~~
 
 .. code-block:: bash
 

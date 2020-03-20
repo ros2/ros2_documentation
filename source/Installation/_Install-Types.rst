@@ -20,7 +20,7 @@ It also updates alongside regular system updates.
 However, you need root access in order to install Debian packages.
 If you don't have root access, the "fat" archive is the next best choice.
 
-OS X and Windows users who choose to install from binary packages only have the "fat" archive option
+macOS and Windows users who choose to install from binary packages only have the "fat" archive option
 (Debian packages are exclusive to Ubuntu/Debian).
 
 **Building from source** is meant for developers looking to alter or explicitly omit parts of ROS 2's base.

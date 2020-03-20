@@ -16,7 +16,7 @@ Eloquent Elusor is primarily supported on the following platforms:
 Tier 1 platforms:
 
 * Ubuntu 18.04 (Bionic): ``amd64`` and ``arm64``
-* Mac OS X 10.14 (Mojave)
+* Mac macOS 10.14 (Mojave)
 * Windows 10 (Visual Studio 2019)
 
 Tier 2 platforms:
@@ -242,4 +242,3 @@ A few milestones leading up to the release:
     Tue. Nov 19th
         Freeze rosdistro.
         No PRs for Eloquent on the `rosdistro` repo will be merged (reopens after the release announcement).
-

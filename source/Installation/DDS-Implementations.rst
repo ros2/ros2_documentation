@@ -147,7 +147,7 @@ Note: the above may need modification to match your RTI installation location
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
-.. _dds-osx-source:
+.. _dds-macOS-source:
 
 OSX source install
 ------------------
@@ -189,7 +189,7 @@ You may need to increase shared memory resources following https://community.rti
 
 If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
 
-.. _dds-osx-binary:
+.. _dds-macOS-binary:
 
 OSX binary install
 ------------------

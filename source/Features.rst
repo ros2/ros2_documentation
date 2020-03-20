@@ -4,7 +4,7 @@ Features Status
 ===============
 
 The features listed below are available in the current ROS 2 release.
-Unless otherwise specified, the features are available for all supported platforms (Ubuntu 18.04, OS X 10.12.x, Windows 10), DDS implementations (eProsima Fast RTPS, RTI Connext and ADLINK Opensplice) and programming language client libraries (C++ and Python).
+Unless otherwise specified, the features are available for all supported platforms (Ubuntu 18.04, macOS 10.12.x, Windows 10), DDS implementations (eProsima Fast RTPS, RTI Connext and ADLINK Opensplice) and programming language client libraries (C++ and Python).
 For planned future development, see the :ref:`Roadmap <Roadmap>`.
 
 .. list-table::

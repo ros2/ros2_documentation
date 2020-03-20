@@ -307,7 +307,7 @@ The image pipeline demo
 
 In this demo we'll use OpenCV to capture, annotate, and then view images.
 
-Note for OS X users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
+Note for macOS users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
 
 .. code-block:: bash
 
@@ -356,7 +356,7 @@ Pipeline with two image viewers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at an example just like the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up. (Note for OS X users: your image view windows might be on top of each other).
+All the nodes are still in the same process, but now two image view windows should show up. (Note for macOS users: your image view windows might be on top of each other).
 Let's run it with the command:
 
 .. code-block:: bash
