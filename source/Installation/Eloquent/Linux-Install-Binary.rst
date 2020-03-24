@@ -1,3 +1,10 @@
+.. redirect-from::
+
+    Linux-Install-Binary
+    Installation/Linux-Install-Binary
+
+.. move lines 1-6 to most recently released distro
+
 Installing ROS 2 on Linux
 =========================
 

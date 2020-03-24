@@ -1,3 +1,10 @@
+.. redirect-from::
+
+    Fedora-Development-Setup
+    Installation/Fedora-Development-Setup
+
+.. move lines 1-6 to most recently released distro
+
 Building ROS 2 on Fedora Linux
 ==============================
 
@@ -55,4 +62,3 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
 
 
 With this done, you can follow the rest of the `instructions <Eloquent_linux-dev-get-ros2-code>` to fetch and build ROS 2.
-

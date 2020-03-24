@@ -1,6 +1,10 @@
 .. redirect-from::
 
   Eloquent/OSX-Install-Binary
+  macOS-Install-Binary
+  Installation/macOS-Install-Binary
+
+.. move redirects on lines 4 and 5 (and this comment) to most recently released distro
 
 Installing ROS 2 on macOS
 =========================

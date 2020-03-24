@@ -1,3 +1,9 @@
+.. redirect-from::
+
+    Linux-Development-Setup
+    Installation/Linux-Development-Setup
+
+.. move lines 1-6 to most recently released distro
 
 Building ROS 2 on Linux
 =======================
