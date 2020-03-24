@@ -91,6 +91,7 @@ Advanced
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
    Tutorials/Releasing-a-ROS-2-package-with-bloom
+   Tutorials/Package-BuildType-Tutorial
 
 Windows Tutorials
 -----------------
