@@ -53,7 +53,7 @@ Install development tools and ROS tools
      git \
      python3-colcon-common-extensions \
      python3-pip \
-     python-rosdep \
+     python3-rosdep \
      python3-vcstool \
      wget
    # install some pip packages needed for testing
