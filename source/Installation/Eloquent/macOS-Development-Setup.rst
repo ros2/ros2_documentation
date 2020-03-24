@@ -1,10 +1,7 @@
 .. redirect-from::
 
   Eloquent/OSX-Development-Setup
-  macOS-Development-Setup
-  Installation/macOS-Development-Setup
-
-.. move redirects on lines 4 and 5 (and this comment) to most recently released distro
+  Installation/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================

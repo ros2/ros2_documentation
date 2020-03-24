@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Linux-Install-Debians
-    Installation/Linux-Install-Debians
-
-.. move lines 1-6 to most recently released distro
 
 Installing ROS 2 via Debian Packages
 ====================================

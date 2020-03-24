@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Windows-Install-Binary
-    Installation/Windows-Install-Binary
-    
-.. move lines 1-6 to most recently released distro
 
 Installing ROS 2 on Windows
 ===========================

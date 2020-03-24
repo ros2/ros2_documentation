@@ -1,9 +1,3 @@
-.. redirect-from::
-
-    Fedora-Development-Setup
-    Installation/Fedora-Development-Setup
-
-.. move lines 1-6 to most recently released distro
 
 Building ROS 2 on Fedora Linux
 ==============================
