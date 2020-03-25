@@ -212,8 +212,8 @@ Add a new line after the ``ament_cmake`` buildtool dependency and paste the foll
 
 .. code-block:: xml
 
-    <exec_depend>rclcpp</exec_depend>
-    <exec_depend>std_msgs</exec_depend>
+    <depend>rclcpp</depend>
+    <depend>std_msgs</depend>
 
 This declares the package needs ``rclpp`` and ``std_msgs`` when its code is executed.
 
