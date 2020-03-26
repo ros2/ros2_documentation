@@ -192,8 +192,8 @@ The ``my_x_project/package.xml`` will look similar to this:
 
 YOU'RE DOING MARVELOUS!
 
-Populating The ament_x Package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6. Populating the ament_x Package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A package implemented using our fictitious programming language X requires all code reside in a folder named ``src`` and the initial entry point must be a file named ``main.x``. So let's look at how we can create this src directory and file.
 
