@@ -238,7 +238,7 @@ Add the following content to main.x.em and save the file. Note that template var
 
 *Hang in there we are almost done!*
 
-Add the ``populate()`` method to the end of ament_x.py. This code translates the main.x.em template file into a new package's 'src/main.x' file.
+Add the ``populate()`` method to the `AmentXBuildType` class in `ament_x.py` file. This code translates the main.x.em template file into a new package's 'src/main.x' file.
 
 .. code-block:: python
 
