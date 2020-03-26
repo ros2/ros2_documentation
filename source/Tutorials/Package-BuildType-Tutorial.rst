@@ -316,4 +316,7 @@ The my_x_project directory should appear as follows:
      src/
        main.x
 
-Congrats! You've successfully created a ROS 2 package build-type that can serve as a working example for more sophisticated custom build-types. The next step is to create a build-type plugin for the colcon build-tool. You can start that journey by getting familiar with the colcon `TaskExtensionPoint <https://github.com/colcon/colcon-core/blob/master/colcon_core/task/__init__.py>`_ and explore implementations such as the python build-type found in the same directory.
+Congrats! 
+You've successfully created a ROS 2 package build-type that can serve as a working example for more sophisticated custom build-types. 
+The next step is to create a build-type plugin for the colcon build-tool. 
+You can start that journey by getting familiar with the colcon `TaskExtensionPoint <https://github.com/colcon/colcon-core/blob/master/colcon_core/task/__init__.py>`_ and explore implementations such as the Python build-type found in the same directory.
