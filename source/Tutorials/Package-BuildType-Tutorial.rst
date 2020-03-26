@@ -199,8 +199,8 @@ A package implemented using our fictitious programming language X requires all c
 
 While you could use general Python programming api for this task, we will use utilities from the ros2pkg.create Python module.
 
-5 - Create 'src' Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+7. Create src Directory
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Returning to the ament_x.py file, implement the ``create_source_folders()`` method inside `AmentXBuildType` class as shown below.
 
