@@ -220,8 +220,8 @@ The create_folder() utility function simplifies directory creation. You will als
 
    from ros2pkg.api.create import create_folder
 
-6 - Create main.x Using An EmPy Template File
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8. Create main.x Using an EmPy Template File
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We will use the `EmPy <http://www.alcyone.com/software/empy/>`_ template engine to generate the ``main.x`` file. To do this we need to create a template file for main.x and provide it to the EmPy interpreter along with a set of values for replacing template parameters and the location to output translated content.
 
