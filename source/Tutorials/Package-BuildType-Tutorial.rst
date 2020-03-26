@@ -60,7 +60,11 @@ From a command shell enter the following commands:
 2. Implement ament_x Build-Type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We have 2 options for how we create the ament_x build-type. The first is we can subclass the BuildTypeExtension, an interface, and implement its ``create_package()`` method. Doing this gives us fine grained control over how the package files structure and content are created. The second option is to extend the BaseBuildType class and customize the parts of its implementation needed for the ament_x build-type. BaseBuildType implements a workflow and common package creation functionality.
+We have two options for how we create the ament_x build-type. 
+The first is we can subclass the BuildTypeExtension, an interface, and implement its ``create_package()`` method.
+Doing this gives us fine grained control over how the package files' structure and content are created. 
+The second option is to extend the BaseBuildType class and customize the parts of its implementation needed for the ament_x build-type. 
+BaseBuildType implements a workflow and common package creation functionality.
 
 Both approaches have their merits but for simplicity we will pursue option-2 and subclass our ament_x build-type from BaseBuildType.
 
