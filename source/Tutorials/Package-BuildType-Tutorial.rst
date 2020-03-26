@@ -279,8 +279,8 @@ Add the ``package_data`` snippet to setup.py just below the entry_points.
      ],
    },
 
-Rebuild ament_x package
-^^^^^^^^^^^^^^^^^^^^^^^
+9. Rebuild ament_x package
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We need to rebuild the ament_x package to pick up our recent changes. From the root folder of the package enter the following on the commandline:
 
