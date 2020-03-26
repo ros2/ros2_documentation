@@ -10,7 +10,8 @@ This tutorial demonstrates how to create a custom ROS 2 package build-type plugi
 
 Beginning with the ROS 2 Foxy Fitzroy release, build-types are implemented as plugins. This design enhancement enables ROS 2 to support build-types beyond the classic ament_cmake, cmake and ament_python build-types.
 
-Build-type plugins are responsible for creating the package directory, the package.xml file and other directories and files specific to the each build-type. All build-type plugins must implement the small interface defined by ros2pkg.build_type.BuildTypeExtension.
+Build-type plugins are responsible for creating the package directory, the package.xml file and other directories and files specific to each build-type. 
+All build-type plugins must implement the small interface defined by ros2pkg.build_type.BuildTypeExtension.
 
 .. code-block:: python
 
