@@ -291,7 +291,8 @@ We need to rebuild the ament_x package to pick up our recent changes. From the r
 10. Test ament_x Build-type
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To test this last change to the ament_x build-type will recreate the my_x_project from `step-5 <5-create-src-directory>`_. If you haven't done so already remove the former my_x_project directory and its content.
+To test this last change to the ament_x build-type we will recreate the my_x_project from step ` 7. Create src directory`_. 
+If you haven't done so already remove the former my_x_project directory and its content.
 
 .. code-block::
 
