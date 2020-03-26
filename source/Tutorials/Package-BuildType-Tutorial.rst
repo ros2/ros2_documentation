@@ -197,7 +197,7 @@ While you could use general Python programming api for this task, we will use ut
 5 - Create 'src' Directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Returning to the ament_x.py file, implement the ``create_source_folders()`` method as shown below.
+Returning to the ament_x.py file, implement the ``create_source_folders()`` method inside `AmentXBuildType` class as shown below.
 
 .. code-block:: python
 
