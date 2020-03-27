@@ -34,6 +34,7 @@ You need the following things installed to build ROS 2:
      .. code-block:: bash
 
         xcode-select --install
+        sudo xcode-select --switch /Library/Developer/CommandLineTools # Enable Command Line Tools
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
