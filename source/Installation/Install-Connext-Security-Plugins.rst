@@ -8,6 +8,8 @@ university and research license versions of RTI Connext DDS Pro, which
 is bundled with tools for system debugging, monitoring, record/replay,
 etc.
 
+The Connext DDS Evaluation Version (5.3.1) includes the security plugins, and can be downloaded via options available for `university, purchase or evaluation <Install-Connext-University-Eval>`.
+
 A video walk-thru of this installation (tools and security plug-ins) is
 available
 `here <https://www.rti.com/gettingstarted/installwindows_secure>`__ at
