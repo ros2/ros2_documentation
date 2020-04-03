@@ -49,6 +49,7 @@ Beginner: Client Libraries
    Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
    Tutorials/Writing-A-Simple-Cpp-Service-And-Client
    Tutorials/Writing-A-Simple-Py-Service-And-Client
+   Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Custom-ROS2-Interfaces
    Tutorials/Getting-Started-With-Ros2doctor
 
