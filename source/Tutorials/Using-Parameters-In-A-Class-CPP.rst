@@ -139,7 +139,7 @@ Last is the declaration of ``timer_`` and ``parameter_string_``
       std::string parameter_string_;
       rclcpp::TimerBase::SharedPtr timer_;
 
-Following our ``ParametersClass`` is our ``main``. Here ROS2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
+Following our ``ParametersClass`` is our ``main``. Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
 
 .. code-block:: C++
 
