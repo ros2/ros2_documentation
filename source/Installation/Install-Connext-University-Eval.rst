@@ -8,9 +8,9 @@ A full-suite installation of RTI Connext DDS is available for many additional pl
 This installation includes diagnostic tools, layered services, and security.  See below for installation details.
 
 .. note::
-    As of the ROS 2 'Dashing' release, the Connext RMW layer in ROS 2 is compatible with version 5.3.x of RTI Connext DDS, but not with the most-recent version (6.0.0).
+    The Connext RMW layer in ROS 2 is compatible with version 5.3.x of RTI Connext DDS, but not with the most-recent version (6.0.x).
 
-    The Connext RMW layer is being modified for 6.0.x compatibility and will be available prior to the next release of ROS 2.
+    The Connext RMW layer is undergoing updates to support newer versions of RTI Connext DDS.
 
 RTI University Program
 ----------------------
@@ -24,8 +24,8 @@ RTI Connext DDS Evaluation
 --------------------------
 
 To install RTI Connext DDS **version 5.3.1** Evalution:
- * Visit the `RTI Free Trial (5.3.1) site <https://www.rti.com/free-trial-5.3.1>`__.
- * Register using the online form.
- * When directed to the download page, choose the **version 5.3.1** installer for your platform.
+ * Visit the `RTI Free Trial (5.3.1) site <https://www.rti.com/free-trial/dds-files-5.3.1>`__.
+ * Download the version(s) to match your environment.
+ * Contact license@rti.com for an evaluation license.
  * Install RTI Connext 5.3.1 by running the installation program.  When finished, it will run the RTI Launcher.
  * Use the RTI Launcher to install the license file (rti_license.dat) if needed.  The launcher may also be used to launch the diagnostic tools and services.

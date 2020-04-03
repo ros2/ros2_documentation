@@ -53,6 +53,7 @@ Beginner: Client Libraries
    Tutorials/Actions/Creating-an-Action
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
+   Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
