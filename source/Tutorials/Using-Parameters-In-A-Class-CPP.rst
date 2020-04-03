@@ -291,3 +291,8 @@ The terminal should return the following message every second:
 .. code-block:: console
 
     [parameter_node-1] [INFO] [custom_parameter_node]: Hello earth
+
+Summary
+-------
+
+You created a node with a custom parameter, that can be set either from the launch file or the command line. You added the dependencies, executable, and launch file to the package configuration files so that you could build and run them, and see the parameter in action.
