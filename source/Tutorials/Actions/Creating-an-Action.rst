@@ -1,14 +1,45 @@
-Creating an Action
+.. _ActionCreate:
+
+Creating an action
 ==================
 
-In this tutorial we look how to define an action in a ROS package.
+**Goal:** In this tutorial we'll look at how to define an action in a ROS 2 package.
 
-Make sure you have satisfied all `prerequisites <../Actions>`.
+**Tutorial level:**
 
-Defining an Action
-------------------
+**Time:**
 
-Just like in ROS 1, actions are defined in ``.action`` files of the form:
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+
+
+Prerequisites
+-------------
+
+You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and `colcon <https://colcon.readthedocs.org>`__ installed.
+
+Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials``:
+
+Remember to source your ROS 2 installation.
+
+.. code-block:: bash
+
+  mkdir -p action_ws/src
+  cd action_ws/src
+  ros2 pkg create action_tutorials
+
+Tasks
+-----
+
+1 Defining an action
+^^^^^^^^^^^^^^^^^^^^
+
+Actions are defined in ``.action`` files of the form:
 
 .. code-block:: bash
 
@@ -19,14 +50,16 @@ Just like in ROS 1, actions are defined in ``.action`` files of the form:
     # Feedback
 
 An action definition is made up of three message definitions separated by ``---``.
+
+- A *request* message is sent from an action client to an action server initiating a new goal.
+- A *result* message is sent from an action server to an action client when a goal is done.
+- *Feedback* messages are periodically sent from an action server to an action client with updates about a goal.
+
 An instance of an action is typically referred to as a *goal*.
-A *request* message is sent from an action client to an action server initiating a new goal.
-A *result* message is sent from an action server to an action client when a goal is done.
-*Feedback* messages are periodically sent from an action server to an action client with updates about a goal.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
-First, create a directory ``action`` in our ROS package.
+First, create a directory ``action`` in our ROS 2 package ``action_tutorials``.
 With your favorite editor, add the file ``action/Fibonacci.action`` with the following content:
 
 .. code-block:: bash
@@ -39,8 +72,8 @@ With your favorite editor, add the file ``action/Fibonacci.action`` with the fol
 
 The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 
-Building an Action
-------------------
+2 Building an action
+^^^^^^^^^^^^^^^^^^^^
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
 This is accomplished by adding the following lines to our ``CMakeLists.txt``:
@@ -81,12 +114,37 @@ So when we want to refer to our new action, it will have the full name ``action_
 
 We can check that our action built successfully with the command line tool:
 
-.. code-block:: bash
+.. tabs::
 
-    # Source our workspace
-    # On Windows: call install/setup.bat
-    . install/setup.bash
-    # Check that our action definition exists
-    ros2 interface show action_tutorials/action/Fibonacci
+  .. group-tab:: Linux / macOS
+
+    .. code-block:: bash
+
+      # Source our workspace
+      . install/setup.bash
+      # Check that our action definition exists
+      ros2 interface show action_tutorials/action/Fibonacci
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      # Source our workspace
+      call install/setup.bat
+      # Check that our action definition exists
+      ros2 interface show action_tutorials/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.
+
+Summary
+-------
+
+Next steps
+----------
+
+Next, let's utilize your newly defined action interface by adding an action service and client (in :ref:`Python <ActionsPy>` or :ref:`C++ <ActionsCpp>`) to the ``action_tutorials`` package.
+
+Related content
+---------------
+
+For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
