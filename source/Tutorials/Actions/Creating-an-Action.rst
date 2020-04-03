@@ -1,14 +1,50 @@
-Creating an Action
+.. _ActionCreate:
+
+Creating an action
 ==================
 
-In this tutorial we look how to define an action in a ROS package.
+**Goal:** Define an action in a ROS 2 package.
 
-Make sure you have satisfied all `prerequisites <../Actions>`.
+**Tutorial level:** Intermediate
 
-Defining an Action
-------------------
+**Time:** 5 minutes
 
-Just like in ROS 1, actions are defined in ``.action`` files of the form:
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+You learned about actions previously in the :ref:`ROS2Actions` tutorial.
+Like the other communication types and their respective interfaces (topics/msg and services/srv),
+you can also custom-define actions in your packages.
+This tutorial shows you how to define and build an action that you can use
+with the action server and action client you will write in the next tutorial.
+
+Prerequisites
+-------------
+
+You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and
+`colcon <https://colcon.readthedocs.org>`__ installed.
+
+Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials``:
+
+(Remember to :ref:`source your ROS 2 installation <ConfigROS2>` first.)
+
+.. code-block:: bash
+
+  mkdir -p action_ws/src
+  cd action_ws/src
+  ros2 pkg create action_tutorials
+
+Tasks
+-----
+
+1 Defining an action
+^^^^^^^^^^^^^^^^^^^^
+
+Actions are defined in ``.action`` files of the form:
 
 .. code-block:: bash
 
@@ -19,14 +55,16 @@ Just like in ROS 1, actions are defined in ``.action`` files of the form:
     # Feedback
 
 An action definition is made up of three message definitions separated by ``---``.
+
+- A *request* message is sent from an action client to an action server initiating a new goal.
+- A *result* message is sent from an action server to an action client when a goal is done.
+- *Feedback* messages are periodically sent from an action server to an action client with updates about a goal.
+
 An instance of an action is typically referred to as a *goal*.
-A *request* message is sent from an action client to an action server initiating a new goal.
-A *result* message is sent from an action server to an action client when a goal is done.
-*Feedback* messages are periodically sent from an action server to an action client with updates about a goal.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
-First, create a directory ``action`` in our ROS package.
+First, create a directory ``action`` in our ROS 2 package ``action_tutorials``.
 With your favorite editor, add the file ``action/Fibonacci.action`` with the following content:
 
 .. code-block:: bash
@@ -39,8 +77,8 @@ With your favorite editor, add the file ``action/Fibonacci.action`` with the fol
 
 The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 
-Building an Action
-------------------
+2 Building an action
+^^^^^^^^^^^^^^^^^^^^
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
 This is accomplished by adding the following lines to our ``CMakeLists.txt``:
@@ -65,12 +103,12 @@ We should also add the required dependencies to our ``package.xml``:
 
 Note, we need to depend on ``action_msgs`` since action definitions include additional metadata (e.g. goal IDs).
 
-We should now be able to build the package containing the "Fibonacci" action definition:
+We should now be able to build the package containing the ``Fibonacci`` action definition:
 
 .. code-block:: bash
 
-    # Change to the root of the workspace (ie. action_ws)
-    cd ../..
+    # Change to the root of the workspace
+    cd ~/action_ws
     # Build
     colcon build
 
@@ -103,5 +141,21 @@ We can check that our action built successfully with the command line tool:
        # Check that our action definition exists
        ros2 interface show action_tutorials/action/Fibonacci
 
-
 You should see the Fibonacci action definition printed to the screen.
+
+Summary
+-------
+
+In this tutorial, you learned the structure of an action definition.
+You also learned how to correctly build a new action interface using ``CMakeLists.txt`` and ``package.xml``,
+and how to verify a successful build.
+
+Next steps
+----------
+
+Next, let's utilize your newly defined action interface by creating an action service and client (in :ref:`Python <ActionsPy>` or :ref:`C++ <ActionsCpp>`).
+
+Related content
+---------------
+
+For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.

@@ -46,12 +46,19 @@ Beginner: Client Libraries
    Tutorials/Writing-A-Simple-Py-Service-And-Client
    Tutorials/Custom-ROS2-Interfaces
    Tutorials/Single-Package-Define-And-Use-Interface
-   Tutorials/Using-Parameters-In-A-Class-CPP
-   Tutorials/Using-Parameters-In-A-Class-Python
    Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
 ------------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Actions/Creating-an-Action
+   Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
+   Tutorials/Actions/Writing-a-Py-Action-Server-Client
+   Tutorials/Using-Parameters-In-A-Class-CPP
+   Tutorials/Using-Parameters-In-A-Class-Python
 
 Working With Your First Package & Workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +80,6 @@ Learning the ROS 2 Toolset
    Tutorials/Introspection-with-command-line-tools
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
-   Tutorials/Actions
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
    Tutorials/Topics/Topic-Statistics-Tutorial
 
