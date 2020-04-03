@@ -58,7 +58,7 @@ As always, though, make sure to add the description, maintainer email and name, 
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-2 Write the c++ node
+2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
 
 Inside the ``dev_ws/src/cpp_parameters/src`` directory, create a new file called ``cpp_parameters_node.cpp`` and paste the following code within:
