@@ -18,7 +18,7 @@ Background
 
 When making your own :ref:`nodes <ROS2Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
-This tutorial will show you how to create those parameters in a class, and how to set them in a launch file.
+This tutorial will show you how to create those parameters in a C++ class, and how to set them in a launch file.
 
 Prerequisites
 -------------
