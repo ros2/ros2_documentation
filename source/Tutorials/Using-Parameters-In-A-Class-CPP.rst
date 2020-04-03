@@ -201,8 +201,7 @@ The terminal should return the following message every second:
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself. There are two ways to accomplish this.
 
-
-2.2 Change via the console
+3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Make sure the node is running:
@@ -226,7 +225,7 @@ There you will see the custom parameter ``my_parameter``. To change it simply ru
 You know it went well if you get the output ``Set parameter successful``. 
 If you look at the other terminal, you should see the output change to ``[INFO] [parameter_node]: Hello earth``
 
-2.2 Change via a launch file
+3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can also set the parameter in a launch file, but first you will need to add the launch directory.
 Inside the ``dev_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``. 
