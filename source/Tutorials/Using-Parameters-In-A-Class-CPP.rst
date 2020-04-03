@@ -24,6 +24,7 @@ Prerequisites
 -------------
 
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+You have also learned about :ref:`parameters <ROS2Params>` and their function in a ROS 2 system.
 
 Tasks
 -----
@@ -67,6 +68,8 @@ Inside the ``dev_ws/src/cpp_parameters/src`` directory, create a new file called
 
     #include <rclcpp/rclcpp.hpp>
     #include <chrono>
+    #include <string>
+    #include <functional>
 
     using namespace std::chrono_literals;
 
@@ -139,7 +142,8 @@ Last is the declaration of ``timer_`` and ``parameter_string_``
       std::string parameter_string_;
       rclcpp::TimerBase::SharedPtr timer_;
 
-Following our ``ParametersClass`` is our ``main``. Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
+Following our ``ParametersClass`` is our ``main``.
+Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
 
 .. code-block:: C++
 
@@ -201,10 +205,13 @@ The terminal should return the following message every second:
 
     [INFO] [parameter_node]: Hello world
 
-Now you can see the default value of your parameter, but you want to be able to set it yourself. There are two ways to accomplish this.
+Now you can see the default value of your parameter, but you want to be able to set it yourself.
+There are two ways to accomplish this.
 
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This part will use the knowledge you have gained from the :ref:`tutoral about parameters <ROS2Params>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
@@ -218,7 +225,8 @@ Open another terminal, source the setup files from inside ``dev_ws`` again, and 
 
     ros2 param list
 
-There you will see the custom parameter ``my_parameter``. To change it simply run the following line in the console:
+There you will see the custom parameter ``my_parameter``.
+To change it simply run the following line in the console:
 
 .. code-block:: console
 
@@ -252,14 +260,16 @@ In there, create a new file called ``cpp_parameters_launch.py``
         )
       ])
 
-Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``. By adding the two lines below, we ensure our output is printed in our console.
+Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
+By adding the two lines below, we ensure our output is printed in our console.
 
 .. code-block:: console
 
           output="screen",
           emulate_tty=True,
 
-Now open the ``CMakeLists.txt`` file. Below the lines you added earlier, add the following lines of code.
+Now open the ``CMakeLists.txt`` file.
+Below the lines you added earlier, add the following lines of code.
 
 .. code-block:: console
 
@@ -295,4 +305,10 @@ The terminal should return the following message every second:
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from the launch file or the command line. You added the dependencies, executable, and launch file to the package configuration files so that you could build and run them, and see the parameter in action.
+You created a node with a custom parameter, that can be set either from the launch file or the command line.
+You added the dependencies, executable, and launch file to the package configuration files so that you could build and run them, and see the parameter in action.
+
+Next steps
+----------
+
+Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
