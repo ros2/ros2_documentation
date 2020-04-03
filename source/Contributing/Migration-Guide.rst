@@ -330,10 +330,15 @@ Usages of ros::Time
 For usages of ``ros::Time``:
 
 * Replace all instances of ``ros::Time`` with ``rclcpp::Time``
+
 * If your messages or code makes use of std_msgs::Time:
-** Convert all instances of std_msgs::Time to builtin_interfaces::msg::Time 
-** Convert all ``#include "std_msgs/time.h`` to ``#include "builtin_interfaces/msg/time.hpp"``
-** Convert all instances using the std_msgs::Time field ``nsec`` to the builtin_interfaces::msg::Time field ``nanosec``
+
+  * Convert all instances of std_msgs::Time to builtin_interfaces::msg::Time 
+  
+  * Convert all ``#include "std_msgs/time.h`` to ``#include "builtin_interfaces/msg/time.hpp"``
+  
+  * Convert all instances using the std_msgs::Time field ``nsec`` to the builtin_interfaces::msg::Time field ``nanosec``
+  
 
 Usages of ros::Rate
 ~~~~~~~~~~~~~~~~~~~
