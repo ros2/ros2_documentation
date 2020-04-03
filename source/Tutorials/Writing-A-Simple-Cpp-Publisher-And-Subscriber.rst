@@ -74,7 +74,9 @@ Open the file using your preferred text editor.
 .. code-block:: C++
 
     #include <chrono>
+    #include <functional>
     #include <memory>
+    #include <string>
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
@@ -119,8 +121,8 @@ Open the file using your preferred text editor.
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The first line of code includes the ``<chrono>`` header so you can use ``chrono_literals``, or the ``500ms`` later on.
-Following the ``memory`` header is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
+The top of the code includes the standard C++ headers you will be using.
+After the standard C++ headers is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
 Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
 
 These lines represent the node’s dependencies.
@@ -129,7 +131,9 @@ Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.tx
 .. code-block:: C++
 
     #include <chrono>
+    #include <functional>
     #include <memory>
+    #include <string>
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
