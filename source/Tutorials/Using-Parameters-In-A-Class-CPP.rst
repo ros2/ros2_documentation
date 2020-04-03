@@ -1,3 +1,5 @@
+.. _CppParamNode:
+
 Using Parameters In A Class (C++)
 =================================
 
@@ -100,8 +102,8 @@ Inside the ``dev_ws/src/cpp_parameters/src`` directory, create a new file called
 ~~~~~~~~~~~~~~~~~~~~
 The first two ``#include`` statements are your package dependencies.
 
-The next piece of code creates the class and the constructor. 
-The first line of this constructor creates our parameter. 
+The next piece of code creates the class and the constructor.
+The first line of this constructor creates our parameter.
 Our parameter has the name ``my_parameter`` and is assigned the default value ``world``.
 Next, ``timer_`` is initialized, which causes the ``respond`` function to be executed once a second.
 
@@ -136,7 +138,7 @@ Last is the declaration of ``timer_`` and ``parameter_string_``
     private:
       std::string parameter_string_;
       rclcpp::TimerBase::SharedPtr timer_;
-      
+
 Following our ``ParametersClass`` is our ``main``. Here ROS2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
 
 .. code-block:: C++
@@ -222,13 +224,13 @@ There you will see the custom parameter ``my_parameter``. To change it simply ru
 
     ros2 param set /parameter_node my_parameter earth
 
-You know it went well if you get the output ``Set parameter successful``. 
+You know it went well if you get the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [parameter_node]: Hello earth``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 You can also set the parameter in a launch file, but first you will need to add the launch directory.
-Inside the ``dev_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``. 
+Inside the ``dev_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``cpp_parameters_launch.py``
 
 .. code-block:: Python
@@ -249,7 +251,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
           ]
         )
       ])
-      
+
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``. By adding the two lines below, we ensure our output is printed in our console.
 
 .. code-block:: console
