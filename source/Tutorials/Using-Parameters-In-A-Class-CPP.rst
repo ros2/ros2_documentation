@@ -100,7 +100,7 @@ Inside the ``dev_ws/src/cpp_parameters/src`` directory, create a new file called
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-The first two ``#include`` statements are your package dependencies.
+The ``#include`` statements at the top are the package dependencies.
 
 The next piece of code creates the class and the constructor.
 The first line of this constructor creates our parameter.
