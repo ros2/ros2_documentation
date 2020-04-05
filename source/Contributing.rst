@@ -73,10 +73,10 @@ Development Guides
 What to work on
 ^^^^^^^^^^^^^^^
 
-We have identified a number of tasks that could be worked on by community members: they can be listed by `searching across the ROS 2 repositories for issues labeled as "help wanted" <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A"help+wanted"&type=Issues>`__ or filtering the items on `the ROS 2 waffle.io board <https://waffle.io/ros2/ros2?label=help%20wanted>`__.
+We have identified a number of tasks that could be worked on by community members: they can be listed by `searching across the ROS 2 repositories for issues labeled as "help wanted" <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A"help+wanted"&type=Issues>`__.
 If you see something on that list that you would like to work on, please comment on the item to let others know that you are looking into it.
 
-We also have a label for issues that we think should be more accessible for first-time contributors, `labelled “good first issue” <https://waffle.io/ros2/ros2?label=good%20first%20issue>`__.
+We also have a label for issues that we think should be more accessible for first-time contributors, `labelled “good first issue” <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__.
 If you are interested in contributing to the ROS 2 project, we encourage you to take a look at those issues first.
 If you’d like to cast a wider net, we welcome contributions on any open issue (or others that you might propose), particularly tasks that have a milestone signifying they’re targeted for the next ROS 2 release (the milestone will be the next release's codename e.g. 'crystal').
 

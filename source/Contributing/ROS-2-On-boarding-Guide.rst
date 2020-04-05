@@ -94,8 +94,6 @@ We try to spread our responsibilities out across the team and so we ask everyone
 Developer Workflow
 ------------------
 
-We track all open tickets and current PRs using waffle.io: https://waffle.io/ros2/ros2
-
 Higher level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
 
 The usual workflow is (this list is a work in progress):
@@ -131,10 +129,6 @@ The usual workflow is (this list is a work in progress):
     * Remove "in progress" label if applicable
     * Add "in review" label
 
-  * Through waffle:
-
-    * Drag your PR to the "in review" column
-
 * When the PR has been approved:
 
   * the person who submitted the PR merges it using "Squash and Merge" option so that we keep a clean history
@@ -144,27 +138,6 @@ The usual workflow is (this list is a work in progress):
       * Note: each PR should target a specific feature so Squash and Merge should make sense 99% of the time
 
 * Delete the branch once merged
-
-Waffle.io How-to
-----------------
-
-Here are some tips on how to use our Kanban board on waffle.io:
-
-
-* Assigning labels: drag and drop cards to the column with the label you want to assign
-* Connecting Issues/PR: Waffle allows to connect cards together using keywords
-
-  * Note1: The keywords need to be placed in the 1st comment of the GitHub ticket
-  * Note2: Waffle uses the "simplified" GitHub reference and not the full URL to connect card.
-
-    * Does not work:
-
-      * "connects to https://github.com/ros2/rosidl/issues/216"
-
-    * Works:
-
-      * In the same repo: "connects to #216"
-      * In another repo: "connects to ros2/rosidl#216"
 
 Build Farm Introduction
 -----------------------
