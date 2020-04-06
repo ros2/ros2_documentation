@@ -94,10 +94,11 @@ We try to spread our responsibilities out across the team and so we ask everyone
 Developer Workflow
 ------------------
 
+We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
+
 Higher level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
 
 The usual workflow is (this list is a work in progress):
-
 
 * Discuss design (GitHub ticket, and a meeting if needed)
 * Assign implementation to a team member
@@ -123,11 +124,15 @@ The usual workflow is (this list is a work in progress):
 
 * To get the PR reviewed, you need to put the label "in review":
 
-  * Through github interface:
+  * Through GitHub interface:
 
     * Click on "" next to labels
     * Remove "in progress" label if applicable
     * Add "in review" label
+
+  * If the PR is part of a project board:
+
+    * Drag the card from "In progress" to "In review"
 
 * When the PR has been approved:
 
@@ -138,6 +143,15 @@ The usual workflow is (this list is a work in progress):
       * Note: each PR should target a specific feature so Squash and Merge should make sense 99% of the time
 
 * Delete the branch once merged
+
+GitHub tips
+^^^^^^^^^^^
+
+Link PRs to the issues they address using `keywords <https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword>`_ and the ticket number.
+This will close the issue once the pull request is merged.
+
+* In the same repo: "fixes #216"
+* In another repo: "fixes ros2/rosidl#216"
 
 Build Farm Introduction
 -----------------------
