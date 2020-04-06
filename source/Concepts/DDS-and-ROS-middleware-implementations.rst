@@ -33,7 +33,7 @@ Supported RMW implementations
    * - *Eclipse Cyclone DDS* a project of Eclipse IoT and OpenADx WG
      - Eclipse Public License v. 2.0
      - ``rmw_cyclonedds_cpp``
-     - Full support. Tier-1 RMW in Foxy. Packaged with binary releases.
+     - Full support. Packaged with binary releases.
    * - RTI *Connext*
      - commercial, research
      - ``rmw_connext_cpp``
