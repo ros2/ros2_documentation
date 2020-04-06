@@ -58,6 +58,7 @@ Install development tools and ROS tools
      python3-pip \
      python3-pytest-cov \
      python3-rosdep \
+     python3-setuptools \
      python3-vcstool \
      wget
    # install some pip packages needed for testing
@@ -74,8 +75,7 @@ Install development tools and ROS tools
      pytest-repeat \
      pytest-rerunfailures \
      pytest \
-     pytest-runner \
-     setuptools
+     pytest-runner
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
