@@ -74,8 +74,7 @@ Install development tools and ROS tools
      flake8-quotes \
      pytest-repeat \
      pytest-rerunfailures \
-     pytest \
-     pytest-runner
+     pytest
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
