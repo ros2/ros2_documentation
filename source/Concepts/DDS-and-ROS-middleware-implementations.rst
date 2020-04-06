@@ -45,7 +45,7 @@ Supported RMW implementations
    * - ADLINK *Opensplice DDS*
      - Apache 2, commercial
      - ``rmw_opensplice_cpp``
-     - Partial support. Support included in binaries until Foxy. OpenSplice is installed separately.
+     - Partial support. Support included in binaries up to Eloquent. OpenSplice is installed separately.
 
 
 *"Partial support" means that one or more of the features required by the rmw interface is not implemented.*
