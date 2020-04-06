@@ -30,7 +30,8 @@ Summary
 Next steps
 ----------
 
-Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
+This tutorial is available in :ref:`C++ <CppParamNode>`.
 
 Related content
 ---------------
