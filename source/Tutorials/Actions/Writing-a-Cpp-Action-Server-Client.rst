@@ -57,7 +57,7 @@ Tasks
 Summary
 -------
 
-In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.  
+In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.
 
 Next steps
 ----------
@@ -67,7 +67,5 @@ This tutorial is available in :ref:`C++ <CppParamNode>`.
 
 Related content
 ---------------
-
-For reference, after completing this and the previous tutorial, you should expect to have a ROS package that looks like the package `action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
 
 For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
