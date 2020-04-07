@@ -80,7 +80,6 @@ Learning the ROS 2 Toolset
    Tutorials/Introspection-with-command-line-tools
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
-   Tutorials/Actions
 
 Advanced
 --------

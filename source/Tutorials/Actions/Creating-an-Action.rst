@@ -3,11 +3,11 @@
 Creating an action
 ==================
 
-**Goal:** In this tutorial we'll look at how to define an action in a ROS 2 package.
+**Goal:** Define an action in a ROS 2 package.
 
-**Tutorial level:**
+**Tutorial level:** Beginner
 
-**Time:**
+**Time:** 5 minutes
 
 .. contents:: Contents
    :depth: 2
@@ -16,16 +16,21 @@ Creating an action
 Background
 ----------
 
-
+You learned about actions previously in the :ref:`ROS2Actions` tutorial.
+Like the other communication types and their respective interfaces (topics/msg and services/srv),
+you can also custom-define in your packages.
+This tutorial shows you how to define and build an action that you can use
+with the action server and action client you will write in the next tutorial.
 
 Prerequisites
 -------------
 
-You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and `colcon <https://colcon.readthedocs.org>`__ installed.
+You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and
+`colcon <https://colcon.readthedocs.org>`__ installed.
 
 Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials``:
 
-Remember to source your ROS 2 installation.
+(Remember to :ref:`source your ROS 2 installation <ConfigROS2>` first.)
 
 .. code-block:: bash
 
@@ -98,12 +103,12 @@ We should also add the required dependencies to our ``package.xml``:
 
 Note, we need to depend on ``action_msgs`` since action definitions include additional metadata (e.g. goal IDs).
 
-We should now be able to build the package containing the "Fibonacci" action definition:
+We should now be able to build the package containing the ``Fibonacci`` action definition:
 
 .. code-block:: bash
 
-    # Change to the root of the workspace (ie. action_ws)
-    cd ../..
+    # Change to the root of the workspace
+    cd ~/action_ws
     # Build
     colcon build
 
@@ -138,6 +143,10 @@ You should see the Fibonacci action definition printed to the screen.
 
 Summary
 -------
+
+In this tutorial, you learned the structure of an action definition.
+You also learned how to correctly build a new action interface using ``CMakeLists.txt`` and ``package.xml``,
+and how to verify a successful build.
 
 Next steps
 ----------
