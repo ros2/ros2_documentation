@@ -94,12 +94,11 @@ We try to spread our responsibilities out across the team and so we ask everyone
 Developer Workflow
 ------------------
 
-We track all open tickets and current PRs using waffle.io: https://waffle.io/ros2/ros2
+We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
 
 Higher level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
 
 The usual workflow is (this list is a work in progress):
-
 
 * Discuss design (GitHub ticket, and a meeting if needed)
 * Assign implementation to a team member
@@ -125,15 +124,15 @@ The usual workflow is (this list is a work in progress):
 
 * To get the PR reviewed, you need to put the label "in review":
 
-  * Through github interface:
+  * Through GitHub interface:
 
     * Click on "" next to labels
     * Remove "in progress" label if applicable
     * Add "in review" label
 
-  * Through waffle:
+  * If the PR is part of a project board:
 
-    * Drag your PR to the "in review" column
+    * Drag the card from "In progress" to "In review"
 
 * When the PR has been approved:
 
@@ -145,26 +144,14 @@ The usual workflow is (this list is a work in progress):
 
 * Delete the branch once merged
 
-Waffle.io How-to
-----------------
+GitHub tips
+^^^^^^^^^^^
 
-Here are some tips on how to use our Kanban board on waffle.io:
+Link PRs to the issues they address using `keywords <https://help.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword>`_ and the ticket number.
+This will close the issue once the pull request is merged.
 
-
-* Assigning labels: drag and drop cards to the column with the label you want to assign
-* Connecting Issues/PR: Waffle allows to connect cards together using keywords
-
-  * Note1: The keywords need to be placed in the 1st comment of the GitHub ticket
-  * Note2: Waffle uses the "simplified" GitHub reference and not the full URL to connect card.
-
-    * Does not work:
-
-      * "connects to https://github.com/ros2/rosidl/issues/216"
-
-    * Works:
-
-      * In the same repo: "connects to #216"
-      * In another repo: "connects to ros2/rosidl#216"
+* In the same repo: "fixes #216"
+* In another repo: "fixes ros2/rosidl#216"
 
 Build Farm Introduction
 -----------------------

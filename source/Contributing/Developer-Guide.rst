@@ -288,6 +288,27 @@ For example, a new function ``rmw_foo()`` introduced to the RMW API must be impl
 Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
 See `REP-2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for the list of middleware libraries and their tiers.
 
+Tracking tasks
+^^^^^^^^^^^^^^
+
+To help organize work on ROS 2, the core ROS 2 development team uses kanban-style `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
+
+Not all issues and pull requests are tracked on the project boards, however.
+A board usually represents an upcoming release or specific project.
+Tickets can be browsed on a per-repo basis by browsing the `ROS 2 repositories' <https://github.com/ros2>`_ individual issue pages.
+
+The names and purposes of columns in any given ROS 2 project board vary, but typically follow the same general structure:
+
+* **To do**: Issues that are relevant to the project, ready to be assigned
+* **In progress**: Active pull requests on which work is currently in progress
+* **In review**: Pull requests where work is complete and ready for review, and for those currently under active review
+* **Done**: Pull requests and related issues are merged/closed (for informational purposes)
+
+To request permission to make changes, simply comment on the tickets you're interested in.
+Depending on the complexity, it might be useful to describe how you plan to address it.
+We will update the status (if you don't have the permission) and you can start working on a pull request.
+If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
+
 Programming conventions
 ^^^^^^^^^^^^^^^^^^^^^^^
 
