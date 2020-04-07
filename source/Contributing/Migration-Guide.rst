@@ -327,21 +327,17 @@ Instead of returning false on failures, throwing exceptions is recommended.
 Usages of ros::Time
 ~~~~~~~~~~~~~~~~~~~
 
-**TODO There is no direct replacement for ros::Time yet we expect to have one in the future.**
+For usages of ``ros::Time``:
 
-Under the hood we expect to leverage the cross platform ``std::chrono`` library.
+* Replace all instances of ``ros::Time`` with ``rclcpp::Time``
 
-Currently for usages of ``ros::Time``:
+* If your messages or code makes use of std_msgs::Time:
 
+  * Convert all instances of std_msgs::Time to builtin_interfaces::msg::Time
 
-* Replace all instances of ``ros::Time`` with ``builtin_interfaces::msg::Time``
-* Convert all instances of ``nsec`` to ``nanosec``
-* Convert all single argument double constructors to bare constructor plus assignment
+  * Convert all ``#include "std_msgs/time.h`` to ``#include "builtin_interfaces/msg/time.hpp"``
 
-Field values do not get initialized to zero when constructed.
-You must make sure to set all values instead of relying on them to be zero.
-
-Alternatively you can switch to an internal proxy datatype temporarily while waiting for an rclcpp::Time
+  * Convert all instances using the std_msgs::Time field ``nsec`` to the builtin_interfaces::msg::Time field ``nanosec``
 
 Usages of ros::Rate
 ~~~~~~~~~~~~~~~~~~~
