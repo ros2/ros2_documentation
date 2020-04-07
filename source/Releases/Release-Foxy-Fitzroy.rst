@@ -110,6 +110,46 @@ The method ``set_parameters_calblack`` has been deprecated.
 
 Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
 
+rmw_connext_cpp
+^^^^^^^^^^^^^^^
+
+Connext 5.1 locator kinds compatibility mode
+""""""""""""""""""""""""""""""""""""""""""""
+
+Until ``Eloquent``, ``rmw_connext_cpp`` was setting ``dds.transport.use_510_compatible_locator_kinds`` property to ``true``.
+This property is not being forced anymore, and shared transport communication between ``Foxy`` and previous releases will stop working.
+Logs similar to:
+
+.. code-block::
+
+PRESParticipant_checkTransportInfoMatching:Warning: discovered remote participant 'RTI Administration Console' using the 'shmem' transport with class ID 16777216.
+This class ID does not match the class ID 2 of the same transport in the local participant 'talker'.
+These two participants will not communicate over the 'shmem' transport.
+Check the value of the property 'dds.transport.use_510_compatible_locator_kinds' in the local participant.
+See https://community.rti.com/kb/what-causes-error-discovered-remote-participant for additional info.
+
+will be observed when this incompatibility happens.
+
+If compatibility is needed, it can be set up in an external qos profiles files containing:
+
+.. code-block:: xml
+
+   <participant_qos>
+      <property>
+         <value>
+               <element>
+                  <name>
+               dds.transport.use_510_compatible_locator_kinds
+                  </name>
+                  <value>1</value> 
+               </element>
+         </value>
+      </property>
+   </participant_qos>
+
+Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the qos profiles file path.
+For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm`_.
+
 rviz
 ^^^^
 
