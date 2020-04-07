@@ -116,7 +116,7 @@ rmw_connext_cpp
 Connext 5.1 locator kinds compatibility mode
 """"""""""""""""""""""""""""""""""""""""""""
 
-Until ``Eloquent``, ``rmw_connext_cpp`` was setting ``dds.transport.use_510_compatible_locator_kinds`` property to ``true``.
+Up to and including ``Eloquent``, ``rmw_connext_cpp`` was setting ``dds.transport.use_510_compatible_locator_kinds`` property to ``true``.
 This property is not being forced anymore, and shared transport communication between ``Foxy`` and previous releases will stop working.
 Logs similar to:
 
