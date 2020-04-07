@@ -139,7 +139,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
          <value>
                <element>
                   <name>
-               dds.transport.use_510_compatible_locator_kinds
+                     dds.transport.use_510_compatible_locator_kinds
                   </name>
                   <value>1</value> 
                </element>
@@ -148,7 +148,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
    </participant_qos>
 
 Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the qos profiles file path.
-For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm`_.
+For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility <https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm>`_.
 
 rviz
 ^^^^
