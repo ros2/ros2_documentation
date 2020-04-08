@@ -120,13 +120,13 @@ Up to and including ``Eloquent``, ``rmw_connext_cpp`` was setting ``dds.transpor
 This property is not being forced anymore, and shared transport communication between ``Foxy`` and previous releases will stop working.
 Logs similar to:
 
-.. code-block::
+.. code-block:: bash
 
-PRESParticipant_checkTransportInfoMatching:Warning: discovered remote participant 'RTI Administration Console' using the 'shmem' transport with class ID 16777216.
-This class ID does not match the class ID 2 of the same transport in the local participant 'talker'.
-These two participants will not communicate over the 'shmem' transport.
-Check the value of the property 'dds.transport.use_510_compatible_locator_kinds' in the local participant.
-See https://community.rti.com/kb/what-causes-error-discovered-remote-participant for additional info.
+  PRESParticipant_checkTransportInfoMatching:Warning: discovered remote participant 'RTI Administration Console' using the 'shmem' transport with class ID 16777216.
+  This class ID does not match the class ID 2 of the same transport in the local participant 'talker'.
+  These two participants will not communicate over the 'shmem' transport.
+  Check the value of the property 'dds.transport.use_510_compatible_locator_kinds' in the local participant.
+  See https://community.rti.com/kb/what-causes-error-discovered-remote-participant for additional info.
 
 will be observed when this incompatibility happens.
 
@@ -141,7 +141,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
                   <name>
                      dds.transport.use_510_compatible_locator_kinds
                   </name>
-                  <value>1</value> 
+                  <value>1</value>
                </element>
          </value>
       </property>

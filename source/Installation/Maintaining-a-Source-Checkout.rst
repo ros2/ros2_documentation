@@ -161,7 +161,7 @@ If you wish to know the versions of the set of repositories in your workspace, y
   .. group-tab:: Windows
 
     .. code-block:: bash
-    
+
        > cd \dev\ros2
        > vcs export src > my_ros2.repos
 
