@@ -70,8 +70,6 @@ Command line configuration of the default severity level
 
 As of the Bouncy ROS 2 release, the default severity level for loggers can be configured from the command line with the following, for example (the level string is not case sensitive):
 
-.. code-block:: bash
-
 .. tabs::
 
   .. group-tab:: Bouncy+
