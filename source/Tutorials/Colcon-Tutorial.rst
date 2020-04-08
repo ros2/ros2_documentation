@@ -28,26 +28,25 @@ Prerequisites
 Install colcon
 ^^^^^^^^^^^^^^
 
-Linux
-~~~~~
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux
 
-    sudo apt install python3-colcon-common-extensions
+    .. code-block:: bash
 
-macOS
-~~~~~
+        sudo apt install python3-colcon-common-extensions
 
-.. code-block:: bash
+  .. group-tab:: macOS
 
-    python3 -m pip install colcon-common-extensions
+    .. code-block:: bash
 
-Windows
-~~~~~~~
+        python3 -m pip install colcon-common-extensions
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-    pip install -U colcon-common-extensions
+    .. code-block:: bash
+
+        pip install -U colcon-common-extensions
 
 
 Install ROS 2
@@ -83,22 +82,28 @@ Create a workspace
 
 First, create a directory (``ros2_example_ws``) to contain our workspace:
 
-Linux/macOS
-~~~~~~~~~~~
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux
 
-   mkdir -p ~/ros2_example_ws/src
-   cd ~/ros2_example_ws
+    .. code-block:: bash
 
-Windows
-~~~~~~~
+       mkdir -p ~/ros2_example_ws/src
+       cd ~/ros2_example_ws
 
-.. code-block:: bash
+  .. group-tab:: macOS
 
-   md \dev\ros2_example_ws\src
-   cd \dev\ros2_example_ws
+    .. code-block:: bash
 
+       mkdir -p ~/ros2_example_ws/src
+       cd ~/ros2_example_ws
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       md \dev\ros2_example_ws\src
+       cd \dev\ros2_example_ws
 
 At this point the workspace contains a single empty directory ``src``:
 
@@ -198,19 +203,25 @@ Before you can use any of the installed executables or libraries, you will need 
 colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
 These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
-Linux/macOS
-~~~~~~~~~~~
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux
 
-   . install/setup.bash
+    .. code-block:: bash
 
-Windows
-~~~~~~~
+       . install/setup.bash
 
-.. code-block:: bash
+  .. group-tab:: macOS
 
-   call install\setup.bat
+    .. code-block:: bash
+
+       . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       call install\setup.bat
 
 Try a demo
 ^^^^^^^^^^

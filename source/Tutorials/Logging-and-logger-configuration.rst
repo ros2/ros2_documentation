@@ -96,13 +96,19 @@ Logger level configuration: command line
 As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
 Restart the demo including the following command line argument:
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run logging_demo logging_demo_main --ros-args --log-level debug
+  .. group-tab:: Eloquent and newer
 
-.. note::
+    .. code-block:: bash
 
-   Before Eloquent, use ``ros2 run logging_demo logging_demo_main __log_level:=debug``.
+       ros2 run logging_demo logging_demo_main --ros-args --log-level debug
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run logging_demo logging_demo_main __log_level:=debug
 
 This configures the default severity for any unset logger to the debug severity level.
 You should see debug output from loggers from the demo itself and from the ROS 2 core.
@@ -115,12 +121,20 @@ Console output formatting
 If you would like more or less verbose formatting, you can use `the RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable <logging-console-output-configuration>`.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
-.. code-block:: bash
+.. tabs::
 
-   export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
-   # Or, on Windows:
-   # set "RCUTILS_CONSOLE_OUTPUT_FORMAT=[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
-   ros2 run logging_demo logging_demo_main
+  .. group-tab:: Linux/macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       # set "RCUTILS_CONSOLE_OUTPUT_FORMAT=[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+       ros2 run logging_demo logging_demo_main
 
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
 *The ``time`` option is only supported as of the ROS 2 Bouncy release.*
@@ -132,12 +146,20 @@ By default, the output is colorized when it's targeting a terminal.
 If you would like to force enabling or disabling it, you can use the ``RCUTILS_COLORIZED_OUTPUT`` environment variable.
 For example:
 
-.. code-block:: bash
+.. tabs::
 
-   export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
-   # Or, on Windows:
-   # set "RCUTILS_COLORIZED_OUTPUT=0"
-   ros2 run logging_demo logging_demo_main
+  .. group-tab:: Linux/macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       # set "RCUTILS_COLORIZED_OUTPUT=0"
+       ros2 run logging_demo logging_demo_main
 
 You should see that debug, warn, error and fatal logs aren't colorized now.
 
@@ -155,12 +177,20 @@ By default, info and debug log calls aren't line buffered.
 You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable.
 For example:
 
-.. code-block:: bash
+.. tabs::
 
-   export RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1
-   # Or, on Windows:
-   # set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
-   ros2 run logging_demo logging_demo_main
+  .. group-tab:: Linux/macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       # set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
+       ros2 run logging_demo logging_demo_main
 
 The output should look as before.
 For details about I/O buffering, see `buffering concepts <https://www.gnu.org/software/libc/manual/html_node/Buffering-Concepts.html>`_.

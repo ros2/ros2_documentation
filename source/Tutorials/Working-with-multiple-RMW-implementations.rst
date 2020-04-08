@@ -11,7 +11,7 @@ Working with multiple ROS 2 middleware implementations
 
 This page explains the default RMW implementation and how to specify an alternative.
 
-Pre-requisites
+Prerequisites
 --------------
 
 You should have already read the `DDS and ROS middleware implementations page <../Concepts/DDS-and-ROS-middleware-implementations>`.
@@ -51,25 +51,27 @@ To choose a different RMW implemenation you can set the environment variable ``R
 
 To run the talker demo using the C++ and listener using python with the RMW implementation for connext:
 
-*Bash*
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+    .. code-block:: bash
 
-   # Run in another terminal
-   RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_py listener
+       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
 
-*Windows cmd.exe*
+       # Run in another terminal
+       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_py listener
 
-.. code-block:: bat
+  .. group-tab:: Windows
 
-   set RMW_IMPLEMENTATION=rmw_connext_cpp
-   ros2 run demo_nodes_cpp talker
+    .. code-block:: bat
 
-   REM run in another terminal
-   set RMW_IMPLEMENTATION=rmw_connext_cpp
-   ros2 run demo_nodes_py listener
+       set RMW_IMPLEMENTATION=rmw_connext_cpp
+       ros2 run demo_nodes_cpp talker
+
+       REM run in another terminal
+       set RMW_IMPLEMENTATION=rmw_connext_cpp
+       ros2 run demo_nodes_py listener
 
 Adding RMW implementations to your workspace
 --------------------------------------------
