@@ -364,7 +364,7 @@ You should see logged messages for the goal being accepted, feedback, and the fi
 Summary
 -------
 
-In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.  
+In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.
 
 Next steps
 ----------
@@ -375,4 +375,6 @@ This tutorial is available in :ref:`C++ <CppParamNode>`.
 Related content
 ---------------
 
-For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+* There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/actions>`_ repo.
+
+* For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
