@@ -18,7 +18,7 @@ Background
 
 You learned about actions previously in the :ref:`ROS2Actions` tutorial.
 Like the other communication types and their respective interfaces (topics/msg and services/srv),
-you can also custom-define in your packages.
+you can also custom-define actions in your packages.
 This tutorial shows you how to define and build an action that you can use
 with the action server and action client you will write in the next tutorial.
 
