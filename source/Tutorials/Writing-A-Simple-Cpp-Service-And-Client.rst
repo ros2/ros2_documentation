@@ -1,7 +1,7 @@
 .. _CppSrvCli:
 
 Writing a simple service and client (C++)
-===============================================
+=========================================
 
 **Goal:** Create and run service and client nodes using C++.
 
@@ -374,3 +374,8 @@ Next steps
 
 In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
 Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
+
+Related content
+---------------
+
+* There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in our `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp>`_ repo.
