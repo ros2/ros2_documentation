@@ -3,7 +3,7 @@
 Concepts
 ========
 
-The following "Concepts" pages provide and overview for key aspects of ROS 2.
+The following "Concepts" pages provide an overview for key aspects of ROS 2.
 Concept overviews will help you understand the "big picture" idea of ROS 2 systems.
 
 .. toctree::
@@ -23,7 +23,7 @@ Overview of ROS 2 Concepts
 .. contents:: Table of Contents
    :local:
 
-ROS is a middleware based on an anonymous publish/subscribe mechanism that allows for message passing between different ROS processes.
+ROS 2 is a middleware based on an anonymous publish/subscribe mechanism that allows for message passing between different ROS processes.
 
 At the heart of any ROS 2 system is the ROS graph.
 The ROS graph refers to the network of nodes in a ROS system and the connections between them by which they communicate.
@@ -42,8 +42,8 @@ Nodes
 
 A node is a participant in the ROS graph.
 ROS nodes use a ROS client library to communicate with other nodes.
-Nodes can publish or subscribe to a Topic.
-Nodes can also provide or use a Service.
+Nodes can publish or subscribe to Topics.
+Nodes can also provide or use Services and Actions.
 There are configurable Parameters associated with a node.
 Connections between nodes are established through a distributed discovery process.
 Nodes may be located in the same process, in different processes, or on different machines.
