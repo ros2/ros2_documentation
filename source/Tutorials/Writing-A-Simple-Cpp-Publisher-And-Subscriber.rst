@@ -469,4 +469,4 @@ Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Pyth
 Related content
 ---------------
 
-* There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in our `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp>`_ repo.
+* There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp>`_ repo.
