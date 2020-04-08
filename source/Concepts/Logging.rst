@@ -72,7 +72,19 @@ As of the Bouncy ROS 2 release, the default severity level for loggers can be co
 
 .. code-block:: bash
 
-   ros2 run demo_nodes_cpp listener --ros-args --log-level DEBUG
+.. tabs::
+
+  .. group-tab:: Bouncy+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener __log_level:=debug
+
+  .. group-tab:: Eloquent+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener --ros-args --log-level DEBUG
 
 This will affect all loggers that have not explicitly been configured to use a particular severity level.
 Configuration of specific loggers from the command line is forthcoming.
