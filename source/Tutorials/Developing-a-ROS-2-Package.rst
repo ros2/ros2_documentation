@@ -32,17 +32,21 @@ All ROS 2 packages begin by running the command
 
 in your workspace (usually ``~/ros2_ws/src``).
 
-To explicitly create a C++ package
+To create a package for a specific client library:
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_cmake
+  .. group-tab:: C++
 
-To explicitly create a Python package
+    .. code-block:: bash
 
-.. code-block:: bash
+       ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_cmake
 
-   ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_python
+  .. group-tab:: Python
+
+    .. code-block:: bash
+
+       ros2 pkg create <pkg-name> --dependencies [deps] --build-type ament_python
 
 You can then update the ``package.xml`` with your package info such as dependencies, descriptions, and authorship.
 

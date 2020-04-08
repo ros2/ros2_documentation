@@ -47,17 +47,21 @@ Run the demo
 
 Before running the demo, make sure you have a working webcam connected to your computer.
 
-Once you've installed ROS 2, if you're on Linux, source your setup.bash file:
+Once you've installed ROS 2, source your setup file:
 
-.. code-block:: bash
+.. tabs::
 
-   . <path to ROS 2 install space>/setup.bash
+  .. group-tab:: Linux/macOS
 
-or if you're on Windows *cmd*:
+    .. code-block:: bash
 
-.. code-block:: bash
+       . <path to ROS 2 install space>/setup.bash
 
-   call <path to ROS 2 install space>/local_setup.bat
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       call <path to ROS 2 install space>/local_setup.bat
 
 Then run:
 
@@ -80,14 +84,20 @@ In a separate terminal, source the install file and run the publisher node:
 This will publish an image from your webcam.
 In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run image_tools cam2image --ros-args -p burger_mode:=True
+  .. group-tab:: Eloquent and newer
 
-.. note::
+    .. code-block:: bash
 
-   Before Eloquent, this tutorial was using CLI arguments instead of parameters.
-   In that case, run ``ros2 run image_tools cam2image -b``
+       ros2 run image_tools cam2image --ros-args -p burger_mode:=True
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+       #Using CLI arguments instead of parameters:
+       ros2 run image_tools cam2image -b
 
 In this window, you'll see terminal output:
 
@@ -129,13 +139,20 @@ Command line options
 
 In one of your terminals, add a -h flag to the original command:
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run image_tools showimage -h
+  .. group-tab:: Eloquent and newer
 
-.. note::
+    .. code-block:: bash
 
-   Before Eloquent, use ``ros2 run image_tools showimage -- -h``.
+       ros2 run image_tools showimage -h
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+       ros2 run image_tools showimage -- -h
+
 
 Add network traffic
 ^^^^^^^^^^^^^^^^^^^

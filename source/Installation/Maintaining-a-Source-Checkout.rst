@@ -18,50 +18,54 @@ Latest release
 
 To download the repository list from the latest ROS 2 release, run:
 
-**Linux/macOS**
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   cd ~/ros2_ws
-   mv -i ros2.repos ros2.repos.old
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+    .. code-block:: bash
 
-**Windows**
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-   # CMD
-   > cd \dev\ros2
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+    .. code-block:: bash
 
-   # PowerShell
-   > cd \dev\ros2
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+       # CMD
+       > cd \dev\ros2
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
+
+       # PowerShell
+       > cd \dev\ros2
+       > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
 
 Particular release
 ^^^^^^^^^^^^^^^^^^
 
 If you wish to checkout a particular release, you can get its repository list by specifying the name of the release in the url of the following step, e.g. for alpha 7:
 
-**Linux/macOS**
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   cd ~/ros2_ws
-   mv -i ros2.repos ros2.repos.old
-   wget https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos
+    .. code-block:: bash
 
-**Windows**
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-   # CMD
-   > cd \dev\ros2
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
+    .. code-block:: bash
 
-   # PowerShell
-   > cd \dev\ros2
-   > curl https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
+       # CMD
+       > cd \dev\ros2
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
+
+       # PowerShell
+       > cd \dev\ros2
+       > curl https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
 
 The format of the name of the release comes from the tag associated with the release `here <https://github.com/ros2/ros2/tags>`__.
 
@@ -70,25 +74,28 @@ Development branches
 
 If you wish to checkout the bleeding-edge development code, you can get the relevant repository list by running:
 
-**Linux/macOS**
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   cd ~/ros2_ws
-   mv -i ros2.repos ros2.repos.old
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+    .. code-block:: bash
 
-**Windows**
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-   # CMD
-   > cd \dev\ros2
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+    .. code-block:: bash
 
-   # PowerShell
-   > cd \dev\ros2
-   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+       # CMD
+       > cd \dev\ros2
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+
+       # PowerShell
+       > cd \dev\ros2
+       > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+
 
 Update your repositories
 ------------------------
@@ -106,24 +113,26 @@ Download the new source code
 
 You should now be able to download the sources associated with the new repository list with:
 
-**Linux/macOS**
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   vcs import src < ros2.repos
-   vcs pull src
+    .. code-block:: bash
 
-**Windows**
+       vcs import src < ros2.repos
+       vcs pull src
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-   # CMD
-   > vcs import src < ros2.repos
-   > vcs pull src
+    .. code-block:: bash
 
-   # PowerShell
-   > vcs import --input ros2.repos src
-   > vcs pull src
+       # CMD
+       > vcs import src < ros2.repos
+       > vcs pull src
+
+       # PowerShell
+       > vcs import --input ros2.repos src
+       > vcs pull src
 
 Rebuild your workspace
 ----------------------
@@ -140,18 +149,20 @@ Inspecting your source checkout
 During your development you may have deviated from the original state of your workspace from when you imported the repository list.
 If you wish to know the versions of the set of repositories in your workspace, you can export the information using the following command:
 
-**Linux/macOS**
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux/macOS
 
-   cd ~/ros2_ws
-   vcs export src > my_ros2.repos
+    .. code-block:: bash
 
-**Windows**
+       cd ~/ros2_ws
+       vcs export src > my_ros2.repos
 
-.. code-block:: bash
+  .. group-tab:: Windows
 
-   > cd \dev\ros2
-   > vcs export src > my_ros2.repos
+    .. code-block:: bash
+
+       > cd \dev\ros2
+       > vcs export src > my_ros2.repos
 
 This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.
