@@ -4,28 +4,41 @@
 
     Rosidl-Tutorial
 
-Introduction to msg and srv interfaces
-======================================
+Expanding on msg and srv interfaces
+===================================
 
-**INCOMPLETE: this is a draft of an upcoming tutorial for creating and using custom ROS interfaces.**
+**Goal:** Learn more about custom interfaces, such as
 
-**Disclaimer: The code provided is to support the explanation, it is likely outdated and should not be expected to compile as is**
+**Tutorial level:** Intermediate
 
-Creating a msg package
-----------------------
+**Time:** 15 minutes
 
-**NOTE:** only ament_cmake packages can generate messages currently (not ament_python packages).
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+Prerequisites
+-------------
+
+Tasks
+-----
+
+1 Creating a msg package
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 For this tutorial we will use the packages stored in the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__.
 
 .. code-block:: bash
 
-   cd ~/ros2_overlway_ws/src
+   cd ~/dev_ws/src
    git clone -b rosidl_tutorials https://github.com/ros2/tutorials.git
    cd rosidl_tutorials/rosidl_tutorials_msgs
 
-Creating a msg file
-^^^^^^^^^^^^^^^^^^^
+1.1 Creating a msg file
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Here we will create a message meant to carry information about an individual.
 
