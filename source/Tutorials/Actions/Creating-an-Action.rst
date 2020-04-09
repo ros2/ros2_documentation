@@ -151,7 +151,7 @@ and how to verify a successful build.
 Next steps
 ----------
 
-Next, let's utilize your newly defined action interface by adding an action service and client (in :ref:`Python <ActionsPy>` or :ref:`C++ <ActionsCpp>`) to the ``action_tutorials`` package.
+Next, let's utilize your newly defined action interface by creating an action service and client (in :ref:`Python <ActionsPy>` or :ref:`C++ <ActionsCpp>`).
 
 Related content
 ---------------

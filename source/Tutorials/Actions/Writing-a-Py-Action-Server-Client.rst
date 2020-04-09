@@ -20,10 +20,6 @@ Actions are a form of asynchronous communication in ROS 2.
 *Action clients* send goal requests to *action servers*.
 *Action servers* send goal feedback and results to *action clients*.
 
-After completing :ref:`ActionCreate` and this tutorial,
-you should expect to have a ROS package that looks like the package
-`action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
-
 Prerequisites
 -------------
 
@@ -41,6 +37,8 @@ using the action we created in the :ref:`ActionCreate` tutorial.
 
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
 To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
+If you'd like to see what a complete package for the actions tutorials looks like, check out
+`action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
 
 Open a new file in your home directory, let's call it ``fibonacci_action_server.py``,
 and add the following boilerplate code:
