@@ -1,3 +1,5 @@
+.. _MaintainingSource:
+
 Maintaining a Source Checkout of ROS 2
 ======================================
 

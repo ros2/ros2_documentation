@@ -207,7 +207,7 @@ TODO: using ThreadSanitizer, MemorySanitizer
 Stay up to date
 ---------------
 
-See `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>` to periodically refresh your source installation.
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

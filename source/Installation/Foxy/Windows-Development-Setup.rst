@@ -356,7 +356,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 Stay up to date
 ---------------
 
-See `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>` to periodically refresh your source installation.
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------
