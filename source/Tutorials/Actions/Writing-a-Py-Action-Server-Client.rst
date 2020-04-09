@@ -39,7 +39,8 @@ Tasks
 Let's focus on writing an action server that computes the Fibonacci sequence
 using the action we created in the :ref:`ActionCreate` tutorial.
 
-To keep things simple, we’ll scope the action server to a single file.
+Until now, you've created packages and used ``ros2 run`` to run your nodes.
+To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
 
 Open a new file in your home directory, let's call it ``fibonacci_action_server.py``,
 and add the following boilerplate code:
@@ -155,7 +156,7 @@ After restarting the action server, we can confirm that feedback is now publishe
 2 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To keep things simple, we'll scope also scope the action client to a single file.
+We'll also scope the action client to a single file.
 Open a new file, let's call it ``fibonacci_action_client.py``, and add the following boilerplate code:
 
 .. literalinclude:: client_0.py
