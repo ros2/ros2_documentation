@@ -219,8 +219,8 @@ This will automatically set up the environment for any DDS vendors that support 
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
-Testing and running
--------------------
+Test and run
+------------
 
 Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
 
