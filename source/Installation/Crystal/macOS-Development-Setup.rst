@@ -170,6 +170,11 @@ Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
 
+Stay up to date
+---------------
+
+See `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>` to periodically refresh your source installation.
+
 .. _osx-development-setup-troubleshooting:
 
 Troubleshooting
