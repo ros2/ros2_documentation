@@ -42,6 +42,12 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes since the Eloquent release
 ----------------------------------
 
+ament_export_interfaces replaced by ament_export_targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The CMake function ``ament_export_interfaces`` from the package ``ament_cmake_export_interfaces`` has been deprecated in favor of the function ``ament_export_targets`` in the new package ``ament_cmake_export_targets``.
+See the GitHub ticket `ament/ament_cmake#237 <https://github.com/ament/ament_cmake/issues/237>`_ for more context.
+
 Default working directory for ament_add_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
