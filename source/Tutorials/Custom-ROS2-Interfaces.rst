@@ -373,9 +373,19 @@ Add the following lines (C++ only):
 
 package.xml:
 
-Add the following line (same for C++ and Python):
+Add the following line:
 
-.. code-block:: xml
+.. tabs::
+
+  .. group-tab:: C++
+
+    .. code-block:: c++
+
+      <depend>tutorial_interfaces</depend>
+
+  .. group-tab:: Python
+
+    .. code-block:: python
 
       <exec_depend>tutorial_interfaces</exec_depend>
 
@@ -648,9 +658,19 @@ Add the following lines (C++ only):
 
 package.xml:
 
-Add the following line (same for C++ and Python):
+Add the following line:
 
-.. code-block:: xml
+.. tabs::
+
+  .. group-tab:: C++
+
+    .. code-block:: c++
+
+      <depend>tutorial_interfaces</depend>
+
+  .. group-tab:: Python
+
+    .. code-block:: python
 
       <exec_depend>tutorial_interfaces</exec_depend>
 
