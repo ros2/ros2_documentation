@@ -5,7 +5,7 @@ Writing an action server and client (C++)
 
 **Goal:** Implement an action server and client in C++.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 15 minutes
 
@@ -64,7 +64,7 @@ and add the following boilerplate code:
 Summary
 -------
 
-In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.
+In this tutorial, you put together an action server and action client line by line, and configured them to exchange goals, feedback, and results.
 
 Next steps
 ----------

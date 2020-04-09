@@ -5,7 +5,7 @@ Creating an action
 
 **Goal:** Define an action in a ROS 2 package.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 5 minutes
 

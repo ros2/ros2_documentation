@@ -5,7 +5,7 @@ Writing an action server and client (Python)
 
 **Goal:** Implement an action server and client in Python.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 15 minutes
 
@@ -266,6 +266,16 @@ In another terminal, run the action client:
 
 Tada! You should see messages printed by the action server as it successfully executes the goal.
 
+.. code-block:: bash
+
+  [INFO] [fibonacci_action_server]: Executing goal...
+  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1])
+  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2])
+  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3])
+  [INFO] [fibonacci_action_server]: Feedback: array('i', [0, 1, 1, 2, 3, 5])
+  # etc.
+
+
 2.2 Getting feedback
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -283,12 +293,12 @@ Easy, let's write a callback function for feedback messages:
 In the callback we get the feedback portion of the message and print the ``partial_sequence`` field to the screen.
 
 We need to register the callback with the action client.
-This is achieved by passing the callback to the action client when we send a goal:
+This is achieved by additionally passing the callback to the action client when we send a goal:
 
 .. literalinclude:: client_2.py
     :language: python
     :linenos:
-    :lines: 14-21
+    :lines: 14-23
     :emphasize-lines: 7
 
 You'll notice at this point that our action client is not printing any feedback.
@@ -317,7 +327,7 @@ Let's register a callback for when the future is complete:
 .. literalinclude:: client_3.py
     :language: python
     :linenos:
-    :lines: 8-27
+    :lines: 8-27, 43-45
     :emphasize-lines: 13-20
 
 
@@ -363,7 +373,7 @@ You should see logged messages for the goal being accepted, feedback, and the fi
 Summary
 -------
 
-In this tutorial, you put together an action server and action client, configured to exchange goals, feedback, and results.
+In this tutorial, you put together an action server and action client line by line, and configured them to exchange goals, feedback, and results.
 
 Next steps
 ----------
