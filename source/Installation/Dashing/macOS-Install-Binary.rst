@@ -115,10 +115,9 @@ So that SIP doesn't prevent processes from inheriting dynamic linker environment
 Downloading ROS 2
 -----------------
 
+* Download `ROS 2 Dashing Diademata - Patch Release 4 <https://github.com/ros2/ros2/releases/tag/release-dashing-20191018>`_ for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
-* Go to the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
-
+  * Note: OSX binary builds are only provided for Dashing up until `ROS 2 Dashing Diademata - Patch Release 4 <https://github.com/ros2/ros2/releases/tag/release-dashing-20191018>`_ due to changes with OSX and/or homebrew that made it difficult to target OSX Sierra.
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
 *
