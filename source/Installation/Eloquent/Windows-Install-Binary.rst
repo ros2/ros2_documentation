@@ -1,4 +1,8 @@
+.. redirect-from::
 
+    Windows-Install-Binary
+    Installation/Windows-Install-Binary
+    
 Installing ROS 2 on Windows
 ===========================
 
