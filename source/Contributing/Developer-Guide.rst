@@ -2,7 +2,7 @@
 
     Developer-Guide
 
-ROS 2 Developer Guide
+ROS 2 developer guide
 =====================
 
 .. contents:: Table of Contents

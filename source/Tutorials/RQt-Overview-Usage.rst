@@ -2,7 +2,7 @@
 
    RQt-Overview-Usage
 
-Overview and Usage of RQt
+Overview and usage of RQt
 =========================
 
 .. contents:: Table of Contents

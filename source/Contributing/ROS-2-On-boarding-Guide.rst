@@ -2,7 +2,7 @@
 
    ROS-2-On-boarding-Guide
 
-ROS 2 On-boarding Guide
+ROS 2 on-boarding guide
 =======================
 
 The purpose of this guide is supplement the on-boarding of new developers when they join the ROS 2 team.

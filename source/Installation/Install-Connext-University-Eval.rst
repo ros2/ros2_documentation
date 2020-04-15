@@ -1,4 +1,4 @@
-Installing University or Evaluation Versions of RTI Connext DDS
+Installing University or Evaluation versions of RTI Connext DDS
 ===============================================================
 
 A libraries-only version of RTI Connext DDS 5.3.1 may be installed per the `installation instructions <../Installation>` for

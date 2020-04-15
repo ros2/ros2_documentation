@@ -2,7 +2,7 @@
 
     Quality-Guide
 
-Quality Guide: Ensuring code quality
+Quality guide: ensuring code quality
 ====================================
 
 This section tries to give guidance about how to improve the software quality of ROS 2 packages. The guide uses a pattern language based approach to improve the readers experience ("read little, understand fast, understand much, apply easily").

@@ -2,7 +2,7 @@
 
     RQt-Source-Install-Windows10
 
-Building RQt from Source on Windows 10
+Building RQt from source on Windows 10
 ======================================
 
 This page provides specific information to building RQt from source on Windows.

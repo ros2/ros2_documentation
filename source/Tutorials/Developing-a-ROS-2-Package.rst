@@ -2,7 +2,7 @@
 
     Developing-a-ROS-2-Package
 
-Developing a ROS 2 Package
+Developing a ROS 2 package
 ##########################
 
 .. contents:: Table of Contents

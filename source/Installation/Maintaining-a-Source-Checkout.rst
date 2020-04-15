@@ -1,4 +1,4 @@
-Maintaining a Source Checkout of ROS 2
+Maintaining a source checkout of ROS 2
 ======================================
 
 .. contents::
