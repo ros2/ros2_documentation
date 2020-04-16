@@ -42,6 +42,12 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes since the Eloquent release
 ----------------------------------
 
+ament_export_interfaces replaced by ament_export_targets
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The CMake function ``ament_export_interfaces`` from the package ``ament_cmake_export_interfaces`` has been deprecated in favor of the function ``ament_export_targets`` in the new package ``ament_cmake_export_targets``.
+See the GitHub ticket `ament/ament_cmake#237 <https://github.com/ament/ament_cmake/issues/237>`_ for more context.
+
 Default working directory for ament_add_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -97,6 +103,20 @@ This change also applies to ``ComposableNodeContainer``, ``ComposableNode``, and
 For examples, see the `relevant changes to the demos. <https://github.com/ros2/demos/pull/431>`_
 
 `Related pull request in launch_ros. <https://github.com/ros2/launch_ros/pull/122>`_
+
+rclcpp
+^^^^^^
+
+Change in Advanced Subscription Callback Signature
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+With the pull request [https://github.com/ros2/rclcpp/pull/1047](https://github.com/ros2/rclcpp/pull/1047) the signature of callbacks which receive the message info with the message has changed.
+Previously it used the ``rmw`` type ``rmw_message_info_t``, but now uses the ``rclcpp`` type ``rclcpp::MessageInfo``.
+The required changes are straightforward, and can be seen demonstrated in these pull requests:
+
+- [https://github.com/ros2/system_tests/pull/423/files](https://github.com/ros2/system_tests/pull/423/files)
+- [https://github.com/ros2/rosbag2/pull/375/files](https://github.com/ros2/rosbag2/pull/375/files)
+- [https://github.com/ros2/ros1_bridge/pull/253/files](https://github.com/ros2/ros1_bridge/pull/253/files)
 
 rclpy
 ^^^^^

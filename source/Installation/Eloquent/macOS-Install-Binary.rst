@@ -1,7 +1,12 @@
 .. redirect-from::
 
-  Eloquent/OSX-Install-Binary
+  OSX-Install-Binary
   Installation/OSX-Install-Binary
+
+.. redirect-from::
+
+  macOS-Install-Binary
+  Installation/macOS-Install-Binary
 
 Installing ROS 2 on macOS
 =========================

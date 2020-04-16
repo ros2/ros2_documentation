@@ -14,27 +14,38 @@ All ROS nodes take a set of arguments that allow various properties to be reconf
 Examples include configuring the name/namespace of the node, topic/service names used, and parameters on the node.
 All ros specific arguments have to be specified after a ``--ros-args`` flag:
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run my_package node_executable --ros-args ...
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: bash
+
+       ros2 run my_package node_executable --ros-args ...
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run my_package node_executable ...
 
 For more details, see `this design doc <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
 
-.. note::
-
-   Before Eloquent, ``--ros-args`` wasn't needed.
 
 *Note: all features on this page are only available as of the ROS 2 Bouncy release.*
 
 Name remapping
 --------------
 
-Names within a node (e.g. topics/services) can be remapped using the syntax ``-r <old name>:=<new name>``.
-The name/namespace of the node itself can be remapped using ``-r __node:=<new node name>`` and ``-r __ns:=<new node namespace>``.
+.. tabs::
 
-.. note::
+  .. group-tab:: Eloquent and newer
 
-   Before Eloquent, remapping rules were specified directly using ``<old name>:=<new name>``, ``__node:=<new node name>``, ``__ns:=<new node namespace>``.
+    Names within a node (e.g. topics/services) can be remapped using the syntax ``-r <old name>:=<new name>``.
+    The name/namespace of the node itself can be remapped using ``-r __node:=<new node name>`` and ``-r __ns:=<new node namespace>``.
+
+  .. group-tab:: Before Eloquent
+
+    Remapping rules were specified directly using ``<old name>:=<new name>``, ``__node:=<new node name>``, ``__ns:=<new node namespace>``.
 
 Note that these remappings are "static" remappings, in that they apply for the lifetime of the node.
 "Dynamic" remapping of names after nodes have been started is not yet supported.
@@ -47,13 +58,19 @@ Example
 The following invocation will cause the ``talker`` node to be started under the node name ``my_talker``, publishing on the topic named ``my_topic`` instead of the default of ``chatter``.
 The namespace, which must start with a forward slash, is set to ``/demo``, which means that topics are created in that namespace (``/demo/my_topic``), as opposed to globally (``/my_topic``).
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker -r chatter:=my_topic
+  .. group-tab:: Eloquent and newer
 
-.. note::
+    .. code-block:: bash
 
-   Before Eloquent, run ``ros2 run demo_nodes_cpp talker __ns:=/demo __node:=my_talker chatter:=my_topic``.
+      ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker -r chatter:=my_topic
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp talker __ns:=/demo __node:=my_talker chatter:=my_topic
 
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -61,23 +78,37 @@ Passing remapping arguments to specific nodes
 If multiple nodes are being run within a single process (e.g. using `Composition <Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r listener:__node:=my_listener
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: bash
+
+      ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r listener:__node:=my_listener
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener
+
 
 The following example will both change the node name and remap a topic (node and namespace changes are always applied *before* topic remapping):
 
-.. note::
 
-   Before Eloquent, run ``ros2 run composition manual_composition talker:__node:=my_talker listener:__node:=my_listener``.
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Eloquent and newer
 
-   ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r my_talker:chatter:=my_topic -r listener:__node:=my_listener -r my_listener:chatter:=my_topic
+    .. code-block:: bash
 
-.. note::
+      ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r my_talker:chatter:=my_topic -r listener:__node:=my_listener -r my_listener:chatter:=my_topic
 
-   Before Eloquent, run ``ros2 run composition manual_composition talker:__node:=my_talker my_talker:chatter:=my_topic listener:__node:=my_listener my_listener:chatter:=my_topic``.
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run composition manual_composition talker:__node:=my_talker my_talker:chatter:=my_topic listener:__node:=my_listener my_listener:chatter:=my_topic
 
 Logger configuration
 --------------------
@@ -89,36 +120,41 @@ Parameters
 
 .. note::
 
-   The behavior of parameters changed for Dashing and newer, so if you're using Crystal or older, see the sections below.
+   The behavior of parameters changed for Dashing and newer.
+   If you're using Crystal or older, see the :ref:`section below <CrystalOlder>`.
 
 Setting parameters directly in the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
+.. tabs::
 
-   Supported since Eloquent.
+  .. group-tab:: Eloquent and newer
 
-You can set parameters directly from the command line using the following syntax:
+    You can set parameters directly from the command line using the following syntax:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-  ros2 run package_name executable_name --ros-args -p param_name:=param_value
+      ros2 run package_name executable_name --ros-args -p param_name:=param_value
 
-As an example, you can run:
+    As an example, you can run:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-  ros2 run demo_nodes_cpp parameter_blackboard --ros-args -p some_int:=42 -p "a_string:=Hello world" -p "some_lists.some_integers:=[1, 2, 3, 4]" -p "some_lists.some_doubles:=[3.14, 2.718]"
+      ros2 run demo_nodes_cpp parameter_blackboard --ros-args -p some_int:=42 -p "a_string:=Hello world" -p "some_lists.some_integers:=[1, 2, 3, 4]" -p "some_lists.some_doubles:=[3.14, 2.718]"
 
-Other nodes will be able to retrieve the parameter values, e.g.:
+    Other nodes will be able to retrieve the parameter values, e.g.:
 
-.. code-block:: bash
+    .. code-block:: bash
 
-  $ ros2 param list parameter_blackboard
-  a_string
-  some_int
-  some_lists.some_doubles
-  some_lists.some_integers
+      $ ros2 param list parameter_blackboard
+      a_string
+      some_int
+      some_lists.some_doubles
+      some_lists.some_integers
+
+  .. group-tab:: Before Eloquent
+
+    Not supported
 
 Setting parameters from YAML files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -143,13 +179,19 @@ Then either declare the parameters within your node with ``declare_parameter``  
 
 Then run the following:
 
-.. code-block:: bash
+.. tabs::
 
-  ros2 run demo_nodes_cpp parameter_blackboard --ros-args --params-file demo_params.yaml
+  .. group-tab:: Eloquent and newer
 
-.. note::
+    .. code-block:: bash
 
-   In dashing, use ``ros2 run demo_nodes_cpp parameter_blackboard __params:=demo_params.yaml``.
+      ros2 run demo_nodes_cpp parameter_blackboard --ros-args --params-file demo_params.yaml
+
+  .. group-tab:: Before Eloquent
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp parameter_blackboard __params:=demo_params.yaml
 
 Other nodes will be able to retrieve the parameter values, e.g.:
 
@@ -161,7 +203,9 @@ Other nodes will be able to retrieve the parameter values, e.g.:
   some_lists.some_doubles
   some_lists.some_integers
 
-Crystal and Older
+.. _CrystalOlder:
+
+Crystal and older
 ^^^^^^^^^^^^^^^^^
 
 *Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*

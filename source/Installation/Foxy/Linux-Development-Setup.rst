@@ -8,7 +8,7 @@ Building ROS 2 on Linux
    :local:
 
 
-System Requirements
+System requirements
 -------------------
 Target platforms for Foxy Fitzroy are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
 
@@ -24,7 +24,7 @@ Tier 3 platforms (not actively tested or supported) include:
 System setup
 ------------
 
-Set Locale
+Set locale
 ^^^^^^^^^^
 Make sure to set a locale that supports UTF-8.
 If you are in a minimal environment such as a Docker container, the locale may be set to something minimal like POSIX.
@@ -145,8 +145,8 @@ Afterwards source the ``local_setup.*`` from the ``install`` folder.
 Environment setup
 -----------------
 
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Source the setup script
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -205,6 +205,11 @@ To configure CMake to detect and use Clang:
    colcon build --cmake-force-configure
 
 TODO: using ThreadSanitizer, MemorySanitizer
+
+Stay up to date
+---------------
+
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

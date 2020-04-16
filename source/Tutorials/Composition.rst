@@ -191,33 +191,31 @@ Run-time composition using dlopen
 This demo presents an alternative to 1. by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
 The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/master/composition/src/dlopen_composition.cpp>`__).
 
-**Linux** In the shell call:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Linux
 
-   ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.so `ros2 pkg prefix composition`/lib/liblistener_component.so
+    .. code-block:: bash
 
+       ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.so `ros2 pkg prefix composition`/lib/liblistener_component.so
 
-**OSX** In the shell call:
+  .. group-tab:: macOS
 
-.. code-block:: bash
+    .. code-block:: bash
 
-   ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.dylib `ros2 pkg prefix composition`/lib/liblistener_component.dylib
+       ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.dylib `ros2 pkg prefix composition`/lib/liblistener_component.dylib
 
+  .. group-tab:: Windows
 
-**Windows** In cmd.exe call
+    .. code-block:: bash
 
-.. code-block:: bash
-
-   ros2 pkg prefix composition
-
+       ros2 pkg prefix composition
 
 to get the path to where composition is installed. Then call
 
 .. code-block:: bash
 
    ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
-
 
 Now the shell should show repeated output for each sent and received message.
 

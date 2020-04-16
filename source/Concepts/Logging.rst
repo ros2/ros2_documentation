@@ -48,17 +48,17 @@ When the level of logger "abc" is changed, all of its descendants (e.g. "abc.def
 Logging usage
 -------------
 
-In C++:
+.. tabs::
 
+  .. group-tab:: C++
 
-* See the `logging demo <../Tutorials/Logging-and-logger-configuration>` for example usage.
-* See the `rclcpp documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
+    * See the `logging demo <../Tutorials/Logging-and-logger-configuration>` for example usage.
+    * See the `rclcpp documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
 
-In Python:
+  .. group-tab:: Python
 
-
-* See the `rclpy examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__ for example usage of a node's logger.
-* See the `rclpy tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
+    * See the `rclpy examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__ for example usage of a node's logger.
+    * See the `rclpy tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
 
 Logger configuration
 --------------------
@@ -70,9 +70,19 @@ Command line configuration of the default severity level
 
 As of the Bouncy ROS 2 release, the default severity level for loggers can be configured from the command line with the following, for example (the level string is not case sensitive):
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run demo_nodes_cpp listener __log_level:=debug
+  .. group-tab:: Bouncy+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener __log_level:=debug
+
+  .. group-tab:: Eloquent+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener --ros-args --log-level DEBUG
 
 This will affect all loggers that have not explicitly been configured to use a particular severity level.
 Configuration of specific loggers from the command line is forthcoming.
@@ -83,18 +93,20 @@ Programmatic configuration of individual loggers
 Logger configuration is still under development.
 For now, the severity level of individual loggers can be configured programmatically with, e.g.:
 
-In C++:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: C++
 
-   rcutils_logging_set_logger_level("logger_name", RCUTILS_LOG_SEVERITY_DEBUG);
+    .. code-block:: bash
 
-In Python:
+       rcutils_logging_set_logger_level("logger_name", RCUTILS_LOG_SEVERITY_DEBUG);
 
-.. code-block:: bash
+  .. group-tab:: Python
 
-   logger.set_level(rclpy.logging.LoggingSeverity.DEBUG)
-   rclpy.logging.set_logger_level('logger_name', rclpy.logging.LoggingSeverity.DEBUG)
+    .. code-block:: bash
+
+       logger.set_level(rclpy.logging.LoggingSeverity.DEBUG)
+       rclpy.logging.set_logger_level('logger_name', rclpy.logging.LoggingSeverity.DEBUG)
 
 The `logging demo <../Tutorials/Logging-and-logger-configuration>` provides an example of manually exposing a service so that loggers can be configured externally; in the future we expect runtime configuration capabilities of loggers to be exposed automatically.
 

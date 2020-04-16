@@ -17,16 +17,16 @@ Install the latest LTS release from http://pkg.jenkins-ci.org/debian-stable/
 Running on port 80
 ------------------
 
-I used this SO answer to setup a subdomain to a port:
+Use this SO answer to setup a subdomain to a port:
 
 http://serverfault.com/a/140161/186748
 
-I had to remove the ``hudson`` in each of the lines that contained it.
+(Removed the ``hudson`` in each of the lines that contained it.)
 
 Temporary rewrite for changed job name
 --------------------------------------
 
-We renamed some of the jobs, so I added rewrite rules in Apache (``/etc/apache2/sites-enabled/ci.ros2.org.conf``):
+We renamed some of the jobs, so here are some rewrite rules in Apache (``/etc/apache2/sites-enabled/ci.ros2.org.conf``):
 
 .. code-block:: bash
 
@@ -96,26 +96,26 @@ Approximately:
 Configuring Jenkins
 -------------------
 
-First I updated all the preinstalled plugins.
+First update all the preinstalled plugins.
 
 Authentication
 ^^^^^^^^^^^^^^
 
-Then I setup authentication with the ``github-oauth`` plugin.
-I just installed it and followed their setup instructions:
+Setup authentication with the ``github-oauth`` plugin.
+Install and follow their setup instructions:
 
 https://wiki.jenkins-ci.org/display/JENKINS/Github+OAuth+Plugin
 
-I created an application entry on the ros2 GitHub organization:
+Create an application entry on the ros2 GitHub organization:
 
 https://github.com/organizations/ros2/settings/applications/215300
 
-I also tuned the permissions in ``Manage Jenkins->Configure Global Security``.
+Tune the permissions in ``Manage Jenkins->Configure Global Security``.
 
 Plugins
 ^^^^^^^
 
-Next I installed all of these plugins:
+Install these plugins:
 
 
 * ``ansicolor``
@@ -135,7 +135,7 @@ Adding an ssh key
 
 Jenkins needs a valid ssh key in order to pull from some of our private repositories, for example to get the rti deb files.
 
-So I created an ssh key for the jenkins user on the webserver:
+So, let's create an ssh key for the jenkins user on the webserver:
 
 .. code-block:: bash
 
@@ -144,26 +144,26 @@ So I created an ssh key for the jenkins user on the webserver:
    mkdir .ssh
    ssh-keygen -t rsa
 
-Then I added to the jenkins credentials as an "From the jenkins master ~/.ssh" with the user id of ``ros2-buildfarm``.
+Now add to the jenkins credentials as an "From the jenkins master ~/.ssh" with the user id of ``ros2-buildfarm``.
 
-I added this key to a "machine" GitHub account that I created for this farm and I added that user, ``ros2-buildfarm``, to the ``ros2``, ``ament``, and ``osrf`` organizations.
+Add this key to a "machine" GitHub account created for this farm and add that user, ``ros2-buildfarm``, to the ``ros2``, ``ament``, and ``osrf`` organizations.
 
 Creating Jobs
 -------------
 
-I cloned the ``ros2/ci`` repository to the default branch (``master``):
+Clone the ``ros2/ci`` repository to the default branch (``master``):
 
 .. code-block:: bash
 
    git clone https://github.com/ros2/ci.git
 
-Then I cloned the ``ros_buildfarm`` repository:
+Clone the ``ros_buildfarm`` repository:
 
 .. code-block:: bash
 
    git clone https://github.com/ros-infrastructure/ros_buildfarm.git
 
-I also install the ``jenkinsapi`` and ``EmPy`` Python packages:
+Install the ``jenkinsapi`` and ``EmPy`` Python packages:
 
 .. code-block:: bash
 
@@ -171,7 +171,7 @@ I also install the ``jenkinsapi`` and ``EmPy`` Python packages:
    sudo -H python3 -m pip install -U pip
    sudo -H python3 -m pip install jenkinsapi EmPy
 
-Then I setup auth:
+Then setup auth:
 
 .. code-block:: bash
 
@@ -194,7 +194,7 @@ http://ci.ros2.org/user/wjwwood/configure
 In those settings there should be a field called API Token.
 Copy that field for your password.
 
-Now I can create the jobs:
+Now you can create the jobs:
 
 .. code-block:: bash
 
@@ -214,7 +214,7 @@ The final step is to fine tune the jobs.
 For each job you'll want to check the ssh key being used for the git clone (only on Linux) and the ssh-agent.
 It should be set to the ssh key setup in the previous steps for the jenkins user.
 
-I also updated the slaves which the jobs will run on to make sure they matched the names of the slaves I added for Linux, macOS and Windows.
+I also updated the slaves which the jobs will run on to make sure they matched the names of the slaves  added for Linux, macOS and Windows.
 
 Disk space
 ----------
