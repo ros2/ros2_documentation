@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Dashing/OSX-Install-Binary
+  Installation/Dashing/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================

@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Dashing/OSX-Development-Setup
+  Installation/Dashing/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================

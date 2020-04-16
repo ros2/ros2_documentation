@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Crystal/OSX-Development-Setup
+   Installation/Crystal/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================
