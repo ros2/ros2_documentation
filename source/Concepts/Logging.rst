@@ -70,9 +70,19 @@ Command line configuration of the default severity level
 
 As of the Bouncy ROS 2 release, the default severity level for loggers can be configured from the command line with the following, for example (the level string is not case sensitive):
 
-.. code-block:: bash
+.. tabs::
 
-   ros2 run demo_nodes_cpp listener __log_level:=debug
+  .. group-tab:: Bouncy+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener __log_level:=debug
+
+  .. group-tab:: Eloquent+
+
+    .. code-block:: bash
+
+      ros2 run demo_nodes_cpp listener --ros-args --log-level DEBUG
 
 This will affect all loggers that have not explicitly been configured to use a particular severity level.
 Configuration of specific loggers from the command line is forthcoming.
