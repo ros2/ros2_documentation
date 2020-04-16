@@ -114,7 +114,7 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    * - |openrobotics|
      - Open Robotics: Dirk Thomas
    * - |robotis|
-     - ROBOTIS: Yoonseok Pyo
+     - ROBOTIS: Will Son
    * - |samsung|
      - Samsung: Steven Macenski
    * - |gvsc|
