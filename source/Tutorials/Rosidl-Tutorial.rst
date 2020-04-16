@@ -416,7 +416,7 @@ We won't create a subscriber in this tutorial, but you should try to write one y
        address_book_publisher_->publish(*msg);
      };
 
-  Building and running these changes should show the msg defined as expected (matching `Contact.msg <>`_)
+  Building and running these changes should show the msg defined as expected (matching `Contact.msg <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_)
   as well as the array of msgs defined above.
 
 Summary
