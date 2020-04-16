@@ -4,10 +4,10 @@
 
     Rosidl-Tutorial
 
-Expanding on msg and srv interfaces
-===================================
+Expanding on rosidl interfaces
+==============================
 
-**Goal:** Learn more about custom interfaces, such as
+**Goal:** Learn more about custom interfaces and using rosidl
 
 **Tutorial level:** Intermediate
 
@@ -20,29 +20,46 @@ Expanding on msg and srv interfaces
 Background
 ----------
 
+In a :ref:`previous tutorial <CustomInterfaces>`, you learned how create custom msg and srv interfaces.
+
+.. In previous tutorials, you learned how to create :ref:`custom msg and srv interfaces <CustomInterfaces>` and :ref:`action interfaces <ActionCreate>`. (When actions redo is done)
+
+While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
+Recall that interfaces can currently only be defined in CMake packages, so the node you plan on using the interface with will also need to be written in C++.
+
+This tutorial will focus on the msg interface type, but the steps here are applicable to all interface types.
+
+.. not sure if it's a good idea to reference the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__ here since the code doesn't work.
+
 Prerequisites
 -------------
+
+It might be helpful to review the basics in the :ref:`CustomInterfaces` tutorial before working through this one.
+
+You should have :ref:`ROS 2 installed <InstallationGuide>`, a :ref:`workspace <ROS2Workspace>`, and an understanding of :ref:`creating packages <CreatePkg>`.
+
+As always, don’t forget to :ref:`source ROS 2 <ConfigROS2>` in every new terminal you open.
 
 Tasks
 -----
 
-1 Creating a msg package
-^^^^^^^^^^^^^^^^^^^^^^^^
+1 Create a package
+^^^^^^^^^^^^^^^^^^
 
-For this tutorial we will use the packages stored in the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__.
+In your workspace, create a package ``rosidl_tutorial`` and make a folder within it for msg files:
 
 .. code-block:: bash
 
    cd ~/dev_ws/src
-   git clone -b rosidl_tutorials https://github.com/ros2/tutorials.git
-   cd rosidl_tutorials/rosidl_tutorials_msgs
+   ros2 pkg create --build-type ament_cmake rosidl_tutorial
+   mkdir rosidl_tutorial/msg
 
-1.1 Creating a msg file
-~~~~~~~~~~~~~~~~~~~~~~~
+2 Create a msg file
+^^^^^^^^^^^^^^^^^^^
 
-Here we will create a message meant to carry information about an individual.
+Inside ``rosidl_tutorials/msg``, create a new file ``AddressBook.msg``
 
-Open ``msg/Contact.msg`` and you will see:
+Paste the following code to create a message meant to carry information about an individual:
 
 ::
 
@@ -57,19 +74,21 @@ Open ``msg/Contact.msg`` and you will see:
 
 This message is composed of 5 fields:
 
-
 * first_name: of type string
 * last_name: of type string
 * gender: of type bool, that can be either MALE or FEMALE
 * age: of type uint8
 * address: of type string
 
-There's one more step, though. We need to make sure that the msg files are turned into source code for C++, Python, and other languages.
+Notice that it's possible to set default values for fields within the message definition.
+See :ref:`InterfaceConcept` for more ways you can customize interfaces.
 
-Building msg files
-^^^^^^^^^^^^^^^^^^
+Next, we need to make sure that the msg file is turned into source code for C++, Python, and other languages.
 
-Open the ``package.xml``, and make sure it contains the following lines:
+2.1 Build a msg file
+~~~~~~~~~~~~~~~~~~~~
+
+Open ``package.xml``, and add the following lines:
 
 .. code-block:: xml
 
@@ -79,9 +98,9 @@ Open the ``package.xml``, and make sure it contains the following lines:
 
      <member_of_group>rosidl_interface_packages</member_of_group>
 
-Note that at build time, we need "rosidl_default_generators", while at runtime, we only need "rosidl_default_runtime".
+Note that at build time, we need ``rosidl_default_generators``, while at runtime, we only need ``rosidl_default_runtime``.
 
-Open the ``CMakeLists.txt`` and make sure that the following lines are uncommented.
+Open ``CMakeLists.txt`` and add the following lines:
 
 Find the package that generates message code from msg/srv files:
 
@@ -94,7 +113,7 @@ Declare the list of messages you want to generate:
 .. code-block:: cmake
 
    set(msg_files
-     "msg/Contact.msg"
+     "msg/AddressBook.msg"
    )
 
 By adding the .msg files manually, we make sure that CMake knows when it has to reconfigure the project after you add other .msg files.
@@ -115,303 +134,103 @@ Also make sure you export the message runtime dependency:
 
 Now you're ready to generate source files from your msg definition.
 
-Creating an srv file
-^^^^^^^^^^^^^^^^^^^^
+2.2 (Extra) Set multiple interfaces
+"""""""""""""""""""""""""""""""""""
 
-We will now add a srv declaration to our package.
+.. note::
 
-Open the srv/AddTwoFloats.srv file and paste this srv declaration:
+  You can use ``set`` to neatly list all of your interfaces:
 
-::
+  .. code-block:: cmake
 
-   float64 a
-   float64 b
-   ---
-   float64 sum
+     set(msg_files
+       "msg/Message1.msg"
+       "msg/Message2.msg"
+       # etc
+       )
 
-Building srv files
-^^^^^^^^^^^^^^^^^^
+     set(srv_files
+       "srv/Service1.srv"
+       "srv/Service2.srv"
+        # etc
+       )
 
-Declare the service in the ``CMakeLists.txt``:
+  And generate all lists at once like so:
 
-.. code-block:: cmake
+  .. code-block:: cmake
 
-   set(srv_files
-     "srv/AddTwoFloats.srv")
+     rosidl_generate_interfaces(${PROJECT_NAME}
+       ${msg_files}
+       ${srv_files}
+     )
 
-Modify the existing call to rosidl_generate_interfaces to generate the service in addition to the messages:
 
-.. code-block:: cmake
-
-   rosidl_generate_interfaces(${PROJECT_NAME}
-     ${msg_files}
-     ${srv_files}
-   )
-
-Using custom messages
----------------------
-
-Using msg/srv from other packages
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Let's write a C++ node using the Contact.msg we created in the previous section.
-
-Go to the rosidl_tutorials package and open the src/publish_contact.cpp file.
-
-.. code-block:: c++
-
-   #include <iostream>
-   #include <memory>
-
-   #include "rclcpp/rclcpp.hpp"
-
-   #include "rosidl_tutorials_msgs/msg/contact.hpp"
-
-
-   using namespace std::chrono_literals;
-
-   class ContactPublisher : public rclcpp::Node
-   {
-   public:
-     ContactPublisher()
-     : Node("address_book_publisher")
-     {
-       contact_publisher_ = this->create_publisher<rosidl_tutorials_msgs::msg::Contact>("contact");
-
-       auto publish_msg = [this]() -> void {
-           auto msg = std::make_shared<rosidl_tutorials_msgs::msg::Contact>();
-
-           msg->first_name = "John";
-           msg->last_name = "Doe";
-           msg->age = 30;
-           msg->gender = msg->MALE;
-           msg->address = "unknown";
-
-           std::cout << "Publishing Contact\nFirst:" << msg->first_name <<
-             "  Last:" << msg->last_name << std::endl;
-
-           contact_publisher_->publish(msg);
-         };
-       timer_ = this->create_wall_timer(1s, publish_msg);
-     }
-
-   private:
-     rclcpp::Publisher<rosidl_tutorials_msgs::msg::Contact>::SharedPtr contact_publisher_;
-     rclcpp::timer::TimerBase::SharedPtr timer_;
-   };
-
-
-   int main(int argc, char * argv[])
-   {
-     rclcpp::init(argc, argv);
-
-     auto publisher_node = std::make_shared<ContactPublisher>();
-
-     rclcpp::spin(publisher_node);
-
-     return 0;
-   }
-
-The code explained
-~~~~~~~~~~~~~~~~~~
-
-.. code-block:: c++
-
-   #include "rosidl_tutorials_msgs/msg/contact.hpp"
-
-Here we include the header of the message that we want to use.
-
-.. code-block:: c++
-
-     ContactPublisher()
-     : Node("address_book_publisher")
-     {
-
-Here we define a node
-
-.. code-block:: c++
-
-   auto publish_msg = [this]() -> void {
-
-A publish_msg function to send our message periodically
-
-.. code-block:: c++
-
-          auto msg = std::make_shared<rosidl_tutorials_msgs::msg::Contact>();
-
-           msg->first_name = "John";
-           msg->last_name = "Doe";
-           msg->age = 30;
-           msg->gender = msg->MALE;
-           msg->address = "unknown";
-
-We create a Contact message and populate its fields.
-
-.. code-block:: c++
-
-           std::cout << "Publishing Contact\nFirst:" << msg->first_name <<
-             "  Last:" << msg->last_name << std::endl;
-
-           contact_publisher_->publish(msg);
-
-Finally we publish it
-
-.. code-block:: c++
-
-       timer_ = this->create_wall_timer(1s, publish_msg);
-
-Create a 1second timer to call our ``publish_msg`` function every second
-
-Now let's build it!
-
-To use this message we need to declare a dependency on rosidl_tutorials_msgs in the ``package.xml``\ :
-
-.. code-block:: xml
-
-     <build_depend>rosidl_tutorials_msgs</build_depend>
-
-     <exec_depend>rosidl_tutorials_msgs</exec_depend>
-
-And also in the ``CMakeLists.txt``:
-
-.. code-block:: cmake
-
-   find_package(rosidl_tutorials_msgs REQUIRED)
-
-And finally we must declare the message package as a target dependency for the executable.
-
-.. code-block:: cmake
-
-   ament_target_dependencies(publish_contact
-     "rclcpp"
-     "rosidl_tutorials_msgs"
-   )
-
-Using msg/srv from the same package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-While most of the time messages are declared in interface packages, it can be convenient to declare, create and use messages all in the one package.
-
-We will create a message in our rosidl_tutorials package.
-Create a msg directory in the rosidl_tutorials package and AddressBook.msg inside that directory.
-In that msg paste:
-
-::
-
-   rosidl_tutorials_msgs/Contact[] address_book
-
-As you can see we define a message based on the Contact message we created earlier.
-
-To generate this message we need to declare a dependency on this package in the ``package.xml``:
-
-.. code-block:: xml
-
-     <build_depend>rosidl_tutorials_msgs</build_depend>
-
-     <exec_depend>rosidl_tutorials_msgs</exec_depend>
-
-And in the ``CMakeLists.txt``:
-
-.. code-block:: cmake
-
-   find_package(rosidl_tutorials_msgs REQUIRED)
-
-   set(msg_files
-     "msg/AddressBook.msg"
-   )
-
-   rosidl_generate_interfaces(${PROJECT_NAME}
-     ${msg_files}
-     DEPENDENCIES rosidl_tutorials_msgs
-   )
+3 Use an interface from the same package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now we can start writing code that uses this message.
 
-Open src/publish_address_book.cpp:
+In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` and paste the following code:
 
 .. code-block:: c++
 
-   #include <iostream>
-   #include <memory>
+  #include <chrono>
+  #include <memory>
 
-   #include "rclcpp/rclcpp.hpp"
+  #include "rclcpp/rclcpp.hpp"
+  #include "rosidl_tutorial/msg/address_book.hpp"
 
-   #include "rosidl_tutorials/msg/address_book.hpp"
-   #include "rosidl_tutorials_msgs/msg/contact.hpp"
+  using namespace std::chrono_literals;
 
-   using namespace std::chrono_literals;
+  class AddressBookPublisher : public rclcpp::Node
+  {
+  public:
+    AddressBookPublisher()
+    : Node("address_book_publisher")
+    {
+      address_book_publisher_ =
+        this->create_publisher<rosidl_tutorial::msg::AddressBook>("address_book", 10);
 
-   class AddressBookPublisher : public rclcpp::Node
-   {
-   public:
-     AddressBookPublisher()
-     : Node("address_book_publisher")
-     {
-       address_book_publisher_ =
-         this->create_publisher<rosidl_tutorials::msg::AddressBook>("address_book");
+      auto publish_msg = [this]() -> void {
+          auto message = rosidl_tutorial::msg::AddressBook();
 
-       auto publish_msg = [this]() -> void {
-           auto msg = std::make_shared<rosidl_tutorials::msg::AddressBook>();
-           {
-             rosidl_tutorials_msgs::msg::Contact contact;
-             contact.first_name = "John";
-             contact.last_name = "Doe";
-             contact.age = 30;
-             contact.gender = contact.MALE;
-             contact.address = "unknown";
-             msg->address_book.push_back(contact);
-           }
-           {
-             rosidl_tutorials_msgs::msg::Contact contact;
-             contact.first_name = "Jane";
-             contact.last_name = "Doe";
-             contact.age = 20;
-             contact.gender = contact.FEMALE;
-             contact.address = "unknown";
-             msg->address_book.push_back(contact);
-           }
+          message.first_name = "John";
+          message.last_name = "Doe";
+          message.age = 30;
+          message.gender = message.MALE;
+          message.address = "unknown";
 
-           std::cout << "Publishing address book:" << std::endl;
-           for (auto contact : msg->address_book) {
-             std::cout << "First:" << contact.first_name << "  Last:" << contact.last_name <<
-               std::endl;
-           }
+          std::cout << "Publishing Contact\nFirst:" << message.first_name <<
+            "  Last:" << message.last_name << std::endl;
 
-           address_book_publisher_->publish(msg);
-         };
-       timer_ = this->create_wall_timer(1s, publish_msg);
-     }
+          this->address_book_publisher_->publish(message);
+        };
+      timer_ = this->create_wall_timer(1s, publish_msg);
+    }
 
-   private:
-     rclcpp::Publisher<rosidl_tutorials::msg::AddressBook>::SharedPtr address_book_publisher_;
-     rclcpp::timer::TimerBase::SharedPtr timer_;
-   };
+  private:
+    rclcpp::Publisher<rosidl_tutorial::msg::AddressBook>::SharedPtr address_book_publisher_;
+    rclcpp::TimerBase::SharedPtr timer_;
+  };
 
 
-   int main(int argc, char * argv[])
-   {
-     rclcpp::init(argc, argv);
-     auto publisher_node = std::make_shared<AddressBookPublisher>();
+  int main(int argc, char * argv[])
+  {
+    rclcpp::init(argc, argv);
+    rclcpp::spin(std::make_shared<AddressBookPublisher>());
+    rclcpp::shutdown();
 
-     rclcpp::spin(publisher_node);
+    return 0;
+  }
 
-     return 0;
-   }
-
-The code explained
-~~~~~~~~~~~~~~~~~~
+3.1 The code explained
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: c++
 
-   #include "rosidl_tutorials/msg/address_book.hpp"
+   #include "rosidl_tutorial/msg/address_book.hpp"
 
-We include the header of our newly created AddressBook msg.
-
-.. code-block:: c++
-
-   #include "rosidl_tutorials_msgs/msg/contact.hpp"
-
-Here we include the header of the Contact msg in order to be able to add contacts to our address_book.
+Include the header of our newly created ``AddressBook.msg``.
 
 .. code-block:: c++
 
@@ -426,52 +245,36 @@ Here we include the header of the Contact msg in order to be able to add contact
        address_book_publisher_ =
          this->create_publisher<rosidl_tutorials::msg::AddressBook>("address_book");
 
-We create a node and an AddressBook publisher.
+Create a node and an ``AddressBook`` publisher.
 
 .. code-block:: c++
 
-       auto publish_msg = [this]() -> void {
+    auto publish_msg = [this]() -> void {
 
-We create a callback to publish the messages periodically
-
-.. code-block:: c++
-
-           auto msg = std::make_shared<rosidl_tutorials::msg::AddressBook>();
-
-We create an AddressBook message instance that we will later publish.
+Create a callback to publish the messages periodically.
 
 .. code-block:: c++
 
-     {
-     rosidl_tutorials_msgs::msg::Contact contact;
-     contact.first_name = "John";
-     contact.last_name = "Doe";
-     contact.age = 30;
-     contact.gender = contact.MALE;
-     contact.address = "unknown";
-     msg->address_book.push_back(person);
-     }
-     {
-     rosidl_tutorials_msgs::msg::Contact person;
-     contact.first_name = "Jane";
-     contact.last_name = "Doe";
-     contact.age = 20;
-     contact.gender = contact.FEMALE;
-     contact.address = "unknown";
-     msg->address_book.push_back(contact);
-     }
+    auto message = rosidl_tutorials::msg::AddressBook();
 
-We create and populate Contact messages and add them to our address_book message.
+Create an ``AddressBook`` message instance that we will later publish.
 
 .. code-block:: c++
 
-           std::cout << "Publishing address book:" << std::endl;
-           for (auto contact : msg->address_book) {
-             std::cout << "First:" << contact.first_name << "  Last:" << contact.last_name <<
-               std::endl;
-           }
+    message.first_name = "John";
+    message.last_name = "Doe";
+    message.age = 30;
+    message.gender = message.MALE;
+    message.address = "unknown";
 
-           address_book_publisher_->publish(msg);
+Populate ``AddressBook`` fields.
+
+.. code-block:: c++
+
+    std::cout << "Publishing Contact\nFirst:" << message.first_name <<
+      "  Last:" << message.last_name << std::endl;
+
+    this->address_book_publisher_->publish(message);
 
 Finally send the message periodically.
 
@@ -479,12 +282,16 @@ Finally send the message periodically.
 
        timer_ = this->create_wall_timer(1s, publish_msg);
 
-Create a 1second timer to call our ``publish_msg`` function every second
+Create a 1 second timer to call our ``publish_msg`` function every second.
 
-Now let's build it!
+3.2 Build the publisher
+~~~~~~~~~~~~~~~~~~~~~~~
+
 We need to create a new target for this node in the ``CMakeLists.txt``:
 
 .. code-block:: cmake
+
+   find_package(rclcpp REQUIRED)
 
    add_executable(publish_address_book
      src/publish_address_book.cpp
@@ -494,21 +301,132 @@ We need to create a new target for this node in the ``CMakeLists.txt``:
      "rclcpp"
    )
 
-In order to use the messages generated in the same package we need to use the following cmake code:
+   install(TARGETS publish_address_book
+    DESTINATION lib/${PROJECT_NAME})
+
+3.3 Link against the interface
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In order to use the messages generated in the same package we need to use the following CMake code:
 
 .. code-block:: cmake
 
-   get_default_rmw_implementation(rmw_implementation)
-   find_package("${rmw_implementation}" REQUIRED)
-   get_rmw_typesupport(typesupport_impls "${rmw_implementation}" LANGUAGE "cpp")
+  rosidl_target_interfaces(publish_address_book
+    ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
-   foreach(typesupport_impl ${typesupport_impls})
-     rosidl_target_interfaces(publish_address_book
-       ${PROJECT_NAME} ${typesupport_impl}
+This finds the relevant generated C++ code from ``AddressBook.msg`` and allows your target to link against it.
+
+You may have noticed that this step was not necessary when the interfaces being used were from a package that was built separately.
+This CMake code is only required when you want to use interfaces in the same package as the one in which they are used.
+
+4 Try it out
+^^^^^^^^^^^^
+
+Return to the root of the workspace to build the package:
+
+.. code-block:: bash
+
+  cd ~/dev_ws
+  colcon build --packages-up-to rosidl_tutorial
+
+Then source the workspace and run the publisher:
+
+.. code-block::
+
+  . install/local_setup.bash
+
+  ros2 run rosidl_tutorial publish_address_book
+
+You should see the publisher relaying the msg you defined, including the values you set in ``publish_address_book.cpp``.
+
+We won't create a subscriber in this tutorial, but you should try to write one yourself (use :ref:`CppPubSub` to help).
+
+5 (Extra) Use an existing interface definition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. note::
+
+  You can use an existing interface definition in a new interface definition.
+  For example, in the `rosidl_tutorials_msgs package <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_ on GitHub, there is a msg defined in a package called ``Contact.msg``.
+  Notice that it's identical to our custom-made ``AddressBook.msg`` interface from earlier.
+
+  You could have defined ``AddressBook.msg`` (an interface in the package *with* your nodes) as type ``Contact`` (an interface in a *separate* package).
+  You could even define ``AddressBook.msg`` as an *array* of type ``Contact``, like so:
+
+  ::
+
+     rosidl_tutorials_msgs/Contact[] address_book
+
+  To generate this message you would need to declare a dependency on ``Contact.msg's`` package, ``rosidl_tutorials_msgs``, in ``package.xml``:
+
+  .. code-block:: xml
+
+       <build_depend>rosidl_tutorials_msgs</build_depend>
+
+       <exec_depend>rosidl_tutorials_msgs</exec_depend>
+
+  And in ``CMakeLists.txt``:
+
+  .. code-block:: cmake
+
+     find_package(rosidl_tutorials_msgs REQUIRED)
+
+     rosidl_generate_interfaces(${PROJECT_NAME}
+       ${msg_files}
+       DEPENDENCIES rosidl_tutorials_msgs
      )
-   endforeach()
 
-This finds the relevant generated C++ code from msg/srv and allows your target to link against them.
+  You would also need to include the header of ``Contact.msg`` in you publisher node in order to be able to add ``contacts`` to your ``address_book``.
 
-You may have noticed that this step was not necessary when the interfaces being used were from a package that was built beforehand.
-This CMake code is only required when you are trying to use interfaces in the same package as that in which they are built.
+  .. code-block:: c++
+
+     #include "rosidl_tutorials_msgs/msg/contact.hpp"
+
+  You could change the call back to something like this:
+
+  .. code-block:: c++
+
+    auto publish_msg = [this]() -> void {
+       auto msg = std::make_shared<rosidl_tutorial::msg::AddressBook>();
+       {
+         rosidl_tutorials_msgs::msg::Contact contact;
+         contact.first_name = "John";
+         contact.last_name = "Doe";
+         contact.age = 30;
+         contact.gender = contact.MALE;
+         contact.address = "unknown";
+         msg->address_book.push_back(contact);
+       }
+       {
+         rosidl_tutorials_msgs::msg::Contact contact;
+         contact.first_name = "Jane";
+         contact.last_name = "Doe";
+         contact.age = 20;
+         contact.gender = contact.FEMALE;
+         contact.address = "unknown";
+         msg->address_book.push_back(contact);
+       }
+
+       std::cout << "Publishing address book:" << std::endl;
+       for (auto contact : msg->address_book) {
+         std::cout << "First:" << contact.first_name << "  Last:" << contact.last_name <<
+           std::endl;
+       }
+
+       address_book_publisher_->publish(*msg);
+     };
+
+  Building and running these changes should show the msg defined as expected (matching `Contact.msg <>`_)
+  as well as the array of msgs defined above.
+
+Summary
+-------
+
+In this tutorial, you tried out different field types for defining interfaces, then built an interface in the same package where it's being used.
+
+You also learned how to use another interface as a field type, as well as the ``package.xml``, ``CMakeLists.txt``, and ``#include`` statements necessary for utilizing that feature.
+
+Related content
+---------------
+
+There are `several design articles <http://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).

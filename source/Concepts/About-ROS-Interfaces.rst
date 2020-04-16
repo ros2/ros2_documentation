@@ -1,3 +1,5 @@
+.. _InterfaceConcept:
+
 .. redirect-from::
 
     About-ROS-Interfaces
