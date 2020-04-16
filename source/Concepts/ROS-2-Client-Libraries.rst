@@ -1,6 +1,4 @@
-.. redirect-from::
-
-   ROS-2-Client-Libraries
+.. _ROS-2-Client-Libraries:
 
 About ROS 2 client libraries
 ============================

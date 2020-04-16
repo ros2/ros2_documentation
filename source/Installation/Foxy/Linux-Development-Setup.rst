@@ -164,6 +164,8 @@ So if you want autocompletion, installing argcomplete is necessary.
 
    sudo apt install python3-argcomplete
 
+.. _latest-examples:
+
 Try some examples
 -----------------
 
