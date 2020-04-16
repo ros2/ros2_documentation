@@ -1,3 +1,5 @@
+.. _MaintainingSource:
+
 Maintaining a Source Checkout of ROS 2
 ======================================
 
@@ -143,8 +145,8 @@ Now that the workspace is up to date with the latest sources, remove your previo
 
    colcon build --symlink-install
 
-Inspecting your source checkout
--------------------------------
+Inspect your source checkout
+----------------------------
 
 During your development you may have deviated from the original state of your workspace from when you imported the repository list.
 If you wish to know the versions of the set of repositories in your workspace, you can export the information using the following command:
