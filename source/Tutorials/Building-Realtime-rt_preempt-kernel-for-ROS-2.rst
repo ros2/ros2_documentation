@@ -2,7 +2,7 @@
 
     Building-Realtime-rt_preempt-kernel-for-ROS-2
 
-Building Realtime Linux for ROS 2 [community-contributed]
+Building realtime Linux for ROS 2 [community-contributed]
 =========================================================
 
 This tutorial begins with a clean Ubuntu 16.04.2 install. Actual kernel is 4.13.0-38-generic, but we will install another one.
@@ -133,4 +133,3 @@ Then we install the kernel to /boot and update grub with
 .. image:: https://i.imgur.com/Y5ihCXd.png
    :target: https://i.imgur.com/Y5ihCXd.png
    :alt: eclipse-1
-

@@ -1,6 +1,6 @@
 .. _CodeStyle:
 
-Code Style and Language Versions
+Code style and language versions
 ================================
 
 .. contents:: Table of Contents

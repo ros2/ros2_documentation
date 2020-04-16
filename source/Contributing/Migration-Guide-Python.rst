@@ -2,7 +2,7 @@
 
     Migration-Guide-Python
 
-Python Migration guide from ROS 1
+Python migration guide from ROS 1
 =================================
 
 Node Initialization

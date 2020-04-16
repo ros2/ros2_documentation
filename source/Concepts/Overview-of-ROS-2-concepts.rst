@@ -4,7 +4,7 @@
 
 .. _Concepts:
 
-Overview of ROS 2 Concepts
+Overview of ROS 2 concepts
 ==========================
 
 .. contents:: Table of Contents

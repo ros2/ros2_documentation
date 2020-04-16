@@ -1,4 +1,4 @@
-ament_cmake User Documentation
+ament_cmake user documentation
 ==============================
 
 ament_cmake is the build system for CMake based packages in ROS 2 (in particular, it will be used for most if not all C/C++ projects).

@@ -2,7 +2,7 @@
 
     RQt-Source-Install-MacOS
 
-Building RQt from Source on macOS
+Building RQt from source on macOS
 =================================
 
 This page provides specific information to building RQt from source on macOS.

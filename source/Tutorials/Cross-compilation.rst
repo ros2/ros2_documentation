@@ -1,4 +1,4 @@
-Cross-Compilation
+Cross-compilation
 =================
 
 .. contents:: Table of Contents

@@ -2,7 +2,7 @@
 
     Real-Time-Programming
 
-Real-Time Programming in ROS 2
+Real-time programming in ROS 2
 ==============================
 
 .. contents:: Table of Contents
