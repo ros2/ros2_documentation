@@ -3,7 +3,7 @@
     Design-Guide
 
 
-Design Guide: Common patterns in ROS 2
+Design guide: common patterns in ROS 2
 ======================================
 
 Composable nodes as shared libraries

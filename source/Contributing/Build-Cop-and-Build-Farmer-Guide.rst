@@ -2,7 +2,7 @@
 
     Build-Cop-and-Build-Farmer-Guide
 
-Build Cop and Build Farmer Guide
+Build cop and build farmer guide
 ================================
 
 .. contents:: Table of Contents
@@ -294,5 +294,3 @@ Resources
    Set-up-a-new-Linux-CI-node
    Set-up-a-new-macOS-CI-node
    Set-up-a-new-Windows-CI-node
-
-

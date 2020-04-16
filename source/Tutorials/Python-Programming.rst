@@ -2,7 +2,7 @@
 
     Python-Programming
 
-Python Programming in ROS 2
+Python programming in ROS 2
 ===========================
 
 .. contents:: Table of Contents

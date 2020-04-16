@@ -1,6 +1,6 @@
 .. _CppParamNode:
 
-Using Parameters In A Class (C++)
+Using parameters in a class (C++)
 =================================
 
 **Goal:** Create and run a class with ROS parameters using C++.

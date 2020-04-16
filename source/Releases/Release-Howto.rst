@@ -2,7 +2,7 @@
 
     Release-Howto
 
-How to Release
+How to release
 ==============
 
 This page tries to capture the process we go through to make a new beta release of ROS 2.

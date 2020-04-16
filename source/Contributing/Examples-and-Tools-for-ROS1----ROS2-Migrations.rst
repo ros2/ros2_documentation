@@ -2,7 +2,7 @@
 
     Examples-and-Tools-for-ROS1----ROS2-Migrations
 
-Examples and tools for ROS1-to-ROS2 Migration
+Examples and tools for ROS1-to-ROS2 migration
 =============================================
 
 Examples of node/component level migrations
