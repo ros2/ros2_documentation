@@ -325,6 +325,8 @@ Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
 Related content
 ---------------
 
-In this tutorial, you used the ``call_async()`` API in your client node to call the service.
-There is another service call API available for Python called synchronous calls.
-We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :ref:`Synchronous vs. asynchronous clients <SyncAsync>`.
+* There are several ways you could write a service and client in Python; check out the ``minimal_client`` and ``minimal_service`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/services>`_ repo.
+
+* In this tutorial, you used the ``call_async()`` API in your client node to call the service.
+  There is another service call API available for Python called synchronous calls.
+  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :ref:`Synchronous vs. asynchronous clients <SyncAsync>`.
