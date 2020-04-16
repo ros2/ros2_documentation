@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Linux-Install-Binary
+    Installation/Linux-Install-Binary
 
 Installing ROS 2 on Linux
 =========================

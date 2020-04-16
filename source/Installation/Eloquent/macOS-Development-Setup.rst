@@ -1,7 +1,12 @@
 .. redirect-from::
 
-  Eloquent/OSX-Development-Setup
+  OSX-Development-Setup
   Installation/OSX-Development-Setup
+
+.. redirect-from::
+
+  macOS-Development-Setup
+  Installation/macOS-Development-Setup
 
 Building ROS 2 on macOS
 =======================

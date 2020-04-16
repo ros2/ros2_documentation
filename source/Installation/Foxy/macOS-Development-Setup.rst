@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Foxy/OSX-Development-Setup
+  Installation/Foxy/OSX-Development-Setup
 
 .. _macOS-latest:
 
