@@ -150,7 +150,7 @@ Getting the Source Code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2_crystal``:
+First setup a development folder, for example ``C:\dev\ros2_crystal``:
 
 .. code-block:: bash
 
