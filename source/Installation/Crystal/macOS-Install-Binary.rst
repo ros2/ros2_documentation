@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Crystal/OSX-Install-Binary
+   Installation/Crystal/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================

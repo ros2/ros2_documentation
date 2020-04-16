@@ -1,7 +1,12 @@
 .. redirect-from::
 
-  Eloquent/OSX-Development-Setup
+  OSX-Development-Setup
   Installation/OSX-Development-Setup
+
+.. redirect-from::
+
+  macOS-Development-Setup
+  Installation/macOS-Development-Setup
 
 Building ROS 2 on macOS
 =======================
@@ -186,6 +191,11 @@ This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
+
+Stay up to date
+---------------
+
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 .. _Eloquent_osx-development-setup-troubleshooting:
 

@@ -83,8 +83,8 @@ Install ``pydot`` and ``pyparsing``:
 
 
 PyGraphViz is a test dependency of ``qt_dotgraph``, but it is currently unsupported on Windows and building by source is not straight forward.
-Manually merging this patch is the currently recommended solution, but I could not get it to work.
-(see `pygraphviz patch <https://github.com/Kagami/pygraphviz/commit/fe442dc16accb629c3feaf157af75f67ccabbd6e>`__)
+Manually merging this patch is the currently recommended solution (not verified):
+`pygraphviz patch <https://github.com/Kagami/pygraphviz/commit/fe442dc16accb629c3feaf157af75f67ccabbd6e>`__
 
 
 Install RQt by source

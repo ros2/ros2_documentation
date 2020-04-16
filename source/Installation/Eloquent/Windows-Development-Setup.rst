@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Windows-Development-Setup
+    Installation/Windows-Development-Setup
 
 Building ROS 2 on Windows
 =========================
@@ -15,12 +19,12 @@ First follow the steps for `Installing Prerequisites <Eloquent_windows-install-b
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
-Additional Prerequisites
+Additional prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 When building from source you'll need a few additional prerequisites installed.
 
-Install Additional Prerequisites from Chocolatey
+Install additional prerequisites from Chocolatey
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 First install git:
@@ -40,8 +44,8 @@ Then install ``patch``:
 
 You may need to close the cmd prompt and open a new one, but at this point you should be able to run ``git``\ , ``python``\ , ``cmake``\ , and ``patch.exe --version``.
 
-Installing Developer Tools
---------------------------
+Install developer tools
+-----------------------
 
 Now we are ready to install some our tools that we use to help in developing ROS 2.
 
@@ -153,12 +157,12 @@ RQt dependencies
 
    > pip install -U pydot PyQt5
 
-Getting the Source Code
------------------------
+Get the ROS 2 code
+------------------
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, I use ``C:\dev\ros2_eloquent``:
+First setup a development folder, for example ``C:\dev\ros2_eloquent``:
 
 .. code-block:: bash
 
@@ -190,8 +194,8 @@ Install additional DDS implementations (optional)
 
 If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-source>`.
 
-Building the ROS 2 Code
------------------------
+Build the ROS 2 code
+--------------------
 
 .. _windows-dev-build-ros2:
 
@@ -228,8 +232,8 @@ This will automatically set up the environment for any DDS vendors that support 
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
-Testing and Running
--------------------
+Test and run
+------------
 
 Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
 
@@ -273,11 +277,6 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 .. note::
 
    It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
-
-Troubleshooting
----------------
-
-Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 
 Extra stuff for Debug mode
 --------------------------
@@ -364,6 +363,16 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python_d path\to\colcon_executable build
 
 * Hooray, you're done!
+
+Stay up to date
+---------------
+
+See :ref:`MaintainingSource` to periodically refresh your source installation.
+
+Troubleshooting
+---------------
+
+Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 
 Uninstall
 ---------

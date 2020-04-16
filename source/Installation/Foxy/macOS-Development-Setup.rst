@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Foxy/OSX-Development-Setup
+  Installation/Foxy/OSX-Development-Setup
 
 .. _macOS-latest:
 
@@ -128,7 +128,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_foxy/src
    cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -179,6 +179,11 @@ This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
+
+Stay up to date
+---------------
+
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 .. _Foxy_osx-development-setup-troubleshooting:
 

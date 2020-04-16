@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Foxy/OSX-Install-Binary
+  Installation/Foxy/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================

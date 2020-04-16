@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Crystal/OSX-Development-Setup
+   Installation/Crystal/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================
@@ -169,6 +169,11 @@ This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 See the `tutorials and demos </Tutorials>` for other things to try.
+
+Stay up to date
+---------------
+
+See :ref:`MaintainingSource` to periodically refresh your source installation.
 
 .. _osx-development-setup-troubleshooting:
 
