@@ -235,15 +235,6 @@ Uninstall
 https://aka.ms/ros project hosts ROS 2 daily builds from the upstream repositories.
 This section explains how to install ROS 2 from this channel.
 
-Install Chocolatey
-^^^^^^^^^^^^^^^^^^
-
-Chocolatey is a package manager for Windows, install it by following their installation instructions:
-
-https://chocolatey.org/
-
-You'll use Chocolatey to install some other developer tools.
-
 Install ROS 2 Daily Builds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -251,10 +242,10 @@ In an administrative command prompt, run the following commands.
 
 .. code-block:: bash
 
-   mkdir c:\opt\chocolatey
-   set ChocolateyInstall=c:\opt\chocolatey
-   choco source add -n=ros-win -s="https://roswin.azurewebsites.net/api/v2" --priority=1
-   choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
+   > mkdir c:\opt\chocolatey
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco source add -n=ros-win -s="https://roswin.azurewebsites.net/api/v2" --priority=1
+   > choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
 
 Environment setup
 ^^^^^^^^^^^^^^^^^^
@@ -273,8 +264,8 @@ To keep up-to-dated with the latest builds, run:
 
 .. code-block:: bash
 
-   set ChocolateyInstall=c:\opt\chocolatey
-   choco upgrade ros-eloquent-desktop -y --execution-timeout=0 --pre
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco upgrade all -y --execution-timeout=0
 
 Uninstall
 ^^^^^^^^^
@@ -283,4 +274,4 @@ If you want to completely remove the environment downloaded above, run this comm
 
 .. code-block:: bash
 
-   rmdir /s /q C:\opt\
+   > rmdir /s /q C:\opt\
