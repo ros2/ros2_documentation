@@ -60,13 +60,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_publisher/member_function.cpp
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``publisher_member_function.cpp``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_publisher/member_function.cpp
+      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -292,13 +292,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_subscriber/member_function.cpp
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``subscriber_member_function.cpp``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/minimal_subscriber/member_function.cpp
+      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
 
 Entering ``ls`` in the console will now return:
 
