@@ -116,7 +116,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
    .. group-tab:: Foxy or newer
 
       .. code-block:: python
-      
+
          from  launch import LaunchDescription
          from launch_ros.actions import Node
 
