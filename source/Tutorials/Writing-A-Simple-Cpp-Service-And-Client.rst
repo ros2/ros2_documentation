@@ -378,4 +378,4 @@ Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
 Related content
 ---------------
 
-* There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp>`_ repo.
+* There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp/services>`_ repo.
