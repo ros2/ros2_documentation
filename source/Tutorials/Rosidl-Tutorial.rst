@@ -20,12 +20,15 @@ Expanding on rosidl interfaces
 Background
 ----------
 
-In a :ref:`previous tutorial <CustomInterfaces>`, you learned how create custom msg and srv interfaces.
+In a :ref:`previous tutorial <CustomInterfaces>`, you learned how to create custom msg and srv interfaces.
 
 .. In previous tutorials, you learned how to create :ref:`custom msg and srv interfaces <CustomInterfaces>` and :ref:`action interfaces <ActionCreate>`. (When actions redo is done)
 
 While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
-Recall that interfaces can currently only be defined in CMake packages, so the node you plan on using the interface with will also need to be written in C++.
+
+Recall that interfaces can currently only be defined in CMake packages.
+It is possible, however, to have Python libraries and nodes in CMake packages (using `ament_cmake_python <https://github.com/ament/ament_cmake/tree/master/ament_cmake_python>`_), so you could define interfaces and Python nodes together in one package.
+We'll use a CMake package and C++ nodes here for the sake of simplicity.
 
 This tutorial will focus on the msg interface type, but the steps here are applicable to all interface types.
 
@@ -135,7 +138,7 @@ Also make sure you export the message runtime dependency:
 Now you're ready to generate source files from your msg definition.
 
 2.2 (Extra) Set multiple interfaces
-"""""""""""""""""""""""""""""""""""
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
@@ -194,16 +197,16 @@ In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` an
       auto publish_msg = [this]() -> void {
           auto message = rosidl_tutorial::msg::AddressBook();
 
-          message.first_name = "John";
-          message.last_name = "Doe";
-          message.age = 30;
-          message.gender = message.MALE;
-          message.address = "unknown";
+          message->first_name = "John";
+          message->last_name = "Doe";
+          message->age = 30;
+          message->gender = message->MALE;
+          message->address = "unknown";
 
-          std::cout << "Publishing Contact\nFirst:" << message.first_name <<
-            "  Last:" << message.last_name << std::endl;
+          std::cout << "Publishing Contact\nFirst:" << message->first_name <<
+            "  Last:" << message->last_name << std::endl;
 
-          this->address_book_publisher_->publish(message);
+          this->address_book_publisher_->publish(*message);
         };
       timer_ = this->create_wall_timer(1s, publish_msg);
     }
