@@ -317,13 +317,13 @@ We chose the following more precise rule where PEP 8 leaves some freedom:
 * `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
 * `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
 
-Tools like the ``(ament_)pep8`` Python package should be used in unit-test and/or editor integration for checking Python code style.
+Tools like the ``(ament_)pycodestyle`` Python package should be used in unit-test and/or editor integration for checking Python code style.
 
-The pep8 configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pep8/ament_pep8/configuration/ament_pep8.ini>`__.
+The pycodestyle configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/master/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__.
 
 Integration with editors:
 
-* atom: https://atom.io/packages/linter-pep8
+* atom: https://atom.io/packages/linter-pycodestyle
 * emacs: http://kwbeam.com/emacs-for-python-i.html
 * Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
 * vim: https://github.com/nvie/vim-flake8
