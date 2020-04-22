@@ -118,6 +118,12 @@ The required changes are straightforward, and can be seen demonstrated in these 
 - [https://github.com/ros2/rosbag2/pull/375/files](https://github.com/ros2/rosbag2/pull/375/files)
 - [https://github.com/ros2/ros1_bridge/pull/253/files](https://github.com/ros2/ros1_bridge/pull/253/files)
 
+Breaking change in Node Interface getters' signature
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+With pull request [https://github.com/ros2/rclcpp/pull/1069](https://github.com/ros2/rclcpp/pull/1069), the signature of node interface getters has been modified to return shared ownership of node interfaces (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
+Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
+
 rclpy
 ^^^^^
 
