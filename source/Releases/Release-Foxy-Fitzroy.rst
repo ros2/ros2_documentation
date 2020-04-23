@@ -110,13 +110,13 @@ rclcpp
 Change in Advanced Subscription Callback Signature
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-With the pull request [https://github.com/ros2/rclcpp/pull/1047](https://github.com/ros2/rclcpp/pull/1047) the signature of callbacks which receive the message info with the message has changed.
+With the pull request `https://github.com/ros2/rclcpp/pull/1047 <https://github.com/ros2/rclcpp/pull/1047>`_ the signature of callbacks which receive the message info with the message has changed.
 Previously it used the ``rmw`` type ``rmw_message_info_t``, but now uses the ``rclcpp`` type ``rclcpp::MessageInfo``.
 The required changes are straightforward, and can be seen demonstrated in these pull requests:
 
-- [https://github.com/ros2/system_tests/pull/423/files](https://github.com/ros2/system_tests/pull/423/files)
-- [https://github.com/ros2/rosbag2/pull/375/files](https://github.com/ros2/rosbag2/pull/375/files)
-- [https://github.com/ros2/ros1_bridge/pull/253/files](https://github.com/ros2/ros1_bridge/pull/253/files)
+- `https://github.com/ros2/system_tests/pull/423/files <https://github.com/ros2/system_tests/pull/423/files>`_
+- `https://github.com/ros2/rosbag2/pull/375/files <https://github.com/ros2/rosbag2/pull/375/files>`_
+- `https://github.com/ros2/ros1_bridge/pull/253/files <https://github.com/ros2/ros1_bridge/pull/253/files>`_
 
 Change in Serialized Message Callback Signature
 """""""""""""""""""""""""""""""""""""""""""""""
