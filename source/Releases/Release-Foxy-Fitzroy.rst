@@ -126,6 +126,12 @@ The previously used C-Struct `rcl_serialized_message_t <https://github.com/ros2/
 
 The example nodes in ``demo_nodes_cpp``, namely ``talker_serialized_message`` as well as ``listener_serialized_message`` reflect these changes.
 
+Breaking change in Node Interface getters' signature
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+With pull request `ros2/rclcpp#1069 <https://github.com/ros2/rclcpp/pull/1069>`_, the signature of node interface getters has been modified to return shared ownership of node interfaces (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
+Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
+
 rclpy
 ^^^^^
 
