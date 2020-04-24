@@ -36,6 +36,7 @@ Beginner: CLI Tools
    Tutorials/Rqt-Console/Using-Rqt-Console
    Tutorials/Launch-Files/Creating-Launch-Files
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
+   Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
 
 Beginner: Client Libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

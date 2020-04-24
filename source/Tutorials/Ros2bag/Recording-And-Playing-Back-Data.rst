@@ -257,3 +257,4 @@ Related content
 ---------------
 
 A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
+For more information on QoS compatibility and ``ros2 bag``, see :ref:`ROS2Bag-QoS-Override`.
