@@ -185,6 +185,10 @@ Timeline before the release
 
 A few milestones leading up to the release:
 
+    .. note::
+
+      The dates below reflect an extension by roughly two weeks due to the coronavirus pandemic.
+
     Wed. April 22nd, 2020
         API and feature freeze for ``ros_core`` [1]_ packages.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
