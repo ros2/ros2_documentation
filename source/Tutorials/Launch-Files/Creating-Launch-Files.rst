@@ -253,10 +253,11 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 3 ros2 launch
 ^^^^^^^^^^^^^
 
-To launch ``turtlesim_mimic_launch.py``, run the following command:
+To launch ``turtlesim_mimic_launch.py``, enter into the directory you created earlier and run the following command:
 
 .. code-block:: console
 
+  cd launch
   ros2 launch turtlesim_mimic_launch.py
 
 .. note::
