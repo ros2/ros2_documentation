@@ -156,19 +156,27 @@ You need to resolve dependencies and build the workspace first.
 4 Resolve dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. note::
-
-  rosdep only runs on Linux, so if you're working on macOS or Windows, skip ahead to section "5 Build the workspace with colcon".
-
 Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
 From the root of your workspace (``~/dev_ws``), run the following command, replacing ``<distro>`` with your distro:
 
-.. code-block:: console
+.. tabs::
 
-  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        sudo rosdep install -i --from-path src --rosdistro <distro> -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
+
+   .. group-tab:: Windows
+
+      rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
 
 If you installed ROS 2 on Linux from source or the "fat" archive, you will need to use the rosdep command from their installation instructions.
 For example, here are the Eloquent :ref:`from-source rosdep section <Eloquent_linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`"fat" archive rosdep section <Eloquent_linux-install-binary-install-missing-dependencies>`.
