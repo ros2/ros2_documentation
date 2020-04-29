@@ -156,6 +156,10 @@ You need to resolve dependencies and build the workspace first.
 4 Resolve dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+  rosdep only runs on Linux, so if you're working on macOS or Windows, skip ahead to section "5 Build the workspace with colcon".
+
 Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
