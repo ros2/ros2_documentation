@@ -185,15 +185,6 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
 
 
   * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/master/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
-
-*
-  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
-
-*
-  Remove any occurrences of the *devel space*.
-  Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
-
-
   * ``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``
   * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``
   * ``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``
