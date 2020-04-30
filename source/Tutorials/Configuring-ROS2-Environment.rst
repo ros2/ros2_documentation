@@ -147,7 +147,7 @@ If your lab or office has multiple, different groups of computers running ROS 2,
 
 The domain ID is used to segment the network in order to avoid interference between different groups of computers running ROS 2 on the same local area network. Machines with different domain id's will not talk, nor interfere, with each other.
 
-If you run into issues having multiple computers talk to each other check Troubleshooting (https://index.ros.org/doc/ros2/Troubleshooting/). Additionally, there are multiple answers at discouse.ros.org and answers.ros.org with more in-depth information.
+If you run into issues having multiple computers talk to each other check Troubleshooting (https://index.ros.org/doc/ros2/Troubleshooting/). Additionally, there are multiple answers at discourse.ros.org and answers.ros.org with more in-depth information.
 
 Once you have determined a unique integer for your group of ROS 2 agents, you can set the environment variable with the following command:
 
