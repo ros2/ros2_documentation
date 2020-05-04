@@ -48,6 +48,20 @@ ament_export_interfaces replaced by ament_export_targets
 The CMake function ``ament_export_interfaces`` from the package ``ament_cmake_export_interfaces`` has been deprecated in favor of the function ``ament_export_targets`` in the new package ``ament_cmake_export_targets``.
 See the GitHub ticket `ament/ament_cmake#237 <https://github.com/ament/ament_cmake/issues/237>`_ for more context.
 
+rosidl_generator_c|cpp namespace / API changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The packages ``rosidl_generator_c`` and ``rosidl_generator_cpp`` have been refactored with many headers and sources moved into the new packages ``rosidl_runtime_c`` and ``rosidl_runtime_cpp``.
+The intention is to remove run dependencies on the generator packages and therefore the code generation tools using Python.
+While moving the headers the include paths / namespaces were updated accordingly so in many cases changing include directives from the generator package to the runtime package is sufficient.
+
+The generated C / C++ code has also been refactored.
+The files ending in ``__struct.h|hpp``, ``__functions.h``, ``__traits.hpp``, etc. have been moved into a subdirectory ``detail`` but most code only includes the header named after the interface without any of these suffixes.
+
+Some types regarding string and sequence bounds have also been renamed to match the naming conventions but they aren't expected to be used in user code (above RMW implementation and type support packages)
+
+For more information see `ros2/rosidl#446 (for C) <https://github.com/ros2/rosidl/issues/446>`_ and `ros2/rosidl#447 (for C++) <https://github.com/ros2/rosidl/issues/447>`_.
+
 Default working directory for ament_add_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
