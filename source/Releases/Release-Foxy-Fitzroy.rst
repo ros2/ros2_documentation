@@ -53,7 +53,7 @@ rosidl_generator_c|cpp namespace / API changes
 
 The packages ``rosidl_generator_c`` and ``rosidl_generator_cpp`` have been refactored with many headers and sources moved into the new packages ``rosidl_runtime_c`` and ``rosidl_runtime_cpp``.
 The intention is to remove run dependencies on the generator packages and therefore the code generation tools using Python.
-While moving the header the include paths / namespaces were updated accordingly so in many cases changing include directives from the generator package to the runtime package is sufficient.
+While moving the headers the include paths / namespaces were updated accordingly so in many cases changing include directives from the generator package to the runtime package is sufficient.
 
 The generated C / C++ code has also been refactored.
 The files ending in ``__struct.h|hpp``, ``__functions.h``, ``__traits.hpp``, etc. have been moved into a subdirectory ``detail`` but most code only includes the header named after the interface without any of these suffixes.
