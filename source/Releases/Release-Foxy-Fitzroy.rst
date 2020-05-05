@@ -2,7 +2,7 @@
 
 .. move this directive when next release page is created
 
-ROS 2 Foxy Fitzroy (codename 'foxy'; May 23rd, 2020)
+ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
 ====================================================
 
 .. contents:: Table of Contents
@@ -213,29 +213,24 @@ Timeline before the release
 
 A few milestones leading up to the release:
 
-.. note::
+    .. note::
 
-  The coronavirus pandemic has slowed down the progress on a few very important features / improvements / bug fixes which are targeted for Foxy.
-  As a consequence the following dates are subject to maximum delay of two weeks.
-  You should not rely on these extra two weeks but still aim to meet the below deadlines to land any contributions to the ``ros_core`` packages.
-  Once all the pull requests considered to be very important have landed the API freeze will happen right away and not wait for the full two weeks.
-  Also if any of the desired changes doesn't land within the two weeks extension the freeze will happen anyway.
-  The subsequent dates will likely shift by the same duration the API and feature freeze date has shifted and will be updated accordingly.
+      The dates below reflect an extension by roughly two weeks due to the coronavirus pandemic.
 
-    Wed. April 8th, 2020 (potentially delayed until up to April 22nd)
+    Wed. April 22nd, 2020
         API and feature freeze for ``ros_core`` [1]_ packages.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 13th, 2020 (beta) (subject to change based on shift of the API and feature freeze date)
+    Mon. April 29th, 2020 (beta)
         Updated releases of ``desktop`` [2]_ packages available.
         Testing of the new features.
 
-    Wed. May 13th, 2020 (release candidate) (subject to change based on shift of the API and feature freeze date)
+    Wed. May 27th, 2020 (release candidate)
         Updated releases of ``desktop`` [2]_ packages available.
 
-    Wed. May 20, 2020 (subject to change based on shift of the API and feature freeze date)
+    Wed. June 3rd, 2020
         Freeze rosdistro.
         No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
 
