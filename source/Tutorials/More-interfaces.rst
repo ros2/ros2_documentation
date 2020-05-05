@@ -4,10 +4,10 @@
 
     Rosidl-Tutorial
 
-Expanding on rosidl interfaces
-==============================
+Expanding on ROS 2 interfaces
+=============================
 
-**Goal:** Learn more about custom interfaces and using rosidl
+**Goal:** Learn more ways to implement custom interfaces in ROS 2
 
 **Tutorial level:** Intermediate
 
@@ -49,18 +49,18 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-In your workspace, create a package ``rosidl_tutorial`` and make a folder within it for msg files:
+In your workspace, create a package ``more_interfaces`` and make a folder within it for msg files:
 
 .. code-block:: bash
 
    cd ~/dev_ws/src
-   ros2 pkg create --build-type ament_cmake rosidl_tutorial
-   mkdir rosidl_tutorial/msg
+   ros2 pkg create --build-type ament_cmake more_interfaces
+   mkdir more_interfaces/msg
 
 2 Create a msg file
 ^^^^^^^^^^^^^^^^^^^
 
-Inside ``rosidl_tutorials/msg``, create a new file ``AddressBook.msg``
+Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``
 
 Paste the following code to create a message meant to carry information about an individual:
 
@@ -173,7 +173,7 @@ Now you're ready to generate source files from your msg definition.
 
 Now we can start writing code that uses this message.
 
-In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` and paste the following code:
+In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and paste the following code:
 
 .. code-block:: c++
 
@@ -181,7 +181,7 @@ In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` an
   #include <memory>
 
   #include "rclcpp/rclcpp.hpp"
-  #include "rosidl_tutorial/msg/address_book.hpp"
+  #include "more_interfaces/msg/address_book.hpp"
 
   using namespace std::chrono_literals;
 
@@ -192,10 +192,10 @@ In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` an
     : Node("address_book_publisher")
     {
       address_book_publisher_ =
-        this->create_publisher<rosidl_tutorial::msg::AddressBook>("address_book", 10);
+        this->create_publisher<more_interfaces::msg::AddressBook>("address_book", 10);
 
       auto publish_msg = [this]() -> void {
-          auto message = rosidl_tutorial::msg::AddressBook();
+          auto message = more_interfaces::msg::AddressBook();
 
           message->first_name = "John";
           message->last_name = "Doe";
@@ -212,7 +212,7 @@ In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` an
     }
 
   private:
-    rclcpp::Publisher<rosidl_tutorial::msg::AddressBook>::SharedPtr address_book_publisher_;
+    rclcpp::Publisher<more_interfaces::msg::AddressBook>::SharedPtr address_book_publisher_;
     rclcpp::TimerBase::SharedPtr timer_;
   };
 
@@ -231,7 +231,7 @@ In ``rosidl_tutorials/src`` create a file called ``publish_address_book.cpp`` an
 
 .. code-block:: c++
 
-   #include "rosidl_tutorial/msg/address_book.hpp"
+   #include "more_interfaces/msg/address_book.hpp"
 
 Include the header of our newly created ``AddressBook.msg``.
 
@@ -246,7 +246,7 @@ Include the header of our newly created ``AddressBook.msg``.
      : Node("address_book_publisher")
      {
        address_book_publisher_ =
-         this->create_publisher<rosidl_tutorials::msg::AddressBook>("address_book");
+         this->create_publisher<more_interfaces::msg::AddressBook>("address_book");
 
 Create a node and an ``AddressBook`` publisher.
 
@@ -258,7 +258,7 @@ Create a callback to publish the messages periodically.
 
 .. code-block:: c++
 
-    auto message = rosidl_tutorials::msg::AddressBook();
+    auto message = more_interfaces::msg::AddressBook();
 
 Create an ``AddressBook`` message instance that we will later publish.
 
@@ -330,7 +330,7 @@ Return to the root of the workspace to build the package:
 .. code-block:: bash
 
   cd ~/dev_ws
-  colcon build --packages-up-to rosidl_tutorial
+  colcon build --packages-up-to more_interfaces
 
 Then source the workspace and run the publisher:
 
@@ -338,7 +338,7 @@ Then source the workspace and run the publisher:
 
   . install/local_setup.bash
 
-  ros2 run rosidl_tutorial publish_address_book
+  ros2 run more_interfaces publish_address_book
 
 You should see the publisher relaying the msg you defined, including the values you set in ``publish_address_book.cpp``.
 
@@ -350,7 +350,7 @@ We won't create a subscriber in this tutorial, but you should try to write one y
 .. note::
 
   You can use an existing interface definition in a new interface definition.
-  For example, in the `rosidl_tutorials_msgs package <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_ on GitHub, there is a msg defined in a package called ``Contact.msg``.
+  For example, the `rosidl_tutorials_msgs package <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_ on GitHub has a msg named ``Contact.msg``.
   Notice that it's identical to our custom-made ``AddressBook.msg`` interface from earlier.
 
   You could have defined ``AddressBook.msg`` (an interface in the package *with* your nodes) as type ``Contact`` (an interface in a *separate* package).
@@ -390,7 +390,7 @@ We won't create a subscriber in this tutorial, but you should try to write one y
   .. code-block:: c++
 
     auto publish_msg = [this]() -> void {
-       auto msg = std::make_shared<rosidl_tutorial::msg::AddressBook>();
+       auto msg = std::make_shared<more_interfaces::msg::AddressBook>();
        {
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "John";

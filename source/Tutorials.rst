@@ -65,7 +65,7 @@ Working With Your First Package & Workspace
    Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-CMake-Documentation
-   Tutorials/Rosidl-Tutorial.rst
+   Tutorials/More-interfaces.rst
 
 Learning the ROS 2 Toolset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
