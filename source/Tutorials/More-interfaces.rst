@@ -1,4 +1,4 @@
-.. _ros-idl:
+.. _more-interfaces:
 
 .. redirect-from::
 
@@ -9,7 +9,7 @@ Expanding on ROS 2 interfaces
 
 **Goal:** Learn more ways to implement custom interfaces in ROS 2
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Beginner
 
 **Time:** 15 minutes
 
@@ -428,6 +428,12 @@ Summary
 In this tutorial, you tried out different field types for defining interfaces, then built an interface in the same package where it's being used.
 
 You also learned how to use another interface as a field type, as well as the ``package.xml``, ``CMakeLists.txt``, and ``#include`` statements necessary for utilizing that feature.
+
+Next steps
+----------
+
+Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
+This tutorial is available in :ref:`C++ <CppParamNode>`.
 
 Related content
 ---------------

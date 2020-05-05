@@ -50,6 +50,7 @@ Beginner: Client Libraries
    Tutorials/Writing-A-Simple-Cpp-Service-And-Client
    Tutorials/Writing-A-Simple-Py-Service-And-Client
    Tutorials/Custom-ROS2-Interfaces
+   Tutorials/More-interfaces.rst
    Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Getting-Started-With-Ros2doctor
 
@@ -65,7 +66,6 @@ Working With Your First Package & Workspace
    Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-CMake-Documentation
-   Tutorials/More-interfaces.rst
 
 Learning the ROS 2 Toolset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
