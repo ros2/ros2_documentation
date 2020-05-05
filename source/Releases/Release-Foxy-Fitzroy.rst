@@ -42,6 +42,25 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes since the Eloquent release
 ----------------------------------
 
+Classic CMake vs. modern CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In "classic" CMake a package provides CMake variables like ``<pkgname>_INCLUDE_DIRS`` and ``<pkgname>_LIBRARIES`` when being ``find_package()``-ed.
+With ``ament_cmake`` that is achieved by calling ``ament_export_include_directories`` and ``ament_export_libraries``.
+In combination with ``ament_export_dependencies``, ``ament_cmake`` ensures that all include directories and libraries of recursive dependencies are concattenated and included in these variables.
+
+In "modern" CMake a package provides an interface target instead (commonly named ``<pkgname>::<pkgname>``) which in itself encapsulates all recursive dependencies.
+In order to export a library target to use modern CMake ``ament_export_targets`` needs to be called with an export name which is also used when installing the libraries using ``install(TARGETS <libA> <libB> EXPORT <export_name> ...)``.
+The exported interface targets are available through the CMake variable ``<pkgname>_TARGETS``.
+For library targets to be exportable like this they must not rely on classic functions affecting global state like ``include_directories()`` but set the include directories on the target itself - for the build as well as install environment - using generator expressions, e.g. ``target_include_directories(<target> PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>" "$<INSTALL_INTERFACE:include>")``.
+
+When ``ament_target_dependencies`` is used to add dependencies to a library target the function uses modern CMake targets when they are available.
+Otherwise it falls back to using classic CMake variables.
+As a consequence you should only export modern CMake targets if all dependencies are also providing modern CMake targets.
+**Otherwise the exported interface target will contain the absolute paths to include directories / libraries in the generated CMake logic which makes the package non-relocatable.**
+
+For examples how packages have been updated to modern CMake in Foxy see `ros2/ros2#904 <https://github.com/ros2/ros2/issues/904>`_.
+
 ament_export_interfaces replaced by ament_export_targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
