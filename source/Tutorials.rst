@@ -88,7 +88,6 @@ Advanced
 
    Tutorials/Sync-Vs-Async
    Tutorials/Working-with-multiple-RMW-implementations
-   Tutorials/Working-with-Eclipse-CycloneDDS
    Tutorials/catment
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial

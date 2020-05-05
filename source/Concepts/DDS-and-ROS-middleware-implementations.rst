@@ -6,9 +6,9 @@ ROS 2 and different DDS/RTPS vendors
 ====================================
 
 ROS 2 is built on top of DDS/RTPS as its middleware, which provides discovery, serialization and transportation.
-`This article <http://design.ros2.org/articles/ros_on_dds.html>`__ explains the motivation behind using DDS implementations, and/or the RTPS wire protocol of DDS, in detail, but in summary DDS is an end-to-end middleware that provides features which are relevant to ROS systems, such as distributed discovery (not centralized like in ROS 1) and control over different "Quality of Service" options for the transportation.
+`This article <http://design.ros2.org/articles/ros_on_dds.html>`__ explains the motivation behind using DDS implementations, and/or the RTPS wire protocol of DDS, in detail. In summary, DDS is an end-to-end middleware that provides features which are relevant to ROS systems, such as distributed discovery (not centralized like in ROS 1) and control over different "Quality of Service" options for the transportation.
 
-`DDS <http://portals.omg.org/dds/>`__ is an industry standard which is then implemented by a range of vendors, such as RTI's implementation `Connext <https://www.rti.com/products/>`__ or ADLINK's implementation `OpenSplice <https://github.com/ADLINK-IST/opensplice>`__
+`DDS <http://portals.omg.org/dds/>`__ is an industry standard which is then implemented by a range of vendors, such as RTI's implementation `Connext <https://www.rti.com/products/>`__, ADLINK's implementation `OpenSplice <https://github.com/ADLINK-IST/opensplice>`__ or `Eclipse's CycloneDDS <https://projects.eclipse.org/projects/iot.cyclonedds>`__.
 RTPS (a.k.a. `DDSI-RTPS <https://www.omg.org/spec/DDSI-RTPS/About-DDSI-RTPS/>`__\ ) is the wire protocol used by DDS to communicate over the network, and there are implementations of that which do not fulfill the full DDS API, but provide sufficient functionality for ROS 2, such as eProsima's implementation `Fast RTPS <http://www.eprosima.com/index.php/products-all/eprosima-fast-rtps>`__.
 
 ROS 2 supports multiple DDS/RTPS implementations because it is not necessarily "one size fits all" when it comes to choosing a vendor/implementation.
@@ -45,6 +45,10 @@ Supported RMW implementations
      - Apache 2, commercial
      - ``rmw_opensplice_cpp``
      - Partial support. Support included in binaries, but OpenSplice installed separately.
+   * - Eclipse *CycloneDDS*
+     -
+     - rmw_cyclonedds_cpp
+     - Full support. Packaged with binary releases from Eloquent on.
 
 
 *"Partial support" means that one or more of the features required by the rmw interface is not implemented.*

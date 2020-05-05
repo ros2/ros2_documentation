@@ -19,7 +19,7 @@ You should have already read the `DDS and ROS middleware implementations page <.
 Multiple RMW implementations
 ----------------------------
 
-The current ROS 2 binary releases have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, and ADLINK OpenSplice at the time of writing), but only Fast RTPS (the default) works without any additional installation steps, because it is the only one we distribute with our binary packages.
+The current ROS 2 binary releases have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, ADLINK OpenSplice and Eclipse CycloneDDS). The default is Fast RTPS, which works without any additional installation steps, because we distribute it with our binary packages. CycloneDDS is also distributed with binary packages since Eloquent.
 
 Others like OpenSplice or Connext can be enabled by installing additional packages, but without having to rebuild anything or replace any existing packages.
 
@@ -49,7 +49,7 @@ To have multiple RMW implementations available for use you must have installed o
 Starting in Beta 2 and above both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION``.
 To choose a different RMW implemenation you can set the environment variable ``RMW_IMPLEMENTATION`` to a specific implementation identifier.
 
-To run the talker demo using the C++ and listener using python with the RMW implementation for connext:
+To run the talker demo using the C++ and listener using Python with the RMW implementation for connext:
 
 .. tabs::
 
@@ -89,9 +89,6 @@ Troubleshooting
 
 Ensuring use of a particular RMW implementation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 Ardent and later
-~~~~~~~~~~~~~~~~~~~~~~
 
 If the ``RMW_IMPLEMENTATION`` environment variable is set to an RMW implementation for which support is not installed, you will see an error message similar to the following if you have only one implementation installed:
 

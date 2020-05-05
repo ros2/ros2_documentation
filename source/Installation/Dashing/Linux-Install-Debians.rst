@@ -106,8 +106,8 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 
 .. _Dashing_linux-install-additional-rmw-implementations:
 
-Install additional RMW implementations
---------------------------------------
+Install additional RMW implementations (optional)
+-------------------------------------------------
 
 By default the RMW implementation ``FastRTPS`` is used.
 
@@ -122,11 +122,9 @@ To install support for OpenSplice or RTI Connext:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice.
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_connext_cpp`` you can switch to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
 
 .. _Dashing_linux-ros1-add-pkgs:
-
-`University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------
