@@ -54,9 +54,10 @@ In order to export a library target to use modern CMake ``ament_export_targets``
 The exported interface targets are available through the CMake variable ``<pkgname>_TARGETS``.
 For library targets to be exportable like this they must not rely on classic functions affecting global state like ``include_directories()`` but set the include directories on the target itself - for the build as well as install environment - using generator expressions, e.g. ``target_include_directories(<target> PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>" "$<INSTALL_INTERFACE:include>")``.
 
-When ``ament_target_dependencies`` is being used to add dependencies to a library target the function is using modern CMake targets when available and falling back to classic CMake variables.
+When ``ament_target_dependencies`` is used to add dependencies to a library target the function uses modern CMake targets when they are available.
+Otherwise it falls back to using classic CMake variables.
 As a consequence you should only export modern CMake targets if all dependencies are also providing modern CMake targets.
-Otherwise the exported interface target will contains the absolute paths toof include directories / libraries in the generated CMake logic which makes the package non-relocatable.
+Otherwise the exported interface target will contain the absolute paths to include directories / libraries in the generated CMake logic which makes the package non-relocatable.
 
 For examples how packages have been updated to modern CMake in Foxy see `ros2/ros2#904 <https://github.com/ros2/ros2/issues/904>`_.
 
