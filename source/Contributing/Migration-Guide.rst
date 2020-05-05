@@ -5,6 +5,10 @@
 Migration guide from ROS 1
 ==========================
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 There are two different kinds of package migrations:
 
 * Migrating the source code of an existing package from ROS 1 to ROS 2 with the intent that a significant part of the source code will stay the same or at least similar.
@@ -13,7 +17,7 @@ There are two different kinds of package migrations:
   An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/master/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
 
 This article focuses on the former case and describes the high-level steps to migrate a ROS 1 package to ROS 2.
-It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
+It does not aim to be step-by-step migration instructions and is not considered a comprehensive solution.
 Future versions will aim to make migration smoother and less effort up to the point of maintaining a single package from the same branch for ROS 1 as well as ROS 2.
 
 Prerequisites
@@ -23,10 +27,6 @@ Before being able to migrate a ROS 1 package to ROS 2 all of its dependencies mu
 
 Migration steps
 ---------------
-
-.. contents::
-   :depth: 1
-   :local:
 
 Package manifests
 ^^^^^^^^^^^^^^^^^
@@ -334,17 +334,6 @@ Usages of ros::Rate
 ~~~~~~~~~~~~~~~~~~~
 
 There is an equivalent type ``rclcpp::Rate`` object which is basically a drop in replacement for ``ros::Rate``.
-
-ROS client library
-~~~~~~~~~~~~~~~~~~
-
-.. toctree::
-   :titlesonly:
-
-   Migration-Guide-Python
-
-
-**NOTE: Others to be written**
 
 Boost
 ~~~~~
@@ -922,6 +911,16 @@ Putting it all together, the new ``CMakeLists.txt`` looks like this:
 
 **TODO: Show what this would look like with ``ament_auto``.**
 
+Python migration
+~~~~~~~~~~~~~~~~
+
+Node initialization, publishers, subscribers, services and clients migration from ``rospy`` to ``rclpy`` are summarized on another page:
+
+.. toctree::
+   :titlesonly:
+
+   Migration-Guide/Migration-Guide-Python
+
 Building the ROS 2 code
 ~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -1007,6 +1006,16 @@ Quick reference
 +------------+-------------+----------------+
 | namespace  | __ns:=foo   | -r __ns:=foo   |
 +------------+-------------+----------------+
+
+Examples and tools
+^^^^^^^^^^^^^^^^^^
+
+Follow the link to see a list of realistic ROS 1 to ROS 2 migration examples:
+
+.. toctree::
+   :titlesonly:
+
+   Migration-Guide/Examples-and-Tools-for-ROS1----ROS2-Migrations
 
 Licensing
 ---------
