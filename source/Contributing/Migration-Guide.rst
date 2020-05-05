@@ -53,7 +53,7 @@ Actions files must end in ``.action`` and must be located in the subfolder ``act
 
 These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/interface_definition.html>`__.
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
-Also some naming conventions are stricter then in ROS 1.
+Also some naming conventions are stricter than in ROS 1.
 
 In your ``package.xml``:
 
