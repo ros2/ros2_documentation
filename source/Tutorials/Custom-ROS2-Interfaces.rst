@@ -702,7 +702,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
 
 This is a simple method of interface creation and utilization.
-ROS 2 encourages use of the ``rosidl`` tools, which you can learn about :ref:`here <ros-idl>`.
+You can learn more about interfaces :ref:`here <InterfaceConcept>`.
 
 ``.action`` files are another ROS 2 interface you can customize.
 You can learn about action interfaces :ref:`here <Actions>`.
