@@ -143,7 +143,7 @@ RTI Connext Specific Instructions
 
    tar -xzvf openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz
 
-* Add environmentvariables pointint to the paths to the RTI openssl libraries
+* Add environment variables pointing to the paths to the RTI openssl libraries.
 
 .. code-block:: bash
 
