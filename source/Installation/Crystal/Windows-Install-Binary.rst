@@ -190,7 +190,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_crystal\install\local_setup.bat
+   > call C:\dev\ros2_crystal\local_setup.bat
 
 Try some examples
 -----------------
