@@ -90,7 +90,7 @@ A trivial workspace might look like:
         package_2/
             setup.py
             package.xml
-            resource/my_package
+            resource/package_2
         ...
         package_n/
             CMakeLists.txt
