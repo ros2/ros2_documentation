@@ -136,6 +136,19 @@ RTI Connext Specific Instructions
 * Set the shared memory parameters from https://community.rti.com/kb/osx510
 
   * Do not bother to reboot yet.
+  
+* Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` and extract it.
+
+.. code-block:: bash
+
+   tar -xzvf openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz
+
+* Add environmentvariables pointint to the paths to the RTI openssl libraries
+
+.. code-block:: bash
+
+   export RTI_OPENSSL_BIN=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/bin
+   export RTI_OPENSSL_LIBS=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/lib
 
 Setting up the Jenkins Workspace and Agent
 ------------------------------------------
