@@ -137,7 +137,7 @@ RTI Connext Specific Instructions
 
   * Do not bother to reboot yet.
   
-* Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` and extract it.
+* Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` from RTI's website using an RTI account and extract it.
 
 .. code-block:: bash
 
