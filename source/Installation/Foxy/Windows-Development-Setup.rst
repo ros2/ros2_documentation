@@ -145,6 +145,8 @@ RQt dependencies
 
    > pip install -U pydot PyQt5
 
+Follow the steps for `Installing Graphviz <Foxy_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
+
 Get the ROS 2 code
 ------------------
 
