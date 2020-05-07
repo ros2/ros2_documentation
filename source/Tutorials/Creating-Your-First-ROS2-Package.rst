@@ -43,7 +43,7 @@ ROS 2 Python and CMake packages each have their own minimum required contents:
       * ``package.xml`` file containing meta information about the package
       * ``setup.py`` containing instructions for how to install the package
       * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
-      * ``your_package_name`` - a file used by ROS 2 tools to find your package
+      * ``/<package_name>`` - a directory with the same name as your package, used by ROS 2 tools to find your package, contains ``__init__.py``
 
 The simplest possible package may have a file structure that looks like:
 
