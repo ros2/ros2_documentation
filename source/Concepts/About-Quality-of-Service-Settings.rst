@@ -71,7 +71,7 @@ Comparison to ROS 1
 
 The “history” and “depth” policies in ROS 2 combine to provide functionality akin to the queue size in ROS 1.
 
-The “reliability” policy in ROS 2 is akin to the use of either UDPROS (only in roscpp) for “best effort”, or TCPROS (ROS 1 default) for “reliable”.
+The “reliability” policy in ROS 2 is akin to the use of either UDPROS (only in ``roscpp``) for “best effort”, or TCPROS (ROS 1 default) for “reliable”.
 Note however that even the reliable policy in ROS 2 is implemented using UDP, which allows for multicasting if appropriate.
 
 The “durability” policy combined with a depth of 1 provides functionality similar to that of “latching” subscribers.
