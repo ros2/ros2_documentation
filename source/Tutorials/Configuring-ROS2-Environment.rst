@@ -32,7 +32,7 @@ In other words, you won’t be able to use ROS 2.
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`EloquentInstall` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`InstallationGuide` page.
 
 The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
