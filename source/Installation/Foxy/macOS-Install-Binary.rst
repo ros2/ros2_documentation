@@ -44,7 +44,11 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       brew install python3
+       brew install python@3.8
+       # Unlink in case you have python@3.7 installed already
+       brew unlink python
+       # Make the python command be Python 3.8
+       brew link --force python@3.8
 
        # install asio and tinyxml2 for Fast-RTPS
        brew install asio tinyxml2
