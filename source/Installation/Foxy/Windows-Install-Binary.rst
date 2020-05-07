@@ -147,6 +147,8 @@ RQt dependencies
 
    python -m pip install -U pydot PyQt5
 
+.. _Foxy_windows-install-binary-installing-rqt-dependencies:
+
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 
 * The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
