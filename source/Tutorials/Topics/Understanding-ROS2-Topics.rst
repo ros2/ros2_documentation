@@ -243,7 +243,7 @@ Input the full command like so:
 
 .. code-block:: console
 
-  ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
+  ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 ``--once`` is an optional argument meaning “publish one message then exit”.
 
@@ -263,7 +263,7 @@ So, to get the turtle to keep moving, you can run:
 
 .. code-block:: console
 
-  ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
+  ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 The difference here is the removal of the ``--once`` option and the addition of the ``--rate 1`` option, which tells ``ros2 topic pub`` to publish the command in a steady stream at 1 Hz.
 
