@@ -13,6 +13,7 @@ Installation
    Installation/Foxy
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
+   Installation/Prerelease-Testing
    Installation/Install-Connext-Security-Plugins
    Installation/Install-Connext-University-Eval
    Installation/DDS-Implementations
