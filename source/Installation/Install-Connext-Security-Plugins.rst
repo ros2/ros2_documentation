@@ -45,15 +45,6 @@ installed into the 'rti\_connext\_dds-[version]' directory in your home
 directory space (this was created during installation of the RTI host
 tools). Note: this directory location may need to be placed in your PATH
 environment variable.
-
-
-Download ``openssl-1.0.2n-target-<architecture>.<archive extension>`` from RTI's website using your RTI account and extract it.
-Set the environment variables ``RTI_OPENSSL_BIN`` and `RTI_OPENSSL_LIBS`` as appropriate for your platform.
-For example, you might add this to the file ``~/.bashrc`` if you're using OSX.
-
-.. code-block:: bash
-
-   export RTI_OPENSSL_BIN=/Users/<your username>/openssl-1.0.2n/x64Darwin17clang9.0/release/bin
-   export RTI_OPENSSL_LIBS=/Users/<your username>/openssl-1.0.2n/x64Darwin17clang9.0/release/lib
+See the `RTI Security Plugins Getting Started Guide <https://community.rti.com/static/documentation/connext-dds/5.3.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ for more information.
 
 Installation complete.
