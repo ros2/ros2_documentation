@@ -59,7 +59,7 @@ Fat binaries
 For core packages, we run nightly packaging jobs for Linux, macOS, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the `latest development setup <Latest-Development-Setup>` for your platform.  
+1. Make sure you have all dependencies installed according to the `latest development setup <Latest-Development-Setup>` for your platform.
 
 2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
 
@@ -71,9 +71,9 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
    For example, on Windows:
 
   .. tabs::
-    
+
     .. group-tab:: Linux/macOS
- 
+
       .. code-block:: sh
 
          source path/to/extracted/archive/setup.bash
