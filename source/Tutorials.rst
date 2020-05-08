@@ -134,7 +134,6 @@ Demos
    Tutorials/Rosbag-with-ROS1-Bridge
    Tutorials/tf2
    Tutorials/Real-Time-Programming
-   Tutorials/Python-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
 
@@ -148,7 +147,6 @@ Demos
 * `MoveIt 2 demo using ROS 2 <https://github.com/ros-planning/moveit2/tree/master/moveit_demo_nodes/run_moveit_cpp>`__.
 * `Using tf2 with ROS 2 <Tutorials/tf2>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
-* `Use the rclpy API to write ROS 2 programs in Python <Tutorials/Python-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
