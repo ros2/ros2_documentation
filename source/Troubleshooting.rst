@@ -308,8 +308,14 @@ patch.exe opens a new command window and asks for administrator
 
 This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
 
-The solution, for now, is to make sure you're building in a Visual Studio command prompt which has been run as administrator.
-On some machines canceling the prompt without selecting "Yes" will also work.
+On Foxy or later:
+
+- ``choco uninstall patch; colcon build --cmake-clean-cache`` - This is a bug in the `GNU Patch For Windows package <https://chocolatey.org/packages/patch>`_. If this package is not installed, the build process will instead use the version of Patch distributed with git.
+
+On Eloquent or earlier:
+
+- Make sure you're building in a Visual Studio command prompt which has been run as administrator.
+- On some machines canceling the prompt without selecting "Yes" will also work.
 
 Failed to load FastRTPS shared library
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
