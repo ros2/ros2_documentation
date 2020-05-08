@@ -74,7 +74,7 @@ The “history” and “depth” policies in ROS 2 combine to provide functiona
 The “reliability” policy in ROS 2 is akin to the use of either UDPROS (only in ``roscpp``) for “best effort”, or TCPROS (ROS 1 default) for “reliable”.
 Note however that even the reliable policy in ROS 2 is implemented using UDP, which allows for multicasting if appropriate.
 
-The “durability” policy combined with a depth of 1 provides functionality similar to that of “latching” subscribers.
+The “durability” policy “transient local”, combined with any depth, provides functionality similar to that of “latching” publishers.
 The remaining policies in ROS 2 are not akin to anything that is available in ROS 1, meaning that ROS 2 is more featureful than ROS 1 in this respect.
 It is possible that in the future, even more QoS policies will be available in ROS 2.
 
@@ -130,8 +130,8 @@ A connection between a publisher and a subscription is only made if the pair has
 QoS profile compatibility is determined based on a “Request vs Offered” model.
 Subscriptions *request* a QoS profile that is the “minimum quality” that it is willing to accept, and publishers *offer* a QoS profile that is the “maximum quality” that it is able to provide.
 
-Connections are only made if the every policy of the requested QoS profile is not more stringent than that of the offered QoS profile.
-The less strict of the two policies will be the one used for the connection, and it is referred to as the “actual QoS” policy.
+Connections are only made if every policy of the requested QoS profile is not more stringent than that of the offered QoS profile.
+The requested QoS profile, if compatible with the offered QoS profile, will be the resulting QoS profile of the connection.
 
 The following tables show the compatibility of the different policy settings and the result:
 
@@ -142,8 +142,8 @@ The following tables show the compatibility of the different policy settings and
 
    * - Publisher
      - Subscription
-     - Connection
-     - Actual QoS Policy
+     - Compatible
+     - Connection Result
    * - Best effort
      - Best effort
      - Yes
@@ -151,7 +151,7 @@ The following tables show the compatibility of the different policy settings and
    * - Best effort
      - Reliable
      - No
-     - -
+     -
    * - Reliable
      - Best effort
      - Yes
@@ -168,8 +168,8 @@ The following tables show the compatibility of the different policy settings and
 
    * - Publisher
      - Subscription
-     - Connection
-     - Actual QoS Policy
+     - Compatible
+     - Connection Result
    * - Volatile
      - Volatile
      - Yes
@@ -177,7 +177,7 @@ The following tables show the compatibility of the different policy settings and
    * - Volatile
      - Transient local
      - No
-     - -
+     -
    * - Transient local
      - Volatile
      - Yes
@@ -189,13 +189,15 @@ The following tables show the compatibility of the different policy settings and
 
 *Compatibility of deadline QoS policies:*
 
+  Assume *x* and *y* are arbitrary valid duration values.
+
 .. list-table::
    :header-rows: 1
 
    * - Publisher
      - Subscription
-     - Connection
-     - Actual QoS Policy
+     - Compatible
+     - Connection Result
    * - Default
      - Default
      - Yes
@@ -203,7 +205,7 @@ The following tables show the compatibility of the different policy settings and
    * - Default
      - *x*
      - No
-     - -
+     -
    * - *x*
      - Default
      - Yes
@@ -219,7 +221,7 @@ The following tables show the compatibility of the different policy settings and
    * - *x*
      - *y* (where *y* < *x*)
      - No
-     - -
+     -
 
 *Compatibility of liveliness QoS policies:*
 
@@ -228,8 +230,8 @@ The following tables show the compatibility of the different policy settings and
 
    * - Publisher
      - Subscription
-     - Connection
-     - Actual QoS Policy
+     - Compatible
+     - Connection Result
    * - Automatic
      - Automatic
      - Yes
@@ -237,11 +239,11 @@ The following tables show the compatibility of the different policy settings and
    * - Automatic
      - Manual by node
      - No
-     - -
+     -
    * - Automatic
      - Manual by topic
      - No
-     - -
+     -
    * - Manual by node
      - Automatic
      - Yes
@@ -253,7 +255,7 @@ The following tables show the compatibility of the different policy settings and
    * - Manual by node
      - Manual by topic
      - No
-     - -
+     -
    * - Manual by topic
      - Automatic
      - Yes
@@ -269,13 +271,15 @@ The following tables show the compatibility of the different policy settings and
 
 *Compatibility of lease duration QoS policies:*
 
+  Assume *x* and *y* are arbitrary valid duration values.
+
 .. list-table::
    :header-rows: 1
 
    * - Publisher
      - Subscription
-     - Connection
-     - Actual QoS Policy
+     - Compatible
+     - Connection Result
    * - Default
      - Default
      - Yes
@@ -283,7 +287,7 @@ The following tables show the compatibility of the different policy settings and
    * - Default
      - *x*
      - No
-     - -
+     -
    * - *x*
      - Default
      - Yes
@@ -299,13 +303,13 @@ The following tables show the compatibility of the different policy settings and
    * - *x*
      - *y* (where *y* < *x*)
      - No
-     - -
+     -
 
 In order for a connection to be made, all of the policies that affect compatibility must be compatible.
-That is for example, even if a requested and offered QoS profile pair has compatible reliability QoS policies, but they have incompatible durability QoS policies, a connection will still not be made.
+For example, even if a requested and offered QoS profile pair has compatible reliability QoS policies, but they have incompatible durability QoS policies, a connection will still not be made.
 
 When connections are not made, no messages will be passed between the publisher and subscription.
-There are mechanisms to detect this situation, which will be covered in a later section below.
+There are mechanisms to detect this situation, which will be covered in a later section.
 
 Comparison to ROS 1
 ^^^^^^^^^^^^^^^^^^^
@@ -318,29 +322,31 @@ QoS events
 ----------
 
 Some QoS policies have possible events related to them.
-Developers may provide each publisher and subscription callback functions that are triggered by these QoS events and handle them in a way they see fit, similar to how messages received on a topic are handled.
+Developers may provide each publisher and subscription with callback functions that are triggered by these QoS events and handle them in a way they see fit, similar to how messages received on a topic are handled.
 
-The following are the possible QoS events that developers may subscribe to:
+Developers may subscribe to the following QoS events that are associated with a publisher:
 
 * Offered deadline missed
 
-  The publisher did not publish a message within the expected duration that was set out by the actual deadline QoS policy.
-
-* Requested deadline missed
-
-  The subscription did not receive a message within the expected duration that was set out by the actual deadline QoS policy.
+  The publisher has not published a message within the expected duration that was set out by the deadline QoS policy.
 
 * Liveliness lost
 
   The publisher has failed to indicate its liveliness within the lease duration.
 
-* Liveliness changed
-
-  The subscription has noticed that one or more publishers on the topic that it is subscribed to has failed to indicate their liveliness within the lease duration.
-
 * Offered incompatible QoS
 
   The publisher has encountered a subscription on the same topic that is requesting a QoS profile that the offered QoS profile cannot satisfy, resulting in no connection between the publisher and that subscription.
+
+Developers may subscribe to the following QoS events that are associated with a subscription:
+
+* Requested deadline missed
+
+  The subscription has not received a message within the expected duration that was set out by the deadline QoS policy.
+
+* Liveliness changed
+
+  The subscription has noticed that one or more publishers on the subscribed topic has failed to indicate their liveliness within the lease duration.
 
 * Requested incompatible QoS
 
