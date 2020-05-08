@@ -136,7 +136,7 @@ RTI Connext Specific Instructions
 * Set the shared memory parameters from https://community.rti.com/kb/osx510
 
   * Do not bother to reboot yet.
-  
+
 * Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` from RTI's website using an RTI account and extract it.
 
 .. code-block:: bash
