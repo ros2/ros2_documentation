@@ -86,11 +86,20 @@ You need the following things installed to build ROS 2:
        export PATH=$PATH:/usr/local/opt/qt/bin
 
 #.
+   Install rqt dependencies
+
+  ``brew install graphviz pyqt5 sip``
+
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+
+  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
+
+#.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pydot pyparsing setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pydot pygraphviz pyparsing setuptools vcstool
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
