@@ -33,13 +33,6 @@ First install git:
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
 
-Then install ``patch``:
-
-.. code-block:: bash
-
-   > choco install -y patch
-
-You may need to close the cmd prompt and open a new one, but at this point you should be able to run ``git``\ , ``python``\ , ``cmake``\ , and ``patch.exe --version``.
 
 Install developer tools
 -----------------------
