@@ -137,6 +137,19 @@ RTI Connext Specific Instructions
 
   * Do not bother to reboot yet.
 
+* Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` from RTI's website using an RTI account and extract it.
+
+.. code-block:: bash
+
+   tar -xzvf openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz
+
+* Add environment variables pointing to the paths to the RTI openssl libraries.
+
+.. code-block:: bash
+
+   export RTI_OPENSSL_BIN=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/bin
+   export RTI_OPENSSL_LIBS=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/lib
+
 Setting up the Jenkins Workspace and Agent
 ------------------------------------------
 
