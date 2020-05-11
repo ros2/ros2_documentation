@@ -109,7 +109,7 @@ You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
 
-In the ``dev_ws/src`` directory, if your distro is Eloquent for example, run the command:
+In the ``dev_ws/src`` directory, run the following command for the distro you're using:
 
 .. tabs::
 
