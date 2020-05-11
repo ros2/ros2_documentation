@@ -57,6 +57,11 @@ You need the following things installed to build ROS 2:
 
        brew install cmake cppcheck eigen pcre poco python3 tinyxml wget bullet
 
+       brew install python@3.8
+       brew unlink python
+       # Make the python command be Python 3.8
+       brew link --force python@3.8
+
        # install dependencies for Fast-RTPS if you are using it
        brew install asio tinyxml2
 
