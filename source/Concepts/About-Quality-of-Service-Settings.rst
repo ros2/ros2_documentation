@@ -129,9 +129,9 @@ A connection between a publisher and a subscription is only made if the pair has
 
 QoS profile compatibility is determined based on a “Request vs Offered” model.
 Subscriptions *request* a QoS profile that is the “minimum quality” that it is willing to accept, and publishers *offer* a QoS profile that is the “maximum quality” that it is able to provide.
-
 Connections are only made if every policy of the requested QoS profile is not more stringent than that of the offered QoS profile.
-The requested QoS profile, if compatible with the offered QoS profile, will be the resulting QoS profile of the connection.
+Multiple subscriptions can be connected to a single publisher simultaneously even if their requested QoS profiles are different.
+The compatibility between a publisher and a subscription is unaffected by the presence of other publishers and subscriptions.
 
 The following tables show the compatibility of the different policy settings and the result:
 
@@ -143,23 +143,18 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
-     - Connection Result
    * - Best effort
      - Best effort
      - Yes
-     - Best effort
    * - Best effort
      - Reliable
      - No
-     -
    * - Reliable
      - Best effort
      - Yes
-     - Best effort
    * - Reliable
      - Reliable
      - Yes
-     - Reliable
 
 *Compatibility of durability QoS policies:*
 
@@ -169,23 +164,18 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
-     - Connection Result
    * - Volatile
      - Volatile
      - Yes
-     - Volatile
    * - Volatile
      - Transient local
      - No
-     -
    * - Transient local
      - Volatile
      - Yes
-     - Volatile
    * - Transient local
      - Transient local
      - Yes
-     - Transient local
 
 *Compatibility of deadline QoS policies:*
 
@@ -197,31 +187,24 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
-     - Connection Result
    * - Default
      - Default
      - Yes
-     - Infinite
    * - Default
      - *x*
      - No
-     -
    * - *x*
      - Default
      - Yes
-     - *x*
    * - *x*
      - *x*
      - Yes
-     - *x*
    * - *x*
      - *y* (where *y* > *x*)
      - Yes
-     - *y*
    * - *x*
      - *y* (where *y* < *x*)
      - No
-     -
 
 *Compatibility of liveliness QoS policies:*
 
@@ -231,43 +214,33 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
-     - Connection Result
    * - Automatic
      - Automatic
      - Yes
-     - Automatic
    * - Automatic
      - Manual by node
      - No
-     -
    * - Automatic
      - Manual by topic
      - No
-     -
    * - Manual by node
      - Automatic
      - Yes
-     - Automatic
    * - Manual by node
      - Manual by node
      - Yes
-     - Manual by node
    * - Manual by node
      - Manual by topic
      - No
-     -
    * - Manual by topic
      - Automatic
      - Yes
-     - Automatic
    * - Manual by topic
      - Manual by node
      - Yes
-     - Manual by node
    * - Manual by topic
      - Manual by topic
      - Yes
-     - Manual by topic
 
 *Compatibility of lease duration QoS policies:*
 
@@ -279,31 +252,24 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
-     - Connection Result
    * - Default
      - Default
      - Yes
-     - Infinite
    * - Default
      - *x*
      - No
-     -
    * - *x*
      - Default
      - Yes
-     - *x*
    * - *x*
      - *x*
      - Yes
-     - *x*
    * - *x*
      - *y* (where *y* > *x*)
      - Yes
-     - *y*
    * - *x*
      - *y* (where *y* < *x*)
      - No
-     -
 
 In order for a connection to be made, all of the policies that affect compatibility must be compatible.
 For example, even if a requested and offered QoS profile pair has compatible reliability QoS policies, but they have incompatible durability QoS policies, a connection will still not be made.
