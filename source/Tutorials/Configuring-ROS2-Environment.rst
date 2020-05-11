@@ -131,11 +131,23 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set:
 
-.. code-block:: console
+.. tab::
 
-    ROS_VERSION=2
-    ROS_PYTHON_VERSION=3
-    ROS_DISTRO=eloquent
+   .. group-tab:: Eloquent
+
+      .. code-block:: console
+
+        ROS_VERSION=2
+        ROS_PYTHON_VERSION=3
+        ROS_DISTRO=eloquent
+
+   .. group-tab:: Foxy
+
+      .. code-block:: console
+
+        ROS_VERSION=2
+        ROS_PYTHON_VERSION=3
+        ROS_DISTRO=foxy
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can `get answers <https://answers.ros.org>`__ from the community.
