@@ -402,10 +402,22 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 You likely already have the ``rclpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: console
+.. tabs::
 
-    sudo rosdep install -i --from-path src --rosdistro <distro> -y
+   .. group-tab:: Linux
 
+      .. code-block:: console
+
+        sudo rosdep install -i --from-path src --rosdistro <distro> -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+   
+   .. group-tab:: Windows
+   
+      rosdep only runs on Linux, so you can skip ahead to next step.
+         
 Still in the root of your workspace, ``dev_ws``, build your new package:
 
 .. code-block:: console
