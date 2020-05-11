@@ -56,7 +56,6 @@ The base QoS profile currently includes settings for the following policies:
 * Liveliness
 
   * *Automatic*: the system will consider all of the node’s publishers to be alive for another “lease duration” when any one of its publishers has published a message.
-  * *Manual by node*: the system will consider all of the node’s publishers to be alive for another “lease duration” when any one of the node’s publishers manually asserts that it is still alive (via a call to the publisher API).
   * *Manual by topic*: the system will consider the publisher to be alive for another “lease duration” if it manually asserts that it is still alive (via a call to the publisher API).
 
 * Lease Duration
@@ -218,25 +217,10 @@ The following tables show the compatibility of the different policy settings and
      - Automatic
      - Yes
    * - Automatic
-     - Manual by node
-     - No
-   * - Automatic
-     - Manual by topic
-     - No
-   * - Manual by node
-     - Automatic
-     - Yes
-   * - Manual by node
-     - Manual by node
-     - Yes
-   * - Manual by node
      - Manual by topic
      - No
    * - Manual by topic
      - Automatic
-     - Yes
-   * - Manual by topic
-     - Manual by node
      - Yes
    * - Manual by topic
      - Manual by topic
