@@ -408,14 +408,10 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        sudo rosdep install -i --from-path src --rosdistro <distro> -y
+            sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-   .. group-tab:: macOS
+   .. group-tab:: macOS/Windows
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
-   
-   .. group-tab:: Windows
-   
       rosdep only runs on Linux, so you can skip ahead to next step.
          
 Still in the root of your workspace, ``dev_ws``, build your new package:
