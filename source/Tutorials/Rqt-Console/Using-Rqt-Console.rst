@@ -101,7 +101,7 @@ There is no exact standard for what each level indicates, but it’s safe to ass
 * ``Debug`` messages detail the entire step-by-step process of the system execution.
 
 The default level is ``Info``.
-You will only see messages of the default severity level and any more-severe levels.
+You will only see messages of the default severity level and more-severe levels.
 
 Normally, only ``Debug`` messages are hidden because they’re the only level less severe than ``Info``.
 For example, if you set the default level to ``Warn``, you would only see messages of severity ``Warn``, ``Error``, and ``Fatal``.
