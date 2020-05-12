@@ -165,7 +165,7 @@ And
 
     .. code-block:: console
 
-      ros2 srv show tutorial_interfaces/msg/Num
+      ros2 srv show tutorial_interfaces/srv/AddThreeInts
 
   .. group-tab:: Eloquent and newer
 
