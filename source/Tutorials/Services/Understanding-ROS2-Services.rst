@@ -23,7 +23,7 @@ While topics allow nodes to subscribe to data streams and get continual updates,
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like nodes and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
 
 You will need the :ref:`turtlesim package <Turtlesim>`
 
@@ -262,3 +262,8 @@ Next steps
 ----------
 
 In the next tutorial, :ref:`ROS2Params`, you will learn about configuring node settings.
+
+Related content
+---------------
+
+Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of "Understanding ROS 2 services" using a Robotis robot arm.
