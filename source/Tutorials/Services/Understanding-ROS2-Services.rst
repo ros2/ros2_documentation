@@ -266,4 +266,4 @@ In the next tutorial, :ref:`ROS2Params`, you will learn about configuring node s
 Related content
 ---------------
 
-Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of "Understanding ROS 2 services" using a Robotis robot arm. 
+Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of "Understanding ROS 2 services" using a Robotis robot arm.
