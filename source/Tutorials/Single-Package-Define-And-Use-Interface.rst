@@ -32,12 +32,10 @@ We'll use a CMake package and C++ nodes here for the sake of simplicity.
 
 This tutorial will focus on the msg interface type, but the steps here are applicable to all interface types.
 
-.. not sure if it's a good idea to reference the `rosidl_tutorials repository <https://github.com/ros2/tutorials/tree/rosidl_tutorials/rosidl_tutorials>`__ here since the code doesn't work.
-
 Prerequisites
 -------------
 
-It might be helpful to review the basics in the :ref:`CustomInterfaces` tutorial before working through this one.
+We assume you've reviewed the basics in the :ref:`CustomInterfaces` tutorial before working through this one.
 
 You should have :ref:`ROS 2 installed <InstallationGuide>`, a :ref:`workspace <ROS2Workspace>`, and an understanding of :ref:`creating packages <CreatePkg>`.
 
