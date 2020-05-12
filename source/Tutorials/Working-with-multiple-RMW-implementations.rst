@@ -107,6 +107,27 @@ If you have support for multiple RMW implementations installed and you request u
 
 If this occurs, double check that your ROS 2 installation includes support for the RMW implementation that you have specified in the ``RMW_IMPLEMENTATION`` environment variable.
 
+If you want to switch between RMW implementations, verify that the ROS2 daemon process is not running with the previous RMW implementation to avoid any issues between nodes and command line tools such as ``ros2 node``. For example, if you run:
+
+.. code-block:: bash
+
+   RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+
+and
+
+.. code-block:: bash
+
+   ros2 node list
+
+it will generate a daemon with a Fast RTPS implementation:
+
+.. code-block:: bash
+
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/foxy/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
+
+Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS2 command line tools will fail. To solve this, simply kill the daemon process and rerun the ROS2 command line tool with the correct RMW implementation.
+
+
 RTI Connext on OSX: Failure due to insufficient shared memory kernel settings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
