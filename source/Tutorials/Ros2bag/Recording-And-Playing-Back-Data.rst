@@ -27,13 +27,11 @@ Prerequisites
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
-.. note::
+If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
 
-  If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
+.. code-block:: console
 
-  .. code-block:: console
-
-    sudo apt-get install ros-<distro>-ros2bag ros-<distro>-rosbag2*
+  sudo apt-get install ros-<distro>-ros2bag ros-<distro>-rosbag2*
 
 This tutorial talks about concepts covered in previous tutorials, like nodes and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.
@@ -65,7 +63,7 @@ Let’s also make a new directory to store our saved recordings, just as good pr
 .. code-block:: console
 
   mkdir bag_files
-
+  cd bag_files
 
 2 Choose a topic
 ^^^^^^^^^^^^^^^^
@@ -167,11 +165,13 @@ To record more than one topic at a time, simply list each topic separated by a s
 
 You will see the following message, confirming that both topics are being recorded.
 
-[INFO] [rosbag2_storage]: Opened database 'subset'.
-[INFO] [rosbag2_transport]: Listening for topics...
-[INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
-[INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/pose'
-[INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
+.. code-block:: console
+
+  [INFO] [rosbag2_storage]: Opened database 'subset'.
+  [INFO] [rosbag2_transport]: Listening for topics...
+  [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
+  [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/pose'
+  [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
 You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 
