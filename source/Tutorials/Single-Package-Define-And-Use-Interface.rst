@@ -1,4 +1,4 @@
-.. _more-interfaces:
+.. _SinglePkgInterface:
 
 .. redirect-from::
 
@@ -332,7 +332,7 @@ Return to the root of the workspace to build the package:
 
 Then source the workspace and run the publisher:
 
-.. code-block::
+.. code-block:: console
 
   . install/local_setup.bash
 
@@ -340,7 +340,15 @@ Then source the workspace and run the publisher:
 
 You should see the publisher relaying the msg you defined, including the values you set in ``publish_address_book.cpp``.
 
-We won't create a subscriber in this tutorial, but you should try to write one yourself (use :ref:`CppPubSub` to help).
+To confirm the message is being published on the ``address_book`` topic, open another terminal, source the workspace, and call ``topic echo``:
+
+.. code-block:: console
+
+  . install/local_setup.bash
+
+  ros2 topic echo /address_book
+
+We won't create a subscriber in this tutorial, but you can try to write one yourself for practice (use :ref:`CppPubSub` to help).
 
 5 (Extra) Use an existing interface definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -348,7 +356,7 @@ We won't create a subscriber in this tutorial, but you should try to write one y
 .. note::
 
   You can use an existing interface definition in a new interface definition.
-  For example, the `rosidl_tutorials_msgs package <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_ on GitHub has a msg named ``Contact.msg``.
+  For example, let's use `Contact.msg <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_, which belongs to an existing ROS 2 package.
   Notice that it's identical to our custom-made ``AddressBook.msg`` interface from earlier.
 
   You could have defined ``AddressBook.msg`` (an interface in the package *with* your nodes) as type ``Contact`` (an interface in a *separate* package).

@@ -710,4 +710,4 @@ You can learn about action interfaces :ref:`here <Actions>`.
 Next steps
 ----------
 
-The :ref:`next tutorial <more-interfaces>` covers more ways to use interfaces in ROS 2.
+The :ref:`next tutorial <SinglePkgInterface>` covers more ways to use interfaces in ROS 2.
