@@ -308,6 +308,7 @@ After removing some unnecessary boilerplate from the automatically generated fil
 ^^^^^^^^^^^^^^^
 
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+
 .. tabs::
 
    .. group-tab:: Linux
