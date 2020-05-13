@@ -107,7 +107,8 @@ If you have support for multiple RMW implementations installed and you request u
 
 If this occurs, double check that your ROS 2 installation includes support for the RMW implementation that you have specified in the ``RMW_IMPLEMENTATION`` environment variable.
 
-If you want to switch between RMW implementations, verify that the ROS2 daemon process is not running with the previous RMW implementation to avoid any issues between nodes and command line tools such as ``ros2 node``. For example, if you run:
+If you want to switch between RMW implementations, verify that the ROS2 daemon process is not running with the previous RMW implementation to avoid any issues between nodes and command line tools such as ``ros2 node``.
+For example, if you run:
 
 .. code-block:: bash
 
