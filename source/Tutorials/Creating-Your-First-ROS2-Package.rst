@@ -341,7 +341,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>
@@ -365,7 +367,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>
