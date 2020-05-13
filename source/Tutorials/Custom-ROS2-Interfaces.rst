@@ -722,7 +722,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
 
 This is a simple method of interface creation and utilization.
-ROS 2 encourages use of the ``rosidl`` tools, which you can learn about :ref:`here <ros-idl>`.
+You can learn more about interfaces :ref:`here <InterfaceConcept>`.
 
 ``.action`` files are another ROS 2 interface you can customize.
 You can learn about action interfaces :ref:`here <Actions>`.
@@ -730,5 +730,4 @@ You can learn about action interfaces :ref:`here <Actions>`.
 Next steps
 ----------
 
-Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+The :ref:`next tutorial <SinglePkgInterface>` covers more ways to use interfaces in ROS 2.
