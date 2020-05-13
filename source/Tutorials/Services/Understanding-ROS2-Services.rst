@@ -163,34 +163,33 @@ You can call services from the command line, but first you need to know the stru
 
 .. tabs::
 
-  .. group-tab:: Dashing
-
-    .. code-block:: console
-
-      ros2 srv show <type_name>
-
   .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 
       ros2 interface show <type_name>.srv
 
-
-To run this command on the ``/clear`` service’s type, ``Empty``:
-
-.. tabs::
-
   .. group-tab:: Dashing
 
     .. code-block:: console
 
-      ros2 srv show std_srvs/srv/Empty
+      ros2 srv show <type_name>
+
+To run this command on the ``/clear`` service’s type, ``Empty``:
+
+.. tabs::
 
   .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 
       ros2 interface show std_srvs/srv/Empty.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show std_srvs/srv/Empty
 
 Which will return:
 
@@ -209,17 +208,19 @@ To see the arguments in a ``/spawn`` call-and-request, run the command:
 
 .. tabs::
 
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/srv/Spawn.srv
+
   .. group-tab:: Dashing
 
     .. code-block:: console
 
       ros2 srv show turtlesim/srv/Spawn
 
-  .. group-tab:: Eloquent and newer
 
-    .. code-block:: console
-
-      ros2 interface show turtlesim/srv/Spawn.srv
 
 Which will return:
 

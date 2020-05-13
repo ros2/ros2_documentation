@@ -246,6 +246,12 @@ Recall that you identified ``/turtle1/rotate_absolute``’s type when running th
 Enter the following command with the action type in your terminal:
 
 .. tabs::
+  
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/action/RotateAbsolute.action
 
   .. group-tab:: Dashing
 
@@ -253,11 +259,6 @@ Enter the following command with the action type in your terminal:
 
       ros2 action show turtlesim/action/RotateAbsolute
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: console
-
-      ros2 interface show turtlesim/action/RotateAbsolute.action
 
 Which will return:
 

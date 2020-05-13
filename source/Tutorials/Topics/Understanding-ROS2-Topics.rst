@@ -168,7 +168,7 @@ Which will return:
 
 .. tabs::
 
-  .. group-tab:: Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 
@@ -176,7 +176,7 @@ Which will return:
       Publisher count: 1
       Subscriber count: 2
 
-  .. group-tab:: Dashing/earlier
+  .. group-tab:: Dashing
 
     .. code-block::
 
@@ -203,17 +203,17 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the 
 
 .. tabs::
 
-  .. group-tab:: Dashing
-
-    .. code-block:: console
-
-      ros2 msg show geometry_msgs/msg/Twist
-
   .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 
         ros2 interface show geometry_msgs/msg/Twist.msg
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 msg show geometry_msgs/msg/Twist
 
 .. code-block:: console
 
