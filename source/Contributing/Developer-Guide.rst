@@ -130,10 +130,6 @@ All packages should have these documentation elements present in their README or
 * How to build and run tests
 * How to build documentation
 * How to develop (useful for describing things like ``python setup.py develop``)
-* License and copyright statements
-
-  * Each source file must have a license and copyright statement, checked with an automated linter.
-  * Each package must have a LICENSE file, typically the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD)
 
 Each package should describe itself and its purpose assuming, as much as possible, that the reader has stumbled onto it without previous knowledge of ROS or other related projects.
 
