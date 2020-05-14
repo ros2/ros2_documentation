@@ -246,8 +246,8 @@ Recall that you identified ``/turtle1/rotate_absolute``’s type when running th
 Enter the following command with the action type in your terminal:
 
 .. tabs::
-  
-  .. group-tab:: Eloquent and newer
+
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: console
 

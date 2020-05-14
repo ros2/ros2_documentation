@@ -111,19 +111,15 @@ When you clone this repo, add the ``-b`` argument followed by the branch that co
 
 In the ``dev_ws/src`` directory, run the following command for the distro you're using:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Eloquent
+  git clone https://github.com/ros/ros_tutorials.git -b <distro>-devel
 
-      .. code-block:: console
+For example, if you're using Foxy:
 
-        git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
+.. code-block:: console
 
-   .. group-tab:: Foxy
-
-      .. code-block:: console
-
-        git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
+  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.

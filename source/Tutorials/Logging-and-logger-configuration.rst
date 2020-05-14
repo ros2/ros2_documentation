@@ -98,13 +98,13 @@ Restart the demo including the following command line argument:
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
        ros2 run logging_demo logging_demo_main --ros-args --log-level debug
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 

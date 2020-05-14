@@ -16,13 +16,13 @@ All ros specific arguments have to be specified after a ``--ros-args`` flag:
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
        ros2 run my_package node_executable --ros-args ...
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -30,20 +30,17 @@ All ros specific arguments have to be specified after a ``--ros-args`` flag:
 
 For more details, see `this design doc <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
 
-
-*Note: all features on this page are only available as of the ROS 2 Bouncy release.*
-
 Name remapping
 --------------
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     Names within a node (e.g. topics/services) can be remapped using the syntax ``-r <old name>:=<new name>``.
     The name/namespace of the node itself can be remapped using ``-r __node:=<new node name>`` and ``-r __ns:=<new node namespace>``.
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     Remapping rules were specified directly using ``<old name>:=<new name>``, ``__node:=<new node name>``, ``__ns:=<new node namespace>``.
 
@@ -60,13 +57,13 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
       ros2 run demo_nodes_cpp talker --ros-args -r __ns:=/demo -r __node:=my_talker -r chatter:=my_topic
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -80,13 +77,13 @@ For example, the following will pass the remapping arguments to the specified no
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
       ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r listener:__node:=my_listener
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -98,13 +95,13 @@ The following example will both change the node name and remap a topic (node and
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
       ros2 run composition manual_composition --ros-args -r talker:__node:=my_talker -r my_talker:chatter:=my_topic -r listener:__node:=my_listener -r my_listener:chatter:=my_topic
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -128,7 +125,7 @@ Setting parameters directly in the command line
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     You can set parameters directly from the command line using the following syntax:
 
@@ -152,7 +149,7 @@ Setting parameters directly in the command line
       some_lists.some_doubles
       some_lists.some_integers
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     Not supported
 
@@ -181,13 +178,13 @@ Then run the following:
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: bash
 
       ros2 run demo_nodes_cpp parameter_blackboard --ros-args --params-file demo_params.yaml
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 

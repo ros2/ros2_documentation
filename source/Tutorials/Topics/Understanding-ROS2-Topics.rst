@@ -168,7 +168,7 @@ Which will return:
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: console
 
@@ -203,7 +203,7 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the 
 
 .. tabs::
 
-  .. group-tab:: Eloquent and newer
+  .. group-tab:: Foxy/Eloquent
 
     .. code-block:: console
 
