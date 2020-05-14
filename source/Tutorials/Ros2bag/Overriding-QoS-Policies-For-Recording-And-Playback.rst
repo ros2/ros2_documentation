@@ -79,6 +79,7 @@ In order for Ros2Bag to record the data, we would want to override the recording
     # durability_override.yaml
     /talker:
       durability: transient_local
+      history: keep_all
 
 And call it from the CLI:
 
@@ -93,6 +94,7 @@ If we want to playback the bag file but with a different Reliability policy, we 
     # reliability_override.yaml
     /talker:
       reliability: best_effort
+      history: keep_all
 
 And call it from the CLI:
 
