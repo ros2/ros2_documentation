@@ -262,7 +262,7 @@ Import failing even with library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your system.
-If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <windows-install-binary-installing-prerequisites>`).
+If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <Foxy_windows-install-binary-installing-prerequisites>`).
 
 If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
 
@@ -317,12 +317,12 @@ On Eloquent or earlier:
 - Make sure you're building in a Visual Studio command prompt which has been run as administrator.
 - On some machines canceling the prompt without selecting "Yes" will also work.
 
-Failed to load FastRTPS shared library
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Failed to load Fast RTPS shared library
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. does not apply to Crystal
 
-FastRTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
+Fast RTPS requires ``msvcr20.dll``, which is part of the ``Visual C++ Redistributable Packages for Visual Studio 2013``.
 Although it is usually installed by default in Windows 10, we know that some Windows 10-like versions don't have it installed by default (e.g.: Windows Server 2019).
 In case you don't have it installed, you can download it from `here <https://www.microsoft.com/en-us/download/details.aspx?id=40784>`_.
 

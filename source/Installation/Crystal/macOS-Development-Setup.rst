@@ -122,7 +122,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -174,8 +174,6 @@ Stay up to date
 ---------------
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
-
-.. _osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------

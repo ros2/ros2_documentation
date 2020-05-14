@@ -270,7 +270,7 @@ The major features included in this release are:
 * Added ability for a timer to cancel itself by supporting a Timer callback that accepts a reference to itself as a function parameter.
 * Added checks for disallowing multiple threads to enter Executor::spin.
 * Improved reliability of numerous tests that had been sporadically failing.
-* Added support for using FastRTPS (instead of, e.g., OpenSplice or Connext).
+* Added support for using Fast RTPS (instead of, e.g., OpenSplice or Connext).
 * A partial port of tf2 including the core libraries and core command line tools.
 
 Pretty much anything not listed above is not included in this release.

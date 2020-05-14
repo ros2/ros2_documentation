@@ -79,7 +79,7 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
-   # install CycloneDDS dependencies
+   # install Cyclone DDS dependencies
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
@@ -106,12 +106,10 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _Foxy_linux-development-setup-install-more-dds-implementations-optional:
-
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------

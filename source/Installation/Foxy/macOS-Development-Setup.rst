@@ -78,7 +78,7 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging
        brew install log4cxx spdlog
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 #.
@@ -148,7 +148,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -198,8 +198,6 @@ Stay up to date
 ---------------
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
-
-.. _Foxy_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------

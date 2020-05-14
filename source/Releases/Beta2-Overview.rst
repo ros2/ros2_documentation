@@ -64,7 +64,7 @@ For the complete list, see `earlier release notes <../Releases>`.
 
 * Support for interoperability between multiple DDS/RTPS implementations
 
-  * eProsima FastRTPS is our default implementation, and is included in the binary packages
+  * eProsima Fast RTPS is our default implementation, and is included in the binary packages
   * RTI Connext is supported: build from source to try it out
   * We initially supported PrismTech OpenSplice but support for it is currently on hold
 

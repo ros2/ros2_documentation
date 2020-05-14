@@ -40,7 +40,7 @@ For the complete list, see `earlier release notes <../Releases>`.
   * Getting and setting ROS parameters (C++ only, synchronous and asynchronous)
   * Timer callbacks
   * Support for interoperability between multiple DDS/RTPS implementations
-  * eProsima FastRTPS is our default implementation, and is included in the binary packages
+  * eProsima Fast RTPS is our default implementation, and is included in the binary packages
   * RTI Connext is supported: build from source to try it out
   * We initially supported PrismTech OpenSplice but eventually decided to drop it
 
