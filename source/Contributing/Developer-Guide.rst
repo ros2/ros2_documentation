@@ -17,11 +17,14 @@ General Principles
 Some principles are common to all ROS 2 development:
 
 
-* **Shared ownership**: Everybody working on ROS 2 should feel ownership over all parts of the system.
+* **Shared ownership**:
+  Everybody working on ROS 2 should feel ownership over all parts of the system.
   The original author of a chunk of code does not have any special permission or obligation to control or maintain that chunk of code.
   Everyone is free to propose changes anywhere, to handle any type of ticket, and to review any pull request.
-* **Be willing to work on anything**: As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
-* **Ask for help**: If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
+* **Be willing to work on anything**:
+  As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
+* **Ask for help**:
+  If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
 
 Quality Practices
 -----------------
@@ -205,7 +208,8 @@ General Practices
 
 Some practices are common to all ROS 2 development.
 
-.. Uncomment when REP is published: These practices don't affect the categories described in `REP 2004 <>`_, but are still highly recommended for the development process.
+.. Uncomment when REP is published:
+   These practices don't affect the categories described in `REP 2004 <>`_, but are still highly recommended for the development process.
 
 Issues
 ^^^^^^
@@ -213,18 +217,32 @@ Issues
 When filing an issue please make sure to:
 
 - Include enough information for another person to understand the issue.
-  In ROS 2, the following points are needed for narrowing down the cause of an issue. Testing with as many alternatives in each category as feasible will be especially helpful.
-  - **The operating system and version.** Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
-  - **The installation method.** Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians. This can help us determine if the issue is with the packaging process.
-  - **The specific version of ROS 2.** Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed. It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to determine which one). Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
-  - **The ROS 2 client library being used.** Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
+  In ROS 2, the following points are needed for narrowing down the cause of an issue.
+  Testing with as many alternatives in each category as feasible will be especially helpful.
+
+  - **The operating system and version.**
+    Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
+  - **The installation method.**
+    Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians.
+    This can help us determine if the issue is with the packaging process.
+  - **The specific version of ROS 2.**
+    Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
+    It is important to know if your installation includes these fixes.
+  - **The DDS/RMW implementation being used** (see `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to determine which one).
+    Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
+  - **The ROS 2 client library being used.**
+    Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
 
 - Include a list of steps to reproduce the issue.
-- In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__. Issues are much more likely to be resolved if others can reproduce them easily.
+- In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
+  Issues are much more likely to be resolved if others can reproduce them easily.
+
 - Mention troubleshooting steps that have been tried already, including:
-  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet. See `this section <building-from-source>` and follow the instructions to get the "master" branches.
-  - Trying with a different RMW implementation. See `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to do that.
+
+  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
+    See `this section <building-from-source>` and follow the instructions to get the "master" branches.
+  - Trying with a different RMW implementation.
+    See `this page <../Tutorials/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Pull requests
 ^^^^^^^^^^^^^
@@ -299,10 +317,14 @@ Tickets can be browsed on a per-repo basis by browsing the `ROS 2 repositories' 
 
 The names and purposes of columns in any given ROS 2 project board vary, but typically follow the same general structure:
 
-* **To do**: Issues that are relevant to the project, ready to be assigned
-* **In progress**: Active pull requests on which work is currently in progress
-* **In review**: Pull requests where work is complete and ready for review, and for those currently under active review
-* **Done**: Pull requests and related issues are merged/closed (for informational purposes)
+* **To do**:
+  Issues that are relevant to the project, ready to be assigned
+* **In progress**:
+  Active pull requests on which work is currently in progress
+* **In review**:
+  Pull requests where work is complete and ready for review, and for those currently under active review
+* **Done**:
+  Pull requests and related issues are merged/closed (for informational purposes)
 
 To request permission to make changes, simply comment on the tickets you're interested in.
 Depending on the complexity, it might be useful to describe how you plan to address it.
@@ -322,7 +344,8 @@ C++ specific
 ~~~~~~~~~~~~
 
 * Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
-* Avoid using references for ``std::shared_ptr`` since that subverts the reference counting. If the original instance goes out of scope and the reference is being used it accesses freed memory.
+* Avoid using references for ``std::shared_ptr`` since that subverts the reference counting.
+  If the original instance goes out of scope and the reference is being used it accesses freed memory.
 
 Filesystem layout
 ^^^^^^^^^^^^^^^^^
@@ -356,7 +379,7 @@ Package layout
 
   * This might include license implication, e.g. when using the Apache 2 License.
 
-* ``LICENSE``: A copy of the license or licenses for this package
+* ``LICENSE``: a copy of the license or licenses for this package
 * ``CHANGELOG.rst``: `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
 
 Repository layout
@@ -420,7 +443,8 @@ Once the design is ready for review, a pull request should be opened and appropr
 It is recommended to include project owner(s) -
 maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
 
-* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be setup. In this case,
+* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be setup.
+  In this case,
 
   **Before the meeting**
 
