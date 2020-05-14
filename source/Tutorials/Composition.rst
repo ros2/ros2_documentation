@@ -211,11 +211,11 @@ The process will open each library and create one instance of each "rclcpp::Node
 
        ros2 pkg prefix composition
 
-to get the path to where composition is installed. Then call
+    to get the path to where composition is installed. Then call
 
-.. code-block:: bash
+    .. code-block:: bash
 
-   ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
+       ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
 
 Now the shell should show repeated output for each sent and received message.
 
