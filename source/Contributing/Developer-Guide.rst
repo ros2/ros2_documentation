@@ -49,7 +49,7 @@ We will also adhere to some ROS-specific rules built on top of ``semver's`` full
   
 * For compiled code, the ABI is considered part of the public interface. Any change that requires recompiling dependent code is considered major (breaking).
 
-* `Unlike semver <https://semver.org/#spec-item-4>`_, core packages in Dashing and Eloquent have the same stability guarantees despite both distributions being under version ``1.0.0``.
+* Core packages in Dashing and Eloquent are *not* in their initial development phase. Despite SemVer <https://semver.org/#spec-item-4>`_, we enforce API stability, even though the major version component is `0`.
 
   * Subsequently, packages should strive to reach a mature state and increase to version ``1.0.0`` so to match ``semver's`` specifications.
 
