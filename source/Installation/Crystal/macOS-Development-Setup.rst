@@ -175,8 +175,6 @@ Stay up to date
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
 
-.. _osx-development-setup-troubleshooting:
-
 Troubleshooting
 ---------------
 

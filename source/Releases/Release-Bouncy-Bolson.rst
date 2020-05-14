@@ -46,7 +46,7 @@ New features in this ROS 2 release
 * More `command line tools <../Tutorials/Introspection-with-command-line-tools>`\ , e.g. for working with parameters and lifecycle states.
 * Binary packages / fat archives support three RMW implementations by default (without the need to build from source):
 
-  * eProsima's FastRTPS (default)
+  * eProsima's Fast RTPS (default)
   * RTI's Connext
   * ADLINK's OpenSplice
 

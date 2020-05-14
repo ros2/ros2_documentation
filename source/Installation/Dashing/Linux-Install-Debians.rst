@@ -109,7 +109,7 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 Install additional RMW implementations (optional)
 -------------------------------------------------
 
-By default the RMW implementation ``FastRTPS`` is used.
+By default the RMW implementation ``Fast RTPS`` is used.
 
 To install support for OpenSplice or RTI Connext:
 

@@ -118,10 +118,10 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 Install additional RMW implementations (optional)
 -------------------------------------------------
 
-By default the RMW implementation ``FastRTPS`` is used.
-``CycloneDDS`` is also installed.
+By default the RMW implementation ``Fast RTPS`` is used.
+``Cyclone DDS`` is also installed.
 
-To install support for OpenSplice or RTI Connext:
+To install support for ``OpenSplice`` or ``RTI Connext``:
 
 .. code-block:: bash
 

@@ -19,13 +19,16 @@ You should have already read the `DDS and ROS middleware implementations page <.
 Multiple RMW implementations
 ----------------------------
 
-The current ROS 2 binary releases have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, ADLINK OpenSplice and Eclipse CycloneDDS). The default is Fast RTPS, which works without any additional installation steps, because we distribute it with our binary packages. CycloneDDS is also distributed with binary packages since Eloquent.
+The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, ADLINK OpenSplice and Eclipse Cyclone DDS).
+The default is Fast RTPS, which works without any additional installation steps, because we distribute it with our binary packages.
+Cyclone DDS is also distributed with binary packages since Eloquent.
 
-Others like OpenSplice or Connext can be enabled by installing additional packages, but without having to rebuild anything or replace any existing packages.
+Others like OpenSplice or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
-Also, a ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
+A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
 For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/master/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
+
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
 A list of supported inter-vendor communication configurations is forthcoming.
 
@@ -42,14 +45,14 @@ See below for how to specify which RMW implementation is to be used when running
 Specifying RMW implementations
 ------------------------------
 
-To have multiple RMW implementations available for use you must have installed our binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (they are included by default) and their dependencies are met (for example see `the Linux install instructions <linux-development-setup-install-more-dds-implementations-optional>`).
+To have multiple RMW implementations available for use you must have installed our binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (they are included by default and their dependencies are met). See `Install DDS implementations <../Installation/DDS-Implementations>`.
 
 ----
 
 Starting in Beta 2 and above both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION``.
 To choose a different RMW implemenation you can set the environment variable ``RMW_IMPLEMENTATION`` to a specific implementation identifier.
 
-To run the talker demo using the C++ and listener using Python with the RMW implementation for connext:
+To run the talker demo using the C++ and listener using Python with the RMW implementation for Connext:
 
 .. tabs::
 

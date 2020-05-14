@@ -75,7 +75,7 @@ You need the following things installed before installing ROS 2.
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 *

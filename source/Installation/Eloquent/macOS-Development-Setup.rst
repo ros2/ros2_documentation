@@ -76,7 +76,7 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 #.
@@ -196,8 +196,6 @@ Stay up to date
 ---------------
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
-
-.. _Eloquent_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------

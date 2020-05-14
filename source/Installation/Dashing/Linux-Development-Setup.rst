@@ -77,7 +77,7 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
-   # install CycloneDDS dependencies
+   # install Cyclone DDS dependencies
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
@@ -103,8 +103,6 @@ Install dependencies using rosdep
    sudo rosdep init
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
-
-.. _Dashing_linux-development-setup-install-more-dds-implementations-optional:
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
