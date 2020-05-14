@@ -45,8 +45,8 @@ We will also adhere to some ROS-specific rules built on top of ``semver's`` full
 
   * Patch (interface-preserving) and minor (non-breaking) version increments do not break compatibility, so these sorts of changes *are* allowed within a release.
 
-* Packages for consecutive ROS distributions should have equal or consecutive major package versions.
-  
+  * Major ROS releases are the best time to release breaking changes. If a core package needs multiple breaking changes, they should be released together to coincide with the ROS release cycle, as opposed to over several major releases.
+
 * For compiled code, the ABI is considered part of the public interface. Any change that requires recompiling dependent code is considered major (breaking).
 
 * Core packages in Dashing and Eloquent are *not* in their initial development phase. Despite SemVer <https://semver.org/#spec-item-4>`_, we enforce API stability, even though the major version component is `0`.
