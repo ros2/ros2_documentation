@@ -1,3 +1,5 @@
+.. _InterfaceConcept:
+
 .. redirect-from::
 
     About-ROS-Interfaces
@@ -121,6 +123,10 @@ Field types can be:
      - std::string
      - builtins.str
      - string
+   * - wstring
+     - std::u16string
+     - builtins.str
+     - wstring
 
 
 *Every built-in-type can be used to define arrays:*

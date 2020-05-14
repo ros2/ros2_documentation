@@ -2,8 +2,8 @@
 
     Logging
 
-Logging and logger configuration
-================================
+About logging and logger configuration
+======================================
 
 .. contents:: Table of Contents
    :depth: 2

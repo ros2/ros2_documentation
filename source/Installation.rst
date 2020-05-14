@@ -13,6 +13,7 @@ Installation
    Installation/Foxy
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
+   Installation/Prerelease-Testing
    Installation/DDS-Implementations
 
 ROS 2 Installation Options

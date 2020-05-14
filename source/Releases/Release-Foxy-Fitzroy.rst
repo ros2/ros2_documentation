@@ -2,7 +2,7 @@
 
 .. move this directive when next release page is created
 
-ROS 2 Foxy Fitzroy (codename 'foxy'; May 23rd, 2020)
+ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
 ====================================================
 
 .. contents:: Table of Contents
@@ -42,11 +42,44 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes since the Eloquent release
 ----------------------------------
 
+Classic CMake vs. modern CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In "classic" CMake a package provides CMake variables like ``<pkgname>_INCLUDE_DIRS`` and ``<pkgname>_LIBRARIES`` when being ``find_package()``-ed.
+With ``ament_cmake`` that is achieved by calling ``ament_export_include_directories`` and ``ament_export_libraries``.
+In combination with ``ament_export_dependencies``, ``ament_cmake`` ensures that all include directories and libraries of recursive dependencies are concattenated and included in these variables.
+
+In "modern" CMake a package provides an interface target instead (commonly named ``<pkgname>::<pkgname>``) which in itself encapsulates all recursive dependencies.
+In order to export a library target to use modern CMake ``ament_export_targets`` needs to be called with an export name which is also used when installing the libraries using ``install(TARGETS <libA> <libB> EXPORT <export_name> ...)``.
+The exported interface targets are available through the CMake variable ``<pkgname>_TARGETS``.
+For library targets to be exportable like this they must not rely on classic functions affecting global state like ``include_directories()`` but set the include directories on the target itself - for the build as well as install environment - using generator expressions, e.g. ``target_include_directories(<target> PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>" "$<INSTALL_INTERFACE:include>")``.
+
+When ``ament_target_dependencies`` is used to add dependencies to a library target the function uses modern CMake targets when they are available.
+Otherwise it falls back to using classic CMake variables.
+As a consequence you should only export modern CMake targets if all dependencies are also providing modern CMake targets.
+**Otherwise the exported interface target will contain the absolute paths to include directories / libraries in the generated CMake logic which makes the package non-relocatable.**
+
+For examples how packages have been updated to modern CMake in Foxy see `ros2/ros2#904 <https://github.com/ros2/ros2/issues/904>`_.
+
 ament_export_interfaces replaced by ament_export_targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The CMake function ``ament_export_interfaces`` from the package ``ament_cmake_export_interfaces`` has been deprecated in favor of the function ``ament_export_targets`` in the new package ``ament_cmake_export_targets``.
 See the GitHub ticket `ament/ament_cmake#237 <https://github.com/ament/ament_cmake/issues/237>`_ for more context.
+
+rosidl_generator_c|cpp namespace / API changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The packages ``rosidl_generator_c`` and ``rosidl_generator_cpp`` have been refactored with many headers and sources moved into the new packages ``rosidl_runtime_c`` and ``rosidl_runtime_cpp``.
+The intention is to remove run dependencies on the generator packages and therefore the code generation tools using Python.
+While moving the headers the include paths / namespaces were updated accordingly so in many cases changing include directives from the generator package to the runtime package is sufficient.
+
+The generated C / C++ code has also been refactored.
+The files ending in ``__struct.h|hpp``, ``__functions.h``, ``__traits.hpp``, etc. have been moved into a subdirectory ``detail`` but most code only includes the header named after the interface without any of these suffixes.
+
+Some types regarding string and sequence bounds have also been renamed to match the naming conventions but they aren't expected to be used in user code (above RMW implementation and type support packages)
+
+For more information see `ros2/rosidl#446 (for C) <https://github.com/ros2/rosidl/issues/446>`_ and `ros2/rosidl#447 (for C++) <https://github.com/ros2/rosidl/issues/447>`_.
 
 Default working directory for ament_add_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,29 +232,24 @@ Timeline before the release
 
 A few milestones leading up to the release:
 
-.. note::
+    .. note::
 
-  The coronavirus pandemic has slowed down the progress on a few very important features / improvements / bug fixes which are targeted for Foxy.
-  As a consequence the following dates are subject to maximum delay of two weeks.
-  You should not rely on these extra two weeks but still aim to meet the below deadlines to land any contributions to the ``ros_core`` packages.
-  Once all the pull requests considered to be very important have landed the API freeze will happen right away and not wait for the full two weeks.
-  Also if any of the desired changes doesn't land within the two weeks extension the freeze will happen anyway.
-  The subsequent dates will likely shift by the same duration the API and feature freeze date has shifted and will be updated accordingly.
+      The dates below reflect an extension by roughly two weeks due to the coronavirus pandemic.
 
-    Wed. April 8th, 2020 (potentially delayed until up to April 22nd)
+    Wed. April 22nd, 2020
         API and feature freeze for ``ros_core`` [1]_ packages.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 13th, 2020 (beta) (subject to change based on shift of the API and feature freeze date)
+    Mon. April 29th, 2020 (beta)
         Updated releases of ``desktop`` [2]_ packages available.
         Testing of the new features.
 
-    Wed. May 13th, 2020 (release candidate) (subject to change based on shift of the API and feature freeze date)
+    Wed. May 27th, 2020 (release candidate)
         Updated releases of ``desktop`` [2]_ packages available.
 
-    Wed. May 20, 2020 (subject to change based on shift of the API and feature freeze date)
+    Wed. June 3rd, 2020
         Freeze rosdistro.
         No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
 

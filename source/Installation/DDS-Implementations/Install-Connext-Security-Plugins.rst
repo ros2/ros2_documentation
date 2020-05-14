@@ -45,5 +45,6 @@ installed into the 'rti\_connext\_dds-[version]' directory in your home
 directory space (this was created during installation of the RTI host
 tools). Note: this directory location may need to be placed in your PATH
 environment variable.
+See the `RTI Security Plugins Getting Started Guide <https://community.rti.com/static/documentation/connext-dds/5.3.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ for more information.
 
 Installation complete.

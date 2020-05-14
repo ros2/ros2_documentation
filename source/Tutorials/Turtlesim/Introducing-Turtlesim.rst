@@ -262,3 +262,9 @@ Next steps
 ----------
 
 Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :ref:`ROS2Nodes`.
+
+Related content
+---------------
+
+The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
+Make sure to adjust the branch to view the version of turtlesim corresponding to your installed ROS 2 distro.

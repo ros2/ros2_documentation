@@ -145,6 +145,8 @@ RQt dependencies
 
    > pip install -U pydot PyQt5
 
+Follow the steps for `Installing Graphviz <Foxy_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
+
 Get the ROS 2 code
 ------------------
 
@@ -214,7 +216,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_foxy\local_setup.bat
+   > call C:\dev\ros2_foxy\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 

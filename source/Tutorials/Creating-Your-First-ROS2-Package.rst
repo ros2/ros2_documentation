@@ -43,7 +43,7 @@ ROS 2 Python and CMake packages each have their own minimum required contents:
       * ``package.xml`` file containing meta information about the package
       * ``setup.py`` containing instructions for how to install the package
       * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
-      * ``your_package_name`` - a file used by ROS 2 tools to find your package
+      * ``/<package_name>`` - a directory with the same name as your package, used by ROS 2 tools to find your package, contains ``__init__.py``
 
 The simplest possible package may have a file structure that looks like:
 
@@ -90,7 +90,7 @@ A trivial workspace might look like:
         package_2/
             setup.py
             package.xml
-            resource/my_package
+            resource/package_2
         ...
         package_n/
             CMakeLists.txt
@@ -341,7 +341,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>
@@ -365,7 +367,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>

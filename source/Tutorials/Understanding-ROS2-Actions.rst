@@ -281,7 +281,7 @@ Keep an eye on the turtlesim window, and enter the following command into your t
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: 1.57'}
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 
 You should see the turtle rotating, as well as the following message in your terminal:
 
@@ -307,7 +307,7 @@ After running the previous command, the turtle will already be at the orientatio
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: -1.57'} --feedback
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
 
 Your terminal will return the message:
 

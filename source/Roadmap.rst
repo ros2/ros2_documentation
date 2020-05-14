@@ -155,6 +155,7 @@ Port of existing ROS 1 functionality
 * Perception metapackage
 
   * Image pipeline
+  * Perception PCL
 
 * MoveIt
 

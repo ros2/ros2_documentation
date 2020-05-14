@@ -163,7 +163,7 @@ The ``main`` function accomplishes the following, line by line:
 ~~~~~~~~~~~~~~~~~~
 
 The ``add_executable`` macro generates an executable you can run using ``ros2 run``.
-Add the following code block to create an executable named ``server``:
+Add the following code block to ``CMakeLists.txt`` to create an executable named ``server``:
 
 .. code-block:: console
 
@@ -309,9 +309,18 @@ After removing some unnecessary boilerplate from the automatically generated fil
 
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: console
+.. tabs::
 
-  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      sudo rosdep install -i --from-path src --rosdistro <distro> -y
+
+  .. group-tab:: macOS/Windows
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 

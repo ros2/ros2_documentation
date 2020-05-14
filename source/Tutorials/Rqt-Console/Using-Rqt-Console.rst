@@ -56,7 +56,7 @@ You can also add more exclusion filters using the plus-sign button to the right.
 The bottom section is for highlighting messages that include a string you input.
 You can add more filters to this section as well.
 
-Now start ``turtlesim`` with the following command:
+Now start ``turtlesim`` in a new terminal with the following command:
 
 .. code-block:: console
 
@@ -70,7 +70,7 @@ In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in 
 
 .. code-block:: console
 
-    ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+    ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}"
 
 Since the above command is publishing the topic at a steady rate, the turtle is continuously running into the wall.
 In ``rqt_console`` you will see the same message with the ``Warn`` severity level displayed over and over, like so:
@@ -101,7 +101,7 @@ There is no exact standard for what each level indicates, but it’s safe to ass
 * ``Debug`` messages detail the entire step-by-step process of the system execution.
 
 The default level is ``Info``.
-You will only see messages of the default severity level and higher.
+You will only see messages of the default severity level and more-severe levels.
 
 Normally, only ``Debug`` messages are hidden because they’re the only level less severe than ``Info``.
 For example, if you set the default level to ``Warn``, you would only see messages of severity ``Warn``, ``Error``, and ``Fatal``.

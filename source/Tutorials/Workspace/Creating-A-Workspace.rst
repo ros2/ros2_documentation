@@ -17,7 +17,7 @@ Background
 ----------
 
 A workspace is a directory containing ROS 2 packages.
-Before using ROS 2, it’s necessary to source your the ROS 2 installation workspace in the terminal you plan to work in.
+Before using ROS 2, it’s necessary to source your ROS 2 installation workspace in the terminal you plan to work in.
 This makes ROS 2’s packages available for you to use in that terminal.
 
 You also have the option of sourcing an “overlay” – a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you're extending, or “underlay”.
@@ -109,11 +109,21 @@ You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
 
-In the ``dev_ws/src`` directory, if your distro is Eloquent for example, run the command:
+In the ``dev_ws/src`` directory, run the following command for the distro you're using:
 
-.. code-block:: console
+.. tabs::
 
-  git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
+   .. group-tab:: Eloquent
+
+      .. code-block:: console
+
+        git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
+
+   .. group-tab:: Foxy
+
+      .. code-block:: console
+
+        git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
