@@ -184,6 +184,7 @@ There several categories of jobs on the buildfarm:
 
   * ci_linux: build + test the code on Ubuntu Xenial
   * ci_linux-aarch64: build + test the code on Ubuntu Xenial on an ARM 64-bit machine (aarch64)
+  * ci_linux_coverage: build + test + generation of test coverage
   * ci_osx: build + test the code on MacOS 10.12
   * ci_windows: build + test the code on Windows 10
   * ci_launcher: trigger all the jobs listed above
@@ -217,11 +218,37 @@ There several categories of jobs on the buildfarm:
 
       * results are exported as a cobertura report
 
+
 * packaging (run every night, against fastrtps; result is bundled into an archive):
 
   * packaging_linux
   * packaging_osx
   * Packaging_windows
+
+Note on Coverage runs
+^^^^^^^^^^^^^^^^^^^^^
+
+ROS2 packages are organized in a way that the testing code for a given package
+is not only contained within the Package, but could also be present in a
+different package. In other words: packages can exercice during the testing
+phase code beloging to other packages.
+
+To achieve the coverage rate reached by all code available in the ROS2 core
+packages it is recommended to run builds including the following set of
+packages, plus the package under testing:
+
+::
+        actionlib_msgs action_msgs action_tutorials_interfaces ament_index_cpp assimp builtin_interfaces bullet class_loader composition composition_interfaces connext_cmake_module console_bridge_vendor curl cyclonedds demo_nodes_cpp demo_nodes_py diagnostic_msgs dummy_map_server dummy_sensors eigen eigen3_cmake_module example_interfaces fastcdr fastrtps fastrtps_cmake_module foonathan_memory_vendor geometry_msgs gmock_vendor interactive_markers kdl_parser laser_geometry launch launch_ros launch_testing launch_testing_ros launch_xml launch_yaml libcurl_vendor libstatistics_collector libyaml_vendor lifecycle lifecycle_msgs log4cxx logging_demo map_msgs message_filters move_base_msgs nav_msgs orocos_kdl osrf_pycommon osrf_testing_tools_cpp pendulum_msgs pluginlib python_cmake_module python_qt_binding qt_dotgraph qt_gui qt_gui_app qt_gui_cpp qt_gui_py_common rcl rcl_action rclcpp rclcpp_action rclcpp_components rclcpp_lifecycle rcl_interfaces rcl_lifecycle rcl_logging_spdlog rclpy rcl_yaml_param_parser rcpputils rcutils resource_retriever rmw rmw_connext_shared_cpp rmw_dds_common rmw_fastrtps_cpp rmw_fastrtps_shared_cpp rmw_implementation rmw_implementation_cmake robot_state_publisher ros2bag ros2cli ros2lifecycle_test_fixtures ros2node ros2param ros2pkg ros2run ros2service ros2test rosbag2_compression rosbag2_converter_default_plugins rosbag2_cpp rosbag2_storage rosbag2_storage_default_plugins rosbag2_test_common rosbag2_tests rosbag2_transport rosgraph_msgs rosidl_adapter rosidl_cmake rosidl_default_generators rosidl_default_runtime rosidl_generator_c rosidl_generator_cpp rosidl_generator_dds_idl rosidl_generator_py rosidl_parser rosidl_runtime_c rosidl_runtime_cpp rosidl_runtime_py rosidl_typesupport_c rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rosidl_typesupport_cpp rosidl_typesupport_fastrtps_c rosidl_typesupport_fastrtps_cpp rosidl_typesupport_interface rosidl_typesupport_introspection_c rosidl_typesupport_introspection_cpp ros_testing rqt_console rqt_gui rqt_gui_cpp rqt_gui_py rqt_msg rqt_py_common rttest rviz_assimp_vendor rviz_common rviz_default_plugins rviz_ogre_vendor rviz_rendering rviz_rendering_tests rviz_visual_testing_framework sensor_msgs shape_msgs shared_queues_vendor spdlog_vendor sqlite3_vendor sros2 statistics_msgs std_msgs std_srvs stereo_msgs test_interface_files test_msgs tf2 tf2_bullet tf2_eigen tf2_geometry_msgs tf2_kdl tf2_msgs tf2_py tf2_ros tf2_sensor_msgs tf2_tools tinyxml tinyxml2 tinyxml2_vendor tinyxml_vendor tlsf tlsf_cpp tracetools tracetools_launch tracetools_read tracetools_trace trajectory_msgs turtlesim uncrustify uncrustify_vendor unique_identifier_msgs urdf urdfdom urdfdom_headers visualization_msgs yaml_cpp_vendor zstd_vendor
+
+The `ci_linux_coverage` expose `CI_BUILD_ARGS` and `CI_TEST_ARGS` arguments
+when launching a new build. The previous set of packages can be injected in
+the following ways:
+
+ * `CI_BUILD_ARGS`: use `--packages-up-to` and copy the whole set plus the
+   package under testing
+ * `CI_TEST_ARGS`: use `--packages-selected` and copy the whole set plus the
+   package under testing
+
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
