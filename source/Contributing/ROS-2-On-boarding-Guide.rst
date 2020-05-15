@@ -118,6 +118,16 @@ The usual workflow is (this list is a work in progress):
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
+* If your use case require to run code coverage:
+
+  * Go to ci.ros2.org
+  * Log in (top right corner)
+  * Click on the ``ci_linux_coverage`` job
+  * Click "Build with Parameters" (left column)
+  * Check instructions to provide parameters to the coverage run detailed at the end of this document
+  * Hit the ``build`` button
+  * At the end of the document there are instructions about how to interpret the result of report
+
 * If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
   * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
@@ -249,6 +259,18 @@ the following ways:
  * `CI_TEST_ARGS`: use `--packages-selected` and copy the whole set plus the
    package under testing
 
+How to calculate the coverage rate from the buildfarm report
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The coverage reports in the buildfarm include all the packages that were used in the ROS workspace. To calculate the number of code coverage related to a given package:
+
+ * Go to the `Coverage Report` page as detailed in the Developer Workflow above
+ * Scroll down to the `Coverage Breakdown by Package` table
+ * In the table, the first column is colled `Name`, scroll down until the `src.ros2.` pattern starts
+ * Find the package under testing entries with the pattern of `src.ros2.<repository_name>.<package_name>.`
+ * There will one row for every directory/subdirectory of the code that was tested (i.e: src/ src/extra_feature/ include/)
+ * For all the directories (excluding test/) under the pattern `src.ros2.<repository_name>.<package_name>.<dirs>` grab the two absolute values in the column `Lines`. For each cell the first value is the lines tested and the second is the total lines of code.
+ * Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
