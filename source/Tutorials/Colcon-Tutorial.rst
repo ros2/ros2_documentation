@@ -25,6 +25,8 @@ The source code can be found in the `colcon GitHub organization <https://github.
 Prerequisites
 -------------
 
+.. _install-colcon:
+
 Install colcon
 ^^^^^^^^^^^^^^
 

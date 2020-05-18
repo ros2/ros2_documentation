@@ -204,7 +204,7 @@ You can learn more about ``rosdep`` in another tutorial (coming soon).
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the root of your workspace (``~/dev_ws``), you can now build your packages using the command:
+From the root of your workspace (``~/dev_ws``), you can now build your packages using :ref:`colcon <install-colcon>`:
 
 .. tabs::
 
