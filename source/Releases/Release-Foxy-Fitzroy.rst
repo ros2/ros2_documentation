@@ -227,6 +227,43 @@ Tools timestamp messages using ROS time
 
 Related pull request: https://github.com/ros2/rviz/pull/519
 
+std_msgs
+^^^^^^^^
+
+Deprecation of messages
+"""""""""""""""""""""""
+
+Although discouraged for a long time we have officially deprecated the following messages in ``std_msgs``.
+There are copies in `example_interfaces <https://index.ros.org/p/example_interfaces>`_
+
+- ``std_msgs/msg/Bool``
+- ``std_msgs/msg/Byte``
+- ``std_msgs/msg/ByteMultiArray``
+- ``std_msgs/msg/Char``
+- ``std_msgs/msg/Float32``
+- ``std_msgs/msg/Float32MultiArray``
+- ``std_msgs/msg/Float64``
+- ``std_msgs/msg/Float64MultiArray``
+- ``std_msgs/msg/Int16``
+- ``std_msgs/msg/Int16MultiArray``
+- ``std_msgs/msg/Int32``
+- ``std_msgs/msg/Int32MultiArray``
+- ``std_msgs/msg/Int64``
+- ``std_msgs/msg/Int64MultiArray``
+- ``std_msgs/msg/Int8``
+- ``std_msgs/msg/Int8MultiArray``
+- ``std_msgs/msg/MultiArrayDimension``
+- ``std_msgs/msg/MultiArrayLayout``
+- ``std_msgs/msg/String``
+- ``std_msgs/msg/UInt16``
+- ``std_msgs/msg/UInt16MultiArray``
+- ``std_msgs/msg/UInt32``
+- ``std_msgs/msg/UInt32MultiArray``
+- ``std_msgs/msg/UInt64``
+- ``std_msgs/msg/UInt64MultiArray``
+- ``std_msgs/msg/UInt8``
+- ``std_msgs/msg/UInt8MultiArray``
+
 Known Issues
 ------------
 
