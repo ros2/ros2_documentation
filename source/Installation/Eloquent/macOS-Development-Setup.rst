@@ -38,6 +38,7 @@ You need the following things installed to build ROS 2:
      .. code-block:: bash
 
         xcode-select --install
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
