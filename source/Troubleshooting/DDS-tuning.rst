@@ -1,0 +1,120 @@
+Raw DDS tuning information
+==========================
+
+Depending on the DDS implementation in use, certain variables (e.g. message size, transfer method, publishing frequency) in realistic, nontrivial systems have been shown to flood the network.
+This page provides guidance on DDS parameter tunings that have been found to address issues with delayed and dropped messages.
+
+The solutions here are simply placeholders until the issues are solved at code-level.
+They are also not exact-mapped solutions; the values are suggested starting points that worked for  specific test systems.
+You will likely need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
+
+It is important to recognize that tuning parameters can come at a cost to resources, and may affect parts of your system beyond the scope of the desired improvements.
+The benefits of improving reliability should be weighed against any detriments for each individual case.
+
+Fast RTPS tuning
+----------------
+
+**Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over Wifi.
+
+When a UDP packet is missing at least one IP fragment, the rest of the received fragments fill up the kernel buffer.
+This causes it to hang for 30 seconds in cases where it recovers, or multiples of 30 seconds in cases where it immediately re-clogs.
+
+**Solution:** Use best-effort QoS settings instead of reliable.
+
+This solution should improve the issue somewhat without having to adjust parameters.
+
+**Solution:** Reduce the value of the ``ipfrag_time`` parameter.
+
+``net.ipv4.ipfrag_time / /proc/sys/net/ipv4/ipfrag_time`` (default 30s) :
+Time in seconds to keep an IP fragment in memory.
+
+Reducing this parameter’s value also reduces the window of time where no fragments are received.
+The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
+
+*Adjustments to solve for a ?MB message:*
+
+.. code-block:: console
+
+    sudo sysctl net.ipv4.ipfrag_time=3
+
+**Solution:** Increase the value of the ``ipfrag_high_thresh`` parameter.
+
+``net.ipv4.ipfrag_high_thresh / /proc/sys/net/ipv4/ipfrag_high_thresh`` (default: 262144 bytes):
+Maximum memory used to reassemble IP fragments.
+
+Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
+However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
+
+*Adjustments to solve for a ?MB message:*
+
+.. code-block:: console
+
+    sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
+
+
+Cyclone DDS tuning
+------------------
+
+**Issue:** Cyclone DDS is not delivering large messages reliably, despite using reliable settings and transferring over a wired network.
+
+This issue should be `addressed soon <https://github.com/eclipse-cyclonedds/cyclonedds/issues/484>`_.
+Until then, we’ve come up with the following solution (debugged using `this test program <https://github.com/jacobperron/pc_pipe>`_):
+
+**Solution:** Increase the maximum OS receive buffer size and the minimum socket receive buffer size that Cyclone uses.
+
+*Adjustments to solve for a 9MB message:*
+
+Set the maximum OS receive buffer size, ``rmem_max``, by running:
+
+ .. code-block:: console
+
+    sudo sysctl -w net.core.rmem_max=2147483647
+
+Or permanently set it by editing the ``/etc/sysctl.d/10-cyclone-max.conf`` file to contain:
+
+ .. code-block:: console
+
+    net.core.rmem_max=2147483647
+
+Next, to set the minimum socket receive buffer size, write out a configuration file for Cyclone to use while starting, like so:
+
+.. code-block:: xml
+
+  <?xml version="1.0" encoding="UTF-8" ?>
+  <CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config
+  https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+      <Domain id="any">
+          <Internal>
+              <MinimumSocketReceiveBufferSize>10MB</MinimumSocketReceiveBufferSize>
+          </Internal>
+      </Domain>
+  </CycloneDDS>
+
+Then, whenever you are going to run a node, set the following environment variable:
+
+.. code-block:: console
+
+    CYCLONEDDS_URI=file:///absolute/path/to/config_file.xml
+
+RTI Connext tuning
+------------------
+
+**Issue:** Connext is not delivering large messages reliably, despite using reliable settings and transferring over a wired network.
+
+**Solution:** This `Connext QoS profile <https://github.com/jacobperron/pc_pipe/blob/master/etc/ROS2TEST_QOS_PROFILES.xml>`_, along with increasing the ``rmem_max`` parameter.
+
+By tuning the ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can produce truly reliable behavior.
+
+This configuration has been proven to reliably deliver messages via SHMEM|UDPv4, and with just UDPv4 on a single machine.
+A multi-machine configuration was also tested with ``rmem_max`` at 4MB and at 20MB (two machines connected with 1Gbps ethernet), with no dropped messages and average message delivery times of 700ms and 371ms, respectively.
+
+Without configuring the kernel’s ``rmem_max``, the same Connext QoS profile took up to 12 seconds for the data to be delivered.
+However, it always at least managed to complete the delivery.
+
+Using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_, we set up slow, medium and fast flow controllers (seen in the Connext QoS profile link) and tested them without changes to ``rmem_max``.
+
+.. include results here? Not sure if that’s too specific
+
+The medium flow controller produced the best results for our case.
+However, the controllers will still need to be tuned for the particular machine/network/environment they are operating in.
+What we can conclude for certain is that Connext flow controllers can be used to tune bandwidth and its aggressiveness for sending out data, though once the bandwidth of a particular setup is passed, performance will start to drop.

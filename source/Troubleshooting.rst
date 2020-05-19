@@ -3,6 +3,11 @@
 Troubleshooting
 ===============
 
+.. toctree::
+  :hidden:
+
+  Troubleshooting/DDS-tuning
+
 Troubleshooting techniques are sorted by the platform they apply to.
 
 .. contents:: Platforms
