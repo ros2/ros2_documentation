@@ -210,6 +210,8 @@ From the root of your workspace (``~/dev_ws``), you can now build your packages 
 
       colcon build
 
+    If you encounter an error that the module ``Lark`` is missing, install it by running ``pip install lark-parser``.
+
   .. group-tab:: macOS
 
     .. code-block:: console
