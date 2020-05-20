@@ -227,6 +227,12 @@ Tools timestamp messages using ROS time
 
 Related pull request: https://github.com/ros2/rviz/pull/519
 
+Known Issues
+------------
+
+* `[ros2/ros2#922] <https://github.com/ros2/ros2/issues/922>`_ Services' performance is unreliable for `rclcpp` nodes using eProsima Fast-RTPS or ADLINK CycloneDDS as RMW implementation.
+
+
 Timeline before the release
 ---------------------------
 
