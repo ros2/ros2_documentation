@@ -44,12 +44,17 @@ We will use the `Semantic Versioning guidelines <http://semver.org/>`__ (``semve
 
 We will also adhere to some ROS-specific rules built on top of ``semver's`` full meaning:
 
-* Major version increments (i.e. breaking changes) will not be made within a released distribution.
-* In addition to avoiding major API increments to ensure API stability according to ``semver``, we will be ABI (and therefore API) stable within a ROS distribution.
+* Major version increments (i.e. breaking changes) should not be made within a released ROS distribution.
 
-  * We will not allow patch (bug-fixes) and minor (non-breaking) version increments to affect API and ABI within a released distribution.
+  * Patch (interface-preserving) and minor (non-breaking) version increments do not break compatibility, so these sorts of changes *are* allowed within a release.
 
-* `Unlike semver <https://semver.org/#spec-item-4>`_, we guarantee API/ABI compatibility within Dashing and Eloquent despite both distributions being under version ``1.0.0``.
+  * Major ROS releases are the best time to release breaking changes.
+    If a core package needs multiple breaking changes, they should be merged into their integration branch (e.g. master) to allow catching problems in CI quickly, but released together to reduce the number of major releases for ROS users.
+
+* For compiled code, the ABI is considered part of the public interface.
+  Any change that requires recompiling dependent code is considered major (breaking).
+
+* We enforce API stability for core packages in Dashing and Eloquent even though their major version components are ``0``, despite `SemVer's specification <https://semver.org/#spec-item-4>`_ regarding initial development.
 
   * Subsequently, packages should strive to reach a mature state and increase to version ``1.0.0`` so to match ``semver's`` specifications.
 
