@@ -67,6 +67,13 @@ Line Length
 
 * Our maximum line length is 100 characters.
 
+File Extensions
+~~~~~~~~~~~~~~~
+
+* Header files should use the .hpp extension.  Implementation files should use the .cpp extension.
+
+  * rationale: consistency. ROS2 auto-generated code and example code uses .hpp and .cpp extensions.
+
 Variable Naming
 ~~~~~~~~~~~~~~~
 
