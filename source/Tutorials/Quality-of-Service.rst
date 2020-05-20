@@ -86,7 +86,7 @@ In case you don't have a camera attached to your computer, there is a commandlin
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -141,7 +141,7 @@ In one of your terminals, add a -h flag to the original command:
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 

@@ -16,7 +16,7 @@ All ros specific arguments have to be specified after a ``--ros-args`` flag:
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -35,7 +35,7 @@ Name remapping
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     Names within a node (e.g. topics/services) can be remapped using the syntax ``-r <old name>:=<new name>``.
     The name/namespace of the node itself can be remapped using ``-r __node:=<new node name>`` and ``-r __ns:=<new node namespace>``.
@@ -57,7 +57,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -77,7 +77,7 @@ For example, the following will pass the remapping arguments to the specified no
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -95,7 +95,7 @@ The following example will both change the node name and remap a topic (node and
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -115,17 +115,12 @@ See ``--log-level`` argument usage in `the logging page <logging-command-line-co
 Parameters
 ----------
 
-.. note::
-
-   The behavior of parameters changed for Dashing and newer.
-   If you're using Crystal or older, see the :ref:`section below <CrystalOlder>`.
-
 Setting parameters directly in the command line
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     You can set parameters directly from the command line using the following syntax:
 
@@ -178,7 +173,7 @@ Then run the following:
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 
@@ -195,45 +190,6 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 .. code-block:: bash
 
   $ ros2 param list parameter_blackboard
-  a_string
-  some_int
-  some_lists.some_doubles
-  some_lists.some_integers
-
-.. _CrystalOlder:
-
-Crystal and older
-^^^^^^^^^^^^^^^^^
-
-*Parameters support for Python nodes was added in Crystal. In Bouncy only C++ nodes are supported.*
-
-Setting parameters from the command-line is currently supported in the form of yaml files.
-
-`See here <https://github.com/ros2/rcl/tree/master/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
-
-As an example, save the following as ``demo_params.yaml``:
-
-.. code-block:: yaml
-
-  talker:
-      ros__parameters:
-          some_int: 42
-          a_string: "Hello world"
-          some_lists:
-              some_integers: [1, 2, 3, 4]
-              some_doubles : [3.14, 2.718]
-
-Then run the following:
-
-.. code-block:: bash
-
-  ros2 run demo_nodes_cpp talker __params:=demo_params.yaml
-
-Other nodes will be able to retrieve the parameter values, e.g.:
-
-.. code-block:: bash
-
-  $ ros2 param list talker
   a_string
   some_int
   some_lists.some_doubles

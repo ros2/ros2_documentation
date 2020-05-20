@@ -81,7 +81,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. tabs::
 
-  .. group-tab:: Foxy
+  .. group-tab:: Foxy and newer
 
     .. code-block:: python
 
@@ -113,7 +113,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
                 )
             ])
 
-  .. group-tab:: Eloquent/Dashing
+  .. group-tab:: Eloquent and older
 
     .. code-block:: python
 
@@ -172,7 +172,7 @@ The first two actions in the launch description launch two turtlesim windows:
 
 .. tabs::
 
-  .. group-tab:: Foxy
+  .. group-tab:: Foxy and newer
 
     .. code-block:: python
 
@@ -189,7 +189,7 @@ The first two actions in the launch description launch two turtlesim windows:
                name='sim'
            ),
 
-  .. group-tab:: Eloquent/Dashing
+  .. group-tab:: Eloquent and older
 
     .. code-block:: python
 
@@ -217,7 +217,7 @@ The final node is also from the ``turtlesim`` package, but a different executabl
 .. tabs::
 
 
-  .. group-tab:: Foxy
+  .. group-tab:: Foxy and newer
 
     .. code-block:: python
 
@@ -231,7 +231,7 @@ The final node is also from the ``turtlesim`` package, but a different executabl
               ]
           )
 
-  .. group-tab:: Eloquent/Dashing
+  .. group-tab:: Eloquent and older
 
     .. code-block:: python
 

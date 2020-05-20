@@ -247,7 +247,7 @@ Enter the following command with the action type in your terminal:
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 

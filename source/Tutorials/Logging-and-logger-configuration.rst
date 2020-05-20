@@ -98,7 +98,7 @@ Restart the demo including the following command line argument:
 
 .. tabs::
 
-  .. group-tab:: Foxy/Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
 

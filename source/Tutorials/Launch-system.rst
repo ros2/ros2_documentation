@@ -88,7 +88,7 @@ Your launch file should define the ``generate_launch_description()`` which retur
 
 .. tabs::
 
-  .. group-tab:: Foxy
+  .. group-tab:: Foxy and newer
 
      .. code-block:: python
 
@@ -109,7 +109,7 @@ Your launch file should define the ``generate_launch_description()`` which retur
                      name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
              ])
 
-  .. group-tab:: Eloquent/Dashing
+  .. group-tab:: Eloquent and older
 
     .. code-block:: python
 
