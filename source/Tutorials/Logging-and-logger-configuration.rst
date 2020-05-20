@@ -104,7 +104,7 @@ Restart the demo including the following command line argument:
 
        ros2 run logging_demo logging_demo_main --ros-args --log-level debug
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 

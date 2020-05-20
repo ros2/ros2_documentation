@@ -92,7 +92,7 @@ In case you don't have a camera attached to your computer, there is a commandlin
 
        ros2 run image_tools cam2image --ros-args -p burger_mode:=True
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -147,7 +147,7 @@ In one of your terminals, add a -h flag to the original command:
 
        ros2 run image_tools showimage -h
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 

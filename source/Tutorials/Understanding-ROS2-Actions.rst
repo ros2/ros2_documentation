@@ -245,9 +245,20 @@ One more piece of information you will need before sending or executing an actio
 Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t``.
 Enter the following command with the action type in your terminal:
 
-.. code-block:: console
+.. tabs::
 
-    ros2 interface show turtlesim/action/RotateAbsolute.action
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/action/RotateAbsolute.action
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 action show turtlesim/action/RotateAbsolute
+
 
 Which will return:
 
