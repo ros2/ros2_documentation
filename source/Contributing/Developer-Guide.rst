@@ -102,6 +102,9 @@ Change control process
 * Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
 
+  * DCO checks will not be required on ROS 2 CI.
+    This is so small changes, like typo corrections or removing whitespace, can pass CI with less hassle.
+
 * A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
   Approval is required before merging.
 
