@@ -96,14 +96,15 @@ Change control process
 * All changes must go through a pull request.
 
 * We will enforce the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ on pull requests in ROSCore repositories.
-  It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
-  You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
+
+  * It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
+
+  * You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
+
+  * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
 
 * Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
   (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
-
-  * DCO checks will not be required on ROS 2 CI.
-    This is so small changes, like typo corrections or removing whitespace, can pass CI with less hassle.
 
 * A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
   Approval is required before merging.
