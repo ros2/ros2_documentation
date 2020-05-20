@@ -16,9 +16,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import os
+import sys, os
 import itertools
 from docutils.parsers.rst import Directive
+
+sys.path.append(os.path.abspath('./sphinx-multiversion'))
+
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -66,7 +69,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', "sphinx_multiversion"]
 
 # Intersphinx mapping
 
@@ -85,7 +88,15 @@ intersphinx_mapping = {
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+#html_theme = 'alabaster'
+
+templates_path = [
+    "source/_templates",
+]
+
+html_sidebars = {
+    '**': ['versioning.html'],
+}
 
 html_favicon = 'favicon.ico'
 
