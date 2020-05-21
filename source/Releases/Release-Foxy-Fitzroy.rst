@@ -172,6 +172,17 @@ Instead, use the ``rclcpp::Node`` methods ``add_on_set_parameters_callback`` and
 
 Related pull request: https://github.com/ros2/rclcpp/pull/1123
 
+rclcpp_action
+^^^^^^^^^^^^^
+
+Deprecate ClientGoalHandle::async_result()
+""""""""""""""""""""""""""""""""""""""""""
+
+Using this API, it is possible to run into a race condition causing an exception to be thrown.
+Instead, prefer to use ``Client::async_get_result()``, which is safer.
+
+See `ros2/rclcpp#1120 <https://github.com/ros2/rclcpp/pull/1120>`_ and the connect issue for more info.
+
 rclpy
 ^^^^^
 
