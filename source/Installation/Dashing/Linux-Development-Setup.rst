@@ -41,12 +41,6 @@ Add the ROS 2 apt repository
 
 .. include:: ../_Apt-Repositories.rst
 
-Add the vcs apt repository
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. code-block:: bash
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xAB17C654
-
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,7 +74,8 @@ Install development tools and ROS tools
      pytest \
      pytest-cov \
      pytest-runner \
-     setuptools
+     setuptools \
+     vcs-tool
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
