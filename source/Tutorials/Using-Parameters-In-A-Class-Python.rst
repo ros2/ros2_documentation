@@ -80,7 +80,7 @@ Inside the ``dev_ws/src/python_parameters/src`` directory, create a new file cal
         def timer_callback(self):
             # First get the value parameter "my_parameter" and get its string value
             my_param = self.get_parameter("my_parameter").get_parameter_value().string_value
-            
+
             # Send back a hello with the name
             self.get_logger().info('Hello %s!' % my_param)
 
@@ -205,7 +205,7 @@ Summary
 -------
 
 You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter. You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker. 
+You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter. You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker.
 
 Next steps
 ----------
