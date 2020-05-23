@@ -1,7 +1,7 @@
 .. _PythonParamNode:
 
 Using parameters in a class (Python)
-=================================
+====================================
 
 **Goal:** Create and run a class with ROS parameters using Python (rclpy).
 
@@ -60,11 +60,12 @@ As always, though, make sure to add the description, maintainer email and name, 
   <license>Apache License 2.0</license>
 
 2 Write the Python node
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Inside the ``dev_ws/src/python_parameters/src`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
 
 .. code-block:: Python
+
     import rclpy
     from rclpy.node import Node
     from rclpy.exceptions import ParameterNotDeclaredException
@@ -102,7 +103,7 @@ Inside the ``dev_ws/src/python_parameters/src`` directory, create a new file cal
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-Declaring a parameter before getting or setting it is compulsory, or you will raise a `ParameterNotDeclaredException` exception.
+Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
 
 
 2.2 Add an entry point
@@ -193,7 +194,7 @@ To change it simply run the following line in the console:
 You know it went well if you get the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello Bob!``
 
-Since the Python talker then set the parameter back to `nobody`, further outputs show  ``[INFO] [minimal_param_node]: Hello nobody!``
+Since the Python talker then set the parameter back to ``nobody``, further outputs show  ``[INFO] [minimal_param_node]: Hello nobody!``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -204,7 +205,7 @@ Summary
 -------
 
 You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter. You added the entry point so that you could build and run it, and used `ros2 param` to interact with the parameter talker. 
+You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter. You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker. 
 
 Next steps
 ----------
