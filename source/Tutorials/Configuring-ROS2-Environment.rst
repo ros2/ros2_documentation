@@ -188,7 +188,7 @@ Once you have determined a unique integer for your group of ROS 2 agents, you ca
 
       .. code-block:: console
 
-        setx ROS_DOMAIN_ID=<your_domain_id>
+        setx ROS_DOMAIN_ID <your_domain_id>
 
 
 Summary
