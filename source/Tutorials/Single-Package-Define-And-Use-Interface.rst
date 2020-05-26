@@ -439,7 +439,7 @@ Next steps
 ----------
 
 Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+Again, you can choose to write it in either :ref:`C++ <CppParamNode>` or :ref:`Python <PythonParamNode>`.
 
 Related content
 ---------------
