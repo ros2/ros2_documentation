@@ -165,6 +165,13 @@ Breaking change in Node Interface getters' signature
 With pull request `ros2/rclcpp#1069 <https://github.com/ros2/rclcpp/pull/1069>`_, the signature of node interface getters has been modified to return shared ownership of node interfaces (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
 Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
 
+Deprecate set_on_parameters_set_callback
+""""""""""""""""""""""""""""""""""""""""
+
+Instead, use the ``rclcpp::Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
+
+Related pull request: https://github.com/ros2/rclcpp/pull/1123
+
 rclpy
 ^^^^^
 
