@@ -131,13 +131,12 @@ When changing an older version of ROS:
 Documentation
 ^^^^^^^^^^^^^
 
-All packages should have these documentation elements present in their README or linked to from their README:
+The README is the first place users should go to interact with your package. Therefore, it *must* describe the package and its purpose. It should also contain or direct users to information which improves experience, such as:
 
-* Description and purpose
 * Definition and description of the public API
 * Examples
-* How to build and install (should reference external tools/workflows)
-* How to build and run tests
+* How to build and install (especially if other than ``colcon build``)
+* How to build and run tests (especially if other than ``colcon test``)
 * How to build documentation
 * How to develop (useful for describing things like ``python setup.py develop``)
 * License and copyright statements
