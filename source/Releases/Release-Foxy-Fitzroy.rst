@@ -173,7 +173,7 @@ Support for multiple on parameter set callbacks
 
 Use the ``Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
 
-The method ``set_parameters_calblack`` has been deprecated.
+The method ``set_parameters_callback`` has been deprecated.
 
 Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
 
