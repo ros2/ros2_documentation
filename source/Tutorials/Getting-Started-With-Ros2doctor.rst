@@ -20,12 +20,6 @@ When your ROS 2 setup is not running as expected, you can check its settings wit
 
 ``ros2doctor`` checks all aspects of ROS 2, including platform, version, network, environment, running systems and more, and warns you about possible errors and reasons for issues.
 
-.. note::
-
-  ``ros2doctor`` is under active development.
-  Features may be unstable, and are being updated frequently.
-  We encourage users to submit feature requests and tickets if anything comes up.
-
 Prerequisites
 -------------
 
@@ -64,13 +58,13 @@ If you do receive a warning, it will look something like this:
 
     <path>: <line>: UserWarning: <message>
 
-For example, ros2doctor will find this warning if you’re using an unstable ROS 2 distribution:
+For example, ``ros2doctor`` will find this warning if you’re using an unstable ROS 2 distribution:
 
 .. code-block:: console
 
     UserWarning: Distribution <distro> is not fully supported or tested. To get more consistent features, download a stable version at https://index.ros.org/doc/ros2/Installation/
 
-If ros2doctor only finds warnings in your system, you will still receive the ``All <n> checks passed`` message.
+If ``ros2doctor`` only finds warnings in your system, you will still receive the ``All <n> checks passed`` message.
 
 Most checks are categorized as warnings as opposed to errors.
 It’s mostly up to you, the user, to determine the importance of the feedback ``ros2doctor`` returns.
@@ -198,9 +192,9 @@ Related content
 ---------------
 
 `ros2doctor’s README <https://github.com/ros2/ros2cli/tree/master/ros2doctor>`__ will tell you more about different arguments.
-You might want to take a look around the ros2doctor repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
+You might want to take a look around the ``ros2doctor`` repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
 
 Next steps
 ----------------
 
-You’ve completed the beginner level developer tutorials!
+You’ve completed the beginner level tutorials!
