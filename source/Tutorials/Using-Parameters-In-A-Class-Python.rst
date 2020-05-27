@@ -62,7 +62,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/python_parameters/src`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
+Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
 
 .. code-block:: Python
 
@@ -84,10 +84,10 @@ Inside the ``dev_ws/src/python_parameters/src`` directory, create a new file cal
             # Send back a hello with the name
             self.get_logger().info('Hello %s!' % my_param)
 
-            # Then set the parameter "my_parameter" back to string value "nobody"
+            # Then set the parameter "my_parameter" back to string value "world"
             my_new_param = rclpy.parameter.Parameter("my_parameter",
                                                     rclpy.Parameter.Type.STRING,
-                                                    "nobody")
+                                                    "world")
             all_new_parameters = [my_new_param]
             self.set_parameters(all_new_parameters)
 
@@ -116,7 +116,7 @@ Again, match the ``maintainer``, ``maintainer_email``, ``description`` and ``lic
 
   maintainer='YourName',
   maintainer_email='you@email.com',
-  description='Examples of minimal parameter getter/setter using rclpy',
+  description='Python parameter tutorial',
   license='Apache License 2.0',
 
 Add the following line within the ``console_scripts`` brackets of the ``entry_points`` field:
@@ -163,7 +163,7 @@ Except the first message where the parameter had a default value (an empty strin
 
 .. code-block:: console
 
-    [INFO] [parameter_node]: Hello nobody!
+    [INFO] [parameter_node]: Hello world!
 
 There are two ways to change the parameter:
 
@@ -189,12 +189,12 @@ To change it simply run the following line in the console:
 
 .. code-block:: console
 
-    ros2 param set /minimal_param_node my_parameter Bob
+    ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you get the output ``Set parameter successful``.
-If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello Bob!``
+If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
 
-Since the Python talker then set the parameter back to ``nobody``, further outputs show  ``[INFO] [minimal_param_node]: Hello nobody!``
+Since the Python talker then set the parameter back to ``world``, further outputs show  ``[INFO] [minimal_param_node]: Hello world!``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -205,7 +205,8 @@ Summary
 -------
 
 You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter. You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker.
+You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter.
+You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker.
 
 Next steps
 ----------
