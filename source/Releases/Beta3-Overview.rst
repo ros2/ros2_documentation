@@ -24,7 +24,7 @@ Improvements since Beta 2 release
 
 * Execution model in Python, many fixes to memory management in Python C extension
 * Experimental rewrite of `ros_control <https://github.com/ros2/ros2_control>`__
-* Exposure of DDS implementation-specific symbols to users (for FastRTPS and Connext) (see `example <https://github.com/ros2/demos/blob/6363be2efe2fea799d92bc22a66e776b2ca9c5d0/demo_nodes_cpp_native/src/talker.cpp>`__)
+* Exposure of DDS implementation-specific symbols to users (for Fast RTPS and Connext) (see `example <https://github.com/ros2/demos/blob/6363be2efe2fea799d92bc22a66e776b2ca9c5d0/demo_nodes_cpp_native/src/talker.cpp>`__)
 * Logging `API <https://github.com/ros2/rclpy/blob/1ef2924ef8e154c0553edf0fdba4840b08b728f8/rclpy/rclpy/logging.py>`__ in Python
 * Fixed several memory leaks and race conditions in various packages
 * Readded support for OpenSplice (on Linux and Windows atm) provided by PrismTech
@@ -53,7 +53,7 @@ For the complete list, see `earlier release notes <../Releases>`.
 
 * Support for interoperability between multiple DDS/RTPS implementations
 
-  * eProsima FastRTPS is our default implementation, and is included in the binary packages
+  * eProsima Fast RTPS is our default implementation, and is included in the binary packages
   * RTI Connext is supported: build from source to try it out
   * PrismTech OpenSplice: see limitations below
 

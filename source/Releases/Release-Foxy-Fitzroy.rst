@@ -165,6 +165,31 @@ Breaking change in Node Interface getters' signature
 With pull request `ros2/rclcpp#1069 <https://github.com/ros2/rclcpp/pull/1069>`_, the signature of node interface getters has been modified to return shared ownership of node interfaces (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
 Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
 
+Deprecate set_on_parameters_set_callback
+""""""""""""""""""""""""""""""""""""""""
+
+Instead, use the ``rclcpp::Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
+
+Related pull request: https://github.com/ros2/rclcpp/pull/1123
+
+Breaking change in Publisher getter signature
+""""""""""""""""""""""""""""""""""""""""""""""
+
+With pull request `ros2/rclcpp#1119 <https://github.com/ros2/rclcpp/pull/1119>`_, the signature of publisher handle getter has been modified to return shared ownership of the underlying rcl structure (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
+This was necessary to fix a segfault in certain circumstances.
+Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
+
+rclcpp_action
+^^^^^^^^^^^^^
+
+Deprecate ClientGoalHandle::async_result()
+""""""""""""""""""""""""""""""""""""""""""
+
+Using this API, it is possible to run into a race condition causing an exception to be thrown.
+Instead, prefer to use ``Client::async_get_result()``, which is safer.
+
+See `ros2/rclcpp#1120 <https://github.com/ros2/rclcpp/pull/1120>`_ and the connected issue for more info.
+
 rclpy
 ^^^^^
 
@@ -173,7 +198,7 @@ Support for multiple on parameter set callbacks
 
 Use the ``Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
 
-The method ``set_parameters_calblack`` has been deprecated.
+The method ``set_parameters_callback`` has been deprecated.
 
 Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
 
@@ -226,6 +251,50 @@ Tools timestamp messages using ROS time
 '2D Pose Estimate', '2D Nav Goal', and 'Publish Point' tools now timestamp their messages using ROS time instead of system time, in order for the ``use_sim_time`` parameter to have an effect on them.
 
 Related pull request: https://github.com/ros2/rviz/pull/519
+
+std_msgs
+^^^^^^^^
+
+Deprecation of messages
+"""""""""""""""""""""""
+
+Although discouraged for a long time we have officially deprecated the following messages in ``std_msgs``.
+There are copies in `example_interfaces <https://index.ros.org/p/example_interfaces>`_
+
+- ``std_msgs/msg/Bool``
+- ``std_msgs/msg/Byte``
+- ``std_msgs/msg/ByteMultiArray``
+- ``std_msgs/msg/Char``
+- ``std_msgs/msg/Float32``
+- ``std_msgs/msg/Float32MultiArray``
+- ``std_msgs/msg/Float64``
+- ``std_msgs/msg/Float64MultiArray``
+- ``std_msgs/msg/Int16``
+- ``std_msgs/msg/Int16MultiArray``
+- ``std_msgs/msg/Int32``
+- ``std_msgs/msg/Int32MultiArray``
+- ``std_msgs/msg/Int64``
+- ``std_msgs/msg/Int64MultiArray``
+- ``std_msgs/msg/Int8``
+- ``std_msgs/msg/Int8MultiArray``
+- ``std_msgs/msg/MultiArrayDimension``
+- ``std_msgs/msg/MultiArrayLayout``
+- ``std_msgs/msg/String``
+- ``std_msgs/msg/UInt16``
+- ``std_msgs/msg/UInt16MultiArray``
+- ``std_msgs/msg/UInt32``
+- ``std_msgs/msg/UInt32MultiArray``
+- ``std_msgs/msg/UInt64``
+- ``std_msgs/msg/UInt64MultiArray``
+- ``std_msgs/msg/UInt8``
+- ``std_msgs/msg/UInt8MultiArray``
+
+Known Issues
+------------
+
+* `[ros2/ros2#922] <https://github.com/ros2/ros2/issues/922>`_ Services' performance is flaky for ``rclcpp`` nodes using eProsima Fast-RTPS or ADLINK CycloneDDS as RMW implementation.
+  Specifically, service clients sometimes do not receive the response from servers.
+
 
 Timeline before the release
 ---------------------------

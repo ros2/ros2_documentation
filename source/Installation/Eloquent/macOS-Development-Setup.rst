@@ -38,6 +38,7 @@ You need the following things installed to build ROS 2:
      .. code-block:: bash
 
         xcode-select --install
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
@@ -76,7 +77,7 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 #.
@@ -146,7 +147,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -196,8 +197,6 @@ Stay up to date
 ---------------
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
-
-.. _Eloquent_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------

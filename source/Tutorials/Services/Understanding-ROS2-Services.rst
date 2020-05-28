@@ -161,15 +161,35 @@ Which will return:
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show <type_name>.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show <type_name>.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show <type_name>
 
 To run this command on the ``/clear`` service’s type, ``Empty``:
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show std_srvs/srv/Empty.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show std_srvs/srv/Empty.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show std_srvs/srv/Empty
 
 Which will return:
 
@@ -186,9 +206,21 @@ From the results of ``ros2 service list -t``, we know ``/spawn``’s type is ``t
 
 To see the arguments in a ``/spawn`` call-and-request, run the command:
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show turtlesim/srv/Spawn.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/srv/Spawn.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show turtlesim/srv/Spawn
+
+
 
 Which will return:
 

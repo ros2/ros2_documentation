@@ -195,16 +195,16 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
       auto publish_msg = [this]() -> void {
           auto message = more_interfaces::msg::AddressBook();
 
-          message->first_name = "John";
-          message->last_name = "Doe";
-          message->age = 30;
-          message->gender = message->MALE;
-          message->address = "unknown";
+          message.first_name = "John";
+          message.last_name = "Doe";
+          message.age = 30;
+          message.gender = message.MALE;
+          message.address = "unknown";
 
-          std::cout << "Publishing Contact\nFirst:" << message->first_name <<
-            "  Last:" << message->last_name << std::endl;
+          std::cout << "Publishing Contact\nFirst:" << message.first_name <<
+            "  Last:" << message.last_name << std::endl;
 
-          this->address_book_publisher_->publish(*message);
+          this->address_book_publisher_->publish(message);
         };
       timer_ = this->create_wall_timer(1s, publish_msg);
     }
@@ -439,7 +439,7 @@ Next steps
 ----------
 
 Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+Again, you can choose to write it in either :ref:`C++ <CppParamNode>` or :ref:`Python <PythonParamNode>`.
 
 Related content
 ---------------

@@ -180,7 +180,7 @@ Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos``
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 Code
 --------------------
@@ -189,7 +189,7 @@ Build the ROS 2 Code
 
 To build ROS 2 you will need a Visual Studio Command Prompt (usually titled "x64 Native Tools Command Prompt for VS 2017" for bouncy and later or "x64 Native Tools Command Prompt for VS 2015" for ardent and earlier) running as Administrator.
 
-FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
+Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
 To build the ``\dev\ros2_crystal`` folder tree:
 

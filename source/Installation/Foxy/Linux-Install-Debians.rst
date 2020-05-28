@@ -110,12 +110,13 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 
 .. _Foxy_linux-install-additional-rmw-implementations:
 
-Install additional RMW implementations
---------------------------------------
+Install additional RMW implementations (optional)
+-------------------------------------------------
 
-By default the RMW implementation ``FastRTPS`` is used.
+By default the RMW implementation ``Fast RTPS`` is used.
+``Cyclone DDS`` is also installed.
 
-To install support for RTI Connext:
+To install support for ``RTI Connext``:
 
 .. code-block:: bash
 
@@ -124,11 +125,9 @@ To install support for RTI Connext:
 
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_connext_cpp`` you can switch to use RTI Connext instead.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
 
 .. _Foxy_linux-ros1-add-pkgs:
-
-`University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------

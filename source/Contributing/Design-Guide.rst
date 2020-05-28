@@ -25,12 +25,12 @@ You want to export composable nodes as a shared libraries from some packages and
 
 `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
 
-FastRTPS large data transfer
-----------------------------
+Fast RTPS large data transfer
+-----------------------------
 
 **Context**
 
-You want to transfer large data via FastRTPS.
+You want to transfer large data via Fast RTPS.
 
 **Problem**
 
@@ -52,8 +52,8 @@ Use Asynchronous publication mode:
 
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
-FastRTPS Best Effort Video Streaming
-------------------------------------
+Fast RTPS Best Effort Video Streaming
+-------------------------------------
 
 **Context**
 
@@ -87,8 +87,8 @@ mechanism) and prioritize the last frame.
 
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
-FastRTPS Reliable Video Streaming
----------------------------------
+Fast RTPS Reliable Video Streaming
+----------------------------------
 
 **Context**
 

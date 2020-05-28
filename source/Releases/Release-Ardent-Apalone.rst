@@ -31,11 +31,11 @@ New features in this ROS 2 release
   * Provided by a C API
   * Implemented using different vendors:
 
-    * eProsima's FastRTPS as well as ADLINK's OpenSplice (from binary and source)
+    * eProsima's Fast RTPS as well as ADLINK's OpenSplice (from binary and source)
     * RTI's Connext (only from source)
 
   * Numerous quality of service settings for handling non-ideal networks
-  * DDS Security support (with Connext and FastRTPS)
+  * DDS Security support (with Connext and Fast RTPS)
 
 * C++ and Python 3 client libraries
 
@@ -73,7 +73,7 @@ Known Issues
 ------------
 
 
-* FastRTPS performance with larger data like the image demo
+* Fast RTPS performance with larger data like the image demo
 * Using Connext it is currently not allowed for two topics with the same base name but different namespaces to have a different type (see `issue <https://github.com/ros2/rmw_connext/issues/234>`__).
 * Listing of node names (e.g. using ``ros2 node list``) does not work across some rmw implementations.
 * On Windows Python launch files might hang when trying to abort using ``Ctrl-C`` (see `issue <https://github.com/ros2/launch/issues/64>`__). In order to continue using the shell which is blocked by the hanging command you might want to end the hanging Python process using the process monitor.

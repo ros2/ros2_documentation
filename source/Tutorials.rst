@@ -52,6 +52,7 @@ Beginner: Client Libraries
    Tutorials/Custom-ROS2-Interfaces
    Tutorials/Single-Package-Define-And-Use-Interface
    Tutorials/Using-Parameters-In-A-Class-CPP
+   Tutorials/Using-Parameters-In-A-Class-Python
    Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
@@ -88,7 +89,6 @@ Advanced
 
    Tutorials/Sync-Vs-Async
    Tutorials/Working-with-multiple-RMW-implementations
-   Tutorials/Working-with-Eclipse-CycloneDDS
    Tutorials/catment
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial

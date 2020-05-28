@@ -309,7 +309,7 @@ Open a console and navigate to the root of your workspace, ``dev_ws``, and build
 
     colcon build --packages-select cpp_parameters
 
-Then source the setup files:
+Then source the setup files in a new terminal:
 
 .. code-block:: console
 
@@ -330,8 +330,8 @@ The terminal should return the following message every second:
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You added the dependencies, executable, and launch file to the package configuration files so that you could build and run them, and see the parameter in action.
+You created a node with a custom parameter, that can be set either from a launch file or the command line.
+You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
 
 Next steps
 ----------

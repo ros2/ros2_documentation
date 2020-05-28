@@ -647,7 +647,7 @@ Until Crystal each message generator package registered itself using the ``ament
 As of Dashing the message generation pipeline is based on ``.idl`` files instead.
 
 Any message generator package needs to change and register itself using the new extension point ``rosidl_generate_idl_interfaces`` which passes only ``.idl`` files instead.
-The message generators for the commonly supported languages C, C++, and Python as well as the typesupport packages for introspection, FastRTPS, Connext and OpenSplice have already been updated (see `ros2/rosidl#334 <https://github.com/ros2/rosidl/pull/334/files>`__).
+The message generators for the commonly supported languages C, C++, and Python as well as the typesupport packages for introspection, Fast RTPS, Connext and OpenSplice have already been updated (see `ros2/rosidl#334 <https://github.com/ros2/rosidl/pull/334/files>`__).
 The CMake code calling ``rosidl_generate_interfaces()`` can either pass ``.idl`` files directly or pass ``.msg`` / ``.srv`` / ``.action`` which will then internally be converted into ``.idl`` files before being passed to each message generator.
 
 The format of ``.msg`` / ``.srv`` / ``.action`` files is not being evolved in the future.
