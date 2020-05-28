@@ -172,6 +172,13 @@ Instead, use the ``rclcpp::Node`` methods ``add_on_set_parameters_callback`` and
 
 Related pull request: https://github.com/ros2/rclcpp/pull/1123
 
+Breaking change in Publisher getter signature
+""""""""""""""""""""""""""""""""""""""""""""""
+
+With pull request `ros2/rclcpp#1119 <https://github.com/ros2/rclcpp/pull/1119>`_, the signature of publisher handle getter has been modified to return shared ownership of the underlying rcl structure (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
+This was necessary to fix a segfault in certain circumstances.
+Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
+
 rclcpp_action
 ^^^^^^^^^^^^^
 
