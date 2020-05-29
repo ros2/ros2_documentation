@@ -1,12 +1,12 @@
-Raw DDS tuning information
+DDS tuning information
 ==========================
 
 Depending on the DDS implementation in use, certain variables (e.g. message size, transfer method, publishing frequency) in realistic, nontrivial systems have been shown to flood the network.
-This page provides guidance on DDS parameter tunings that have been found to address issues with delayed and dropped messages.
+This page provides some guidance on DDS parameter tunings that have been found to address issues with delayed and dropped messages, or issues where the middleware can flood the network.
 
 The solutions here are simply placeholders until the issues are solved at code-level.
-They are also not exact-mapped solutions; the values are suggested starting points that worked for  specific test systems.
-You will likely need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
+The recommendations below are starting points for tuning; they worked for specific systems and environments, but the tuning may vary depending on a number of factors.
+You may need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
 
 It is important to recognize that tuning parameters can come at a cost to resources, and may affect parts of your system beyond the scope of the desired improvements.
 The benefits of improving reliability should be weighed against any detriments for each individual case.
@@ -111,10 +111,10 @@ A multi-machine configuration was also tested with ``rmem_max`` at 4MB and at 20
 Without configuring the kernel’s ``rmem_max``, the same Connext QoS profile took up to 12 seconds for the data to be delivered.
 However, it always at least managed to complete the delivery.
 
-Using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_, we set up slow, medium and fast flow controllers (seen in the Connext QoS profile link) and tested them without changes to ``rmem_max``.
+The ROS2TEST_QOS_PROFILES.xml file was configured using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_.  That profile has slow, medium and fast flow controllers (seen in the Connext QoS profile link).
 
 .. include results here? Not sure if that’s too specific
 
 The medium flow controller produced the best results for our case.
 However, the controllers will still need to be tuned for the particular machine/network/environment they are operating in.
-What we can conclude for certain is that Connext flow controllers can be used to tune bandwidth and its aggressiveness for sending out data, though once the bandwidth of a particular setup is passed, performance will start to drop.
+The Connext flow controllers can be used to tune bandwidth and its aggressiveness for sending out data, though once the bandwidth of a particular setup is passed, performance will start to drop.
