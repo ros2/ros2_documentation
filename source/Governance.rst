@@ -175,7 +175,7 @@ The current WGs are (6 as of 2019-09-04):
  * Lead(s): Joe McManus, Kyle Fazzari
  * Resources:
 
-  * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
+  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
   * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
   * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
 
