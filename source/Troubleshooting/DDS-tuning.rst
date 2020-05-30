@@ -1,10 +1,8 @@
 DDS tuning information
-==========================
+======================
 
-Depending on the DDS implementation in use, certain variables (e.g. message size, transfer method, publishing frequency) in realistic, nontrivial systems have been shown to flood the network.
 This page provides some guidance on DDS parameter tunings that have been found to address issues with delayed and dropped messages, or issues where the middleware can flood the network.
 
-The solutions here are simply placeholders until the issues are solved at code-level.
 The recommendations below are starting points for tuning; they worked for specific systems and environments, but the tuning may vary depending on a number of factors.
 You may need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
 
@@ -111,9 +109,9 @@ A multi-machine configuration was also tested with ``rmem_max`` at 4MB and at 20
 Without configuring the kernel’s ``rmem_max``, the same Connext QoS profile took up to 12 seconds for the data to be delivered.
 However, it always at least managed to complete the delivery.
 
-The ROS2TEST_QOS_PROFILES.xml file was configured using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_.  That profile has slow, medium and fast flow controllers (seen in the Connext QoS profile link).
+**Solution:** Use the `Connext QoS profile <https://github.com/jacobperron/pc_pipe/blob/master/etc/ROS2TEST_QOS_PROFILES.xml>`_ *without* adjusting ``rmem_max``.
 
-.. include results here? Not sure if that’s too specific
+The ROS2TEST_QOS_PROFILES.xml file was configured using RTI’s documentation on `configuring flow controllers <https://community.rti.com/forum-topic/transfering-large-data-over-dds>`_. It has slow, medium and fast flow controllers (seen in the Connext QoS profile link).
 
 The medium flow controller produced the best results for our case.
 However, the controllers will still need to be tuned for the particular machine/network/environment they are operating in.
