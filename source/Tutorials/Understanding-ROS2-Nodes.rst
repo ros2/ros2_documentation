@@ -115,7 +115,7 @@ In a new terminal, run the following command:
 
         ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
-   .. group-tag:: Dashing
+   .. group-tab:: Dashing
 
       .. code-block:: console
 
