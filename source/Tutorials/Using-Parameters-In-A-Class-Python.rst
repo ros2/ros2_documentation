@@ -85,9 +85,11 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
             self.get_logger().info('Hello %s!' % my_param)
 
             # Then set the parameter "my_parameter" back to string value "world"
-            my_new_param = rclpy.parameter.Parameter("my_parameter",
-                                                    rclpy.Parameter.Type.STRING,
-                                                    "world")
+            my_new_param = rclpy.parameter.Parameter(
+                "my_parameter",
+                rclpy.Parameter.Type.STRING,
+                "world"
+            )
             all_new_parameters = [my_new_param]
             self.set_parameters(all_new_parameters)
 
@@ -124,9 +126,9 @@ Add the following line within the ``console_scripts`` brackets of the ``entry_po
 .. code-block:: python
 
   entry_points={
-          'console_scripts': [
-                  'param_talker = python_parameters.python_parameters_node:main',
-          ],
+      'console_scripts': [
+          'param_talker = python_parameters.python_parameters_node:main',
+      ],
   },
 
 Don’t forget to save.
