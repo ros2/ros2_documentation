@@ -251,18 +251,18 @@ In there, create a new file called ``cpp_parameters_launch.py``
       from launch_ros.actions import Node
 
       def generate_launch_description():
-       return LaunchDescription([
-         Node(
-           package="cpp_parameters",
-           executable="parameter_node",
-           name="custom_parameter_node",
-           output="screen",
-           emulate_tty=True,
-           parameters=[
-       {"my_parameter": "earth"}
-           ]
-         )
-       ])
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  executable="parameter_node",
+                  name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+             )
+          ])
 
   .. group-tab:: Before Foxy
 
@@ -272,18 +272,18 @@ In there, create a new file called ``cpp_parameters_launch.py``
       from launch_ros.actions import Node
 
       def generate_launch_description():
-       return LaunchDescription([
-         Node(
-           package="cpp_parameters",
-           node_executable="parameter_node",
-           node_name="custom_parameter_node",
-           output="screen",
-           emulate_tty=True,
-           parameters=[
-       {"my_parameter": "earth"}
-           ]
-         )
-       ])
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  node_executable="parameter_node",
+                  node_name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.
