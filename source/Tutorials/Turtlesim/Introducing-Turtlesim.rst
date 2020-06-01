@@ -231,7 +231,7 @@ In a new terminal, source ROS 2, and run:
 
 .. tabs::
 
-   .. group-tab:: Eloquent
+   .. group-tab:: Eloquent and newer
 
       .. code-block:: console
 
