@@ -207,7 +207,7 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the 
 
     .. code-block:: console
 
-        ros2 interface show geometry_msgs/msg/Twist.msg
+        ros2 interface show geometry_msgs/msg/Twist
 
   .. group-tab:: Dashing
 
