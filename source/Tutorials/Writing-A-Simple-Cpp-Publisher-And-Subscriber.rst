@@ -56,7 +56,13 @@ Download the example talker code by entering the following command:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -288,7 +294,13 @@ Enter the following code in your terminal:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -410,7 +422,11 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
             sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-   .. group-tab:: macOS/Windows
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
