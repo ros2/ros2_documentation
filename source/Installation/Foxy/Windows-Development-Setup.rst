@@ -70,7 +70,7 @@ Next install the latest version of ``setuptools`` and ``pip``:
 
    > <PATH_TO_PYTHON_EXECUTABLE> -m pip install -U setuptools pip
 
-Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python37\python.exe``
+Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python38\python.exe``
 
 Then you can continue installing other Python dependencies:
 
@@ -283,31 +283,31 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.3 source from the ``tgz``:
+* Get and extract the Python 3.8.3 source from the ``tgz``:
 
-  * https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.3``
+  * https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
+  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.8.3``
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild
+   > cd C:\dev\Python-3.8.3\PCbuild
    > get_externals.bat
    > build.bat -p x64 -d
 
 
-* Finally, copy the build products into the Python37 installation directories, next to the Release-mode Python executable and DLL's:
+* Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild\amd64
-   > copy python_d.exe C:\Python37 /Y
-   > copy python37_d.dll C:\Python37 /Y
-   > copy python3_d.dll C:\Python37 /Y
-   > copy python37_d.lib C:\Python37\libs /Y
-   > copy python3_d.lib C:\Python37\libs /Y
-   > for %I in (*_d.pyd) do copy %I C:\Python37\DLLs /Y
+   > cd C:\dev\Python-3.8.3\PCbuild\amd64
+   > copy python_d.exe C:\Python38 /Y
+   > copy python38_d.dll C:\Python38 /Y
+   > copy python3_d.dll C:\Python38 /Y
+   > copy python38_d.lib C:\Python38\libs /Y
+   > copy python3_d.lib C:\Python38\libs /Y
+   > for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
@@ -321,8 +321,8 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.16.2-cp37-cp37dm-win_amd64.whl
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.3.2-cp37-cp37dm-win_amd64.whl
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
 
 * To verify the installation of these dependencies:
 
