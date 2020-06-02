@@ -56,7 +56,13 @@ Download the example talker code by entering the following command:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -265,7 +271,13 @@ Enter the following code in your terminal:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -394,7 +406,11 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
             sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-   .. group-tab:: macOS/Windows
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
 
       rosdep only runs on Linux, so you can skip ahead to next step.
 

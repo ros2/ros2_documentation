@@ -22,7 +22,15 @@ To download the repository list from the latest ROS 2 release, run:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -49,7 +57,15 @@ If you wish to checkout a particular release, you can get its repository list by
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -78,7 +94,15 @@ If you wish to checkout the bleeding-edge development code, you can get the rele
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -117,7 +141,14 @@ You should now be able to download the sources associated with the new repositor
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       vcs import src < ros2.repos
+       vcs pull src
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -153,7 +184,14 @@ If you wish to know the versions of the set of repositories in your workspace, y
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       vcs export src > my_ros2.repos
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 

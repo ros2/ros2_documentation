@@ -51,7 +51,13 @@ Once you've installed ROS 2, source your setup file:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       . <path to ROS 2 install space>/setup.bash
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 

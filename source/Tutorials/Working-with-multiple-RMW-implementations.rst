@@ -56,7 +56,16 @@ To run the talker demo using the C++ and listener using Python with the RMW impl
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+
+       # Run in another terminal
+       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_py listener
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
