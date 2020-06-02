@@ -261,7 +261,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
                   parameters=[
                       {"my_parameter": "earth"}
                   ]
-             )
+              )
           ])
 
   .. group-tab:: Before Foxy
