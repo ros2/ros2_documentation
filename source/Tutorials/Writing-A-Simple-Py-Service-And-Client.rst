@@ -270,7 +270,11 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
             sudo rosdep install -i --from-path src --rosdistro <distro> -y
 
-   .. group-tab:: macOS/Windows
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
 
       rosdep only runs on Linux, so you can skip ahead to next step.
 

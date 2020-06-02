@@ -123,7 +123,13 @@ For example, to additionally get the timestamp and location of the log calls, st
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -148,7 +154,13 @@ For example:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -179,7 +191,13 @@ For example:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 

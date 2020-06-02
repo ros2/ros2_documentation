@@ -72,7 +72,13 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 
   .. tabs::
 
-    .. group-tab:: Linux/macOS
+    .. group-tab:: Linux
+
+      .. code-block:: sh
+
+         source path/to/extracted/archive/setup.bash
+
+    .. group-tab:: macOS
 
       .. code-block:: sh
 
