@@ -68,27 +68,26 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 4. Download and extract the archive to your file system.
 
 5. To use the fat binary installation, source the ``setup.*`` file that can be found in the root of the archive.
-   For example, on Windows:
 
-  .. tabs::
+   .. tabs::
 
-    .. group-tab:: Linux
+     .. group-tab:: Linux
 
-      .. code-block:: sh
+       .. code-block:: sh
 
-         source path/to/extracted/archive/setup.bash
+          source path/to/extracted/archive/setup.bash
 
-    .. group-tab:: macOS
+     .. group-tab:: macOS
 
-      .. code-block:: sh
+       .. code-block:: sh
 
-         source path/to/extracted/archive/setup.bash
+          source path/to/extracted/archive/setup.bash
 
-    .. group-tab:: Windows
+     .. group-tab:: Windows
 
-      .. code-block:: sh
+       .. code-block:: sh
 
-         call path\to\extracted\archive\setup.bat
+          call path\to\extracted\archive\setup.bat
 
 Docker
 ------
@@ -105,6 +104,6 @@ For Linux, there is also a nightly Docker image based on the nightly fat archive
 
    .. code-block:: sh
 
-      docker docker run -it osrf/ros2:nightly
+      docker run -it osrf/ros2:nightly
 
 For support on running GUI applications in Docker, take a look at the tutorial `User GUI's with Docker <https://wiki.ros.org/docker/Tutorials/GUI>`_ or the tool `rocker <https://github.com/osrf/rocker>`_.
