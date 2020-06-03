@@ -127,7 +127,7 @@ The usual workflow is (this list is a work in progress):
   * In the `CI_ROS2_REPOS_URL` parameter use `https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos`
   * Leave `CI_BUILD_ARGS` and `CI_TEST_ARGS` with the default values
   * Hit the ``build`` button
-  * At the end of the document there are instructions about how to interpret the result of report
+  * At the end of the document there are instructions about how to interpret the result of report and calculate the coverage rate
 
 * If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
@@ -266,6 +266,19 @@ The coverage reports in the buildfarm include all the packages that were used in
     These correspond the unit tests runs available in the own package against its files generated at building or configuring time
  1. Name entries with the form: `install.<package_name>.*`
     These correspond to the system/integration tests coming from testing runs of other packages
+
+
+How to calculate the coverage rate from the buildfarm report
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To get the combined unit coverage rate:
+
+ * Go to the `Coverage Report` page as detailed in the Developer Workflow above
+ * Scroll down to the `Coverage Breakdown by Package` table
+ * In the table, the first column is colled `Name`, look for (where `<package_name>` is your package under testing):
+   * all the directories under the pattern `src.*.<repository_name>.<package_name>.*` grab the two absolute values in the column `Lines`.
+   * all the directories under the pattern `build/.<repository_name>.*` grab the two absolute values in the column `Lines`.
+ * With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code. Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
