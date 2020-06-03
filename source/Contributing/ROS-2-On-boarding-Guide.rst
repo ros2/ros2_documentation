@@ -258,7 +258,7 @@ To see the coverage report for a given package:
  * Scroll down to the `Coverage Breakdown by Package` table
  * In the table, look at the first column is called `Name`
 
-The coverage reports in the buildfarm include all the packages that were used in the ROS workspace. The coverage report include different paths corresponding to the same package:
+The coverage reports in the buildfarm include all the packages that were used in the ROS workspace. The coverage report includes different paths corresponding to the same package:
 
  1. Name entries with the form: `src.*.<repository_name>.<package_name>.*`
     These correspond the unit tests runs available in the own package against its own source code
