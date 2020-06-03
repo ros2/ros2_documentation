@@ -84,11 +84,22 @@ Best practice is to create a new directory for every new workspace.
 The name doesn’t matter, but it is helpful to have it indicate the purpose of the workspace.
 Let’s choose the directory name ``dev_ws``, for “development workspace”:
 
-.. code-block:: console
+.. tabs::
 
-  mkdir dev_ws
-  mkdir dev_ws/src
-  cd dev_ws/src
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: console
+
+        mkdir -p ~/dev_ws/src
+        cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       md \dev_ws\src
+       cd \dev_ws\src
+
 
 Another best practice is to put any packages in your workspace into the ``src`` directory.
 The above code creates a ``src`` directory inside ``dev_ws`` and then navigates into it.
@@ -166,7 +177,7 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``~/dev_ws``), run the following command, replacing ``<distro>`` with your distro:
+From the root of your workspace (``~/dev_ws`` or `\dev_ws`), run the following command, replacing ``<distro>`` with your distro:
 
 .. tabs::
 
@@ -279,9 +290,19 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
 Go into the root of your workspace:
 
-.. code-block:: console
+.. tabs::
 
-  cd dev_ws
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws
 
 In the root, source your overlay:
 
@@ -303,7 +324,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      . install/local_setup.bat
+      call install/setup.bat
 
 .. note::
 

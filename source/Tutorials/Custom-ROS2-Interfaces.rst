@@ -129,11 +129,27 @@ Now the interfaces will be discoverable by other ROS 2 packages.
 6 Confirm msg and srv creation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a new terminal, run the following command from within your workspace (``dev_ws``) to source it:
+In a new terminal, run the following command from within your workspace (``~/dev_ws`` ``\dev\``) to source it:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
 

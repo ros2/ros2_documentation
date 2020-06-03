@@ -116,9 +116,19 @@ Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for 
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
-.. code-block:: console
+.. tabs::
 
-    cd dev_ws/src
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws\src
 
 The command syntax for creating a new package in ROS 2 is:
 
@@ -223,9 +233,19 @@ Otherwise, you would have to build each package individually.
 
 Return to the root of your workspace:
 
-.. code-block:: console
+.. tabs::
 
-    cd ~/dev_ws
+   .. group-tab:: Linux/macOS
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws\src
 
 Now you can build your packages:
 
@@ -268,9 +288,25 @@ To use your new package and executable, first open a new terminal and source you
 
 Then, from inside the ``dev_ws`` directory, run the following command to source your workspace:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/local_setup.bat
 
 Now that your workspace has been added to your path, you will be able to use your new package’s executables.
 
