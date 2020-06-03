@@ -86,7 +86,14 @@ Let’s choose the directory name ``dev_ws``, for “development workspace”:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        mkdir -p ~/dev_ws/src
+        cd ~/dev_ws/src
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -177,7 +184,7 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``~/dev_ws`` or `\dev_ws`), run the following command, replacing ``<distro>`` with your distro:
+From the root of your workspace (``dev_ws``), run the following command, replacing ``<distro>`` with your distro:
 
 .. tabs::
 
@@ -211,7 +218,7 @@ You can learn more about ``rosdep`` in another tutorial (coming soon).
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the root of your workspace (``~/dev_ws``), you can now build your packages using the command:
+From the root of your workspace (``dev_ws``), you can now build your packages using the command:
 
 .. tabs::
 
@@ -292,7 +299,13 @@ Go into the root of your workspace:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 

@@ -118,11 +118,17 @@ Make sure you are in the ``src`` folder before running the package creation comm
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
 
       .. code-block:: console
 
         cd ~/dev_ws/src
+
+   .. group-tab:: macOS
+
+     .. code-block:: console
+
+       cd ~/dev_ws/src
 
    .. group-tab:: Windows
 
@@ -235,7 +241,13 @@ Return to the root of your workspace:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 

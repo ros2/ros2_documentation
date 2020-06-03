@@ -129,7 +129,7 @@ Now the interfaces will be discoverable by other ROS 2 packages.
 6 Confirm msg and srv creation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a new terminal, run the following command from within your workspace (``~/dev_ws`` ``\dev\``) to source it:
+In a new terminal, run the following command from within your workspace (``dev_ws``) to source it:
 
 .. tabs::
 
