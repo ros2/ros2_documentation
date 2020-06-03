@@ -118,7 +118,7 @@ The usual workflow is (this list is a work in progress):
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
-* If your use case require to run code coverage:
+* If your use case requires running code coverage:
 
   * Go to ci.ros2.org
   * Log in (top right corner)
