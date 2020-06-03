@@ -292,7 +292,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
               )
           ])
 
-  .. group-tab:: Before Foxy
+  .. group-tab:: Eloquent and older
 
     .. code-block:: Python
 
