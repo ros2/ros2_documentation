@@ -241,7 +241,7 @@ Note on Coverage runs
 
 ROS2 packages are organized in a way that the testing code for a given package
 is not only contained within the Package, but could also be present in a
-different package. In other words: packages can exercice during the testing
+different package. In other words: packages can exercise during the testing
 phase code beloging to other packages.
 
 To achieve the coverage rate reached by all code available in the ROS2 core
