@@ -439,9 +439,25 @@ Still in the root of your workspace, ``dev_ws``, build your new package:
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now run the talker node:
 
