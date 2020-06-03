@@ -139,9 +139,21 @@ Don’t forget to save.
 
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: console
+.. tabs::
 
-  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro <distro> -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 

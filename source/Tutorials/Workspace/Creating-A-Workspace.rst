@@ -192,7 +192,7 @@ From the root of your workspace (``dev_ws``), run the following command, replaci
 
       .. code-block:: console
 
-        sudo rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro <distro> -y
 
    .. group-tab:: macOS
 
