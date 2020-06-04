@@ -133,6 +133,12 @@ As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the T
 
 The current WGs are (6 as of 2019-09-04):
 
+* Edge AI
+  * Lead(s): Joe Speed
+  * Resources:
+  * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
+  * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
+
 * Embedded Systems:
 
  * Lead(s): Borja Outerelo
