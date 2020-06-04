@@ -271,7 +271,14 @@ The coverage reports in the buildfarm include all the packages that were used in
 How to calculate the coverage rate from the buildfarm report
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get the combined unit coverage rate:
+Get the combined unit coverage rate using the automatic script:
+
+ * From the `ci_linux_coverage` Jenkins build copy the URL of the build
+ * Download the get_coverage_ros2_pkg script from https://github.com/j-rivero/ros2_coverage_jenkins_params/get_coverage_results/get_coverage_ros2_pkg.py
+ * Execute the script: `./get_coverage_ros2_pkg.py <jenkins_build_url> <ros2_package_name>`
+ * Grab the
+
+Alternative: get the combined unit coverage rate from coverage report (require manual calculation):
 
  * Go to the `Coverage Report` page as detailed in the Developer Workflow above
  * Scroll down to the `Coverage Breakdown by Package` table
