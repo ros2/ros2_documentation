@@ -124,8 +124,7 @@ The usual workflow is (this list is a work in progress):
   * Log in (top right corner)
   * Click on the ``ci_linux_coverage`` job
   * Click "Build with Parameters" (left column)
-  * In the "CI_ROS2_REPOS_URL" parameter use: `https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos`
-  * Leave "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
+  * Be sure of leaving "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
   * Hit the ``build`` button
   * At the end of the document there are instructions about :ref:`how to interpret the result of repor <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
 
@@ -246,7 +245,8 @@ phase code belonging to other packages.
 
 To achieve the coverage rate reached by all code available in the ROS2 core
 packages it is recommended to run builds using a fixed set of proposed
-repositories. That set is defined at https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos
+repositories. That set is defined in the default parameters of coverage
+jobs in Jenkins.
 
 
 .. _read-coverage-report:
