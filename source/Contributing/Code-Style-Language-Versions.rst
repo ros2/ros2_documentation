@@ -67,6 +67,17 @@ Line Length
 
 * Our maximum line length is 100 characters.
 
+File Extensions
+~~~~~~~~~~~~~~~
+
+* Header files should use the .hpp extension.
+
+  * rationale: Allow tools to determine content of files, C++ or C.
+
+* Implementation files should use the .cpp extension.
+
+  * rationale: Allow tools to determine content of files, C++ or C.
+
 Variable Naming
 ~~~~~~~~~~~~~~~
 
