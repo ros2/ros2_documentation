@@ -238,15 +238,11 @@ There several categories of jobs on the buildfarm:
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^
 
-ROS2 packages are organized in a way that the testing code for a given package
-is not only contained within the Package, but could also be present in a
-different package. In other words: packages can exercise during the testing
-phase code belonging to other packages.
+ROS2 packages are organized in a way that the testing code for a given package is not only contained within the Package, but could also be present in a different package.
+In other words: packages can exercise during the testing phase code belonging to other packages.
 
-To achieve the coverage rate reached by all code available in the ROS2 core
-packages it is recommended to run builds using a fixed set of proposed
-repositories. That set is defined in the default parameters of coverage
-jobs in Jenkins.
+To achieve the coverage rate reached by all code available in the ROS2 core packages it is recommended to run builds using a fixed set of proposed repositories.
+That set is defined in the default parameters of coverage jobs in Jenkins.
 
 
 .. _read-coverage-report:
@@ -260,7 +256,8 @@ To see the coverage report for a given package:
 * Scroll down to the ``Coverage Breakdown by Package`` table
 * In the table, look at the first column is called "Name"
 
-The coverage reports in the buildfarm include all the packages that were used in the ROS workspace. The coverage report includes different paths corresponding to the same package:
+The coverage reports in the buildfarm include all the packages that were used in the ROS workspace.
+The coverage report includes different paths corresponding to the same package:
 
 * Name entries with the form: ``src.*.<repository_name>.<package_name>.*``
   These correspond the unit tests runs available in the own package against its own source code
@@ -290,7 +287,8 @@ Alternative: get the combined unit coverage rate from coverage report (require m
   * all the directories under the pattern ``src.*.<repository_name>.<package_name>.*`` grab the two absolute values in the column "Lines".
   * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
 
-* With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code. Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
+* With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code.
+  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
