@@ -22,9 +22,12 @@ List of Distributions
    <style>
      .distros td {border: 0px;}
      .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2) {background-color: #33cc66;}
+     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
      .distros td {vertical-align: middle;}
    </style>
+
+.. |foxy| image:: Releases/foxy-small.png
+   :alt: Foxy logo
 
 .. |eloquent| image:: Releases/eloquent-small.png
    :alt: Eloquent logo
@@ -50,6 +53,10 @@ List of Distributions
      - Release date
      - Logo
      - EOL date
+   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
+     - June 5th, 2020
+     - |foxy|
+     - May 2023
    * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - Nov 22nd, 2019
      - |eloquent|
@@ -116,10 +123,6 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
-     - May 2020
-     - 3+ years
-     - Target Ubuntu 20.04
    * - <G-turtle>
      - May 2021 ?
      -
