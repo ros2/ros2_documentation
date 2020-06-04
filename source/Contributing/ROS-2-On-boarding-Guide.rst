@@ -124,10 +124,9 @@ The usual workflow is (this list is a work in progress):
   * Log in (top right corner)
   * Click on the ``ci_linux_coverage`` job
   * Click "Build with Parameters" (left column)
-  * In the "CI_ROS2_REPOS_URL" parameter use: `https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos`
-  * Leave "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
+  * Be sure of leaving "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
   * Hit the ``build`` button
-  * At the end of the document there are instructions about how to interpret the result of report and calculate the coverage rate
+  * At the end of the document there are instructions about :ref:`how to interpret the result of repor <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
 
 * If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
@@ -246,8 +245,11 @@ phase code belonging to other packages.
 
 To achieve the coverage rate reached by all code available in the ROS2 core
 packages it is recommended to run builds using a fixed set of proposed
-repositories. That set is defined at https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos
+repositories. That set is defined in the default parameters of coverage
+jobs in Jenkins.
 
+
+.. _read-coverage-report:
 
 How to read the coverage rate from the buildfarm report
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,6 +269,7 @@ The coverage reports in the buildfarm include all the packages that were used in
 * Name entries with the form: ``install.<package_name>.*``
   These correspond to the system/integration tests coming from testing runs of other packages
 
+.. _calculate-coverage-rate:
 
 How to calculate the coverage rate from the buildfarm report
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
