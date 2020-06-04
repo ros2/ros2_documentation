@@ -41,7 +41,7 @@ Why you might want an older distribution
 You may want to install an older distribution if you need ROS 2 to:
 
 * Operate on an older platform
-* Support an older package that hasn’t been optimized for the latest release
+* Need a package that hasn’t been released into the latest distribution
 * Be supported for a longer period of time (the latest release isn’t necessarily supported the longest)
 
 General users with no special considerations should use the most recent release available.
