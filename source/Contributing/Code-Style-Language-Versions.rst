@@ -70,9 +70,13 @@ Line Length
 File Extensions
 ~~~~~~~~~~~~~~~
 
-* Header files should use the .hpp extension.  Implementation files should use the .cpp extension.
+* Header files should use the .hpp extension.
 
-  * rationale: consistency. ROS2 auto-generated code and example code uses .hpp and .cpp extensions.
+  * rationale: Allow tools to determine content of files, C++ or C.
+
+* Implementation files should use the .cpp extension.
+
+  * rationale: Allow tools to determine content of files, C++ or C.
 
 Variable Naming
 ~~~~~~~~~~~~~~~
