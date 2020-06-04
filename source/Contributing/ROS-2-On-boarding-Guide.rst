@@ -124,8 +124,8 @@ The usual workflow is (this list is a work in progress):
   * Log in (top right corner)
   * Click on the ``ci_linux_coverage`` job
   * Click "Build with Parameters" (left column)
-  * In the `CI_ROS2_REPOS_URL` parameter use `https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos`
-  * Leave `CI_BUILD_ARGS` and `CI_TEST_ARGS` with the default values
+  * In the "CI_ROS2_REPOS_URL" parameter use: `https://raw.githubusercontent.com/j-rivero/ros2/coverage/coverage.repos`
+  * Leave "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
   * Hit the ``build`` button
   * At the end of the document there are instructions about how to interpret the result of report and calculate the coverage rate
 
@@ -254,18 +254,18 @@ How to read the coverage rate from the buildfarm report
 
 To see the coverage report for a given package:
 
- * Go to the `Coverage Report` page as detailed in the Developer Workflow above
- * Scroll down to the `Coverage Breakdown by Package` table
- * In the table, look at the first column is called `Name`
+* When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
+* Scroll down to the ``Coverage Breakdown by Package`` table
+* In the table, look at the first column is called "Name"
 
 The coverage reports in the buildfarm include all the packages that were used in the ROS workspace. The coverage report includes different paths corresponding to the same package:
 
- 1. Name entries with the form: `src.*.<repository_name>.<package_name>.*`
-    These correspond the unit tests runs available in the own package against its own source code
- 1. Name entries with the form: `build.<repository_name>.<package_name>.*`
-    These correspond the unit tests runs available in the own package against its files generated at building or configuring time
- 1. Name entries with the form: `install.<package_name>.*`
-    These correspond to the system/integration tests coming from testing runs of other packages
+* Name entries with the form: ``src.*.<repository_name>.<package_name>.*``
+  These correspond the unit tests runs available in the own package against its own source code
+* Name entries with the form: ``build.<repository_name>.<package_name>.*``
+  These correspond the unit tests runs available in the own package against its files generated at building or configuring time
+* Name entries with the form: ``install.<package_name>.*``
+  These correspond to the system/integration tests coming from testing runs of other packages
 
 
 How to calculate the coverage rate from the buildfarm report
@@ -280,12 +280,14 @@ Get the combined unit coverage rate using the automatic script:
 
 Alternative: get the combined unit coverage rate from coverage report (require manual calculation):
 
- * Go to the `Coverage Report` page as detailed in the Developer Workflow above
- * Scroll down to the `Coverage Breakdown by Package` table
- * In the table, the first column is colled `Name`, look for (where `<package_name>` is your package under testing):
-   * all the directories under the pattern `src.*.<repository_name>.<package_name>.*` grab the two absolute values in the column `Lines`.
-   * all the directories under the pattern `build/.<repository_name>.*` grab the two absolute values in the column `Lines`.
- * With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code. Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
+* When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
+* Scroll down to the ``Coverage Breakdown by Package`` table
+* In the table, the first column is colled "Name", look for (where <package_name> is your package under testing):
+
+  * all the directories under the pattern ``src.*.<repository_name>.<package_name>.*`` grab the two absolute values in the column "Lines".
+  * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
+
+* With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code. Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
