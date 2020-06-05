@@ -94,7 +94,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_foxy/src
    cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
 Install dependencies using rosdep
