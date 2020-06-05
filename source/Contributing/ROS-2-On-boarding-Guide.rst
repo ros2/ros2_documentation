@@ -262,7 +262,7 @@ The coverage report includes different paths corresponding to the same package:
 * Name entries with the form: ``src.*.<repository_name>.<package_name>.*``
   These corresponds to the unit test runs available in a package against its own source code
 * Name entries with the form: ``build.<repository_name>.<package_name>.*``
-  These correspond the unit tests runs available in the own package against its files generated at building or configuring time
+  These correspond to the unit test runs available in a package against its files generated at building or configuring time
 * Name entries with the form: ``install.<package_name>.*``
   These correspond to the system/integration tests coming from testing runs of other packages
 
