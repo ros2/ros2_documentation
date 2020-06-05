@@ -12,7 +12,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (14 as of 2019-09-20):
+The current members of the ROS 2 TSC are (17 as of 2020-06-05):
 
 .. |adlink| image:: Governance/adlink.svg
    :alt: ADLINK Technology logo
@@ -69,10 +69,20 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    :height: 35px
    :target: https://www.openrobotics.org
 
+.. |picknik| image:: Governance/picknik.jpg
+   :alt: PickNik logo
+   :height: 35px
+   :target: https://picknik.ai/
+
 .. |robotis| image:: Governance/robotis.png
    :alt: ROBOTIS logo
    :height: 35px
    :target: https://www.robotis.com/
+
+.. |rover| image:: Governance/rover.png
+   :alt: Rover Robotics logo
+   :height: 35px
+   :target: https://roverrobotics.com/
 
 .. |samsung| image:: Governance/samsung.svg
    :alt: Samsung logo
@@ -113,8 +123,12 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
      - Microsoft: Sean Yen
    * - |openrobotics|
      - Open Robotics: Dirk Thomas
+   * - |picknik|
+     - PickNik: Dave Coleman
    * - |robotis|
      - ROBOTIS: Will Son
+   * - |rover|
+     - Rover Robotics: Nick Fragale
    * - |samsung|
      - Samsung: Steven Macenski
    * - |gvsc|
