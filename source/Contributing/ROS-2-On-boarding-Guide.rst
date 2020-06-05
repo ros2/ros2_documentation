@@ -126,7 +126,7 @@ The usual workflow is (this list is a work in progress):
   * Click "Build with Parameters" (left column)
   * Be sure of leaving "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
   * Hit the ``build`` button
-  * At the end of the document there are instructions about :ref:`how to interpret the result of repor <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
+  * At the end of the document there are instructions on how to :ref:`interpret the result of the report <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
 
 * If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
