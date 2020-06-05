@@ -282,7 +282,7 @@ Alternative: get the combined unit coverage rate from coverage report (require m
 
 * When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
 * Scroll down to the ``Coverage Breakdown by Package`` table
-* In the table, the first column is colled "Name", look for (where <package_name> is your package under testing):
+* In the table, under the first column "Name", look for (where <package_name> is your package under testing):
 
   * all the directories under the pattern ``src.*.<repository_name>.<package_name>.*`` grab the two absolute values in the column "Lines".
   * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
