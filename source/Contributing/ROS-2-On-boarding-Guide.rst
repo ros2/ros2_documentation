@@ -288,7 +288,8 @@ Alternative: get the combined unit coverage rate from coverage report (require m
   * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
 
 * With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code.
-  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
+  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test.
+  Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
