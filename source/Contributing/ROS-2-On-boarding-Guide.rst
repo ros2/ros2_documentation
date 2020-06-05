@@ -260,7 +260,7 @@ The coverage reports in the buildfarm include all the packages that were used in
 The coverage report includes different paths corresponding to the same package:
 
 * Name entries with the form: ``src.*.<repository_name>.<package_name>.*``
-  These corresponds to the unit test runs available in a package against its own source code
+  These correspond to the unit test runs available in a package against its own source code
 * Name entries with the form: ``build.<repository_name>.<package_name>.*``
   These correspond to the unit test runs available in a package against its files generated at building or configuring time
 * Name entries with the form: ``install.<package_name>.*``
