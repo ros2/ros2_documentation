@@ -356,10 +356,10 @@ We won't create a subscriber in this tutorial, but you can try to write one your
 .. note::
 
   You can use an existing interface definition in a new interface definition.
-  For example, let's use `Contact.msg <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_, which belongs to an existing ROS 2 package.
-  Notice that it's identical to our custom-made ``AddressBook.msg`` interface from earlier.
+  For example, let's say there is a message named ``Contact.msg`` that belongs to an existing ROS 2 package named ``rosidl_tutorials_msgs``.
+  Assume that its definition is identical to our custom-made ``AddressBook.msg`` interface from earlier.
 
-  You could have defined ``AddressBook.msg`` (an interface in the package *with* your nodes) as type ``Contact`` (an interface in a *separate* package).
+  In that case you could have defined ``AddressBook.msg`` (an interface in the package *with* your nodes) as type ``Contact`` (an interface in a *separate* package).
   You could even define ``AddressBook.msg`` as an *array* of type ``Contact``, like so:
 
   ::
@@ -425,8 +425,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
        address_book_publisher_->publish(*msg);
      };
 
-  Building and running these changes should show the msg defined as expected (matching `Contact.msg <https://github.com/ros2/tutorials/blob/rosidl_tutorials/rosidl_tutorials/rosidl_tutorials_msgs/msg/Contact.msg>`_)
-  as well as the array of msgs defined above.
+  Building and running these changes would show the msg defined as expected, as well as the array of msgs defined above.
 
 Summary
 -------
