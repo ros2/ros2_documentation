@@ -252,7 +252,7 @@ How to read the coverage rate from the buildfarm report
 
 To see the coverage report for a given package:
 
-* When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
+* When the ``ci_linux_coverage`` build finishes, click in ``Coverage Report``
 * Scroll down to the ``Coverage Breakdown by Package`` table
 * In the table, look at the first column called "Name"
 
