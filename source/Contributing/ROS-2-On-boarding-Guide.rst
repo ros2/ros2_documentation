@@ -254,7 +254,7 @@ To see the coverage report for a given package:
 
 * When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
 * Scroll down to the ``Coverage Breakdown by Package`` table
-* In the table, look at the first column is called "Name"
+* In the table, look at the first column called "Name"
 
 The coverage reports in the buildfarm include all the packages that were used in the ROS workspace.
 The coverage report includes different paths corresponding to the same package:
