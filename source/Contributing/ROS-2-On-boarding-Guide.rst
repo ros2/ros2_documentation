@@ -280,7 +280,7 @@ Get the combined unit coverage rate using the automatic script:
 
 Alternative: get the combined unit coverage rate from coverage report (require manual calculation):
 
-* When the ci_linux_coverage build finishes, click in ``Cobertura Coverage Report``
+* When the ci_linux_coverage build finishes, click on ``Cobertura Coverage Report``
 * Scroll down to the ``Coverage Breakdown by Package`` table
 * In the table, under the first column "Name", look for (where <package_name> is your package under testing):
 
