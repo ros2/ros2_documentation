@@ -239,7 +239,7 @@ Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^
 
 ROS2 packages are organized in a way that the testing code for a given package is not only contained within the Package, but could also be present in a different package.
-In other words: packages can exercise during the testing phase code belonging to other packages.
+In other words: packages can exercise code belonging to other packages during the testing phase.
 
 To achieve the coverage rate reached by all code available in the ROS2 core packages it is recommended to run builds using a fixed set of proposed repositories.
 That set is defined in the default parameters of coverage jobs in Jenkins.
