@@ -3,11 +3,6 @@
 Tutorials
 =========
 
-.. note::
-
-  Currently, the beginner level tutorials target **Eloquent**, installed from `Debians on Linux </Installation/Linux-Install-Debians>`.
-  Certain features and commands may not be available for older distributions/other installation types.
-
 Beginner
 --------
 
