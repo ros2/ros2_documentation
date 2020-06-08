@@ -12,13 +12,16 @@ The benefits of improving reliability should be weighed against any detriments f
 Fast RTPS tuning
 ----------------
 
-**Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over Wifi.
+**Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over WiFi.
 
 When a UDP packet is missing at least one IP fragment, the rest of the received fragments fill up the kernel buffer.
-This causes it to hang for 30 seconds in cases where it recovers, or multiples of 30 seconds in cases where it immediately re-clogs.
+By default, the Linux kernel will hold onto packet fragments for up to 30 seconds in an effort to recombine them.
+Since the kernel buffer is full at this point, no new fragments can come in, and so the connection will seemingly "hang" for long periods of time.
 
 **Solution:** Use best-effort QoS settings instead of reliable.
 
+Reliable settings reduce the amount of sent data since it resends an incomplete sample and therefore floods the network less than best-effort.
+If the kernel buffer for IP fragments gets full, though, the symptom is still the same (blocking for 30s).
 This solution should improve the issue somewhat without having to adjust parameters.
 
 **Solution:** Reduce the value of the ``ipfrag_time`` parameter.
@@ -26,28 +29,28 @@ This solution should improve the issue somewhat without having to adjust paramet
 ``net.ipv4.ipfrag_time / /proc/sys/net/ipv4/ipfrag_time`` (default 30s) :
 Time in seconds to keep an IP fragment in memory.
 
-Reducing this parameter’s value also reduces the window of time where no fragments are received.
-The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
-
-*Adjustments to solve for a ?MB message:*
+Reduce the value, for example, to 3s, by running:
 
 .. code-block:: console
 
     sudo sysctl net.ipv4.ipfrag_time=3
+
+Reducing this parameter’s value also reduces the window of time where no fragments are received.
+The parameter is global for all incoming fragments, so the feasibility of reducing its value needs to be considered for every environment.
 
 **Solution:** Increase the value of the ``ipfrag_high_thresh`` parameter.
 
 ``net.ipv4.ipfrag_high_thresh / /proc/sys/net/ipv4/ipfrag_high_thresh`` (default: 262144 bytes):
 Maximum memory used to reassemble IP fragments.
 
-Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
-However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
-
-*Adjustments to solve for a ?MB message:*
+Increase the value, for example, to 128MB, by running:
 
 .. code-block:: console
 
     sudo sysctl net.ipv4.ipfrag_high_thresh=134217728     # (128 MB)
+
+Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
+However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
 
 
 Cyclone DDS tuning
@@ -101,7 +104,13 @@ RTI Connext tuning
 
 **Solution:** This `Connext QoS profile <https://github.com/jacobperron/pc_pipe/blob/master/etc/ROS2TEST_QOS_PROFILES.xml>`_, along with increasing the ``rmem_max`` parameter.
 
-By tuning the ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can produce truly reliable behavior.
+Set the maximum receive buffer size, ``rmem_max``, by running:
+
+ .. code-block:: console
+
+    sudo sysctl -w net.core.rmem_max=4194304
+
+By tuning ``net.core.rmem_max`` to 4MB in the Linux kernel, the QoS profile can produce truly reliable behavior.
 
 This configuration has been proven to reliably deliver messages via SHMEM|UDPv4, and with just UDPv4 on a single machine.
 A multi-machine configuration was also tested with ``rmem_max`` at 4MB and at 20MB (two machines connected with 1Gbps ethernet), with no dropped messages and average message delivery times of 700ms and 371ms, respectively.
