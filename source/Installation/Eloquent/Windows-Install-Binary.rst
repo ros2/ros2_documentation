@@ -257,8 +257,8 @@ Start an administrative command prompt and source the ROS 2 setup file to set up
    > set "PATH=c:\opt\rosdeps\x64\bin;C:\opt\python37amd64\;C:\opt\python37amd64\Scripts;%PATH%"
    > call C:\opt\ros\eloquent\x64\local_setup.bat
 
-Stay up-to-dated
-^^^^^^^^^^^^^^^^
+Stay up-to-date
+^^^^^^^^^^^^^^^
 
 To keep up-to-date with the latest builds, run:
 
