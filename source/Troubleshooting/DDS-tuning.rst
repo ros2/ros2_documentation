@@ -58,11 +58,11 @@ Cyclone DDS tuning
 This issue should be `addressed soon <https://github.com/eclipse-cyclonedds/cyclonedds/issues/484>`_.
 Until then, we’ve come up with the following solution (debugged using `this test program <https://github.com/jacobperron/pc_pipe>`_):
 
-**Solution:** Increase the maximum OS receive buffer size and the minimum socket receive buffer size that Cyclone uses.
+**Solution:** Increase the maximum Linux kernel receive buffer size and the minimum socket receive buffer size that Cyclone uses.
 
 *Adjustments to solve for a 9MB message:*
 
-Set the maximum OS receive buffer size, ``rmem_max``, by running:
+Set the maximum receive buffer size, ``rmem_max``, by running:
 
  .. code-block:: console
 
@@ -74,7 +74,7 @@ Or permanently set it by editing the ``/etc/sysctl.d/10-cyclone-max.conf`` file 
 
     net.core.rmem_max=2147483647
 
-Next, to set the minimum socket receive buffer size, write out a configuration file for Cyclone to use while starting, like so:
+Next, to set the minimum socket receive buffer size that Cyclone requests, write out a configuration file for Cyclone to use while starting, like so:
 
 .. code-block:: xml
 
