@@ -325,7 +325,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      source install/local_setup.bash
+      . install/local_setup.bash
 
   .. group-tab:: macOS
 
