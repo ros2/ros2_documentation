@@ -174,8 +174,20 @@ However, you can save your settings changes and reload them next time you start 
 
   .. group-tab:: Dashing
 
-    This command isn't available in Dashing.
-    You're all done!
+    Dashing does not have the ``param dump`` command.
+    However, it is possible to run a node with saved parameters.
+    The equivalent to ``param dump`` would be manually recording your current parameter values into a YAML file.
+
+    Save the following in a file named ``./turtlesim.yaml``:
+
+    .. code-block:: YAML
+
+      turtlesim:
+        ros__parameters:
+          background_b: 255
+          background_g: 86
+          background_r: 150
+          use_sim_time: false
 
 6 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
@@ -202,8 +214,13 @@ However, you can save your settings changes and reload them next time you start 
 
   .. group-tab:: Dashing
 
-    This command isn't available in Dashing.
-    You're all done!
+    To start a node using the parameter settings you manually "dumped" in the last section, run the command
+
+    .. code-block:: console
+
+      ros2 run turtlesim turtlesim_node __params:./turtlesim.yaml
+
+    Where ``__params:`` is the path to your parameter file.
 
 Summary
 -------
