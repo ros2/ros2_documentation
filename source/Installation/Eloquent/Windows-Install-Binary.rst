@@ -260,7 +260,7 @@ Start an administrative command prompt and source the ROS 2 setup file to set up
 Stay up-to-dated
 ^^^^^^^^^^^^^^^^
 
-To keep up-to-dated with the latest builds, run:
+To keep up-to-date with the latest builds, run:
 
 .. code-block:: bash
 
