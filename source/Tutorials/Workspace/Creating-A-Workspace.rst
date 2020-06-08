@@ -303,13 +303,13 @@ Go into the root of your workspace:
 
       .. code-block:: console
 
-        cd ~/dev_ws/src
+        cd ~/dev_ws
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        cd ~/dev_ws/src
+        cd ~/dev_ws
 
    .. group-tab:: Windows
 
@@ -325,7 +325,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      . install/local_setup.bash
+      source install/local_setup.bash
 
   .. group-tab:: macOS
 
