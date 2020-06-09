@@ -2,7 +2,7 @@ DDS tuning information
 ======================
 
 This page provides some guidance on parameter tunings that were found to address issues faced while using various DDS implementations on Linux in real-world situations.
-It is possible that the issues we identified on Linux or while using one vendor may occur for other platforms and vendors not documented here. 
+It is possible that the issues we identified on Linux or while using one vendor may occur for other platforms and vendors not documented here.
 
 The recommendations below are starting points for tuning; they worked for specific systems and environments, but the tuning may vary depending on a number of factors.
 You may need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
