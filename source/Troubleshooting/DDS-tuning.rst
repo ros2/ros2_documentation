@@ -1,7 +1,8 @@
 DDS tuning information
 ======================
 
-This page provides some guidance on DDS parameter tunings that have been found to address issues with delayed and dropped messages, or issues where the middleware can flood the network.
+This page provides some guidance on parameter tunings that were found to address issues faced while using various DDS implementations on Linux in real-world situations.
+It is possible that the issues we identified on Linux or while using one vendor may occur for other platforms and vendors not documented here. 
 
 The recommendations below are starting points for tuning; they worked for specific systems and environments, but the tuning may vary depending on a number of factors.
 You may need to increase or decrease values while debugging relative to factors like message size, network topology, etc.
@@ -9,14 +10,18 @@ You may need to increase or decrease values while debugging relative to factors 
 It is important to recognize that tuning parameters can come at a cost to resources, and may affect parts of your system beyond the scope of the desired improvements.
 The benefits of improving reliability should be weighed against any detriments for each individual case.
 
-Fast RTPS tuning
-----------------
+.. _cross-vendor-tuning:
 
-**Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over WiFi.
+Cross-vendor tuning
+-------------------
+
+**Issue:** Sending data over lossy (usually WiFi) connections becomes problematic when some IP fragments are dropped, possibly causing the kernel buffer on the receiving side to become full.
 
 When a UDP packet is missing at least one IP fragment, the rest of the received fragments fill up the kernel buffer.
-By default, the Linux kernel will hold onto packet fragments for up to 30 seconds in an effort to recombine them.
-Since the kernel buffer is full at this point, no new fragments can come in, and so the connection will seemingly "hang" for long periods of time.
+By default, the Linux kernel will time out after 30s of trying to recombine packet fragments.
+Since the kernel buffer is full at this point (default size is 256KB), no new fragments can come in, and so the connection will seemingly "hang" for long periods of time.
+
+This issue is generic across all DDS vendors, so the solutions involve adjusting kernel parameters.
 
 **Solution:** Use best-effort QoS settings instead of reliable.
 
@@ -52,6 +57,12 @@ Increase the value, for example, to 128MB, by running:
 Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
 However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
 
+Fast RTPS tuning
+----------------
+
+**Issue:** Fast RTPS floods the network with large pieces of data or fast-published data when operating over WiFi.
+
+See the solutions under :ref:`Cross-vendor tuning <cross-vendor-tuning>`.
 
 Cyclone DDS tuning
 ------------------
