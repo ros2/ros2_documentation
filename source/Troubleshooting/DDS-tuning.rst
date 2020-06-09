@@ -25,7 +25,7 @@ This issue is generic across all DDS vendors, so the solutions involve adjusting
 
 **Solution:** Use best-effort QoS settings instead of reliable.
 
-Reliable settings reduce the amount of sent data since it resends an incomplete sample and therefore floods the network less than best-effort.
+Best-effort settings reduce the amount of sent data since it will not resend incomplete samples and therefore will flood the network less than reliable.
 If the kernel buffer for IP fragments gets full, though, the symptom is still the same (blocking for 30s).
 This solution should improve the issue somewhat without having to adjust parameters.
 
