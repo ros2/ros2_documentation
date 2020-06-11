@@ -123,7 +123,7 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone`
+   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 2021
      - TBD
      - TBD
