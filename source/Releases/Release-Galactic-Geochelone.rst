@@ -42,6 +42,7 @@ In order to accept other types of futures (e.g.: ``std::future``), that paramete
 
 In places where a ``spin_until_future_complete`` call was relying on template argument deduction, no change is needed.
 If not, this is an example diff:
+
 ```cpp
 std::shared_future<MyResultT> future;
 ...
