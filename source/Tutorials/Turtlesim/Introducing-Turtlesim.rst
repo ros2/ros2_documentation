@@ -139,13 +139,21 @@ Open a new terminal to install ``rqt`` and its plugins:
 
 .. tabs::
 
+  .. group-tab:: Linux (apt 2.0/Ubuntu 20.04 and newer)
+
+    .. code-block:: console
+
+      sudo apt update
+
+      sudo apt install ~nros-<distro>-rqt*
+
   .. group-tab:: Linux
 
     .. code-block:: console
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt-*
+      sudo apt install ros-<distro>-rqt*
 
   .. group-tab:: macOS
 
