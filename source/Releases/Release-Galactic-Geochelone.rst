@@ -37,7 +37,7 @@ rclcpp
 Change in spin_until_future_complete template parameters
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The first parameter of ``spin_until_future_complete`` was the future result type ``ResultT``, and the method only accepted a ``std::shared_future<ResultT>``.
+The first template parameter of ``Executor::spin_until_future_complete`` was the future result type ``ResultT``, and the method only accepted a ``std::shared_future<ResultT>``.
 In order to accept other types of futures (e.g.: ``std::future``), that parameter was changed to the future type itself.
 
 In places where a ``spin_until_future_complete`` call was relying on template argument deduction, no change is needed.
