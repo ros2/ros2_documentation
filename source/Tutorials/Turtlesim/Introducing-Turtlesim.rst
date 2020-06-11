@@ -139,7 +139,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
 .. tabs::
 
-  .. group-tab:: Linux (with Apt 2.0 and newer, such as Ubuntu 20.04)
+  .. group-tab:: Linux (apt 2.0/Ubuntu 20.04 and newer)
 
     .. code-block:: console
 
