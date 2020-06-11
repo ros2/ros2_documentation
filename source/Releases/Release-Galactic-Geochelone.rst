@@ -3,7 +3,7 @@
 .. move this directive when next release page is created
 
 ROS 2 Galactic Geochelone (codename 'galactic'; May, 2021)
-====================================================
+==========================================================
 
 .. contents:: Table of Contents
    :depth: 2
