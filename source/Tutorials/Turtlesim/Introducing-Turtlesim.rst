@@ -144,7 +144,7 @@ Open a new terminal to install ``rqt`` and its plugins:
     .. code-block:: console
 
       sudo apt update
-      
+
       sudo apt install ~nros-<distro>-rqt*
 
   .. group-tab:: Linux
