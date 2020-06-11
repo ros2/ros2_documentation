@@ -145,7 +145,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
       
-      sudo apt install ~nros-foxy-rqt*
+      sudo apt install ~nros-<distro>-rqt*
 
   .. group-tab:: Linux
 
