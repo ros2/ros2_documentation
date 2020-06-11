@@ -32,30 +32,17 @@ Linux source install
 ADLINK OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. tabs::
 
-   sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
+  .. group-tab:: Foxy and newer
 
-.. raw:: html
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-   <!--
-   ##### Official binary packages from PrismTech
+  .. group-tab:: Eloquent and older
 
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
-   Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
-   Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
-   After that, your shell is ready to run ROS 2 binaries with the official OpenSplice distribution.
+     .. code-block:: bash
 
-   You may also need to add the following line to your `.bashrc` file:
-
-   ```
-   export PTECH_LICENSE_FILE=path/to/prismtech.lic
-   ```
-
-   ##### Building OpenSplice from source
-
-   If you build OpenSplice from source, be sure to remember to following the INSTALL.txt instructions and manually replace the @@INSTALLDIR@@ placeholder in the OpenSplice install/HDE/x86_64.linux/release.com
-   -->
+       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,11 +100,17 @@ Linux binary install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-To use OpenSplice you can install a Debian package built by OSRF.
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Foxy and newer
 
-   sudo apt update && sudo apt install -q -y libopensplice69
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     .. code-block:: bash
+
+       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -156,15 +149,21 @@ OSX source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-Active ROS 2 distros support OpenSplice 6.9.
+.. tabs::
 
-To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+  .. group-tab:: Foxy and newer
 
-Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-.. code-block:: bash
+  .. group-tab:: Eloquent and older
 
-   source <path_to_opensplice>/x86_64.darwin10_clang/release.com
+     To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+
+     Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
+
+     .. code-block:: bash
+
+        source <path_to_opensplice>/x86_64.darwin10_clang/release.com
 
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
@@ -196,8 +195,16 @@ OSX binary install
 Enable OpenSplice support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
+.. tabs::
+
+  .. group-tab:: Foxy and newer
+
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+     Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
 
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -222,14 +229,22 @@ Windows source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
-Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Foxy and newer
 
-   call "C:\opensplice69\HDE\x86_64.win64\release.bat"
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
+  .. group-tab:: Eloquent and older
+
+     If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
+     Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
+
+     .. code-block:: bash
+
+        call "C:\opensplice69\HDE\x86_64.win64\release.bat"
+
+     Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
 
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
@@ -255,10 +270,18 @@ Windows binary install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-For active ROS 2 distros, version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+.. tabs::
 
-After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
+  .. group-tab:: Foxy and newer
+
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
+     Version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+
+     After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
 RTI Connext
 ^^^^^^^^^^^
