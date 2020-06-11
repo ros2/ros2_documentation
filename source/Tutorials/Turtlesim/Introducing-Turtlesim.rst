@@ -146,6 +146,15 @@ Open a new terminal to install ``rqt`` and its plugins:
       sudo apt update
 
       sudo apt install ros-<distro>-rqt-*
+      
+    For ROS2 foxy: 
+
+    .. code-block:: console
+
+      sudo apt update
+
+      sudo apt install ros-foxy-rqt
+
 
   .. group-tab:: macOS
 
