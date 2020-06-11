@@ -43,15 +43,16 @@ In order to accept other types of futures (e.g.: ``std::future``), that paramete
 In places where a ``spin_until_future_complete`` call was relying on template argument deduction, no change is needed.
 If not, this is an example diff:
 
-```cpp
-std::shared_future<MyResultT> future;
-...
--executor.spin_until_future_complete<MyResultT>(future);
-+executor.spin_until_future_complete<std::shared_future<MyResultT>>(future);
-```
+.. code-block:: dpatch
 
-For more details, see `[ros2/rclcpp#1160] <https://github.com/ros2/rclcpp/pull/1160>`_.
-For an example of the needed changes in user code, see `[ros-visualization/interactive_markers#72] <https://github.com/ros-visualization/interactive_markers/pull/72>`_.
+   std::shared_future<MyResultT> future;
+   ...
+   -executor.spin_until_future_complete<MyResultT>(future);
+   +executor.spin_until_future_complete<std::shared_future<MyResultT>>(future);
+
+
+For more details, see `ros2/rclcpp#1160 <https://github.com/ros2/rclcpp/pull/1160>`_.
+For an example of the needed changes in user code, see `ros-visualization/interactive_markers#72 <https://github.com/ros-visualization/interactive_markers/pull/72>`_.
 
 Known Issues
 ------------
