@@ -1,6 +1,3 @@
-.. _upcoming-release:
-
-.. move this directive when next release page is created
 
 ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
 ====================================================

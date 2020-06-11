@@ -123,10 +123,10 @@ The following information are best estimates and are subject to change.
      - Release date
      - Supported for
      - Planned changes
-   * - <G-turtle>
-     - May 2021 ?
-     -
-     -
+   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
+     - May 2021
+     - TBD
+     - TBD
 
 
 The expectation is to release new ROS 2 distributions once per year.
