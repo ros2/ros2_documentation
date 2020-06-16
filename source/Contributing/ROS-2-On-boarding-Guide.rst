@@ -238,7 +238,7 @@ There several categories of jobs on the buildfarm:
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^
 
-ROS2 packages are organized in a way that the testing code for a given package is not only contained within the package, but could also be present in a different package.
+ROS 2 packages are organized in a way that the testing code for a given package is not only contained within the package, but could also be present in a different package.
 In other words: packages can exercise code belonging to other packages during the testing phase.
 
 To achieve the coverage rate reached by all code available in the ROS 2 core packages it is recommended to run builds using a fixed set of proposed repositories.
@@ -288,7 +288,8 @@ Alternative: get the combined unit coverage rate from coverage report (require m
   * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
 
 * With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code.
-  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test. Divide to get the coverage rate.
+  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test.
+  Divide to get the coverage rate.
 
 Learning ROS 2 concepts at a high level
 ---------------------------------------
