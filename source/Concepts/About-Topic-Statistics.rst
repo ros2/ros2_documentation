@@ -5,6 +5,8 @@
 About Topic Statistics
 =================================
 
+.. contents:: Table of Contents
+   :local:
 
 Overview
 --------
