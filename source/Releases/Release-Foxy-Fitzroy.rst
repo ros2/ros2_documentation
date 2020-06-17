@@ -19,12 +19,9 @@ Tier 1 platforms:
 * Mac macOS 10.14 (Mojave)
 * Windows 10 (Visual Studio 2019)
 
-Tier 2 platforms:
-
-* Ubuntu 20.04 (Focal): ``arm32``
-
 Tier 3 platforms:
 
+* Ubuntu 20.04 (Focal): ``arm32``
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
