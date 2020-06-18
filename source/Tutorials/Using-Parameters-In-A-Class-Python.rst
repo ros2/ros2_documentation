@@ -67,15 +67,20 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 .. code-block:: Python
 
     import rclpy
-    from rclpy.node import Node
+    from rclpy.node import Node, ParameterDescriptor
     from rclpy.exceptions import ParameterNotDeclaredException
+    from rcl_interfaces.msg import ParameterType
 
     class MinimalParam(Node):
         def __init__(self):
             super().__init__('minimal_param_node')
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
-            self.declare_parameter("my_parameter")
+            
+            my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
+                                                          description='This parameter is mine!')
+            self.declare_parameter("my_parameter", "default value for my_parameter",
+                                   my_parameter_descriptor)
 
         def timer_callback(self):
             # First get the value parameter "my_parameter" and get its string value
@@ -107,6 +112,8 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 ~~~~~~~~~~~~~~~~~~~~
 Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
 
+Adding a default value and adding a descriptor are both optional. 
+Descriptors allow to specify some description text that you'll also see when you run ``ros2 param describe /minimal_param_node my_parameter``.
 
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
