@@ -113,7 +113,7 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
 
 Adding a default value and adding a descriptor are both optional. 
-Descriptors allow to specify some description text that you'll also see when you run ``ros2 param describe /minimal_param_node my_parameter``.
+Descriptors allow to specify the type of the parameter and some description text that you'll also see when you run ``ros2 param describe /minimal_param_node my_parameter``.
 
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
