@@ -53,6 +53,14 @@ You can check if the multicast flag is enabled for your network interface using 
    eno1: flags=4163<...,MULTICAST>
       ...
 
+Import failing without library present on the system
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes ``rclpy`` fails to be imported because the expected C extension libraries are not found.
+If so, compare the libraries present in the directory with the one mentioned in the error message.
+Assuming a file with a similar name exists (same prefix like ``_rclpy.`` and same suffix like ``.so`` but a different Python version / architecture) you are using a different Python interpreter than which was used to build the C extension.
+Be sure to use the same Python interpreter as the one used to build the binary.
+
 .. _linux-troubleshooting:
 
 Linux
