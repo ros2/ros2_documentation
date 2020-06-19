@@ -11,6 +11,7 @@ Installation
    Installation/Dashing
    Installation/Eloquent
    Installation/Foxy
+   Installation/Rolling
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
    Installation/Prerelease-Testing
@@ -49,3 +50,4 @@ General users with no special considerations should use the most recent release 
 Contributing to ROS 2 core?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 If you plan to contribute directly to ROS 2 core packages, you can install the `latest development from source <Installation/Latest-Development-Setup>`.
+The `Rolling Ridley distribution <Installation/Rolling>` contains development releases of packages.
