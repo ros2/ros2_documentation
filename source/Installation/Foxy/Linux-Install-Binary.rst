@@ -58,7 +58,7 @@ Set your rosdistro according to the release you downloaded.
        rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/melodic/Installation/Ubuntu
+   Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,13 +122,13 @@ Using the ROS 1 bridge
 ----------------------
 
 If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file.
-We'll assume that it is ``/opt/ros/melodic/setup.bash`` in the following.
+We'll assume that it is ``/opt/ros/noetic/setup.bash`` in the following.
 
 If you haven't already, start a roscore:
 
 .. code-block:: bash
 
-   . /opt/ros/melodic/setup.bash
+   . /opt/ros/noetic/setup.bash
    roscore
 
 
@@ -136,7 +136,7 @@ In another terminal, start the bridge:
 
 .. code-block:: bash
 
-   . /opt/ros/melodic/setup.bash
+   . /opt/ros/noetic/setup.bash
    . ~/ros2_foxy/ros2-linux/setup.bash
    ros2 run ros1_bridge dynamic_bridge
 

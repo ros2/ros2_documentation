@@ -133,9 +133,9 @@ Install additional packages using ROS 1 packages
 ------------------------------------------------
 
 The ``ros1_bridge`` as well as the TurtleBot demos are using ROS 1 packages.
-To be able to install them please start by adding the ROS 1 sources as documented `here <http://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.
+To be able to install them please start by adding the ROS 1 sources as documented `here <http://wiki.ros.org/Installation/Ubuntu?distro=noetic>`__.
 
-If you're using Docker for isolation you can start with the image ``ros:melodic`` or ``osrf/ros:melodic-desktop`` (or Kinetic if using Ardent).
+If you're using Docker for isolation you can start with the image ``ros:noetic`` or ``osrf/ros:noetic-desktop``.
 This will also avoid the need to setup the ROS sources as they will already be integrated.
 
 Now you can install the remaining packages:
