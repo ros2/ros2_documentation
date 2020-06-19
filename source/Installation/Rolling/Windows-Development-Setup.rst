@@ -12,7 +12,7 @@ This guide is about how to setup a development environment for ROS 2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <Foxy_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <Rolling_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
@@ -140,29 +140,29 @@ RQt dependencies
 
    > pip install -U pydot PyQt5
 
-Follow the steps for `Installing Graphviz <Foxy_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
+Follow the steps for `Installing Graphviz <Rolling_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
 
 Get the ROS 2 code
 ------------------
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, for example ``C:\dev\ros2_foxy``:
+First setup a development folder, for example ``C:\dev\ros2_rolling``:
 
 .. code-block:: bash
 
-   > md \dev\ros2_foxy\src
-   > cd \dev\ros2_foxy
+   > md \dev\ros2_rolling\src
+   > cd \dev\ros2_rolling
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
@@ -188,7 +188,7 @@ To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools C
 
 Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2_foxy`` folder tree:
+To build the ``\dev\ros2_rolling`` folder tree:
 
 .. code-block:: bash
 
@@ -211,7 +211,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_foxy\install\local_setup.bat
+   > call C:\dev\ros2_rolling\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -364,10 +364,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Rolling install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_foxy
+    rmdir /s /q \ros2_rolling

@@ -2,8 +2,6 @@
 
   Installation/Foxy/OSX-Development-Setup
 
-.. _macOS-latest:
-
 Building ROS 2 on macOS
 =======================
 

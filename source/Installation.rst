@@ -11,6 +11,7 @@ Installation
    Installation/Dashing
    Installation/Eloquent
    Installation/Foxy
+   Installation/Rolling
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
    Installation/Prerelease-Testing

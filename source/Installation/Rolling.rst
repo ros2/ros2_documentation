@@ -1,29 +1,31 @@
-.. _FoxyInstall:
+.. _RollingInstall:
 
-Installing ROS 2 Foxy Fitzroy
-=============================
+Installing ROS 2 Rolling Ridley
+===============================
 
 .. toctree::
    :hidden:
    :glob:
 
-   Foxy/*
+   Rolling/*
 
 Binary packages
 ---------------
 
-We provide ROS 2 binary packages for the following platforms:
+We currently provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Focal(20.04))
 
-  * `Debian packages <Foxy/Linux-Install-Debians>`
-  * `"fat" archive <Foxy/Linux-Install-Binary>`
+  * `Debian packages <Rolling/Linux-Install-Debians>`
+  * `"fat" archive <Rolling/Linux-Install-Binary>`
 
-* `macOS <Foxy/macOS-Install-Binary>`
-* `Windows <Foxy/Windows-Install-Binary>`
+* `macOS <Rolling/macOS-Install-Binary>`
+* `Windows <Rolling/Windows-Install-Binary>`
+
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
 
 
-.. _Foxy_building-from-source:
+.. _Rolling_building-from-source:
 
 Building from source
 --------------------
@@ -31,8 +33,8 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Foxy/Linux-Development-Setup>`
-* `macOS <Foxy/macOS-Development-Setup>`
-* `Windows <Foxy/Windows-Development-Setup>`
+* `Linux <Rolling/Linux-Development-Setup>`
+* `macOS <Rolling/macOS-Development-Setup>`
+* `Windows <Rolling/Windows-Development-Setup>`
 
 .. include:: _Install-Types.rst

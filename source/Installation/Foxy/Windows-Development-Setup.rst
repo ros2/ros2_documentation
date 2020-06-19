@@ -1,5 +1,3 @@
-.. _windows-latest:
-
 Building ROS 2 on Windows
 =========================
 
