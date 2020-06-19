@@ -54,6 +54,15 @@ Same as in ROS 1: `Following this tutorial <http://wiki.ros.org/bloom/Tutorials/
 
 If porting a ROS 1 package to ROS 2, it's recommended to create a new ``-release`` repository.
 
+Choosing a target distribution for releases
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Starting after the release of ROS 2 Foxy Fitzroy, new ROS 2 distributions will be created from snapshots of a rolling development distribution, Rolling Ridley.
+If you want your package to be available in the next release of ROS 2, you can release it into Rolling Ridley at any time before the new distribution is created.
+
+If you also want to release a new package into currently released stable distributions you will need to create additional release tracks and perform additional bloom releases for each distribution.
+Configuring release tracks is described in the `Bloom first time release tutorial <http://wiki.ros.org/bloom/Tutorials/FirstTimeRelease#Configure_a_Release_Track>`_.
+
 Build Status
 ------------
 
