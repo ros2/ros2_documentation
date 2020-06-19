@@ -12,6 +12,7 @@ Concept overviews will help you understand the "big picture" idea of ROS 2 syste
    Concepts/DDS-and-ROS-middleware-implementations
    Concepts/About-Quality-of-Service-Settings
    Concepts/About-ROS-Interfaces
+   Concepts/About-Topic-Statistics
    Concepts/ROS-2-Client-Libraries
    Concepts/Logging
 
