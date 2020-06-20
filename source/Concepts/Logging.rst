@@ -118,4 +118,4 @@ Console output configuration
 By default, console output will be formatted to include the message severity, logger name, and the message.
 Information such as the file name, function name and line number of the log call are also available.
 Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `rcutils documentation for details <http://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
-As ``rclpy`` and ``rclcpp`` both use ``rcutils`` for logging, this will effect all Python and C++ nodes.
+As ``rclpy`` and ``rclcpp`` both use ``rcutils`` for logging, this will affect all Python and C++ nodes.

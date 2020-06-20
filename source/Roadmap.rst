@@ -31,7 +31,7 @@ Design / Concept
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants, see `ros2/design#250 <https://github.com/ros2/design/pull/250>`_
 * Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
-* Specific "API" of a node in terms of topics / services / etc in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
+* Specific "API" of a node in terms of topics / services / etc. in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -142,7 +142,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * security improvements:
 
-  * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [\*]
+  * more granularity in security configuration (allow authentication only, authentication and encryption, etc.) [\*]
   * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
   * key storage security (right now, keys are just stored in the filesystem) [\*\*]
   * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]
@@ -159,7 +159,7 @@ Port of existing ROS 1 functionality
 
 * MoveIt
 
-  * Moveit Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
+  * MoveIt Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
 
 * RQt
 
@@ -175,8 +175,8 @@ Reducing Technical Debt
 
 * Fix flaky tests.
 * Ability to run (all) unit tests with tools e.g. valgrind
-* API review, specifically user facing API in rclcpp and rclpy
-* Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user facing API
+* API review, specifically user-facing API in rclcpp and rclpy
+* Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user-facing API
 * Revisit message allocators, consider using std::polymorphic_allocator to address problems
 
 * Modernization

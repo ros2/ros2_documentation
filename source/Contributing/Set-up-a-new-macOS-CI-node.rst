@@ -161,7 +161,7 @@ Setting up the Jenkins Workspace and Agent
 
 Copy the jenkins agent plist from https://gist.github.com/nuclearsandwich/c9546e76ba63767bc1025c393e85235b
 
-Edit the file to match the jnlp url and secret of the host you’re setting up.
+Edit the file to match the jnlp URL and secret of the host you’re setting up.
 You may need to create a new agent if you’re not re-imaging an existing one.
 
 .. code-block:: bash

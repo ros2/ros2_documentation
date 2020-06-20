@@ -258,7 +258,7 @@ ROS 2 uses ament as the build system but for backward compatibility ROS 2 has a 
 In order to use this backward compatibility API the ``CMakeLists.txt`` must only be updated to call the function ``catkin_ament_package()`` *after* all targets.
 
 **NOTE: This has not been implemented yet and is only an idea at the moment.
-Due to the amount of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
+Due to the number of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
 
 Update source code
 ^^^^^^^^^^^^^^^^^^
@@ -535,7 +535,7 @@ We'll copy the source tree from our ROS 1 package into that workspace, where we 
    mkdir src
    cp -a ~/ros1_talker/src/talker src
 
-Now we'll modify the the C++ code in the node.
+Now we'll modify the C++ code in the node.
 The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
 provided by ``roscpp``.
 The concepts are very similar between the two libraries, which makes the changes

@@ -28,7 +28,7 @@ In this document we will describe the supported types.
 2. Message description specification
 ------------------------------------
 
-Messages description are defined in ``.msg`` files in the ``msg/`` directory of a ROS package.
+Messages are described and defined in ``.msg`` files in the ``msg/`` directory of a ROS package.
 ``.msg`` files are composed of two parts: fields and constants.
 
 2.1 Fields
@@ -230,9 +230,9 @@ For example:
 3. Service description specification
 ------------------------------------
 
-Services description are defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
+Services are described and defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
 
-A service description file consists of a request and a response msg type, separated by '---'. Any two .msg files concatenated together with a '---' are a legal service description.
+A service description file consists of a request and a response msg type, separated by '---'. Any two ``.msg`` files concatenated with a '---' are a legal service description.
 
 Here is a very simple example of a service that takes in a string and returns a string:
 

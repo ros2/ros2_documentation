@@ -5,7 +5,7 @@
 ROS 2 on-boarding guide
 =======================
 
-The purpose of this guide is supplement the on-boarding of new developers when they join the ROS 2 team.
+The purpose of this guide is to supplement the on-boarding of new developers when they join the ROS 2 team.
 It is mostly used by the ROS 2 team, but it might be useful for others as well.
 
 Request access to the GitHub organizations
@@ -96,7 +96,7 @@ Developer Workflow
 
 We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
 
-Higher level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
+Higher-level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
 
 The usual workflow is (this list is a work in progress):
 
@@ -128,7 +128,7 @@ The usual workflow is (this list is a work in progress):
   * Hit the ``build`` button
   * At the end of the document there are instructions on how to :ref:`interpret the result of the report <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
 
-* If built without warnings, errors and test failures, post the links of your jobs on your PR or high level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
+* If built without warnings, errors and test failures, post the links of your jobs on your PR or high-level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
   * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
 
@@ -187,7 +187,7 @@ This is the current set of target platforms and architectures, though it evolves
 
   * amd64
 
-There several categories of jobs on the buildfarm:
+There are several categories of jobs on the buildfarm:
 
 
 * manual jobs (triggered manually by developers):
@@ -215,7 +215,7 @@ There several categories of jobs on the buildfarm:
     * nightly_osx_release
     * nightly_win_rel
 
-  * Repeated: build then run each test up to 20 times or until failed (aka flakyness hunter)
+  * Repeated: build then run each test up to 20 times or until failed (aka flakiness hunter)
 
     * nightly_linux_repeated
     * nightly_linux-aarch64_repeated
@@ -252,7 +252,7 @@ How to read the coverage rate from the buildfarm report
 
 To see the coverage report for a given package:
 
-* When the ``ci_linux_coverage`` build finishes, click in ``Coverage Report``
+* When the ``ci_linux_coverage`` build finishes, click on ``Coverage Report``
 * Scroll down to the ``Coverage Breakdown by Package`` table
 * In the table, look at the first column called "Name"
 

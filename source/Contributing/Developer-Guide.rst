@@ -71,7 +71,7 @@ However, it is acceptable to define a set of symbols which are considered privat
 Avoiding private symbols in headers can help with ABI stability, but is not required.
 
 For other languages like Python, a public API must be explicitly defined, so that it is clear what symbols can be relied on with respect to the versioning guidelines.
-The public API can also be extended to build artifacts like configuration variables, CMake config files, etc. as well as executables and command line options and output.
+The public API can also be extended to build artifacts like configuration variables, CMake config files, etc. as well as executables and command-line options and output.
 Any elements of the public API should be clearly stated in the package's documentation.
 If something you are using is not explicitly listed as part of the public API in the package's documentation, then you cannot depend on it not changing between minor or patch versions.
 
@@ -107,7 +107,7 @@ Change control process
   * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
 
 * Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
-  (If you don't have access to the Jenkins job someone will trigger the jobs for you.)
+  (If you don't have access to the Jenkins jobs someone will trigger the jobs for you.)
 
 * A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
   Approval is required before merging.
@@ -116,8 +116,8 @@ Change control process
 
 * Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
 
-Guidelines for backport PRs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Guidelines for backporting PRs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 When changing an older version of ROS:
 
@@ -152,10 +152,10 @@ Each package should define and describe its public API so that there is a reason
 Even in C and C++, where the public API can be enforced by API and ABI checking, it is a good opportunity to describe the layout of the code and the function of each part of the code.
 
 It should be easy to take any package and from that package's documentation understand how to build, run, build and run tests, and build the documentation.
-Obviously we should avoid repeating ourselves for common workflows, like build a package in a workspace, but the basic workflows should be either described or referenced.
+Obviously we should avoid repeating ourselves for common workflows, like building a package in a workspace, but the basic workflows should be either described or referenced.
 
 Finally, it should include any documentation for developers.
-This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by you package.
+This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by your package.
 
 Examples:
 
@@ -439,7 +439,7 @@ Whether or not a design document is required for your change depends on how big 
 
   Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
   Detailed instructions are on the `ROS 2 Contribute <http://design.ros2.org/contribute.html>`__ page.
-  Design comments will made directly on the pull request.
+  Design comments will be made directly on the pull request.
 
 If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
 
@@ -450,7 +450,7 @@ Once the design is ready for review, a pull request should be opened and appropr
 It is recommended to include project owner(s) -
 maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
 
-* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be setup.
+* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be set up.
   In this case,
 
   **Before the meeting**
@@ -491,8 +491,8 @@ Before starting, go through the `Pull requests`_ section for best practices.
 
 * For each repo to be modified:
 
-  * Modify the code, go to the next step if finished or at regular interval to backup your work.
-  * `Self review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
+  * Modify the code, go to the next step if finished or at regular intervals to backup your work.
+  * `Self-review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
   * Create a new signed commit using ``git commit -s``.
 
     * A pull request should contain minimal semantically meaningful commits (for instance, a large number of 1-line commits is not acceptable).
@@ -512,7 +512,7 @@ Once the change is ready for code review:
 * Open a pull request for each modified repository.
 
   * Remember to follow `Pull requests`_ best practices.
-  * `GitHub <https://hub.github.com/>`__ can be used to create pull requests from the command line.
+  * `GitHub <https://hub.github.com/>`__ can be used to create pull requests from the command-line.
   * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
 
 * Package owners who reviewed the design document should be mentioned in the pull request.

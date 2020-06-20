@@ -61,7 +61,7 @@ Create the ``C:\J`` folder.
 
 Go to http://ci.ros2.org and select: Manage Jenkins -> Manage Nodes -> New node
 
-Copy an existing node and choose a working windows node (at the time of the writing Windshield or Portable), fill in all the description fields, set the label to “windows slave” and save.
+Copy an existing node and choose a working Windows node (at the time of the writing Windshield or Portable), fill in all the description fields, set the label to “windows slave” and save.
 
 Hit the "launch" button to download the "Java Web Start App" and save it on the desktop.
 

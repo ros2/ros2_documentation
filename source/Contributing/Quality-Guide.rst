@@ -5,9 +5,9 @@
 Quality guide: ensuring code quality
 ====================================
 
-This section tries to give guidance about how to improve the software quality of ROS 2 packages. The guide uses a pattern language based approach to improve the readers experience ("read little, understand fast, understand much, apply easily").
+This section tries to give guidance about how to improve the software quality of ROS 2 packages. The guide uses a pattern language based approach to improve the reader's experience ("read little, understand fast, understand much, apply easily").
 
-**What this sections is about:**
+**What this section is about:**
 
 
 * ROS 2 core, application and ecosystem packages.
@@ -25,7 +25,7 @@ This section tries to give guidance about how to improve the software quality of
 
 
 * The `Design Guide <Design-Guide>` summarizes design patterns for ROS 2 packages. As quality is highly impacted by design it is a good idea to have a look into it before.
-* The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS 2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these consideration may have an impact on single or several quality attributes.
+* The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS 2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these considerations may have an impact on single or several quality attributes.
 
 Patterns
 --------
@@ -140,7 +140,7 @@ Static Thread Safety Analysis via Code Annotation
 **Context For Implementation:**
 
 
-To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the smantics of the code. These annotations are Clang-specific attributes - e.g. ``__atribute__(capability()))``. Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
+To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the semantics of the code. These annotations are Clang-specific attributes - e.g. ``__attribute__(capability()))``. Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
 
 These macros can be found in `rcpputils/thread_safety_annotations.h <https://github.com/ros2/rcpputils/blob/master/include/rcpputils/thread_safety_annotations.h>`__
 
@@ -284,9 +284,9 @@ Dynamic analysis (data races & deadlocks)
 
 
 * Compile and link the production code with clang using the option ``-fsanitize=thread`` (this instruments the production code).
-* In case different production code shall be executed during anaylsis consider conditional compilation e.g. `ThreadSanatizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
+* In case different production code shall be executed during analysis consider conditional compilation e.g. `ThreadSanatizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
 * In case some code shall not be instrumented consider `ThreadSanatizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
-* In case some files shall not be instrumented consider file or function level exclusion `ThreadSanatizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__, more specific: `ThreadSanatizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanatizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
+* In case some files shall not be instrumented consider file or function-level exclusion `ThreadSanatizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__, more specific: `ThreadSanatizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanatizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
 
 **Resulting context:**
 
@@ -302,7 +302,7 @@ Code coverage analysis
 
 **Context**
 
-You have written tests for the library level production code of a ROS 2 package (usually refered to as "unit tests").
+You have written tests for the library level production code of a ROS 2 package (usually referred to as "unit tests").
 
 **Problem**
 
