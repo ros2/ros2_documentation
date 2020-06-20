@@ -45,7 +45,7 @@ Once the current state is ready to be released, follow these steps:
     * ``ros/console_bridge``
     * Remove the above repositories for now: ``rm -fr src/ament/osrf_pycommon src/eProsima src/ros``
 
-  * Note that for this step to work without requiring lots of password typing, you either need a ``~/.netrc`` file with your credentials, or you need to change the github URLs in the ``.repos`` file to use ssh instead of https.
+  * Note that for this step to work without requiring lots of password typing, you either need a ``~/.netrc`` file with your credentials, or you need to change the GitHub URLs in the ``.repos`` file to use ssh instead of https.
   * Create the release tag:
 
     * ``vcs custom ./src --args tag release-betaN`` (adjust the tag name appropriately).

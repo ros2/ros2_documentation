@@ -67,7 +67,7 @@ Here's a few to start with:
    * `Changes between ROS 1 and ROS 2 <https://design.ros2.org/articles/changes.html>`__
 
 * The code for ROS 2 is open source and broken into various repositories.
-  You can find the code for most of the repositories on the `ros2 github organization <https://github.com/ros2>`__.
+  You can find the code for most of the repositories on the `ros2 GitHub organization <https://github.com/ros2>`__.
 
 * `awesome-ros2 <https://fkromer.github.io/awesome-ros2>`__ is a "cheat sheet" style quick reference for ROS 2 packages and resources to help GitHub users get to know ROS 2.
 

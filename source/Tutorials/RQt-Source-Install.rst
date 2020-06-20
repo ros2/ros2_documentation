@@ -5,7 +5,7 @@
 Building RQt from source
 ========================
 
-We've provided our development setup here to aid future users in easily extending RQt by creating their own plugins. We encourage you to contribute those plugins back to the ``ros-visualization`` Github repository!
+We've provided our development setup here to aid future users in easily extending RQt by creating their own plugins. We encourage you to contribute those plugins back to the ``ros-visualization`` GitHub repository!
 
 System Requirements
 -------------------

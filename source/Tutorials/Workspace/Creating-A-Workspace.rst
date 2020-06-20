@@ -122,7 +122,7 @@ In the rest of the beginner developer tutorials, you will create your own packag
 The existing packages you will use are from the ``ros_tutorials`` repository (repo).
 If you went through the "Beginner: CLI Tools" tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
 
-You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
+You can see the repo `on GitHub <https://github.com/ros/ros_tutorials/>`__.
 
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.

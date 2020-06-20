@@ -10,7 +10,7 @@ Intel® Robotics Open Source Project (Intel® ROS Project) to enable object dete
 Key Projects
 ------------
 
-We are working on below ROS 2 projects and publish source code through https://github.com/intel/ or ROS 2 github repo gradually.
+We are working on below ROS 2 projects and publish source code through https://github.com/intel/ or ROS 2 GitHub repo gradually.
 
 * `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: ROS 2 package for Intel® Visual Inference and Neural Network Optimization Toolkit to develop multiplatform computer vision solutions.
 * `ROS2 RealSense Camera <https://github.com/intel/ros2_intel_realsense>`__: ROS 2 package for Intel® RealSense™ D400 serial cameras

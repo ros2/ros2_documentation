@@ -84,7 +84,7 @@ http://www.rti.com/downloads/connext-files.html
 
 Make sure to also install the security plugins.
 
-Download the license file from our private github repository:
+Download the license file from our private GitHub repository:
 
 https://github.com/osrf/rticonnextdds-src/tree/30adec34dbaf1445914ff9e003640b0c50ab9969
 

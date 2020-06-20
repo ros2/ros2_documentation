@@ -376,11 +376,11 @@ Package layout
 * ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
-* ``README``: can be rendered on Github as a landing page for the project
+* ``README``: can be rendered on GitHub as a landing page for the project
 
   * This can be as short or detailed as is convenient, but it should at least link to project documentation
   * Consider putting a CI or code coverage tag in this README
-  * It can also be ``.rst`` or anything else that Github supports
+  * It can also be ``.rst`` or anything else that GitHub supports
 
 * ``CONTRIBUTING``: describes the contribution guidelines
 
@@ -482,7 +482,7 @@ maintainers of all impacted packages (as defined by ``package.xml`` maintainer f
 * Once consensus is reached:
 
   * Ensure the `ros2/design <https://github.com/ros2/design/>`__ pull request has been merged, if applicable
-  * Update and close the github issue associated with this design task
+  * Update and close the GitHub issue associated with this design task
 
 Implementation
 ~~~~~~~~~~~~~~
