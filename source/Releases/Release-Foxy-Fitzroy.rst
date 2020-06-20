@@ -216,7 +216,7 @@ Logs similar to:
 
 will be observed when this incompatibility happens.
 
-If compatibility is needed, it can be set up in an external qos profiles files containing:
+If compatibility is needed, it can be set up in an external QoS profiles files containing:
 
 .. code-block:: xml
 
@@ -233,7 +233,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
       </property>
    </participant_qos>
 
-Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the qos profiles file path.
+Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the QoS profiles file path.
 For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility <https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm>`_.
 
 rviz
