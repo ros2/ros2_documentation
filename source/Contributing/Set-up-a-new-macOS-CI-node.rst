@@ -101,7 +101,7 @@ RQt dependencies
 ~~~~~~~~~~~~~~~~
 
 * ``brew install sip pyqt5``
-* Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
+* Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -157,7 +157,7 @@ Setting up the Jenkins Workspace and Agent
 
    $ mkdir jenkins jenkins-agent
    $ cd jenkins-agent
-   $ wget http://ci.ros2.org/jnlpJars/slave.jar
+   $ wget https://ci.ros2.org/jnlpJars/slave.jar
 
 Copy the jenkins agent plist from https://gist.github.com/nuclearsandwich/c9546e76ba63767bc1025c393e85235b
 

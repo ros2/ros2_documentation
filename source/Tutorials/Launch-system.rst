@@ -15,7 +15,7 @@ It is also responsible for monitoring the state of the processes launched, and r
 Launch files written in Python can start and stop different nodes as well as trigger and act on various events.
 The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
 
-The `design document <http://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
+The `design document <https://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
 
 Writing a ROS 2 launch file
 ---------------------------

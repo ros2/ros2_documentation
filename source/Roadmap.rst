@@ -11,7 +11,7 @@ Please see the page of the :ref:`upcoming distribution <upcoming-release>` for m
 
 Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
-For more information on the design of ROS 2 please see `design.ros2.org <http://design.ros2.org>`__.
+For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
 The core code for ROS 2 is on the `ros2 github organization <https://github.com/ros2>`__.
 The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.
 Questions should be asked on `ROS answers <https://answers.ros.org>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``ardent``.
@@ -46,7 +46,7 @@ Infrastructure and tools
 * Documentation
 
   * Improve documentation platform
-  * Support for ``doc`` jobs on the `ROS 2 buildfarm <http://build.ros2.org>`__
+  * Support for ``doc`` jobs on the `ROS 2 buildfarm <https://build.ros2.org>`__
   * Consider consolidating with design.ros2.org
   * Provide three different kinds of content:
 
@@ -76,7 +76,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Additional Graph API features [\*\* / \*\*\*]
 
   * Introspect QoS setting for all (especially remote) topics
-  * a la ROS 1 Master API: http://wiki.ros.org/ROS/Master_API
+  * a la ROS 1 Master API: https://wiki.ros.org/ROS/Master_API
   * Event-based notification
   * Requires knowledge of the rmw interface which needs to be extended
 
@@ -118,7 +118,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Type masquerading [\*\*\*]
 
-  * a la ROS 1's message traits: http://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
+  * a la ROS 1's message traits: https://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
   * Requires knowledge of the typesupport system
 
 * Expand on real-time safety [\*\*\*]

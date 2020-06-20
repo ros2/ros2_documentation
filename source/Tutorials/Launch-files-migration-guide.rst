@@ -19,13 +19,13 @@ Migrating tags from ROS 1 to ROS 2
 launch
 ^^^^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/launch>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/launch>`__.
 * ``launch`` is the root element of any ROS 2 launch XML file.
 
 node
 ^^^^
 
-* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/node>`__.
+* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/node>`__.
 * Launches a new node.
 * Differences from ROS 1:
    * ``type`` attribute is now ``exec``.
@@ -44,7 +44,7 @@ Example
 param
 ^^^^^
 
-* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/param>`__.
+* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/param>`__.
 * Used for passing a parameter to a node.
 * There's no global parameter concept in ROS 2.
   For that reason, it can only be used nested in a ``node`` tag.
@@ -125,7 +125,7 @@ It's also possible to use full parameter names:
 rosparam
 ^^^^^^^^
 
-* `Available in ROS1 <http://wiki.ros.org/roslaunch/XML/rosparam>`__.
+* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/rosparam>`__.
 * Loads parameters from a yaml file.
 * It has been replaced with a ``from`` atribute in ``param`` tags.
 
@@ -141,7 +141,7 @@ Example
 remap
 ^^^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/remap>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/remap>`__.
 * Used to pass remapping rules to a node.
 * It can only be used within ``node`` tags.
 
@@ -162,7 +162,7 @@ Example
 include
 ^^^^^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/include>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/include>`__.
 * Allows including another launch file.
 * Differences from ROS 1:
    * Available in ROS 1, included content was scoped.
@@ -183,7 +183,7 @@ See `Replacing an include tag`_.
 arg
 ^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/arg>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/arg>`__.
 * ``arg`` is used for declaring a launch argument, or to pass an argument when using ``include`` tags.
 * Differences from ROS 1:
    * ``value`` attribute is not allowed.
@@ -215,7 +215,7 @@ See `ROS 2 launch tutorial <Launch-system>`.
 env
 ^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/env>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/env>`__.
 * Sets an environment variable.
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
@@ -247,7 +247,7 @@ Example
 group
 ^^^^^
 
-* `Available in ROS 1 <http://wiki.ros.org/roslaunch/XML/group>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/group>`__.
 * Allows limiting the scope of launch configurations.
   Usually used together with ``let``, ``include`` and ``push-ros-namespace`` tags.
 * Differences from ROS 1:
@@ -361,7 +361,7 @@ To replace the ``ns`` attribute, ``push-ros-namespace`` action must be used:
 Substitutions
 -------------
 
-Documentation about ROS 1's substitutions can be found in `roslaunch XML wiki <http://wiki.ros.org/roslaunch/XML>`__.
+Documentation about ROS 1's substitutions can be found in `roslaunch XML wiki <https://wiki.ros.org/roslaunch/XML>`__.
 Substitutions syntax hasn't changed, i.e. it still follows the ``$(substitution-name arg1 arg2 ...)`` pattern.
 There are, however, some changes w.r.t. ROS 1:
 

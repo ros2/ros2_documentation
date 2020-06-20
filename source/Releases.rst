@@ -6,7 +6,7 @@ Distributions
 What is a Distribution?
 -----------------------
 
-See `wiki.ros.org/Distributions <http://wiki.ros.org/Distributions>`_.
+See `wiki.ros.org/Distributions <https://wiki.ros.org/Distributions>`_.
 
 List of Distributions
 ---------------------
@@ -98,7 +98,7 @@ Distribution Details
 ~~~~~~~~~~~~~~~~~~~~
 
 For details on the distributions see each release page.
-For the supported platforms and versions of common dependencies and other considerations, see the official ROS 2 Target Platforms `REP 2000 <http://www.ros.org/reps/rep-2000.html>`_.
+For the supported platforms and versions of common dependencies and other considerations, see the official ROS 2 Target Platforms `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
 Future Distributions
 --------------------

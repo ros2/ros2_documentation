@@ -24,7 +24,7 @@ The logging functionality currently supported is:
 
 * Console output.
 
-  * File output and functionality akin to `rosout <http://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
+  * File output and functionality akin to `rosout <https://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
 
 * Programmatic configuration of logger levels.
 
@@ -53,7 +53,7 @@ Logging usage
   .. group-tab:: C++
 
     * See the `logging demo <../Tutorials/Logging-and-logger-configuration>` for example usage.
-    * See the `rclcpp documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
+    * See the `rclcpp documentation <https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
 
   .. group-tab:: Python
 
@@ -117,5 +117,5 @@ Console output configuration
 
 By default, console output will be formatted to include the message severity, logger name, and the message.
 Information such as the file name, function name and line number of the log call are also available.
-Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `rcutils documentation for details <http://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
+Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `rcutils documentation for details <https://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
 As ``rclpy`` and ``rclcpp`` both use ``rcutils`` for logging, this will affect all Python and C++ nodes.

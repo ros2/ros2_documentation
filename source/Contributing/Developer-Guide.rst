@@ -159,7 +159,7 @@ This might include workflows for testing the code using something like ``python 
 
 Examples:
 
-* capabilities: http://docs.ros.org/hydro/api/capabilities/html/
+* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
 
   * This one gives an example of docs which describe the public API
 
@@ -311,7 +311,7 @@ For example, a new function ``rmw_foo()`` introduced to the RMW API must be impl
 * `rmw_connext <https://github.com/ros2/rmw_connext>`__
 
 Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
-See `REP-2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for the list of middleware libraries and their tiers.
+See `REP-2000 <https://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for the list of middleware libraries and their tiers.
 
 Tracking tasks
 ^^^^^^^^^^^^^^
@@ -373,7 +373,7 @@ Package layout
 * ``<package_name>``: contains all Python code
 * ``test``: contains all automated tests and test data
 * ``doc``: contains all the documentation
-* ``package.xml``: as defined by `REP-0140 <http://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
+* ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
 * ``README``: can be rendered on Github as a landing page for the project
@@ -387,7 +387,7 @@ Package layout
   * This might include license implication, e.g. when using the Apache 2 License.
 
 * ``LICENSE``: a copy of the license or licenses for this package
-* ``CHANGELOG.rst``: `REP-0132 <http://www.ros.org/reps/rep-0132.html>`_ compliant changelog
+* ``CHANGELOG.rst``: `REP-0132 <https://www.ros.org/reps/rep-0132.html>`_ compliant changelog
 
 Repository layout
 ~~~~~~~~~~~~~~~~~
@@ -434,11 +434,11 @@ Whether or not a design document is required for your change depends on how big 
 
 2. You are implementing a new feature or would like to contribute to OSRF-owned infrastructure (like Jenkins CI):
 
-  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on http://design.ros2.org/.
+  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on https://design.ros2.org/.
   * You should fork the repository and submit a pull request detailing the design.
 
   Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
-  Detailed instructions are on the `ROS 2 Contribute <http://design.ros2.org/contribute.html>`__ page.
+  Detailed instructions are on the `ROS 2 Contribute <https://design.ros2.org/contribute.html>`__ page.
   Design comments will be made directly on the pull request.
 
 If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
@@ -448,7 +448,7 @@ Design document review
 
 Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
 It is recommended to include project owner(s) -
-maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <http://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
+maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
 
 * If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be set up.
   In this case,

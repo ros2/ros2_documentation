@@ -365,4 +365,4 @@ The last few tutorials in the "Users" set will introduce you to some tools and t
 Related content
 ---------------
 
-You can read more about the design decisions behind actions in ROS 2 `here <http://design.ros2.org/articles/actions.html>`__.
+You can read more about the design decisions behind actions in ROS 2 `here <https://design.ros2.org/articles/actions.html>`__.

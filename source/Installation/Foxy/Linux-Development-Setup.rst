@@ -10,7 +10,7 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Foxy Fitzroy are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Foxy Fitzroy are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
 

@@ -28,7 +28,7 @@ Tier 3 platforms:
 * Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
 
 New features in this ROS 2 release
@@ -206,7 +206,7 @@ is written using Eloquent (and onwards) syntax as:
     ros2 run some_package some_node --ros-args --remap foo:=bar --params-file /path/to/params.yaml --log-level WARN -- --user-flag
 
 This explicit syntax affords new features, like single parameter assignment ``--param name:=value``.
-For further reference and rationale, check the `ROS command line arguments design document <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
+For further reference and rationale, check the `ROS command line arguments design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`__.
 
 .. warning::
 

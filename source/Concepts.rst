@@ -16,7 +16,7 @@ Concept overviews will help you understand the "big picture" idea of ROS 2 syste
    Concepts/ROS-2-Client-Libraries
    Concepts/Logging
 
-See http://docs.ros2.org/ for more high-level ROS 2 documentation.
+See https://docs.ros2.org/ for more high-level ROS 2 documentation.
 
 Overview of ROS 2 Concepts
 --------------------------

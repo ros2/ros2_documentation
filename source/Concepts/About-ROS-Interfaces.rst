@@ -64,9 +64,9 @@ Field types can be:
    :header-rows: 1
 
    * - Type name
-     - `C++ <http://design.ros2.org/articles/generated_interfaces_cpp.html>`__
-     - `Python <http://design.ros2.org/articles/generated_interfaces_python.html>`__
-     - `DDS type <http://design.ros2.org/articles/mapping_dds_types.html>`__
+     - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
+     - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
+     - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
    * - bool
      - bool
      - builtins.bool
@@ -135,9 +135,9 @@ Field types can be:
    :header-rows: 1
 
    * - Type name
-     - `C++ <http://design.ros2.org/articles/generated_interfaces_cpp.html>`__
-     - `Python <http://design.ros2.org/articles/generated_interfaces_python.html>`__
-     - `DDS type <http://design.ros2.org/articles/mapping_dds_types.html>`__
+     - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
+     - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
+     - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
    * - static array
      - std::array<T, N>
      - builtins.list*
@@ -265,7 +265,7 @@ You cannot embed another service inside of a service.
 4. New features in ROS 2 interfaces
 -----------------------------------
 
-The ROS 2 IDL is closely related to the `ROS 1 IDL <http://wiki.ros.org/msg>`__.
+The ROS 2 IDL is closely related to the `ROS 1 IDL <https://wiki.ros.org/msg>`__.
 Most existing ROS 1 ``.msg`` and ``.srv`` files should be usable as-is with ROS 2.
 Atop ROS 1's existing feature set, the ROS 2 IDL introduces some new features, namely:
 

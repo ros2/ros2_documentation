@@ -342,8 +342,8 @@ Let's run the demo by executing the following executable:
 You should see something like this:
 
 
-.. image:: http://i.imgur.com/tqiIVgT.png
-   :target: http://i.imgur.com/tqiIVgT.png
+.. image:: https://i.imgur.com/tqiIVgT.png
+   :target: https://i.imgur.com/tqiIVgT.png
    :alt:
 
 
@@ -364,8 +364,8 @@ Let's run it with the command:
    ros2 run intra_process_demo image_pipeline_with_two_image_view
 
 
-.. image:: http://i.imgur.com/iLIT02t.png
-   :target: http://i.imgur.com/iLIT02t.png
+.. image:: https://i.imgur.com/iLIT02t.png
+   :target: https://i.imgur.com/iLIT02t.png
    :alt:
 
 
@@ -388,8 +388,8 @@ Pipeline with interprocess viewer
 One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
 
 
-.. image:: http://i.imgur.com/MoWRH1u.png
-   :target: http://i.imgur.com/MoWRH1u.png
+.. image:: https://i.imgur.com/MoWRH1u.png
+   :target: https://i.imgur.com/MoWRH1u.png
    :alt:
 
 
@@ -424,7 +424,7 @@ Type Masquerading
 ~~~~~~~~~~~~~~~~~
 
 This is one of the coolest upcoming features that we didn't get to in this demo.
-Imagine the image pipeline demo above, but rather than passing ``sensor_msgs/Image``\ s around, you're publishing and subscribing to ``cv::Mat`` objects. This exists in ROS 1, see: http://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
+Imagine the image pipeline demo above, but rather than passing ``sensor_msgs/Image``\ s around, you're publishing and subscribing to ``cv::Mat`` objects. This exists in ROS 1, see: https://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
 
 In ROS 1, this is accomplished by serializing/deserializing the third party type when handling it. This means that with intra process you'll be serializing when passing it between nodelets. But in ROS 2 we want to do it in the most performant way possible. Similar to how these demos have been demonstrating that an instance of a message can be used through the whole pipeline in certain cases, we'd like to do the same with third party types. So conceivably you could have the image pipeline with a single ``cv::Mat`` which never gets copied by the middleware. To do this requires some additional intelligence in the intra process manager, but we've already got a design and some proof of concepts in the works.
 

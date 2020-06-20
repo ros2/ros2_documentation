@@ -83,7 +83,7 @@ Adding it to the master
 -----------------------
 
 
-#. Add a new agent to http://ci.ros2.org/computer/
+#. Add a new agent to https://ci.ros2.org/computer/
 
    * **Number of executors:** 1
    * **Remote root directory:** /home/jenkins

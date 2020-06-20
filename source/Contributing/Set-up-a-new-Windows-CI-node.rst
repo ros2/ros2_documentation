@@ -59,7 +59,7 @@ https://java.com/en/download/
 
 Create the ``C:\J`` folder.
 
-Go to http://ci.ros2.org and select: Manage Jenkins -> Manage Nodes -> New node
+Go to https://ci.ros2.org and select: Manage Jenkins -> Manage Nodes -> New node
 
 Copy an existing node and choose a working Windows node (at the time of the writing Windshield or Portable), fill in all the description fields, set the label to “windows slave” and save.
 

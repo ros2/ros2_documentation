@@ -3,7 +3,7 @@
 ROSCon Content
 ==============
 
-The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
+The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
 .. list-table::
    :header-rows: 1
@@ -73,22 +73,22 @@ The following `ROSCon <http://roscon.ros.org>`__ talks have been given on ROS 2 
      - `slides <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Vision.pdf>`__ / `video <https://vimeo.com/236161417>`__
    * - ROS 2 Update - summary of alpha releases, architectural overview
      - ROSCon 2016 presentation
-     - `slides <http://roscon.ros.org/2016/presentations/ROSCon%202016%20-%20ROS%202%20Update.pdf>`__ / `video <https://vimeo.com/187696091>`__
+     - `slides <https://roscon.ros.org/2016/presentations/ROSCon%202016%20-%20ROS%202%20Update.pdf>`__ / `video <https://vimeo.com/187696091>`__
    * - Evaluating the resilience of ROS2 communication layer
      - ROSCon 2016 presentation
-     - `slides <http://roscon.ros.org/2016/presentations/rafal.kozik-ros2evaluation.pdf>`__ / `video <https://vimeo.com/187705229>`__
+     - `slides <https://roscon.ros.org/2016/presentations/rafal.kozik-ros2evaluation.pdf>`__ / `video <https://vimeo.com/187705229>`__
    * - State of ROS 2 - demos and the technology behind
      - ROSCon 2015 presentation
-     - `slides <http://roscon.ros.org/2015/presentations/state-of-ros2.pdf>`__ / `video <https://vimeo.com/142151734>`__
+     - `slides <https://roscon.ros.org/2015/presentations/state-of-ros2.pdf>`__ / `video <https://vimeo.com/142151734>`__
    * - ROS 2 on "small" embedded systems
      - ROSCon 2015 presentation
-     - `slides <http://roscon.ros.org/2015/presentations/ros2_on_small_embedded_systems.pdf>`__ / `video <https://vimeo.com/142150576>`__
+     - `slides <https://roscon.ros.org/2015/presentations/ros2_on_small_embedded_systems.pdf>`__ / `video <https://vimeo.com/142150576>`__
    * - Real-time control in ROS and ROS 2
      - ROSCon 2015 presentation
-     - `slides <http://roscon.ros.org/2015/presentations/RealtimeROS2.pdf>`__ / `video <https://vimeo.com/142621778>`__
+     - `slides <https://roscon.ros.org/2015/presentations/RealtimeROS2.pdf>`__ / `video <https://vimeo.com/142621778>`__
    * - Why you want to use ROS 2
      - ROSCon 2014 presentation
-     - `slides <http://www.osrfoundation.org/wordpress2/wp-content/uploads/2015/04/ROSCON-2014-Why-you-want-to-use-ROS-2.pdf>`__ / `video <https://vimeo.com/107531013>`__
+     - `slides <https://www.osrfoundation.org/wordpress2/wp-content/uploads/2015/04/ROSCON-2014-Why-you-want-to-use-ROS-2.pdf>`__ / `video <https://vimeo.com/107531013>`__
    * - Next-generation ROS: Building on DDS
      - ROSCon 2014 presentation
-     - `slides <http://roscon.ros.org/2014/wp-content/uploads/2014/07/ROSCON-2014-Next-Generation-of-ROS-on-top-of-DDS.pdf>`__ / `video <https://vimeo.com/106992622>`__
+     - `slides <https://roscon.ros.org/2014/wp-content/uploads/2014/07/ROSCON-2014-Next-Generation-of-ROS-on-top-of-DDS.pdf>`__ / `video <https://vimeo.com/106992622>`__

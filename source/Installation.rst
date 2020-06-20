@@ -34,7 +34,7 @@ Select your ROS distribution
 +---------------------------------------------------+--------------------------------------------------+------------------------------------------+
 
 
-For more detailed descriptions of each release see `REP-2000 <http://www.ros.org/reps/rep-2000.html>`_
+For more detailed descriptions of each release see `REP-2000 <https://www.ros.org/reps/rep-2000.html>`_
 
 Why you might want an older distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

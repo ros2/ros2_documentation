@@ -17,7 +17,7 @@ This version of ROS 2 is supported on three platforms:
 * Mac macOS 10.12 (Sierra)
 * Windows 10
 
-Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/ardent/>`__).
+Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
 
 Features
 --------
@@ -63,11 +63,11 @@ Improvements since the Beta 3 release:
 
 
 * ``rviz``
-* Different initialization options for message data structures in C++ (see `design doc <http://design.ros2.org/articles/generated_interfaces_cpp.html#constructors>`__)
+* Different initialization options for message data structures in C++ (see `design doc <https://design.ros2.org/articles/generated_interfaces_cpp.html#constructors>`__)
 * Logging API improvements, now also used in the demos
 * Time support in C++ with different clocks
 * wait-for-service support in the Python client library
-* Draft implementation of `REP 149 <http://www.ros.org/reps/rep-0149.html>`__ specifying format 3 of the package manifest files
+* Draft implementation of `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ specifying format 3 of the package manifest files
 
 Known Issues
 ------------

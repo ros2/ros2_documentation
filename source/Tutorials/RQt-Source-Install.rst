@@ -10,7 +10,7 @@ We've provided our development setup here to aid future users in easily extendin
 System Requirements
 -------------------
 
-These instructions are written for the target platforms for Crystal Clemmys (see `REP <http://www.ros.org/reps/rep-2000.html>`__).
+These instructions are written for the target platforms for Crystal Clemmys (see `REP <https://www.ros.org/reps/rep-2000.html>`__).
 
 - Ubuntu Bionic Beaver 18.04 64-bit
 - Mac OSX Sierra 10.12.x

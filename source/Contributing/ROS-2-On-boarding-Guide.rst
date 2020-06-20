@@ -28,7 +28,7 @@ To request access send an email to ros@osrfoundation.org.
 How to give access?
 ^^^^^^^^^^^^^^^^^^^
 
-Your GitHub username must be added with the same permissions as existing users to Jenkins (http://ci.ros2.org/configureSecurity/\ ).
+Your GitHub username must be added with the same permissions as existing users to Jenkins (https://ci.ros2.org/configureSecurity/\ ).
 This can be done by any existing user.
 
 How to access the machines running the ci.ros2.org?
@@ -166,7 +166,7 @@ This will close the issue once the pull request is merged.
 Build Farm Introduction
 -----------------------
 
-The build farm is located at `ci.ros2.org <http://ci.ros2.org/>`__.
+The build farm is located at `ci.ros2.org <https://ci.ros2.org/>`__.
 
 Every night we run nightly jobs which build and run all the tests in various scenarios on various platforms.
 Additionally, we test all pull requests against these platforms before merging.
@@ -294,4 +294,4 @@ Alternative: get the combined unit coverage rate from coverage report (require m
 Learning ROS 2 concepts at a high level
 ---------------------------------------
 
-All ROS 2 design documents are available at http://design.ros2.org/ and there is some generated documentation at http://docs.ros2.org/.
+All ROS 2 design documents are available at https://design.ros2.org/ and there is some generated documentation at https://docs.ros2.org/.

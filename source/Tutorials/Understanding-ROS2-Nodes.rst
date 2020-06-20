@@ -101,7 +101,7 @@ You will now see the names of two active nodes:
 2.1 Remapping
 ~~~~~~~~~~~~~
 
-`Remapping <http://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
+`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
 In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the default turtle being controlled.
 
 Now, lets reassign the name of our ``/turtlesim`` node.

@@ -153,14 +153,14 @@ ROS 2 alpha4 release (code name *Duct tape*; February 2016)
 Background
 ^^^^^^^^^^
 
-As explained in a `design article <http://design.ros2.org/articles/why_ros2.html>`__,
+As explained in a `design article <https://design.ros2.org/articles/why_ros2.html>`__,
 we are engaged in the development of a new major version of ROS, called "ROS 2."
 While the underlying concepts (e.g., publish / subscribe messaging) and goals
 (e.g., flexibility and reusability) are the same as for ROS 1, we are taking this
 opportunity to make substantial changes to the system, including changing
 some of the core APIs.
 For a deeper treatment of those changes and their rationale, consult the other
-`ROS 2 design articles <http://design.ros2.org>`__.
+`ROS 2 design articles <https://design.ros2.org>`__.
 
 Status
 ^^^^^^
@@ -215,14 +215,14 @@ ROS 2 alpha3 release (code name *Cement*; December 2015)
 Background
 ^^^^^^^^^^
 
-As explained in a `design article <http://design.ros2.org/articles/why_ros2.html>`__,
+As explained in a `design article <https://design.ros2.org/articles/why_ros2.html>`__,
 we are engaged in the development of a new major version of ROS, called "ROS 2."
 While the underlying concepts (e.g., publish / subscribe messaging) and goals
 (e.g., flexibility and reusability) are the same as for ROS 1, we are taking this
 opportunity to make substantial changes to the system, including changing
 some of the core APIs.
 For a deeper treatment of those changes and their rationale, consult the other
-`ROS 2 design articles <http://design.ros2.org>`__.
+`ROS 2 design articles <https://design.ros2.org>`__.
 
 Status
 ^^^^^^
@@ -286,7 +286,7 @@ Background
 ^^^^^^^^^^
 
 As explained in a `design
-article <http://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
+article <https://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
 the development of a new major version of ROS, called "ROS 2." While the
 underlying concepts (e.g., publish / subscribe messaging) and goals (e.g.,
 flexibility and reusability) are the same as for ROS 1, we are taking this
@@ -294,7 +294,7 @@ opportunity to make substantial changes to the system, including changing
 some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
-articles <http://design.ros2.org>`__.
+articles <https://design.ros2.org>`__.
 
 
 Status
@@ -351,7 +351,7 @@ Background
 ^^^^^^^^^^
 
 As explained in a `design
-article <http://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
+article <https://design.ros2.org/articles/why_ros2.html>`__, we are engaged in
 the development of a new major version of ROS, called "ROS 2." While the
 underlying concepts (e.g., publish / subscribe messaging) and goals (e.g.,
 flexibility and reusability) are the same as for ROS 1, we are taking this
@@ -359,7 +359,7 @@ opportunity to make substantial changes to the system, including changing
 some of the core APIs.
 For a deeper treatment of those changes and their
 rationale, consult the other `ROS 2 design
-articles <http://design.ros2.org>`__.
+articles <https://design.ros2.org>`__.
 
 
 Status
@@ -400,8 +400,8 @@ your own demos.
 The major features included in this release are:
 
 
-* Discovery, transport, and serialization `use DDS <http://design.ros2.org/articles/ros_on_dds.html>`__
-* Support `multiple DDS vendors <http://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
+* Discovery, transport, and serialization `use DDS <https://design.ros2.org/articles/ros_on_dds.html>`__
+* Support `multiple DDS vendors <https://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
 * Support messaging primitives: topics (publish / subscribe), services (request / response), and parameters
 * Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)
 * `Use quality-of-service settings to handle lossy networks <../Tutorials/Quality-of-Service>`

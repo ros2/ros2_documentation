@@ -72,7 +72,7 @@ message arrived, so subsequent samples in the window yield measurements.
 Comparison to ROS 1
 -------------------
 
-Similar to ROS 1 `Topic Statistics <http://wiki.ros.org/Topics#Topic_statistics>`__, both message age
+Similar to ROS 1 `Topic Statistics <https://wiki.ros.org/Topics#Topic_statistics>`__, both message age
 and message period are calculated, albeit from the subscription side.
 Other ROS 1 metrics, e.g., the number of dropped messages or traffic volume, are currently not provided.
 

@@ -22,7 +22,7 @@ Contributing support
 ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don’t necessarily have any prior experience with ROS (1 or 2).
 So, it's important for users with any amount of experience to contribute support.
 
-If you see an issue on `ROS Answers <http://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
+If you see an issue on `ROS Answers <https://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
 Don’t worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
@@ -62,7 +62,7 @@ To start a discussion with other ROS 2 community members, visit the official `RO
 Content on the Discourse should be high-level;
 it's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
 
-Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <http://discourse.ros.org/c/ng-ros>`__.
+Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <https://discourse.ros.org/c/ng-ros>`__.
 Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.

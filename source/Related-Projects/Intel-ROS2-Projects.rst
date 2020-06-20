@@ -28,4 +28,4 @@ We are working on below ROS 2 projects and publish source code through https://g
 Reference
 ---------
 
-ROS components at: http://wiki.ros.org/IntelROSProject shows the relationship among those packages, which also applies to ROS 2.
+ROS components at: https://wiki.ros.org/IntelROSProject shows the relationship among those packages, which also applies to ROS 2.

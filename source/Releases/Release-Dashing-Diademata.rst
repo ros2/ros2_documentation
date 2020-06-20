@@ -28,7 +28,7 @@ Tier 3 platforms:
 * Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
 
 New features in this ROS 2 release
@@ -42,7 +42,7 @@ A few features and improvements we would like to highlight:
 * The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
 * Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
 * By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).
-  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte strings (see `wide strings design article <http://design.ros2.org/articles/wide_strings.html>`__).
+  This change comes with support for optional UTF-8 encoding for ordinary strings as well as UTF-16 encoded multi-byte strings (see `wide strings design article <https://design.ros2.org/articles/wide_strings.html>`__).
 * Command line tools related to ``actions`` and ``components``.
 * Support for Deadline, Lifespan & Liveliness quality of service settings.
 * MoveIt 2 `alpha release <https://github.com/AcutronicRobotics/moveit2/releases/tag/moveit_2_alpha>`__.
@@ -651,8 +651,8 @@ The message generators for the commonly supported languages C, C++, and Python a
 The CMake code calling ``rosidl_generate_interfaces()`` can either pass ``.idl`` files directly or pass ``.msg`` / ``.srv`` / ``.action`` which will then internally be converted into ``.idl`` files before being passed to each message generator.
 
 The format of ``.msg`` / ``.srv`` / ``.action`` files is not being evolved in the future.
-The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files is described in `this design article <http://design.ros2.org/articles/legacy_interface_definition.html>`__.
-A `second design article <http://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
+The mapping between ``.msg`` / ``.srv`` / ``.action`` files and ``.idl`` files is described in `this design article <https://design.ros2.org/articles/legacy_interface_definition.html>`__.
+A `second design article <https://design.ros2.org/articles/idl_interface_definition.html>`__ describes the supported features in ``.idl`` files.
 In order to leverage any of the new features existing interfaces need to be converted (e.g. using the command line tools  ``msg2idl`` / ``srv2idl`` / ``action2idl``).
 
 To distinguish same type names, but with different namespaces, the introspection structs now contain a namespace field that replaces the package name (see `ros2/rosidl#335 <https://github.com/ros2/rosidl/pull/355/files>`_).
@@ -660,7 +660,7 @@ To distinguish same type names, but with different namespaces, the introspection
 Mapping of char in .msg files
 """""""""""""""""""""""""""""
 
-In `ROS 1 <http://wiki.ros.org/msg#Fields>`__ ``char`` has been deprecated for a long time and is being mapped to ``uint8``.
+In `ROS 1 <https://wiki.ros.org/msg#Fields>`__ ``char`` has been deprecated for a long time and is being mapped to ``uint8``.
 In ROS 2 until Crystal ``char`` was mapped to a single character (``char`` in C / C++, ``str`` with length 1 in Python) in an effort to provide a more natural mapping.
 As of Dashing the ROS 1 semantic has been restored and ``char`` maps to ``uint8`` again.
 

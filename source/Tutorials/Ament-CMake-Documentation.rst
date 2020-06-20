@@ -194,7 +194,7 @@ Compiler and linker options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 targets compilers which comply with the C++14 and C99 standard until at least ``Crystal Clemmys``.
-Newer versions might be targeted in the future and are referenced `here <http://www.ros.org/reps/rep-2000.html>`__.
+Newer versions might be targeted in the future and are referenced `here <https://www.ros.org/reps/rep-2000.html>`__.
 Therefore it is customary to set the corresponding CMake flags:
 
 .. code-block:: cmake
