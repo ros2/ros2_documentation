@@ -34,7 +34,7 @@ Prerequisites
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :ref:`turtlesim installation <Turtlesim>`
 * Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
-* Understanding of basic terminal commands (`here’s a guide for linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
+* Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
 
 Tasks
