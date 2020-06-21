@@ -380,7 +380,7 @@ This extension point is useful when registering resources (see below).
 
 - ``package_name``: The name of the package containing the CMake file (i.e. the project name of the project where the file is written to)
 
-- ``cmake_filename``: The cmake file executed when the extension point is run
+- ``cmake_filename``: The CMake file executed when the extension point is run
 
 .. note::
 
@@ -527,7 +527,7 @@ The macro has a number of parameters that can be useful:
 
 - ``SKIP_INSTALL``: Skip installing the marker file.
 
-Since only one marker file exists per package, it is usually a problem if the cmake function/macro gets called twice by the same project.
+Since only one marker file exists per package, it is usually a problem if the CMake function/macro gets called twice by the same project.
 However, for large projects it might be best to split up calls registering resources.
 
 Therefore, it is best practice to let a macro registering a resource such as ``register_rviz_ogre_media_exports.cmake`` only fill some variables.
