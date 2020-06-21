@@ -25,7 +25,7 @@ launch
 node
 ^^^^
 
-* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/node>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/node>`__.
 * Launches a new node.
 * Differences from ROS 1:
    * ``type`` attribute is now ``exec``.
@@ -44,7 +44,7 @@ Example
 param
 ^^^^^
 
-* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/param>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/param>`__.
 * Used for passing a parameter to a node.
 * There's no global parameter concept in ROS 2.
   For that reason, it can only be used nested in a ``node`` tag.
@@ -125,7 +125,7 @@ It's also possible to use full parameter names:
 rosparam
 ^^^^^^^^
 
-* `Available in ROS1 <https://wiki.ros.org/roslaunch/XML/rosparam>`__.
+* `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/rosparam>`__.
 * Loads parameters from a yaml file.
 * It has been replaced with a ``from`` atribute in ``param`` tags.
 
