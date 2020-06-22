@@ -114,18 +114,18 @@ Optionally, you can set a descriptor for the parameter. Descriptors allow to spe
 For that to work, the code has to be changed  a bit:
 
 .. code-block:: Python
-  
+
     from rclpy.node import Node, ParameterDescriptor
-    
+
     # ...
-    
+
     my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
                                                   description='This parameter is mine!')
     self.declare_parameter("my_parameter", 
                            "default value for my_parameter",
                            my_parameter_descriptor)
 
-With this, you can run ``ros2 param describe /minimal_param_node my_parameter`` and see the type and description. 
+With this, you can run ``ros2 param describe /minimal_param_node my_parameter`` and see the type and description.
 
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
