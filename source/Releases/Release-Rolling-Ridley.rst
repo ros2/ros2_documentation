@@ -7,7 +7,7 @@ ROS 2 Rolling Ridley (codename 'rolling'; June 2020)
 
 *Rolling Ridley* is a rolling development release of ROS 2.
 
-.. alert::
+.. warning::
 
   Rolling Ridley is unstable and is not meant for general ROS 2 use.
   It is meant for maintainers who want their packages released and ready for the next stable distribution.
