@@ -175,7 +175,7 @@ Reducing Technical Debt
 
 * Fix flaky tests.
 * Ability to run (all) unit tests with tools e.g. valgrind
-* API review, specifically user-facing API in rclcpp and rclpy
+* API review, specifically user-facing APIs in rclcpp and rclpy
 * Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user-facing API
 * Revisit message allocators, consider using std::polymorphic_allocator to address problems
 

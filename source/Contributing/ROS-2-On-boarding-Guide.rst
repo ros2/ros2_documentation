@@ -128,7 +128,7 @@ The usual workflow is (this list is a work in progress):
   * Hit the ``build`` button
   * At the end of the document there are instructions on how to :ref:`interpret the result of the report <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
 
-* If built without warnings, errors and test failures, post the links of your jobs on your PR or high-level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
+* If the CI job built without warnings, errors and test failures, post the links of your jobs on your PR or high-level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
   * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
 

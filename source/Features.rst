@@ -71,7 +71,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Wiki <https://github.com/ros2/freertps/wiki>`__
      -
 
-Beside features of the platform, the most impact of ROS comes from its available packages.
+Besides core features of the platform, the biggest impact of ROS comes from its available packages.
 The following are a few high-profile packages which are available in the latest release:
 
 * `gazebo_ros_pkgs <https://index.ros.org/r/gazebo_ros_pkgs/>`__

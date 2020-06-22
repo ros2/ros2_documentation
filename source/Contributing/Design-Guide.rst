@@ -11,7 +11,7 @@ Composable nodes as shared libraries
 
 **Context**
 
-You want to export composable nodes as a shared library from some packages and using those in another package that does link-time composition.
+You want to export a composable node as a shared library from a package and use that node in another package that does link-time composition.
 
 **Solution**
 
@@ -57,7 +57,7 @@ Fast RTPS Best Effort Video Streaming
 
 **Context**
 
-You want to transfer video streams and provide up-to-date data. It is ok to lose some packages.
+You want to transfer video streams and provide up-to-date data. It is OK to lose some of the images.
 
 **Problem**
 
