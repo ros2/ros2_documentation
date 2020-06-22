@@ -61,8 +61,7 @@ You want to transfer video streams and provide up-to-date data. It is OK to lose
 
 **Problem**
 
-Acknowledged data transmission mechanisms prevent from being able to provide
-up-to-date packages.
+Acknowledged data transmission mechanisms (also known as "reliable" delivery) ensure every packet is delivered, which can cause the video stream to fall behind.
 
 **Solution**
 
