@@ -30,6 +30,10 @@ Tier 3 platforms:
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
 
+Installation
+------------
+
+`Install Eloquent Elusor <../Installation/Eloquent>`
 
 New features in this ROS 2 release
 ----------------------------------

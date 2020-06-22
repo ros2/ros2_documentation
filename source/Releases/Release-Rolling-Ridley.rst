@@ -26,10 +26,13 @@ Tier 3 platforms:
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
+Installation
+------------
+
+`Install Rolling Ridley <../Installation/Rolling>`
 
 New features and changes in this release
 ----------------------------------------
 
 Rolling Ridley is an ongoing development distribution.
 Changes between the current stable release and the upcoming one can be found on the page for the `upcoming release <upcoming-release>`.
-
