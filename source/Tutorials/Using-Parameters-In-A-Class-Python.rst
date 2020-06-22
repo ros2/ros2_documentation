@@ -67,7 +67,6 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 .. code-block:: Python
 
     import rclpy
-    from rclpy.node import Node, ParameterDescriptor
     from rclpy.exceptions import ParameterNotDeclaredException
     from rcl_interfaces.msg import ParameterType
 
@@ -77,10 +76,7 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
-                                                          description='This parameter is mine!')
-            self.declare_parameter("my_parameter", "default value for my_parameter",
-                                   my_parameter_descriptor)
+            self.declare_parameter("my_parameter")
 
         def timer_callback(self):
             # First get the value parameter "my_parameter" and get its string value
@@ -112,8 +108,24 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 ~~~~~~~~~~~~~~~~~~~~
 Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
 
-Adding a default value and adding a descriptor are both optional.
-Descriptors allow to specify the type of the parameter and some description text that you'll also see when you run ``ros2 param describe /minimal_param_node my_parameter``.
+2.1.1 (Optional) Add ParameterDescriptor
+""""""""""""""""""""""""""""""""""""""""
+Optionally, you can set a descriptor for the parameter. Descriptors allow to specify the type of the parameter and some description text.
+For that to work, the code has to be changed  a bit:
+
+.. code-block:: Python
+  
+    from rclpy.node import Node, ParameterDescriptor
+    
+    # ...
+    
+    my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
+                                                  description='This parameter is mine!')
+    self.declare_parameter("my_parameter", 
+                           "default value for my_parameter",
+                           my_parameter_descriptor)
+
+With this, you can run ``ros2 param describe /minimal_param_node my_parameter`` and see the type and description. 
 
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
