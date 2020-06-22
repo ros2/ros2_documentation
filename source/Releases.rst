@@ -137,5 +137,5 @@ Rolling Distribution
 `ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP-2002 <https://www.ros.org/reps/rep-2002.html>`__.
 It was first introduced in June 2020.
 
-The Rolling distribution will receive frequent and possibly compatibility-breaking releases in core packages and is recommended only when contributing to ROS 2 core.
+The Rolling distribution will receive frequent and possibly compatibility-breaking releases in core packages and we recommend most people use the most recent stable distribution instead.
 Since new stable distributions will be created from snapshots of the Rolling distribution, package maintainers who want to make their packages available in future ROS 2 distributions can do so by releasing their packages into the Rolling distribution.
