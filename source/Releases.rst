@@ -8,6 +8,8 @@ What is a Distribution?
 
 See `wiki.ros.org/Distributions <http://wiki.ros.org/Distributions>`_.
 
+.. _list_of_distributions:
+
 List of Distributions
 ---------------------
 
