@@ -96,8 +96,6 @@ Developer Workflow
 
 We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
 
-Higher-level tasks are tracked on the internal (private) Jira: https://osrfoundation.atlassian.net/projects/ROS2
-
 The usual workflow is (this list is a work in progress):
 
 * Discuss design (GitHub ticket, and a meeting if needed)
