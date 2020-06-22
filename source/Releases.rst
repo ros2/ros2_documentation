@@ -133,8 +133,16 @@ The following information are best estimates and are subject to change.
 
 The expectation is to release new ROS 2 distributions once per year.
 
+.. _rolling_distribution:
+
 Rolling Distribution
 --------------------
+
+The Rolling distribution of ROS 2 serves as a staging area for future stable distributions of ROS 2 and as a collection of the most recent development releases.
+Unlike most stable ROS 2 distributions which have an initial release, a support window during which they are updated, and a definite end of support (See ref:`list_of_distributions` above) the Rolling distribution is continuously updated and is subject to in-place updates which will at times include breaking changes.
+
+Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
+`Releasing a ROS 2 package <Tutorials/Releasing-a-ROS-2-package-with-bloom>`_ into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 `ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP-2002 <https://www.ros.org/reps/rep-2002.html>`__.
 It was first introduced in June 2020.
