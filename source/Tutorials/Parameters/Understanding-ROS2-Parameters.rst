@@ -161,7 +161,7 @@ However, you can save your settings changes and reload them next time you start 
     You will find a new file in the directory your workspace is running in.
     If you open this file, you’ll see the following contents:
 
-    .. code-block:: console
+    .. code-block:: YAML
 
       turtlesim:
         ros__parameters:
@@ -218,7 +218,7 @@ However, you can save your settings changes and reload them next time you start 
 
     .. code-block:: console
 
-      ros2 run turtlesim turtlesim_node __params:./turtlesim.yaml
+      ros2 run turtlesim turtlesim_node __params:=./turtlesim.yaml
 
     Where ``__params:`` is the path to your parameter file.
 
