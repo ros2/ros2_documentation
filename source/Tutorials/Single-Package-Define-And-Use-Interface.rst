@@ -443,4 +443,4 @@ Again, you can choose to write it in either :ref:`C++ <CppParamNode>` or :ref:`P
 Related content
 ---------------
 
-There are `several design articles <http://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).
+There are `several design articles <https://design.ros2.org/#interfaces>`_ on ROS 2 interfaces and the IDL (interface definition language).

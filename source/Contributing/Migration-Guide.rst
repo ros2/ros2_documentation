@@ -51,7 +51,7 @@ Message files must end in ``.msg`` and must be located in the subfolder ``msg``.
 Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
 Actions files must end in ``.action`` and must be located in the subfolder ``action``.
 
-These files might need to be updated to comply with the `ROS Interface definition <http://design.ros2.org/articles/interface_definition.html>`__.
+These files might need to be updated to comply with the `ROS Interface definition <https://design.ros2.org/articles/interface_definition.html>`__.
 Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
 Also some naming conventions are stricter than in ROS 1.
 
@@ -72,21 +72,21 @@ In your ``CMakeLists.txt``:
 
 
 * Add ``find_package(rosidl_default_generators REQUIRED)``
-* For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the cmake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.
+* For each dependent message package, add ``find_package(message_package REQUIRED)`` and replace the CMake function call to ``generate_messages`` with ``rosidl_generate_interfaces``.
 
 This will replace ``add_message_files`` and ``add_service_files`` listing of all the message and service files, which can be removed.
 
 Build system
 ^^^^^^^^^^^^
 
-The build system in ROS 2 is called `ament <http://design.ros2.org/articles/ament.html>`__
+The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
 and the build tool is  `colcon <https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/>`__.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
 ~~~~~~~~~~
 
-Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <http://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
+Instead of using ``catkin_make``, ``catkin_make_isolated`` or ``catkin build`` ROS 2 uses the command line tool `colcon <https://design.ros2.org/articles/build_tool.html>`__ to build and install a set of packages.
 
 Pure Python package
 ~~~~~~~~~~~~~~~~~~~
@@ -258,7 +258,7 @@ ROS 2 uses ament as the build system but for backward compatibility ROS 2 has a 
 In order to use this backward compatibility API the ``CMakeLists.txt`` must only be updated to call the function ``catkin_ament_package()`` *after* all targets.
 
 **NOTE: This has not been implemented yet and is only an idea at the moment.
-Due to the amount of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
+Due to the number of changes related to dependencies it has not yet been decided if this compatibility API is useful enough to justify the effort.**
 
 Update source code
 ^^^^^^^^^^^^^^^^^^
@@ -272,7 +272,7 @@ The C++ type is then named: ``my_interfaces::msg::MyMessage``.
 
 Shared pointer types are provided as typedefs within the message structs: ``my_interfaces::msg::MyMessage::SharedPtr`` as well as ``my_interfaces::msg::MyMessage::ConstSharedPtr``.
 
-For more details please see the article about the `generated C++ interfaces <http://design.ros2.org/articles/generated_interfaces_cpp.html>`__.
+For more details please see the article about the `generated C++ interfaces <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__.
 
 The migration requires includes to change by:
 
@@ -398,7 +398,7 @@ Replace:
 Launch files
 ------------
 
-While launch files in ROS 1 are specified using `.xml <http://wiki.ros.org/roslaunch/XML>`__ files ROS 2 uses Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__).
+While launch files in ROS 1 are specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files ROS 2 uses Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__).
 See `separate tutorial <https://index.ros.org/doc/ros2/Tutorials/Launch-files-migration-guide/>`__ on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
@@ -535,7 +535,7 @@ We'll copy the source tree from our ROS 1 package into that workspace, where we 
    mkdir src
    cp -a ~/ros1_talker/src/talker src
 
-Now we'll modify the the C++ code in the node.
+Now we'll modify the C++ code in the node.
 The ROS 2 C++ library, called ``rclcpp``, provides a different API from that
 provided by ``roscpp``.
 The concepts are very similar between the two libraries, which makes the changes
@@ -991,7 +991,7 @@ There is no equivalent in ROS 2 for the following ROS 1 keys:
 - ``__hostname``
 - ``__master``
 
-For more information, see the `design document <http://design.ros2.org/articles/ros_command_line_arguments.html>`_.
+For more information, see the `design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`_.
 
 Quick reference
 """""""""""""""

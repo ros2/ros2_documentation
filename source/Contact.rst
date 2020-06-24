@@ -22,7 +22,7 @@ Contributing support
 ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don’t necessarily have any prior experience with ROS (1 or 2).
 So, it's important for users with any amount of experience to contribute support.
 
-If you see an issue on `ROS Answers <http://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
+If you see an issue on `ROS Answers <https://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
 Don’t worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
@@ -36,7 +36,7 @@ you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_d
 
 You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://github.com/ros2>`__.
 
-Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament Github organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
+Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 
 If it has not been reported, feel free to open an issue in the appropriate repository tracker.
 If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
@@ -62,7 +62,7 @@ To start a discussion with other ROS 2 community members, visit the official `RO
 Content on the Discourse should be high-level;
 it's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
 
-Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <http://discourse.ros.org/c/ng-ros>`__.
+Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <https://discourse.ros.org/c/ng-ros>`__.
 Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
 
 The diverse community behind the ROS ecosystem is one of its greatest assets.

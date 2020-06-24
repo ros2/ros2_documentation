@@ -11,8 +11,8 @@ Please see the page of the :ref:`upcoming distribution <upcoming-release>` for m
 
 Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
-For more information on the design of ROS 2 please see `design.ros2.org <http://design.ros2.org>`__.
-The core code for ROS 2 is on the `ros2 github organization <https://github.com/ros2>`__.
+For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
+The core code for ROS 2 is on the `ros2 GitHub organization <https://github.com/ros2>`__.
 The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.
 Questions should be asked on `ROS answers <https://answers.ros.org>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``ardent``.
 
@@ -31,7 +31,7 @@ Design / Concept
 * Progress on migration plan
 * Reconsider 1-to-1 mapping of ROS nodes to DDS participants, see `ros2/design#250 <https://github.com/ros2/design/pull/250>`_
 * Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
-* Specific "API" of a node in terms of topics / services / etc in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
+* Specific "API" of a node in terms of topics / services / etc. in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 
 Infrastructure and tools
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,7 +46,7 @@ Infrastructure and tools
 * Documentation
 
   * Improve documentation platform
-  * Support for ``doc`` jobs on the `ROS 2 buildfarm <http://build.ros2.org>`__
+  * Support for ``doc`` jobs on the `ROS 2 buildfarm <https://build.ros2.org>`__
   * Consider consolidating with design.ros2.org
   * Provide three different kinds of content:
 
@@ -76,7 +76,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Additional Graph API features [\*\* / \*\*\*]
 
   * Introspect QoS setting for all (especially remote) topics
-  * a la ROS 1 Master API: http://wiki.ros.org/ROS/Master_API
+  * a la ROS 1 Master API: https://wiki.ros.org/ROS/Master_API
   * Event-based notification
   * Requires knowledge of the rmw interface which needs to be extended
 
@@ -118,7 +118,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Type masquerading [\*\*\*]
 
-  * a la ROS 1's message traits: http://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
+  * a la ROS 1's message traits: https://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
   * Requires knowledge of the typesupport system
 
 * Expand on real-time safety [\*\*\*]
@@ -142,7 +142,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * security improvements:
 
-  * more granularity in security configuration (allow authentication only, authentication and encryption, etc) [\*]
+  * more granularity in security configuration (allow authentication only, authentication and encryption, etc.) [\*]
   * integrate DDS-Security logging plugin (unified way to aggregate security events and report them to the users through a ROS interface) [\*\*]
   * key storage security (right now, keys are just stored in the filesystem) [\*\*]
   * more user friendly interface (make it easier to specify security config). Maybe a Qt GUI? This GUI could also assist in distributing keys somehow. [\*\*\*]
@@ -159,7 +159,7 @@ Port of existing ROS 1 functionality
 
 * MoveIt
 
-  * Moveit Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
+  * MoveIt Maintainers are tracking: https://discourse.ros.org/t/moveit-maintainer-meeting-recap-july-25th-2018/5504
 
 * RQt
 
@@ -175,8 +175,8 @@ Reducing Technical Debt
 
 * Fix flaky tests.
 * Ability to run (all) unit tests with tools e.g. valgrind
-* API review, specifically user facing API in rclcpp and rclpy
-* Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user facing API
+* API review, specifically user-facing APIs in rclcpp and rclpy
+* Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user-facing API
 * Revisit message allocators, consider using std::polymorphic_allocator to address problems
 
 * Modernization

@@ -10,12 +10,12 @@ Please refer to the [README.md](README.md) file in this repository for instructi
 
 ## Submit a Pull Request
 
-If you are a Github user, the most effective way to contribute is to submit a pull request with the changes you want to suggest.
+If you are a GitHub user, the most effective way to contribute is to submit a pull request with the changes you want to suggest.
 
 
-## Raise a Github Issue
+## Raise a GitHub Issue
 
-If you don't feel comfortable creating a pull request or you want to make a general suggestion or start a discussion about the documentation, you can create a Github issue on this repository.
+If you don't feel comfortable creating a pull request or you want to make a general suggestion or start a discussion about the documentation, you can create a GitHub issue on this repository.
 
 
 # Contributing to ROS 2

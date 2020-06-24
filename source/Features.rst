@@ -14,7 +14,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - Link
      - Fine print
    * - Discovery, transport and serialization over DDS
-     - `Article <http://design.ros2.org/articles/ros_on_dds.html>`__
+     - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
    * - Support for `multiple DDS implementations <Concepts/DDS-and-ROS-middleware-implementations>`, chosen at runtime
      - `Tutorials <Tutorials/Working-with-multiple-RMW-implementations>`
@@ -23,7 +23,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Details <Concepts/ROS-2-Client-Libraries>`
      -
    * - Publish/subscribe over topics
-     - `Sample code <https://github.com/ros2/examples>`__\ , `Article <http://design.ros2.org/articles/topic_and_service_names.html>`__
+     - `Sample code <https://github.com/ros2/examples>`__\ , `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Clients and services
      - `Sample code <https://github.com/ros2/examples>`__
@@ -56,7 +56,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Tutorial <Tutorials/Launch-system>`
      -
    * - Namespace support for nodes and topics
-     - `Article <http://design.ros2.org/articles/topic_and_service_names.html>`__
+     - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Static remapping of ROS names
      - `Tutorial <Tutorials/Node-arguments>`
@@ -71,8 +71,8 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Wiki <https://github.com/ros2/freertps/wiki>`__
      -
 
-Beside features of the platform the most impact of ROS comes from its available packages.
-The following are a few high profile packages which are available in the latest release:
+Besides core features of the platform, the biggest impact of ROS comes from its available packages.
+The following are a few high-profile packages which are available in the latest release:
 
 * `gazebo_ros_pkgs <https://index.ros.org/r/gazebo_ros_pkgs/>`__
 * `image_transport <https://index.ros.org/r/image_common>`__

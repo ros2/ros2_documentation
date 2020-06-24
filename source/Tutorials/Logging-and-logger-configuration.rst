@@ -30,7 +30,7 @@ See `the source code <https://github.com/ros2/demos/blob/master/logging_demo/src
 Logger level configuration: externally
 --------------------------------------
 
-In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <http://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
+In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
 **This concept is not yet officially supported in ROS 2.**
 In the meantime, this demo provides an **example** service that can be called externally to request configuration of logger levels for known names of loggers in the process.
 

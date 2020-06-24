@@ -89,7 +89,7 @@ You need the following things installed to build ROS 2:
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
 
-   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
+   * Start with the normal install instructions: https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
    *
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
 

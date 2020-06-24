@@ -12,7 +12,7 @@ Releasing a ROS 2 package with bloom
 Introduction
 ------------
 
-This page describes how to prepare a repository for release on the public ROS 2 buildfarm. After you've created a package, this is the next step towards getting your package in to the publicly-available Debian packages (i.e., you will be able to install the package via ``apt``). This page includes the ROS 2-specific instructions to execute before following the `Bloom release tutorial on the ROS Wiki <http://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__.
+This page describes how to prepare a repository for release on the public ROS 2 buildfarm. After you've created a package, this is the next step towards getting your package in to the publicly-available Debian packages (i.e., you will be able to install the package via ``apt``). This page includes the ROS 2-specific instructions to execute before following the `Bloom release tutorial on the ROS Wiki <https://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__.
 
 Required Tools
 --------------
@@ -50,7 +50,7 @@ If you've bloomed packages before in ROS 1, the ROS 2 process is exactly the sam
 Procedure
 ---------
 
-Same as in ROS 1: `Following this tutorial <http://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__
+Same as in ROS 1: `Following this tutorial <https://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__
 
 If porting a ROS 1 package to ROS 2, it's recommended to create a new ``-release`` repository.
 

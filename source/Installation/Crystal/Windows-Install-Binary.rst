@@ -63,15 +63,15 @@ Install Visual Studio
 
    Make sure that the Visual C++ features are installed. First choose 'Custom installation':
 
-   .. image:: http://i.imgur.com/tUcOMOA.png
+   .. image:: https://i.imgur.com/tUcOMOA.png
 
    Next check Visual C++:
 
-   .. image:: http://i.imgur.com/yWVEUkm.png
+   .. image:: https://i.imgur.com/yWVEUkm.png
 
    Ensure that the correct features will be installed:
 
-   .. image:: http://i.imgur.com/VxdbA7G.png
+   .. image:: https://i.imgur.com/VxdbA7G.png
 
 
 **B. Install Visual Studio 2017 if using Bouncy or a nightly**

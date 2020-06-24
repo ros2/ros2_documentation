@@ -18,7 +18,7 @@ Background
 ----------
 
 ``colcon`` is an iteration on the ROS build tools ``catkin_make``, ``catkin_make_isolated``, ``catkin_tools`` and ``ament_tools``.
-For more information on the design of colcon see `this document <http://design.ros2.org/articles/build_tool.html>`__.
+For more information on the design of colcon see `this document <https://design.ros2.org/articles/build_tool.html>`__.
 
 The source code can be found in the `colcon GitHub organization <https://github.com/colcon>`__.
 
@@ -244,7 +244,7 @@ You should see messages from the publisher and subscriber with numbers increment
 Create your own package
 -----------------------
 
-colcon uses the ``package.xml`` specification defined in `REP 149 <http://www.ros.org/reps/rep-0149.html>`__ (`format 2 <http://www.ros.org/reps/rep-0140.html>`__ is also supported).
+colcon uses the ``package.xml`` specification defined in `REP 149 <https://www.ros.org/reps/rep-0149.html>`__ (`format 2 <https://www.ros.org/reps/rep-0140.html>`__ is also supported).
 
 colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.

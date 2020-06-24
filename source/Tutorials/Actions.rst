@@ -13,7 +13,7 @@ About
 Actions are a form of asynchronous communication in ROS.
 *Action clients* send goal requests to *action servers*.
 *Action servers* send goal feedback and results to *action clients*.
-For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
+For more detailed information about ROS actions, please refer to the `design article <https://design.ros2.org/articles/actions.html>`__.
 
 This document contains a list of tutorials related to actions.
 For reference, after completing all of the tutorials you should expect to have a ROS package that looks like the package `action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.

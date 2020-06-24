@@ -6,7 +6,7 @@ Tutorials
 Beginner
 --------
 
-The beginner level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
+The beginner-level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
 It starts with using the Commandline Interface (CLI) tools, then moves on to the C++ and Python client libraries.
 
 .. warning::

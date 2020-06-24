@@ -121,7 +121,7 @@ The settings in these profiles are subject to further tweaks, based on the feedb
 QoS compatibilities
 -------------------
 
-**Note:** This section refers to publisher and subscriptions but the content applies to service servers and clients in the same manner.
+**Note:** This section refers to publishers and subscriptions but the content applies to service servers and clients in the same manner.
 
 QoS profiles may be configured for publishers and subscriptions independently.
 A connection between a publisher and a subscription is only made if the pair has compatible QoS profiles.

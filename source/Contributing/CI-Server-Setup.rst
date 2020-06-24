@@ -187,9 +187,9 @@ Put this in the ``jenkins.ini`` file:
    password=<your application token>
 
 Now, you should first login with GitHub on Jenkins if you haven't already.
-Then put your github username in and for the application token, browse to the configuration of your user on Jenkins:
+Then put your GitHub username in and for the application token, browse to the configuration of your user on Jenkins:
 
-http://ci.ros2.org/user/wjwwood/configure
+https://ci.ros2.org/user/wjwwood/configure
 
 In those settings there should be a field called API Token.
 Copy that field for your password.

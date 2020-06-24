@@ -28,7 +28,7 @@ All ros specific arguments have to be specified after a ``--ros-args`` flag:
 
       ros2 run my_package node_executable ...
 
-For more details, see `this design doc <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
+For more details, see `this design doc <https://design.ros2.org/articles/ros_command_line_arguments.html>`__.
 
 Name remapping
 --------------
@@ -47,7 +47,7 @@ Name remapping
 Note that these remappings are "static" remappings, in that they apply for the lifetime of the node.
 "Dynamic" remapping of names after nodes have been started is not yet supported.
 
-See `this design doc <http://design.ros2.org/articles/static_remapping.html>`__ for more details on remapping arguments (not all functionality is available yet).
+See `this design doc <https://design.ros2.org/articles/static_remapping.html>`__ for more details on remapping arguments (not all functionality is available yet).
 
 Example
 ^^^^^^^
@@ -167,7 +167,7 @@ As an example, save the following as ``demo_params.yaml``:
               some_integers: [1, 2, 3, 4]
               some_doubles : [3.14, 2.718]
 
-Then either declare the parameters within your node with ``declare_parameter``  or ``declare_parameters`` (see `documentation <http://docs.ros2.org/dashing/api/rclcpp/classrclcpp_1_1Node.html#a222633623e5c933b7953e5718ec3649a>`__ for function signatures), or `set the node to automatically declare parameters <http://docs.ros2.org/dashing/api/rclcpp/classrclcpp_1_1NodeOptions.html#a094ceb7af7c9b358ec007a4b8e14d40d>`__ if they were passed in via a command line override.
+Then either declare the parameters within your node with ``declare_parameter``  or ``declare_parameters`` (see `documentation <https://docs.ros2.org/dashing/api/rclcpp/classrclcpp_1_1Node.html#a222633623e5c933b7953e5718ec3649a>`__ for function signatures), or `set the node to automatically declare parameters <https://docs.ros2.org/dashing/api/rclcpp/classrclcpp_1_1NodeOptions.html#a094ceb7af7c9b358ec007a4b8e14d40d>`__ if they were passed in via a command line override.
 
 Then run the following:
 

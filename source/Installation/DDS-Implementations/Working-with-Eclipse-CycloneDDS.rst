@@ -13,7 +13,7 @@ See also: https://projects.eclipse.org/projects/iot.cyclonedds
 Prerequisites
 -------------
 
-Have `rosdep installed  <http://wiki.ros.org/rosdep#Installing_rosdep>`__
+Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 
 Install packages
 ----------------

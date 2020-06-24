@@ -230,4 +230,4 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
 
 
 
-If you have an individial event or series of events that you'd like to post please contact info@openrobotics.org
+If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org

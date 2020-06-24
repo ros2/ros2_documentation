@@ -14,7 +14,7 @@ Supported Platforms
 -------------------
 
 We support ROS 2 Beta 3 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
-We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/beta3/>`__).
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/beta3/>`__).
 
 Features
 --------

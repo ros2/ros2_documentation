@@ -13,7 +13,7 @@ Supported Platforms
 -------------------
 
 We support ROS 2 Beta 2 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
-We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/beta2/>`__).
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/beta2/>`__).
 
 Features
 --------
@@ -24,9 +24,9 @@ Improvements since Beta 1 release
 * DDS_Security support (aka SROS2, see `sros2 <https://github.com/ros2/sros2>`__)
 * Debian packages for Ubuntu Xenial (see `Debian install instructions <../Installation/Crystal/Linux-Install-Debians>`).
 * Typesupport has been redesigned so that you only build a single executable and can choose one of the available RMW implementations by setting an environment variable (see `documentation <../Tutorials/Working-with-multiple-RMW-implementations>`).
-* Namespace support for nodes and topics (see `design article <http://design.ros2.org/articles/topic_and_service_names.html>`__, see known issues below).
+* Namespace support for nodes and topics (see `design article <https://design.ros2.org/articles/topic_and_service_names.html>`__, see known issues below).
 * A set of command-line tools using the extensible ``ros2`` command (see `tutorial <../Tutorials/Introspection-with-command-line-tools>`).
-* A set of macros for logging messages in C / C++ (see API docs of `rcutils <http://docs.ros2.org/beta2/api/rcutils/index.html>`__).
+* A set of macros for logging messages in C / C++ (see API docs of `rcutils <https://docs.ros2.org/beta2/api/rcutils/index.html>`__).
 
 New demo application
 ^^^^^^^^^^^^^^^^^^^^

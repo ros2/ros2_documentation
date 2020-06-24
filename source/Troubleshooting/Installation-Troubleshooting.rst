@@ -335,5 +335,5 @@ In case you don't have it installed, you can download it from `here <https://www
 Binary installation specific
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* If your example does not start because of missing dll's, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
+* If your example does not start because of missing DLLs, please verify that all libraries from external dependencies such as OpenCV are located inside your ``PATH`` variable.
 * If you forget to call the ``local_setup.bat`` file from your terminal, the demo programs will most likely crash immediately.

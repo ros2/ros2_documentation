@@ -6,7 +6,7 @@ Distributions
 What is a Distribution?
 -----------------------
 
-See `wiki.ros.org/Distributions <http://wiki.ros.org/Distributions>`_.
+See `wiki.ros.org/Distributions <https://wiki.ros.org/Distributions>`_.
 
 .. _list_of_distributions:
 
@@ -99,8 +99,8 @@ List of Distributions
 Distribution Details
 ~~~~~~~~~~~~~~~~~~~~
 
-For details on the distributions see each releases page.
-For the supported platforms and versions of common dependencies and other considerations, see the official ROS 2 Target Platforms `REP 2000 <http://www.ros.org/reps/rep-2000.html>`_.
+For details on the distributions see each release page.
+For the supported platforms and versions of common dependencies and other considerations, see the official ROS 2 Target Platforms `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
 Future Distributions
 --------------------
@@ -108,7 +108,7 @@ Future Distributions
 For details on upcoming features see the :ref:`roadmap <Roadmap>`.
 
 Currently there is a new ROS 2 distribution roughly every 6 months.
-The following information are best estimates and are subject to change.
+The following information is a best estimate and is subject to change.
 
 .. raw:: html
 

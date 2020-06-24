@@ -25,13 +25,13 @@ Tier 3 platforms:
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
 
 New features in this ROS 2 release
 ----------------------------------
 
-During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
 Changes since the Eloquent release
 ----------------------------------
@@ -41,7 +41,7 @@ Classic CMake vs. modern CMake
 
 In "classic" CMake a package provides CMake variables like ``<pkgname>_INCLUDE_DIRS`` and ``<pkgname>_LIBRARIES`` when being ``find_package()``-ed.
 With ``ament_cmake`` that is achieved by calling ``ament_export_include_directories`` and ``ament_export_libraries``.
-In combination with ``ament_export_dependencies``, ``ament_cmake`` ensures that all include directories and libraries of recursive dependencies are concattenated and included in these variables.
+In combination with ``ament_export_dependencies``, ``ament_cmake`` ensures that all include directories and libraries of recursive dependencies are concatenated and included in these variables.
 
 In "modern" CMake a package provides an interface target instead (commonly named ``<pkgname>::<pkgname>``) which in itself encapsulates all recursive dependencies.
 In order to export a library target to use modern CMake ``ament_export_targets`` needs to be called with an export name which is also used when installing the libraries using ``install(TARGETS <libA> <libB> EXPORT <export_name> ...)``.
@@ -216,7 +216,7 @@ Logs similar to:
 
 will be observed when this incompatibility happens.
 
-If compatibility is needed, it can be set up in an external qos profiles files containing:
+If compatibility is needed, it can be set up in an external QoS profiles files containing:
 
 .. code-block:: xml
 
@@ -233,7 +233,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
       </property>
    </participant_qos>
 
-Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the qos profiles file path.
+Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the QoS profiles file path.
 For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility <https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm>`_.
 
 rviz

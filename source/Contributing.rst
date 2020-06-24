@@ -81,7 +81,7 @@ If you are interested in contributing to the ROS 2 project, we encourage you to 
 If you’d like to cast a wider net, we welcome contributions on any open issue (or others that you might propose), particularly tasks that have a milestone signifying they’re targeted for the next ROS 2 release (the milestone will be the next release's codename e.g. 'crystal').
 
 If you have some code to contribute that fixes a bug or improves documentation, please submit it as a pull request to the relevant repository.
-For larger changes, it is a good idea to discuss the proposal `on the ROS 2 forum <http://discourse.ros.org/c/ng-ros>`__ before you start to work on it so that you can identify if someone else is already working on something similar.
+For larger changes, it is a good idea to discuss the proposal `on the ROS 2 forum <https://discourse.ros.org/c/ng-ros>`__ before you start to work on it so that you can identify if someone else is already working on something similar.
 If your proposal involves changes to the APIs, it is especially recommended that you discuss the approach before starting work.
 
 Submitting your code changes

@@ -22,6 +22,6 @@ Examples of system level migrations
 Useful tools
 ------------
 
-- Launch File migrator that converts a ROS1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
--  Amazon has exposed their tools for porting ROS1 robots to ROS 2
+- Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
+-  Amazon has exposed their tools for porting ROS 1 robots to ROS 2
    https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools

@@ -61,7 +61,7 @@ Set your rosdistro according to the release you downloaded.
        rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro $CHOOSE_ROS_DISTRO -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/kinetic/Installation/Ubuntu
+   Follow the normal install instructions: https://wiki.ros.org/kinetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
