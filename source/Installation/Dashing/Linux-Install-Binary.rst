@@ -7,7 +7,7 @@ Installing ROS 2 on Linux
 
 This page explains how to install ROS 2 on Linux from a pre-built binary package.
 
-As of Beta 2 there are also `Debian packages <Linux-Install-Debians>` available.
+There are also `Debian packages <Linux-Install-Debians>` available.
 
 System Requirements
 -------------------

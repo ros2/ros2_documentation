@@ -1,6 +1,8 @@
 .. redirect-from::
 
-  Installation/Foxy/OSX-Development-Setup
+  Installation/Rolling/OSX-Development-Setup
+
+.. _macOS-latest:
 
 Building ROS 2 on macOS
 =======================
@@ -12,9 +14,9 @@ Building ROS 2 on macOS
 System requirements
 -------------------
 
-We support macOS 10.14 (Mojave).
-
-However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
+We currently support macOS Mojave (10.14).
+The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
+Most people will want to use a stable ROS distribution.
 
 Install prerequisites
 ---------------------
@@ -96,7 +98,7 @@ You need the following things installed to build ROS 2:
 
   ``brew install graphviz pyqt5 sip``
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -105,7 +107,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg importlib-metadata lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
@@ -113,7 +115,7 @@ You need the following things installed to build ROS 2:
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
 
-   * Start with the normal install instructions: https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
+   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
    *
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
 
@@ -138,9 +140,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_rolling/src
+   cd ~/ros2_rolling
+   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -157,7 +159,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_rolling/
    colcon build --symlink-install
 
 Environment setup
@@ -167,7 +169,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/setup.bash
+   . ~/ros2_rolling/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -206,10 +208,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Rolling install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_rolling

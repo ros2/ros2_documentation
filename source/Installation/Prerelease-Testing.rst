@@ -53,6 +53,8 @@ For Debian-based operating systems, you can install binary packages from the **r
       sudo apt update
       sudo apt dist-upgrade
 
+.. _Prerelease_binaries:
+
 Fat binaries
 ------------
 

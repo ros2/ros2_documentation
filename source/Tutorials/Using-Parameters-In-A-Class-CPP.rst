@@ -292,7 +292,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
               )
           ])
 
-  .. group-tab:: Eloquent and older
+  .. group-tab:: Eloquent
 
     .. code-block:: Python
 
@@ -307,6 +307,28 @@ In there, create a new file called ``cpp_parameters_launch.py``
                   node_name="custom_parameter_node",
                   output="screen",
                   emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Dashing
+
+    ``emulate_tty``, which prints output to the console, is not available in Dashing.
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  node_executable="parameter_node",
+                  node_name="custom_parameter_node",
+                  output="screen",
                   parameters=[
                       {"my_parameter": "earth"}
                   ]
