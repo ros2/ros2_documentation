@@ -29,7 +29,6 @@ Design / Concept
   * Revisit constraints of IDL interface naming, see `ros2/design#220 <https://github.com/ros2/design/pull/220>`_
 
 * Progress on migration plan
-* Reconsider 1-to-1 mapping of ROS nodes to DDS participants, see `ros2/design#250 <https://github.com/ros2/design/pull/250>`_
 * Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
 * Specific "API" of a node in terms of topics / services / etc. in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 
@@ -39,7 +38,7 @@ Infrastructure and tools
 * Building
 
   * Consolidate build.ros2.org and ci.ros2.org
-  * Provision macOS and Windows machines
+  * Provision macOS
   * Windows and Mac OS packages
   * Support profiles in ``colcon``
 
