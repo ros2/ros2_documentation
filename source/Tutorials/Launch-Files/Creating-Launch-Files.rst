@@ -92,19 +92,19 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
             return LaunchDescription([
                 Node(
                     package='turtlesim',
-                    namespace='turtlesim1',
-                    executable='turtlesim_node',
+                    node_namespace='turtlesim1',
+                    node_executable='turtlesim_node',
                     name='sim'
                 ),
                 Node(
                     package='turtlesim',
-                    namespace='turtlesim2',
-                    executable='turtlesim_node',
+                    node_namespace='turtlesim2',
+                    node_executable='turtlesim_node',
                     name='sim'
                 ),
                 Node(
                     package='turtlesim',
-                    executable='mimic',
+                    node_executable='mimic',
                     name='mimic',
                     remappings=[
                         ('/input/pose', '/turtlesim1/turtle1/pose'),
