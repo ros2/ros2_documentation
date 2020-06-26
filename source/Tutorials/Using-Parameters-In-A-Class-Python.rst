@@ -62,7 +62,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
+Inside the ``dev_ws/src/python_parameters`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
 
 .. code-block:: Python
 
@@ -206,7 +206,7 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run python_parameters parameter_node
+     ros2 run python_parameters param_talker
 
 Open another terminal, source the setup files from inside ``dev_ws`` again, and enter the following line:
 
