@@ -18,7 +18,13 @@ Background
 
 ROS 2 breaks complex systems down into many modular nodes.
 Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
+
+.. image:: Topic-SinglePublisherandSingleSubscriber.gif
+
 A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
+
+.. image:: Topic-MultiplePublisherandMultipleSubscriber.gif
+
 Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
 
 

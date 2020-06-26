@@ -26,6 +26,8 @@ They also provide steady feedback, as opposed to services which return a single 
 Actions use a client-server model, similar to the publisher-subscriber model (described in the :ref:`topics tutorial <ROS2Topics>`).
 The “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
 
+.. image:: Action-SingleActionClient.gif
+
 Prerequisites
 -------------
 

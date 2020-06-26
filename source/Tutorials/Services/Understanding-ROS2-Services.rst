@@ -20,6 +20,10 @@ Services are another method of communication for nodes on the ROS graph.
 Services are based on a call-and-response model, versus topics’ publisher-subscriber model.
 While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
+.. image:: Service-SingleServiceClient.gif
+
+.. image:: Service-MultipleServiceClient.gif
+
 Prerequisites
 -------------
 
