@@ -206,7 +206,7 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run python_parameters parameter_node
+     ros2 run python_parameters param_talker
 
 Open another terminal, source the setup files from inside ``dev_ws`` again, and enter the following line:
 
