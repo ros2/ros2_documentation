@@ -86,6 +86,12 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
+Ubuntu 18.04 is not an officially supported platform, but may still work.  You'll need at least the following additional dependencies:
+
+.. code-block:: bash
+
+   python3 -m pip install -U importlib-metadata importlib-resources
+
 .. _Rolling_linux-dev-get-ros2-code:
 
 Get ROS 2 code
