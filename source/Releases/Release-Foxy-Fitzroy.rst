@@ -1,3 +1,4 @@
+.. _latest_release:
 
 ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
 ====================================================
