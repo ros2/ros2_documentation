@@ -289,6 +289,58 @@ Alternative: get the combined unit coverage rate from coverage report (require m
   Aggregate all rows for getting the total of the lines tested and the total of lines of code under test.
   Divide to get the coverage rate.
 
+.. _measure-coverage-locally:
+
+How to measure coverage locally using lcov (Ubuntu)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To measure coverage on your own machine, install ``lcov``.
+.. code-block:: bash
+
+     sudo apt install -y lcov
+
+The rest of this section assumes you are working from your colcon workspace.
+Compile in debug with coverage flags.
+Feel free to use colcon flags to target specific packages.
+
+.. code-block:: bash
+
+     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} --coverage"
+
+``lcov`` requires an initial baseline, which you can produce with the following command.
+Update the output file location for your needs.
+
+.. code-block:: bash
+
+     lcov --no-external --capture --initial --directory . --output-file ~/ros2_base.info
+
+Run tests for the packages that matter for your coverage measurements.
+For example, if measuring ``rclcpp`` also with ``test_rclcpp``
+
+.. code-block:: bash
+
+     colcon test --packages-select rclcpp test_rclcpp
+
+Capture the lcov results with a similar command this time dropping the ``--initial`` flag.
+
+.. code-block:: bash
+
+     lcov --no-external --capture --directory . --output-file ~/ros2.info
+
+Combine the trace .info files:
+
+.. code-block:: bash
+
+     lcov --add-tracefile ~/ros2_base.info --add-tracefile ~/ros2.info --output-file ~/ros2_coverage.info
+
+Generate html for easy visualization and annotation of covered lines.
+
+.. code-block:: bash
+
+    mkdir -p coverage
+    genhtml ~/ros2_coverage.info --output-directory coverage
+
+
 Learning ROS 2 concepts at a high level
 ---------------------------------------
 
