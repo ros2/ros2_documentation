@@ -153,7 +153,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
     * Instead of passing ``LIBRARIES ...`` call ``ament_export_libraries(...)`` before.
 
   *
-    **TODO document ament_export_interfaces?**
+    **TODO document ament_export_targets?**
 
 *
   Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
