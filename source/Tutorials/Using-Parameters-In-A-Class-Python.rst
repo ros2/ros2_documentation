@@ -229,7 +229,142 @@ Since the Python talker then set the parameter back to ``world``, further output
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-For this, please refer to the :ref:`C++ equivalent tutorial section 3.2 <CppParamNode>`.
+You can also set parameters in a launch file, but first you will need to add a launch directory.
+Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
+In there, create a new file called ``python_parameters_launch.py``
+
+.. tabs::
+
+  .. group-tab:: Foxy and newer
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="python_parameters",
+                  executable="param_talker",
+                  name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Eloquent
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="python_parameters",
+                  node_executable="param_talker",
+                  node_name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Dashing
+
+    ``emulate_tty``, which prints output to the console, is not available in Dashing.
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="python_parameters",
+                  node_executable="param_talker",
+                  node_name="custom_parameter_node",
+                  output="screen",
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
+By adding the two lines below, we ensure our output is printed in our console.
+
+.. code-block:: console
+
+          output="screen",
+          emulate_tty=True,
+
+Now open the ``setup.py`` file.
+Add the ``import`` statements to the top of the file, and the other new statement to the ``data_files`` parameter to include all launch files:
+
+
+.. code-block:: Python
+
+    import os
+    from glob import glob
+    # ...
+
+    setup(
+      # ...
+      data_files=[
+          # ...
+          (os.path.join('share', package_name), glob('launch/*_launch.py')),
+        ]
+      )
+
+Open a console and navigate to the root of your workspace, ``dev_ws``, and build your new package:
+
+.. code-block:: console
+
+    colcon build --packages-select python_parameters
+
+Then source the setup files in a new terminal:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+
+Now run the node using the launch file we have just created:
+
+.. code-block:: console
+
+     ros2 launch python_parameters python_parameters_launch.py
+
+The terminal should return the following message:
+
+.. code-block:: console
+
+    [parameter_node-1] [INFO] [custom_parameter_node]: Hello earth!
+
 
 Summary
 -------

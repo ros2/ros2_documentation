@@ -239,7 +239,7 @@ There are two ways to accomplish this.
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :ref:`tutoral about parameters <ROS2Params>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :ref:`tutorial about parameters <ROS2Params>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
