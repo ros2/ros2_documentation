@@ -39,7 +39,7 @@ Here is a list of inter-vendor communication configurations that are not support
    - does not support ``WString``
    - ``WString`` is mapped to ``String`` which has a different wire representation
 - Connext <-> CycloneDDS
-   - does not support pub/sub communication for `WString`
+   - does not support pub/sub communication for ``WString``
 - Connext Dynamic <-> Connext Dynamic
    - does not support C services
 
