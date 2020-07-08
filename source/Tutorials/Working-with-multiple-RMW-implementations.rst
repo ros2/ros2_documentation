@@ -30,7 +30,18 @@ While the core ROS 2 code is being compiled, any RMW implementation that is foun
 For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/master/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
 
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
-A list of supported inter-vendor communication configurations is forthcoming.
+Here is a list of inter-vendor communication configurations that are not supported:
+
+- Fast-DDS <-> Connext
+   - does not support communication over pub/sub
+   - ``WString`` published by Fast-DDS can't be received correctly by Connext on macOS
+- OpenSplice <-> OpenSplice
+   - does not support ``WString``
+   - ``WString`` is mapped to ``String`` which has a different wire representation
+- Connext <-> CycloneDDS
+   - does not support pub/sub communication for `WString`
+- Connext Dynamic <-> Connext Dynamic
+   - does not support C services
 
 Default RMW implementation
 --------------------------
