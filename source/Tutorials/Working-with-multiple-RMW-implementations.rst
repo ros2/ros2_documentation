@@ -32,16 +32,16 @@ For example, if the code for the `RMW package for RTI Connext <https://github.co
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
 Here is a list of inter-vendor communication configurations that are not supported:
 
-  - Fast-DDs <-> Connext
-    - does not support communication over pub/sub
-    - ``WString`` published by Fast-DDS can't be received correctly by Connext on macOS
-  - OpenSplice <-> OpenSplice
-    - does not support ``WString``
-    - ``WString`` is mapped to ``String`` which has a different wire representation
-  - Connext <-> CycloneDDs
-    - does not support interopration for `WString`
-  - Connext Dynamic <-> Connext Dynamic
-    - does not support C services
+- Fast-DDS <-> Connext
+   - does not support communication over pub/sub
+   - ``WString`` published by Fast-DDS can't be received correctly by Connext on macOS
+- OpenSplice <-> OpenSplice
+   - does not support ``WString``
+   - ``WString`` is mapped to ``String`` which has a different wire representation
+- Connext <-> CycloneDDS
+   - does not support pub/sub communication for `WString`
+- Connext Dynamic <-> Connext Dynamic
+   - does not support C services
 
 Default RMW implementation
 --------------------------
