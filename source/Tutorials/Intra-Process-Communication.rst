@@ -84,8 +84,8 @@ https://github.com/ros2/demos/blob/master/intra_process_demo/src/two_node_pipeli
            std_msgs::msg::Int32::UniquePtr msg(new std_msgs::msg::Int32());
            msg->data = count++;
            printf(
-             "Published message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
+             "Published message with value: %d, and address: 0x%p" PRIXPTR "\n", msg->data,
+             reinterpret_cast<void*>(msg.get()));
            pub_ptr->publish(std::move(msg));
          };
        timer_ = this->create_wall_timer(1s, callback);
@@ -107,8 +107,8 @@ https://github.com/ros2/demos/blob/master/intra_process_demo/src/two_node_pipeli
          10,
          [](std_msgs::msg::Int32::UniquePtr msg) {
            printf(
-             " Received message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
+             " Received message with value: %d, and address: 0x%p" PRIXPTR "\n", msg->data,
+             reinterpret_cast<void*>(msg.get()));
          });
      }
 
