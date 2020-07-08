@@ -3,7 +3,8 @@ python: 3.6
 sudo: false
 install:
   - pip3 install doc8 sphinx
-  - pip3 install git+https://github.com/Daltz333/sphinx-tabs@sphinx3
+  - pip3 install git+https://github.com/maryaB-osr/sphinx-tabs
+  
 script:
   - make html 2> stderr.log
   - cat stderr.log
