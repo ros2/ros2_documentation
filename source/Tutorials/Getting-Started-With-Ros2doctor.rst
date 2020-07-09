@@ -23,6 +23,10 @@ When your ROS 2 setup is not running as expected, you can check its settings wit
 Prerequisites
 -------------
 
+.. warning::
+
+  ``ros2doctor`` is only available in Eloquent and newer distributions.
+
 ``ros2doctor`` is part of the ``ros2cli`` package.
 As long as you have ``ros2cli`` installed (which any normal install should have), you will be able to use ``ros2doctor``.
 
