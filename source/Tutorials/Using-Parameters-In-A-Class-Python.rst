@@ -113,7 +113,7 @@ Declaring a parameter before getting or setting it is compulsory, or you will ra
 """"""""""""""""""""""""""""""""""""""""
 Optionally, you can set a descriptor for the parameter.
 Descriptors allow you to specify the type of the parameter and some description text.
-For that to work, the __init__ code has to be changed to:
+For that to work, the ``__init__`` code has to be changed to:
 
 .. code-block:: Python
 
