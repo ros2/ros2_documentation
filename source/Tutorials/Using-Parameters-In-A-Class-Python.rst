@@ -67,14 +67,16 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 .. code-block:: Python
 
     import rclpy
-    from rclpy.node import Node
+    import rclpy.node
     from rclpy.exceptions import ParameterNotDeclaredException
+    from rcl_interfaces.msg import ParameterType
 
-    class MinimalParam(Node):
+    class MinimalParam(rclpy.node.Node):
         def __init__(self):
             super().__init__('minimal_param_node')
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
+
             self.declare_parameter("my_parameter")
 
         def timer_callback(self):
@@ -107,6 +109,30 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 ~~~~~~~~~~~~~~~~~~~~
 Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
 
+2.1.1 (Optional) Add ParameterDescriptor
+""""""""""""""""""""""""""""""""""""""""
+Optionally, you can set a descriptor for the parameter.
+Descriptors allow you to specify the type of the parameter and some description text.
+For that to work, the ``__init__`` code has to be changed to:
+
+.. code-block:: Python
+
+    # ...
+
+    class MinimalParam(rclpy.node.Node):
+        def __init__(self):
+            super().__init__('minimal_param_node')
+            timer_period = 2  # seconds
+            self.timer = self.create_timer(timer_period, self.timer_callback)
+
+            my_parameter_descriptor = rclpy.node.Node.ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
+                                                                          description='This parameter is mine!')
+            self.declare_parameter("my_parameter",
+                                   "default value for my_parameter",
+                                   my_parameter_descriptor)
+
+The rest of the code remains the same.
+Once you run the node, you can then run ``ros2 param describe /minimal_param_node my_parameter`` to see the type and description.
 
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
