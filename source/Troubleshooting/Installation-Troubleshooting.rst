@@ -260,7 +260,7 @@ When building qt_gui_cpp there may be errors look like the following:
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 While following the `Creating a workspace <https://index.ros.org/doc/ros2/Tutorials/Workspace/Creating-A-Workspace/#creating-a-workspace>`__ tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
 
 .. code-block:: bash
