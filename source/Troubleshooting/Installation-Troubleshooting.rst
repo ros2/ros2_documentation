@@ -259,6 +259,34 @@ When building qt_gui_cpp there may be errors look like the following:
 
 To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
 
+rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+While following the `Creating a workspace <https://index.ros.org/doc/ros2/Tutorials/Workspace/Creating-A-Workspace/#creating-a-workspace>`__ tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+
+.. code-block:: bash
+
+   $ rosdep install -i --from-path src --rosdistro foxy -y
+   executing command [brew install qt5]
+   Warning: qt 5.15.0 is already installed and up-to-date
+   To reinstall 5.15.0, run `brew reinstall qt`
+   ERROR: the following rosdeps failed to install
+     homebrew: Failed to detect successful installation of [qt5]
+
+This error seems to stem from a `linking issue <https://github.com/ros-infrastructure/rosdep/issues/490#issuecomment-334959426>`__ and can be resolved by running the following command.
+
+.. code-block:: bash
+
+   $ cd /usr/local/Cellar
+   $ sudo ln -s qt qt5
+
+Running the ``rosdep`` command should now execute normally:
+
+.. code-block:: bash
+
+   $ rosdep install -i --from-path src --rosdistro foxy -y
+   #All required rosdeps installed successfully
+
+
 .. _windows-troubleshooting:
 
 Windows
