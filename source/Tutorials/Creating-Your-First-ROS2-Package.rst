@@ -17,7 +17,7 @@ Background
 ----------
 
 1 What is a ROS 2 package?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A package can be considered a container for your ROS 2 code.
 If you want to be able to install your code or share it with others, then you’ll need it organized in a package.

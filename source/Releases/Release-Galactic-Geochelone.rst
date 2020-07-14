@@ -20,7 +20,18 @@ TBD
 New features in this ROS 2 release
 ----------------------------------
 
-TBD
+Ability to specify per-logger log levels
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to specify different logging levels for different loggers on the command line:
+
+.. code-block:: bash
+
+   ros2 run demo_nodes_cpp talker --ros-args --log-level WARN --log-level talker:=DEBUG
+
+The above command sets a global log level of WARN, but sets the log level of the talker node messages to DEBUG.
+The ``--log-level`` command-line option can be passed an arbitrary number of times to set different log levels for each logger.
+
 
 Changes since the Foxy release
 ------------------------------
