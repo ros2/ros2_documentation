@@ -110,7 +110,7 @@ The following example will both change the node name and remap a topic (node and
 Logger configuration
 --------------------
 
-See ``--log-level`` argument usage in `the logging page <logging-command-line-configuration-of-the-default-severity-level>`.
+See ``--log-level`` argument usage in `the logging page <Logging-and-logger-configuration>`.
 
 Parameters
 ----------
