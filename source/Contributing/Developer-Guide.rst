@@ -51,7 +51,7 @@ We will also adhere to some ROS-specific rules built on top of ``semver's`` full
   * Major ROS releases are the best time to release breaking changes.
     If a core package needs multiple breaking changes, they should be merged into their integration branch (e.g. master) to allow catching problems in CI quickly, but released together to reduce the number of major releases for ROS users.
 
-  * Though major increments require a new distribution, a new distribution does not necessarily require a major bump (if development and release happen without break API).
+  * Though major increments require a new distribution, a new distribution does not necessarily require a major bump (if development and release can happen without breaking API).
 
 * For compiled code, the ABI is considered part of the public interface.
   Any change that requires recompiling dependent code is considered major (breaking).
@@ -70,12 +70,19 @@ In unlikely, extreme cases, it may be necessary to break API within a major vers
 Whether an unplanned break increments the major or minor version will be assessed on a case-by-case basis.
 
 For example, consider a situation involving released X-turtle, corresponding to major version ``1.0.0``, and released Y-turtle, corresponding to major version ``2.0.0``.
-If a fix that breaks API is identified to be absolutely necessary in X-turtle, bumping to ``2.0.0`` is obviously not an option because ``2.0.0`` already exists.
-We would likely have to bump the minor version of X-turtle for the fix, and take extra measures to communicate the disruption to users manually (beyond just the version increment).
 
-However, failing to bump the major version when API breaking changes occur means not adhering to SemVer, regardless of whether it's possible to do so or not.
+If an API-breaking fix is identified to be absolutely necessary in X-turtle, bumping to ``2.0.0`` is obviously not an option because ``2.0.0`` already exists.
 
-If there were no distro-Y, even though the fix would technically just be a patch, X-turtle would have to bump to ``2.0.0``.
+The solutions for handling X-turtle's version in such a case, both non-ideal, are:
+
+1. Bumping X-turtle's minor version: non-ideal because it violates SemVer's principle that breaking changes must bump the major version.
+
+2. Bumping X-turtle's major version past Y-turtle (to ``3.0.0``): non-ideal because the older distro's version would become higher than the already-available version of a newer distro, which would invalidate/break version-specific conditional code.
+
+The developer will have to decide which solution to use, or more importantly, which principle they are willing to break.
+We cannot suggest one or the other, but in either case we do require that explicit measures be taken to communicate the disruption and its explanation to users manually (beyond just the version increment).
+
+If there were no Y-turtle, even though the fix would technically just be a patch, X-turtle would have to bump to ``2.0.0``.
 This case adheres to SemVer, but breaks from our own rule that major increments should not be introduced in a released distribution.
 
 This is why we consider the versioning rules *best-effort*.
@@ -113,7 +120,7 @@ Y-turtle   [[deprecated("use bar()")]] void foo(); <br> void bar();
 Z-turtle   void bar();
 =========  ========================================================
 
-We will not add deprecations after a distribution is released.
+We must not add deprecations after a distribution is released.
 Deprecations do not necessarily require a major version bump, though.
 A deprecation can be introduced in a minor version bump if the bump happens before the distro is released (similar to ABI breaking changes).
 
