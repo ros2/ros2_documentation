@@ -2,8 +2,8 @@
 
     Working-with-Eclipse-CycloneDDS
 
-Working with Eclipse Cyclone DDS [community-contributed]
-=========================================================
+Working with Eclipse Cyclone DDS
+================================
 
 Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.
@@ -13,7 +13,7 @@ See also: https://projects.eclipse.org/projects/iot.cyclonedds
 Prerequisites
 -------------
 
-Have `rosdep installed  <http://wiki.ros.org/rosdep#Installing_rosdep>`__
+Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 
 Install packages
 ----------------

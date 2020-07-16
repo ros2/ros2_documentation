@@ -49,7 +49,7 @@ For example, the following declaration for a custom allocator would satisfy ``al
 
 You could then access other functions and members of the allocator filled in by ``allocator_traits`` like so: ``std::allocator_traits<custom_allocator<T>>::construct(...)``
 
-To learn about the full capabilities of ``allocator_traits``, see http://en.cppreference.com/w/cpp/memory/allocator_traits .
+To learn about the full capabilities of ``allocator_traits``, see https://en.cppreference.com/w/cpp/memory/allocator_traits .
 
 However, some compilers that only have partial C++11 support, such as GCC 4.8, still require allocators to implement a lot of boilerplate code to work with standard library structures such as vectors and strings, because these structures do not use ``allocator_traits`` internally. Therefore, if you're using a compiler with partial C++11 support, your allocator will need to look more like this:
 

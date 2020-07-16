@@ -17,7 +17,7 @@ Background
 ----------
 
 1 What is a ROS 2 package?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A package can be considered a container for your ROS 2 code.
 If you want to be able to install your code or share it with others, then you’ll need it organized in a package.
@@ -43,7 +43,7 @@ ROS 2 Python and CMake packages each have their own minimum required contents:
       * ``package.xml`` file containing meta information about the package
       * ``setup.py`` containing instructions for how to install the package
       * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
-      * ``your_package_name`` - a file used by ROS 2 tools to find your package
+      * ``/<package_name>`` - a directory with the same name as your package, used by ROS 2 tools to find your package, contains ``__init__.py``
 
 The simplest possible package may have a file structure that looks like:
 
@@ -90,7 +90,7 @@ A trivial workspace might look like:
         package_2/
             setup.py
             package.xml
-            resource/my_package
+            resource/package_2
         ...
         package_n/
             CMakeLists.txt
@@ -116,9 +116,25 @@ Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for 
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
-.. code-block:: console
+.. tabs::
 
-    cd dev_ws/src
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        cd ~/dev_ws/src
+
+   .. group-tab:: macOS
+
+     .. code-block:: console
+
+       cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws\src
 
 The command syntax for creating a new package in ROS 2 is:
 
@@ -223,9 +239,25 @@ Otherwise, you would have to build each package individually.
 
 Return to the root of your workspace:
 
-.. code-block:: console
+.. tabs::
 
-    cd ~/dev_ws
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        cd ~/dev_ws
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        cd ~/dev_ws
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws
 
 Now you can build your packages:
 
@@ -268,9 +300,25 @@ To use your new package and executable, first open a new terminal and source you
 
 Then, from inside the ``dev_ws`` directory, run the following command to source your workspace:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/local_setup.bat
 
 Now that your workspace has been added to your path, you will be able to use your new package’s executables.
 
@@ -341,7 +389,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>
@@ -365,7 +415,9 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
      :linenos:
 
      <?xml version="1.0"?>
-     <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+     <?xml-model
+        href="http://download.ros.org/schema/package_format3.xsd"
+        schematypens="http://www.w3.org/2001/XMLSchema"?>
      <package format="3">
       <name>my_package</name>
       <version>0.0.0</version>

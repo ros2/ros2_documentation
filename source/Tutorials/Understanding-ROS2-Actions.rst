@@ -26,6 +26,8 @@ They also provide steady feedback, as opposed to services which return a single 
 Actions use a client-server model, similar to the publisher-subscriber model (described in the :ref:`topics tutorial <ROS2Topics>`).
 The “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
 
+.. image:: Action-SingleActionClient.gif
+
 Prerequisites
 -------------
 
@@ -245,9 +247,20 @@ One more piece of information you will need before sending or executing an actio
 Recall that you identified ``/turtle1/rotate_absolute``’s type when running the command ``ros2 action list -t``.
 Enter the following command with the action type in your terminal:
 
-.. code-block:: console
+.. tabs::
 
-    ros2 interface show turtlesim/action/RotateAbsolute.action
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/action/RotateAbsolute.action
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 action show turtlesim/action/RotateAbsolute
+
 
 Which will return:
 
@@ -281,7 +294,7 @@ Keep an eye on the turtlesim window, and enter the following command into your t
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: 1.57'}
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"
 
 You should see the turtle rotating, as well as the following message in your terminal:
 
@@ -307,7 +320,7 @@ After running the previous command, the turtle will already be at the orientatio
 
 .. code-block:: console
 
-    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute {'theta: -1.57'} --feedback
+    ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: -1.57}" --feedback
 
 Your terminal will return the message:
 
@@ -354,4 +367,4 @@ The last few tutorials in the "Users" set will introduce you to some tools and t
 Related content
 ---------------
 
-You can read more about the design decisions behind actions in ROS 2 `here <http://design.ros2.org/articles/actions.html>`__.
+You can read more about the design decisions behind actions in ROS 2 `here <https://design.ros2.org/articles/actions.html>`__.

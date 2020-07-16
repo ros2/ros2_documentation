@@ -1,8 +1,6 @@
-.. _upcoming-release:
+.. _latest_release:
 
-.. move this directive when next release page is created
-
-ROS 2 Foxy Fitzroy (codename 'foxy'; May 23rd, 2020)
+ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
 ====================================================
 
 .. contents:: Table of Contents
@@ -22,31 +20,65 @@ Tier 1 platforms:
 * Mac macOS 10.14 (Mojave)
 * Windows 10 (Visual Studio 2019)
 
-Tier 2 platforms:
-
-* Ubuntu 20.04 (Focal): ``arm32``
-
 Tier 3 platforms:
 
+* Ubuntu 20.04 (Focal): ``arm32``
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
+Installation
+------------
+
+`Install Foxy Fitzroy <../Installation/Foxy>`
 
 New features in this ROS 2 release
 ----------------------------------
 
-During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high level tasks as well as references specific tickets with more details.
+During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
 Changes since the Eloquent release
 ----------------------------------
+
+Classic CMake vs. modern CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In "classic" CMake a package provides CMake variables like ``<pkgname>_INCLUDE_DIRS`` and ``<pkgname>_LIBRARIES`` when being ``find_package()``-ed.
+With ``ament_cmake`` that is achieved by calling ``ament_export_include_directories`` and ``ament_export_libraries``.
+In combination with ``ament_export_dependencies``, ``ament_cmake`` ensures that all include directories and libraries of recursive dependencies are concatenated and included in these variables.
+
+In "modern" CMake a package provides an interface target instead (commonly named ``<pkgname>::<pkgname>``) which in itself encapsulates all recursive dependencies.
+In order to export a library target to use modern CMake ``ament_export_targets`` needs to be called with an export name which is also used when installing the libraries using ``install(TARGETS <libA> <libB> EXPORT <export_name> ...)``.
+The exported interface targets are available through the CMake variable ``<pkgname>_TARGETS``.
+For library targets to be exportable like this they must not rely on classic functions affecting global state like ``include_directories()`` but set the include directories on the target itself - for the build as well as install environment - using generator expressions, e.g. ``target_include_directories(<target> PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>" "$<INSTALL_INTERFACE:include>")``.
+
+When ``ament_target_dependencies`` is used to add dependencies to a library target the function uses modern CMake targets when they are available.
+Otherwise it falls back to using classic CMake variables.
+As a consequence you should only export modern CMake targets if all dependencies are also providing modern CMake targets.
+**Otherwise the exported interface target will contain the absolute paths to include directories / libraries in the generated CMake logic which makes the package non-relocatable.**
+
+For examples how packages have been updated to modern CMake in Foxy see `ros2/ros2#904 <https://github.com/ros2/ros2/issues/904>`_.
 
 ament_export_interfaces replaced by ament_export_targets
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The CMake function ``ament_export_interfaces`` from the package ``ament_cmake_export_interfaces`` has been deprecated in favor of the function ``ament_export_targets`` in the new package ``ament_cmake_export_targets``.
 See the GitHub ticket `ament/ament_cmake#237 <https://github.com/ament/ament_cmake/issues/237>`_ for more context.
+
+rosidl_generator_c|cpp namespace / API changes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The packages ``rosidl_generator_c`` and ``rosidl_generator_cpp`` have been refactored with many headers and sources moved into the new packages ``rosidl_runtime_c`` and ``rosidl_runtime_cpp``.
+The intention is to remove run dependencies on the generator packages and therefore the code generation tools using Python.
+While moving the headers the include paths / namespaces were updated accordingly so in many cases changing include directives from the generator package to the runtime package is sufficient.
+
+The generated C / C++ code has also been refactored.
+The files ending in ``__struct.h|hpp``, ``__functions.h``, ``__traits.hpp``, etc. have been moved into a subdirectory ``detail`` but most code only includes the header named after the interface without any of these suffixes.
+
+Some types regarding string and sequence bounds have also been renamed to match the naming conventions but they aren't expected to be used in user code (above RMW implementation and type support packages)
+
+For more information see `ros2/rosidl#446 (for C) <https://github.com/ros2/rosidl/issues/446>`_ and `ros2/rosidl#447 (for C++) <https://github.com/ros2/rosidl/issues/447>`_.
 
 Default working directory for ament_add_test
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,6 +164,31 @@ Breaking change in Node Interface getters' signature
 With pull request `ros2/rclcpp#1069 <https://github.com/ros2/rclcpp/pull/1069>`_, the signature of node interface getters has been modified to return shared ownership of node interfaces (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
 Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
 
+Deprecate set_on_parameters_set_callback
+""""""""""""""""""""""""""""""""""""""""
+
+Instead, use the ``rclcpp::Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
+
+Related pull request: https://github.com/ros2/rclcpp/pull/1123
+
+Breaking change in Publisher getter signature
+""""""""""""""""""""""""""""""""""""""""""""""
+
+With pull request `ros2/rclcpp#1119 <https://github.com/ros2/rclcpp/pull/1119>`_, the signature of publisher handle getter has been modified to return shared ownership of the underlying rcl structure (i.e. an ``std::shared_ptr``) instead of a non-owning raw pointer.
+This was necessary to fix a segfault in certain circumstances.
+Required changes in downstream packages that relied on the previous signature are simple and straightforward: use the ``std::shared_ptr::get()`` method.
+
+rclcpp_action
+^^^^^^^^^^^^^
+
+Deprecate ClientGoalHandle::async_result()
+""""""""""""""""""""""""""""""""""""""""""
+
+Using this API, it is possible to run into a race condition causing an exception to be thrown.
+Instead, prefer to use ``Client::async_get_result()``, which is safer.
+
+See `ros2/rclcpp#1120 <https://github.com/ros2/rclcpp/pull/1120>`_ and the connected issue for more info.
+
 rclpy
 ^^^^^
 
@@ -140,7 +197,7 @@ Support for multiple on parameter set callbacks
 
 Use the ``Node`` methods ``add_on_set_parameters_callback`` and ``remove_on_set_parameters_callback`` for adding and removing functions that are called when parameters are set.
 
-The method ``set_parameters_calblack`` has been deprecated.
+The method ``set_parameters_callback`` has been deprecated.
 
 Related pull requests: https://github.com/ros2/rclpy/pull/457, https://github.com/ros2/rclpy/pull/504
 
@@ -164,7 +221,7 @@ Logs similar to:
 
 will be observed when this incompatibility happens.
 
-If compatibility is needed, it can be set up in an external qos profiles files containing:
+If compatibility is needed, it can be set up in an external QoS profiles files containing:
 
 .. code-block:: xml
 
@@ -181,7 +238,7 @@ If compatibility is needed, it can be set up in an external qos profiles files c
       </property>
    </participant_qos>
 
-Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the qos profiles file path.
+Remember to set the ``NDDS_QOS_PROFILES`` environment variable to the QoS profiles file path.
 For more information, see ``How to Change Transport Settings in 5.2.0 Applications for Compatibility with 5.1.0`` section of `Transport_Compatibility <https://community.rti.com/static/documentation/connext-dds/5.2.0/doc/manuals/connext_dds/html_files/RTI_ConnextDDS_CoreLibraries_ReleaseNotes/Content/ReleaseNotes/Transport_Compatibility.htm>`_.
 
 rviz
@@ -194,34 +251,73 @@ Tools timestamp messages using ROS time
 
 Related pull request: https://github.com/ros2/rviz/pull/519
 
+std_msgs
+^^^^^^^^
+
+Deprecation of messages
+"""""""""""""""""""""""
+
+Although discouraged for a long time we have officially deprecated the following messages in ``std_msgs``.
+There are copies in `example_interfaces <https://index.ros.org/p/example_interfaces>`_
+
+- ``std_msgs/msg/Bool``
+- ``std_msgs/msg/Byte``
+- ``std_msgs/msg/ByteMultiArray``
+- ``std_msgs/msg/Char``
+- ``std_msgs/msg/Float32``
+- ``std_msgs/msg/Float32MultiArray``
+- ``std_msgs/msg/Float64``
+- ``std_msgs/msg/Float64MultiArray``
+- ``std_msgs/msg/Int16``
+- ``std_msgs/msg/Int16MultiArray``
+- ``std_msgs/msg/Int32``
+- ``std_msgs/msg/Int32MultiArray``
+- ``std_msgs/msg/Int64``
+- ``std_msgs/msg/Int64MultiArray``
+- ``std_msgs/msg/Int8``
+- ``std_msgs/msg/Int8MultiArray``
+- ``std_msgs/msg/MultiArrayDimension``
+- ``std_msgs/msg/MultiArrayLayout``
+- ``std_msgs/msg/String``
+- ``std_msgs/msg/UInt16``
+- ``std_msgs/msg/UInt16MultiArray``
+- ``std_msgs/msg/UInt32``
+- ``std_msgs/msg/UInt32MultiArray``
+- ``std_msgs/msg/UInt64``
+- ``std_msgs/msg/UInt64MultiArray``
+- ``std_msgs/msg/UInt8``
+- ``std_msgs/msg/UInt8MultiArray``
+
+Known Issues
+------------
+
+* `[ros2/ros2#922] <https://github.com/ros2/ros2/issues/922>`_ Services' performance is flaky for ``rclcpp`` nodes using eProsima Fast-RTPS or ADLINK CycloneDDS as RMW implementation.
+  Specifically, service clients sometimes do not receive the response from servers.
+
+
 Timeline before the release
 ---------------------------
 
 A few milestones leading up to the release:
 
-.. note::
+    .. note::
 
-  The coronavirus pandemic has slowed down the progress on a few very important features / improvements / bug fixes which are targeted for Foxy.
-  As a consequence the following dates are subject to maximum delay of two weeks.
-  You should not rely on these extra two weeks but still aim to meet the below deadlines to land any contributions to the ``ros_core`` packages.
-  Once all the pull requests considered to be very important have landed the API freeze will happen right away and not wait for the full two weeks.
-  Also if any of the desired changes doesn't land within the two weeks extension the freeze will happen anyway.
-  The subsequent dates will likely shift by the same duration the API and feature freeze date has shifted and will be updated accordingly.
+      The dates below reflect an extension by roughly two weeks due to the coronavirus pandemic.
 
-    Wed. April 8th, 2020 (potentially delayed until up to April 22nd)
+    Wed. April 22nd, 2020
         API and feature freeze for ``ros_core`` [1]_ packages.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 13th, 2020 (beta) (subject to change based on shift of the API and feature freeze date)
+    Mon. April 29th, 2020 (beta)
         Updated releases of ``desktop`` [2]_ packages available.
         Testing of the new features.
 
-    Wed. May 13th, 2020 (release candidate) (subject to change based on shift of the API and feature freeze date)
+    Wed. May 27th, 2020 (release candidate)
         Updated releases of ``desktop`` [2]_ packages available.
 
-    Wed. May 20, 2020 (subject to change based on shift of the API and feature freeze date)
+    Wed. June 3rd, 2020
         Freeze rosdistro.
         No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
 

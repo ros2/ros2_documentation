@@ -31,7 +31,7 @@ The goal of the ROS 2 project is to adapt to these changes, leveraging what is g
 Here you will find the official documentation on **ROS 2**, the newest version of ROS.
 
 If you're looking for documentation on ROS 1 (i.e., ROS as it has existed for several years, and what you might be using right now),
-check the `ROS wiki <http://wiki.ros.org>`__.
+check the `ROS wiki <https://wiki.ros.org>`__.
 
 Where to start
 --------------
@@ -61,13 +61,13 @@ Learn more
 There are plenty of resources available online to learn more about ROS 2.
 Here's a few to start with:
 
-* `design.ros2.org <http://design.ros2.org>`__ contains various articles on the design decisions behind ROS 2, like:
-   * `Why ROS 2? <http://design.ros2.org/articles/why_ros2.html>`__
-   * `ROS on DDS <http://design.ros2.org/articles/ros_on_dds.html>`__
-   * `Changes between ROS 1 and ROS 2 <http://design.ros2.org/articles/changes.html>`__
+* `design.ros2.org <https://design.ros2.org>`__ contains various articles on the design decisions behind ROS 2, like:
+   * `Why ROS 2? <https://design.ros2.org/articles/why_ros2.html>`__
+   * `ROS on DDS <https://design.ros2.org/articles/ros_on_dds.html>`__
+   * `Changes between ROS 1 and ROS 2 <https://design.ros2.org/articles/changes.html>`__
 
 * The code for ROS 2 is open source and broken into various repositories.
-  You can find the code for most of the repositories on the `ros2 github organization <https://github.com/ros2>`__.
+  You can find the code for most of the repositories on the `ros2 GitHub organization <https://github.com/ros2>`__.
 
 * `awesome-ros2 <https://fkromer.github.io/awesome-ros2>`__ is a "cheat sheet" style quick reference for ROS 2 packages and resources to help GitHub users get to know ROS 2.
 
@@ -93,7 +93,7 @@ About this documentation
 ------------------------
 
 We're always working hard on improving our documentation.
-You can help by submitting pull requests for fixes or issues for suggestions on `our GitHub repository <http://github.com/ros2/ros2_documentation>`__.
+You can help by submitting pull requests for fixes or issues for suggestions on `our GitHub repository <https://github.com/ros2/ros2_documentation>`__.
 
 Written purely in `ReST markup format <http://docutils.sourceforge.net/rst.html>`__, it is processed using Sphinx during `ROSIndex <https://github.com/ros-infrastructure/rosindex>`__ builds.
 `Intersphinx support <Contributing/Inter-Sphinx-Support>` is readily available for cross-linking package specific entities.

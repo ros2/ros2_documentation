@@ -30,7 +30,7 @@ See `the source code <https://github.com/ros2/demos/blob/master/logging_demo/src
 Logger level configuration: externally
 --------------------------------------
 
-In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <http://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
+In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
 **This concept is not yet officially supported in ROS 2.**
 In the meantime, this demo provides an **example** service that can be called externally to request configuration of logger levels for known names of loggers in the process.
 
@@ -104,7 +104,7 @@ Restart the demo including the following command line argument:
 
        ros2 run logging_demo logging_demo_main --ros-args --log-level debug
 
-  .. group-tab:: Before Eloquent
+  .. group-tab:: Dashing
 
     .. code-block:: bash
 
@@ -113,17 +113,33 @@ Restart the demo including the following command line argument:
 This configures the default severity for any unset logger to the debug severity level.
 You should see debug output from loggers from the demo itself and from the ROS 2 core.
 
-The ability to configure specific loggers from the command line is forthcoming.
+As of the Galactic ROS 2 release, the severity level for individual loggers can be configured from the command-line.
+Restart the demo including the following command line arguments:
+
+.. tabs::
+
+  .. group-tab:: Galactic and newer
+
+    .. code-block:: bash
+
+       ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
+
 
 Console output formatting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like more or less verbose formatting, you can use `the RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable <logging-console-output-configuration>`.
+If you would like more or less verbose formatting, you can use RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable.
 For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -148,7 +164,13 @@ For example:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -170,16 +192,53 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
    If it is forced you will get a new warning saying that colorization failed.
    The default behavior already checks if the output is a console or not, so forcing colorization is not recommended.
 
+Default stream for console output
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In Dashing and Eloquent, the output from DEBUG and INFO severity are printed out to stdout, and the output from WARN, ERROR, and FATAL are printed to stderr.
+In Foxy and later, the output from all debug levels goes to stderr by default.  It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
+For example:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_USE_STDOUT=1
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_USE_STDOUT=1
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      set "RCUTILS_LOGGING_USE_STDOUT=1"
+
+
 Line buffered console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, info and debug log calls aren't line buffered.
+Dashing and Eloquent
+""""""""""""""""""""
+
+By default, INFO and DEBUG log calls aren't line buffered.
 You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable.
 For example:
 
 .. tabs::
 
-  .. group-tab:: Linux/macOS
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1
+
+  .. group-tab:: macOS
 
     .. code-block:: bash
 
@@ -189,8 +248,46 @@ For example:
 
     .. code-block:: bash
 
-       # set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
-       ros2 run logging_demo logging_demo_main
+      set "RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED=1"
+
+Then run:
+
+.. code-block:: bash
+
+    ros2 run logging_demo logging_demo_main
 
 The output should look as before.
 For details about I/O buffering, see `buffering concepts <https://www.gnu.org/software/libc/manual/html_node/Buffering-Concepts.html>`_.
+
+Foxy
+""""
+
+By default, all logging output is unbuffered.
+You can force it to be buffered by setting the ``RCUTILS_LOGGING_BUFFERED_STREAM`` environment variable to 1.
+For example:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_BUFFERED_STREAM=1
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_BUFFERED_STREAM=1
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      set "RCUTILS_LOGGING_BUFFERED_STREAM=1"
+
+Then run:
+
+.. code-block:: bash
+
+    ros2 run logging_demo logging_demo_main

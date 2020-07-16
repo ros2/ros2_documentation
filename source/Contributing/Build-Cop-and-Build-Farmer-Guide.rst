@@ -12,10 +12,10 @@ Build cop and build farmer guide
 This page covers two rotating developer roles we have on the ROS 2 team, the build cop and the build farmer.
 These two roles are related, but subtly different.
 
-The build cop is responsible for monitoring our `Continuous Integration (CI) server <http://ci.ros2.org/>`__ to make sure our `"nightly" jobs <http://ci.ros2.org/view/nightly/>`__ and `"packaging" jobs <http://ci.ros2.org/view/packaging/>`__ do not accumulate new regressions.
-This allows us to build on relatively stable `"ci" (or "manual") jobs <http://ci.ros2.org/>`__ when checking to see if a new feature or bug fix introduces any new regressions.
+The build cop is responsible for monitoring our `Continuous Integration (CI) server <https://ci.ros2.org/>`__ to make sure our `"nightly" jobs <https://ci.ros2.org/view/nightly/>`__ and `"packaging" jobs <https://ci.ros2.org/view/packaging/>`__ do not accumulate new regressions.
+This allows us to build on relatively stable `"ci" (or "manual") jobs <https://ci.ros2.org/>`__ when checking to see if a new feature or bug fix introduces any new regressions.
 
-The build farmer, on the other hand, is responsible for ensuring that `the machines that run all of our CI jobs <http://ci.ros2.org/computer/>`__ are up, running, and up-to-date, so that they are available for other developers to check their pull requests.
+The build farmer, on the other hand, is responsible for ensuring that `the machines that run all of our CI jobs <https://ci.ros2.org/computer/>`__ are up, running, and up-to-date, so that they are available for other developers to check their pull requests.
 
 These two jobs have so far been the same person for periods of about two weeks, but they are separated here so that they could be different people in the future and to make a distinction between the roles and responsibilities.
 
@@ -38,7 +38,7 @@ If you are becoming the next build cop or build farmer you should:
 * Talk with the previous build cop and/or build farmer about on-going issues
 * Update the description of the main view on Jenkins to the current date and your name:
 
-  * http://ci.ros2.org/
+  * https://ci.ros2.org/
 
 Retirement
 ----------
@@ -146,11 +146,11 @@ Tips
 * You can search for PRs merged between two dates with, e.g.:
 
   * https://github.com/search?utf8=%E2%9C%93&q=user%3Aament+user%3Aros2+merged%3A%222017-04-17T22%3A00%3A00-08%3A00+..+2017-04-18T23%3A30%3A00-08%3A00%22&type=Issues
-  * (note that FastRTPS and other external repos won’t appear)
+  * (note that Fast RTPS and other external repos won’t appear)
 
 * To get the exact list of code that changed, generate a diff between the output of ``vcs export --exact`` between two builds.
 
-  * This is particularly useful for external repos such as FastRTPS where old commits may get pushed to the master branch overnight, and are difficult to spot in the GitHub UI.
+  * This is particularly useful for external repos such as Fast RTPS where old commits may get pushed to the master branch overnight, and are difficult to spot in the GitHub UI.
 
 * Times displayed at the top of jenkins jobs are in UTC. You can convert the times with e.g.:
 
@@ -169,7 +169,7 @@ This section assumes that you have reviewed the `ROS 2 on boarding document <ROS
 Mission
 ^^^^^^^
 
-The mission of the build farmer is to keep the `build farm <http://ci.ros2.org/>`__ in a healthy, up-to-date state.
+The mission of the build farmer is to keep the `build farm <https://ci.ros2.org/>`__ in a healthy, up-to-date state.
 Ideally all Jenkins nodes will have the same/latest version of every package.
 This will require monitoring and patching up any node when things come up.
 

@@ -131,15 +131,41 @@ Now the interfaces will be discoverable by other ROS 2 packages.
 
 In a new terminal, run the following command from within your workspace (``dev_ws``) to source it:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
 
-.. code-block:: console
+.. tabs::
 
-    ros2 interface show tutorial_interfaces/msg/Num
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show tutorial_interfaces/msg/Num
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 msg show tutorial_interfaces/msg/Num
 
 should return:
 
@@ -149,9 +175,19 @@ should return:
 
 And
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show tutorial_interfaces/srv/AddThreeInts
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show tutorial_interfaces/srv/AddThreeInts
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show tutorial_interfaces/srv/AddThreeInts
 
 should return:
 
@@ -722,7 +758,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
 
 This is a simple method of interface creation and utilization.
-ROS 2 encourages use of the ``rosidl`` tools, which you can learn about :ref:`here <ros-idl>`.
+You can learn more about interfaces :ref:`here <InterfaceConcept>`.
 
 ``.action`` files are another ROS 2 interface you can customize.
 You can learn about action interfaces :ref:`here <Actions>`.
@@ -730,5 +766,4 @@ You can learn about action interfaces :ref:`here <Actions>`.
 Next steps
 ----------
 
-Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+The :ref:`next tutorial <SinglePkgInterface>` covers more ways to use interfaces in ROS 2.

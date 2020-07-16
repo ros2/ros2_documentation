@@ -7,10 +7,16 @@ Installing ROS 2 on Windows
 
 This page explains how to install ROS 2 on Windows from a pre-built binary package.
 
+.. note::
+
+    The pre-built binary does not include all ROS 2 packages.
+    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
+
 System requirements
 -------------------
 
-As of beta-2 only Windows 10 is supported.
+Only Windows 10 is supported.
 
 .. _Foxy_windows-install-binary-installing-prerequisites:
 
@@ -33,7 +39,7 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
 .. code-block:: bash
 
-   > choco install -y python --version 3.7.5
+   > choco install -y python --version 3.8.3
 
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -47,9 +53,9 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.0.2u* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2u*.
-Don't download the Win32 or Light versions or version 1.1.0 or newer.
+Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
+Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
 The following commands assume you used the default installation directory:
@@ -84,7 +90,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -146,6 +152,22 @@ RQt dependencies
 .. code-block:: bash
 
    python -m pip install -U pydot PyQt5
+
+.. _Foxy_windows-install-binary-installing-rqt-dependencies:
+
+To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
+
+* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
+* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
+
+.. code-block:: bash
+
+  dot.exe
+
+* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
+* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
+* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
+* Click on Ok Button.
 
 Downloading ROS 2
 -----------------

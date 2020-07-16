@@ -7,7 +7,7 @@ Installing ROS 2 on Linux
 
 This page explains how to install ROS 2 on Linux from a pre-built binary package.
 
-As of Beta 2 there are also `Debian packages <Linux-Install-Debians>` available.
+There are also `Debian packages <Linux-Install-Debians>` available.
 
 System Requirements
 -------------------
@@ -61,7 +61,7 @@ Set your rosdistro according to the release you downloaded.
        rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro $CHOOSE_ROS_DISTRO -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/kinetic/Installation/Ubuntu
+   Follow the normal install instructions: https://wiki.ros.org/kinetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Environment setup
 -----------------

@@ -139,13 +139,21 @@ Open a new terminal to install ``rqt`` and its plugins:
 
 .. tabs::
 
+  .. group-tab:: Linux (apt 2.0/Ubuntu 20.04 and newer)
+
+    .. code-block:: console
+
+      sudo apt update
+
+      sudo apt install ~nros-<distro>-rqt*
+
   .. group-tab:: Linux
 
     .. code-block:: console
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt-*
+      sudo apt install ros-<distro>-rqt*
 
   .. group-tab:: macOS
 
@@ -231,7 +239,7 @@ In a new terminal, source ROS 2, and run:
 
 .. tabs::
 
-   .. group-tab:: Eloquent
+   .. group-tab:: Eloquent and newer
 
       .. code-block:: console
 
@@ -262,3 +270,9 @@ Next steps
 ----------
 
 Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :ref:`ROS2Nodes`.
+
+Related content
+---------------
+
+The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
+Make sure to adjust the branch to view the version of turtlesim corresponding to your installed ROS 2 distro.

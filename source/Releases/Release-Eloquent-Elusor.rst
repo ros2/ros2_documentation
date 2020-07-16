@@ -28,8 +28,12 @@ Tier 3 platforms:
 * Debian Stretch (9): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
-For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__.
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
+Installation
+------------
+
+`Install Eloquent Elusor <../Installation/Eloquent>`
 
 New features in this ROS 2 release
 ----------------------------------
@@ -49,7 +53,7 @@ A few features and improvements we would like to highlight:
 * RMW implementations:
 
   * `API to loan message for zero copy <https://github.com/ros2/design/pull/256>`__, used by `rmw_iceoryx <https://github.com/ros2/rmw_iceoryx>`__
-  * `FastRTPS 1.9.3 <https://github.com/ros2/ros2/issues/734#issuecomment-518018479>`__
+  * `Fast RTPS 1.9.3 <https://github.com/ros2/ros2/issues/734#issuecomment-518018479>`__
   * New Tier-2 implementation: `rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`__ (also backported to Dashing)
 
 * Environment variable `ROS_LOCALHOST_ONLY <https://github.com/ros2/ros2/issues/798>`__ to limit communication to localhost
@@ -206,7 +210,7 @@ is written using Eloquent (and onwards) syntax as:
     ros2 run some_package some_node --ros-args --remap foo:=bar --params-file /path/to/params.yaml --log-level WARN -- --user-flag
 
 This explicit syntax affords new features, like single parameter assignment ``--param name:=value``.
-For further reference and rationale, check the `ROS command line arguments design document <http://design.ros2.org/articles/ros_command_line_arguments.html>`__.
+For further reference and rationale, check the `ROS command line arguments design document <https://design.ros2.org/articles/ros_command_line_arguments.html>`__.
 
 .. warning::
 

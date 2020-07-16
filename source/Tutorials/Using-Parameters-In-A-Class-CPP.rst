@@ -177,9 +177,21 @@ Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp
 
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: console
+.. tabs::
 
-  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro <distro> -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
@@ -189,9 +201,25 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now run the node:
 
@@ -211,7 +239,7 @@ There are two ways to accomplish this.
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :ref:`tutoral about parameters <ROS2Params>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :ref:`tutorial about parameters <ROS2Params>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
@@ -241,24 +269,71 @@ You can also set the parameter in a launch file, but first you will need to add 
 Inside the ``dev_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``cpp_parameters_launch.py``
 
-.. code-block:: Python
+.. tabs::
 
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
+  .. group-tab:: Foxy and newer
 
-    def generate_launch_description():
-      return LaunchDescription([
-        Node(
-          package="cpp_parameters",
-          node_executable="parameter_node",
-          node_name="custom_parameter_node",
-          output="screen",
-          emulate_tty=True,
-          parameters=[
-            {"my_parameter": "earth"}
-          ]
-        )
-      ])
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  executable="parameter_node",
+                  name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Eloquent
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  node_executable="parameter_node",
+                  node_name="custom_parameter_node",
+                  output="screen",
+                  emulate_tty=True,
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Dashing
+
+    ``emulate_tty``, which prints output to the console, is not available in Dashing.
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package="cpp_parameters",
+                  node_executable="parameter_node",
+                  node_name="custom_parameter_node",
+                  output="screen",
+                  parameters=[
+                      {"my_parameter": "earth"}
+                  ]
+              )
+          ])
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.
@@ -284,11 +359,27 @@ Open a console and navigate to the root of your workspace, ``dev_ws``, and build
 
     colcon build --packages-select cpp_parameters
 
-Then source the setup files:
+Then source the setup files in a new terminal:
 
-.. code-block:: console
+.. tabs::
 
-    . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now run the node using the launch file we have just created:
 
@@ -305,8 +396,8 @@ The terminal should return the following message every second:
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You added the dependencies, executable, and launch file to the package configuration files so that you could build and run them, and see the parameter in action.
+You created a node with a custom parameter, that can be set either from a launch file or the command line.
+You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
 
 Next steps
 ----------

@@ -32,4 +32,4 @@ To build the site just execute:
 make html
 ```
 
-The site will be generated in the build/html directory. The main page is README.html
+The site will be generated in the build/html directory. The main page is index.html

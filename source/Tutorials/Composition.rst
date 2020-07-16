@@ -12,7 +12,7 @@ Composing multiple nodes in a single process
 ROS 1 - Nodes vs. Nodelets
 --------------------------
 
-In ROS 1 you can write your code either as a `ROS node <http://wiki.ros.org/Nodes>`__ or as a `ROS nodelet <http://wiki.ros.org/nodelet>`__.
+In ROS 1 you can write your code either as a `ROS node <https://wiki.ros.org/Nodes>`__ or as a `ROS nodelet <https://wiki.ros.org/nodelet>`__.
 ROS 1 nodes are compiled into executables.
 ROS 1 nodelets on the other hand are compiled into a shared library which is then loaded at runtime by a container process.
 
@@ -20,7 +20,7 @@ ROS 2 - Unified API
 -------------------
 
 In ROS 2 the recommended way of writing your code is similar to a nodelet - we call it a ``Component``.
-This makes is easy to add common concepts to existing code, like a `life cycle <http://design.ros2.org/articles/node_lifecycle.html>`__.
+This makes is easy to add common concepts to existing code, like a `life cycle <https://design.ros2.org/articles/node_lifecycle.html>`__.
 The biggest drawback of different APIs is avoided in ROS 2 since both approaches use the same API in ROS 2.
 
 .. note::
@@ -211,11 +211,11 @@ The process will open each library and create one instance of each "rclcpp::Node
 
        ros2 pkg prefix composition
 
-to get the path to where composition is installed. Then call
+    to get the path to where composition is installed. Then call
 
-.. code-block:: bash
+    .. code-block:: bash
 
-   ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
+       ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
 
 Now the shell should show repeated output for each sent and received message.
 

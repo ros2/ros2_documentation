@@ -2,8 +2,6 @@
 
   Installation/Foxy/OSX-Development-Setup
 
-.. _macOS-latest:
-
 Building ROS 2 on macOS
 =======================
 
@@ -34,7 +32,7 @@ You need the following things installed to build ROS 2:
      .. code-block:: bash
 
         xcode-select --install
-        sudo xcode-select --switch /Library/Developer/CommandLineTools # Enable Command Line Tools
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
@@ -55,7 +53,12 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install cmake cppcheck eigen pcre poco python3 tinyxml wget bullet
+       brew install cmake cppcheck eigen pcre poco tinyxml wget bullet
+
+       brew install python@3.8
+       brew unlink python
+       # Make the python command be Python 3.8
+       brew link --force python@3.8
 
        # install dependencies for Fast-RTPS if you are using it
        brew install asio tinyxml2
@@ -73,7 +76,7 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging
        brew install log4cxx spdlog
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 #.
@@ -89,11 +92,20 @@ You need the following things installed to build ROS 2:
        export PATH=$PATH:/usr/local/opt/qt/bin
 
 #.
+   Install rqt dependencies
+
+  ``brew install graphviz pyqt5 sip``
+
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+
+  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
+
+#.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pyparsing pytest-mock rosdep setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
@@ -101,7 +113,7 @@ You need the following things installed to build ROS 2:
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
 
 
-   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
+   * Start with the normal install instructions: https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
    *
      When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
 
@@ -128,13 +140,13 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_foxy/src
    cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -184,8 +196,6 @@ Stay up to date
 ---------------
 
 See :ref:`MaintainingSource` to periodically refresh your source installation.
-
-.. _Foxy_osx-development-setup-troubleshooting:
 
 Troubleshooting
 ---------------

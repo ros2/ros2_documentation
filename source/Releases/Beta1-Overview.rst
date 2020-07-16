@@ -23,9 +23,9 @@ Improvements since Alpha 8 release
 * Support for node composition at compile, link, or runtime.
 * A standard lifecycle for managed nodes.
 * Improved support for Quality of Service tuning and tests.
-* `New and updated design documents <http://design.ros2.org/>`__
+* `New and updated design documents <https://design.ros2.org/>`__
 * More `tutorials <../Tutorials>` and `examples <https://github.com/ros2/examples>`__
-* Bridging services to / from ROS1 (in addition to topics)
+* Bridging services to / from ROS 1 (in addition to topics)
 
 Selected features from previous Alpha releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -40,7 +40,7 @@ For the complete list, see `earlier release notes <../Releases>`.
   * Getting and setting ROS parameters (C++ only, synchronous and asynchronous)
   * Timer callbacks
   * Support for interoperability between multiple DDS/RTPS implementations
-  * eProsima FastRTPS is our default implementation, and is included in the binary packages
+  * eProsima Fast RTPS is our default implementation, and is included in the binary packages
   * RTI Connext is supported: build from source to try it out
   * We initially supported PrismTech OpenSplice but eventually decided to drop it
 

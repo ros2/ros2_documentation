@@ -7,7 +7,13 @@ Installing ROS 2 on Linux
 
 This page explains how to install ROS 2 on Linux from a pre-built binary package.
 
-As of Beta 2 there are also `Debian packages <Linux-Install-Debians>` available.
+.. note::
+
+    The pre-built binary does not include all ROS 2 packages.
+    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/dashing-release/ros2.repos>`_.
+
+There are also `Debian packages <Linux-Install-Debians>` available.
 
 System Requirements
 -------------------
@@ -60,7 +66,7 @@ Set your rosdistro according to the release you downloaded.
        rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/melodic/Installation/Ubuntu
+   Follow the normal install instructions: https://wiki.ros.org/melodic/Installation/Ubuntu
 
 
 Installing the python3 libraries
@@ -73,7 +79,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Environment setup
 -----------------

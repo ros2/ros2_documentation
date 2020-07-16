@@ -13,7 +13,7 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Eloquent Elusor are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Eloquent Elusor are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 
@@ -82,7 +82,7 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
-   # install CycloneDDS dependencies
+   # install Cyclone DDS dependencies
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
@@ -111,12 +111,10 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
-.. _Eloquent_linux-development-setup-install-more-dds-implementations-optional:
-
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------

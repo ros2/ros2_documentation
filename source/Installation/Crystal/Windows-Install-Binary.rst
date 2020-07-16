@@ -10,7 +10,7 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
 System requirements
 -------------------
 
-As of beta-2 only Windows 10 is supported.
+Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
@@ -63,15 +63,15 @@ Install Visual Studio
 
    Make sure that the Visual C++ features are installed. First choose 'Custom installation':
 
-   .. image:: http://i.imgur.com/tUcOMOA.png
+   .. image:: https://i.imgur.com/tUcOMOA.png
 
    Next check Visual C++:
 
-   .. image:: http://i.imgur.com/yWVEUkm.png
+   .. image:: https://i.imgur.com/yWVEUkm.png
 
    Ensure that the correct features will be installed:
 
-   .. image:: http://i.imgur.com/VxdbA7G.png
+   .. image:: https://i.imgur.com/VxdbA7G.png
 
 
 **B. Install Visual Studio 2017 if using Bouncy or a nightly**
@@ -93,7 +93,7 @@ Install Visual Studio
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^

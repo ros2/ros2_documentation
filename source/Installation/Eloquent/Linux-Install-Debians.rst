@@ -115,12 +115,13 @@ See the `tutorials and demos </Tutorials>` for other things to try.
 
 .. _Eloquent_linux-install-additional-rmw-implementations:
 
-Install additional RMW implementations
---------------------------------------
+Install additional RMW implementations (optional)
+-------------------------------------------------
 
-By default the RMW implementation ``FastRTPS`` is used.
+By default the RMW implementation ``Fast RTPS`` is used.
+``Cyclone DDS`` is also installed.
 
-To install support for OpenSplice or RTI Connext:
+To install support for ``OpenSplice`` or ``RTI Connext``:
 
 .. code-block:: bash
 
@@ -131,17 +132,15 @@ To install support for OpenSplice or RTI Connext:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_connext_cpp`` you can switch to use RTI Connext.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <../Install-Connext-Security-Plugins>`.
+You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
 
 .. _Eloquent_linux-ros1-add-pkgs:
-
-`University, purchase or evaluation <../Install-Connext-University-Eval>` options are also available for RTI Connext.
 
 Install additional packages using ROS 1 packages
 ------------------------------------------------
 
 The ``ros1_bridge`` as well as the TurtleBot demos are using ROS 1 packages.
-To be able to install them please start by adding the ROS 1 sources as documented `here <http://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.
+To be able to install them please start by adding the ROS 1 sources as documented `here <https://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.
 
 If you're using Docker for isolation you can start with the image ``ros:melodic`` or ``osrf/ros:melodic-desktop`` (or Kinetic if using Ardent).
 This will also avoid the need to setup the ROS sources as they will already be integrated.

@@ -12,7 +12,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (14 as of 2019-09-20):
+The current members of the ROS 2 TSC are (17 as of 2020-06-05):
 
 .. |adlink| image:: Governance/adlink.svg
    :alt: ADLINK Technology logo
@@ -69,10 +69,20 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
    :height: 35px
    :target: https://www.openrobotics.org
 
+.. |picknik| image:: Governance/picknik.jpg
+   :alt: PickNik logo
+   :height: 35px
+   :target: https://picknik.ai/
+
 .. |robotis| image:: Governance/robotis.png
    :alt: ROBOTIS logo
    :height: 35px
    :target: https://www.robotis.com/
+
+.. |rover| image:: Governance/rover.png
+   :alt: Rover Robotics logo
+   :height: 35px
+   :target: https://roverrobotics.com/
 
 .. |samsung| image:: Governance/samsung.svg
    :alt: Samsung logo
@@ -113,8 +123,12 @@ The current members of the ROS 2 TSC are (14 as of 2019-09-20):
      - Microsoft: Sean Yen
    * - |openrobotics|
      - Open Robotics: Dirk Thomas
+   * - |picknik|
+     - PickNik: Dave Coleman
    * - |robotis|
      - ROBOTIS: Will Son
+   * - |rover|
+     - Rover Robotics: Nick Fragale
    * - |samsung|
      - Samsung: Steven Macenski
    * - |gvsc|
@@ -132,6 +146,14 @@ Working Groups (WGs)
 As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 The current WGs are (6 as of 2019-09-04):
+
+* Edge AI
+
+ * Lead(s): Joe Speed
+ * Resources:
+
+  * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
+  * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
 
 * Embedded Systems:
 
@@ -175,7 +197,7 @@ The current WGs are (6 as of 2019-09-04):
  * Lead(s): Joe McManus, Kyle Fazzari
  * Resources:
 
-  * `2019-02-13 meeting notes <https://discourse.ros.org/t/ros2-security-working-group-online-meeting-feb-13th-2019-between-2-00-3-00-pm-pst/7639/2>`__
+  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
   * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
   * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
 
@@ -210,4 +232,4 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
 
 
 
-If you have an individial event or series of events that you'd like to post please contact info@openrobotics.org
+If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org

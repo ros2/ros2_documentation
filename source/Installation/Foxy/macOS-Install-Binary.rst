@@ -11,6 +11,12 @@ Installing ROS 2 on macOS
 
 This page explains how to install ROS 2 on macOS from a pre-built binary package.
 
+.. note::
+
+    The pre-built binary does not include all ROS 2 packages.
+    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
+
 System requirements
 -------------------
 
@@ -44,7 +50,11 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       brew install python3
+       brew install python@3.8
+       # Unlink in case you have python@3.7 installed already
+       brew unlink python
+       # Make the python command be Python 3.8
+       brew link --force python@3.8
 
        # install asio and tinyxml2 for Fast-RTPS
        brew install asio tinyxml2
@@ -67,9 +77,9 @@ You need the following things installed before installing ROS 2.
        brew install console_bridge
 
        # install dependencies for rcl_logging_log4cxx
-       brew install log4cxx
+       brew install log4cxx spdlog
 
-       # install CUnit for CycloneDDS
+       # install CUnit for Cyclone DDS
        brew install cunit
 
 *
@@ -77,7 +87,7 @@ You need the following things installed before installing ROS 2.
 
   ``brew install sip pyqt5``
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -104,7 +114,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
+       python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------
@@ -132,7 +142,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-macOS-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Environment setup
 -----------------

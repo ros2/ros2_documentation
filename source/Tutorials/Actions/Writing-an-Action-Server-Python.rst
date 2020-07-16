@@ -25,7 +25,7 @@ The class is initialized by calling the ``Node`` constructor, naming our node "f
     :language: python
     :lines: 11
 
-After the class defintion, we define a function ``main()`` that initializes ROS, creates an instance of our ``FibonacciActionServer`` node, and calls `rclpy.spin() <http://docs.ros2.org/latest/api/rclpy/api/init_shutdown.html#rclpy.spin>`_ on our node.
+After the class defintion, we define a function ``main()`` that initializes ROS, creates an instance of our ``FibonacciActionServer`` node, and calls `rclpy.spin() <https://docs.ros2.org/latest/api/rclpy/api/init_shutdown.html#rclpy.spin>`_ on our node.
 The spin will keep our action server alive and responsive to incoming goals.
 Finally, we call ``main()`` in the entry point of our Python program.
 
@@ -65,7 +65,7 @@ In another terminal, we can use the command line interface to send a goal:
 You should see our logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
 
-We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeeded>`_ on the goal handle to indicate that the goal was successful:
+We can use the method `succeed() <https://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeeded>`_ on the goal handle to indicate that the goal was successful:
 
 .. literalinclude:: server_1.py
     :language: python
@@ -92,7 +92,7 @@ Publishing Feedback
 -------------------
 
 One of the nice things about actions is the ability to provide feedback to an action client during goal execution.
-We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
+We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <https://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
 
 We'll replace the ``sequence`` variable, and use a feedback message to store the sequence instead.
 After every update of the feedback message in the for-loop, we publish the feedback message and sleep for dramatic effect:

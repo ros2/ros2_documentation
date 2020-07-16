@@ -1,15 +1,24 @@
 Install DDS implementations
 ===========================
 
-By default, ROS 2 uses DDS as its `middleware <http://design.ros2.org/articles/ros_on_dds.html>`__.
+By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-There is currently support for eProsima FastRTPS, ADLINK's OpenSplice, RTI's Connext DDS and CycloneDDS.
-The repositories you downloaded for ROS 2 includes eProsima's Fast RTPS, which is the only bundled vendor.
+There is currently support for eProsima Fast RTPS, ADLINK's OpenSplice, RTI's Connext DDS and Eclipse Cyclone DDS.
+
+For distros before Eloquent, the only bundled vendor is eProsima's Fast RTPS.
+Since Eloquent, both Fast RTPS and Cyclone DDS are bundled, but Fast RTPS is still the default.
+`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   DDS-Implementations/*
 
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`
+Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`.
 
 Detailed instructions for installing other DDS vendors are provided below.
 
@@ -17,38 +26,23 @@ Detailed instructions for installing other DDS vendors are provided below.
    :depth: 1
    :local:
 
-.. _dds-linux-source:
-
 Linux source install
 --------------------
 
 ADLINK OpenSplice Debian Packages built by OSRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+.. tabs::
 
-   sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
+  .. group-tab:: Foxy and newer
 
-.. raw:: html
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-   <!--
-   ##### Official binary packages from PrismTech
+  .. group-tab:: Eloquent and older
 
-   Install the packages provided by [OpenSplice](https://github.com/ADLINK-IST/opensplice/releases/tag/OSPL_V6_7_180404OSS_RELEASE%2BVS2017%2Bubuntu1804).
-   Remember to replace `@@INSTALLDIR@@` with the path where you unpacked the OpenSplice distribution.
-   Then, source the ROS `setup.bash` file, and finally, source the `release.com` file in the root of the OpenSplice distribution to set the `OSPL_HOME` environment variable appropriately.
-   After that, your shell is ready to run ROS 2 binaries with the official OpenSplice distribution.
+     .. code-block:: bash
 
-   You may also need to add the following line to your `.bashrc` file:
-
-   ```
-   export PTECH_LICENSE_FILE=path/to/prismtech.lic
-   ```
-
-   ##### Building OpenSplice from source
-
-   If you build OpenSplice from source, be sure to remember to following the INSTALL.txt instructions and manually replace the @@INSTALLDIR@@ placeholder in the OpenSplice install/HDE/x86_64.linux/release.com
-   -->
+       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,12 +68,10 @@ Note: when using ``zsh`` you need to be in the directory of the script when sour
 
 Now you can build as normal and support for RTI will be built as well.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`
-
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
@@ -102,24 +94,28 @@ Source the setup file to set the ``NDDSHOME`` environment variable.
 
 Now you can build as normal and support for RTI will be built as well.
 
-.. _dds-linux-binary:
-
 Linux binary install
 --------------------
 
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-To use OpenSplice you can install a Debian package built by OSRF.
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Foxy and newer
 
-   sudo apt update && sudo apt install -q -y libopensplice69
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     .. code-block:: bash
+
+       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
@@ -145,9 +141,7 @@ All options need you to source the setup file to set the ``NDDSHOME`` environmen
 
 Note: the above may need modification to match your RTI installation location
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
-
-.. _dds-macOS-source:
+If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 OSX source install
 ------------------
@@ -155,20 +149,26 @@ OSX source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-Active ROS 2 distros support OpenSplice 6.9.
+.. tabs::
 
-To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+  .. group-tab:: Foxy and newer
 
-Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-.. code-block:: bash
+  .. group-tab:: Eloquent and older
 
-   source <path_to_opensplice>/x86_64.darwin10_clang/release.com
+     To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+
+     Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
+
+     .. code-block:: bash
+
+        source <path_to_opensplice>/x86_64.darwin10_clang/release.com
 
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
@@ -187,9 +187,7 @@ The setup file and path will depend on your macOS version.
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
-
-.. _dds-macOS-binary:
+If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 OSX binary install
 ------------------
@@ -197,13 +195,21 @@ OSX binary install
 Enable OpenSplice support
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
+.. tabs::
+
+  .. group-tab:: Foxy and newer
+
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
+     Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
 
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -215,9 +221,7 @@ Set the ``NDDSHOME`` environment variable:
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
-
-.. _dds-windows-source:
+If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 Windows source install
 ----------------------
@@ -225,19 +229,27 @@ Windows source install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
-Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: Foxy and newer
 
-   call "C:\opensplice69\HDE\x86_64.win64\release.bat"
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
 
-Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
+  .. group-tab:: Eloquent and older
+
+     If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
+     Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
+
+     .. code-block:: bash
+
+        call "C:\opensplice69\HDE\x86_64.win64\release.bat"
+
+     Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
 
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, use the RTI Launcher to load your license file.
 
@@ -250,11 +262,7 @@ Then before building ROS 2, set up the Connext environment:
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
-
-If you don't install any additional DDS vendors, ROS 2 will default to using eProsima's Fast-RTPS as the middleware.
-
-.. _dds-windows-binary:
+If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 Windows binary install
 ----------------------
@@ -262,15 +270,23 @@ Windows binary install
 ADLINK OpenSplice
 ^^^^^^^^^^^^^^^^^
 
-If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-For active ROS 2 distros, version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+.. tabs::
 
-After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
+  .. group-tab:: Foxy and newer
+
+     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
+
+  .. group-tab:: Eloquent and older
+
+     If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
+     Version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
+
+     After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
 RTI Connext
 ^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <Install-Connext-University-Eval>`
+To use RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -280,4 +296,4 @@ Set the ``NDDSHOME`` environment variable:
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.

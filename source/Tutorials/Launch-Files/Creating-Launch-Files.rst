@@ -81,11 +81,43 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. tabs::
 
-   .. group-tab:: Dashing or Eloquent
+  .. group-tab:: Foxy and newer
 
-      .. code-block:: python
+    .. code-block:: python
 
-         from  launch import LaunchDescription
+        from launch import LaunchDescription
+        from launch_ros.actions import Node
+
+        def generate_launch_description():
+            return LaunchDescription([
+                Node(
+                    package='turtlesim',
+                    namespace='turtlesim1',
+                    executable='turtlesim_node',
+                    name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    namespace='turtlesim2',
+                    executable='turtlesim_node',
+                    name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    executable='mimic',
+                    name='mimic',
+                    remappings=[
+                        ('/input/pose', '/turtlesim1/turtle1/pose'),
+                        ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+                    ]
+                )
+            ])
+
+  .. group-tab:: Eloquent and older
+
+    .. code-block:: python
+
+         from launch import LaunchDescription
          from launch_ros.actions import Node
 
          def generate_launch_description():
@@ -113,37 +145,6 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
                  )
              ])
 
-   .. group-tab:: Foxy or newer
-
-      .. code-block:: python
-
-         from  launch import LaunchDescription
-         from launch_ros.actions import Node
-
-         def generate_launch_description():
-             return LaunchDescription([
-                 Node(
-                     package='turtlesim',
-                     namespace='turtlesim1',
-                     executable='turtlesim_node',
-                     name='sim'
-                 ),
-                 Node(
-                     package='turtlesim',
-                     namespace='turtlesim2',
-                     executable='turtlesim_node',
-                     name='sim'
-                 ),
-                 Node(
-                     package='turtlesim',
-                     executable='mimic',
-                     name='mimic',
-                     remappings=[
-                         ('/input/pose', '/turtlesim1/turtle1/pose'),
-                         ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                     ]
-                 )
-             ])
 
 2.1 Examine the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -171,9 +172,26 @@ The first two actions in the launch description launch two turtlesim windows:
 
 .. tabs::
 
-   .. group-tab:: Dashing or Eloquent
+  .. group-tab:: Foxy and newer
 
-      .. code-block:: python
+    .. code-block:: python
+
+           Node(
+               package='turtlesim',
+               namespace='turtlesim1',
+               executable='turtlesim_node',
+               name='sim'
+           ),
+           Node(
+               package='turtlesim',
+               namespace='turtlesim2',
+               executable='turtlesim_node',
+               name='sim'
+           ),
+
+  .. group-tab:: Eloquent and older
+
+    .. code-block:: python
 
             Node(
                 package='turtlesim',
@@ -188,23 +206,6 @@ The first two actions in the launch description launch two turtlesim windows:
                 node_name='sim'
             ),
 
-   .. group-tab:: Foxy or newer
-
-      .. code-block:: python
-
-            Node(
-                package='turtlesim',
-                namespace='turtlesim1',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-            Node(
-                package='turtlesim',
-                namespace='turtlesim2',
-                executable='turtlesim_node',
-                name='sim'
-            ),
-
 Note the only difference between the two nodes is their namespace values.
 Unique namespaces allow the system to start two simulators without node name nor topic name conflicts.
 
@@ -215,9 +216,24 @@ The final node is also from the ``turtlesim`` package, but a different executabl
 
 .. tabs::
 
-   .. group-tab:: Dashing or Eloquent
 
-      .. code-block:: python
+  .. group-tab:: Foxy and newer
+
+    .. code-block:: python
+
+          Node(
+              package='turtlesim',
+              executable='mimic',
+              name='mimic',
+              remappings=[
+                ('/input/pose', '/turtlesim1/turtle1/pose'),
+                ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+              ]
+          )
+
+  .. group-tab:: Eloquent and older
+
+    .. code-block:: python
 
             Node(
                 package='turtlesim',
@@ -229,19 +245,6 @@ The final node is also from the ``turtlesim`` package, but a different executabl
                 ]
             )
 
-   .. group-tab:: Foxy or newer
-
-      .. code-block:: python
-
-            Node(
-                package='turtlesim',
-                executable='mimic',
-                name='mimic',
-                remappings=[
-                  ('/input/pose', '/turtlesim1/turtle1/pose'),
-                  ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                ]
-            )
 
 This node has added configuration details in the form of remappings.
 
@@ -284,7 +287,7 @@ To see the system in action, open a new terminal and run the ``ros2 topic pub`` 
 
 .. code-block:: console
 
-  ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'
+  ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 You will see both turtles following the same path.
 

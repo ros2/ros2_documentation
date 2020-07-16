@@ -1,5 +1,3 @@
-.. _windows-latest:
-
 Building ROS 2 on Windows
 =========================
 
@@ -7,7 +5,7 @@ Building ROS 2 on Windows
    :depth: 2
    :local:
 
-This guide is about how to setup a development environment for ROS 2 on Windows.
+This guide is about how to set up a development environment for ROS 2 on Windows.
 
 Prerequisites
 -------------
@@ -32,8 +30,6 @@ First install git:
 
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
-
-You may need to close the cmd prompt and open a new one, but at this point you should be able to run ``git``\ , ``python``\ , and ``cmake``\.
 
 Install developer tools
 -----------------------
@@ -71,7 +67,7 @@ Next install the latest version of ``setuptools`` and ``pip``:
 
    > <PATH_TO_PYTHON_EXECUTABLE> -m pip install -U setuptools pip
 
-Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python37\python.exe``
+Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python38\python.exe``
 
 Then you can continue installing other Python dependencies:
 
@@ -115,18 +111,20 @@ https://www.qt.io/download
 Select the Open Source version and then the ``Qt Online Installer for Windows``.
 
 Run the installer and install Qt5.
+
 We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
-When selecting components to install, the only thing you absolutely need for bouncy and later is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.10.0`` tree.
-We're using ``5.10.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later version will probably work too.
-For bouncy and later, be sure to select ``MSVC 2017 64-bit``. For ardent use ``MSVC 2015 64-bit``.
+When selecting components to install, the only thing you absolutely need for Foxy and later is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.15.0`` tree.
+We're using ``5.15.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later version will probably work too.
+For Foxy and later, be sure to select ``MSVC 2019 64-bit``.
 After that, the default settings are fine.
 
 Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you intend to build so that CMake can find it:
 
 .. code-block:: bash
 
-   > set Qt5_DIR=C:\Qt\5.10.0\msvc2017_64
-   : You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.10.0\msvc2017_64`` instead, but that requires Administrator.
+   > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+
+You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` instead, but that requires Administrator.
 
 .. note::
 
@@ -138,6 +136,8 @@ RQt dependencies
 .. code-block:: bash
 
    > pip install -U pydot PyQt5
+
+Follow the steps for `Installing Graphviz <Foxy_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
 
 Get the ROS 2 code
 ------------------
@@ -156,10 +156,10 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+   > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+   > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
@@ -174,7 +174,7 @@ Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos``
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -183,7 +183,7 @@ Build the ROS 2 code
 
 To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019") running as Administrator.
 
-FastRTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
+Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
 To build the ``\dev\ros2_foxy`` folder tree:
 
@@ -208,7 +208,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_foxy\local_setup.bat
+   > call C:\dev\ros2_foxy\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -282,31 +282,31 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 
 * You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.7.3 source from the ``tgz``:
+* Get and extract the Python 3.8.3 source from the ``tgz``:
 
-  * https://www.python.org/ftp/python/3.7.3/Python-3.7.3.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.7.3``
+  * https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
+  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.8.3``
 
 * Now, build the Python source in debug mode from a Visual Studio command prompt:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild
+   > cd C:\dev\Python-3.8.3\PCbuild
    > get_externals.bat
    > build.bat -p x64 -d
 
 
-* Finally, copy the build products into the Python37 installation directories, next to the Release-mode Python executable and DLL's:
+* Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.7.3\PCbuild\amd64
-   > copy python_d.exe C:\Python37 /Y
-   > copy python37_d.dll C:\Python37 /Y
-   > copy python3_d.dll C:\Python37 /Y
-   > copy python37_d.lib C:\Python37\libs /Y
-   > copy python3_d.lib C:\Python37\libs /Y
-   > for %I in (*_d.pyd) do copy %I C:\Python37\DLLs /Y
+   > cd C:\dev\Python-3.8.3\PCbuild\amd64
+   > copy python_d.exe C:\Python38 /Y
+   > copy python38_d.dll C:\Python38 /Y
+   > copy python3_d.dll C:\Python38 /Y
+   > copy python38_d.lib C:\Python38\libs /Y
+   > copy python3_d.lib C:\Python38\libs /Y
+   > for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
@@ -320,8 +320,8 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.16.2-cp37-cp37dm-win_amd64.whl
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.3.2-cp37-cp37dm-win_amd64.whl
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
+   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
 
 * To verify the installation of these dependencies:
 

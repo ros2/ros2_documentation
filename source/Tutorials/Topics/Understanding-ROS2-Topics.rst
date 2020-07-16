@@ -18,7 +18,13 @@ Background
 
 ROS 2 breaks complex systems down into many modular nodes.
 Topics are a vital element of the ROS graph that act as a bus for nodes to exchange messages.
+
+.. image:: Topic-SinglePublisherandSingleSubscriber.gif
+
 A node may publish data to any number of topics and simultaneously have subscriptions to any number of topics.
+
+.. image:: Topic-MultiplePublisherandMultipleSubscriber.gif
+
 Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
 
 
@@ -168,7 +174,7 @@ Which will return:
 
 .. tabs::
 
-  .. group-tab:: Eloquent
+  .. group-tab:: Eloquent and newer
 
     .. code-block:: console
 
@@ -176,7 +182,7 @@ Which will return:
       Publisher count: 1
       Subscriber count: 2
 
-  .. group-tab:: Dashing/earlier
+  .. group-tab:: Dashing
 
     .. code-block::
 
@@ -201,9 +207,19 @@ This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twi
 
 Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the details, specifically, what structure of data the message expects.
 
-.. code-block:: console
+.. tabs::
 
-    ros2 interface show geometry_msgs/msg/Twist.msg
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+        ros2 interface show geometry_msgs/msg/Twist
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 msg show geometry_msgs/msg/Twist
 
 .. code-block:: console
 
@@ -243,7 +259,7 @@ Input the full command like so:
 
 .. code-block:: console
 
-  ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
+  ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 ``--once`` is an optional argument meaning “publish one message then exit”.
 
@@ -263,7 +279,7 @@ So, to get the turtle to keep moving, you can run:
 
 .. code-block:: console
 
-  ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}'
+  ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
 
 The difference here is the removal of the ``--once`` option and the addition of the ``--rate 1`` option, which tells ``ros2 topic pub`` to publish the command in a steady stream at 1 Hz.
 

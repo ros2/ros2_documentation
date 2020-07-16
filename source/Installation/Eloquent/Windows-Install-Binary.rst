@@ -12,10 +12,16 @@ Installing ROS 2 on Windows
 
 This page explains how to install ROS 2 on Windows from a pre-built binary package.
 
+.. note::
+
+    The pre-built binary does not include all ROS 2 packages.
+    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/eloquent-release/ros2.repos>`_.
+
 System requirements
 -------------------
 
-As of beta-2 only Windows 10 is supported.
+Only Windows 10 is supported.
 
 .. _Eloquent_windows-install-binary-installing-prerequisites:
 
@@ -90,7 +96,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-windows-binary>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^

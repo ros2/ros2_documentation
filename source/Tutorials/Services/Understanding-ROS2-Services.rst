@@ -20,10 +20,14 @@ Services are another method of communication for nodes on the ROS graph.
 Services are based on a call-and-response model, versus topics’ publisher-subscriber model.
 While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
+.. image:: Service-SingleServiceClient.gif
+
+.. image:: Service-MultipleServiceClient.gif
+
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like nodes and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
 
 You will need the :ref:`turtlesim package <Turtlesim>`
 
@@ -161,15 +165,35 @@ Which will return:
 
 You can call services from the command line, but first you need to know the structure of the input arguments.
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show <type_name>.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show <type_name>.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show <type_name>
 
 To run this command on the ``/clear`` service’s type, ``Empty``:
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show std_srvs/srv/Empty.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show std_srvs/srv/Empty.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show std_srvs/srv/Empty
 
 Which will return:
 
@@ -186,9 +210,21 @@ From the results of ``ros2 service list -t``, we know ``/spawn``’s type is ``t
 
 To see the arguments in a ``/spawn`` call-and-request, run the command:
 
-.. code-block:: console
+.. tabs::
 
-  ros2 interface show turtlesim/srv/Spawn.srv
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
+
+      ros2 interface show turtlesim/srv/Spawn.srv
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+      ros2 srv show turtlesim/srv/Spawn
+
+
 
 Which will return:
 
@@ -262,3 +298,8 @@ Next steps
 ----------
 
 In the next tutorial, :ref:`ROS2Params`, you will learn about configuring node settings.
+
+Related content
+---------------
+
+Check out `this tutorial <https://discourse.ubuntu.com/t/call-services-in-ros-2/15261>`_; it's an excellent realistic application of "Understanding ROS 2 services" using a Robotis robot arm.

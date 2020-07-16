@@ -3,15 +3,10 @@
 Tutorials
 =========
 
-.. note::
-
-  Currently, the beginner level tutorials target **Eloquent**, installed from `Debians on Linux </Installation/Linux-Install-Debians>`.
-  Certain features and commands may not be available for older distributions/other installation types.
-
 Beginner
 --------
 
-The beginner level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
+The beginner-level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
 It starts with using the Commandline Interface (CLI) tools, then moves on to the C++ and Python client libraries.
 
 .. warning::
@@ -50,7 +45,9 @@ Beginner: Client Libraries
    Tutorials/Writing-A-Simple-Cpp-Service-And-Client
    Tutorials/Writing-A-Simple-Py-Service-And-Client
    Tutorials/Custom-ROS2-Interfaces
+   Tutorials/Single-Package-Define-And-Use-Interface
    Tutorials/Using-Parameters-In-A-Class-CPP
+   Tutorials/Using-Parameters-In-A-Class-Python
    Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
@@ -65,7 +62,6 @@ Working With Your First Package & Workspace
    Tutorials/Developing-a-ROS-2-Package
    Tutorials/Colcon-Tutorial
    Tutorials/Ament-CMake-Documentation
-   Tutorials/Rosidl-Tutorial.rst
 
 Learning the ROS 2 Toolset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +84,6 @@ Advanced
 
    Tutorials/Sync-Vs-Async
    Tutorials/Working-with-multiple-RMW-implementations
-   Tutorials/Working-with-Eclipse-CycloneDDS
    Tutorials/catment
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
@@ -134,7 +129,6 @@ Demos
    Tutorials/Rosbag-with-ROS1-Bridge
    Tutorials/tf2
    Tutorials/Real-Time-Programming
-   Tutorials/Python-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
 
@@ -148,7 +142,6 @@ Demos
 * `MoveIt 2 demo using ROS 2 <https://github.com/ros-planning/moveit2/tree/master/moveit_demo_nodes/run_moveit_cpp>`__.
 * `Using tf2 with ROS 2 <Tutorials/tf2>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
-* `Use the rclpy API to write ROS 2 programs in Python <Tutorials/Python-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.

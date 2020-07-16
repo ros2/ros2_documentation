@@ -8,7 +8,7 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Crystal Clemmys are (see `REP 2000 <http://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Crystal Clemmys are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 - Tier 2: Ubuntu Linux - Xenial Xerus (16.04) 64-bit
@@ -107,12 +107,10 @@ Install dependencies using rosdep
    rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 python3-lark-parser rti-connext-dds-5.3.1 urdfdom_headers"
    python3 -m pip install -U lark-parser
 
-.. _linux-development-setup-install-more-dds-implementations-optional:
-
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :ref:`here <dds-linux-source>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------

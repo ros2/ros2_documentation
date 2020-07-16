@@ -10,7 +10,7 @@ Code style and language versions
 In order to achieve a consistent looking product we will all follow externally (if possible) defined style guidelines for each language.
 For other things like package layout or documentation layout we will need to come up with our own guidelines, drawing on current, popular styles in use now.
 
-Additionally, where ever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
+Additionally, wherever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
 For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
 
 Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`__).
@@ -34,7 +34,7 @@ We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for ou
   * rationale: C99 is pretty much ubiquitous now
 
 * C++ style ``//`` comments are allowed
-* Always place literals on the left hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
+* Always place literals on the left-hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
 
   * rationale: ``ret == 0`` too easily turns into ``ret = 0`` by accident
 
@@ -54,7 +54,7 @@ C++
 Standard
 ^^^^^^^^
 
-We will target C++14, using new built-in C++14 features over Boost equivalents where ever possible.
+We will target C++14, using new built-in C++14 features over Boost equivalents wherever possible.
 
 Style
 ^^^^^
@@ -66,6 +66,17 @@ Line Length
 ~~~~~~~~~~~
 
 * Our maximum line length is 100 characters.
+
+File Extensions
+~~~~~~~~~~~~~~~
+
+* Header files should use the .hpp extension.
+
+  * rationale: Allow tools to determine content of files, C++ or C.
+
+* Implementation files should use the .cpp extension.
+
+  * rationale: Allow tools to determine content of files, C++ or C.
 
 Variable Naming
 ~~~~~~~~~~~~~~~
@@ -114,7 +125,7 @@ Exceptions
 * Exceptions are allowed
 
   * rationale: this is a new code base, so the legacy argument doesn't apply to us
-  * rationale: for user facing API's it is more idiomatic C++ to have exceptions
+  * rationale: for user-facing API's it is more idiomatic C++ to have exceptions
   * Exceptions in destructors should be explicitly avoided
 
 * We should consider avoiding Exceptions if we intend to wrap the resulting API in C
@@ -313,7 +324,7 @@ We will use the `PEP8 guidelines <https://www.python.org/dev/peps/pep-0008/>`_ f
 
 We chose the following more precise rule where PEP 8 leaves some freedom:
 
-* `We allow up to 100 character per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
+* `We allow up to 100 characters per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
 * `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
 * `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
 
@@ -372,12 +383,12 @@ The following rules to format text is intended to increase readability as well a
   * ``"``
   * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
 
-* *[.md only]* In Markdown the headings should follow the atx-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
+* *[.md only]* In Markdown the headings should follow the ATX-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
 
-  * Atx-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
+  * ATX-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
   * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
   * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
-  * Rationale: Atx-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
+  * Rationale: ATX-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
 
 * *[any]* Each sentence must start on a new line.
 

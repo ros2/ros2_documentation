@@ -9,9 +9,9 @@ Using Sphinx for cross-referencing packages
    :depth: 1
    :local:
 
-This is page provides a quick guide on how you can cross-reference packages documentation within rosindex using Sphinx.
+This page provides a quick guide on how you can cross-reference package documentation within rosindex using Sphinx.
 
-Inventory files must be added to ROSIndex Sphinx's ``conf.py`` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__. Note that the ``URI`` added to the configuration file must point to the directory where the ``.inv`` file is rather than to the file itself (i.e: ``http://docs.ros.org/independent/api/catkin_pkg`` instead of ``http://docs.ros.org/independent/api/catkin_pkg/objects.inv``).
+Inventory files must be added to ROSIndex Sphinx's ``conf.py`` file found `here <https://github.com/ros2/rosindex/blob/ros2/_sphinx/conf.py>`__. Note that the ``URI`` added to the configuration file must point to the directory where the ``.inv`` file is rather than to the file itself (i.e: ``https://docs.ros.org/independent/api/catkin_pkg`` instead of ``https://docs.ros.org/independent/api/catkin_pkg/objects.inv``).
 
 
 Showing all links of an Intersphinx mapping file

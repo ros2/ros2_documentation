@@ -1,8 +1,16 @@
 Installing the latest ROS 2 development
 =======================================
 
-If you plan to contribute directly to the latest ROS 2 development, you can install ROS 2 by building it from source.
+If you plan to contribute directly to the latest ROS 2 development, you can install ROS 2 by building it from source or installing pre-release binaries.
 This will give you the latest bug fixes and features.
+
+Pre-release binaries
+--------------------
+
+See `Pre-release Testing <Prerelease-Testing>`.
+
+Building from source
+--------------------
 
 .. note::
 

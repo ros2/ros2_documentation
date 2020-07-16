@@ -11,7 +11,7 @@ Composable nodes as shared libraries
 
 **Context**
 
-You want to export composable nodes as a shared libraries from some packages and using those in another package that does link-time composition.
+You want to export a composable node as a shared library from a package and use that node in another package that does link-time composition.
 
 **Solution**
 
@@ -25,12 +25,12 @@ You want to export composable nodes as a shared libraries from some packages and
 
 `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
 
-FastRTPS large data transfer
-----------------------------
+Fast RTPS large data transfer
+-----------------------------
 
 **Context**
 
-You want to transfer large data via FastRTPS.
+You want to transfer large data via Fast RTPS.
 
 **Problem**
 
@@ -38,7 +38,7 @@ DDS/RTPS uses UDP with a maximum message size of 64k
 
 **Solution**
 
-Configure the middleware that it fragements large data into messages
+Configure the middleware so that it fragments large data into messages
 
 **Implementation**
 
@@ -52,17 +52,16 @@ Use Asynchronous publication mode:
 
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
-FastRTPS Best Effort Video Streaming
-------------------------------------
+Fast RTPS Best Effort Video Streaming
+-------------------------------------
 
 **Context**
 
-You want to transfer video streams and provide up to date data. It is ok to loose some packages.
+You want to transfer video streams and provide up-to-date data. It is OK to lose some of the images.
 
 **Problem**
 
-Acknowledged data transmission mechanisms prevent from being able to provide
-up to date packages.
+Acknowledged data transmission mechanisms (also known as "reliable" delivery) ensure every packet is delivered, which can cause the video stream to fall behind.
 
 **Solution**
 
@@ -87,8 +86,8 @@ mechanism) and prioritize the last frame.
 
 `ROS2 Fine Tuning <https://roscon.ros.org/2017/presentations/ROSCon%202017%20ROS2%20Fine%20Tuning.pdf>`__
 
-FastRTPS Reliable Video Streaming
----------------------------------
+Fast RTPS Reliable Video Streaming
+----------------------------------
 
 **Context**
 
@@ -101,7 +100,7 @@ Use a reliable communication mechanism. Use fast response by writer and reader.
 **Implementation**
 
 * Configure "reliable" reliability mechanism
-* Configure NACK reponse delay and suppression duration of writer to 0
+* Configure NACK response delay and suppression duration of writer to 0
 * Configure heartbeat response delay of reader to 0
 
 .. code-block:: bash

@@ -14,7 +14,7 @@ ROS 2 Crystal Clemmys (codename 'crystal'; December 2018)
 Supported Platforms
 -------------------
 
-Crystal Clemmys is primarily supported on the following platforms (see `REP 2000 <http://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for full details):
+Crystal Clemmys is primarily supported on the following platforms (see `REP 2000 <https://www.ros.org/reps/rep-2000.html#crystal-clemmys-december-2018-december-2019>`__ for full details):
 
 Tier 1 platforms:
 

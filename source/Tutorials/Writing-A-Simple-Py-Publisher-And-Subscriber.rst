@@ -56,7 +56,13 @@ Download the example talker code by entering the following command:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -265,7 +271,13 @@ Enter the following code in your terminal:
 
 .. tabs::
 
-   .. group-tab:: Linux/macOS
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+
+   .. group-tab:: macOS
 
       .. code-block:: console
 
@@ -386,9 +398,22 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
-.. code-block:: console
+.. tabs::
 
-  sudo rosdep install -i --from-path src --rosdistro <distro> -y
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro <distro> -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
 
 Still in the root of your workspace, ``dev_ws``, build your new package:
 
@@ -398,9 +423,25 @@ Still in the root of your workspace, ``dev_ws``, build your new package:
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
-.. code-block:: console
+.. tabs::
 
-  . install/setup.bash
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now run the talker node:
 

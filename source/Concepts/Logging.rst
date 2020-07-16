@@ -2,8 +2,8 @@
 
     Logging
 
-Logging and logger configuration
-================================
+About logging and logger configuration
+======================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -24,7 +24,7 @@ The logging functionality currently supported is:
 
 * Console output.
 
-  * File output and functionality akin to `rosout <http://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
+  * File output and functionality akin to `rosout <https://wiki.ros.org/rosout>`__ for remote consumption of messages is forthcoming.
 
 * Programmatic configuration of logger levels.
 
@@ -53,69 +53,9 @@ Logging usage
   .. group-tab:: C++
 
     * See the `logging demo <../Tutorials/Logging-and-logger-configuration>` for example usage.
-    * See the `rclcpp documentation <http://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
+    * See the `rclcpp documentation <https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
 
   .. group-tab:: Python
 
     * See the `rclpy examples <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__ for example usage of a node's logger.
     * See the `rclpy tests <https://github.com/ros2/rclpy/blob/master/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
-
-Logger configuration
---------------------
-
-.. _logging-command-line-configuration-of-the-default-severity-level:
-
-Command line configuration of the default severity level
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-As of the Bouncy ROS 2 release, the default severity level for loggers can be configured from the command line with the following, for example (the level string is not case sensitive):
-
-.. tabs::
-
-  .. group-tab:: Bouncy+
-
-    .. code-block:: bash
-
-      ros2 run demo_nodes_cpp listener __log_level:=debug
-
-  .. group-tab:: Eloquent+
-
-    .. code-block:: bash
-
-      ros2 run demo_nodes_cpp listener --ros-args --log-level DEBUG
-
-This will affect all loggers that have not explicitly been configured to use a particular severity level.
-Configuration of specific loggers from the command line is forthcoming.
-
-Programmatic configuration of individual loggers
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Logger configuration is still under development.
-For now, the severity level of individual loggers can be configured programmatically with, e.g.:
-
-.. tabs::
-
-  .. group-tab:: C++
-
-    .. code-block:: bash
-
-       rcutils_logging_set_logger_level("logger_name", RCUTILS_LOG_SEVERITY_DEBUG);
-
-  .. group-tab:: Python
-
-    .. code-block:: bash
-
-       logger.set_level(rclpy.logging.LoggingSeverity.DEBUG)
-       rclpy.logging.set_logger_level('logger_name', rclpy.logging.LoggingSeverity.DEBUG)
-
-The `logging demo <../Tutorials/Logging-and-logger-configuration>` provides an example of manually exposing a service so that loggers can be configured externally; in the future we expect runtime configuration capabilities of loggers to be exposed automatically.
-
-.. _logging-console-output-configuration:
-
-Console output configuration
-----------------------------
-
-By default, console output will be formatted to include the message severity, logger name, and the message.
-Information such as the file name, function name and line number of the log call are also available.
-Custom console output format can be configured with the ``RCUTILS_CONSOLE_OUTPUT_FORMAT`` environment variable: see the `rcutils documentation for details <http://docs.ros2.org/latest/api/rcutils/logging_8h.html#a27340ac73188b1cf8d9cb96d86c76694>`__.
-As ``rclpy`` and ``rclcpp`` both use ``rcutils`` for logging, this will effect all Python and C++ nodes.

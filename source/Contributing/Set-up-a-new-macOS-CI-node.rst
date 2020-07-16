@@ -101,7 +101,7 @@ RQt dependencies
 ~~~~~~~~~~~~~~~~
 
 * ``brew install sip pyqt5``
-* Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
+* Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`_):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -137,6 +137,19 @@ RTI Connext Specific Instructions
 
   * Do not bother to reboot yet.
 
+* Download ``openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz`` from RTI's website using an RTI account and extract it.
+
+.. code-block:: bash
+
+   tar -xzvf openssl-1.0.2n-target-x64Darwin17clang9.0.tar.gz
+
+* Add environment variables pointing to the paths to the RTI openssl libraries.
+
+.. code-block:: bash
+
+   export RTI_OPENSSL_BIN=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/bin
+   export RTI_OPENSSL_LIBS=/Users/osrf/openssl-1.0.2n/x64Darwin17clang9.0/release/lib
+
 Setting up the Jenkins Workspace and Agent
 ------------------------------------------
 
@@ -144,11 +157,11 @@ Setting up the Jenkins Workspace and Agent
 
    $ mkdir jenkins jenkins-agent
    $ cd jenkins-agent
-   $ wget http://ci.ros2.org/jnlpJars/slave.jar
+   $ wget https://ci.ros2.org/jnlpJars/slave.jar
 
 Copy the jenkins agent plist from https://gist.github.com/nuclearsandwich/c9546e76ba63767bc1025c393e85235b
 
-Edit the file to match the jnlp url and secret of the host you’re setting up.
+Edit the file to match the jnlp URL and secret of the host you’re setting up.
 You may need to create a new agent if you’re not re-imaging an existing one.
 
 .. code-block:: bash

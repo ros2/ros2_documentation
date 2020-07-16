@@ -14,7 +14,7 @@ ROS 2 Bouncy Bolson (codename 'bouncy'; June 2018)
 Supported Platforms
 -------------------
 
-This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.ros.org/reps/rep-2000.html#bouncy-bolson-june-2018-june-2019>`__ for full details):
+This version of ROS 2 is supported on four platforms (see `REP 2000 <https://www.ros.org/reps/rep-2000.html#bouncy-bolson-june-2018-june-2019>`__ for full details):
 
 
 * Ubuntu 18.04 (Bionic)
@@ -28,7 +28,7 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <http://www.
 * Mac macOS 10.12 (Sierra)
 * Windows 10 with Visual Studio 2017
 
-Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <http://docs.ros2.org/bouncy/>`__).
+Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
 
 Features
 --------
@@ -46,7 +46,7 @@ New features in this ROS 2 release
 * More `command line tools <../Tutorials/Introspection-with-command-line-tools>`\ , e.g. for working with parameters and lifecycle states.
 * Binary packages / fat archives support three RMW implementations by default (without the need to build from source):
 
-  * eProsima's FastRTPS (default)
+  * eProsima's Fast RTPS (default)
   * RTI's Connext
   * ADLINK's OpenSplice
 
@@ -64,9 +64,9 @@ Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
 * The ROS topic names containing namespaces are mapped to DDS topics including their namespaces.
   DDS partitions are not being used anymore for this.
 * The recommended build tool is now ``colcon`` instead of ``ament_tools``.
-  This switch has no `implications <http://design.ros2.org/articles/build_tool.html#implications>`__ for the code in each ROS 2 package.
-  The install instructions have been updated and the `read-the-docs page <http://colcon.readthedocs.io/en/latest/migration/ament_tools.html>`__ describes how to map an existing ``ament_tools`` call to ``colcon``.
-* The argument order of `this rclcpp::Node::create_subscription() signature <http://docs.ros2.org/bouncy/api/rclcpp/classrclcpp_1_1_node.html#a283fb006c46470cf43a4ae5ef4a16ccd>`__ has been modified.
+  This switch has no `implications <https://design.ros2.org/articles/build_tool.html#implications>`__ for the code in each ROS 2 package.
+  The install instructions have been updated and the `read-the-docs page <https://colcon.readthedocs.io/en/latest/migration/ament_tools.html>`__ describes how to map an existing ``ament_tools`` call to ``colcon``.
+* The argument order of `this rclcpp::Node::create_subscription() signature <https://docs.ros2.org/bouncy/api/rclcpp/classrclcpp_1_1_node.html#a283fb006c46470cf43a4ae5ef4a16ccd>`__ has been modified.
 
 Known Issues
 ------------

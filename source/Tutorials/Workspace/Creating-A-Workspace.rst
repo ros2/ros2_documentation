@@ -17,7 +17,7 @@ Background
 ----------
 
 A workspace is a directory containing ROS 2 packages.
-Before using ROS 2, it’s necessary to source your the ROS 2 installation workspace in the terminal you plan to work in.
+Before using ROS 2, it’s necessary to source your ROS 2 installation workspace in the terminal you plan to work in.
 This makes ROS 2’s packages available for you to use in that terminal.
 
 You also have the option of sourcing an “overlay” – a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you're extending, or “underlay”.
@@ -33,8 +33,8 @@ Prerequisites
 * :ref:`colcon installation <Colcon>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :ref:`turtlesim installation <Turtlesim>`
-* Have `rosdep installed  <http://wiki.ros.org/rosdep#Installing_rosdep>`__
-* Understanding of basic terminal commands (`here’s a guide for linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
+* Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
+* Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
 
 Tasks
@@ -84,11 +84,29 @@ Best practice is to create a new directory for every new workspace.
 The name doesn’t matter, but it is helpful to have it indicate the purpose of the workspace.
 Let’s choose the directory name ``dev_ws``, for “development workspace”:
 
-.. code-block:: console
+.. tabs::
 
-  mkdir dev_ws
-  mkdir dev_ws/src
-  cd dev_ws/src
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        mkdir -p ~/dev_ws/src
+        cd ~/dev_ws/src
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        mkdir -p ~/dev_ws/src
+        cd ~/dev_ws/src
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       md \dev_ws\src
+       cd \dev_ws\src
+
 
 Another best practice is to put any packages in your workspace into the ``src`` directory.
 The above code creates a ``src`` directory inside ``dev_ws`` and then navigates into it.
@@ -104,16 +122,22 @@ In the rest of the beginner developer tutorials, you will create your own packag
 The existing packages you will use are from the ``ros_tutorials`` repository (repo).
 If you went through the "Beginner: CLI Tools" tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
 
-You can see the repo `on github <https://github.com/ros/ros_tutorials/>`__.
+You can see the repo `on GitHub <https://github.com/ros/ros_tutorials/>`__.
 
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
 
-In the ``dev_ws/src`` directory, if your distro is Eloquent for example, run the command:
+In the ``dev_ws/src`` directory, run the following command for the distro you're using:
 
 .. code-block:: console
 
-  git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
+  git clone https://github.com/ros/ros_tutorials.git -b <distro>-devel
+
+For example, if you're using Foxy:
+
+.. code-block:: console
+
+  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
@@ -160,7 +184,7 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``~/dev_ws``), run the following command, replacing ``<distro>`` with your distro:
+From the root of your workspace (``dev_ws``), run the following command, replacing ``<distro>`` with your distro:
 
 .. tabs::
 
@@ -168,7 +192,7 @@ From the root of your workspace (``~/dev_ws``), run the following command, repla
 
       .. code-block:: console
 
-        sudo rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro <distro> -y
 
    .. group-tab:: macOS
 
@@ -194,7 +218,7 @@ You can learn more about ``rosdep`` in another tutorial (coming soon).
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the root of your workspace (``~/dev_ws``), you can now build your packages using the command:
+From the root of your workspace (``dev_ws``), you can now build your packages using the command:
 
 .. tabs::
 
@@ -273,9 +297,25 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
 Go into the root of your workspace:
 
-.. code-block:: console
+.. tabs::
 
-  cd dev_ws
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        cd ~/dev_ws
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        cd ~/dev_ws
+
+   .. group-tab:: Windows
+
+     .. code-block:: console
+
+       cd \dev_ws
 
 In the root, source your overlay:
 
@@ -297,7 +337,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      . install/local_setup.bat
+      call install/setup.bat
 
 .. note::
 

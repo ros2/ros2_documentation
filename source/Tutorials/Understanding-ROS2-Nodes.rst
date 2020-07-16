@@ -29,6 +29,9 @@ It encompasses all executables and the connections between them if you were to m
 
 Each node in ROS should be responsible for a single, module purpose (e.g. one node for controlling wheel motors, one node for controlling a laser range-finder, etc).
 Each node can send and receive data to other nodes via topics, services, actions, or parameters.
+
+.. image:: Nodes-TopicandService.gif
+
 A full robotic system is comprised of many nodes working in concert.
 In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
 
@@ -101,15 +104,25 @@ You will now see the names of two active nodes:
 2.1 Remapping
 ~~~~~~~~~~~~~
 
-`Remapping <http://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
+`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
 In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the default turtle being controlled.
 
 Now, lets reassign the name of our ``/turtlesim`` node.
 In a new terminal, run the following command:
 
-.. code-block:: console
+.. tabs::
 
-  ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
+   .. group-tab:: Eloquent and newer
+
+      .. code-block:: console
+
+        ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
+
+   .. group-tab:: Dashing
+
+      .. code-block:: console
+
+        ros2 run turtlesim turtlesim_node __node:=my_turtle
 
 Since you’re calling ``ros2 run`` on turtlesim again, another turtlesim window will open.
 However, now if you return to the terminal where you ran ``ros2 node list``, and run it again, you will see three node names:

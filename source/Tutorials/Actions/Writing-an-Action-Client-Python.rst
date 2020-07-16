@@ -122,7 +122,7 @@ This is achieved by passing the callback to the action client when we send a goa
     :emphasize-lines: 7
 
 You'll notice at this point that our action client is not printing any feedback.
-This is because we're missing a call to `rclpy.spin() <http://docs.ros2.org/latest/api/rclpy/api/init_shutdown.html#rclpy.spin>`_ in order to process callbacks on our node.
+This is because we're missing a call to `rclpy.spin() <https://docs.ros2.org/latest/api/rclpy/api/init_shutdown.html#rclpy.spin>`_ in order to process callbacks on our node.
 Let's add it:
 
 .. literalinclude:: client_2.py
@@ -141,7 +141,7 @@ We can get the result information with a couple steps.
 First, we need to get a goal handle for the goal we sent.
 Then, we can use the goal handle to request the result.
 
-The `ActionClient.send_goal_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
+The `ActionClient.send_goal_async() <https://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
 Let's register a callback for when the future is complete:
 
 .. literalinclude:: client_3.py
@@ -160,7 +160,7 @@ We can actually check to see if the goal was rejected and return early since we 
     :lines: 26-33
     :emphasize-lines: 4-8
 
-Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
+Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <https://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
 Similar to sending the goal, we will get a future that will complete when the result is ready.
 Let's register a callback just like we did for the goal response:
 
