@@ -32,6 +32,10 @@ Tier 3 platforms:
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
+Installation
+------------
+
+`Install Rolling Ridley <../Installation/Rolling>`
 
 New features and changes in this release
 ----------------------------------------

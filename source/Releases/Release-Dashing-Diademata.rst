@@ -30,6 +30,10 @@ Tier 3 platforms:
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html#dashing-diademata-may-2019-may-2021>`__.
 
+Installation
+------------
+
+`Install Dashing Diademata <../Installation/Dashing>`
 
 New features in this ROS 2 release
 ----------------------------------

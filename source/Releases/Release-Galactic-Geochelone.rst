@@ -16,6 +16,10 @@ Supported Platforms
 
 TBD
 
+Installation
+------------
+
+TBD
 
 New features in this ROS 2 release
 ----------------------------------
