@@ -157,7 +157,7 @@ The current WGs are (6 as of 2019-09-04):
 
 * Embedded Systems:
 
- * Lead(s): Borja Outerelo
+ * Lead(s): Francesca Finocchiaro
  * Resources:
 
   * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
