@@ -60,10 +60,10 @@ The data is published as a `statistics_msg/msg/MetricsMessage
 at a configurable period (default 1 second) to a configurable topic (default ``/statistics``).
 Note that the publishing period also serves as the sample collection window period.
 
-Since received message period requires a message timestamp in a header field, empty data is published
-if no timestamp is found.
-This behavior avoids the absence of a signal problem and is meant to explicitly show that a measurement
-could not be made.
+Since received message period requires a message timestamp in a header field, empty data is published.
+That is, all statistics values are NaN if no timestamp is found.
+Publishing NaN values instead of not publishing at all avoids the absence of a signal problem and is
+meant to explicitly show that a measurement could not be made.
 
 The first sample of each window for the received message period statistic does not yield a measurement.
 This is because calculating this statistic requires knowing the time the previous
