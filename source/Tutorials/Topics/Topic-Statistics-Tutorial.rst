@@ -2,23 +2,30 @@
 
     Topic-Statistics-Tutorial
 
-ROS2 Topic Statistics Tutorial (C++)
-====================================
+ROS 2 Topic Statistics Tutorial (C++)
+=====================================
 
-**Goal:** Enable ROS2 Topic Statistics and view the output statistics data
+**Goal:** Enable ROS 2 Topic Statistics and view the output statistics data
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 
 .. contents:: Table of Contents
    :local:
 
-Overview
---------
+Background
+----------
 
 This is a short tutorial of how to enable :ref:`Topic Statistics<AboutTopicStats>`
 in ROS 2 and view the published statistics output using command line tools (:ref:`ros2topic<ROS2Topics>`).
+
+ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
+called Topic Statistics.
+With Topic Statistics enabled for your subscription, you can characterize the performance of your
+system or use the data to help diagnose any present issues.
+
+For more details please see the :ref:`Topic Statistics Concepts Page<AboutTopicStats>`.
 
 Prerequisites
 -------------
@@ -33,10 +40,11 @@ This tutorial assumes that you still have your ``cpp_pubsub`` package from the :
 Tasks
 -----
 
-1 Write the subscriber node with statistics enabled node
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 Write the subscriber node with statistics enabled
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download the example talker code by entering the following command:
+Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the previous tutorials, and
+download the example talker code by entering the following command:
 
 .. tabs::
 
@@ -116,8 +124,8 @@ Open the file using your preferred text editor.
 
 As in the :ref:`C++ <CppPubSub>` tutorial, we have a subscriber node which receives string messages from the
 ``topic`` topic from the ``topic_callback`` function.
-However, what's new is we've added options to configure the subscription to enable topic statistics with
-the ``rclcpp::SubscriptionOptions()``
+However, we've now added options to configure the subscription to enable topic statistics with
+the ``rclcpp::SubscriptionOptions()`` options struct.
 
 .. code-block:: C++
 
@@ -125,8 +133,8 @@ the ``rclcpp::SubscriptionOptions()``
     auto options = rclcpp::SubscriptionOptions();
     options.topic_stats_options.state = rclcpp::TopicStatisticsState::Enable;
 
-Other options, such as the statistics collection / publish period and the topic used to publish
-statistics can be configured as well
+Optionally, fields such as the statistics collection/publish period and the topic used to publish
+statistics can be configured as well.
 
 .. code-block:: C++
 
@@ -136,7 +144,7 @@ statistics can be configured as well
     // configure the topic name (default '/statistics')
     // options.topic_stats_options.publish_topic = "/my_topic"
 
-The configurable fields are given as
+The configurable fields are described in the following table:
 
 ==================================  =============================================================================================
 Subscription Config Field            Purpose
@@ -170,7 +178,7 @@ should be ready for use.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-To build see :ref:`cpppubsub-build-and-run`
+To build, see :ref:`cpppubsub-build-and-run`.
 
 Run the subscriber with statistics enabled node:
 
@@ -204,8 +212,6 @@ The listener will start printing messages to the console, starting at whatever m
   [INFO] [minimal_subscriber_with_topic_statistics]: I heard: "Hello World: 13"
   [INFO] [minimal_subscriber_with_topic_statistics]: I heard: "Hello World: 14"
 
-Enter ``Ctrl+C`` in each terminal to stop the nodes from spinning.
-
 3 Observe published statistic data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -226,8 +232,8 @@ You should see the following:
     /statistics
     /topic
 
-If you changed the ``topic_stats_options.publish_topic`` option then you will see that instead of
-``/statistics``.
+If you optionally changed the ``topic_stats_options.publish_topic`` field earlier in the tutorial,
+then you will see that name instead of ``/statistics``.
 
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
@@ -237,8 +243,8 @@ We can view the data published to this topic with the following command:
 
     ros2 topic echo /statistics
 
-The terminal should start publishing statistics messages every 10 seconds, unless this duration was
-changed previously as part of the subscription configuration option ``topic_stats_options.publish_period``.
+The terminal should start publishing statistics messages every 10 seconds, unless the
+``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial.
 
 .. code-block:: console
 
@@ -302,7 +308,7 @@ data_type value     statistics
 Here we see the two currently possible calculated statistics for the ``std_msgs::msg::String`` message published
 to ``/topic`` by the ``minimal_publisher``.
 Because the ``std_msgs::msg::String`` does not have a message header, the ``message_age`` calculation cannot be performed,
-so NaNs are provided.
+so NaNs are returned.
 However, the ``message_period`` can be calculated and we see the statistics populated
 in the message above.
 
