@@ -221,7 +221,7 @@ Known Issues
 
 * `[ros2/rosidl#402] <https://github.com/ros2/rosidl/issues/402>`_ ``find_package(PCL)`` interferes with ROS interface generation.
   Workaround: invoke ``find_package(PCL)`` *after* ``rosidl_generate_interfaces()``.
-* `[ros2/rclcpp#893] <https://github.com/ros2/rclcpp/issues/893>`_ `rclcpp::Context` is not destroyed because of a reference cycle with `rclcpp::GraphListener`. This causes a memory leak. A fix hasn't been backported because of the risk of breaking ABI.
+* `[ros2/rclcpp#893] <https://github.com/ros2/rclcpp/issues/893>`_ ``rclcpp::Context`` is not destroyed because of a reference cycle with ``rclcpp::GraphListener``. This causes a memory leak. A fix has not been backported because of the risk of breaking ABI.
 
 Timeline before the release
 ---------------------------
