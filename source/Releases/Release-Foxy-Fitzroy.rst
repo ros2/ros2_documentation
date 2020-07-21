@@ -288,14 +288,15 @@ There are copies in `example_interfaces <https://index.ros.org/p/example_interfa
 - ``std_msgs/msg/UInt8``
 - ``std_msgs/msg/UInt8MultiArray``
 
-sros2
-^^^^^
+Security features
+^^^^^^^^^^^^^^^^^
 
 Use of security enclaves
 """"""""""""""""""""""""
 
-As of Foxy, domain participants are not mapped directly to ROS nodes anymore.
-The concept of security enclave was introduced, an enclave is a process or group of processes that will share the same identity and access control rules.
+As of Foxy, domain participants are no longer mapped directly to ROS nodes.
+As a result, ROS 2 security features (which are specific to domain participants) are also no longer mapped directly to ROS nodes.
+Instead, Foxy introduces the concept of a security "enclave", where an "enclave" is a process or group of processes that will share the same identity and access control rules.
 Each process using ROS Security is part of an enclave.
 
 This means that security artifacts are **not** retrieved based on the node name anymore but based on the Security enclave name.
