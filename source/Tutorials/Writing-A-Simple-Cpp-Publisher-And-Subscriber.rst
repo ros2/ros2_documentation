@@ -409,6 +409,8 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
 
 Make sure to save the file, and then your pub/sub system should be ready for use.
 
+.. _cpppubsub-build-and-run:
+
 4 Build and run
 ^^^^^^^^^^^^^^^
 You likely already have the ``rclpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.

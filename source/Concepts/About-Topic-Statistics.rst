@@ -1,3 +1,5 @@
+.. _AboutTopicStats:
+
 .. redirect-from::
 
     About-Topic-Statistics
