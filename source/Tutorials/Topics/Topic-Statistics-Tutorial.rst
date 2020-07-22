@@ -178,7 +178,7 @@ should be ready for use.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-To build, see :ref:`cpppubsub-build-and-run`.
+To build, see the :ref:`Build and run <cpppubsub-build-and-run>` section in the pub/sub tutorial.
 
 Run the subscriber with statistics enabled node:
 
@@ -212,6 +212,9 @@ The listener will start printing messages to the console, starting at whatever m
   [INFO] [minimal_subscriber_with_topic_statistics]: I heard: "Hello World: 13"
   [INFO] [minimal_subscriber_with_topic_statistics]: I heard: "Hello World: 14"
 
+Now that the subscriber node is receiving messages, it will periodically publish statistics messages.
+We will observe these messages in the next section.
+
 3 Observe published statistic data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -237,13 +240,18 @@ then you will see that name instead of ``/statistics``.
 
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
-We can view the data published to this topic with the following command:
+
+We can visualize this using :ref:`RQt <RQt_Overview_Usage>`
+
+.. image:: topic_stats_rqt.png
+
+Now we can view the statistics data published to this topic with the following command:
 
 .. code-block:: console
 
     ros2 topic echo /statistics
 
-The terminal should start publishing statistics messages every 10 seconds, unless the
+The terminal should start publishing statistics messages every 10 seconds, because the
 ``topic_stats_options.publish_period`` subscription configuration was optionally changed earlier in the tutorial.
 
 .. code-block:: console
