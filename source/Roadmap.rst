@@ -9,6 +9,7 @@ Roadmap
 
 This page describes planned work for ROS 2.
 The set of planned features and development efforts should provide insight into the overall direction of ROS 2.
+Please refer to the meta tickets listed in the :ref:`Planned releases<Planned releases>` section for information about additional development efforts for each release.
 If you would like to see other features on the roadmap, then please get in touch with us at info@openrobotics.org.
 
 Quarterly Roadmap
@@ -38,6 +39,12 @@ Planned releases
 ----------------
 
 Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
+
+Addtional features and tasks for each ROS 2 release can be found at following locations:
+* `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
+    * See the `Galatic Geochelone meta ticket <https://github.com/ros2/ros2/issues/954>`.
+* `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
+    * See the `Foxy Fitzroy meta ticket <https://github.com/ros2/ros2/issues/830>`.
 
 Contributing to ROS 2
 ---------------------
