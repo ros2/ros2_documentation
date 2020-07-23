@@ -51,7 +51,7 @@ Contributing to ROS 2
 Looking for something to work on, or just want to help out? Here are a few
 resources to get you going.
 
-1. The :ref:`:ref:`Contributing <Contributing>` guide describes how to make
+1. The :ref:`Contributing <Contributing>` guide describes how to make
    a contribution to ROS 2.
 2. Check out the list of :ref:`Feature Ideas <Feature Ideas>` for
    inspiration.
