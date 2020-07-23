@@ -1,7 +1,7 @@
 .. _FeatureIdeas:
 
 Feature Ideas
-=======
+==========
 
 .. contents:: Table of Contents
    :depth: 2
