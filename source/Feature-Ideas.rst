@@ -113,7 +113,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Expand on real-time safety [\*\*\*]
 
-  * With Fast RTPS
   * For services, clients, and parameters
   * Expose more quality of service parameters related to real-time performance
   * Real-time-safe intra-process messaging
@@ -144,7 +143,6 @@ Port of existing ROS 1 functionality
 
 * Perception metapackage
 
-  * Image pipeline
   * Perception PCL
 
 * MoveIt
