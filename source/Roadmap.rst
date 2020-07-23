@@ -10,7 +10,7 @@ Roadmap
 This page describes planned work for ROS 2. The set of planned features and
 development efforts should provide insight into the overall direction of ROS
 2. If you would like to see other features on the roadmap, then please get
-in touch with us at info@openrobotics.org. 
+in touch with us at info@openrobotics.org.
 
 Quarterly Roadmap
 -----------------
