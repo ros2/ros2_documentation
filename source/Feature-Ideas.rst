@@ -1,26 +1,19 @@
-.. _Roadmap:
+.. _FeatureIdeas:
 
-Roadmap
-=======
+Feature Ideas
+=============
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Please see the page of the :ref:`upcoming distribution <upcoming-release>` for more information what is planned to be part of that release.
-
-Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
-
-For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
-The core code for ROS 2 is on the `ros2 GitHub organization <https://github.com/ros2>`__.
-The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.
-Questions should be asked on `ROS answers <https://answers.ros.org>`__\ , make sure to include at least the ``ros2`` tag and the rosdistro version you are running, e.g. ``ardent``.
-
-Feature ideas in no specific order
-----------------------------------
+The following are feature ideas in no specific order.
+This list contains features that we think are important and can make for good contributions to ROS 2.
+:ref:`Please get in touch with us <Help>` before digging to a new feature.
+We can offer guidance, and connect you with other developers.
 
 Design / Concept
-~~~~~~~~~~~~~~~~
+----------------
 
 * IDL format
 
@@ -28,13 +21,13 @@ Design / Concept
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
   * Revisit constraints of IDL interface naming, see `ros2/design#220 <https://github.com/ros2/design/pull/220>`_
 
-* Progress on migration plan
+* Create migration plan for ROS 1 -> ROS 2 transition
 * Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
 * Specific "API" of a node in terms of topics / services / etc. in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 * Configuring QoS at runtime, see `ros2/design#280 <https://github.com/ros2/design/issues/280>`_
 
 Infrastructure and tools
-~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 * Building
 
@@ -55,7 +48,7 @@ Infrastructure and tools
     * "tutorials" which contain more comments and anchors for the wiki (teaching one recommended way)
 
 New features
-~~~~~~~~~~~~
+------------
 
 The trailing stars indicate the rough effort: 1 star for small, 2 stars for medium, 3 stars for large.
 
@@ -89,7 +82,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Message generation
 
-  * Catch-up message generation for languages not support out-of-the-box
+  * Catch-up message generation for languages not supported out-of-the-box
   * Mangle field names in message to avoid language specific keywords
   * Improve generator performance by running them in the same Python interpreter
 
@@ -123,7 +116,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Expand on real-time safety [\*\*\*]
 
-  * With Fast RTPS
   * For services, clients, and parameters
   * Expose more quality of service parameters related to real-time performance
   * Real-time-safe intra-process messaging
@@ -150,11 +142,10 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
   * If there are hardware-specific features for securing keys or accelerating encryption/signing messages, that could be interesting to add to DDS/RTPS implementations that don't use it already. [\*\*\*]
 
 Port of existing ROS 1 functionality
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 * Perception metapackage
 
-  * Image pipeline
   * Perception PCL
 
 * MoveIt
@@ -166,7 +157,7 @@ Port of existing ROS 1 functionality
   * convert more plugins [\* each when dependencies are available]
 
 Reducing Technical Debt
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 * Extend testing and resolve bugs in the current code base
 
