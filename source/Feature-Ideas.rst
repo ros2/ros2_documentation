@@ -19,7 +19,7 @@ Design / Concept
   * Extend usage to ``.idl`` files with just constants and/or declare parameters with ranges
   * Revisit constraints of IDL interface naming, see `ros2/design#220 <https://github.com/ros2/design/pull/220>`_
 
-* Progress on migration plan
+* Create migration plan for ROS 1 -> ROS 2 transition
 * Uniqueness of node names, see `ros2/design#187 <https://github.com/ros2/design/issues/187>`_
 * Specific "API" of a node in terms of topics / services / etc. in a descriptive format, see `ros2/design#266 <https://github.com/ros2/design/pull/266>`_
 
