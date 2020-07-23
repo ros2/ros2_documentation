@@ -79,7 +79,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Message generation
 
-  * Catch-up message generation for languages not support out-of-the-box
+  * Catch-up message generation for languages not supported out-of-the-box
   * Mangle field names in message to avoid language specific keywords
   * Improve generator performance by running them in the same Python interpreter
 
