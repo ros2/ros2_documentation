@@ -125,33 +125,58 @@ Building a Library
 
 When building a reusable library, some information needs to be exported for downstream packages to easily use it.
 
-.. code-block:: cmake
+.. tabs::
 
-    ament_export_interfaces(export_my_library HAS_LIBRARY_TARGET)
-    ament_export_dependencies(some_dependency)
+  .. group-tab:: Foxy and newer
 
-    install(
-      DIRECTORY include/
-      DESTINATION include
-    )
+    .. code-block:: cmake
 
-    install(
-      TARGETS my_library
-      EXPORT export_my_library
-      LIBRARY DESTINATION lib
-      ARCHIVE DESTINATION lib
-      RUNTIME DESTINATION bin
-      INCLUDES DESTINATION include
-    )
+        ament_export_targets(export_my_library HAS_LIBRARY_TARGET)
+        ament_export_dependencies(some_dependency)
+
+        install(
+          DIRECTORY include/
+          DESTINATION include
+        )
+
+        install(
+          TARGETS my_library
+          EXPORT export_my_library
+          LIBRARY DESTINATION lib
+          ARCHIVE DESTINATION lib
+          RUNTIME DESTINATION bin
+          INCLUDES DESTINATION include
+        )
+
+  .. group-tab:: Eloquent and older
+
+    .. code-block:: cmake
+
+        ament_export_interfaces(export_my_library HAS_LIBRARY_TARGET)
+        ament_export_dependencies(some_dependency)
+
+        install(
+          DIRECTORY include/
+          DESTINATION include
+        )
+
+        install(
+          TARGETS my_library
+          EXPORT export_my_library
+          LIBRARY DESTINATION lib
+          ARCHIVE DESTINATION lib
+          RUNTIME DESTINATION bin
+          INCLUDES DESTINATION include
+        )
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
 Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
 
 Here is what's happening in the snippet above:
 
-- The ``ament_export_interfaces`` macro exports the targets for CMake.
+- The ``ament_export_targets`` macro (``ament_export_interfaces`` in Eloquent and older) exports the targets for CMake.
   This is necessary to allow your library's clients to use the ``target_link_libraries(client my_library::my_library)`` syntax.
-  ``ament_export_interfaces`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
+  ``ament_export_targets`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
 
 - The ``ament_export_dependencies`` exports dependencies to downstream packages.
   This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
@@ -171,7 +196,7 @@ Here is what's happening in the snippet above:
 
 - The ``EXPORT`` notation of the install call requires additional attention:
   It installs the CMake files for the ``my_library`` target.
-  It is named exactly like the argument in ``ament_export_interfaces`` and could be named like the library.
+  It is named exactly like the argument in ``ament_export_targets`` and could be named like the library.
   However, this will then prohibit using the ``ament_target_dependencies`` way of including your library.
   To allow for full flexibility, it is advised to prepend the export target with something like ``export_<target>``.
 
@@ -185,7 +210,7 @@ There are two additional functions which can be used but are superfluous for tar
     ament_export_libraries(my_library)
 
 The first macro marks the directory of the exported include directories (this is achieved by ``INCLUDES DESTINATION`` in the target ``install`` call).
-The second macro marks the location of the installed library (this is done by the ``HAS_LIBRARY_TARGET`` argument in the call to ``ament_export_interface``).
+The second macro marks the location of the installed library (this is done by the ``HAS_LIBRARY_TARGET`` argument in the call to ``ament_export_targets``).
 
 Some of the macros can take different types of arguments for non-target exports, but since the recommended way for modern Make is to use targets, we will not cover them here.
 Documentation of these options can be found in the source code itself.
