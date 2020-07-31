@@ -294,6 +294,7 @@ Known Issues
 * `[ros2/ros2#922] <https://github.com/ros2/ros2/issues/922>`_ Services' performance is flaky for ``rclcpp`` nodes using eProsima Fast-RTPS or ADLINK CycloneDDS as RMW implementation.
   Specifically, service clients sometimes do not receive the response from servers.
 
+* `[ros2/geometry2#292] <https://github.com/ros2/geometry2/issues/292>`_ static_transform_publisher has wrong argument order for yaw-pitch-roll arguments
 
 Timeline before the release
 ---------------------------
