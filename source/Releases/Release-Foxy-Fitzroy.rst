@@ -299,7 +299,7 @@ As a result, ROS 2 security features (which are specific to domain participants)
 Instead, Foxy introduces the concept of a security "enclave", where an "enclave" is a process or group of processes that will share the same identity and access control rules.
 
 This means that security artifacts are **not** retrieved based on the node name anymore but based on the Security enclave name.
-A node enclave name can be set by using the ROS argument `--enclave`, e.g. `ros2 run demo_nodes_py talker --ros-args --enclave /my_enclave`
+A node enclave name can be set by using the ROS argument ``--enclave``, e.g. ``ros2 run demo_nodes_py talker --ros-args --enclave /my_enclave``
 
 Related design document: https://github.com/ros2/design/pull/274
 
