@@ -303,6 +303,9 @@ A node enclave name can be set by using the ROS argument ``--enclave``, e.g. ``r
 
 Related design document: https://github.com/ros2/design/pull/274
 
+Note that permissions files are limited by the underlying transport packet size, so grouping many permissions under the same enclave will **not** work if the resulting permissions file exceed 64kB.
+Related issue `[ros2/sros2#228] <https://github.com/ros2/sros2/issues/228>`_
+
 Renaming of the environment variables
 """""""""""""""""""""""""""""""""""""
 
