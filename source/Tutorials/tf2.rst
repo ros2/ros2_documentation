@@ -19,7 +19,7 @@ First run the `static_transform_publisher <https://wiki.ros.org/tf2_ros#static_t
    ros2 run tf2_ros static_transform_publisher 1 2 3 0.5 0.1 -1.0 foo bar
 
 
-That tool will publish a static transform from the parent frame ``foo`` to the child frame ``bar`` with (X, Y, Z) translation (1, 2, 3) and (roll, pitch, yaw) rotation (0.5, 0.1, -1.0).
+That tool will publish a static transform from the parent frame ``foo`` to the child frame ``bar`` with (X, Y, Z) translation (1, 2, 3) and (yaw, pitch, roll) body-fixed axis rotation sequence (0.5, 0.1, -1.0).
 
 Receiving transform data
 ------------------------
