@@ -38,6 +38,17 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
+Changes in Patch Release 2
+--------------------------
+
+Bug in static_transform_publisher
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+During the development of Foxy, a bug was introduced into the tf2_ros static_transform_publisher program.
+The implementation of the order of the Euler angles passed to static_transform_publisher disagrees with the documentation.
+Foxy patch release 2 `fixes <https://github.com/ros2/geometry2/pull/296>`_ the order so that the implementation agrees with the documentation (yaw, pitch, roll).
+For users who have started using the initial Foxy release or patch release 1, this means that any launch files that use static_transform_publisher will have to have the command-line order swapped according to the new order.
+For users who are coming from ROS 2 Dashing, ROS 2 Eloquent, or ROS 1, no changes need to be made to port to Foxy patch release 2.
+
 Changes since the Eloquent release
 ----------------------------------
 
