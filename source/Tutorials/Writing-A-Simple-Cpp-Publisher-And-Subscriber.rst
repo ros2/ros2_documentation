@@ -80,9 +80,7 @@ Open the file using your preferred text editor.
 .. code-block:: C++
 
     #include <chrono>
-    #include <functional>
     #include <memory>
-    #include <string>
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
@@ -137,9 +135,7 @@ Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.tx
 .. code-block:: C++
 
     #include <chrono>
-    #include <functional>
     #include <memory>
-    #include <string>
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
