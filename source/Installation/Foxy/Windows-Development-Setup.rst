@@ -255,11 +255,13 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
-
 .. note::
 
    It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+
+Next steps after installing
+---------------------------
+Go on with the `tutorials and demos </Tutorials>` to pursue the configuration of your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 
 Extra stuff for Debug mode
