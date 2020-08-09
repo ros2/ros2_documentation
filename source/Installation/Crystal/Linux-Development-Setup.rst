@@ -155,17 +155,6 @@ Set up your environment by sourcing the following file.
 
    . ~/ros2_crystal/install/setup.bash
 
-Install argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
 Try some examples
 -----------------
 
