@@ -58,10 +58,10 @@ Install development tools and ROS tools
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
+     python3-argcomplete \
      wget
    # install some pip packages needed for testing
    python3 -m pip install -U \
-     argcomplete \
      flake8-blind-except \
      flake8-builtins \
      flake8-class-newline \
@@ -149,16 +149,6 @@ Set up your environment by sourcing the following file.
 .. code-block:: bash
 
    . ~/ros2_foxy/install/setup.bash
-
-Install argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
 
 .. _latest-examples:
 
