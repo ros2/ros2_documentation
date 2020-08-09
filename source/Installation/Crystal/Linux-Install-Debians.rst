@@ -60,8 +60,6 @@ ROS-Base Install (Bare Bones): Communication libraries, message packages, comman
 
    sudo apt install ros-$CHOOSE_ROS_DISTRO-ros-base
 
-See specific sections below for how to also install the :ref:`ros1_bridge <linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <linux-install-additional-rmw-implementations>`.
-
 Environment setup
 -----------------
 
@@ -115,57 +113,9 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
-
-.. _linux-install-additional-rmw-implementations:
-
-Install additional RMW implementations (optional)
--------------------------------------------------
-
-By default the RMW implementation ``Fast RTPS`` is used.
-If using Ardent OpenSplice is also installed.
-
-To install support for OpenSplice or RTI Connext on Bouncy:
-
-.. code-block:: bash
-
-   sudo apt update
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-rmw-opensplice-cpp # for OpenSplice
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-rmw-connext-cpp # for RTI Connext (requires license agreement)
-
-By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
-For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
-
-You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
-
-.. _linux-ros1-add-pkgs:
-
-Install additional packages using ROS 1 packages
-------------------------------------------------
-
-The ``ros1_bridge`` as well as the TurtleBot demos are using ROS 1 packages.
-To be able to install them please start by adding the ROS 1 sources as documented `here <https://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.
-
-If you're using Docker for isolation you can start with the image ``ros:melodic`` or ``osrf/ros:melodic-desktop`` (or Kinetic if using Ardent).
-This will also avoid the need to setup the ROS sources as they will already be integrated.
-
-Now you can install the remaining packages:
-
-.. code-block:: bash
-
-   sudo apt update
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-ros1-bridge
-
-The turtlebot2 packages are available in Bouncy but not Crystal.
-
-.. code-block:: bash
-
-   sudo apt install ros-$CHOOSE_ROS_DISTRO-turtlebot2-*
-
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+Next steps after installing
+---------------------------
+Go on with the `tutorials and demos </Tutorials>` to pursue the configuration of your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Uninstall
 ---------
