@@ -79,7 +79,8 @@ Installing the python3 libraries
 
 .. code-block:: bash
 
-       sudo apt install -y libpython3-dev python3-argcomplete
+   sudo apt install -y libpython3-dev python3-pip
+   pip install --user argcomplete
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

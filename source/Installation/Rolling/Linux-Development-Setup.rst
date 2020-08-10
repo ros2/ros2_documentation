@@ -62,10 +62,10 @@ Install development tools and ROS tools
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
-     python3-argcomplete \
      wget
    # install some pip packages needed for testing
    python3 -m pip install -U \
+     argcomplete \
      flake8-blind-except \
      flake8-builtins \
      flake8-class-newline \
