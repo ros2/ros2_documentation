@@ -171,7 +171,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Go on with the `tutorials and demos </Tutorials>` to pursue the configuration of your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the `tutorials and demos </Tutorials>` to configure of your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Troubleshooting
 ---------------
