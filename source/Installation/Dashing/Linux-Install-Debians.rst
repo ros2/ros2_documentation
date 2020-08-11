@@ -82,7 +82,7 @@ So if you want autocompletion, installing argcomplete is necessary.
 .. code-block:: bash
 
    sudo apt install -y python3-pip
-   sudo pip3 install argcomplete
+   pip3 install --user argcomplete
 
 Try some examples
 -----------------
