@@ -122,9 +122,6 @@ If you would like to use another DDS or RTPS vendor besides the default, eProsim
 
 Build the code in the workspace
 -------------------------------
-
-Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source>`__.
-
 More info on working with a ROS workspace can be found in `this tutorial </Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash

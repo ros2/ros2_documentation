@@ -150,9 +150,6 @@ If you would like to use another DDS or RTPS vendor besides the default, eProsim
 
 Build the ROS 2 code
 --------------------
-
-**Note**\ : if you are trying to build the ROS 1 <-> ROS 2 bridge, follow instead these `modified instructions <https://github.com/ros2/ros1_bridge/blob/master/README#build-the-bridge-from-source>`__.
-
 Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial </Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
