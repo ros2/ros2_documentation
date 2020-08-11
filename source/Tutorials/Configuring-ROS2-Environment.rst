@@ -106,7 +106,7 @@ To undo this (to change to another distro) in Linux and macOS, locate your syste
 3 Add ``colcon_cd`` to your shell startup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The command ``colcon_cd`` allows to quickly change the current working directory of your shell by reaching the codebase of a desired package.
+The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
 As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_install/src/some_ros_package``.
 
 .. tabs::
