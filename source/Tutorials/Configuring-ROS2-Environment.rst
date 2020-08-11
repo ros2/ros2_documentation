@@ -128,7 +128,7 @@ As an example ``colcon_cd some_ros_package`` would quickly bring you to the dire
 
       Not yet available
 
-According to the way you installed ``colcon_cd`` and where your workspace is, the instructions hereabove may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
+Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
 To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
 
 4 Check environment variables
