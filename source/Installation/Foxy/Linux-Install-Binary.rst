@@ -71,7 +71,8 @@ Installing the python3 libraries
 
 .. code-block:: bash
 
-       sudo apt install -y libpython3-dev
+   sudo apt install -y libpython3-dev python3-pip
+   pip3 install -U argcomplete
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -89,17 +90,6 @@ Set up your environment by sourcing the following file.
 .. code-block:: bash
 
   . ~/ros2_foxy/ros2-linux/setup.bash
-
-Installing python3 argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete for autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install python3-argcomplete
-
 
 Try some examples
 -----------------
