@@ -20,18 +20,21 @@ This includes improving the out-of-box experience for common use cases, document
 
 ## 2020 Q3(Jul - Sep)
 
-* **Transport Documentation and Configurations**: Describe and document the
-  ROS 2 transport system.
+* **Transport Documentation and Configurations**: Describe and document the ROS 2 transport system.
   Provide default configurations for common uses cases along with documentation.
+  `Tracking ticket <https://github.com/ros2/ros2/issues/1006>`__.
 
 ## 2020 Q4(Oct - Dec)
 
 * **Performance Improvements**: Analyze ``rcl*-level`` performance and resource usage.
   Develop a strategy to improve performance and reduce resource usage based on data from the analysis.
+  `Tracking ticket <https://github.com/ros2/ros2/issues/1007>`__.
 
 * **Launch**: Address current shortcoming in launch, and improve launch testing.
+  `Tracking ticket <https://github.com/ros2/ros2/issues/1008>`__.
 
 * **Documentation Infrastructure**: Develop package-level documentation generation infrastructure, deploy documentation, and consolidate existing documentation.
+  `Tracking ticket <https://github.com/ros2/ros2/issues/1009>`__.
 
 Planned releases
 ----------------
