@@ -200,6 +200,7 @@ The current WGs are (6 as of 2019-09-04):
   * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
   * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
   * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
+  * Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-security:matrix.org>`_
 
 * Tooling
 
