@@ -299,6 +299,39 @@ There are copies in `example_interfaces <https://index.ros.org/p/example_interfa
 - ``std_msgs/msg/UInt8``
 - ``std_msgs/msg/UInt8MultiArray``
 
+Security features
+^^^^^^^^^^^^^^^^^
+
+Use of security enclaves
+""""""""""""""""""""""""
+
+As of Foxy, domain participants are no longer mapped directly to ROS nodes.
+As a result, ROS 2 security features (which are specific to domain participants) are also no longer mapped directly to ROS nodes.
+Instead, Foxy introduces the concept of a security "enclave", where an "enclave" is a process or group of processes that will share the same identity and access control rules.
+
+This means that security artifacts are **not** retrieved based on the node name anymore but based on the Security enclave name.
+A node enclave name can be set by using the ROS argument ``--enclave``, e.g. ``ros2 run demo_nodes_py talker --ros-args --enclave /my_enclave``
+
+Related design document: https://github.com/ros2/design/pull/274
+
+Note that permissions files are limited by the underlying transport packet size, so grouping many permissions under the same enclave will **not** work if the resulting permissions file exceed 64kB.
+Related issue `[ros2/sros2#228] <https://github.com/ros2/sros2/issues/228>`_
+
+Renaming of the environment variables
+"""""""""""""""""""""""""""""""""""""
+
+.. list-table:: Environment variables renaming
+   :widths: 25 25
+   :header-rows: 1
+
+   * - Name in Eloquent
+     - Name in Foxy
+   * - ROS_SECURITY_ROOT_DIRECTORY
+     - ROS_SECURITY_KEYSTORE
+   * - ROS_SECURITY_NODE_DIRECTORY
+     - ROS_SECURITY_ENCLAVE_OVERRIDE
+
+
 Known Issues
 ------------
 
