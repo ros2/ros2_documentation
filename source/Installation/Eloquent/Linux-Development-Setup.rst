@@ -59,24 +59,13 @@ Install development tools and ROS tools
      python3-pip \
      python-rosdep \
      python3-vcstool \
+     python3-flake8 \
+     python3-pytest \
+     python3-pytest-cov \
      wget
    # install some pip packages needed for testing
    python3 -m pip install -U \
      argcomplete \
-     flake8 \
-     flake8-blind-except \
-     flake8-builtins \
-     flake8-class-newline \
-     flake8-comprehensions \
-     flake8-deprecated \
-     flake8-docstrings \
-     flake8-import-order \
-     flake8-quotes \
-     pytest-repeat \
-     pytest-rerunfailures \
-     pytest \
-     pytest-cov \
-     pytest-runner \
      setuptools
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
