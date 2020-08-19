@@ -15,45 +15,10 @@ Update your repository list
 
 Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repositories and their version for that release.
 
-Latest release
-^^^^^^^^^^^^^^
+Release versions
+^^^^^^^^^^^^^^^^
 
-To download the repository list from the latest ROS 2 release, run:
-
-.. tabs::
-
-  .. group-tab:: Linux
-
-    .. code-block:: bash
-
-       cd ~/ros2_ws
-       mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
-
-  .. group-tab:: macOS
-
-    .. code-block:: bash
-
-       cd ~/ros2_ws
-       mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
-
-  .. group-tab:: Windows
-
-    .. code-block:: bash
-
-       # CMD
-       > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
-
-       # PowerShell
-       > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos -o ros2.repos
-
-Particular release
-^^^^^^^^^^^^^^^^^^
-
-If you wish to checkout a particular release, you can get its repository list by specifying the name of the release in the url of the following step, e.g. for alpha 7:
+If you wish to update a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. foxy:
 
 .. tabs::
 
@@ -63,7 +28,7 @@ If you wish to checkout a particular release, you can get its repository list by
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos
 
   .. group-tab:: macOS
 
@@ -71,7 +36,7 @@ If you wish to checkout a particular release, you can get its repository list by
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos
 
   .. group-tab:: Windows
 
@@ -79,18 +44,53 @@ If you wish to checkout a particular release, you can get its repository list by
 
        # CMD
        > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos -o ros2.repos
 
        # PowerShell
        > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/release-alpha8/ros2.repos -o ros2.repos
+       > curl https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos -o ros2.repos
 
 The format of the name of the release comes from the tag associated with the release `here <https://github.com/ros2/ros2/tags>`__.
 
-Development branches
-^^^^^^^^^^^^^^^^^^^^
+Release development branches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to checkout the bleeding-edge development code, you can get the relevant repository list by running:
+If you wish to checkout development branches for a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. foxy:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+       cd ~/ros2_ws
+       mv -i ros2.repos ros2.repos.old
+       wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       # CMD
+       > cd \dev\ros2
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+
+       # PowerShell
+       > cd \dev\ros2
+       > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+
+Latest development branches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you wish to checkout the latest development code for the upcoming ROS release, you can get the relevant repository list by running:
 
 .. tabs::
 
