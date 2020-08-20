@@ -196,6 +196,12 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
+For PowerShell users, the script to call is:
+
+.. code-block:: bash
+
+   > C:\dev\ros2_foxy\local_setup.ps1
+
 Try some examples
 -----------------
 
