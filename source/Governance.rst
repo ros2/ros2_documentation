@@ -176,6 +176,17 @@ The current WGs are (6 as of 2019-09-04):
   * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
   * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
 
+* Manipulation
+
+ * Lead(s): Dave Coleman, Mark Moll
+ * Resources:
+
+  * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
+
+  * Meeting invite group `ros-manipulation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-manipulation-working-group-invites>`_
+  * Discourse tag: `wg-moveit <https://discourse.ros.org/tags/wg-moveit>`_
+  * Discourse Channel: `MoveIt <https://discourse.ros.org/c/moveit>`_
+
 * Real-time
 
  * Lead(s): Dejan Pangercic
