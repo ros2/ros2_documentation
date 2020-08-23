@@ -134,7 +134,7 @@ The current members of the ROS 2 TSC are (17 as of 2020-06-05):
    * - |gvsc|
      - GVSC: Jerry Towler (SwRI)
    * - |tieriv|
-     - Tier IV: Geoffrey Biggs
+     - Tier IV: Jilada Eccleston
    * - |tri|
      - Toyota Research Institute: Toffee Albina
 
