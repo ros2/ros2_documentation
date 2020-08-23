@@ -1,6 +1,9 @@
 Installing ROS 2 Crystal and earlier
 ====================================
 
+THIS IS A VERY OLD VERSION OF ROS2, but still one of the top hits on google for "Install ROS2" so make sure, you don't want to install a newer version instead. 
+
+
 .. toctree::
    :hidden:
    :glob:
