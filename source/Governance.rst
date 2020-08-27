@@ -165,6 +165,14 @@ The current WGs are (6 as of 2019-09-04):
   * Meeting invite group `ros-embedded-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-embedded-working-group-invites>`_
   * Discourse tag: `wg-embedded <https://discourse.ros.org/tags/wg-embedded>`_
 
+* Middleware
+
+ * Lead(s): William Woodall
+ * Resources:
+
+  * Meeting invite group `ros-middleware-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-middleware-working-group-invites>`_
+  * Discourse tag: `wg-middleware <https://discourse.ros.org/tags/wg-middleware>`_
+
 * Navigation
 
  * Lead(s): Steve Macenski
