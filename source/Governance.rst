@@ -197,6 +197,8 @@ The current WGs are (6 as of 2019-09-04):
  * Lead(s): Geoffrey Biggs
  * Resources:
 
+  * `Working group website <http://ros-safety.github.io/safety_working_group/>`__
+  * `Working group Community <https://github.com/ros-safety/safety_working_group>`__
   * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
   * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tags/wg-safety-critical>`_
 
