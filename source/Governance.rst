@@ -204,7 +204,7 @@ The current WGs are (6 as of 2019-09-04):
 
 * Security
 
- * Lead(s): Joe McManus, Kyle Fazzari
+ * Lead(s): Sid Faber, Kyle Fazzari
  * Resources:
 
   * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
