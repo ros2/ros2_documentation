@@ -41,6 +41,8 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    > choco install -y python --version 3.8.3
 
+ROS will expect your python installation being available in directory ``C:\python38``. You may want to cross-check it became available there.
+
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -58,15 +60,15 @@ Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
-The following commands assume you used the default installation directory:
+The following command adds 'OPENSSL_CONF' to your registry. Check your installation directory matching the one below:
 
-* ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
+* ``setx -m OPENSSL_CONF C:\Program Files\OpenSSL-Win64\bin\openssl.cfg``
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
-* ``C:\OpenSSL-Win64\bin\``
+* ``C:\Program Files\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
