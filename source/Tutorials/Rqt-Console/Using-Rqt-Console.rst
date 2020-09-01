@@ -112,9 +112,19 @@ For example, if you set the default level to ``Warn``, you would only see messag
 You can set the default logger level when you first run the ``/turtlesim`` node using remapping.
 Enter the following command in your terminal:
 
-.. code-block:: console
+.. tabs::
+
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: console
 
         ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+
+  .. group-tab:: Dashing
+
+    .. code-block:: console
+
+        ros2 run turtlesim turtlesim_node __log_level:=warn
 
 Now you won’t see the initial ``Info`` level warnings that came up in the console last time you started ``turtlesim``.
 That’s because ``Info`` messages are lower priority than the new default severity, ``Warn``.
