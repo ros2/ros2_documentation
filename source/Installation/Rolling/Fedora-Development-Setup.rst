@@ -31,7 +31,6 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
      python3-mypy \
      python3-nose \
      python3-pip \
-     python3-pycodestyle \
      python3-pydocstyle \
      python3-pyflakes \
      python3-pyparsing \
