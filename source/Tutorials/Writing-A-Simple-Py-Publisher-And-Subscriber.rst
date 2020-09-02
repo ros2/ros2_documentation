@@ -285,7 +285,7 @@ Enter the following code in your terminal:
 
    .. group-tab:: Windows
 
-      Right click this link and select Save As ``publisher_member_function.py``:
+      Right click this link and select Save As ``subscriber_member_function.py``:
 
       https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
