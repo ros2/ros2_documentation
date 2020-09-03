@@ -91,8 +91,8 @@ The structure of a ROS 2 parameter looks like this:
 Besides including node name and the key:value of the parameter, the structure of a parameter file requires including the keyword “ros__parameters” with a colon in the line after the node name.
 An extra namespace for the parameter can be used before the parameter itself.
 
-ROS 2 Parameters YAML file example
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ROS 2 parameters YAML file example
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: yaml
   
