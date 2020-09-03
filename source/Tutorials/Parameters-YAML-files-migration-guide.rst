@@ -15,7 +15,8 @@ Example
   list: [1.0, mixed list]
   dictionary: {a: b, c: d}
 
-This file will load a string named foo to the parameter server, an integer with value 1234 and so on. For the case of dictionaries, the elements of the dictionary are unpacked into individual elements of a namespace, that is, in this scenario, “a” will be loaded with value “b” and “c” will be loaded with value “d” for the namespace “dictionary”.
+This file will load a string named foo to the parameter server, an integer with value 1234 and so on. 
+For the case of dictionaries, the elements of the dictionary are unpacked into individual elements of a namespace, that is, in this scenario, “a” will be loaded with value “b” and “c” will be loaded with value “d” for the namespace “dictionary”.
 
 The parameter server uses XMLRPC types for the parameters, supported types include: 32-bit integers, booleans, strings, doubles, iso8601 dates, lists and base64-encoded binary data.
 
