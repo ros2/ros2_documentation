@@ -70,7 +70,7 @@ Parameters are addressed by node name and parameter name, including its namespac
 
 Each parameter consists of a key and a value, where key is a string and the value could be one of the following types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[]
 
-The structure of a ROS 2 parameter looks as this:
+The structure of a ROS 2 parameter looks like this:
 
 .. code-block:: yaml
 
