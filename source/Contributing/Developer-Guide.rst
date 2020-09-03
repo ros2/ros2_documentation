@@ -341,7 +341,7 @@ Changes to RMW API
 When updating `RMW API <https://github.com/ros2/rmw>`__, it is required that RMW implementations for the Tier 1 middleware libraries are updated as well.
 For example, a new function ``rmw_foo()`` introduced to the RMW API must be implemented in the following packages (as of ROS Foxy):
 
-* `rmw_fastrtps <https://github.com/ros2/rmw_fastrtps/tree/master/rmw_fastrtps_cpp>`__
+* `rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`__
 * `rmw_connext <https://github.com/ros2/rmw_connext>`__
 * `rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`__
 
