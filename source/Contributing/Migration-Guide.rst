@@ -395,9 +395,11 @@ Replace:
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
 
-Migration guide parameters from ROS 1 to ROS 2
---------------------------------------------
-Parameters were associated with a central server in ROS 1 that allowed retrieving parameters at runtime through the use of the network APIs. ROS 2 associates parameters within each node, making them dynamically configurable off services functionality.
+Parameters
+----------
+
+Parameters were associated with a central server in ROS 1 that allowed retrieving parameters at runtime through the use of the network APIs. 
+ROS 2 associates parameters within each node, making them dynamically configurable off services functionality.
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
