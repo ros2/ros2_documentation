@@ -61,8 +61,10 @@ YAML file with equivalent information
   g2: {string: “g2-foo-value”, int: 20, float: 20.0}
 
 ROS 2 parameters
-===========================
-In the case of the ROS 2, parameters are hosted on nodes. Their lifetime is associated with the lifetime of the node where these are hosted (The node could implement some sort of persistence to reload values after restart).
+================
+
+In the case of the ROS 2, parameters are hosted on nodes. 
+Their lifetime is associated with the lifetime of the node where these are hosted (the node could implement some sort of persistence to reload values after restart).
 
 Parameters are addressed by node name and parameter name, including its namespace if required.
 
