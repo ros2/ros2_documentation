@@ -21,7 +21,7 @@ For the case of dictionaries, the elements of the dictionary are unpacked into i
 The parameter server uses XMLRPC types for the parameters, supported types include: 32-bit integers, booleans, strings, doubles, iso8601 dates, lists and base64-encoded binary data.
 
 XML params in a launch file
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: xml
 
