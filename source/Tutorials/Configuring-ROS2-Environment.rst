@@ -99,7 +99,15 @@ If you don’t want to have to source the setup file every time you open a new s
 
    .. group-tab:: Windows
 
-      Requires registry edits
+      Only for PowerShell users, create a folder in 'My Documents' called 'WindowsPowerShell'.
+      Within 'WindowsPowerShell', create file 'Microsoft.PowerShell_profile.ps1'.
+      Inside the file, paste:
+
+      .. code-block:: console
+
+        C:\ros2_foxy\local_setup.ps1
+
+      PowerShell will request permission to run this script everytime a new shell is opened.
 
 To undo this (to change to another distro) in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
