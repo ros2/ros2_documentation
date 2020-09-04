@@ -55,9 +55,11 @@ Install OpenSSL
 
 Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
 Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
-Don't download the Win32 or Light versions. Run the installer with default parameters.
+Don't download the Win32 or Light versions.
 
-The following command sets an environment variable that persists over sessions. Modify the command to match your installation directory:
+Run the installer with default parameters.
+The following command sets an environment variable that persists over sessions.
+Modify the command to match your installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
@@ -190,17 +192,21 @@ Environment setup
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block:: bash
+.. tabs::
 
-   > call C:\dev\ros2_foxy\local_setup.bat
+  .. group-tab:: Command Prompt
+
+    .. code-block:: bash
+
+       > call C:\dev\ros2_foxy\local_setup.bat
+
+  .. group-tab:: PowerShell
+
+    .. code-block:: bash
+
+       > C:\dev\ros2_foxy\local_setup.ps1
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
-
-For PowerShell users, the script to call is:
-
-.. code-block:: bash
-
-   > C:\dev\ros2_foxy\local_setup.ps1
 
 Try some examples
 -----------------
