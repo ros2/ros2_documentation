@@ -332,7 +332,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python -m pip install numpy lxml
 
 * To create executables python scripts(.exe), python_d should be used to invoke colcon, along with the corresponding CMake build type.
-  If you installed colcon using pip, the path to the colcon executable can be found with `pip show colcon-core`.
+  If you installed colcon using pip, the path to the colcon executable can be found with ``pip show colcon-core``.
 
 .. code-block:: bash
 
