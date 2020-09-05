@@ -157,17 +157,14 @@ RQt dependencies
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
+* The default installation path will be ``C:\Program Files (x86)\GraphvizX.XX\bin`` (Example: GraphvizX.XX → Graphviz2.38)
+* Open cmd window as administrator and go the location ``C:\Program Files (x86)\GraphvizX.XX\bin`` and run the below command:
 
 .. code-block:: bash
 
   dot.exe
 
-* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
-* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
-* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
-* Click on Ok Button.
+You will need to append the Graphviz bin folder ``C:\Program Files (x86)\GraphvizX.XX\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
 
 Downloading ROS 2
 -----------------
