@@ -336,7 +336,7 @@ If you installed colcon using pip, the path to the colcon executable can be foun
 
 .. code-block:: bash
 
-   > python_d path\to\colcon_executable build --cmake-args -DCMAKE_BUILD_TYPE=Debug
+   > python_d path\to\colcon_executable build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 * Hooray, you're done!
 
