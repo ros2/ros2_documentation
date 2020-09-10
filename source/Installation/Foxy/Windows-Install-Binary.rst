@@ -256,7 +256,7 @@ In an administrative command prompt, run the following commands.
    > set PYTHONNOUSERSITE=1
    > set ChocolateyInstall=c:\opt\chocolatey
    > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
-   > choco upgrade ros-foxy-ALL -y --execution-timeout=0
+   > choco upgrade ros-foxy-desktop -y --execution-timeout=0
 
 Environment setup
 ^^^^^^^^^^^^^^^^^^
