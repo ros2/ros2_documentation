@@ -398,8 +398,8 @@ Replace:
 Parameters
 ----------
 
-Parameters were associated with a central server in ROS 1 that allowed retrieving parameters at runtime through the use of the network APIs. 
-ROS 2 associates parameters within each node, making them dynamically configurable off services functionality.
+In ROS 1, parameters are associated with a central server that allowed retrieving parameters at runtime through the use of the network APIs.
+In ROS 2, parameters are associated per node and are configurable at runtime with ROS services.
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
