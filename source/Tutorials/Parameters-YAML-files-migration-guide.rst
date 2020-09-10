@@ -1,3 +1,5 @@
+.. _yaml-ros1-ros2-label:
+
 Migrating YAML parameter files from ROS 1 to ROS 2
 ==================================================
 
