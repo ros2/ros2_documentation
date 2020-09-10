@@ -1,5 +1,5 @@
-Migrating YAML parameter files from ROS 1 to ROS2
-=================================================
+Migrating YAML parameter files from ROS 1 to ROS 2
+==================================================
 
 For ROS parameter files, there is a 1:1 correspondence with parameters and YAML format.
 
