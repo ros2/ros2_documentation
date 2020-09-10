@@ -403,7 +403,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
-* See `ROS 2 cli usage <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters/>`_ for a better understanding of how the CLI tools work and its differences with ROS implementation.
+* See `ROS 2 CLI usage <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters/>`_ for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
 * See `ROS 2 parameter files tutorial <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters-YAML/>`_ to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
