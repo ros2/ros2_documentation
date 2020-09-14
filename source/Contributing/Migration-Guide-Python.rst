@@ -13,6 +13,23 @@ Node Initialization
    # rospy.init_node('asdf')
    rclpy.init(args=sys.argv)
    node = rclpy.create_node('asdf')
+   # ROS_INFO('Created node')
+   node.get_logger().info('Created node')
+
+ROS Parameters
+--------------------
+
+.. code-block:: python
+
+   # port = rospy.get_param('port', '/dev/ttyUSB0')
+   # buadrate = rospy.get_param('baudrate', 115200)
+   node.declare_parameters(namespace='',
+                           parameters=[ ('port', None),
+                                        ('baudrate', None)])
+   port = node.get_parameter('port').get_parameter_value().string_value
+   baudrate = node.get_parameter('baudrate').get_parameter_value().integer_value
+   # ROS_WARN('port: ' + port)
+   node.get_logger().warn('port: ' + port)
 
 
 Creating a Publisher
