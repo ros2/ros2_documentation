@@ -156,20 +156,11 @@ RQt dependencies
 
 .. _Foxy_windows-install-binary-installing-rqt-dependencies:
 
-To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
-
-* Follow "Stable Windows install packages" > "10/" > "msbuild" > "Release" > "Win32" to download "graphviz-2.38-win32.zip"
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command (CTRL-C if it doesn't exit automatically):
+To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
 
 .. code-block:: bash
 
-  dot.exe
-
-* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
-* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
-* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
-* Click on Ok Button.
+   > choco install graphviz
 
 Downloading ROS 2
 -----------------
