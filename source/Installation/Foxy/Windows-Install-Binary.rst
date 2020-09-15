@@ -157,8 +157,8 @@ RQt dependencies
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 
-* The default installation path will be ``C:\Program Files (x86)\GraphvizX.XX\bin`` (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location ``C:\Program Files (x86)\GraphvizX.XX\bin`` and run the below command:
+* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
+* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
 
 .. code-block:: bash
 
