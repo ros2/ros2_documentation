@@ -28,17 +28,8 @@ System setup
 
 Set locale
 ^^^^^^^^^^
-Make sure to set a locale that supports UTF-8.
-If you are in a minimal environment such as a Docker container, the locale may be set to something minimal like POSIX.
 
-The following is an example for setting locale.
-However, it should be fine if you're using a different UTF-8 supported locale.
-
-.. code-block:: bash
-
-   sudo locale-gen en_US en_US.UTF-8
-   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-   export LANG=en_US.UTF-8
+.. include:: ../_Linux-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
