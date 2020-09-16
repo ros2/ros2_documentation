@@ -76,34 +76,34 @@ Timeline before the release
 ---------------------------
 
     Mon. March 15, 2021 - Freeze
-        API and feature freeze for ``ros_core`` [1]_ packages in Rolling Ridley.
+        API and feature freeze for ROS Core [1]_ packages in Rolling Ridley.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
     Mon. March 29, 2021 - Alpha
-        Preliminary testing and stabilization of ``ros_core`` [1]_ packages.
-    
+        Preliminary testing and stabilization of ROS Core [1]_ packages.
+
     Mon. April 12, 2021 - Branch
         Branch from Rolling Ridley.
-        ``rosdistro`` is reopened for Rolling PRs for ``ros_core`` [1]_ packages.
+        ``rosdistro`` is reopened for Rolling PRs for ROS Core [1]_ packages.
         Galactic development shifts from ``ros-rolling-*`` packages to ``ros-galactic-*`` packages.
-         
+
     Mon. April 19, 2021 - Beta
-        Updated releases of ``desktop`` [2]_ packages available.
+        Updated releases of ROS Desktop [2]_ packages available.
         Call for general testing.
-         
+
     Mon. May 17, 2021 - RC
         Relese Candidate packages are built.
-        Updated releases of ``desktop`` [2]_ packages available.
+        Updated releases of ROS Desktop [2]_ packages available.
 
     Thu. May 20, 2021 - Distro Freeze
         Freeze rosdistro.
-        No PRs for Galactic on the `rosdistro` repo will be merged (reopens after the release announcement).
+        No PRs for Galactic on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
     Sun. May 23, 2021 - General Availability
         Release announcement.
         ``rosdistro`` is reopened for Galactic PRs.
 
-.. [1] The ``ros_core`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
-.. [2] The ``desktop`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
+.. [1] The ``ros_core`` variant is described in `REP 2001 <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
