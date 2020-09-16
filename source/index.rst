@@ -17,6 +17,7 @@ ROS 2 Documentation
    Releases
    Features
    Roadmap
+   Feature-Ideas
    Governance
    Marketing
    Related-Projects
