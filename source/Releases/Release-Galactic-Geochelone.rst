@@ -94,7 +94,7 @@ Timeline before the release
         Call for general testing.
 
     Mon. May 17, 2021 - RC
-        Relese Candidate packages are built.
+        Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
 
     Thu. May 20, 2021 - Distro Freeze
