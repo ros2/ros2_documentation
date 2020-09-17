@@ -92,6 +92,7 @@ We can check that our action built successfully with the command line tool:
        . install/setup.bash
        # Check that our action definition exists
        ros2 action show action_tutorials/action/Fibonacci
+
   .. group-tab:: Eloquent and newer
 
     .. code-block:: bash
