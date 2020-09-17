@@ -69,6 +69,12 @@ If not, this is an example diff:
 For more details, see `ros2/rclcpp#1160 <https://github.com/ros2/rclcpp/pull/1160>`_.
 For an example of the needed changes in user code, see `ros-visualization/interactive_markers#72 <https://github.com/ros-visualization/interactive_markers/pull/72>`_.
 
+Change in default ``/clock`` subscription QoS profile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The default was changed from a reliable communication with history depth 10 to a best effort communication with history depth 1.
+See `ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_.
+
 Known Issues
 ------------
 
