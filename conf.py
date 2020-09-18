@@ -95,8 +95,18 @@ templates_path = [
 ]
 
 html_sidebars = {
-    '**': ['versioning.html'],
+    '**': ['versioning.html', 'navigation.html'],
 }
+
+smv_tag_whitelist = None
+
+smv_branch_whitelist = r'^(Rolling|Foxy|Eloquent)$'
+
+smv_remote_whitelist = None
+
+smv_released_pattern = r'^(Foxy|Eloquent)$'
+
+
 
 html_favicon = 'favicon.ico'
 
