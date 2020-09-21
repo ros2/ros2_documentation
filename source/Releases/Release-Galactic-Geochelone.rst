@@ -91,7 +91,7 @@ For `example <https://github.com/ros2/examples/pull/291>`_, old signature:
 
 New signature:
 
-.. code-clock:: c++
+.. code-block:: c++
 
    void goal_response_callback(GoalHandleFibonacci::SharedPtr goal_handle)
 
