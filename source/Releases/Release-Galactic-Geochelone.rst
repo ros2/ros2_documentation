@@ -75,6 +75,28 @@ Change in default ``/clock`` subscription QoS profile
 The default was changed from a reliable communication with history depth 10 to a best effort communication with history depth 1.
 See `ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_.
 
+rclcpp_action
+^^^^^^^^^^^^^
+
+Action client goal response callback signature changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The goal response callback should now take a shared pointer to a goal handle, instead of a future.
+
+For `example <https://github.com/ros2/examples/pull/291>`_, old signature:
+
+.. code-block:: c++
+
+   void goal_response_callback(std::shared_future<GoalHandleFibonacci::SharedPtr> future)
+
+New signature:
+
+.. code-clock:: c++
+
+   void goal_response_callback(GoalHandleFibonacci::SharedPtr goal_handle)
+
+Related PR: `ros2/rclcpp#1311 <https://github.com/ros2/rclcpp/pull/1311>`_
+
 Known Issues
 ------------
 
