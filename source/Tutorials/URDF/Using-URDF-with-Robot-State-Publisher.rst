@@ -243,7 +243,7 @@ Save the ``setup.py`` file with your changes.
   source install/setup.bash
 
 
-7 View the Results
+7 View the results
 ^^^^^^^^^^^^^^^^^^
 
 Launch the package
