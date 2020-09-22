@@ -145,15 +145,15 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt-get install ros-<distro>-rqt*
+      sudo apt install ~nros-<distro>-rqt*
 
-  .. group-tab:: Linux
+  .. group-tab:: Linux (apt 1.x/Ubuntu 18.04 and older)
 
     .. code-block:: console
 
       sudo apt update
 
-      sudo apt-get install ros-<distro>-rqt*
+      sudo apt install ros-<distro>-rqt*
 
   .. group-tab:: macOS
 
