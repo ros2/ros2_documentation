@@ -154,7 +154,7 @@ Fire up your favorite editor and paste the following code into ``src/urdf_tutori
   if __name__ == '__main__':
     main()
 
-4 Create a Launch File
+4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new ``launch`` folder. Open your editor and paste the following code, saving it as ``launch/demo.launch.py``
