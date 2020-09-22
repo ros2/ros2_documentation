@@ -105,5 +105,5 @@ Timeline before the release
         Release announcement.
         ``rosdistro`` is reopened for Galactic PRs.
 
-.. [1] The ``ros_core`` variant is described in `REP 2001 <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
-.. [2] The ``desktop`` variant is described in `REP 2001 <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+.. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
