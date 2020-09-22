@@ -16,10 +16,8 @@ Using URDF with robot_state_publisher
 Background
 ----------
 
-This tutorial will show you how to model a walking robot, publish the state as 
-a `/tf2 <https://wiki.ros.org/tf2>`__ message and view the simulation in Rviz. 
-First, we create the URDF model describing the robot assembly. Next we write a 
-node which simulates the motion and publishes the JointState and transforms. 
+This tutorial will show you how to model a walking robot, publish the state as a `/tf2 <https://wiki.ros.org/tf2>`__ message and view the simulation in Rviz.
+First, we create the URDF model describing the robot assembly. Next we write a node which simulates the motion and publishes the JointState and transforms.
 We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf2``.
 
 .. image:: r2d2_rviz_demo.gif
