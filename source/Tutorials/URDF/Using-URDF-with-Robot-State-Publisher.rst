@@ -52,9 +52,9 @@ In order to view the robot in Rviz, save this `Rviz config <https://github.com/b
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
 
-Now we need a method for specifying what state the robot is in. To do this, we must specify all three joints and the overall odometry. 
+Now we need a method for specifying what state the robot is in. To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``src/urdf_tutorial/urdf_tutorial/state_publisher.py`` 
+Fire up your favorite editor and paste the following code into ``src/urdf_tutorial/urdf_tutorial/state_publisher.py``
 
 **Note:** Make sure to save it in the Python "urdf_tutorial" subfolder where the ``__init__.py`` file is located.
 
