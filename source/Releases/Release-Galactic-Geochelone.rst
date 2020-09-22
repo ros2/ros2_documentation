@@ -75,14 +75,14 @@ Known Issues
 Timeline before the release
 ---------------------------
 
-    Mon. March 15, 2021 - Freeze
+    Mon. March 15, 2021 - Alpha
+        Preliminary testing and stabilization of ROS Core [1]_ packages.
+
+    Mon. March 29, 2021 - Freeze
         API and feature freeze for ROS Core [1]_ packages in Rolling Ridley.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
-
-    Mon. March 29, 2021 - Alpha
-        Preliminary testing and stabilization of ROS Core [1]_ packages.
 
     Mon. April 12, 2021 - Branch
         Branch from Rolling Ridley.
