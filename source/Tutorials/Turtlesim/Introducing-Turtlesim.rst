@@ -145,7 +145,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt*
+      sudo apt-get install ros-<distro>-rqt*
 
   .. group-tab:: Linux
 
@@ -153,7 +153,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt*
+      sudo apt-get install ros-<distro>-rqt*
 
   .. group-tab:: macOS
 
