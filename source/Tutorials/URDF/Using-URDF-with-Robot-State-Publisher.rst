@@ -258,7 +258,7 @@ Open a new terminal, the run Rviz using
 
   rviz2 -d ~/dev_ws/install/urdf_tutorial/share/urdf_tutorial/r2d2.rviz
 
-See http://wiki.ros.org/rviz/UserGuide for details on how to use Rviz.
+See the [User Guide](http://wiki.ros.org/rviz/UserGuide) for details on how to use Rviz.
 
 Summary
 -------
