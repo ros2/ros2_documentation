@@ -51,7 +51,7 @@ In order to view the robot in Rviz, save this `Rviz config <https://github.com/b
 
 **Note:** Both files must be in the subfolder *urdf*
 
-3 Publish the State
+3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
 
 Now we need a method for specifying what state the robot is in. To do this, we must specify all three joints and the overall odometry. 
