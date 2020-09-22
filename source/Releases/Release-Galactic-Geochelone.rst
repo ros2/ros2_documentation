@@ -75,21 +75,21 @@ Known Issues
 Timeline before the release
 ---------------------------
 
-    Mon. March 15, 2021 - Alpha
+    Mon. March 22, 2021 - Alpha
         Preliminary testing and stabilization of ROS Core [1]_ packages.
 
-    Mon. March 29, 2021 - Freeze
+    Mon. April 5, 2021 - Freeze
         API and feature freeze for ROS Core [1]_ packages in Rolling Ridley.
         Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 12, 2021 - Branch
+    Mon. April 19, 2021 - Branch
         Branch from Rolling Ridley.
         ``rosdistro`` is reopened for Rolling PRs for ROS Core [1]_ packages.
         Galactic development shifts from ``ros-rolling-*`` packages to ``ros-galactic-*`` packages.
 
-    Mon. April 19, 2021 - Beta
+    Mon. April 26, 2021 - Beta
         Updated releases of ROS Desktop [2]_ packages available.
         Call for general testing.
 
