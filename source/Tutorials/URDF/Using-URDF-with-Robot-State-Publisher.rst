@@ -61,7 +61,6 @@ Fire up your favorite editor and paste the following code into ``src/urdf_tutori
 .. code-block:: python
 
   #! /usr/bin/env python
-  
   from math import sin, cos, pi
   import threading
   import rclpy
