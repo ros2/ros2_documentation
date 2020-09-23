@@ -40,37 +40,8 @@ Tasks
 1 Setup
 ^^^^^^^
 
-Create a new directory to store your launch file:
-
-.. code-block:: console
-
-  mkdir launch
-
-Create a launch file named ``turtlesim_mimic_launch.py`` by entering the following command in the terminal:
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        touch launch/turtlesim_mimic_launch.py
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        touch launch/turtlesim_mimic_launch.py
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        type nul > launch/turtlesim_mimic_launch.py
-
-You can also go into your system’s file directory using the GUI and create a new file that way.
-
-Open the new file in your preferred text editor.
+Create a launch file named ``turtlesim_mimic_launch.xml`` or ``turtlesim_mimic_launch.py``, depending if you're using XML or Python launch files.
+Open it in your preferred text editor.
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,7 +52,20 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. tabs::
 
-  .. group-tab:: Foxy and newer
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+        <launch>
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+          <node pkg="turtlesim" exec="mimic" name="mimic">
+            <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
+            <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
+          </node>
+        </launch>
+
+  .. group-tab:: Python launch file, Foxy and newer
 
     .. code-block:: python
 
@@ -113,7 +97,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
                 )
             ])
 
-  .. group-tab:: Eloquent and older
+  .. group-tab:: Python launch file, Eloquent and older
 
     .. code-block:: python
 
@@ -149,6 +133,16 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 2.1 Examine the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+XML launch files specifics
+##########################
+
+XML launch files must have a `<launch>` parent tag.
+That's start of the launch description, and each of it's children tags is an action.
+In this example, the `<node>` action was used.
+
+Python Launch files specifics
+#############################
+
 These import statements pull in some Python ``launch`` modules.
 
 .. code-block:: python
@@ -165,14 +159,24 @@ Next, the launch description itself begins:
 
       ])
 
-Within the ``LaunchDescription`` is a system of three nodes, all from the ``turtlesim`` package.
+Common (please put a nice subtitle here)
+########################################
+
+Within the launch description, there is a system of three nodes, all from the ``turtlesim`` package.
 The goal of the system is to launch two turtlesim windows, and have one turtle mimic the movements of the other.
 
 The first two actions in the launch description launch two turtlesim windows:
 
 .. tabs::
 
-  .. group-tab:: Foxy and newer
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+
+  .. group-tab:: Python, Foxy and newer
 
     .. code-block:: python
 
@@ -189,7 +193,7 @@ The first two actions in the launch description launch two turtlesim windows:
                name='sim'
            ),
 
-  .. group-tab:: Eloquent and older
+  .. group-tab:: Python, Eloquent and older
 
     .. code-block:: python
 
@@ -217,7 +221,16 @@ The final node is also from the ``turtlesim`` package, but a different executabl
 .. tabs::
 
 
-  .. group-tab:: Foxy and newer
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+          <node pkg="turtlesim" exec="mimic" name="mimic">
+            <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
+            <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
+          </node>
+
+  .. group-tab:: Python, Foxy and newer
 
     .. code-block:: python
 
@@ -231,7 +244,7 @@ The final node is also from the ``turtlesim`` package, but a different executabl
               ]
           )
 
-  .. group-tab:: Eloquent and older
+  .. group-tab:: Python, Eloquent and older
 
     .. code-block:: python
 
@@ -256,11 +269,10 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 3 ros2 launch
 ^^^^^^^^^^^^^
 
-To launch ``turtlesim_mimic_launch.py``, enter into the directory you created earlier and run the following command:
+Open in a terminal the directory where you created the launch file, then you can run the following command:
 
 .. code-block:: console
 
-  cd launch
   ros2 launch turtlesim_mimic_launch.py
 
 .. note::
