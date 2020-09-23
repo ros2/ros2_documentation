@@ -98,7 +98,7 @@ html_sidebars = {
     '**': ['versioning.html', 'navigation.html'],
 }
 
-smv_tag_whitelist = None
+# smv_tag_whitelist = None
 
 smv_branch_whitelist = r'^(Rolling|Foxy|Eloquent)$'
 
