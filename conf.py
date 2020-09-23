@@ -102,9 +102,9 @@ html_sidebars = {
 
 smv_branch_whitelist = r'^(Rolling|Foxy|Eloquent)$'
 
-smv_remote_whitelist = None
 
-smv_released_pattern = r'^(Foxy|Eloquent)$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(Foxy|Eloquent).*$'
+smv_remote_whitelist = r'^(origin)$'
 
 
 
