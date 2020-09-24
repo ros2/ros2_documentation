@@ -308,6 +308,297 @@ Run the command:
 A hidden node (the ``ros2 topic pub`` command you ran) is publishing data to the ``/turtlesim1/turtle1/cmd_vel`` topic on the left, which the ``/turtlesim1/sim`` node is subscribed to.
 The rest of the graph shows what was described earlier: ``mimic`` is subscribed to ``/turtlesim1/sim``'s pose topic, and publishes to ``/turtlesim2/sim``'s velocity command topic.
 
+5 Make your launch file configurable with arguments and substitutions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We're going to now edit the same launch file we previously created to make it more configurable:
+
+.. tabs::
+
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+        <launch>
+          <arg name="turtlesim_ns1" default="turtlesim1" description="namespace of one of the turtlesim to run"/>
+          <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
+          <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
+
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns1)"/>
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns2)"/>
+          <node pkg="turtlesim" exec="mimic" name="$(var mimic_name)">
+            <remap from="/input/pose" to="/$(var turtlesim_ns1)/turtle1/pose"/>
+            <remap from="/output/cmd_vel" to="/$(var turtlesim_ns2)/turtle1/cmd_vel"/>
+          </node>
+        </launch>
+
+  .. group-tab:: Python launch file, Foxy and newer
+
+    .. code-block:: python
+
+        from launch import LaunchDescription
+        from launch.actions import DeclareLaunchArgument
+        from launch.substitutions import LaunchConfiguration
+        from launch_ros.actions import Node
+
+        def generate_launch_description():
+            return LaunchDescription([
+                DeclareLaunchArgument(
+                  'turtlesim_ns1',
+                  default_value='turtlesim1',
+                  description='namespace of one of the turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'turtlesim_ns2',
+                  default_value='turtlesim2',
+                  description='namespace of the other turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'mimic_name',
+                  default_value='mimic',
+                  description='name of the mimicking node',
+                ),
+                Node(
+                    package='turtlesim',
+                    namespace=LaunchConfiguration('turtlesim_ns1'),
+                    executable='turtlesim_node',
+                    name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    namespace=LaunchConfiguration('turtlesim_ns2'),
+                    executable='turtlesim_node',
+                    name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    executable='mimic',
+                    name=LaunchConfiguration('mimic_name'),
+                    remappings=[
+                        ('input/pose', [LaunchConfiguration('turtlesim_ns1'), '/turtle1/pose']),
+                        ('output/cmd_vel', [LaunchConfiguration('turtlesim_ns2'), '/turtle1/cmd_vel']),
+                    ]
+                )
+            ])
+
+  .. group-tab:: Python launch file, Eloquent and older
+
+    .. code-block:: python
+
+        from launch import LaunchDescription
+        from launch.actions import DeclareLaunchArgument
+        from launch.substitutions import LaunchConfiguration
+        from launch_ros.actions import Node
+
+        def generate_launch_description():
+            return LaunchDescription([
+                DeclareLaunchArgument(
+                  'turtlesim_ns1',
+                  default_value='turtlesim1',
+                  description='namespace of one of the turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'turtlesim_ns2',
+                  default_value='turtlesim2',
+                  description='namespace of the other turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'mimic_name',
+                  default_value='mimic',
+                  description='name of the mimicking node',
+                ),
+                Node(
+                    package='turtlesim',
+                    node_namespace=LaunchConfiguration('turtlesim_ns1'),
+                    node_executable='turtlesim_node',
+                    node_name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    node_namespace=LaunchConfiguration('turtlesim_ns2'),
+                    node_executable='turtlesim_node',
+                    node_name='sim'
+                ),
+                Node(
+                    package='turtlesim',
+                    node_executable='mimic',
+                    node_name=LaunchConfiguration('mimic_name'),
+                    remappings=[
+                        ('input/pose', [LaunchConfiguration('turtlesim_ns1'), '/turtle1/pose']),
+                        ('output/cmd_vel', [LaunchConfiguration('turtlesim_ns2'), '/turtle1/cmd_vel']),
+                    ]
+                )
+            ])
+
+In this example, we're first declaring three arguments, the namespace of each turtlesim and the node name of the mimic node:
+
+.. tabs::
+
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+          <arg name="turtlesim_ns1" default="turtlesim1" description="namespace of one of the turtlesim to run"/>
+          <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
+          <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
+
+  .. group-tab:: Python launch file
+
+    .. code-block:: python
+
+                DeclareLaunchArgument(
+                  'turtlesim_ns1',
+                  default_value='turtlesim1',
+                  description='namespace of one of the turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'turtlesim_ns2',
+                  default_value='turtlesim2',
+                  description='namespace of the other turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                  'mimic_name',
+                  default_value='mimic',
+                  description='name of the mimicking node',
+                ),
+
+Each of the declared launch arguments have a name.
+A default value and a description can optionally be provided.
+
+It's possible to introspect what arguments a launch file declare:
+
+.. code-block:: console
+
+  ros2 launch -s turtlesim_mimic_launch.py
+
+The provided arguments are being queried in the rest of the launch files using substitutions:
+
+.. tabs::
+
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+        <launch>
+          <arg name="turtlesim_ns1" default="turtlesim1" description="namespace of one of the turtlesim to run"/>
+          <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
+          <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
+
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns1)"/>
+          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns2)"/>
+          <node pkg="turtlesim" exec="mimic" name="$(var mimic_name)">
+            <remap from="/input/pose" to="/$(var turtlesim_ns1)/turtle1/pose"/>
+            <remap from="/output/cmd_vel" to="/$(var turtlesim_ns2)/turtle1/cmd_vel"/>
+          </node>
+        </launch>
+
+  .. group-tab:: Python launch file, Foxy and newer
+
+    .. code-block:: python
+
+                Node(
+                    ...,
+                    namespace=LaunchConfiguration('turtlesim_ns1'),
+                    ...,
+                ),
+                Node(
+                    ...,
+                    namespace=LaunchConfiguration('turtlesim_ns2'),
+                    ...,
+                ),
+                Node(
+                    ...,
+                    name=LaunchConfiguration('mimic_name'),
+                    remappings=[
+                        ('input/pose', [LaunchConfiguration('turtlesim_ns1'), '/turtle1/pose']),
+                        ('output/cmd_vel', [LaunchConfiguration('turtlesim_ns2'), '/turtle1/cmd_vel']),
+                    ]
+                )
+            ])
+
+  .. group-tab:: Python launch file, Eloquent and older
+
+    .. code-block:: python
+
+                Node(
+                    ...,
+                    namespace=LaunchConfiguration('turtlesim_ns1'),
+                    ...,
+                ),
+                Node(
+                    ...,
+                    namespace=LaunchConfiguration('turtlesim_ns2'),
+                    ...,
+                ),
+                Node(
+                    ...,
+                    name=LaunchConfiguration('mimic_name'),
+                    remappings=[
+                        ('input/pose', [LaunchConfiguration('turtlesim_ns1'), '/turtle1/pose']),
+                        ('output/cmd_vel', [LaunchConfiguration('turtlesim_ns2'), '/turtle1/cmd_vel']),
+                    ]
+                )
+            ])
+
+Now that the launch file is configurable, we can run it twice without collisions between the topics and node names!
+In the following example, we will launch two turtlesims that draw a circle, and other two turtlesims that draw a square.
+
+.. code-block:: console
+
+  # In one terminal
+  ros2 launch turtlesim_mimic_launch.py turtlesim_ns1:=drawing_circles_1 turtlesim_ns2:=drawing_circles_2 mimic_name:=mimic_circles
+  ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
+
+.. code-block:: console
+  # In another terminal
+  ros2 launch turtlesim_mimic_launch.py turtlesim_ns1:=drawing_squares_1 turtlesim_ns2:=drawing_squares_2 mimic_name:=mimic_squares
+  ros2 run turtlesim draw_square --ros-args -r __ns:=/drawing_squares_1
+
+
+6 Reusing an existing launch files and using conditions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We will now reuse our last iteration of the ``turtlesim_mimic_launch.py/xml``, and create a new launch file that either draws a circle or an square based on a condition.
+
+Create a new launch file named ``turtlesim_draw_launch.py/xml`` in the same directory that the one created before and copy the following
+
+.. tabs::
+
+  .. group-tab:: XML launch file
+
+    .. code-block:: xml
+
+        <launch>
+            <arg name="mode" default="square"
+              description="can be 'square' or 'circle', to make the turtle draw those figures"/>
+            <arg name="turtlesim_ns1" default="turtlesim1" description="namespace of one of the turtlesim to run"/>
+            <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
+            <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
+
+            <include file="$(dirname)/turtlesim_launch.xml"/>  <!-- arguments are passed automatically-->
+            <node pkg="turtlesim" exec="draw_square" name="square_drawer" namespace="$(var turtlesim_ns1)"
+                if="$(eval '\'$(var mode)\' == \'square\'')"/>
+            <executable cmd="$(find-pkg-prefix ros2cli)/bin/ros2 topic pub -r 1 /$(var turtlesim_ns1)/turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'"
+                if="$(eval '\'$(var mode)\' == \'circle\'')"/>
+        </launch>
+
+  .. group-tab:: Python launch file, Foxy and newer
+
+    .. code-block:: python
+
+        Please write code here
+
+  .. group-tab:: Python launch file, Eloquent and older
+
+    .. code-block:: python
+
+        Please write code here
+
+COMPLETE THE EXAMPLE
+
+TBD: Conditions look too ugly in XML (those scape characters!), we should improve them.
+TBD2: Using forward slashes should work in XML launch files, even on Windows. I'm not sure if that is working.
+
 Summary
 -------
 
