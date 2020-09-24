@@ -312,7 +312,7 @@ Summary
 -------
 
 Launch files simplify running complex systems with many nodes and specific configuration details.
-You can create launch files using Python, and run them using the ``ros2 launch`` command.
+You can create launch files using XML or Python, and run them using the ``ros2 launch`` command.
 
 Next steps
 ----------
