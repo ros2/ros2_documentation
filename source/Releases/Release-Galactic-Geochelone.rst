@@ -97,6 +97,17 @@ New signature:
 
 Related PR: `ros2/rclcpp#1311 <https://github.com/ros2/rclcpp/pull/1311>`_
 
+rosidl_typesupport_introspection_c
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+API break in function that gets an element from an array
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The signature of the function was changed because it was semantically different to all the other functions used to get an element from an array or sequence.
+This only affects authors of rmw implementations using the introspection typesupport.
+
+For further details, see `ros2/rosidl#531 <https://github.com/ros2/rosidl/pull/531>`_.
+
 Known Issues
 ------------
 
