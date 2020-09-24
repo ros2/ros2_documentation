@@ -133,36 +133,23 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 2.1 Examine the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-XML launch files specifics
-##########################
+Launch files begin with a launch description:
 
-XML launch files must have a `<launch>` parent tag.
-That's start of the launch description, and each of it's children tags is an action.
-In this example, the `<node>` action was used.
+.. code-block:: xml
 
-Python Launch files specifics
-#############################
+  <launch>
 
-These import statements pull in some Python ``launch`` modules.
+  </launch>
 
 .. code-block:: python
 
-    from launch import LaunchDescription
-    from launch_ros.actions import Node
+  def generate_launch_description():
+    return LaunchDescription([
 
-Next, the launch description itself begins:
+    ])
 
-.. code-block:: python
-
-   def generate_launch_description():
-      return LaunchDescription([
-
-      ])
-
-Common (please put a nice subtitle here)
-########################################
-
-Within the launch description, there is a system of three nodes, all from the ``turtlesim`` package.
+The launch description is a collection of actions that describes the system to be run.
+In this case, there is a system of three nodes, all from the ``turtlesim`` package.
 The goal of the system is to launch two turtlesim windows, and have one turtle mimic the movements of the other.
 
 The first two actions in the launch description launch two turtlesim windows:
@@ -173,8 +160,8 @@ The first two actions in the launch description launch two turtlesim windows:
 
     .. code-block:: xml
 
-          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
-          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
+      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
+      <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2"/>
 
   .. group-tab:: Python, Foxy and newer
 
