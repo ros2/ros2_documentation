@@ -550,6 +550,7 @@ In the following example, we will launch two turtlesims that draw a circle, and 
   ros2 topic pub -r 1 /turtlesim1/turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}"
 
 .. code-block:: console
+
   # In another terminal
   ros2 launch turtlesim_mimic_launch.py turtlesim_ns1:=drawing_squares_1 turtlesim_ns2:=drawing_squares_2 mimic_name:=mimic_squares
   ros2 run turtlesim draw_square --ros-args -r __ns:=/drawing_squares_1
