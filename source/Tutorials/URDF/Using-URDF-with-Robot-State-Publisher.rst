@@ -262,6 +262,6 @@ Summary
 You created a JointState publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
 The code used in these examples can be found `here <https://github.com/benbongalon/ros2-migration/tree/master/urdf_tutorial>`__.
 
-Credit is given to the authors of this 
-`ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__ 
+Credit is given to the authors of this
+`ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__
 from which some content was reused.
