@@ -477,14 +477,13 @@ The provided arguments are being queried in the rest of the launch files using s
 
   .. group-tab:: XML launch file
 
-    .. code-block:: xml
+    .. code-block:: none
 
-          <node ... namespace="$(var turtlesim_ns1)"/>
-          <node ... namespace="$(var turtlesim_ns2)"/>
-          <node ... name="$(var mimic_name)">
-            <remap ... to="/$(var turtlesim_ns1)/turtle1/pose"/>
-            <remap ... to="/$(var turtlesim_ns2)/turtle1/cmd_vel"/>
-          </node>
+          namespace="$(var turtlesim_ns1)"
+          namespace="$(var turtlesim_ns2)"
+          name="$(var mimic_name)"
+          to="/$(var turtlesim_ns1)/turtle1/pose"
+          to="/$(var turtlesim_ns2)/turtle1/cmd_vel"
 
   .. group-tab:: Python launch file, Foxy and newer
 
