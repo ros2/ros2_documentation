@@ -707,8 +707,11 @@ WRITE AN EXPLANATION HERE
 
 
 TBD: Conditions look too ugly in XML (those scape characters!), we should improve them.
-  We could use https://github.com/ros2/launch/pull/457, and make that available in XML.
-TBD2: Using forward slashes should work in XML launch files, even on Windows. Double check if that's the case.
+We could use https://github.com/ros2/launch/pull/457, and make that available in XML.
+
+TBD2: Using forward slashes should work in XML launch files, even on Windows.
+Double check if that's the case.
+
 TDB3: Should this be part of a separate tutorial?
 
 Summary
