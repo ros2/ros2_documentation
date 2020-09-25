@@ -479,18 +479,12 @@ The provided arguments are being queried in the rest of the launch files using s
 
     .. code-block:: xml
 
-        <launch>
-          <arg name="turtlesim_ns1" default="turtlesim1" description="namespace of one of the turtlesim to run"/>
-          <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
-          <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
-
-          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns1)"/>
-          <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="$(var turtlesim_ns2)"/>
-          <node pkg="turtlesim" exec="mimic" name="$(var mimic_name)">
-            <remap from="/input/pose" to="/$(var turtlesim_ns1)/turtle1/pose"/>
-            <remap from="/output/cmd_vel" to="/$(var turtlesim_ns2)/turtle1/cmd_vel"/>
+          <node ... namespace="$(var turtlesim_ns1)"/>
+          <node ... namespace="$(var turtlesim_ns2)"/>
+          <node ... name="$(var mimic_name)">
+            <remap ... to="/$(var turtlesim_ns1)/turtle1/pose"/>
+            <remap ... to="/$(var turtlesim_ns2)/turtle1/cmd_vel"/>
           </node>
-        </launch>
 
   .. group-tab:: Python launch file, Foxy and newer
 
@@ -576,7 +570,7 @@ Create a new launch file named ``turtlesim_draw_launch.py/xml`` in the same dire
             <arg name="turtlesim_ns2" default="turtlesim2" description="namespace of the other turtlesim to run"/>
             <arg name="mimic_name" default="mimic" description="name of the mimicking node"/>
 
-            <include file="$(dirname)/turtlesim_launch.xml"/>  <!-- arguments are passed automatically-->
+            <include file="$(dirname)/turtlesim_mimic_launch.xml"/>  <!-- arguments are passed automatically-->
             <node pkg="turtlesim" exec="draw_square" name="square_drawer" namespace="$(var turtlesim_ns1)"
                 if="$(eval '\'$(var mode)\' == \'square\'')"/>
             <executable cmd="$(find-pkg-prefix ros2cli)/bin/ros2 topic pub -r 1 /$(var turtlesim_ns1)/turtle1/cmd_vel geometry_msgs/msg/Twist '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'"
@@ -587,18 +581,135 @@ Create a new launch file named ``turtlesim_draw_launch.py/xml`` in the same dire
 
     .. code-block:: python
 
-        Please write code here
+        from launch import LaunchDescription
+        from launch.actions import DeclareLaunchArgument
+        from launch.actions import ExecuteProcess
+        from launch.actions import IncludeLaunchDescription
+        from launch.conditions import LaunchConfigurationEquals
+        from launch.launch_description_sources import PythonLaunchDescriptionSource
+        from launch.substitutions import LaunchConfiguration
+        from launch.substitutions import ThisLaunchFileDir
+        from launch_ros.actions import Node
+        from launch_ros.substitutions import FindPackagePrefix
+
+        def generate_launch_description():
+            return LaunchDescription([
+                DeclareLaunchArgument(
+                    'mode',
+                    default_value='square',
+                    description="can be 'square' or 'circle', to make the turtle draw those figures",
+                ),
+                DeclareLaunchArgument(
+                    'turtlesim_ns1',
+                    default_value='turtlesim1',
+                    description='namespace of one of the turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                    'turtlesim_ns2',
+                    default_value='turtlesim2',
+                    description='namespace of the other turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                    'mimic_name',
+                    default_value='mimic',
+                    description='name of the mimicking node',
+                ),
+                IncludeLaunchDescription(
+                    PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/turtlesim_mimic_launch.py'])
+                ),
+                Node(
+                    package='turtlesim',
+                    namespace=LaunchConfiguration('turtlesim_ns1'),
+                    executable='draw_square',
+                    name='square_drawer',
+                    condition=LaunchConfigurationEquals('mode', 'square'),,
+                ),
+                ExecuteProcess(
+                    cmd=[
+                        [FindPackagePrefix('ros2cli'), '/bin/ros2'], 'topic', 'pub', '-r', '1',
+                        ['/', LaunchConfiguration('turtlesim_ns1'), '/turtle1/cmd_vel'],
+                        'geometry_msgs/msg/Twist', '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'
+                    ],
+                    condition=LaunchConfigurationEquals('mode', 'circle'),,
+                ),
+        ])
 
   .. group-tab:: Python launch file, Eloquent and older
 
     .. code-block:: python
 
-        Please write code here
+        from launch import Condition
+        from launch import LaunchDescription
+        from launch.actions import DeclareLaunchArgument
+        from launch.actions import ExecuteProcess
+        from launch.actions import IncludeLaunchDescription
+        from launch.launch_description_sources import PythonLaunchDescriptionSource
+        from launch.substitutions import LaunchConfiguration
+        from launch.substitutions import ThisLaunchFileDir
+        from launch_ros.actions import Node
+        from launch_ros.substitutions import FindPackagePrefix
 
-COMPLETE THE EXAMPLE
+        def generate_launch_description():
+            return LaunchDescription([
+                DeclareLaunchArgument(
+                    'mode',
+                    default_value='square',
+                    description="can be 'square' or 'circle', to make the turtle draw those figures",
+                ),
+                DeclareLaunchArgument(
+                    'turtlesim_ns1',
+                    default_value='turtlesim1',
+                    description='namespace of one of the turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                    'turtlesim_ns2',
+                    default_value='turtlesim2',
+                    description='namespace of the other turtlesim to run',
+                ),
+                DeclareLaunchArgument(
+                    'mimic_name',
+                    default_value='mimic',
+                    description='name of the mimicking node',
+                ),
+                IncludeLaunchDescription(
+                    PythonLaunchDescriptionSource([ThisLaunchFileDir(), '/turtlesim_mimic_launch.py'])
+                ),
+                Node(
+                    package='turtlesim',
+                    node_namespace=LaunchConfiguration('turtlesim_ns1'),
+                    node_executable='draw_square',
+                    node_name='square_drawer',
+                    condition=Condition(
+                        predicate=lambda context: context.launch_configurations['mode'] == 'square'),
+                ),
+                ExecuteProcess(
+                    cmd=[
+                        [FindPackagePrefix('ros2cli'), '/bin/ros2'], 'topic', 'pub', '-r', '1',
+                        ['/', LaunchConfiguration('turtlesim_ns1'), '/turtle1/cmd_vel'],
+                        'geometry_msgs/msg/Twist', '{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -1.8}}'
+                    ],
+                    condition=Condition(
+                        predicate=lambda context: context.launch_configurations['mode'] == 'circle'),
+                ),
+        ])
+
+WRITE AN EXPLANATION HERE
+
+.. code-block:: console
+
+  # In one terminal
+  ros2 launch turtlesim_draw_launch.py turtlesim_ns1:=drawing_circles_1 turtlesim_ns2:=drawing_circles_2 mimic_name:=mimic_circles mode:=circle
+
+.. code-block:: console
+
+  # In another terminal
+  ros2 launch turtlesim_draw_launch.py turtlesim_ns1:=drawing_squares_1 turtlesim_ns2:=drawing_squares_2 mimic_name:=mimic_squares mode:=square
+
 
 TBD: Conditions look too ugly in XML (those scape characters!), we should improve them.
-TBD2: Using forward slashes should work in XML launch files, even on Windows. I'm not sure if that is working.
+  We could use https://github.com/ros2/launch/pull/457, and make that available in XML.
+TBD2: Using forward slashes should work in XML launch files, even on Windows. Double check if that's the case.
+TDB3: Should this be part of a separate tutorial?
 
 Summary
 -------
