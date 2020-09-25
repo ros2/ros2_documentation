@@ -147,6 +147,14 @@ As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the T
 
 The current WGs are (6 as of 2019-09-04):
 
+* Control
+
+ * Lead(s): Bence Magyar, Karsten Knese
+ * Resources:
+
+  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
+  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
+
 * Edge AI
 
  * Lead(s): Joe Speed
