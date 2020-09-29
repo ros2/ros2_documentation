@@ -95,7 +95,7 @@ templates_path = [
 ]
 
 html_sidebars = {
-    '**': ['versioning.html', 'navigation.html'],
+    '**': ['navigation.html', 'versioning.html'],
 }
 
 # smv_tag_whitelist = None
