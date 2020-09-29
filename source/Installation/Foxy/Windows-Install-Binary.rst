@@ -58,11 +58,12 @@ Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
-The following commands assume you used the default installation directory:
+The following command sets an environment variable that persists over sessions.
+Modify the command to match your installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
-You will need to append the OpenSSL-Win64 bin folder to your PATH.
+You will also need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
@@ -136,7 +137,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
+   > choco install -y -s <PATH\TO\DOWNLOADS> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -155,19 +156,11 @@ RQt dependencies
 
 .. _Foxy_windows-install-binary-installing-rqt-dependencies:
 
-To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
-
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
+To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
 
 .. code-block:: bash
 
-  dot.exe
-
-* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
-* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
-* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
-* Click on Ok Button.
+   > choco install graphviz
 
 Downloading ROS 2
 -----------------
@@ -190,9 +183,19 @@ Environment setup
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block:: bash
+.. tabs::
 
-   > call C:\dev\ros2_foxy\local_setup.bat
+  .. group-tab:: Command Prompt
+
+    .. code-block:: bash
+
+       > call C:\dev\ros2_foxy\local_setup.bat
+
+  .. group-tab:: PowerShell
+
+    .. code-block:: bash
+
+       > C:\dev\ros2_foxy\local_setup.ps1
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
