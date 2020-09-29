@@ -1,11 +1,13 @@
+
 {% if versions %}
-<h3>{{ _('Releases') }}</h3>
+<h3>{{ _('Versions') }}</h3>
+<h4>{{ _('Releases') }}</h4>
 <ul>
-  {%- for item in versions.releases %}
+  {%- for item in versions.releases|reverse %}
   <li><a href="{{ item.url }}">{{ item.name }}</a></li>
   {%- endfor %}
 </ul>
-<h3>{{ _('In Development') }}</h3>
+<h4>{{ _('In Development') }}</h4>
 <ul>
   {%- for item in versions.in_development %}
   <li><a href="{{ item.url }}">{{ item.name }}</a></li>
