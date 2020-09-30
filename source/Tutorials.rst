@@ -134,6 +134,7 @@ Demos
    Tutorials/Real-Time-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
+   Tutorials/Discovery_server/fast-discovery-service
 
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
@@ -149,6 +150,7 @@ Demos
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
+* `ROS2 using FastDDS Discovery Service <Tutorials/Discovery_server/fast-discovery-service>`.
 
 Examples
 --------
