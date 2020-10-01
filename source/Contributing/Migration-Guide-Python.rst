@@ -24,9 +24,12 @@ ROS Parameters
 
    # port = rospy.get_param('port', '/dev/ttyUSB0')
    # buadrate = rospy.get_param('baudrate', 115200)
-   node.declare_parameters(namespace='',
-                           parameters=[ ('port', None),
-                                        ('baudrate', None)])
+   node.declare_parameters(
+       namespace='',
+       parameters=[
+           ('port', None),
+           ('baudrate', None),
+       ])
    port = node.get_parameter('port').get_parameter_value().string_value
    baudrate = node.get_parameter('baudrate').get_parameter_value().integer_value
    # ROS_WARN('port: ' + port)
