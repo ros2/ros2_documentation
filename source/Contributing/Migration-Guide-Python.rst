@@ -13,7 +13,7 @@ Node Initialization
    # rospy.init_node('asdf')
    rclpy.init(args=sys.argv)
    node = rclpy.create_node('asdf')
-   # ROS_INFO('Created node')
+   # rospy.loginfo('Created node')
    node.get_logger().info('Created node')
 
 
