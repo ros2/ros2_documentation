@@ -22,6 +22,10 @@ Note that the first message will only be logged once, though the line is reached
 Logging directory configuration
 -------------------------------
 
+.. note::
+
+   The logging directory can only be configured starting in Galactic.
+
 The logging directory can be configured through two environment variables: ``ROS_LOG_DIR`` and ``ROS_HOME``.
 The logic is as follows:
 
