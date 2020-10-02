@@ -52,7 +52,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
@@ -156,7 +156,7 @@ The first two actions in the launch description launch two turtlesim windows:
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
@@ -208,7 +208,7 @@ The final node is also from the ``turtlesim`` package, but a different executabl
 .. tabs::
 
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
@@ -315,7 +315,7 @@ We're going to now edit the same launch file we previously created to make it mo
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
@@ -434,7 +434,7 @@ In this example, we're first declaring three arguments, the namespace of each tu
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
@@ -475,7 +475,7 @@ The provided arguments are being queried in the rest of the launch files using s
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: none
 
@@ -558,7 +558,7 @@ Create a new launch file named ``turtlesim_draw_launch.py/xml`` in the same dire
 
 .. tabs::
 
-  .. group-tab:: XML launch file
+  .. group-tab:: XML launch file, Eloquent and later
 
     .. code-block:: xml
 
