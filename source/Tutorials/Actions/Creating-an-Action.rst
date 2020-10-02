@@ -81,12 +81,27 @@ So when we want to refer to our new action, it will have the full name ``action_
 
 We can check that our action built successfully with the command line tool:
 
-.. code-block:: bash
+.. tabs::
 
-    # Source our workspace
-    # On Windows: call install/setup.bat
-    . install/setup.bash
-    # Check that our action definition exists
-    ros2 interface show action_tutorials/action/Fibonacci
+  .. group-tab:: Dashing
+
+    .. code-block:: bash
+
+       # Source our workspace
+       # On Windows: call install/setup.bat
+       . install/setup.bash
+       # Check that our action definition exists
+       ros2 action show action_tutorials/action/Fibonacci
+
+  .. group-tab:: Eloquent and newer
+
+    .. code-block:: bash
+
+       # Source our workspace
+       # On Windows: call install/setup.bat
+       . install/setup.bash
+       # Check that our action definition exists
+       ros2 interface show action_tutorials/action/Fibonacci
+
 
 You should see the Fibonacci action definition printed to the screen.

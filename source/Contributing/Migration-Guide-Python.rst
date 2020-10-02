@@ -13,6 +13,25 @@ Node Initialization
    # rospy.init_node('asdf')
    rclpy.init(args=sys.argv)
    node = rclpy.create_node('asdf')
+   # rospy.loginfo('Created node')
+   node.get_logger().info('Created node')
+
+
+ROS Parameters
+--------------------
+
+.. code-block:: python
+
+   # port = rospy.get_param('port', '/dev/ttyUSB0')
+   # assert isinstance(port, str), 'port parameter must be a str'
+   port = node.declare_parameter('port', '/dev/ttyUSB0').value
+   assert isinstance(port, str), 'port parameter must be a str'
+   # buadrate = rospy.get_param('baudrate', 115200)
+   # assert isinstance(port, int), 'port parameter must be an integer'
+   baudrate = node.declare_parameter('baudrate', 115200).value
+   assert isinstance(port, int), 'port parameter must be an integer'
+   # rospy.logwarn('port: ' + port)
+   node.get_logger().warn('port: ' + port)
 
 
 Creating a Publisher

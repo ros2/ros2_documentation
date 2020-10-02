@@ -199,12 +199,19 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
 
-Build your own packages
------------------------
+Next steps after installing
+---------------------------
+Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+Using the ROS 1 bridge
+----------------------
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+
+Additional RMW implementations (optional)
+-----------------------------------------
+The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
+See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
@@ -222,3 +229,50 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_dashing
+
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel.
+
+Install ROS 2 builds
+^^^^^^^^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   > mkdir c:\opt\chocolatey
+   > set PYTHONNOUSERSITE=1
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   > choco upgrade ros-dashing-desktop -y --execution-timeout=0
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > call C:\opt\ros\dashing\x64\local_setup.bat
+
+Stay up-to-date
+^^^^^^^^^^^^^^^
+
+To keep up-to-date with the latest builds, run:
+
+.. code-block:: bash
+
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco upgrade all -y --execution-timeout=0
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   > rmdir /s /q C:\opt\

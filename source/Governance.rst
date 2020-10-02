@@ -147,6 +147,14 @@ As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the T
 
 The current WGs are (6 as of 2019-09-04):
 
+* Control
+
+ * Lead(s): Bence Magyar, Karsten Knese
+ * Resources:
+
+  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
+  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
+
 * Edge AI
 
  * Lead(s): Joe Speed
@@ -184,6 +192,17 @@ The current WGs are (6 as of 2019-09-04):
   * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
   * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
 
+* Manipulation
+
+ * Lead(s): Dave Coleman, Mark Moll
+ * Resources:
+
+  * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
+
+  * Meeting invite group `ros-manipulation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-manipulation-working-group-invites>`_
+  * Discourse tag: `wg-moveit <https://discourse.ros.org/tags/wg-moveit>`_
+  * Discourse Channel: `MoveIt <https://discourse.ros.org/c/moveit>`_
+
 * Real-time
 
  * Lead(s): Dejan Pangercic
@@ -204,7 +223,7 @@ The current WGs are (6 as of 2019-09-04):
 
 * Security
 
- * Lead(s): Joe McManus, Kyle Fazzari
+ * Lead(s): Sid Faber, Kyle Fazzari
  * Resources:
 
   * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
