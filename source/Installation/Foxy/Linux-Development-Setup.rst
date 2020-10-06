@@ -111,9 +111,6 @@ If you would like to use another DDS or RTPS vendor besides the default, eProsim
 
 Build the code in the workspace
 -------------------------------
-
-Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source>`__.
-
 More info on working with a ROS workspace can be found in `this tutorial </Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash
@@ -173,7 +170,19 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
+Next steps after installing
+---------------------------
+Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+
+Using the ROS 1 bridge
+----------------------
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+
+Additional RMW implementations (optional)
+-----------------------------------------
+The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
+See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+
 
 Alternate compilers
 -------------------

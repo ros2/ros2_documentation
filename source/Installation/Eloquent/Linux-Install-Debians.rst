@@ -64,8 +64,6 @@ No GUI tools.
 
    sudo apt install ros-eloquent-ros-base
 
-See specific sections below for how to also install the :ref:`ros1_bridge <Eloquent_linux-ros1-add-pkgs>`, :ref:`TurtleBot packages <Eloquent_linux-ros1-add-pkgs>`, or :ref:`alternative RMW packages <Eloquent_linux-install-additional-rmw-implementations>`.
-
 Environment setup
 -----------------
 
@@ -112,53 +110,18 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
+Next steps after installing
+---------------------------
+Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-.. _Eloquent_linux-install-additional-rmw-implementations:
+Using the ROS 1 bridge
+----------------------
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
-Install additional RMW implementations (optional)
--------------------------------------------------
-
-By default the RMW implementation ``Fast RTPS`` is used.
-``Cyclone DDS`` is also installed.
-
-To install support for ``OpenSplice`` or ``RTI Connext``:
-
-.. code-block:: bash
-
-   sudo apt update
-   sudo apt install ros-eloquent-rmw-opensplice-cpp # for OpenSplice
-   sudo apt install ros-eloquent-rmw-connext-cpp # for RTI Connext (requires license agreement)
-
-By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
-By setting the environment variable ``RMW_IMPLEMENTATION=rmw_connext_cpp`` you can switch to use RTI Connext.
-
-You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
-
-.. _Eloquent_linux-ros1-add-pkgs:
-
-Install additional packages using ROS 1 packages
-------------------------------------------------
-
-The ``ros1_bridge`` as well as the TurtleBot demos are using ROS 1 packages.
-To be able to install them please start by adding the ROS 1 sources as documented `here <https://wiki.ros.org/Installation/Ubuntu?distro=melodic>`__.
-
-If you're using Docker for isolation you can start with the image ``ros:melodic`` or ``osrf/ros:melodic-desktop`` (or Kinetic if using Ardent).
-This will also avoid the need to setup the ROS sources as they will already be integrated.
-
-Now you can install the remaining packages:
-
-.. code-block:: bash
-
-   sudo apt update
-   sudo apt install ros-eloquent-ros1-bridge
-
-The turtlebot2 packages are not currently available in Eloquent.
-
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+Additional RMW implementations (optional)
+-----------------------------------------
+The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
+See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------

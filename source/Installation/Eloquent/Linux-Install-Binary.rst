@@ -120,36 +120,19 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-See the `tutorials and demos </Tutorials>` for other things to try.
+
+Next steps after installing
+---------------------------
+Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
 ----------------------
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
-If you have ROS 1 installed, you can try the ROS 1 bridge, by first sourcing your ROS 1 setup file.
-We'll assume that it is ``/opt/ros/melodic/setup.bash`` in the following.
-
-If you haven't already, start a roscore:
-
-.. code-block:: bash
-
-   . /opt/ros/melodic/setup.bash
-   roscore
-
-
-In another terminal, start the bridge:
-
-.. code-block:: bash
-
-   . /opt/ros/melodic/setup.bash
-   . ~/ros2_eloquent/ros2-linux/setup.bash
-   ros2 run ros1_bridge dynamic_bridge
-
-For more information on the bridge, read the `tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
-
-Build your own packages
------------------------
-
-If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
+Additional RMW implementations (optional)
+-----------------------------------------
+The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
+See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
