@@ -36,6 +36,18 @@ It is now possible to specify different logging levels for different loggers on 
 The above command sets a global log level of WARN, but sets the log level of the talker node messages to DEBUG.
 The ``--log-level`` command-line option can be passed an arbitrary number of times to set different log levels for each logger.
 
+Ability to configure logging directory through environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to configure the logging directory through two environment variables: ``ROS_LOG_DIR`` and ``ROS_HOME``.
+The logic is as follows:
+
+* Use ``$ROS_LOG_DIR`` if ``ROS_LOG_DIR`` is set and not empty.
+* Otherwise, use ``$ROS_HOME/log``, using ``~/.ros`` for ``ROS_HOME`` if not set or if empty.
+
+Thus the default value stays the same: ``~/.ros/log``.
+
+Related PRs: `ros2/rcl_logging#53 <https://github.com/ros2/rcl_logging/pull/53>`_ and `ros2/launch#460 <https://github.com/ros2/launch/pull/460>`_.
 
 Changes since the Foxy release
 ------------------------------
