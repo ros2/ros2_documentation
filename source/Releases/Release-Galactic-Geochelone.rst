@@ -114,4 +114,35 @@ Known Issues
 Timeline before the release
 ---------------------------
 
-TBD
+    Mon. March 22, 2021 - Alpha
+        Preliminary testing and stabilization of ROS Core [1]_ packages.
+
+    Mon. April 5, 2021 - Freeze
+        API and feature freeze for ROS Core [1]_ packages in Rolling Ridley.
+        Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. April 19, 2021 - Branch
+        Branch from Rolling Ridley.
+        ``rosdistro`` is reopened for Rolling PRs for ROS Core [1]_ packages.
+        Galactic development shifts from ``ros-rolling-*`` packages to ``ros-galactic-*`` packages.
+
+    Mon. April 26, 2021 - Beta
+        Updated releases of ROS Desktop [2]_ packages available.
+        Call for general testing.
+
+    Mon. May 17, 2021 - RC
+        Release Candidate packages are built.
+        Updated releases of ROS Desktop [2]_ packages available.
+
+    Thu. May 20, 2021 - Distro Freeze
+        Freeze rosdistro.
+        No PRs for Galactic on the ``rosdistro`` repo will be merged (reopens after the release announcement).
+
+    Sun. May 23, 2021 - General Availability
+        Release announcement.
+        ``rosdistro`` is reopened for Galactic PRs.
+
+.. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
