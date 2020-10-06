@@ -36,6 +36,18 @@ It is now possible to specify different logging levels for different loggers on 
 The above command sets a global log level of WARN, but sets the log level of the talker node messages to DEBUG.
 The ``--log-level`` command-line option can be passed an arbitrary number of times to set different log levels for each logger.
 
+Ability to configure logging directory through environment variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to configure the logging directory through two environment variables: ``ROS_LOG_DIR`` and ``ROS_HOME``.
+The logic is as follows:
+
+* Use ``$ROS_LOG_DIR`` if ``ROS_LOG_DIR`` is set and not empty.
+* Otherwise, use ``$ROS_HOME/log``, using ``~/.ros`` for ``ROS_HOME`` if not set or if empty.
+
+Thus the default value stays the same: ``~/.ros/log``.
+
+Related PRs: `ros2/rcl_logging#53 <https://github.com/ros2/rcl_logging/pull/53>`_ and `ros2/launch#460 <https://github.com/ros2/launch/pull/460>`_.
 
 Changes since the Foxy release
 ------------------------------
@@ -69,10 +81,80 @@ If not, this is an example diff:
 For more details, see `ros2/rclcpp#1160 <https://github.com/ros2/rclcpp/pull/1160>`_.
 For an example of the needed changes in user code, see `ros-visualization/interactive_markers#72 <https://github.com/ros-visualization/interactive_markers/pull/72>`_.
 
+Change in default ``/clock`` subscription QoS profile
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The default was changed from a reliable communication with history depth 10 to a best effort communication with history depth 1.
+See `ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_.
+
+rclcpp_action
+^^^^^^^^^^^^^
+
+Action client goal response callback signature changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The goal response callback should now take a shared pointer to a goal handle, instead of a future.
+
+For `example <https://github.com/ros2/examples/pull/291>`_, old signature:
+
+.. code-block:: c++
+
+   void goal_response_callback(std::shared_future<GoalHandleFibonacci::SharedPtr> future)
+
+New signature:
+
+.. code-block:: c++
+
+   void goal_response_callback(GoalHandleFibonacci::SharedPtr goal_handle)
+
+Related PR: `ros2/rclcpp#1311 <https://github.com/ros2/rclcpp/pull/1311>`_
+
+rosidl_typesupport_introspection_c
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+API break in function that gets an element from an array
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The signature of the function was changed because it was semantically different to all the other functions used to get an element from an array or sequence.
+This only affects authors of rmw implementations using the introspection typesupport.
+
+For further details, see `ros2/rosidl#531 <https://github.com/ros2/rosidl/pull/531>`_.
+
 Known Issues
 ------------
 
 Timeline before the release
 ---------------------------
 
-TBD
+    Mon. March 22, 2021 - Alpha
+        Preliminary testing and stabilization of ROS Core [1]_ packages.
+
+    Mon. April 5, 2021 - Freeze
+        API and feature freeze for ROS Core [1]_ packages in Rolling Ridley.
+        Note that this includes ``rmw``, which is a recursive dependency of ``ros_core``.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. April 19, 2021 - Branch
+        Branch from Rolling Ridley.
+        ``rosdistro`` is reopened for Rolling PRs for ROS Core [1]_ packages.
+        Galactic development shifts from ``ros-rolling-*`` packages to ``ros-galactic-*`` packages.
+
+    Mon. April 26, 2021 - Beta
+        Updated releases of ROS Desktop [2]_ packages available.
+        Call for general testing.
+
+    Mon. May 17, 2021 - RC
+        Release Candidate packages are built.
+        Updated releases of ROS Desktop [2]_ packages available.
+
+    Thu. May 20, 2021 - Distro Freeze
+        Freeze rosdistro.
+        No PRs for Galactic on the ``rosdistro`` repo will be merged (reopens after the release announcement).
+
+    Sun. May 23, 2021 - General Availability
+        Release announcement.
+        ``rosdistro`` is reopened for Galactic PRs.
+
+.. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://www.ros.org/reps/rep-2001.html#ros-core>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.

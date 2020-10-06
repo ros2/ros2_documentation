@@ -41,6 +41,9 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    > choco install -y python --version 3.8.3
 
+ROS 2 expects the python installation to be available in directory ``C:\python38``.
+Double check that it is installed there.
+
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -53,20 +56,22 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
+Download the *Win64 OpenSSL v1.1.1h* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1h*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
-The following commands assume you used the default installation directory:
 
-* ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
+The following command sets an environment variable that persists over sessions.
+Modify the command to match your installation directory:
 
-You will need to append the OpenSSL-Win64 bin folder to your PATH.
+* ``setx -m OPENSSL_CONF C:\Program Files\OpenSSL-Win64\bin\openssl.cfg``
+
+You will also need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
-* ``C:\OpenSSL-Win64\bin\``
+* ``C:\Program Files\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
@@ -136,7 +141,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
+   > choco install -y -s <PATH\TO\DOWNLOADS> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -155,14 +160,11 @@ RQt dependencies
 
 .. _Foxy_windows-install-binary-installing-rqt-dependencies:
 
-To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
-
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
+To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
 
 .. code-block:: bash
 
-  dot.exe
+   > choco install graphviz
 
 You will need to append the Graphviz bin folder ``C:\Program Files (x86)\GraphvizX.XX\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
 
@@ -187,9 +189,19 @@ Environment setup
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block:: bash
+.. tabs::
 
-   > call C:\dev\ros2_foxy\local_setup.bat
+  .. group-tab:: Command Prompt
+
+    .. code-block:: bash
+
+       > call C:\dev\ros2_foxy\local_setup.bat
+
+  .. group-tab:: PowerShell
+
+    .. code-block:: bash
+
+       > C:\dev\ros2_foxy\local_setup.ps1
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
@@ -242,3 +254,50 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_foxy
+
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel.
+
+Install ROS 2 builds
+^^^^^^^^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   > mkdir c:\opt\chocolatey
+   > set PYTHONNOUSERSITE=1
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   > choco upgrade ros-foxy-desktop -y --execution-timeout=0
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > call C:\opt\ros\foxy\x64\local_setup.bat
+
+Stay up-to-date
+^^^^^^^^^^^^^^^
+
+To keep up-to-date with the latest builds, run:
+
+.. code-block:: bash
+
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco upgrade all -y --execution-timeout=0
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   > rmdir /s /q C:\opt\

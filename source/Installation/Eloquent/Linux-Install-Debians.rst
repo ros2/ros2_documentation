@@ -22,18 +22,10 @@ Resources
 * `Repositories <http://repo.ros2.org>`__
 
 
-Setup Locale
-------------
-Make sure you have a locale which supports ``UTF-8``.
-If you are in a minimal environment, such as a docker container, the locale may be something minimal like POSIX.
-We test with the following settings.
-It should be fine if you're using a different UTF-8 supported locale.
+Set locale
+----------
 
-.. code-block:: bash
-
-   sudo locale-gen en_US en_US.UTF-8
-   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-   export LANG=en_US.UTF-8
+.. include:: ../_Linux-Set-Locale.rst
 
 Setup Sources
 -------------
