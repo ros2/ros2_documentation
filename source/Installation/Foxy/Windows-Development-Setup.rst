@@ -131,15 +131,6 @@ You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` i
 
    This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
-RQt dependencies
-~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   > pip install -U pydot PyQt5
-
-Follow the steps for `Installing Graphviz <Foxy_windows-install-binary-installing-rqt-dependencies>` on the Binary Installation page.
-
 Get the ROS 2 code
 ------------------
 
@@ -199,7 +190,7 @@ To build the ``\dev\ros2_foxy`` folder tree:
 
 .. note::
 
-   If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
+   If you are doing a debug build use ``python_d path\to\colcon_executable build --cmake-args -DCMAKE_BUILD_TYPE=Debug``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
 Environment setup
@@ -326,7 +317,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 .. code-block:: bash
 
    > python_d
-   > import _ctypes
+   >>> import _ctypes
 
 * Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
 
@@ -341,8 +332,8 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    > python_d
    # No import errors should appear when executing the following lines
-   > from lxml import etree
-   > import numpy
+   >>> from lxml import etree
+   >>> import numpy
 
 * When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
 
@@ -351,11 +342,12 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    > python -m pip uninstall numpy lxml
    > python -m pip install numpy lxml
 
-* To create executables python scripts(.exe), python_d should be used to invoke colcon
+* To create executables python scripts(.exe), python_d should be used to invoke colcon, along with the corresponding CMake build type.
+  If you installed colcon using pip, the path to the colcon executable can be found with ``pip show colcon-core``.
 
 .. code-block:: bash
 
-   > python_d path\to\colcon_executable build
+   > python_d path\to\colcon_executable build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 * Hooray, you're done!
 
