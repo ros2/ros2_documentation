@@ -41,8 +41,8 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    > choco install -y python --version 3.8.3
 
-ROS will expect your python installation to be available in directory ``C:\python38``.
-You may want to cross-check it became available there.
+ROS 2 expects the python installation to be available in directory ``C:\python38``.
+Double check that it is installed there.
 
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -56,8 +56,8 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
+Download the *Win64 OpenSSL v1.1.1h* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1h*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
