@@ -61,6 +61,8 @@ If so, compare the libraries present in the directory with the one mentioned in 
 Assuming a file with a similar name exists (same prefix like ``_rclpy.`` and same suffix like ``.so`` but a different Python version / architecture) you are using a different Python interpreter than which was used to build the C extension.
 Be sure to use the same Python interpreter as the one used to build the binary.
 
+For example, such a mismatch can crop up after an update of the OS. Then, rebuilding the workspace may fix the issue.
+
 .. _linux-troubleshooting:
 
 Linux
