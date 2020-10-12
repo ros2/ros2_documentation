@@ -405,7 +405,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 CLI usage <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters/>`_ for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :ref:`yaml-ros1-ros2-label` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :ref:`yaml-ros1-ros2` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------
