@@ -1,3 +1,5 @@
+.. _MigratingLaunch:
+
 Migrating launch files from ROS 1 to ROS 2
 ==========================================
 
