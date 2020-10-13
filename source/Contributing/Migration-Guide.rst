@@ -395,6 +395,18 @@ Replace:
 * ``#include <boost/function.hpp>``  with ``#include <functional>``
 * ``boost::function`` with ``std::function``
 
+Parameters
+----------
+
+In ROS 1, parameters are associated with a central server that allowed retrieving parameters at runtime through the use of the network APIs.
+In ROS 2, parameters are associated per node and are configurable at runtime with ROS services.
+
+* See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
+
+* See `ROS 2 CLI usage <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters/>`_ for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+
+* See :ref:`yaml-ros1-ros2` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+
 Launch files
 ------------
 

@@ -15,6 +15,7 @@ Concept overviews will help you understand the "big picture" idea of ROS 2 syste
    Concepts/About-Topic-Statistics
    Concepts/ROS-2-Client-Libraries
    Concepts/Logging
+   Concepts/About-ROS-2-Parameters
 
 See https://docs.ros2.org/ for more high-level ROS 2 documentation.
 
