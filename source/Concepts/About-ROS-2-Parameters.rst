@@ -20,7 +20,7 @@ The lifetime of a parameter is tied to the lifetime of the node (though the node
 Parameters are addressed by node name, node namespace, parameter name, and parameter namespace.
 Providing a parameter namespace is optional.
 
-Each parameter consists of a key and a value, where key is a string and the value could be one of the following types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[]
+Each parameter consists of a key and a value, where the key is a string and the value could be one of the following types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[]
 
 For an hands-on tutorial with ROS parameters see :ref:`ROS2Params`.
 
