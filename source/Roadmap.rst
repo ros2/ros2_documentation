@@ -86,7 +86,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Documentation: More intermediate/advanced tutorials
      - Medium
      - Open Robotics
-     - 2nd quarter 20201
+     - 2nd quarter 2021
    * - Quality: Quality Level 1 declaration up to rclcpp
      - Large
      - Open Robotics
