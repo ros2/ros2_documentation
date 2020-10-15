@@ -14,7 +14,7 @@ If you would like to see other features on the roadmap, then please get in touch
 Galactic Roadmap
 ----------------
 
-Galactic Geochelone is the ROS 2 release expected in May 2023.
+Galactic Geochelone is the ROS 2 release expected in May 2021.
 See :ref:`release <galactic-release>` for a detailed timeline.
 
 The items in the roadmap below are the major features being worked on by the ROS 2 community.
