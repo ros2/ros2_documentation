@@ -15,7 +15,7 @@ Background
 Real-time computing is a key feature of many robotics systems, particularly safety- and mission-critical applications such as autonomous vehicles, spacecrafts, and industrial manufacturing.
 We are designing and prototyping ROS 2 with real-time performance constraints in mind, since this is a requirement that was not considered in the early stages of ROS 1 and it is now intractable to refactor ROS 1 to be real-time friendly.
 
-`This document <https://design.ros2.org/articles/realtime_background.html>`__ outlines the requirements of real-time computing and best practices for software engineers. tl;dr:
+`This document <https://design.ros2.org/articles/realtime_background.html>`__ outlines the requirements of real-time computing and best practices for software engineers.  In short:
 
 To make a real-time computer system, our real-time loop must update periodically to meet deadlines.
 We can only tolerate a small margin of error on these deadlines (our maximum allowable jitter).
