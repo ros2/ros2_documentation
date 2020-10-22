@@ -9,7 +9,7 @@
 </ul>
 <h4>{{ _('In Development') }}</h4>
 <ul>
-  {%- for item in versions.in_development %}
+  {%- for item in versions.in_development|reverse %}
   <li><a href="{{ item.url }}">{{ item.name }}</a></li>
   {%- endfor %}
 </ul>
