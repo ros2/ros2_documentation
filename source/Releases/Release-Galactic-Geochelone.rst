@@ -89,6 +89,15 @@ Change in default ``/clock`` subscription QoS profile
 The default was changed from a reliable communication with history depth 10 to a best effort communication with history depth 1.
 See `ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_.
 
+rclpy
+^^^^^^
+
+Removal of deprecated Node.set_parameters_callback
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Can be replaced with `Node.add_on_set_parameters_callback`.
+See `ros2/rclpy#504 <https://github.com/ros2/rclpy/pull/504>`_ for some examples.
+
 rclcpp_action
 ^^^^^^^^^^^^^
 
