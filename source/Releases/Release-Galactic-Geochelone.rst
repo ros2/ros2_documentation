@@ -95,7 +95,7 @@ rclpy
 Removal of deprecated Node.set_parameters_callback
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-Can be replaced with `Node.add_on_set_parameters_callback`.
+Can be replaced with ``Node.add_on_set_parameters_callback``.
 See `ros2/rclpy#504 <https://github.com/ros2/rclpy/pull/504>`_ for some examples.
 
 rclcpp_action
