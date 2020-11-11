@@ -199,6 +199,6 @@ Related content
 You might want to take a look around the ``ros2doctor`` repo as well, since it's fairly beginner friendly and a great place to get started with contributing.
 
 Next steps
-----------------
+----------
 
 You’ve completed the beginner level tutorials!

@@ -28,15 +28,35 @@ Prerequisites
 You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and
 `colcon <https://colcon.readthedocs.org>`__ installed.
 
-Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials``:
+Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials_interfaces``:
 
 (Remember to :ref:`source your ROS 2 installation <ConfigROS2>` first.)
 
-.. code-block:: bash
+.. tabs::
 
-  mkdir -p action_ws/src
-  cd action_ws/src
-  ros2 pkg create action_tutorials
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      mkdir -p action_ws/src
+      cd action_ws/src
+      ros2 pkg create action_tutorials_interfaces
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      mkdir -p action_ws/src
+      cd action_ws/src
+      ros2 pkg create action_tutorials_interfaces
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      md action_ws\src
+      cd action_ws\src
+      ros2 pkg create action_tutorials_interfaces
 
 Tasks
 -----
@@ -64,16 +84,51 @@ An instance of an action is typically referred to as a *goal*.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
-First, create a directory ``action`` in our ROS 2 package ``action_tutorials``.
-With your favorite editor, add the file ``action/Fibonacci.action`` with the following content:
+We'll create a directory ``action`` in our ROS 2 package ``action_tutorials_interfaces``, then add a ``Fibonacci.action`` file:
 
-.. code-block:: bash
+.. tabs::
 
-    int32 order
-    ---
-    int32[] sequence
-    ---
-    int32[] partial_sequence
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      cd action_tutorials_interfaces
+      mkdir action
+      cat << EOF > action/Fibonacci.action
+      int32 order
+      ---
+      int32[] sequence
+      ---
+      int32[] partial_sequence
+      EOF
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      cd action_tutorials_interfaces
+      mkdir action
+      cat << EOF > action/Fibonacci.action
+      int32 order
+      ---
+      int32[] sequence
+      ---
+      int32[] partial_sequence
+      EOF
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      cd action_tutorials_interfaces
+      md action
+      > action\Fibonacci.action (
+      @echo.int32 order
+      @echo.---
+      @echo.int32[] sequence
+      @echo.---
+      @echo.int32[] partial_sequence
+      )
 
 The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 
@@ -81,7 +136,7 @@ The goal request is the ``order`` of the Fibonacci sequence we want to compute, 
 ^^^^^^^^^^^^^^^^^^^^
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
-This is accomplished by adding the following lines to our ``CMakeLists.txt``:
+This is accomplished by adding the following lines to the ``CMakeLists.txt`` in the ``action_tutorials_interfaces``:
 
 .. code-block:: cmake
 
@@ -129,7 +184,7 @@ We can check that our action built successfully with the command line tool:
        # On Windows: call install/setup.bat
        . install/setup.bash
        # Check that our action definition exists
-       ros2 action show action_tutorials/action/Fibonacci
+       ros2 action show action_tutorials_interfaces/action/Fibonacci
 
   .. group-tab:: Eloquent and newer
 
@@ -139,7 +194,7 @@ We can check that our action built successfully with the command line tool:
        # On Windows: call install/setup.bat
        . install/setup.bash
        # Check that our action definition exists
-       ros2 interface show action_tutorials/action/Fibonacci
+       ros2 interface show action_tutorials_interfaces/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.
 

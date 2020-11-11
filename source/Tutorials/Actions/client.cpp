@@ -1,14 +1,14 @@
+#include <functional>
+#include <future>
 #include <memory>
 #include <string>
 #include <sstream>
 
 #include "action_tutorials_interfaces/action/fibonacci.hpp"
+
 #include "rclcpp/rclcpp.hpp"
-// TODO(jacobperron): Remove this once it is included as part of 'rclcpp.hpp'
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
-
-#include "action_tutorials_cpp/visibility_control.h"
 
 namespace action_tutorials_cpp
 {
@@ -18,15 +18,11 @@ public:
   using Fibonacci = action_tutorials_interfaces::action::Fibonacci;
   using GoalHandleFibonacci = rclcpp_action::ClientGoalHandle<Fibonacci>;
 
-  ACTION_TUTORIALS_CPP_PUBLIC
-  explicit FibonacciActionClient(const rclcpp::NodeOptions & node_options = rclcpp::NodeOptions())
-  : Node("fibonacci_action_client", node_options)
+  explicit FibonacciActionClient(const rclcpp::NodeOptions & options)
+  : Node("fibonacci_action_client", options)
   {
     this->client_ptr_ = rclcpp_action::create_client<Fibonacci>(
-      this->get_node_base_interface(),
-      this->get_node_graph_interface(),
-      this->get_node_logging_interface(),
-      this->get_node_waitables_interface(),
+      this,
       "fibonacci");
 
     this->timer_ = this->create_wall_timer(
@@ -34,17 +30,15 @@ public:
       std::bind(&FibonacciActionClient::send_goal, this));
   }
 
-  ACTION_TUTORIALS_CPP_PUBLIC
   void send_goal()
   {
     using namespace std::placeholders;
 
     this->timer_->cancel();
 
-    if (!this->client_ptr_->wait_for_action_server(std::chrono::seconds(10))) {
+    if (!this->client_ptr_->wait_for_action_server()) {
       RCLCPP_ERROR(this->get_logger(), "Action server not available after waiting");
       rclcpp::shutdown();
-      return;
     }
 
     auto goal_msg = Fibonacci::Goal();
@@ -66,7 +60,6 @@ private:
   rclcpp_action::Client<Fibonacci>::SharedPtr client_ptr_;
   rclcpp::TimerBase::SharedPtr timer_;
 
-  ACTION_TUTORIALS_CPP_LOCAL
   void goal_response_callback(std::shared_future<GoalHandleFibonacci::SharedPtr> future)
   {
     auto goal_handle = future.get();
@@ -77,7 +70,6 @@ private:
     }
   }
 
-  ACTION_TUTORIALS_CPP_LOCAL
   void feedback_callback(
     GoalHandleFibonacci::SharedPtr,
     const std::shared_ptr<const Fibonacci::Feedback> feedback)
@@ -90,7 +82,6 @@ private:
     RCLCPP_INFO(this->get_logger(), ss.str().c_str());
   }
 
-  ACTION_TUTORIALS_CPP_LOCAL
   void result_callback(const GoalHandleFibonacci::WrappedResult & result)
   {
     switch (result.code) {

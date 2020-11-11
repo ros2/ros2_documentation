@@ -1,8 +1,9 @@
+#include <functional>
 #include <memory>
+#include <thread>
 
 #include "action_tutorials_interfaces/action/fibonacci.hpp"
 #include "rclcpp/rclcpp.hpp"
-// TODO(jacobperron): Remove this once it is included as part of 'rclcpp.hpp'
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
@@ -23,10 +24,7 @@ public:
     using namespace std::placeholders;
 
     this->action_server_ = rclcpp_action::create_server<Fibonacci>(
-      this->get_node_base_interface(),
-      this->get_node_clock_interface(),
-      this->get_node_logging_interface(),
-      this->get_node_waitables_interface(),
+      this,
       "fibonacci",
       std::bind(&FibonacciActionServer::handle_goal, this, _1, _2),
       std::bind(&FibonacciActionServer::handle_cancel, this, _1),
@@ -36,21 +34,15 @@ public:
 private:
   rclcpp_action::Server<Fibonacci>::SharedPtr action_server_;
 
-  ACTION_TUTORIALS_CPP_LOCAL
   rclcpp_action::GoalResponse handle_goal(
     const rclcpp_action::GoalUUID & uuid,
     std::shared_ptr<const Fibonacci::Goal> goal)
   {
     RCLCPP_INFO(this->get_logger(), "Received goal request with order %d", goal->order);
     (void)uuid;
-    // Let's reject sequences that are over 9000
-    if (goal->order > 9000) {
-      return rclcpp_action::GoalResponse::REJECT;
-    }
     return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
   }
 
-  ACTION_TUTORIALS_CPP_LOCAL
   rclcpp_action::CancelResponse handle_cancel(
     const std::shared_ptr<GoalHandleFibonacci> goal_handle)
   {
@@ -59,7 +51,6 @@ private:
     return rclcpp_action::CancelResponse::ACCEPT;
   }
 
-  ACTION_TUTORIALS_CPP_LOCAL
   void handle_accepted(const std::shared_ptr<GoalHandleFibonacci> goal_handle)
   {
     using namespace std::placeholders;
@@ -67,7 +58,6 @@ private:
     std::thread{std::bind(&FibonacciActionServer::execute, this, _1), goal_handle}.detach();
   }
 
-  ACTION_TUTORIALS_CPP_LOCAL
   void execute(const std::shared_ptr<GoalHandleFibonacci> goal_handle)
   {
     RCLCPP_INFO(this->get_logger(), "Executing goal");
