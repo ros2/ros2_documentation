@@ -5,17 +5,15 @@
 Building realtime Linux for ROS 2 [community-contributed]
 =========================================================
 
-This tutorial begins with a clean Ubuntu 16.04.2 install. Actual kernel is 4.13.0-38-generic, but we will install another one.
+This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-52-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
 
 If you are a company or rich person :) using rt_preempt, check https://wiki.linuxfoundation.org/realtime/rtl/blog#preempt-rt-history .
 
-Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 4.9-rt. If we click on the link, we get the exact version, it is patch-4.9.84-rt62.patch.gz
+Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 5.4-rt. If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version, it is patch-5.4.74-rt41.patch.gz
 
-
-.. image:: https://i.imgur.com/bAMOzbt.png
-   :target: https://i.imgur.com/bAMOzbt.png
+.. image:: https://i.imgur.com/hu4Q04b.png
+   :target: https://i.imgur.com/hu4Q04b.png
    :alt: eclipse-1
-
 
 We create a directory in our home dir with
 
@@ -29,71 +27,60 @@ and switch into it with
 
    cd ~/kernel
 
-We can go with a browser to https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/ and see if the version is there, then download it with
+We can go with a browser to https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/ and see if the version is there, then download it with
 
 .. code-block:: bash
 
-   wget https://mirrors.edge.kernel.org/pub/linux/kernel/v4.x/linux-4.9.84.tar.gz
+   wget https://mirrors.edge.kernel.org/pub/linux/kernel/v5.x/linux-5.4.74.tar.gz
 
 unpack it with
 
 .. code-block:: bash
 
-   tar -xzf linux-4.9.84.tar.gz
-
-rename it to the same name with postfix of the patch version
-
-.. code-block:: bash
-
-   mv linux-4.9.84 linux-4.9.84-rt62
+   tar -xzf linux-5.4.74.tar.gz
 
 download rt_preempt patch with
 
 .. code-block:: bash
 
-   wget ftp.ntu.edu.tw/linux/kernel/projects/rt/4.9/older/patch-4.9.84-rt62.patch.gz
+   wget http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.74-rt41.patch.gz
 
 unpack it with
 
 .. code-block:: bash
 
-   gunzip patch-4.9.84-rt62.patch.gz
+   gunzip patch-5.4.74-rt41.patch.gz
 
 Then switch into the linux directory with
 
 .. code-block:: bash
 
-   cd linux-4.9.84-rt62/
+   cd linux-5.4.74/
 
 and patch the kernel with the realtime patch
 
 .. code-block:: bash
 
-   patch -p1 < ../patch-4.9.84-rt62.patch
+   patch -p1 < ../patch-5.4.74-rt41.patch
 
-
-.. image:: https://i.imgur.com/u1VFptM.png
-   :target: https://i.imgur.com/u1VFptM.png
-   :alt: eclipse-1
-
-
-We simply wanna use the config of our ubuntu installation, so we use the ubuntu config with
+We simply wanna use the config of our Ubuntu installation, so we use the Ubuntu config with
 
 .. code-block:: bash
 
-   cp /boot/config-4.13.0-38-generic .config
+   cp /boot/config-5.4.0-52-generic .config
 
-To enable all ubuntu-configurations, we simply use
+We need some tools to build kernel, install them with
+
+.. code-block:: bash
+
+   sudo apt-get build-dep linux
+   sudo apt-get install libncurses-dev flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf fakeroot
+
+To enable all Ubuntu configurations, we simply use
 
 .. code-block:: bash
 
    yes '' | make oldconfig
-
-We need some tools, install them with
-
-.. code-block:: bash
-
-   sudo apt install libncurses5-dev build-essential libssl-dev ccache
 
 Then we need to enable rt_preempt in the kernel. We call
 
@@ -101,35 +88,63 @@ Then we need to enable rt_preempt in the kernel. We call
 
    make menuconfig
 
-and choose under “Processor Type and Features”  ---  “Preemption Model”  --- “Fully Preemptible kernel (RT)”
-
-
-.. image:: https://i.imgur.com/Jg5zX6G.png
-   :target: https://i.imgur.com/Jg5zX6G.png
-   :alt: eclipse-1
-
-
-Exit menuconfig and run
+and set the following
 
 .. code-block:: bash
 
-   make
+  # Enable CONFIG_PREEMPT_RT
+   -> General Setup
+    -> Preemption Model (Fully Preemptible Kernel (Real-Time))
+     (X) Fully Preemptible Kernel (Real-Time)
 
-You could use “make -j4” if you got 4-cpu-cores to build faster.
+  # Enable CONFIG_HIGH_RES_TIMERS
+   -> General setup
+    -> Timers subsystem
+     [*] High Resolution Timer Support
 
-Then we need to build the kernel modules with
+  # Enable CONFIG_NO_HZ_FULL
+   -> General setup
+    -> Timers subsystem
+     -> Timer tick handling (Full dynticks system (tickless))
+      (X) Full dynticks system (tickless)
+
+  # Set CONFIG_HZ_1000
+   -> Processor type and features
+    -> Timer frequency (1000 HZ)
+     (X) 1000 HZ
+
+  # Set CPU_FREQ_DEFAULT_GOV_PERFORMANCE [=y]
+   ->  Power management and ACPI options
+    -> CPU Frequency scaling
+     -> CPU Frequency scaling (CPU_FREQ [=y])
+      -> Default CPUFreq governor (<choice> [=y])
+       (X) performance
+
+Save and exit menuconfig and run
 
 .. code-block:: bash
 
-   sudo make modules_install
+   make -j `nproc` deb-pkg
 
-Then we install the kernel to /boot and update grub with
+After build is finished check your deb packages
 
 .. code-block:: bash
 
-   sudo make install
+   ls ../*deb
+   ../linux-headers-5.4.74-rt41_5.4.74-rt41-1_amd64.deb  ../linux-image-5.4.74-rt41-dbg_5.4.74-rt41-1_amd64.deb
+   ../linux-image-5.4.74-rt41_5.4.74-rt41-1_amd64.deb    ../linux-libc-dev_5.4.74-rt41-1_amd64.deb
 
+Then we install all kernel deb packages
 
-.. image:: https://i.imgur.com/Y5ihCXd.png
-   :target: https://i.imgur.com/Y5ihCXd.png
-   :alt: eclipse-1
+.. code-block:: bash
+
+   sudo dpkg -i ../*.deb
+
+Reboot the system and check the new kernel version
+
+.. code-block:: bash
+
+   sudo reboot
+   uname -a
+   Linux ros2host 5.4.74-rt41 #1 SMP PREEMPT_RT Wed Nov 11 23:40:27 CET 2020 x86_64 xx
+   
