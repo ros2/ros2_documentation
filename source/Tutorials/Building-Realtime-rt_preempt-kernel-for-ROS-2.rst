@@ -9,7 +9,7 @@ This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual
 
 If you are a company or rich person :) using rt_preempt, check https://wiki.linuxfoundation.org/realtime/rtl/blog#preempt-rt-history .
 
-Check on https://wiki.linuxfoundation.org/realtime/start what the latest stable version is, at this time it is  Latest Stable Version 5.4-rt. If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version, it is patch-5.4.74-rt41.patch.gz
+Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at this time it is "Latest Stable Version 5.4-rt". If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version, it is patch-5.4.74-rt41.patch.gz .
 
 .. image:: https://i.imgur.com/hu4Q04b.png
    :target: https://i.imgur.com/hu4Q04b.png
