@@ -134,7 +134,7 @@ After the build is finished check the debian packages
    ../linux-headers-5.4.74-rt41_5.4.74-rt41-1_amd64.deb  ../linux-image-5.4.74-rt41-dbg_5.4.74-rt41-1_amd64.deb
    ../linux-image-5.4.74-rt41_5.4.74-rt41-1_amd64.deb    ../linux-libc-dev_5.4.74-rt41-1_amd64.deb
 
-Then we install all kernel deb packages
+Then we install all kernel debian packages
 
 .. code-block:: bash
 
