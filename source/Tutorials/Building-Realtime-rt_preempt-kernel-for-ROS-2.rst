@@ -63,7 +63,7 @@ and patch the kernel with the realtime patch
 
    patch -p1 < ../patch-5.4.74-rt41.patch
 
-We simply wanna use the config of our Ubuntu installation, so we use the Ubuntu config with
+We simply want to use the config of our Ubuntu installation, so we get the Ubuntu config with
 
 .. code-block:: bash
 
