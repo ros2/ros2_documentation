@@ -126,7 +126,7 @@ Save and exit menuconfig and run
 
    make -j `nproc` deb-pkg
 
-After build is finished check your deb packages
+After the build is finished check the debian packages
 
 .. code-block:: bash
 
