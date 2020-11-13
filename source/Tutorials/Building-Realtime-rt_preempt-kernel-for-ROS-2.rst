@@ -145,4 +145,3 @@ Reboot the system and check the new kernel version
    sudo reboot
    uname -a
    Linux ros2host 5.4.74-rt41 #1 SMP PREEMPT_RT Wed Nov 11 23:40:27 CET 2020 x86_64 xx
-   
