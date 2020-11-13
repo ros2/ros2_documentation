@@ -27,7 +27,7 @@ In a :ref:`previous tutorial <CustomInterfaces>`, you learned how to create cust
 While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
 
 Recall that interfaces can currently only be defined in CMake packages.
-It is possible, however, to have Python libraries and nodes in CMake packages (using `ament_cmake_python <https://github.com/ament/ament_cmake/tree/master/ament_cmake_python>`_), so you could define interfaces and Python nodes together in one package.
+It is possible, however, to have Python libraries and nodes in CMake packages (using `ament_cmake_python <https://github.com/ament/ament_cmake/tree/dashing/ament_cmake_python>`_), so you could define interfaces and Python nodes together in one package.
 We'll use a CMake package and C++ nodes here for the sake of simplicity.
 
 This tutorial will focus on the msg interface type, but the steps here are applicable to all interface types.

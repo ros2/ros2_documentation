@@ -173,7 +173,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro dashing -y
 
    .. group-tab:: macOS
 
@@ -261,79 +261,25 @@ You can also set parameters in a launch file, but first you will need to add a l
 Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``python_parameters_launch.py``
 
-.. tabs::
+.. code-block:: Python
 
-  .. group-tab:: Foxy and newer
+  from launch import LaunchDescription
+  from launch_ros.actions import Node
 
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="python_parameters",
-                  executable="param_talker",
-                  name="custom_parameter_node",
-                  output="screen",
-                  emulate_tty=True,
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Eloquent
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="python_parameters",
-                  node_executable="param_talker",
-                  node_name="custom_parameter_node",
-                  output="screen",
-                  emulate_tty=True,
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Dashing
-
-    ``emulate_tty``, which prints output to the console, is not available in Dashing.
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="python_parameters",
-                  node_executable="param_talker",
-                  node_name="custom_parameter_node",
-                  output="screen",
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
+  def generate_launch_description():
+      return LaunchDescription([
+          Node(
+              package="python_parameters",
+              node_executable="param_talker",
+              node_name="custom_parameter_node",
+              output="screen",
+              parameters=[
+                  {"my_parameter": "earth"}
+              ]
+          )
+      ])
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
-By adding the two lines below, we ensure our output is printed in our console.
-
-.. code-block:: console
-
-          output="screen",
-          emulate_tty=True,
 
 Now open the ``setup.py`` file.
 Add the ``import`` statements to the top of the file, and the other new statement to the ``data_files`` parameter to include all launch files:
@@ -387,7 +333,8 @@ Now run the node using the launch file we have just created:
 
      ros2 launch python_parameters python_parameters_launch.py
 
-The terminal should return the following message:
+Because ``emulate_tty``, which prints output to the console, is not available in Dashing, there won't be any output.
+In a newer version, the terminal would return the following message:
 
 .. code-block:: console
 

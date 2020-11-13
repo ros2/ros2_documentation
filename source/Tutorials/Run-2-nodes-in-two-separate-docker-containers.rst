@@ -9,13 +9,13 @@ Open a terminal. Run the image in a container in interactive mode and launch a t
 
 .. code-block:: bash
 
-   docker run -it --rm osrf/ros:eloquent-desktop ros2 run demo_nodes_cpp talker
+   docker run -it --rm osrf/ros:dashing-desktop ros2 run demo_nodes_cpp talker
 
 Open a second terminal. Run the image in a container in interactive mode and launch a topic subscriber (executable ``listener`` from the package ``demo_nodes_cpp``)  with ``ros2 run``:
 
 .. code-block:: bash
 
-   docker run -it --rm osrf/ros:eloquent-desktop ros2 run demo_nodes_cpp listener
+   docker run -it --rm osrf/ros:dashing-desktop ros2 run demo_nodes_cpp listener
 
 As an alternative to the command line invocation, you can create a ``docker-compose.yml`` file (here version 2) with the following (minimal) content:
 
@@ -25,10 +25,10 @@ As an alternative to the command line invocation, you can create a ``docker-comp
 
    services:
      talker:
-       image: osrf/ros:eloquent-desktop
+       image: osrf/ros:dashing-desktop
        command: ros2 run demo_nodes_cpp talker
      listener:
-       image: osrf/ros:eloquent-desktop
+       image: osrf/ros:dashing-desktop
        command: ros2 run demo_nodes_cpp listener
        depends_on:
          - talker

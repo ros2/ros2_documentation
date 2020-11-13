@@ -12,7 +12,6 @@ Concept overviews will help you understand the "big picture" idea of ROS 2 syste
    Concepts/DDS-and-ROS-middleware-implementations
    Concepts/About-Quality-of-Service-Settings
    Concepts/About-ROS-Interfaces
-   Concepts/About-Topic-Statistics
    Concepts/ROS-2-Client-Libraries
    Concepts/Logging
    Concepts/About-ROS-2-Parameters
@@ -80,7 +79,7 @@ It can be summarized as follows:
 
 Nodes will only establish connections with other nodes if they have compatible `Quality of Service <../Tutorials/Quality-of-Service>` settings.
 
-Take the `talker-listener demo <latest-examples>` for example.
+Take the `talker-listener demo <talker-listener>` for example.
 Running the C++ talker node in one terminal will publish messages on a topic,
 and the Python listener node running in another terminal  will subscribe to messages on the same topic.
 

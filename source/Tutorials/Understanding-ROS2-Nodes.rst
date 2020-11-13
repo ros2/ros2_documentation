@@ -110,19 +110,9 @@ In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the 
 Now, lets reassign the name of our ``/turtlesim`` node.
 In a new terminal, run the following command:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Eloquent and newer
-
-      .. code-block:: console
-
-        ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
-
-   .. group-tab:: Dashing
-
-      .. code-block:: console
-
-        ros2 run turtlesim turtlesim_node __node:=my_turtle
+  ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
 Since you’re calling ``ros2 run`` on turtlesim again, another turtlesim window will open.
 However, now if you return to the terminal where you ran ``ros2 node list``, and run it again, you will see three node names:

@@ -40,7 +40,7 @@ Additionally ``ros2 launch`` can be used to automate these actions through speci
 Writing a Component
 -------------------
 
-Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__).
+Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/dashing/composition/src/talker_component.cpp>`__).
 A component is commonly a subclass of ``rclcpp::Node``.
 Since it is not in control of the thread it shouldn't perform any long running or blocking tasks in its constructor.
 Instead it can use timers to get periodic notification.
@@ -68,14 +68,14 @@ Additionally, once a component is created, it must be registered with the index 
 Using Components
 ----------------
 
-The `composition <https://github.com/ros2/demos/tree/master/composition>`__ package contains a couple of different approaches on how to use components.
+The `composition <https://github.com/ros2/demos/tree/dashing/composition>`__ package contains a couple of different approaches on how to use components.
 The three most common ones are:
 
 
-#. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/master/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/master/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
+#. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/dashing/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/dashing/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
    The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
-   Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/master/ros2component>`__ to invoke the ROS service with the passed command line arguments
-#. Create a `custom executable <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
+   Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/dashing/ros2component>`__ to invoke the ROS service with the passed command line arguments
+#. Create a `custom executable <https://github.com/ros2/demos/blob/dashing/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
    This approach requires that each component has a header file (which is not strictly needed for the first case).
 #. Create a launch file and use ``ros2 launch`` to create a container process with multiple components loaded.
 
@@ -83,7 +83,7 @@ The three most common ones are:
 Run the demos
 -------------
 
-The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/master/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/master/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/master/composition>`__ packages, and can be run with the following commands.
+The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/dashing/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/dashing/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/dashing/composition>`__ packages, and can be run with the following commands.
 
 
 Discover available components
@@ -116,7 +116,7 @@ Verify that the container is running via ``ros2`` command line tools:
    $ ros2 component list
    /ComponentManager
 
-In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
+In the second shell (see `talker <https://github.com/ros2/demos/blob/dashing/composition/src/talker_component.cpp>`__ source code).
 The command will return the unique ID of the loaded component as well as the node name.
 
 .. code-block:: bash
@@ -127,7 +127,7 @@ The command will return the unique ID of the loaded component as well as the nod
 
 Now the first shell should show a message that the component was loaded as well as repeated message for publishing a message.
 
-Another command in the second shell (see `listener <https://github.com/ros2/demos/blob/master/composition/src/listener_component.cpp>`__ source code):
+Another command in the second shell (see `listener <https://github.com/ros2/demos/blob/dashing/composition/src/listener_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -158,7 +158,7 @@ In the first shell:
    ros2 run rclcpp_components component_container
 
 
-In the second shell (see `server <https://github.com/ros2/demos/blob/master/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/master/composition/src/client_component.cpp>`__ source code):
+In the second shell (see `server <https://github.com/ros2/demos/blob/dashing/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/dashing/composition/src/client_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -173,7 +173,7 @@ Compile-time composition using ROS services (2.)
 This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
 The executable contains all four components from above: talker and listener as well as server and client.
 
-In the shell call (see `source code <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__):
+In the shell call (see `source code <https://github.com/ros2/demos/blob/dashing/composition/src/manual_composition.cpp>`__):
 
 .. code-block:: bash
 
@@ -189,7 +189,7 @@ Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This demo presents an alternative to 1. by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
-The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/master/composition/src/dlopen_composition.cpp>`__).
+The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/dashing/composition/src/dlopen_composition.cpp>`__).
 
 .. tabs::
 
@@ -257,7 +257,7 @@ Verify that the container is running via ``ros2`` command line tools:
    $ ros2 component list
    /ComponentManager
 
-In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
+In the second shell (see `talker <https://github.com/ros2/demos/blob/dashing/composition/src/talker_component.cpp>`__ source code).
 The command will return the unique ID of the loaded component as well as the node name.
 
 .. code-block:: bash

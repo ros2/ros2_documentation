@@ -15,7 +15,7 @@ It is intended for developers who want to learn how to create custom packages in
 Prerequisites
 -------------
 
-- `Install ROS (Dashing or later) <../../Installation>`__
+- `Install ROS <../../Installation>`__
 
 - `Install colcon <https://colcon.readthedocs.io/en/released/user/installation.html>`__
 

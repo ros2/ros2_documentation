@@ -16,7 +16,7 @@ Install:
 
 .. code-block:: bash
 
-   sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/ros-latest.list'
+   sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -cs` main" > /etc/apt/sources.list.d/dashing.list'
    sudo apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
 
 .. code-block:: bash
@@ -70,7 +70,7 @@ After that we go to a console and switch to directory /home/ros/ros2_ws/ros2_ws 
 
 .. code-block:: bash
 
-   wget https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
    vcs-import src < ros2.repos
 
 add export RTI_LICENSE_FILE=/home/ros/rti_connext_dds-5.3.1/rti_license.dat to .bashrc and source it.
@@ -254,4 +254,3 @@ File linked with Egit. Right-click beside the line-number in the editor and choo
 .. image:: https://i.imgur.com/TyOQFhl.png
    :target: https://i.imgur.com/TyOQFhl.png
    :alt: eclipse-1
-

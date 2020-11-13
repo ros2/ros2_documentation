@@ -27,7 +27,7 @@ Others like OpenSplice or Connext can be enabled by `installing additional packa
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
-For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/master/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
+For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/dashing/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
 
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
 Here is a list of inter-vendor communication configurations that are not supported:
@@ -144,7 +144,7 @@ it will generate a daemon with a Fast RTPS implementation:
 
 .. code-block:: bash
 
-   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/foxy/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/dashing/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
 
 Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS 2 command line tools will fail.
 
