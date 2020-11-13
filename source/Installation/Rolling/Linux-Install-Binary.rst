@@ -56,6 +56,7 @@ Installing and initializing rosdep
        sudo rosdep init
        rosdep update
 
+.. _linux-install-binary-install-missing-dependencies:
 
 Installing the missing dependencies
 -----------------------------------

@@ -8,12 +8,7 @@ Beginner
 
 The beginner-level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
 It starts with using the Commandline Interface (CLI) tools, then moves on to the C++ and Python client libraries.
-
-.. warning::
-
-   Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
-   These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
-   The :ref:`Contact <Help>` page includes more ways to get help.
+Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
 
 Beginner: CLI Tools
 ^^^^^^^^^^^^^^^^^^^

@@ -133,7 +133,7 @@ In each case different actions should be taken by the build cop:
 
 * Important failures:
 
-  * Failure should be reported on the PR introducing it by tagging the submitter + the reviewer the +1’d it.
+  * Failure should be reported on the PR introducing it by tagging the submitter + the reviewer that +1’d it.
   * Submitter has to either:
 
     * Address it the same week
@@ -152,7 +152,7 @@ Tips
 
   * This is particularly useful for external repos such as Fast RTPS where old commits may get pushed to the master branch overnight, and are difficult to spot in the GitHub UI.
 
-* Times displayed at the top of jenkins jobs are in UTC. You can convert the times with e.g.:
+* Times displayed at the top of Jenkins jobs are in UTC. You can convert the times with e.g.:
 
   * https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=when+it's+9:25:12+PM+UTC+time+pst
 
@@ -210,7 +210,7 @@ Build Farmer Tasks
 
   * Rationale
 
-    * Anybody logging into the machine need to know that no one is working on it
+    * Anybody logging into the machine needs to know that no one is working on it
     * If the machine reboots the machine needs to be in an operational state without local changes
 
 * Making sure install instructions are up to date
@@ -250,7 +250,7 @@ If a node goes off-line:
 
 
 * For machines with VNC, you should try that first because many failures can be due to pop-up windows or required updates
-* If you don’t have any pop-ups and relaunching the jenkins client doesn’t fix it, then you'll have to start troubleshooting.
+* If you don’t have any pop-ups and relaunching the Jenkins client doesn’t fix it, then you'll have to start troubleshooting.
 * Looking at configuration difference between the nodes may be useful (java version, pip freeze, etc.)
 * For Linux nodes that have gone off-line (e.g. because of a reboot), they can be reconnected through the Jenkins web interface of that node
 

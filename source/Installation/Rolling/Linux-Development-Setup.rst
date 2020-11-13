@@ -97,6 +97,8 @@ Create a workspace and clone all repos:
    wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
+.. _linux-development-setup-install-dependencies-using-rosdep:
+
 Install dependencies using rosdep
 ---------------------------------
 
@@ -149,6 +151,8 @@ Set up your environment by sourcing the following file.
 .. code-block:: bash
 
    . ~/ros2_rolling/install/setup.bash
+
+.. _talker-listener:
 
 Try some examples
 -----------------

@@ -20,6 +20,8 @@ In this tutorial, you will create :ref:`nodes <ROS2Nodes>` that pass information
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
+
 Prerequisites
 -------------
 
@@ -404,7 +406,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro rolling -y
 
    .. group-tab:: macOS
 
@@ -485,8 +487,6 @@ Summary
 You created two nodes to publish and subscribe to data over a topic.
 Before running them, you added their dependencies and entry points to the package configuration files.
 
-The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
-
 Next steps
 ----------
 
@@ -496,4 +496,4 @@ Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Pyth
 Related content
 ---------------
 
-* There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/topics>`_ repo.
+There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/topics>`_ repo.

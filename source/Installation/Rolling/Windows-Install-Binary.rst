@@ -18,7 +18,7 @@ System requirements
 
 Only Windows 10 is supported.
 
-.. _Rolling_windows-install-binary-installing-prerequisites:
+.. _windows-install-binary-installing-prerequisites:
 
 Installing prerequisites
 ------------------------
