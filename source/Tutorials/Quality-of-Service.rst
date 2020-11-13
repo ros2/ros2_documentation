@@ -30,16 +30,14 @@ You will also need the ROS package ``image_tools``.
 
       .. code-block:: bash
 
-        # Replace <ROS_DISTRO> with the distribution you're using
-        sudo apt-get install ros-<ROS_DISTRO>-image-tools
+        sudo apt-get install ros-foxy-image-tools
 
    .. group-tab:: From Source
 
       .. code-block:: bash
 
-        # Replace <ROS_DISTRO> with the distribution you're using
         # Clone and build the demos repo using the branch that matches your installation
-        git clone https://github.com/ros2/demos.git -b <ROS_DISTRO>
+        git clone https://github.com/ros2/demos.git -b foxy
 
 
 Run the demo
@@ -90,20 +88,11 @@ In a separate terminal, source the install file and run the publisher node:
 This will publish an image from your webcam.
 In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
 
-.. tabs::
 
-  .. group-tab:: Eloquent and newer
 
-    .. code-block:: bash
+.. code-block:: bash
 
-       ros2 run image_tools cam2image --ros-args -p burger_mode:=True
-
-  .. group-tab:: Dashing
-
-    .. code-block:: bash
-
-       #Using CLI arguments instead of parameters:
-       ros2 run image_tools cam2image -b
+   ros2 run image_tools cam2image --ros-args -p burger_mode:=True
 
 In this window, you'll see terminal output:
 
@@ -145,19 +134,10 @@ Command line options
 
 In one of your terminals, add a -h flag to the original command:
 
-.. tabs::
+.. code-block:: bash
 
-  .. group-tab:: Eloquent and newer
+   ros2 run image_tools showimage -h
 
-    .. code-block:: bash
-
-       ros2 run image_tools showimage -h
-
-  .. group-tab:: Dashing
-
-    .. code-block:: bash
-
-       ros2 run image_tools showimage -- -h
 
 
 Add network traffic
@@ -194,10 +174,6 @@ First of all, we'll use the ``-p reliability:=best_effort`` option to enable bes
 The publisher will now just attempt to deliver the network packets, and don't expect acknowledgement from the consumer.
 We see now that some of the frame on the ``showimage`` side were dropped, the frame numbers in the shell running ``showimage`` won't be consecutive anymore:
 
-
-.. note::
-
-   Before Eloquent, use ``-x 640 -y 480`` for changing the resolution and ``-r 0`` for best effort communication.
 
 .. image:: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
    :target: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png

@@ -1,3 +1,40 @@
+.. _FoxyInstall:
+
+Installing ROS 2 Foxy Fitzroy
+=============================
+
+.. toctree::
+   :hidden:
+   :glob:
+
+   Foxy/*
+
+Binary packages
+---------------
+
+We provide ROS 2 binary packages for the following platforms:
+
+* Linux (Ubuntu Focal(20.04))
+
+  * `Debian packages <Foxy/Linux-Install-Debians>`
+  * `"fat" archive <Foxy/Linux-Install-Binary>`
+
+* `macOS <Foxy/macOS-Install-Binary>`
+* `Windows <Foxy/Windows-Install-Binary>`
+
+
+.. _building-from-source:
+
+Building from source
+--------------------
+
+We support building ROS 2 from source on the following platforms:
+
+
+* `Linux <Foxy/Linux-Development-Setup>`
+* `macOS <Foxy/macOS-Development-Setup>`
+* `Windows <Foxy/Windows-Development-Setup>`
+
 
 Which install should you choose?
 --------------------------------
@@ -26,5 +63,3 @@ macOS and Windows users who choose to install from binary packages only have the
 **Building from source** is meant for developers looking to alter or explicitly omit parts of ROS 2's base.
 It is also recommended for platforms that don't support binaries.
 Building from source also gives you the option to install the absolute latest version of ROS 2.
-
-.. TODO: add reference to "General Install" instructions "...if you don't see your operating system"

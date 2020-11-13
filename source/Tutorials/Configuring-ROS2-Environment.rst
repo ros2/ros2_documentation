@@ -54,13 +54,7 @@ You will need to run this command on every new shell you open to have access to 
 
       .. code-block:: console
 
-        source /opt/ros/<distro>/setup.bash
-
-      For example, if you installed ROS 2 Eloquent:
-
-      .. code-block:: console
-
-        source /opt/ros/eloquent/setup.bash
+        source /opt/ros/foxy/setup.bash
 
    .. group-tab:: macOS
 
@@ -89,7 +83,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
       .. code-block:: console
 
-        echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
+        echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 
    .. group-tab:: macOS
 

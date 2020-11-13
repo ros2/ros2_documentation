@@ -8,12 +8,7 @@ Beginner
 
 The beginner-level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
 It starts with using the Commandline Interface (CLI) tools, then moves on to the C++ and Python client libraries.
-
-.. warning::
-
-   Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
-   These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
-   The :ref:`Contact <Help>` page includes more ways to get help.
+Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
 
 Beginner: CLI Tools
 ^^^^^^^^^^^^^^^^^^^
@@ -146,7 +141,7 @@ Demos
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
 * `Efficient intra-process communication <Tutorials/Intra-Process-Communication>`.
-* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
+* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/foxy/README.md>`__.
 * `Recording and playback of topic data with rosbag using the ROS 1 bridge <Tutorials/Rosbag-with-ROS1-Bridge>`.
 * `Turtlebot 2 demo using ROS 2 <https://github.com/ros2/turtlebot2_demo>`__.
 * `TurtleBot 3 demo using ROS 2 <http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2_setup/>`__. [community-contributed]
@@ -156,10 +151,10 @@ Demos
 * `Using URDF with robot_state_publisher <Tutorials/URDF/Using-URDF-with-Robot-State-Publisher>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
-* `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
+* `Use DDS-Security <https://github.com/ros2/sros2/blob/foxy/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
 
 Examples
 --------
 
-* `Python and C++ minimal examples <https://github.com/ros2/examples>`__.
+* `Python and C++ minimal examples <https://github.com/ros2/examples/tree/foxy>`__.

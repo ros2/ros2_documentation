@@ -86,49 +86,24 @@ If you do change the suffix, make sure to adjust the ``glob()`` argument in your
 
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
-.. tabs::
+.. code-block:: python
 
-  .. group-tab:: Foxy and newer
-
-     .. code-block:: python
-
-         import launch
-         import launch.actions
-         import launch.substitutions
-         import launch_ros.actions
+   import launch
+   import launch.actions
+   import launch.substitutions
+   import launch_ros.actions
 
 
-         def generate_launch_description():
-             return launch.LaunchDescription([
-                 launch.actions.DeclareLaunchArgument(
-                     'node_prefix',
-                     default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
-                     description='Prefix for node names'),
-                 launch_ros.actions.Node(
-                     package='demo_nodes_cpp', executable='talker', output='screen',
-                     name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
-             ])
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: python
-
-        import launch
-        import launch.actions
-        import launch.substitutions
-        import launch_ros.actions
-
-
-        def generate_launch_description():
-            return launch.LaunchDescription([
-                launch.actions.DeclareLaunchArgument(
-                    'node_prefix',
-                    default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
-                    description='Prefix for node names'),
-                launch_ros.actions.Node(
-                    package='demo_nodes_cpp', node_executable='talker', output='screen',
-                    node_name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
-            ])
+   def generate_launch_description():
+       return launch.LaunchDescription([
+           launch.actions.DeclareLaunchArgument(
+               'node_prefix',
+               default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
+               description='Prefix for node names'),
+           launch_ros.actions.Node(
+               package='demo_nodes_cpp', executable='talker', output='screen',
+               name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
+       ])
 
 Usage
 ^^^^^
@@ -144,7 +119,7 @@ After running ``colcon build`` and sourcing your workspace, you should be able t
 Example of ROS 2 launch concepts
 --------------------------------
 
-The launch file in `this example <https://github.com/ros2/launch_ros/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
+The launch file in `this example <https://github.com/ros2/launch_ros/blob/foxy/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
 launches two nodes, one of which is a node with a `managed lifecycle <Managed-Nodes>` (a "lifecycle node").
 Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when they transition between states.
 The events can then be acted on through the launch framework.
@@ -155,7 +130,7 @@ In the aforementioned example, various transition requests are requested of the 
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
+`The launch documentation <https://github.com/ros2/launch/blob/foxy/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
 
 Additional documentation/examples of capabilities are forthcoming.
 See `the source code <https://github.com/ros2/launch>`__ in the meantime.

@@ -86,6 +86,8 @@ Create a workspace and clone all repos:
    wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
+.. _linux-development-setup-install-dependencies-using-rosdep:
+
 Install dependencies using rosdep
 ---------------------------------
 
@@ -138,7 +140,7 @@ Set up your environment by sourcing the following file.
 
    . ~/ros2_foxy/install/setup.bash
 
-.. _latest-examples:
+.. _talker-listener:
 
 Try some examples
 -----------------
