@@ -43,7 +43,6 @@ Beginner: Client Libraries
    Tutorials/Single-Package-Define-And-Use-Interface
    Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Using-Parameters-In-A-Class-Python
-   Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
 ------------
@@ -76,7 +75,6 @@ Learning the ROS 2 Toolset
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
-   Tutorials/Topics/Topic-Statistics-Tutorial
    Tutorials/Discovery-Server/Discovery-Server
 
 Advanced
