@@ -56,7 +56,7 @@ To build the samples, you will need to install ROS 2.
 
 Follow the `installation instructions <../Installation>`.
 
-.. attention:: If installing from Debian packages, this tutorial requires the `desktop installation <Dashing_linux-install-debians-install-ros-2-packages>`.
+.. attention:: If installing from Debian packages, this tutorial requires the `desktop installation <linux-install-debians-install-ros-2-packages>`.
 
 Basics
 ------
@@ -250,9 +250,9 @@ colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
 Also supported are pure ``cmake`` packages.
 
-An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/master/ament_index_python>`__ , where the setup.py is the primary entry point for building.
+An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/eloquent/ament_index_python>`__ , where the setup.py is the primary entry point for building.
 
-A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/master/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
+A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/eloquent/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
 

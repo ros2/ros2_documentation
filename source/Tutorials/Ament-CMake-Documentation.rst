@@ -125,56 +125,32 @@ Building a Library
 
 When building a reusable library, some information needs to be exported for downstream packages to easily use it.
 
-.. tabs::
 
-  .. group-tab:: Foxy and newer
+.. code-block:: cmake
 
-    .. code-block:: cmake
+    ament_export_interfaces(export_my_library HAS_LIBRARY_TARGET)
+    ament_export_dependencies(some_dependency)
 
-        ament_export_targets(export_my_library HAS_LIBRARY_TARGET)
-        ament_export_dependencies(some_dependency)
+    install(
+      DIRECTORY include/
+      DESTINATION include
+    )
 
-        install(
-          DIRECTORY include/
-          DESTINATION include
-        )
-
-        install(
-          TARGETS my_library
-          EXPORT export_my_library
-          LIBRARY DESTINATION lib
-          ARCHIVE DESTINATION lib
-          RUNTIME DESTINATION bin
-          INCLUDES DESTINATION include
-        )
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: cmake
-
-        ament_export_interfaces(export_my_library HAS_LIBRARY_TARGET)
-        ament_export_dependencies(some_dependency)
-
-        install(
-          DIRECTORY include/
-          DESTINATION include
-        )
-
-        install(
-          TARGETS my_library
-          EXPORT export_my_library
-          LIBRARY DESTINATION lib
-          ARCHIVE DESTINATION lib
-          RUNTIME DESTINATION bin
-          INCLUDES DESTINATION include
-        )
+    install(
+      TARGETS my_library
+      EXPORT export_my_library
+      LIBRARY DESTINATION lib
+      ARCHIVE DESTINATION lib
+      RUNTIME DESTINATION bin
+      INCLUDES DESTINATION include
+    )
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
 Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
 
 Here is what's happening in the snippet above:
 
-- The ``ament_export_targets`` macro (``ament_export_interfaces`` in Eloquent and older) exports the targets for CMake.
+- The ``ament_export_interfaces`` macro exports the targets for CMake.
   This is necessary to allow your library's clients to use the ``target_link_libraries(client my_library::my_library)`` syntax.
   ``ament_export_targets`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
 
@@ -289,7 +265,7 @@ In order to separate testing from building the library with colcon, wrap all cal
 Linting
 ^^^^^^^
 
-It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
+It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/eloquent/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
 
 .. code-block:: cmake
 
@@ -298,10 +274,9 @@ It's advised to use the combined call from `ament_lint_auto <https://github.com/
 
 This will run linters as defined in the ``package.xml``.
 It is recommended to use the set of linters defined by the package ``ament_lint_common``.
-The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs <https://github.com/ament/ament_lint/blob/master/ament_lint_common/doc/index.rst>`_.
 
 Linters provided by ament can also be added separately, instead of running ``ament_lint_auto``.
-One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/master/ament_cmake_lint_cmake/doc/index.rst>`_.
+One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/eloquent/ament_cmake_lint_cmake/doc/index.rst>`_.
 
 Testing
 ^^^^^^^
@@ -450,7 +425,7 @@ This can be achieved using the ament index (also called "resource index").
 The ament index explained
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/doc/resource_index.md>`__
+For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/eloquent/ament_cmake_core/doc/resource_index.md>`__
 
 In principle, the ament index is contained in a folder within the install/share folder of your package.
 It contains shallow subfolders named after different types of resources.

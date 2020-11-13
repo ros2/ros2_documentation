@@ -136,91 +136,57 @@ However, you can save your settings changes and reload them next time you start 
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-.. tabs::
 
-  .. group-tab:: Eloquent and newer
+You can “dump” all of a node’s current parameter values into a file to save for later using the command:
 
-    You can “dump” all of a node’s current parameter values into a file to save for later using the command:
+.. code-block:: console
 
-    .. code-block:: console
+  ros2 param dump <node_name>
 
-      ros2 param dump <node_name>
+To save your current configuration of ``/turtlesim``’s parameters, enter the command:
 
-    To save your current configuration of ``/turtlesim``’s parameters, enter the command:
+.. code-block:: console
 
-    .. code-block:: console
+  ros2 param dump /turtlesim
 
-      ros2 param dump /turtlesim
+Your terminal will return the message:
 
-    Your terminal will return the message:
+.. code-block:: console
 
-    .. code-block:: console
+  Saving to:  ./turtlesim.yaml
 
-      Saving to:  ./turtlesim.yaml
+You will find a new file in the directory your workspace is running in.
+If you open this file, you’ll see the following contents:
 
-    You will find a new file in the directory your workspace is running in.
-    If you open this file, you’ll see the following contents:
+.. code-block:: YAML
 
-    .. code-block:: YAML
+  turtlesim:
+    ros__parameters:
+      background_b: 255
+      background_g: 86
+      background_r: 150
+      use_sim_time: false
 
-      turtlesim:
-        ros__parameters:
-          background_b: 255
-          background_g: 86
-          background_r: 150
-          use_sim_time: false
-
-    Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
-
-  .. group-tab:: Dashing
-
-    Dashing does not have the ``param dump`` command.
-    However, it is possible to run a node with saved parameters.
-    The equivalent to ``param dump`` would be manually recording your current parameter values into a YAML file.
-
-    Save the following in a file named ``./turtlesim.yaml``:
-
-    .. code-block:: YAML
-
-      turtlesim:
-        ros__parameters:
-          background_b: 255
-          background_g: 86
-          background_r: 150
-          use_sim_time: false
+Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
 6 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
 
-.. tabs::
+To start the same node using your saved parameter values, use:
 
-  .. group-tab:: Eloquent and newer
+.. code-block:: console
 
-    To start the same node using your saved parameter values, use:
+  ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
 
-    .. code-block:: console
+This is the same command you always use to start turtlesim, with the added flags ``--ros-args`` and ``--params-file``, followed by the file you want to load.
 
-      ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
+Stop your running turtlesim node so you can try reloading it with your saved parameters, using:
 
-    This is the same command you always use to start turtlesim, with the added flags ``--ros-args`` and ``--params-file``, followed by the file you want to load.
+.. code-block:: console
 
-    Stop your running turtlesim node so you can try reloading it with your saved parameters, using:
+  ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 
-    .. code-block:: console
-
-      ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
-
-    The turtlesim window should appear as usual, but with the purple background you set earlier.
-
-  .. group-tab:: Dashing
-
-    To start a node using the parameter settings you manually "dumped" in the last section, run the command
-
-    .. code-block:: console
-
-      ros2 run turtlesim turtlesim_node __params:=./turtlesim.yaml
-
-    Where ``__params:`` is the path to your parameter file.
+The turtlesim window should appear as usual, but with the purple background you set earlier.
 
 Summary
 -------

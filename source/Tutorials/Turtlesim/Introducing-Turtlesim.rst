@@ -30,8 +30,6 @@ Prerequisites
 
 The previous tutorial, :ref:`ConfigROS2`, will show you how to set up your environment.
 
-Turtlesim and rqt are only available in ROS 2 from Dashing onward.
-
 Tasks
 -----
 
@@ -50,7 +48,7 @@ Install the turtlesim package for your ROS 2 distro:
 
         sudo apt update
 
-        sudo apt install ros-<distro>-turtlesim
+        sudo apt install ros-eloquent-turtlesim
 
    .. group-tab:: macOS
 
@@ -145,7 +143,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ~nros-<distro>-rqt*
+      sudo apt install ~nros-eloquent-rqt*
 
   .. group-tab:: Linux (apt 1.x/Ubuntu 18.04 and older)
 
@@ -153,7 +151,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ros-<distro>-rqt*
+      sudo apt install ros-eloquent-rqt*
 
   .. group-tab:: macOS
 
@@ -237,19 +235,10 @@ You can accomplish this by remapping turtle1's ``cmd_vel`` topic onto turtle2.
 
 In a new terminal, source ROS 2, and run:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Eloquent and newer
+  ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 
-      .. code-block:: console
-
-        ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
-
-   .. group-tab:: Dashing
-
-      .. code-block:: console
-
-        ros2 run turtlesim turtle_teleop_key turtle1/cmd_vel:=turtle2/cmd_vel
 
 Now you can move turtle2 when this terminal is active, and turtle1 when the other terminal running the ``turtle_teleop_key`` is active.
 
@@ -274,7 +263,7 @@ Now that you have turtlesim and rqt up and running, and an idea of how they work
 Related content
 ---------------
 
-The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
+The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/eloquent-devel/turtlesim>`_.
 Make sure to adjust the branch to view the version of turtlesim corresponding to your installed ROS 2 distro.
 
 `This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the item covered in this tutorial.

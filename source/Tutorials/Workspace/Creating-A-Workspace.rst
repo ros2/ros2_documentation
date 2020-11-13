@@ -54,12 +54,6 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
       .. code-block:: console
 
-        source /opt/ros/<distro>/setup.bash
-
-      For example, if you installed ROS 2 Eloquent:
-
-      .. code-block:: console
-
         source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
@@ -131,13 +125,8 @@ In the ``dev_ws/src`` directory, run the following command for the distro you're
 
 .. code-block:: console
 
-  git clone https://github.com/ros/ros_tutorials.git -b <distro>-devel
+  git clone https://github.com/ros/ros_tutorials.git -b eloquent-devel
 
-For example, if you're using Foxy:
-
-.. code-block:: console
-
-  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
@@ -184,7 +173,7 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``dev_ws``), run the following command, replacing ``<distro>`` with your distro:
+From the root of your workspace (``dev_ws``), run the following command:
 
 .. tabs::
 
@@ -192,7 +181,7 @@ From the root of your workspace (``dev_ws``), run the following command, replaci
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro eloquent -y
 
    .. group-tab:: macOS
 
@@ -203,7 +192,7 @@ From the root of your workspace (``dev_ws``), run the following command, replaci
       rosdep only runs on Linux, so you can skip ahead to section "5 Build the workspace with colcon".
 
 If you installed ROS 2 on Linux from source or the "fat" archive, you will need to use the rosdep command from their installation instructions.
-For example, here are the Eloquent :ref:`from-source rosdep section <Eloquent_linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`"fat" archive rosdep section <Eloquent_linux-install-binary-install-missing-dependencies>`.
+Here are the :ref:`from-source rosdep section <linux-development-setup-install-dependencies-using-rosdep>` and the :ref:`"fat" archive rosdep section <linux-install-binary-install-missing-dependencies>`.
 
 If you already have all your dependencies, the console will return:
 
@@ -281,7 +270,7 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
       .. code-block:: console
 
-        source /opt/ros/<distro>/setup.bash
+        source /opt/ros/eloquent/setup.bash
 
    .. group-tab:: macOS
 

@@ -15,7 +15,7 @@ This guide is about how to setup a development environment for ROS 2 on Windows.
 Prerequisites
 -------------
 
-First follow the steps for `Installing Prerequisites <Eloquent_windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+First follow the steps for `Installing Prerequisites <windows-install-binary-installing-prerequisites>` on the Binary Installation page.
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
