@@ -125,7 +125,7 @@ For that to work, the ``__init__`` code has to be changed to:
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            my_parameter_descriptor = rclpy.node.Node.ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
+            my_parameter_descriptor = rclpy.node.ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
                                                                           description='This parameter is mine!')
             self.declare_parameter("my_parameter",
                                    "default value for my_parameter",
