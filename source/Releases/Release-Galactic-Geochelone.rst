@@ -54,6 +54,12 @@ Related PRs: `ros2/rcl_logging#53 <https://github.com/ros2/rcl_logging/pull/53>`
 Changes since the Foxy release
 ------------------------------
 
+nav2
+^^^^
+
+Changes include, but are not limited to, a number of stability improvements, new plugins, interface changes, costmap filters.
+See `Migration Guides <https://navigation.ros.org/migration/Foxy.html>`_ for full list
+
 tf2_ros Python split out of tf2_ros
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
