@@ -137,14 +137,6 @@ Open a new terminal to install ``rqt`` and its plugins:
 
 .. tabs::
 
-  .. group-tab:: Linux (apt 2.0/Ubuntu 20.04 and newer)
-
-    .. code-block:: console
-
-      sudo apt update
-
-      sudo apt install ~nros-dashing-rqt*
-
   .. group-tab:: Linux (apt 1.x/Ubuntu 18.04 and older)
 
     .. code-block:: console

@@ -99,11 +99,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
       .. code-block:: console
 
-<<<<<<< Updated upstream
-        C:\dev\ros2_foxy\local_setup.ps1
-=======
-        C:\dev\ros2_eloquent\local_setup.ps1
->>>>>>> Stashed changes
+        C:\dev\ros2_dashing\local_setup.ps1
 
       PowerShell will request permission to run this script everytime a new shell is opened.
 
