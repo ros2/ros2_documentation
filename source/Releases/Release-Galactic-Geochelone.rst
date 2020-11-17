@@ -89,6 +89,13 @@ Change in default ``/clock`` subscription QoS profile
 The default was changed from a reliable communication with history depth 10 to a best effort communication with history depth 1.
 See `ros2/rclcpp#1312 <https://github.com/ros2/rclcpp/pull/1312>`_.
 
+Waitable API
+""""""""""""
+
+Waitable API was modified to avoid issues with the ``MultiThreadedExecutor``.
+This only affects users implementing a custom waitable.
+See `ros2/rclcpp#1241 <https://github.com/ros2/rclcpp/pull/1241>`_ for more details.
+
 rclpy
 ^^^^^^
 
