@@ -12,7 +12,7 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
-The current members of the ROS 2 TSC are (17 as of 2020-06-05):
+The current members of the ROS 2 TSC are (18 as of 2020-11-16):
 
 .. |adlink| image:: Governance/adlink.svg
    :alt: ADLINK Technology logo
@@ -99,6 +99,11 @@ The current members of the ROS 2 TSC are (17 as of 2020-06-05):
    :height: 35px
    :target: https://www.tri.global/
 
+.. |windriver| image:: Governance/windriver.png
+   :alt: Wind River logo
+   :height: 35px
+   :target: https://www.windriver.com/
+
 .. list-table::
    :align: center
    :widths: auto
@@ -122,7 +127,7 @@ The current members of the ROS 2 TSC are (17 as of 2020-06-05):
    * - |microsoft|
      - Microsoft: Sean Yen
    * - |openrobotics|
-     - Open Robotics: Dirk Thomas
+     - Open Robotics: Chris Lalancette
    * - |picknik|
      - PickNik: Dave Coleman
    * - |robotis|
@@ -136,7 +141,9 @@ The current members of the ROS 2 TSC are (17 as of 2020-06-05):
    * - |tieriv|
      - Tier IV: Jilada Eccleston
    * - |tri|
-     - Toyota Research Institute: Toffee Albina
+     - Toyota Research Institute: Ian McMahon
+   * - |windriver|
+     - Wind River: Andrei Kholodnyi
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
