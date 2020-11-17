@@ -7,7 +7,15 @@ Installation
    :hidden:
    :glob:
 
-   Installation/Dashing
+   Installation/Summary
+   Installation/Linux-Development-Setup
+   Installation/Linux-Install-Binary
+   Installation/Linux-Install-Debians
+   Installation/macOS-Development-Setup
+   Installation/macOS-Install-Binary
+   Installation/Windows-Development-Setup
+   Installation/Windows-Install-Binary
+   Installation/Fedora-Development-Setup
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
    Installation/Prerelease-Testing
@@ -22,14 +30,13 @@ We recommend using the most recent release available when possible.
 Select your ROS distribution
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-+-----------------------------------------------------------------+-----------------------------------------------------------------+-----------------------------------------------------+
-| `ROS 2 Dashing Diademata <Installation/Dashing>`                | `ROS 2 Eloquent Elusor <../../eloquent/Installation/Eloquent>`  | `ROS 2 Foxy Fitzroy <../../foxy/Installation/Foxy>` |
-+-----------------------------------------------------------------+-----------------------------------------------------------------+-----------------------------------------------------+
-| Released May 2019                                               | Released November 2019                                          | Released June 2020                                  |
-+-----------------------------------------------------------------+-----------------------------------------------------------------+-----------------------------------------------------+
-| Supported until May 2021                                        | Supported until November 2020                                   | Supported until May 2023                            |
-+-----------------------------------------------------------------+-----------------------------------------------------------------+-----------------------------------------------------+
++-----------------------------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------------+
+| `ROS 2 Dashing Diademata <Installation/Summary>`                | `ROS 2 Eloquent Elusor <../eloquent/Installation/Summary.html>`__  | `ROS 2 Foxy Fitzroy <../foxy/Installation/Summary.html>`__ |
++-----------------------------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------------+
+| Released May 2019                                               | Released November 2019                                             | Released June 2020                                         |
++-----------------------------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------------+
+| Supported until May 2021                                        | Supported until November 2020                                      | Supported until May 2023                                   |
++-----------------------------------------------------------------+--------------------------------------------------------------------+------------------------------------------------------------+
 
 
 For more detailed descriptions of each release see `REP-2000 <https://www.ros.org/reps/rep-2000.html>`_

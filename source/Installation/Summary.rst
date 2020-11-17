@@ -1,12 +1,6 @@
 Installing ROS 2 Dashing Diademata
 ==================================
 
-.. toctree::
-   :hidden:
-   :glob:
-
-   Dashing/*
-
 Binary packages
 ---------------
 
@@ -14,11 +8,11 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Bionic(18.04))
 
-  * `Debian packages <Dashing/Linux-Install-Debians>`
-  * `"fat" archive <Dashing/Linux-Install-Binary>`
+  * `Debian packages <Linux-Install-Debians>`
+  * `"fat" archive <Linux-Install-Binary>`
 
-* `macOS <Dashing/macOS-Install-Binary>`
-* `Windows <Dashing/Windows-Install-Binary>`
+* `macOS <macOS-Install-Binary>`
+* `Windows <Windows-Install-Binary>`
 
 
 .. _building-from-source:
@@ -29,9 +23,9 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Dashing/Linux-Development-Setup>`
-* `macOS <Dashing/macOS-Development-Setup>`
-* `Windows <Dashing/Windows-Development-Setup>`
+* `Linux <Linux-Development-Setup>`
+* `macOS <macOS-Development-Setup>`
+* `Windows <Windows-Development-Setup>`
 
 
 Which install should you choose?

@@ -33,7 +33,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Eloquent Elusor <../Installation/Eloquent>`
+`Install Eloquent Elusor <../eloquent/Installation/Summary.html>`__
 
 New features in this ROS 2 release
 ----------------------------------

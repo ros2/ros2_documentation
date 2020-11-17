@@ -19,8 +19,8 @@ Building from source
 
 Follow the links below for the latest setup instructions for your platform:
 
-* `Linux <../../rolling/Installation/Rolling/Linux-Development-Setup>`
-* `macOS <../../rolling/Installation/Rolling/macOS-Development-Setup>`
-* `Windows <../../rolling/Installation/Rolling/Windows-Development-Setup>`
+* `Linux <../rolling/Installation/Linux-Development-Setup.html>`__
+* `macOS <../rolling/Installation/macOS-Development-Setup.html>`__
+* `Windows <../rolling/Installation/Windows-Development-Setup.html>`__
 
 For keeping your source code up-to-date, see `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
