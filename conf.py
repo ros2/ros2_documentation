@@ -228,6 +228,3 @@ def make_router(origin, destination):
 
 def setup(app):
     RedirectFrom.register(app)
-    app.connect('missing-reference', make_router(
-        'Installation', 'Installation/Eloquent'
-    ))
