@@ -763,5 +763,4 @@ You can learn more about interfaces :ref:`here <InterfaceConcept>`.
 Next steps
 ----------
 
-``.action`` files are another ROS 2 interface you can customize.
-You will learn about action interfaces in the :ref:`next tutorial <ActionCreate>`.
+The :ref:`next tutorial <SinglePkgInterface>` covers more ways to use interfaces in ROS 2.

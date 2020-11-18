@@ -383,13 +383,7 @@ You should see logged messages for the goal being accepted, feedback being print
 Summary
 -------
 
-In this tutorial, you put together an action server and action client line by line, and configured them to exchange goals, feedback, and results.
-
-Next steps
-----------
-
-Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+In this tutorial, you put together a C++ action server and action client line by line, and configured them to exchange goals, feedback, and results.
 
 Related content
 ---------------

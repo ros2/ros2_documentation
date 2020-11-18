@@ -84,7 +84,7 @@ An instance of an action is typically referred to as a *goal*.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
-We'll create a directory ``action`` in our ROS 2 package ``action_tutorials_interfaces``, then add a ``Fibonacci.action`` file:
+Create an ``action`` directory in our ROS 2 package ``action_tutorials_interfaces``:
 
 .. tabs::
 
@@ -94,13 +94,6 @@ We'll create a directory ``action`` in our ROS 2 package ``action_tutorials_inte
 
       cd action_tutorials_interfaces
       mkdir action
-      cat << EOF > action/Fibonacci.action
-      int32 order
-      ---
-      int32[] sequence
-      ---
-      int32[] partial_sequence
-      EOF
 
   .. group-tab:: macOS
 
@@ -108,13 +101,6 @@ We'll create a directory ``action`` in our ROS 2 package ``action_tutorials_inte
 
       cd action_tutorials_interfaces
       mkdir action
-      cat << EOF > action/Fibonacci.action
-      int32 order
-      ---
-      int32[] sequence
-      ---
-      int32[] partial_sequence
-      EOF
 
   .. group-tab:: Windows
 
@@ -122,13 +108,16 @@ We'll create a directory ``action`` in our ROS 2 package ``action_tutorials_inte
 
       cd action_tutorials_interfaces
       md action
-      > action\Fibonacci.action (
-      @echo.int32 order
-      @echo.---
-      @echo.int32[] sequence
-      @echo.---
-      @echo.int32[] partial_sequence
-      )
+
+Within the ``action`` directory, create a file called ``Fibonacci.action`` with the following contents:
+
+.. code-block:: console
+
+  int32 order
+  ---
+  int32[] sequence
+  ---
+  int32[] partial_sequence
 
 The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 

@@ -355,13 +355,7 @@ We're all set. If we run our action client, you should see feedback being printe
 Summary
 -------
 
-In this tutorial, you put together an action server and action client line by line, and configured them to exchange goals, feedback, and results.
-
-Next steps
-----------
-
-Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-This tutorial is available in :ref:`C++ <CppParamNode>`.
+In this tutorial, you put together a Python action server and action client line by line, and configured them to exchange goals, feedback, and results.
 
 Related content
 ---------------

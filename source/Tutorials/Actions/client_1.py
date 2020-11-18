@@ -24,7 +24,7 @@ class FibonacciActionClient(Node):
     def goal_response_callback(self, future):
         goal_handle = future.result()
         if not goal_handle.accepted:
-            self.get_logger().info('Goal reject :(')
+            self.get_logger().info('Goal rejected :(')
             return
 
         self.get_logger().info('Goal accepted :)')
