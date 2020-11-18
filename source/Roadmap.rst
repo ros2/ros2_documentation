@@ -163,6 +163,29 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      -
      -
+   * - Middleware: `ROS 2 Timers <https://github.com/tier4/AutowareArchitectureProposal/blob/ros2/docs/porting-to-ROS2.md>`_. `Issue <https://github.com/ros2/rclcpp/issues/465>`_.
+     - Large
+     -
+     -
+   * - rosbag2: IDL type evolution
+        #. For being able to reuse the old bags with older version of msg/idl definition.
+        #. ROS 1 has `rosbag/migration <http://wiki.ros.org/rosbag/migration>`_
+        #. DDS has Extensible and Dynamic Topic Types
+     - Large
+     -
+     -
+   * - Features: `topic_tools <https://wiki.ros.org/topic_tools>`_
+        #. https://github.com/ApexAI/topic_tools
+        #. https://github.com/ApexAI/rclcpp_generic 
+     - Medium
+     - Apex.AI
+     -
+   * - Features: Reading multi-type parameters as an array from the yaml file via the ros2 parameters interface. In ROS1, XmlRpc was used.
+        #. The specific example can be seen in system_monitor package. `Parameters <https://github.com/tier4/Pilot.Auto/blob/master/system/system_monitor/config/system_monitor.yaml#L10-L20>`_ for the hdd monitor accepted a set of parameters for an arbitrary number of disks. These parameters used to be read using `XmlRpc <https://github.com/tier4/Pilot.Auto/blob/master/system/system_monitor/src/hdd_monitor/hdd_monitor.cpp#L242-L265>`_.
+     - Medium
+     - 
+     -
+
 
 Quarterly Roadmap
 -----------------
