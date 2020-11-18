@@ -1,8 +1,3 @@
-.. redirect-from::
-
-    Linux-Install-Debians
-    Installation/Linux-Install-Debians
-
 Installing ROS 2 via Debian Packages
 ====================================
 
@@ -25,12 +20,14 @@ Resources
 Set locale
 ----------
 
-.. include:: ../_Linux-Set-Locale.rst
+.. include:: _Linux-Set-Locale.rst
+
+.. _linux-install-debians-setup-sources:
 
 Setup Sources
 -------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 .. _linux-install-debians-install-ros-2-packages:
 

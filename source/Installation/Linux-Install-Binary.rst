@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    Linux-Install-Binary
-    Installation/Linux-Install-Binary
 
 Installing ROS 2 on Linux
 =========================
@@ -30,7 +26,7 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
@@ -85,7 +81,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------

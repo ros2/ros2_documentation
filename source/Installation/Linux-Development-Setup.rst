@@ -1,8 +1,3 @@
-.. redirect-from::
-
-    Linux-Development-Setup
-    Installation/Linux-Development-Setup
-
 Building ROS 2 on Linux
 =======================
 
@@ -30,12 +25,12 @@ System setup
 Set locale
 ^^^^^^^^^^
 
-.. include:: ../_Linux-Set-Locale.rst
+.. include:: _Linux-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,7 +100,7 @@ Install dependencies using rosdep
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
