@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Installation/Foxy/OSX-Install-Binary
+  Installation/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================
@@ -142,7 +142,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------

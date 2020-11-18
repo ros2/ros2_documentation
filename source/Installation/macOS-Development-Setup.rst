@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Installation/Foxy/OSX-Development-Setup
+  Installation/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================
@@ -146,7 +146,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
