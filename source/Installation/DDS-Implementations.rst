@@ -165,7 +165,6 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 
 Windows source install
 ----------------------
-^^^^^^^^^^^^^^^^^
 
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
