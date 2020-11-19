@@ -9,9 +9,9 @@ ROS2 on IBM Cloud Kubernetes
 About
 -----
 
-This article describes how to get ROS2 running on IBM Cloud using Docker files. It first gives a brief overview of docker images and how they work locally and then explores IBM Cloud and how the user can deploy their containers on it. 
+This article describes how to get ROS2 running on IBM Cloud using Docker files. It first gives a brief overview of docker images and how they work locally and then explores IBM Cloud and how the user can deploy their containers on it.
 Afterwards, a short description of how the user can use their own custom packages for ROS2 from github on IBM Cloud is provided.
-A walkthrough of how to create a cluster and utilize Kubernetes on IBM Cloud is provided and finally the Docker image is deployed on the cluster. 	
+A walkthrough of how to create a cluster and utilize Kubernetes on IBM Cloud is provided and finally the Docker image is deployed on the cluster.
 Originally published `here <https://github.com/mm-nasr/ros2_ibmcloud>`__ and `here <https://medium.com/@mahmoud-nasr/running-ros2-on-ibm-cloud-1b1284cbd487>`__.
 
 ROS2 on IBM Cloud
