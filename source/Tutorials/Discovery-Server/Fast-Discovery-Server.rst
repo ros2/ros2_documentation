@@ -24,11 +24,11 @@ This tutorial explains how to run some ROS 2 examples using the Discovery Server
 as discovery communication.
 
 In order to get more information about the available discovery configuration, please check
-the `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/discovery.html>`_
+the `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/discovery.html>`_
 or read the `Discovery Server specific documentation
-<https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/discovery_server.html#discovery-server>`__.
+<https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
-The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/latest/fastdds/discovery/simple.html>`__ is the
+The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/simple.html>`__ is the
 standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
 However, it has certain known disadvantages in some scenarios, mainly:
 
@@ -67,14 +67,14 @@ RMF Clinic demo use case, is shown:
 
 
 In order to use this functionality, **Fast-DDS Discovery Server** can be set using
-the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/latest/
+the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/v2.0.2/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 Furthermore, Fast DDS provides an easier way to set a **Discovery Server** communication using
-the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`__
-and an `environment variable <https://fast-dds.docs.eprosima.com/en/latest/fastdds/env_vars/env_vars.html>`__,
+the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastddscli/cli/cli.html#discovery>`__
+and an `environment variable <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/env_vars/env_vars.html>`__,
 which are going to be used along this tutorial.
 For a more detailed explanation about the configuration of the Discovery Server,
-visit Fast DDS `Discovery Server section <https://fast-dds.docs.eprosima.com/en/latest/
+visit Fast DDS `Discovery Server section <https://fast-dds.docs.eprosima.com/en/v2.0.2/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
@@ -84,7 +84,7 @@ Prerequisites
 This tutorial assumes you have a :ref:`working Foxy ROS 2 installation <InstallationGuide>`
 In case your installation is using a Fast DDS version lower than v2.0.2 you could not use the ``fastdds`` tool.
 You could update your repository to use a different Fast DDS version,
-or set the discovery service by `Fast-DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/latest/
+or set the discovery service by `Fast-DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.0.2/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
@@ -96,7 +96,7 @@ and a *listener* node that listens to these messages.
 
 By `Sourcing ROS 2 <ConfigROS2>`
 you will get access to the CLI of *Fast DDS*: ``fastdds``.
-This CLI gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/latest/
+This CLI gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.0.2/
 fastddscli/cli/cli.html#discovery>`__,
 which allows to launch a server. This server will manage the discovery process for the nodes that connect to it.
 
@@ -296,7 +296,7 @@ In another terminal run the second server listening in localhost in port another
 
 Now, run each node in a different terminal. Use the *environment variable* ``ROS_DISCOVERY_SERVER`` to decide which
 server they are connected to. Be aware that the `ids must match
-<https://fast-dds.docs.eprosima.com/en/latest/fastdds/env_vars/env_vars.html>`__.
+<https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/env_vars/env_vars.html>`__.
 
 .. code-block:: console
 
@@ -336,13 +336,19 @@ execute a talker and many listeners and analyze the network traffic during this 
 For this experiment, ``tshark`` is required to be installed on your system.
 The configuration file is mandatory in order to avoid using intraprocess mode.
 
+.. note::
+
+    These scripts require a Discovery Server clousure feature that is only available from versions newer than the
+    one used in ROS 2 Foxy.
+    In order to use this functionality, compile ROS 2 with Fast DDS v2.1.0 or higher.
+
 These scripts' functionalities are references for advance purpose and their study is left to the user.
 
-:download:`bash network traffic generator <scripts/generate_discovery_packages.bash>`
+* :download:`bash network traffic generator <scripts/generate_discovery_packages.bash>`
 
-:download:`python3 graph generator <scripts/discovery_packets.py>`
+* :download:`python3 graph generator <scripts/discovery_packets.py>`
 
-:download:`XML configuration <scripts/no_intraprocess_configuration.xml>`
+* :download:`XML configuration <scripts/no_intraprocess_configuration.xml>`
 
 Run the bash script with the *setup* path to source ROS2 as argument.
 This will generate the traffic trace for simple discovery.
