@@ -1,5 +1,3 @@
-.. ROS2 on IBM Cloud Kubernetes:
-
 ROS2 on IBM Cloud Kubernetes
 ============================
 
