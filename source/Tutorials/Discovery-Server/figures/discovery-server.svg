@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="313px" preserveAspectRatio="none" style="width:626px;height:313px;" version="1.1" viewBox="0 0 626 313" width="626px" zoomAndPan="magnify"><defs><filter height="300%" id="f1r7b4lpkcrpjs" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[277a75235685cc1d1463efd5f9b85d19]
+cluster Simple Discovery--><polygon fill="#FFFFFF" filter="url(#f1r7b4lpkcrpjs)" points="277,120.5,420,120.5,427,142.7969,604,142.7969,604,301,277,301,277,120.5" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="277" x2="427" y1="142.7969" y2="142.7969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="281" y="135.4951">Simple Discovery</text><!--MD5=[73d271f6fed5bba73aafd62f73ee169f]
+cluster Server-client Discovery--><polygon fill="#FFFFFF" filter="url(#f1r7b4lpkcrpjs)" points="22,24,214,24,221,46.2969,253,46.2969,253,300,22,300,22,24" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="221" y1="46.2969" y2="46.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="137" x="26" y="38.9951">Discovery Server</text><ellipse cx="523.2007" cy="170.9401" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="65.2007" ry="15.4401" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="476.2007" y="175.5886">participant 1</text><ellipse cx="357.8237" cy="269.3647" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="64.8237" ry="15.3647" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="311.3237" y="274.0132">participant 2</text><ellipse cx="358.2007" cy="170.9401" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="65.2007" ry="15.4401" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="94" x="311.2007" y="175.5886">participant 3</text><ellipse cx="522.8237" cy="269.3647" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="64.8237" ry="15.3647" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="93" x="476.3237" y="274.0132">participant 4</text><!--MD5=[dd82451e1dd92fe3da01853750f49ff6]
+entity server--><path d="M99.2848,157.2422 C102.6913,151.2222 107.7778,150.798 112.2648,155.9914 C116.1155,148.5682 120.5452,149.2754 125.4916,154.8788 C128.6267,148.741 134.6695,147.4549 139.0234,153.5281 C143.2839,149.5765 147.6492,149.5556 150.2709,155.4082 C154.9527,150.1287 159.5909,149.3408 163.2357,156.49 C168.6609,149.414 173.934,149.5954 177.7428,158.0043 C184.0059,161.6676 183.5563,168.5038 177.2825,171.7472 C184.1422,176.0456 184.4352,182.0842 177.9589,186.9749 C175.333,193.7954 169.4268,194.6808 165.0614,188.7319 C161.2363,196.2351 156.3675,197.3464 150.2406,191.2384 C148.3623,196.5799 143.0128,199.0236 138.9165,193.5637 C133.0803,199.7683 128.1226,198.9023 124.6133,191.1747 C120.2255,197.6567 114.8427,196.2168 111.1772,190.3866 C106.496,195.391 100.8958,194.5466 99.4044,187.3171 C89.6807,186.3977 86.3849,180.637 91.2937,171.9797 C87.9775,163.934 90.0923,158.5053 99.2848,157.2422 " fill="#FEFECE" style="stroke: #000000; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="64" x="105" y="175.9951">Server(s)</text><ellipse cx="79.1838" cy="73.5236" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="41.1838" ry="14.5236" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="52.1838" y="78.1721">client 1</text><ellipse cx="78.9767" cy="269.5236" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="40.4767" ry="14.5236" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="53" x="52.4767" y="274.1721">client 2</text><ellipse cx="196.1838" cy="73.5236" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="41.1838" ry="14.5236" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="169.1838" y="78.1721">client 3</text><ellipse cx="194.9767" cy="269.5236" fill="#FEFECE" filter="url(#f1r7b4lpkcrpjs)" rx="40.4767" ry="14.5236" style="stroke: #A80036; stroke-width: 1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="53" x="168.4767" y="274.1721">client 4</text><!--MD5=[4ef60940496ff64d6ff13fdfdd3cc31c]
+link p1 to p2--><path d="M495.132,188.298 C464.596,206.158 415.918,234.6265 385.52,252.4049 " fill="none" id="p1-p2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="381.172,254.9479,390.9603,253.857,385.488,252.4236,386.9214,246.9514,381.172,254.9479" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="499.709,185.621,489.9208,186.7122,495.3931,188.1454,493.9598,193.6177,499.709,185.621" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1ca1143b306a3da69e7a0bcbcdadbb28]
+link p3 to p1--><path d="M428.253,171 C436.417,171 444.582,171 452.746,171 " fill="none" id="p3-p1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="457.829,171,448.829,167,452.829,171,448.829,175,457.829,171" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="423.098,171,432.098,175,428.098,171,432.098,167,423.098,171" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bb07cabe484932c37708da4b1961a3f8]
+link p4 to p1--><path d="M523,248.3817 C523,231.8602 523,208.576 523,192.068 " fill="none" id="p4-p1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="523,186.656,519,195.656,523,191.656,527,195.656,523,186.656" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="523,253.7058,527,244.7058,523,248.7058,519,244.7058,523,253.7058" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[18d0a8c1f13bd442fcdfee682bd53fad]
+link p3 to p2--><path d="M358,192.068 C358,208.576 358,231.8602 358,248.3817 " fill="none" id="p3-p2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="358,253.7058,362,244.7058,358,248.7058,354,244.7058,358,253.7058" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="358,186.656,354,195.656,358,191.656,362,195.656,358,186.656" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9e1d7fb9fc918fc2e85210e92d61802d]
+link p2 to p4--><path d="M428.253,269.5 C436.417,269.5 444.582,269.5 452.746,269.5 " fill="none" id="p2-p4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="457.829,269.5,448.829,265.5,452.829,269.5,448.829,273.5,457.829,269.5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="423.098,269.5,432.098,273.5,428.098,269.5,432.098,265.5,423.098,269.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[291d41f1a4655cc49ae972ef6668e032]
+link p3 to p4--><path d="M385.868,188.298 C416.404,206.158 465.082,234.6265 495.48,252.4049 " fill="none" id="p3-p4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="499.828,254.9479,494.0786,246.9514,495.512,252.4236,490.0397,253.857,499.828,254.9479" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="381.291,185.621,387.0402,193.6177,385.6069,188.1454,391.0792,186.7122,381.291,185.621" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[bb2f1d4454658017af808374952358b9]
+link ps1 to server--><path d="M89.8654,92.39 C98.5504,106.691 110.86,126.96 120.722,143.198 " fill="none" id="ps1-server" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="123.434,147.662,122.1813,137.8931,120.8387,143.3883,115.3435,142.0457,123.434,147.662" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="87.0647,87.779,88.3181,97.5478,89.6604,92.0525,95.1557,93.3947,87.0647,87.779" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e5eb7d73674751d524f031f89a2041c1]
+link server to ps2--><path d="M120.82,198.92 C110.841,215.524 98.3257,236.3461 89.5987,250.8659 " fill="none" id="server-ps2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="87.019,255.1581,95.0837,249.5047,89.5947,250.8726,88.2268,245.3836,87.019,255.1581" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="123.548,194.382,115.4834,200.0355,120.9724,198.6676,122.3403,204.1565,123.548,194.382" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d7bdc534393d26a5297a49451095af00]
+link ps3 to server--><path d="M184.947,92.39 C176.112,106.691 163.59,126.96 153.559,143.198 " fill="none" id="ps3-server" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="150.8,147.662,158.9322,142.1061,153.4271,143.4078,152.1254,137.9027,150.8,147.662" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="187.796,87.779,179.663,93.3337,185.1683,92.0328,186.4691,97.5381,187.796,87.779" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[0b9c069defc0e746b79a953a5842baf8]
+link server to ps4--><path d="M153.18,198.92 C163.159,215.524 175.674,236.3461 184.401,250.8659 " fill="none" id="server-ps4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="186.981,255.1581,185.7733,245.3836,184.4054,250.8725,178.9164,249.5046,186.981,255.1581" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="150.452,194.382,151.6597,204.1565,153.0276,198.6676,158.5166,200.0355,150.452,194.382" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f5648d6e586ce2f3795ebe601fd9b48f]
+link ps3 to p3--><!--MD5=[f6eaa9ef5018b63e442a772f1417b006]
+@startuml
+package "Simple Discovery" {
+
+(participant 1) as p1
+(participant 2) as p2
+(participant 3) as p3
+(participant 4) as p4
+
+
+p1 <-right-> p2
+p1 <-left-> p3
+p1 <-up-> p4
+p2 <-up-> p3
+p2 <-> p4
+p3 <-> p4
+
+}
+
+package "Discovery Server" {
+
+cloud "Server(s)" as server
+(client 1) as ps1
+(client 2) as ps2
+(client 3) as ps3
+(client 4) as ps4
+
+ps1 <-down-> server
+ps2 <-up-> server
+ps3 <-down-> server
+ps4 <-up-> server
+
+p3 -[hidden]up- ps3
+
+}
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 09:35:57 UTC 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 14.0.1+7
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

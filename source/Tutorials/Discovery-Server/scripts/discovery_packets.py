@@ -1,6 +1,6 @@
 #!/usr/bin/python3 discovery_server
 
-"""."""
+"""Script to count number of rtps packages in a tcpdump capture."""
 import os
 import subprocess
 import pandas as pd
@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 def plot_packets(data):
-    """."""
+    """Plot a graph with the result obtained."""
     ax = data.plot.bar(x='discovery_protocol', y='discovery_packets', rot=0)
     plt.title('Packet traffic during discovery')
     plt.xlabel('Discovery Protocol')
@@ -21,7 +21,7 @@ def plot_packets(data):
 
 
 def count_packets(filename):
-    """."""
+    """Count the discovery packets filtering them by Entity id."""
     print('Processing {}'.format(filename))
     command = 'tshark -r {} -Y'.format(filename)
     command += ' "rtps && ('
@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
     files = [
         'simple.pcapng',
-        'server_client.pcapng',
+        'discovery_server.pcapng',
     ]
     data = pd.DataFrame()
     protocols = []
@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
         protocol = 'Simple'
         if 'server' in f:
-            protocol = 'Server-Client'
+            protocol = 'Discovery Server'
 
         protocols.append(protocol)
         packets.append(count_packets(f))
