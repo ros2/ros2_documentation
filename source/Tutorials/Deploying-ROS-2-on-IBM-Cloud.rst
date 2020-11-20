@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Deploying-ROS2-on-IBM-Cloud
+    
 ROS2 on IBM Cloud Kubernetes
 ============================
 
