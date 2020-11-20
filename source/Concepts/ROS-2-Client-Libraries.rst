@@ -42,6 +42,7 @@ While the C++ and Python client libraries are maintained by the core ROS 2 team,
 * `Node.js <https://www.npmjs.com/package/rclnodejs>`__
 * `Ada <https://github.com/ada-ros/ada4ros2>`__
 * `_.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__
+* `Rust <https://github.com/ros2-rust/ros2_rust>`__
 
 Common functionality: the RCL
 -----------------------------
