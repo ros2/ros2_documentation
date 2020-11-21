@@ -253,8 +253,10 @@ Tooling
 * Lead(s): Emerson Knapp, Thomas Moulard
 * Resources:
 
+ * `ROS 2 Tooling Working Group Community <https://github.com/ros-tooling/community>`__
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
+ * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
