@@ -106,6 +106,7 @@ Using Docker
 
    Tutorials/Run-2-nodes-in-a-single-docker-container
    Tutorials/Run-2-nodes-in-two-separate-docker-containers
+   Tutorials/Deploying-ROS-2-on-IBM-Cloud
 
 Miscellaneous
 -------------
