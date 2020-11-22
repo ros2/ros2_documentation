@@ -143,7 +143,7 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
    * - |tri|
      - Toyota Research Institute: Ian McMahon
    * - |windriver|
-     - Wind River: Andrei Kholodnyi
+     - Wind River: `Andrei Kholodnyi <https://github.com/razr>`__
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
@@ -212,9 +212,10 @@ The current WGs are (6 as of 2019-09-04):
 
 * Real-time
 
- * Lead(s): Dejan Pangercic
+ * Lead(s): Dejan Pangercic, Andrei Kholodnyi
  * Resources: TODO
 
+  * `ROS 2 Real-time Working Group Community <https://github.com/ros-realtime/community>`__
   * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
   * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
 
