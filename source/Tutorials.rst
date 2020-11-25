@@ -76,6 +76,7 @@ Learning the ROS 2 Toolset
    Tutorials/Actions
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
    Tutorials/Topics/Topic-Statistics-Tutorial
+   Tutorials/Discovery-Server/Discovery-Server
 
 Advanced
 --------
@@ -89,7 +90,6 @@ Advanced
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
    Tutorials/Releasing-a-ROS-2-package-with-bloom
-   Tutorials/Discovery-Server/Discovery-Server
 
 Windows Tutorials
 -----------------

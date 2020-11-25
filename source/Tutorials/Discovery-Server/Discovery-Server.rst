@@ -18,7 +18,7 @@ Using ROS 2 Discovery Server
 Background
 ----------
 
-The **Discovery Server** protocol is a new ROS 2 feature that offers a dynamical discovering communication.
+Starting from ROS 2 Eloquent Elusor, the **Discovery Server** protocol is a ROS 2 feature that offers a dynamical discovering communication.
 This tutorial explains how to run some ROS 2 examples using the Discovery Server feature
 as discovery communication.
 
@@ -48,7 +48,7 @@ redundancy over the network and avoid having a *Single-Point-Of-Failure*.
 
 Discovery Server v2
 -------------------
-The new version **v2** of Discovery Server, implements a new filter feature
+Latest ROS 2 Foxy Fitzroy's release (Dec 2020) ships a new version **v2** of Discovery Server implementing a new filter feature
 that allows to further reduce the number of discovery messages sent.
 This version uses the *topic* of the different nodes to decide if two nodes must be connected, or they
 could be left unmatched.
@@ -59,7 +59,7 @@ The following schema represents the decrease of the discovery packages:
 
 This architecture reduces the number of packages sent between the server and the different clients dramatically.
 In the following graph, the reduction in traffic network over the discovery phase for a
-RMF Clinic demo use case, is shown:
+`RMF Clinic demo <https://github.com/osrf/rmf_demos#Clinic-World>`__ use case, is shown:
 
 .. image:: figures/discovery_server_v2_performance.svg
     :align: center
@@ -379,7 +379,7 @@ This creates a huge amount of traffic in large architectures.
 This reduction from this method increases with the number of Nodes, making this architecture more scalable than the
 simple one.
 
-Since *Fast DDS* v2.1.0 the new Discovery Server v2 is available, substituting the old Discovery Server.
+Since *Fast DDS* v2.0.2 the new Discovery Server v2 is available, substituting the old Discovery Server.
 In this new version, those nodes that do not share topics will not know each other, saving the whole discovery data
 required to connect them and their endpoints.
 Notice that this is not this example case, but even though the massive reduction could be appreciate
