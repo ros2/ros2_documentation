@@ -89,6 +89,7 @@ Advanced
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
    Tutorials/Releasing-a-ROS-2-package-with-bloom
+   Tutorials/Discovery-Server/Discovery-Server
 
 Windows Tutorials
 -----------------
@@ -134,7 +135,7 @@ Demos
    Tutorials/Real-Time-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
-   Tutorials/Discovery-Server/Fast-Discovery-Server
+   Tutorials/Discovery-Server/Discovery-Server
 
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
@@ -150,7 +151,6 @@ Demos
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
-* `ROS 2 using Fast DDS Discovery Server <Tutorials/Discovery-Server/Fast-Discovery-Server>`.
 
 Examples
 --------

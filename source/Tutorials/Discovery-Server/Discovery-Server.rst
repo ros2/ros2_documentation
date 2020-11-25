@@ -1,11 +1,11 @@
 .. redirect-from::
 
-    Fast-Discovery-Server
+    Discovery-Server
 
-Use ROS 2 with Fast DDS Discovery Server
-=========================================
+Using ROS 2 Discovery Server
+============================
 
-**Goal:** Demo to show how to launch ROS 2 Nodes using the Fast DDS Discovery Server discovery protocol.
+**Goal:** Demo to show how to launch ROS 2 Nodes using the **Discovery Server** discovery protocol.
 
 **Tutorial level:** Intermediate
 
@@ -18,17 +18,16 @@ Use ROS 2 with Fast DDS Discovery Server
 Background
 ----------
 
-The **Discovery Server** protocol is a **eProsima** `Fast DDS <https://eprosima.com>`__
-feature that offers a dynamical discovering communication.
-This tutorial explains how to run some ROS 2 examples using the Discovery Server Fast DDS feature
+The **Discovery Server** protocol is a new ROS 2 feature that offers a dynamical discovering communication.
+This tutorial explains how to run some ROS 2 examples using the Discovery Server feature
 as discovery communication.
 
 In order to get more information about the available discovery configuration, please check
-the `Fast DDS documentation <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/discovery.html>`_
+the `following documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_
 or read the `Discovery Server specific documentation
-<https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/discovery_server.html#discovery-server>`__.
+<https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
-The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/discovery/simple.html>`__ is the
+The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html>`__ is the
 standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
 However, it has certain known disadvantages in some scenarios, mainly:
 
@@ -49,7 +48,7 @@ redundancy over the network and avoid having a *Single-Point-Of-Failure*.
 
 Discovery Server v2
 -------------------
-The new version **v2** of Discovery Server, available from *Fast DDS* v2.0.2, implements a new filter feature
+The new version **v2** of Discovery Server, implements a new filter feature
 that allows to further reduce the number of discovery messages sent.
 This version uses the *topic* of the different nodes to decide if two nodes must be connected, or they
 could be left unmatched.
@@ -66,15 +65,15 @@ RMF Clinic demo use case, is shown:
     :align: center
 
 
-In order to use this functionality, **Fast-DDS Discovery Server** can be set using
-the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/v2.0.2/
+In order to use this functionality, **ROS 2 Discovery Server** can be set using
+the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/v2.1.0/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
-Furthermore, Fast DDS provides an easier way to set a **Discovery Server** communication using
-the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastddscli/cli/cli.html#discovery>`__
-and an `environment variable <https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/env_vars/env_vars.html>`__,
+Furthermore, an easier way is provided to set a **Discovery Server** communication using
+the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__
+and an `environment variable <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__,
 which are going to be used along this tutorial.
 For a more detailed explanation about the configuration of the Discovery Server,
-visit Fast DDS `Discovery Server section <https://fast-dds.docs.eprosima.com/en/v2.0.2/
+visit `Discovery Server documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
@@ -84,7 +83,7 @@ Prerequisites
 This tutorial assumes you have a :ref:`working Foxy ROS 2 installation <InstallationGuide>`
 In case your installation is using a Fast DDS version lower than v2.0.2 you could not use the ``fastdds`` tool.
 You could update your repository to use a different Fast DDS version,
-or set the discovery service by `Fast-DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.0.2/
+or set the discovery service by `Fast-DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
@@ -95,8 +94,8 @@ The ``talker-listener`` ROS 2 demo allows to create a *talker* node that publish
 and a *listener* node that listens to these messages.
 
 By `Sourcing ROS 2 <ConfigROS2>`
-you will get access to the CLI of *Fast DDS*: ``fastdds``.
-This CLI gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.0.2/
+you will get access to the CLI tool ``fastdds``.
+This CLI gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/
 fastddscli/cli/cli.html#discovery>`__,
 which allows to launch a server. This server will manage the discovery process for the nodes that connect to it.
 
@@ -198,7 +197,7 @@ that allow to hold a robust structure over the node's network.
 Server Redundancy
 ^^^^^^^^^^^^^^^^^
 
-By using the Fast DDS tool, several servers can be created, and the nodes can be connected to as many
+By using ``fastdds`` tool, several servers can be created, and the nodes can be connected to as many
 servers as desired. This allows to have a safe redundancy network that will work even if some servers or
 nodes shut down unexpectedly.
 Next schema shows a simple architecture that will work with server redundancy:
@@ -235,7 +234,7 @@ Now, if one of these servers fails, there would still be discovery communication
 Backup Server
 ^^^^^^^^^^^^^
 
-*Fast DDS* Discovery Server allows to easily build a server with a **backup** functionality.
+*ROS 2 Discovery Server* allows to easily build a server with a **backup** functionality.
 This allows the server to retake the last state it saved in case of a shutdown.
 
 .. image:: figures/ds_backup_example.svg
@@ -296,7 +295,7 @@ In another terminal run the second server listening in localhost in port another
 
 Now, run each node in a different terminal. Use the *environment variable* ``ROS_DISCOVERY_SERVER`` to decide which
 server they are connected to. Be aware that the `ids must match
-<https://fast-dds.docs.eprosima.com/en/v2.0.2/fastdds/env_vars/env_vars.html>`__.
+<https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__.
 
 .. code-block:: console
 
@@ -380,7 +379,7 @@ This creates a huge amount of traffic in large architectures.
 This reduction from this method increases with the number of Nodes, making this architecture more scalable than the
 simple one.
 
-Since *Fast DDS* v2.0.2 the new Discovery Server v2 is available, substituting the old Discovery Server.
+Since *Fast DDS* v2.1.0 the new Discovery Server v2 is available, substituting the old Discovery Server.
 In this new version, those nodes that do not share topics will not know each other, saving the whole discovery data
 required to connect them and their endpoints.
 Notice that this is not this example case, but even though the massive reduction could be appreciate
