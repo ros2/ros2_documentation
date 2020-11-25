@@ -83,7 +83,7 @@ Prerequisites
 This tutorial assumes you have a :ref:`working Foxy ROS 2 installation <InstallationGuide>`
 In case your installation is using a Fast DDS version lower than v2.0.2 you could not use the ``fastdds`` tool.
 You could update your repository to use a different Fast DDS version,
-or set the discovery service by `Fast-DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/
+or set the discovery service by `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/
 fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
