@@ -304,7 +304,7 @@ These scripts' features are references for advanced purposes and their study is 
 
 * :download:`XML configuration <scripts/no_intraprocess_configuration.xml>`
 
-Run the bash script with the path a `setup.bash` file to source ROS 2 as an argument.
+Run the bash script with the path to ``setup.bash`` file to source ROS 2 as an argument.
 This will generate the traffic trace for simple discovery.
 Execute the same script with second argument ``SERVER``.
 It will generate the trace for using the discovery server.
