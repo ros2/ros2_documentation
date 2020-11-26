@@ -43,7 +43,7 @@ Building an Action
 ------------------
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
-This is accomplished by adding the following lines to our ``CMakeLists.txt``:
+This is accomplished by adding the following lines to our ``CMakeLists.txt`` before the ``ament_package()`` line:
 
 .. code-block:: cmake
 
