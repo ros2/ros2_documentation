@@ -326,7 +326,11 @@ The macros have additional parameters:
 
 - ``ENV``: set environment variables (same syntax as ``APPEND_ENV``).
 
-- ``TIMEOUT``: set a test timeout in second. The default for GTests is 60 seconds.
+- ``TIMEOUT``: set a test timeout in second. The default for GTests is 60 seconds.  For example:
+
+.. code-block:: cmake
+
+    ament_add_gtest(some_test <test_sources> TIMEOUT 120)
 
 - ``SKIP_TEST``: skip this test (will be shown as "passed" in the console output).
 
