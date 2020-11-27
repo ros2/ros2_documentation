@@ -17,7 +17,7 @@ A set of QoS “policies” combine to form a QoS “profile”.
 Given the complexity of choosing the correct QoS policies for a given scenario, ROS 2 provides a set of predefined QoS profiles for common use cases (e.g. sensor data).
 At the same time, developers are given the flexibility to control specific policies of the QoS profiles.
 
-QoS profiles can be specified for publishers, subscriptions, service servers and clients.
+QoS profiles can be specified for publishers, subscribers, service servers and clients.
 A QoS profile can be applied independently to each instance of the aforementioned entities, but if different profiles are used, it is possible that they will not connect.
 
 
