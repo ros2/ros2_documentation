@@ -2,10 +2,10 @@
 
     Discovery-Server
 
-Using Discovery Server as discovery protocol
-============================================
+Using Fast DDS Discovery Server as discovery protocol
+=====================================================
 
-**Goal:** Demo to show how to launch ROS 2 Nodes using the **Discovery Server** discovery protocol.
+**Goal:** Demo to show how to launch ROS 2 Nodes using the **Fast DDS Discovery Server** discovery protocol.
 
 **Tutorial level:** Intermediate
 
@@ -18,10 +18,10 @@ Using Discovery Server as discovery protocol
 Background
 ----------
 
-Starting from ROS 2 Eloquent Elusor, the **Discovery Server** protocol is a feature that offers a centralised dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
-This tutorial explains how to run some ROS 2 examples using the Discovery Server feature as discovery communication.
+Starting from ROS 2 Eloquent Elusor, the **Fast DDS Discovery Server** protocol is a feature that offers a centralised dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
+This tutorial explains how to run some ROS 2 examples using the Fast DDS Discovery Server feature as discovery communication.
 
-In order to get more information about the available discovery configuration, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_ or read the `Discovery Server specific documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+In order to get more information about the available discovery configuration, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_ or read the `Fast DDS Discovery Server specific documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 The `Simple Discovery Protocol <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/simple.html>`__ is the standard protocol defined in the `DDS standard <https://www.omg.org/omg-dds-portal/>`__.
 However, it has known disadvantages in some scenarios.
@@ -29,7 +29,7 @@ However, it has known disadvantages in some scenarios.
 * It does not **Scale** efficiently, as the number of exchanged packets increases significantly as new nodes are added.
 * It requires **multicasting** capabilities that may not work reliably in some scenarios, e.g. WiFi.
 
-The **Discovery Server** provides a Client-Server Architecture that allows nodes to connect with each other using an intermediate server.
+The **Fast DDS Discovery Server** provides a Client-Server Architecture that allows nodes to connect with each other using an intermediate server.
 Each node functions as a *discovery client*, sharing its info with one or more *discovery servers* and receiving discovery information from it.
 This reduces discovery-related network traffic and it does not require multicasting capabilities.
 
@@ -38,10 +38,10 @@ This reduces discovery-related network traffic and it does not require multicast
 
 These discovery servers can be independent, duplicated or connected with each other in order to create redundancy over the network and avoid having a single point of failure.
 
-Discovery Server v2
--------------------
+Fast DDS Discovery Server v2
+----------------------------
 
-The latest ROS 2 Foxy Fitzroy release (December 2020) included a new version, version 2 of the discovery server.
+The latest ROS 2 Foxy Fitzroy release (December 2020) included a new version, version 2 of the Fast DDS Discovery Server.
 This version includes a new filter feature that further reduces the number of discovery messages sent.
 This version uses the topic of the different nodes to decide if two nodes wish to communicate, or if they can be left unmatched (i.e. not discovering each other).
 The following figure shows the decrease in discovery messages:
@@ -58,7 +58,7 @@ In the following graph, the reduction in network traffic over the discovery phas
 
 In order to use this functionality, the discovery server can be configured using the `XML configuration for Participants <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 It is also possible to configure the discovery server using the ``fastdds`` `tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__ and an `environment variable <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/env_vars/env_vars.html>`__, which is the approach used in this tutorial.
-For a more detailed explanation about the configuration of the discovery server, visit `the discovery server documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+For a more detailed explanation about the configuration of the discovery server, visit `the Fast DDS Discovery Server documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
 Prerequisites
@@ -83,9 +83,9 @@ This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.co
 
 
 Setup Discovery Server
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
-Start by launching a discovery server with id 0, port 11811 and listening on all available interfaces.
+Start by launching a discovery server with id 0, port 11811 (default port) and listening on all available interfaces.
 
 Open a new terminal and run:
 
@@ -129,7 +129,7 @@ You should now see the talker publishing "hello world" messages, and the listene
 
 
 Demonstrate Discovery Server execution
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 So far, there is no evidence that this example and the standard talker-listener example are running differently.
 To clearly demonstrate this, run another node that is not connected to the discovery server.
@@ -201,7 +201,7 @@ Now, if one of these servers fails, there will still be discovery capability ava
 Backup Server
 ^^^^^^^^^^^^^
 
-The discovery server allows creating a server with backup functionality.
+The Fast DDS Discovery Server allows creating a server with backup functionality.
 This allows the server to restore the last state it saved in case of a shutdown.
 
 .. image:: figures/ds_backup_example.svg
@@ -284,8 +284,8 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 
 
 
-Compare the Discovery Server with the Simple Discovery Protocol
----------------------------------------------------------------
+Compare Fast DDS Discovery Server with Simple Discovery Protocol
+----------------------------------------------------------------
 
 In order to compare executing nodes using the Simple Discovery Protocol (the default DDS mechanism for distributed discovery) or the discovery server, two scripts that execute a talker and many listeners and analyze the network traffic during this time are provided.
 For this experiment, ``tshark`` is required to be installed on your system.
@@ -333,6 +333,6 @@ The reduction in traffic is a result of avoiding every node announcing itself an
 This creates a huge amount of traffic in large architectures.
 The reduction from this method increases with the number of nodes, making this architecture more scalable than the Simple Discovery Protocol approach.
 
-The new discovery server v2 is available since *Fast DDS* v2.0.2, replacing the old discovery server.
+The new Fast DDS Discovery Server v2 is available since *Fast DDS* v2.0.2, replacing the old discovery server.
 In this new version, those nodes that do not share topics will automatically not discover each other, saving the whole discovery data required to connect them and their endpoints.
 The experiment above does not show this case, but even so the massive reduction in traffic can be appreciated due to the hidden infrastructure topics of ROS 2 nodes.
