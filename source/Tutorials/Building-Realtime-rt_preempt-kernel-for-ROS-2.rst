@@ -104,7 +104,7 @@ and set the following
     -> Timers subsystem
      [*] High Resolution Timer Support
 
-  # Enable CONFIG_NO_HZ_FULL 
+  # Enable CONFIG_NO_HZ_FULL
    -> General setup
     -> Timers subsystem
      -> Timer tick handling (Full dynticks system (tickless))
