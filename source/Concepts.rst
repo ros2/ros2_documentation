@@ -85,3 +85,11 @@ Running the C++ talker node in one terminal will publish messages on a topic,
 and the Python listener node running in another terminal  will subscribe to messages on the same topic.
 
 You should see that these nodes discover each other automatically, and begin to exchange messages.
+
+Related Content
+^^^^^^^^^^^^^^^
+
+For a brief video introduction to ROS 2, see this community contributed content:
+
+* `Getting started with ROS Part 1: Nodes, Parameters and Topics <https://youtu.be/46TPAKXBOF8>`_
+* `Getting started with ROS Part 2: Services and Actions <https://youtu.be/keZAJ83eEoM>`_
