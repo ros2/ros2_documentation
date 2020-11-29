@@ -7,7 +7,9 @@ Building realtime Linux for ROS 2 [community-contributed]
 
 This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
 
-Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt". If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version. Currently it is patch-5.4.78-rt44.patch.gz. 
+Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".
+If we click on the `link <http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/>`_, we get the exact version.
+Currently it is patch-5.4.78-rt44.patch.gz.
 
 .. image:: https://i.imgur.com/hu4Q04b.png
    :target: https://i.imgur.com/hu4Q04b.png
