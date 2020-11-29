@@ -125,7 +125,8 @@ The goal request is the ``order`` of the Fibonacci sequence we want to compute, 
 ^^^^^^^^^^^^^^^^^^^^
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
-This is accomplished by adding the following lines to the ``CMakeLists.txt`` in the ``action_tutorials_interfaces``:
+
+This is accomplished by adding the following lines to our ``CMakeLists.txt`` before the ``ament_package()`` line, in the ``action_tutorials_interfaces``:
 
 .. code-block:: cmake
 
