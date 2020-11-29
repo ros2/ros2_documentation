@@ -2,8 +2,8 @@
 
     Deploying-ROS2-on-IBM-Cloud
 
-ROS2 on IBM Cloud Kubernetes
-============================
+ROS2 on IBM Cloud Kubernetes [community-contributed]
+====================================================
 
 
 .. contents:: Table of Contents
