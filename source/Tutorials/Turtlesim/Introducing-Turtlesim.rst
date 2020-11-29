@@ -276,3 +276,5 @@ Related content
 
 The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
 Make sure to adjust the branch to view the version of turtlesim corresponding to your installed ROS 2 distro.
+
+`This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the item covered in this tutorial.
