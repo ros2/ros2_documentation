@@ -128,7 +128,6 @@ For that to work, the ``__init__`` code has to be changed to:
             from rcl_interfaces.msg import ParameterDescriptor
             my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
                                                           description='This parameter is mine!')
-                                                          
             self.declare_parameter("my_parameter",
                                    "default value for my_parameter",
                                    my_parameter_descriptor)
