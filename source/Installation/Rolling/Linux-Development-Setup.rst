@@ -129,7 +129,8 @@ On Windows due to limitations of the length of environment variables you should 
 
 Also, if you have already installed ROS 2 from Debian make sure that you run the ``build`` command in a fresh environment.
 You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
-You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``. The output should be empty.
+You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
+The output should be empty.
 
 .. code-block:: bash
 
