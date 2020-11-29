@@ -143,7 +143,7 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
    * - |tri|
      - Toyota Research Institute: Ian McMahon
    * - |windriver|
-     - Wind River: Andrei Kholodnyi
+     - Wind River: `Andrei Kholodnyi <https://github.com/razr>`__
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
@@ -154,99 +154,112 @@ As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the T
 
 The current WGs are (6 as of 2019-09-04):
 
-* Control
+Control
+^^^^^^^
 
- * Lead(s): Bence Magyar, Karsten Knese
- * Resources:
+* Lead(s): Bence Magyar, Karsten Knese
+* Resources:
 
-  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
-  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
+ * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
+ * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
 
-* Edge AI
+Edge AI
+^^^^^^^
 
- * Lead(s): Joe Speed
- * Resources:
+* Lead(s): Joe Speed
+* Resources:
 
-  * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
-  * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
+ * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
+ * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
 
-* Embedded Systems:
+Embedded Systems
+^^^^^^^^^^^^^^^^
 
- * Lead(s): Francesca Finocchiaro
- * Resources:
+* Lead(s): Francesca Finocchiaro
+* Resources:
 
-  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
-  * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
-  * Meeting invite group `ros-embedded-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-embedded-working-group-invites>`_
-  * Discourse tag: `wg-embedded <https://discourse.ros.org/tags/wg-embedded>`_
+ * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
+ * `2019-01-15 meeting notes <https://discourse.ros.org/t/ros2-embedded-sig-meeting-2/7243/5>`__
+ * Meeting invite group `ros-embedded-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-embedded-working-group-invites>`_
+ * Discourse tag: `wg-embedded <https://discourse.ros.org/tags/wg-embedded>`_
 
-* Middleware
+Middleware
+^^^^^^^^^^
 
- * Lead(s): William Woodall
- * Resources:
+* Lead(s): William Woodall
+* Resources:
 
-  * Meeting invite group `ros-middleware-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-middleware-working-group-invites>`_
-  * Discourse tag: `wg-middleware <https://discourse.ros.org/tags/wg-middleware>`_
+ * Meeting invite group `ros-middleware-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-middleware-working-group-invites>`_
+ * Discourse tag: `wg-middleware <https://discourse.ros.org/tags/wg-middleware>`_
 
-* Navigation
+Navigation
+^^^^^^^^^^
 
- * Lead(s): Steve Macenski
- * Resources:
+* Lead(s): Steve Macenski
+* Resources:
 
-  * `2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__
+ * `2019-03-17 meeting notes <https://discourse.ros.org/t/ros2-navigation-wg-thursday-3-00-pm-pacific-gmt-7-00/7586/9>`__
 
-  * Meeting invite group `ros-navigation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-navigation-working-group-invites>`_
-  * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
-  * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
+ * Meeting invite group `ros-navigation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-navigation-working-group-invites>`_
+ * Discourse tag: `wg-navigation <https://discourse.ros.org/tags/wg-navigation>`_
+ * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
 
-* Manipulation
+Manipulation
+^^^^^^^^^^^^
 
- * Lead(s): Dave Coleman, Mark Moll
- * Resources:
+* Lead(s): Dave Coleman, Mark Moll
+* Resources:
 
-  * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
+ * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
 
-  * Meeting invite group `ros-manipulation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-manipulation-working-group-invites>`_
-  * Discourse tag: `wg-moveit <https://discourse.ros.org/tags/wg-moveit>`_
-  * Discourse Channel: `MoveIt <https://discourse.ros.org/c/moveit>`_
+ * Meeting invite group `ros-manipulation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-manipulation-working-group-invites>`_
+ * Discourse tag: `wg-moveit <https://discourse.ros.org/tags/wg-moveit>`_
+ * Discourse Channel: `MoveIt <https://discourse.ros.org/c/moveit>`_
 
-* Real-time
+Real-time
+^^^^^^^^^
 
- * Lead(s): Dejan Pangercic
- * Resources: TODO
 
-  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
-  * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
+* Lead(s): Dejan Pangercic, Andrei Kholodnyi
+* Resources: TODO
 
-* Safety
+ * `ROS 2 Real-time Working Group Community <https://github.com/ros-realtime/community>`__
+ * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
+ * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
 
- * Lead(s): Geoffrey Biggs
- * Resources:
 
-  * `Working group website <http://ros-safety.github.io/safety_working_group/>`__
-  * `Working group Community <https://github.com/ros-safety/safety_working_group>`__
-  * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
-  * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tags/wg-safety-critical>`_
+Safety
+^^^^^^
 
-* Security
+* Lead(s): Geoffrey Biggs
+* Resources:
 
- * Lead(s): Sid Faber, Kyle Fazzari
- * Resources:
+ * `Working group website <http://ros-safety.github.io/safety_working_group/>`__
+ * `Working group Community <https://github.com/ros-safety/safety_working_group>`__
+ * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
+ * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tags/wg-safety-critical>`_
 
-  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
-  * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
-  * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
-  * Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-security:matrix.org>`_
+Security
+^^^^^^^^
 
-* Tooling
+* Lead(s): Sid Faber, Kyle Fazzari
+* Resources:
 
- * Lead(s): Emerson Knapp, Thomas Moulard
- * Resources:
+ * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
+ * Meeting invite group `ros-security-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-security-working-group-invites>`_
+ * Discourse tag: `wg-security <https://discourse.ros.org/tags/wg-security>`_
+ * Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-security:matrix.org>`_
 
-  * `ROS 2 Tooling Working Group Community <https://github.com/ros-tooling/community>`__
-  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
-  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
-  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
+Tooling
+^^^^^^^
+
+* Lead(s): Emerson Knapp, Thomas Moulard
+* Resources:
+
+ * `ROS 2 Tooling Working Group Community <https://github.com/ros-tooling/community>`__
+ * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
+ * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
+ * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
