@@ -53,6 +53,13 @@ Beginner: Client Libraries
 Intermediate
 ------------
 
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Actions/Creating-an-Action
+   Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
+   Tutorials/Actions/Writing-a-Py-Action-Server-Client
+
 Working With Your First Package & Workspace
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -73,7 +80,6 @@ Learning the ROS 2 Toolset
    Tutorials/Introspection-with-command-line-tools
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
-   Tutorials/Actions
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
    Tutorials/Topics/Topic-Statistics-Tutorial
 
