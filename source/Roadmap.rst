@@ -93,7 +93,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - 2nd quarter 2021
    * - Features: Specific demo to show public adoption of ROS 2
      - Medium
-     - Samsung Research, PickNik Robotics (with Hello Robot 'Stretch')
+     - PickNik Robotics (with Hello Robot 'Stretch')
      -
    * - ROS 1 -> ROS 2 Porting: Enhance documentation to ease porting from ROS 1
      - Small
