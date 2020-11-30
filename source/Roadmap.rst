@@ -176,14 +176,14 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      -
    * - Features: `topic_tools <https://wiki.ros.org/topic_tools>`_
         #. https://github.com/ApexAI/topic_tools
-        #. https://github.com/ApexAI/rclcpp_generic 
+        #. https://github.com/ApexAI/rclcpp_generic
      - Medium
      - Apex.AI
      -
    * - Features: Reading multi-type parameters as an array from the yaml file via the ros2 parameters interface. In ROS1, XmlRpc was used.
         #. The specific example can be seen in system_monitor package. `Parameters <https://github.com/tier4/Pilot.Auto/blob/master/system/system_monitor/config/system_monitor.yaml#L10-L20>`_ for the hdd monitor accepted a set of parameters for an arbitrary number of disks. These parameters used to be read using `XmlRpc <https://github.com/tier4/Pilot.Auto/blob/master/system/system_monitor/src/hdd_monitor/hdd_monitor.cpp#L242-L265>`_.
      - Medium
-     - 
+     -
      -
 
 
