@@ -2,10 +2,10 @@
 
     Discovery-Server
 
-Using Fast DDS Discovery Server as discovery protocol
-=====================================================
+Using Fast DDS Discovery Server as discovery protocol [community-contributed]
+=============================================================================
 
-**Goal:** Demo to show how to launch ROS 2 Nodes using the **Fast DDS Discovery Server** discovery protocol.
+**Goal:** This tutorial will show how to launch ROS 2 Nodes using the **Fast DDS Discovery Server** discovery protocol.
 
 **Tutorial level:** Intermediate
 
@@ -64,13 +64,13 @@ For a more detailed explanation about the configuration of the discovery server,
 Prerequisites
 -------------
 
-This tutorial assumes you have a :ref:`working Foxy ROS 2 installation <InstallationGuide>`.
-If your installation is using a Fast DDS version lower than v2.0.2 you cannot use the ``fastdds`` tool.
-You can update your repository to use a different Fast DDS version, or configure the discovery server using the `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
+This tutorial assumes you have a ROS 2 Foxy (or newer) :ref:`installation <InstallationGuide>`.
+If your installation is using a ROS 2 version lower than Foxy, you cannot use the ``fastdds`` tool.
+Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
 
-Run the demo
-------------
+Run this tutorial
+-----------------
 
 The ``talker-listener`` ROS 2 demo creates a ``talker`` node that publishes a "hello world" message every second, and a ``listener`` node that listens to these messages.
 
