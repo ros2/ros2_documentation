@@ -12,6 +12,10 @@ But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, s
 To that end, we've established a Technical Steering Committee (TSC).
 As described in the :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
+Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org/reps/rep-2005.html>`_.
+
+Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
+
 The current members of the ROS 2 TSC are (18 as of 2020-11-16):
 
 .. |adlink| image:: Governance/adlink.svg
