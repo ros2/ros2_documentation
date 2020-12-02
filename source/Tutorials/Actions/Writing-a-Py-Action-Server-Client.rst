@@ -38,7 +38,7 @@ using the action we created in the :ref:`ActionCreate` tutorial.
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
 To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
 If you'd like to see what a complete package for the actions tutorials looks like, check out
-`action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
+`action_tutorials <https://github.com/ros2/demos/tree/foxy/action_tutorials>`__.
 
 Open a new file in your home directory, let's call it ``fibonacci_action_server.py``,
 and add the following code:
@@ -107,7 +107,7 @@ In another terminal, we can use the command line interface to send a goal:
 In the terminal that is running the action server, you should see a logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
 
-We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeeded>`_ on the goal handle to indicate that the goal was successful:
+We can use the method `succeed() <http://docs.ros2.org/foxy/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.succeeded>`_ on the goal handle to indicate that the goal was successful:
 
 .. literalinclude:: server_1.py
     :language: python
@@ -134,7 +134,7 @@ You should see the goal finish with the proper result sequence.
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 One of the nice things about actions is the ability to provide feedback to an action client during goal execution.
-We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
+We can make our action server publish feedback for action clients by calling the goal handle's `publish_feedback() <http://docs.ros2.org/foxy/api/rclpy/api/actions.html#rclpy.action.server.ServerGoalHandle.publish_feedback>`_ method.
 
 We'll replace the ``sequence`` variable, and use a feedback message to store the sequence instead.
 After every update of the feedback message in the for-loop, we publish the feedback message and sleep for dramatic effect:
@@ -269,7 +269,7 @@ Here's the complete code for this example:
     :language: python
     :linenos:
 
-The `ActionClient.send_goal_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
+The `ActionClient.send_goal_async() <http://docs.ros2.org/foxy/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
 First we register a callback for when the future is complete:
 
 .. literalinclude:: client_1.py
@@ -284,7 +284,7 @@ We can check to see if the goal was rejected and return early since we know ther
     :language: python
     :lines: 24-30
 
-Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
+Now that we've got a goal handle, we can use it to request the result with the method `get_result_async() <http://docs.ros2.org/foxy/api/rclpy/api/actions.html#rclpy.action.client.ClientGoalHandle.get_result_async>`_.
 Similar to sending the goal, we will get a future that will complete when the result is ready.
 Let's register a callback just like we did for the goal response:
 
@@ -360,6 +360,6 @@ In this tutorial, you put together a Python action server and action client line
 Related content
 ---------------
 
-* There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/actions>`_ repo.
+* There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/foxy/rclpy/actions>`_ repo.
 
 * For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
