@@ -232,23 +232,3 @@ Next steps
 ----------
 
 Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :ref:`turtlesim tool <Turtlesim>`.
-
-
-Related content
----------------
-
-See this video demonstration that shows an installation of ROS 2 on a Raspberry Pi:
-
-.. tabs::
-
-  .. group-tab:: Foxy
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/AmuLiA840fA" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  .. group-tab:: Dashing
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/4VmVdKBrwPk" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
