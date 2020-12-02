@@ -183,6 +183,11 @@ Here is what's happening in the snippet above:
 
 - The first ``install`` commands installs the header files which should be available to clients.
 
+.. warning::
+
+   Calling ``ament_export_targets``, ``ament_export_dependencies``, or other ament commands from a CMake subdirectory will not work as expected.
+   This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
+
 - The last large install command installs the library.
   Archives and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
 
