@@ -256,4 +256,4 @@ Related content
 
 The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/dashing-devel/turtlesim>`_.
 
-`This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the item covered in this tutorial.
+`This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the items covered in this tutorial.
