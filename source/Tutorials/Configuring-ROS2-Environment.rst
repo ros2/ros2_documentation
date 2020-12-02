@@ -239,16 +239,6 @@ Related content
 
 See this video demonstration that shows an installation of ROS 2 on a Raspberry Pi:
 
-.. tabs::
+.. raw:: html
 
-  .. group-tab:: Foxy
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/AmuLiA840fA" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  .. group-tab:: Dashing
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/4VmVdKBrwPk" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/4VmVdKBrwPk" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
