@@ -122,6 +122,16 @@ Please see the original pr for more detail and comment there if this causes issu
 
 `https://github.com/ros2/rclcpp/pull/867 <https://github.com/ros2/rclcpp/pull/867>`_
 
+Compiler warning about unused result of ``add_on_set_parameters_callback``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+*Since Eloquent Patch Release 2 (2020-12-04)*
+
+Users should retain the  handle returned by ``rclcpp::Node::add_on_set_parameters_callback``, otherwise their callback may be unregistered.
+A warning has been added to help identify bugs where the returned handle is not used.
+
+`https://github.com/ros2/rclcpp/pull/1243 <https://github.com/ros2/rclcpp/pull/1243>`_
+
 rmw
 ^^^
 
