@@ -8,12 +8,8 @@ Beginner
 
 The beginner-level tutorials are a collection of step-by-step instructions meant to introduce newcomers to ROS 2.
 It starts with using the Commandline Interface (CLI) tools, then moves on to the C++ and Python client libraries.
+Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
 
-.. warning::
-
-   Please walk through the tutorials for the first time in order, they build off of each other and are not meant to be comprehensive documentation.
-   These tutorials are under construction, so please share your `feedback <https://github.com/ros2/ros2_documentation/issues/new>`__.
-   The :ref:`Contact <Help>` page includes more ways to get help.
 
 Beginner: CLI Tools
 ^^^^^^^^^^^^^^^^^^^
@@ -81,8 +77,7 @@ Learning the ROS 2 Toolset
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
-   Tutorials/Topics/Topic-Statistics-Tutorial
-   Tutorials/Discovery-Server/Discovery-Server
+
 
 Advanced
 --------
@@ -146,20 +141,19 @@ Demos
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
 * `Efficient intra-process communication <Tutorials/Intra-Process-Communication>`.
-* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
+* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/eloquent/README.md>`__.
 * `Recording and playback of topic data with rosbag using the ROS 1 bridge <Tutorials/Rosbag-with-ROS1-Bridge>`.
 * `Turtlebot 2 demo using ROS 2 <https://github.com/ros2/turtlebot2_demo>`__.
 * `TurtleBot 3 demo using ROS 2 <http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2_setup/>`__. [community-contributed]
-* `Simulate the TurtleBot 3 on ROS [community-contributed] <https://ubuntu.com/blog/simulate-the-turtlebot3>`__.
 * `MoveIt 2 demo using ROS 2 <https://github.com/ros-planning/moveit2/tree/master/moveit_demo_nodes/run_moveit_cpp>`__.
 * `Using tf2 with ROS 2 <Tutorials/tf2>`.
 * `Using URDF with robot_state_publisher <Tutorials/URDF/Using-URDF-with-Robot-State-Publisher>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
-* `Use DDS-Security <https://github.com/ros2/sros2/blob/master/README.md>`__.
+* `Use DDS-Security <https://github.com/ros2/sros2/blob/eloquent/README.md>`__.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
 
 Examples
 --------
 
-* `Python and C++ minimal examples <https://github.com/ros2/examples>`__.
+* `Python and C++ minimal examples <https://github.com/ros2/examples/tree/eloquent>`__.

@@ -183,7 +183,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro eloquent -y
 
    .. group-tab:: macOS
 
@@ -269,71 +269,24 @@ You can also set the parameter in a launch file, but first you will need to add 
 Inside the ``dev_ws/src/cpp_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``cpp_parameters_launch.py``
 
-.. tabs::
+.. code-block:: Python
 
-  .. group-tab:: Foxy and newer
+  from launch import LaunchDescription
+  from launch_ros.actions import Node
 
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="cpp_parameters",
-                  executable="parameter_node",
-                  name="custom_parameter_node",
-                  output="screen",
-                  emulate_tty=True,
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Eloquent
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="cpp_parameters",
-                  node_executable="parameter_node",
-                  node_name="custom_parameter_node",
-                  output="screen",
-                  emulate_tty=True,
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Dashing
-
-    ``emulate_tty``, which prints output to the console, is not available in Dashing.
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package="cpp_parameters",
-                  node_executable="parameter_node",
-                  node_name="custom_parameter_node",
-                  output="screen",
-                  parameters=[
-                      {"my_parameter": "earth"}
-                  ]
-              )
-          ])
+  def generate_launch_description():
+      return LaunchDescription([
+          Node(
+              package="cpp_parameters",
+              node_executable="parameter_node",
+              node_name="custom_parameter_node",
+              output="screen",
+              emulate_tty=True,
+              parameters=[
+                  {"my_parameter": "earth"}
+              ]
+          )
+      ])
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.

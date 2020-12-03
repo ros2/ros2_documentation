@@ -1,7 +1,3 @@
-.. redirect-from::
-
-  Installation/Rolling/OSX-Install-Binary
-
 Installing ROS 2 on macOS
 =========================
 
@@ -15,16 +11,14 @@ This page explains how to install ROS 2 on macOS from a pre-built binary package
 
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`_.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/eloquent-release/ros2.repos>`_.
 
 System requirements
 -------------------
 
-We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
+We support macOS 10.14 (Mojave).
 
-.. _Rolling_osx-install-binary-installling-prerequisites:
+.. _Eloquent_osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -52,11 +46,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       brew install python@3.8
-       # Unlink in case you have python@3.7 installed already
-       brew unlink python
-       # Make the python command be Python 3.8
-       brew link --force python@3.8
+       brew install python3
 
        # install asio and tinyxml2 for Fast-RTPS
        brew install asio tinyxml2
@@ -79,7 +69,7 @@ You need the following things installed before installing ROS 2.
        brew install console_bridge
 
        # install dependencies for rcl_logging_log4cxx
-       brew install log4cxx spdlog
+       brew install log4cxx
 
        # install CUnit for Cyclone DDS
        brew install cunit
@@ -89,7 +79,7 @@ You need the following things installed before installing ROS 2.
 
   ``brew install sip pyqt5``
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
+  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
 
   ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
 
@@ -116,7 +106,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install argcomplete catkin_pkg empy ifcfg importlib-metadata lark-parser lxml netifaces numpy pyparsing pyyaml setuptools
+       python3 -m pip install catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------
@@ -127,10 +117,8 @@ So that SIP doesn't prevent processes from inheriting dynamic linker environment
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
-
-* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-package-osx-x86_64.tar.bz2``.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -139,14 +127,14 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_rolling
-       cd ~/ros2_rolling
-       tar xf ~/Downloads/ros2-package-osx-x86_64.tar.bz2
+       mkdir -p ~/ros2_eloquent
+       cd ~/ros2_eloquent
+       tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------
@@ -155,7 +143,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/ros2-osx/setup.bash
+   . ~/ros2_eloquent/ros2-osx/setup.bash
 
 Try some examples
 -----------------
@@ -199,10 +187,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Eloquent install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_rolling
+    rm -rf ~/ros2_eloquent

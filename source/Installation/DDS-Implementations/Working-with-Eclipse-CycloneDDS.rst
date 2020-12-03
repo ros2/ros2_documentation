@@ -19,11 +19,10 @@ Install packages
 ----------------
 
 The easiest way is to install from ROS 2 apt repository.
-``${ROS_DISTRO}`` should be your ROS 2 version.
 
 .. code-block:: bash
 
-   sudo apt install ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+   sudo apt install ros-eloquent-rmw-cyclonedds-cpp
 
 Build from source code
 ----------------------

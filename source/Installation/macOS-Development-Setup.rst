@@ -1,6 +1,3 @@
-.. redirect-from::
-
-  Installation/Dashing/OSX-Development-Setup
 
 Building ROS 2 on macOS
 =======================
@@ -12,9 +9,9 @@ Building ROS 2 on macOS
 System requirements
 -------------------
 
-We support macOS 10.12.x.
+We support macOS 10.14 (Mojave).
 
-However, some new versions like 10.13.x and some older versions like 10.11.x and 10.10.x are known to work as well.
+However, some older versions like 10.13.x are known to work as well.
 
 Install prerequisites
 ---------------------
@@ -32,6 +29,7 @@ You need the following things installed to build ROS 2:
      .. code-block:: bash
 
         xcode-select --install
+        sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
@@ -99,7 +97,9 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pydot pygraphviz pyparsing setuptools vcstool
+       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
+
+   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -130,15 +130,15 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_dashing/src
-   cd ~/ros2_dashing
-   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
+   mkdir -p ~/ros2_eloquent/src
+   cd ~/ros2_eloquent
+   wget https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -146,7 +146,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_dashing/
+   cd ~/ros2_eloquent/
    colcon build --symlink-install
 
 Environment setup
@@ -156,7 +156,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/install/setup.bash
+   . ~/ros2_eloquent/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -192,6 +192,7 @@ Additional RMW implementations (optional)
 The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
 See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
+
 Stay up to date
 ---------------
 
@@ -206,10 +207,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Dashing install on your system.
+   This way, your environment will behave as though there is no Eloquent install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_dashing
+    rm -rf ~/ros2_eloquent

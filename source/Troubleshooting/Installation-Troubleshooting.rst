@@ -141,41 +141,6 @@ If you see build errors related to Qt, e.g.:
 
 you may be using qt4 instead of qt5: see https://github.com/ros2/ros2/issues/441
 
-Qt build error: ``"mkspecs/macx-clang" but this file does not exist``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. only on Crystal
-
-To fix this error:
-
-.. code-block:: bash
-
-  CMake Error at /usr/local/lib/cmake/Qt5Core/Qt5CoreConfig.cmake:15 (message):
-    The imported target "Qt5::Core" references the file
-
-       "/usr/local/.//mkspecs/macx-clang"
-
-    but this file does not exist. Possible reasons include:
-
-    * The file was deleted, renamed, or moved to another location.
-
-    * An install or uninstall procedure did not complete successfully.
-
-    * The installation package was faulty and contained
-
-       "/usr/local/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake"
-
-    but not all the files it references.
-
-link ``mkspecs`` and ``plugins`` folders to ``/usr/local/``:
-
-.. code-block:: bash
-
-  export HOMEBREW_QT5_VERSION=5.12.3 # Specify appropriate Qt5 version here
-  sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/mkspecs /usr/local/mkspecs
-  sudo ln -s /usr/local/Cellar/qt/$HOMEBREW_QT5_VERSION/plugins /usr/local/plugins
-
-If you are on a previous version of Homebrew, the ``qt`` formula could still be called ``qt5``, so make corresponding changes to the paths above.
 
 Missing symbol when opencv (and therefore libjpeg, libtiff, and libpng) are installed with Homebrew
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -267,7 +232,7 @@ While following the `Creating a workspace <https://index.ros.org/doc/ros2/Tutori
 
 .. code-block:: bash
 
-   $ rosdep install -i --from-path src --rosdistro foxy -y
+   $ rosdep install -i --from-path src --rosdistro eloquent -y
    executing command [brew install qt5]
    Warning: qt 5.15.0 is already installed and up-to-date
    To reinstall 5.15.0, run `brew reinstall qt`
@@ -285,7 +250,7 @@ Running the ``rosdep`` command should now execute normally:
 
 .. code-block:: bash
 
-   $ rosdep install -i --from-path src --rosdistro foxy -y
+   $ rosdep install -i --from-path src --rosdistro eloquent -y
    #All required rosdeps installed successfully
 
 
@@ -298,7 +263,7 @@ Import failing even with library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your system.
-If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <Foxy_windows-install-binary-installing-prerequisites>`).
+If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <windows-install-binary-installing-prerequisites>`).
 
 If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
 
@@ -343,12 +308,6 @@ patch.exe opens a new command window and asks for administrator
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This will also cause the build of packages which need to use patch to fail, even you allow it to use administrator rights.
-
-On Foxy or later:
-
-- ``choco uninstall patch; colcon build --cmake-clean-cache`` - This is a bug in the `GNU Patch For Windows package <https://chocolatey.org/packages/patch>`_. If this package is not installed, the build process will instead use the version of Patch distributed with git.
-
-On Eloquent or earlier:
 
 - Make sure you're building in a Visual Studio command prompt which has been run as administrator.
 - On some machines canceling the prompt without selecting "Yes" will also work.

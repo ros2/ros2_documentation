@@ -172,23 +172,11 @@ Another way to look at this is running:
 
 Which will return:
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: console
-
-      Type: geometry_msgs/msg/Twist
-      Publisher count: 1
-      Subscriber count: 2
-
-  .. group-tab:: Dashing
-
-    .. code-block::
-
-      Topic: /turtle1/cmd_vel
-      Publisher count: 1
-      Subscriber count: 2
+  Type: geometry_msgs/msg/Twist
+  Publisher count: 1
+  Subscriber count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
@@ -207,19 +195,9 @@ This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twi
 
 Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the details, specifically, what structure of data the message expects.
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: console
-
-        ros2 interface show geometry_msgs/msg/Twist
-
-  .. group-tab:: Dashing
-
-    .. code-block:: console
-
-      ros2 msg show geometry_msgs/msg/Twist
+    ros2 interface show geometry_msgs/msg/Twist
 
 .. code-block:: console
 

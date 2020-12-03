@@ -30,6 +30,7 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
      python3-mock \
      python3-mypy \
      python3-nose \
+     python3-pep8 \
      python3-pip \
      python3-pydocstyle \
      python3-pyflakes \
@@ -53,5 +54,4 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
      wget
 
 
-With this done, you can follow the rest of the `instructions <Rolling_linux-dev-get-ros2-code>` to fetch and build ROS 2.
-
+With this done, you can follow the rest of the `instructions <Eloquent_linux-dev-get-ros2-code>` to fetch and build ROS 2.

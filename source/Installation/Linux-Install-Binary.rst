@@ -1,3 +1,4 @@
+
 Installing ROS 2 on Linux
 =========================
 
@@ -11,26 +12,28 @@ This page explains how to install ROS 2 on Linux from a pre-built binary package
 
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/eloquent-release/ros2.repos>`_.
 
 There are also `Debian packages <Linux-Install-Debians>` available.
 
 System Requirements
 -------------------
 
-We support Ubuntu Linux Focal Fossa (20.04) 64-bit x86 and 64-bit ARM.
+We support Ubuntu Linux Bionic Beaver (18.04) and Ubuntu Xenial Xerus (16.04) on 64-bit x86 and 64-bit ARM.
+
+Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 
 Add the ROS 2 apt repository
 ----------------------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
 
 
 * Go `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-foxy-linux-x86_64.tar.bz2``.
+* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-eloquent-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -39,9 +42,9 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_foxy
-       cd ~/ros2_foxy
-       tar xf ~/Downloads/ros2-foxy-linux-x86_64.tar.bz2
+       mkdir -p ~/ros2_eloquent
+       cd ~/ros2_eloquent
+       tar xf ~/Downloads/ros2-eloquent-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
 ----------------------------------
@@ -49,10 +52,11 @@ Installing and initializing rosdep
 .. code-block:: bash
 
        sudo apt update
-       sudo apt install -y python3-rosdep
+       sudo apt install -y python-rosdep
        sudo rosdep init
        rosdep update
 
+.. _linux-install-binary-install-missing-dependencies:
 
 Installing the missing dependencies
 -----------------------------------
@@ -61,10 +65,10 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ros2-linux/share --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: https://wiki.ros.org/noetic/Installation/Ubuntu
+   Follow the normal install instructions: https://wiki.ros.org/melodic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -77,7 +81,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------
@@ -89,7 +93,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-  . ~/ros2_foxy/ros2-linux/setup.bash
+  . ~/ros2_eloquent/ros2-linux/setup.bash
 
 Try some examples
 -----------------
@@ -98,19 +102,20 @@ In one terminal, source the setup file and then run a C++ ``talker``:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/ros2-linux/setup.bash
+   . ~/ros2_eloquent/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/ros2-linux/setup.bash
+   . ~/ros2_eloquent/ros2-linux/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
+
 
 Next steps after installing
 ---------------------------
@@ -134,10 +139,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Eloquent install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_eloquent

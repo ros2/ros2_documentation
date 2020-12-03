@@ -8,14 +8,14 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Foxy Fitzroy are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Eloquent Elusor are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
-- Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
+- Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
 
 Tier 3 platforms (not actively tested or supported) include:
 
-- Debian Linux - Buster (10)
-- Fedora 32, see `alternate instructions <Fedora-Development-Setup>`
+- Debian Linux - Stretch (9)
+- Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
@@ -25,12 +25,12 @@ System setup
 Set locale
 ^^^^^^^^^^
 
-.. include:: ../_Linux-Set-Locale.rst
+.. include:: _Linux-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,18 +41,15 @@ Install development tools and ROS tools
      build-essential \
      cmake \
      git \
-     libbullet-dev \
      python3-colcon-common-extensions \
-     python3-flake8 \
      python3-pip \
-     python3-pytest-cov \
-     python3-rosdep \
-     python3-setuptools \
+     python-rosdep \
      python3-vcstool \
      wget
    # install some pip packages needed for testing
    python3 -m pip install -U \
      argcomplete \
+     flake8 \
      flake8-blind-except \
      flake8-builtins \
      flake8-class-newline \
@@ -63,7 +60,10 @@ Install development tools and ROS tools
      flake8-quotes \
      pytest-repeat \
      pytest-rerunfailures \
-     pytest
+     pytest \
+     pytest-cov \
+     pytest-runner \
+     setuptools
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
@@ -72,7 +72,7 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
-.. _Foxy_linux-dev-get-ros2-code:
+.. _Eloquent_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -81,10 +81,12 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_eloquent/src
+   cd ~/ros2_eloquent
+   wget https://raw.githubusercontent.com/ros2/ros2/eloquent/ros2.repos
    vcs import src < ros2.repos
+
+.. _linux-development-setup-install-dependencies-using-rosdep:
 
 Install dependencies using rosdep
 ---------------------------------
@@ -93,12 +95,12 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro eloquent -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
@@ -106,7 +108,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_eloquent/
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
@@ -136,9 +138,9 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/setup.bash
+   . ~/ros2_eloquent/install/setup.bash
 
-.. _latest-examples:
+.. _talker-listener:
 
 Try some examples
 -----------------
@@ -147,14 +149,14 @@ In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_eloquent/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_eloquent/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -173,7 +175,6 @@ Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
 See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
 
 Alternate compilers
 -------------------
@@ -208,10 +209,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Eloquent install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_eloquent
