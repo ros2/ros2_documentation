@@ -18,8 +18,7 @@ To start the demo, we execute the demo bringup launch file, which we are going t
 
    source ~/ros2_ws/install/setup.bash
    ros2 launch dummy_robot_bringup dummy_robot_bringup.launch.py
-   # For ROS 2 releases prior to Bouncy, instead run:
-   # launch ~/ros2_ws/install/share/dummy_robot_bringup/launch/dummy_robot_bringup.py
+
 
 You should see some prints inside your terminal along the lines of the following:
 

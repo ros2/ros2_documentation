@@ -95,7 +95,7 @@ Logger level configuration: programmatically
 After 10 iterations the level of the logger will be set to ``DEBUG``, which will cause additional messages to be logged.
 
 Some of these debug messages cause additional functions/expressions to be evaluated, which were previously skipped as ``DEBUG`` log calls were not enabled.
-See `the source code <https://github.com/ros2/demos/blob/master/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
+See `the source code <https://github.com/ros2/demos/blob/dashing/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
 
 Logger level configuration: externally
 --------------------------------------
@@ -166,19 +166,9 @@ Logger level configuration: command line
 As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
 Restart the demo including the following command line argument:
 
-.. tabs::
+.. code-block:: bash
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: bash
-
-       ros2 run logging_demo logging_demo_main --ros-args --log-level debug
-
-  .. group-tab:: Dashing
-
-    .. code-block:: bash
-
-      ros2 run logging_demo logging_demo_main __log_level:=debug
+  ros2 run logging_demo logging_demo_main __log_level:=debug
 
 This configures the default severity for any unset logger to the debug severity level.
 You should see debug output from loggers from the demo itself and from the ROS 2 core.
@@ -265,8 +255,8 @@ You should see that debug, warn, error and fatal logs aren't colorized now.
 Default stream for console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In Dashing and Eloquent, the output from DEBUG and INFO severity are printed out to stdout, and the output from WARN, ERROR, and FATAL are printed to stderr.
-In Foxy and later, the output from all debug levels goes to stderr by default.  It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
+In Dashing, the output from DEBUG and INFO severity are printed out to stdout, and the output from WARN, ERROR, and FATAL are printed to stderr.
+It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
 For example:
 
 .. tabs::
@@ -292,9 +282,6 @@ For example:
 
 Line buffered console output
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Dashing and Eloquent
-""""""""""""""""""""
 
 By default, INFO and DEBUG log calls aren't line buffered.
 You can force it using ``RCUTILS_CONSOLE_STDOUT_LINE_BUFFERED`` environment variable.
@@ -328,36 +315,3 @@ Then run:
 
 The output should look as before.
 For details about I/O buffering, see `buffering concepts <https://www.gnu.org/software/libc/manual/html_node/Buffering-Concepts.html>`_.
-
-Foxy
-""""
-
-By default, all logging output is unbuffered.
-You can force it to be buffered by setting the ``RCUTILS_LOGGING_BUFFERED_STREAM`` environment variable to 1.
-For example:
-
-.. tabs::
-
-  .. group-tab:: Linux
-
-    .. code-block:: bash
-
-      export RCUTILS_LOGGING_BUFFERED_STREAM=1
-
-  .. group-tab:: macOS
-
-    .. code-block:: bash
-
-      export RCUTILS_LOGGING_BUFFERED_STREAM=1
-
-  .. group-tab:: Windows
-
-    .. code-block:: bash
-
-      set "RCUTILS_LOGGING_BUFFERED_STREAM=1"
-
-Then run:
-
-.. code-block:: bash
-
-    ros2 run logging_demo logging_demo_main

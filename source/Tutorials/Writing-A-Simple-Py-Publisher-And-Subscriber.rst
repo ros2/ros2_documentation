@@ -20,6 +20,8 @@ In this tutorial, you will create :ref:`nodes <ROS2Nodes>` that pass information
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/dashing/rclpy/topics>`__.
+
 Prerequisites
 -------------
 
@@ -60,19 +62,19 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``publisher_member_function.py``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+      https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
 
 
@@ -275,19 +277,19 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``subscriber_member_function.py``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+      https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
 
 Now the directory should have these files:
@@ -485,7 +487,6 @@ Summary
 You created two nodes to publish and subscribe to data over a topic.
 Before running them, you added their dependencies and entry points to the package configuration files.
 
-The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
 
 Next steps
 ----------
@@ -496,4 +497,4 @@ Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Pyth
 Related content
 ---------------
 
-* There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/topics>`_ repo.
+* There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/dashing/rclpy/topics>`_ repo.

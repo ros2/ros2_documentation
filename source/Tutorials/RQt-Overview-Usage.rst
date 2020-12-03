@@ -44,7 +44,7 @@ Installing From Debian
 
 .. code-block:: bash
 
-   sudo apt install ros-$ROS_DISTRO-rqt*
+   sudo apt install ros-dashing-rqt*
 
 
 Building From Source

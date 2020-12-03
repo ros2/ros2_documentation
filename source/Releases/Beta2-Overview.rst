@@ -22,7 +22,7 @@ Improvements since Beta 1 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * DDS_Security support (aka SROS2, see `sros2 <https://github.com/ros2/sros2>`__)
-* Debian packages for Ubuntu Xenial (see `Debian install instructions <../Installation/Crystal/Linux-Install-Debians>`).
+* Debian packages for Ubuntu Xenial
 * Typesupport has been redesigned so that you only build a single executable and can choose one of the available RMW implementations by setting an environment variable (see `documentation <../Tutorials/Working-with-multiple-RMW-implementations>`).
 * Namespace support for nodes and topics (see `design article <https://design.ros2.org/articles/topic_and_service_names.html>`__, see known issues below).
 * A set of command-line tools using the extensible ``ros2`` command (see `tutorial <../Tutorials/Introspection-with-command-line-tools>`).

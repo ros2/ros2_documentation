@@ -18,7 +18,7 @@ Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repo
 Release versions
 ^^^^^^^^^^^^^^^^
 
-If you wish to update a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. foxy:
+If you wish to update a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. dashing:
 
 .. tabs::
 
@@ -28,7 +28,7 @@ If you wish to update a particular release, you can get its repository list by s
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/dashing-release/ros2.repos
 
   .. group-tab:: macOS
 
@@ -36,7 +36,7 @@ If you wish to update a particular release, you can get its repository list by s
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/dashing-release/ros2.repos
 
   .. group-tab:: Windows
 
@@ -44,18 +44,18 @@ If you wish to update a particular release, you can get its repository list by s
 
        # CMD
        > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos -o ros2.repos
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/dashing-release/ros2.repos -o ros2.repos
 
        # PowerShell
        > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/release-foxy/ros2.repos -o ros2.repos
+       > curl https://raw.githubusercontent.com/ros2/ros2/dashing-release/ros2.repos -o ros2.repos
 
 The format of the name of the release comes from the tag associated with the release `here <https://github.com/ros2/ros2/tags>`__.
 
 Release development branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to checkout development branches for a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. foxy:
+If you wish to checkout development branches for a particular release, you can get its repository list by specifying the codename of the release in the URL of the following step, e.g. dashing:
 
 .. tabs::
 
@@ -65,7 +65,7 @@ If you wish to checkout development branches for a particular release, you can g
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
 
   .. group-tab:: macOS
 
@@ -73,7 +73,7 @@ If you wish to checkout development branches for a particular release, you can g
 
        cd ~/ros2_ws
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
 
   .. group-tab:: Windows
 
@@ -81,11 +81,11 @@ If you wish to checkout development branches for a particular release, you can g
 
        # CMD
        > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+       > curl -sk https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
 
        # PowerShell
        > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+       > curl https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos -o ros2.repos
 
 Latest development branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,3 +1,32 @@
+Installing ROS 2 Dashing Diademata
+==================================
+
+Binary packages
+---------------
+
+We provide ROS 2 binary packages for the following platforms:
+
+* Linux (Ubuntu Bionic(18.04))
+
+  * `Debian packages <Linux-Install-Debians>`
+  * `"fat" archive <Linux-Install-Binary>`
+
+* `macOS <macOS-Install-Binary>`
+* `Windows <Windows-Install-Binary>`
+
+
+.. _building-from-source:
+
+Building from source
+--------------------
+
+We support building ROS 2 from source on the following platforms:
+
+
+* `Linux <Linux-Development-Setup>`
+* `macOS <macOS-Development-Setup>`
+* `Windows <Windows-Development-Setup>`
+
 
 Which install should you choose?
 --------------------------------
@@ -26,5 +55,3 @@ macOS and Windows users who choose to install from binary packages only have the
 **Building from source** is meant for developers looking to alter or explicitly omit parts of ROS 2's base.
 It is also recommended for platforms that don't support binaries.
 Building from source also gives you the option to install the absolute latest version of ROS 2.
-
-.. TODO: add reference to "General Install" instructions "...if you don't see your operating system"
