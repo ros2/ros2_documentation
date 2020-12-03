@@ -125,56 +125,32 @@ Building a Library
 
 When building a reusable library, some information needs to be exported for downstream packages to easily use it.
 
-.. tabs::
+.. code-block:: cmake
 
-  .. group-tab:: Foxy and newer
+    ament_export_targets(export_my_library HAS_LIBRARY_TARGET)
+    ament_export_dependencies(some_dependency)
 
-    .. code-block:: cmake
+    install(
+      DIRECTORY include/
+      DESTINATION include
+    )
 
-        ament_export_targets(export_my_library HAS_LIBRARY_TARGET)
-        ament_export_dependencies(some_dependency)
+    install(
+      TARGETS my_library
+      EXPORT export_my_library
+      LIBRARY DESTINATION lib
+      ARCHIVE DESTINATION lib
+      RUNTIME DESTINATION bin
+      INCLUDES DESTINATION include
+    )
 
-        install(
-          DIRECTORY include/
-          DESTINATION include
-        )
-
-        install(
-          TARGETS my_library
-          EXPORT export_my_library
-          LIBRARY DESTINATION lib
-          ARCHIVE DESTINATION lib
-          RUNTIME DESTINATION bin
-          INCLUDES DESTINATION include
-        )
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: cmake
-
-        ament_export_interfaces(export_my_library HAS_LIBRARY_TARGET)
-        ament_export_dependencies(some_dependency)
-
-        install(
-          DIRECTORY include/
-          DESTINATION include
-        )
-
-        install(
-          TARGETS my_library
-          EXPORT export_my_library
-          LIBRARY DESTINATION lib
-          ARCHIVE DESTINATION lib
-          RUNTIME DESTINATION bin
-          INCLUDES DESTINATION include
-        )
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
 Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
 
 Here is what's happening in the snippet above:
 
-- The ``ament_export_targets`` macro (``ament_export_interfaces`` in Eloquent and older) exports the targets for CMake.
+- The ``ament_export_targets`` macro exports the targets for CMake.
   This is necessary to allow your library's clients to use the ``target_link_libraries(client my_library::my_library)`` syntax.
   ``ament_export_targets`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
 

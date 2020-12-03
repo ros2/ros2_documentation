@@ -1,3 +1,5 @@
+.. _linux-latest:
+
 Building ROS 2 on Linux
 =======================
 
@@ -8,7 +10,7 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Foxy Fitzroy are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
+The current target platforms for Rolling Ridley are
 
 - Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
 
@@ -19,18 +21,20 @@ Tier 3 platforms (not actively tested or supported) include:
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+
 System setup
 ------------
 
 Set locale
 ^^^^^^^^^^
 
-.. include:: ../_Linux-Set-Locale.rst
+.. include:: _Linux-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,7 +67,8 @@ Install development tools and ROS tools
      flake8-quotes \
      pytest-repeat \
      pytest-rerunfailures \
-     pytest
+     pytest \
+     setuptools
    # install Fast-RTPS dependencies
    sudo apt install --no-install-recommends -y \
      libasio-dev \
@@ -72,7 +77,13 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libcunit1-dev
 
-.. _Foxy_linux-dev-get-ros2-code:
+Ubuntu 18.04 is not an officially supported platform, but may still work.  You'll need at least the following additional dependencies:
+
+.. code-block:: bash
+
+   python3 -m pip install -U importlib-metadata importlib-resources
+
+.. _Rolling_linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -81,10 +92,12 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_rolling/src
+   cd ~/ros2_rolling
+   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
+
+.. _linux-development-setup-install-dependencies-using-rosdep:
 
 Install dependencies using rosdep
 ---------------------------------
@@ -93,12 +106,12 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro rolling -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
@@ -106,7 +119,7 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_rolling/
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
@@ -118,7 +131,8 @@ On Windows due to limitations of the length of environment variables you should 
 
 Also, if you have already installed ROS 2 from Debian make sure that you run the ``build`` command in a fresh environment.
 You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
-
+You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
+The output should be empty.
 
 .. code-block:: bash
 
@@ -136,9 +150,9 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/setup.bash
+   . ~/ros2_rolling/install/setup.bash
 
-.. _latest-examples:
+.. _talker-listener:
 
 Try some examples
 -----------------
@@ -147,14 +161,14 @@ In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_rolling/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_rolling/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -173,7 +187,6 @@ Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
 See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
 
 Alternate compilers
 -------------------
@@ -208,10 +221,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no Rolling install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_rolling

@@ -186,114 +186,55 @@ You could build your package now, source the local setup files, and run it, but 
 
 Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_client.cpp`` and paste the following code within:
 
-.. tabs::
+.. code-block:: C++
 
-  .. group-tab:: Foxy and newer
+  #include "rclcpp/rclcpp.hpp"
+  #include "example_interfaces/srv/add_two_ints.hpp"
 
-    .. code-block:: C++
+  #include <chrono>
+  #include <cstdlib>
+  #include <memory>
 
-      #include "rclcpp/rclcpp.hpp"
-      #include "example_interfaces/srv/add_two_ints.hpp"
+  using namespace std::chrono_literals;
 
-      #include <chrono>
-      #include <cstdlib>
-      #include <memory>
+  int main(int argc, char **argv)
+  {
+    rclcpp::init(argc, argv);
 
-      using namespace std::chrono_literals;
+    if (argc != 3) {
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
+        return 1;
+    }
 
-      int main(int argc, char **argv)
-      {
-        rclcpp::init(argc, argv);
+    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
+    rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
+      node->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
 
-        if (argc != 3) {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
-            return 1;
-        }
+    auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
+    request->a = atoll(argv[1]);
+    request->b = atoll(argv[2]);
 
-        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
-        rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
-          node->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
-
-        auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
-        request->a = atoll(argv[1]);
-        request->b = atoll(argv[2]);
-
-        while (!client->wait_for_service(1s)) {
-          if (!rclcpp::ok()) {
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-            return 0;
-          }
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
-        }
-
-        auto result = client->async_send_request(request);
-        // Wait for the result.
-        if (rclcpp::spin_until_future_complete(node, result) ==
-          rclcpp::FutureReturnCode::SUCCESS)
-        {
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
-        } else {
-          RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
-        }
-
-        rclcpp::shutdown();
+    while (!client->wait_for_service(1s)) {
+      if (!rclcpp::ok()) {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
         return 0;
       }
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+    }
 
-  .. group-tab:: Eloquent and older
+    auto result = client->async_send_request(request);
+    // Wait for the result.
+    if (rclcpp::spin_until_future_complete(node, result) ==
+      rclcpp::FutureReturnCode::SUCCESS)
+    {
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+    } else {
+      RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+    }
 
-      .. code-block:: C++
-
-        #include "rclcpp/rclcpp.hpp"
-        #include "example_interfaces/srv/add_two_ints.hpp"
-
-        #include <chrono>
-        #include <cstdlib>
-        #include <memory>
-
-        using namespace std::chrono_literals;
-
-        int main(int argc, char **argv)
-        {
-          rclcpp::init(argc, argv);
-
-          if (argc != 3) {
-              RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_two_ints_client X Y");
-              return 1;
-          }
-
-          std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_client");
-          rclcpp::Client<example_interfaces::srv::AddTwoInts>::SharedPtr client =
-            node->create_client<example_interfaces::srv::AddTwoInts>("add_two_ints");
-
-          auto request = std::make_shared<example_interfaces::srv::AddTwoInts::Request>();
-          request->a = atoll(argv[1]);
-          request->b = atoll(argv[2]);
-
-          while (!client->wait_for_service(1s)) {
-            if (!rclcpp::ok()) {
-              RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-              return 0;
-            }
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
-          }
-
-          auto result = client->async_send_request(request);
-          // Wait for the result.
-          if (rclcpp::spin_until_future_complete(node, result) ==
-            rclcpp::executor::FutureReturnCode::SUCCESS)
-          {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
-          } else {
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
-          }
-
-          rclcpp::shutdown();
-          return 0;
-        }
-
-
-
+    rclcpp::shutdown();
+    return 0;
+  }
 
 
 3.1 Examine the code
@@ -374,7 +315,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
     .. code-block:: console
 
-      rosdep install -i --from-path src --rosdistro <distro> -y
+      rosdep install -i --from-path src --rosdistro rolling -y
 
   .. group-tab:: macOS
 

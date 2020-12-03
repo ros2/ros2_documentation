@@ -35,7 +35,7 @@ Tier 3 platforms:
 Installation
 ------------
 
-`Install Rolling Ridley <../Installation/Rolling>`
+`Install Rolling Ridley <../Installation/Summary>`
 
 New features and changes in this release
 ----------------------------------------

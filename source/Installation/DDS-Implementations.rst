@@ -1,9 +1,11 @@
-Install DDS implementations
-===========================
+Installing DDS implementations
+==============================
 
 By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-There is currently support for eProsima Fast RTPS, ADLINK's OpenSplice, RTI's Connext DDS and Eclipse Cyclone DDS.
+There is currently support for eProsima's Fast RTPS, RTI's Connext DDS and Eclipse Cyclone DDS.
+ADLINK's OpenSplice is no longer supported as of Foxy.
+See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
 
 For distros before Eloquent, the only bundled vendor is eProsima's Fast RTPS.
 Since Eloquent, both Fast RTPS and Cyclone DDS are bundled, but Fast RTPS is still the default.
@@ -28,21 +30,6 @@ Detailed instructions for installing other DDS vendors are provided below.
 
 Linux source install
 --------------------
-
-ADLINK OpenSplice Debian Packages built by OSRF
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     .. code-block:: bash
-
-       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -97,21 +84,6 @@ Now you can build as normal and support for RTI will be built as well.
 Linux binary install
 --------------------
 
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     .. code-block:: bash
-
-       sudo apt install libopensplice69  # from packages.ros.org/ros2/ubuntu
-
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -146,25 +118,6 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 OSX source install
 ------------------
 
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     To install OpenSplice, download the latest supported release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-
-     Source the ``release.com`` file provided to set up the environment before building your ROS 2 workspace, e.g.:
-
-     .. code-block:: bash
-
-        source <path_to_opensplice>/x86_64.darwin10_clang/release.com
-
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
@@ -192,19 +145,6 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 OSX binary install
 ------------------
 
-Enable OpenSplice support
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     Download the latest release from https://github.com/ADLINK-IST/opensplice/releases and unpack it.
-     Set the ``OSPL_HOME`` environment variable to the unpacked directory that contains the ``release.com`` script.
 
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -225,26 +165,6 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 
 Windows source install
 ----------------------
-
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     If you would like to also build against OpenSplice, you will need to first download the latest version of `OpenSplice <https://github.com/ADLINK-IST/opensplice/releases>`__.
-     Then run something like the following command before building ROS 2, to set up the OpenSplice environment:
-
-     .. code-block:: bash
-
-        call "C:\opensplice69\HDE\x86_64.win64\release.bat"
-
-     Where the exact paths may need to be slightly altered depending on where you selected to install OpenSplice.
 
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
@@ -267,21 +187,6 @@ If you want to install the Connext DDS-Security plugins please refer to `this pa
 Windows binary install
 ----------------------
 
-ADLINK OpenSplice
-^^^^^^^^^^^^^^^^^
-
-.. tabs::
-
-  .. group-tab:: Foxy and newer
-
-     OpenSplice is no longer supported as of Foxy.  See https://ros.org/reps/rep-2000.html for supported DDS vendors.
-
-  .. group-tab:: Eloquent and older
-
-     If you want to use OpenSplice, you will need to download the `latest supported version <https://github.com/ADLINK-IST/opensplice/releases>`__.
-     Version 6.9.190403OSS-HDE-x86_64.win-vs2017 or later is required.
-
-     After unpacking, set the ``OSPL_HOME`` environment variable so that it points to the directory that contains the ``release.bat`` script.
 
 RTI Connext
 ^^^^^^^^^^^

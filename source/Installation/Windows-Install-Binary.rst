@@ -18,7 +18,7 @@ System requirements
 
 Only Windows 10 is supported.
 
-.. _Rolling_windows-install-binary-installing-prerequisites:
+.. _windows-install-binary-installing-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -90,7 +90,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
