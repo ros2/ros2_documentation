@@ -77,7 +77,7 @@ Learning the ROS 2 Toolset
    Tutorials/RQt-Overview-Usage
    Tutorials/Composition
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
-   Tutorials/Topics/Topic-Statistics-Tutorial
+
 
 Advanced
 --------
