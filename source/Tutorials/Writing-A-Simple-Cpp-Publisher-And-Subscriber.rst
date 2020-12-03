@@ -20,6 +20,7 @@ Background
 In this tutorial, the nodes will pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
 The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/foxy/rclcpp/topics>`__.
 
 Prerequisites
 -------------
@@ -60,19 +61,19 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``publisher_member_function.cpp``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+      https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -298,19 +299,19 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``subscriber_member_function.cpp``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+      https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_subscriber/member_function.cpp
 
 Entering ``ls`` in the console will now return:
 
@@ -501,8 +502,6 @@ Summary
 You created two nodes to publish and subscribe to data over a topic.
 Before compiling and running them, you added their dependencies and executables to the package configuration files.
 
-The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclcpp/topics>`__.
-
 Next steps
 ----------
 
@@ -512,4 +511,4 @@ Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Pyth
 Related content
 ---------------
 
-* There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp/topics>`_ repo.
+There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/foxy/rclcpp/topics>`_ repo.

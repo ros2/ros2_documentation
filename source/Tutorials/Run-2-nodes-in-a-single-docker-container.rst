@@ -5,18 +5,18 @@
 Running 2 nodes in a single docker container [community-contributed]
 ====================================================================
 
-Pull the ROS docker image with tag "eloquent-desktop".
+Pull the ROS docker image with tag "foxy-desktop".
 
 .. code-block:: bash
 
-   docker pull osrf/ros:eloquent-desktop
+   docker pull osrf/ros:foxy-desktop
 
 
 Run the image in a container in interactive mode.
 
 .. code-block:: bash
 
-   $ docker run -it osrf/ros:eloquent-desktop
+   $ docker run -it osrf/ros:foxy-desktop
    root@<container-id>:/#
 
 

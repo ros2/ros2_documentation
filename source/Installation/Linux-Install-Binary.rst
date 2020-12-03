@@ -23,7 +23,7 @@ We support Ubuntu Linux Focal Fossa (20.04) 64-bit x86 and 64-bit ARM.
 Add the ROS 2 apt repository
 ----------------------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
@@ -53,6 +53,7 @@ Installing and initializing rosdep
        sudo rosdep init
        rosdep update
 
+.. _linux-install-binary-install-missing-dependencies:
 
 Installing the missing dependencies
 -----------------------------------
@@ -77,7 +78,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------

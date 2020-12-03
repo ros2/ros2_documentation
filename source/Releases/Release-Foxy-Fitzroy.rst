@@ -31,7 +31,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Foxy Fitzroy <../Installation/Foxy>`
+`Install Foxy Fitzroy <../Installation/Summary>`
 
 New features in this ROS 2 release
 ----------------------------------

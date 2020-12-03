@@ -153,19 +153,9 @@ In a new terminal, run the following command from within your workspace (``dev_w
 
 Now you can confirm that your interface creation worked by using the ``ros2 interface show`` command:
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: console
-
-      ros2 interface show tutorial_interfaces/msg/Num
-
-  .. group-tab:: Dashing
-
-    .. code-block:: console
-
-      ros2 msg show tutorial_interfaces/msg/Num
+  ros2 interface show tutorial_interfaces/msg/Num
 
 should return:
 
@@ -175,19 +165,9 @@ should return:
 
 And
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Eloquent and newer
-
-    .. code-block:: console
-
-      ros2 interface show tutorial_interfaces/srv/AddThreeInts
-
-  .. group-tab:: Dashing
-
-    .. code-block:: console
-
-      ros2 srv show tutorial_interfaces/srv/AddThreeInts
+  ros2 interface show tutorial_interfaces/srv/AddThreeInts
 
 should return:
 

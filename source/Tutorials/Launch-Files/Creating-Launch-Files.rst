@@ -79,71 +79,37 @@ Let’s put together a ROS 2 launch file using the ``turtlesim`` package and its
 
 Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
-.. tabs::
 
-  .. group-tab:: Foxy and newer
+.. code-block:: python
 
-    .. code-block:: python
+    from launch import LaunchDescription
+    from launch_ros.actions import Node
 
-        from launch import LaunchDescription
-        from launch_ros.actions import Node
+    def generate_launch_description():
+        return LaunchDescription([
+            Node(
+                package='turtlesim',
+                namespace='turtlesim1',
+                executable='turtlesim_node',
+                name='sim'
+            ),
+            Node(
+                package='turtlesim',
+                namespace='turtlesim2',
+                executable='turtlesim_node',
+                name='sim'
+            ),
+            Node(
+                package='turtlesim',
+                executable='mimic',
+                name='mimic',
+                remappings=[
+                    ('/input/pose', '/turtlesim1/turtle1/pose'),
+                    ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+                ]
+            )
+        ])
 
-        def generate_launch_description():
-            return LaunchDescription([
-                Node(
-                    package='turtlesim',
-                    namespace='turtlesim1',
-                    executable='turtlesim_node',
-                    name='sim'
-                ),
-                Node(
-                    package='turtlesim',
-                    namespace='turtlesim2',
-                    executable='turtlesim_node',
-                    name='sim'
-                ),
-                Node(
-                    package='turtlesim',
-                    executable='mimic',
-                    name='mimic',
-                    remappings=[
-                        ('/input/pose', '/turtlesim1/turtle1/pose'),
-                        ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                    ]
-                )
-            ])
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: python
-
-         from launch import LaunchDescription
-         from launch_ros.actions import Node
-
-         def generate_launch_description():
-             return LaunchDescription([
-                 Node(
-                     package='turtlesim',
-                     node_namespace='turtlesim1',
-                     node_executable='turtlesim_node',
-                     node_name='sim'
-                 ),
-                 Node(
-                     package='turtlesim',
-                     node_namespace='turtlesim2',
-                     node_executable='turtlesim_node',
-                     node_name='sim'
-                 ),
-                 Node(
-                     package='turtlesim',
-                     node_executable='mimic',
-                     node_name='mimic',
-                     remappings=[
-                         ('/input/pose', '/turtlesim1/turtle1/pose'),
-                         ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                     ]
-                 )
-             ])
 
 
 2.1 Examine the launch file
@@ -170,41 +136,22 @@ The goal of the system is to launch two turtlesim windows, and have one turtle m
 
 The first two actions in the launch description launch two turtlesim windows:
 
-.. tabs::
 
-  .. group-tab:: Foxy and newer
+.. code-block:: python
 
-    .. code-block:: python
+       Node(
+           package='turtlesim',
+           namespace='turtlesim1',
+           executable='turtlesim_node',
+           name='sim'
+       ),
+       Node(
+           package='turtlesim',
+           namespace='turtlesim2',
+           executable='turtlesim_node',
+           name='sim'
+       ),
 
-           Node(
-               package='turtlesim',
-               namespace='turtlesim1',
-               executable='turtlesim_node',
-               name='sim'
-           ),
-           Node(
-               package='turtlesim',
-               namespace='turtlesim2',
-               executable='turtlesim_node',
-               name='sim'
-           ),
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: python
-
-            Node(
-                package='turtlesim',
-                node_namespace='turtlesim1',
-                node_executable='turtlesim_node',
-                node_name='sim'
-            ),
-            Node(
-                package='turtlesim',
-                node_namespace='turtlesim2',
-                node_executable='turtlesim_node',
-                node_name='sim'
-            ),
 
 Note the only difference between the two nodes is their namespace values.
 Unique namespaces allow the system to start two simulators without node name nor topic name conflicts.
@@ -214,36 +161,20 @@ Without unique namespaces, there would be no way to distinguish between messages
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 
-.. tabs::
 
 
-  .. group-tab:: Foxy and newer
+.. code-block:: python
 
-    .. code-block:: python
+      Node(
+          package='turtlesim',
+          executable='mimic',
+          name='mimic',
+          remappings=[
+            ('/input/pose', '/turtlesim1/turtle1/pose'),
+            ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+          ]
+      )
 
-          Node(
-              package='turtlesim',
-              executable='mimic',
-              name='mimic',
-              remappings=[
-                ('/input/pose', '/turtlesim1/turtle1/pose'),
-                ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-              ]
-          )
-
-  .. group-tab:: Eloquent and older
-
-    .. code-block:: python
-
-            Node(
-                package='turtlesim',
-                node_executable='mimic',
-                node_name='mimic',
-                remappings=[
-                  ('/input/pose', '/turtlesim1/turtle1/pose'),
-                  ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-                ]
-            )
 
 
 This node has added configuration details in the form of remappings.

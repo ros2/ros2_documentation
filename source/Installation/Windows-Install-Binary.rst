@@ -11,14 +11,14 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
 
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`_.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
 
 System requirements
 -------------------
 
 Only Windows 10 is supported.
 
-.. _Rolling_windows-install-binary-installing-prerequisites:
+.. _windows-install-binary-installing-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -41,6 +41,9 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
    > choco install -y python --version 3.8.3
 
+ROS 2 expects the python installation to be available in directory ``C:\python38``.
+Double check that it is installed there.
+
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -53,20 +56,22 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
+Download the *Win64 OpenSSL v1.1.1h* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1h*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
-The following commands assume you used the default installation directory:
 
-* ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
+The following command sets an environment variable that persists over sessions.
+Modify the command to match your installation directory:
 
-You will need to append the OpenSSL-Win64 bin folder to your PATH.
+* ``setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"``
+
+You will also need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
-* ``C:\OpenSSL-Win64\bin\``
+* ``C:\Program Files\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
@@ -90,7 +95,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -136,7 +141,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
+   > choco install -y -s <PATH\TO\DOWNLOADS> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -144,7 +149,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
+   python -m pip install -U catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -153,29 +158,21 @@ RQt dependencies
 
    python -m pip install -U pydot PyQt5
 
-.. _Rolling_windows-install-binary-installing-rqt-dependencies:
+.. _Foxy_windows-install-binary-installing-rqt-dependencies:
 
-To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
-
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
+To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
 
 .. code-block:: bash
 
-  dot.exe
+   > choco install graphviz
 
-* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
-* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
-* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
-* Click on Ok Button.
+You will need to append the Graphviz bin folder ``C:\Program Files (x86)\GraphvizX.XX\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
 
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
-
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+* Go the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-foxy-*-windows-AMD64.zip``.
 
 .. note::
 
@@ -183,18 +180,28 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-package-windows-debug-AMD64.zip``
+    To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_rolling``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_foxy``\ ).
 
 Environment setup
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. code-block:: bash
+.. tabs::
 
-   > call C:\dev\ros2_rolling\local_setup.bat
+  .. group-tab:: Command Prompt
+
+    .. code-block:: bash
+
+       > call C:\dev\ros2_foxy\local_setup.bat
+
+  .. group-tab:: PowerShell
+
+    .. code-block:: bash
+
+       > C:\dev\ros2_foxy\local_setup.ps1
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
@@ -240,10 +247,57 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Foxy install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_rolling
+    rmdir /s /q \ros2_foxy
+
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel.
+
+Install ROS 2 builds
+^^^^^^^^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   > mkdir c:\opt\chocolatey
+   > set PYTHONNOUSERSITE=1
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   > choco upgrade ros-foxy-desktop -y --execution-timeout=0
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   > call C:\opt\ros\foxy\x64\local_setup.bat
+
+Stay up-to-date
+^^^^^^^^^^^^^^^
+
+To keep up-to-date with the latest builds, run:
+
+.. code-block:: bash
+
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco upgrade all -y --execution-timeout=0
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   > rmdir /s /q C:\opt\

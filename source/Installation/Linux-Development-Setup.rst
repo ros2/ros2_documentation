@@ -25,12 +25,12 @@ System setup
 Set locale
 ^^^^^^^^^^
 
-.. include:: ../_Linux-Set-Locale.rst
+.. include:: _Linux-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -86,6 +86,8 @@ Create a workspace and clone all repos:
    wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
    vcs import src < ros2.repos
 
+.. _linux-development-setup-install-dependencies-using-rosdep:
+
 Install dependencies using rosdep
 ---------------------------------
 
@@ -98,7 +100,7 @@ Install dependencies using rosdep
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
@@ -138,7 +140,7 @@ Set up your environment by sourcing the following file.
 
    . ~/ros2_foxy/install/setup.bash
 
-.. _latest-examples:
+.. _talker-listener:
 
 Try some examples
 -----------------

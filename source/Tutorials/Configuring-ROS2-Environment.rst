@@ -54,13 +54,7 @@ You will need to run this command on every new shell you open to have access to 
 
       .. code-block:: console
 
-        source /opt/ros/<distro>/setup.bash
-
-      For example, if you installed ROS 2 Eloquent:
-
-      .. code-block:: console
-
-        source /opt/ros/eloquent/setup.bash
+        source /opt/ros/foxy/setup.bash
 
    .. group-tab:: macOS
 
@@ -89,7 +83,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
       .. code-block:: console
 
-        echo "source /opt/ros/<distro>/setup.bash" >> ~/.bashrc
+        echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 
    .. group-tab:: macOS
 
@@ -246,16 +240,6 @@ Related content
 
 See this video demonstration that shows an installation of ROS 2 on a Raspberry Pi:
 
-.. tabs::
+.. raw:: html
 
-  .. group-tab:: Foxy
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/AmuLiA840fA" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-  .. group-tab:: Dashing
-
-    .. raw:: html
-
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/4VmVdKBrwPk" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/AmuLiA840fA" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
