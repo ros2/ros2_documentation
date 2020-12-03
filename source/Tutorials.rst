@@ -78,7 +78,6 @@ Learning the ROS 2 Toolset
    Tutorials/Composition
    Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
    Tutorials/Topics/Topic-Statistics-Tutorial
-   Tutorials/Discovery-Server/Discovery-Server
 
 Advanced
 --------
