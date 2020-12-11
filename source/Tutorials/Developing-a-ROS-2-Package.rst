@@ -112,6 +112,7 @@ and a ``setup.py`` file that looks like:
        packages=[package_name],
        # Files we want to install, specifically launch files
        data_files=[
+           # Install marker file in the package index
            ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
            # Include our package.xml file
            (os.path.join('share', package_name), ['package.xml']),
