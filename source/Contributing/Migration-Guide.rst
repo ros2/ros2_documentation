@@ -410,7 +410,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 Launch files
 ------------
 
-While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML files.
+While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
 See `separate tutorial <https://index.ros.org/doc/ros2/Tutorials/Launch-files-migration-guide/>`__ on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
