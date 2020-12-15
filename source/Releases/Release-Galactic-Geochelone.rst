@@ -102,6 +102,12 @@ Waitable API was modified to avoid issues with the ``MultiThreadedExecutor``.
 This only affects users implementing a custom waitable.
 See `ros2/rclcpp#1241 <https://github.com/ros2/rclcpp/pull/1241>`_ for more details.
 
+Change in ``rclcpp``'s logging macros
+"""""""""""""""""""""""""""""""""""""
+Previously, the logging macros were vulnerable to a `format string attack <https://owasp.org/www-community/attacks/Format_string_attack>`_, where the format string is evaluated and can potentially execute code, read the stack, or cause a segmentation fault in the running program. To address this security issue, the logging macro accepts only string literals for it's format string argument.
+
+This change removes some convenience from the logging macros, as ``std::strings`` are no longer accepted as the format argument. ``std::stringstream`` types are still accepted as arguments to the stream logging macros. See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
+
 rclpy
 ^^^^^^
 
