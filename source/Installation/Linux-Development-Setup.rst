@@ -65,6 +65,7 @@ Install development tools and ROS tools
      flake8-docstrings \
      flake8-import-order \
      flake8-quotes \
+     testresources \
      pytest-repeat \
      pytest-rerunfailures \
      pytest \
