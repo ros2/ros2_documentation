@@ -121,6 +121,13 @@ you should now replace it with:
   const char *my_const_char_string format = "Foo";
   RCLCPP_DEBUG(get_logger(), "%s", my_const_char_string);
 
+or
+
+.. code-block::
+
+  RCLCPP_DEBUG(get_logger(), "Foo");
+
+
 This change removes some convenience from the logging macros, as ``std::string``\s are no longer accepted as the format argument.
 
 If you previously had code like:
@@ -129,13 +136,12 @@ If you previously had code like:
 
   std::string my_std_string = "Foo %d";
   RCLCPP_DEBUG(get_logger(), my_std_string, 5);
-  
+
 you should now replace it with:
 
 .. code-block::
 
-  std::string my_std_string = "Foo %d";
-  RCLCPP_DEBUG(get_logger(), my_std_string.c_str(), 5);
+  RCLCPP_DEBUG(get_logger(), "Foo %d", 5);
 
 ``std::stringstream`` types are still accepted as arguments to the stream logging macros.
 See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
