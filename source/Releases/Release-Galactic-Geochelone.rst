@@ -121,7 +121,7 @@ you should now replace it with:
   const char *my_const_char_string format = "Foo";
   RCLCPP_DEBUG(get_logger(), "%s", my_const_char_string);
 
-This change removes some convenience from the logging macros, as ``std::string``s are no longer accepted as the format argument.
+This change removes some convenience from the logging macros, as ``std::string``\s are no longer accepted as the format argument.
 
 If you previously had code like:
 
