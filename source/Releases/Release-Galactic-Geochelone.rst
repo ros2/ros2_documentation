@@ -104,9 +104,41 @@ See `ros2/rclcpp#1241 <https://github.com/ros2/rclcpp/pull/1241>`_ for more deta
 
 Change in ``rclcpp``'s logging macros
 """""""""""""""""""""""""""""""""""""
-Previously, the logging macros were vulnerable to a `format string attack <https://owasp.org/www-community/attacks/Format_string_attack>`_, where the format string is evaluated and can potentially execute code, read the stack, or cause a segmentation fault in the running program. To address this security issue, the logging macro accepts only string literals for it's format string argument.
+Previously, the logging macros were vulnerable to a `format string attack <https://owasp.org/www-community/attacks/Format_string_attack>`_, where the format string is evaluated and can potentially execute code, read the stack, or cause a segmentation fault in the running program.
+To address this security issue, the logging macro now accepts only string literals for it's format string argument.
 
-This change removes some convenience from the logging macros, as ``std::strings`` are no longer accepted as the format argument. ``std::stringstream`` types are still accepted as arguments to the stream logging macros. See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
+If you previously had code like:
+
+.. code-block::
+
+  const char *my_const_char_string format = "Foo";
+  RCLPP_DEBUG(get_logger(), my_const_char_string);
+
+you should now replace it with:
+
+.. code-block::
+
+  const char *my_const_char_string format = "Foo";
+  RCLCPP_DEBUG(get_logger(), "%s", my_const_char_string);
+
+This change removes some convenience from the logging macros, as ``std::string``s are no longer accepted as the format argument.
+
+If you previously had code like:
+
+.. code-block::
+
+  std::string my_std_string = "Foo %d";
+  RCLCPP_DEBUG(get_logger(), my_std_string, 5);
+  
+you should now replace it with:
+
+.. code-block::
+
+  std::string my_std_string = "Foo %d";
+  RCLCPP_DEBUG(get_logger(), my_std_string.c_str(), 5);
+
+``std::stringstream`` types are still accepted as arguments to the stream logging macros.
+See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
 
 rclpy
 ^^^^^^
