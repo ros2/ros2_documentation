@@ -121,7 +121,7 @@ you should now replace it with:
   const char *my_const_char_string format = "Foo";
   RCLCPP_DEBUG(get_logger(), "%s", my_const_char_string);
 
-or
+or:
 
 .. code-block::
 
@@ -130,18 +130,36 @@ or
 
 This change removes some convenience from the logging macros, as ``std::string``\s are no longer accepted as the format argument.
 
-If you previously had code like:
+
+If you previously had code with no format arguments like:
+
+.. code-block::
+
+  std::string my_std_string = "Foo";
+  RCLCPP_DEBUG(get_logger(), my_std_string);
+
+you should now replace it with:
+
+.. code-block::
+
+    std::string my_std_string = "Foo";
+    RCLCPP_DEBUG(get_logger(), "%s", my_std_string.c_str());
+
+If you are using a ``std::string`` as a format string with format arguments, converting that string to a ``char *`` and using it as the format string will yield a format security warning. To avoid the security warning, we recommend you build the string manually and pass it as in with no format arguments like the previous example.
+
+If you don't care about the ``-Wformat-security`` warning and you previously had code like:
 
 .. code-block::
 
   std::string my_std_string = "Foo %d";
   RCLCPP_DEBUG(get_logger(), my_std_string, 5);
 
-you should now replace it with:
+you could replace it with:
 
 .. code-block::
 
-  RCLCPP_DEBUG(get_logger(), "Foo %d", 5);
+    std::string my_std_string = "Foo %d";
+    RCLCPP_DEBUG(get_logger(), my_std_string.c_str(), 5); // raises -Wformat-security warning
 
 ``std::stringstream`` types are still accepted as arguments to the stream logging macros.
 See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
