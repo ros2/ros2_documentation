@@ -168,7 +168,7 @@ Server Redundancy
 By using ``fastdds`` tool, multiple discovery servers can be created.
 Discovery clients (ROS nodes) can connect to as many servers as desired.
 This allows to have a redundant network that will work even if some servers or nodes shut down unexpectedly.
-The figure below shows a simple architecture that probide server redundancy.
+The figure below shows a simple architecture that provides server redundancy.
 
 .. image:: figures/ds_redundancy_example.svg
     :align: center
