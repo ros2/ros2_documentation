@@ -145,21 +145,8 @@ you should now replace it with:
     std::string my_std_string = "Foo";
     RCLCPP_DEBUG(get_logger(), "%s", my_std_string.c_str());
 
-If you are using a ``std::string`` as a format string with format arguments, converting that string to a ``char *`` and using it as the format string will yield a format security warning. To avoid the security warning, we recommend you build the string manually and pass it as in with no format arguments like the previous example.
-
-If you don't care about the ``-Wformat-security`` warning and you previously had code like:
-
-.. code-block::
-
-  std::string my_std_string = "Foo %d";
-  RCLCPP_DEBUG(get_logger(), my_std_string, 5);
-
-you could replace it with:
-
-.. code-block::
-
-    std::string my_std_string = "Foo %d";
-    RCLCPP_DEBUG(get_logger(), my_std_string.c_str(), 5); // raises -Wformat-security warning
+.. note::
+    If you are using a ``std::string`` as a format string with format arguments, converting that string to a ``char *`` and using it as the format string will yield a format security warning. That's because the compiler has no way at compile to introspect into the ``std::string`` to verify the arguments.  To avoid the security warning, we recommend you build the string manually and pass it in with no format arguments like the previous example.
 
 ``std::stringstream`` types are still accepted as arguments to the stream logging macros.
 See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
