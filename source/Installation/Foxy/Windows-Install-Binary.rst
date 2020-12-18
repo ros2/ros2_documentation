@@ -187,7 +187,7 @@ Downloading ROS 2
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_foxy``\ ).
+* Unpack the zip file to ``C:\ci\ws\install``\ .
 
 Environment setup
 -----------------
@@ -200,13 +200,13 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
     .. code-block:: bash
 
-       > call C:\dev\ros2_foxy\local_setup.bat
+       > call C:\ci\ws\install\local_setup.bat
 
   .. group-tab:: PowerShell
 
     .. code-block:: bash
 
-       > C:\dev\ros2_foxy\local_setup.ps1
+       > C:\ci\ws\install\local_setup.ps1
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
