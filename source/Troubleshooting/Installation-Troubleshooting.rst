@@ -294,6 +294,17 @@ Running the ``rosdep`` command should now execute normally:
 Windows
 -------
 
+Colon build triggers "VisualStudioVersion not set" error
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you receive ``RuntimeError: VisualStudioVersion is not set, please run within a Visual Studio Command Prompt``, you can use a PowerShell module to make PowerShell act like a Visual Studio Command Prompt.
+
+Open PowerShell with Administrative privileges. Run ``Install-module posh-vs`` and ``Install-PoshVs``.
+
+Next, create a folder within Documents called "WindowsPowerShell". Within the folder, create a file called "Microsoft.PowerShell_profile.ps1". Open the file for editing and add this text: "Import-VisualStudioEnvironment".
+
+If you are familiar with ".bashrc" from Unix systems, the file created acts similarly. You may add aliases and source the setup script in it.
+
 Import failing even with library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
