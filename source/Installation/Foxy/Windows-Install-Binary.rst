@@ -173,6 +173,33 @@ Colcon
 
 See :ref:`this tutorial <install-colcon>` to install colcon.
 
+Install Qt5
+^^^^^^^^^^^
+
+First get the installer from Qt's website:
+
+https://www.qt.io/download
+
+Select the Open Source version and then the ``Qt Online Installer for Windows``.
+
+Run the installer and install Qt5.
+
+We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
+When selecting components to install, the only thing you absolutely need for Foxy and later is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.15.0`` tree.
+We're using ``5.15.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later version will probably work too.
+For Foxy and later, be sure to select ``MSVC 2019 64-bit``.
+After that, the default settings are fine.
+
+Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` (open as Administrator privileges) where you intend to build so that CMake can find it:
+
+.. code-block:: bash
+
+   > setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64
+
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
+
 Downloading ROS 2
 -----------------
 
