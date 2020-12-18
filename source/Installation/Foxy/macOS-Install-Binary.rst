@@ -153,9 +153,19 @@ Environment setup
 
 Source the ROS 2 setup file:
 
-.. code-block:: bash
+.. tabs::
 
-   . ~/ros2_foxy/ros2-osx/setup.bash
+  .. group-tab:: Bash
+
+    .. code-block:: bash
+
+       > . ~/ros2_foxy/ros2-osx/setup.bash
+
+  .. group-tab:: Zsh
+
+    .. code-block:: bash
+
+       > . ~/ros2_foxy/ros2-osx/setup.zsh
 
 Try some examples
 -----------------
