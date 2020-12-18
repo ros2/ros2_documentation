@@ -74,6 +74,8 @@ Installing the python3 libraries
    sudo apt install -y libpython3-dev python3-pip
    pip3 install -U argcomplete
 
+See :ref:`this tutorial <install-colcon>` to install colcon.
+
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

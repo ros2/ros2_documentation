@@ -73,6 +73,11 @@ So if you want autocompletion, installing argcomplete is necessary.
    sudo apt install -y python3-pip
    pip3 install -U argcomplete
 
+Install colcon (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+See :ref:`this tutorial <install-colcon>` to install colcon.
+
 Try some examples
 -----------------
 

@@ -117,6 +117,9 @@ You need the following things installed before installing ROS 2.
 
        python3 -m pip install catkin_pkg empy ifcfg lark-parser lxml netifaces numpy pyparsing pyyaml setuptools argcomplete
 
+*
+  See :ref:`this tutorial <install-colcon>` to install colcon.
+
 Disable System Integrity Protection (SIP)
 -----------------------------------------
 
