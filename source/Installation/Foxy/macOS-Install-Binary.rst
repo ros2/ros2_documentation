@@ -85,6 +85,9 @@ You need the following things installed before installing ROS 2.
        # install CUnit for Cyclone DDS
        brew install cunit
 
+       # install cmake
+       brew install cmake
+
 *
   Install rqt dependencies
 
