@@ -50,6 +50,9 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
+       # install sip and pyqt5 for rqt
+       brew install sip pyqt5
+
        brew install python@3.8
        # Unlink in case you have python@3.7 installed already
        brew unlink python
@@ -84,8 +87,6 @@ You need the following things installed before installing ROS 2.
 
 *
   Install rqt dependencies
-
-  ``brew install sip pyqt5``
 
   Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
 
