@@ -231,6 +231,12 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
   .. group-tab:: PowerShell
 
+   Navigate to the ROS 2 setup file using Windows Explorer, right click on ``local_setup.ps1``\, and select **Properties**. Then check unblock in file properties.
+
+    .. image:: https://i.imgur.com/nDipuaC.png
+
+   Once applied, you won't need to unblock the script again. To source the setup file, run:
+
     .. code-block:: bash
 
        > C:\ci\ws\install\local_setup.ps1
