@@ -96,6 +96,7 @@ Advanced
    Tutorials/Cross-compilation
    Tutorials/Allocator-Template-Tutorial
    Tutorials/Releasing-a-ROS-2-package-with-bloom
+   Tutorials/Using-Python-Packages
 
 Windows Tutorials
 -----------------
