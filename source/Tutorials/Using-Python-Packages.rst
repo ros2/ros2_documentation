@@ -34,6 +34,7 @@ These ``rosdep`` keys can be added to your ``package.xml`` file, which indicates
 If there aren’t currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
 
 To learn more about the ``rosdep`` tool and how it works, consult the `rosdep documentation`_.
+
 Installing via a package manager
 --------------------------------
 
@@ -43,7 +44,7 @@ If you don’t want to make a rosdep key, but the package is available in your s
 
     sudo apt install python3-serial
 
-If the package is available on The Python Package Index (PyPi) and you want to install globally on your system:
+If the package is available on `The Python Package Index (PyPi) <https://pypi.org/>`_ and you want to install globally on your system:
 
 .. code-block::
 
@@ -94,3 +95,5 @@ Now you can build your workspace and run your python node that depends on packag
     If you want release your package on Bloom, you should to add the packages you require to ``rosdep``, see the `rosdep key contribution guide`_.
 
 .. _rosdep key contribution guide: http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
+
+.. _rosdep documentation: http://docs.ros.org/en/independent/api/rosdep/html/
