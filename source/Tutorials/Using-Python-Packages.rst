@@ -33,6 +33,7 @@ These ``rosdep`` keys can be added to your ``package.xml`` file, which indicates
 
 If there aren’t currently ``rosdep`` keys for the package that you are interested in, it is possible to add them by following the `rosdep key contribution guide`_.
 
+To learn more about the ``rosdep`` tool and how it works, consult the `rosdep documentation`_.
 Installing via a package manager
 --------------------------------
 
@@ -80,7 +81,7 @@ Next, install the Python packages that you want in your virtual environment:
 
     python3 -m pip install gtsam pyserial… etc
 
-Now you can build your workspace and run your python node for great profit.
+Now you can build your workspace and run your python node that depends on packages installed in your virtual environment.
 
 .. code-block:: console
 
@@ -92,4 +93,4 @@ Now you can build your workspace and run your python node for great profit.
 
     If you want release your package on Bloom, you should to add the packages you require to ``rosdep``, see the `rosdep key contribution guide`_.
 
-.. _rosdep key contribution guide: https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md#rosdep-rules-contributions/
+.. _rosdep key contribution guide: http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
