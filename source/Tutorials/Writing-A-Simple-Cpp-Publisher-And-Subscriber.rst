@@ -174,7 +174,7 @@ The ``RCLCPP_INFO`` macro ensures every published message is printed to the cons
 
 .. code-block:: C++
 
-    Private:
+    private:
       void timer_callback()
       {
         auto message = std_msgs::msg::String();
