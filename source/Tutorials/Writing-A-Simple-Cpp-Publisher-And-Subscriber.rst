@@ -226,7 +226,7 @@ Add a new line after the ``ament_cmake`` buildtool dependency and paste the foll
     <depend>rclcpp</depend>
     <depend>std_msgs</depend>
 
-This declares the package needs ``rclpp`` and ``std_msgs`` when its code is executed.
+This declares the package needs ``rclcpp`` and ``std_msgs`` when its code is executed.
 
 Make sure to save the file.
 
@@ -414,7 +414,7 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 
 4 Build and run
 ^^^^^^^^^^^^^^^
-You likely already have the ``rclpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
+You likely already have the ``rclcpp`` and ``std_msgs`` packages installed as part of your ROS 2 system.
 It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
 
 .. tabs::
