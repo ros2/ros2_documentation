@@ -133,7 +133,7 @@ Also make sure you export the message runtime dependency:
 
    ament_export_dependencies(rosidl_default_runtime)
 
-Now you're ready to generate source files from your msg definition.
+Now you're ready to generate source files from your msg definition. We'll skip the compile step for now as wo do it all together below in step 4.
 
 2.2 (Extra) Set multiple interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
