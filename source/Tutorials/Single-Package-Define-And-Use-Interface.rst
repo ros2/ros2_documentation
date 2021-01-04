@@ -133,7 +133,12 @@ Also make sure you export the message runtime dependency:
 
    ament_export_dependencies(rosidl_default_runtime)
 
-Now you're ready to generate source files from your msg definition.
+Now you're ready to generate source files from your msg definition. Change to your workspace directory root ``~/dev_ws`` and initiate a build:
+
+.. code-block:: bash
+
+    cd ~/dev_ws
+    colcon build --packages-select more_interfaces
 
 2.2 (Extra) Set multiple interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
