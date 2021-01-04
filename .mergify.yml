@@ -7,7 +7,6 @@ pull_request_rules:
       backport:
         branches:
           - foxy
-          - eloquent
           - dashing
 
   - name: backport at reviewers discretion
@@ -30,15 +29,6 @@ pull_request_rules:
         branches:
           - foxy
 
-  - name: backport to eloquent at reviewers discretion
-    conditions:
-      - base=rolling
-      - "label=backport-eloquent"
-    actions:
-      backport:
-        branches:
-          - eloquent
-
   - name: backport to dashing at reviewers discretion
     conditions:
       - base=rolling
@@ -47,4 +37,3 @@ pull_request_rules:
       backport:
         branches:
           - dashing
-
