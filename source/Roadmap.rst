@@ -34,19 +34,15 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Middleware: Improve DDS service reliability
      - Medium
      - ADLINK, eProsima, and Open Robotics
-     - 4th quarter 2020
+     - 1st quarter 2021
    * - Middleware: Default middleware selection
      - Large
      - Open Robotics
-     - 4th quarter 2020
+     - Complete
    * - Middleware: Improve DDS fully-connected overhead
      - Small
-     -
-     -
-   * - Middleware: Evaluate middlewares other than DDS
-     - Large
-     -
-     -
+     - ADLINK, eProsima, and Open Robotics
+     - 1st quarter 2021
    * - Documentation: Consolidate ROS 2 documentation in an easy to find/search place
      - Large
      - Open Robotics
@@ -54,7 +50,19 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Documentation: Automatically generate and host per-package documentation
      - Large
      - Open Robotics
-     -
+     - 4th quarter 2020
+   * - Middleware: Switch to CycloneDDS as default RMW vendor
+     - Small
+     - ADLINK and Open Robotics
+     - 1st quarter 2021
+   * - Galactic Release
+     - Large
+     - Open Robotics
+     - 2nd quarter 2021
+   * - Quality: Add code coverage checks to CI for packages that are QL 1
+     - Medium
+     - Open Robotics
+     - 2nd quarter 2021
    * - Quality: Keep builds on ci.ros2.org and build.ros2.org green
      - Medium
      - Open Robotics and everyone
@@ -62,11 +70,11 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - rosbag2: Improve sqlite3 backend performance
      - Small
      - Apex and others
-     - 4th quarter 2020
+     - Complete
    * - rosbag2: Separate threads for queueing messages and writing to disk
      - Small
      - Apex and others
-     - 4th quarter 2020
+     - Complete
    * - rosbag2: Record /clock topic
      - Medium
      -
@@ -78,7 +86,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Quality: Turn on more compiler warnings
      - Small
      - Open Robotics
-     - 4th quarter 2020
+     - 2nd quarter 2021
    * - Quality: Increase testing coverage of C/C++ packages
      - Large
      -
@@ -90,7 +98,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Quality: Quality Level 1 declaration up to rclcpp
      - Large
      - Open Robotics
-     - 2nd quarter 2021
+     - Complete
    * - Features: Specific demo to show public adoption of ROS 2
      - Medium
      - PickNik Robotics (with Hello Robot 'Stretch')
@@ -105,12 +113,12 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      -
    * - Quality: Setup configuration so packages can opt-in to scan-build for build.ros2.org PR builds
      - Small
-     -
-     -
-   * - Quality: Enable clang-tidy/scan-build for core package PR builds
+     - Open Robotics
+     - 2nd quarter 2021
+   * - Quality: Enable scan-build for core package PR builds
      - Medium
-     -
-     -
+     - Open Robotics
+     - 2nd quarter 2021
    * - Launch: Rewrite launch_testing to be a pytest extension
      - Medium
      -
@@ -140,6 +148,10 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      -
      -
    * - Quality: Create and maintain a valgrind job on ci.ros2.org for the ROS 2 core packages
+     - Large
+     -
+     -
+   * - Middleware: Evaluate middlewares other than DDS
      - Large
      -
      -
