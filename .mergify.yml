@@ -17,7 +17,6 @@ pull_request_rules:
       backport:
         branches:
           - foxy
-          - eloquent
           - dashing
 
   - name: backport to foxy at reviewers discretion
