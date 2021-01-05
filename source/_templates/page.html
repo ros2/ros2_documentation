@@ -4,10 +4,10 @@
 <p>
   <strong>
     {% if current_version.name|string() == 'eloquent' %}
-    You're reading the documentation for a version of ROS 2 that has reached its EOL (end-of-life), and is no longer kept up-to-date.
+    You're reading the documentation for a version of ROS 2 that has reached its EOL (end-of-life), and is no longer officially supported.
     If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% elif current_version.is_released %}
-    You're reading the documentation for an older version of ROS 2.
+    You're reading the documentation for an older but still supported version of ROS 2.
     For information on the latest version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% else %}
     You're reading the documentation for a development version.
