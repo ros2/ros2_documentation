@@ -1,0 +1,22 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies with pip
+        run: |
+          pip install doc8 sphinx sphinx-multiversion
+          pip install git+https://github.com/osrf/sphinx-tabs
+
+      - run: make html
+      - run: doc8 --ignore D001 --ignore-path build
