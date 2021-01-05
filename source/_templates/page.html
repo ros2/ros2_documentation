@@ -3,7 +3,10 @@
 {% if current_version and latest_version and current_version != latest_version %}
 <p>
   <strong>
-    {% if current_version.is_released %}
+    {% if current_version.name|string() == 'eloquent' %}
+    You're reading a version of this documentation that is no longer kept up-to-date, as the distribution has reached its EOL (end-of-life).
+    If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+    {% elif current_version.is_released %}
     You're reading an old version of this documentation.
     If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% else %}
