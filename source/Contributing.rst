@@ -96,7 +96,8 @@ Please be sure to `run tests <colcon-run-the-tests>` for your code changes becau
 Becoming a core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS 2 maintainers ensure that the project is generally making progress.  The responsibilities of the maintainers include:
+The ROS 2 maintainers ensure that the project is generally making progress.
+The responsibilities of the maintainers include:
 
 * Reviewing incoming code contributions for style, quality, and overall fit into the goals of the repository/ROS 2.
 * Ensuring that CI continues to stay green.
