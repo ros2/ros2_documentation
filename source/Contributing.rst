@@ -17,11 +17,11 @@ Tenets
   ROS has been around for more than a decade and is used by developers and across the world.
   Keep a humble attitude and an open mindset while contributing.
 
-* Embed OSRF as early as possible
+* Engage Open Robotics as early as possible
 
-  * OSRF acts as a gate-keeper and advocate for the ROS community.
+  * Open Robotics acts as a gate-keeper and advocate for the ROS community.
     Rely on their expertise and technical judgement from the design phase.
-  * Start discussions with OSRF and the community early.
+  * Start discussions with Open Robotics and the community early.
     Long time ROS contributors may have a clearer vision of the bigger picture.
     If you implement a feature and send a pull request without discussing with the community first, you are taking the risk of it being rejected, or you may be asked to largely rethink your design.
   * Opening issues or using Discourse to socialize an idea before starting the implementation is generally preferable.
