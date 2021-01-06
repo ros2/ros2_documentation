@@ -92,3 +92,23 @@ Code contributions should be made via pull requests to `the appropriate ros2 rep
 We ask all contributors to follow the practices explained in `the developer guide <Contributing/Developer-Guide>`.
 
 Please be sure to `run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
+
+Becoming a core maintainer
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 maintainers ensure that the project is generally making progress.  The responsibilities of the maintainers include:
+
+* Reviewing incoming code contributions for style, quality, and overall fit into the goals of the repository/ROS 2.
+* Ensuring that CI continues to stay green.
+* Merging pull requests that meet the quality and CI standards above.
+* Addressing issues opened up by users.
+
+Each repository in the `ros2 <https://github.com/ros2>`__ and `ament <https://github.com/ament>`__ organizations has a separate set of maintainers.
+Becoming a maintainer of one or more of those repositories is an invitation-only process, and generally involves the following steps:
+
+* Within the last year, have a substantial number of code contributions to the repository.
+* Within the last year, do a substantial number of reviews on incoming pull requests to the repository.
+
+Approximately every 3 months, the ROS 2 team will review the contributions in all of the repositories and send out invitations to new maintainers.
+Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS 2 repositories.
+After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
