@@ -34,11 +34,11 @@ Supported RMW implementations
    * - eProsima *Fast RTPS*
      - Apache 2
      - ``rmw_fastrtps_cpp``
-     - Full support. Default RMW. Packaged with binary releases.
+     - Full support. Default RMW in Foxy and before. Packaged with binary releases.
    * - Eclipse *Cyclone DDS*
      - Eclipse Public License v2.0
      - ``rmw_cyclonedds_cpp``
-     - Full support. Packaged with binary releases from Eloquent on.
+     - Full support. Default RMW since Galactic. Packaged with binary releases.
    * - RTI *Connext*
      - commercial, research
      - ``rmw_connext_cpp``
