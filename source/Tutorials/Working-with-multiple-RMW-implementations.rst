@@ -19,11 +19,11 @@ You should have already read the `DDS and ROS middleware implementations page <.
 Multiple RMW implementations
 ----------------------------
 
-The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, ADLINK OpenSplice and Eclipse Cyclone DDS).
-The default is Fast RTPS, which works without any additional installation steps, because we distribute it with our binary packages.
-Cyclone DDS is also distributed with binary packages since Eloquent.
+The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast DDS, RTI Connext Pro, ADLINK Eclipse Cyclone DDS).
+Since Galactic, the default is Cyclone DDS, which works without any additional installation steps, because we distribute it with our binary packages.
+Prior to Galactic, the default was Fast DDS, which works without any additional installation steps.
 
-Others like OpenSplice or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Fast-DDS or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
@@ -38,7 +38,7 @@ Here is a list of inter-vendor communication configurations that are not support
 - OpenSplice <-> OpenSplice
    - does not support ``WString``
    - ``WString`` is mapped to ``String`` which has a different wire representation
-- Connext <-> CycloneDDS
+- Connext <-> Cyclone DDS
    - does not support pub/sub communication for ``WString``
 - Connext Dynamic <-> Connext Dynamic
    - does not support C services
@@ -46,11 +46,11 @@ Here is a list of inter-vendor communication configurations that are not support
 Default RMW implementation
 --------------------------
 
-If a ROS 2 workspace has multiple RMW implementations, the default RMW implementation is currently selected as Fast RTPS if it's available.
-If the Fast RTPS RMW implementation is not installed, the RMW implementation with the first RMW implementation identifier in alphabetical order will be used.
-The implementation identifier is the name of the ROS package that provides the RMW implementation, e.g. ``rmw_fastrtps_cpp``.
-For example, if both ``rmw_opensplice_cpp`` and ``rmw_connext_cpp`` ROS packages are installed, ``rmw_connext_cpp`` would be the default.
-If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
+If a ROS 2 workspace has multiple RMW implementations, the default RMW implementation since Galactic is selected as Cyclone DDS if it's available.
+If the Cyclone DDS RMW implementation is not installed, the RMW implementation with the first RMW implementation identifier in alphabetical order will be used.
+The implementation identifier is the name of the ROS package that provides the RMW implementation, e.g. ``rmw_cyclonedds_cpp``.
+For example, if both ``rmw_fastrtps_cpp`` and ``rmw_connext_cpp`` ROS packages are installed, ``rmw_connext_cpp`` would be the default.
+If ``rmw_cyclonedds_cpp`` is ever installed, it would be the default.
 See below for how to specify which RMW implementation is to be used when running the ROS 2 examples.
 
 Specifying RMW implementations
@@ -99,7 +99,7 @@ To run the talker demo using the C++ and listener using Python with the RMW impl
 Adding RMW implementations to your workspace
 --------------------------------------------
 
-Suppose that you have built your ROS 2 workspace with only Fast RTPS installed and therefore only the Fast RTPS RMW implementation built.
+Suppose that you have built your ROS 2 workspace with only Cyclone DDS installed and therefore only the Cyclone DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connext_cpp`` for example, were probably unable to find installations of the relevant DDS implementations.
 If you then install an additional DDS implementation, Connext for example, you will need to re-trigger the check for a Connext installation that occurs when the Connext RMW implementation is being built.
 You can do this by specifying the ``--cmake-force-configure`` flag on your next workspace build, and you should see that the RMW implementation package then gets built for the newly installed DDS implementation.
@@ -140,11 +140,15 @@ and
 
    ros2 node list
 
-it will generate a daemon with a Fast RTPS implementation:
+it will generate a daemon with a Cyclone DDS implementation:
 
 .. code-block:: bash
 
+<<<<<<< HEAD
    21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/rolling/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
+=======
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/foxy/bin/_ros2_daemon --rmw-implementation rmw_cyclonedds_cpp --ros-domain-id 22
+>>>>>>> 1edebe3... Update the tutorial to point to Cyclone DDS as the default.
 
 Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS 2 command line tools will fail.
 
