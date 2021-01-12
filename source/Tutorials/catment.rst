@@ -195,7 +195,7 @@ Here is a patch that allows you to do that:
 * `catkin_pkg <https://github.com/ros-infrastructure/catkin_pkg/compare/ament?expand=1>`__:
   Also in this patch, we add the ``buildtool_export_depend`` packages to the set that are considered when computing the topological order.
 
-Because we're going to call out to ``ament build``, we will also need a minimal installation of ``ament``, as did in a previous example:
+Because we're going to call out to ``ament build``, we will also need a minimal installation of ``ament``, as done in a previous example:
 
 .. code-block:: bash
 
