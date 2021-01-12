@@ -22,8 +22,6 @@ Background
 
 In a :ref:`previous tutorial <CustomInterfaces>`, you learned how to create custom msg and srv interfaces.
 
-.. In previous tutorials, you learned how to create :ref:`custom msg and srv interfaces <CustomInterfaces>` and :ref:`action interfaces <ActionCreate>`. (When actions redo is done)
-
 While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
 
 Recall that interfaces can currently only be defined in CMake packages.
