@@ -32,6 +32,7 @@ Prerequisites
 
 An installation from either binaries or source, where the version must be at least
 `ROS2 Foxy <https://index.ros.org/doc/ros2/Releases/Release-Foxy-Fitzroy/>`__.
+
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`,
 :ref:`create a package <CreatePkg>`, and create a :ref:`C++ <CppPubSub>` publisher and subscriber.
 
@@ -43,7 +44,7 @@ Tasks
 1 Write the subscriber node with statistics enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the previous tutorials, and
+Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the :ref:`previous tutorial <CppPubSub>`, and
 download the example talker code by entering the following command:
 
 .. tabs::
