@@ -60,7 +60,7 @@ To run turtlesim, open a new terminal, and enter the following command:
 
     ros2 run turtlesim turtlesim_node
 
-The turtlesim window will open, as you saw in the previous tutorial.
+The turtlesim window will open, as you saw in the :ref:`previous tutorial <Turtlesim>`.
 
 Here, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
 

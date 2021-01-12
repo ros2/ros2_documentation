@@ -37,9 +37,8 @@ As we saw in the :ref:`CreatePkg` tutorial, we need to create a new package to h
 1.1 Creating the action_tutorials_cpp package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go into the action workspace you created in the previous tutorial, and create a new package for the C++ action server:
+Go into the action workspace you created in the :ref:`previous tutorial <ActionCreate>` (remember to source the workspace), and create a new package for the C++ action server:
 
-(Remember to :ref:`source the workspace from the previous tutorial <ActionCreate>` first.)
 
 .. tabs::
 
