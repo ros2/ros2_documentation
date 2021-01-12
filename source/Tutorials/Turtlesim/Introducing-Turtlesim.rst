@@ -36,7 +36,7 @@ Tasks
 1 Install turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
-As always, start by sourcing your setup files in a new terminal, as described in the previous tutorial.
+As always, start by sourcing your setup files in a new terminal, as described in the :ref:`previous tutorial <ConfigROS2>`.
 
 Install the turtlesim package for your ROS 2 distro:
 

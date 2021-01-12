@@ -35,7 +35,7 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
                        ros-foxy-rosbag2-converter-default-plugins \
                        ros-foxy-rosbag2-storage-default-plugins
 
-This tutorial talks about concepts covered in previous tutorials, like nodes and :ref:`topics <ROS2Topics>`.
+This tutorial talks about concepts covered in previous tutorials, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.
 
 As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
