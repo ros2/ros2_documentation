@@ -145,6 +145,7 @@ it will generate a daemon with a Cyclone DDS implementation:
 .. code-block:: bash
 
 <<<<<<< HEAD
+<<<<<<< HEAD
    21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/dashing/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
 =======
 <<<<<<< HEAD
@@ -153,6 +154,9 @@ it will generate a daemon with a Cyclone DDS implementation:
    21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/foxy/bin/_ros2_daemon --rmw-implementation rmw_cyclonedds_cpp --ros-domain-id 22
 >>>>>>> 1edebe3... Update the tutorial to point to Cyclone DDS as the default.
 >>>>>>> 9a25574... Update the tutorial to point to Cyclone DDS as the default.
+=======
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/rolling/bin/_ros2_daemon --rmw-implementation rmw_cyclonedds_cpp --ros-domain-id 22
+>>>>>>> 3bc9cae... Fix conflicts.
 
 Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS 2 command line tools will fail.
 
