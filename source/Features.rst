@@ -16,11 +16,11 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
    * - Discovery, transport and serialization over DDS
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
-   * - Support for `multiple DDS implementations <Concepts/DDS-and-ROS-middleware-implementations>`, chosen at runtime
+   * - Support for `multiple DDS implementations <Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
      - `Tutorials </Tutorials/Working-with-multiple-RMW-implementations>`
      - Currently eProsima Fast RTPS, RTI Connext and ADLINK OpenSplice are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
-     - `Details <Concepts/ROS-2-Client-Libraries>`
+     - `Details <Concepts/About-ROS-2-Client-Libraries>`
      -
    * - Publish/subscribe over topics
      - `Sample code <https://github.com/ros2/examples>`__\ , `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
