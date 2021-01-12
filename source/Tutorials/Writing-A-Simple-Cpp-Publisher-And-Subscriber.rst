@@ -35,7 +35,7 @@ Tasks
 
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a previous tutorial.
+Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
 So, navigate into ``dev_ws/src``, and run the package creation command:
@@ -211,7 +211,7 @@ Navigate one level back to the ``dev_ws/src/cpp_pubsub`` directory, where the ``
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the previous tutorial, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
+As mentioned in the :ref:`previous tutorial <CreatePkg>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 
