@@ -77,8 +77,8 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Complete
    * - rosbag2: Record /clock topic
      - Medium
-     -
-     -
+     - AWS RoboMaker
+     - 2nd quarter 2021
    * - Performance: Reduce the performance overhead of executors
      - Large
      -
