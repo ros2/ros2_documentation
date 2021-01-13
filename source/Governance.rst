@@ -156,7 +156,7 @@ Working Groups (WGs)
 
 As described in its :download:`charter <Governance/ros2-tsc-charter.pdf>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
-The current WGs are (6 as of 2019-09-04):
+The current WGs are (11 as of 2021-01-12):
 
 Control
 ^^^^^^^
@@ -223,7 +223,6 @@ Manipulation
 Real-time
 ^^^^^^^^^
 
-
 * Lead(s): Dejan Pangercic, Andrei Kholodnyi
 * Resources: TODO
 
@@ -231,6 +230,16 @@ Real-time
  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
 
+Rust
+^^^^
+
+* Lead(s): Ruffin White, Geoffrey Biggs
+* Resources:
+
+ * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
+ * Meeting invite group `ros-rust-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-rust-working-group-invites>`_
+ * Discourse tag: `wg-rust <https://discourse.ros.org/tags/wg-rust>`_
+ * Matrix chat `+rosorg-rust:matrix.org <https://matrix.to/#/+rosorg-rust:matrix.org>`_
 
 Safety
 ^^^^^^
