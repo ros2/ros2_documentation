@@ -34,7 +34,7 @@ See above version requirements.
 
   .. code-block:: bash
 
-     sudo apt install python-catkin-pkg python-bloom
+     sudo apt install python3-catkin-pkg python3-bloom
 
 If you're using a version of bloom older than 0.6.8 you'll need to use the v3 index url for releasing.
 
