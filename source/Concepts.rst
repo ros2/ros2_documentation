@@ -3,25 +3,33 @@
 Concepts
 ========
 
-The following "Concepts" pages provide an overview for key aspects of ROS 2.
-Concept overviews will help you understand the "big picture" idea of ROS 2 systems.
+Conceptual overviews provide general background information about key aspects of ROS 2:
 
 .. toctree::
    :maxdepth: 1
 
-   Concepts/DDS-and-ROS-middleware-implementations
+   Concepts/About-Different-Middleware-Vendors
+   Concepts/About-Logging
    Concepts/About-Quality-of-Service-Settings
+   Concepts/About-ROS-2-Client-Libraries
    Concepts/About-ROS-Interfaces
-   Concepts/ROS-2-Client-Libraries
-   Concepts/Logging
    Concepts/About-ROS-2-Parameters
+   Concepts/About-Topic-Statistics
 
-See https://docs.ros2.org/ for more high-level ROS 2 documentation.
+The Core Stack Developer Concepts are much more detailed conceptual articles intended for developers who plan modify or contribute to the ROS 2 core:
 
-Overview of ROS 2 Concepts
---------------------------
+.. toctree::
+  :maxdepth: 2
 
-.. contents:: Table of Contents
+  Concepts/About-Build-System
+  Concepts/About-Internal-Interfaces
+  Concepts/About-Middleware-Implementations
+  Concepts/About-Client-Interfaces
+
+Quick overview of ROS 2 Concepts
+--------------------------------
+
+.. contents::
    :local:
 
 ROS 2 is a middleware based on an anonymous publish/subscribe mechanism that allows for message passing between different ROS processes.
@@ -29,8 +37,8 @@ ROS 2 is a middleware based on an anonymous publish/subscribe mechanism that all
 At the heart of any ROS 2 system is the ROS graph.
 The ROS graph refers to the network of nodes in a ROS system and the connections between them by which they communicate.
 
-Quick Overview of Graph Concepts
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Graph Concepts
+^^^^^^^^^^^^^^
 
 
 * Nodes: A node is an entity that uses ROS to communicate with other nodes.
