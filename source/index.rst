@@ -21,6 +21,7 @@ ROS 2 Documentation
    Governance
    Marketing
    Related-Projects
+   Glossary
 
 The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.
 From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS has what you need for your next robotics project.

@@ -1,0 +1,17 @@
+.. |ament packages| replace:: :term:`ament packages <ament package>`
+
+.. |API| replace:: :term:`API`
+.. |APIs| replace:: :term:`APIs <API>`
+
+.. |client library| replace:: :term:`client library <client_library>`
+.. |client libraries| replace:: :term:`client libraries <client_library>`
+
+.. |GitHub| replace:: GitHub
+.. _GitHub: https://github.com/
+
+.. |package| replace:: :term:`package`
+.. |packages| replace:: :term:`packages <package>`
+
+.. |REPs| replace:: :term:`REPs <REP>`
+
+.. |rclcpp| replace:: :term:`rclcpp`
