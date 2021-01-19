@@ -14,7 +14,7 @@ This page explains the default RMW implementation and how to specify an alternat
 Prerequisites
 --------------
 
-You should have already read the `DDS and ROS middleware implementations page <../Concepts/DDS-and-ROS-middleware-implementations>`.
+You should have already read the `DDS and ROS middleware implementations page <../Concepts/About-Different-Middleware-Vendors>`.
 
 Multiple RMW implementations
 ----------------------------

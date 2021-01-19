@@ -5,7 +5,7 @@
 Logging and logger configuration demo
 =====================================
 
-See `the logging page <../Concepts/Logging>` for details on available functionality.
+See `the logging page <../Concepts/About-Logging>` for details on available functionality.
 
 In this demo, different types of log calls are shown and the severity level of different loggers is configured locally and externally.
 
