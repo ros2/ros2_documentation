@@ -22,7 +22,7 @@ ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 supports multiple middleware implementations (see `this page <../Concepts/DDS-and-ROS-middleware-implementations>` for more details).
+ROS 2 supports multiple middleware implementations (see `this page <../Concepts/About-Different-Middleware-Vendors>` for more details).
 Until Alpha 8, ROS 2 was supporting ROS middleware implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's OpenSplice.
 To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (`now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__) shipped as the default.
 
