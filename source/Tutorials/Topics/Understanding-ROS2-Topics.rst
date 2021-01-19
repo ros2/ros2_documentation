@@ -55,7 +55,7 @@ Open another terminal and run:
 
     ros2 run turtlesim turtle_teleop_key
 
-Recall from the previous tutorial that the names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
+Recall from the :ref:`previous tutorial <ROS2Nodes>` that the names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 
 
 2 rqt_graph
