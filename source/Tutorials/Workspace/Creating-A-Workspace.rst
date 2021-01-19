@@ -70,6 +70,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
 Consult the :ref:`installation guide <InstallationGuide>` you followed if these commands don’t work for you.
 
+.. _new-directory:
 
 2 Create a new directory
 ^^^^^^^^^^^^^^^^^^^^^^^^

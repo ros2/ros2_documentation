@@ -112,7 +112,7 @@ Tasks
 
 First, :ref:`source your ROS 2 installation <ConfigROS2>`.
 
-Let’s use the workspace you created in the previous tutorial, ``dev_ws``, for your new package.`
+Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``dev_ws``, for your new package.`
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
