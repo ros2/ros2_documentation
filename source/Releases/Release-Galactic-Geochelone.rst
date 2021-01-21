@@ -51,6 +51,19 @@ Thus the default value stays the same: ``~/.ros/log``.
 
 Related PRs: `ros2/rcl_logging#53 <https://github.com/ros2/rcl_logging/pull/53>`_ and `ros2/launch#460 <https://github.com/ros2/launch/pull/460>`_.
 
+Externally configure QoS at start-up
+------------------------------------
+
+It is now possible to externally configure the QoS settings for a node at start-up time.
+QoS settings are **not** configurable during runtime and node authors must opt-in to enable this feature.
+If the feature is enabled on a node, then QoS settings can be set with ROS parameters when a node first starts.
+
+`Demos in C++ and Python can be found here. <https://github.com/ros2/demos/tree/a66f0e894841a5d751bce6ded4983acb780448cf/quality_of_service_demo#qos-overrides>`_
+
+See the `design document for more details <http://design.ros2.org/articles/qos_configurability.html>`_.
+
+Related PRs: `ros2/rclcpp#1408 <https://github.com/ros2/rclcpp/pull/1408>`_ and `ros2/rclpy#635 <https://github.com/ros2/rclpy/pull/635>`_
+
 Changes since the Foxy release
 ------------------------------
 
