@@ -55,7 +55,8 @@ Externally configure QoS at start-up
 ------------------------------------
 
 It is now possible to externally configure the QoS settings for a node at start-up time.
-QoS settings are **not** configurable during runtime and node authors must opt-in to enable this feature.
+QoS settings are **not** configurable during runtime; they are only configurable at start-up.
+Node authors must opt-in to enable changing QoS settings at start-up.
 If the feature is enabled on a node, then QoS settings can be set with ROS parameters when a node first starts.
 
 `Demos in C++ and Python can be found here. <https://github.com/ros2/demos/tree/a66f0e894841a5d751bce6ded4983acb780448cf/quality_of_service_demo#qos-overrides>`_
