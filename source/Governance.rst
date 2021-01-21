@@ -16,7 +16,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (18 as of 2020-11-16):
+The current members of the ROS 2 TSC are (20 as of 2021-01-21):
 
 .. |adlink| image:: Governance/adlink.svg
    :alt: ADLINK Technology logo
@@ -58,6 +58,11 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
    :height: 35px
    :target: https://www.intel.com
 
+.. |irobot| image:: Governance/irobot.png
+   :alt: iRobot logo
+   :height: 35px
+   :target: https://www.irobot.com
+
 .. |lge| image:: Governance/lge.svg
    :alt: LG Electronics logo
    :height: 35px
@@ -93,6 +98,11 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
    :height: 35px
    :target: https://www.samsung.com
 
+.. |sony| image:: Governance/sony.svg
+   :alt: Sony logo
+   :height: 35px
+   :target: https://www.sony.com
+
 .. |tieriv| image:: Governance/TierIV.png
    :alt: Tier IV logo
    :height: 35px
@@ -126,6 +136,8 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
      - eProsima: Jaime Martin Losa
    * - |intel|
      - Intel: Harold Yang
+   * - |irobot|
+     - iRobot: Ori Taka
    * - |lge|
      - LG Electronics: Lokesh Kumar Goel
    * - |microsoft|
@@ -140,6 +152,8 @@ The current members of the ROS 2 TSC are (18 as of 2020-11-16):
      - Rover Robotics: Nick Fragale
    * - |samsung|
      - Samsung: Steven Macenski
+   * - |sony|
+     - Sony: Tomoya Fujita
    * - |gvsc|
      - GVSC: Jerry Towler (SwRI)
    * - |tieriv|
