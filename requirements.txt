@@ -1,3 +1,4 @@
 pip
-Sphinx
+sphinx
 sphinx-tabs
+sphinx-multiversion
