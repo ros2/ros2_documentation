@@ -98,11 +98,6 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
    :height: 35px
    :target: https://www.samsung.com
 
-.. |sony| image:: Governance/sony.svg
-   :alt: Sony logo
-   :height: 35px
-   :target: https://www.sony.com
-
 .. |tieriv| image:: Governance/TierIV.png
    :alt: Tier IV logo
    :height: 35px
@@ -152,8 +147,8 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
      - Rover Robotics: Nick Fragale
    * - |samsung|
      - Samsung: Steven Macenski
-   * - |sony|
-     - Sony: Tomoya Fujita
+   * - 
+     - `Sony <https://www.sony.com>`__: Tomoya Fujita
    * - |gvsc|
      - GVSC: Jerry Towler (SwRI)
    * - |tieriv|
