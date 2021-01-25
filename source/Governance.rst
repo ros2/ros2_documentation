@@ -147,7 +147,7 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
      - Rover Robotics: Nick Fragale
    * - |samsung|
      - Samsung: Steven Macenski
-   * - 
+   * -
      - `Sony <https://www.sony.com>`__: Tomoya Fujita
    * - |gvsc|
      - GVSC: Jerry Towler (SwRI)
