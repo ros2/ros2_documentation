@@ -280,33 +280,37 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 ROS 2 Introspection
 -------------------
 
-ROS 2 Command Line Interface (CLI) implements several introspection features to analyze the behaviour of a ROS2 execution.
-These features (i.e. ``rosbag``, ``topic list``, etc.) are very helpful to understand a ROS 2 working network.
+ROS 2 Command Line Interface (CLI) implements several introspection features to analyze the behaviour of a ROS2 network.
+These features (i.e. ``ros2 bag record``, ``ros2 topic list``, etc.) are very helpful to understand a ROS 2 working network.
 
-Most of these features use the DDS capability to share any topic information with every exiting participant.
-However, the new Discovery Server v2 implements a traffic network reduction that limits the discovery data between nodes that do not share a topic.
-This means that not every node will receive every topic data unless it has a reader in that topic.
-As most of ROS 2 CLI Introspection is executed by adding a node into the network (some of them use ROS 2 Daemon,
-and some create their own nodes), using Discovery Server v2 we will find that most of these functionalities are limited and do not have all the information.
+Most of these features use DDS simple discovery to share every topic information with every existing participant (using simple discovery, every participant in the network is connected with each other).
+However, the new Discovery Server v2 implements a traffic network reduction shceme that limits the discovery data between participants that do not share a topic.
+This means that not every node will receive every topic's discovery data unless it has a reader for that topic.
+As most ROS 2 CLIs need a node in the network (some of them rely on a running ROS 2 daemon, and some create their own nodes), using Discovery Server v2 we will find that most of these functionalities are limited and do not have all the information.
 
-The Discovery Server v2 functionality allows every node running as a **Server** (a kind of *Participant type*) to know and share all the participants and topics information with every other server matched.
+The Discovery Server v2 functionality allows every Participant running as a **Server** (a kind of *Participant type*) to know and share all the participants and topics information with every other server matched.
 In this sense, a server can be configured alongside ROS 2 introspection, since then the introspection tool will be able to discover every entity in the network that is using the Discovery Server protocol.
+
+.. note::
+
+    In this section we use the term *Participant* as a DDS entity. Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
+    `Nodes <ROS2Nodes>` are another ROS 2 abstraction, and are the ROS 2 entities related with communication: ``listener``, ``talker``, ``service``, etc.
+    Each *Participant* can hold one or more ROS 2 Nodes.
 
 
 Daemon's related commands
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS 2 Daemon is used in several ROS 2 CLI introspection commands. It adds a ROS 2 Node to the network in order to receive all the data sent.
+The ROS 2 Daemon is used in several ROS 2 CLI introspection commands. It adds a ROS 2 Context to the network in order to receive all the data sent.
 This section will explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Server**.
 This will allow the Daemon to know all the Node's graph and to receive every topic and endpoint information.
 
-Fast DDS CLI can execute a Discovery Server, but it will spawn the Server in the actual process (or in a new one),
-and we want to run ROS 2 Daemon process as the Discovery Server.
-For this purpose, Fast DDS XML configuration can be used in order to preconfigure every new node that is created with this configuration exported.
+Fast DDS CLI can execute a Discovery Server, but it will spawn the Server in the actual process (or in a new one), and we want to run ROS 2 Daemon process as the Discovery Server.
+For this purpose, Fast DDS XML configuration can be used in order to preconfigure every new participant that is created with this configuration exported.
 
 Below you can find a XML configuration file which will configure every new participant as a Discovery Server.
-It is important to notice that, in order to create a Discovery Server, port and a GUID (id) must be specified.
-so only one participant at a time can be created with this configuration file.
+It is important to notice that, in order to create a Discovery Server, port and GUID (id) must be specified.
+Thus only one participant at a time can be created with this configuration file.
 Creating more than one participant with the same file will lead to an error.
 
 * :download:`XML Discovery Server configuration file <scripts/discovery_server_configuration_file.xml>`
@@ -331,7 +335,7 @@ Run a talker and a listener that will discover each other by the Server/Daemon (
     export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
     ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
 
-Now the Daemon can be used to introspect the network (``ROS_DISCOVERY_SERVER`` must be exported because new nodes are created within this tools' executions).
+Now the Daemon can be used to introspect the network (``ROS_DISCOVERY_SERVER`` must be exported because new participant are created within this tools' executions).
 
 .. code-block:: console
 
@@ -341,7 +345,7 @@ Now the Daemon can be used to introspect the network (``ROS_DISCOVERY_SERVER`` m
     ros2 topic info /chatter
     ros2 topic echo /chatter
 
-Be careful to use a different terminal than that of the Daemon for each execution, as some of the introspection tools instantiate their own nodes, and only one node could be instantiated with ``discovery_server_configuration_file.xml`` exported.
+Be careful to use a different terminal than that of the Daemon for each execution, as some of the introspection tools instantiate their own participants, and only one participant could be instantiated with ``discovery_server_configuration_file.xml`` exported.
 
 We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows.
 
