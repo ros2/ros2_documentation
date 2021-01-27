@@ -46,15 +46,15 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Documentation: Consolidate ROS 2 documentation in an easy to find/search place
      - Large
      - Open Robotics
-     - 4th quarter 2020
+     - 1st quarter 2021
    * - Documentation: Automatically generate and host per-package documentation
      - Large
      - Open Robotics
-     - 4th quarter 2020
+     - 1st quarter 2021
    * - Middleware: Switch to CycloneDDS as default RMW vendor
      - Small
      - ADLINK and Open Robotics
-     - 1st quarter 2021
+     - Complete
    * - Galactic Release
      - Large
      - Open Robotics
@@ -86,11 +86,11 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Quality: Turn on more compiler warnings
      - Small
      - Open Robotics
-     - 2nd quarter 2021
+     - Complete
    * - Quality: Increase testing coverage of C/C++ packages
      - Large
-     -
-     -
+     - Open Robotics
+     - Complete
    * - Documentation: More intermediate/advanced tutorials
      - Medium
      - Open Robotics
