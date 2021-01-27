@@ -205,7 +205,7 @@ Recall that the ``cmd_vel`` topic has the type:
 
 This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twist``.
 
-Now we can run ``ros2 interface show <type>.msg`` on this type to learn its the details, specifically, what structure of data the message expects.
+Now we can run ``ros2 interface show <type>.msg`` on this type to learn its details, specifically, what structure of data the message expects.
 
 .. tabs::
 
