@@ -18,144 +18,106 @@ Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>
 
 The current members of the ROS 2 TSC are (20 as of 2021-01-21):
 
-.. |adlink| image:: Governance/adlink.svg
-   :alt: ADLINK Technology logo
-   :height: 35px
-   :target: https://www.adlinktech.com
-
-.. |amazon| image:: Governance/amazon.svg
-   :alt: Amazon logo
-   :height: 35px
-   :target: https://www.amazon.com
-
-.. |apex| image:: Governance/apex.png
-   :alt: Apex.AI logo
-   :height: 35px
-   :target: https://www.apex.ai
-
-.. |bosch| image:: Governance/bosch_75h.jpg
-   :alt: Bosch logo
-   :height: 35px
-   :target: https://www.bosch.com/
-
-.. |canonical| image:: Governance/ubuntu.svg
-   :alt: Ubuntu logo
-   :height: 35px
-   :target: https://ubuntu.com/
-
-.. |eprosima| image:: Governance/eprosima.svg
-   :alt: eProsima logo
-   :height: 35px
-   :target: https://eprosima.com/
-
-.. |gvsc| image:: Governance/gvsc.png
-   :alt: GVSC logo
-   :height: 35px
-   :target: https://gvsc.army.mil/
-
-.. |intel| image:: Governance/intel.svg
-   :alt: Intel logo
-   :height: 35px
-   :target: https://www.intel.com
-
-.. |irobot| image:: Governance/irobot.png
-   :alt: iRobot logo
-   :height: 35px
-   :target: https://www.irobot.com
-
-.. |lge| image:: Governance/lge.svg
-   :alt: LG Electronics logo
-   :height: 35px
-   :target: https://www.lg.com/
-
-.. |microsoft| image:: Governance/microsoft.svg
-   :alt: Microsoft logo
-   :height: 35px
-   :target: https://www.microsoft.com
-
-.. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
-   :alt: Open Robotics logo
-   :height: 35px
-   :target: https://www.openrobotics.org
-
-.. |picknik| image:: Governance/picknik.jpg
-   :alt: PickNik logo
-   :height: 35px
-   :target: https://picknik.ai/
-
-.. |robotis| image:: Governance/robotis.png
-   :alt: ROBOTIS logo
-   :height: 35px
-   :target: https://www.robotis.com/
-
-.. |rover| image:: Governance/rover.png
-   :alt: Rover Robotics logo
-   :height: 35px
-   :target: https://roverrobotics.com/
-
-.. |samsung| image:: Governance/samsung.svg
-   :alt: Samsung logo
-   :height: 35px
-   :target: https://www.samsung.com
-
-.. |tieriv| image:: Governance/TierIV.png
-   :alt: Tier IV logo
-   :height: 35px
-   :target: https://www.tier4.jp/
-
-.. |tri| image:: Governance/tri_logo_landscape-web.svg
-   :alt: TRI logo
-   :height: 35px
-   :target: https://www.tri.global/
-
-.. |windriver| image:: Governance/windriver.png
-   :alt: Wind River logo
-   :height: 35px
-   :target: https://www.windriver.com/
-
 .. list-table::
    :align: center
    :widths: auto
 
-   * - |adlink|
+   * - .. figure:: Governance/adlink.svg
+          :alt: ADLINK Technology logo
+          :height: 35px
+          :target: https://www.adlinktech.com
      - ADLINK Technology: Joe Speed
-   * - |amazon|
+   * - .. figure:: Governance/amazon.svg
+          :alt: Amazon logo
+          :height: 35px
+          :target: https://www.amazon.com
      - Amazon: Aaron Blasdel
-   * - |apex|
+   * - .. figure:: Governance/apex.png
+          :alt: Apex.AI logo
+          :height: 35px
+          :target: https://www.apex.ai
      - Apex.AI: Dejan Pangercic
-   * - |bosch|
+   * - .. figure:: Governance/bosch_75h.jpg
+          :alt: Bosch logo
+          :height: 35px
+          :target: https://www.bosch.com/
      - Bosch: Karsten Knese
-   * - |canonical|
+   * - .. figure:: Governance/ubuntu.svg
+          :alt: Ubuntu logo
+          :height: 35px
+          :target: https://ubuntu.com/
      - Canonical: Kyle Fazzari
-   * - |eprosima|
+   * - .. figure:: Governance/eprosima.svg
+          :alt: eProsima logo
+          :height: 35px
+          :target: https://eprosima.com/
      - eProsima: Jaime Martin Losa
-   * - |intel|
+   * - .. figure:: Governance/intel.svg
+          :alt: Intel logo
+          :height: 50px
+          :target: https://www.intel.com
      - Intel: Harold Yang
-   * - |irobot|
+   * - .. figure:: Governance/irobot.png
+          :alt: iRobot logo
+          :height: 35px
+          :target: https://www.irobot.com
      - iRobot: Ori Taka
-   * - |lge|
+   * - .. figure:: Governance/lge.svg
+          :alt: LG Electronics logo
+          :height: 35px
+          :target: https://www.lg.com/
      - LG Electronics: Lokesh Kumar Goel
-   * - |microsoft|
+   * - .. figure:: Governance/microsoft.svg
+          :alt: Microsoft logo
+          :height: 35px
+          :target: https://www.microsoft.com
      - Microsoft: Sean Yen
-   * - |openrobotics|
+   * - .. figure:: Governance/openrobotics-logo-stacked.png
+          :alt: Open Robotics logo
+          :height: 35px
+          :target: https://www.openrobotics.org
      - Open Robotics: Chris Lalancette
-   * - |picknik|
+   * - .. figure:: Governance/picknik.jpg
+          :alt: PickNik logo
+          :height: 35px
+          :target: https://picknik.ai/
      - PickNik: Dave Coleman
-   * - |robotis|
+   * - .. figure:: Governance/robotis.png
+          :alt: ROBOTIS logo
+          :height: 35px
+          :target: https://www.robotis.com/
      - ROBOTIS: Will Son
-   * - |rover|
+   * - .. figure:: Governance/rover.png
+          :alt: Rover Robotics logo
+          :height: 35px
+          :target: https://roverrobotics.com/
      - Rover Robotics: Nick Fragale
-   * - |samsung|
+   * - .. figure:: Governance/samsung.svg
+          :alt: Samsung logo
+          :height: 25px
+          :target: https://www.samsung.com
      - Samsung: Steven Macenski
    * -
      - `Sony <https://www.sony.com>`__: Tomoya Fujita
-   * - |gvsc|
+   * - .. figure:: Governance/gvsc.png
+          :alt: GVSC logo
+          :height: 50px
+          :target: https://gvsc.army.mil/
      - GVSC: Jerry Towler (SwRI)
-   * - |tieriv|
+   * - .. figure:: Governance/TierIV.png
+          :alt: Tier IV logo
+          :height: 50px
+          :target: https://www.tier4.jp/
      - Tier IV: Jilada Eccleston
-   * - |tri|
+   * - .. figure:: Governance/tri_logo_landscape-web.svg
+          :alt: TRI logo
+          :height: 50px
+          :target: https://www.tri.global/
      - Toyota Research Institute: Ian McMahon
-   * - |windriver|
+   * - .. figure:: Governance/windriver.png
+          :alt: Wind River logo
+          :height: 60px
+          :target: https://www.windriver.com/
      - Wind River: `Andrei Kholodnyi <https://github.com/razr>`__
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
