@@ -52,6 +52,11 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
           :height: 35px
           :target: https://eprosima.com/
      - eProsima: Jaime Martin Losa
+   * - .. figure:: Governance/gvsc.png
+          :alt: GVSC logo
+          :height: 50px
+          :target: https://gvsc.army.mil/
+     - GVSC: Jerry Towler (SwRI)
    * - .. figure:: Governance/intel.svg
           :alt: Intel logo
           :height: 50px
@@ -97,13 +102,11 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
           :height: 25px
           :target: https://www.samsung.com
      - Samsung: Steven Macenski
-   * -
-     - `Sony <https://www.sony.com>`__: Tomoya Fujita
-   * - .. figure:: Governance/gvsc.png
-          :alt: GVSC logo
-          :height: 50px
-          :target: https://gvsc.army.mil/
-     - GVSC: Jerry Towler (SwRI)
+   * - .. figure:: Governance/sony.png
+          :alt: Sony logo
+          :height: 60px
+          :target: https://www.sony.com
+     - Sony: Tomoya Fujita
    * - .. figure:: Governance/TierIV.png
           :alt: Tier IV logo
           :height: 50px
