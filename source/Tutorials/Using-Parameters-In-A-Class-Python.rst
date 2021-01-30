@@ -114,7 +114,7 @@ The line ``self.declare_parameter("my_parameter")`` of this constructor creates 
 Our parameter has the name ``my_parameter`` and is assigned default value ``world``.
 
 .. code-block:: Python
-  
+
     class MinimalParam(rclpy.node.Node):
             def __init__(self):
                 super().__init__('minimal_param_node')
@@ -128,7 +128,7 @@ Next,The ``get_logger`` function ensures the message(hello with the name) is log
 Then, we set the parameter "my_parameter" back to the default string value "world"
 
 .. code-block:: Python
-  
+
     def timer_callback(self):
                 my_param = self.get_parameter("my_parameter").get_parameter_value().string_value
 
@@ -148,7 +148,7 @@ Then,a instance of the class ``MinimalParam`` named ``node`` is defined
 Finally, ``rclpy.spin`` starts processing data from the node.
 
 .. code-block:: Python
-    
+
     def main():
         rclpy.init()
         node = MinimalParam()
