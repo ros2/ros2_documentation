@@ -107,7 +107,59 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
+Note: Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
+
+The ``import`` statements at the top are used to import the package dependencies.
+
+The next piece of code creates the class and the constructor.
+``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
+The line ``self.declare_parameter("my_parameter")`` of this constructor creates our parameter.
+Our parameter has the name ``my_parameter`` and is assigned default value ``world``.
+
+.. code-block:: Python
+  
+    class MinimalParam(rclpy.node.Node):
+            def __init__(self):
+                super().__init__('minimal_param_node')
+                timer_period = 2  # seconds
+                self.timer = self.create_timer(timer_period, self.timer_callback)
+
+                self.declare_parameter("my_parameter","world")
+
+The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
+Next,The ``get_logger`` function ensures the message(hello with the name) is logged.
+Then, we set the parameter "my_parameter" back to the default string value "world"
+
+.. code-block:: Python
+  
+    def timer_callback(self):
+                my_param = self.get_parameter("my_parameter").get_parameter_value().string_value
+
+                self.get_logger().info('Hello %s!' % my_param)
+
+                my_new_param = rclpy.parameter.Parameter(
+                    "my_parameter",
+                    rclpy.Parameter.Type.STRING,
+                    "world"
+                )
+                all_new_parameters = [my_new_param]
+                self.set_parameters(all_new_parameters)
+
+Following our ``timer_callback`` is our ``main`` function.
+Here ROS 2 is initialized.
+Then,a instance of the class ``MinimalParam`` named ``node`` is defined
+Finally, ``rclpy.spin`` starts processing data from the node.
+
+.. code-block:: Python
+    
+    def main():
+        rclpy.init()
+        node = MinimalParam()
+        rclpy.spin(node)
+
+    if __name__ == '__main__':
+        main()
+
 
 2.1.1 (Optional) Add ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""
