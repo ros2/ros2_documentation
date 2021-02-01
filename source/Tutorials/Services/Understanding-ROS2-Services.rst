@@ -216,7 +216,7 @@ To see the arguments in a ``/spawn`` call-and-request, run the command:
 
     .. code-block:: console
 
-      ros2 interface show turtlesim/srv/Spawn.srv
+      ros2 interface show turtlesim/srv/Spawn
 
   .. group-tab:: Dashing
 
