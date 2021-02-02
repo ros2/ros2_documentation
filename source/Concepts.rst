@@ -14,7 +14,6 @@ Conceptual overviews provide general background information about key aspects of
    Concepts/About-ROS-2-Client-Libraries
    Concepts/About-ROS-Interfaces
    Concepts/About-ROS-2-Parameters
-   Concepts/About-Topic-Statistics
 
 The Core Stack Developer Concepts are much more detailed conceptual articles intended for developers who plan modify or contribute to the ROS 2 core:
 
