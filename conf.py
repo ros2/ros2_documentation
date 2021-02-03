@@ -143,7 +143,7 @@ class RedirectFrom(Directive):
         if not isinstance(app.builder, StandaloneHTMLBuilder):
             return
         redirect_html_fragment = """
-            <link rel="canonical" href="{url}" />
+            <link rel="canonical" href="https://docs.ros.org/en/{url}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
                 window.location.href = '{url}';
@@ -191,7 +191,7 @@ class RedirectFrom(Directive):
                     ),
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
-                        url=app.builder.get_relative_uri(
+                        url=app.config.smv_current_version + '/' + app.builder.get_relative_uri(
                             redirect_url, canonical_url
                         )
                     )
