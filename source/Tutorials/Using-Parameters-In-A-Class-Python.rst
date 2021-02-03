@@ -106,9 +106,16 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 ~~~~~~~~~~~~~~~~~~~~
 Note: Declaring a parameter before getting or setting it is compulsory, or a ``ParameterNotDeclaredException`` exception will be raised.
 
-The ``import`` statements at the top are used to import the package dependencies.
+The ``import`` statements at the below are used to import the package dependencies.
 
+.. code-block:: Python
+
+    import rclpy
+    import rclpy.node
+    from rclpy.exceptions import ParameterNotDeclaredException
+    from rcl_interfaces.msg import ParameterType
 The next piece of code creates the class and the constructor.
+
 ``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
 The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a
 parameter with the name ``my_parameter`` and a default value of ``world``.
@@ -124,7 +131,7 @@ parameter with the name ``my_parameter`` and a default value of ``world``.
             self.declare_parameter('my_parameter','world')
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
-Next,The ``get_logger`` function ensures the message is logged.
+Next,the ``get_logger`` function ensures the message is logged.
 Then, we set the parameter 'my_parameter' back to the default string value 'world'.
 
 .. code-block:: Python
