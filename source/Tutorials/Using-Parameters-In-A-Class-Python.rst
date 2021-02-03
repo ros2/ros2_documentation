@@ -106,7 +106,7 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 ~~~~~~~~~~~~~~~~~~~~
 Note: Declaring a parameter before getting or setting it is compulsory, or a ``ParameterNotDeclaredException`` exception will be raised.
 
-The ``import`` statements at the below are used to import the package dependencies.
+The ``import`` statements below are used to import the package dependencies.
 
 .. code-block:: Python
 
