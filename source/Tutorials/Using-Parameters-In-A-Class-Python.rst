@@ -77,20 +77,17 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            self.declare_parameter("my_parameter")
+            self.declare_parameter('my_parameter','world')
 
         def timer_callback(self):
-            # First get the value parameter "my_parameter" and get its string value
-            my_param = self.get_parameter("my_parameter").get_parameter_value().string_value
+            my_param = self.get_parameter('my_parameter').get_parameter_value().string_value
 
-            # Send back a hello with the name
             self.get_logger().info('Hello %s!' % my_param)
 
-            # Then set the parameter "my_parameter" back to string value "world"
             my_new_param = rclpy.parameter.Parameter(
-                "my_parameter",
+                'my_parameter',
                 rclpy.Parameter.Type.STRING,
-                "world"
+                'world'
             )
             all_new_parameters = [my_new_param]
             self.set_parameters(all_new_parameters)
@@ -107,7 +104,65 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-Declaring a parameter before getting or setting it is compulsory, or you will raise a ``ParameterNotDeclaredException`` exception.
+Note: Declaring a parameter before getting or setting it is compulsory, or a ``ParameterNotDeclaredException`` exception will be raised.
+
+The ``import`` statements below are used to import the package dependencies.
+
+.. code-block:: Python
+
+    import rclpy
+    import rclpy.node
+    from rclpy.exceptions import ParameterNotDeclaredException
+    from rcl_interfaces.msg import ParameterType
+
+The next piece of code creates the class and the constructor.
+``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
+The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a
+parameter with the name ``my_parameter`` and a default value of ``world``.
+
+.. code-block:: Python
+
+    class MinimalParam(rclpy.node.Node):
+        def __init__(self):
+            super().__init__('minimal_param_node')
+            timer_period = 2  # seconds
+            self.timer = self.create_timer(timer_period, self.timer_callback)
+
+            self.declare_parameter('my_parameter','world')
+
+The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
+Next,the ``get_logger`` function ensures the message is logged.
+Then, we set the parameter 'my_parameter' back to the default string value 'world'.
+
+.. code-block:: Python
+
+      def timer_callback(self):
+          my_param = self.get_parameter('my_parameter').get_parameter_value().string_value
+
+          self.get_logger().info('Hello %s!' % my_param)
+
+          my_new_param = rclpy.parameter.Parameter(
+              'my_parameter',
+              rclpy.Parameter.Type.STRING,
+              'world'
+          )
+          all_new_parameters = [my_new_param]
+          self.set_parameters(all_new_parameters)
+
+Following the ``timer_callback`` is the ``main`` function where ROS 2 is initialized.
+Then an instance of the class ``MinimalParam`` named ``node`` is defined.
+Finally, ``rclpy.spin`` starts processing data from the node.
+
+.. code-block:: Python
+
+    def main():
+        rclpy.init()
+        node = MinimalParam()
+        rclpy.spin(node)
+
+    if __name__ == '__main__':
+        main()
+
 
 2.1.1 (Optional) Add ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""
@@ -129,8 +184,8 @@ For that to work, the ``__init__`` code has to be changed to:
             my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
                                                           description='This parameter is mine!')
 
-            self.declare_parameter("my_parameter",
-                                   "default value for my_parameter",
+            self.declare_parameter('my_parameter',
+                                   'default value for my_parameter',
                                    my_parameter_descriptor)
 
 The rest of the code remains the same.
@@ -262,6 +317,7 @@ Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory c
 In there, create a new file called ``python_parameters_launch.py``
 
 
+<<<<<<< HEAD
 
 .. code-block:: Python
 
@@ -282,6 +338,71 @@ In there, create a new file called ``python_parameters_launch.py``
           )
       ])
 
+=======
+  .. group-tab:: Foxy and newer
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package='python_parameters',
+                  executable='param_talker',
+                  name='custom_parameter_node',
+                  output='screen',
+                  emulate_tty=True,
+                  parameters=[
+                      {'my_parameter': 'earth'}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Eloquent
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package='python_parameters',
+                  node_executable='param_talker',
+                  node_name='custom_parameter_node',
+                  output='screen',
+                  emulate_tty=True,
+                  parameters=[
+                      {'my_parameter': 'earth'}
+                  ]
+              )
+          ])
+
+  .. group-tab:: Dashing
+
+    ``emulate_tty``, which prints output to the console, is not available in Dashing.
+
+    .. code-block:: Python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import Node
+
+      def generate_launch_description():
+          return LaunchDescription([
+              Node(
+                  package='python_parameters',
+                  node_executable='param_talker',
+                  node_name='custom_parameter_node',
+                  output='screen',
+                  parameters=[
+                      {'my_parameter': 'earth'}
+                  ]
+              )
+          ])
+>>>>>>> f09b05f... Updated Using-Parameters-In-A-Class-Python.rst (#1070)
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.
