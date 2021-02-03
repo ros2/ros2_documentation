@@ -114,8 +114,8 @@ The ``import`` statements at the below are used to import the package dependenci
     import rclpy.node
     from rclpy.exceptions import ParameterNotDeclaredException
     from rcl_interfaces.msg import ParameterType
-The next piece of code creates the class and the constructor.
 
+The next piece of code creates the class and the constructor.
 ``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
 The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a
 parameter with the name ``my_parameter`` and a default value of ``world``.
