@@ -77,7 +77,7 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            self.declare_parameter('my_parameter','world')
+            self.declare_parameter('my_parameter', 'world')
 
         def timer_callback(self):
             my_param = self.get_parameter('my_parameter').get_parameter_value().string_value
@@ -128,7 +128,7 @@ parameter with the name ``my_parameter`` and a default value of ``world``.
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            self.declare_parameter('my_parameter','world')
+            self.declare_parameter('my_parameter', 'world')
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
 Next,the ``get_logger`` function ensures the message is logged.
@@ -316,89 +316,27 @@ You can also set parameters in a launch file, but first you will need to add a l
 Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``python_parameters_launch.py``
 
+
+``emulate_tty``, which prints output to the console, is not available in Dashing.
+
 .. code-block:: Python
 
-<<<<<<< HEAD
   from launch import LaunchDescription
   from launch_ros.actions import Node
 
   def generate_launch_description():
       return LaunchDescription([
           Node(
-              package="python_parameters",
-              node_executable="param_talker",
-              node_name="custom_parameter_node",
-              output="screen",
+              package='python_parameters',
+              node_executable='param_talker',
+              node_name='custom_parameter_node',
+              output='screen',
               parameters=[
-                  {"my_parameter": "earth"}
+                  {'my_parameter': 'earth'}
               ]
           )
       ])
-=======
-  .. group-tab:: Foxy and newer
 
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  executable='param_talker',
-                  name='custom_parameter_node',
-                  output='screen',
-                  emulate_tty=True,
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Eloquent
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  node_executable='param_talker',
-                  node_name='custom_parameter_node',
-                  output='screen',
-                  emulate_tty=True,
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Dashing
-
-    ``emulate_tty``, which prints output to the console, is not available in Dashing.
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  node_executable='param_talker',
-                  node_name='custom_parameter_node',
-                  output='screen',
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
->>>>>>> f09b05f... Updated Using-Parameters-In-A-Class-Python.rst (#1070)
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 
