@@ -77,7 +77,7 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            self.declare_parameter('my_parameter','world')
+            self.declare_parameter('my_parameter', 'world')
 
         def timer_callback(self):
             my_param = self.get_parameter('my_parameter').get_parameter_value().string_value
@@ -128,7 +128,7 @@ parameter with the name ``my_parameter`` and a default value of ``world``.
             timer_period = 2  # seconds
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
-            self.declare_parameter('my_parameter','world')
+            self.declare_parameter('my_parameter', 'world')
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
 Next,the ``get_logger`` function ensures the message is logged.
