@@ -316,9 +316,6 @@ You can also set parameters in a launch file, but first you will need to add a l
 Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``python_parameters_launch.py``
 
-
-<<<<<<< HEAD
-
 .. code-block:: Python
 
   from launch import LaunchDescription
@@ -327,82 +324,17 @@ In there, create a new file called ``python_parameters_launch.py``
   def generate_launch_description():
       return LaunchDescription([
           Node(
-              package="python_parameters",
-              executable="param_talker",
-              name="custom_parameter_node",
-              output="screen",
+              package='python_parameters',
+              executable='param_talker',
+              name='custom_parameter_node',
+              output='screen',
               emulate_tty=True,
               parameters=[
-                  {"my_parameter": "earth"}
+                  {'my_parameter': 'earth'}
               ]
           )
       ])
 
-=======
-  .. group-tab:: Foxy and newer
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  executable='param_talker',
-                  name='custom_parameter_node',
-                  output='screen',
-                  emulate_tty=True,
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Eloquent
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  node_executable='param_talker',
-                  node_name='custom_parameter_node',
-                  output='screen',
-                  emulate_tty=True,
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
-
-  .. group-tab:: Dashing
-
-    ``emulate_tty``, which prints output to the console, is not available in Dashing.
-
-    .. code-block:: Python
-
-      from launch import LaunchDescription
-      from launch_ros.actions import Node
-
-      def generate_launch_description():
-          return LaunchDescription([
-              Node(
-                  package='python_parameters',
-                  node_executable='param_talker',
-                  node_name='custom_parameter_node',
-                  output='screen',
-                  parameters=[
-                      {'my_parameter': 'earth'}
-                  ]
-              )
-          ])
->>>>>>> f09b05f... Updated Using-Parameters-In-A-Class-Python.rst (#1070)
 
 Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
 By adding the two lines below, we ensure our output is printed in our console.
