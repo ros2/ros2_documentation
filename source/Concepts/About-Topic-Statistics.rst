@@ -31,6 +31,7 @@ by using the utilities implemented in the
 package.
 When a new message is received by a subscription, this is a new sample for calculation in
 the current measurement window.
+The statistics set is published periodically, at which time the measurement window and statistics are reset.
 The average calculated is simply a
 `moving average <https://en.wikipedia.org/wiki/Moving_average>`__.
 The maximum, minimum,and sample count are updated upon receipt of each new sample, whereas the
