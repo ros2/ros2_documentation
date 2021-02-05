@@ -37,7 +37,7 @@ suppress_warnings = ['image.nonlocal_uri']
 
 # General information about the project.
 project = u'ros2 documentation'
-copyright = u'2018, Open Robotics'
+copyright = u'2018-2021, Open Robotics'
 author = u'Open Robotics'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -74,13 +74,13 @@ extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion
 # Intersphinx mapping
 
 intersphinx_mapping = {
-    'catkin_pkg':    ('http://docs.ros.org/independent/api/catkin_pkg/html', None),
-    'jenkins_tools': ('http://docs.ros.org/independent/api/jenkins_tools/html', None),
-    'rosdep':        ('http://docs.ros.org/independent/api/rosdep/html', None),
-    'rosdistro':     ('http://docs.ros.org/independent/api/rosdistro/html', None),
-    'rosinstall':    ('http://docs.ros.org/independent/api/rosinstall/html', None),
-    'rospkg':        ('http://docs.ros.org/independent/api/rospkg/html', None),
-    'vcstools':      ('http://docs.ros.org/independent/api/vcstools/html', None)
+    'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
+    'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
+    'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
+    'rosdistro':     ('http://docs.ros.org/en/independent/api/rosdistro/html', None),
+    'rosinstall':    ('http://docs.ros.org/en/independent/api/rosinstall/html', None),
+    'rospkg':        ('http://docs.ros.org/en/independent/api/rospkg/html', None),
+    'vcstools':      ('http://docs.ros.org/en/independent/api/vcstools/html', None)
 }
 
 # -- Options for HTML output ----------------------------------------------
@@ -124,6 +124,7 @@ html_sourcelink_suffix = ''
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
+html_baseurl = 'https://docs.ros.org/en'
 
 class RedirectFrom(Directive):
 
@@ -142,8 +143,9 @@ class RedirectFrom(Directive):
         from sphinx.builders.html import StandaloneHTMLBuilder
         if not isinstance(app.builder, StandaloneHTMLBuilder):
             return
+
         redirect_html_fragment = """
-            <link rel="canonical" href="https://docs.ros.org/en/{url}" />
+            <link rel="canonical" href="{base_url}/{url}" />
             <meta http-equiv="refresh" content="0; url={url}" />
             <script>
                 window.location.href = '{url}';
@@ -191,7 +193,8 @@ class RedirectFrom(Directive):
                     ),
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
-                        url=app.config.smv_current_version + '/' + app.builder.get_relative_uri(
+                        base_url=app.config.html_baseurl,
+                        url=app.builder.get_relative_uri(
                             redirect_url, canonical_url
                         )
                     )
@@ -225,6 +228,15 @@ def make_router(origin, destination):
                 return newnode
     return _missing_reference
 
+def smv_rewrite_baseurl(app, config):
+    # When using Sphinx multiversion, there is no way at initial configuration time
+    # to determine the distribution we are currently targeting (conf.py is read before
+    # external defines are setup, and environment variables aren't passed through to
+    # conf.py).  Instead, hook into the 'config-inited' event which is late enough
+    # to rewrite the html_baseurl with the current version.
+    if app.config.smv_current_version != '':
+        app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
 
 def setup(app):
+    app.connect('config-inited', smv_rewrite_baseurl)
     RedirectFrom.register(app)
