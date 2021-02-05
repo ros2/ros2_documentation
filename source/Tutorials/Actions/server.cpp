@@ -24,7 +24,10 @@ public:
     using namespace std::placeholders;
 
     this->action_server_ = rclcpp_action::create_server<Fibonacci>(
-      this,
+      this->get_node_base_interface(),
+      this->get_node_clock_interface(),
+      this->get_node_logging_interface(),
+      this->get_node_waitables_interface(),
       "fibonacci",
       std::bind(&FibonacciActionServer::handle_goal, this, _1, _2),
       std::bind(&FibonacciActionServer::handle_cancel, this, _1),

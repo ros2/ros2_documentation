@@ -150,7 +150,7 @@ The constructor also instantiates a new action server:
 
 .. literalinclude:: server.cpp
     :language: c++
-    :lines: 26-31
+    :lines: 26-34
 
 An action server requires 6 things:
 
@@ -168,7 +168,7 @@ We start with the callback for handling new goals:
 
 .. literalinclude:: server.cpp
     :language: c++
-    :lines: 37-44
+    :lines: 40-47
 
 This implementation just accepts all goals.
 
@@ -176,7 +176,7 @@ Next up is the callback for dealing with cancellation:
 
 .. literalinclude:: server.cpp
     :language: c++
-    :lines: 46-52
+    :lines: 49-55
 
 This implementation just tells the client that it accepted the cancellation.
 
@@ -184,7 +184,7 @@ The last of the callbacks accepts a new goal and starts processing it:
 
 .. literalinclude:: server.cpp
     :language: c++
-    :lines: 54-59
+    :lines: 57-62
 
 Since the execution is a long-running operation, we spawn off a thread to do the actual work and return from ``handle_accepted`` quickly.
 
@@ -192,7 +192,7 @@ All further processing and updates are done in the ``execute`` method in the new
 
 .. literalinclude:: server.cpp
     :language: c++
-    :lines: 61-95
+    :lines: 64-98
 
 This work thread processes one sequence number of the Fibonacci sequence every second, publishing a feedback update for each step.
 When it has finished processing, it marks the ``goal_handle`` as succeeded, and quits.
@@ -277,7 +277,7 @@ The constructor also instantiates a new action client:
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 24-26
+    :lines: 24-29
 
 An action client requires 3 things:
 
@@ -289,13 +289,13 @@ We also instantiate a ROS timer that will kick off the one and only call to ``se
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 27-30
+    :lines: 30-33
 
 When the timer expires, it will call ``send_goal``:
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 32-57
+    :lines: 35-60
 
 This function does the following:
 
@@ -310,21 +310,21 @@ That response is handled by ``goal_response_callback``:
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 62-71
+    :lines: 65-74
 
 Assuming the goal was accepted by the server, it will start processing.
 Any feedback to the client will be handled by the ``feedback_callback``:
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 72-83
+    :lines: 75-86
 
 When the server is finished processing, it will return a result to the client.
 The result is handled by the ``result_callback``:
 
 .. literalinclude:: client.cpp
     :language: c++
-    :lines: 84-107
+    :lines: 88-110
 
 We now have a fully functioning action client.  Let's get it built and running.
 
