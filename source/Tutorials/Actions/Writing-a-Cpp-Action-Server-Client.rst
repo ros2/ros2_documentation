@@ -128,29 +128,49 @@ Let's focus on writing an action server that computes the Fibonacci sequence usi
 
 Open up ``action_tutorials_cpp/src/fibonacci_action_server.cpp``, and put the following code in:
 
-.. literalinclude:: server.cpp
-    :language: c++
-    :linenos:
+.. tabs::
+
+  .. group-tab:: Eloquent and newer
+
+    .. literalinclude:: server-eloquent-and-newer.cpp
+        :language: c++
+        :linenos:
+
+  .. group-tab:: Dashing
+
+    .. literalinclude:: server-dashing.cpp
+        :language: c++
+        :linenos:
 
 The first few lines include all of the headers we need to compile.
 
 Next we create a class that is a derived class of ``rclcpp::Node``:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 14
 
 The constructor for the ``FibonacciActionServer`` class initializes the node name as ``fibonacci_action_server``:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 21-22
 
 The constructor also instantiates a new action server:
 
-.. literalinclude:: server.cpp
-    :language: c++
-    :lines: 26-31
+.. tabs::
+
+  .. group-tab:: Eloquent and newer
+
+    .. literalinclude:: server-eloquent-and-newer.cpp
+        :language: c++
+        :lines: 26-31
+
+  .. group-tab:: Dashing
+
+    .. literalinclude:: server-dashing.cpp
+        :language: c++
+        :lines: 26-34
 
 An action server requires 6 things:
 
@@ -166,7 +186,7 @@ Note that all of the callbacks need to return quickly, otherwise we risk starvin
 
 We start with the callback for handling new goals:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 37-44
 
@@ -174,7 +194,7 @@ This implementation just accepts all goals.
 
 Next up is the callback for dealing with cancellation:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 46-52
 
@@ -182,7 +202,7 @@ This implementation just tells the client that it accepted the cancellation.
 
 The last of the callbacks accepts a new goal and starts processing it:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 54-59
 
@@ -190,7 +210,7 @@ Since the execution is a long-running operation, we spawn off a thread to do the
 
 All further processing and updates are done in the ``execute`` method in the new thread:
 
-.. literalinclude:: server.cpp
+.. literalinclude:: server-eloquent-and-newer.cpp
     :language: c++
     :lines: 61-95
 
@@ -255,29 +275,49 @@ Source the workspace we just built (``action_ws``), and try to run the action se
 
 Open up ``action_tutorials_cpp/src/fibonacci_action_client.cpp``, and put the following code in:
 
-.. literalinclude:: client.cpp
-    :language: c++
-    :linenos:
+.. tabs::
+
+  .. group-tab:: Eloquent and newer
+
+    .. literalinclude:: client-eloquent-and-newer.cpp
+        :language: c++
+        :linenos:
+
+  .. group-tab:: Dashing
+
+    .. literalinclude:: client-dashing.cpp
+        :language: c++
+        :linenos:
 
 The first few lines include all of the headers we need to compile.
 
 Next we create a class that is a derived class of ``rclcpp::Node``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 15
 
 The constructor for the ``FibonacciActionClient`` class initializes the node name as ``fibonacci_action_client``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 20-22
 
 The constructor also instantiates a new action client:
 
-.. literalinclude:: client.cpp
-    :language: c++
-    :lines: 24-26
+.. tabs::
+
+  .. group-tab:: Eloquent and newer
+
+    .. literalinclude:: client-eloquent-and-newer.cpp
+        :language: c++
+        :lines: 24-26
+
+  .. group-tab:: Dashing
+
+    .. literalinclude:: client-dashing.cpp
+        :language: c++
+        :lines: 24-29
 
 An action client requires 3 things:
 
@@ -287,13 +327,13 @@ An action client requires 3 things:
 
 We also instantiate a ROS timer that will kick off the one and only call to ``send_goal``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 27-30
 
 When the timer expires, it will call ``send_goal``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 32-57
 
@@ -308,21 +348,21 @@ This function does the following:
 When the server receives and accepts the goal, it will send a response to the client.
 That response is handled by ``goal_response_callback``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 62-71
 
 Assuming the goal was accepted by the server, it will start processing.
 Any feedback to the client will be handled by the ``feedback_callback``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 72-83
 
 When the server is finished processing, it will return a result to the client.
 The result is handled by the ``result_callback``:
 
-.. literalinclude:: client.cpp
+.. literalinclude:: client-eloquent-and-newer.cpp
     :language: c++
     :lines: 84-107
 
