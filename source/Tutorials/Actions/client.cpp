@@ -22,7 +22,10 @@ public:
   : Node("fibonacci_action_client", options)
   {
     this->client_ptr_ = rclcpp_action::create_client<Fibonacci>(
-      this,
+      this->get_node_base_interface(),
+      this->get_node_graph_interface(),
+      this->get_node_logging_interface(),
+      this->get_node_waitables_interface(),
       "fibonacci");
 
     this->timer_ = this->create_wall_timer(
