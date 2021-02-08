@@ -69,6 +69,7 @@ Advanced
    Tutorials/Topics/Topic-Statistics-Tutorial
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
+   Tutorials/FastDDS-Configuration/FastDDS-Configuration
 
 Miscellaneous
 -------------
