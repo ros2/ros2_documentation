@@ -1,4 +1,5 @@
 pip
 sphinx
+sphinxcontrib-srclinks
 sphinx-tabs
 sphinx-multiversion
