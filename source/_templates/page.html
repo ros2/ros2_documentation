@@ -1,4 +1,24 @@
 {% extends "!page.html" %}
+{% block header %}
+<div class="pageheader">
+  <div align="center">
+    <br/>
+    <table id="topnav-table">
+      <tr>
+        <td valign="middle">
+          ROS Resources:
+            <a href="http://discourse.ros.org/">Discussion Forum</a>
+            |
+            <a href="http://status.ros.org/">Service Status</a>
+            |
+            <a href="http://answers.ros.org/">Q&A answers.ros.org</a>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock %}
 {% block body %}
 {% if current_version and latest_version and current_version != latest_version %}
 <p>
