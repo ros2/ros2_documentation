@@ -3,7 +3,7 @@
 <h3>{{ _('Versions') }}</h3>
 <h4>{{ _('Releases') }}</h4>
 <ul>
-  {%- for item in versions.releases|reverse %}
+  {%- for item in versions.releases|sort(reverse=True) %}
     {% if item.name == latest_version.name %}
     <li><a href="{{ item.url }}">{{ item.name | title }} (latest)</a></li>
     {% else %}
@@ -13,7 +13,7 @@
 </ul>
 <h4>{{ _('In Development') }}</h4>
 <ul>
-  {%- for item in versions.in_development|reverse %}
+  {%- for item in versions.in_development|sort(reverse=True) %}
   <li><a href="{{ item.url }}">{{ item.name | title }}</a></li>
   {%- endfor %}
 </ul>
