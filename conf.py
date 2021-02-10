@@ -69,7 +69,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinxcontrib.srclinks']
 
 # Intersphinx mapping
 
@@ -90,12 +90,16 @@ intersphinx_mapping = {
 #
 #html_theme = 'alabaster'
 
+srclink_project = 'https://github.com/ros2/ros2_documentation'
+srclink_src_path = 'source/'
+srclink_branch = 'rolling'
+
 templates_path = [
     "source/_templates",
 ]
 
 html_sidebars = {
-    '**': ['navigation.html', 'versioning.html'],
+    '**': ['navigation.html', 'srclinks.html', 'versioning.html'],
 }
 
 # smv_tag_whitelist = None
@@ -237,6 +241,11 @@ def smv_rewrite_baseurl(app, config):
     if app.config.smv_current_version != '':
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
 
+def srclink_rewrite_branch(app, config):
+    if app.config.smv_current_version != '':
+        app.config.srclink_branch = app.config.smv_current_version
+
 def setup(app):
     app.connect('config-inited', smv_rewrite_baseurl)
+    app.connect('config-inited', srclink_rewrite_branch)
     RedirectFrom.register(app)

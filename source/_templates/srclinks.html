@@ -1,0 +1,17 @@
+{%- if show_source and has_source and sourcename %}
+<div class="widget navlinks">
+  <h3>{{ _('This Page') }}</h3>
+  <ul class="this-page-menu">
+   {%- if show_srclink_url %}
+    <li><a href="{{ show_srclink_url }}"
+            rel="nofollow"
+            target="_blank">{{ _('Source') }}</a></li>
+   {%- endif %}
+   {%- if edit_srclink_url %}
+    <li><a href="{{ edit_srclink_url }}"
+            rel="nofollow"
+            target="_blank">{{ _('Edit on GitHub') }}</a></li>
+   {%- endif %}
+  </ul>
+</div>
+{%- endif %}
