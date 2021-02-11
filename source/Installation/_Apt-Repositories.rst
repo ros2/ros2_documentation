@@ -4,7 +4,7 @@ To do so, first authorize our GPG key with apt like this:
 .. code-block:: bash
 
    sudo apt update && sudo apt install curl gnupg2 lsb-release
-   curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+   sudo -E apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 
 And then add the repository to your sources list:
 
