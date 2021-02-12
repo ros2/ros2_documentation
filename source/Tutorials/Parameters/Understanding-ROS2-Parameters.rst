@@ -222,7 +222,7 @@ However, you can save your settings changes and reload them next time you start 
 
     Eloquent and earlier do not have the ``param load`` command.
     See the next section on how to start a node with parameters from a YAML file.
-    
+
 7 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
 
