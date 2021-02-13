@@ -189,7 +189,41 @@ However, you can save your settings changes and reload them next time you start 
           background_r: 150
           use_sim_time: false
 
-6 Load parameter file
+6 ros2 param load
+^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+  .. group-tab:: Foxy and newer
+
+    You can load parameters from a file to a currently running node using the command:
+
+    .. code-block:: console
+
+      ros2 param load <node_name> <parameter_file>
+
+    To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+
+    .. code-block:: console
+
+      ros2 param load /turtlesim ./turtlesim.yaml
+
+    Your terminal will return the message:
+
+    .. code-block:: console
+
+      Set parameter background_b succesful
+      Set parameter background_g succesful
+      Set parameter background_r succesful
+      Set parameter use_sim_time succesful
+
+
+  .. group-tab:: Eloquent
+
+    Eloquent and earlier do not have the ``param load`` command.
+    See the next section on how to start a node with parameters from a YAML file.
+
+7 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
