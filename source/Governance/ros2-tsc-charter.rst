@@ -27,13 +27,13 @@ The ROS 2 Technical Steering Committee (“TSC”) is responsible for the techni
 
 The TSC aims to ensure the following characteristics of the project:
 
-#. **Independent and transparent governance​**
+#. **Independent and transparent governance​.**
    The project is driven by the community that contributes to and uses the resulting software, with Open Robotics as the founding project sponsor.
 
-#. **Coordination**
+#. **Coordination.**
    Those individuals and organizations that are contributing the labor and other resources to develop the project are in regular contact with each other to coordinate their plans and activities.
 
-#. **Pace & quality**
+#. **Pace & quality.**
    The project advances as quickly as possible given the available resources and without sacrificing quality in the resulting software.
 
 #. **Policies.**
@@ -46,7 +46,7 @@ The TSC is made up of individuals who contribute materially to the project and/o
 
 #. Material contribution is the commitment of a minimum level of effort toward developing software and/or documentation that is contributed to the project under the appropriate open source license. This contribution may be in the form ofin-kind labor and/or outsourced work. No fees or payments beyond material contribution to the project are required for TSC membership.
 
-#. The minimum level of effort commitment required to qualify for TSC membership is ​**1 full-time equivalent (FTE)​**. This level may be changed by the TSC via a standard TSC motion and vote.
+#. The minimum level of effort commitment required to qualify for TSC membership is ​**1 full-time equivalent (FTE)**. This level may be changed by the TSC via a standard TSC motion and vote.
 
 #. The TSC must have at least three members.
 
