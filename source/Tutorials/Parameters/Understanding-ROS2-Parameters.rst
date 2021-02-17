@@ -168,9 +168,32 @@ If you open this file, you’ll see the following contents:
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
-6 Load parameter file
-^^^^^^^^^^^^^^^^^^^^^
+6 ros2 param load
+^^^^^^^^^^^^^^^^^
 
+You can load parameters from a file to a currently running node using the command:
+
+.. code-block:: console
+
+  ros2 param load <node_name> <parameter_file>
+
+To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+
+.. code-block:: console
+
+  ros2 param load /turtlesim ./turtlesim.yaml
+
+Your terminal will return the message:
+
+.. code-block:: console
+
+  Set parameter background_b successful
+  Set parameter background_g successful
+  Set parameter background_r successful
+  Set parameter use_sim_time successful
+
+7 Load parameter file
+^^^^^^^^^^^^^^^^^^^^^
 
 To start the same node using your saved parameter values, use:
 
