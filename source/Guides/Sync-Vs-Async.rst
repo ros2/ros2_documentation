@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/Sync-Vs-Async
+
 .. _SyncAsync:
 
 Synchronous vs. asynchronous service clients

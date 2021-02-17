@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Introspection-with-command-line-tools
+    Tutorials/Introspection-with-command-line-tools
 
 Introspection with command line tools
 =====================================

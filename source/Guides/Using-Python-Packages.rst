@@ -1,13 +1,13 @@
+.. redirect-from::
+
+  Tutorials/Using-Python-Packages
+
 .. _PythonPackages:
 
 Using Python Packages with ROS2
 ===============================
 
 **Goal:** Explain how to interoperate with other Python packages from the ROS2 ecosystem.
-
-**Tutorial level:** Advanced
-
-**Time:** 20 minutes
 
 .. contents:: Contents
     :depth: 2
