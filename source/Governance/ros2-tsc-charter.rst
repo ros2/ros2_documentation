@@ -1,4 +1,4 @@
-.. _Charter:
+.. _ROS2TSCCharter:
 
 ==================================
 ROS 2 Technical Steering Committee
