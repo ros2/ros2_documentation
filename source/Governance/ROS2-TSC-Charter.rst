@@ -1,11 +1,8 @@
 .. _ROS2TSCCharter:
 
-==================================
-ROS 2 Technical Steering Committee
-==================================
-
-Charter
-=======
+==========================================
+ROS 2 Technical Steering Committee Charter
+==========================================
 
 :Date: 2021-02-06
 :Version: 0.5
