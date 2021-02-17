@@ -9,15 +9,15 @@ index_pattern:
   - index.rst
   - Installation.rst
   - Tutorials.rst
+  - Guides.rst
   - Concepts.rst
-  - Troubleshooting.rst
   - Contributing.rst
-  - ROSCon-Content.rst
   - Releases.rst
   - Features.rst
   - Roadmap.rst
   - Governance.rst
   - Marketing.rst
+  - ROSCon-Content.rst
   - Contact.rst
   - '*/*.rst'
   - '*/*/*.rst'

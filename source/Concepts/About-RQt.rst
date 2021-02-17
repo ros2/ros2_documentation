@@ -2,7 +2,7 @@
 
 .. redirect-from::
 
-   RQt-Overview-Usage
+   Tutorials/RQt-Overview-Usage
 
 Overview and usage of RQt
 =========================
@@ -50,12 +50,7 @@ Installing From Debian
 Building From Source
 ^^^^^^^^^^^^^^^^^^^^
 
-.. toctree::
-   :hidden:
-
-   RQt-Source-Install
-
-See `Building RQt from Source <RQt-Source-Install>`.
+See `Building RQt from Source <../Guides/RQt-Source-Install>`.
 
 RQt Components Structure
 ------------------------

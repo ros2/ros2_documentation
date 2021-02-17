@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Troubleshooting/DDS-tuning
+
 DDS tuning information
 ======================
 
