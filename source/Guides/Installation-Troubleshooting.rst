@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Troubleshooting/Installation-Troubleshooting
+
 Installation troubleshooting
 ============================
 

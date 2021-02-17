@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/Ament-CMake-Documentation
+
 ament_cmake user documentation
 ==============================
 
