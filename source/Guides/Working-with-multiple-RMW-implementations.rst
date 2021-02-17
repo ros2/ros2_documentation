@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Working-with-multiple-RMW-implementations
+    Tutorials/Working-with-multiple-RMW-implementations
 
 Working with multiple ROS 2 middleware implementations
 ======================================================
@@ -16,6 +16,7 @@ Prerequisites
 
 You should have already read the `DDS and ROS middleware implementations page <../Concepts/About-Different-Middleware-Vendors>`.
 
+<<<<<<< HEAD:source/Tutorials/Working-with-multiple-RMW-implementations.rst
 Multiple RMW implementations
 ----------------------------
 
@@ -53,6 +54,8 @@ For example, if both ``rmw_opensplice_cpp`` and ``rmw_connext_cpp`` ROS packages
 If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 See below for how to specify which RMW implementation is to be used when running the ROS 2 examples.
 
+=======
+>>>>>>> 5d938b1... create guides page:source/Guides/Working-with-multiple-RMW-implementations.rst
 Specifying RMW implementations
 ------------------------------
 
