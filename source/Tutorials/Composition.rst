@@ -9,6 +9,7 @@ Composing multiple nodes in a single process
    :depth: 2
    :local:
 
+<<<<<<< HEAD
 ROS 1 - Nodes vs. Nodelets
 --------------------------
 
@@ -78,7 +79,12 @@ The three most common ones are:
 #. Create a `custom executable <https://github.com/ros2/demos/blob/dashing/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
    This approach requires that each component has a header file (which is not strictly needed for the first case).
 #. Create a launch file and use ``ros2 launch`` to create a container process with multiple components loaded.
+=======
+Background
+----------
+>>>>>>> 5d938b1... create guides page
 
+See the conceptual article `<../Concepts/About-Composition>`.
 
 Run the demos
 -------------

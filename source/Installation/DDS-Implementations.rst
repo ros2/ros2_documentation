@@ -19,7 +19,7 @@ Since Eloquent, both Fast RTPS and Cyclone DDS are bundled, but Fast RTPS is sti
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Tutorials/Working-with-multiple-RMW-implementations>`.
+Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </Guides/Working-with-multiple-RMW-implementations>`.
 
 Detailed instructions for installing other DDS vendors are provided below.
 
