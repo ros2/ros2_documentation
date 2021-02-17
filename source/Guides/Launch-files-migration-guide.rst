@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/Launch-files-migration-guide
+
 .. _MigratingLaunch:
 
 Migrating launch files from ROS 1 to ROS 2
@@ -7,12 +11,12 @@ Migrating launch files from ROS 1 to ROS 2
    :depth: 1
    :local:
 
-This tutorial describes how to write XML launch files for an easy migration from ROS 1.
+This guide describes how to write XML launch files for an easy migration from ROS 1.
 
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in `Launch System tutorial <Launch-system>`.
+A description of the ROS 2 launch system and its Python API can be found in `Launch System tutorial <../Tutorials/Launch-system>`.
 
 
 Migrating tags from ROS 1 to ROS 2

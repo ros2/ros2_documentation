@@ -105,4 +105,4 @@ Windows
 Using RQt
 ----------
 
-See `Overview of RQt <RQt-Overview-Usage>`.
+See `Overview of RQt <../Concepts/About-RQt>`.

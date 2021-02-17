@@ -3,7 +3,7 @@
 Concepts
 ========
 
-Conceptual overviews provide general background information about key aspects of ROS 2:
+Conceptual overviews provide relatively high-level, general background information about key aspects of ROS 2.
 
 .. toctree::
    :maxdepth: 1
@@ -14,6 +14,16 @@ Conceptual overviews provide general background information about key aspects of
    Concepts/About-ROS-2-Client-Libraries
    Concepts/About-ROS-Interfaces
    Concepts/About-ROS-2-Parameters
+<<<<<<< HEAD
+=======
+   Concepts/About-Topic-Statistics
+   Concepts/About-Command-Line-Tools
+   Concepts/About-RQt
+   Concepts/About-Composition
+   Concepts/About-Catment
+   Concepts/About-Cross-Compilation
+
+>>>>>>> 5d938b1... create guides page
 
 The Core Stack Developer Concepts are much more detailed conceptual articles intended for developers who plan modify or contribute to the ROS 2 core:
 

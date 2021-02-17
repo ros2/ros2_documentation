@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Developing-a-ROS-2-Package
+    Tutorials/Developing-a-ROS-2-Package
 
 Developing a ROS 2 package
 ##########################
