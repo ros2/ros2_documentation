@@ -125,6 +125,11 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
+.. toctree::
+   :maxdepth: 1
+
+   Governance/ROS2-TSC-Charter
+
 Working Groups (WGs)
 --------------------
 
