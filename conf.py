@@ -150,7 +150,8 @@ redirects = {
     'Contributing/Set-up-a-new-macOS-CI-node': 'https://docs.ros.org/en/foxy/Contributing/Set-up-a-new-macOS-CI-node.html',
     'Contributing/Set-up-a-new-Windows-CI-node': 'https://docs.ros.org/en/foxy/Contributing/Set-up-a-new-Windows-CI-node.html',
 
-    # Governance - no html files
+    # Governance
+    'Governance/ROS2-TSC-Charter': 'https://docs.ros.org/en/foxy/Governance/ROS2-TSC-Charter.html',
 
     # Installation
     'Installation/DDS-Implementations': 'https://docs.ros.org/en/foxy/Installation/DDS-Implementations.html',
