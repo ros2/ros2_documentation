@@ -1,5 +1,5 @@
-Monitoring for parameter changes (C++)
-======================================
+Monitoring for parameter changes (C++) [Galactic]
+=================================================
 
 **Goal:** Learn to use the ParameterEventHandler class to monitor and respond to parameter changes.
 
@@ -19,7 +19,7 @@ Often a node needs to respond to changes to its own parameters or another node's
 Prerequisites
 -------------
 
-Before starting this tutorial, you should first complete the following tutorials: 
+Before starting this tutorial, you should first complete the following tutorials:
 
 - :ref:`ROS2Params`
 - :ref:`CppParamNode`
@@ -66,9 +66,9 @@ Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a ne
 .. code-block:: C++
 
     #include <memory>
-    
+
     #include "rclcpp/rclcpp.hpp"
-    
+
     class SampleNodeWithParameters : public rclcpp::Node
     {
     public:
@@ -76,11 +76,11 @@ Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a ne
       : Node("node_with_parameters")
       {
         this->declare_parameter("an_int_param", 0);
-    
+
         // Create a parameter subscriber that can be used to monitor parameter changes
         // (for this node's parameters as well as other nodes' parameters)
         param_subscriber_ = std::make_shared<rclcpp::ParameterEventHandler>(this);
-    
+
         // Set a callback for this node's integer parameter, "an_int_param"
         auto cb = [this](const rclcpp::Parameter & p) {
             RCLCPP_INFO(
@@ -91,31 +91,31 @@ Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a ne
           };
         cb_handle_ = param_subscriber_->add_parameter_callback("an_int_param", cb);
       }
-    
+
       ~SampleNodeWithParameters()
       {
         param_subscriber_->remove_parameter_callback(cb_handle_);
       }
-    
+
     private:
       std::shared_ptr<rclcpp::ParameterEventHandler> param_subscriber_;
       std::shared_ptr<rclcpp::ParameterCallbackHandle> cb_handle_;
     };
-    
+
     int main(int argc, char ** argv)
     {
       rclcpp::init(argc, argv);
       rclcpp::spin(std::make_shared<SampleNodeWithParameters>());
       rclcpp::shutdown();
-    
+
       return 0;
     }
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-The first statement, ``#include <memory>`` is included so that the code can utilize the std::make_shared template. The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class. 
+The first statement, ``#include <memory>`` is included so that the code can utilize the std::make_shared template. The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class.
 
-After the class declaration, the code defines a class, ``SampleNodeWithParameters``. The constructor for the class, declares an integer parameter ``an_int_param``, with a default value of 0. Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters. Finally, the code creates a lambda function and sets it as the callback to invoke whenever ``an_int_param`` is updated. 
+After the class declaration, the code defines a class, ``SampleNodeWithParameters``. The constructor for the class, declares an integer parameter ``an_int_param``, with a default value of 0. Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters. Finally, the code creates a lambda function and sets it as the callback to invoke whenever ``an_int_param`` is updated.
 
 .. code-block:: C++
 
@@ -123,11 +123,11 @@ After the class declaration, the code defines a class, ``SampleNodeWithParameter
     : Node("node_with_parameters")
     {
       this->declare_parameter("an_int_param", 0);
-  
+
       // Create a parameter subscriber that can be used to monitor parameter changes
       // (for this node's parameters as well as other nodes' parameters)
       param_subscriber_ = std::make_shared<rclcpp::ParameterEventHandler>(this);
-  
+
       // Set a callback for this node's integer parameter, "an_int_param"
       auto cb = [this](const rclcpp::Parameter & p) {
           RCLCPP_INFO(
@@ -138,7 +138,7 @@ After the class declaration, the code defines a class, ``SampleNodeWithParameter
         };
       cb_handle_ = param_subscriber_->add_parameter_callback("an_int_param", cb);
     }
-  
+
 The ``ParameterEventHandler``'s add_parameter_callback method returns a callback handle that is stored in a member variable. This handle is used in the ``~SampleNodeWithParameters`` destructor to remove the callback when the node is destroyed.
 
 .. code-block:: C++
@@ -165,7 +165,7 @@ Following the ``SampleNodeWithParameters`` is a typical ``main`` function which 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
 
-To build this code, first open the ``CMakeLists.txt`` file and add the following lines of code below the dependency ``find_package(rclcpp REQUIRED)`` 
+To build this code, first open the ``CMakeLists.txt`` file and add the following lines of code below the dependency ``find_package(rclcpp REQUIRED)``
 
 .. code-block:: console
 
@@ -249,7 +249,7 @@ The callback we set previously in the node has been invoked and has displayed th
 3.1 Monitor changes to another node's parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also use the ParameterEventHandler to monitor parameter changes to another node's parameters. Let's update the SampleNodeWithParameters class to also monitor for changes to a parameter in another node.  We will use the parameter_blackboard demo application to host a double parameter that we will monitor for updates. 
+You can also use the ParameterEventHandler to monitor parameter changes to another node's parameters. Let's update the SampleNodeWithParameters class to also monitor for changes to a parameter in another node.  We will use the parameter_blackboard demo application to host a double parameter that we will monitor for updates.
 
 First update the constructor to add the following code after the existing code:
 
