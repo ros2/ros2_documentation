@@ -159,6 +159,16 @@ redirects = {
     'Installation/Maintaining-a-Source-Checkout': 'https://docs.ros.org/en/rolling/Installation/Maintaining-a-Source-Checkout.html',
     'Installation/Prerelease-Testing': 'https://docs.ros.org/en/rolling/Installation/Prerelease-Testing.html',
 
+    'Installation/Crystal': 'https://docs.ros.org/en/crystal/Installation/Summary.html',
+    'Installation/Crystal/Fedora-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Fedora-Development-Setup.html',
+    'Installation/Crystal/Linux-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Linux-Development-Setup.html',
+    'Installation/Crystal/Linux-Install-Binary': 'https://docs.ros.org/en/crystal/Installation/Linux-Install-Binary.html',
+    'Installation/Crystal/Linux-Install-Debians': 'https://docs.ros.org/en/crystal/Installation/Linux-Install-Debians.html',
+    'Installation/Crystal/macOS-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/macOS-Development-Setup.html',
+    'Installation/Crystal/macOS-Install-Binary': 'https://docs.ros.org/en/crystal/Installation/macOS-Install-Binary.html',
+    'Installation/Crystal/Windows-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Windows-Development-Setup.html',
+    'Installation/Crystal/Windows-Install-Binary': 'https://docs.ros.org/en/crystal/Installation/Windows-Install-Binary.html',
+
     'Installation/Dashing': 'https://docs.ros.org/en/dashing/Installation/Summary.html',
     'Installation/Dashing/Fedora-Development-Setup': 'https://docs.ros.org/en/dashing/Installation/Fedora-Development-Setup.html',
     'Installation/Dashing/Linux-Development-Setup': 'https://docs.ros.org/en/dashing/Installation/Linux-Development-Setup.html',
