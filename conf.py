@@ -104,10 +104,10 @@ html_sidebars = {
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|foxy|eloquent|dashing)$'
+smv_branch_whitelist = r'^(rolling|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(foxy|eloquent|dashing).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
 smv_latest_version = 'foxy'
 
