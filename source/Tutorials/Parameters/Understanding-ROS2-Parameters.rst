@@ -202,11 +202,11 @@ However, you can save your settings changes and reload them next time you start 
 
       ros2 param load <node_name> <parameter_file>
 
-    To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+    To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, close the ``/turtlesim`` node and start it up one more time by command:
 
     .. code-block:: console
 
-      ros2 param load /turtlesim ./turtlesim.yaml
+      ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 
     Your terminal will return the message:
 
