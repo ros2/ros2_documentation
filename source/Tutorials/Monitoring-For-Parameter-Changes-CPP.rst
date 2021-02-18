@@ -1,11 +1,13 @@
-Monitoring for parameter changes (C++) [Galactic]
-=================================================
+Monitoring for parameter changes (C++)
+======================================
 
 **Goal:** Learn to use the ParameterEventHandler class to monitor and respond to parameter changes.
 
 **Tutorial level:** Beginner
 
 **Time:** 20 minutes
+
+**Minimum Platform:** Galactic
 
 .. contents:: Contents
    :depth: 2
@@ -23,6 +25,8 @@ Before starting this tutorial, you should first complete the following tutorials
 
 - :ref:`ROS2Params`
 - :ref:`CppParamNode`
+
+In addition, you must be running the Galactic distribution of ROS2.
 
 Tasks
 -----
