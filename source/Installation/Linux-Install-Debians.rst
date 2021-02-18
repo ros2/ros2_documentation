@@ -36,7 +36,9 @@ It should be fine if you're using a different UTF-8 supported locale.
 Setup Sources
 -------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
+
+.. _linux-install-debians-install-ros-2-packages:
 
 Install ROS 2 packages
 ----------------------
@@ -136,7 +138,7 @@ To install support for OpenSplice or RTI Connext on Bouncy:
 By setting the environment variable ``RMW_IMPLEMENTATION=rmw_opensplice_cpp`` you can switch to use OpenSplice instead.
 For ROS 2 releases Bouncy and newer, ``RMW_IMPLEMENTATION=rmw_connext_cpp`` can also be selected to use RTI Connext.
 
-You can also install `the Connext DDS-Security plugins <../DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <../DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
+You can also install `the Connext DDS-Security plugins <DDS-Implementations/Install-Connext-Security-Plugins>` or use the `University, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>` options for RTI Connext.
 
 .. _linux-ros1-add-pkgs:
 

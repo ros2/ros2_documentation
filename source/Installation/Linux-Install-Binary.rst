@@ -19,7 +19,7 @@ Note: Ardent and beta versions supported Ubuntu Xenial Xerus 16.04.
 Add the ROS 2 apt repository
 ----------------------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Downloading ROS 2
 -----------------
@@ -38,6 +38,8 @@ Downloading ROS 2
        mkdir -p ~/ros2_crystal
        cd ~/ros2_crystal
        tar xf ~/Downloads/ros2-crystal-linux-x86_64.tar.bz2
+
+.. _linux-install-binary-install-missing-dependencies:
 
 Installing and initializing rosdep
 ----------------------------------
@@ -73,7 +75,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------

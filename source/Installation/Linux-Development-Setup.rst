@@ -39,7 +39,7 @@ However, it should be fine if you're using a different UTF-8 supported locale.
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -93,6 +93,7 @@ Create a workspace and clone all repos:
    wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
    vcs import src < ros2.repos
 
+.. _linux-development-setup-install-dependencies-using-rosdep:
 
 Install dependencies using rosdep
 ---------------------------------
@@ -110,7 +111,7 @@ Install dependencies using rosdep
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
@@ -165,6 +166,8 @@ So if you want autocompletion, installing argcomplete is necessary.
 .. code-block:: bash
 
    sudo apt install python3-argcomplete
+
+.. _talker-listener:
 
 Try some examples
 -----------------
