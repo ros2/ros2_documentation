@@ -52,6 +52,11 @@ If you wish to update a particular release, you can get its repository list by s
 
 The format of the name of the release comes from the tag associated with the release `here <https://github.com/ros2/ros2/tags>`__.
 
+.. note::
+
+   The release versions in the ros2.repos file may become out-of-sync with their Debian packages, as maintainers make periodic releases of individual packages.
+   This means if you are installing Debian packages on Ubuntu, then you may have newer versions of some packages compared to the version listed in the ros2.repos file.
+
 Release development branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
