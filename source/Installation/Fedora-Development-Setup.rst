@@ -4,53 +4,16 @@ Building ROS 2 on Fedora Linux
 How to setup the development environment?
 -----------------------------------------
 
-The following system dependencies are required to build ROS 2 on Fedora. They can be installed with ``dnf`` as follows:
+First install a bunch of dependencies:
 
 .. code-block:: bash
 
-   $ sudo dnf install \
-     asio-devel \
-     cmake \
-     cppcheck \
-     eigen3-devel \
-     gcc-c++ \
-     liblsan \
-     libXaw-devel \
-     libyaml-devel \
-     make \
-     opencv-devel \
-     patch \
-     python3-argcomplete \
-     python3-colcon-common-extensions \
-     python3-coverage \
-     python3-devel \
-     python3-empy \
-     python3-lark-parser \
-     python3-lxml \
-     python3-mock \
-     python3-nose \
-     python3-pep8 \
-     python3-pip \
-     python3-pydocstyle \
-     python3-pyflakes \
-     python3-pyparsing \
-     python3-pytest \
-     python3-pytest-cov \
-     python3-pytest-runner \
-     python3-rosdep \
-     python3-setuptools \
-     python3-vcstool \
-     python3-yaml \
-     poco-devel \
-     poco-foundation \
-     python3-flake8 \
-     python3-flake8-import-order \
-     redhat-rpm-config \
-     tinyxml-devel \
-     tinyxml2-devel \
-     uncrustify \
-     wget
+   $ sudo dnf install cppcheck cmake libXaw-devel opencv-devel poco-devel poco-foundation python3-empy python3-devel python3-nose python3-pip python3-pyparsing python3-pytest python3-pytest-cov python3-pytest-runner python3-setuptools python3-yaml tinyxml-devel eigen3-devel python3-pydocstyle python3-pyflakes python3-coverage python3-mock python3-pep8 uncrustify python3-argcomplete python3-flake8 python3-flake8-import-order asio-devel tinyxml2-devel libyaml-devel python3-lxml
 
+Then install vcstool from pip:
 
-With this done, you can follow the rest of the `instructions <Dashing_linux-dev-get-ros2-code>` to fetch and build ROS 2.
+.. code-block:: bash
 
+   $ pip3 install vcstool
+
+With this done, you can follow the rest of the `instructions <linux-dev-get-ros2-code>` to fetch and build ROS 2.

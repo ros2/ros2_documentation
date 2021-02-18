@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Installation/Dashing/OSX-Install-Binary
+   Installation/Crystal/OSX-Install-Binary
 
 Installing ROS 2 on macOS
 =========================
@@ -11,18 +11,12 @@ Installing ROS 2 on macOS
 
 This page explains how to install ROS 2 on macOS from a pre-built binary package.
 
-.. note::
-
-    The pre-built binary does not include all ROS 2 packages.
-    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/dashing-release/ros2.repos>`_.
-
 System requirements
 -------------------
 
-We support macOS Sierra (10.12.x).
+We support OS X El Capitan and macOS Sierra (10.11.x and 10.12.x).
 
-.. _Dashing_osx-install-binary-installling-prerequisites:
+.. _osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -63,20 +57,12 @@ You need the following things installed before installing ROS 2.
 
        # install OpenSSL for DDS-Security
        brew install openssl
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
-       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install Qt for RViz
        brew install qt freetype assimp
 
-       # install console_bridge for rosbag2
-       brew install console_bridge
-
        # install dependencies for rcl_logging_log4cxx
        brew install log4cxx
-
-       # install CUnit for Cyclone DDS
-       brew install cunit
 
 *
   Install rqt dependencies
@@ -91,15 +77,6 @@ You need the following things installed before installing ROS 2.
 
   ``python3 -m pip install pygraphviz pydot``
 
-  .. note::
-
-      You may run into an issue installing ``pygraphviz``, "error: Error locating graphviz".
-      Try the following install command instead:
-
-      .. code-block:: bash
-
-         python3 -m pip install --install-option="--include-path=/usr/local/include/" --install-option="--library-path=/usr/local/lib/" pygraphviz
-
 *
   Install SROS2 dependencies
 
@@ -110,7 +87,7 @@ You need the following things installed before installing ROS 2.
 
   .. code-block:: bash
 
-       python3 -m pip install catkin_pkg empy lark-parser lxml numpy pyparsing pyyaml setuptools argcomplete
+       python3 -m pip install catkin_pkg empy lark-parser pyparsing pyyaml setuptools argcomplete
 
 Disable System Integrity Protection (SIP)
 -----------------------------------------
@@ -121,9 +98,10 @@ So that SIP doesn't prevent processes from inheriting dynamic linker environment
 Downloading ROS 2
 -----------------
 
-* Download `ROS 2 Dashing Diademata - Patch Release 4 <https://github.com/ros2/ros2/releases/tag/release-dashing-20191018>`_ for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
 
-  * Note: OSX binary builds are only provided for Dashing up until `ROS 2 Dashing Diademata - Patch Release 4 <https://github.com/ros2/ros2/releases/tag/release-dashing-20191018>`_ due to changes with OSX and/or homebrew that made it difficult to target OSX Sierra.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2``.
+
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
 *
@@ -131,14 +109,14 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_dashing
-       cd ~/ros2_dashing
+       mkdir -p ~/ros2_crystal
+       cd ~/ros2_crystal
        tar xf ~/Downloads/ros2-release-distro-date-macos-amd64.tar.bz2
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Environment setup
 -----------------
@@ -147,7 +125,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/ros2-osx/setup.bash
+   . ~/ros2_crystal/ros2-osx/setup.bash
 
 Try some examples
 -----------------
@@ -168,19 +146,12 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+See the `tutorials and demos </Tutorials>` for other things to try.
 
-Next steps after installing
----------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Build your own packages
+-----------------------
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
-See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
 
 Troubleshooting
 ---------------
@@ -191,10 +162,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Dashing install on your system.
+   This way, your environment will behave as though there is no Crystal install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_dashing
+    rm -rf ~/ros2_crystal

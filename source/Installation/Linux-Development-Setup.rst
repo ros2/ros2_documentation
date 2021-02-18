@@ -8,14 +8,15 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Dashing Diademata are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
+Target platforms for Crystal Clemmys are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
+- Tier 2: Ubuntu Linux - Xenial Xerus (16.04) 64-bit
 
 Tier 3 platforms (not actively tested or supported) include:
 
 - Debian Linux - Stretch (9)
-- Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora 26, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
@@ -24,13 +25,21 @@ System setup
 
 Set locale
 ^^^^^^^^^^
+Make sure to set a locale that supports UTF-8.
+If you are in a minimal environment such as a Docker container, the locale may be set to something minimal like POSIX.
 
-.. include:: _Linux-Set-Locale.rst
+The following is an example for setting locale.
+However, it should be fine if you're using a different UTF-8 supported locale.
+
+.. code-block:: bash
+
+   sudo locale-gen en_US en_US.UTF-8
+   sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+   export LANG=en_US.UTF-8
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. include:: _Apt-Repositories.rst
+.. include:: ../_Apt-Repositories.rst
 
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -42,6 +51,7 @@ Install development tools and ROS tools
      cmake \
      git \
      python3-colcon-common-extensions \
+     python3-lark-parser \
      python3-pip \
      python-rosdep \
      python3-vcstool \
@@ -68,11 +78,8 @@ Install development tools and ROS tools
    sudo apt install --no-install-recommends -y \
      libasio-dev \
      libtinyxml2-dev
-   # install Cyclone DDS dependencies
-   sudo apt install --no-install-recommends -y \
-     libcunit1-dev
 
-.. _Dashing_linux-dev-get-ros2-code:
+.. _linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
@@ -81,12 +88,11 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_dashing/src
-   cd ~/ros2_dashing
-   wget https://raw.githubusercontent.com/ros2/ros2/dashing/ros2.repos
+   mkdir -p ~/ros2_crystal/src
+   cd ~/ros2_crystal
+   wget https://raw.githubusercontent.com/ros2/ros2/crystal/ros2.repos
    vcs import src < ros2.repos
 
-.. _linux-development-setup-install-dependencies-using-rosdep:
 
 Install dependencies using rosdep
 ---------------------------------
@@ -95,21 +101,31 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro dashing -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+   # [Ubuntu 18.04]
+   rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 rti-connext-dds-5.3.1 urdfdom_headers"
+   # [Ubuntu 16.04]
+   rosdep install --from-paths src --ignore-src --rosdistro crystal -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 libopensplice69 python3-lark-parser rti-connext-dds-5.3.1 urdfdom_headers"
+   python3 -m pip install -U lark-parser
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
+
+Note: to build the ROS 1 bridge, read the `ros1_bridge instructions <https://github.com/ros2/ros1_bridge/blob/master/README.md#building-the-bridge-from-source>`__.
+
 More info on working with a ROS workspace can be found in `this tutorial </Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash
 
-   cd ~/ros2_dashing/
+   cd ~/ros2_crystal/
+   # On Ubuntu Linux Bionic Beaver 18.04
    colcon build --symlink-install
+   # On Ubuntu Linux Xenial Xerus 16.04
+   colcon build --symlink-install --packages-ignore qt_gui_cpp rqt_gui_cpp
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
@@ -118,8 +134,7 @@ Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
 On Windows due to limitations of the length of environment variables you should use this option when building workspaces with many (~ >> 100 packages).
 
-Also, if you have already installed ROS 2 from Debian make sure that you run the ``build`` command in a fresh environment.
-You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
+Also, if you have already installed ROS 2 from Debian make sure that you run the ``build`` command in a fresh environment. You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 
 
 .. code-block:: bash
@@ -138,9 +153,18 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/install/setup.bash
+   . ~/ros2_crystal/install/setup.bash
 
-.. _talker-listener:
+Install argcomplete (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 command line tools use argcomplete to autocompletion.
+
+So if you want autocompletion, installing argcomplete is necessary.
+
+.. code-block:: bash
+
+   sudo apt install python3-argcomplete
 
 Try some examples
 -----------------
@@ -149,32 +173,21 @@ In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/install/local_setup.bash
+   . ~/ros2_crystal/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_dashing/install/local_setup.bash
+   . ~/ros2_crystal/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
-See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the `tutorials and demos </Tutorials>` for other things to try.
 
 Alternate compilers
 -------------------
@@ -209,10 +222,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Dashing install on your system.
+   This way, your environment will behave as though there is no Crystal install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_dashing
+    rm -rf ~/ros2_crystal

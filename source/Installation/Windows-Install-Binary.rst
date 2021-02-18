@@ -7,12 +7,6 @@ Installing ROS 2 on Windows
 
 This page explains how to install ROS 2 on Windows from a pre-built binary package.
 
-.. note::
-
-    The pre-built binary does not include all ROS 2 packages.
-    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/dashing-release/ros2.repos>`_.
-
 System requirements
 -------------------
 
@@ -39,26 +33,14 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
 .. code-block:: bash
 
-   > choco install -y python --version 3.7.5
-
-Install Visual C++ Redistributables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Open a Command Prompt and type the following to install them via Chocolatey:
-
-.. code-block:: bash
-
-   > choco install -y vcredist2013 vcredist140
+   > choco install -y python
 
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.0.2u* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2u*.
-Don't download the Win32 or Light versions or version 1.1.0 or newer.
+Download an OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__. Scroll to the bottom of the page and download *Win64 OpenSSL v1.0.2*. Don't download the Win32 or Light versions.
 
-Run the installer with default parameters.
-The following commands assume you used the default installation directory:
+Run the installer with default parameters. The following commands assume you used the default installation directory:
 
 * ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
 
@@ -71,33 +53,54 @@ In the resulting dialog, click "Environment Variables", then click "Path" on the
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
 
-Install Visual Studio 2019.
+**A. Install Visual Studio 2015 if using Ardent or earlier**
 
-If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
+   If you already have a paid version of Visual Studio 2015 (Professional, Enterprise), skip this step.
 
-Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2:
+   Microsoft provides a free of charge version of Visual Studio 2015, named Community, which can be used to build applications that use ROS 2:
+
+   https://www.visualstudio.com/vs/older-downloads/
+
+   Make sure that the Visual C++ features are installed. First choose 'Custom installation':
+
+   .. image:: https://i.imgur.com/tUcOMOA.png
+
+   Next check Visual C++:
+
+   .. image:: https://i.imgur.com/yWVEUkm.png
+
+   Ensure that the correct features will be installed:
+
+   .. image:: https://i.imgur.com/VxdbA7G.png
+
+
+**B. Install Visual Studio 2017 if using Bouncy or a nightly**
+
+   If you already have a paid version of Visual Studio 2017 (Professional, Enterprise), skip this step.
+
+.. warning:: Visual Studio 2017 v15.8 seems to have a compiler bug preventing from building some ROS 2 packages. Please try installing an older version of Visual Studio 2017.
+
+   Microsoft provides a free of charge version of Visual Studio 2017, named Community, which can be used to build applications that use ROS 2:
 
    https://visualstudio.microsoft.com/downloads/
 
-Make sure that the Visual C++ features are installed.
-
-An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
+   Make sure that the Visual C++ features are installed.
+   An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
    .. image:: https://i.imgur.com/2h0IxCk.png
 
-Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
 
 Some of the examples require OpenCV to be installed.
 
-You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
+You can download a precompiled version of OpenCV 3.4.1 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.1-vc15.VS2017.zip
 
 Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
 
@@ -105,14 +108,19 @@ Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Pro
 
    setx -m OpenCV_DIR C:\opencv
 
-Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries.
-You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
+Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. You have to extend the ``PATH`` variable to ``c:\opencv\x64\vc15\bin``
+
+In ardent and earlier
+~~~~~~~~~~~~~~~~~~~~~
+
+These releases used OpenCV 2. You can download a precompiled version of OpenCV 2.4.13.2 from https://github.com/ros2/ros2/releases/download/release-beta2/opencv-2.4.13.2-vc14.VS2015.zip
+
+Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries. Assuming you were extracting OpenCV to ``c:\`` you have to extend your ``PATH`` variable to ``c:\opencv-2.4.13.2-vc14.VS2015\x64\vc14\bin``
 
 Install dependencies
 ^^^^^^^^^^^^^^^^^^^^
 
-There are a few dependencies not available in the Chocolatey package database.
-In order to ease the manual installation process, we provide the necessary Chocolatey packages.
+There are a few dependencies not available in the Chocolatey package database. In order to ease the manual installation process, we provide the necessary Chocolatey packages.
 
 As some chocolatey packages rely on it, we start by installing CMake
 
@@ -124,8 +132,8 @@ You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to y
 
 Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
 
+
 * asio.1.12.1.nupkg
-* cunit.2.1.3.nupkg
 * eigen-3.3.4.nupkg
 * tinyxml-usestl.2.6.2.nupkg
 * tinyxml2.6.0.0.nupkg
@@ -135,7 +143,7 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 .. code-block:: bash
 
-   > choco install -y -s <PATH\TO\DOWNLOADS\> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx
+   > choco install -y -s <PATH\TO\DOWNLOADS\> asio eigen tinyxml-usestl tinyxml2 log4cxx
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
@@ -143,7 +151,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
+   python -m pip install -U catkin_pkg empy lark-parser opencv-python pyparsing pyyaml setuptools
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
@@ -152,22 +160,28 @@ RQt dependencies
 
    python -m pip install -U pydot PyQt5
 
+SROS2 dependencies
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python -m pip install -U lxml
+
 Downloading ROS 2
 -----------------
 
+
 * Go the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for Windows, e.g., ``ros2-dashing-*-windows-AMD64.zip``.
+* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 
-.. note::
+  * Notes:
 
-    There may be more than one binary download option which might cause the file name to differ.
+    * there may be more than one binary download option which might cause the file name to differ.
+    * [ROS Bouncy only] To download the ROS 2 debug libraries you'll need to download ``ros2-bouncy-windows-Debug-AMD64.zip``
 
-.. note::
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_crystal``\ ).
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-dashing-*-windows-debug-AMD64.zip``
-
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_dashing``\ ).
-
+  * Note (Ardent and earlier): There seems to be an issue where extracting the zip file with 7zip causes RViz to crash on startup. Extract the zip file using the Windows explorer to prevent this.
 
 Environment setup
 -----------------
@@ -176,9 +190,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_dashing\local_setup.bat
-
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+   > call C:\dev\ros2_crystal\local_setup.bat
 
 Try some examples
 -----------------
@@ -199,19 +211,12 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
+See the `tutorials and demos </Tutorials>` for other things to try.
 
-Next steps after installing
----------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Build your own packages
+-----------------------
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
-See the `tutorial </Tutorials/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+If you would like to build your own packages, refer to the tutorial `"Using Colcon to build packages" </Tutorials/Colcon-Tutorial>`.
 
 Troubleshooting
 ---------------
@@ -222,57 +227,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Dashing install on your system.
+   This way, your environment will behave as though there is no Crystal install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_dashing
-
-(Alternative) ROS 2 Build Installation from aka.ms/ros
---------------------------------------------------------
-
-https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
-This section explains how to install ROS 2 from this channel.
-
-Install ROS 2 builds
-^^^^^^^^^^^^^^^^^^^^
-
-In an administrative command prompt, run the following commands.
-
-.. code-block:: bash
-
-   > mkdir c:\opt\chocolatey
-   > set PYTHONNOUSERSITE=1
-   > set ChocolateyInstall=c:\opt\chocolatey
-   > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
-   > choco upgrade ros-dashing-desktop -y --execution-timeout=0
-
-Environment setup
-^^^^^^^^^^^^^^^^^^
-
-Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
-
-.. code-block:: bash
-
-   > call C:\opt\ros\dashing\x64\local_setup.bat
-
-Stay up-to-date
-^^^^^^^^^^^^^^^
-
-To keep up-to-date with the latest builds, run:
-
-.. code-block:: bash
-
-   > set ChocolateyInstall=c:\opt\chocolatey
-   > choco upgrade all -y --execution-timeout=0
-
-Uninstall
-^^^^^^^^^
-
-If you want to completely remove the environment downloaded above, run this command:
-
-.. code-block:: bash
-
-   > rmdir /s /q C:\opt\
+    rmdir /s /q \ros2_crystal
