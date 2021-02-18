@@ -126,7 +126,7 @@ If you wish to checkout the latest development code for the upcoming ROS release
 Update your repositories
 ------------------------
 
-You will notice that in the `ros2.repos <https://raw.githubusercontent.com/ros2/ros2/release-latest/ros2.repos>`__ file, each repository has a ``version`` associated with it that points to a particular commit hash, tag, or branch name.
+You will notice that in the `ros2.repos <https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos>`__ file, each repository has a ``version`` associated with it that points to a particular commit hash, tag, or branch name.
 It is possible that these versions refer to new tags/branches that your local copy of the repositories will not recognize as they are out-of-date.
 Because of this, you should update the repositories that you have already checked out with the following command:
 
