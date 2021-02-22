@@ -1,26 +1,3 @@
-Installing the latest ROS 2 development
-=======================================
+:orphan:
 
-If you plan to contribute directly to the latest ROS 2 development, you can install ROS 2 by building it from source or installing pre-release binaries.
-This will give you the latest bug fixes and features.
-
-Pre-release binaries
---------------------
-
-See `Pre-release Testing <Prerelease-Testing>`.
-
-Building from source
---------------------
-
-.. note::
-
-   The latest development does not go through the same rigorous testing as releases and is not recommended if you are looking for a stable version of ROS 2.
-   Instead, choose a `ROS distribution <../Installation>` that has already been released.
-
-Follow the links below for the latest setup instructions for your platform:
-
-* :ref:`Linux <linux-latest>`
-* :ref:`macOS <macOS-latest>`
-* :ref:`Windows <windows-latest>`
-
-For keeping your source code up-to-date, see `Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.
+The files on this branch are no longer used.  See the 'rolling' branch instead.
