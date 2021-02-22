@@ -16,7 +16,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (20 as of 2021-01-21):
+The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 
 .. list-table::
    :align: center
@@ -107,11 +107,6 @@ The current members of the ROS 2 TSC are (20 as of 2021-01-21):
           :height: 60px
           :target: https://www.sony.com
      - Sony: Tomoya Fujita
-   * - .. figure:: Governance/TierIV.png
-          :alt: Tier IV logo
-          :height: 50px
-          :target: https://www.tier4.jp/
-     - Tier IV: Jilada Eccleston
    * - .. figure:: Governance/tri_logo_landscape-web.svg
           :alt: TRI logo
           :height: 50px
