@@ -407,7 +407,9 @@ Package layout
 
 * ``<package_name>``: contains all Python code
 * ``test``: contains all automated tests and test data
+* ``config``: contains configuration files, e.g. YAML parameters files and RViz config files
 * ``doc``: contains all the documentation
+* ``launch``: contains all launch files
 * ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
 * ``CMakeLists.txt``: only ROS packages which use CMake
 * ``setup.py``: only ROS packages which use Python code only
