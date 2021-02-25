@@ -35,7 +35,11 @@ Tier 3 platforms:
 Installation
 ------------
 
+<<<<<<< HEAD
 `Install Rolling Ridley <../rolling/Installation/Summary.html>`__
+=======
+`Install Rolling Ridley <../Installation>`
+>>>>>>> a2e84b3... Remove installation landing page [rolling] (#1132)
 
 New features and changes in this release
 ----------------------------------------

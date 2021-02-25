@@ -1,10 +1,18 @@
 .. _InstallationGuide:
+<<<<<<< HEAD
 .. _FoxyInstall:
+=======
+.. _RollingInstall:
+>>>>>>> a2e84b3... Remove installation landing page [rolling] (#1132)
 
 Installation
 ============
 
+<<<<<<< HEAD
 Options for installing ROS 2 Foxy Fitzroy:
+=======
+Options for installing ROS 2 Rolling Ridley:
+>>>>>>> a2e84b3... Remove installation landing page [rolling] (#1132)
 
 .. toctree::
    :hidden:
@@ -26,16 +34,30 @@ Options for installing ROS 2 Foxy Fitzroy:
 Binary packages
 ---------------
 
+<<<<<<< HEAD
 We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Focal(20.04))
 
  * `Debian packages <Installation/Linux-Install-Debians>`
  * `"fat" archive <Installation/Linux-Install-Binary>`
+=======
+We currently provide ROS 2 binary packages for the following platforms:
+
+* Linux (Ubuntu Focal(20.04))
+
+  * `Debian packages <Installation/Linux-Install-Debians>`
+  * `"fat" archive <Installation/Linux-Install-Binary>`
+>>>>>>> a2e84b3... Remove installation landing page [rolling] (#1132)
 
 * `macOS <Installation/macOS-Install-Binary>`
 * `Windows <Installation/Windows-Install-Binary>`
 
+<<<<<<< HEAD
+=======
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+
+>>>>>>> a2e84b3... Remove installation landing page [rolling] (#1132)
 
 .. _building-from-source:
 
