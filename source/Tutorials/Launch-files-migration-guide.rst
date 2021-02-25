@@ -129,7 +129,7 @@ rosparam
 
 * `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/rosparam>`__.
 * Loads parameters from a yaml file.
-* It has been replaced with a ``from`` atribute in ``param`` tags.
+* It has been replaced with a ``from`` attribute in ``param`` tags.
 
 Example
 ~~~~~~~
