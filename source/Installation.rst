@@ -1,8 +1,10 @@
 .. _InstallationGuide:
 .. _EloquentInstall:
 
-Installing ROS 2 Eloquent Elusor
-================================
+Installation
+============
+
+Options for installing ROS 2 Eloquent Elusor:
 
 .. toctree::
    :hidden:
@@ -29,11 +31,11 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Bionic(18.04))
 
- * `Debian packages <Linux-Install-Debians>`
- * `"fat" archive <Linux-Install-Binary>`
+ * `Debian packages <Installation/Linux-Install-Debians>`
+ * `"fat" archive <Installation/Linux-Install-Binary>`
 
-* `macOS <macOS-Install-Binary>`
-* `Windows <Windows-Install-Binary>`
+* `macOS <Installation/macOS-Install-Binary>`
+* `Windows <Installation/Windows-Install-Binary>`
 
 
 .. _building-from-source:
@@ -44,9 +46,9 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Linux-Development-Setup>`
-* `macOS <macOS-Development-Setup>`
-* `Windows <Windows-Development-Setup>`
+* `Linux <Installation/Linux-Development-Setup>`
+* `macOS <Installation/macOS-Development-Setup>`
+* `Windows <Installation/Windows-Development-Setup>`
 
 
 Which install should you choose?
