@@ -8,7 +8,6 @@ Installing ROS 2 Rolling Ridley
    :hidden:
    :glob:
 
-   Installation/Summary
    Installation/Linux-Development-Setup
    Installation/Linux-Install-Binary
    Installation/Linux-Install-Debians
@@ -29,11 +28,11 @@ We currently provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Focal(20.04))
 
-* `Debian packages <Linux-Install-Debians>`
-* `"fat" archive <Linux-Install-Binary>`
+  * `Debian packages <Installation/Linux-Install-Debians>`
+  * `"fat" archive <Installation/Linux-Install-Binary>`
 
-* `macOS <macOS-Install-Binary>`
-* `Windows <Windows-Install-Binary>`
+* `macOS <Installation/macOS-Install-Binary>`
+* `Windows <Installation/Windows-Install-Binary>`
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
 
@@ -46,9 +45,9 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Linux-Development-Setup>`
-* `macOS <macOS-Development-Setup>`
-* `Windows <Windows-Development-Setup>`
+* `Linux <Installation/Linux-Development-Setup>`
+* `macOS <Installation/macOS-Development-Setup>`
+* `Windows <Installation/Windows-Development-Setup>`
 
 
 Which install should you choose?
