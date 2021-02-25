@@ -9,7 +9,6 @@ Options for installing ROS 2 Crystal and earlier:
    :hidden:
    :glob:
 
-   Installation/Summary
    Installation/Linux-Development-Setup
    Installation/Linux-Install-Binary
    Installation/Linux-Install-Debians
