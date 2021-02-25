@@ -10,7 +10,6 @@ Options for installing ROS 2 Foxy Fitzroy:
    :hidden:
    :glob:
 
-   Installation/Summary
    Installation/Linux-Development-Setup
    Installation/Linux-Install-Binary
    Installation/Linux-Install-Debians
