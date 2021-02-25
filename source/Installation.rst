@@ -1,8 +1,10 @@
 .. _InstallationGuide:
 .. _RollingInstall:
 
-Installing ROS 2 Rolling Ridley
-===============================
+Installation
+============
+
+Options for installing ROS 2 Rolling Ridley:
 
 .. toctree::
    :hidden:
