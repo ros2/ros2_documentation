@@ -1,5 +1,5 @@
 pip
 sphinx
-sphinxcontrib-srclinks
 sphinx-tabs
 sphinx-multiversion
+sphinx-rtd-theme
