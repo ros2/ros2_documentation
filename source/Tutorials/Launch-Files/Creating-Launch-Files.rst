@@ -52,7 +52,7 @@ Copy and paste the complete code into the ``turtlesim_mimic_launch.py`` file:
 
 .. tabs::
 
-  .. group-tab:: XML launch file, Eloquent and later
+  .. group-tab:: XML launch file, Eloquent and newer
 
     .. code-block:: xml
 
