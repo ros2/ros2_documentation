@@ -256,7 +256,7 @@ In other words, ``turtlesim2`` will mimic ``turtlesim1``'s movements.
 3 ros2 launch
 ^^^^^^^^^^^^^
 
-Open in a terminal the directory where you created the launch file, then you can run the following command:
+In a terminal, change to the directory where you created the launch file, then run the following command:
 
 .. code-block:: console
 
