@@ -1,4 +1,3 @@
 pip
 sphinx
-sphinx-reredirects
 sphinx-tabs

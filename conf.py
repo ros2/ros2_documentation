@@ -18,7 +18,12 @@
 #
 import os
 import itertools
+import json
+from pathlib import Path
 from docutils.parsers.rst import Directive
+
+from fnmatch import fnmatch
+from string import Template
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -66,7 +71,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_reredirects']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs']
 
 # Intersphinx mapping
 
@@ -404,8 +409,61 @@ def make_router(origin, destination):
     return _missing_reference
 
 
+def apply_redirects(app, exception):
+    redirects = app.config['redirects']
+
+    if not redirects:
+        return
+
+    from sphinx.builders.html import StandaloneHTMLBuilder
+    from sphinxcontrib.serializinghtml import JSONHTMLBuilder
+
+    if isinstance(app.builder, JSONHTMLBuilder):
+        # If the builder is the JSONHTMLBuilder, then to support redirects from
+        # the https://github.com/ros-infrastructure/rosindex site, we need to
+        # add a 'canonical_url' portion to the JSON.  When that is in place, the
+        # site generator will automatically use that as a redirect.
+
+        for source, target in redirects.items():
+            # examine if it matches to some doc
+            for doc in app.env.found_docs:
+                if fnmatch(doc, source):
+                    file_path = Path(app.outdir).joinpath(doc).with_suffix('.fjson')
+                    with open(file_path, 'r') as infp:
+                        data = json.load(infp)
+                    data['canonical_url'] = target
+                    with open(file_path, 'w') as outfp:
+                        json.dump(data, outfp)
+    elif isinstance(app.builder, StandaloneHTMLBuilder):
+        # If the builder is the StandaloneHTMLBuilder, we just assume that the
+        # user meant to generate an HTML file and do that here.
+
+        # The below code is a lightly-modified version of the code at
+        # https://gitlab.com/documatt/sphinx-reredirects . It is licensed as BSD.
+
+        # HTML used as redirect file content
+        redirect_template = '<html><head><meta http-equiv="refresh" content="0; url=${to_uri}"></head></html>'
+        # For each entry
+        for source, target in redirects.items():
+            # examine if it matches to some doc
+            for doc in app.env.found_docs:
+                if fnmatch(doc, source):
+                    # if so, apply $source placeholder
+                    new_target = Template(target).substitute({'source': doc})
+                    # create redirect file
+                    redirect_file_path = Path(app.outdir).joinpath(doc).with_suffix('.html')
+                    content = Template(redirect_template).substitute({'to_uri': new_target})
+                    redirect_file_path.write_text(content)
+    else:
+        print('Only JSON and HTML builders support redirects')
+
+
 def setup(app):
     RedirectFrom.register(app)
+
+    app.connect('build-finished', apply_redirects)
+    app.add_config_value('redirects', {}, 'env')
+
     app.connect('missing-reference', make_router(
         'Installation', 'Installation/Eloquent'
     ))
