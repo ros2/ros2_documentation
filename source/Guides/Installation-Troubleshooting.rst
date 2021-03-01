@@ -227,7 +227,7 @@ When building qt_gui_cpp there may be errors look like the following:
    ---
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
-To fix this issue, follow `these steps <../../Tutorials/RQt-Source-Install-MacOS>` to install dependencies for RQt.
+To fix this issue, follow `these steps <RQt-Source-Install-MacOS>` to install dependencies for RQt.
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
