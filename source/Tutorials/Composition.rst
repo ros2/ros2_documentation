@@ -84,7 +84,7 @@ Background
 ----------
 >>>>>>> 5d938b1... create guides page
 
-See the conceptual article `<../Concepts/About-Composition>`.
+See the `conceptual article <../Concepts/About-Composition>`.
 
 Run the demos
 -------------

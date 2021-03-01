@@ -215,7 +215,7 @@ Example
 Passing an argument via the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `ROS 2 launch tutorial <Launch-system>`.
+See `ROS 2 launch tutorial <../Tutorials/Launch-system>`.
 
 
 env
