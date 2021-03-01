@@ -164,7 +164,7 @@ redirects = {
     'Installation/Maintaining-a-Source-Checkout': 'https://docs.ros.org/en/rolling/Installation/Maintaining-a-Source-Checkout.html',
     'Installation/Prerelease-Testing': 'https://docs.ros.org/en/rolling/Installation/Prerelease-Testing.html',
 
-    'Installation/Crystal': 'https://docs.ros.org/en/crystal/Installation/Summary.html',
+    'Installation/Crystal': 'https://docs.ros.org/en/crystal/Installation.html',
     'Installation/Crystal/Fedora-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Fedora-Development-Setup.html',
     'Installation/Crystal/Linux-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Linux-Development-Setup.html',
     'Installation/Crystal/Linux-Install-Binary': 'https://docs.ros.org/en/crystal/Installation/Linux-Install-Binary.html',
@@ -174,7 +174,7 @@ redirects = {
     'Installation/Crystal/Windows-Development-Setup': 'https://docs.ros.org/en/crystal/Installation/Windows-Development-Setup.html',
     'Installation/Crystal/Windows-Install-Binary': 'https://docs.ros.org/en/crystal/Installation/Windows-Install-Binary.html',
 
-    'Installation/Dashing': 'https://docs.ros.org/en/dashing/Installation/Summary.html',
+    'Installation/Dashing': 'https://docs.ros.org/en/dashing/Installation.html',
     'Installation/Dashing/Fedora-Development-Setup': 'https://docs.ros.org/en/dashing/Installation/Fedora-Development-Setup.html',
     'Installation/Dashing/Linux-Development-Setup': 'https://docs.ros.org/en/dashing/Installation/Linux-Development-Setup.html',
     'Installation/Dashing/Linux-Install-Binary': 'https://docs.ros.org/en/dashing/Installation/Linux-Install-Binary.html',
@@ -188,7 +188,7 @@ redirects = {
     'Installation/DDS-Implementations/Install-Connext-University-Eval': 'https://docs.ros.org/en/foxy/Installation/DDS-Implementations/Install-Connext-University-Eval.html',
     'Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS': 'https://docs.ros.org/en/foxy/Installation/DDS-Implementations/Working-with-Eclipse-CycloneDDS.html',
 
-    'Installation/Eloquent': 'https://docs.ros.org/en/eloquent/Installation/Summary.html',
+    'Installation/Eloquent': 'https://docs.ros.org/en/eloquent/Installation.html',
     'Installation/Eloquent/Fedora-Development-Setup': 'https://docs.ros.org/en/eloquent/Installation/Fedora-Development-Setup.html',
     'Installation/Eloquent/Linux-Development-Setup': 'https://docs.ros.org/en/eloquent/Installation/Linux-Development-Setup.html',
     'Installation/Eloquent/Linux-Install-Binary': 'https://docs.ros.org/en/eloquent/Installation/Linux-Install-Binary.html',
@@ -198,7 +198,7 @@ redirects = {
     'Installation/Eloquent/Windows-Development-Setup': 'https://docs.ros.org/en/eloquent/Installation/Windows-Development-Setup.html',
     'Installation/Eloquent/Windows-Install-Binary': 'https://docs.ros.org/en/eloquent/Installation/Windows-Install-Binary.html',
 
-    'Installation/Foxy': 'https://docs.ros.org/en/foxy/Installation/Summary.html',
+    'Installation/Foxy': 'https://docs.ros.org/en/foxy/Installation.html',
     'Installation/Foxy/Fedora-Development-Setup': 'https://docs.ros.org/en/foxy/Installation/Fedora-Development-Setup.html',
     'Installation/Foxy/Linux-Development-Setup': 'https://docs.ros.org/en/foxy/Installation/Linux-Development-Setup.html',
     'Installation/Foxy/Linux-Install-Binary': 'https://docs.ros.org/en/foxy/Installation/Linux-Install-Binary.html',
@@ -208,7 +208,7 @@ redirects = {
     'Installation/Foxy/Windows-Development-Setup': 'https://docs.ros.org/en/foxy/Installation/Windows-Development-Setup.html',
     'Installation/Foxy/Windows-Install-Binary': 'https://docs.ros.org/en/foxy/Installation/Windows-Install-Binary.html',
 
-    'Installation/Rolling': 'https://docs.ros.org/en/rolling/Installation/Summary.html',
+    'Installation/Rolling': 'https://docs.ros.org/en/rolling/Installation.html',
     'Installation/Rolling/Fedora-Development-Setup': 'https://docs.ros.org/en/rolling/Installation/Fedora-Development-Setup.html',
     'Installation/Rolling/Linux-Development-Setup': 'https://docs.ros.org/en/rolling/Installation/Linux-Development-Setup.html',
     'Installation/Rolling/Linux-Install-Binary': 'https://docs.ros.org/en/rolling/Installation/Linux-Install-Binary.html',
