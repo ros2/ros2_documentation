@@ -54,7 +54,7 @@ Supported RMW implementations
 
 *"Partial support" means that one or more of the features required by the rmw interface is not implemented.*
 
-For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../Tutorials/Working-with-multiple-RMW-implementations>` tutorial.
+For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
 Multiple RMW implementations
 ----------------------------
@@ -92,4 +92,4 @@ The implementation identifier is the name of the ROS package that provides the R
 For example, if both ``rmw_fastrtps_cpp`` and ``rmw_connext_cpp`` ROS packages are installed, ``rmw_connext_cpp`` would be the default.
 If ``rmw_cyclonedds_cpp`` is ever installed, it would be the default.
 
-See the `<../Guides/Working-with-multiple-RMW-implementations>` guide for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+See the `guide <../Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.

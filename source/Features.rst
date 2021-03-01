@@ -17,7 +17,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
    * - Support for `multiple DDS implementations <Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
-     - `Tutorials </Tutorials/Working-with-multiple-RMW-implementations>`
+     - `Concept <Concepts/About-Different-Middleware-Vendors>`, `Guide <Guides/Working-with-multiple-RMW-implementations>`
      - Currently eProsima Fast RTPS, RTI Connext and ADLINK OpenSplice are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - `Details <Concepts/About-ROS-2-Client-Libraries>`
@@ -50,7 +50,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Demo <https://github.com/ros2/sros2>`__
      -
    * - Command-line introspection tools using an extensible framework
-     - `Tutorial <Tutorials/Introspection-with-command-line-tools>`
+     - `Concept <Concepts/About-Command-Line-Tools>`
      -
    * - Launch system  for coordinating multiple nodes
      - `Tutorial <Tutorials/Launch-system>`
@@ -59,7 +59,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Static remapping of ROS names
-     - `Tutorial <Tutorials/Node-arguments>`
+     - `Guide <Guides/Node-arguments>`
      -
    * - Demos of an all-ROS 2 mobile robot
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__
