@@ -1,0 +1,29 @@
+{%- if current_version %}
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: {{ current_version.name }}
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Releases</dt>
+      {%- for item in versions.releases|sort(reverse=True) %}
+        {%- if item.name == latest_version.name %}
+        <dd><a href="{{ item.url }}">{{ item.name|title }} (latest)</a></dd>
+        {%- elif item.name in ['eloquent', 'crystal'] %}
+        <dd><a href="{{ item.url }}">{{ item.name|title }} (EOL)</a></dd>
+        {% else %}
+        <dd><a href="{{ item.url }}">{{ item.name|title }}</a></dd>
+        {%- endif %}
+      {%- endfor %}
+    </dl>
+    <dl>
+      <dt>In Development</dt>
+      {%- for item in versions.in_development|sort(reverse=True) %}
+      <dd><a href="{{ item.url }}">{{ item.name|title }}</a></dd>
+      {%- endfor %}
+    </dl>
+  </div>
+</div>
+{%- endif %}

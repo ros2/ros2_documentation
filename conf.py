@@ -16,8 +16,12 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-import sys, os
+
 import itertools
+import os
+import sys
+import time
+
 from docutils.parsers.rst import Directive
 
 sys.path.append(os.path.abspath('./sphinx-multiversion'))
@@ -36,9 +40,9 @@ default_role = 'any'
 suppress_warnings = ['image.nonlocal_uri']
 
 # General information about the project.
-project = u'ros2 documentation'
-copyright = u'2018-2021, Open Robotics'
-author = u'Open Robotics'
+project = 'ros2 documentation'
+author = 'Open Robotics'
+copyright = '{}, {}'.format(time.strftime('%Y'), author)
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -69,7 +73,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinxcontrib.srclinks']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme']
 
 # Intersphinx mapping
 
@@ -88,19 +92,23 @@ intersphinx_mapping = {
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-#html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
+html_theme_options = {
+    'collapse_navigation': False,
+    'sticky_navigation': True,
+    'navigation_depth': -1,
+}
 
-srclink_project = 'https://github.com/ros2/ros2_documentation'
-srclink_src_path = 'source/'
-srclink_branch = 'rolling'
+html_context = {
+    'display_github': True,
+    'github_user': 'ros2',
+    'github_repo': 'ros2_documentation',
+    'github_version': 'rolling/source/',  # Will be overridden when building multiversion
+}
 
 templates_path = [
     "source/_templates",
 ]
-
-html_sidebars = {
-    '**': ['navigation.html', 'srclinks.html', 'versioning.html'],
-}
 
 # smv_tag_whitelist = None
 
@@ -241,11 +249,11 @@ def smv_rewrite_baseurl(app, config):
     if app.config.smv_current_version != '':
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
 
-def srclink_rewrite_branch(app, config):
+def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
-        app.config.srclink_branch = app.config.smv_current_version
+        context['github_version'] = app.config.smv_current_version + '/source/'
 
 def setup(app):
     app.connect('config-inited', smv_rewrite_baseurl)
-    app.connect('config-inited', srclink_rewrite_branch)
+    app.connect('html-page-context', github_link_rewrite_branch)
     RedirectFrom.register(app)
