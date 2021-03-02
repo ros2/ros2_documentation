@@ -1041,3 +1041,10 @@ Changing the License
 It is possible to change the license, however you will need to contact all the contributors and get permission.
 For most packages this is likely to be a significant effort and not worth considering.
 If the package has a small set of contributors then this may be feasible.
+
+Examples and Tools
+------------------
+
+- Launch File migrator that converts a ROS 1 XML launch file to a ROS 2 Python launch file: https://github.com/aws-robotics/ros2-launch-file-migrator
+-  Amazon has exposed their tools for porting ROS 1 robots to ROS 2
+   https://github.com/awslabs/ros2-migration-tools/tree/master/porting\_tools
