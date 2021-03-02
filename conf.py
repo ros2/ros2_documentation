@@ -40,7 +40,7 @@ default_role = 'any'
 suppress_warnings = ['image.nonlocal_uri']
 
 # General information about the project.
-project = 'ros2 documentation'
+project = 'ROS 2 documentation'
 author = 'Open Robotics'
 copyright = '{}, {}'.format(time.strftime('%Y'), author)
 
@@ -248,6 +248,7 @@ def smv_rewrite_baseurl(app, config):
     # to rewrite the html_baseurl with the current version.
     if app.config.smv_current_version != '':
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
+        app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
