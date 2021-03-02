@@ -5,46 +5,15 @@
 Quality guide: ensuring code quality
 ====================================
 
-This section tries to give guidance about how to improve the software quality of ROS 2 packages. The guide uses a pattern language based approach to improve the reader's experience ("read little, understand fast, understand much, apply easily").
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
-**What this section is about:**
+This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the `Developer Guide <Developer-Guide>`.
 
+The sections below intend to address ROS 2 core, application and ecosystem packages and the core client libraries, C++ and Python.
+The solutions presented are motivated by design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements.
 
-* ROS 2 core, application and ecosystem packages.
-* ROS 2 core client libraries C++ and Python (right now: mainly C++)
-* Design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements (right now: mainly "Reliability").
-
-**What this section is not about:**
-
-
-* Design and implementation considerations which go beyond a single ROS 2 package and a single ROS 2 node (means no integration considerations w.r.t. ROS 2 graphs, etc.).
-* Organizational considerations to improve software quality (an organizations structure and processes, etc.).
-* Infrastructural considerations which go beyond a single repository (overall continuous integration infrastructure, etc.)
-
-**Relation to other sections:**
-
-* The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS 2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these considerations may have an impact on single or several quality attributes.
-
-Patterns
---------
-
-* Static code analysis
-
-  * Static code analysis using a single tool
-  * Static code analysis using multiple tools complementary
-  * Static code analysis as part of the ament package build
-
-* Dynamic code analysis
-* ROS 2 library test
-
-  * (referencing of generic unit test patterns like from `xUnitPatterns <http://xunitpatterns.com/Book%20Outline%20Diagrams.html>`__ with references to C++ gtest+gmock/Python unittest implementations)
-  * (ROS 2 specific unit test use cases)
-  * Property based test (C++ `RapidCheck <https://github.com/emil-e/rapidcheck>`__ / Python `hypothesis <https://github.com/HypothesisWorks/hypothesis-python>`__)
-  * Code coverage analysis
-
-* ROS 2 node unit test
-
-  * (generic use cases of ``launch`` based tests)
 
 Static code analysis as part of the ament package build
 -------------------------------------------------------
@@ -294,44 +263,3 @@ Dynamic analysis (data races & deadlocks)
 * Overhead due to production code instrumentation (maintenance of separate branches for instrumented/not instrumented production code, etc.).
 * Instrumented code needs more memory per thread (in case of ThreadSanatizer).
 * Instrumented code maps a lot virtual address space (in case of ThreadSanatizer).
-
-Code coverage analysis
-----------------------
-
-**Context**
-
-You have written tests for the library level production code of a ROS 2 package (usually referred to as "unit tests").
-
-**Problem**
-
-You do not know how much of the production code is exercised during the execution of the tests.
-
-**Solution**
-
-Select and use a code coverage analysis tool to determine the code coverage.
-
-**Forces**
-
-
-* Is it possible to integrate the tool with your source code editor?
-* If not web service based: Is it possible to integrate the tool with your continuous integration infrastructure?
-* What type(s) of coverage measurements (e.g. statement coverage) does the tool support?
-
-**Example**
-
-
-* C++
-
-  * `gcov <https://gcc.gnu.org/onlinedocs/gcc/Gcov.html>`__ + `lcov <http://ltp.sourceforge.net/coverage/lcov.php>`__
-  * `coveralls.io <https://coveralls.io>`__
-
-* Python
-
-  * `coveralls.io <https://coveralls.io>`__
-
-**Resulting context**
-
-
-* You know how much of your production code was exercised during the execution of the unit tests.
-* You have a more or less immediate feedback about the code coverage (editor integration / web service front end).
-* You do not know anything about the quality of your tests. (The only way to figure that out is some kind of review).
