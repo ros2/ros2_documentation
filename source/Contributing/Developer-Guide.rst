@@ -437,7 +437,7 @@ Developer Workflow
 
 We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
 
-The usual workflow is (this list is a work in progress):
+The usual workflow is:
 
 * Discuss design (GitHub ticket, and a meeting if needed)
 * Assign implementation to a team member
@@ -493,10 +493,10 @@ The usual workflow is (this list is a work in progress):
 
 * Delete the branch once merged
 
-Aspirational Practices
-----------------------
+Architectural Development Practices
+-----------------------------------
 
-Presently, we don't use adhere to the practices in this section, but believe they would be beneficial to the development process and hope to employ them officially in the future.
+This section describes the ideal lifecycle that should be employed when making large architectural changes to ROS 2.
 
 Software Development Lifecycle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
