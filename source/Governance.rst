@@ -197,7 +197,7 @@ Manipulation
 Real-time
 ^^^^^^^^^
 
-* Lead(s): Dejan Pangercic, Andrei Kholodnyi
+* Lead(s): Andrei Kholodnyi, Carlos San Vicente
 * Resources: TODO
 
  * `ROS 2 Real-time Working Group Community <https://github.com/ros-realtime/community>`__
