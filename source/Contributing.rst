@@ -62,7 +62,6 @@ Development Guides
 
    Contributing/Developer-Guide
    Contributing/Code-Style-Language-Versions
-   Contributing/Design-Guide
    Contributing/Quality-Guide
    Contributing/Migration-Guide
    Contributing/CI-Server-Setup
