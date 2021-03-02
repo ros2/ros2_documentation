@@ -60,7 +60,6 @@ Development Guides
    :titlesonly:
    :maxdepth: 1
 
-   Contributing/ROS-2-On-boarding-Guide
    Contributing/Developer-Guide
    Contributing/Code-Style-Language-Versions
    Contributing/Design-Guide
