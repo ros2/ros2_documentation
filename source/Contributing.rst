@@ -66,7 +66,6 @@ Development Guides
    Contributing/Quality-Guide
    Contributing/Migration-Guide
    Contributing/CI-Server-Setup
-   Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations
 
 What to work on
 ^^^^^^^^^^^^^^^
