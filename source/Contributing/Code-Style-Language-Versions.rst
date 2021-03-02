@@ -54,7 +54,7 @@ C++
 Standard
 ^^^^^^^^
 
-We will target C++14, using new built-in C++14 features over Boost equivalents wherever possible.
+Rolling targets C++17.
 
 Style
 ^^^^^
@@ -141,7 +141,7 @@ Function-like Objects
 Boost
 ~~~~~
 
-* Boost should be avoided until absolutely required
+* Boost should be avoided unless absolutely required
 
 Comments and Doc Comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -296,7 +296,7 @@ This is **not** OK, even weird (the google way?):
 Linters
 ~~~~~~~
 
-Most of these styles and restrictions can be checked with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__, though we may need to modify them slightly for our above changes.
+We check these styles and restriction with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
 
 We provide command line tools with custom configurations:
 
@@ -402,22 +402,3 @@ The following rules to format text is intended to increase readability as well a
     Following these instructions will ensure that highlighting works properly and consistently.
 
 * *[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``).
-
-Javascript
-----------
-
-*(Speculative, not yet used)*
-
-Version
-^^^^^^^
-
-We will target Javascript 1.5, which seems to provide the best balance of support in browsers and languages (node.js) and new features.
-
-Style
-^^^^^
-
-We will use the `airbnb Javascript Style guide <https://github.com/airbnb/javascript>`__.
-
-The repository referred to above comes with a ``jshintrc`` file which allows the style to be enforced using ``jshint``.
-
-Editor integration for ``jshint`` include ``vim``, ``emacs``, ``Sublime Text``, and others can be found `here <http://www.jshint.com/install/>`__.
