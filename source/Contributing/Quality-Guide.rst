@@ -23,8 +23,6 @@ This section tries to give guidance about how to improve the software quality of
 
 **Relation to other sections:**
 
-
-* The `Design Guide <Design-Guide>` summarizes design patterns for ROS 2 packages. As quality is highly impacted by design it is a good idea to have a look into it before.
 * The `Developer Guide <Developer-Guide>` explains what to consider when contributing to ROS 2 packages w.r.t. to contribution workflow (organizational), coding conventions, documentation considerations, etc. All these considerations may have an impact on single or several quality attributes.
 
 Patterns
