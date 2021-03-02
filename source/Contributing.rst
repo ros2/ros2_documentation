@@ -65,10 +65,9 @@ Development Guides
    Contributing/Code-Style-Language-Versions
    Contributing/Design-Guide
    Contributing/Quality-Guide
-   Contributing/Build-Cop-and-Build-Farmer-Guide
    Contributing/Migration-Guide
+   Contributing/CI-Server-Setup
    Contributing/Examples-and-Tools-for-ROS1----ROS2-Migrations
-   Contributing/Inter-Sphinx-Support
 
 What to work on
 ^^^^^^^^^^^^^^^
