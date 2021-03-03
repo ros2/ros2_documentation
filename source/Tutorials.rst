@@ -57,11 +57,7 @@ Intermediate
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
    Tutorials/Launch-system
    Tutorials/Composition
-<<<<<<< HEAD
-   Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
-=======
    Tutorials/Colcon-Tutorial
->>>>>>> 5d938b1... create guides page
 
 Advanced
 --------
@@ -69,31 +65,7 @@ Advanced
 .. toctree::
    :maxdepth: 1
 
-   Tutorials/Topics/Topic-Statistics-Tutorial
-   Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
-<<<<<<< HEAD
-   Tutorials/Releasing-a-ROS-2-package-with-bloom
-
-Windows Tutorials
------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   Tutorials/RQt-Port-Plugin-Windows
-
-Using Docker
-------------
-
-.. toctree::
-   :maxdepth: 1
-
-   Tutorials/Run-2-nodes-in-a-single-docker-container
-   Tutorials/Run-2-nodes-in-two-separate-docker-containers
-   Tutorials/Deploying-ROS-2-on-IBM-Cloud
-=======
->>>>>>> 5d938b1... create guides page
 
 Miscellaneous
 -------------
