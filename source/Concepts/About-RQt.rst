@@ -2,6 +2,7 @@
 
 .. redirect-from::
 
+   RQt-Overview-Usage
    Tutorials/RQt-Overview-Usage
 
 Overview and usage of RQt
