@@ -46,7 +46,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Documentation: Consolidate ROS 2 documentation in an easy to find/search place
      - Large
      - Open Robotics
-     - 1st quarter 2021
+     - Complete
    * - Documentation: Automatically generate and host per-package documentation
      - Large
      - Open Robotics
