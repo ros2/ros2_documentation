@@ -33,10 +33,6 @@ In order to get more information about using *Fast DDS* on ROS 2, please check t
 Prerequisites
 -------------
 
-This tutorial does not work with ROS 2 Foxy.
-For this tutorial to work with ROS 2 Foxy the [ros2/rmw_fastrtps#335](https://github.com/ros2/rmw_fastrtps/pull/335) and [ros2/rmw_fastrtps#497](https://github.com/ros2/rmw_fastrtps/pull/497) should be backported to the foxy branch.
-Right now, this tutorial only works in ROS 2 Rolling and newer installations.
-
 This tutorial assumes that you know how to :ref:`create a package <CreatePkg>`.
 It also assumes you know how to write a :ref:`simple publisher and subscriber<CppPubSub>` and a :ref:`simple service and client<CppSrvCli>`.
 Although the examples are implemented on C++, the same concepts apply to Python packages.
