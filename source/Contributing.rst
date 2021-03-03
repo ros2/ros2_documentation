@@ -64,7 +64,6 @@ Development Guides
    Contributing/Code-Style-Language-Versions
    Contributing/Quality-Guide
    Contributing/Migration-Guide
-   Contributing/CI-Server-Setup
 
 What to work on
 ^^^^^^^^^^^^^^^
