@@ -141,7 +141,7 @@ Function-like Objects
 Boost
 ~~~~~
 
-* Boost should be avoided unless absolutely required
+* Boost should be avoided unless absolutely required.
 
 Comments and Doc Comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -296,7 +296,7 @@ This is **not** OK, even weird (the google way?):
 Linters
 ~~~~~~~
 
-We check these styles and restriction with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
+We check these styles with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
 
 We provide command line tools with custom configurations:
 
