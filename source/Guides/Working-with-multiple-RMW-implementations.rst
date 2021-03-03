@@ -17,46 +17,6 @@ Prerequisites
 
 You should have already read the `DDS and ROS middleware implementations page <../Concepts/About-Different-Middleware-Vendors>`.
 
-<<<<<<< HEAD:source/Tutorials/Working-with-multiple-RMW-implementations.rst
-Multiple RMW implementations
-----------------------------
-
-The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast RTPS, RTI Connext Pro, ADLINK OpenSplice and Eclipse Cyclone DDS).
-The default is Fast RTPS, which works without any additional installation steps, because we distribute it with our binary packages.
-Cyclone DDS is also distributed with binary packages since Eloquent.
-
-Others like OpenSplice or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
-
-A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
-While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
-For example, if the code for the `RMW package for RTI Connext <https://github.com/ros2/rmw_connext/tree/foxy/rmw_connext_cpp>`__ is in the workspace, it will be built if an installation of RTI's Connext Pro can also be found.
-
-For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
-Here is a list of inter-vendor communication configurations that are not supported:
-
-- Fast-DDS <-> Connext
-   - does not support communication over pub/sub
-   - ``WString`` published by Fast-DDS can't be received correctly by Connext on macOS
-- OpenSplice <-> OpenSplice
-   - does not support ``WString``
-   - ``WString`` is mapped to ``String`` which has a different wire representation
-- Connext <-> CycloneDDS
-   - does not support pub/sub communication for ``WString``
-- Connext Dynamic <-> Connext Dynamic
-   - does not support C services
-
-Default RMW implementation
---------------------------
-
-If a ROS 2 workspace has multiple RMW implementations, the default RMW implementation is currently selected as Fast RTPS if it's available.
-If the Fast RTPS RMW implementation is not installed, the RMW implementation with the first RMW implementation identifier in alphabetical order will be used.
-The implementation identifier is the name of the ROS package that provides the RMW implementation, e.g. ``rmw_fastrtps_cpp``.
-For example, if both ``rmw_opensplice_cpp`` and ``rmw_connext_cpp`` ROS packages are installed, ``rmw_connext_cpp`` would be the default.
-If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
-See below for how to specify which RMW implementation is to be used when running the ROS 2 examples.
-
-=======
->>>>>>> 5d938b1... create guides page:source/Guides/Working-with-multiple-RMW-implementations.rst
 Specifying RMW implementations
 ------------------------------
 
