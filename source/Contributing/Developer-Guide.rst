@@ -439,9 +439,8 @@ We track open tickets and active PRs related to upcoming releases and larger pro
 
 The usual workflow is:
 
-* Discuss design (GitHub ticket, and a meeting if needed)
-* Assign implementation to a team member
-* Write implementation on a feature branch
+* Discuss design (GitHub ticket on the appropriate repository, and a design PR to https://github.com/ros2/design if needed)
+* Write implementation on a feature branch on a fork
 
   * Please check out the `developer guide <Developer-Guide>` for guidelines and best practices
 
@@ -457,6 +456,8 @@ The usual workflow is:
   * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
   * Hit the ``build`` button
 
+  (if you are not a ROS 2 committer, you don't have access to the CI farm. In that case, ping the reviewer of your PR to run CI for you)
+
 * If your use case requires running code coverage:
 
   * Go to ci.ros2.org
@@ -470,18 +471,6 @@ The usual workflow is:
 * If the CI job built without warnings, errors and test failures, post the links of your jobs on your PR or high-level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
   * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
-
-* To get the PR reviewed, you need to put the label "in review":
-
-  * Through GitHub interface:
-
-    * Click on "" next to labels
-    * Remove "in progress" label if applicable
-    * Add "in review" label
-
-  * If the PR is part of a project board:
-
-    * Drag the card from "In progress" to "In review"
 
 * When the PR has been approved:
 
@@ -632,12 +621,12 @@ Additionally, we test all pull requests against these platforms before merging.
 This is the current set of target platforms and architectures, though it evolves overtime:
 
 
-* Ubuntu 16.04 Xenial
+* Ubuntu 20.04 Focal
 
   * amd64
   * aarch64
 
-* macOS 10.12 Sierra
+* macOS 10.14 Mojave
 
   * amd64
 
@@ -687,11 +676,11 @@ There are several categories of jobs on the buildfarm:
       * results are exported as a cobertura report
 
 
-* packaging (run every night, against fastrtps; result is bundled into an archive):
+* packaging (run every night; result is bundled into an archive):
 
   * packaging_linux
   * packaging_osx
-  * Packaging_windows
+  * packaging_windows
 
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^
