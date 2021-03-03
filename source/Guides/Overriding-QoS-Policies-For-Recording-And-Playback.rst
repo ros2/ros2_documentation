@@ -4,8 +4,8 @@
 
 .. _ROS2Bag-QoS-Override:
 
-Overriding QoS Policies For Recording And Playback
-==================================================
+rosbag2: Overriding QoS Policies
+================================
 
 **Goal:** Override Ros2Bag QoS profile settings for recording and playback.
 
@@ -17,7 +17,7 @@ Overriding QoS Policies For Recording And Playback
 Background
 ----------
 
-With the introduction of DDS in ROS2, Quality of Service (QoS) compatibility for publisher/subscriber nodes needs to be considered when recording and playing back data.
+With the introduction of DDS in ROS 2, Quality of Service (QoS) compatibility for publisher/subscriber nodes needs to be considered when recording and playing back data.
 More detail on how QoS works can be found `here <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings>`__.
 For the purposes of this guide, it is sufficient to know that only the reliability and durability policies affect whether publishers/subscribers are compatible and can receive data from one other.
 

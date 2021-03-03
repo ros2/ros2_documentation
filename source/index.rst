@@ -74,9 +74,9 @@ these pages provide high-level details in various related areas.
 
 * :ref:`Project governance <Governance>` is handled by the Technical Steering Committee, which you can learn more about here.
 
-* This set of :ref:`ROSCon talks <ROSCon>` provides some context for various ROS 2 concepts.
-
 * :ref:`Marketing <Marketing>` materials promoting ROS 2 can be downloaded from this page.
+
+* `ROS 2 Design <http://design.ros2.org/>`__ contains various articles on the design decisions behind ROS 2.
 
 About this documentation
 ------------------------
