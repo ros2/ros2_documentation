@@ -6,12 +6,19 @@ Distributions
 What is a Distribution?
 -----------------------
 
-See `wiki.ros.org/Distributions <https://wiki.ros.org/Distributions>`_.
+A ROS distribution is a versioned set of ROS packages.
+These are akin to Linux distributions (e.g. Ubuntu).
+The purpose of the ROS distributions is to let developers work against a relatively stable codebase until they are ready to roll everything forward.
+Therefore once a distribution is released, we try to limit changes to bug fixes and non-breaking improvements for the core packages (every thing under ros-desktop-full).
+That generally applies to the whole community, but for "higher" level packages, the rules are less strict, and so it falls to the maintainers of a given package to avoid breaking changes.
 
 .. _list_of_distributions:
 
 List of Distributions
 ---------------------
+
+Below is a list of current and historic ROS 2 distributions.
+Rows in the table marked in green are the currently supported distributions.
 
 .. toctree::
    :hidden:
@@ -21,100 +28,147 @@ List of Distributions
 
 .. raw:: html
 
-   <style>
-     .distros td {border: 0px;}
-     .distros tbody tr {background-color: #c0c0c0;}
-     .distros tbody tr:nth-child(1), .distros tbody tr:nth-child(2), .distros tbody tr:nth-child(3) {background-color: #33cc66;}
-     .distros td {vertical-align: middle;}
-   </style>
-
-.. |foxy| image:: Releases/foxy-small.png
-   :alt: Foxy logo
-
-.. |eloquent| image:: Releases/eloquent-small.png
-   :alt: Eloquent logo
-
-.. |dashing| image:: Releases/dashing-small.png
-   :alt: Dashing logo
-
-.. |crystal| image:: Releases/crystal-small.png
-   :alt: Crystal logo
-
-.. |bouncy| image:: Releases/bouncy-small.png
-   :alt: Bouncy logo
-
-.. |ardent| image:: Releases/ardent-small.png
-   :alt: Ardent logo
-
-.. list-table::
-   :class: distros
-   :header-rows: 1
-   :widths: 35 30 20 15
-
-   * - Distro
-     - Release date
-     - Logo
-     - EOL date
-   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
-     - June 5th, 2020
-     - |foxy|
-     - May 2023
-   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
-     - Nov 22nd, 2019
-     - |eloquent|
-     - Nov 2020
-   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
-     - May 31st, 2019
-     - |dashing|
-     - May 2021
-   * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
-     - December 14th, 2018
-     - |crystal|
-     - Dec 2019
-   * - `Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
-     - July 2nd, 2018
-     - |bouncy|
-     - Jul 2019
-   * - `Ardent Apalone <Releases/Release-Ardent-Apalone>`
-     - December 8th, 2017
-     - |ardent|
-     - Dec 2018
-   * - `beta3 <Releases/Beta3-Overview>`
-     - September 13th, 2017
-     -
-     - Dec 2017
-   * - `beta2 <Releases/Beta2-Overview>`
-     - July 5th, 2017
-     -
-     - Sep 2017
-   * - `beta1 <Releases/Beta1-Overview>`
-     - December 19th, 2016
-     -
-     - Jul 2017
-   * - `alpha1 - alpha8 <Releases/Alpha-Overview>`
-     - August 31th, 2015
-     -
-     - Dec 2016
-
-Distribution Details
-~~~~~~~~~~~~~~~~~~~~
-
-For details on the distributions see each release page.
-For the supported platforms and versions of common dependencies and other considerations, see the official ROS 2 Target Platforms `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
+    <!--
+    The CSS and HTML below generate the list of current and historic ROS 2 distributions.
+    It is currently using raw HTML because there was no way that I could see to make the
+    ReStructured Text "list-tables" directive work with Read-the-docs.
+    -->
+    <style>
+    table.distroclass, th.distroclass {
+      border: 1px solid #e1e4e5;
+      border-top-color: rgb(225, 228, 229);
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-right-color: rgb(225, 228, 229);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-bottom-color: rgb(225, 228, 229);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-left-color: rgb(225, 228, 229);
+      border-left-style: solid;
+      border-left-width: 1px;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-image-slice: 100%;
+      border-image-source: none;
+      border-image-width: 1;
+    }
+    td.distroclass {
+      border-top-color: rgb(225, 228, 229);
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-right-color: rgb(225, 228, 229);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-bottom-color: rgb(225, 228, 229);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-left-color: rgb(225, 228, 229);
+      border-left-style: solid;
+      border-left-width: 1px;
+      vertical-align: middle;
+      padding-left: 15px;
+    }
+    thead.distroclass {
+      color: #000;
+      text-align: left;
+      vertical-align: bottom;
+      white-space: nowrap;
+    }
+    tr.distroclass:nth-child(2n-1) {
+      background-color: #f3f6f6;
+    }
+    tr.active {
+      background-color: #33cc66;
+    }
+    </style>
+    <table class="distroclass">
+      <colgroup>
+        <col style="width: 35%" />
+        <col style="width: 30%" />
+        <col style="width: 20%" />
+        <col style="width: 15%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th class="distroclass"><p>Distro</p></th>
+          <th class="distroclass"><p>Release date</p></th>
+          <th class="distroclass"><p>Logo</p></th>
+          <th class="distroclass"><p>EOL Date</p></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="active">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Foxy-Fitzroy.html">Foxy Fitzroy</a></p></td>
+          <td class="distroclass"><p>June 5, 2020</p></td>
+          <td class="distroclass"><p><img alt="Foxy logo" src="_images/foxy-small.png" /></p></td>
+          <td class="distroclass"><p>May 2023</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Eloquent-Elusor.html">Eloquent Elusor</a></p></td>
+          <td class="distroclass"><p>Nov 22nd, 2019</p></td>
+          <td class="distroclass"><p><img alt="Eloquent logo" src="_images/eloquent-small.png" /></p></td>
+          <td class="distroclass"><p>November 2020</p></td>
+        </tr>
+        <tr class="active">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Dashing-Diademata.html">Dashing Diademata</a></p></td>
+          <td class="distroclass"><p>May 31st, 2019</p></td>
+          <td class="distroclass"><p><img alt="Dashing logo" src="_images/dashing-small.png" /></p></td>
+          <td class="distroclass"><p>May 2021</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Crystal-Clemmys.html">Crystal Clemmys</a></p></td>
+          <td class="distroclass"><p>December 14th, 2018</p></td>
+          <td class="distroclass"><p><img alt="Crystal logo" src="_images/crystal-small.png" /></p></td>
+          <td class="distroclass"><p>December 2019</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Bouncy-Bolson.html">Bouncy Bolson</a></p></td>
+          <td class="distroclass"><p>July 2nd, 2018</p></td>
+          <td class="distroclass"><p><img alt="Bouncy logo" src="_images/bouncy-small.png" /></p></td>
+          <td class="distroclass"><p>July 2019</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Ardent-Apalone.html">Ardent Apalone</a></p></td>
+          <td class="distroclass"><p>December 8th, 2017</p></td>
+          <td class="distroclass"><p><img alt="Ardent logo" src="_images/ardent-small.png" /></p></td>
+          <td class="distroclass"><p>December 2018</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta3-Overview.html">beta3</a></p></td>
+          <td class="distroclass"><p>September 13th, 2017</p></td>
+          <td class="distroclass"/>
+          <td class="distroclass"><p>December 2017</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta2-Overview.html">beta2</a></p></td>
+          <td class="distroclass"><p>July 5th, 2017</p></td>
+          <td class="distroclass"/>
+          <td class="distroclass"><p>September 2017</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta1-Overview.html">beta1</a></p></td>
+          <td class="distroclass"><p>December 19th, 2016</p></td>
+          <td class="distroclass"/>
+          <td class="distroclass"><p>July 2017</p></td>
+        </tr>
+        <tr class="distroclass">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Alpha-Overview.html">alpha1 - alpha8</a></p></td>
+          <td class="distroclass"><p>August 31st, 2015</p></td>
+          <td class="distroclass"/>
+          <td class="distroclass"><p>December 2016</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
 
 Future Distributions
 --------------------
 
 For details on upcoming features see the :ref:`roadmap <Roadmap>`.
 
-Currently there is a new ROS 2 distribution roughly every 6 months.
-The following information is a best estimate and is subject to change.
-
-.. raw:: html
-
-   <style>
-     .future-distros td {vertical-align: middle;}
-   </style>
+There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 
 .. list-table::
    :class: future-distros
