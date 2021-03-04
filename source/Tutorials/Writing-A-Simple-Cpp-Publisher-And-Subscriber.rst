@@ -117,13 +117,13 @@ Open the file using your preferred text editor.
         size_t count_;
       };
 
-      int main(int argc, char * argv[])
-      {
-        rclcpp::init(argc, argv);
-        rclcpp::spin(std::make_shared<MinimalPublisher>());
-        rclcpp::shutdown();
-        return 0;
-      }
+    int main(int argc, char * argv[])
+    {
+      rclcpp::init(argc, argv);
+      rclcpp::spin(std::make_shared<MinimalPublisher>());
+      rclcpp::shutdown();
+      return 0;
+    }
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
