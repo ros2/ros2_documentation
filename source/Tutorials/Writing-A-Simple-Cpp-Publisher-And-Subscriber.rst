@@ -115,7 +115,7 @@ Open the file using your preferred text editor.
         rclcpp::TimerBase::SharedPtr timer_;
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher_;
         size_t count_;
-      };
+    };
 
     int main(int argc, char * argv[])
     {
