@@ -20,6 +20,7 @@ import os
 import itertools
 import json
 from pathlib import Path
+import shutil
 from docutils.parsers.rst import Directive
 
 from fnmatch import fnmatch
@@ -106,6 +107,18 @@ html_sourcelink_suffix = ''
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
+
+# Ideally we would be able to do redirects of all kinds from https://index.ros.org to https://docs.ros.org .
+# Unfortunately, since index.ros.org is served from GitHub pages, we can only do http-equiv redirects,
+# and those redirects only work for HTML files.  For the non-HTML files (of which there are only a handful),
+# we copy them into place on index.ros.org and continue to serve them there (as well as from
+# docs.ros.org).  We'll eventually remove them.
+custom_copy_files = {
+    'Marketing/ros2-brochure-a4-print.pdf': '_downloads/e3c5f4c252ce7cba47b7a190741fded0/ros2-brochure-a4-print.pdf',
+    'Marketing/ros2-brochure-a4-web.pdf': '_downloads/ca487a5e252ef6910bcb40402640bde6/ros2-brochure-a4-web.pdf',
+    'Marketing/ros2-brochure-ltr-print.pdf': '_downloads/b837b51f4eec5fd5da351747777193fa/ros2-brochure-ltr-print.pdf',
+    'Marketing/ros2-brochure-ltr-web.pdf': '_downloads/8e25980591e39eda300136ddebc9e97b/ros2-brochure-ltr-web.pdf',
+}
 
 redirects = {
     # top-level
@@ -458,11 +471,22 @@ def apply_redirects(app, exception):
         print('Only JSON and HTML builders support redirects')
 
 
+def copy_downloadable_files(app, exception):
+    for source, dest in app.config.custom_copy_files.items():
+        source_path = os.path.join(app.srcdir, source)
+        dest_path = os.path.join(app.outdir, dest)
+        os.makedirs(os.path.dirname(dest_path), exist_ok=True)
+        shutil.copyfile(source_path, dest_path)
+
+
 def setup(app):
     RedirectFrom.register(app)
 
     app.connect('build-finished', apply_redirects)
     app.add_config_value('redirects', {}, 'env')
+
+    app.connect('build-finished', copy_downloadable_files)
+    app.add_config_value('custom_copy_files', {}, 'env')
 
     app.connect('missing-reference', make_router(
         'Installation', 'Installation/Eloquent'
