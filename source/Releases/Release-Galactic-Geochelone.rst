@@ -81,6 +81,8 @@ New RMW API
 
 ``rmw_qos_profile_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
 
+RMW vendors should implement this API for some features in ROS 2 packages to work correctly.
+
 Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`
 
 nav2
