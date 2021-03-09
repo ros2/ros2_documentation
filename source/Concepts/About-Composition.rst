@@ -16,7 +16,7 @@ ROS 2 - Unified API
 -------------------
 
 In ROS 2 the recommended way of writing your code is similar to a nodelet - we call it a ``Component``.
-This makes is easy to add common concepts to existing code, like a `life cycle <https://design.ros2.org/articles/node_lifecycle.html>`__.
+This makes it easy to add common concepts to existing code, like a `life cycle <https://design.ros2.org/articles/node_lifecycle.html>`__.
 The biggest drawback of different APIs is avoided in ROS 2 since both approaches use the same API in ROS 2.
 
 .. note::
