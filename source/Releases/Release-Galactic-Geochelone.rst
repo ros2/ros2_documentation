@@ -76,6 +76,15 @@ Without any configuration changes, users will get Cyclone DDS by default.
 Fast-DDS and Connext are still Tier-1 supported RMW vendors, and users can opt-in to use one of these RMWs at their discretion by using the ``RMW_IMPLEMENTATION`` environment variable.
 See the `Working with multiple RMW implementations guide <../Guides/Working-with-multiple-RMW-implementations>` for more information.
 
+New RMW API
+^^^^^^^^^^^
+
+``rmw_qos_profile_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
+
+RMW vendors should implement this API for some features in ROS 2 packages to work correctly.
+
+Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`
+
 nav2
 ^^^^
 
