@@ -102,6 +102,12 @@ Next install xmllint:
 * Unpack all archives into e.g. ``C:\xmllint``
 * Add ``C:\xmllint\bin`` to the ``PATH``.
 
+Next install Bison:
+
+.. code-block:: bash
+
+   > choco install -y winflexbison3
+
 Install Qt5
 ^^^^^^^^^^^
 

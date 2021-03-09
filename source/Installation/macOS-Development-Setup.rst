@@ -78,8 +78,8 @@ You need the following things installed to build ROS 2:
        # install dependencies for rcl_logging
        brew install log4cxx spdlog
 
-       # install CUnit for Cyclone DDS
-       brew install cunit
+       # install dependencies for Cyclone DDS
+       brew install bison cunit
 
 #.
    Install rviz dependencies
