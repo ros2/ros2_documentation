@@ -10,6 +10,7 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
 
    $ sudo dnf install \
      asio-devel \
+     bison \
      cmake \
      cppcheck \
      eigen3-devel \

@@ -75,7 +75,7 @@ Install development tools and ROS tools
      libtinyxml2-dev
    # install Cyclone DDS dependencies
    sudo apt install --no-install-recommends -y \
-     libcunit1-dev
+     bison libcunit1-dev
 
 Ubuntu 18.04 is not an officially supported platform, but may still work.  You'll need at least the following additional dependencies:
 
