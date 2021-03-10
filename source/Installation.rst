@@ -20,6 +20,7 @@ Options for installing ROS 2 Foxy Fitzroy:
    Installation/Fedora-Development-Setup
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
+   Installation/Prerelease-Testing
    Installation/DDS-Implementations
 
 Binary packages
