@@ -26,6 +26,13 @@ Rows in the table marked in green are the currently supported distributions.
 
    Releases/*
 
+.. |foxy| image:: Releases/foxy-small.png
+.. |eloquent| image:: Releases/eloquent-small.png
+.. |dashing| image:: Releases/dashing-small.png
+.. |crystal| image:: Releases/crystal-small.png
+.. |bouncy| image:: Releases/bouncy-small.png
+.. |ardent| image:: Releases/ardent-small.png
+
 .. raw:: html
 
     <!--
