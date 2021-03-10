@@ -27,7 +27,7 @@ It is intended that these decisions be final and authoritative, but successful i
 
 The TSC aims to ensure the following characteristics of the project:
 
-#. **Independent and transparent governance​**
+#. **Independent and transparent governance**
 
    The project is driven by the community that contributes to and uses the resulting software, with Open Robotics as the founding project sponsor.
 
@@ -54,14 +54,14 @@ The TSC cannot compel or oblige any action on the part of a member, his or her o
    This contribution may be in the form of in-kind labor and/or outsourced work.
    No fees or payments beyond material contribution to the project are required for TSC membership.
 
-#. The minimum level of effort commitment required to qualify for TSC membership is **​1 full-time equivalent (FTE)**.
+#. The minimum level of effort commitment required to qualify for TSC membership is **1 full-time equivalent (FTE)**.
    This level may be changed by the TSC via a standard TSC motion and vote.
 
 #. The TSC must have at least three members.
 
 #. TSC membership is not time-limited.
 
-#. The size of the TSC is limited to **30​ members**.
+#. The size of the TSC is limited to **30 members**.
    This limit may be changed by the TSC via a standard TSC motion and vote.
 
 #. The TSC may add additional members to the TSC by a standard TSC motion and vote.
@@ -82,7 +82,7 @@ The TSC cannot compel or oblige any action on the part of a member, his or her o
 
 #. Open Robotics, as the founding sponsor of the project, has permanent membership on the TSC, hosts TSC meetings, and provides a representative to serve as chairperson.
 
-#. Any organization or individual may apply for membership on the TSC by email to <info@openrobotics.org>​.
+#. Any organization or individual may apply for membership on the TSC by email to <info@openrobotics.org>.
 
 Meetings
 --------
