@@ -107,7 +107,7 @@ Demos
 * `Simulate the TurtleBot 3 on ROS [community-contributed] <https://ubuntu.com/blog/simulate-the-turtlebot3>`__.
 * `Navigate TurtleBot 3 in simulation <https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__. [community-contributed]
 * `SLAM with TurtleBot3 in simulation <https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__. [community-contributed]
-* `MoveIt 2 demo using ROS 2 <https://github.com/ros-planning/moveit2/tree/master/moveit_demo_nodes/run_moveit_cpp>`__.
+* `MoveIt 2 arm motion planning demo <http://moveit2_tutorials.picknik.ai/>`__.
 * `Using tf2 with ROS 2 <Tutorials/tf2>`.
 * `Using URDF with robot_state_publisher <Tutorials/URDF/Using-URDF-with-Robot-State-Publisher>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
