@@ -15,7 +15,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 Rolling (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_rolling_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_rolling_ubv8.html>`__
+  * ROS 2 Rolling (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_rolling_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_rolling_ufv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
