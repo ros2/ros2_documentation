@@ -83,7 +83,7 @@ New RMW API
 
 RMW vendors should implement this API for some features in ROS 2 packages to work correctly.
 
-Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`
+Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_
 
 nav2
 ^^^^
