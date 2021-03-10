@@ -97,6 +97,15 @@ tf2_ros Python split out of tf2_ros
 The Python code that used to live in tf2_ros has been moved into its own package named tf2_ros_py.
 Any existing Python code that depends on tf2_ros will continue to work, but the package.xml of those packages should be amended to ``exec_depend`` on tf2_ros_py.
 
+tf2_ros Python TransformListener uses global namespace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Python ``TransformListener`` now subscribes to ``/tf`` and ``/tf_static`` in the global namespace.
+Previously, it was susbcribing in the node's namespace.
+This means that the node's namespace will no longer have an effect on the ``/tf`` and ``/tf_static`` subscriptions.
+
+Related PR: `ros2/geometry2#390 <https://github.com/ros2/geometry2/pull/390>`_
+
 rclcpp
 ^^^^^^
 
