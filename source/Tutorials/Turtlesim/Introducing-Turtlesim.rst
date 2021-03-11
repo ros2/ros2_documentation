@@ -262,11 +262,6 @@ Now that you have turtlesim and rqt up and running, and an idea of how they work
 Related content
 ---------------
 
-<<<<<<< HEAD
 The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
-=======
-The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/galactic-devel/turtlesim>`_.
->>>>>>> 32295f6... Fix a few broken links found around the codebase. (#1219)
-Make sure to adjust the branch to view the version of turtlesim corresponding to your installed ROS 2 distro.
 
 `This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the items covered in this tutorial.
