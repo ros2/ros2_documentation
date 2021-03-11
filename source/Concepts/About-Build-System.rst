@@ -54,7 +54,7 @@ Here is a list of common package types that you might run into in this software 
         A :term:`CMake package` that also follows the ``ament`` packaging guidelines.
 
     Python package
-        Any |package| containing a `setuptools <http://pythonhosted.org/setuptools/>`_ based Python project and a :term:`package.xml` manifest file.
+        Any |package| containing a `setuptools <https://pypi.org/project/setuptools/>`_ based Python project and a :term:`package.xml` manifest file.
 
     ament Python package
         A :term:`Python package` that also follows the ``ament`` packaging guidelines.
