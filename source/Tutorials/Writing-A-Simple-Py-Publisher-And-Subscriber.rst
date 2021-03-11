@@ -213,7 +213,7 @@ As mentioned in the :ref:`previous tutorial <CreatePkg>`, make sure to fill in t
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-Add a new line after  the ``ament_python`` buildtool dependency and paste the following dependencies corresponding to your node’s import statements:
+After the lines above, add the following dependencies corresponding to your node’s import statements:
 
 .. code-block:: xml
 
