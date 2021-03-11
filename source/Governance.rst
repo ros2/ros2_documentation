@@ -18,105 +18,155 @@ Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>
 
 The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 
-.. list-table::
-   :align: center
-   :widths: auto
+.. |adlink| image:: Governance/adlink.svg
+.. |amazon| image:: Governance/amazon.svg
+.. |apex| image:: Governance/apex.png
+.. |bosch| image:: Governance/bosch_75h.jpg
+.. |canonical| image:: Governance/ubuntu.svg
+.. |eprosima| image:: Governance/eprosima.svg
+.. |gvsc| image:: Governance/gvsc.png
+.. |intel| image:: Governance/intel.svg
+.. |irobot| image:: Governance/irobot.png
+.. |lge| image:: Governance/lge.svg
+.. |microsoft| image:: Governance/microsoft.svg
+.. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
+.. |picknik| image:: Governance/picknik.jpg
+.. |robotis| image:: Governance/robotis.png
+.. |rover| image:: Governance/rover.png
+.. |samsung| image:: Governance/samsung.svg
+.. |sony| image:: Governance/sony.png
+.. |tri| image:: Governance/tri_logo_landscape-web.svg
+.. |windriver| image:: Governance/windriver.png
 
-   * - .. figure:: Governance/adlink.svg
-          :alt: ADLINK Technology logo
-          :height: 35px
-          :target: https://www.adlinktech.com
-     - ADLINK Technology: Joe Speed
-   * - .. figure:: Governance/amazon.svg
-          :alt: Amazon logo
-          :height: 35px
-          :target: https://www.amazon.com
-     - Amazon: Aaron Blasdel
-   * - .. figure:: Governance/apex.png
-          :alt: Apex.AI logo
-          :height: 35px
-          :target: https://www.apex.ai
-     - Apex.AI: Dejan Pangercic
-   * - .. figure:: Governance/bosch_75h.jpg
-          :alt: Bosch logo
-          :height: 35px
-          :target: https://www.bosch.com/
-     - Bosch: Karsten Knese
-   * - .. figure:: Governance/ubuntu.svg
-          :alt: Ubuntu logo
-          :height: 35px
-          :target: https://ubuntu.com/
-     - Canonical: Kyle Fazzari
-   * - .. figure:: Governance/eprosima.svg
-          :alt: eProsima logo
-          :height: 35px
-          :target: https://eprosima.com/
-     - eProsima: Jaime Martin Losa
-   * - .. figure:: Governance/gvsc.png
-          :alt: GVSC logo
-          :height: 50px
-          :target: https://gvsc.army.mil/
-     - GVSC: Jerry Towler (SwRI)
-   * - .. figure:: Governance/intel.svg
-          :alt: Intel logo
-          :height: 50px
-          :target: https://www.intel.com
-     - Intel: Harold Yang
-   * - .. figure:: Governance/irobot.png
-          :alt: iRobot logo
-          :height: 35px
-          :target: https://www.irobot.com
-     - iRobot: Ori Taka
-   * - .. figure:: Governance/lge.svg
-          :alt: LG Electronics logo
-          :height: 35px
-          :target: https://www.lg.com/
-     - LG Electronics: Lokesh Kumar Goel
-   * - .. figure:: Governance/microsoft.svg
-          :alt: Microsoft logo
-          :height: 35px
-          :target: https://www.microsoft.com
-     - Microsoft: Sean Yen
-   * - .. figure:: Governance/openrobotics-logo-stacked.png
-          :alt: Open Robotics logo
-          :height: 35px
-          :target: https://www.openrobotics.org
-     - Open Robotics: Chris Lalancette
-   * - .. figure:: Governance/picknik.jpg
-          :alt: PickNik logo
-          :height: 35px
-          :target: https://picknik.ai/
-     - PickNik: Dave Coleman
-   * - .. figure:: Governance/robotis.png
-          :alt: ROBOTIS logo
-          :height: 35px
-          :target: https://www.robotis.com/
-     - ROBOTIS: Will Son
-   * - .. figure:: Governance/rover.png
-          :alt: Rover Robotics logo
-          :height: 35px
-          :target: https://roverrobotics.com/
-     - Rover Robotics: Nick Fragale
-   * - .. figure:: Governance/samsung.svg
-          :alt: Samsung logo
-          :height: 25px
-          :target: https://www.samsung.com
-     - Samsung: Steven Macenski
-   * - .. figure:: Governance/sony.png
-          :alt: Sony logo
-          :height: 60px
-          :target: https://www.sony.com
-     - Sony: Tomoya Fujita
-   * - .. figure:: Governance/tri_logo_landscape-web.svg
-          :alt: TRI logo
-          :height: 50px
-          :target: https://www.tri.global/
-     - Toyota Research Institute: Ian McMahon
-   * - .. figure:: Governance/windriver.png
-          :alt: Wind River logo
-          :height: 60px
-          :target: https://www.windriver.com/
-     - Wind River: `Andrei Kholodnyi <https://github.com/razr>`__
+.. raw:: html
+
+    <!--
+    The CSS and HTML below generate the list of TSC members.
+    It is currently using raw HTML because there was no way that I could see to make the
+    ReStructured Text "list-tables" directive make the logos a consistent size.
+    -->
+    <style>
+    table.tscclass {
+      border: 1px solid #e1e4e5;
+      border-top-color: rgb(225, 228, 229);
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-right-color: rgb(225, 228, 229);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-bottom-color: rgb(225, 228, 229);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-left-color: rgb(225, 228, 229);
+      border-left-style: solid;
+      border-left-width: 1px;
+      border-image-outset: 0;
+      border-image-repeat: stretch;
+      border-image-slice: 100%;
+      border-image-source: none;
+      border-image-width: 1;
+      width: 100%;
+    }
+    td.tscclass {
+      border-top-color: rgb(225, 228, 229);
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-right-color: rgb(225, 228, 229);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-bottom-color: rgb(225, 228, 229);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-left-color: rgb(225, 228, 229);
+      border-left-style: solid;
+      border-left-width: 1px;
+      padding-left: 15px;
+    }
+    tr.tscclass:nth-child(2n-1) {
+      background-color: #f3f6f6;
+    }
+    </style>
+    <table class="tscclass">
+      <tbody>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>ADLINK Technology: Joe Speed</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="_images/amazon.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Amazon: Aaron Blasdel</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.apex.ai"><img alt="Apex.AI logo" src="_images/apex.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Apex.AI: Dejan Pangercic</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Bosch: Karsten Knese</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Canonical: Kyle Fazzari</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="_images/eprosima.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>eProsima: Jaime Martin Losa</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://gvsc.army.mil"><img alt="GVSC logo" src="_images/gvsc.png" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>GVSC: Jerry Towler (SwRI)</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.intel.com"><img alt="Intel logo" src="_images/intel.svg" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Intel: Harold Yang</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="_images/irobot.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>iRobot: Ori Taka</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>LG Electronics: Lokesh Kumar Goel</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Microsoft: Sean Yen</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>PickNik: Dave Coleman</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="_images/robotis.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>ROBOTIS: Will Son</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Rover Robotics: Nick Fragale</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="_images/samsung.svg" style="height: 25px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Samsung: Steven Macenski</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="_images/sony.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Sony: Tomoya Fujita</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.tri.global"><img alt="TRI logo" src="_images/tri_logo_landscape-web.svg" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Toyota Research Institute: Ian McMahon</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="_images/windriver.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Wind River: Andrei Kholodnyi</p></td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
 
 If you are interested in joining the ROS 2 TSC, please inquire via info@openrobotics.org.
 
