@@ -296,7 +296,7 @@ This is **not** OK, even weird (the google way?):
 Linters
 ~~~~~~~
 
-We check these styles with a combination of Google's `cpplint.py <http://google-styleguide.googlecode.com/svn/trunk/cpplint/>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
+We check these styles with a combination of Google's `cpplint.py <https://github.com/google/styleguide>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
 
 We provide command line tools with custom configurations:
 
@@ -335,7 +335,7 @@ The pycodestyle configuration used in the linter is `here <https://github.com/am
 Integration with editors:
 
 * atom: https://atom.io/packages/linter-pycodestyle
-* emacs: http://kwbeam.com/emacs-for-python-i.html
+* emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
 * Sublime Text: https://sublime.wbond.net/packages/SublimeLinter-flake8
 * vim: https://github.com/nvie/vim-flake8
 
