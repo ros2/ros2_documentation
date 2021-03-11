@@ -12,7 +12,11 @@ Resources
 
 * Status Page:
 
+<<<<<<< HEAD
   * ROS 2 Foxy (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_foxy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_foxy_ubv8.html>`__
+=======
+  * ROS 2 Rolling (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_rolling_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_rolling_ufv8.html>`__
+>>>>>>> 32295f6... Fix a few broken links found around the codebase. (#1219)
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 

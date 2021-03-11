@@ -9,7 +9,7 @@ ROS 2 is built on top of DDS/RTPS as its middleware, which provides discovery, s
 `This article <https://design.ros2.org/articles/ros_on_dds.html>`__ explains the motivation behind using DDS implementations, and/or the RTPS wire protocol of DDS, in detail.
 In summary, DDS is an end-to-end middleware that provides features which are relevant to ROS systems, such as distributed discovery (not centralized like in ROS 1) and control over different "Quality of Service" options for the transportation.
 
-`DDS <http://portals.omg.org/dds/>`__ is an industry standard which is implemented by a range of vendors, such as RTI's implementation `Connext <https://www.rti.com/products/>`__, ADLINK's implementation `OpenSplice <https://github.com/ADLINK-IST/opensplice>`__ or `Eclipse's Cyclone DDS <https://projects.eclipse.org/projects/iot.cyclonedds>`__.
+`DDS <https://www.omg.org/omg-dds-portal>`__ is an industry standard which is implemented by a range of vendors, such as RTI's implementation `Connext <https://www.rti.com/products/>`__, ADLINK's implementation `OpenSplice <https://github.com/ADLINK-IST/opensplice>`__ or `Eclipse's Cyclone DDS <https://projects.eclipse.org/projects/iot.cyclonedds>`__.
 RTPS (a.k.a. `DDSI-RTPS <https://www.omg.org/spec/DDSI-RTPS/About-DDSI-RTPS/>`__\ ) is the wire protocol used by DDS to communicate over the network.
 There are implementations of that which do not fulfill the full DDS API, but provide sufficient functionality for ROS 2, such as eProsima's implementation `Fast RTPS <http://www.eprosima.com/index.php/products-all/eprosima-fast-rtps>`__.
 
