@@ -250,7 +250,7 @@ you created by running the following command
 
 Next, it is important to log-in to your registry to run the docker
 image. Again, if you face a *permission denied* error, perform the
-command with sudo previliges. Afterwards, run your docker file as shown
+command with sudo privileges. Afterwards, run your docker file as shown
 below.
 
 .. code-block:: bash

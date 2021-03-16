@@ -18,7 +18,7 @@ Using Fast DDS Discovery Server as discovery protocol [community-contributed]
 Background
 ----------
 
-Starting from ROS 2 Eloquent Elusor, the **Fast DDS Discovery Server** protocol is a feature that offers a centralised dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
+Starting from ROS 2 Eloquent Elusor, the **Fast DDS Discovery Server** protocol is a feature that offers a centralized dynamic discovery mechanism, as opposed to the distributed mechanism used in DDS by default.
 This tutorial explains how to run some ROS 2 examples using the Fast DDS Discovery Server feature as discovery communication.
 
 In order to get more information about the available discovery configuration, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery.html>`_ or read the `Fast DDS Discovery Server specific documentation <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
