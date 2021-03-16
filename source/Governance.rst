@@ -248,11 +248,12 @@ Real-time
 ^^^^^^^^^
 
 * Lead(s): Andrei Kholodnyi, Carlos San Vicente
-* Resources: TODO
+* Resources:
 
  * `ROS 2 Real-time Working Group Community <https://github.com/ros-realtime/community>`__
  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
+ * Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-realtime:matrix.org>`_
 
 Rust
 ^^^^
