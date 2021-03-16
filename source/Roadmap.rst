@@ -24,7 +24,16 @@ The "Size" is an estimated size of the task, where S means person-days to comple
 If you are working on a feature for ROS 2 Galactic and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
 If you'd like to take on one of these tasks, please :ref:`get in touch with us <Help>`.
 
+.. raw:: html
+
+   <style>
+     .wy-table-responsive table td, .wy-table-responsive table th {
+       white-space: normal;
+     }
+   </style>
+
 .. list-table::
+   :widths: 40 10 25 25
    :header-rows: 1
 
    * - Task
