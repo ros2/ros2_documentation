@@ -3,7 +3,7 @@
 Using URDF with robot_state_publisher
 =====================================
 
-**Goal:** Simulate a walking robot modelled in URDF and view it in Rviz.
+**Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 
 **Tutorial level:** Intermediate
 
