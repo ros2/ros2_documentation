@@ -331,4 +331,4 @@ Related content
 ---------------
 
 To observe how the ``message_age`` period is calculated please see the
-`ROS 2 Topic Statistisc demo <https://github.com/ros2/demos/tree/master/topic_statistics_demo>`__.
+`ROS 2 Topic Statistics demo <https://github.com/ros2/demos/tree/master/topic_statistics_demo>`__.
