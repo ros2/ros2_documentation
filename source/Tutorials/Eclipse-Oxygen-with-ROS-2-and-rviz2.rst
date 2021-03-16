@@ -165,7 +165,7 @@ Now we see all 4 Projects in the Project-Explorer view.
    :alt: eclipse-18
 
 
-If we click in the top-right-corner of the Project-Explorer view we can change the Project-Presentation to Hirachical view. Now it looks like a ROS-2 project as it is on hard-drive. But this view is not good, as the linkage to Egit gets lost. So use the Flat Project-Presentation. The Egit linkage is good if you want to see e.g. which author wrote which code-line, etc.
+If we click in the top-right-corner of the Project-Explorer view we can change the Project-Presentation to Hierarchical view. Now it looks like a ROS-2 project as it is on hard-drive. But this view is not good, as the linkage to Egit gets lost. So use the Flat Project-Presentation. The Egit linkage is good if you want to see e.g. which author wrote which code-line, etc.
 
 .. image:: https://i.imgur.com/vOhRUGB.png
    :target: https://i.imgur.com/vOhRUGB.png
@@ -203,7 +203,7 @@ Now you can use code-completion, egit annotations, eclipse C/C++ Tools, etc.
 Eclipse-indexer
 ---------------
 
-If you open e.g. main.cpp of rviz2 you will perhaps see alot of "unresolved inclusion".You need todo the following that they disappear and that right-click->Open-Declaration will fully work. Goto Project->Properties->C++General->Path-and-Symbols and to tab References and select "ros2_ws".
+If you open e.g. main.cpp of rviz2 you will perhaps see a lot of "unresolved inclusion".You need to do the following that they disappear and that right-click->Open-Declaration will fully work. Goto Project->Properties->C++General->Path-and-Symbols and to tab References and select "ros2_ws".
 IMPORTANT: If you have different eclipse-workspaces for ros2_ws and e.g. rviz2_ws, you can add your ros2_ws the same way as later the qt5 directory get added. Hint: Just add the src folder, e.g. /home/ros/ros2_ws/ros2_ws/src  not the build and install directories.
 
 

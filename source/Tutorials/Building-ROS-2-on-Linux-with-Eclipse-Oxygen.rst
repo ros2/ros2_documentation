@@ -221,7 +221,7 @@ We see our Project in eclipse, go to git-repositories-view and import local repo
    :alt: eclipse-1
 
 
-We select our directory and select the repository we are interresting in seeing e.g. git-infos like author of code-line, or switching to other branches, etc.
+We select our directory and select the repository we are interested in seeing e.g. git-infos like author of code-line, or switching to other branches, etc.
 
 .. image:: https://i.imgur.com/RkXnmjr.png
    :target: https://i.imgur.com/RkXnmjr.png
