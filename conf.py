@@ -240,21 +240,24 @@ def make_router(origin, destination):
                 return newnode
     return _missing_reference
 
-def smv_rewrite_baseurl(app, config):
+def smv_rewrite_configs(app, config):
     # When using Sphinx multiversion, there is no way at initial configuration time
     # to determine the distribution we are currently targeting (conf.py is read before
     # external defines are setup, and environment variables aren't passed through to
     # conf.py).  Instead, hook into the 'config-inited' event which is late enough
-    # to rewrite the html_baseurl with the current version.
+    # to rewrite the various configuration items with the current version.
     if app.config.smv_current_version != '':
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
+
+        if app.config.smv_current_version != 'rolling':
+            app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
         context['github_version'] = app.config.smv_current_version + '/source/'
 
 def setup(app):
-    app.connect('config-inited', smv_rewrite_baseurl)
+    app.connect('config-inited', smv_rewrite_configs)
     app.connect('html-page-context', github_link_rewrite_branch)
     RedirectFrom.register(app)
