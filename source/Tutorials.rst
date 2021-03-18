@@ -45,7 +45,6 @@ Beginner: Client Libraries
    Tutorials/Single-Package-Define-And-Use-Interface
    Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Using-Parameters-In-A-Class-Python
-   Tutorials/Monitoring-For-Parameter-Changes-CPP
    Tutorials/Getting-Started-With-Ros2doctor
 
 Intermediate
@@ -60,6 +59,7 @@ Intermediate
    Tutorials/Launch-system
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
+   Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
 
 Advanced
 --------
@@ -120,3 +120,4 @@ Examples
 --------
 
 * `Python and C++ minimal examples <https://github.com/ros2/examples>`__.
+

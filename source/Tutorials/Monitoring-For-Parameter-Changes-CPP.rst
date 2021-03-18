@@ -16,7 +16,9 @@ Monitoring for parameter changes (C++)
 Background
 ----------
 
-Often a node needs to respond to changes to its own parameters or another node's parameters. The ParameterEventHandler class makes it easy to listen for parameter changes so that your code can respond to them. This tutorial will show you how to use the C++ version of the ParameterEventHandler class to monitor for changes to a node's own parameters as well as changes to another node's parameters.
+Often a node needs to respond to changes to its own parameters or another node's parameters.
+The ParameterEventHandler class makes it easy to listen for parameter changes so that your code can respond to them.
+This tutorial will show you how to use the C++ version of the ParameterEventHandler class to monitor for changes to a node's own parameters as well as changes to another node's parameters.
 
 Prerequisites
 -------------
@@ -39,9 +41,10 @@ In this tutorial, you will create a new package to contain some sample code, wri
 
 First, open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow `these instructions <https://index.ros.org/doc/ros2/Tutorials/Workspace/Creating-A-Workspace/#create-a-new-directory>`_ if you no longer have the directory and need to create it again).
+Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow :ref:`these instructions <new-directory>` if you no longer have the directory and need to create it again).
 
-Recall that packages should be created in the ``src`` directory, not the root of the workspace. So, navigate into ``dev_ws/src`` and then create a new package there:
+Recall that packages should be created in the ``src`` directory, not the root of the workspace.
+So, navigate into ``dev_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
@@ -54,7 +57,8 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``. As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
+Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
 .. code-block:: xml
 
@@ -117,9 +121,13 @@ Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a ne
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-The first statement, ``#include <memory>`` is included so that the code can utilize the std::make_shared template. The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class.
+The first statement, ``#include <memory>`` is included so that the code can utilize the std::make_shared template.
+The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class.
 
-After the class declaration, the code defines a class, ``SampleNodeWithParameters``. The constructor for the class, declares an integer parameter ``an_int_param``, with a default value of 0. Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters. Finally, the code creates a lambda function and sets it as the callback to invoke whenever ``an_int_param`` is updated.
+After the class declaration, the code defines a class, ``SampleNodeWithParameters``.
+The constructor for the class, declares an integer parameter ``an_int_param``, with a default value of 0.
+Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters.
+Finally, the code creates a lambda function and sets it as the callback to invoke whenever ``an_int_param`` is updated.
 
 .. code-block:: C++
 
@@ -143,7 +151,8 @@ After the class declaration, the code defines a class, ``SampleNodeWithParameter
       cb_handle_ = param_subscriber_->add_parameter_callback("an_int_param", cb);
     }
 
-The ``ParameterEventHandler``'s add_parameter_callback method returns a callback handle that is stored in a member variable. This handle is used in the ``~SampleNodeWithParameters`` destructor to remove the callback when the node is destroyed.
+The ``ParameterEventHandler``'s add_parameter_callback method returns a callback handle that is stored in a member variable.
+This handle is used in the ``~SampleNodeWithParameters`` destructor to remove the callback when the node is destroyed.
 
 .. code-block:: C++
 
@@ -192,7 +201,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro $ROS_DISTRO -y
 
    .. group-tab:: macOS
 
@@ -236,7 +245,8 @@ Now run the node:
 
      ros2 run cpp_parameter_event_handler parameter_event_handler
 
-The node is now active and has a single parameter and will print a message whenever this parameter is updated. To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
+The node is now active and has a single parameter and will print a message whenever this parameter is updated.
+To test this, open up another terminal and source the ROS setup file as before (. install/setup.bash) and execute the following command:
 
 .. code-block:: console
 
@@ -248,12 +258,15 @@ The terminal running the node will display a message similar to the following:
 
     [INFO] [1606950498.422461764] [node_with_parameters]: cb: Received an update to parameter "an_int_param" of type integer: "43"
 
-The callback we set previously in the node has been invoked and has displayed the new updated value. You can now terminate the running parameter_event_handler sample using ^C in the terminal.
+The callback we set previously in the node has been invoked and has displayed the new updated value.
+You can now terminate the running parameter_event_handler sample using ^C in the terminal.
 
 3.1 Monitor changes to another node's parameters
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can also use the ParameterEventHandler to monitor parameter changes to another node's parameters. Let's update the SampleNodeWithParameters class to also monitor for changes to a parameter in another node.  We will use the parameter_blackboard demo application to host a double parameter that we will monitor for updates.
+You can also use the ParameterEventHandler to monitor parameter changes to another node's parameters.
+Let's update the SampleNodeWithParameters class to also monitor for changes to a parameter in another node.
+We will use the parameter_blackboard demo application to host a double parameter that we will monitor for updates.
 
 First update the constructor to add the following code after the existing code:
 
@@ -345,9 +358,18 @@ Upon executing this command, you should see output in the parameter_event_handle
 Summary
 -------
 
-You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter. You also used the same class to monitor changes to a remote node. The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
+You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter.
+You also used the same class to monitor changes to a remote node.
+The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
 
 Next steps
 ----------
 
-Now that you have examined parameters and have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+You've completed the Intermediate tutorials!
+
+Related content
+---------------
+
+To learn how to adapt ROS 1 parameter files for ROS 2, see the :ref:`Migrating YAML parameter files from ROS 1 to ROS2<yaml-ros1-ros2>` tutorial.
+
+
