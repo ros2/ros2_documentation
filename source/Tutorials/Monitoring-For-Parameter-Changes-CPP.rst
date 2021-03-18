@@ -28,7 +28,7 @@ Before starting this tutorial, you should first complete the following tutorials
 - :ref:`ROS2Params`
 - :ref:`CppParamNode`
 
-In addition, you must be running the Galactic distribution of ROS2.
+In addition, you must be running the Galactic distribution of ROS 2.
 
 Tasks
 -----
@@ -340,11 +340,6 @@ Summary
 You created a node with a parameter and used the ParameterEventHandler class to set a callback to monitor changes to that parameter.
 You also used the same class to monitor changes to a remote node.
 The ParameterEventHandler is a convenient way to monitor for parameter changes so that you can then respond to the updated values.
-
-Next steps
-----------
-
-You've completed the Intermediate tutorials!
 
 Related content
 ---------------
