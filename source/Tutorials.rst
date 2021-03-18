@@ -59,6 +59,7 @@ Intermediate
    Tutorials/Launch-system
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
+   Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
 
 Advanced
 --------
@@ -119,3 +120,4 @@ Examples
 --------
 
 * `Python and C++ minimal examples <https://github.com/ros2/examples>`__.
+
