@@ -100,11 +100,6 @@ Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a ne
         cb_handle_ = param_subscriber_->add_parameter_callback("an_int_param", cb);
       }
 
-      ~SampleNodeWithParameters()
-      {
-        param_subscriber_->remove_parameter_callback(cb_handle_);
-      }
-
     private:
       std::shared_ptr<rclcpp::ParameterEventHandler> param_subscriber_;
       std::shared_ptr<rclcpp::ParameterCallbackHandle> cb_handle_;
@@ -149,16 +144,6 @@ Finally, the code creates a lambda function and sets it as the callback to invok
             p.as_int());
         };
       cb_handle_ = param_subscriber_->add_parameter_callback("an_int_param", cb);
-    }
-
-The ``ParameterEventHandler``'s add_parameter_callback method returns a callback handle that is stored in a member variable.
-This handle is used in the ``~SampleNodeWithParameters`` destructor to remove the callback when the node is destroyed.
-
-.. code-block:: C++
-
-    ~SampleNodeWithParameters()
-    {
-      param_subscriber_->remove_parameter_callback(cb_handle_);
     }
 
 Following the ``SampleNodeWithParameters`` is a typical ``main`` function which initializes ROS, spins the sample node so that it can send and receive messages, and then shuts down after the user enters ^C at the console.
@@ -286,15 +271,9 @@ First update the constructor to add the following code after the existing code:
     cb_handle2_ = param_subscriber_->add_parameter_callback(remote_param_name, cb2, remote_node_name);
 
 
-The destructor and member variables need to be updated as well to account for the new ``cb_handle2`` member variable:
+Then add another member variable, ``cb_handle2`` for the additional callback handle:
 
 .. code-block:: C++
-
-    ~SampleNodeWithParameters()
-    {
-      param_subscriber_->remove_parameter_callback(cb_handle_);
-      param_subscriber_->remove_parameter_callback(cb_handle2_);  // Add this
-    }
 
   private:
     std::shared_ptr<rclcpp::ParameterEventHandler> param_subscriber_;
