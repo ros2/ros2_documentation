@@ -191,6 +191,35 @@ you should now replace it with:
 ``std::stringstream`` types are still accepted as arguments to the stream logging macros.
 See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more details.
 
+Parameter types are now static by default
+"""""""""""""""""""""""""""""""""""""""""
+
+Previously, the type of a parameter could be changed when a parameter was set.
+For example, if a parameter was declared as an integer, a later call to set the parameter could change that type to a string.
+This behavior could lead to bugs, and is rarely what the user wants.
+As of Galactic parameter types are static by default, and attempts to change the type will fail.
+If the previous dynamic behavior is desired, there is an mechanism to opt it in (see the code below).
+
+.. code-block:: cpp
+
+    // declare integer parameter with default value, trying to set it to a different type will fail.
+    node->declare_parameter("my_int", 5);
+    // declare string parameter with no default and mandatory user provided override.
+    // i.e. the user must pass a parameter file setting it or a command line rule -p <param_name>:=<value>
+    node->declare_parameter("string_mandatory_override", rclcpp::PARAMETER_STRING);
+    // Conditionally declare a floating point parameter with a mandatory override.
+    // Useful when the parameter is only needed depending on other conditions and no default is reasonable.
+    if (mode == "modeA") {
+        node->declare_parameter("conditionally_declare_double_parameter", rclcpp::PARAMETER_DOUBLE);
+    }
+    // You can also get the old dynamic typing behavior if you want:
+    rcl_interfaces::msg::ParameterDescriptor descriptor;
+    descriptor.dynamic_typing = true;
+    node->declare_parameter("dynamically_typed_param", rclcpp::ParameterValue{}, descriptor);
+
+For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
+
+
 rclpy
 ^^^^^^
 
@@ -199,6 +228,32 @@ Removal of deprecated Node.set_parameters_callback
 
 Can be replaced with ``Node.add_on_set_parameters_callback``.
 See `ros2/rclpy#504 <https://github.com/ros2/rclpy/pull/504>`_ for some examples.
+
+Parameter types are now static by default
+"""""""""""""""""""""""""""""""""""""""""
+
+Previously, the type of a parameter could be changed when a parameter was set.
+For example, if a parameter was declared as an integer, a later call to set the parameter could change that type to a string.
+This behavior could lead to bugs, and is rarely what the user wants.
+As of Galactic parameter types are static by default, and attempts to change the type will fail.
+If the previous dynamic behavior is desired, there is an mechanism to opt it in (see the code below).
+
+.. code-block:: python
+
+    # declare integer parameter with default value, trying to set it to a different type will fail.
+    node.declare_parameter('my_int', 5)
+    # declare string parameter with no default and mandatory user provided override.
+    # i.e. the user must pass a parameter file setting it or a command line rule -p <param_name>:=<value>
+    node.declare_parameter('string_mandatory_override', rclpy.Parameter.Type.STRING)
+    # Conditionally declare a floating point parameter with a mandatory override.
+    # Useful when the parameter is only needed depending on other conditions and no default is reasonable.
+    if mode == 'modeA':
+        node.declare_parameter('conditionally_declare_double_parameter', rclpy.Parameter.Type.DOUBLE)
+    # You can also get the old dynamic typing behavior if you want
+    node.declare_parameter('dynamically_typed_param', descriptor=rcl_interfaces.msg.ParameterDescriptor(dynamic_typing=True))
+
+For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
+
 
 rclcpp_action
 ^^^^^^^^^^^^^
