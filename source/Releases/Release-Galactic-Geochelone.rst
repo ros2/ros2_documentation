@@ -194,7 +194,11 @@ See `ros2/rclcpp#1442 <https://github.com/ros2/rclcpp/pull/1442>`_ for more deta
 Parameter types are now static by default
 """""""""""""""""""""""""""""""""""""""""
 
-TL;DR
+Previously, the type of a parameter could be changed when a parameter was set.
+For example, if a parameter was declared as an integer, a later call to set the parameter could change that type to a string.
+This behavior could lead to bugs, and is rarely what the user wants.
+As of Galactic parameter types are static by default, and attempts to change the type will fail.
+If the previous dynamic behavior is desired, there is an mechanism to opt it in (see the code below).
 
 .. code-block:: cpp
 
@@ -228,7 +232,11 @@ See `ros2/rclpy#504 <https://github.com/ros2/rclpy/pull/504>`_ for some examples
 Parameter types are now static by default
 """""""""""""""""""""""""""""""""""""""""
 
-TL;DR
+Previously, the type of a parameter could be changed when a parameter was set.
+For example, if a parameter was declared as an integer, a later call to set the parameter could change that type to a string.
+This behavior could lead to bugs, and is rarely what the user wants.
+As of Galactic parameter types are static by default, and attempts to change the type will fail.
+If the previous dynamic behavior is desired, there is an mechanism to opt it in (see the code below).
 
 .. code-block:: python
 
