@@ -106,7 +106,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Canonical: Kyle Fazzari</p></td>
+          <td class="tscclass" align="center"><p>Canonical: Sid Faber</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="_images/eprosima.svg" style="height: 35px;" /></a></p></td>
@@ -130,7 +130,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Microsoft: Sean Yen</p></td>
+          <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
@@ -280,7 +280,7 @@ Safety
 Security
 ^^^^^^^^
 
-* Lead(s): Sid Faber, Kyle Fazzari
+* Lead(s): Sid Faber
 * Resources:
 
  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
