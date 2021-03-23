@@ -208,7 +208,7 @@ To get it to compile and run, we need to do a couple of additional things.
 First we need to setup the CMakeLists.txt so that the action server is compiled.
 Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
 
-.. code-block:: console
+.. code-block:: cmake
 
   add_library(action_server SHARED
     src/fibonacci_action_server.cpp)
@@ -337,7 +337,7 @@ To get it to compile and run, we need to do a couple of additional things.
 First we need to setup the CMakeLists.txt so that the action client is compiled.
 Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
 
-.. code-block:: console
+.. code-block:: cmake
 
   add_library(action_client SHARED
     src/fibonacci_action_client.cpp)
