@@ -89,7 +89,6 @@ Demos
    Tutorials/Intra-Process-Communication
    Tutorials/Rosbag-with-ROS1-Bridge
    Tutorials/tf2
-   Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
    Tutorials/Real-Time-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
@@ -103,7 +102,6 @@ Demos
 * `TurtleBot 3 demo using ROS 2 <http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2_setup/>`__. [community-contributed]
 * `MoveIt 2 demo using ROS 2 <https://github.com/ros-planning/moveit2/tree/master/moveit_demo_nodes/run_moveit_cpp>`__.
 * `Using tf2 with ROS 2 <Tutorials/tf2>`.
-* `Using URDF with robot_state_publisher <Tutorials/URDF/Using-URDF-with-Robot-State-Publisher>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Use DDS-Security <https://github.com/ros2/sros2/blob/dashing/README.md>`__.
