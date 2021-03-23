@@ -91,7 +91,7 @@ This is your custom service that requests three integers named ``a``, ``b``, and
 
 To convert the interfaces you defined into language-specific code (like C++ and Python) so that they can be used in those languages, add the following lines to ``CMakeLists.txt``:
 
-.. code-block:: console
+.. code-block:: cmake
 
   find_package(rosidl_default_generators REQUIRED)
 
@@ -366,9 +366,9 @@ CMakeLists.txt:
 
 Add the following lines (C++ only):
 
-.. code-block:: console
+.. code-block:: cmake
 
-    ...
+    #...
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
@@ -649,9 +649,9 @@ CMakeLists.txt:
 
 Add the following lines (C++ only):
 
-.. code-block:: console
+.. code-block:: cmake
 
-    ...
+    #...
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
