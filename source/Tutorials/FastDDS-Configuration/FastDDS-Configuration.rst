@@ -43,12 +43,22 @@ Mixing synchronous and asynchronous publications in the same node
 
 On this first example, a node with two publishers, one of them with synchronous publication mode and the other one with asynchronous publication mode, will be created.
 
+``rmw_fastrtps`` uses asynchronous publication mode by default. When the publisher invokes the write operation, the data is copied into a queue,
+a background thread (asynchronous thread) is notified about the addition to the queue, and control of the thread is returned to the user before the data is actually sent.
+The background thread is in charge of consuming the queue and sending the data to every matched reader.
+
+On the other hand, with synchronous publication mode the data is sent directly within the context of the user thread.
+This entails that any blocking call occurring during the write operation would block the user thread, thus preventing the application from continuing its operation.
+However, his mode typically yields higher throughput rates at lower latencies, since there is no notification nor context switching between threads.
+
+
 Create the node with the publishers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Start creating the node with both publishers.
 First, create a new package named ``sync_async_node_example_cpp``.
-Then, add a file named ``sync_async_writer.cpp`` to thepackage, with the following content:
+Then, add a file named ``sync_async_writer.cpp`` to thepackage, with the following content.
+Note that the synchronous publisher will be publishing on topic ``sync_topic``, while the asynchronous one will be publishing on topic ``async_topic``.
 
 .. code-block:: C++
 
@@ -68,31 +78,53 @@ Then, add a file named ``sync_async_writer.cpp`` to thepackage, with the followi
         SyncAsyncPublisher()
             : Node("sync_async_publisher"), count_(0)
         {
+            // Create the synchronous publisher on topic 'sync_topic'
             sync_publisher_ = this->create_publisher<std_msgs::msg::String>("sync_topic", 10);
+
+            // Create the asynchronous publisher on topic 'async_topic'
             async_publisher_ = this->create_publisher<std_msgs::msg::String>("async_topic", 10);
+
+            // This timer will trigger the publication of new data every half a second
             timer_ = this->create_wall_timer(
                     500ms, std::bind(&SyncAsyncPublisher::timer_callback, this));
         }
 
     private:
+        /**
+         * Actions to run every time the timer expires
+         */
         void timer_callback()
         {
+            // Create a new message to be sent
             auto sync_message = std_msgs::msg::String();
             sync_message.data = "SYNC: Hello, world! " + std::to_string(count_);
+
+            // Log the message to the console to show progress
             RCLCPP_INFO(this->get_logger(), "Synchronously publishing: '%s'", sync_message.data.c_str());
+
+            // Publish the message using the synchronous publisher
             sync_publisher_->publish(sync_message);
 
-            auto async_message = std_msgs::msg::String();
-            async_message.data = "ASYNC: Hello, world! " + std::to_string(count_);
+            // Log the message to the console to show progress
             RCLCPP_INFO(this->get_logger(), "Asynchronously publishing: '%s'", async_message.data.c_str());
+
+            // Publish the message using the asynchronous publisher
             async_publisher_->publish(async_message);
 
+            // Prepare the count for the next message
             count_++;
         }
 
+        // This timer will trigger the publication of new data every half a second
         rclcpp::TimerBase::SharedPtr timer_;
+
+        // A publisher that publishes asynchronously
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr async_publisher_;
+
+        // A publisher that publishes synchronously
         rclcpp::Publisher<std_msgs::msg::String>::SharedPtr sync_publisher_;
+
+        // Number of messages sent so far
         size_t count_;
     };
 
@@ -104,8 +136,6 @@ Then, add a file named ``sync_async_writer.cpp`` to thepackage, with the followi
         return 0;
     }
 
-
-Note that the synchronous publisher will be publishing on topic ``sync_topic``, while the asynchronous one will be publishing on topic ``async_topic``.
 
 Add a new target on the ``CMakeLists.txt`` file of your package with this code and name it ``SyncAsyncWriter``, so that you can run the node using ``ros2 run``.
 If this node is built and run now, both publishers will behave the same, publishing asynchronously in both topics, because this is the default publication mode.
@@ -188,6 +218,7 @@ Finally, ensure you have sourced your setup files and run the node:
 
 .. code-block:: console
 
+    source install/setup.bash
     ros2 run sync_async_node_example_cpp SyncAsyncWriter
 
 You should see the publishers sending the data from the publishing node, like so:
@@ -208,7 +239,7 @@ Create a node with the subscribers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next, a new node with the subscribers that will listen to the ``sync_topic`` and ``async_topic`` publications is going to be created.
-On a new source file named ``sync_async_reader.cpp`` write the following content:
+In a new source file named ``sync_async_reader.cpp`` write the following content:
 
 .. code-block:: C++
 
@@ -227,20 +258,31 @@ On a new source file named ``sync_async_reader.cpp`` write the following content
         SyncAsyncSubscriber()
             : Node("sync_async_subscriber")
         {
+            // Create the synchronous subscriber on topic 'sync_topic'
+            // and tie it to the topic_callback
             sync_subscription_ = this->create_subscription<std_msgs::msg::String>(
                 "sync_topic", 10, std::bind(&SyncAsyncSubscriber::topic_callback, this, _1));
+
+            // Create the asynchronous subscriber on topic 'async_topic'
+            // and tie it to the topic_callback
             async_subscription_ = this->create_subscription<std_msgs::msg::String>(
                 "async_topic", 10, std::bind(&SyncAsyncSubscriber::topic_callback, this, _1));
         }
 
     private:
 
+        /**
+         * Actions to run every time a new message is received
+         */
         void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
         {
             RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
         }
 
+        // A subscriber that listens to topic 'sync_topic'
         rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sync_subscription_;
+
+        // A subscriber that listens to topic 'async_topic'
         rclcpp::Subscription<std_msgs::msg::String>::SharedPtr async_subscription_;
     };
 
@@ -259,7 +301,7 @@ Add a new target on the ``CMakeLists.txt`` file linked to this code and name it 
 Add the subscriber profiles to the the XML
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Configuration profiles for the subscribers can be added in the same XML file.
+Configuration profiles for the subscribers can be added in the same XML file ``SyncAsync.xml``.
 For the moment, only the default profile will be set.
 The subscriber profiles will be extended later on.
 Open the ``SyncAsync.xml`` file and add the following profiles inside the ``<profiles>`` tag:
@@ -307,6 +349,7 @@ Finally, ensure you have sourced your setup files and run the node:
 
 .. code-block:: console
 
+    source install/setup.bash
     ros2 run sync_async_node_example_cpp SyncAsyncReader
 
 You should see the subscribers receiving the data from the publishing node, like so:
@@ -345,7 +388,7 @@ Among all the configurable attributes, ``rmw_fastrtps`` treats ``publishMode`` a
 By default, these values are set to ``ASYNCHRONOUS`` and ``PREALLOCATED_WITH_REALLOC`` within the ``rmw_fastrtps`` implementation, and the values set on the XML file are ignored.
 In order to use the values in the XML file, the environment variable ``RMW_FASTRTPS_USE_QOS_FROM_XML`` must be set to ``1``.
 
-However, this entails another caveat: If ``RMW_FASTRTPS_USE_QOS_FROM_XML`` is set, but the XML file does not define
+However, this entails **another caveat**: If ``RMW_FASTRTPS_USE_QOS_FROM_XML`` is set, but the XML file does not define
 ``publishMode`` or ``historyMemoryPolicy``, these attributes take the *Fast DDS* default value instead of the ``rmw_fastrtps`` default value.
 This is important, specially for ``historyMemoryPolicy``, because the *Fast DDS* deafult value is ``PREALLOCATED`` which does not work with ROS2 topic data types.
 Therefore, in the example, a valid value for this policy has been explicitly set (``DYNAMIC``).
@@ -410,6 +453,14 @@ Using partitions within the topic
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The partitions feature can be used to control which publishers and subscribers exchange information within the same topic.
+
+Partitions introduce a logical entity isolation level concept inside the physical isolation induced by a Domain ID.
+For a publisher to communicate with a subscriber, they have to belong at least to one common partition.
+Partitions represent another level to separate publishers and subscribers beyond domain and topic.
+Unlike domain and topic, an endpoint can belong to several partitions at the same time.
+For certain data to be shared over different domains or topics, there must be a different publisher for each, sharing its own history of changes.
+However, a single publisher can share the same data sample over different partitions using a single topic data change, thus reducing network overload.
+
 Let us change the ``/sync_topic`` publisher to partition ``part1`` and create a new ``/sync_topic`` subscriber which uses partition ``part2``.
 Their profiles should now look like this:
 
@@ -467,7 +518,7 @@ For example, for a service named ``ping`` there is:
 
 Although you can use these topic names to set the configuration profiles on the XML, sometimes you may wish to apply the same profile to all services or clients on a node.
 Instead of copying the same profile with all topic names generated for all services, you can just create a publisher and subscriber profile pair named ``service``.
-The same can be done for clientes creating a pair named ``client``.
+The same can be done for clients creating a pair named ``client``.
 
 
 Create the nodes with the service and client
@@ -483,11 +534,19 @@ Add a new source file named ``ping_service.cpp`` on your package with the follow
 
     #include <memory>
 
+    /**
+     * Service action: responds with success=true and prints the request on the console
+     */
     void ping(const std::shared_ptr<example_interfaces::srv::Trigger::Request> request,
             std::shared_ptr<example_interfaces::srv::Trigger::Response> response)
     {
+        // The request data is unused
         (void) request;
+
+        // Build the response
         response->success = true;
+
+        // Log to the console
         RCLCPP_INFO(rclcpp::get_logger("ping_server"), "Incoming request");
         RCLCPP_INFO(rclcpp::get_logger("ping_server"), "Sending back response");
     }
@@ -496,18 +555,20 @@ Add a new source file named ``ping_service.cpp`` on your package with the follow
     {
         rclcpp::init(argc, argv);
 
+        // Create the node and the service
         std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("ping_server");
-
         rclcpp::Service<example_interfaces::srv::Trigger>::SharedPtr service =
             node->create_service<example_interfaces::srv::Trigger>("ping", &ping);
 
+        // Log that the service is ready
         RCLCPP_INFO(rclcpp::get_logger("ping_server"), "Ready to serve.");
 
+        // run the node
         rclcpp::spin(node);
         rclcpp::shutdown();
     }
 
-Create the client on a file named ``ping_client.cpp`` with the following content:
+Create the client in a file named ``ping_client.cpp`` with the following content:
 
 .. code-block:: C++
 
@@ -524,12 +585,15 @@ Create the client on a file named ``ping_client.cpp`` with the following content
     {
         rclcpp::init(argc, argv);
 
+        // Create the node and the client
         std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("ping_client");
         rclcpp::Client<example_interfaces::srv::Trigger>::SharedPtr client =
             node->create_client<example_interfaces::srv::Trigger>("ping");
 
+        // Create a request
         auto request = std::make_shared<example_interfaces::srv::Trigger::Request>();
 
+        // Wait for the service to be available
         while (!client->wait_for_service(1s)) {
             if (!rclcpp::ok()) {
                 RCLCPP_ERROR(rclcpp::get_logger("ping_client"), "Interrupted while waiting for the service. Exiting.");
@@ -538,9 +602,11 @@ Create the client on a file named ``ping_client.cpp`` with the following content
             RCLCPP_INFO(rclcpp::get_logger("ping_client"), "Service not available, waiting again...");
         }
 
+        // Now that the service is available, send the request
         RCLCPP_INFO(rclcpp::get_logger("ping_client"), "Sending request");
         auto result = client->async_send_request(request);
-        // Wait for the result.
+
+        // Wait for the result and log it to the console
         if (rclcpp::spin_until_future_complete(node, result) ==
             rclcpp::FutureReturnCode::SUCCESS)
         {
