@@ -315,7 +315,7 @@ RCL's lifecycle state machine stores allocator instance
 
 The options struct (discussed above) entails an instance of the allocator being used for initializing the state machine.
 This options struct and there the embodied allocator are being stored within the lifecycle state machine.
-As a direct consequence, the ``rcl_lifecycle_fini function`` no longer expects an allocator in its fini function but rather uses the allocator set in the options struct for deallocating its internal data structures. 
+As a direct consequence, the ``rcl_lifecycle_fini function`` no longer expects an allocator in its fini function but rather uses the allocator set in the options struct for deallocating its internal data structures.
 
 .. code-block:: c
 
@@ -337,7 +337,7 @@ This boolean flag is set to true by default, not requiring any changes to existi
     const rclcpp::NodeOptions & options = rclcpp::NodeOptions(),
     bool enable_communication_interface = true);
 
-Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and `ros2/rclcpp#1507 <https://github.com/ros2/rclcpp/pull/1507>`_ 
+Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and `ros2/rclcpp#1507 <https://github.com/ros2/rclcpp/pull/1507>`_
 
 Known Issues
 ------------
