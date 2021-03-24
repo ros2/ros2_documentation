@@ -219,9 +219,8 @@ If the previous dynamic behavior is desired, there is an mechanism to opt it in 
 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
-
 rclpy
-^^^^^^
+^^^^^
 
 Removal of deprecated Node.set_parameters_callback
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -287,6 +286,58 @@ The signature of the function was changed because it was semantically different 
 This only affects authors of rmw implementations using the introspection typesupport.
 
 For further details, see `ros2/rosidl#531 <https://github.com/ros2/rosidl/pull/531>`_.
+
+rcl_lifecycle and rclcpp_lifecycle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+RCL's lifecycle state machine gets new init API
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+The lifecycle state machine in rcl_lifecycle was modified to expect a newly introduced options struct, combining general configurations for the state machine.
+The option struct allows to indicate whether the state machine shall be initialized with default values, whether its attached services are active and which allocator to be used.
+
+.. code-block:: c
+
+  rcl_ret_t
+  rcl_lifecycle_state_machine_init(
+    rcl_lifecycle_state_machine_t * state_machine,
+    rcl_node_t * node_handle,
+    const rosidl_message_type_support_t * ts_pub_notify,
+    const rosidl_service_type_support_t * ts_srv_change_state,
+    const rosidl_service_type_support_t * ts_srv_get_state,
+    const rosidl_service_type_support_t * ts_srv_get_available_states,
+    const rosidl_service_type_support_t * ts_srv_get_available_transitions,
+    const rosidl_service_type_support_t * ts_srv_get_transition_graph,
+    const rcl_lifecycle_state_machine_options_t * state_machine_options);
+
+RCL's lifecycle state machine stores allocator instance
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The options struct (discussed above) entails an instance of the allocator being used for initializing the state machine.
+This options struct and there the embodied allocator are being stored within the lifecycle state machine.
+As a direct consequence, the ``rcl_lifecycle_fini function`` no longer expects an allocator in its fini function but rather uses the allocator set in the options struct for deallocating its internal data structures.
+
+.. code-block:: c
+
+  rcl_ret_t
+  rcl_lifecycle_state_machine_fini(
+    rcl_lifecycle_state_machine_t * state_machine,
+    rcl_node_t * node_handle);
+
+RCLCPP's lifecycle node exposes option to not instantiate services
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+In order to use rclpp's lifecycle nodes without exposing its internal services such as ``change_state``, ``get_state`` et. al., the constructor of a lifecycle node has a newly introduced parameter indicating whether or not the services shall be available.
+This boolean flag is set to true by default, not requiring any changes to existing API if not wished.
+
+.. code-block:: c++
+
+  explicit LifecycleNode(
+    const std::string & node_name,
+    const rclcpp::NodeOptions & options = rclcpp::NodeOptions(),
+    bool enable_communication_interface = true);
+
+Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and `ros2/rclcpp#1507 <https://github.com/ros2/rclcpp/pull/1507>`_
 
 Known Issues
 ------------
