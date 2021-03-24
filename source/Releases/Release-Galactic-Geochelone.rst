@@ -220,7 +220,7 @@ If the previous dynamic behavior is desired, there is an mechanism to opt it in 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
 rclpy
-^^^^^^
+^^^^^
 
 Removal of deprecated Node.set_parameters_callback
 """"""""""""""""""""""""""""""""""""""""""""""""""
