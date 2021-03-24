@@ -65,7 +65,7 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_rolling/ros2-linux/share --ignore-src --rosdistro rolling -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ~/ros2_rolling/ros2-linux/share --ignore-src --rosdistro rolling -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connextdds rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
    Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu

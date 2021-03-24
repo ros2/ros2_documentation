@@ -128,9 +128,8 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 * Implement C client library ``rclc`` [\*\*]
 * Support more DDS / RTPS implementations:
 
-  * Connext 6, see `ros2/rmw_connext#375 <https://github.com/ros2/rmw_connext/issues/375>`_
-  * Connext dynamic [\*]
-  * RTI's micro implementation [\*]
+  * RTI Connext DDS 6.x (implemented, not enabled by default).
+  * RTI Connext DDS Micro (implemented, not enabled by default or officially supported).
 
 * security improvements:
 

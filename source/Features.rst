@@ -4,7 +4,7 @@ Features Status
 ===============
 
 The features listed below are available in the current ROS 2 release.
-Unless otherwise specified, the features are available for all supported platforms (Ubuntu 18.04, macOS 10.12.x, Windows 10), DDS implementations (eProsima Fast RTPS, RTI Connext and ADLINK Opensplice) and programming language client libraries (C++ and Python).
+Unless otherwise specified, the features are available for all supported platforms (Ubuntu 20.04, macOS 10.14.x, Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
 For planned future development, see the :ref:`Roadmap <Roadmap>`.
 
 .. list-table::
@@ -18,7 +18,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      -
    * - Support for `multiple DDS implementations <Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
      - `Concept <Concepts/About-Different-Middleware-Vendors>`, `Guide <Guides/Working-with-multiple-RMW-implementations>`
-     - Currently ADLINK CycloneDDS, eProsima Fast RTPS, and RTI Connext are fully supported.
+     - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - `Details <Concepts/About-ROS-2-Client-Libraries>`
      -

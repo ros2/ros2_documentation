@@ -35,36 +35,36 @@ To run the talker demo using the C++ and listener using Python with the RMW impl
 
     .. code-block:: bash
 
-       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
 
        # Run in another terminal
-       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_py listener
+       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
 
        # Run in another terminal
-       RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_py listener
+       RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_py listener
 
   .. group-tab:: Windows
 
     .. code-block:: bat
 
-       set RMW_IMPLEMENTATION=rmw_connext_cpp
+       set RMW_IMPLEMENTATION=rmw_connextdds
        ros2 run demo_nodes_cpp talker
 
        REM run in another terminal
-       set RMW_IMPLEMENTATION=rmw_connext_cpp
+       set RMW_IMPLEMENTATION=rmw_connextdds
        ros2 run demo_nodes_py listener
 
 Adding RMW implementations to your workspace
 --------------------------------------------
 
 Suppose that you have built your ROS 2 workspace with only Cyclone DDS installed and therefore only the Cyclone DDS RMW implementation built.
-The last time your workspace was built, any other RMW implementation packages, ``rmw_connext_cpp`` for example, were probably unable to find installations of the relevant DDS implementations.
+The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
 If you then install an additional DDS implementation, Connext for example, you will need to re-trigger the check for a Connext installation that occurs when the Connext RMW implementation is being built.
 You can do this by specifying the ``--cmake-force-configure`` flag on your next workspace build, and you should see that the RMW implementation package then gets built for the newly installed DDS implementation.
 
@@ -81,13 +81,13 @@ If the ``RMW_IMPLEMENTATION`` environment variable is set to an RMW implementati
 
 .. code-block:: bash
 
-   Expected RMW implementation identifier of 'rmw_connext_cpp' but instead found 'rmw_fastrtps_cpp', exiting with 102.
+   Expected RMW implementation identifier of 'rmw_connextdds' but instead found 'rmw_fastrtps_cpp', exiting with 102.
 
 If you have support for multiple RMW implementations installed and you request use of one that is not installed, you will see something similar to:
 
 .. code-block:: bash
 
-   Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of 'rmw_connext_cpp'), exiting with 1.
+   Error getting RMW implementation identifier / RMW implementation not installed (expected identifier of 'rmw_connextdds'), exiting with 1.
 
 If this occurs, double check that your ROS 2 installation includes support for the RMW implementation that you have specified in the ``RMW_IMPLEMENTATION`` environment variable.
 
@@ -96,7 +96,7 @@ For example, if you run:
 
 .. code-block:: bash
 
-   RMW_IMPLEMENTATION=rmw_connext_cpp ros2 run demo_nodes_cpp talker
+   RMW_IMPLEMENTATION=rmw_connextdds ros2 run demo_nodes_cpp talker
 
 and
 
