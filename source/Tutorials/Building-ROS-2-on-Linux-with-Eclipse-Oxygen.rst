@@ -151,7 +151,7 @@ And the openssl package.
 
 
 Unpack the openssl-1.0.2n package and copy it to the RTI install directory.
-source /home/ros/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash in a console and export RMW_IMPLEMENTATION=rmw_connext_cpp.
+source /home/ros/rti_connext_dds-5.3.1/resource/scripts/rtisetenv_x64Linux3gcc5.4.0.bash in a console and export RMW_IMPLEMENTATION=rmw_connextdds.
 
 Close eclipse-IDE and open it from the shell we sourced all the scripts from above.
 Open Project->Preferences in Eclipse and go to Environment.

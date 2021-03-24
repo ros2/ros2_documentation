@@ -10,7 +10,7 @@ Common Packages for DDS Middleware Packages
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 All of the current ROS middleware implementations are based on full or partial DDS implementations.
-For example, there is a middleware implementation that uses RTI's Connext DDS and an implementation which uses eProsima's Fast-RTPS.
+For example, there is a middleware implementation that uses RTI's Connext DDS and an implementation which uses eProsima's Fast-DDS.
 Because of this, there are some shared |packages| amongst most DDS based middleware implementations.
 
 In the `ros2/rosidl_dds <https://github.com/ros2/rosidl_dds>`_ repository on |GitHub|_, there is the following |package|:
@@ -30,8 +30,9 @@ A ROS middleware implementation is typically made up of a few |packages| in a si
 -  ``rosidl_typesupport_<implementation_name>_<language>``: contains tools to generate static type support code for ``rosidl`` files, tailored to the implementation in a particular language, typically C or C++
 
 The ``<implementation_name>_cmake_module`` |package| contains any CMake Modules and functions needed to find the supporting dependencies for the middleware implementation.
-In the case of ``connext_cmake_module`` it has CMake Modules for finding the RTI Connext implementation in different places on the system since it does not ship with a CMake Module itself.
-Not all repositories will have a package like this, for example eProsima's Fast-RTPS provides a CMake module and so no additional one is required.
+For example, ``rti_connext_dds_cmake_module`` provides wrapper logic around the CMake Module shipped with RTI Connext DDS to make sure that all packages that depend on it will select the same installation of RTI Connext DDS.
+Similarly, ``fastrtps_cmake_module`` includes a CMake Module to find eProsima's Fast-DDS.
+Not all implementations will have a package like this: for example, Eclipe's Cyclone DDS already provides a CMake Module which is used directly by its RMW implementation without the need of additional wrappers.
 
 The ``rmw_<implementation_name>_<language>`` |package| implements the ``rmw`` C |API| in a particular language.
 The implementation itself can be C++, it just must expose the header's symbols as ``extern "C"`` so that C applications can link against it.
@@ -45,18 +46,12 @@ As mentioned above, the ``rosidl_typesupport_introspection_<language>`` may be u
 This ability to programmatically send and receive types over topics without generating code beforehand is achieved by supporting the `DDS X-Types Dynamic Data standard <http://www.omg.org/spec/DDS-XTypes>`_.
 As such, rmw implementations may provide support for the X-Types standard, and/or provide a package for type support generated at compile time specific to their DDS implementation.
 
-As an example of an rmw implementation repository, the ``opensplice`` ROS middleware implementation lives on |GitHub|_ at `ros2/rmw_opensplice <https://github.com/ros2/rmw_opensplice>`_ and has these |packages|:
+As an example of an rmw implementation repository, the ``Eclipse Cyclone DDS`` ROS middleware implementation is on |GitHub|_ at `ros2/rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`_.
 
--  ``opensplice_cmake_module``
--  ``rmw_opensplice_cpp``
--  ``rosidl_typesupport_opensplice_c``
--  ``rosidl_typesupport_opensplice_cpp``
+The rmw implementation for ``Fast-DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cpp <https://github.com/ros2/rmw_fastrtps_cpp>`_.
 
-In addition to the ``opensplice`` repository of |packages|, there is the ``connext`` implementation on |GitHub|_ at `ros2/rmw_connext <https://github.com/ros2/rmw_connext>`_.
-It contains mostly the same |packages|, but it additionally contains a |package| to support the type support introspection using the DDS X-Types standard.
+The rmw implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 
-The rmw implementation using ``FastRTPS`` is on |GitHub|_ at `eProsima/ROS-RMW-Fast-RTPS-cpp <https://github.com/eProsima/ROS-RMW-Fast-RTPS-cpp>`_.
-As ``FastRTPS`` currently only supports the type support introspection, there is no vendor specific type support package in this repository.
 
 To learn more about what is required to create a new middleware implementation for ROS see this page:
 
