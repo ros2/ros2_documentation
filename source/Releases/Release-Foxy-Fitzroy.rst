@@ -31,7 +31,11 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
+<<<<<<< HEAD
 `Install Foxy Fitzroy <../Installation>`
+=======
+`Install Foxy Fitzroy <../../foxy/Installation.html>`__
+>>>>>>> 9052568... Fixed link to Rolling installation instructions. (#1268) (#1269)
 
 New features in this ROS 2 release
 ----------------------------------
