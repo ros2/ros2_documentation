@@ -63,6 +63,9 @@ If the feature is enabled on a node, then QoS settings can be set with ROS param
 
 See the `design document for more details <http://design.ros2.org/articles/qos_configurability.html>`_.
 
+Note, user code handling parameter changes with registered callbacks should avoid rejecting updates for unknown parameters.
+It was considered bad practice prior to Galactic, but with externally configurable QoS enabled it will result in a hard failure.
+
 Related PRs: `ros2/rclcpp#1408 <https://github.com/ros2/rclcpp/pull/1408>`_ and `ros2/rclpy#635 <https://github.com/ros2/rclpy/pull/635>`_
 
 Changes since the Foxy release
