@@ -76,12 +76,11 @@ Installing the python3 libraries
 .. code-block:: bash
 
    sudo apt install -y libpython3-dev python3-pip
-   pip3 install -U argcomplete
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions `here <DDS-Implementations>`.
 
 Environment setup
 -----------------

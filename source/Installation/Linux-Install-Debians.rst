@@ -68,17 +68,6 @@ Set up your environment by sourcing the following file.
 
    source /opt/ros/rolling/setup.bash
 
-Install argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install -y python3-pip
-   pip3 install -U argcomplete
-
 Try some examples
 -----------------
 
