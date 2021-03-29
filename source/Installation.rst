@@ -28,7 +28,7 @@ Binary packages
 
 We provide ROS 2 binary packages for the following platforms:
 
-* Linux (Ubuntu Bionic(18.04))
+* Ubuntu Linux - Bionic Beaver (18.04)
 
  * `Debian packages <Installation/Ubuntu-Install-Debians>`
  * `"fat" archive <Installation/Ubuntu-Install-Binary>`
@@ -45,7 +45,7 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Installation/Ubuntu-Development-Setup>`
+* `Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
 * `macOS <Installation/macOS-Development-Setup>`
 * `Windows <Installation/Windows-Development-Setup>`
 
