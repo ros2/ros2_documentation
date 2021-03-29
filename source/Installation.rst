@@ -9,9 +9,9 @@ Options for installing ROS 2 Dashing Diademata:
    :hidden:
    :glob:
 
-   Installation/Linux-Development-Setup
-   Installation/Linux-Install-Binary
-   Installation/Linux-Install-Debians
+   Installation/Ubuntu-Development-Setup
+   Installation/Ubuntu-Install-Binary
+   Installation/Ubuntu-Install-Debians
    Installation/macOS-Development-Setup
    Installation/macOS-Install-Binary
    Installation/Windows-Development-Setup
@@ -30,8 +30,8 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Linux (Ubuntu Bionic(18.04))
 
- * `Debian packages <Installation/Linux-Install-Debians>`
- * `"fat" archive <Installation/Linux-Install-Binary>`
+ * `Debian packages <Installation/Ubuntu-Install-Debians>`
+ * `"fat" archive <Installation/Ubuntu-Install-Binary>`
 
 * `macOS <Installation/macOS-Install-Binary>`
 * `Windows <Installation/Windows-Install-Binary>`
@@ -45,7 +45,7 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Installation/Linux-Development-Setup>`
+* `Linux <Installation/Ubuntu-Development-Setup>`
 * `macOS <Installation/macOS-Development-Setup>`
 * `Windows <Installation/Windows-Development-Setup>`
 
