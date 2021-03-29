@@ -45,7 +45,6 @@ Install development tools and ROS tools
      build-essential \
      cmake \
      git \
-     libbullet-dev \
      python3-colcon-common-extensions \
      python3-flake8 \
      python3-pip \
@@ -56,7 +55,6 @@ Install development tools and ROS tools
      wget
    # install some pip packages needed for testing
    python3 -m pip install -U \
-     argcomplete \
      flake8-blind-except \
      flake8-builtins \
      flake8-class-newline \
@@ -69,13 +67,6 @@ Install development tools and ROS tools
      pytest-rerunfailures \
      pytest \
      setuptools
-   # install Fast-RTPS dependencies
-   sudo apt install --no-install-recommends -y \
-     libasio-dev \
-     libtinyxml2-dev
-   # install Cyclone DDS dependencies
-   sudo apt install --no-install-recommends -y \
-     bison libcunit1-dev
 
 Ubuntu 18.04 is not an officially supported platform, but may still work.  You'll need at least the following additional dependencies:
 
