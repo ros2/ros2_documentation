@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Installation/Linux-Install-Binary
+
 Installing ROS 2 on Linux
 =========================
 
@@ -13,7 +17,7 @@ This page explains how to install ROS 2 on Linux from a pre-built binary package
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
 
-There are also `Debian packages <Linux-Install-Debians>` available.
+There are also `Debian packages <Ubuntu-Install-Debians>` available.
 
 System Requirements
 -------------------
