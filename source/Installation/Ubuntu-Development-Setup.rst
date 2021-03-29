@@ -4,8 +4,8 @@
 
    Installation/Linux-Development-Setup
 
-Building ROS 2 on Linux
-=======================
+Building ROS 2 on Ubuntu Linux
+==============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -14,18 +14,19 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-The current target platforms for Rolling Ridley are
+The current Debian-based target platforms for Rolling Ridley are:
 
 - Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
+- Tier 3: Debian Linux - Bullseye (11) 64-bit
 
-Tier 3 platforms (not actively tested or supported) include:
 
-- Debian Linux - Buster (10)
-- Fedora 32, see `alternate instructions <Fedora-Development-Setup>`
+Other Linux platforms with varying support levels include:
+
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
+- Fedora Linux, see `alternate instructions <Fedora-Development-Setup>`
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
 System setup
 ------------
