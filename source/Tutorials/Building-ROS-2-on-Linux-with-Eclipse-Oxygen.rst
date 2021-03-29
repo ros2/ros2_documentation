@@ -86,7 +86,7 @@ Add export RTI_LICENSE_FILE=/home/ros/rti_connext_dds-5.3.1/rti_license.dat to .
 
 
 An RTI license is now needed, which we can get on their website.
-Refer to `Linux Development Setup page <../Installation/Ubuntu-Development-Setup>`.
+Refer to `Ubuntu Linux Development Setup page <../Installation/Ubuntu-Development-Setup>`.
 The RTI license file will be directly sent via email after sign-up.
 
 In the email is a link to the RTI software to download.

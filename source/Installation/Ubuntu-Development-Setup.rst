@@ -2,8 +2,8 @@
 
    Installation/Linux-Development-Setup
 
-Building ROS 2 on Linux
-=======================
+Building ROS 2 on Ubuntu Linux
+==============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -12,15 +12,15 @@ Building ROS 2 on Linux
 
 System requirements
 -------------------
-Target platforms for Dashing Diademata are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
+Debian-based target platforms for Dashing Diademata are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
 
 - Tier 1: Ubuntu Linux - Bionic Beaver (18.04) 64-bit
+- Tier 3: Debian Linux - Stretch (9) 64-bit
 
-Tier 3 platforms (not actively tested or supported) include:
+Other Linux platforms with varying support levels include:
 
-- Debian Linux - Stretch (9)
-- Fedora 30, see `alternate instructions <Fedora-Development-Setup>`
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
+- Fedora Linux, see `alternate instructions <Fedora-Development-Setup>`
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
