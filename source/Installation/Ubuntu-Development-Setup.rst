@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Installation/Linux-Development-Setup
+
 Building ROS 2 on Linux
 =======================
 
@@ -25,7 +29,7 @@ System setup
 Set locale
 ^^^^^^^^^^
 
-.. include:: _Linux-Set-Locale.rst
+.. include:: _Ubuntu-Set-Locale.rst
 
 Add the ROS 2 apt repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
