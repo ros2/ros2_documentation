@@ -28,7 +28,7 @@ Binary packages
 
 We currently provide ROS 2 binary packages for the following platforms:
 
-* Linux (Ubuntu Focal(20.04))
+* Ubuntu Linux - Focal Fossa (20.04)
 
   * `Debian packages <Installation/Ubuntu-Install-Debians>`
   * `"fat" archive <Installation/Ubuntu-Install-Binary>`
@@ -47,7 +47,7 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Linux <Installation/Ubuntu-Development-Setup>`
+* `Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
 * `macOS <Installation/macOS-Development-Setup>`
 * `Windows <Installation/Windows-Development-Setup>`
 

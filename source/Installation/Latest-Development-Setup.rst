@@ -19,7 +19,7 @@ Building from source
 
 Follow the links below for the latest setup instructions for your platform:
 
-* `Linux <Ubuntu-Development-Setup>`
+* `Ubuntu Linux <Ubuntu-Development-Setup>`
 * `macOS <macOS-Development-Setup>`
 * `Windows <Windows-Development-Setup>`
 

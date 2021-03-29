@@ -2,14 +2,14 @@
 
    Installation/Linux-Install-Binary
 
-Installing ROS 2 on Linux
-=========================
+Installing ROS 2 on Ubuntu Linux
+================================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This page explains how to install ROS 2 on Linux from a pre-built binary package.
+This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary package.
 
 .. note::
 
@@ -37,7 +37,7 @@ Downloading ROS 2
 Binary releases of Rolling Ridley are not provided.
 Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
+* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
