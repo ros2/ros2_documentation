@@ -17,6 +17,9 @@ Options for installing ROS 2 Rolling Ridley:
    Installation/macOS-Install-Binary
    Installation/Windows-Development-Setup
    Installation/Windows-Install-Binary
+   Installation/RHEL-Development-Setup
+   Installation/RHEL-Install-Binary
+   Installation/RHEL-Install-RPMs
    Installation/Fedora-Development-Setup
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
@@ -34,6 +37,11 @@ We currently provide ROS 2 binary packages for the following platforms:
   * `"fat" archive <Installation/Linux-Install-Binary>`
 
 * `macOS <Installation/macOS-Install-Binary>`
+* RHEL 8
+
+  * `RPM packages <Installation/RHEL-Install-RPMs>`
+  * `"fat" archive <Installation/RHEL-Install-Binary>`
+
 * `Windows <Installation/Windows-Install-Binary>`
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
@@ -49,6 +57,7 @@ We support building ROS 2 from source on the following platforms:
 
 * `Linux <Installation/Linux-Development-Setup>`
 * `macOS <Installation/macOS-Development-Setup>`
+* `RHEL <Installation/RHEL-Development-Setup>`
 * `Windows <Installation/Windows-Development-Setup>`
 
 
