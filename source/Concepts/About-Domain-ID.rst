@@ -71,7 +71,7 @@ To see why, consider the domain IDs 1 and 2.
 - Domain ID 2 uses port 7900 and 7901 for multicast.
 - When creating the zeroth participant in domain ID 1, the ports 7660 and 7661 are used for unicast.
 - When creating the 119th participant in domain ID 1, the ports 7898 and 7899 are used for unicast.
-- When creating the 120th participant in domain ID 1, the ports 7900 and 7901 overlap with domain ID 2.
+- When creating the 120th participant in domain ID 1, the ports 7900 and 7901 are used for unicast and overlap with domain ID 2.
 
 If it is known that the computer will only ever be on a single domain ID at a time, and the domain ID is low enough, it is safe to create more ROS 2 processes than this.
 
