@@ -84,7 +84,7 @@ Build system
 ^^^^^^^^^^^^
 
 The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
-and the build tool is  `colcon <https://index.ros.org/doc/ros2/Tutorials/Colcon-Tutorial/>`__.
+and the build tool is  `colcon <../Tutorials/Colcon-Tutorial/>`.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
@@ -407,7 +407,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
-* See `ROS 2 CLI usage <https://index.ros.org/doc/ros2/Tutorials/Parameters/Understanding-ROS2-Parameters/>`_ for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+* See `ROS 2 CLI usage <../Tutorials/Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
 * See :ref:`yaml-ros1-ros2` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
@@ -415,7 +415,7 @@ Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
-See `separate tutorial <https://index.ros.org/doc/ros2/Tutorials/Launch-files-migration-guide/>`__ on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <../Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -607,7 +607,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and `concept overview <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings>`__.
+and `concept overview <../Concepts/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
