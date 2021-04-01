@@ -30,8 +30,7 @@ For more details please see the :ref:`Topic Statistics Concepts Page<AboutTopicS
 Prerequisites
 -------------
 
-An installation from either binaries or source, where the version must be at least
-`ROS2 Foxy <https://index.ros.org/doc/ros2/Releases/Release-Foxy-Fitzroy/>`__.
+An installation from either binaries or source.
 
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`,
 :ref:`create a package <CreatePkg>`, and create a :ref:`C++ <CppPubSub>` publisher and subscriber.
