@@ -123,8 +123,6 @@ Note: if you are having trouble compiling all examples and this is preventing yo
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply ``$ touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-Afterwards source the ``local_setup.*`` from the ``install`` folder.
-
 Environment setup
 -----------------
 
@@ -135,7 +133,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/install/setup.bash
+   . ~/ros2_rolling/install/local_setup.bash
 
 .. _talker-listener:
 
@@ -189,8 +187,6 @@ To configure CMake to detect and use Clang:
    export CC=clang
    export CXX=clang++
    colcon build --cmake-force-configure
-
-TODO: using ThreadSanitizer, MemorySanitizer
 
 Stay up to date
 ---------------
