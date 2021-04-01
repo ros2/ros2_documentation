@@ -104,6 +104,12 @@ If you would like to use another DDS or RTPS vendor besides the default, eProsim
 
 Build the code in the workspace
 -------------------------------
+
+If you have already installed ROS 2 another way (either via Debians or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
+Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
+You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
+The output should be empty.
+
 More info on working with a ROS workspace can be found in `this tutorial </Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash
@@ -111,8 +117,9 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
    cd ~/ros2_foxy/
    colcon build --symlink-install
 
-Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``AMENT_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
+Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
+<<<<<<< HEAD
 Well then simply ``$ touch AMENT_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
 Optionally install all packages into a combined directory (rather than each package in a separate subdirectory).
@@ -127,6 +134,9 @@ You may want to make sure that you do not have ``source /opt/ros/${ROS_DISTRO}/s
    colcon build --symlink-install --merge-install
 
 Afterwards source the ``local_setup.*`` from the ``install`` folder.
+=======
+Well then simply ``$ touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
+>>>>>>> 6fcb4c4... Cleanup the build instructions a bit. (#1292)
 
 Environment setup
 -----------------
@@ -138,7 +148,11 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
+<<<<<<< HEAD
    . ~/ros2_foxy/install/setup.bash
+=======
+   . ~/ros2_rolling/install/local_setup.bash
+>>>>>>> 6fcb4c4... Cleanup the build instructions a bit. (#1292)
 
 .. _talker-listener:
 
@@ -193,8 +207,6 @@ To configure CMake to detect and use Clang:
    export CC=clang
    export CXX=clang++
    colcon build --cmake-force-configure
-
-TODO: using ThreadSanitizer, MemorySanitizer
 
 Stay up to date
 ---------------
