@@ -43,7 +43,7 @@ download rt_preempt patch matching the Kernel version we just downloaded over at
 
 .. code-block:: bash
 
-   wget http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/patch-5.4.78-rt44.patch.gz
+   wget http://cdn.kernel.org/pub/linux/kernel/projects/rt/5.4/older/patch-5.4.78-rt44.patch.gz
 
 unpack it with
 

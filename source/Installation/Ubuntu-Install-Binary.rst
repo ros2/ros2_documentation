@@ -1,11 +1,15 @@
-Installing ROS 2 on Linux
-=========================
+.. redirect-from::
+
+   Installation/Linux-Install-Binary
+
+Installing ROS 2 on Ubuntu Linux
+================================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This page explains how to install ROS 2 on Linux from a pre-built binary package.
+This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary package.
 
 .. note::
 
@@ -13,7 +17,7 @@ This page explains how to install ROS 2 on Linux from a pre-built binary package
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`_.
 
-There are also `Debian packages <Linux-Install-Debians>` available.
+There are also `Debian packages <Ubuntu-Install-Debians>` available.
 
 System Requirements
 -------------------
@@ -33,7 +37,7 @@ Downloading ROS 2
 Binary releases of Rolling Ridley are not provided.
 Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
+* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 

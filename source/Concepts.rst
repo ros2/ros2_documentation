@@ -8,6 +8,7 @@ Conceptual overviews provide relatively high-level, general background informati
 .. toctree::
    :maxdepth: 1
 
+   Concepts/About-Domain-ID
    Concepts/About-Different-Middleware-Vendors
    Concepts/About-Logging
    Concepts/About-Quality-of-Service-Settings

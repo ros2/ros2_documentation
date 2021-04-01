@@ -28,8 +28,8 @@ Detailed instructions for installing other DDS vendors are provided below.
    :depth: 1
    :local:
 
-Linux source install
---------------------
+Ubuntu Linux source install
+---------------------------
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -81,8 +81,8 @@ Source the setup file to set the ``NDDSHOME`` environment variable.
 
 Now you can build as normal and support for RTI will be built as well.
 
-Linux binary install
---------------------
+Ubuntu Linux binary install
+---------------------------
 
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

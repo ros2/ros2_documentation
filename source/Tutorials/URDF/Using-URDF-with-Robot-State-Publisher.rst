@@ -16,8 +16,9 @@ Using URDF with robot_state_publisher
 Background
 ----------
 
-This tutorial will show you how to model a walking robot, publish the state as a `/tf2 <https://wiki.ros.org/tf2>`__ message and view the simulation in Rviz.
-First, we create the URDF model describing the robot assembly. Next we write a node which simulates the motion and publishes the JointState and transforms.
+This tutorial will show you how to model a walking robot, publish the state as a `tf2 <https://wiki.ros.org/tf2>`__ message and view the simulation in Rviz.
+First, we create the URDF model describing the robot assembly.
+Next we write a node which simulates the motion and publishes the JointState and transforms.
 We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf2``.
 
 .. image:: r2d2_rviz_demo.gif
@@ -27,6 +28,8 @@ Prerequisites
 
 - `rviz2 <https://index.ros.org/r/rviz/>`__
 
+As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+
 Tasks
 -----
 
@@ -35,125 +38,130 @@ Tasks
 
 .. code-block:: console
 
-  cd ~/dev_ws/src  # change as needed
+  mkdir -p ~/dev_ws/src  # change as needed
+  cd ~/dev_ws/src
   ros2 pkg create urdf_tutorial --build-type ament_python --dependencies rclpy
+  cd urdf_tutorial
 
-You should now see a ``urdf_tutorial`` folder. Next you will make several changes to it.
+You should now see a ``urdf_tutorial`` folder.
+Next you will make several changes to it.
 
 2 Create the URDF File
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Here is the `URDF file <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher?action=AttachFile&do=get&target=model.xml>`__ for a 7-link model roughly approximating R2-D2. Save it as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.urdf.xml``
+Create the directory where we will store some assets:
 
-In order to view the robot in Rviz, save this `Rviz config <https://github.com/benbongalon/ros2-migration/blob/master/urdf_tutorial/urdf/r2d2.rviz>`__ as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.rviz``
+.. code-block:: console
 
-**Note:** Both files must be in the subfolder *urdf*
+  mkdir -p urdf
+
+Download the :download:`URDF file <r2d2.urdf.xml>` and save it as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.urdf.xml``.
+Download the :download:`Rviz configuration file <r2d2.rviz>` and save it as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.rviz``.
 
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
 
-Now we need a method for specifying what state the robot is in. To do this, we must specify all three joints and the overall odometry.
+Now we need a method for specifying what state the robot is in.
+To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``src/urdf_tutorial/urdf_tutorial/state_publisher.py``
-
-**Note:** Make sure to save it in the Python "urdf_tutorial" subfolder where the ``__init__.py`` file is located.
+Fire up your favorite editor and paste the following code into ``urdf_tutorial/state_publisher.py``
 
 .. code-block:: python
 
-  #! /usr/bin/env python
   from math import sin, cos, pi
-  import threading
   import rclpy
   from rclpy.node import Node
   from rclpy.qos import QoSProfile
   from geometry_msgs.msg import Quaternion
   from sensor_msgs.msg import JointState
   from tf2_ros import TransformBroadcaster, TransformStamped
+
   class StatePublisher(Node):
 
-    def __init__(self):
-        rclpy.init()
-        super().__init__('state_publisher')
+      def __init__(self):
+          rclpy.init()
+          super().__init__('state_publisher')
 
-        qos_profile = QoSProfile(depth=10)
-        self.joint_pub = self.create_publisher(JointState, 'joint_states', qos_profile)
-        self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
-        self.nodeName = self.get_name()
-        self.get_logger().info("{0} started".format(self.nodeName))
+          qos_profile = QoSProfile(depth=10)
+          self.joint_pub = self.create_publisher(JointState, 'joint_states', qos_profile)
+          self.broadcaster = TransformBroadcaster(self, qos=qos_profile)
+          self.nodeName = self.get_name()
+          self.get_logger().info("{0} started".format(self.nodeName))
 
-        degree = pi / 180.0
-        loop_rate = self.create_rate(30)
+          degree = pi / 180.0
+          loop_rate = self.create_rate(30)
 
-        # robot state
-        tilt = 0.
-        tinc = degree
-        swivel = 0.
-        angle = 0.
-        height = 0.
-        hinc = 0.005
+          # robot state
+          tilt = 0.
+          tinc = degree
+          swivel = 0.
+          angle = 0.
+          height = 0.
+          hinc = 0.005
 
-        # message declarations
-        odom_trans = TransformStamped()
-        odom_trans.header.frame_id = 'odom'
-        odom_trans.child_frame_id = 'axis'
-        joint_state = JointState()
+          # message declarations
+          odom_trans = TransformStamped()
+          odom_trans.header.frame_id = 'odom'
+          odom_trans.child_frame_id = 'axis'
+          joint_state = JointState()
 
-        try:
-            while rclpy.ok():
-                rclpy.spin_once(self)
+          try:
+              while rclpy.ok():
+                  rclpy.spin_once(self)
 
-                # update joint_state
-                now = self.get_clock().now()
-                joint_state.header.stamp = now.to_msg()
-                joint_state.name = ['swivel', 'tilt', 'periscope']
-                joint_state.position = [swivel, tilt, height]
+                  # update joint_state
+                  now = self.get_clock().now()
+                  joint_state.header.stamp = now.to_msg()
+                  joint_state.name = ['swivel', 'tilt', 'periscope']
+                  joint_state.position = [swivel, tilt, height]
 
-                # update transform
-                # (moving in a circle with radius=2)
-                odom_trans.header.stamp = now.to_msg()
-                odom_trans.transform.translation.x = cos(angle)*2
-                odom_trans.transform.translation.y = sin(angle)*2
-                odom_trans.transform.translation.z = 0.7
-                odom_trans.transform.rotation = \
-                    euler_to_quaternion(0, 0, angle + pi/2) # roll,pitch,yaw
+                  # update transform
+                  # (moving in a circle with radius=2)
+                  odom_trans.header.stamp = now.to_msg()
+                  odom_trans.transform.translation.x = cos(angle)*2
+                  odom_trans.transform.translation.y = sin(angle)*2
+                  odom_trans.transform.translation.z = 0.7
+                  odom_trans.transform.rotation = \
+                      euler_to_quaternion(0, 0, angle + pi/2) # roll,pitch,yaw
 
-                # send the joint state and transform
-                self.joint_pub.publish(joint_state)
-                self.broadcaster.sendTransform(odom_trans)
+                  # send the joint state and transform
+                  self.joint_pub.publish(joint_state)
+                  self.broadcaster.sendTransform(odom_trans)
 
-                # Create new robot state
-                tilt += tinc
-                if tilt < -0.5 or tilt > 0.0:
-                    tinc *= -1
-                height += hinc
-                if height > 0.2 or height < 0.0:
-                    hinc *= -1
-                swivel += degree
-                angle += degree/4
+                  # Create new robot state
+                  tilt += tinc
+                  if tilt < -0.5 or tilt > 0.0:
+                      tinc *= -1
+                  height += hinc
+                  if height > 0.2 or height < 0.0:
+                      hinc *= -1
+                  swivel += degree
+                  angle += degree/4
 
-                # This will adjust as needed per iteration
-                loop_rate.sleep()
+                  # This will adjust as needed per iteration
+                  loop_rate.sleep()
 
-        except KeyboardInterrupt:
-            pass
+          except KeyboardInterrupt:
+              pass
 
   def euler_to_quaternion(roll, pitch, yaw):
-    qx = sin(roll/2) * cos(pitch/2) * cos(yaw/2) - cos(roll/2) * sin(pitch/2) * sin(yaw/2)
-    qy = cos(roll/2) * sin(pitch/2) * cos(yaw/2) + sin(roll/2) * cos(pitch/2) * sin(yaw/2)
-    qz = cos(roll/2) * cos(pitch/2) * sin(yaw/2) - sin(roll/2) * sin(pitch/2) * cos(yaw/2)
-    qw = cos(roll/2) * cos(pitch/2) * cos(yaw/2) + sin(roll/2) * sin(pitch/2) * sin(yaw/2)
-    return Quaternion(x=qx, y=qy, z=qz, w=qw)
+      qx = sin(roll/2) * cos(pitch/2) * cos(yaw/2) - cos(roll/2) * sin(pitch/2) * sin(yaw/2)
+      qy = cos(roll/2) * sin(pitch/2) * cos(yaw/2) + sin(roll/2) * cos(pitch/2) * sin(yaw/2)
+      qz = cos(roll/2) * cos(pitch/2) * sin(yaw/2) - sin(roll/2) * sin(pitch/2) * cos(yaw/2)
+      qw = cos(roll/2) * cos(pitch/2) * cos(yaw/2) + sin(roll/2) * sin(pitch/2) * sin(yaw/2)
+      return Quaternion(x=qx, y=qy, z=qz, w=qw)
 
   def main():
-    node = StatePublisher()
+      node = StatePublisher()
 
   if __name__ == '__main__':
-    main()
+      main()
 
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new ``launch`` folder. Open your editor and paste the following code, saving it as ``launch/demo.launch.py``
+Create a new ``launch`` folder.
+Open your editor and paste the following code, saving it as ``launch/demo.launch.py``
 
 .. code-block:: python
 
@@ -166,39 +174,40 @@ Create a new ``launch`` folder. Open your editor and paste the following code, s
 
   def generate_launch_description():
 
-    use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'r2d2.urdf.xml'
+      use_sim_time = LaunchConfiguration('use_sim_time', default='false')
 
-    print("urdf_file_name : {}".format(urdf_file_name))
+      urdf_file_name = 'r2d2.urdf.xml'
+      urdf = os.path.join(
+          get_package_share_directory('urdf_tutorial'),
+          urdf_file_name)
+      with open(urdf, 'r') as infp:
+          robot_desc = infp.read()
 
-    urdf = os.path.join(
-        get_package_share_directory('urdf_tutorial'),
-        urdf_file_name)
-
-    return LaunchDescription([
-        DeclareLaunchArgument(
-            'use_sim_time',
-            default_value='false',
-            description='Use simulation (Gazebo) clock if true'),
-        Node(
-            package='robot_state_publisher',
-            executable='robot_state_publisher',
-            name='robot_state_publisher',
-            output='screen',
-            parameters=[{'use_sim_time': use_sim_time}],
-            arguments=[urdf]),
-        Node(
-            package='urdf_tutorial',
-            executable='state_publisher',
-            name='state_publisher',
-            output='screen'),
-    ])
+      return LaunchDescription([
+          DeclareLaunchArgument(
+              'use_sim_time',
+              default_value='false',
+              description='Use simulation (Gazebo) clock if true'),
+          Node(
+              package='robot_state_publisher',
+              executable='robot_state_publisher',
+              name='robot_state_publisher',
+              output='screen',
+              parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
+              arguments=[urdf]),
+          Node(
+              package='urdf_tutorial',
+              executable='state_publisher',
+              name='state_publisher',
+              output='screen'),
+      ])
 
 
 5 Edit the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-You must tell the **colcon** build tool how to install your Python package. Edit the ``setup.py`` file as follows:
+You must tell the **colcon** build tool how to install your Python package.
+Edit the ``setup.py`` file as follows:
 
 - include these import statements
 
@@ -254,7 +263,7 @@ Open a new terminal, the run Rviz using
 
   rviz2 -d ~/dev_ws/install/urdf_tutorial/share/urdf_tutorial/r2d2.rviz
 
-See the [User Guide](http://wiki.ros.org/rviz/UserGuide) for details on how to use Rviz.
+See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
 Summary
 -------

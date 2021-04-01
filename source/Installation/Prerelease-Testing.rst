@@ -58,7 +58,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 Fat binaries
 ------------
 
-For core packages, we run nightly packaging jobs for Linux, macOS, and Windows.
+For core packages, we run nightly packaging jobs for Ubuntu Linux, macOS, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
 1. Make sure you have all dependencies installed according to the `latest development setup <Latest-Development-Setup>` for your platform.
@@ -94,7 +94,7 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 Docker
 ------
 
-For Linux, there is also a nightly Docker image based on the nightly fat archive.
+For Ubuntu Linux, there is also a nightly Docker image based on the nightly fat archive.
 
 1. Pull the Docker image:
 
