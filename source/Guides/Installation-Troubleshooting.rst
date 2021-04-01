@@ -231,7 +231,7 @@ To fix this issue, follow `these steps <RQt-Source-Install-MacOS>` to install de
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the `Creating a workspace <https://index.ros.org/doc/ros2/Tutorials/Workspace/Creating-A-Workspace/#creating-a-workspace>`__ tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+While following the `Creating a workspace <../Tutorials/Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
 
 .. code-block:: bash
 
