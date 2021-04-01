@@ -271,7 +271,7 @@ Instead of downloading the ROS 2 stack, just populate your workspace with your p
     git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1
     cd ..
 
-Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the `binary packages <https://index.ros.org/doc/ros2/Linux-Install-Debians/>`__ to install ROS 2 instead of building from source.
+Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the `binary packages <../Installation/Linux-Install-Debians>` to install ROS 2 instead of building from source.
 
 Modify the environment variable ``ROS2_INSTALL_PATH`` to point to the installation directory:
 
