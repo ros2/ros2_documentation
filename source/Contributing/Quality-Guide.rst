@@ -231,9 +231,9 @@ Dynamic analysis (data races & deadlocks)
 
 
 * You are developing/debugging your multithreaded C++ production code.
-* You use pthreads or C++11 threading + llvm libc++ (in case of ThreadSanatizer).
-* You do not use Libc/libstdc++ static linking (in case of ThreadSanatizer).
-* You do not build non-position-independent executables (in case of ThreadSanatizer).
+* You use pthreads or C++11 threading + llvm libc++ (in case of ThreadSanitizer).
+* You do not use Libc/libstdc++ static linking (in case of ThreadSanitizer).
+* You do not build non-position-independent executables (in case of ThreadSanitizer).
 
 **Problem:**
 
@@ -245,21 +245,21 @@ Dynamic analysis (data races & deadlocks)
 **Solution:**
 
 
-* Use a dynamic analysis tool which focuses on finding data races and deadlocks (here clang ThreadSanatizer).
+* Use a dynamic analysis tool which focuses on finding data races and deadlocks (here clang ThreadSanitizer).
 
 **Implementation:**
 
 
 * Compile and link the production code with clang using the option ``-fsanitize=thread`` (this instruments the production code).
-* In case different production code shall be executed during analysis consider conditional compilation e.g. `ThreadSanatizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
-* In case some code shall not be instrumented consider `ThreadSanatizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
-* In case some files shall not be instrumented consider file or function-level exclusion `ThreadSanatizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__, more specific: `ThreadSanatizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanatizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
+* In case different production code shall be executed during analysis consider conditional compilation e.g. `ThreadSanitizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
+* In case some code shall not be instrumented consider `ThreadSanitizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
+* In case some files shall not be instrumented consider file or function-level exclusion `ThreadSanitizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__, more specific: `ThreadSanitizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanitizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#blacklist>`__ and use the option ``--fsanitize-blacklist``.
 
 **Resulting context:**
 
 
 * Higher chance to find data races and deadlocks in production code before deploying it.
-* Analysis result may lack reliability, tool in beta phase stage (in case of ThreadSanatizer).
+* Analysis result may lack reliability, tool in beta phase stage (in case of ThreadSanitizer).
 * Overhead due to production code instrumentation (maintenance of separate branches for instrumented/not instrumented production code, etc.).
-* Instrumented code needs more memory per thread (in case of ThreadSanatizer).
-* Instrumented code maps a lot virtual address space (in case of ThreadSanatizer).
+* Instrumented code needs more memory per thread (in case of ThreadSanitizer).
+* Instrumented code maps a lot virtual address space (in case of ThreadSanitizer).
