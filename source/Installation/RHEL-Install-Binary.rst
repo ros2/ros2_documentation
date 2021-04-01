@@ -28,7 +28,7 @@ Downloading ROS 2
 Binary releases of Rolling Ridley are not provided.
 Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
-* Download the latest package for Linux; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
+* Download the latest package for RHEL; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -101,7 +101,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the `tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Additional RMW implementations (optional)
 -----------------------------------------
