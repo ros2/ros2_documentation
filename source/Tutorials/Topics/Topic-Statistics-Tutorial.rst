@@ -30,11 +30,7 @@ For more details please see the :ref:`Topic Statistics Concepts Page<AboutTopicS
 Prerequisites
 -------------
 
-<<<<<<< HEAD
-Install ROS 2 from either binaries or source (topic statistics were added in `Foxy <https://index.ros.org/doc/ros2/Releases/Release-Foxy-Fitzroy/>`__).
-=======
 An installation from either binaries or source.
->>>>>>> 9846c68... Fix references to index.ros.org. (#1288)
 
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`,
 :ref:`create a package <CreatePkg>`, and create a :ref:`C++ <CppPubSub>` publisher and subscriber.
