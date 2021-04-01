@@ -4,7 +4,7 @@ To do so, first authorize our GPG key with apt like this:
 .. code-block:: bash
 
    sudo apt update && sudo apt install curl gnupg2 lsb-release
-   curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | gpg --dearmor | sudo tee /usr/share/keyrings/ros.gpg > /dev/null
+   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 And then add the repository to your sources list:
 
