@@ -35,14 +35,8 @@ To do so, first enable the PowerTools repository:
 
 .. code-block:: bash
 
-   sudo dnf install 'dnf-command(config-manager)'
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
-
-Also, enable the EPEL repository:
-
-.. code-block:: bash
-
-   sudo dnf install epel-release
 
 Next, download the ROS 2 .repo file:
 

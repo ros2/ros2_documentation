@@ -22,15 +22,6 @@ We currently support RHEL 8 64-bit.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
-Installing prerequisites
-------------------------
-
-There are a few packages that must be installed in order to get and unpack the binary release.
-
-.. code-block:: bash
-
-   sudo dnf install tar bzip2 wget -y
-
 Enable required repositories
 ----------------------------
 
@@ -39,8 +30,17 @@ They can be enabled by running:
 
 .. code-block:: bash
 
-   sudo dnf install 'dnf-command(config-manager)' epel-release
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
+
+Installing prerequisites
+------------------------
+
+There are a few packages that must be installed in order to get and unpack the binary release.
+
+.. code-block:: bash
+
+   sudo dnf install tar bzip2 wget -y
 
 Downloading ROS 2
 -----------------

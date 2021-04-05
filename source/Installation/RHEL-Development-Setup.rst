@@ -32,7 +32,7 @@ They can be enabled by running:
 
 .. code-block:: bash
 
-   sudo dnf install 'dnf-command(config-manager)' epel-release
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
 
 Install development tools and ROS tools
