@@ -32,7 +32,7 @@ They can be enabled by running:
 
 .. code-block:: bash
 
-   sudo dnf install 'dnf-command(config-manager)' epel-release
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
 
 Install development tools and ROS tools
@@ -54,7 +54,7 @@ Install development tools and ROS tools
      wget
    # install some pip packages needed for testing and
    # not available as RPMs
-   python3 -m pip install -U \
+   python3 -m pip install -U --user \
      flake8-blind-except \
      flake8-builtins \
      flake8-class-newline \

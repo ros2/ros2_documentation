@@ -30,19 +30,12 @@ Set locale
 Setup Sources
 -------------
 
-You will need to add the ROS 2 RPM repositories to your system, in addition to the EPEL repositories and enabling the PowerTools repository.
-To do so, first enable the PowerTools repository:
+You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: bash
 
-   sudo dnf install 'dnf-command(config-manager)'
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
-
-Also, enable the EPEL repository:
-
-.. code-block:: bash
-
-   sudo dnf install epel-release
 
 Next, download the ROS 2 .repo file:
 
