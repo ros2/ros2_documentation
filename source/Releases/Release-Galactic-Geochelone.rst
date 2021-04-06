@@ -94,6 +94,20 @@ RMW vendors should implement this API for some features in ROS 2 packages to wor
 
 Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_
 
+New RCLCPP API
+^^^^^^^^^^^^^^
+
+``qos_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
+
+Related PR: `ros2/rclcpp#1554 <https://github.com/ros2/rclcpp/pull/1554>`_
+
+New RCLPY API
+^^^^^^^^^^^^^
+
+``qos_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
+
+Related PR: `ros2/rclpy#708 <https://github.com/ros2/rclpy/pull/708>`_
+
 nav2
 ^^^^
 
@@ -261,7 +275,6 @@ If the previous dynamic behavior is desired, there is an mechanism to opt it in 
     node.declare_parameter('dynamically_typed_param', descriptor=rcl_interfaces.msg.ParameterDescriptor(dynamic_typing=True))
 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
-
 
 rclcpp_action
 ^^^^^^^^^^^^^
