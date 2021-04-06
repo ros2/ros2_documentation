@@ -102,13 +102,11 @@ and a ``setup.py`` file that looks like:
 
    import os
    from glob import glob
+   from ament_package.generate_setuptools_dict import generate_setuptools_dict
    from setuptools import setup
 
    package_name = 'my_package'
-
-   setup(
-       name=package_name,
-       version='0.0.0',
+   package_info = generate_setuptools_dict(
        # Packages to export
        packages=[package_name],
        # Files we want to install, specifically launch files
@@ -123,10 +121,6 @@ and a ``setup.py`` file that looks like:
        # This is important as well
        install_requires=['setuptools'],
        zip_safe=True,
-       author='ROS 2 Developer',
-       author_email='ros2@ros.com',
-       maintainer='ROS 2 Developer',
-       maintainer_email='ros2@ros.com',
        keywords=['foo', 'bar'],
        classifiers=[
            'Intended Audience :: Developers',
@@ -134,8 +128,6 @@ and a ``setup.py`` file that looks like:
            'Programming Language :: Python',
            'Topic :: Software Development',
        ],
-       description='My awesome package.',
-       license='TODO',
        # Like the CMakeLists add_executable macro, you can add your python
        # scripts here.
        entry_points={
@@ -144,3 +136,4 @@ and a ``setup.py`` file that looks like:
            ],
        },
    )
+   setup(**package_info)

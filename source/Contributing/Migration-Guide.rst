@@ -111,7 +111,7 @@ If the ROS 1 package uses CMake only to invoke the ``setup.py`` file and does no
   Remove the ``CMakeLists.txt`` file
 
 *
-  Update the ``setup.py`` file to be a standard Python setup script
+  Replace `catkin_pkg.python_setup.generate_distutils_setup` with `ament_package.generate_setuptools_dict.generate_setuptools_dict`
 
 ROS 2 supports Python 3 only.
 While each package can choose to also support Python 2 it must invoke executables with Python 3 if it uses any API provided by other ROS 2 packages.
