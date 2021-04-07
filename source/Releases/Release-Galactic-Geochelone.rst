@@ -94,7 +94,6 @@ RMW vendors should implement this API for some features in ROS 2 packages to wor
 
 Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_
 
-
 nav2
 ^^^^
 
