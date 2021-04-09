@@ -35,13 +35,13 @@ Prerequisites
 
 This tutorial assumes that you know how to :ref:`create a package <CreatePkg>`.
 It also assumes you know how to write a :ref:`simple publisher and subscriber<CppPubSub>` and a :ref:`simple service and client<CppSrvCli>`.
-Although the examples are implemented on C++, the same concepts apply to Python packages.
+Although the examples are implemented in C++, the same concepts apply to Python packages.
 
 
 Mixing synchronous and asynchronous publications in the same node
 -----------------------------------------------------------------
 
-On this first example, a node with two publishers, one of them with synchronous publication mode and the other one with asynchronous publication mode, will be created.
+In this first example, a node with two publishers, one of them with synchronous publication mode and the other one with asynchronous publication mode, will be created.
 
 ``rmw_fastrtps`` uses asynchronous publication mode by default. When the publisher invokes the write operation, the data is copied into a queue,
 a background thread (asynchronous thread) is notified about the addition to the queue, and control of the thread is returned to the user before the data is actually sent.
@@ -55,9 +55,36 @@ However, his mode typically yields higher throughput rates at lower latencies, s
 Create the node with the publishers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Start creating the node with both publishers.
-First, create a new package named ``sync_async_node_example_cpp``.
-Then, add a file named ``sync_async_writer.cpp`` to thepackage, with the following content.
+First, create a new package named ``sync_async_node_example_cpp`` on a new workspace:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+       .. code-block:: console
+
+         mkdir -p ~/fastdds_ws/src
+         cd ~/fastdds_ws/src
+         ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+
+    .. group-tab:: macOS
+
+      .. code-block:: console
+
+        mkdir -p ~/fastdds_ws/src
+        cd ~/fastdds_ws/src
+        ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+
+    .. group-tab:: Windows
+
+      .. code-block:: console
+
+        md \dev_ws\src
+        cd \dev_ws\src
+        ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
+
+
+Then, add a file named ``src/sync_async_writer.cpp`` to the package, with the following content.
 Note that the synchronous publisher will be publishing on topic ``sync_topic``, while the asynchronous one will be publishing on topic ``async_topic``.
 
 .. code-block:: C++
@@ -136,10 +163,52 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
         return 0;
     }
 
+Now open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyncWriter`` so you can run your node using ``ros2 run``:
 
-Add a new target on the ``CMakeLists.txt`` file of your package with this code and name it ``SyncAsyncWriter``, so that you can run the node using ``ros2 run``.
+.. code-block:: console
+
+    add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
+    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+
+Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
+
+.. code-block:: console
+
+    install(TARGETS
+      SyncAsyncWriter
+      DESTINATION lib/${PROJECT_NAME})
+
+You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections and comments, so it looks like this:
+
+.. code-block:: console
+
+    cmake_minimum_required(VERSION 3.5)
+    project(cpp_pubsub)
+
+    # Default to C++14
+    if(NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 14)
+    endif()
+
+    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic)
+    endif()
+
+    find_package(ament_cmake REQUIRED)
+    find_package(rclcpp REQUIRED)
+    find_package(std_msgs REQUIRED)
+
+    add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
+    ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
+
+    install(TARGETS
+    SyncAsyncWriter
+    DESTINATION lib/${PROJECT_NAME})
+
+    ament_package()
+
 If this node is built and run now, both publishers will behave the same, publishing asynchronously in both topics, because this is the default publication mode.
-The default publication mode configuration can be changed on runtime during the node launching, using an XML file.
+The default publication mode configuration can be changed in runtime during the node launching, using an XML file.
 
 Create the XML file with the profile configuration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -239,7 +308,7 @@ Create a node with the subscribers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next, a new node with the subscribers that will listen to the ``sync_topic`` and ``async_topic`` publications is going to be created.
-In a new source file named ``sync_async_reader.cpp`` write the following content:
+In a new source file named ``src/sync_async_reader.cpp`` write the following content:
 
 .. code-block:: C++
 
@@ -295,8 +364,17 @@ In a new source file named ``sync_async_reader.cpp`` write the following content
     }
 
 
+Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyncReader`` under the previous ``SyncAsyncWriter``:
 
-Add a new target on the ``CMakeLists.txt`` file linked to this code and name it ``SyncAsyncReader``.
+.. code-block:: console
+
+    add_executable(SyncAsyncReader src/sync_async_reader.cpp)
+    ament_target_dependencies(SyncAsyncReader rclcpp std_msgs)
+
+    install(TARGETS
+        SyncAsyncReader
+        DESTINATION lib/${PROJECT_NAME})
+
 
 Add the subscriber profiles to the the XML
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -390,7 +468,7 @@ In order to use the values in the XML file, the environment variable ``RMW_FASTR
 
 However, this entails **another caveat**: If ``RMW_FASTRTPS_USE_QOS_FROM_XML`` is set, but the XML file does not define
 ``publishMode`` or ``historyMemoryPolicy``, these attributes take the *Fast DDS* default value instead of the ``rmw_fastrtps`` default value.
-This is important, specially for ``historyMemoryPolicy``, because the *Fast DDS* deafult value is ``PREALLOCATED`` which does not work with ROS2 topic data types.
+This is important, especially for ``historyMemoryPolicy``, because the *Fast DDS* deafult value is ``PREALLOCATED`` which does not work with ROS2 topic data types.
 Therefore, in the example, a valid value for this policy has been explicitly set (``DYNAMIC``).
 
 
@@ -438,7 +516,7 @@ The number of matching subscribers is being limited to one.
 
 Now open three terminals and do not forget to source the setup files and to set the required environment variables.
 On the first terminal run the publisher node, and the subscriber node on the other two.
-You should see that only the first subscriber node is receiving the messages from both topics.
+You should see that only the first subscriber node receives the messages from both topics.
 The second one could not complete the matching process in the ``/async_topic`` because the publisher prevented it, as it had already reached its maximum of matched publishers.
 Consequently, only the messages from the ``/sync_topic`` are going to be received in this third terminal:
 
@@ -525,7 +603,7 @@ Create the nodes with the service and client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Start creating the node with the service.
-Add a new source file named ``ping_service.cpp`` on your package with the following content:
+Add a new source file named ``src/ping_service.cpp`` on your package with the following content:
 
 .. code-block:: C++
 
@@ -568,7 +646,7 @@ Add a new source file named ``ping_service.cpp`` on your package with the follow
         rclcpp::shutdown();
     }
 
-Create the client in a file named ``ping_client.cpp`` with the following content:
+Create the client in a file named ``src/ping_client.cpp`` with the following content:
 
 .. code-block:: C++
 
@@ -619,8 +697,24 @@ Create the client in a file named ``ping_client.cpp`` with the following content
         return 0;
     }
 
-Add a new target on the ``CMakeLists.txt`` file linked to the server code and name it ``ping_service``.
-Do the same with a new target named ``ping_client`` and the client code.
+Open the ``CMakeLists.txt`` file and add a two new executables ``ping_service`` and ``ping_client``:
+
+.. code-block:: console
+
+    add_executable(ping_service src/ping_service.cpp)
+    ament_target_dependencies(ping_service rclcpp std_msgs)
+
+    add_executable(ping_client src/ping_client.cpp)
+    ament_target_dependencies(ping_client rclcpp std_msgs)
+
+    install(TARGETS
+        ping_service
+        DESTINATION lib/${PROJECT_NAME})
+
+    install(TARGETS
+        ping_client
+        DESTINATION lib/${PROJECT_NAME})
+
 Finally, build the package.
 
 
