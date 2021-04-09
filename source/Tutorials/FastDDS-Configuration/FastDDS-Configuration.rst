@@ -49,7 +49,7 @@ The background thread is in charge of consuming the queue and sending the data t
 
 On the other hand, with synchronous publication mode the data is sent directly within the context of the user thread.
 This entails that any blocking call occurring during the write operation would block the user thread, thus preventing the application from continuing its operation.
-However, his mode typically yields higher throughput rates at lower latencies, since there is no notification nor context switching between threads.
+However, this mode typically yields higher throughput rates at lower latencies, since there is no notification nor context switching between threads.
 
 
 Create the node with the publishers
