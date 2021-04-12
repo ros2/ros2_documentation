@@ -91,20 +91,18 @@ You need the following things installed to build ROS 2:
    .. code-block:: bash
 
        # install dependencies for Rviz
-       brew install qt freetype assimp
+       brew install qt@5 freetype assimp
 
        # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
-       export PATH=$PATH:/usr/local/opt/qt/bin
+       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
+       export PATH=$PATH:/usr/local/opt/qt@5/bin
 
 #.
    Install rqt dependencies
 
-  ``brew install graphviz pyqt5 sip``
+   .. code-block:: bash
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
-
-  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
+       brew install graphviz pyqt5 sip
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
