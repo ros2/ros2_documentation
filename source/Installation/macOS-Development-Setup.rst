@@ -27,14 +27,18 @@ You need the following things installed to build ROS 2:
 #.
    **Xcode**
 
-
-   *
-     If you don't already have it installed, install Xcode and the Command Line Tools:
+   * If you don't already have it installed, install Xcode.
+   * Note: The latest version of Xcode can no longer be installed on macOS Mojave, so you will need to install an older version manually, see: https://stackoverflow.com/a/61046761
+   * Also, if you don't already have it installed, install the Command Line Tools:
 
      .. code-block:: bash
 
         xcode-select --install
+        # This command will not succeed if you have not installed Xcode.app
         sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        # If you installed Xcode.app manually, you need to either open it or run:
+        sudo xcodebuild -license
+        # To accept the Xcode.app license
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
