@@ -27,14 +27,18 @@ You need the following things installed to build ROS 2:
 #.
    **Xcode**
 
-
-   *
-     If you don't already have it installed, install Xcode and the Command Line Tools:
+   * If you don't already have it installed, install Xcode.
+   * Note: Versions of Xcode later than 11.3.1 can no longer be installed on macOS Mojave, so you will need to install an older version manually, see: https://stackoverflow.com/a/61046761
+   * Also, if you don't already have it installed, install the Command Line Tools:
 
      .. code-block:: bash
 
         xcode-select --install
+        # This command will not succeed if you have not installed Xcode.app
         sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+        # If you installed Xcode.app manually, you need to either open it or run:
+        sudo xcodebuild -license
+        # To accept the Xcode.app license
 
 #.
    **brew** *(needed to install more stuff; you probably already have this)*:
@@ -87,27 +91,32 @@ You need the following things installed to build ROS 2:
    .. code-block:: bash
 
        # install dependencies for Rviz
-       brew install qt freetype assimp
+       brew install qt@5 freetype assimp
 
        # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt
-       export PATH=$PATH:/usr/local/opt/qt/bin
+       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
+       export PATH=$PATH:/usr/local/opt/qt@5/bin
 
 #.
    Install rqt dependencies
 
-  ``brew install graphviz pyqt5 sip``
+   .. code-block:: bash
 
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
-
-  ``ln -s /usr/local/share/sip/Qt5 /usr/local/share/sip/PyQt5``
+       brew install graphviz pyqt5 sip
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
 
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg importlib-metadata lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
+       python3 -m pip install -U \
+        argcomplete catkin_pkg colcon-common-extensions coverage \
+        cryptography empy flake8 flake8-blind-except flake8-builtins \
+        flake8-class-newline flake8-comprehensions flake8-deprecated \
+        flake8-docstrings flake8-import-order flake8-quotes ifcfg \
+        importlib-metadata lark-parser lxml mock mypy netifaces \
+        nose pep8 pydocstyle pydot pygraphviz pyparsing \
+        pytest-mock rosdep setuptools vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
