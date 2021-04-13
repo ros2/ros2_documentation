@@ -98,13 +98,7 @@ You need the following things installed to build ROS 2:
 #.
    Install rqt dependencies
 
-<<<<<<< HEAD
-  ``brew install graphviz pyqt5 sip``
-
-  Fix some path names when looking for sip stuff during install (see `ROS 1 wiki <https://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source#Qt_naming_issue>`__):
-=======
    .. code-block:: bash
->>>>>>> b0c1335... fixup macos source install instructions while testing for galactic (#1312)
 
        brew install graphviz pyqt5 sip
 
@@ -113,9 +107,6 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-<<<<<<< HEAD
-       python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage cryptography empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes ifcfg lark-parser lxml mock mypy netifaces nose pep8 pydocstyle pydot pygraphviz pyparsing pytest-mock rosdep setuptools vcstool
-=======
        python3 -m pip install -U \
         argcomplete catkin_pkg colcon-common-extensions coverage \
         cryptography empy flake8 flake8-blind-except flake8-builtins \
@@ -124,7 +115,6 @@ You need the following things installed to build ROS 2:
         importlib-metadata lark-parser lxml mock mypy netifaces \
         nose pep8 pydocstyle pydot pygraphviz pyparsing \
         pytest-mock rosdep setuptools vcstool
->>>>>>> b0c1335... fixup macos source install instructions while testing for galactic (#1312)
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
