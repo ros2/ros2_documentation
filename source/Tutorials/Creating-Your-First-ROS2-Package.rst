@@ -306,13 +306,13 @@ Then, from inside the ``dev_ws`` directory, run the following command to source 
 
     .. code-block:: console
 
-      . install/setup.bash
+      . install/local_setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      . install/local_setup.bash
 
   .. group-tab:: Windows
 
