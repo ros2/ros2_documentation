@@ -180,8 +180,6 @@ You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 .. note::
 
     There is another option you can add to the command, ``-a``, which records all the topics on your system.
-    However, this might cause a circular dependency and crash your system.
-    It’s better to choose a subset of the topics that you need.
 
 4 ros2 bag info
 ^^^^^^^^^^^^^^^
