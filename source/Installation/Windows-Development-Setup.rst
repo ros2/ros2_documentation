@@ -132,8 +132,9 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 .. code-block:: bash
 
    > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+   > set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
 
-You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` instead, but that requires Administrator.
+You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` and ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.15.0\msvc2019_64\plugins\platforms`` instead, but that requires Administrator.
 
 .. note::
 
