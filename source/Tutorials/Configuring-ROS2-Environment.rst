@@ -85,11 +85,15 @@ If you don’t want to have to source the setup file every time you open a new s
 
         echo "source /opt/ros/rolling/setup.bash" >> ~/.bashrc
 
+     To undo this, locate your system’s shell startup script and remove the appended source command.
+
    .. group-tab:: macOS
 
       .. code-block:: console
 
         echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
+
+      To undo this, locate your system’s shell startup script and remove the appended source command.
 
    .. group-tab:: Windows
 
@@ -102,8 +106,13 @@ If you don’t want to have to source the setup file every time you open a new s
         C:\dev\ros2_rolling\local_setup.ps1
 
       PowerShell will request permission to run this script everytime a new shell is opened.
+      To avoid that issue you can run:
 
-To undo this (to change to another distro) in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
+      .. code-block:: console
+
+        Unblock-File C:\dev\ros2_rolling\local_setup.ps1
+
+      To undo this, remove the new 'Microsoft.PowerShell_profile.ps1' file.
 
 3 Add ``colcon_cd`` to your shell startup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
