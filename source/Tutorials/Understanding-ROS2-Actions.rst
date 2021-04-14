@@ -127,7 +127,7 @@ Which will return a list of ``/turtlesim``’s subscribers, publishers, services
       /rosout: rcl_interfaces/msg/Log
       /turtle1/color_sensor: turtlesim/msg/Color
       /turtle1/pose: turtlesim/msg/Pose
-    Services:
+    Service Servers:
       /clear: std_srvs/srv/Empty
       /kill: turtlesim/srv/Kill
       /reset: std_srvs/srv/Empty
@@ -141,6 +141,8 @@ Which will return a list of ``/turtlesim``’s subscribers, publishers, services
       /turtlesim/list_parameters: rcl_interfaces/srv/ListParameters
       /turtlesim/set_parameters: rcl_interfaces/srv/SetParameters
       /turtlesim/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+    Service Clients:
+
     Action Servers:
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
     Action Clients:
@@ -165,13 +167,15 @@ Which will return:
       /parameter_events: rcl_interfaces/msg/ParameterEvent
       /rosout: rcl_interfaces/msg/Log
       /turtle1/cmd_vel: geometry_msgs/msg/Twist
-    Services:
+    Service Servers:
       /teleop_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
       /teleop_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
       /teleop_turtle/get_parameters: rcl_interfaces/srv/GetParameters
       /teleop_turtle/list_parameters: rcl_interfaces/srv/ListParameters
       /teleop_turtle/set_parameters: rcl_interfaces/srv/SetParameters
       /teleop_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+    Service Clients:
+
     Action Servers:
 
     Action Clients:
@@ -303,9 +307,7 @@ You should see the turtle rotating, as well as the following message in your ter
 All goals have a unique ID, shown in the return message.
 You can also see the result, a field with the name ``delta``, which is the displacement to the starting position.
 
-To see the feedback of this goal, add ``--feedback`` to the last command you ran.
-First, make sure you change the value of ``theta``.
-After running the previous command, the turtle will already be at the orientation of ``1.57`` radians, so it won’t move unless you pass a new ``theta``.
+To see the feedback of this goal, add ``--feedback`` to the ``ros2 action send_goal`` command:
 
 .. code-block:: console
 
