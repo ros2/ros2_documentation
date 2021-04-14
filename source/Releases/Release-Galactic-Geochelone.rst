@@ -79,7 +79,7 @@ Without any configuration changes, users will get Eclipse Cyclone DDS by default
 Fast-DDS and Connext are still Tier-1 supported RMW vendors, and users can opt-in to use one of these RMWs at their discretion by using the ``RMW_IMPLEMENTATION`` environment variable.
 See the `Working with multiple RMW implementations guide <../Guides/Working-with-multiple-RMW-implementations>` for more information.
 
-Connext RMW changed to rwm_connextdds
+Connext RMW changed to rmw_connextdds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A new RMW for Connext called `rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_ was merged for Galactic.
