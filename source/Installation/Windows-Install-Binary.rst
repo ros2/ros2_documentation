@@ -53,20 +53,20 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1g* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1g*.
+Download the *Win64 OpenSSL v1.1.1k* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1k*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters.
 The following commands assume you used the default installation directory:
 
-* ``setx -m OPENSSL_CONF C:\OpenSSL-Win64\bin\openssl.cfg``
+* ``setx -m OPENSSL_CONF C:\Program Files\OpenSSL-Win64\bin\openssl.cfg``
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
 
-* ``C:\OpenSSL-Win64\bin\``
+* ``C:\Program Files\OpenSSL-Win64\bin\``
 
 Install Visual Studio
 ^^^^^^^^^^^^^^^^^^^^^
