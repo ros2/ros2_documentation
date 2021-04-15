@@ -204,7 +204,13 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its deta
   # This expresses velocity in free space broken into its linear and angular parts.
 
       Vector3  linear
+              float64 x
+              float64 y
+              float64 z
       Vector3  angular
+              float64 x
+              float64 y
+              float64 z
 
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
 If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it’s in the same structure:
