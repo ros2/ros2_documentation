@@ -57,7 +57,7 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
 .. code-block:: console
 
-    ros2 param list
+    ros2 param list --filter "(?!qos_overrides.*)"
 
 You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
 
