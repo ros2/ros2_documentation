@@ -249,8 +249,12 @@ Enter the following command with the action type in your terminal:
 
 .. code-block:: console
 
+<<<<<<< HEAD
   ros2 action show turtlesim/action/RotateAbsolute
 
+=======
+  ros2 interface show turtlesim/action/RotateAbsolute
+>>>>>>> e519684... Fix ros2 interface show in actions tutorial (#1335)
 
 Which will return:
 
