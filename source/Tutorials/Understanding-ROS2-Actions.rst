@@ -250,7 +250,7 @@ Enter the following command with the action type in your terminal:
 
 .. code-block:: console
 
-  ros2 interface show turtlesim/action/RotateAbsolute.action
+  ros2 interface show turtlesim/action/RotateAbsolute
 
 
 Which will return:
