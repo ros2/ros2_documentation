@@ -122,8 +122,8 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      -
    * - Tech Debt: Rewrite rclpy to use pybind11
      - Large
-     -
-     -
+     - Toyota Research Institute and Open Robotics
+     - Complete
 
 Quarterly Roadmap
 -----------------
