@@ -66,7 +66,7 @@ Create a launch file named ``turtlesim_mimic_launch.py`` by entering the followi
 
       .. code-block:: console
 
-        type nul > launch/turtlesim_mimic_launch.py
+        echo "" > launch/turtlesim_mimic_launch.py
 
 You can also go into your system’s file directory using the GUI and create a new file that way.
 
