@@ -20,7 +20,7 @@ Actions are one of the communication types in ROS 2 intended for long running ta
 They consist of three parts: a goal, a result, and feedback.
 
 Actions are built on topics and services.
-Their functionality is similar to services, except actions are preemptable (you can cancel them while executing).
+Their functionality is similar to services, except actions can be canceled.
 They also provide steady feedback, as opposed to services which return a single response.
 
 Actions use a client-server model, similar to the publisher-subscriber model (described in the :ref:`topics tutorial <ROS2Topics>`).
@@ -84,7 +84,7 @@ A message relaying the result of the goal should display once the turtle complet
 
     [INFO] [turtlesim]: Rotation goal completed successfully
 
-The ``F`` key will cancel a goal mid-execution, demonstrating the preemptable feature of actions.
+The ``F`` key will cancel a goal mid-execution.
 
 Try pressing the ``C`` key, and then pressing the ``F`` key before the turtle can complete its rotation.
 In the terminal where the ``/turtlesim`` node is running, you will see the message:
@@ -93,8 +93,8 @@ In the terminal where the ``/turtlesim`` node is running, you will see the messa
 
   [INFO] [turtlesim]: Rotation goal canceled
 
-Not only can the client-side (your input in the teleop) preempt goals, but the server-side (the ``/turtlesim`` node) can as well.
-When the server-side preempts an action, it “aborts” the goal.
+Not only can the client-side (your input in the teleop) stop a goal, but the server-side (the ``/turtlesim`` node) can as well.
+When the server-side chooses to stop processing a goal, it is said to “abort” the goal.
 
 Try hitting the ``D`` key, then the ``G`` key before the first rotation can complete.
 In the terminal where the ``/turtlesim`` node is running, you will see the message:
@@ -103,7 +103,9 @@ In the terminal where the ``/turtlesim`` node is running, you will see the messa
 
   [WARN] [turtlesim]: Rotation goal received before a previous goal finished. Aborting previous goal
 
-The server-side aborted the first goal because it was interrupted.
+This action server chose to abort the first goal because it got a new one.
+It could have chosen something else, like reject the new goal or execute the second goal after the first one finished.
+Don't assume every action server will choose to abort the current goal when it gets a new one.
 
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
