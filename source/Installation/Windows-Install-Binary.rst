@@ -179,7 +179,7 @@ You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` a
    This path might change based on which MSVC version you're using or if you installed it to a different directory.
 
 RQt dependencies
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
