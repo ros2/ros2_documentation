@@ -167,13 +167,13 @@ You can call services from the command line, but first you need to know the stru
 
 .. code-block:: console
 
-  ros2 interface show <type_name>.srv
+  ros2 interface show <type_name>
 
 To run this command on the ``/clear`` service’s type, ``Empty``:
 
 .. code-block:: console
 
-  ros2 interface show std_srvs/srv/Empty.srv
+  ros2 interface show std_srvs/srv/Empty
 
 Which will return:
 
