@@ -67,7 +67,7 @@ Example
 -------
 
 Consider a topic ``/talker`` offering a ``transient_local`` Durability policy.
-ROS2 publishers by default request ``volatile`` Durability.
+ROS 2 publishers by default request ``volatile`` Durability.
 
 .. code-block:: console
 
