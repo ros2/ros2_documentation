@@ -194,7 +194,7 @@ Running this command on the ``subset`` bag file will return a list of informatio
 
 .. code-block:: console
 
-    ros2 bag info <bag_file_name>
+    ros2 bag info subset
 
 .. code-block:: console
 
