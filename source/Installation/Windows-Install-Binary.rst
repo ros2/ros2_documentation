@@ -184,7 +184,7 @@ RQt dependencies
 
 .. code-block:: bash
 
-   python -m pip install -U pydot PyQt5
+   python -m pip install -U pydot PyQt5 pyqtgraph psutil
 
 .. _Rolling_windows-install-binary-installing-rqt-dependencies:
 
