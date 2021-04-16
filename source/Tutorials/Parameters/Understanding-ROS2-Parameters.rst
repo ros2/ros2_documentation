@@ -57,13 +57,17 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
 .. code-block:: console
 
-    ros2 param list --filter "(?!qos_overrides.*)"
+    ros2 param list
 
 You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
 
 .. code-block:: console
 
   /teleop_turtle:
+    qos_overrides./parameter_events.publisher.depth
+    qos_overrides./parameter_events.publisher.durability
+    qos_overrides./parameter_events.publisher.history
+    qos_overrides./parameter_events.publisher.reliability
     scale_angular
     scale_linear
     use_sim_time
@@ -71,6 +75,10 @@ You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, foll
     background_b
     background_g
     background_r
+    qos_overrides./parameter_events.publisher.depth
+    qos_overrides./parameter_events.publisher.durability
+    qos_overrides./parameter_events.publisher.history
+    qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
 Every node has the parameter ``use_sim_time``; it’s not unique to turtlesim.
@@ -159,11 +167,18 @@ If you open this file, you’ll see the following contents:
 
 .. code-block:: YAML
 
-  turtlesim:
+  /turtlesim:
     ros__parameters:
       background_b: 255
       background_g: 86
-      background_r: 150
+      background_r: 69
+      qos_overrides:
+        /parameter_events:
+          publisher:
+            depth: 1000
+            durability: volatile
+            history: keep_last
+            reliability: reliable
       use_sim_time: false
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
@@ -190,7 +205,15 @@ Your terminal will return the message:
   Set parameter background_b successful
   Set parameter background_g successful
   Set parameter background_r successful
+  Set parameter qos_overrides./parameter_events.publisher.depth failed: parameter 'qos_overrides./parameter_events.publisher.depth' cannot be set because it is read-only
+  Set parameter qos_overrides./parameter_events.publisher.durability failed: parameter 'qos_overrides./parameter_events.publisher.durability' cannot be set because it is read-only
+  Set parameter qos_overrides./parameter_events.publisher.history failed: parameter 'qos_overrides./parameter_events.publisher.history' cannot be set because it is read-only
+  Set parameter qos_overrides./parameter_events.publisher.reliability failed: parameter 'qos_overrides./parameter_events.publisher.reliability' cannot be set because it is read-only
   Set parameter use_sim_time successful
+
+.. note::
+
+  Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the "qos_overrides" parameters.
 
 7 Load parameter file
 ^^^^^^^^^^^^^^^^^^^^^
@@ -211,6 +234,9 @@ Stop your running turtlesim node so you can try reloading it with your saved par
 
 The turtlesim window should appear as usual, but with the purple background you set earlier.
 
+.. note::
+
+  In this case, parameters are being modified at startup so the specified read-only parameters will also take effect.
 
 Summary
 -------
