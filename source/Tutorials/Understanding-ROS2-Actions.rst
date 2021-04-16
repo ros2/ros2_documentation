@@ -179,7 +179,7 @@ Which will return:
     Service Clients:
 
     Action Servers:
-  
+
     Action Clients:
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
 
