@@ -147,8 +147,40 @@ You must also install some python dependencies for command-line tools:
 
    python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
 
+Install Qt5
+^^^^^^^^^^^
+
+This section is only required if you are building rviz, but it comes with our default set of sources, so if you don't know, then assume you are building it.
+
+First get the installer from Qt's website:
+
+https://www.qt.io/download
+
+Select the Open Source version and then the ``Qt Online Installer for Windows``.
+
+Run the installer and install Qt5.
+
+We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
+When selecting components to install, the only thing you absolutely need is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.15.0`` tree.
+We're using ``5.15.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later Qt5 versions will probably work too.
+Be sure to select ``MSVC 2019 64-bit``.
+After that, the default settings are fine.
+
+Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you intend to build so that CMake can find it:
+
+.. code-block:: bash
+
+   > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+   > set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
+
+You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` and ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.15.0\msvc2019_64\plugins\platforms`` instead, but that requires Administrator.
+
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
+
 RQt dependencies
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -157,18 +189,7 @@ RQt dependencies
 .. _Rolling_windows-install-binary-installing-rqt-dependencies:
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
-
-* The default installation path will be C:\Program Files (x86)\GraphvizX.XX\bin (Example: GraphvizX.XX → Graphviz2.38)
-* Open cmd window as administrator and go the location C:\Program Files (x86)\GraphvizX.XX\bin and run the below command:
-
-.. code-block:: bash
-
-  dot.exe
-
-* Go to the Control Panel →  System and Security → System, and on the right side navigation panel, you will see the link Advanced systems settings.
-* Once there in advance settings, a dialogue box will open which will show the button Environment Variables. Click on the button Environment Variables.
-* Select the entry "Path" on the system variables section and add C:\Program Files (x86)\GraphvizX.XX\bin to the existing path.
-* Click on Ok Button.
+The installer will ask if to add graphviz to PATH, choose to either add it to the current user or all users.
 
 Downloading ROS 2
 -----------------
