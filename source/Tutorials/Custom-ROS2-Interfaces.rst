@@ -200,45 +200,45 @@ Publisher:
 
     .. code-block:: c++
 
-          #include <chrono>
-          #include <memory>
+      #include <chrono>
+      #include <memory>
 
-          #include "rclcpp/rclcpp.hpp"
-          #include "tutorial_interfaces/msg/num.hpp"     // CHANGE
+      #include "rclcpp/rclcpp.hpp"
+      #include "tutorial_interfaces/msg/num.hpp"                                            // CHANGE
 
-          using namespace std::chrono_literals;
+      using namespace std::chrono_literals;
 
-          class MinimalPublisher : public rclcpp::Node
-          {
-          public:
-            MinimalPublisher()
-            : Node("minimal_publisher"), count_(0)
-            {
-              publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);    // CHANGE
-              timer_ = this->create_wall_timer(
-                500ms, std::bind(&MinimalPublisher::timer_callback, this));
-            }
+      class MinimalPublisher : public rclcpp::Node
+      {
+      public:
+        MinimalPublisher()
+        : Node("minimal_publisher"), count_(0)
+        {
+          publisher_ = this->create_publisher<tutorial_interfaces::msg::Num>("topic", 10);  // CHANGE
+          timer_ = this->create_wall_timer(
+            500ms, std::bind(&MinimalPublisher::timer_callback, this));
+        }
 
-          private:
-            void timer_callback()
-            {
-              auto message = tutorial_interfaces::msg::Num();                               // CHANGE
-              message.num = this->count_++;                                        // CHANGE
-              RCLCPP_INFO(this->get_logger(), "Publishing: '%d'", message.num);    // CHANGE
-              publisher_->publish(message);
-            }
-            rclcpp::TimerBase::SharedPtr timer_;
-            rclcpp::Publisher<tutorial_interfaces::msg::Num>::SharedPtr publisher_;         // CHANGE
-            size_t count_;
-          };
+      private:
+        void timer_callback()
+        {
+          auto message = tutorial_interfaces::msg::Num();                                   // CHANGE
+          message.num = this->count_++;                                                     // CHANGE
+          RCLCPP_INFO_STREAM(this->get_logger(), "Publishing: '" << message.num << "'");    // CHANGE
+          publisher_->publish(message);
+        }
+        rclcpp::TimerBase::SharedPtr timer_;
+        rclcpp::Publisher<tutorial_interfaces::msg::Num>::SharedPtr publisher_;             // CHANGE
+        size_t count_;
+      };
 
-          int main(int argc, char * argv[])
-          {
-            rclcpp::init(argc, argv);
-            rclcpp::spin(std::make_shared<MinimalPublisher>());
-            rclcpp::shutdown();
-            return 0;
-          }
+      int main(int argc, char * argv[])
+      {
+        rclcpp::init(argc, argv);
+        rclcpp::spin(std::make_shared<MinimalPublisher>());
+        rclcpp::shutdown();
+        return 0;
+      }
 
   .. group-tab:: Python
 
@@ -247,23 +247,23 @@ Publisher:
       import rclpy
       from rclpy.node import Node
 
-      from tutorial_interfaces.msg import Num    # CHANGE
+      from tutorial_interfaces.msg import Num                            # CHANGE
 
 
       class MinimalPublisher(Node):
 
           def __init__(self):
               super().__init__('minimal_publisher')
-              self.publisher_ = self.create_publisher(Num, 'topic', 10)     # CHANGE
+              self.publisher_ = self.create_publisher(Num, 'topic', 10)  # CHANGE
               timer_period = 0.5
               self.timer = self.create_timer(timer_period, self.timer_callback)
               self.i = 0
 
           def timer_callback(self):
-              msg = Num()                                           # CHANGE
-              msg.num = self.i                                      # CHANGE
+              msg = Num()                                                # CHANGE
+              msg.num = self.i                                           # CHANGE
               self.publisher_.publish(msg)
-              self.get_logger().info('Publishing: "%d"' % msg.num)  # CHANGE
+              self.get_logger().info('Publishing: "%d"' % msg.num)       # CHANGE
               self.i += 1
 
 
@@ -290,76 +290,78 @@ Subscriber:
 
     .. code-block:: c++
 
-          #include <memory>
+      #include <functional>
+      #include <memory>
 
-          #include "rclcpp/rclcpp.hpp"
-          #include "tutorial_interfaces/msg/num.hpp"     // CHANGE
-          using std::placeholders::_1;
+      #include "rclcpp/rclcpp.hpp"
+      #include "tutorial_interfaces/msg/num.hpp"                                       // CHANGE
 
-          class MinimalSubscriber : public rclcpp::Node
-          {
-          public:
-            MinimalSubscriber()
-            : Node("minimal_subscriber")
-            {
-              subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(          // CHANGE
-                "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
-            }
+      using std::placeholders::_1;
 
-          private:
-            void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const       // CHANGE
-            {
-              RCLCPP_INFO(this->get_logger(), "I heard: '%d'", msg->num);              // CHANGE
-            }
-            rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;       // CHANGE
-          };
+      class MinimalSubscriber : public rclcpp::Node
+      {
+      public:
+        MinimalSubscriber()
+        : Node("minimal_subscriber")
+        {
+          subscription_ = this->create_subscription<tutorial_interfaces::msg::Num>(    // CHANGE
+            "topic", 10, std::bind(&MinimalSubscriber::topic_callback, this, _1));
+        }
 
-          int main(int argc, char * argv[])
-          {
-            rclcpp::init(argc, argv);
-            rclcpp::spin(std::make_shared<MinimalSubscriber>());
-            rclcpp::shutdown();
-            return 0;
-          }
+      private:
+        void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const  // CHANGE
+        {
+          RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg->num << "'");     // CHANGE
+        }
+        rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;  // CHANGE
+      };
+
+      int main(int argc, char * argv[])
+      {
+        rclcpp::init(argc, argv);
+        rclcpp::spin(std::make_shared<MinimalSubscriber>());
+        rclcpp::shutdown();
+        return 0;
+      }
 
   .. group-tab:: Python
 
     .. code-block:: python
 
-        import rclpy
-        from rclpy.node import Node
+      import rclpy
+      from rclpy.node import Node
 
-        from tutorial_interfaces.msg import Num        # CHANGE
-
-
-        class MinimalSubscriber(Node):
-
-            def __init__(self):
-                super().__init__('minimal_subscriber')
-                self.subscription = self.create_subscription(
-                    Num,                                              # CHANGE
-                    'topic',
-                    self.listener_callback,
-                    10)
-                self.subscription
-
-            def listener_callback(self, msg):
-                    self.get_logger().info('I heard: "%d"' % msg.num) # CHANGE
+      from tutorial_interfaces.msg import Num                        # CHANGE
 
 
-        def main(args=None):
-            rclpy.init(args=args)
+      class MinimalSubscriber(Node):
 
-            minimal_subscriber = MinimalSubscriber()
+          def __init__(self):
+              super().__init__('minimal_subscriber')
+              self.subscription = self.create_subscription(
+                  Num,                                               # CHANGE
+                  'topic',
+                  self.listener_callback,
+                  10)
+              self.subscription
 
-            rclpy.spin(minimal_subscriber)
-
-            minimal_subscriber.destroy_node()
-            rclpy.shutdown()
+          def listener_callback(self, msg):
+                  self.get_logger().info('I heard: "%d"' % msg.num)  # CHANGE
 
 
-        if __name__ == '__main__':
-            main()
+      def main(args=None):
+          rclpy.init(args=args)
+
+          minimal_subscriber = MinimalSubscriber()
+
+          rclpy.spin(minimal_subscriber)
+
+          minimal_subscriber.destroy_node()
+          rclpy.shutdown()
+
+
+      if __name__ == '__main__':
+          main()
 
 
 CMakeLists.txt:
@@ -372,13 +374,13 @@ Add the following lines (C++ only):
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
-    find_package(tutorial_interfaces REQUIRED)                         # CHANGE
+    find_package(tutorial_interfaces REQUIRED)                      # CHANGE
 
     add_executable(talker src/publisher_member_function.cpp)
-    ament_target_dependencies(talker rclcpp tutorial_interfaces)         # CHANGE
+    ament_target_dependencies(talker rclcpp tutorial_interfaces)    # CHANGE
 
     add_executable(listener src/subscriber_member_function.cpp)
-    ament_target_dependencies(listener rclcpp tutorial_interfaces)     # CHANGE
+    ament_target_dependencies(listener rclcpp tutorial_interfaces)  # CHANGE
 
     install(TARGETS
       talker
@@ -470,40 +472,40 @@ Service:
 
     .. code-block:: c++
 
-        #include "rclcpp/rclcpp.hpp"
-        #include "tutorial_interfaces/srv/add_three_ints.hpp"     // CHANGE
+      #include "rclcpp/rclcpp.hpp"
+      #include "tutorial_interfaces/srv/add_three_ints.hpp"                                        // CHANGE
 
-        #include <memory>
+      #include <memory>
 
-        void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
-                  std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Response>       response)  // CHANGE
-        {
-          response->sum = request->a + request->b + request->c;                                       // CHANGE
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld" " c: %ld",   // CHANGE
-                        request->a, request->b, request->c);                                          // CHANGE
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
-        }
+      void add(const std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Request> request,     // CHANGE
+                std::shared_ptr<tutorial_interfaces::srv::AddThreeInts::Response>       response)  // CHANGE
+      {
+        response->sum = request->a + request->b + request->c;                                      // CHANGE
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request\na: %ld" " b: %ld" " c: %ld",  // CHANGE
+                      request->a, request->b, request->c);                                         // CHANGE
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
+      }
 
-        int main(int argc, char **argv)
-        {
-          rclcpp::init(argc, argv);
+      int main(int argc, char **argv)
+      {
+        rclcpp::init(argc, argv);
 
-          std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_server");  // CHANGE
+        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_server");   // CHANGE
 
-          rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =                 // CHANGE
-            node->create_service<tutorial_interfaces::srv::AddThreeInts>("add_three_ints",  &add);     // CHANGE
+        rclcpp::Service<tutorial_interfaces::srv::AddThreeInts>::SharedPtr service =               // CHANGE
+          node->create_service<tutorial_interfaces::srv::AddThreeInts>("add_three_ints",  &add);   // CHANGE
 
-          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add three ints.");      // CHANGE
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Ready to add three ints.");                     // CHANGE
 
-          rclcpp::spin(node);
-          rclcpp::shutdown();
-        }
+        rclcpp::spin(node);
+        rclcpp::shutdown();
+      }
 
   .. group-tab:: Python
 
     .. code-block:: python
 
-      from tutorial_interfaces.srv import AddThreeInts     # CHANGE
+      from tutorial_interfaces.srv import AddThreeInts                                                           # CHANGE
 
       import rclpy
       from rclpy.node import Node
@@ -513,11 +515,11 @@ Service:
 
           def __init__(self):
               super().__init__('minimal_service')
-              self.srv = self.create_service(AddThreeInts, 'add_three_ints', self.add_three_ints_callback)        # CHANGE
+              self.srv = self.create_service(AddThreeInts, 'add_three_ints', self.add_three_ints_callback)       # CHANGE
 
           def add_three_ints_callback(self, request, response):
-              response.sum = request.a + request.b + request.c                                                  # CHANGE
-              self.get_logger().info('Incoming request\na: %d b: %d c: %d' % (request.a, request.b, request.c)) # CHANGE
+              response.sum = request.a + request.b + request.c                                                   # CHANGE
+              self.get_logger().info('Incoming request\na: %d b: %d c: %d' % (request.a, request.b, request.c))  # CHANGE
 
               return response
 
@@ -541,107 +543,107 @@ Client:
 
     .. code-block:: c++
 
-          #include "rclcpp/rclcpp.hpp"
-          #include "tutorial_interfaces/srv/add_three_ints.hpp"        // CHANGE
+      #include "rclcpp/rclcpp.hpp"
+      #include "tutorial_interfaces/srv/add_three_ints.hpp"                                       // CHANGE
 
-          #include <chrono>
-          #include <cstdlib>
-          #include <memory>
+      #include <chrono>
+      #include <cstdlib>
+      #include <memory>
 
-          using namespace std::chrono_literals;
+      using namespace std::chrono_literals;
 
-          int main(int argc, char **argv)
-          {
-            rclcpp::init(argc, argv);
+      int main(int argc, char **argv)
+      {
+        rclcpp::init(argc, argv);
 
-            if (argc != 4) { // CHANGE
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");      // CHANGE
-                return 1;
-            }
+        if (argc != 4) { // CHANGE
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "usage: add_three_ints_client X Y Z");      // CHANGE
+            return 1;
+        }
 
-            std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client"); // CHANGE
-            rclcpp::Client<tutorial_interfaces::srv::AddThreeInts>::SharedPtr client =                        // CHANGE
-              node->create_client<tutorial_interfaces::srv::AddThreeInts>("add_three_ints");                  // CHANGE
+        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_three_ints_client");  // CHANGE
+        rclcpp::Client<tutorial_interfaces::srv::AddThreeInts>::SharedPtr client =                // CHANGE
+          node->create_client<tutorial_interfaces::srv::AddThreeInts>("add_three_ints");          // CHANGE
 
-            auto request = std::make_shared<tutorial_interfaces::srv::AddThreeInts::Request>();               // CHANGE
-            request->a = atoll(argv[1]);
-            request->b = atoll(argv[2]);
-            request->c = atoll(argv[3]);               // CHANGE
+        auto request = std::make_shared<tutorial_interfaces::srv::AddThreeInts::Request>();       // CHANGE
+        request->a = atoll(argv[1]);
+        request->b = atoll(argv[2]);
+        request->c = atoll(argv[3]);                                                              // CHANGE
 
-            while (!client->wait_for_service(1s)) {
-              if (!rclcpp::ok()) {
-                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-                return 0;
-              }
-              RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
-            }
-
-            auto result = client->async_send_request(request);
-            // Wait for the result.
-            if (rclcpp::spin_until_future_complete(node, result) ==
-              rclcpp::executor::FutureReturnCode::SUCCESS)
-            {
-              RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
-            } else {
-              RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_three_ints");    // CHANGE
-            }
-
-            rclcpp::shutdown();
+        while (!client->wait_for_service(1s)) {
+          if (!rclcpp::ok()) {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
             return 0;
           }
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+        }
+
+        auto result = client->async_send_request(request);
+        // Wait for the result.
+        if (rclcpp::spin_until_future_complete(node, result) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+        {
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+        } else {
+          RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_three_ints");    // CHANGE
+        }
+
+        rclcpp::shutdown();
+        return 0;
+      }
 
   .. group-tab:: Python
 
     .. code-block:: python
 
-        from tutorial_interfaces.srv import AddThreeInts       # CHANGE
-        import sys
-        import rclpy
-        from rclpy.node import Node
+      from tutorial_interfaces.srv import AddThreeInts                            # CHANGE
+      import sys
+      import rclpy
+      from rclpy.node import Node
 
 
-        class MinimalClientAsync(Node):
+      class MinimalClientAsync(Node):
 
-            def __init__(self):
-                super().__init__('minimal_client_async')
-                self.cli = self.create_client(AddThreeInts, 'add_three_ints')       # CHANGE
-                while not self.cli.wait_for_service(timeout_sec=1.0):
-                    self.get_logger().info('service not available, waiting again...')
-                self.req = AddThreeInts.Request()                                   # CHANGE
+          def __init__(self):
+              super().__init__('minimal_client_async')
+              self.cli = self.create_client(AddThreeInts, 'add_three_ints')       # CHANGE
+              while not self.cli.wait_for_service(timeout_sec=1.0):
+                  self.get_logger().info('service not available, waiting again...')
+              self.req = AddThreeInts.Request()                                   # CHANGE
 
-            def send_request(self):
-                self.req.a = int(sys.argv[1])
-                self.req.b = int(sys.argv[2])
-                self.req.c = int(sys.argv[3])                  # CHANGE
-                self.future = self.cli.call_async(self.req)
-
-
-        def main(args=None):
-            rclpy.init(args=args)
-
-            minimal_client = MinimalClientAsync()
-            minimal_client.send_request()
-
-            while rclpy.ok():
-                rclpy.spin_once(minimal_client)
-                if minimal_client.future.done():
-                    try:
-                        response = minimal_client.future.result()
-                    except Exception as e:
-                        minimal_client.get_logger().info(
-                            'Service call failed %r' % (e,))
-                    else:
-                        minimal_client.get_logger().info(
-                            'Result of add_three_ints: for %d + %d + %d = %d' %                               # CHANGE
-                            (minimal_client.req.a, minimal_client.req.b, minimal_client.req.c, response.sum)) # CHANGE
-                    break
-
-            minimal_client.destroy_node()
-            rclpy.shutdown()
+          def send_request(self):
+              self.req.a = int(sys.argv[1])
+              self.req.b = int(sys.argv[2])
+              self.req.c = int(sys.argv[3])                                       # CHANGE
+              self.future = self.cli.call_async(self.req)
 
 
-        if __name__ == '__main__':
-            main()
+      def main(args=None):
+          rclpy.init(args=args)
+
+          minimal_client = MinimalClientAsync()
+          minimal_client.send_request()
+
+          while rclpy.ok():
+              rclpy.spin_once(minimal_client)
+              if minimal_client.future.done():
+                  try:
+                      response = minimal_client.future.result()
+                  except Exception as e:
+                      minimal_client.get_logger().info(
+                          'Service call failed %r' % (e,))
+                  else:
+                      minimal_client.get_logger().info(
+                          'Result of add_three_ints: for %d + %d + %d = %d' %                                # CHANGE
+                          (minimal_client.req.a, minimal_client.req.b, minimal_client.req.c, response.sum))  # CHANGE
+                  break
+
+          minimal_client.destroy_node()
+          rclpy.shutdown()
+
+
+      if __name__ == '__main__':
+          main()
 
 
 
@@ -655,15 +657,15 @@ Add the following lines (C++ only):
 
     find_package(ament_cmake REQUIRED)
     find_package(rclcpp REQUIRED)
-    find_package(tutorial_interfaces REQUIRED)        # CHANGE
+    find_package(tutorial_interfaces REQUIRED)         # CHANGE
 
     add_executable(server src/add_two_ints_server.cpp)
     ament_target_dependencies(server
-      rclcpp tutorial_interfaces)                      #CHANGE
+      rclcpp tutorial_interfaces)                      # CHANGE
 
     add_executable(client src/add_two_ints_client.cpp)
     ament_target_dependencies(client
-      rclcpp tutorial_interfaces)                      #CHANGE
+      rclcpp tutorial_interfaces)                      # CHANGE
 
     install(TARGETS
       server
