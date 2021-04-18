@@ -44,4 +44,4 @@ Then you must edit the [conf.py](./conf.py) file and change the `smv_branch_whit
 
 ## Contributing to ROS 2
 
-To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/Contributing).
+To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/Contributing.html).
