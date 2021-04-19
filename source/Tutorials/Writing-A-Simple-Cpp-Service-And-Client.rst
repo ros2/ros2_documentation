@@ -328,9 +328,25 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: console
+.. tabs::
 
-    colcon build --packages-select cpp_srvcli
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_srvcli
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_srvcli
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+    colcon build --merge-install --packages-select cpp_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
