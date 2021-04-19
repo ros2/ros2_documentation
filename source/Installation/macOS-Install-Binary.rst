@@ -95,7 +95,7 @@ You need the following things installed before installing ROS 2.
 
   ``brew install graphviz``
 
-  ``python3 -m pip install pygraphviz pydot``
+  ``python3 -m pip install pygraphviz pydot matplotlib psutil``
 
   .. note::
 
