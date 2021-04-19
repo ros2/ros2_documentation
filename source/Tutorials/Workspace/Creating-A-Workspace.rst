@@ -64,6 +64,8 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
    .. group-tab:: Windows
 
+      Remember to use a ``x64 Native Tools Command Prompt for VS 2019`` for executing the following commands, as we are going to build a workspace.
+
       .. code-block:: console
 
         call C:\dev\ros2\local_setup.bat
@@ -281,9 +283,11 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
    .. group-tab:: Windows
 
+      In this case you can use a normal command prompt, as we are not going to build any workspace in this terminal.
+
       .. code-block:: console
 
-        call C:\dev\ros2\setup.bat
+        call C:\dev\ros2\local_setup.bat
 
 Go into the root of your workspace:
 
