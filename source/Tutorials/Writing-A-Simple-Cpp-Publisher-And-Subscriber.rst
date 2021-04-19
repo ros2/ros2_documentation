@@ -73,9 +73,6 @@ Download the example talker code by entering the following command:
 
       In a Windows command line prompt:
 
-<<<<<<< HEAD
-      https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_publisher/member_function.cpp
-=======
       .. code-block:: console
 
             curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
@@ -85,7 +82,6 @@ Download the example talker code by entering the following command:
       .. code-block:: console
 
             curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
->>>>>>> a4a487b... [cpp_pubsub] Improve instructions on Windows (#1370)
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -327,15 +323,11 @@ Enter the following code in your terminal:
 
             curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
-<<<<<<< HEAD
-      https://raw.githubusercontent.com/ros2/examples/foxy/rclcpp/topics/minimal_subscriber/member_function.cpp
-=======
       Or in powershell:
 
       .. code-block:: console
 
             curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
->>>>>>> a4a487b... [cpp_pubsub] Improve instructions on Windows (#1370)
 
 Entering ``ls`` in the console will now return:
 
