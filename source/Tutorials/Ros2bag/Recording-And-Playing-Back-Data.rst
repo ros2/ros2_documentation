@@ -196,6 +196,10 @@ Running this command on the ``subset`` bag file will return a list of informatio
 
 .. code-block:: console
 
+    ros2 bag info subset
+
+.. code-block:: console
+
   Files:             subset.db3
   Bag size:          228.5 KiB
   Storage id:        sqlite3
