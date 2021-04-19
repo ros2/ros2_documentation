@@ -72,11 +72,21 @@ Download the example talker code by entering the following command:
 
    .. group-tab:: Windows
 
-      Right click this link and select Save As ``publisher_member_function.py``:
+      In a Windows command line prompt:
 
+<<<<<<< HEAD
       https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+=======
+      .. code-block:: console
 
+            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
+>>>>>>> 13f4761... [py_pubsub] Improve instructions on Windows (#1373)
 
+      Or in powershell:
+
+      .. code-block:: console
+
+            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
 
 Now there will be a new file named ``publisher_member_function.py`` adjacent to ``__init__.py``.
 
@@ -287,10 +297,21 @@ Enter the following code in your terminal:
 
    .. group-tab:: Windows
 
-      Right click this link and select Save As ``subscriber_member_function.py``:
+      In a Windows command line prompt:
 
+<<<<<<< HEAD
       https://raw.githubusercontent.com/ros2/examples/dashing/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+=======
+      .. code-block:: console
 
+            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
+>>>>>>> 13f4761... [py_pubsub] Improve instructions on Windows (#1373)
+
+      Or in powershell:
+
+      .. code-block:: console
+
+            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
 
 Now the directory should have these files:
 
@@ -419,9 +440,25 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 Still in the root of your workspace, ``dev_ws``, build your new package:
 
-.. code-block:: console
+.. tabs::
 
-  colcon build --packages-select py_pubsub
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select py_pubsub
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select py_pubsub
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select py_pubsub
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
