@@ -140,7 +140,7 @@ In the root of your workspace (``~/dev_ws``), run the following command:
 
     .. code-block:: console
 
-    colcon build --merge-install --packages-select tutorial_interfaces
+      colcon build --merge-install --packages-select tutorial_interfaces
 
 Now the interfaces will be discoverable by other ROS 2 packages.
 
@@ -435,25 +435,25 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-          colcon build --packages-select cpp_pubsub
+      colcon build --packages-select cpp_pubsub
           
     On Windows:
     
     .. code-block:: console
           
-          colcon build --merge-install --packages-select cpp_pubsub
+      colcon build --merge-install --packages-select cpp_pubsub
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        colcon build --packages-select py_pubsub
+      colcon build --packages-select py_pubsub
         
     On Windows:
     
     .. code-block:: console
           
-        colcon build --merge-install --packages-select py_pubsub
+      colcon build --merge-install --packages-select py_pubsub
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
 
@@ -732,26 +732,26 @@ After making the above edits and saving all the changes, build the package:
 
     .. code-block:: console
 
-          colcon build --packages-select cpp_srvcli
+      colcon build --packages-select cpp_srvcli
 
     On Windows:
     
     .. code-block:: console
           
-          colcon build --merge-install --packages-select cpp_srvcli
+      colcon build --merge-install --packages-select cpp_srvcli
 
 
   .. group-tab:: Python
 
     .. code-block:: console
 
-        colcon build --packages-select py_srvcli
+      colcon build --packages-select py_srvcli
         
     On Windows:
     
     .. code-block:: console
           
-          colcon build --merge-install --packages-select py_srvcli
+      colcon build --merge-install --packages-select py_srvcli
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
 
