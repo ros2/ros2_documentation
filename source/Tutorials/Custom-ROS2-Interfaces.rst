@@ -122,8 +122,6 @@ In the root of your workspace (``~/dev_ws``), run the following command:
 
 .. tabs::
 
-.. code-block:: console
-
   .. group-tab:: Linux
 
     .. code-block:: console
