@@ -280,10 +280,25 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+.. tabs::
 
-.. code-block:: console
+  .. group-tab:: Linux
 
-  colcon build --packages-select py_srvcli
+    .. code-block:: console
+
+      colcon build --packages-select py_srvcli
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select py_srvcli
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+    colcon build --merge-install --packages-select py_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
