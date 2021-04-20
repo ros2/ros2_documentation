@@ -436,11 +436,11 @@ After making the above edits and saving all the changes, build the package:
     .. code-block:: console
 
       colcon build --packages-select cpp_pubsub
-          
+
     On Windows:
-    
+
     .. code-block:: console
-          
+
       colcon build --merge-install --packages-select cpp_pubsub
 
   .. group-tab:: Python
@@ -448,11 +448,11 @@ After making the above edits and saving all the changes, build the package:
     .. code-block:: console
 
       colcon build --packages-select py_pubsub
-        
+
     On Windows:
-    
+
     .. code-block:: console
-          
+
       colcon build --merge-install --packages-select py_pubsub
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
@@ -735,9 +735,9 @@ After making the above edits and saving all the changes, build the package:
       colcon build --packages-select cpp_srvcli
 
     On Windows:
-    
+
     .. code-block:: console
-          
+
       colcon build --merge-install --packages-select cpp_srvcli
 
 
@@ -746,11 +746,11 @@ After making the above edits and saving all the changes, build the package:
     .. code-block:: console
 
       colcon build --packages-select py_srvcli
-        
+
     On Windows:
-    
+
     .. code-block:: console
-          
+
       colcon build --merge-install --packages-select py_srvcli
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
