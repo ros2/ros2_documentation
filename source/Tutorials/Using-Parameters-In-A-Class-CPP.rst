@@ -195,9 +195,25 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: console
+.. tabs::
 
-    colcon build --packages-select cpp_parameters
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_parameters
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_parameters
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select cpp_parameters
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
@@ -302,9 +318,25 @@ Below the lines you added earlier, add the following lines of code.
 
 Open a console and navigate to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: console
+.. tabs::
 
-    colcon build --packages-select cpp_parameters
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_parameters
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select cpp_parameters
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select cpp_parameters
 
 Then source the setup files in a new terminal:
 
