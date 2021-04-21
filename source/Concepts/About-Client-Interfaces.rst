@@ -33,7 +33,7 @@ The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic in
 The ``rclcpp`` repository is located on |GitHub|_ at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
 The generated |API| documentation is here:
 
-`api/rclcpp/index.html <http://docs.ros2.org/foxy/api/rclcpp/index.html>`_
+`api/rclcpp/index.html <http://docs.ros2.org/dashing/api/rclcpp/index.html>`_
 
 The ``rclpy`` Package
 ~~~~~~~~~~~~~~~~~~~~~
@@ -51,4 +51,4 @@ The ``rclpy`` repository is located on |GitHub|_ at `ros2/rclpy <https://github.
 The generated |API| documentation is here:
 
 
-`api/rclpy/index.html <http://docs.ros2.org/foxy/api/rclpy/index.html>`_
+`api/rclpy/index.html <http://docs.ros2.org/dashing/api/rclpy/index.html>`_
