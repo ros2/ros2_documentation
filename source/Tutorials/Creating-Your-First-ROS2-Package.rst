@@ -425,8 +425,6 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
       <maintainer email="user@todo.todo">user</maintainer>
       <license>TODO: License declaration</license>
 
-      <buildtool_depend>ament_python</buildtool_depend>
-
       <test_depend>ament_copyright</test_depend>
       <test_depend>ament_flake8</test_depend>
       <test_depend>ament_pep257</test_depend>
