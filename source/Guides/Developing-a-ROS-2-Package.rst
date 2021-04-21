@@ -92,9 +92,9 @@ In your ROS 2 package, you should have a ``setup.cfg`` file which looks like:
 .. code-block:: bash
 
    [develop]
-   script-dir=$base/lib/<package-name>
+   script_dir=$base/lib/<package-name>
    [install]
-   install-scripts=$base/lib/<package-name>
+   install_scripts=$base/lib/<package-name>
 
 and a ``setup.py`` file that looks like:
 
