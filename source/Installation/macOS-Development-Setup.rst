@@ -1,7 +1,3 @@
-.. redirect-from::
-
-  Installation/Rolling/OSX-Development-Setup
-
 .. _macOS-latest:
 
 Building ROS 2 on macOS
@@ -15,8 +11,6 @@ System requirements
 -------------------
 
 We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
 
 Install prerequisites
 ---------------------
@@ -224,7 +218,7 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 

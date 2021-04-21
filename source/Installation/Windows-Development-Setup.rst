@@ -55,12 +55,12 @@ Get the ROS 2 code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, for example ``C:\dev\ros2_rolling``:
+First setup a development folder, for example ``C:\dev\ros2_galactic``:
 
 .. code-block:: bash
 
-   > md \dev\ros2_rolling\src
-   > cd \dev\ros2_rolling
+   > md \dev\ros2_galactic\src
+   > cd \dev\ros2_galactic
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
@@ -96,7 +96,7 @@ To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools C
 
 Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2_rolling`` folder tree:
+To build the ``\dev\ros2_galactic`` folder tree:
 
 .. code-block:: bash
 
@@ -119,7 +119,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_rolling\install\local_setup.bat
+   > call C:\dev\ros2_galactic\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -284,10 +284,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_rolling
+    rmdir /s /q \ros2_galactic

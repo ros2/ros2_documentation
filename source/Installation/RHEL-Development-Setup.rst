@@ -10,7 +10,7 @@ Building ROS 2 on RHEL
 
 System requirements
 -------------------
-The current target Red Hat platforms for Rolling Ridley are:
+The current target Red Hat platforms for Galactic Geochelone are:
 
 - Tier 2: RHEL 8 64-bit
 
@@ -70,8 +70,6 @@ Install development tools and ROS tools
      pytest \
      setuptools
 
-.. _Rolling_rhel-dev-get-ros2-code:
-
 Get ROS 2 code
 --------------
 
@@ -79,8 +77,8 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_rolling/src
-   cd ~/ros2_rolling
+   mkdir -p ~/ros2_galactic/src
+   cd ~/ros2_galactic
    wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
@@ -93,7 +91,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro rolling -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng asio"
+   rosdep install --from-paths src --ignore-src --rosdistro galactic -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng asio"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
@@ -112,7 +110,7 @@ More info on working with a ROS workspace can be found in `this tutorial <../Tut
 
 .. code-block:: bash
 
-   cd ~/ros2_rolling/
+   cd ~/ros2_galactic/
    colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON --no-warn-unused-cli
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
@@ -129,7 +127,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/install/local_setup.bash
+   . ~/ros2_galactic/install/local_setup.bash
 
 .. _rhel_talker-listener:
 
@@ -140,14 +138,14 @@ In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/install/local_setup.bash
+   . ~/ros2_galactic/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/install/local_setup.bash
+   . ~/ros2_galactic/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -198,10 +196,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_rolling
+    rm -rf ~/ros2_galactic

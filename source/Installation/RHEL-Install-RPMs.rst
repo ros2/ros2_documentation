@@ -5,17 +5,15 @@ Installing ROS 2 via RPM Packages
    :depth: 2
    :local:
 
-RPM packages for ROS 2 Rolling Ridley are currently available for RHEL 8.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+RPM packages for ROS 2 Galactic Geochelone are currently available for RHEL 8.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
-Most people will want to use a stable ROS distribution.
 
 Resources
 ---------
 
 * Status Page:
 
-  * ROS 2 Rolling (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_rolling_rhel.html>`__
+  * ROS 2 Galactic (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_galactic_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -60,14 +58,14 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo dnf install ros-rolling-desktop
+   sudo dnf install ros-galactic-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo dnf install ros-rolling-ros-base
+   sudo dnf install ros-galactic-ros-base
 
 Environment setup
 -----------------
@@ -79,25 +77,25 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/rolling/setup.bash
+   source /opt/ros/galactic/setup.bash
 
 Try some examples
 -----------------
 
-If you installed ``ros-rolling-desktop`` above you can try some examples.
+If you installed ``ros-galactic-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/rolling/setup.bash
+   source /opt/ros/galactic/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/rolling/setup.bash
+   source /opt/ros/galactic/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -126,4 +124,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo dnf remove ros-rolling-*
+  sudo dnf remove ros-galactic-*

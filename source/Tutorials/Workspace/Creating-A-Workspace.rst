@@ -54,7 +54,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
       .. code-block:: console
 
-        source /opt/ros/rolling/setup.bash
+        source /opt/ros/galactic/setup.bash
 
    .. group-tab:: macOS
 
@@ -183,7 +183,7 @@ From the root of your workspace (``dev_ws``), run the following command:
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro rolling -y
+        rosdep install -i --from-path src --rosdistro galactic -y
 
    .. group-tab:: macOS
 
@@ -272,7 +272,7 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
       .. code-block:: console
 
-        source /opt/ros/rolling/setup.bash
+        source /opt/ros/galactic/setup.bash
 
    .. group-tab:: macOS
 

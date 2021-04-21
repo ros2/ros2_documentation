@@ -30,7 +30,7 @@ You will also need the ROS package ``image_tools``.
 
       .. code-block:: bash
 
-        sudo apt-get install ros-rolling-image-tools
+        sudo apt-get install ros-galactic-image-tools
 
    .. group-tab:: From Source
 

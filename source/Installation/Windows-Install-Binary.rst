@@ -25,9 +25,7 @@ Only Windows 10 is supported.
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
-
+* Go to `the releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 
 .. note::
@@ -38,7 +36,7 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-package-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_rolling``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_galactic``\ ).
 
 Environment setup
 -----------------
@@ -47,7 +45,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_rolling\local_setup.bat
+   > call C:\dev\ros2_galactic\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
@@ -93,10 +91,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_rolling
+    rmdir /s /q \ros2_galactic
