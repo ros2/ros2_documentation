@@ -263,9 +263,9 @@ The contents of the ``setup.cfg`` file should be correctly populated automatical
 .. code-block:: console
 
   [develop]
-  script-dir=$base/lib/py_pubsub
+  script_dir=$base/lib/py_pubsub
   [install]
-  install-scripts=$base/lib/py_pubsub
+  install_scripts=$base/lib/py_pubsub
 
 This is simply telling setuptools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
 
