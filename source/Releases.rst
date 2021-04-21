@@ -107,6 +107,12 @@ Rows in the table marked in green are the currently supported distributions.
       </thead>
       <tbody>
         <tr class="active">
+          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Galactic-Geochelone.html">Galactic Geochelone</a></p></td>
+          <td class="distroclass"><p>May 23, 2021</p></td>
+          <td class="distroclass"><p></p></td>
+          <td class="distroclass"><p>May 2023</p></td>
+        </tr>
+        <tr class="active">
           <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Foxy-Fitzroy.html">Foxy Fitzroy</a></p></td>
           <td class="distroclass"><p>June 5, 2020</p></td>
           <td class="distroclass"><p><img alt="Foxy logo" src="_images/foxy-small.png" /></p></td>
