@@ -108,8 +108,8 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
           return response
 
 
-  def main(args=None):
-      rclpy.init(args=args)
+  def main():
+      rclpy.init()
 
       minimal_service = MinimalService()
 
@@ -195,8 +195,8 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
           self.future = self.cli.call_async(self.req)
 
 
-  def main(args=None):
-      rclpy.init(args=args)
+  def main():
+      rclpy.init()
 
       minimal_client = MinimalClientAsync()
       minimal_client.send_request()
