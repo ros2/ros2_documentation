@@ -54,7 +54,7 @@ C++
 Standard
 ^^^^^^^^
 
-Rolling targets C++17.
+Galactic targets C++17.
 
 Style
 ^^^^^

@@ -1,7 +1,3 @@
-.. redirect-from::
-
-  Installation/Rolling/OSX-Development-Setup
-
 .. _macOS-latest:
 
 Building ROS 2 on macOS
@@ -15,8 +11,6 @@ System requirements
 -------------------
 
 We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
 
 Install prerequisites
 ---------------------
@@ -149,8 +143,8 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_rolling/src
-   cd ~/ros2_rolling
+   mkdir -p ~/ros2_galactic/src
+   cd ~/ros2_galactic
    wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
    vcs import src < ros2.repos
 
@@ -165,7 +159,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_rolling/
+   cd ~/ros2_galactic/
    colcon build --symlink-install
 
 Environment setup
@@ -175,7 +169,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/install/setup.bash
+   . ~/ros2_galactic/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -225,10 +219,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_rolling
+    rm -rf ~/ros2_galactic

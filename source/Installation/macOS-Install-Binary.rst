@@ -1,7 +1,3 @@
-.. redirect-from::
-
-  Installation/Rolling/OSX-Install-Binary
-
 Installing ROS 2 on macOS
 =========================
 
@@ -21,10 +17,6 @@ System requirements
 -------------------
 
 We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
-
-.. _Rolling_osx-install-binary-installling-prerequisites:
 
 Installing prerequisites
 ------------------------
@@ -127,9 +119,7 @@ So that SIP doesn't prevent processes from inheriting dynamic linker environment
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
-
+* Go to the `releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for macOS; let's assume that it ends up at ``~/Downloads/ros2-package-osx-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
@@ -139,8 +129,8 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_rolling
-       cd ~/ros2_rolling
+       mkdir -p ~/ros2_galactic
+       cd ~/ros2_galactic
        tar xf ~/Downloads/ros2-package-osx-x86_64.tar.bz2
 
 Install additional DDS implementations (optional)
@@ -155,7 +145,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/ros2-osx/setup.bash
+   . ~/ros2_galactic/ros2-osx/setup.bash
 
 Try some examples
 -----------------
@@ -199,10 +189,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_rolling
+    rm -rf ~/ros2_galactic
