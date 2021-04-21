@@ -181,8 +181,7 @@ For that to work, the ``__init__`` code has to be changed to:
             self.timer = self.create_timer(timer_period, self.timer_callback)
 
             from rcl_interfaces.msg import ParameterDescriptor
-            my_parameter_descriptor = ParameterDescriptor(type=ParameterType.PARAMETER_STRING,
-                                                          description='This parameter is mine!')
+            my_parameter_descriptor = ParameterDescriptor(description='This parameter is mine!')
 
             self.declare_parameter('my_parameter',
                                    'default value for my_parameter',
@@ -240,9 +239,25 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: console
+.. tabs::
 
-    colcon build --packages-select python_parameters
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select python_parameters
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select python_parameters
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select python_parameters
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
@@ -363,9 +378,25 @@ Add the ``import`` statements to the top of the file, and the other new statemen
 
 Open a console and navigate to the root of your workspace, ``dev_ws``, and build your new package:
 
-.. code-block:: console
+.. tabs::
 
-    colcon build --packages-select python_parameters
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select python_parameters
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select python_parameters
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select python_parameters
 
 Then source the setup files in a new terminal:
 
