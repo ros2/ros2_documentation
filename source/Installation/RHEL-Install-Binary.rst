@@ -19,8 +19,6 @@ System Requirements
 -------------------
 
 We currently support RHEL 8 64-bit.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-Most people will want to use a stable ROS distribution.
 
 Enable required repositories
 ----------------------------
@@ -45,9 +43,7 @@ There are a few packages that must be installed in order to get and unpack the b
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
-
+* Go to the `releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for RHEL; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
@@ -56,8 +52,8 @@ Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_rolling
-       cd ~/ros2_rolling
+       mkdir -p ~/ros2_galactic
+       cd ~/ros2_galactic
        tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
@@ -78,7 +74,7 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_rolling/ros2-linux/share --ignore-src --rosdistro rolling -y --skip-keys "cyclonedds fastcdr fastrtps rmw_connextdds rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng"
+       rosdep install --from-paths ~/ros2_galactic/ros2-linux/share --ignore-src --rosdistro galactic -y --skip-keys "cyclonedds fastcdr fastrtps rmw_connextdds rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng"
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,7 +91,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-  . ~/ros2_rolling/ros2-linux/setup.bash
+  . ~/ros2_galactic/ros2-linux/setup.bash
 
 Try some examples
 -----------------
@@ -104,14 +100,14 @@ In one terminal, source the setup file and then run a C++ ``talker``:
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/ros2-linux/setup.bash
+   . ~/ros2_galactic/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_rolling/ros2-linux/setup.bash
+   . ~/ros2_galactic/ros2-linux/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -136,10 +132,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Rolling install on your system.
+   This way, your environment will behave as though there is no Galactic install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_rolling
+    rm -rf ~/ros2_galactic

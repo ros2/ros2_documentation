@@ -48,7 +48,7 @@ Install the turtlesim package for your ROS 2 distro:
 
         sudo apt update
 
-        sudo apt install ros-rolling-turtlesim
+        sudo apt install ros-galactic-turtlesim
 
    .. group-tab:: macOS
 
@@ -143,7 +143,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ~nros-rolling-rqt*
+      sudo apt install ~nros-galactic-rqt*
 
   .. group-tab:: Linux (apt 1.x/Ubuntu 18.04 and older)
 
@@ -151,7 +151,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ros-rolling-rqt*
+      sudo apt install ros-galactic-rqt*
 
   .. group-tab:: macOS
 

@@ -1,10 +1,10 @@
 .. _InstallationGuide:
-.. _RollingInstall:
+.. _GalacticInstall:
 
 Installation
 ============
 
-Options for installing ROS 2 Rolling Ridley:
+Options for installing ROS 2 Galactic Geochelone:
 
 .. toctree::
    :hidden:

@@ -31,7 +31,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
    .. code-block:: sh
 
-      sudo apt install ros-rolling-my-just-released-package
+      sudo apt install ros-galactic-my-just-released-package
 
 5. Alternatively, you can move your entire ROS 2 installation to the testing repository:
 

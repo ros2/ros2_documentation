@@ -45,7 +45,7 @@ Installing From Debian
 
 .. code-block:: bash
 
-   sudo apt install ros-rolling-rqt*
+   sudo apt install ros-galactic-rqt*
 
 
 Building From Source
