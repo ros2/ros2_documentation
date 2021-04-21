@@ -18,8 +18,8 @@ This page describes how to prepare a repository for release on the public ROS 2 
 Required Tools
 --------------
 
-* ``bloom`` >= 0.9.7
-* ``catkin_pkg`` >= 0.4.10
+* ``bloom`` >= 0.10.7
+* ``catkin_pkg`` >= 0.4.23
 
 Ensure that you have the latest version of bloom and catkin_pkg
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
