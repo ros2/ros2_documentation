@@ -117,7 +117,7 @@ smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
 
 smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'galactic'
+smv_latest_version = 'foxy'
 
 
 
