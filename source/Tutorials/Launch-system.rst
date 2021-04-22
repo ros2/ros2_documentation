@@ -20,7 +20,7 @@ The `design document <https://design.ros2.org/articles/roslaunch.html>`__ detail
 Writing a ROS 2 launch file
 ---------------------------
 
-If you haven't already, make sure you go through the quickstart tutorial on how to create a ROS 2 package.
+If you haven't already, make sure you go through the tutorial on how to :ref:`create a ROS 2 package <CreatePkg>`.
 One way to create launch files in ROS 2 is using a Python file, which are executed by the ROS 2 CLI tool, ``ros2 launch``.
 We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and creating a new ``launch`` directory.
 
@@ -115,7 +115,7 @@ After running ``colcon build`` and sourcing your workspace, you should be able t
 
 .. code-block:: bash
 
-   ros2 launch my_package script.launch.py
+   ros2 launch my_package my_script.launch.py
 
 Example of ROS 2 launch concepts
 --------------------------------
@@ -133,5 +133,5 @@ Documentation
 
 `The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
 
-Additional documentation/examples of capabilities are forthcoming.
+Additional documentation/examples of launch capabilities are forthcoming.
 See `the source code <https://github.com/ros2/launch>`__ in the meantime.
