@@ -31,7 +31,7 @@ Examples of sub-commands that are available include:
 * component: Manage component containers
 * daemon: Introspect/configure the ROS 2 daemon
 * doctor: Check ROS setup for potential issues
-* interface:  Show information about ROS interfaces
+* interface: Show information about ROS interfaces
 * launch: Run/introspect a launch file
 * lifecycle: Introspect/manage nodes with managed lifecycles
 * node: Introspect ROS nodes
