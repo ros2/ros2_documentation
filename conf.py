@@ -115,9 +115,10 @@ templates_path = [
 smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(galactic|foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
 smv_latest_version = 'foxy'
+smv_eol_versions = ['crystal', 'eloquent']
 
 
 
@@ -256,8 +257,10 @@ def smv_rewrite_configs(app, config):
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
         context['github_version'] = app.config.smv_current_version + '/source/'
+        context['eol_versions'] = app.config.smv_eol_versions
 
 def setup(app):
     app.connect('config-inited', smv_rewrite_configs)
     app.connect('html-page-context', github_link_rewrite_branch)
+    app.add_config_value('smv_eol_versions', [], 'html')
     RedirectFrom.register(app)
