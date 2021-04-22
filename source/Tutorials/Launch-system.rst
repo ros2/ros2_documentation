@@ -55,7 +55,7 @@ Inside our ``setup.py`` file:
         data_files=[
             # ... Other data files
             # Include all launch files. This is the most important line here!
-            (os.path.join('share', package_name), glob('launch/*.launch.py'))
+            (os.path.join('share', package_name), glob('launch/*launch.py'))
         ]
     )
 
@@ -77,10 +77,10 @@ to the end of the file (but before ``ament_package()``).
 Writing the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside your launch directory, create a new launch file with the ``.launch.py`` suffix.
-For example ``my_script.launch.py``.
+Inside your launch directory, create a new launch file with the ``_launch.py`` suffix.
+For example ``my_script_launch.py``.
 
-``.launch.py`` is not specifically required as the file suffix for launch files.
+``_launch.py`` is not specifically required as the file suffix for launch files.
 Another popular option is ``_launch.py``, used in the :ref:`beginner level launch files tutorial <ROS2Launch>`.
 If you do change the suffix, make sure to adjust the ``glob()`` argument in your ``setup.py`` file accordingly.
 
@@ -88,23 +88,25 @@ Your launch file should define the ``generate_launch_description()`` which retur
 
 .. code-block:: python
 
-   import launch
-   import launch.actions
-   import launch.substitutions
-   import launch_ros.actions
+    import platform
 
+    import launch
+    import launch.actions
+    import launch.substitutions
+    import launch_ros.actions
 
-   def generate_launch_description():
-       return launch.LaunchDescription([
-           launch.actions.DeclareLaunchArgument(
-               'node_prefix',
-               default_value=[launch.substitutions.EnvironmentVariable('USER'), '_'],
-               description='Prefix for node names'),
-           launch_ros.actions.Node(
-               package='demo_nodes_cpp', executable='talker', output='screen',
-               name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
-       ])
+    env_var_name = 'USER' if platform.system() != 'Windows' else 'USERNAME'
 
+    def generate_launch_description():
+        return launch.LaunchDescription([
+            launch.actions.DeclareLaunchArgument(
+                'node_prefix',
+                default_value=[launch.substitutions.EnvironmentVariable(env_var_name), '_'],
+                description='Prefix for node names'),
+            launch_ros.actions.Node(
+                package='demo_nodes_cpp', executable='talker', output='screen',
+                name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
+        ])
 
 Usage
 ^^^^^
@@ -115,7 +117,13 @@ After running ``colcon build`` and sourcing your workspace, you should be able t
 
 .. code-block:: bash
 
-   ros2 launch my_package my_script.launch.py
+   ros2 launch my_package my_script_launch.py
+
+Or for an standalone launch file:
+
+.. code-block:: bash
+
+   ros2 launch my_script_launch.py
 
 Example of ROS 2 launch concepts
 --------------------------------
