@@ -34,8 +34,13 @@ For example, RQt Python Console:
    ros2 run rqt_py_console rqt_py_console
 
 Users can create their own plugins for RQt with either ``Python`` or ``C++``.
-`Over 20 plugins <https://wiki.ros.org/rqt/Plugins>`__ were created in ROS 1 and these plugins are currently being ported to ROS 2 (as of Dec 2018, `more info <https://discourse.ros.org/t/rqt-in-ros2/6428>`__).
+To see what RQt plugins are available for your system, run:
 
+.. code-block:: bash
+
+   ros2 pkg list
+
+And then look for packages that start with ``rqt_``.
 
 System setup
 ------------
@@ -56,13 +61,10 @@ See `Building RQt from Source <../Guides/RQt-Source-Install>`.
 RQt Components Structure
 ------------------------
 
-RQt consists of three metapackages:
+RQt consists of two metapackages:
 
 * *rqt* - core infrastucture modules.
-* *rqt_common_plugins* - Backend tools for building tools.
-   TODO: as of Dec 2018 this metapackage isn't available in ROS 2 since not all plugins it contains have been ported yet.
-* *rqt_robot_plugins* - Tools for interacting with robots during runtime.
-   TODO: as of Dec 2018 this metapackage isn't available in ROS 2 since not all plugins it contains have been ported yet.
+* *rqt_common_plugins* - Commonly useful debugging tools.
 
 Advantage of RQt framework
 --------------------------
