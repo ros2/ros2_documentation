@@ -34,14 +34,14 @@ To see what components are registered and available in the workspace, execute th
      composition::Server
      composition::Client
 
-Run-time composition using ROS services (1.) with a publisher and subscriber
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run-time composition using ROS services with a publisher and subscriber
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the first shell, start the component container:
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container
+   $ ros2 run rclcpp_components component_container
 
 Verify that the container is running via ``ros2`` command line tools:
 
@@ -50,18 +50,18 @@ Verify that the container is running via ``ros2`` command line tools:
    $ ros2 component list
    /ComponentManager
 
-In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
-The command will return the unique ID of the loaded component as well as the node name.
+In the second shell load the talker component (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code):
 
 .. code-block:: bash
 
    $ ros2 component load /ComponentManager composition composition::Talker
    Loaded component 1 into '/ComponentManager' container node as '/talker'
 
+The command will return the unique ID of the loaded component as well as the node name.
 
 Now the first shell should show a message that the component was loaded as well as repeated message for publishing a message.
 
-Another command in the second shell (see `listener <https://github.com/ros2/demos/blob/master/composition/src/listener_component.cpp>`__ source code):
+Run another command in the second shell to load the listener component (see `listener <https://github.com/ros2/demos/blob/master/composition/src/listener_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -77,11 +77,10 @@ The ``ros2`` command line utility can now be used to inspect the state of the co
       1  /talker
       2  /listener
 
-
 Now the first shell should show repeated output for each received message.
 
-Run-time composition using ROS services (1.) with a server and client
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Run-time composition using ROS services with a server and client
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The example with a server and a client is very similar.
 
@@ -89,20 +88,19 @@ In the first shell:
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container
-
+   $ ros2 run rclcpp_components component_container
 
 In the second shell (see `server <https://github.com/ros2/demos/blob/master/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/master/composition/src/client_component.cpp>`__ source code):
 
 .. code-block:: bash
 
-   ros2 component load /ComponentManager composition composition::Server
-   ros2 component load /ComponentManager composition composition::Client
+   $ ros2 component load /ComponentManager composition composition::Server
+   $ ros2 component load /ComponentManager composition composition::Client
 
 In this case the client sends a request to the server, the server processes the request and replies with a response, and the client prints the received response.
 
-Compile-time composition using ROS services (2.)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Compile-time composition using ROS services
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
 The executable contains all four components from above: talker and listener as well as server and client.
@@ -111,7 +109,7 @@ In the shell call (see `source code <https://github.com/ros2/demos/blob/master/c
 
 .. code-block:: bash
 
-   ros2 run composition manual_composition
+   $ ros2 run composition manual_composition
 
 This should show repeated messages from both pairs, the talker and the listener as well as the server and the client.
 
@@ -122,7 +120,7 @@ This should show repeated messages from both pairs, the talker and the listener 
 Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demo presents an alternative to 1. by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
+This demo presents an alternative to run-time composition by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
 The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/master/composition/src/dlopen_composition.cpp>`__).
 
 .. tabs::
@@ -131,25 +129,25 @@ The process will open each library and create one instance of each "rclcpp::Node
 
     .. code-block:: bash
 
-       ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.so `ros2 pkg prefix composition`/lib/liblistener_component.so
+       $ ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.so `ros2 pkg prefix composition`/lib/liblistener_component.so
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-       ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.dylib `ros2 pkg prefix composition`/lib/liblistener_component.dylib
+       $ ros2 run composition dlopen_composition `ros2 pkg prefix composition`/lib/libtalker_component.dylib `ros2 pkg prefix composition`/lib/liblistener_component.dylib
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-       ros2 pkg prefix composition
+       > ros2 pkg prefix composition
 
     to get the path to where composition is installed. Then call
 
     .. code-block:: bash
 
-       ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
+       > ros2 run composition dlopen_composition <path_to_composition_install>\bin\talker_component.dll <path_to_composition_install>\bin\listener_component.dll
 
 Now the shell should show repeated output for each sent and received message.
 
@@ -166,7 +164,7 @@ To automate this action, we can use the functionality in ``ros2 launch``.
 
 .. code-block:: bash
 
-   ros2 launch composition composition_demo.launch.py
+   $ ros2 launch composition composition_demo.launch.py
 
 
 Advanced Topics
@@ -182,7 +180,7 @@ In the first shell, start the component container:
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container
+   $ ros2 run rclcpp_components component_container
 
 Verify that the container is running via ``ros2`` command line tools:
 
@@ -191,8 +189,7 @@ Verify that the container is running via ``ros2`` command line tools:
    $ ros2 component list
    /ComponentManager
 
-In the second shell (see `talker <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__ source code).
-The command will return the unique ID of the loaded component as well as the node name.
+In the second shell load both the talker and listener as we have before:
 
 .. code-block:: bash
 
@@ -219,13 +216,13 @@ The component manager name and namespace can be remapped via standard command li
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container --ros-args -r __node:=MyContainer -r __ns:=/ns
+   $ ros2 run rclcpp_components component_container --ros-args -r __node:=MyContainer -r __ns:=/ns
 
 In a second shell, components can be loaded by using the updated container name:
 
 .. code-block:: bash
 
-   ros2 component load /ns/MyContainer composition composition::Listener
+   $ ros2 component load /ns/MyContainer composition composition::Listener
 
 .. note::
 
@@ -241,7 +238,7 @@ In the first shell, start the component container:
 
 .. code-block:: bash
 
-   ros2 run rclcpp_components component_container
+   $ ros2 run rclcpp_components component_container
 
 
 Some examples of how to remap names and namespaces:
@@ -249,11 +246,11 @@ Some examples of how to remap names and namespaces:
 .. code-block:: bash
 
    # Remap node name
-   ros2 component load /ComponentManager composition composition::Talker --node-name talker2
+   $ ros2 component load /ComponentManager composition composition::Talker --node-name talker2
    # Remap namespace
-   ros2 component load /ComponentManager composition composition::Talker --node-namespace /ns
+   $ ros2 component load /ComponentManager composition composition::Talker --node-namespace /ns
    # Remap both
-   ros2 component load /ComponentManager composition composition::Talker --node-name talker3 --node-namespace /ns2
+   $ ros2 component load /ComponentManager composition composition::Talker --node-name talker3 --node-namespace /ns2
 
 The corresponding entries appear in ``ros2 component list``:
 
