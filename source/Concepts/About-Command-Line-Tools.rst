@@ -26,10 +26,14 @@ To see all available sub-commands run:
 Examples of sub-commands that are available include:
 
 
+* action Introspect/interact with ROS actions
+* bag Record/play a rosbag
+* component Manage component containers
 * daemon: Introspect/configure the ROS 2 daemon
-* launch: Run a launch file
+* doctor: Check ROS setup for potential issues
+* interface:  Show information about ROS interfaces
+* launch: Run/introspect a launch file
 * lifecycle: Introspect/manage nodes with managed lifecycles
-* msg: Introspect ``msg`` types
 * node: Introspect ROS nodes
 * param: Introspect/configure parameters on a node
 * pkg: Introspect ROS packages
@@ -37,6 +41,7 @@ Examples of sub-commands that are available include:
 * security: Configure security settings
 * service: Introspect/call ROS services
 * srv: Introspect ``srv`` types
+* test: Run a ROS launch test
 * topic: Introspect/publish ROS topics
 
 Example
