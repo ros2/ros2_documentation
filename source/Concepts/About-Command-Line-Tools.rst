@@ -26,9 +26,9 @@ To see all available sub-commands run:
 Examples of sub-commands that are available include:
 
 
-* action Introspect/interact with ROS actions
-* bag Record/play a rosbag
-* component Manage component containers
+* action: Introspect/interact with ROS actions
+* bag: Record/play a rosbag
+* component: Manage component containers
 * daemon: Introspect/configure the ROS 2 daemon
 * doctor: Check ROS setup for potential issues
 * interface:  Show information about ROS interfaces
