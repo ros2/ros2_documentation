@@ -85,6 +85,11 @@ You need the following things installed before installing ROS 2.
        brew install cunit
 
 *
+  Install ros2 doctor dependencies
+
+  ``python3 -m pip install rosdistro``
+
+*
   Install rqt dependencies
 
   ``brew install sip pyqt5``

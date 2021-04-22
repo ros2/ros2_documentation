@@ -145,7 +145,7 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
+   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools rosdistro
 
 Install Qt5
 ^^^^^^^^^^^
