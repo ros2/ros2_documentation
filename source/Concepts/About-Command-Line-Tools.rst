@@ -43,6 +43,7 @@ Examples of sub-commands that are available include:
 * srv: Introspect ``srv`` types
 * test: Run a ROS launch test
 * topic: Introspect/publish ROS topics
+* trace: Tracing tools to get information on ROS nodes execution (only available on Linux)
 
 Example
 -------
