@@ -28,11 +28,14 @@ To see what components are registered and available in the workspace, execute th
 .. code-block:: bash
 
    $ ros2 component types
+   (... components of other packages here)
    composition
      composition::Talker
      composition::Listener
+     composition::NodeLikeListener
      composition::Server
      composition::Client
+   (... components of other packages here)
 
 Run-time composition using ROS services with a publisher and subscriber
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
