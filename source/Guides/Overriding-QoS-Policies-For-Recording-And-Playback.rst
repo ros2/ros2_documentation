@@ -79,7 +79,7 @@ In order for Ros2Bag to record the data, we would want to override the recording
 
     # durability_override.yaml
     /talker:
-      durability: transient_local
+      durability: volatile
       history: keep_all
 
 And call it from the CLI:
