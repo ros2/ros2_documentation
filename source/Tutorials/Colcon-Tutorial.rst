@@ -222,7 +222,7 @@ To run tests for the packages we just built, run the following:
 
       colcon test --merge-install
 
-    You also need to specify ``--merge-install`` here if that was used when building.
+    You also need to specify ``--merge-install`` here since we used it for building above.
 
 Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
