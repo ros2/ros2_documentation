@@ -79,10 +79,7 @@ Writing the launch file
 
 Inside your launch directory, create a new launch file with the ``_launch.py`` suffix.
 For example ``my_script_launch.py``.
-
 ``_launch.py`` is not specifically required as the file suffix for launch files.
-Another popular option is ``_launch.py``, used in the :ref:`beginner level launch files tutorial <ROS2Launch>`.
-If you do change the suffix, make sure to adjust the ``glob()`` argument in your ``setup.py`` file accordingly.
 
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
