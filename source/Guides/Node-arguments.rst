@@ -94,9 +94,14 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 
   $ ros2 param list parameter_blackboard
   a_string
+  qos_overrides./parameter_events.publisher.depth
+  qos_overrides./parameter_events.publisher.durability
+  qos_overrides./parameter_events.publisher.history
+  qos_overrides./parameter_events.publisher.reliability
   some_int
   some_lists.some_doubles
   some_lists.some_integers
+  use_sim_time
 
 Setting parameters from YAML files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,6 +137,11 @@ Other nodes will be able to retrieve the parameter values, e.g.:
 
   $ ros2 param list parameter_blackboard
   a_string
+  qos_overrides./parameter_events.publisher.depth
+  qos_overrides./parameter_events.publisher.durability
+  qos_overrides./parameter_events.publisher.history
+  qos_overrides./parameter_events.publisher.reliability
   some_int
   some_lists.some_doubles
   some_lists.some_integers
+  use_sim_time
