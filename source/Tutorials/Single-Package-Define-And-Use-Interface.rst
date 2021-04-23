@@ -45,33 +45,12 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-In your workspace, create a package ``more_interfaces`` and make a folder within it for msg files:
+In your workspace ``src`` directory, create a package ``more_interfaces`` and make a folder within it for msg files:
 
-.. tabs::
+.. code-block:: console
 
-  .. group-tab:: Linux
-
-    .. code-block:: console
-
-      cd ~/dev_ws/src
-      ros2 pkg create --build-type ament_cmake more_interfaces
-      mkdir more_interfaces/msg
-
-  .. group-tab:: macOS
-
-    .. code-block:: console
-
-      cd ~/dev_ws/src
-      ros2 pkg create --build-type ament_cmake more_interfaces
-      mkdir more_interfaces/msg
-
-  .. group-tab:: Windows
-
-    .. code-block:: console
-
-      cd /dev_ws/src
-      ros2 pkg create --build-type ament_cmake more_interfaces
-      mkdir more_interfaces/msg
+  ros2 pkg create --build-type ament_cmake more_interfaces
+  mkdir more_interfaces/msg
 
 2 Create a msg file
 ^^^^^^^^^^^^^^^^^^^
