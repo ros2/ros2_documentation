@@ -148,7 +148,22 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
+<<<<<<< HEAD
    python -m pip install -U catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
+=======
+   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml rosdistro setuptools
+
+Install Qt5
+^^^^^^^^^^^
+
+This section is only required if you are building rviz, but it comes with our default set of sources, so if you don't know, then assume you are building it.
+
+First get the installer from Qt's website:
+
+https://www.qt.io/download
+
+Select the Open Source version and then the ``Qt Online Installer for Windows``.
+>>>>>>> afeae14... Add installation steps for rosdistro, ros2doctor dependency (#1410)
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~
