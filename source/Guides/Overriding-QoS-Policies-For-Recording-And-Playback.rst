@@ -71,7 +71,7 @@ ROS2 publishers by default request ``volatile`` Durability.
 
 .. code-block:: console
 
-    ros2 topic pub /talker std_msgs/String "data: Hello World"
+    ros2 topic pub -r 0.1 --qos-durability transient_local /talker std_msgs/String "data: Hello World"
 
 In order for Ros2Bag to record the data, we would want to override the recording policy for that specific topic like so:
 
