@@ -77,9 +77,8 @@ to the end of the file (but before ``ament_package()``).
 Writing the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside your launch directory, create a new launch file with the ``_launch.py`` suffix.
-For example ``my_script_launch.py``.
-``_launch.py`` is not specifically required as the file suffix for launch files.
+Inside your launch directory, create a new launch file called ``my_script_launch.py``.
+``_launch.py`` is recommended, but not required, as the file suffix for launch files.
 
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
