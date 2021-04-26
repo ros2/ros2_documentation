@@ -45,13 +45,12 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-In your workspace, create a package ``more_interfaces`` and make a folder within it for msg files:
+In your workspace ``src`` directory, create a package ``more_interfaces`` and make a folder within it for msg files:
 
-.. code-block:: bash
+.. code-block:: console
 
-   cd ~/dev_ws/src
-   ros2 pkg create --build-type ament_cmake more_interfaces
-   mkdir more_interfaces/msg
+  ros2 pkg create --build-type ament_cmake more_interfaces
+  mkdir more_interfaces/msg
 
 2 Create a msg file
 ^^^^^^^^^^^^^^^^^^^
@@ -324,28 +323,94 @@ This CMake code is only required when you want to use interfaces in the same pac
 
 Return to the root of the workspace to build the package:
 
-.. code-block:: bash
+.. tabs::
 
-  cd ~/dev_ws
-  colcon build --packages-up-to more_interfaces
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      cd ~/dev_ws
+      colcon build --packages-up-to more_interfaces
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      cd ~/dev_ws
+      colcon build --packages-up-to more_interfaces
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      cd /dev_ws
+      colcon build --merge-install --packages-up-to more_interfaces
 
 Then source the workspace and run the publisher:
 
-.. code-block:: console
+.. tabs::
 
-  . install/local_setup.bash
+  .. group-tab:: Linux
 
-  ros2 run more_interfaces publish_address_book
+    .. code-block:: console
+
+      . install/local_setup.bash
+      ros2 run more_interfaces publish_address_book
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/local_setup.bash
+      ros2 run more_interfaces publish_address_book
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/local_setup.bat
+      ros2 run more_interfaces publish_address_book
+
+    Or using Powershell:
+
+    .. code-block:: console
+
+      install/local_setup.ps1
+      ros2 run more_interfaces publish_address_book
 
 You should see the publisher relaying the msg you defined, including the values you set in ``publish_address_book.cpp``.
 
 To confirm the message is being published on the ``address_book`` topic, open another terminal, source the workspace, and call ``topic echo``:
 
-.. code-block:: console
+.. tabs::
 
-  . install/local_setup.bash
+  .. group-tab:: Linux
 
-  ros2 topic echo /address_book
+    .. code-block:: console
+
+      . install/setup.bash
+      ros2 topic echo /address_book
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+      ros2 topic echo /address_book
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+      ros2 topic echo /address_book
+
+    Or using Powershell:
+
+    .. code-block:: console
+
+      install/setup.ps1
+      ros2 topic echo /address_book
 
 We won't create a subscriber in this tutorial, but you can try to write one yourself for practice (use :ref:`CppPubSub` to help).
 
