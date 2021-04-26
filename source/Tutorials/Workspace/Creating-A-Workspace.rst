@@ -130,12 +130,6 @@ In the ``dev_ws/src`` directory, run the following command for the distro you're
 
   git clone https://github.com/ros/ros_tutorials.git -b galactic-devel
 
-For example, if you're using Foxy:
-
-.. code-block:: console
-
-  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
-
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
 
