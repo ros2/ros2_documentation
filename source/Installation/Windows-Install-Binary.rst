@@ -143,7 +143,43 @@ You must also install some python dependencies for command-line tools:
 
 .. code-block:: bash
 
+<<<<<<< HEAD
    python -m pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
+=======
+   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml rosdistro setuptools
+
+Install Qt5
+^^^^^^^^^^^
+
+This section is only required if you are building rviz, but it comes with our default set of sources, so if you don't know, then assume you are building it.
+
+First get the installer from Qt's website:
+
+https://www.qt.io/download
+
+Select the Open Source version and then the ``Qt Online Installer for Windows``.
+
+Run the installer and install Qt5.
+
+We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
+When selecting components to install, the only thing you absolutely need is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.15.0`` tree.
+We're using ``5.15.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later Qt5 versions will probably work too.
+Be sure to select ``MSVC 2019 64-bit``.
+After that, the default settings are fine.
+
+Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you intend to build so that CMake can find it:
+
+.. code-block:: bash
+
+   > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+   > set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
+
+You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` and ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.15.0\msvc2019_64\plugins\platforms`` instead, but that requires Administrator.
+
+.. note::
+
+   This path might change based on which MSVC version you're using or if you installed it to a different directory.
+>>>>>>> afeae14... Add installation steps for rosdistro, ros2doctor dependency (#1410)
 
 RQt dependencies
 ~~~~~~~~~~~~~~~~

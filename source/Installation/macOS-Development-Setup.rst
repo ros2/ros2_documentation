@@ -99,7 +99,20 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
+<<<<<<< HEAD
        python3 -m pip install -U argcomplete catkin_pkg colcon-common-extensions coverage empy flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes lark-parser mock nose pep8 pydocstyle pydot pygraphviz pyparsing setuptools vcstool
+=======
+       python3 -m pip install -U \
+        argcomplete catkin_pkg colcon-common-extensions coverage \
+        cryptography empy flake8 flake8-blind-except flake8-builtins \
+        flake8-class-newline flake8-comprehensions flake8-deprecated \
+        flake8-docstrings flake8-import-order flake8-quotes ifcfg \
+        importlib-metadata lark-parser lxml mock mypy netifaces \
+        nose pep8 pydocstyle pydot pygraphviz pyparsing \
+        pytest-mock rosdep setuptools vcstool matplotlib psutil rosdistro
+
+   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
+>>>>>>> afeae14... Add installation steps for rosdistro, ros2doctor dependency (#1410)
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
