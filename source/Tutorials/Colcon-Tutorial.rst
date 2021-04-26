@@ -168,9 +168,27 @@ In the root of the workspace, run ``colcon build``.
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
 This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
 
-.. code-block:: bash
+.. tabs::
 
-    colcon build --symlink-install
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --symlink-install
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --symlink-install
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --symlink-install --merge-install
+
+    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
@@ -191,9 +209,29 @@ Run tests
 
 To run tests for the packages we just built, run the following:
 
-.. code-block:: bash
+.. tabs::
 
-   colcon test
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon test
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon test
+
+  .. group-tab:: Windows
+
+    Remember to use a ``x64 Native Tools Command Prompt for VS 2019`` for executing the following command, as we are going to build a workspace.
+
+    .. code-block:: console
+
+      colcon test --merge-install
+
+    You also need to specify ``--merge-install`` here since we used it for building above.
 
 Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -222,6 +260,12 @@ These files will add all of the required elements to your path and library paths
     .. code-block:: bash
 
        call install\setup.bat
+
+    Or with Powershell:
+
+    .. code-block:: bash
+
+       install\setup.ps1
 
 Try a demo
 ^^^^^^^^^^
