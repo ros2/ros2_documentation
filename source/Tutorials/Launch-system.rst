@@ -116,7 +116,7 @@ After running ``colcon build`` and sourcing your workspace, you should be able t
 
    ros2 launch my_package my_script_launch.py
 
-Or for an standalone launch file:
+Or for a standalone launch file:
 
 .. code-block:: bash
 
