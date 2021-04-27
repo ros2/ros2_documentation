@@ -110,7 +110,7 @@ Rows in the table marked in green are the currently supported distributions.
           <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Galactic-Geochelone.html">Galactic Geochelone</a></p></td>
           <td class="distroclass"><p>May 23, 2021</p></td>
           <td class="distroclass"><p></p></td>
-          <td class="distroclass"><p>May 2023</p></td>
+          <td class="distroclass"><p>November 2022</p></td>
         </tr>
         <tr class="active">
           <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Foxy-Fitzroy.html">Foxy Fitzroy</a></p></td>
@@ -120,7 +120,7 @@ Rows in the table marked in green are the currently supported distributions.
         </tr>
         <tr class="distroclass">
           <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Eloquent-Elusor.html">Eloquent Elusor</a></p></td>
-          <td class="distroclass"><p>Nov 22nd, 2019</p></td>
+          <td class="distroclass"><p>November 22nd, 2019</p></td>
           <td class="distroclass"><p><img alt="Eloquent logo" src="_images/eloquent-small.png" /></p></td>
           <td class="distroclass"><p>November 2020</p></td>
         </tr>
