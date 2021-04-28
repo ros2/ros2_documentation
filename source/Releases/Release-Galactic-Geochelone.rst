@@ -161,7 +161,7 @@ If you previously had code like:
 .. code-block::
 
   const char *my_const_char_string format = "Foo";
-  RCLPP_DEBUG(get_logger(), my_const_char_string);
+  RCLCPP_DEBUG(get_logger(), my_const_char_string);
 
 you should now replace it with:
 
@@ -349,7 +349,7 @@ As a direct consequence, the ``rcl_lifecycle_fini function`` no longer expects a
 RCLCPP's lifecycle node exposes option to not instantiate services
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-In order to use rclpp's lifecycle nodes without exposing its internal services such as ``change_state``, ``get_state`` et. al., the constructor of a lifecycle node has a newly introduced parameter indicating whether or not the services shall be available.
+In order to use rclcpp's lifecycle nodes without exposing its internal services such as ``change_state``, ``get_state`` et. al., the constructor of a lifecycle node has a newly introduced parameter indicating whether or not the services shall be available.
 This boolean flag is set to true by default, not requiring any changes to existing API if not wished.
 
 .. code-block:: c++
