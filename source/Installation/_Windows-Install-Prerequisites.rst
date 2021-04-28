@@ -78,7 +78,7 @@ Some of the examples require OpenCV to be installed.
 
 You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
 
-Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
+Assuming you unpacked it to ``C:\opencv``, type the following on a Command Prompt (requires Admin privileges):
 
 .. code-block:: bash
 
