@@ -11,7 +11,7 @@
       {%- for item in versions.releases|sort(reverse=True) %}
         {%- if item.name == latest_version.name %}
         <dd><a href="{{ item.url }}">{{ item.name|title }} (latest)</a></dd>
-        {%- elif item.name in ['eloquent', 'crystal'] %}
+        {%- elif item.name in eol_versions %}
         <dd><a href="{{ item.url }}">{{ item.name|title }} (EOL)</a></dd>
         {% else %}
         <dd><a href="{{ item.url }}">{{ item.name|title }}</a></dd>
