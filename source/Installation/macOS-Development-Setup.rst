@@ -53,12 +53,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install cmake cppcheck eigen pcre poco tinyxml wget bullet
-
-       brew install python@3.8
-       brew unlink python
-       # Make the python command be Python 3.8
-       brew link --force python@3.8
+       brew install bullet cmake cppcheck eigen pcre poco python tinyxml wget
 
        # install dependencies for Fast-RTPS if you are using it
        brew install asio tinyxml2
@@ -155,12 +150,16 @@ If you would like to use another DDS or RTPS vendor besides the default, Eclipse
 
 Build the ROS 2 code
 --------------------
+
 Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial </Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
 
    cd ~/ros2_galactic/
-   colcon build --symlink-install
+   colcon build --symlink-install --packages-skip-by-dep python_qt_binding
+
+Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
+This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
 
 Environment setup
 -----------------
