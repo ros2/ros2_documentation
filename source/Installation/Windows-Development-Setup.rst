@@ -9,104 +9,46 @@ Building ROS 2 on Windows
 
 This guide is about how to setup a development environment for ROS 2 on Windows.
 
-Prerequisites
--------------
+System requirements
+-------------------
 
-First follow the steps for `Installing Prerequisites <windows-install-binary-installing-prerequisites>` on the Binary Installation page.
+Only Windows 10 is supported.
 
-Stop and return here when you reach the "Downloading ROS 2" section.
+.. include:: _Windows-Install-Prerequisites.rst
 
 Additional prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------
 
 When building from source you'll need a few additional prerequisites installed.
 
 Install additional prerequisites from Chocolatey
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-First install git:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
-   > choco install -y git
+   > choco install -y cppcheck curl git winflexbison3
 
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
 
 
-Install developer tools
------------------------
+Install Python prerequisites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now we are ready to install some our tools that we use to help in developing ROS 2.
-
-Let's start with ``vcstool``:
+Installing additional Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U vcstool
+   > pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy pep8 pydocstyle pytest pytest-mock vcstool
 
-You can test it out by just running ``vcs`` (you should be able to do this in the same cmd prompt).
-
-Next, install ``colcon``:
-
-.. code-block:: bash
-
-   > pip install -U colcon-common-extensions
-
-You can test it out by just running ``colcon`` (you should be able to do this in the same cmd prompt).
-
-Also, you should install ``curl``:
-
-.. code-block:: bash
-
-   > choco install -y curl
-
-Install dependencies
---------------------
-
-Next install the latest version of ``setuptools`` and ``pip``:
-
-.. code-block:: bash
-
-   > <PATH_TO_PYTHON_EXECUTABLE> -m pip install -U setuptools pip
-
-Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python38\python.exe``
-
-Then you can continue installing other Python dependencies:
-
-.. code-block:: bash
-
-   > pip install -U catkin_pkg cryptography EmPy ifcfg importlib-metadata lark-parser lxml numpy pyparsing pyyaml
-
-Next install testing tools like ``pytest`` and others:
-
-.. code-block:: bash
-
-   > pip install -U pytest pytest-mock coverage mock
-
-Next install linters and checkers like ``flake8`` and others:
-
-.. code-block:: bash
-
-   > pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy pep8 pydocstyle
-
-Next install cppcheck:
-
-.. code-block:: bash
-
-   > choco install -y cppcheck
+Install miscellaneous prerequisites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Next install xmllint:
 
 * Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
 * Unpack all archives into e.g. ``C:\xmllint``
 * Add ``C:\xmllint\bin`` to the ``PATH``.
-
-Next install Bison:
-
-.. code-block:: bash
-
-   > choco install -y winflexbison3
 
 Get the ROS 2 code
 ------------------
