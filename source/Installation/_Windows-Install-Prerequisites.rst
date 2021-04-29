@@ -1,26 +1,3 @@
-Installing ROS 2 on Windows
-===========================
-
-.. contents:: Table of Contents
-   :depth: 2
-   :local:
-
-This page explains how to install ROS 2 on Windows from a pre-built binary package.
-
-.. note::
-
-    The pre-built binary does not include all ROS 2 packages.
-    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/master/ros2.repos>`_.
-
-System requirements
--------------------
-
-Only Windows 10 is supported.
-
-<<<<<<< HEAD
-.. _windows-install-binary-installing-prerequisites:
-
 Installing prerequisites
 ------------------------
 
@@ -101,7 +78,7 @@ Some of the examples require OpenCV to be installed.
 
 You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
 
-Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
+Assuming you unpacked it to ``C:\opencv``, type the following on a Command Prompt (requires Admin privileges):
 
 .. code-block:: bash
 
@@ -142,11 +119,12 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
-You must also install some python dependencies for command-line tools:
+You must also install some additional python dependencies:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml rosdistro setuptools
+   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml matplotlib netifaces numpy opencv-python PyQt5 pip pillow psutil pycairo pydot pyparsing pyyaml rosdistro setuptools
+
 
 Install Qt5
 ^^^^^^^^^^^
@@ -183,89 +161,5 @@ You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` a
 RQt dependencies
 ^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
-
-   python -m pip install -U pydot PyQt5 matplotlib psutil
-
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 The installer will ask if to add graphviz to PATH, choose to either add it to the current user or all users.
-=======
-.. include:: _Windows-Install-Prerequisites.rst
->>>>>>> 6f7a0b9... Simplify Windows instructions. (#1452)
-
-Downloading ROS 2
------------------
-
-* Go to `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
-
-.. note::
-
-    There may be more than one binary download option which might cause the file name to differ.
-
-.. note::
-
-    To download the ROS 2 debug libraries you'll need to download ``ros2-package-windows-debug-AMD64.zip``
-
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_galactic``\ ).
-
-Environment setup
------------------
-
-Start a command shell and source the ROS 2 setup file to set up the workspace:
-
-.. code-block:: bash
-
-   > call C:\dev\ros2_galactic\local_setup.bat
-
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
-
-Try some examples
------------------
-
-In a command shell, set up the ROS 2 environment as described above and then run a C++ ``talker``\ :
-
-.. code-block:: bash
-
-   > ros2 run demo_nodes_cpp talker
-
-Start another command shell and run a Python ``listener``\ :
-
-.. code-block:: bash
-
-   > ros2 run demo_nodes_py listener
-
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-This verifies both the C++ and Python APIs are working properly.
-Hooray!
-
-
-Next steps after installing
----------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
-Troubleshooting
----------------
-
-Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
-
-Uninstall
----------
-
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Galactic install on your system.
-
-2. If you're also trying to free up space, you can delete the entire workspace directory with:
-
-   .. code-block:: bash
-
-    rmdir /s /q \ros2_galactic
