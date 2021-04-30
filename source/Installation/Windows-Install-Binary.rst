@@ -18,6 +18,8 @@ System requirements
 
 Only Windows 10 is supported.
 
+.. _windows-install-binary-installing-prerequisites:
+
 .. include:: _Windows-Install-Prerequisites.rst
 
 Downloading ROS 2
