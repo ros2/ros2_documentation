@@ -47,6 +47,7 @@ Install development tools and ROS tools
      cmake \
      git \
      libbullet-dev \
+     libeigen3-dev \
      python3-colcon-common-extensions \
      python3-flake8 \
      python3-pip \
