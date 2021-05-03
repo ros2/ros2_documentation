@@ -17,10 +17,40 @@ Creating project-specific variants
 ----------------------------------
 
 If you are creating ROS packages to use privately in your own projects, you can create variants specific to your projects using the official variants as examples.
-A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
+To do so you need only create two files:
+
+#. A minimal variant package is created as a package with the ``ament_cmake`` build type, a ``buildtool_depend`` on ``ament_cmake`` and ``exec_depend`` entries for each package you want to include in the variant.
 
 
-You can then build and install your variant package alongside your other private packages.
+.. code-block:: xml
+  <?xml version="1.0"?>
+  <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+  <package format="2">
+    <name>my_project_variant</name>
+    <version>1.0.0</version>
+    <description>A package to aggregate all packages in my_project.</description>
+    <maintainer email="maintainer-email">Maintainer Name</maintainer>
+    <license>Apache License 2.0</license>
+    <!-- packages in my_project -->
+    <exec_depend>my_project_msgs</exec_depend>
+    <exec_depend>my_project_services</exec_depend>
+    <exec_depend>my_project_examples</exec_depend>
+
+    <export>
+      <build_type>ament_cmake</build_type>
+    </export>
+  </package>
+
+#. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
+
+.. code-block:: CMakeLists.txt
+  cmake_minimum_required(VERSION 3.5)
+
+  project(my_project_variant NONE)
+  find_package(ament_cmake REQUIRED)
+  ament_package()
+
+#. You can then build and install your variant package alongside your other private packages.
 
 Creating custom variants with platform-specific tools
 *****************************************************
