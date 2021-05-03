@@ -44,7 +44,7 @@ To do so you need only create two files:
 
 #. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
 
-.. code-block:: CMakeLists.txt
+.. code-block:: cmake
 
   cmake_minimum_required(VERSION 3.5)
 
