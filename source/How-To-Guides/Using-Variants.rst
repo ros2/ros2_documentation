@@ -23,6 +23,7 @@ To do so you need only create two files:
 
 
 .. code-block:: xml
+
   <?xml version="1.0"?>
   <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
   <package format="2">
@@ -44,6 +45,7 @@ To do so you need only create two files:
 #. A minimal ament_cmake package includes a ``CMakeLists.txt`` which registers the package.xml as an ament package for use in ROS 2.
 
 .. code-block:: CMakeLists.txt
+
   cmake_minimum_required(VERSION 3.5)
 
   project(my_project_variant NONE)
