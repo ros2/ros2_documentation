@@ -3,14 +3,14 @@ Using variants
 
 Variants, refered to as "metapackages" in ROS 1 are packages which provide no functionality directly but depend on a specified set of ROS packages in order to provide a convenient installation mechansim for the entire group of packages at once.
 
-The different variants in ROS 2 are specified in [REP-2001](https://ros.org/reps/rep-2001.html).
+The different variants in ROS 2 are specified in `REP-2001 <https://ros.org/reps/rep-2001.html>`_.
 
-In addition to the official variants, there may be metapackages for specific institutions or robots as described in [REP-108](https://www.ros.org/reps/rep-0108.html#institution-specific).
+In addition to the official variants, there may be metapackages for specific institutions or robots as described in `REP-108 <(https://www.ros.org/reps/rep-0108.html#institution-specific>`_.
 
 Adding variants
 ---------------
 
-Additional variants that are of general use to the ROS community can be proposed by contributing an update to [REP-2001 via pull request](https://github.com/ros-infrastructure/rep/blob/master/rep-2001.rst) describing the packages included in the new variant.
+Additional variants that are of general use to the ROS community can be proposed by contributing an update to `REP-2001 via pull request <https://github.com/ros-infrastructure/rep/blob/master/rep-2001.rst>`_ describing the packages included in the new variant.
 Institution and robot specific variants can be published directly by their respective maintainers and no update to REP-2001 is required.
 
 Creating project-specific variants
