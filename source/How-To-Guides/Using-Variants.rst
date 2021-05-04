@@ -1,7 +1,7 @@
 Using variants
 ==============
 
-Variants, refered to as "metapackages" in ROS 1 are packages which provide no functionality directly but depend on a specified set of ROS packages in order to provide a convenient installation mechansim for the entire group of packages at once.
+Variants, referred to as "metapackages" in ROS 1 are packages which provide no functionality directly but depend on a specified set of ROS packages in order to provide a convenient installation mechanism for the entire group of packages at once.
 
 The different variants in ROS 2 are specified in `REP-2001 <https://ros.org/reps/rep-2001.html>`_.
 
@@ -62,5 +62,4 @@ It is possible to use these tools to create platform-dependent variants.
 This approach does not include support for ROS packaging tools and is platform dependent but requires much less infrastructure to produce if you are creating collections of existing packages rather than a mix of public and private ROS packages.
 For example, on Debian or Ubuntu systems you can use the ``equivs`` utilities.
 The Debian Administrator's handbook has a `Section on meta-packages <https://www.debian.org/doc/manuals/debian-handbook/sect.building-first-package.en.html#id-1.18.5.2>`_.
-
 
