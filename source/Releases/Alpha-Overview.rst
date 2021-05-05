@@ -6,7 +6,7 @@ ROS 2 alpha releases (Aug 2015 - Oct 2016)
 ==========================================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 This is a merged version of the previously separated pages for the 8 alpha releases of ROS 2.
@@ -15,9 +15,6 @@ We hope that you try them out and `provide feedback <../Contact>`.
 
 ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 ----------------------------------------------------------------
-
-.. contents:: Table of Contents
-   :local:
 
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
