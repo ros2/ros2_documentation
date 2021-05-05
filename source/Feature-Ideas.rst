@@ -77,7 +77,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
   * Performance improvements (mostly around the waitset)
   * Deterministic ordering (fair scheduling)
-  * Work with callback groups
   * Decouple waitables
 
 * Message generation
