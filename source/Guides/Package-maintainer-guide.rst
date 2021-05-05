@@ -126,14 +126,14 @@ Binary release
 ^^^^^^^^^^^^^^
 
 The next step is to use the ``bloom-release`` command to create a binary release.
-Before continuing, ensure that Bloom is configured properly by following `these instructions <http://wiki.ros.org/bloom/Tutorials/GithubManualAuthorization>`__.
-To do a binary release of the package, run:
+For full instructions on how to use bloom, please see http://wiki.ros.org/bloom.
+To do a binary release of a package, run:
 
 .. code-block:: bash
 
   $ bloom-release --track <rosdistro> --rosdistro <rosdistro> <repository_name>
 
-For instance, to release the package ``rclcpp`` to the Rolling distribution, the command above would be:
+For instance, to release the ``rclcpp`` repository to the Rolling distribution, the command would be:
 
 .. code-block:: bash
 
