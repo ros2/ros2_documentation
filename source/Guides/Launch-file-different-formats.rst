@@ -118,7 +118,7 @@ You can control the turtles by running the following command in another terminal
   ros2 run turtlesim turtle_teleop_key --ros-args --remap __ns:=/turtlesim1
 
 Python, XML, or YAML: Which should I use?
--------------------
+-----------------------------------------
 
 Since it is a scripting language, using Python for your launch files will be the most flexible.
 XML and YAML are equivalent, in that the both expose the same features to a parser;
