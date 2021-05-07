@@ -290,7 +290,7 @@ Here is an example.
   rclpy.init()
   node = rclpy.node.Node('static_param_example')
   node.declare_parameter('static_param', 'initial value')
-  node.declare_parameter('dynamic_param', descriptor=ParameterDescriptor(dynamic_typing=True))
+  node.declare_parameter('dynamic_param', 'initial value', descriptor=ParameterDescriptor(dynamic_typing=True))
   rclpy.spin(node)
 
 Run these commands to see how statically and dynamically typed parameters are different.
@@ -307,9 +307,22 @@ For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes
 Add API for checking QoS profile compatibility
 """"""""""""""""""""""""""""""""""""""""""""""
 
-``qos_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
+``rclpy.qos.qos_check_compatible`` is `a new function <https://github.com/ros2/rclpy/pull/708>`_ for checking the compatibility of two QoS profiles.
+If the profiles are compatible, then a publisher and subscriber using them will be able to talk to each other.
 
-Related PR: `ros2/rclpy#708 <https://github.com/ros2/rclpy/pull/708>`_
+.. code-block:: python
+
+    import rclpy.qos
+
+    publisher_profile = rclpy.qos.qos_profile_sensor_data
+    subscription_profile = rclpy.qos.qos_profile_parameter_events
+
+    print(rclpy.qos.qos_check_compatible(publisher_profile, subscription_profile))
+
+.. code-block:: console
+
+    $ python3 qos_check_compatible_example.py
+    (QoSCompatibility.ERROR, 'ERROR: Best effort publisher and reliable subscription;')
 
 rclcpp_action
 ^^^^^^^^^^^^^
