@@ -241,8 +241,37 @@ rclpy
 Removal of deprecated Node.set_parameters_callback
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
-Can be replaced with ``Node.add_on_set_parameters_callback``.
-See `ros2/rclpy#504 <https://github.com/ros2/rclpy/pull/504>`_ for some examples.
+The method ``Node.set_parameters_callback`` was `deprecated in ROS Foxy <https://github.com/ros2/rclpy/pull/504>`_ and has been `removed in ROS Galactic <https://github.com/ros2/rclpy/pull/633>`_.
+Use ``Node.add_on_set_parameters_callback()`` instead.
+Here is some example code using it.
+
+.. code-block:: python
+
+    import rclpy
+    import rclpy.node
+    from rcl_interfaces.msg import ParameterType
+    from rcl_interfaces.msg import SetParametersResult
+
+
+    rclpy.init()
+    node = rclpy.node.Node('callback_example')
+    node.declare_parameter('my_param', 'initial value')
+
+
+    def on_parameter_event(parameter_list):
+        for parameter in parameter_list:
+            node.get_logger().info(f'Got {parameter.name}={parameter.value}')
+        return SetParametersResult(successful=True)
+
+
+    node.add_on_set_parameters_callback(on_parameter_event)
+    rclpy.spin(node)
+
+Run this command to see the parameter callback in action.
+
+.. code-block:: python
+
+    ros2 param set /callback_example my_param "Hello World"
 
 Parameter types are now static by default
 """""""""""""""""""""""""""""""""""""""""
