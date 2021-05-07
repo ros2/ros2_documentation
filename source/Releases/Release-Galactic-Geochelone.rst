@@ -269,7 +269,7 @@ Here is some example code using it.
 
 Run this command to see the parameter callback in action.
 
-.. code-block:: python
+.. code-block::
 
     ros2 param set /callback_example my_param "Hello World"
 
@@ -295,7 +295,7 @@ Here is an example.
 
 Run these commands to see how statically and dynamically typed parameters are different.
 
-.. code-block:: python
+.. code-block:: console
 
     $ ros2 param set /static_param_example dynamic_param 42
     Set parameter successful
