@@ -90,6 +90,8 @@ Making releases
 
 In order to get new features and bugfixes out to end users, the package maintainers must periodically do a release of the package (a release may also be requested on-demand from other maintainers).
 
+As outlined in the :ref:`developer guide <semver>`, ROS 2 packages follow semver for version numbers.
+
 A release in ROS terms consists of two distinct steps: making a source release, and then making a binary release.
 
 Source release

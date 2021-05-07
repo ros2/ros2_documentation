@@ -35,6 +35,8 @@ The categories are differentiated by their policies on versioning, testing, docu
 The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
 We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
 
+.. _semver:
+
 Versioning
 ^^^^^^^^^^
 
