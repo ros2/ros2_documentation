@@ -276,25 +276,31 @@ Run this command to see the parameter callback in action.
 Parameter types are now static by default
 """""""""""""""""""""""""""""""""""""""""
 
-Previously, the type of a parameter could be changed when a parameter was set.
-For example, if a parameter was declared as an integer, a later call to set the parameter could change that type to a string.
-This behavior could lead to bugs, and is rarely what the user wants.
-As of Galactic parameter types are static by default, and attempts to change the type will fail.
-If the previous dynamic behavior is desired, there is an mechanism to opt it in (see the code below).
+In Foxy and earlier a call to set a parameter could change its type.
+As of Galactic parameter types are static and cannot be changed by default.
+If the previous behavior is desired, then set ``dynamic_typing`` to true in the parameter descriptor.
+Here is an example.
 
 .. code-block:: python
 
-    # declare integer parameter with default value, trying to set it to a different type will fail.
-    node.declare_parameter('my_int', 5)
-    # declare string parameter with no default and mandatory user provided override.
-    # i.e. the user must pass a parameter file setting it or a command line rule -p <param_name>:=<value>
-    node.declare_parameter('string_mandatory_override', rclpy.Parameter.Type.STRING)
-    # Conditionally declare a floating point parameter with a mandatory override.
-    # Useful when the parameter is only needed depending on other conditions and no default is reasonable.
-    if mode == 'modeA':
-        node.declare_parameter('conditionally_declare_double_parameter', rclpy.Parameter.Type.DOUBLE)
-    # You can also get the old dynamic typing behavior if you want
-    node.declare_parameter('dynamically_typed_param', descriptor=rcl_interfaces.msg.ParameterDescriptor(dynamic_typing=True))
+  import rclpy
+  import rclpy.node
+  from rcl_interfaces.msg import ParameterDescriptor
+
+  rclpy.init()
+  node = rclpy.node.Node('static_param_example')
+  node.declare_parameter('static_param', 'initial value')
+  node.declare_parameter('dynamic_param', descriptor=ParameterDescriptor(dynamic_typing=True))
+  rclpy.spin(node)
+
+Run these commands to see how statically and dynamically typed parameters are different.
+
+.. code-block:: python
+
+    $ ros2 param set /static_param_example dynamic_param 42
+    Set parameter successful
+    $ ros2 param set /static_param_example static_param 42
+    Setting parameter failed: Wrong parameter type, expected 'Type.STRING' got 'Type.INTEGER'
 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
