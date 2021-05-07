@@ -14,7 +14,6 @@ Options for installing ROS 2 Rolling Ridley:
    Installation/Ubuntu-Install-Binary
    Installation/Ubuntu-Install-Debians
    Installation/macOS-Development-Setup
-   Installation/macOS-Install-Binary
    Installation/Windows-Development-Setup
    Installation/Windows-Install-Binary
    Installation/RHEL-Development-Setup
@@ -36,7 +35,6 @@ We currently provide ROS 2 binary packages for the following platforms:
   * `Debian packages <Installation/Ubuntu-Install-Debians>`
   * `"fat" archive <Installation/Ubuntu-Install-Binary>`
 
-* `macOS <Installation/macOS-Install-Binary>`
 * RHEL 8
 
   * `RPM packages <Installation/RHEL-Install-RPMs>`
