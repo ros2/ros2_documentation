@@ -20,9 +20,9 @@ Background
 Typically, log messages show up in your terminal.
 With ``rqt_console``, you can collect those messages over time, view them closely and in a more organized manner, filter them, save them and even reload the saved files to introspect at a different time.
 
-Nodes use logs to output messages concerning events and statuses in a variety of ways.
+Nodes use logs to output messages concerning events and status in a variety of ways.
 Their content is usually informational, for the sake of the user.
-The intent of a log message is defined by the author of the node, though the content may be written at runtime.
+The intent of a log message is defined by the author of the node, though the content is written at runtime.
 
 Prerequisites
 -------------

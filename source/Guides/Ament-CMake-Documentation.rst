@@ -173,7 +173,7 @@ Here is what's happening in the snippet above:
 
 .. note::
 
-   Windows dlls are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
+   Windows DLLs are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
    It is therefore advised to not leave out the ``RUNTIME`` install even when developing libraries on Unix based systems.
 
 - Regarding the ``include directory``, the install command only adds information to CMake, it does not actually install the includes folder.
