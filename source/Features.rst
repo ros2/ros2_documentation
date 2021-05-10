@@ -43,6 +43,9 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
    * - Composition of node components at compile-, link- or ``dlopen``\ -time
      - `Demo <Tutorials/Composition>`
      - Currently only in C++.
+   * - Multiple executors (at level of callback groups) in same node
+     - `Demo <https://github.com/ros2/examples/tree/galactic/rclcpp/executors/cbg_executor>`__
+     - Only in C++.
    * - Support for nodes with managed lifecycles
      - `Demo <Tutorials/Managed-Nodes>`
      - Currently only in C++.
@@ -52,7 +55,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
    * - Command-line introspection tools using an extensible framework
      - `Concept <Concepts/About-Command-Line-Tools>`
      -
-   * - Launch system  for coordinating multiple nodes
+   * - Launch system for coordinating multiple nodes
      - `Tutorial <Tutorials/Launch-system>`
      -
    * - Namespace support for nodes and topics
