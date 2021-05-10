@@ -10,13 +10,8 @@ Porting RQt plugins to Windows
    :depth: 2
    :local:
 
-RQt has not been historically supported on Windows, but compatibility is happening, slowly.
-
 RQt Porting examples
 --------------------
-
-Microsoft pushed an effort to port much of ROS to Windows. Their pull requests are a good resource for necessary changes.
-For example: https://github.com/ros-visualization/qt_gui_core/pull/188
 
 Here is the ROS 2 port of `qt_gui_core <https://github.com/ros-visualization/qt_gui_core/commit/6fb9624033a849f56d1bc1aad0e40d252bf99c2b>`_.
 

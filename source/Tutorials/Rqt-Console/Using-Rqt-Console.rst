@@ -22,7 +22,6 @@ With ``rqt_console``, you can collect those messages over time, view them closel
 
 Nodes use logs to output messages concerning events and status in a variety of ways.
 Their content is usually informational, for the sake of the user.
-The intent of a log message is defined by the author of the node, though the content is written at runtime.
 
 Prerequisites
 -------------
