@@ -20,14 +20,15 @@ You should have already read the `DDS and ROS middleware implementations page <.
 Specifying RMW implementations
 ------------------------------
 
-To have multiple RMW implementations available for use you must have installed our binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (they are included by default and their dependencies are met). See `Install DDS implementations <../Installation/DDS-Implementations>`.
+To have multiple RMW implementations available for use you must have installed the ROS 2 binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (the RMW implementations are included in the build by default if their compile-time dependencies are met). See `Install DDS implementations <../Installation/DDS-Implementations>`.
 
 ----
 
-Starting in Beta 2 and above both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION``.
-To choose a different RMW implemenation you can set the environment variable ``RMW_IMPLEMENTATION`` to a specific implementation identifier.
+Both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION`` that allows the user to select the RMW implementation to use when running ROS 2 applications. 
 
-To run the talker demo using the C++ and listener using Python with the RMW implementation for Connext:
+The user may set this variable to a specific implementation identifier, such as ``rmw_fastrtps_cpp``, ``rmw_connextdds``, or ``rmw_cyclonedds_cpp``.
+
+For example, to run the talker demo using the C++ talker and Python listener with the Connext RMW implementation:
 
 .. tabs::
 
