@@ -22,9 +22,20 @@ Rows in the table marked in green are the currently supported distributions.
 
 .. toctree::
    :hidden:
-   :glob:
 
-   Releases/*
+   Releases/Alpha-Overview.rst
+   Releases/Beta1-Overview.rst
+   Releases/Beta2-Overview.rst
+   Releases/Beta3-Overview.rst
+   Releases/Release-Ardent-Apalone.rst
+   Releases/Release-Bouncy-Bolson.rst
+   Releases/Release-Crystal-Clemmys.rst
+   Releases/Release-Dashing-Diademata.rst
+   Releases/Release-Eloquent-Elusor.rst
+   Releases/Release-Foxy-Fitzroy.rst
+   Releases/Release-Galactic-Geochelone.rst
+   Releases/Galactic-Geochelone-Complete-Changelog.rst
+   Releases/Release-Rolling-Ridley.rst
 
 .. |foxy| image:: Releases/foxy-small.png
 .. |eloquent| image:: Releases/eloquent-small.png
