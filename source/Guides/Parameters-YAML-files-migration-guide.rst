@@ -49,7 +49,7 @@ Note the use of wildcards (``/**``) to indicate that the parameter ``debug`` sho
 Feature parity
 --------------
 
-Some features of ROS 1 parameters files does not exist in ROS 2:
+Some features of ROS 1 parameters files do not exist in ROS 2:
 
 - Mixed types in a list is not supported yet (`related issue <https://github.com/ros2/rcl/issues/463>`_)
 - ``deg`` and ``rad`` substitutions are not supported

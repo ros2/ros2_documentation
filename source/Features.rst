@@ -40,7 +40,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
    * - Inter- and intra-process communication using the same API
      - `Demo <Tutorials/Intra-Process-Communication>`
      - Currently only in C++.
-   * - Composition of node components at compile-, link- or ``dlopen``\ -time
+   * - Composition of node components at compile, link, load, or run time
      - `Demo <Tutorials/Composition>`
      - Currently only in C++.
    * - Multiple executors (at level of callback groups) in same node
