@@ -37,7 +37,7 @@ A synchronous client will block the calling thread when sending a request to a s
 The call can take arbitrary amounts of time to complete.
 Once complete, the response returns directly to the client.
 
-The following is an example of how to correctly execute a synchronous client node, similar to the async node in the :ref:`Simple Service and Client <PySrvCli>` tutorial.
+The following is an example of how to correctly execute a synchronous service call from a client node, similar to the async node in the :ref:`Simple Service and Client <PySrvCli>` tutorial.
 
 .. code-block:: python
 

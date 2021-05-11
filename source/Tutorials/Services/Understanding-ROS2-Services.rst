@@ -16,7 +16,7 @@ Understanding ROS 2 services
 Background
 ----------
 
-Services are another method of communication for nodes on the ROS graph.
+Services are another method of communication for nodes in the ROS graph.
 Services are based on a call-and-response model, versus topics’ publisher-subscriber model.
 While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
@@ -260,7 +260,8 @@ Summary
 -------
 
 Nodes can communicate using services in ROS 2.
-Services only pass information to a node if that node specifically requests it, and will only do so once per request (not in a continuous stream).
+Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a reponse.
+
 You generally don’t want to use a service for continuous calls; topics or even actions would be better suited.
 
 In this tutorial you used command line tools to identify, elaborate on, and call services.

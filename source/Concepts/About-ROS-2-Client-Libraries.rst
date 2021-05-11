@@ -10,7 +10,7 @@ Overview
 --------
 
 Client libraries are the APIs that allow users to implement their ROS code.
-They are what users use to get access to ROS concepts such as nodes, topics, services, etc.
+Using client libraries, users gain access to ROS concepts such as nodes, topics, services, etc.
 Client libraries come in a variety of programming languages so that users may write ROS code in the language that is best-suited for their application.
 For example, you might prefer to write visualization tools in Python because it makes prototyping iterations faster, while for parts of your system that are concerned with efficiency, the nodes might be better implemented in C++.
 
