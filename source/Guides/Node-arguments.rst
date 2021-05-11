@@ -13,7 +13,7 @@ Passing ROS arguments to nodes via the command-line
 
 All ROS nodes take a set of arguments that allow various properties to be reconfigured.
 Examples include configuring the name/namespace of the node, topic/service names used, and parameters on the node.
-All ros specific arguments have to be specified after a ``--ros-args`` flag:
+All ROS-specific arguments have to be specified after a ``--ros-args`` flag:
 
 .. tabs::
 
@@ -80,8 +80,8 @@ Parameters
 
 .. _NodeArgsParameters:
 
-Setting parameters directly in the command line
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Setting parameters directly from the command line
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You can set parameters directly from the command line using the following syntax:
 

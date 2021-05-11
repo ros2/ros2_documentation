@@ -243,7 +243,7 @@ To get an idea of how often position data is published, you can run the command:
 
 .. code-block:: console
 
-    ros2 topic echo /turtle1/pose
+    ros2 topic hz /turtle1/pose
 
 Summary
 -------
