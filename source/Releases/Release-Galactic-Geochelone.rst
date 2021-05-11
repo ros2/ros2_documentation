@@ -16,12 +16,30 @@ ROS 2 Galactic Geochelone (codename 'galactic'; May, 2021)
 Supported Platforms
 -------------------
 
-TBD
+Galactic Geochelone is primarily supported on the following platforms:
+
+Tier 1 platforms:
+
+* Ubuntu 20.04 (Focal): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019): ``amd64``
+
+Tier 2 platforms:
+
+* RHEL 8: ``amd64``
+
+Tier 3 platforms:
+
+* Ubuntu 20.04 (Focal): ``arm32``
+* Debian Bullseye (11): ``amd64``, ``arm64`` and ``arm32``
+* OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``arm64``
+* Mac macOS 10.14 (Mojave): ``amd64``
+
+For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
 Installation
 ------------
 
-TBD
+`Install Galactic Geochelone <../../galactic/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
