@@ -307,7 +307,7 @@ If you'd like to create a new WG, please inquire via info@openrobotics.org.
 
 Working Group Policies
 
- * Meetings should be posted to the google calendar as well as announced on Discourse.
+ * Meetings should be posted to the Google calendar as well as announced on Discourse.
  * Meetings should have notes and be posted to Discourse using appropriate working group tag.
  * For attending the groups meetings please join the associated google group to get invites automatically.
 

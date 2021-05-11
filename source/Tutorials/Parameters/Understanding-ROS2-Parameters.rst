@@ -59,7 +59,7 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
     ros2 param list
 
-You will see the node subnamespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
+You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
 
 .. code-block:: console
 
@@ -77,13 +77,13 @@ Every node has the parameter ``use_sim_time``; it’s not unique to turtlesim.
 
 Based on their names, it looks like ``/turtlesim``'s parameters determine the background color of the turtlesim window using RGB color values.
 
-To be certain of a parameter type, you can use ``ros2 param get``.
+To determine a parameter's type, you can use ``ros2 param get``.
 
 
 3 ros2 param get
 ^^^^^^^^^^^^^^^^
 
-To get the current value of a parameter, use the command:
+To display the type and current value of a parameter, use the command:
 
 .. code-block:: console
 
@@ -167,7 +167,7 @@ Summary
 
 Nodes have parameters to define their default configuration values.
 You can ``get`` and ``set`` parameter values from the command line.
-You can also save parameter settings to reload in a new session.
+You can also save parameter settings to a file to reload in a future session.
 
 Next steps
 ----------

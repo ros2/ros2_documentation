@@ -15,13 +15,13 @@ Choosing a domain ID (short version)
 ------------------------------------
 
 The text below explains the derivation of the range of domain IDs that should be used in ROS 2.
-To skip that background and just choose a safe number, then choose a domain ID between 0 and 101, inclusive.
+To skip that background and just choose a safe number, simply choose a domain ID between 0 and 101, inclusive.
 
 
 Choosing a domain ID (long version)
 -----------------------------------
 
-Under the hood, the domain ID is used by DDS to compute the UDP ports that will be used for discovery and communication.
+The domain ID is used by DDS to compute the UDP ports that will be used for discovery and communication.
 See `this article <https://community.rti.com/content/forum-topic/statically-configure-firewall-let-omg-dds-traffic-through>`__ for details on how the ports are computed.
 Remembering our basic networking, the UDP port is an `unsigned 16-bit integer <https://en.wikipedia.org/wiki/User_Datagram_Protocol#Ports>`__.
 Thus, the highest port number that can be allocated is 65535.
