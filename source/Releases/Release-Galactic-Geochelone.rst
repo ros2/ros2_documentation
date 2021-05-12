@@ -53,6 +53,20 @@ Thus the default value stays the same: ``~/.ros/log``.
 
 Related PRs: `ros2/rcl_logging#53 <https://github.com/ros2/rcl_logging/pull/53>`_ and `ros2/launch#460 <https://github.com/ros2/launch/pull/460>`_.
 
+For example:
+
+.. code-block:: bash
+
+  ROS_LOG_DIR=/tmp/foo ros2 run demo_nodes_cpp talker
+
+Will place all logs in ``/tmp/foo``.
+
+.. code-block:: bash
+
+  ROS_HOME=/path/to/home ros2 run demo_nodes_cpp talker
+
+Will place all logs in ``/path/to/home/log``.
+
 Externally configure QoS at start-up
 ------------------------------------
 
