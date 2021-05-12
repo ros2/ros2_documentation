@@ -74,19 +74,15 @@ Download the example talker code by entering the following command:
 
       In a Windows command line prompt:
 
-<<<<<<< HEAD
-      https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
-=======
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
->>>>>>> 13f4761... [py_pubsub] Improve instructions on Windows (#1373)
+            curl -sk https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
+            curl https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
 
 Now there will be a new file named ``publisher_member_function.py`` adjacent to ``__init__.py``.
 
@@ -299,19 +295,15 @@ Enter the following code in your terminal:
 
       In a Windows command line prompt:
 
-<<<<<<< HEAD
-      https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
-=======
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
->>>>>>> 13f4761... [py_pubsub] Improve instructions on Windows (#1373)
+            curl -sk https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
+            curl https://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
 
 Now the directory should have these files:
 
