@@ -74,13 +74,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/dashing/rclcpp/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/dashing/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -320,13 +320,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/dashing/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/dashing/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
 Entering ``ls`` in the console will now return:
 
