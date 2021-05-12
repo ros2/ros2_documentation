@@ -167,7 +167,7 @@ Finally, ``rclpy.spin`` starts processing data from the node.
 2.1.1 (Optional) Add ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""
 Optionally, you can set a descriptor for the parameter.
-Descriptors allow you to specify the type of the parameter and some description text.
+Descriptors allow you to specify a text description of the parameter and parameters constraints, like making it read-only, specifying a range, etc.
 For that to work, the ``__init__`` code has to be changed to:
 
 .. code-block:: Python
