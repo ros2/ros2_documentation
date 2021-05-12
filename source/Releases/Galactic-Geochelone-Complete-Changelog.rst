@@ -402,6 +402,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Michel Hidalgo, Naveau
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`ament_cmake_ros <https:/github.com/ros2/ament_cmake_ros/tree/galactic/ament_cmake_ros/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Update package maintainers. (`#11 <https://github.com/ros2/ament_cmake_ros/issues/11>`__)
+* Contributors: Michel Hidalgo
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `ament_cmake_target_dependencies <https:/github.com/ament/ament_cmake/tree/galactic/ament_cmake_target_dependencies/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -893,6 +901,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `demo_nodes_cpp <https:/github.com/ros2/demos/tree/galactic/demo_nodes_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix small print issue in allocator tutorial. (`#509 <https://github.com/ros2/demos/issues/509>`__) (`#512 <https://github.com/ros2/demos/issues/512>`__)
 * Small fixes for even_parameters_node. (`#500 <https://github.com/ros2/demos/issues/500>`__)
 * change ParameterEventHandler to take events as const ref instead of shared pointer (`#494 <https://github.com/ros2/demos/issues/494>`__)
 * Fix integer type in RCLCPP\_* macro printf. (`#492 <https://github.com/ros2/demos/issues/492>`__)
@@ -936,6 +945,15 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update Quality levels to level 3 (`#124 <https://github.com/ros2/common_interfaces/issues/124>`__)
 * Add Security Vulnerability Policy pointing to REP-2006. (`#120 <https://github.com/ros2/common_interfaces/issues/120>`__)
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`domain_coordinator <https:/github.com/ros2/ament_cmake_ros/tree/galactic/domain_coordinator/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Update package maintainers. (`#11 <https://github.com/ros2/ament_cmake_ros/issues/11>`__)
+* Add pytest.ini to suppress warning output locally. (`#8 <https://github.com/ros2/ament_cmake_ros/issues/8>`__)
+* Contributors: Chris Lalancette, Michel Hidalgo
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1155,6 +1173,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `examples_tf2_py <https:/github.com/ros2/geometry2/tree/galactic/examples_tf2_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use underscores instead of dashes in setup.cfg. (`#403 <https://github.com/ros2/geometry2/issues/403>`__) (`#404 <https://github.com/ros2/geometry2/issues/404>`__)
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
 * Add pytest.ini so local tests don't display warning (`#276 <https://github.com/ros2/geometry2/issues/276>`__)
 * Split tf2_ros in tf2_ros and tf2_ros_py (`#210 <https://github.com/ros2/geometry2/issues/210>`__)
@@ -2065,6 +2084,10 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclcpp <https:/github.com/ros2/rclcpp/tree/galactic/rclcpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use OnShutdown callback handle instead of OnShutdown callback (`#1639 <https://github.com/ros2/rclcpp/issues/1639>`__) (`#1650 <https://github.com/ros2/rclcpp/issues/1650>`__)
+* use dynamic_pointer_cast to detect allocator mismatch in intra process manager (`#1643 <https://github.com/ros2/rclcpp/issues/1643>`__) (`#1644 <https://github.com/ros2/rclcpp/issues/1644>`__)
+* Increase cppcheck timeout to 500s (`#1634 <https://github.com/ros2/rclcpp/issues/1634>`__)
+* Clarify node parameters docs (`#1631 <https://github.com/ros2/rclcpp/issues/1631>`__)
 * Avoid returning loan when none was obtained. (`#1629 <https://github.com/ros2/rclcpp/issues/1629>`__)
 * Use a different implementation of mutex two priorities (`#1628 <https://github.com/ros2/rclcpp/issues/1628>`__)
 * Do not test the value of the history policy when testing the get_publishers/subscriptions_info_by_topic() methods (`#1626 <https://github.com/ros2/rclcpp/issues/1626>`__)
@@ -2288,6 +2311,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclcpp_action <https:/github.com/ros2/rclcpp/tree/galactic/rclcpp_action/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Returns CancelResponse::REJECT while goal handle failed to transit to CANCELING state (`#1641 <https://github.com/ros2/rclcpp/issues/1641>`__) (`#1653 <https://github.com/ros2/rclcpp/issues/1653>`__)
+* Fix action server deadlock issue that caused by other mutexes locked in CancelCallback (`#1635 <https://github.com/ros2/rclcpp/issues/1635>`__) (`#1646 <https://github.com/ros2/rclcpp/issues/1646>`__)
 * updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`__) (`#1615 <https://github.com/ros2/rclcpp/issues/1615>`__)
 * Add support for rmw_connextdds (`#1574 <https://github.com/ros2/rclcpp/issues/1574>`__)
 * node_handle must be destroyed after client_handle to prevent memory leak (`#1562 <https://github.com/ros2/rclcpp/issues/1562>`__)
@@ -2313,7 +2338,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add rcl_action_client_options when creating action client. (`#1133 <https://github.com/ros2/rclcpp/issues/1133>`__)
 * Fix doxygen warnings (`#1163 <https://github.com/ros2/rclcpp/issues/1163>`__)
 * Increase rclcpp_action test coverage (`#1153 <https://github.com/ros2/rclcpp/issues/1153>`__)
-* Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Audrow Nash, Chris Lalancette, Daisuke Sato, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Louise Poubel, Michel Hidalgo, Stephen Brawner, Tomoya Fujita, brawner, shonigmann, tomoya, y-okumura-isp
+* Contributors: Alejandro Hernández Cordero, Andrea Sorbini, Audrow Nash, Chris Lalancette, Daisuke Sato, Dirk Thomas, Ivan Santiago Paunovic, Jacob Perron, Kaven Yau, Louise Poubel, Michel Hidalgo, Stephen Brawner, Tomoya Fujita, William Woodall, brawner, shonigmann, tomoya, y-okumura-isp
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2373,6 +2398,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclpy <https:/github.com/ros2/rclpy/tree/galactic/rclpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Break log function execution ASAP if configured severity is too high (`#776 <https://github.com/ros2/rclpy/issues/776>`__) (`#783 <https://github.com/ros2/rclpy/issues/783>`__)
 * typo fix. (`#768 <https://github.com/ros2/rclpy/issues/768>`__)
 * Restore exceptions for Connext and message timestamps on Windows (`#765 <https://github.com/ros2/rclpy/issues/765>`__)
 * Use correct type when creating test publisher (`#764 <https://github.com/ros2/rclpy/issues/764>`__)
@@ -2497,7 +2523,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add ``topic_name`` property to publisher (`#568 <https://github.com/ros2/rclpy/issues/568>`__)
 * Fix and document rclpy_handle_get_pointer_from_capsule() (`#569 <https://github.com/ros2/rclpy/issues/569>`__)
 * Fix docstrings (`#566 <https://github.com/ros2/rclpy/issues/566>`__)
-* Contributors: Addisu Z. Taddese, Alejandro Hernández Cordero, Andrea Sorbini, Audrow, Audrow Nash, Barry Xu, Chris Lalancette, Claire Wang, Dereck Wonnacott, Dirk Thomas, Emerson Knapp, Greg Balke, Gökçe Aydos, Ivan Santiago Paunovic, Jacob Perron, Loy, Michel Hidalgo, Scott K Logan, Shane Loretz, Tomoya Fujita, Tully Foote, Zhen Ju, ssumoo, tomoya
+* Contributors: Addisu Z. Taddese, Alejandro Hernández Cordero, Andrea Sorbini, Audrow, Audrow Nash, Barry Xu, Chris Lalancette, Claire Wang, Dereck Wonnacott, Dirk Thomas, Emerson Knapp, Greg Balke, Gökçe Aydos, Ivan Santiago Paunovic, Jacob Perron, Loy, Michel Hidalgo, Scott K Logan, Shane Loretz, Tomoya Fujita, Tully Foote, Zhen Ju, ksuszka, ssumoo, tomoya
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4137,6 +4163,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_reconfigure <https:/github.com/ros-visualization/rqt_reconfigure/tree/dashing/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Cleanups to the install scripts. (`#103 <https://github.com/ros-visualization/rqt_reconfigure/issues/103>`__)
 * Fix a flake8 warning. (`#99 <https://github.com/ros-visualization/rqt_reconfigure/issues/99>`__)
 * Use timeouts in service calls to avoid hangs (`#98 <https://github.com/ros-visualization/rqt_reconfigure/issues/98>`__)
 * Add maintainer to package.xml (`#95 <https://github.com/ros-visualization/rqt_reconfigure/issues/95>`__)
@@ -4854,6 +4881,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `tf2_ros_py <https:/github.com/ros2/geometry2/tree/galactic/tf2_ros_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use underscores instead of dashes in setup.cfg. (`#403 <https://github.com/ros2/geometry2/issues/403>`__) (`#404 <https://github.com/ros2/geometry2/issues/404>`__)
 * Use global namespace for TransformListener topics (`#390 <https://github.com/ros2/geometry2/issues/390>`__)
 * Fix indentation of a comment in buffer.py (`#371 <https://github.com/ros2/geometry2/issues/371>`__)
 * Update rclpy.Rate TODO with url to issue (`#324 <https://github.com/ros2/geometry2/issues/324>`__)
@@ -4882,6 +4910,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `tf2_tools <https:/github.com/ros2/geometry2/tree/galactic/tf2_tools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use underscores instead of dashes in setup.cfg. (`#403 <https://github.com/ros2/geometry2/issues/403>`__) (`#404 <https://github.com/ros2/geometry2/issues/404>`__)
 * Add wait time option to view_frames (`#374 <https://github.com/ros2/geometry2/issues/374>`__)
 * Cleanup tf2_tools to be more modern. (`#351 <https://github.com/ros2/geometry2/issues/351>`__)
 * Update maintainers of the ros2/geometry2 fork. (`#328 <https://github.com/ros2/geometry2/issues/328>`__)
@@ -4911,6 +4940,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `topic_monitor <https:/github.com/ros2/demos/tree/galactic/topic_monitor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use is_alive for threads. (`#510 <https://github.com/ros2/demos/issues/510>`__) (`#513 <https://github.com/ros2/demos/issues/513>`__)
 * Use underscores instead of dashes in setup.cfg (`#502 <https://github.com/ros2/demos/issues/502>`__)
 * Change index.ros.org -> docs.ros.org. (`#496 <https://github.com/ros2/demos/issues/496>`__)
 * Update deprecated qos policy value names (`#468 <https://github.com/ros2/demos/issues/468>`__)
