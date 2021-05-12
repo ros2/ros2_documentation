@@ -1588,8 +1588,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `message_filters <https:/github.com/ros2/message_filters/tree/galactic/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Find and export dependencies properly (`#54 <https://github.com/ros2/message_filters/issues/54>`__)
 * Add pytest.ini so local tests don't display warning (`#47 <https://github.com/ros2/message_filters/issues/47>`__)
-* Contributors: Chris Lalancette
+* Contributors: Chris Lalancette, Michel Hidalgo
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1731,6 +1732,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update to pybind 2.5.0 (`#2 <https://github.com/ros2/pybind11_vendor/issues/2>`__) Signed-off-by: Mabel Zhang <mabel@openrobotics.org>
 * Create pybind11 vendor package. Signed-off-by: Michael Carroll <michael@openrobotics.org>
 * Contributors: Karsten Knese, Mabel Zhang, Michael Carroll, Shane Loretz
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`python_cmake_module <https:/github.com/ros2/python_cmake_module/tree/galactic/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Update maintainers (`#2 <https://github.com/ros2/python_cmake_module/issues/2>`__)
+* Contributors: Shane Loretz
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3728,6 +3737,15 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Chris Lalancette, Devin Bonnie, Dirk Thomas, Jacob Perron, Michel Hidalgo, Sebastian Höffner, Stephen Brawner
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_generator_dds_idl <https:/github.com/ros2/rosidl_dds/tree/galactic/rosidl_generator_dds_idl/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Expose .idl to DDS .idl conversion via rosidl translate CLI. (`#55 <https://github.com/ros2/rosidl_dds/issues/55>`__)
+* Update maintainers. (`#54 <https://github.com/ros2/rosidl_dds/issues/54>`__)
+* Contributors: Michel Hidalgo, Shane Loretz
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_generator_py <https:/github.com/ros2/rosidl_python/tree/galactic/rosidl_generator_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -5065,8 +5083,9 @@ tracetools_trace
 `urdf_parser_plugin <https:/github.com/ros2/urdf/tree/galactic/urdf_parser_plugin/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Export urdfdom_headers as urdf_parser_plugin dependency. (`#25 <https://github.com/ros2/urdf/issues/25>`__)
 * Make urdf plugable and revive urdf_parser_plugin (`#13 <https://github.com/ros2/urdf/issues/13>`__)
-* Contributors: Shane Loretz
+* Contributors: Michel Hidalgo, Shane Loretz
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
