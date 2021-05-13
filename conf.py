@@ -72,7 +72,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs']
+extensions = ['sphinx.ext.intersphinx']
 
 # Intersphinx mapping
 
