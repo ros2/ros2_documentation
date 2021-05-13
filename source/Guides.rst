@@ -32,6 +32,7 @@ If you are new and looking to learn the ropes, start with the :ref:`Tutorials <T
    Guides/RQt-Port-Plugin-Windows
    Guides/Run-2-nodes-in-single-or-separate-docker-containers
    Guides/Package-maintainer-guide
+   Guides/Building-a-Custom-Debian-Package
 
 .. toctree::
   :hidden:
