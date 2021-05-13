@@ -980,6 +980,15 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Michael Jeronimo
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`example_interfaces <https:/github.com/ros2/example_interfaces/tree/galactic/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Change links from index.ros.org -> docs.ros.org. (`#13 <https://github.com/ros2/example_interfaces/issues/13>`__)
+* Update maintainer. (`#12 <https://github.com/ros2/example_interfaces/issues/12>`__)
+* Contributors: Chris Lalancette, Jacob Perron
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `examples_rclcpp_cbg_executor <https:/github.com/ros2/examples/tree/galactic/rclcpp/executors/cbg_executor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
