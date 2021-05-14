@@ -494,6 +494,21 @@ Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and `ros2/rc
 Known Issues
 ------------
 
+ros2cli
+^^^^^^^
+
+Daemon slows down CLI on Windows
+""""""""""""""""""""""""""""""""
+
+As a workaround, CLI commands may be used without a daemon e.g.:
+
+.. code-block:: bash
+
+  ros2 topic list --no-daemon
+
+
+Issue is tracked by `ros2/ros2cli#637 <https://github.com/ros2/ros2cli/issues/637>`_.
+
 Timeline before the release
 ---------------------------
 
