@@ -4986,9 +4986,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Audrow Nash, Chris Lalancette, Michael Jeronimo, Prajakta Gokhale
 
 
-^^^^^^^^^^
-tracetools
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`tracetools <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update QD to be more specific about public API
 * Namespace tracetools C++ functions and macros and deprecate current ones
@@ -5001,17 +5001,17 @@ tracetools
 * Contributors: Christophe Bedard, Ingo Lütkebohle, José Antonio Moral
 
 
-^^^^^^^^^^^^^^^^^
-tracetools_launch
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`tracetools_launch <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_launch/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Allow configuring tracing directory through environment variables
 * Contributors: Christophe Bedard
 
 
-^^^^^^^^^^^^^^^
-tracetools_test
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`tracetools_test <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_test/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Update after namespacing C++ tracetools functions and macros
 * Add tests for rcl_publish and rclcpp_publish tracepoints
@@ -5023,9 +5023,9 @@ tracetools_test
 * Contributors: Alejandro Hernández Cordero, Christophe Bedard, Ingo Lütkebohle
 
 
-^^^^^^^^^^^^^^^^
-tracetools_trace
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`tracetools_trace <https://gitlab.com/ros-tracing/ros2_tracing/-/blob/galactic/tracetools_trace/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add support for rcl_publish and rclcpp_publish tracepoints
 * Fix flake8 blind except error by using more concrete types
