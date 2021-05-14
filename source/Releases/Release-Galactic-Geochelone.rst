@@ -85,6 +85,46 @@ Will place all logs in ``/tmp/foo``.
 
 Will place all logs in ``/path/to/home/log``.
 
+Ability to invoke ``rosidl`` pipeline outside CMake
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now straightforward to invoke the ``rosidl`` interface generation pipeline outside CMake.
+Source code generators and interface definition translators are accessible through a unified command line interface.
+
+For example, given a ``Demo`` message in some ``demo`` package like:
+
+.. code-block:: bash
+
+  mkdir -p demo/msg
+  cd demo
+  cat << EOF > msg/Demo.msg
+  std_msgs/Header header
+  geometry_msgs/Twist twist
+  geometry_msgs/Accel accel
+  EOF
+
+it is easy to generate C, C++, and Python support source code:
+
+.. code-block:: bash
+
+  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs) \
+    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+
+Generated source code will be put in the ``gen`` directory.
+
+One may also translate the message definition to a different format for a third-party code generation tool to consume:
+
+.. code-block:: bash
+
+  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs) \
+    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+
+The translated message definition will be put in the ``gen`` directory.
+
+Note that these tools generate sources but do not build it -- that responsibility is still on the caller.
+This is a first step towards enabling ``rosidl`` interface generation in build systems other than CMake.
+See the `design document <https://github.com/ros2/design/pull/310>`_ for further reference and next steps.
+
 Externally configure QoS at start-up
 ------------------------------------
 
