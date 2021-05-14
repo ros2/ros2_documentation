@@ -147,6 +147,14 @@ The Python ``TransformListener`` now subscribes to ``/tf`` and ``/tf_static`` in
 Previously, it was susbcribing in the node's namespace.
 This means that the node's namespace will no longer have an effect on the ``/tf`` and ``/tf_static`` subscriptions.
 
+For example:
+
+.. code-block:: bash
+
+  ros2 run tf2_ros tf2_echo --ros-args -r __ns:=/test -- odom base_link
+
+will subscribe to ``/tf`` and ``/tf_static``, as ``ros2 topic list`` will show.
+
 Related PR: `ros2/geometry2#390 <https://github.com/ros2/geometry2/pull/390>`_
 
 rclcpp
