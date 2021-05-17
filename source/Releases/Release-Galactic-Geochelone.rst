@@ -680,6 +680,31 @@ As a workaround, CLI commands may be used without a daemon e.g.:
 
 Issue is tracked by `ros2/ros2cli#637 <https://github.com/ros2/ros2cli/issues/637>`_.
 
+rqt
+^^^
+
+Some rqt_bag icons are missing
+""""""""""""""""""""""""""""""
+
+The icons to "Zoom In", "Zoom Out", "Zoom Home", and "Toggle Thumbnails" are missing in ``rqt_bag``.
+The issue is tracked in `ros-visualization/rqt_bag#102 <https://github.com/ros-visualization/rqt_bag/issues/102>`_
+
+Most rqt utilities don't work standalone on Windows
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Launching the rqt utilities "standalone" on Windows (like ``ros2 run rqt_graph rqt_graph``) generally doesn't work.
+The workaround is to launch the rqt container process (``rqt``), and then insert the plugins to be used.
+
+rviz2
+^^^^^
+
+RViz2 panel close buttons are blank
+"""""""""""""""""""""""""""""""""""
+
+The upper right-hand corner of every RViz2 panel should contain an "X" to allow one to close the panel.
+Those buttons are there, but the "X" inside of them is missing on all platforms.
+The issue is being tracked in `ros2/rviz2#692 <https://github.com/ros2/rviz/issues/692>`__.
+
 Timeline before the release
 ---------------------------
 
