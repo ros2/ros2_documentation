@@ -126,7 +126,7 @@ This is a first step towards enabling ``rosidl`` interface generation in build s
 See the `design document <https://github.com/ros2/design/pull/310>`_ for further reference and next steps.
 
 Externally configure QoS at start-up
-------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 It is now possible to externally configure the QoS settings for a node at start-up time.
 QoS settings are **not** configurable during runtime; they are only configurable at start-up.
@@ -141,6 +141,28 @@ Note, user code handling parameter changes with registered callbacks should avoi
 It was considered bad practice prior to Galactic, but with externally configurable QoS enabled it will result in a hard failure.
 
 Related PRs: `ros2/rclcpp#1408 <https://github.com/ros2/rclcpp/pull/1408>`_ and `ros2/rclpy#635 <https://github.com/ros2/rclpy/pull/635>`_
+
+Python point_cloud2 utilities available
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Several utilities for interacting with pointclouds from Python were `ported to ROS 2 <https://github.com/ros2/common_interfaces/pull/128>`__.
+These utilities allow one to get a list of points from a ROS 2 point cloud message (``read_points`` and ``read_points_list``), and to create a ROS 2 point cloud message from a list of points (``create_cloud`` and ``create_cloud_xyz32``).
+
+An example of creating ROS 2 point cloud message, then reading it back:
+
+.. code-block:: python
+
+  import numpy as np
+  import sensor_msgs.msg
+  import sensor_msgs_py.point_cloud2
+  import std_msgs.msg
+
+  pointlist = [[0.0, 0.1, 0.2]]
+
+  pointcloud = sensor_msgs_py.point_cloud2.create_cloud_xyz32(std_msgs.msg.Header(frame_id='frame'), pointlist)
+
+  for point in sensor_msgs_py.point_cloud2.read_points(pointcloud):
+      print(point)
 
 Changes since the Foxy release
 ------------------------------
