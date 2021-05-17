@@ -192,6 +192,26 @@ Terminal 2:
   b'\x00\x01\x00\x00\x06\x00\x00\x00hello\x00\x00\x00'
   ---
 
+Get the YAML representation of messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to get a YAML representation of all messages in C++ using the `to_yaml <https://github.com/ros2/rosidl/issues/523>`__ function.
+An example of code that prints out the YAML representation:
+
+.. code-block:: c++
+
+  #include <cstdio>
+
+  #include <std_msgs/msg/string.hpp>
+
+  int main()
+  {
+    std_msgs::msg::String msg;
+    msg.data = "hello world";
+    printf("%s", rosidl_generator_traits::to_yaml(msg).c_str());
+    return 0;
+  }
+
 Changes since the Foxy release
 ------------------------------
 
