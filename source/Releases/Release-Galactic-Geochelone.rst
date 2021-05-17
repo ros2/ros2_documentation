@@ -212,6 +212,28 @@ An example of code that prints out the YAML representation:
     return 0;
   }
 
+Ability to load parameter files at runtime through the ros2 command
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 has long had the ability to specify parameter values at startup (through command-line arguments or a YAML file), and to dump current parameters out to a file (through ``ros2 param dump``).
+Galactic adds the ability to `load parameter values at runtime <https://github.com/ros2/ros2cli/pull/590>`__ from a YAML file using the ``ros2 param load`` verb.
+For example:
+
+Terminal 1:
+
+.. code-block:: bash
+
+  $ ros2 run demo_nodes_cpp parameter_blackboard
+
+Terminal 2:
+
+.. code-block:: bash
+
+  $ ros2 param set /parameter_blackboard foo bar  # sets 'foo' parameter to value 'bar'
+  $ ros2 param dump /parameter_blackboard  # dumps current value of parameters to ./parameter_blackboard.yaml
+  $ ros2 param set /parameter_blackboard foo different  # sets 'foo' parameter to value 'different'
+  $ ros2 param load /parameter_blackboard ./parameter_blackboard.yaml  # reloads previous state of parameters, 'foo' is back to 'bar'
+
 Changes since the Foxy release
 ------------------------------
 
