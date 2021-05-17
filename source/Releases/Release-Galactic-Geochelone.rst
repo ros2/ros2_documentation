@@ -218,6 +218,23 @@ RMW vendors should implement this API for some features in ROS 2 packages to wor
 
 Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_
 
+ament_cmake
+^^^^^^^^^^^
+
+``ament_install_python_package()`` now installs a Python egg
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+By installing a flat Python egg, Python packages installed using ``ament_install_python_package()`` can be discovered using modules such as ``pkg_resources`` and ```importlib.metadata``. Also, additional metadata can be provided in a ``setup.cfg`` file (including entry points).
+
+Related PR: `ament/ament_cmake#326 <https://github.com/ament/ament_cmake/pull/326>`_
+
+``ament_target_dependencies()`` handles SYSTEM dependencies
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Some package dependencies can now be marked as SYSTEM dependencies, helping to cope with warnings in external code. Typically, SYSTEM dependencies are also excluded from dependency calculations -- use them with care.
+
+Related PR: `ament/ament_cmake#297 <https://github.com/ament/ament_cmake/pull/297>`_
+
 nav2
 ^^^^
 
