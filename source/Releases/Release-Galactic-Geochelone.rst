@@ -145,21 +145,19 @@ Related PRs: `ros2/rclcpp#1408 <https://github.com/ros2/rclcpp/pull/1408>`_ and 
 Python point_cloud2 utilities available
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Several utilities for interacting with pointclouds from Python were `ported to ROS 2 <https://github.com/ros2/common_interfaces/pull/128>`__.
-These utilities allow one to get a list of points from a ROS 2 point cloud message (``read_points`` and ``read_points_list``), and to create a ROS 2 point cloud message from a list of points (``create_cloud`` and ``create_cloud_xyz32``).
+Several utilities for interacting with `PointCloud2 messages <https://github.com/ros2/common_interfaces/blob/galactic/sensor_msgs/msg/PointCloud2.msg>`__ in Python were `ported to ROS 2 <https://github.com/ros2/common_interfaces/pull/128>`__.
+These utilities allow one to get a list of points from a PointCloud2 message (``read_points`` and ``read_points_list``), and to create a PointCloud2 message from a list of points (``create_cloud`` and ``create_cloud_xyz32``).
 
-An example of creating ROS 2 point cloud message, then reading it back:
+An example of creating PointCloud 2 message, then reading it back:
 
 .. code-block:: python
 
-  import numpy as np
-  import sensor_msgs.msg
   import sensor_msgs_py.point_cloud2
-  import std_msgs.msg
+  from std_msgs.msg import Header
 
   pointlist = [[0.0, 0.1, 0.2]]
 
-  pointcloud = sensor_msgs_py.point_cloud2.create_cloud_xyz32(std_msgs.msg.Header(frame_id='frame'), pointlist)
+  pointcloud = sensor_msgs_py.point_cloud2.create_cloud_xyz32(Header(frame_id='frame'), pointlist)
 
   for point in sensor_msgs_py.point_cloud2.read_points(pointcloud):
       print(point)
