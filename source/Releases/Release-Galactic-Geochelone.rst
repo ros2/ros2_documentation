@@ -174,7 +174,7 @@ A panel that looks like the following will appear:
 ros2 topic echo can print serialized data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-When debugging networking issues, it can be useful to see the raw serialized data that the RMW backend is sending over the wire.
+When debugging middleware issues, it can be useful to see the raw serialized data that the RMW is sending.
 The `--raw command-line flag <https://github.com/ros2/ros2cli/pull/470>`__ was added to ``ros2 topic echo`` to show this data.
 To see this in action, run the following commands.
 
