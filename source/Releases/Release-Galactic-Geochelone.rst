@@ -171,6 +171,27 @@ A panel that looks like the following will appear:
 
 .. image:: rviz2-time-panel-2021-05-17.png
 
+ros2 topic echo can print serialized data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When debugging middleware issues, it can be useful to see the raw serialized data that the RMW is sending.
+The `--raw command-line flag <https://github.com/ros2/ros2cli/pull/470>`__ was added to ``ros2 topic echo`` to show this data.
+To see this in action, run the following commands.
+
+Terminal 1:
+
+.. code-block:: bash
+
+  $ ros2 topic pub /chatter std_msgs/msg/String "data: 'hello'"
+
+Terminal 2:
+
+.. code-block:: bash
+
+  $ ros2 topic echo --raw /chatter
+  b'\x00\x01\x00\x00\x06\x00\x00\x00hello\x00\x00\x00'
+  ---
+
 Changes since the Foxy release
 ------------------------------
 
