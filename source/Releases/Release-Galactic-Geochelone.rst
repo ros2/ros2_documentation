@@ -234,6 +234,44 @@ Terminal 2:
   $ ros2 param set /parameter_blackboard foo different  # sets 'foo' parameter to value 'different'
   $ ros2 param load /parameter_blackboard ./parameter_blackboard.yaml  # reloads previous state of parameters, 'foo' is back to 'bar'
 
+Tools to check for QoS incompatibilities
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Built on top of new QoS compatibility check APIs, ``ros2doctor`` and ``rqt_graph`` can now detect and report QoS incompatibilities between publishers and subscriptions.
+
+Given a publisher and a subscription with `incompatible QoS settings <../Concepts/About-Quality-of-Service-Settings>`:
+
+Terminal 1:
+
+.. code-block:: bash
+
+  $ ros2 run demo_nodes_py talker_qos -n 1000  # i.e. best_effort publisher
+
+Terminal 2:
+
+.. code-block:: bash
+
+  $ ros2 run demo_nodes_py listener_qos --reliable -n 1000  # i.e. reliable subscription
+
+``ros2doctor`` reports:
+
+.. code-block:: bash
+
+  $ ros2 doctor --report
+  # ...
+     QOS COMPATIBILITY LIST
+  topic [type]            : /chatter [std_msgs/msg/String]
+  publisher node          : talker_qos
+  subscriber node         : listener_qos
+  compatibility status    : ERROR: Best effort publisher and reliable subscription;
+  # ...
+
+while ``rqt_graph`` shows:
+
+.. image:: images/rqt_graph-qos-incompatibility-2021-05-17.png
+
+Related PRs: `ros2/ros2cli#621 <https://github.com/ros2/ros2cli/pull/621>`_, `ros-visualization/rqt_graph#61 <https://github.com/ros-visualization/rqt_graph/pull/61>`_
+
 Changes since the Foxy release
 ------------------------------
 
@@ -251,12 +289,15 @@ Connext RMW changed to rmw_connextdds
 A new RMW for Connext called `rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_ was merged for Galactic.
 This RMW has better performance and fixes many of the issues with the older RMW ``rmw_connext_cpp``.
 
-New RMW API
-^^^^^^^^^^^
+rmw
+^^^
+
+New API for checking QoS profile compatibility
+""""""""""""""""""""""""""""""""""""""""""""""
 
 ``rmw_qos_profile_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
 
-RMW vendors should implement this API for some features in ROS 2 packages to work correctly.
+RMW vendors should implement this API for QoS debugging and introspection features in tools such as ``rqt_graph`` to work correctly.
 
 Related PR: `ros2/rmw#299 <https://github.com/ros2/rmw/pull/299>`_
 
@@ -419,7 +460,7 @@ If the previous dynamic behavior is desired, there is an mechanism to opt it in 
 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
-Add API for checking QoS profile compatibility
+New API for checking QoS profile compatibility
 """"""""""""""""""""""""""""""""""""""""""""""
 
 ``qos_check_compatible`` is a new function for checking the compatibility of two QoS profiles.
@@ -495,7 +536,7 @@ Run these commands to see how statically and dynamically typed parameters are di
 
 For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
-Add API for checking QoS profile compatibility
+New API for checking QoS profile compatibility
 """"""""""""""""""""""""""""""""""""""""""""""
 
 ``rclpy.qos.qos_check_compatible`` is `a new function <https://github.com/ros2/rclpy/pull/708>`_ for checking the compatibility of two QoS profiles.
