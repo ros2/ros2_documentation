@@ -289,6 +289,27 @@ Connext RMW changed to rmw_connextdds
 A new RMW for Connext called `rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_ was merged for Galactic.
 This RMW has better performance and fixes many of the issues with the older RMW ``rmw_connext_cpp``.
 
+Large improvements in testing and overall quality
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Galactic contains many changes that fix race conditions, plug memory leaks, and fix user reported problems.
+Besides these changes, there was a concerted effort during Galactic development to improve overall quality of the system by implementing `REP 2004 <https://www.ros.org/reps/rep-2004.html>`__.
+The ``rclcpp`` package and all of its dependencies (which include most of the ROS 2 non-Python core packages) were brought up to `Quality Level 1 <https://www.ros.org/reps/rep-2004.html#quality-level-1>`__ by:
+
+* Having a version policy (QL1 requirement 1)
+* Having a documented change control process (QL1 requirement 2)
+* Documenting all features and public APIs (QL1 requirement 3)
+* Adding many additional tests (QL1 requirement 4):
+
+  * System tests for all features
+  * Unit tests for all public APIs
+  * Nightly performance tests
+  * Code coverage at 95%
+
+* Having all runtime dependencies of packages be at least as high as the package (QL1 requirement 5)
+* Supporting all of the REP-2000 platforms (QL1 requirement 6)
+* Having a vulnerability disclosure policy (QL1 requirement 7)
+
 rmw
 ^^^
 
