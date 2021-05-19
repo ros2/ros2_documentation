@@ -37,6 +37,7 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Galactic-Geochelone-Complete-Changelog.rst
    Releases/Release-Rolling-Ridley.rst
 
+.. |galactic| image:: Releases/galactic-small.png
 .. |foxy| image:: Releases/foxy-small.png
 .. |eloquent| image:: Releases/eloquent-small.png
 .. |dashing| image:: Releases/dashing-small.png
@@ -120,7 +121,7 @@ Rows in the table marked in green are the currently supported distributions.
         <tr class="active">
           <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Galactic-Geochelone.html">Galactic Geochelone</a></p></td>
           <td class="distroclass"><p>May 23, 2021</p></td>
-          <td class="distroclass"><p></p></td>
+          <td class="distroclass"><p><img alt="Galactic logo" src="_images/galactic-small.png" /></p></td>
           <td class="distroclass"><p>November 2022</p></td>
         </tr>
         <tr class="active">
