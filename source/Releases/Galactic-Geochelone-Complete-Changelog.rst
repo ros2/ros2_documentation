@@ -3877,7 +3877,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`__) (`#69 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/69>`__)
-* Expose FastRTPS C typesupport generation via rosidl generate CLI (`#65 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/65>`__)
+* Expose Fast DDS C typesupport generation via rosidl generate CLI (`#65 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/65>`__)
 * Update QDs with up-to-date content (`#64 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/64>`__)
 * Fix item number in QD (`#59 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/59>`__)
 * Update QL to 2
@@ -3896,7 +3896,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * updating quality declaration links (re: `ros2/docs.ros2.org#52 <https://github.com/ros2/docs.ros2.org/issues/52>`__) (`#69 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/69>`__)
-* Expose FastRTPS C++ typesupport generation via rosidl generate CLI (`#66 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/66>`__)
+* Expose Fast DDS C++ typesupport generation via rosidl generate CLI (`#66 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/66>`__)
 * Update QDs with up-to-date content (`#64 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/64>`__)
 * Fix item number in QD (`#59 <https://github.com/ros2/rosidl_typesupport_fastrtps/issues/59>`__)
 * Update QL to 2

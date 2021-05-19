@@ -9,7 +9,7 @@ ROS 2 is built on top of DDS/RTPS as its middleware, which provides discovery, s
 `This article <https://design.ros2.org/articles/ros_on_dds.html>`__ explains the motivation behind using DDS implementations, and/or the RTPS wire protocol of DDS, in detail.
 In summary, DDS is an end-to-end middleware that provides features which are relevant to ROS systems, such as distributed discovery (not centralized like in ROS 1) and control over different "Quality of Service" options for the transportation.
 
-`DDS <https://www.omg.org/omg-dds-portal>`__ is an industry standard which is implemented by a range of vendors, such as RTI's `Connext DDS <https://www.rti.com/products/>`__, eProsima's `Fast-DDS <https://fast-dds.docs.eprosima.com/>`__, or Eclipse's `Cyclone DDS <https://projects.eclipse.org/projects/iot.cyclonedds>`__.
+`DDS <https://www.omg.org/omg-dds-portal>`__ is an industry standard which is implemented by a range of vendors, such as RTI's `Connext DDS <https://www.rti.com/products/>`__, eProsima's `Fast DDS <https://fast-dds.docs.eprosima.com/>`__, or Eclipse's `Cyclone DDS <https://projects.eclipse.org/projects/iot.cyclonedds>`__.
 RTPS (a.k.a. `DDSI-RTPS <https://www.omg.org/spec/DDSI-RTPS/About-DDSI-RTPS/>`__\ ) is the wire protocol used by DDS to communicate over the network.
 
 ROS 2 supports multiple DDS/RTPS implementations because it is not necessarily "one size fits all" when it comes to choosing a vendor/implementation.
@@ -52,7 +52,7 @@ The ROS 2 binary releases for currently active distros have built-in support for
 Since Galactic, the default is Cyclone DDS, which works without any additional installation steps, because we distribute it with our binary packages.
 Prior to Galactic, the default was Fast DDS, which works without any additional installation steps.
 
-Other RMWs like Fast-DDS or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Fast DDS or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
@@ -61,9 +61,9 @@ For example, if the code for the `RMW package for RTI Connext DDS <https://githu
 For many cases you will find that nodes using different RMW implementations are able to communicate, however this is not true under all circumstances.
 Here is a list of inter-vendor communication configurations that are not supported:
 
-- Fast-DDS <-> Connext
+- Fast DDS <-> Connext
    - does not support communication over pub/sub
-   - ``WString`` published by Fast-DDS can't be received correctly by Connext on macOS
+   - ``WString`` published by Fast DDS can't be received correctly by Connext on macOS
 - OpenSplice <-> OpenSplice
    - does not support ``WString``
    - ``WString`` is mapped to ``String`` which has a different wire representation
