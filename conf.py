@@ -115,9 +115,9 @@ templates_path = [
 smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'foxy'
+smv_latest_version = 'galactic'
 smv_eol_versions = ['crystal', 'eloquent']
 
 
@@ -251,7 +251,7 @@ def smv_rewrite_configs(app, config):
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        if app.config.smv_current_version not in ['rolling', 'galactic']:
+        if app.config.smv_current_version not in ['rolling']:
             app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
