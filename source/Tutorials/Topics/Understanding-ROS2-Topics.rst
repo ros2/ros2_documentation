@@ -176,7 +176,7 @@ Which will return:
 
   Type: geometry_msgs/msg/Twist
   Publisher count: 1
-  Subscriber count: 2
+  Subscription count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
