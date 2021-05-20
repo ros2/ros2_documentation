@@ -46,7 +46,7 @@ The TSC aims to ensure the following characteristics of the project:
 Establishment of the TSC
 ------------------------
 
-The TSC is made up of individuals who contribute materially to the project and/or individuals who represent organizations that contribute materially to the project.
+The TSC is made up of individuals who contribute materially to the project and/or individuals who represent organizations that contribute materially to the project and/or selected community representatives.
 The TSC seeks to coordinate the contributions that members and their organizations are voluntarily making to the project.
 The TSC cannot compel or oblige any action on the part of a member, his or her organization, or that organization’s employees.
 
@@ -83,6 +83,71 @@ The TSC cannot compel or oblige any action on the part of a member, his or her o
 #. Open Robotics, as the founding sponsor of the project, has permanent membership on the TSC, hosts TSC meetings, and provides a representative to serve as chairperson.
 
 #. Any organization or individual may apply for membership on the TSC by email to <info@openrobotics.org>.
+
+Community representation
+------------------------
+
+The TSC shall include a number of individuals who represent the broader ROS community rather than any particular organisation or individual.
+
+#. The number of community representatives shall be set by a decision of the TSC.
+   However, this number shall not be less than three, and shall also not be less than 10% of the number of non-community representative members in the TSC.
+
+#. A community representative serves for two years.
+
+   * The term of service begins on the 1st of December immediately following an election.
+
+#. Fifty percent (50%) of the initial set of community representatives shall serve for only one year in their first term to stagger the community representative terms.
+
+#.  A community representative may be removed from the TSC earlier than two years if one of the following conditions is met:
+
+    * The community representative requests to stand down voluntarily.
+
+    * The TSC chairperson deems that the community representative has behaved inappropriately.
+      The TSC chairperson must make public the reason for standing down the community representative.
+
+#. When a community representative is removed from the TSC:
+
+   * If the number of community representatives is below the specified minimum, the TSC shall recommend and the chairperson shall appoint a new community representative to serve the remainder of the removed community representative's term.
+
+   * If the number of community representatives is above the specified minimum, no special action shall be taken.
+
+#. A community representative is selected via an open election.
+
+#. An individual is eligible to stand for election as a community representative if:
+
+   * The maximum number of community representatives from any single organisation is one.
+
+   * The individual has voluntarily nominated themselves.
+
+   * That individual's nomination has not been vetoed by the TSC chairperson.
+
+#. Community representative elections shall be held in the following manner:
+
+   * Elections shall be held in conjunction with the annual global ROSCon.
+
+   * The election process shall begin four weeks prior to the first day of ROSCon.
+
+   * Self-nominations are taken from the beginning of the election process for a period of one week.
+
+   * Nominees shall provide a biography and a written statement to be placed on an election website.
+     The written statement shall state why the candidate believes themselves suitable and what they intend to accomplish as a community representative.
+
+   * The period between the start of the election process and the close of voting may be used for campaigning by candidates.
+
+   * Balloting shall be opened from the opening session of ROSCon.
+
+   * Balloting shall be conducted using an online method.
+
+   * The eligibility criteria for voters shall be determined by the TSC prior to commencing an election and clearly stated in the election information from the start of nominations until the close of voting.
+
+   * Balloting shall be conducted using the Condorcet method.
+
+   * The results of the election shall be announced during the closing session of ROSCon.
+
+   * Nominees shall not be required to attend ROSCon in person, unless required by the TSC chairperson.
+
+   * In the event that ROSCon is not held during a given calendar year for any reason, then the foregoing election process shall still be followed, with procedural modifications as necessary, at a time of the TSC’s choosing, but with the results being announced no later than the 30th of November.
+
 
 Meetings
 --------
