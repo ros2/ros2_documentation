@@ -176,7 +176,7 @@ Which will return:
 
   Topic: /turtle1/cmd_vel
   Publisher count: 1
-  Subscriber count: 2
+  Subscription count: 2
 
 6 ros2 interface show
 ^^^^^^^^^^^^^^^^^^^^^
