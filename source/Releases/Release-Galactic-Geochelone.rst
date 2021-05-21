@@ -272,6 +272,52 @@ while ``rqt_graph`` shows:
 
 Related PRs: `ros2/ros2cli#621 <https://github.com/ros2/ros2cli/pull/621>`_, `ros-visualization/rqt_graph#61 <https://github.com/ros-visualization/rqt_graph/pull/61>`_
 
+Use launch substitutions in parameter files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Just like ``rosparam`` tags in ROS 1 ``roslaunch``, ``launch_ros`` can now evaluate substitutions in parameter files.
+
+For example, given some ``parameter_file_with_substitutions.yaml`` like the following:
+
+.. code-block:: yaml
+
+  /**:
+    ros__parameters:
+      launch_date: $(command date)
+
+Set ``allow_substs`` to ``True`` to get substitutions evaluated upon ``Node`` launch:
+
+.. code-block:: python
+
+  import launch
+  import launch_ros.parameter_descriptions
+  import launch_ros.actions
+
+  def generate_launch_description():
+      return launch.LaunchDescription([
+          launch_ros.actions.Node(
+              package='demo_nodes_cpp',
+              executable='parameter_blackboard',
+              parameters=[
+                  launch_ros.parameter_descriptions.ParameterFile(
+                      param_file='parameter_file_with_substitutions.yaml',
+                      allow_substs=True)
+              ]
+          )
+      ])
+
+XML launch files also support this.
+
+.. code-block:: xml
+
+  <launch>
+    <node pkg="demo_nodes_cpp" exec="parameter_blackboard">
+      <param from="parameter_file_with_substitutions.yaml" allow_substs="true"/>
+    </node>
+  </launch>
+
+Related PR: `ros2/launch_ros#168 <https://github.com/ros2/launch_ros/pull/168>`_
+
 Changes since the Foxy release
 ------------------------------
 
