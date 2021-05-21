@@ -37,156 +37,101 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Galactic-Geochelone-Complete-Changelog.rst
    Releases/Release-Rolling-Ridley.rst
 
-.. |galactic| image:: Releases/galactic-small.png
-.. |foxy| image:: Releases/foxy-small.png
-.. |eloquent| image:: Releases/eloquent-small.png
-.. |dashing| image:: Releases/dashing-small.png
-.. |crystal| image:: Releases/crystal-small.png
-.. |bouncy| image:: Releases/bouncy-small.png
-.. |ardent| image:: Releases/ardent-small.png
-
 .. raw:: html
 
-    <!--
-    The CSS and HTML below generate the list of current and historic ROS 2 distributions.
-    It is currently using raw HTML because there was no way that I could see to make the
-    ReStructured Text "list-tables" directive work with Read-the-docs.
-    -->
-    <style>
-    table.distroclass, th.distroclass {
-      border: 1px solid #e1e4e5;
-      border-top-color: rgb(225, 228, 229);
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-right-color: rgb(225, 228, 229);
-      border-right-style: solid;
-      border-right-width: 1px;
-      border-bottom-color: rgb(225, 228, 229);
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-left-color: rgb(225, 228, 229);
-      border-left-style: solid;
-      border-left-width: 1px;
-      border-image-outset: 0;
-      border-image-repeat: stretch;
-      border-image-slice: 100%;
-      border-image-source: none;
-      border-image-width: 1;
-    }
-    td.distroclass {
-      border-top-color: rgb(225, 228, 229);
-      border-top-style: solid;
-      border-top-width: 1px;
-      border-right-color: rgb(225, 228, 229);
-      border-right-style: solid;
-      border-right-width: 1px;
-      border-bottom-color: rgb(225, 228, 229);
-      border-bottom-style: solid;
-      border-bottom-width: 1px;
-      border-left-color: rgb(225, 228, 229);
-      border-left-style: solid;
-      border-left-width: 1px;
-      vertical-align: middle;
-      padding-left: 15px;
-    }
-    thead.distroclass {
-      color: #000;
-      text-align: left;
-      vertical-align: bottom;
-      white-space: nowrap;
-    }
-    tr.distroclass:nth-child(2n-1) {
-      background-color: #f3f6f6;
-    }
-    tr.active {
-      background-color: #33cc66;
-    }
-    </style>
-    <table class="distroclass">
-      <colgroup>
-        <col style="width: 35%" />
-        <col style="width: 30%" />
-        <col style="width: 20%" />
-        <col style="width: 15%" />
-      </colgroup>
-      <thead>
-        <tr>
-          <th class="distroclass"><p>Distro</p></th>
-          <th class="distroclass"><p>Release date</p></th>
-          <th class="distroclass"><p>Logo</p></th>
-          <th class="distroclass"><p>EOL Date</p></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="active">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Galactic-Geochelone.html">Galactic Geochelone</a></p></td>
-          <td class="distroclass"><p>May 23, 2021</p></td>
-          <td class="distroclass"><p><img alt="Galactic logo" src="_images/galactic-small.png" /></p></td>
-          <td class="distroclass"><p>November 2022</p></td>
-        </tr>
-        <tr class="active">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Foxy-Fitzroy.html">Foxy Fitzroy</a></p></td>
-          <td class="distroclass"><p>June 5, 2020</p></td>
-          <td class="distroclass"><p><img alt="Foxy logo" src="_images/foxy-small.png" /></p></td>
-          <td class="distroclass"><p>May 2023</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Eloquent-Elusor.html">Eloquent Elusor</a></p></td>
-          <td class="distroclass"><p>November 22nd, 2019</p></td>
-          <td class="distroclass"><p><img alt="Eloquent logo" src="_images/eloquent-small.png" /></p></td>
-          <td class="distroclass"><p>November 2020</p></td>
-        </tr>
-        <tr class="active">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Dashing-Diademata.html">Dashing Diademata</a></p></td>
-          <td class="distroclass"><p>May 31st, 2019</p></td>
-          <td class="distroclass"><p><img alt="Dashing logo" src="_images/dashing-small.png" /></p></td>
-          <td class="distroclass"><p>May 2021</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Crystal-Clemmys.html">Crystal Clemmys</a></p></td>
-          <td class="distroclass"><p>December 14th, 2018</p></td>
-          <td class="distroclass"><p><img alt="Crystal logo" src="_images/crystal-small.png" /></p></td>
-          <td class="distroclass"><p>December 2019</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Bouncy-Bolson.html">Bouncy Bolson</a></p></td>
-          <td class="distroclass"><p>July 2nd, 2018</p></td>
-          <td class="distroclass"><p><img alt="Bouncy logo" src="_images/bouncy-small.png" /></p></td>
-          <td class="distroclass"><p>July 2019</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Release-Ardent-Apalone.html">Ardent Apalone</a></p></td>
-          <td class="distroclass"><p>December 8th, 2017</p></td>
-          <td class="distroclass"><p><img alt="Ardent logo" src="_images/ardent-small.png" /></p></td>
-          <td class="distroclass"><p>December 2018</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta3-Overview.html">beta3</a></p></td>
-          <td class="distroclass"><p>September 13th, 2017</p></td>
-          <td class="distroclass"/>
-          <td class="distroclass"><p>December 2017</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta2-Overview.html">beta2</a></p></td>
-          <td class="distroclass"><p>July 5th, 2017</p></td>
-          <td class="distroclass"/>
-          <td class="distroclass"><p>September 2017</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Beta1-Overview.html">beta1</a></p></td>
-          <td class="distroclass"><p>December 19th, 2016</p></td>
-          <td class="distroclass"/>
-          <td class="distroclass"><p>July 2017</p></td>
-        </tr>
-        <tr class="distroclass">
-          <td class="distroclass"><p><a class="reference internal" href="Releases/Alpha-Overview.html">alpha1 - alpha8</a></p></td>
-          <td class="distroclass"><p>August 31st, 2015</p></td>
-          <td class="distroclass"/>
-          <td class="distroclass"><p>December 2016</p></td>
-        </tr>
-      </tbody>
-    </table>
-    <br/>
+   <!--
+     This CSS overrides the styles of certain rows to mark them green, indicating they are supported releases.
+     For the odd number rows, a line like the following must be used:
+
+       .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
+
+     For the even number rows, a line like the following must be used:
+
+       .rst-content tr:nth-child(2) {background-color: #33cc66;}
+
+     No other combination I've found has worked.  Yes, this is extremely fragile.  No, I don't understand
+     why it is like this.
+   -->
+   <style>
+     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
+     .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content tr:nth-child(4) {background-color: #33cc66;}
+   </style>
+
+.. |galactic| image:: Releases/galactic-small.png
+   :alt: Galactic logo
+
+.. |foxy| image:: Releases/foxy-small.png
+   :alt: Foxy logo
+
+.. |eloquent| image:: Releases/eloquent-small.png
+   :alt: Eloquent logo
+
+.. |dashing| image:: Releases/dashing-small.png
+   :alt: Dashing logo
+
+.. |crystal| image:: Releases/crystal-small.png
+   :alt: Crystal logo
+
+.. |bouncy| image:: Releases/bouncy-small.png
+   :alt: Bouncy logo
+
+.. |ardent| image:: Releases/ardent-small.png
+   :alt: Ardent logo
+
+.. list-table::
+   :class: distros
+   :header-rows: 1
+   :widths: 35 30 20 15
+
+   * - Distro
+     - Release date
+     - Logo
+     - EOL date
+   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
+     - May 23rd, 2021
+     - |galactic|
+     - November 2022
+   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
+     - June 5th, 2020
+     - |foxy|
+     - May 2023
+   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
+     - November 22nd, 2019
+     - |eloquent|
+     - November 2020
+   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+     - May 31st, 2019
+     - |dashing|
+     - May 2021
+   * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
+     - December 14th, 2018
+     - |crystal|
+     - December 2019
+   * - `Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
+     - July 2nd, 2018
+     - |bouncy|
+     - July 2019
+   * - `Ardent Apalone <Releases/Release-Ardent-Apalone>`
+     - December 8th, 2017
+     - |ardent|
+     - December 2018
+   * - `beta3 <Releases/Beta3-Overview>`
+     - September 13th, 2017
+     -
+     - December 2017
+   * - `beta2 <Releases/Beta2-Overview>`
+     - July 5th, 2017
+     -
+     - September 2017
+   * - `beta1 <Releases/Beta1-Overview>`
+     - December 19th, 2016
+     -
+     - Jul 2017
+   * - `alpha1 - alpha8 <Releases/Alpha-Overview>`
+     - August 31th, 2015
+     -
+     - December 2016
 
 Future Distributions
 --------------------
