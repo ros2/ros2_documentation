@@ -323,7 +323,7 @@ Support for unique network flows
 
 Applications may now require UDP/TCP and IP-based RMW implementations to provide unique *network flows* (i.e. unique `Differentiated Services Code Points <https://tools.ietf.org/html/rfc2474>`_ and/or unique `IPv6 Flow Labels <https://tools.ietf.org/html/rfc6437>`_ and/or unique ports in IP packet headers) for publishers and subscriptions, enabling QoS specifications for these IP streams in network architectures that support such a feature, like 5G networks.
 
-To see this in action, you may run these C++ examples (to be found in the `ros2/examples <https://github.com/ros2/examples>` repository):
+To see this in action, you may run these C++ examples (to be found in the `ros2/examples <https://github.com/ros2/examples>`__ repository):
 
 Terminal 1:
 
