@@ -318,6 +318,29 @@ XML launch files also support this.
 
 Related PR: `ros2/launch_ros#168 <https://github.com/ros2/launch_ros/pull/168>`_
 
+Support for unique network flows
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Applications may now require UDP/TCP and IP-based RMW implementations to provide unique *network flows* (i.e. unique `Differentiated Services Code Points <https://tools.ietf.org/html/rfc2474>`_ and/or unique `IPv6 Flow Labels <https://tools.ietf.org/html/rfc6437>`_ and/or unique ports in IP packet headers) for publishers and subscriptions, enabling QoS specifications for these IP streams in network architectures that support such a feature, like 5G networks.
+
+To see this in action, you may run these C++ examples (to be found in the `ros2/examples <https://github.com/ros2/examples>` repository):
+
+Terminal 1:
+
+.. code-block:: bash
+
+  ros2 run examples_rclcpp_minimal_publisher publisher_member_function_with_unique_network_flow_endpoints
+
+
+Terminal 2:
+
+.. code-block:: bash
+
+  ros2 run examples_rclcpp_minimal_subscriber subscriber_member_function_with_unique_network_flow_endpoints
+
+
+See the `Unique Network Flows design document <https://github.com/ros2/design/pull/304>`_ for further reference.
+
 Changes since the Foxy release
 ------------------------------
 
