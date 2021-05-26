@@ -107,8 +107,8 @@ it is easy to generate C, C++, and Python support source code:
 
 .. code-block:: bash
 
-  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs) \
-    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs)/.. \
+    -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 Generated source code will be put in the ``gen`` directory.
 
@@ -116,8 +116,8 @@ One may also translate the message definition to a different format for a third-
 
 .. code-block:: bash
 
-  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs) \
-    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs)/.. \
+    -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 The translated message definition will be put in the ``gen`` directory.
 
