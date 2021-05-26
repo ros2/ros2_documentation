@@ -35,6 +35,7 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Release-Foxy-Fitzroy.rst
    Releases/Release-Galactic-Geochelone.rst
    Releases/Galactic-Geochelone-Complete-Changelog.rst
+   Releases/Release-Humble-Hawksbill.rst
    Releases/Release-Rolling-Ridley.rst
 
 .. raw:: html
@@ -149,8 +150,8 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Supported for
      - Planned changes
-   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
-     - May 2021
+   * - `Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
+     - May 2022
      - TBD
      - TBD
 
