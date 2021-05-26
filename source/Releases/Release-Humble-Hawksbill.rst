@@ -47,3 +47,13 @@ Changes since the Galactic release
 ----------------------------------
 
 To come.
+
+Known Issues
+------------
+
+To come.
+
+Release Timeline
+----------------
+
+To come.

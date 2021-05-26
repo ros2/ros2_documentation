@@ -150,8 +150,8 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Supported for
      - Planned changes
-   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
-     - May 2021
+   * - `Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
+     - May 2022
      - TBD
      - TBD
 
