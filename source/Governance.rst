@@ -174,6 +174,12 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/Build-Farms
+
+Build Farms
+--------------------
+
+As described in its :ref:`charter <ROS2TSCCharter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 Working Groups (WGs)
 --------------------
