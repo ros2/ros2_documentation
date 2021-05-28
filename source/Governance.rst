@@ -18,7 +18,7 @@ Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>
 
 The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 
-.. |adlink| image:: Governance/adlink.svg
+.. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
 .. |apex| image:: Governance/apex.png
 .. |bosch| image:: Governance/bosch_75h.jpg
@@ -89,7 +89,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
     <table class="tscclass">
       <tbody>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ADLINK Technology: Joe Speed</p></td>
         </tr>
         <tr class="tscclass">
