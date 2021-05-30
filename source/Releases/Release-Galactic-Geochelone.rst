@@ -1,8 +1,6 @@
-.. _upcoming-release:
+.. _latest_release:
 
 .. _galactic-release:
-
-.. move this directive when next release page is created
 
 ROS 2 Galactic Geochelone (codename 'galactic'; May, 2021)
 ==========================================================
@@ -107,8 +105,8 @@ it is easy to generate C, C++, and Python support source code:
 
 .. code-block:: bash
 
-  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs) \
-    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+  rosidl generate -o gen -t c -t cpp -t py -I$(ros2 pkg prefix --share std_msgs)/.. \
+    -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 Generated source code will be put in the ``gen`` directory.
 
@@ -116,8 +114,8 @@ One may also translate the message definition to a different format for a third-
 
 .. code-block:: bash
 
-  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs) \
-    -I$(ros2 pkg prefix --share geometry_msgs) demo msg/Demo.msg
+  rosidl translate -o gen --to idl -I$(ros2 pkg prefix --share std_msgs)/.. \
+    -I$(ros2 pkg prefix --share geometry_msgs)/.. demo msg/Demo.msg
 
 The translated message definition will be put in the ``gen`` directory.
 
@@ -323,7 +321,7 @@ Support for unique network flows
 
 Applications may now require UDP/TCP and IP-based RMW implementations to provide unique *network flows* (i.e. unique `Differentiated Services Code Points <https://tools.ietf.org/html/rfc2474>`_ and/or unique `IPv6 Flow Labels <https://tools.ietf.org/html/rfc6437>`_ and/or unique ports in IP packet headers) for publishers and subscriptions, enabling QoS specifications for these IP streams in network architectures that support such a feature, like 5G networks.
 
-To see this in action, you may run these C++ examples (to be found in the `ros2/examples <https://github.com/ros2/examples>` repository):
+To see this in action, you may run these C++ examples (to be found in the `ros2/examples <https://github.com/ros2/examples>`__ repository):
 
 Terminal 1:
 
@@ -340,6 +338,155 @@ Terminal 2:
 
 
 See the `Unique Network Flows design document <https://github.com/ros2/design/pull/304>`_ for further reference.
+
+Rosbag2 New Features
+^^^^^^^^^^^^^^^^^^^^
+
+Split recording by time
+"""""""""""""""""""""""
+
+In Foxy, you could only split bags as they were recording by the size of the bag, now you can also split by the elapsed time.
+The following command will split bagfiles into 100-second chunks.
+
+.. code-block:: bash
+
+  ros2 bag record --all --max-bag-duration 100
+
+ros2 bag list
+"""""""""""""
+
+This new command lists installed plugins of various types that rosbag2 uses.
+
+.. code-block:: bash
+
+  $ ros2 bag list storage
+  rosbag2_v2
+  sqlite3
+
+  $ ros2 bag list converter
+  rosbag_v2_converter
+
+
+Compression implementation is a plugin
+""""""""""""""""""""""""""""""""""""""
+
+In Foxy, rosbag2 compression was hardcoded with a Zstd library implementation.
+This has been rearchitected so that compression implementations are a plugin, and can be swapped out without modifying the core rosbag2 codebase.
+The default plugin that ships with ``ros-galactic-rosbag2`` is still the Zstd plugin - but now more can be released and used, and by selectively installing packages Zstd could be excluded from an installation.
+
+
+Compress per-message
+""""""""""""""""""""
+
+In Foxy, you could automatically compress each rosbag file as it was split (per-file compression), but now you can also specify per-message compression.
+
+.. code-block:: bash
+
+  ros2 bag record --all --compression-format zstd --compression-mode message
+
+
+Rosbag2 Python API
+"""""""""""""""""""""
+
+A new package ``rosbag2_py`` has been released in Galactic, which provides a Python API.
+This package is a ``pybind11`` binding around the C++ API.
+As of the initial Galactic release, it does not yet expose all functionality available via the ``rosbag2_cpp`` API, but it is the sole connection for the ``ros2 bag`` CLI tool, so a good deal of functionality is available.
+
+
+performance testing package and performance improvements
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+A thorough performance analysis project was performed on rosbag2 since the Foxy release.
+The full initial report is available at https://github.com/ros2/rosbag2/blob/master/rosbag2_performance/rosbag2_performance_benchmarking/docs/rosbag2_performance_improvements.pdf .
+The package ``rosbag2_performance_benchmarking`` provides tools to run performance analyses, especially on recording, which helps us maintain and improve the performance of rosbag2.
+
+Following this report, key work was done do improve the performance to a much more usable state for actual robot workflows.
+To highlight a key metric - in a high bandwidth stress test (200Mbps), the Foxy release dropped up to 70% of messages, whereas the Galactic version was approximately 100% retention.
+Please see the linked report for more details.
+
+``--regex`` and ``--exclude`` options for topic selection
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The new recording options ``--regex`` and ``--exclude`` allow for fine-tuning the topics recorded in a bag, without having to explicitly list all topics.
+These options may be used together or separately, and in conjunction with ``--all``
+
+The following command will record only topics with "scan" in the name.
+
+.. code-block:: bash
+
+  ros2 bag record --regex "*scan*"
+
+The following command will record all topics except for ones in ``/my_namespace/``
+
+.. code-block:: bash
+
+  ros2 bag record --all --exclude "/my_namespace/*"
+
+
+``ros2 bag reindex``
+""""""""""""""""""""
+
+ROS 2 bags are represented by a directory, instead of a single file.
+This directory contains a ``metadata.yaml`` file, and one or more bag files.
+When the ``metadata.yaml`` file is lost or missing, ``ros2 bag reindex $bag_dir`` will attempt to reconstruct it by reading all the bag files in the directory.
+
+Playback time control
+"""""""""""""""""""""
+
+New controls have been added for rosbag2 playback - pause & resume, change rate, and play-next.
+As of the Galactic release, these controls are exposed only as services on the rosbag2 player node.
+Development is in progress to expose them to keyboard controls as well in ``ros2 bag play``, but until then a user application with buttons or keyboard controls may be trivially implemented to call these services.
+
+.. code-block:: bash
+
+  # In one shell
+  $ ros2 bag play my_bag
+
+  # In another shell
+  $ ros2 service list -t
+  /rosbag2_player/get_rate [rosbag2_interfaces/srv/GetRate]
+  /rosbag2_player/is_paused [rosbag2_interfaces/srv/IsPaused]
+  /rosbag2_player/pause [rosbag2_interfaces/srv/Pause]
+  /rosbag2_player/play_next [rosbag2_interfaces/srv/PlayNext]
+  /rosbag2_player/resume [rosbag2_interfaces/srv/Resume]
+  /rosbag2_player/set_rate [rosbag2_interfaces/srv/SetRate]
+  /rosbag2_player/toggle_paused [rosbag2_interfaces/srv/TogglePaused]
+
+  # Check if playback is paused
+  $ ros2 service call /rosbag2_player/is_paused rosbag2_interfaces/IsPaused
+
+  # Pause playback
+  $ ros2 service call /rosbag2_player/pause rosbag2_interfaces/Pause
+
+  # Resume playback
+  $ ros2 service call /rosbag2_player/resume rosbag2_interfaces/Resume
+
+  # Change the paused state of playback to its opposite. If playing, pauses. If paused, resumes.
+  $ ros2 service call /rosbag2_player/toggle_paused rosbag2_interfaces/TogglePaused
+
+  # Get the current playback rate
+  $ ros2 service call /rosbag2_player/get_rate
+
+  # Set the current playback rate (must be > 0)
+  $ ros2 service call /rosbag2_player/set_rate rosbag2_interfaces/SetRate "rate: 0.1"
+
+  # Play a single next message (only works while paused)
+  $ ros2 service call /rosbag2_player/play_next rosbag2_interfaces/PlayNext
+
+
+Playback publishes /clock
+"""""""""""""""""""""""""
+
+Rosbag2 can also dictate "simulation time" by publishing to the ``/clock`` topic during playback.
+The following commands will publish the clock message at a regular interval.
+
+.. code-block:: bash
+
+  # Publish at default rate - 40Hz
+  ros2 bag play my_bag --clock
+
+  # Publish at specific rate - 100Hz
+  ros2 bag play my_bag --clock 100
 
 Changes since the Foxy release
 ------------------------------
@@ -730,6 +877,14 @@ This boolean flag is set to true by default, not requiring any changes to existi
     bool enable_communication_interface = true);
 
 Related PRs: `ros2/rcl#882 <https://github.com/ros2/rcl/pull/882>`_ and `ros2/rclcpp#1507 <https://github.com/ros2/rclcpp/pull/1507>`_
+
+rcl_lifecycle and rclcpp_lifecycle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Recording - Split by time
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+
 
 Known Issues
 ------------
