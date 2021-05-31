@@ -44,9 +44,9 @@ distributions (via pull request to rosdistro_), the according jobs will be spawn
 
 **Execution** of the jobs depends on the type of the job:
 
-* `devel jobs`_ will be triggered every time a commit is done to the respective branch or pull
-  request of the upstream [1]_ repository
-* `release jobs`_ will be triggered once every time a new package version is released resp. a new
+* `devel jobs`_ will be triggered every time a commit is done to the respective branch or to the
+  respective pull request of the upstream [1]_ repository
+* `release jobs`_ will be triggered once every time a new package version is released, i.e. a new
   rosdistro_ pull request was accepted for this package
 
 
