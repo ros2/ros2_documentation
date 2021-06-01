@@ -20,16 +20,16 @@ Let's start by getting any dependencies and compiling the demo package.
 
 .. code-block:: console
 
-   sudo apt-get install ros-rolling-turtle-tf2 ros-rolling-tf2-tools
+   sudo apt-get install ros-rolling-turtle-tf2-py ros-rolling-tf2-tools
 
 Running the Demo
 -------------------
 
-Now that we're done compiling the turtle_tf2 tutorial package let's run the demo.
+Now that we're done compiling the turtle_tf2_py tutorial package let's run the demo.
 
 .. code-block:: console
 
-   ros2 launch turtle_tf2_launch turtle_tf2_demo.launch.py
+   ros2 launch turtle_tf2_py turtle_tf2_demo.launch.py
 
 You will see the turtlesim start with two turtles.
 
