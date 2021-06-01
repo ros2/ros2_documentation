@@ -129,7 +129,7 @@ Let's start rviz with the turtle_tf2 configuration file using the -d option 
 
 .. code-block:: console
 
-   ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2)/rviz/turtle_rviz.rviz
+   ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
 
 .. image:: turtlesim_rviz.png
 
