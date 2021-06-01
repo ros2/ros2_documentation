@@ -3,12 +3,18 @@ Installing DDS implementations
 
 By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
+<<<<<<< HEAD
 Dashing supports eProsima's Fast RTPS, ADLINK's OpenSplice, RTI's Connext DDS and Eclipse Cyclone DDS.
+=======
+There is currently support for eProsima's Fast DDS, RTI's Connext DDS and Eclipse Cyclone DDS.
+ADLINK's OpenSplice is no longer supported as of Foxy.
+>>>>>>> bd1553e (Update Fast DDS information in ROS 2 documentation (#1630) (#1632))
 See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
 
-For distros before Eloquent, the only bundled vendor is eProsima's Fast RTPS.
-Since Eloquent, both Fast RTPS and Cyclone DDS are bundled, but Fast RTPS is still the default.
+For distros before Eloquent, the only bundled vendor is eProsima's Fast DDS.
+Since Eloquent, both Fast DDS and Cyclone DDS are bundled, but Fast DDS is still the default.
 `Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
+`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast DDS>` explains how to utilize Fast DDS.
 
 .. toctree::
    :hidden:
