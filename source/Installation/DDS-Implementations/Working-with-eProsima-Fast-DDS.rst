@@ -1,12 +1,7 @@
-.. redirect-from::
-
-    Working-with-eProsima-Fast DDS
-
 Working with eProsima Fast DDS
 ==============================
 
-eProsima Fast DDS is the most complete open-source DDS implementation for real time embedded architectures and
-operating systems.
+eProsima Fast DDS is a complete open-source DDS implementation for real time embedded architectures and operating systems.
 See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
 
 
@@ -51,9 +46,9 @@ Finally, run colcon build.
    colcon build --symlink-install
 
 Switch to rmw_fastrtps
-------------------------
+----------------------
 
-Switch from other rmw to rmw_fastrtps by specifying the environment variable.
+The eProsima Fast DDS RMW can be selected by specifying the environment variable:
 
 .. code-block:: bash
 
