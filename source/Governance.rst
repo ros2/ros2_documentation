@@ -174,16 +174,6 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
-   Governance/Build-Farms
-
-Build Farms
---------------------
-
-The ROS build farms are an important infrastructure to support the ROS / ROS 2 ecosystem. It
-provides building of source and binary packages, continuous integration, testing, and analysis.
-
-For a detailed description, frequently asked questions, and troubleshooting see
-:ref:`build farms <BuildFarms>`.
 
 Working Groups (WGs)
 --------------------

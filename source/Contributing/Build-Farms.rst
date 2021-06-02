@@ -4,12 +4,8 @@
 ROS Build Farms
 ===============
 
-:Date: 2021-05-31
-:Version: 0.1
-:Organization: info@openrobotics.org
-
 .. contents:: Table of Contents
-   :depth: 2
+   :depth: 1
    :local:
 
 The ROS build farms are an important infrastructure to support the ROS ecosystem, provided and
