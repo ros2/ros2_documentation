@@ -41,7 +41,7 @@ In the second terminal window type the following command:
 
    ros2 run turtlesim turtle_teleop_key
 
-Once the turtlesim is started you can drive the center turtle around in the turtlesim using the keyboard arrow keys, 
+Once the turtlesim is started you can drive the center turtle around in the turtlesim using the keyboard arrow keys,
 select the second ros2 run terminal window so that your keystrokes will be captured to drive the turtle.
 
 .. image:: turtlesim_follow2.png
@@ -51,13 +51,13 @@ As you can see that one turtle will continuously move to follow the turtle you a
 What is Happening
 --------------------
 
-This demo is using the tf2 library to create three coordinate frames: a world frame, a turtle1 frame, and a turtle2 frame. 
+This demo is using the tf2 library to create three coordinate frames: a world frame, a turtle1 frame, and a turtle2 frame.
 This tutorial uses a tf2 broadcaster to publish the turtle coordinate frames and a tf2 listener to compute the difference in the turtle frames and move one turtle to follow the other.
 
 tf2 Tools
 ------------
 
-Now let's look at how tf2 is being used to create this demo. 
+Now let's look at how tf2 is being used to create this demo.
 We can use tf2 tools to look at what tf2 is doing behind the scenes.
 
 1 Using view_frames
@@ -66,7 +66,7 @@ We can use tf2 tools to look at what tf2 is doing behind the scenes.
 ``view_frames`` creates a diagram of the frames being broadcast by tf2 over ROS.
 
 .. code-block:: console
-   
+
    ros2 run tf2_tools view_frames
 
 You will see:
@@ -76,18 +76,18 @@ You will see:
    Listening to tf data during 5 seconds...
    Generating graph in frames.pdf file...
 
-Here a tf2 listener is listening to the frames that are being broadcast over 
+Here a tf2 listener is listening to the frames that are being broadcast over
 ROS and drawing a tree of how the frames are connected. To view the tree:
 
 .. code-block:: console
-   
+
    evince frames.pdf
 
 .. image:: turtlesim_frames.png
 
 Here we can see three frames that are broadcasted by tf2: world, turtle1, and turtle2.
-The world here is the parent of the turtle1 and turtle2 frames. 
-``view_frames`` also report some diagnostic information about when the oldest and most 
+The world here is the parent of the turtle1 and turtle2 frames.
+``view_frames`` also report some diagnostic information about when the oldest and most
 recent frame transforms were received and how fast the tf2 frame is published to tf2 for debugging purposes.
 
 2 Using tf_echo
@@ -104,8 +104,8 @@ Usage:
 Let's look at the transform of the turtle2 frame with respect to turtle1 frame which is equivalent to
 
 .. code-block:: console
-   
-   ros2 run tf2_ros tf2_echo turtle2 turtle1 
+
+   ros2 run tf2_ros tf2_echo turtle2 turtle1
 
 You will see the transform displayed as the tf_echo listener receives the frames broadcast over ROS.
 
@@ -123,8 +123,8 @@ As you drive your turtle around you will see the transform change as the two tur
 rviz and tf2
 ---------------
 
-``rviz`` is a visualization tool that is useful for examining tf2 frames. 
-Let's look at our turtle frames using rviz. 
+``rviz`` is a visualization tool that is useful for examining tf2 frames.
+Let's look at our turtle frames using rviz.
 Let's start rviz with the turtle_tf2 configuration file using the -d option for rviz:
 
 .. code-block:: console
