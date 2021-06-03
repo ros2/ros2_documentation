@@ -247,8 +247,7 @@ Now you can move turtle2 when this terminal is active, and turtle1 when the othe
 7 Close turtlesim
 ^^^^^^^^^^^^^^^^^
 
-To stop the simulation, you can simply close the terminal windows where you ran ``turtlesim_node`` and ``turtle_teleop_key``.
-If you want to keep those terminals open, but end the simulation, you can enter ``Ctrl + C`` in the ``turtlesim_node`` terminal, and ``q`` in the teleop terminal.
+To stop the simulation, you can enter ``Ctrl + C`` in the ``turtlesim_node`` terminal, and ``q`` in the teleop terminal.
 
 Summary
 -------

@@ -311,7 +311,7 @@ If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose`
 ^^^^^^^^^^
 
 At this point you'll have a lot of nodes running.
-Don’t forget to stop them, either by closing the terminal windows or entering ``Ctrl+C`` in each terminal.
+Don’t forget to stop them by entering ``Ctrl+C`` in each terminal.
 
 Summary
 -------
