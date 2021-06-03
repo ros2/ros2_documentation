@@ -2,7 +2,7 @@
 
     FastDDS-Configuration
 
-Unlock all the potential of Fast-DDS as ROS 2 middleware [community-contributed]
+Unlock all the potential of Fast DDS as ROS 2 middleware [community-contributed]
 ================================================================================
 
 **Goal:** This tutorial will show how to use the extended configuration capabilities of Fast DDS in ROS 2.
