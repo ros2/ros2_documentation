@@ -1,4 +1,4 @@
-.. _IntroToTF2:
+.. _IntroToTf2:
 
 Introduction to tf2
 ===================
@@ -16,7 +16,7 @@ Introduction to tf2
 Installing the Demo
 -------------------
 
-Let's start by getting any dependencies and compiling the demo package.
+Let's start by installing the demo package and its dependencies.
 
 .. code-block:: console
 
@@ -25,7 +25,7 @@ Let's start by getting any dependencies and compiling the demo package.
 Running the Demo
 ----------------
 
-Now that we're done compiling the turtle_tf2_py tutorial package let's run the demo.
+Now that we've installed the ``turtle_tf2_py`` tutorial package let's run the demo.
 
 .. code-block:: console
 
@@ -77,11 +77,8 @@ You will see:
    Generating graph in frames.pdf file...
 
 Here a tf2 listener is listening to the frames that are being broadcast over
-ROS and drawing a tree of how the frames are connected. To view the tree:
-
-.. code-block:: console
-
-   evince frames.pdf
+ROS and drawing a tree of how the frames are connected. To view the tree, open
+the resulting ``frames.pdf`` with your favorite PDF viewer.
 
 .. image:: turtlesim_frames.png
 
@@ -135,7 +132,7 @@ Let's start rviz with the turtle_tf2 configuration file using the -d option 
 
 In the side bar you will see the frames broadcast by tf2. As you drive the turtle around you will see the frames move in rviz.
 
-Next steps
-----------
+.. Next steps
+.. ----------
 
-Now that we have examined the turtle_tf2_demo, let's look at how to write the broadcaster (Python) (C++) for this demo.
+.. Now that we have examined the turtle_tf2_demo, let's look at how to write the broadcaster (Python) (C++) for this demo.

@@ -25,7 +25,6 @@ Beginner: CLI Tools
    Tutorials/Services/Understanding-ROS2-Services
    Tutorials/Parameters/Understanding-ROS2-Parameters
    Tutorials/Understanding-ROS2-Actions
-   Tutorials/TF2/Introduction-To-TF2
    Tutorials/Rqt-Console/Using-Rqt-Console
    Tutorials/Launch-Files/Creating-Launch-Files
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
@@ -61,6 +60,8 @@ Intermediate
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
+   Tutorials/Tf2/Tf2-Main
+   Tutorials/Tf2/Introduction-To-Tf2
 
 Advanced
 --------
