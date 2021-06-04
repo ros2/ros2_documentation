@@ -46,7 +46,28 @@ To come.
 Changes since the Galactic release
 ----------------------------------
 
-To come.
+ros2cli
+^^^^^^^
+
+``ros2 topic pub`` will wait for one matching subscription when using ``--times/--once/-1``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+When using ``--times/--once/-1`` flags, ``ros2 topic pub`` will wait for one matching subscription to be found before starting to publish.
+This avoids the issue of the ros2cli node starting to publish before discovering a matching subscription, which results in some of the first messages being lost.
+This is particularly unexpected when using a reliable qos profile.
+
+The number of matching subscriptions to wait before starting publishing can be configured with the ``-w/--wait-matching-subscriptions`` flags, e.g.:
+
+```
+ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
+```
+
+to wait for three matching subscriptions before starting to publish.
+
+``-w`` can also be used independently of ``--times/--once/-1`` but it only defaults to one when combined with them, otherwise the ``-w`` default is zero.
+
+See https://github.com/ros2/ros2cli/pull/642 for more details.
+
 
 Known Issues
 ------------
