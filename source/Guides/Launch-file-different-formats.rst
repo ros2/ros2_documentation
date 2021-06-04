@@ -12,23 +12,56 @@ Background
 
 Below is the same launch file implemented in Python, XML, and YAML.
 
-.. note::
-
-  TODO
-  * Include an include
-  * Use args
-
 .. tabs::
 
    .. group-tab:: Python
 
       .. code-block:: python
 
-        from launch import LaunchDescription
+        import launch
+        import launch_ros
+        from ament_index_python import get_package_share_directory
+        from launch.launch_description_sources import PythonLaunchDescriptionSource
         from launch_ros.actions import Node
 
+        import os
+
+
         def generate_launch_description():
-            return LaunchDescription([
+
+            background_r_launch_arg = launch.actions.DeclareLaunchArgument(
+                "background_r", default_value=launch.substitutions.TextSubstitution(text="0")
+            )
+            background_g_launch_arg = launch.actions.DeclareLaunchArgument(
+                "background_g", default_value=launch.substitutions.TextSubstitution(text="255")
+            )
+            background_b_launch_arg = launch.actions.DeclareLaunchArgument(
+                "background_b", default_value=launch.substitutions.TextSubstitution(text="0")
+            )
+            chatter_ns_launch_arg = launch.actions.DeclareLaunchArgument(
+                "chatter_ns", default_value=launch.substitutions.TextSubstitution(text="my/chatter/ns")
+            )
+
+            group_with_include = launch.actions.GroupAction(
+                actions=[
+                    launch_ros.actions.PushRosNamespace(
+                        launch.substitutions.LaunchConfiguration('chatter_ns'),
+
+                    ),
+                    launch.actions.IncludeLaunchDescription(
+                        PythonLaunchDescriptionSource(
+                            os.path.join(get_package_share_directory('demo_nodes_cpp'),
+                                        'launch/topics/talker_listener.launch.py'))
+                    ),
+                ]
+            )
+
+            return launch.LaunchDescription([
+                background_r_launch_arg,
+                background_g_launch_arg,
+                background_b_launch_arg,
+                chatter_ns_launch_arg,
+                group_with_include,
                 Node(
                     package='turtlesim',
                     namespace='turtlesim1',
@@ -41,9 +74,9 @@ Below is the same launch file implemented in Python, XML, and YAML.
                     executable='turtlesim_node',
                     name='sim',
                     parameters=[{
-                            "background_r": 255,
-                            "background_g": 0,
-                            "background_b": 0,
+                        "background_r": launch.substitutions.LaunchConfiguration('background_r'),
+                        "background_g": launch.substitutions.LaunchConfiguration('background_g'),
+                        "background_b": launch.substitutions.LaunchConfiguration('background_b'),
                     }]
                 ),
                 Node(
@@ -57,17 +90,43 @@ Below is the same launch file implemented in Python, XML, and YAML.
                 )
             ])
 
+
+        if __name__ == '__main__':
+            ls = launch.LaunchService()
+            ls.include_launch_description(generate_launch_description())
+            ls.run()
+
    .. group-tab:: XML
 
       .. code-block:: xml
 
         <launch>
+
+          <!-- args that can be set from the command line or a default will be used-->
+          <arg name="background_r" default="0"/>
+          <arg name="background_g" default="125"/>
+          <arg name="background_b" default="0"/>
+          <arg name="chatter_ns" default="my/chatter/ns"/>
+
+          <!-- include another launch file -->
+          <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
+          <!-- include another launch file in the chatter_ns namespace-->
+          <group>
+            <!-- push-ros-namespace to set namespace of included nodes -->
+            <push-ros-namespace namespace="$(var chatter_ns)"/>
+            <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
+          </group>
+
+          <!-- start a turtlesim_node in the turtlesim1 namespace -->
           <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim1"/>
+          <!-- start another turtlesim_node in the turtlesim2 namespace
+              and use args to set parameters -->
           <node pkg="turtlesim" exec="turtlesim_node" name="sim" namespace="turtlesim2">
-            <param name="background_r" value="255"/>
-            <param name="background_g" value="0"/>
-            <param name="background_b" value="0"/>
+            <param name="background_r" value="$(var background_r)"/>
+            <param name="background_g" value="$(var background_g)"/>
+            <param name="background_b" value="$(var background_b)"/>
           </node>
+          <!-- perform remap so both turtles listen to the same command topic -->
           <node pkg="turtlesim" exec="mimic" name="mimic">
             <remap from="/input/pose" to="/turtlesim1/turtle1/pose"/>
             <remap from="/output/cmd_vel" to="/turtlesim2/turtle1/cmd_vel"/>
@@ -79,6 +138,28 @@ Below is the same launch file implemented in Python, XML, and YAML.
       .. code-block:: yaml
 
         launch:
+
+        - arg:
+            name: "background_r"
+            default: "0"
+        - arg:
+            name: "background_g"
+            default: "125"
+        - arg:
+            name: "background_b"
+            default: "0"
+        - arg:
+            name: "chatter_ns"
+            default: "my/chatter/ns"
+
+
+        # Comment
+        - group:
+            - push-ros-namespace:
+                namespace: "$(var chatter_ns)"
+            - include:
+                file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
+
         - node:
             pkg: "turtlesim"
             exec: "turtlesim_node"
@@ -92,13 +173,13 @@ Below is the same launch file implemented in Python, XML, and YAML.
             param:
             -
               name: "background_r"
-              value: 255
+              value: "$(var background_r)"
             -
               name: "background_g"
-              value: 0
+              value: "$(var background_g)"
             -
               name: "background_b"
-              value: 0
+              value: "$(var background_b)"
         - node:
             pkg: "turtlesim"
             exec: "mimic"
@@ -110,6 +191,13 @@ Below is the same launch file implemented in Python, XML, and YAML.
             -
                 from: "/output/cmd_vel"
                 to: "/turtlesim2/turtle1/cmd_vel"
+
+
+Set the args with
+
+.. code-block:: console
+
+  ros2 run <path to launch file> background_r:=255
 
 You can control the turtles by running the following command in another terminal:
 
