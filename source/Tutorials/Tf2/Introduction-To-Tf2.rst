@@ -3,9 +3,9 @@
 Introduction to tf2
 ===================
 
-**Goal:** Run a turtlesim demo and see some of the tf2 power in a multi-robot example using turtlesim.
+**Goal:** Run a turtlesim demo and see some of the power of tf2 in a multi-robot example using turtlesim.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 
@@ -18,14 +18,27 @@ Installing the Demo
 
 Let's start by installing the demo package and its dependencies.
 
-.. code-block:: console
+.. tabs::
 
-   sudo apt-get install ros-rolling-turtle-tf2-py ros-rolling-tf2-tools
+   .. group-tab:: Linux Binaries
+
+       .. code-block:: console
+
+           sudo apt-get install ros-rolling-turtle-tf2-py ros-rolling-tf2-tools
+
+   .. group-tab:: From Source
+
+       .. code-block:: console
+
+           # Clone and build the geometry_tutorials repo using the branch that matches your installation
+           git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
 Running the Demo
 ----------------
 
 Now that we've installed the ``turtle_tf2_py`` tutorial package let's run the demo.
+First, open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so
+that ``ros2`` commands will work. Then run the following command:
 
 .. code-block:: console
 
@@ -131,8 +144,3 @@ Let's start rviz with the turtle_tf2 configuration file using the -d option 
 .. image:: turtlesim_rviz.png
 
 In the side bar you will see the frames broadcast by tf2. As you drive the turtle around you will see the frames move in rviz.
-
-.. Next steps
-.. ----------
-
-.. Now that we have examined the turtle_tf2_demo, let's look at how to write the broadcaster (Python) (C++) for this demo.

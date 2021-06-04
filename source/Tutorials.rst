@@ -61,7 +61,6 @@ Intermediate
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
    Tutorials/Tf2/Tf2-Main
-   Tutorials/Tf2/Introduction-To-Tf2
 
 Advanced
 --------
