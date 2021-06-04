@@ -61,8 +61,8 @@ The TSC cannot compel or oblige any action on the part of a member, his or her o
 
 #. TSC membership is not time-limited.
 
-#. The size of the TSC is limited to **30 members**.
-   This limit may be changed by the TSC via a standard TSC motion and vote.
+#. There is no maximum size for the TSC.
+   A size limit may be established by the TSC via a standard TSC motion and vote.
 
 #. The TSC may add additional members to the TSC by a standard TSC motion and vote.
    When considering the addition of a new member, the TSC is responsible for determining whether that potential member’s material contributions to the project are appropriate and sufficient to qualify for membership.
