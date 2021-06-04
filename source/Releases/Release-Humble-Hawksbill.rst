@@ -68,6 +68,24 @@ to wait for three matching subscriptions before starting to publish.
 
 See https://github.com/ros2/ros2cli/pull/642 for more details.
 
+``ros2 param dump`` default output changed
+""""""""""""""""""""""""""""""""""""""""""
+
+  * ``--print`` option for dump command was `deprecated <https://github.com/ros2/ros2cli/pull/638>`_.
+
+    It prints to stdout by default:
+
+    .. code-block:: bash
+
+      ros2 param dump /my_node_name
+
+  * ``--output-dir`` option for dump command was `deprecated <https://github.com/ros2/ros2cli/pull/638>`_.
+
+    To dump parameters to a file, run:
+
+    .. code-block:: bash
+
+      ros2 param dump /my_node_name > my_node_name.yaml
 
 Known Issues
 ------------
