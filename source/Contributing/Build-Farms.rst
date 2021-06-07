@@ -20,6 +20,7 @@ If you are going to use any of the provided infrastructure please consider signi
 farm discussion forum (http://discourse.ros.org/c/buildfarm) in order to receive notifications,
 e.g., about any upcoming changes.
 
+
 Jobs and Deployment
 -------------------
 
@@ -34,55 +35,72 @@ description what they do and how they work:
 * `miscellaneous jobs`_ perform maintenance tasks and generate informational data to visualize the
   status of the build farm and its generated artifacts
 
-**Creation/deployment** of the jobs happens when when packages are bloomed_, i.e. released for ROS
+Creation and Deployment
+.......................
+
+The above jobs are crated and deployed when packages are bloomed_, i.e. released for ROS
 1 or ROS 2. Once blooming is successful and a package is incorporated in one of the ros
 distributions (via pull request to rosdistro_), the according jobs will be spawned.
+The names of the jobs encode their type and purpose:
 
-**Execution** of the jobs depends on the type of the job:
+* release jobs:
+   * ``{distro}src_{platf}__{package}__{platform}__source`` [1]_ build source packages of releases
+   * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
+* devel jobs:
+   * ``{distro}dev_{platf}__{package}__{platform}`` perform a CI build for the releasing branch
+   * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
+
+Execution
+.........
+
+Execution of the jobs depends on the type of the job:
 
 * `devel jobs`_ will be triggered every time a commit is done to the respective branch or to the
-  respective pull request of the upstream [1]_ repository
+  respective pull request of the upstream [2]_ repository
 * `release jobs`_ will be triggered once every time a new package version is released, i.e. a new
-  rosdistro_ pull request was accepted for this package
+  rosdistro_ pull request was accepted for this package. The source jobs are triggered by a version
+  change in the rosdistro distribution file, the binary jobs are triggered by their source counter
+  part.
 
 
 Frequency Asked Questions (FaQ) and Troubleshooting
 ---------------------------------------------------
 
-#. **Why do release jobs fail when dev jobs / my github actions / my local builds succeed?**
+#. **I get Jenkins mails from failing build farm jobs. What do I do?**
 
-   There are several potential reasons for this.
-   First, release jobs build against a minimal ROS installation to check if all dependencies are
-   properly declared. Dev jobs / github actions / local builds may be performed in an environment
-   that has the dependencies already installed, therefore not noticing dependency issues.
-   Second, they might build different versions of the source code. While dev jobs / github actions
-   / local builds usually build the latest version from the *upstream* [1]_ repository,
-   `release jobs`_ build the source code of the latest release, i.e. the source code in the
-   respective *upstream* branches of the *release* repository [2]_.
+   Go to the job that raised the issue. You find the link on top of the Jenkins email.
+   Once you followed the link to the build job, click *Console Output* on the left, then click
+   *Full Log*. This will give you the full console output of the failing build. Try to find the
+   top-most error as it is usually the most important and other errors might be follow-ups.
 
-#. **I get Jenkins mails from failing 'bin' jobs. What do I do?**
-
-   This is a failing release job, see `job descriptions above`_. It will usually fail due to
-   dependencies being not properly declared in the package manifest, see next entry for details.
+   The bottom of the email might read ``'apt-src build [...]' failed. This is usually because of
+   an error building the package.`` This usually hints at missing dependencies, see 2.
 
 #. **I seem to miss a dependency, how do I find out which one?**
 
    You basically have two options, a. is easier but may take several iterations, b. is more
    elaborate and gives you the full insight as well as local debugging.
 
-   a) Go to the release job that raised the issue, you find the link on top of the Jenkins email
-      from the *bin* job. The bottom of the email usually reads ``'apt-src build [...]' failed.
-      This is usually because of an error building the package.``
-      Once you followed the link to the build job, click *Console Output* on the left, then click
-      *Full Log*. This will give you the full console output of the failing build, including the
-      cmake dependency issue. Browse to the cmake section, e.g., navigate to the *build binarydeb*
-      section through the menu on the left in case of a debian build job. The *CMake Error* will
-      typically hint at a dependency required by the cmake configuration but missing in the package
-      manifest. Once you fixed the dependency, do a new release of your package and wait for feedback
-      from the build farms or...
-   b) To get the full insight and faster, local debugging, you can run the release jobs locally.
-      This allows to iterate the package manifest locally until all dependencies are fixed, see
-      `run the release jobs locally`_.
+   a) Inspect the release job that raised the issue (see 1.) and localize the cmake dependency
+      issue. To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
+      section through the menu on the left in case of a ubuntu/debian build job. The *CMake Error*
+      will typically hint at a dependency required by the cmake configuration but missing in the
+      `package manifest`_. Once you fixed the dependency in the manifest, do a new release
+      of your package and wait for feedback from the build farms or...
+   b) To get the full insight and faster, local debugging, you can `run the release jobs locally`_.
+      This allows to iterate the manifest locally until all dependencies are fixed.
+
+#. **Why do release jobs fail when devel jobs / my github actions / my local builds succeed?**
+
+   There are several potential reasons for this.
+   First, release jobs build against a minimal ROS installation to check if all dependencies are
+   properly declared in the `package manifest`_. Devel jobs / github actions / local builds may
+   be performed in an environment
+   that has the dependencies already installed, therefore not noticing dependency issues.
+   Second, they might build different versions of the source code. While dev jobs / github actions
+   / local builds usually build the latest version from the *upstream* [2]_ repository,
+   `release jobs`_ build the source code of the latest release, i.e. the source code in the
+   respective *upstream* branches of the *release* repository [3]_.
 
 
 Further Reading
@@ -98,11 +116,13 @@ The following links provide more details and insights into the build farms:
   farm machines
 
 
-.. [1] The *upstream* repository is the repository containing the original source code of the
+.. [1] ``{distro}`` is the first letter of the ROS distribution, ``{platform}`` (``{platf}``)
+   names the platform the package is built for (and its short code), and ``{package}`` is the
+   name of the ROS package being built.
+.. [2] The *upstream* repository is the repository containing the original source code of the
    respective ROS 1 / ROS 2 package.
-.. [2] The *release* repository is the repository that ROS 2 infrastructure uses for releasing
+.. [3] The *release* repository is the repository that ROS 2 infrastructure uses for releasing
    packages, see https://github.com/ros2-gbp/.
-
 
 .. _`release jobs`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/release_jobs.rst
@@ -124,3 +144,5 @@ The following links provide more details and insights into the build farms:
    https://www.openrobotics.org/
 .. _`job descriptions above`:
    #jobs-and-deployment
+.. _`package manifest`:
+   http://wiki.ros.org/Manifest
