@@ -41,13 +41,13 @@ Creation and Deployment
 The above jobs are crated and deployed when packages are bloomed_, i.e. released for ROS
 1 or ROS 2. Once blooming is successful and a package is incorporated in one of the ros
 distributions (via pull request to rosdistro_), the according jobs will be spawned.
-The names of the jobs encode their type and purpose:
+The names of the jobs encode their type and purpose: [1]_
 
 * release jobs:
-   * ``{distro}src_{platf}__{package}__{platform}__source`` [1]_ build source packages of releases
+   * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
    * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
 * devel jobs:
-   * ``{distro}dev_{platf}__{package}__{platform}`` perform a CI build for the releasing branch
+   * ``{distro}dev__{package}__{platform}`` perform a CI build for the releasing branch
    * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
 
 Execution
@@ -95,12 +95,11 @@ Frequency Asked Questions (FaQ) and Troubleshooting
    There are several potential reasons for this.
    First, release jobs build against a minimal ROS installation to check if all dependencies are
    properly declared in the `package manifest`_. Devel jobs / github actions / local builds may
-   be performed in an environment
-   that has the dependencies already installed, therefore not noticing dependency issues.
-   Second, they might build different versions of the source code. While dev jobs / github actions
-   / local builds usually build the latest version from the *upstream* [2]_ repository,
-   `release jobs`_ build the source code of the latest release, i.e. the source code in the
-   respective *upstream* branches of the *release* repository [3]_.
+   be performed in an environment that has the dependencies already installed, therefore not
+   noticing dependency issues. Second, they might build different versions of the source code.
+   While devel jobs / github actions / local builds usually build the latest version from the
+   *upstream* [2]_ repository, `release jobs`_ build the source code of the latest release, i.e.
+   the source code in the respective *upstream* branches of the *release* repository [3]_.
 
 
 Further Reading
