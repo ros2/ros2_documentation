@@ -48,7 +48,7 @@ Navigate into the ``dev_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake bag_recorder_node --dependencies rclcpp,rosbag2_cpp
+  ros2 pkg create --build-type ament_cmake bag_recorder_node --dependencies rclcpp rosbag2_cpp
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_node`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
