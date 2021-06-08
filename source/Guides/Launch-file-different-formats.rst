@@ -5,7 +5,7 @@ Using Python, XML, and YAML for ROS 2 Launch Files
    :depth: 1
    :local:
 
-ROS2 launch files can be written in Python, XML, and YAML.
+ROS 2 launch files can be written in Python, XML, and YAML.
 This guide shows how to use these different formats to accomplish the same task, as well as has some discussion on when to use each format.
 
 Launch file examples
