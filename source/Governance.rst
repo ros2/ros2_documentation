@@ -300,6 +300,16 @@ Tooling
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
 
+Hardware Acceleration
+^^^^^^^^^^^^^^^^^^^^^
+
+* Lead(s): Víctor Mayoral Vilches
+* Resources:
+
+* Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
+* Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
+* Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
+
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
 If you'd like to create a new WG, please inquire via info@openrobotics.org.
