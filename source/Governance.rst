@@ -308,6 +308,7 @@ Hardware Acceleration
 
 * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
 * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
+* Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
