@@ -3,7 +3,7 @@
 Recording a bag from your own node
 ==================================
 
-**Goal:** Record data from your own node to a bag file.
+**Goal:** Record data from your own node to a bag.
 
 **Tutorial level:** Advanced
 
@@ -17,8 +17,8 @@ Background
 ----------
 
 ``rosbag2`` doesn't just provide the ``ros2 bag`` command line tool.
-It also provides an API for reading from and writing to a bag file from your own source code.
-This allows you to subscribe to a topic and save the received data to a bag file at the same time as performing any other processing of your choice on that data.
+It also provides an API for reading from and writing to a bag from your own source code.
+This allows you to subscribe to a topic and save the received data to a bag at the same time as performing any other processing of your choice on that data.
 
 Prerequisites
 -------------
@@ -48,11 +48,12 @@ Navigate into the ``dev_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake bag_recorder_node --dependencies rclcpp rosbag2_cpp
+  ros2 pkg create --build-type ament_cmake bag_recorder_nodes --dependencies rclcpp rosbag2_cpp example_interfaces
 
-Your terminal will return a message verifying the creation of your package ``bag_recorder_node`` and all its necessary files and folders.
+Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
 In this case, the package will use the ``rosbag2_cpp`` package as well as the ``rclcpp`` package.
+A dependency on the ``example_interfaces`` package is also required for later parts of this tutorial.
 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,16 +70,13 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/bag_recorder_node/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
+Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
 
 .. code-block:: C++
 
 
-    #include <functional>
-    #include <memory>
-
-    #include "rclcpp/rclcpp.hpp"
-    #include "std_msgs/msg/string.hpp"
+    #include <rclcpp/rclcpp.hpp>
+    #include <std_msgs/msg/string.hpp>
 
     #include <rosbag2_cpp/typesupport_helpers.hpp>
     #include <rosbag2_cpp/writer.hpp>
@@ -91,15 +89,21 @@ Inside the ``dev_ws/src/bag_recorder_node/src`` directory, create a new file cal
     {
     public:
       SimpleBagRecorder()
-      : Node("minimal_subscriber")
+      : Node("simple_bag_recorder")
       {
         rosbag2_cpp::StorageOptions storage_options({"my_bag", "sqlite3"});
-        rosbag2_cpp::ConverterOptions converter_options({rmw_get_serialization_format(), rmw_get_serialization_format()});
+        rosbag2_cpp::ConverterOptions converter_options(
+          {rmw_get_serialization_format(),
+           rmw_get_serialization_format()});
         writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
 
         writer_->open(storage_options, converter_options);
 
-        writer_->create_topic({"chatter", "std_msgs/msg/String", rmw_get_serialization_format(), ""});
+        writer_->create_topic(
+          {"chatter",
+           "std_msgs/msg/String",
+           rmw_get_serialization_format(),
+           ""});
 
         subscription_ = create_subscription<std_msgs::msg::String>(
           "chatter", 10, std::bind(&SimpleBagRecorder::topic_callback, this, _1));
@@ -152,7 +156,7 @@ Note the inclusion of headers from the ``rosbag2_cpp`` package for the functions
 In the class constructor we begin by creating the writer object we will use to write to the bag.
 We must provide the storage options for the bag.
 These specify the name (``my_bag``) and format (``sqlite3``) of the bag.
-We must also provide conversion options, which specify how data input into the writer will be serialised and how that same data should be serialised when written to the bag file.
+We must also provide conversion options, which specify how data input into the writer will be serialised and how that same data should be serialised when written to the bag.
 In most cases you can leave these as the same value as no conversion is neccessary.
 We use the ``rmw_get_serialization_format()`` function to retrieve the serialisation format used by the underlying middleware, as this is what received data will be serialised as.
 
@@ -172,7 +176,7 @@ Now that we have a writer object, we can open the bag using it.
 
         writer_->open(storage_options, converter_options);
 
-The next step is to inform the writer of each topic that we will write to the bag file.
+The next step is to inform the writer of each topic that we will write to the bag.
 This is done by calling ``create_topic`` and passing in an instance of the ``rosbag2_storage::TopicMetadata`` structure.
 Here we are using modern C++ syntax to construct an instance of this structure in place rather than creating it separately and passing it in.
 The arguments stored in the ``rosbag2_storage::TopicMetadata`` structure are:
@@ -320,19 +324,19 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_node
+      colcon build --packages-select bag_recorder_nodes
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_node
+      colcon build --packages-select bag_recorder_nodes
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_node
+      colcon build --merge-install --packages-select bag_recorder_nodes
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
@@ -360,7 +364,7 @@ Now run the node:
 
 .. code-block:: console
 
-    ros2 run bag_recorder_node simple_bag_recorder
+    ros2 run bag_recorder_nodes simple_bag_recorder
 
 Open a second terminal and run the ``talker`` example node.
 
@@ -378,16 +382,425 @@ Then, in one terminal start the ``listener`` example node.
 
     ros2 run demo_nodes_cpp listener
 
-In the other terminal, use ``ros2 bag`` to play the bag file recorded by your node.
+In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
 .. code-block:: console
 
     ros2 bag play my_bag
 
-You will see the messages from the bag file being received by the ``listener`` node.
+You will see the messages from the bag being received by the ``listener`` node.
+
+4 Record synthetic data from a node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Any data can be recorded into a bag, not just data received over a topic.
+A common use case for writing to a bag from your own node is to generate and store synthetic data.
+In this section you will learn how to write a node that generates some data and stores it in a bag.
+We will demonstrate two approaches for doing this.
+The first uses a node with a timer; this is the approach that you would use if your data generation is external to the node, such as reading data directly from hardware (e.g. a camera).
+The second approach does not use a node; this is the approach you can use when you do not need to use any functionality from the ROS infrastructure.
+
+4.1 Write a C++ node
+~~~~~~~~~~~~~~~~~~~~
+
+Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_node.cpp`` and paste the following code into it.
+
+.. code-block:: C++
+
+    #include <chrono>
+
+    #include <rclcpp/rclcpp.hpp>
+    #include <rclcpp/serialization.hpp>
+    #include <example_interfaces/msg/int32.hpp>
+
+    #include <rosbag2_cpp/writer.hpp>
+    #include <rosbag2_cpp/writers/sequential_writer.hpp>
+    #include <rosbag2_storage/serialized_bag_message.hpp>
+
+    using namespace std::chrono_literals;
+
+    class DataGenerator : public rclcpp::Node
+    {
+    public:
+      DataGenerator()
+      : Node("data_generator")
+      {
+        data.data = 0;
+        rosbag2_cpp::StorageOptions storage_options({"timed_synthetic_bag", "sqlite3"});
+        rosbag2_cpp::ConverterOptions converter_options(
+          {rmw_get_serialization_format(),
+           rmw_get_serialization_format()});
+        writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+
+        writer_->open(storage_options, converter_options);
+
+        writer_->create_topic(
+          {"synthetic",
+           "example_interfaces/msg/Int32",
+           rmw_get_serialization_format(),
+           ""});
+
+        timer_ = create_wall_timer(1s, std::bind(&DataGenerator::timer_callback, this));
+      }
+
+    private:
+      void timer_callback()
+      {
+        auto serializer = rclcpp::Serialization<example_interfaces::msg::Int32>();
+        auto serialized_message = rclcpp::SerializedMessage();
+        serializer.serialize_message(&data, &serialized_message);
+
+        auto bag_message = std::make_shared<rosbag2_storage::SerializedBagMessage>();
+
+        bag_message->serialized_data = std::shared_ptr<rcutils_uint8_array_t>(
+          new rcutils_uint8_array_t,
+          [this](rcutils_uint8_array_t *msg) {
+            auto fini_return = rcutils_uint8_array_fini(msg);
+            delete msg;
+            if (fini_return != RCUTILS_RET_OK) {
+              RCLCPP_ERROR(get_logger(),
+                "Failed to destroy serialized message %s", rcutils_get_error_string().str);
+            }
+          });
+        *bag_message->serialized_data = serialized_message.release_rcl_serialized_message();
+
+        bag_message->topic_name = "synthetic";
+        if (rcutils_system_time_now(&bag_message->time_stamp) != RCUTILS_RET_OK) {
+          RCLCPP_ERROR(get_logger(), "Error getting current time: %s",
+            rcutils_get_error_string().str);
+        }
+
+        writer_->write(bag_message);
+        ++data.data;
+      }
+
+      rclcpp::TimerBase::SharedPtr timer_;
+      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
+      example_interfaces::msg::Int32 data;
+    };
+
+    int main(int argc, char * argv[])
+    {
+      rclcpp::init(argc, argv);
+      rclcpp::spin(std::make_shared<DataGenerator>());
+      rclcpp::shutdown();
+      return 0;
+    }
+
+4.2 Examine the code
+~~~~~~~~~~~~~~~~~~~~
+
+Much of this code is the same as the first example.
+The important differences are described here.
+
+First, the name of the bag is changed.
+
+.. code-block:: C++
+
+        rosbag2_cpp::StorageOptions storage_options({"timed_synthetic_bag", "sqlite3"});
+
+The topic name and data type that will be stored are also different, so the writer needs to be told this.
+
+.. code-block:: C++
+
+        writer_->create_topic({"synthetic", "example_interfaces/msg/Int32", rmw_get_serialization_format(), ""});
+
+Rather than a subscription to a topic, this node has a timer.
+The timer fires with a one-second period, and calls the given member function when it does.
+
+.. code-block:: C++
+
+        timer_ = create_wall_timer(1s, std::bind(&DataGenerator::timer_callback, this));
+
+Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
+The important difference between this and the previous sample is that the data is not yet serialised.
+Because the bag writer expects serialised data, we must serialise it first.
+This can be done using the ``rclcpp::Serialization`` class.
+
+.. code-block:: C++
+
+        auto serializer = rclcpp::Serialization<example_interfaces::msg::Int32>();
+        auto serialized_message = rclcpp::SerializedMessage();
+        serializer.serialize_message(&data, &serialized_message);
+
+The remainder of the code in the callback is the same, modified slightly to account for topic name and data type differences, and to increment the data each time the callback is executed.
+
+4.3 Add executable
+~~~~~~~~~~~~~~~~~~
+
+Open the ``CMakeLists.txt`` file and add the following lines after the previously-added lines (specifically, after the ``install(TARGETS ...)`` macro call).
+
+.. code-block:: console
+
+    add_executable(data_generator_node src/data_generator_node.cpp)
+    ament_target_dependencies(data_generator_node rclcpp rosbag2_cpp example_interfaces)
+
+    install(TARGETS
+      data_generator_node
+      DESTINATION lib/${PROJECT_NAME}
+    )
+
+4.4 Build and run
+~~~~~~~~~~~~~~~~~
+
+Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_recorder_nodes
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_recorder_nodes
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select bag_recorder_nodes
+
+Open a new terminal, navigate to ``dev_ws``, and source the setup files.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+
+Now run the node:
+
+.. code-block:: console
+
+    ros2 run bag_recorder_nodes data_generator_node
+
+Wait for 30 seconds or so, then terminate the node with ``ctrl-c``.
+Next, play back the created bag.
+
+.. code-block:: console
+
+    ros2 bag play timed_synthetic_bag
+
+Open a second terminal and echo the ``/synthetic`` topic.
+
+.. code-block:: console
+
+    ros2 topic echo /synthetic
+
+You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
+
+5 Record synthetic data from an executable
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that you can create a bag that stores data from a source other than a topic, you will learn how to generate and record synthetic data from a non-node executable.
+The advantage of this approach is simpler code and rapid creation of a large quantity of data.
+
+5.1 Write a C++ executable
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_executable.cpp`` and paste the following code into it.
+
+.. code-block:: C++
+
+    #include <iostream>
+
+    #include <rclcpp/rclcpp.hpp>
+    #include <rclcpp/serialization.hpp>
+    #include <example_interfaces/msg/int32.hpp>
+
+    #include <rosbag2_cpp/writer.hpp>
+    #include <rosbag2_cpp/writers/sequential_writer.hpp>
+    #include <rosbag2_storage/serialized_bag_message.hpp>
+
+    int main(int argc, char * argv[])
+    {
+      example_interfaces::msg::Int32 data;
+      data.data = 0;
+      rosbag2_cpp::StorageOptions storage_options({"big_synthetic_bag", "sqlite3"});
+      rosbag2_cpp::ConverterOptions converter_options(
+        {rmw_get_serialization_format(),
+         rmw_get_serialization_format()});
+      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_ =
+        std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+
+      writer_->open(storage_options, converter_options);
+
+      writer_->create_topic(
+        {"synthetic",
+         "example_interfaces/msg/Int32",
+         rmw_get_serialization_format(),
+         ""});
+
+      rcutils_time_point_value_t time_stamp;
+      if (rcutils_system_time_now(&time_stamp) != RCUTILS_RET_OK) {
+        std::cerr << "Error getting current time: " <<
+          rcutils_get_error_string().str;
+        return 1;
+      }
+      for (int32_t ii = 0; ii < 100; ++ii) {
+        auto serializer = rclcpp::Serialization<example_interfaces::msg::Int32>();
+        auto serialized_message = rclcpp::SerializedMessage();
+        serializer.serialize_message(&data, &serialized_message);
+
+        auto bag_message = std::make_shared<rosbag2_storage::SerializedBagMessage>();
+
+        bag_message->serialized_data = std::shared_ptr<rcutils_uint8_array_t>(
+          new rcutils_uint8_array_t,
+          [](rcutils_uint8_array_t *msg) {
+            auto fini_return = rcutils_uint8_array_fini(msg);
+            delete msg;
+            if (fini_return != RCUTILS_RET_OK) {
+              std::cerr << "Failed to destroy serialized message " <<
+                rcutils_get_error_string().str;
+            }
+          });
+        *bag_message->serialized_data = serialized_message.release_rcl_serialized_message();
+
+        bag_message->topic_name = "synthetic";
+        bag_message->time_stamp = time_stamp;
+
+        writer_->write(bag_message);
+        ++data.data;
+        time_stamp += 1000000000;
+      }
+
+      return 0;
+    }
+
+5.2 Examine the code
+~~~~~~~~~~~~~~~~~~~~
+
+A comparison of this sample and the previous sample will reveal that they are not that different.
+The only significant difference is the use of a for loop to drive the data generation rather than a timer.
+
+Notice that we are also now generating time stamps for the data rather than relying on the current system time for each sample.
+The time stamp can be any value you need it to be.
+The data will be played back at the rate given by these time stamps, so this is a useful way to control the default playback speed of the samples.
+Notice also that while the gap between each sample is a full second in time, this executable does not need to wait a second between each sample.
+This allows us to generate a lot of data covering a wide span of time in much less time than playback will take.
+
+.. code-block:: C++
+
+      rcutils_time_point_value_t time_stamp;
+      if (rcutils_system_time_now(&time_stamp) != RCUTILS_RET_OK) {
+        std::cerr << "Error getting current time: " <<
+          rcutils_get_error_string().str;
+        return 1;
+      }
+      for (int32_t ii = 0; ii < 100; ++ii) {
+        ...
+        bag_message->time_stamp = time_stamp;
+        ...
+        time_stamp += 1000000000;
+      }
+
+5.3 Add executable
+~~~~~~~~~~~~~~~~~~
+
+Open the ``CMakeLists.txt`` file and add the following lines after the previously-added lines.
+
+.. code-block:: console
+
+    add_executable(data_generator_executable src/data_generator_executable.cpp)
+    ament_target_dependencies(data_generator_executable rclcpp rosbag2_cpp example_interfaces)
+
+    install(TARGETS
+      data_generator_executable
+      DESTINATION lib/${PROJECT_NAME}
+    )
+
+4.4 Build and run
+~~~~~~~~~~~~~~~~~
+
+Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_recorder_nodes
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_recorder_nodes
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select bag_recorder_nodes
+
+Open a terminal, navigate to ``dev_ws``, and source the setup files.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+
+Now run the executable:
+
+.. code-block:: console
+
+    ros2 run bag_recorder_nodes data_generator_executable
+
+Note that the executable runs and finishes very quickly.
+
+Now play back the created bag.
+
+.. code-block:: console
+
+    ros2 bag play big_synthetic_bag
+
+Open a second terminal and echo the ``/synthetic`` topic.
+
+.. code-block:: console
+
+    ros2 topic echo /synthetic
+
+You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
+Even though the bag was generated rapidly it is still played back at the rate the time stamps indicate.
 
 Summary
 -------
 
 You created a node that records data it receives on a topic into a bag.
-You tested recording a bag using the node, and verified the data was recorded by playing back the bag file.
+You tested recording a bag using the node, and verified the data was recorded by playing back the bag.
+You then went on to create a node and an executable to generate synthetic data and store it in a bag.
