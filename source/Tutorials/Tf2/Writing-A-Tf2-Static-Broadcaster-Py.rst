@@ -60,75 +60,75 @@ Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a ne
 
 .. code-block:: python
 
-    import sys
+   import sys
 
-    from geometry_msgs.msg import TransformStamped
+   from geometry_msgs.msg import TransformStamped
 
-    import rclpy
-    from rclpy.node import Node
+   import rclpy
+   from rclpy.node import Node
 
-    from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+   from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
-    import transforms3d
-
-
-    class StaticFramePublisher(Node):
-        """
-        Broadcast transforms that never change.
-        This example publishes transforms from `world` to a static turtle frame.
-        The transforms are only published once at startup, and are constant for all
-        time.
-        """
-
-        def __init__(self, transformation):
-            super().__init__('static_turtle_tf2_broadcaster')
-
-            self._tf_publisher = StaticTransformBroadcaster(self)
-
-            # Publish static transforms once at startup
-            self._tf_publisher.sendTransform(self.make_transforms(transformation))
-
-        def make_transforms(self, transformation):
-            static_transformStamped = TransformStamped()
-            static_transformStamped.header.stamp = self.get_clock().now().to_msg()
-            static_transformStamped.header.frame_id = 'world'
-            static_transformStamped.child_frame_id = sys.argv[1]
-            static_transformStamped.transform.translation.x = float(sys.argv[2])
-            static_transformStamped.transform.translation.y = float(sys.argv[3])
-            static_transformStamped.transform.translation.z = float(sys.argv[4])
-            quat = transforms3d.taitbryan.euler2quat(
-                        float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
-            static_transformStamped.transform.rotation.w = quat[0]
-            static_transformStamped.transform.rotation.x = quat[1]
-            static_transformStamped.transform.rotation.y = quat[2]
-            static_transformStamped.transform.rotation.z = quat[3]
-
-            return (static_transformStamped)
+   import transforms3d
 
 
-    def main():
-        logger = rclpy.logging.get_logger('logger')
+   class StaticFramePublisher(Node):
+      """
+      Broadcast transforms that never change.
+      This example publishes transforms from `world` to a static turtle frame.
+      The transforms are only published once at startup, and are constant for all
+      time.
+      """
 
-        # obtain parameters from command line arguments
-        if len(sys.argv) < 8:
-            logger.info('Invalid number of parameters. Usage: \n'
-                        '$ ros2 run turtle_tf2_py static_turtle_tf2_broadcaster'
-                        'child_frame_name x y z roll pitch yaw')
-            sys.exit(0)
-        else:
-            if sys.argv[1] == 'world':
-                logger.info('Your static turtle name cannot be "world"')
-                sys.exit(0)
+      def __init__(self, transformation):
+         super().__init__('static_turtle_tf2_broadcaster')
 
-        # pass parameters and initialize node
-        rclpy.init()
-        node = StaticFramePublisher(sys.argv)
-        try:
-            rclpy.spin(node)
-        except KeyboardInterrupt:
-            pass
+         self._tf_publisher = StaticTransformBroadcaster(self)
 
-        rclpy.shutdown()
+         # Publish static transforms once at startup
+         self._tf_publisher.sendTransform(self.make_transforms(transformation))
+
+      def make_transforms(self, transformation):
+         static_transformStamped = TransformStamped()
+         static_transformStamped.header.stamp = self.get_clock().now().to_msg()
+         static_transformStamped.header.frame_id = 'world'
+         static_transformStamped.child_frame_id = sys.argv[1]
+         static_transformStamped.transform.translation.x = float(sys.argv[2])
+         static_transformStamped.transform.translation.y = float(sys.argv[3])
+         static_transformStamped.transform.translation.z = float(sys.argv[4])
+         quat = transforms3d.taitbryan.euler2quat(
+                     float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
+         static_transformStamped.transform.rotation.w = quat[0]
+         static_transformStamped.transform.rotation.x = quat[1]
+         static_transformStamped.transform.rotation.y = quat[2]
+         static_transformStamped.transform.rotation.z = quat[3]
+
+         return (static_transformStamped)
+
+
+   def main():
+      logger = rclpy.logging.get_logger('logger')
+
+      # obtain parameters from command line arguments
+      if len(sys.argv) < 8:
+         logger.info('Invalid number of parameters. Usage: \n'
+                     '$ ros2 run turtle_tf2_py static_turtle_tf2_broadcaster'
+                     'child_frame_name x y z roll pitch yaw')
+         sys.exit(0)
+      else:
+         if sys.argv[1] == 'world':
+               logger.info('Your static turtle name cannot be "world"')
+               sys.exit(0)
+
+      # pass parameters and initialize node
+      rclpy.init()
+      node = StaticFramePublisher(sys.argv)
+      try:
+         rclpy.spin(node)
+      except KeyboardInterrupt:
+         pass
+
+      rclpy.shutdown()
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -168,8 +168,8 @@ is created that will send one static transformation upon the startup.
 
 .. code-block:: python
 
-    self._tf_publisher = StaticTransformBroadcaster(self)
-    self._tf_publisher.sendTransform(self.make_transforms(transformation))
+   self._tf_publisher = StaticTransformBroadcaster(self)
+   self._tf_publisher.sendTransform(self.make_transforms(transformation))
 
 Here we create a TransformStamped object which will be the message we will send over once
 populated. Before passing the actual transform values we need to give it the appropriate metadata.
@@ -182,30 +182,30 @@ populated. Before passing the actual transform values we need to give it the app
 
 .. code-block:: python
 
-    static_transformStamped = TransformStamped()
-    static_transformStamped.header.stamp = self.get_clock().now().to_msg()
-    static_transformStamped.header.frame_id = 'world'
-    static_transformStamped.child_frame_id = sys.argv[1]
+   static_transformStamped = TransformStamped()
+   static_transformStamped.header.stamp = self.get_clock().now().to_msg()
+   static_transformStamped.header.frame_id = 'world'
+   static_transformStamped.child_frame_id = sys.argv[1]
 
 Here we populate the 6D pose (translation and rotation) of the turtle.
 
 .. code-block:: python
 
-    static_transformStamped.transform.translation.x = float(sys.argv[2])
-    static_transformStamped.transform.translation.y = float(sys.argv[3])
-    static_transformStamped.transform.translation.z = float(sys.argv[4])
-    quat = transforms3d.taitbryan.euler2quat(
-                float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
-    static_transformStamped.transform.rotation.w = quat[0]
-    static_transformStamped.transform.rotation.x = quat[1]
-    static_transformStamped.transform.rotation.y = quat[2]
-    static_transformStamped.transform.rotation.z = quat[3]
+   static_transformStamped.transform.translation.x = float(sys.argv[2])
+   static_transformStamped.transform.translation.y = float(sys.argv[3])
+   static_transformStamped.transform.translation.z = float(sys.argv[4])
+   quat = transforms3d.taitbryan.euler2quat(
+               float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
+   static_transformStamped.transform.rotation.w = quat[0]
+   static_transformStamped.transform.rotation.x = quat[1]
+   static_transformStamped.transform.rotation.y = quat[2]
+   static_transformStamped.transform.rotation.z = quat[3]
 
 Finally we broadcast static transform using the ``sendTransform()`` function.
 
 .. code-block:: python
 
-    broadcaster.sendTransform(static_transformStamped)
+   broadcaster.sendTransform(static_transformStamped)
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -226,13 +226,13 @@ After the lines above, add the following dependencies corresponding to your node
 
 .. code-block:: xml
 
-    <exec_depend>geometry_msgs</exec_depend>
-    <exec_depend>python-transforms3d-pip</exec_depend>
-    <exec_depend>rclpy</exec_depend>
-    <exec_depend>tf2_ros</exec_depend>
-    <exec_depend>turtlesim</exec_depend>
+   <exec_depend>geometry_msgs</exec_depend>
+   <exec_depend>python-transforms3d-pip</exec_depend>
+   <exec_depend>rclpy</exec_depend>
+   <exec_depend>tf2_ros</exec_depend>
+   <exec_depend>turtlesim</exec_depend>
 
-This declares the package needs ``geometry_msgs``, ``transforms3d``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` when its code is executed.
+This declares the required ``geometry_msgs``, ``transforms3d``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
 
 Make sure to save the file.
 
@@ -319,7 +319,7 @@ Now run the ``static_turtle_tf2_broadcaster`` node:
 
 .. code-block:: console
 
-  ros2 run learning_tf2_py static_turtle_tf2_broadcaster mystaticturtle 0 0 1 0 0 0
+   ros2 run learning_tf2_py static_turtle_tf2_broadcaster mystaticturtle 0 0 1 0 0 0
 
 This sets a turtle pose broadcast for mystaticturtle to float 1 meter above the ground.
 
