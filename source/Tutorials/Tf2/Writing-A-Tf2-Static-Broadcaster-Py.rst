@@ -138,7 +138,7 @@ The first lines after comments import required packages.
 
 First we import the ``TransformStamped`` from the ``geometry_msgs``,
 that provides us a template for the message that we will
-publish to transformation tree.   
+publish to transformation tree.
 
 .. code-block:: python
 
@@ -373,7 +373,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 .. code-block:: console
 
    ros2 run tf2_ros static_transform_publisher x y z qx qy qz qw frame_id child_frame_id
-   
+
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as
 for use within ``launch`` files for setting static transforms. For example:
 
