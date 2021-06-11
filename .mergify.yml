@@ -8,7 +8,6 @@ pull_request_rules:
         branches:
           - galactic
           - foxy
-          - dashing
 
   - name: backport at reviewers discretion
     conditions:
@@ -19,7 +18,6 @@ pull_request_rules:
         branches:
           - galactic
           - foxy
-          - dashing
 
   - name: backport to galactic at reviewers discretion
     conditions:
