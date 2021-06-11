@@ -1,0 +1,38 @@
+pull_request_rules:
+  - name: automatic backport of common pages
+    conditions:
+      - base=rolling
+      - "files~=Governance|Contact|index|Marketing|ROSCon-Content|Roadmap|Releases|Feature-Ideas"
+    actions:
+      backport:
+        branches:
+          - galactic
+          - foxy
+
+  - name: backport at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-all"
+    actions:
+      backport:
+        branches:
+          - galactic
+          - foxy
+
+  - name: backport to galactic at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-galactic"
+    actions:
+      backport:
+        branches:
+          - galactic
+
+  - name: backport to foxy at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-foxy"
+    actions:
+      backport:
+        branches:
+          - foxy
