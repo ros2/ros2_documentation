@@ -36,12 +36,3 @@ pull_request_rules:
       backport:
         branches:
           - foxy
-
-  - name: backport to dashing at reviewers discretion
-    conditions:
-      - base=rolling
-      - "label=backport-dashing"
-    actions:
-      backport:
-        branches:
-          - dashing
