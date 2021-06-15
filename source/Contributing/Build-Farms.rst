@@ -9,23 +9,23 @@ ROS Build Farms
    :local:
 
 The ROS build farms are an important infrastructure to support the ROS ecosystem, provided and
-maintained by `Open Robotics`_. It provides building of source and binary packages, continuous
-integration, testing, and analysis for ROS 1 resp. ROS 2 packages.
+maintained by `Open Robotics`_.
+They provide building of source and binary packages, continuous integration, testing, and analysis for ROS 1 and ROS 2 packages.
 There are two hosted instance for open source packages:
 
 #. https://build.ros.org/ for ROS 1 packages
 #. https://build.ros2.org/ for ROS 2 packages
 
-If you are going to use any of the provided infrastructure please consider signing up for the build
-farm discussion forum (http://discourse.ros.org/c/buildfarm) in order to receive notifications,
+If you are going to use any of the provided infrastructure please consider signing up for the
+`build farm discussion forum <http://discourse.ros.org/c/buildfarm>`__ in order to receive notifications,
 e.g., about any upcoming changes.
 
 
 Jobs and Deployment
 -------------------
 
-The ROS build farms perform several different jobs. For each job type you will find a detailed
-description what they do and how they work:
+The ROS build farms perform several different jobs.
+For each job type you will find a detailed description of what they do and how they work:
 
 * `release jobs`_ generate binary packages, e.g., debian packages
 * `devel jobs`_ build and test ROS packages within a single repository
@@ -38,17 +38,25 @@ description what they do and how they work:
 Creation and Deployment
 .......................
 
-The above jobs are crated and deployed when packages are bloomed_, i.e. released for ROS
-1 or ROS 2. Once blooming is successful and a package is incorporated in one of the ros
+The above jobs are created and deployed when packages are bloomed_, i.e. released for ROS
+1 or ROS 2.
+Once blooming is successful and a package is incorporated in one of the ROS
 distributions (via pull request to rosdistro_), the according jobs will be spawned.
 The names of the jobs encode their type and purpose: [1]_
 
 * release jobs:
+
    * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
    * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
+
+   For instance, the binary packaging job of rclcpp on ROS 2 Galactic (running on Ubuntu Focal amd64) is named ``Gbin_uF64__rclcpp__ubuntu_focal_amd64__binary``.
+
 * devel jobs:
+
    * ``{distro}dev__{package}__{platform}`` perform a CI build for the releasing branch
    * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
+
+   For instance, the PR job for rclcpp on ROS 2 Galactic (running on Ubuntu Focal amd64) is named ``Gpr__rclcpp__ubuntu_focal_amd64``.
 
 Execution
 .........
@@ -59,11 +67,10 @@ Execution of the jobs depends on the type of the job:
   respective pull request of the upstream [2]_ repository
 * `release jobs`_ will be triggered once every time a new package version is released, i.e. a new
   rosdistro_ pull request was accepted for this package. The source jobs are triggered by a version
-  change in the rosdistro distribution file, the binary jobs are triggered by their source counter
-  part.
+  change in the rosdistro distribution file, the binary jobs are triggered by their source counterpart.
 
 
-Frequency Asked Questions (FaQ) and Troubleshooting
+Frequency Asked Questions (FAQ) and Troubleshooting
 ---------------------------------------------------
 
 #. **I get Jenkins mails from failing build farm jobs. What do I do?**
@@ -76,7 +83,7 @@ Frequency Asked Questions (FaQ) and Troubleshooting
    The bottom of the email might read ``'apt-src build [...]' failed. This is usually because of
    an error building the package.`` This usually hints at missing dependencies, see 2.
 
-#. **I seem to miss a dependency, how do I find out which one?**
+#. **I seem to be missing a dependency, how do I find out which one?**
 
    You basically have two options, a. is easier but may take several iterations, b. is more
    elaborate and gives you the full insight as well as local debugging.
@@ -85,7 +92,7 @@ Frequency Asked Questions (FaQ) and Troubleshooting
       issue. To do so, browse to the cmake section, e.g., navigate to the *build binarydeb*
       section through the menu on the left in case of a ubuntu/debian build job. The *CMake Error*
       will typically hint at a dependency required by the cmake configuration but missing in the
-      `package manifest`_. Once you fixed the dependency in the manifest, do a new release
+      `package manifest`_. Once you have fixed the dependency in the manifest, do a new release
       of your package and wait for feedback from the build farms or...
    b) To get the full insight and faster, local debugging, you can `run the release jobs locally`_.
       This allows to iterate the manifest locally until all dependencies are fixed.
@@ -95,8 +102,8 @@ Frequency Asked Questions (FaQ) and Troubleshooting
    There are several potential reasons for this.
    First, release jobs build against a minimal ROS installation to check if all dependencies are
    properly declared in the `package manifest`_. Devel jobs / github actions / local builds may
-   be performed in an environment that has the dependencies already installed, therefore not
-   noticing dependency issues. Second, they might build different versions of the source code.
+   be performed in an environment that has the dependencies already installed, therefore does not
+   notice dependency issues. Second, they might build different versions of the source code.
    While devel jobs / github actions / local builds usually build the latest version from the
    *upstream* [2]_ repository, `release jobs`_ build the source code of the latest release, i.e.
    the source code in the respective *upstream* branches of the *release* repository [3]_.
