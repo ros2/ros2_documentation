@@ -249,4 +249,9 @@ You can create launch files using Python, and run them using the ``ros2 launch``
 Next steps
 ----------
 
+.. note::
+
+  You can also use XML and YAML to create launch files.
+  You can see a comparison of these different ROS 2 launch formats in :doc:`../../Guides/Launch-file-different-formats`.
+
 In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``.
