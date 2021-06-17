@@ -105,7 +105,8 @@ And an example of how the type adapter can be used:
      10,
      [](const std::string & msg) {...});
 
-See `REP 2007 <https://ros.org/reps/rep-2007.html>`_ for more details.
+To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_) examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
+For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
 ros2cli
 ^^^^^^^
