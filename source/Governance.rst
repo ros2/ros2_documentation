@@ -3,6 +3,10 @@
 Project Governance
 ==================
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 Technical Steering Committee (TSC)
 ----------------------------------
 Since the beginning of ROS, the project has been overseen and prioritized primarily by one organization, first Willow Garage and now Open Robotics.
@@ -300,6 +304,12 @@ Tooling
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
+
+Community Working Groups
+------------------------
+
+The ROS 2 TSC is interested in encouraging and promoting working groups outside its direct purview.
+To provide extra visibility the TSC maintains a list of the community driven working groups here as well as working with the community to provide them with the same infrastructure.
 
 Hardware Acceleration
 ^^^^^^^^^^^^^^^^^^^^^
