@@ -30,6 +30,7 @@ Add the ROS 2 apt repository
 ----------------------------
 
 .. include:: _Apt-Repositories.rst
+.. include:: _Apt-Repositories_Linux_Mint.rst
 
 Downloading ROS 2
 -----------------
