@@ -67,14 +67,15 @@ Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a ne
    import rclpy
    from rclpy.node import Node
 
-   from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+   import tf_transformations
 
-   import transforms3d
+   from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
 
    class StaticFramePublisher(Node):
       """
       Broadcast transforms that never change.
+
       This example publishes transforms from `world` to a static turtle frame.
       The transforms are only published once at startup, and are constant for all
       time.
@@ -96,12 +97,12 @@ Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a ne
          static_transformStamped.transform.translation.x = float(sys.argv[2])
          static_transformStamped.transform.translation.y = float(sys.argv[3])
          static_transformStamped.transform.translation.z = float(sys.argv[4])
-         quat = transforms3d.taitbryan.euler2quat(
-                     float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
-         static_transformStamped.transform.rotation.w = quat[0]
-         static_transformStamped.transform.rotation.x = quat[1]
-         static_transformStamped.transform.rotation.y = quat[2]
-         static_transformStamped.transform.rotation.z = quat[3]
+         quat = tf_transformations.quaternion_from_euler(
+               float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]))
+         static_transformStamped.transform.rotation.x = quat[0]
+         static_transformStamped.transform.rotation.y = quat[1]
+         static_transformStamped.transform.rotation.z = quat[2]
+         static_transformStamped.transform.rotation.w = quat[3]
 
          return (static_transformStamped)
 
@@ -153,14 +154,14 @@ Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
 
 The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make easy the publishing of
 static transforms. To use the ``StaticTransformBroadcaster``, we need to import it from the
-``tf2_ros`` module. ``transforms3d`` provides functions to convert euler angles to quaternions
+``tf2_ros`` module. ``tf_transformations`` provides functions to convert euler angles to quaternions
 and vice versa.
 
 .. code-block:: python
 
    from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
-   import transforms3d
+   import tf_transformations
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name
 ``static_turtle_tf2_broadcaster``. Then, ``StaticTransformBroadcaster``
@@ -194,12 +195,12 @@ Here we populate the 6D pose (translation and rotation) of the turtle.
    static_transformStamped.transform.translation.x = float(sys.argv[2])
    static_transformStamped.transform.translation.y = float(sys.argv[3])
    static_transformStamped.transform.translation.z = float(sys.argv[4])
-   quat = transforms3d.taitbryan.euler2quat(
-               float(sys.argv[7]), float(sys.argv[6]), float(sys.argv[5]))
-   static_transformStamped.transform.rotation.w = quat[0]
-   static_transformStamped.transform.rotation.x = quat[1]
-   static_transformStamped.transform.rotation.y = quat[2]
-   static_transformStamped.transform.rotation.z = quat[3]
+   quat = tf_transformations.quaternion_from_euler(
+      float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]))
+   static_transformStamped.transform.rotation.x = quat[0]
+   static_transformStamped.transform.rotation.y = quat[1]
+   static_transformStamped.transform.rotation.z = quat[2]
+   static_transformStamped.transform.rotation.w = quat[3]
 
 Finally we broadcast static transform using the ``sendTransform()`` function.
 
@@ -227,12 +228,12 @@ After the lines above, add the following dependencies corresponding to your node
 .. code-block:: xml
 
    <exec_depend>geometry_msgs</exec_depend>
-   <exec_depend>python-transforms3d-pip</exec_depend>
    <exec_depend>rclpy</exec_depend>
+   <exec_depend>tf_transformations</exec_depend>
    <exec_depend>tf2_ros</exec_depend>
    <exec_depend>turtlesim</exec_depend>
 
-This declares the required ``geometry_msgs``, ``transforms3d``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
+This declares the required ``geometry_msgs``, ``tf_transformations``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
 
 Make sure to save the file.
 
