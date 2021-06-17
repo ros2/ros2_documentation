@@ -67,9 +67,9 @@ Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a ne
    import rclpy
    from rclpy.node import Node
 
-   import tf_transformations
-
    from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
+
+   import tf_transformations
 
 
    class StaticFramePublisher(Node):
