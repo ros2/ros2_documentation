@@ -46,6 +46,67 @@ To come.
 Changes since the Galactic release
 ----------------------------------
 
+rclcpp
+^^^^^^
+
+Support Type Adaption for Publishers and Subscriptions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+After defining a type adapter, custom data structures can be used directly by publishers and subscribers, which helps to avoid additional work for the programmer and potential sources of errors.
+This is especially useful when working with complex data types, such as when converting OpenCV's ``cv::Map`` to ROS's ``sensor_msgs/msg/Image`` type.
+
+Here is an example of a type adapter that converts ``std_msgs::msg::String`` to ``std::string``:
+
+.. code-block:: cpp
+
+   template<>
+   struct rclcpp::TypeAdapter<
+      std::string,
+      std_msgs::msg::String
+   >
+   {
+     using is_specialized = std::true_type;
+     using custom_type = std::string;
+     using ros_message_type = std_msgs::msg::String;
+
+     static
+     void
+     convert_to_ros_message(
+       const custom_type & source,
+       ros_message_type & destination)
+     {
+       destination.data = source;
+     }
+
+     static
+     void
+     convert_to_custom(
+       const ros_message_type & source,
+       custom_type & destination)
+     {
+       destination = source.data;
+     }
+   };
+
+And an example of how the type adapter can be used:
+
+.. code-block:: cpp
+
+   using MyAdaptedType = TypeAdapter<std::string, std_msgs::msg::String>;
+
+   // Publish a std::string
+   auto pub = node->create_publisher<MyAdaptedType>(...);
+   std::string custom_msg = "My std::string"
+   pub->publish(custom_msg);
+
+   // Pass a std::string to a subscription's callback
+   auto sub = node->create_subscription<MyAdaptedType>(
+     "topic",
+     10,
+     [](const std::string & msg) {...});
+
+See `REP 2007 <https://ros.org/reps/rep-2007.html>`_ for more details.
+
 ros2cli
 ^^^^^^^
 
