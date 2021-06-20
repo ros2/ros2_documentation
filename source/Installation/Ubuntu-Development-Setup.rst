@@ -90,7 +90,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_galactic/src
    cd ~/ros2_galactic
-   wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+   wget https://raw.githubusercontent.com/ros2/ros2/galactic/ros2.repos
    vcs import src < ros2.repos
 
 .. _linux-development-setup-install-dependencies-using-rosdep:
