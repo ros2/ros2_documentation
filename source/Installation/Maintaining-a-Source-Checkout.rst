@@ -19,7 +19,7 @@ Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repo
 Latest development branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to checkout the latest development code for the upcoming ROS release, you can get the relevant repository list by running:
+If you wish to checkout the latest development code for this ROS release, you can get the relevant repository list by running:
 
 .. tabs::
 
