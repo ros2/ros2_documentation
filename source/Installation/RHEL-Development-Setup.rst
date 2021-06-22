@@ -63,7 +63,7 @@ Install development tools and ROS tools
      flake8-docstrings \
      flake8-import-order \
      flake8-quotes \
-     mypy \
+     mypy==0.716 \
      pydocstyle \
      pytest-repeat \
      pytest-rerunfailures \
