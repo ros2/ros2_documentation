@@ -1,5 +1,5 @@
 You will need to add the ROS 2 apt repository to your system.
-Make sure the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled first by checking the output of this command.
+First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled by checking the output of this command.
 
 .. code-block:: bash
 
@@ -7,7 +7,7 @@ Make sure the `Ubuntu Universe repository <https://help.ubuntu.com/community/Rep
         500 http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages
             release v=20.04,o=Ubuntu,a=focal,n=focal,l=Ubuntu,c=universe,b=amd64
 
-If you don't see output like the above, then enable the Universe repository with these instructions.
+If you don't see an output line like the one above, then enable the Universe repository with these instructions.
 
 .. code-block:: bash
 
