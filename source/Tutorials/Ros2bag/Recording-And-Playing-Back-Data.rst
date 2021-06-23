@@ -27,10 +27,9 @@ Prerequisites
 
 .. note::
 
-"Foxy-future" rosbag2:
-for users of ROS 2 Foxy who need a more performant version of rosbag2, please see the `foxy-future branch of rosbag2 <https://github.com/ros2/rosbag2/tree/foxy-future >`__.
-This is an officially-supported branch that is closer to the Galactic version, adding performance improvements and features, but is not API-compatible with the Foxy release.
-For users just getting into this tutorial on Foxy, you can ignore this and move on with the default installation.
+  For users of ROS 2 Foxy who need a more performant version of rosbag2, please see the `foxy-future branch of rosbag2 <https://github.com/ros2/rosbag2/tree/foxy-future>`__.
+  This is an officially-supported branch that is closer to the Galactic version, adding performance improvements and features, but is not API-compatible with the Foxy release.
+  For users just getting into this tutorial on Foxy, you can ignore this and move on with the default installation.
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
