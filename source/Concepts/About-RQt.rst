@@ -50,7 +50,7 @@ Installing From Debian
 
 .. code-block:: bash
 
-   sudo apt install ros-rolling-rqt*
+   sudo apt install ros-{DISTRO}-rqt*
 
 
 Building From Source
