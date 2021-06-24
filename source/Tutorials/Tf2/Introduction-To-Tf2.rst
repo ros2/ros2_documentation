@@ -100,7 +100,7 @@ The ``world`` here is the parent of the ``turtle1`` and ``turtle2`` frames.
 recent frame transforms were received and how fast the tf2 frame is published to tf2 for debugging purposes.
 
 2 Using tf2_echo
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 ``tf2_echo`` reports the transform between any two frames broadcasted over ROS.
 
