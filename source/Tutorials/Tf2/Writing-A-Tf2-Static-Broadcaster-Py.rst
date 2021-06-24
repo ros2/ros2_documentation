@@ -40,9 +40,8 @@ and the following ones. The package called ``learning_tf2_py`` will depend on
 rclpy, tf2_ros and turtlesim. Code for this tutorial is stored
 `here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
-Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>`
-so that ``ros2`` commands will work. Navigate to workspace ``dev_ws/src`` folder
-and create a new package:
+Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+Navigate to workspace's ``src`` folder and create a new package:
 
 .. code-block:: console
 
@@ -55,7 +54,7 @@ and all its necessary files and folders.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's first create the source files.
-Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a new file called
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory, create a new file called
 ``static_turtle_tf2_broadcaster.py`` and paste the following code within:
 
 .. code-block:: python
@@ -113,7 +112,7 @@ Inside the ``dev_ws/src/learning_tf2_py/learning_tf2_py`` directory, create a ne
       # obtain parameters from command line arguments
       if len(sys.argv) < 8:
          logger.info('Invalid number of parameters. Usage: \n'
-                     '$ ros2 run turtle_tf2_py static_turtle_tf2_broadcaster'
+                     '$ ros2 run learning_tf2_py static_turtle_tf2_broadcaster'
                      'child_frame_name x y z roll pitch yaw')
          sys.exit(0)
       else:
@@ -211,7 +210,7 @@ Finally we broadcast static transform using the ``sendTransform()`` function.
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-Navigate one level back to the ``dev_ws/src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
+Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
 
 Open ``package.xml`` with your text editor.
 
@@ -241,7 +240,7 @@ Make sure to save the file.
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``dev_ws/src/learning_tf2_py`` directory).
+to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
 Add the following line between the ``'console_scripts':`` brackets:
 
@@ -252,7 +251,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to
+It's good practice to run ``rosdep`` in the root of your workspace to
 check for missing dependencies before building:
 
 .. tabs::
@@ -272,7 +271,7 @@ check for missing dependencies before building:
       rosdep only runs on Linux, so you can skip ahead to next step.
 
 
-Still in the root of your workspace, ``dev_ws``, build your new package:
+Still in the root of your workspace, build your new package:
 
 .. tabs::
 
@@ -294,7 +293,7 @@ Still in the root of your workspace, ``dev_ws``, build your new package:
 
       colcon build --merge-install --packages-select learning_tf2_py
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
 .. tabs::
 
@@ -391,9 +390,3 @@ for use within ``launch`` files for setting static transforms. For example:
                arguments = ['0', '0', '1', '0', '0', '0', 'world', 'mystaticturtle']
          ),
       ])
-
-Summary
--------
-
-In this tutorial you learned how to publish static transforms to tf2. In addition,
-you learned the best way to publish required static transformations using launch files.
