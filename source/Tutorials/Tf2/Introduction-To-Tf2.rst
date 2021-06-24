@@ -99,10 +99,10 @@ The ``world`` here is the parent of the ``turtle1`` and ``turtle2`` frames.
 ``view_frames`` also report some diagnostic information about when the oldest and most
 recent frame transforms were received and how fast the tf2 frame is published to tf2 for debugging purposes.
 
-2 Using tf_echo
+2 Using tf2_echo
 ^^^^^^^^^^^^^^^
 
-``tf_echo`` reports the transform between any two frames broadcasted over ROS.
+``tf2_echo`` reports the transform between any two frames broadcasted over ROS.
 
 Usage:
 
@@ -116,7 +116,7 @@ Let's look at the transform of the ``turtle2`` frame with respect to ``turtle1``
 
    ros2 run tf2_ros tf2_echo turtle2 turtle1
 
-You will see the transform displayed as the ``tf_echo`` listener receives the frames broadcasted over ROS.
+You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcasted over ROS2.
 
 .. code-block:: console
 
@@ -134,7 +134,7 @@ rviz and tf2
 
 ``rviz`` is a visualization tool that is useful for examining tf2 frames.
 Let's look at our turtle frames using rviz.
-Let's start rviz with the ``turtle_rviz.rviz`` configuration file using the ``-d`` option for rviz:
+Let's start rviz with the ``turtle_rviz.rviz`` configuration file using the ``-d`` option:
 
 .. code-block:: console
 

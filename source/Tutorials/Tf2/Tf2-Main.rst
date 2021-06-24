@@ -31,7 +31,7 @@ Learning tf2
 
    This tutorial will give you a good idea of what tf2 can do for you. It
    shows off some of the tf2 power in a multi-robot example using turtlesim.
-   This also introduces using tf2_echo, view_frames, and rviz.
+   This also introduces using ``tf2_echo``, ``view_frames``, and ``rviz``.
 
 #. :ref:`Writing a tf2 static broadcaster (Python) <WritingATf2StaticBroadcasterPy>`.
 

@@ -35,9 +35,9 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First we will create a workspace that will be used for this tutorial
+First we will create a package that will be used for this tutorial
 and the following ones. The package called ``learning_tf2_py`` will depend on
-rclpy, tf2_ros and turtlesim. Code for this tutorial is stored
+``rclpy``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``. Code for this tutorial is stored
 `here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
@@ -134,11 +134,10 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory, create a new file 
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
-The first lines after comments import required packages.
-
+The first lines import required packages.`
 First we import the ``TransformStamped`` from the ``geometry_msgs``,
 that provides us a template for the message that we will
-publish to transformation tree.
+publish to the transformation tree.
 
 .. code-block:: python
 
@@ -151,8 +150,8 @@ Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
    import rclpy
    from rclpy.node import Node
 
-The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make easy the publishing of
-static transforms. To use the ``StaticTransformBroadcaster``, we need to import it from the
+The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of
+static transforms easy. To use the ``StaticTransformBroadcaster``, we need to import it from the
 ``tf2_ros`` module. ``tf_transformations`` provides functions to convert euler angles to quaternions
 and vice versa.
 
@@ -171,14 +170,14 @@ is created that will send one static transformation upon the startup.
    self._tf_publisher = StaticTransformBroadcaster(self)
    self._tf_publisher.sendTransform(self.make_transforms(transformation))
 
-Here we create a TransformStamped object which will be the message we will send over once
+Here we create a ``TransformStamped`` object which will be the message we will send over once
 populated. Before passing the actual transform values we need to give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp, we'll just stamp it with the current time, ``rospy.Time.now()``.
+#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``get_clock().now()``
 
-#. Then, we need to set the name of the parent frame of the link we're creating, in this case "world"
+#. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 
-#. Finally, we need to set the name of the child frame of the link we're creating.
+#. Finally, we need to set the name of the child frame of the link we're creating
 
 .. code-block:: python
 
@@ -321,9 +320,9 @@ Now run the ``static_turtle_tf2_broadcaster`` node:
 
    ros2 run learning_tf2_py static_turtle_tf2_broadcaster mystaticturtle 0 0 1 0 0 0
 
-This sets a turtle pose broadcast for mystaticturtle to float 1 meter above the ground.
+This sets a turtle pose broadcast for ``mystaticturtle`` to float 1 meter above the ground.
 
-We can now check that the static_transform has been published by echoing the ``tf_static`` topic
+We can now check that the static transform has been published by echoing the ``tf_static`` topic
 
 .. code-block:: console
 
