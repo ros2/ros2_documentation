@@ -157,7 +157,7 @@ In the class constructor we begin by creating the writer object we will use to w
 We must provide the storage options for the bag.
 These specify the name (``my_bag``) and format (``sqlite3``) of the bag.
 We must also provide conversion options, which specify how data input into the writer will be serialised and how that same data should be serialised when written to the bag.
-In most cases you can leave these as the same value as no conversion is neccessary.
+In most cases you can specify these as the same value as no conversion of serialisation formats is neccessary.
 We use the ``rmw_get_serialization_format()`` function to retrieve the serialisation format used by the underlying middleware, as this is what received data will be serialised as.
 
 Finally, the third line creates the writer object.
