@@ -779,7 +779,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
       DESTINATION lib/${PROJECT_NAME}
     )
 
-4.4 Build and run
+5.4 Build and run
 ~~~~~~~~~~~~~~~~~
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your package.
