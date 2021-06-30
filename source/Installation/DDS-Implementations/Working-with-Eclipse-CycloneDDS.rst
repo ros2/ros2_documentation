@@ -22,7 +22,7 @@ The easiest way is to install from ROS 2 apt repository.
 
 .. code-block:: bash
 
-   sudo apt install ros-foxy-rmw-cyclonedds-cpp
+   sudo apt install ros-{DISTRO}-rmw-cyclonedds-cpp
 
 Build from source code
 ----------------------

@@ -235,7 +235,7 @@ While following the `Creating a workspace <../Tutorials/Workspace/Creating-A-Wor
 
 .. code-block:: bash
 
-   $ rosdep install -i --from-path src --rosdistro foxy -y
+   $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
    executing command [brew install qt5]
    Warning: qt 5.15.0 is already installed and up-to-date
    To reinstall 5.15.0, run `brew reinstall qt`
@@ -253,7 +253,7 @@ Running the ``rosdep`` command should now execute normally:
 
 .. code-block:: bash
 
-   $ rosdep install -i --from-path src --rosdistro foxy -y
+   $ rosdep install -i --from-path src --rosdistro {DISTRO} -y
    #All required rosdeps installed successfully
 
 
