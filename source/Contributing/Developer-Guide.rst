@@ -749,6 +749,7 @@ How to measure coverage locally using lcov (Ubuntu)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To measure coverage on your own machine, install ``lcov``.
+
 .. code-block:: bash
 
      sudo apt install -y lcov
