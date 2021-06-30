@@ -70,7 +70,7 @@ Each launch file performs the following actions:
             # include another launch file in the chatter_ns namespace
             launch_include_with_namespace = GroupAction(
                 actions=[
-                    # push-ros-namespace to set namespace of included nodes
+                    # push_ros_namespace to set namespace of included nodes
                     PushRosNamespace(LaunchConfiguration('chatter_ns')),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
@@ -144,8 +144,8 @@ Each launch file performs the following actions:
           <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
           <!-- include another launch file in the chatter_ns namespace-->
           <group>
-            <!-- push-ros-namespace to set namespace of included nodes -->
-            <push-ros-namespace namespace="$(var chatter_ns)"/>
+            <!-- push_ros_namespace to set namespace of included nodes -->
+            <push_ros_namespace namespace="$(var chatter_ns)"/>
             <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
           </group>
 
@@ -194,7 +194,7 @@ Each launch file performs the following actions:
 
         # include another launch file in the chatter_ns namespace
         - group:
-            - push-ros-namespace:
+            - push_ros_namespace:
                 namespace: "$(var chatter_ns)"
             - include:
                 file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
