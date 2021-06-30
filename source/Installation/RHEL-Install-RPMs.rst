@@ -5,7 +5,7 @@ Installing ROS 2 via RPM Packages
    :depth: 2
    :local:
 
-RPM packages for ROS 2 Galactic Geochelone are currently available for RHEL 8.
+RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
 
 Resources
@@ -13,7 +13,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 Galactic (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_galactic_rhel.html>`__
+  * ROS 2 {DISTRO_TITLE} (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -58,14 +58,14 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo dnf install ros-galactic-desktop
+   sudo dnf install ros-{DISTRO}-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo dnf install ros-galactic-ros-base
+   sudo dnf install ros-{DISTRO}-ros-base
 
 Environment setup
 -----------------
@@ -77,25 +77,25 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/{DISTRO}/setup.bash
 
 Try some examples
 -----------------
 
-If you installed ``ros-galactic-desktop`` above you can try some examples.
+If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/galactic/setup.bash
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -124,4 +124,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo dnf remove ros-galactic-*
+  sudo dnf remove ros-{DISTRO}-*

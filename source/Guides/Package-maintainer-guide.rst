@@ -133,11 +133,11 @@ To do a binary release of a package, run:
 
   $ bloom-release --track <rosdistro> --rosdistro <rosdistro> <repository_name>
 
-For instance, to release the ``rclcpp`` repository to the Rolling distribution, the command would be:
+For instance, to release the ``rclcpp`` repository to the {DISTRO_TITLE} distribution, the command would be:
 
 .. code-block:: bash
 
-  $ bloom-release --track rolling --rosdistro rolling rclcpp
+  $ bloom-release --track {DISTRO} --rosdistro {DISTRO} rclcpp
 
 This command will fetch the release repository, make the necessary changes to make the release, push the changes to the release repository, and finally open a pull request to https://github.com/ros/rosdistro .
 
