@@ -4,7 +4,7 @@
 Installation
 ============
 
-Options for installing ROS 2 Galactic Geochelone:
+Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 
 .. toctree::
    :hidden:
