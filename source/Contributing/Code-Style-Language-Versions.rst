@@ -54,7 +54,7 @@ C++
 Standard
 ^^^^^^^^
 
-Rolling targets C++17.
+{DISTRO_TITLE} targets C++14.
 
 Style
 ^^^^^

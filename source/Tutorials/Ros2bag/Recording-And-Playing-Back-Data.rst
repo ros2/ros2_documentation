@@ -37,9 +37,9 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
 
 .. code-block:: console
 
-  sudo apt-get install ros-foxy-ros2bag \
-                       ros-foxy-rosbag2-converter-default-plugins \
-                       ros-foxy-rosbag2-storage-default-plugins
+  sudo apt-get install ros-{DISTRO}-ros2bag \
+                       ros-{DISTRO}-rosbag2-converter-default-plugins \
+                       ros-{DISTRO}-rosbag2-storage-default-plugins
 
 This tutorial talks about concepts covered in previous tutorials, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.

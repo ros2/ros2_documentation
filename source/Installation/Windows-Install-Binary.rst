@@ -11,7 +11,7 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
 
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
 System requirements
 -------------------
@@ -171,7 +171,7 @@ Downloading ROS 2
 -----------------
 
 * Go the releases page: https://github.com/ros2/ros2/releases
-* Download the latest package for Windows, e.g., ``ros2-foxy-*-windows-AMD64.zip``.
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
 
 .. note::
 
@@ -181,26 +181,16 @@ Downloading ROS 2
 
     To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``
 
-* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_foxy``\ ).
+* Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
 Environment setup
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
 
-.. tabs::
+.. code-block:: bash
 
-  .. group-tab:: Command Prompt
-
-    .. code-block:: bash
-
-       > call C:\dev\ros2_foxy\local_setup.bat
-
-  .. group-tab:: PowerShell
-
-    .. code-block:: bash
-
-       > C:\dev\ros2_foxy\local_setup.ps1
+   > call C:\dev\ros2_{DISTRO}\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
@@ -246,13 +236,13 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_foxy
+    rmdir /s /q \ros2_{DISTRO}
 
 (Alternative) ROS 2 Build Installation from aka.ms/ros
 --------------------------------------------------------
