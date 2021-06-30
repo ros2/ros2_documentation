@@ -346,19 +346,44 @@ Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
       call install/setup.bat
+
+Create a directory for the bag.
+This directory will contain all the files that form a single bag.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir my_bag
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir my_bag
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      mkdir my_bag
+
+(If the ``my_bag`` directory already exists, you must first delete it before re-creating it.)
 
 Now run the node:
 
