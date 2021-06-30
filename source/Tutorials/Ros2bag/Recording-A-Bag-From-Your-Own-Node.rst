@@ -681,7 +681,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
     #include <rosbag2_cpp/writers/sequential_writer.hpp>
     #include <rosbag2_storage/serialized_bag_message.hpp>
 
-    int main(int argc, char * argv[])
+    int main(int, char**)
     {
       example_interfaces::msg::Int32 data;
       data.data = 0;
