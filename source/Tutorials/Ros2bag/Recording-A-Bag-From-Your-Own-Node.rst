@@ -92,7 +92,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       : Node("simple_bag_recorder")
       {
         const rosbag2_cpp::StorageOptions storage_options({"my_bag", "sqlite3"});
-        rosbag2_cpp::ConverterOptions converter_options(
+        const rosbag2_cpp::ConverterOptions converter_options(
           {rmw_get_serialization_format(),
            rmw_get_serialization_format()});
         writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
