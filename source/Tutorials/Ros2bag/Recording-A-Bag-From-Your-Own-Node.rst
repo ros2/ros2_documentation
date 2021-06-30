@@ -452,8 +452,8 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       : Node("data_generator")
       {
         data.data = 0;
-        rosbag2_cpp::StorageOptions storage_options({"timed_synthetic_bag", "sqlite3"});
-        rosbag2_cpp::ConverterOptions converter_options(
+        const rosbag2_cpp::StorageOptions storage_options({"timed_synthetic_bag", "sqlite3"});
+        const rosbag2_cpp::ConverterOptions converter_options(
           {rmw_get_serialization_format(),
            rmw_get_serialization_format()});
         writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
@@ -686,8 +686,8 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
     {
       example_interfaces::msg::Int32 data;
       data.data = 0;
-      rosbag2_cpp::StorageOptions storage_options({"big_synthetic_bag", "sqlite3"});
-      rosbag2_cpp::ConverterOptions converter_options(
+      const rosbag2_cpp::StorageOptions storage_options({"big_synthetic_bag", "sqlite3"});
+      const rosbag2_cpp::ConverterOptions converter_options(
         {rmw_get_serialization_format(),
          rmw_get_serialization_format()});
       std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_ =
