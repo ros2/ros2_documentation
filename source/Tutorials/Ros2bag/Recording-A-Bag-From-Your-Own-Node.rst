@@ -612,6 +612,31 @@ Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
       call install/setup.bat
 
+Create a directory for the bag.
+This directory will contain all the files that form a single bag.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir timed_synthetic_bag
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir timed_synthetic_bag
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      mkdir timed_synthetic_bag
+
+(If the ``timed_synthetic_bag`` directory already exists, you must first delete it before re-creating it.)
+
 Now run the node:
 
 .. code-block:: console
@@ -799,6 +824,31 @@ Open a terminal, navigate to ``dev_ws``, and source the setup files.
     .. code-block:: console
 
       call install/setup.bat
+
+Create a directory for the bag.
+This directory will contain all the files that form a single bag.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      mkdir big_synthetic_bag
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      mkdir big_synthetic_bag
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      mkdir big_synthetic_bag
+
+(If the ``big_synthetic_bag`` directory already exists, you must first delete it before re-creating it.)
 
 Now run the executable:
 
