@@ -41,7 +41,48 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-To come.
+``ros_args`` attribute & ``ros_arguments`` parameter for nodes in launch files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to provide `ROS-specific node arguments <../Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+
+.. tabs::
+
+   .. group-tab:: XML
+
+    .. code-block:: xml
+
+      <launch>
+        <node pkg="demo_nodes_cpp" exec="talker" ros_args="--log-level debug" />
+      </launch>
+
+   .. group-tab:: YAML
+
+      .. code-block:: yaml
+
+        launch:
+        - node:
+            pkg: demo_nodes_cpp
+            exec: talker
+            ros_args: '--log-level debug'
+
+The corresponding parameter for the ``Node`` action in Python launch files is ``ros_arguments``:
+
+.. code-block:: python
+
+  from launch import LaunchDescription
+  import launch_ros.actions
+
+  def generate_launch_description():
+      return LaunchDescription([
+          launch_ros.actions.Node(
+              package='demo_nodes_cpp',
+              executable='talker',
+              ros_arguments=['--log-level', 'debug'],
+          ),
+      ])
+
+Related PRs: `ros2/launch_ros#249 <https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 <https://github.com/ros2/launch_ros/pull/253>`_.
 
 Changes since the Galactic release
 ----------------------------------
