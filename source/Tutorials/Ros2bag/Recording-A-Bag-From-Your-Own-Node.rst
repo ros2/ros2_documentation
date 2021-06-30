@@ -91,7 +91,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       SimpleBagRecorder()
       : Node("simple_bag_recorder")
       {
-        rosbag2_cpp::StorageOptions storage_options({"my_bag", "sqlite3"});
+        const rosbag2_cpp::StorageOptions storage_options({"my_bag", "sqlite3"});
         rosbag2_cpp::ConverterOptions converter_options(
           {rmw_get_serialization_format(),
            rmw_get_serialization_format()});
