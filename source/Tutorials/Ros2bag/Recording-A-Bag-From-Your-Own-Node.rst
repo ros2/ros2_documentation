@@ -95,7 +95,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
         const rosbag2_cpp::ConverterOptions converter_options(
           {rmw_get_serialization_format(),
            rmw_get_serialization_format()});
-        writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+        writer_ = std::make_unique<rosbag2_cpp::writers::SequentialWriter>();
 
         writer_->open(storage_options, converter_options);
 
@@ -136,7 +136,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       }
 
       rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
-      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
+      std::unique_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
     };
 
     int main(int argc, char * argv[])
@@ -169,7 +169,7 @@ It does not perform advanced operations like compressing the data as it is writt
 
         rosbag2_cpp::StorageOptions storage_options({"my_bag", "sqlite3"});
         rosbag2_cpp::ConverterOptions converter_options({rmw_get_serialization_format(), rmw_get_serialization_format()});
-        writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+        writer_ = std::make_unique<rosbag2_cpp::writers::SequentialWriter>();
 
 Now that we have a writer object, we can open the bag using it.
 
@@ -277,14 +277,14 @@ The class contains two member variables.
 1. The subscription object.
    Note that the template parameter is the type of the callback, not the type of the topic.
    In this case the callback receives a ``rclcpp::SerializedMessage`` shared pointer, so this is what the template parameter must be.
-2. A shared pointer to the writer object used to write to the bag.
+2. A managed pointer to the writer object used to write to the bag.
    Note the type of writer used here is the ``rosbag2_cpp::writers::SequentialWriter``.
    Other writers may be available with different behaviours.
 
 .. code-block:: C++
 
       rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
-      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
+      std::unique_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
 
 The file finishes with the ``main`` function used to create an instance of the node and start ROS processing it.
 
@@ -456,7 +456,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
         const rosbag2_cpp::ConverterOptions converter_options(
           {rmw_get_serialization_format(),
            rmw_get_serialization_format()});
-        writer_ = std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+        writer_ = std::make_unique<rosbag2_cpp::writers::SequentialWriter>();
 
         writer_->open(storage_options, converter_options);
 
@@ -501,7 +501,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       }
 
       rclcpp::TimerBase::SharedPtr timer_;
-      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
+      std::unique_ptr<rosbag2_cpp::writers::SequentialWriter> writer_;
       example_interfaces::msg::Int32 data;
     };
 
@@ -690,8 +690,8 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       const rosbag2_cpp::ConverterOptions converter_options(
         {rmw_get_serialization_format(),
          rmw_get_serialization_format()});
-      std::shared_ptr<rosbag2_cpp::writers::SequentialWriter> writer_ =
-        std::make_shared<rosbag2_cpp::writers::SequentialWriter>();
+      std::unique_ptr<rosbag2_cpp::writers::SequentialWriter> writer_ =
+        std::make_unique<rosbag2_cpp::writers::SequentialWriter>();
 
       writer_->open(storage_options, converter_options);
 
