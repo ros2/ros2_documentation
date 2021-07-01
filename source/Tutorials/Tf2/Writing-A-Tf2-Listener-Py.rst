@@ -1,0 +1,184 @@
+.. _WritingATf2ListenerPy:
+
+Writing a tf2 listener (Python)
+===============================
+
+**Goal:** Learn how to use tf2 to get access to frame transformations.
+
+**Tutorial level:** Intermediate
+
+**Time:** 10 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2. In this tutorial we'll create a tf2 listener to start using tf2.
+
+Prerequisites
+-------------
+
+In previous tutorial, we created a ``learning_tf2_py`` package where we will continue working on.
+
+Tasks
+-----
+
+1 Write the listener node
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorial.
+Fire up your favorite editor and paste the following code into a new file called ``turtle_tf2_listener.py``.
+
+.. code-block:: python
+
+    import math
+
+    from geometry_msgs.msg import Twist
+
+    import rclpy
+    from rclpy.duration import Duration
+    from rclpy.node import Node
+
+    from tf2_ros import LookupException
+    from tf2_ros.buffer import Buffer
+    from tf2_ros.transform_listener import TransformListener
+
+    from turtlesim.srv import Spawn
+
+
+    class FrameListener(Node):
+
+        def __init__(self):
+            super().__init__('turtle_tf2_frame_listener')
+
+            self._tf_buffer = Buffer()
+            self._tf_listener = TransformListener(self._tf_buffer, self, spin_thread=False)
+
+            # Create a client to spawn a turtle
+            self.client = self.create_client(Spawn, 'spawn')
+
+            # Check if the service is available
+            while not self.client.wait_for_service(timeout_sec=5.0):
+                self.get_logger().info('service not available, waiting again...')
+
+            # Initialize request with turtle name and coordinates
+            request = Spawn.Request()
+            request.name = 'turtle2'
+            request.x = float(4)
+            request.y = float(2)
+            request.theta = float(0)
+            # Call request
+            self.client.call_async(request)
+
+            # Create turtle2 velocity publisher
+            self.turtle_vel_ = self.create_publisher(Twist, 'turtle2/cmd_vel', 1)
+
+            # Call on_timer function every second
+            self._output_timer = self.create_timer(1.0, self.on_timer)
+
+        def on_timer(self):
+            from_frame_rel = 'turtle1'
+            to_frame_rel = 'turtle2'
+
+            # Look up for the transformation between turtle1 and turtle2 frames
+            # and send velocity commands for turtle2 to reach turtle1
+            try:
+                when = rclpy.time.Time()
+                trans = self._tf_buffer.lookup_transform(
+                    to_frame_rel, from_frame_rel, when, timeout=Duration(seconds=1.0))
+
+                msg = Twist()
+                msg.angular.z = 1.0 * math.atan2(
+                    trans.transform.translation.y, trans.transform.translation.x)
+                msg.linear.x = 0.5 * math.sqrt(
+                    trans.transform.translation.x ** 2 + trans.transform.translation.y ** 2)
+                self.turtle_vel_.publish(msg)
+            except LookupException:
+                self.get_logger().info('transform not ready')
+
+
+    def main():
+        rclpy.init()
+        node = FrameListener()
+        try:
+            rclpy.spin(node)
+        except KeyboardInterrupt:
+            pass
+
+        rclpy.shutdown()
+
+1.1 Examine the code
+~~~~~~~~~~~~~~~~~~~~
+
+Now, let's take a look at the code that is relevant to get access to frame transformations.
+The ``tf2_ros`` package provides an implementation of a ``TransformListener`` to help make the task of receiving transforms easier.
+
+.. code-block:: python
+
+    from tf2_ros.transform_listener import TransformListener
+
+Here, we create a ``TransformListener`` object. Once the listener is created, it starts receiving tf2 transformations over the wire, and buffers them for up to 10 seconds.
+
+.. code-block:: python
+
+    self._tf_listener = TransformListener(self._tf_buffer, self, spin_thread=False)
+
+Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
+
+#. Target frame
+
+#. Source frame
+
+#. The time at which we want to transform
+
+Providing ``rclpy.time.Time()`` will just get us the latest available transform.
+All this is wrapped in a try-except block to catch possible exceptions.
+
+.. code-block:: python
+
+    when = rclpy.time.Time()
+    trans = self._tf_buffer.lookup_transform(
+        to_frame_rel, from_frame_rel, when, timeout=Duration(seconds=1.0))
+
+2 Build and run
+^^^^^^^^^^^^^^^
+
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines:
+
+.. code-block:: python
+
+    Node(
+        package='learning_tf2_py',
+        executable='turtle_tf2_broadcaster',
+        name='broadcaster2',
+        parameters=[
+            {'turtlename': 'turtle2'}
+        ]
+    ),
+    Node(
+        package='learning_tf2_py',
+        executable='turtle_tf2_listener',
+        name='listener'
+    ),
+
+This will start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+Now you're ready to start your full turtle demo:
+
+.. code-block:: console
+
+    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+
+You should see the turtle sim with two turtles.
+In the second terminal window type the following command:
+
+.. code-block:: console
+
+    ros2 run turtlesim turtle_teleop_key
+
+3 Checking the results
+^^^^^^^^^^^^^^^^^^^^^^
+
+To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
