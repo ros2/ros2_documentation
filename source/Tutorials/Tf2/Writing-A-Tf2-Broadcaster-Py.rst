@@ -33,8 +33,37 @@ Tasks
 
 Let's first create the source files.
 Go to the ``learning_tf2_py`` package we created in the previous tutorial.
-Inside the ``src/learning_tf2_py/learning_tf2_py`` directory, create a new file called
-``turtle_tf2_broadcaster.py`` and paste the following code within:
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example broadcaster code by entering the following command:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+
+    .. group-tab:: macOS
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
+
+    .. group-tab:: Windows
+
+        In a Windows command line prompt:
+
+        .. code-block:: console
+
+                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+
+        Or in powershell:
+
+        .. code-block:: console
+
+                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+
+Open the file using your preferred text editor.
 
 .. code-block:: python
 
@@ -279,14 +308,34 @@ In the second terminal window type the following command:
 
     ros2 run turtlesim turtle_teleop_key
 
-You will now see that the turtlesim simulation have started with one turtle in the middle.
-Now, use the ``tf_echo`` tool to check if the turtle pose is actually getting broadcast to tf2:
+You will now see that the turtlesim simulation have started with one turtle in the middle that you can control.
+
+.. image:: turtlesim_broadcast.png
+
+Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting broadcast to tf2:
 
 .. code-block:: console
 
-    ros2 run tf tf_echo /world /turtle1
+    ros2 run tf2_ros tf2_echo world turtle1
 
 This should show you the pose of the first turtle.
 Drive around the turtle using the arrow keys (make sure your terminal window is active, not your simulator window).
-If you run ``tf_echo`` for the transform between the ``world`` and ``turtle2``, you should not see a transform, because the second turtle is not there yet.
+In your console output you will see something similar to this:
+
+.. code-block:: console
+
+    At time 1625137663.912474878
+    - Translation: [5.276, 7.930, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
+    At time 1625137664.950813527
+    - Translation: [3.750, 6.563, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
+    At time 1625137665.906280726
+    - Translation: [2.320, 5.282, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, 0.934, -0.357]
+    At time 1625137666.850775673
+    - Translation: [2.153, 5.133, 0.000]
+    - Rotation: in Quaternion [0.000, 0.000, -0.365, 0.931]
+
+If you run ``tf2_echo`` for the transform between the ``world`` and ``turtle2``, you should not see a transform, because the second turtle is not there yet.
 However, as soon as we add the second turtle in the next tutorial, the pose of ``turtle2`` will be broadcast to tf2.

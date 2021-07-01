@@ -54,8 +54,37 @@ and all its necessary files and folders.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's first create the source files.
-Inside the ``src/learning_tf2_py/learning_tf2_py`` directory, create a new file called
-``static_turtle_tf2_broadcaster.py`` and paste the following code within:
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example static broadcaster code by entering the following command:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+
+    .. group-tab:: macOS
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+
+    .. group-tab:: Windows
+
+        In a Windows command line prompt:
+
+        .. code-block:: console
+
+                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+
+        Or in powershell:
+
+        .. code-block:: console
+
+                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+
+Open the file using your preferred text editor.
 
 .. code-block:: python
 

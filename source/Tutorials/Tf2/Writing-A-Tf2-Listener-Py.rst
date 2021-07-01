@@ -30,7 +30,37 @@ Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorial.
-Fire up your favorite editor and paste the following code into a new file called ``turtle_tf2_listener.py``.
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example listener code by entering the following command:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+
+    .. group-tab:: macOS
+
+        .. code-block:: console
+
+            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+
+    .. group-tab:: Windows
+
+        In a Windows command line prompt:
+
+        .. code-block:: console
+
+                curl -sk https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+
+        Or in powershell:
+
+        .. code-block:: console
+
+                curl https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+
+Open the file using your preferred text editor.
 
 .. code-block:: python
 
