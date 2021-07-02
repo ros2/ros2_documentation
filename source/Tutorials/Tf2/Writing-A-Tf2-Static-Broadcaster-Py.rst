@@ -418,3 +418,9 @@ for use within ``launch`` files for setting static transforms. For example:
                arguments = ['0', '0', '1', '0', '0', '0', 'world', 'mystaticturtle']
          ),
       ])
+
+Summary
+-------
+
+In this tutorial you learned how to write your own node to publish static transforms to tf2.
+In addition, you learned how to publish required static transformations using ``static_transform_publisher`` and launch files.

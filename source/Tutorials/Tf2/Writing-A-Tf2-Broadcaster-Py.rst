@@ -22,8 +22,9 @@ After that, the following tutorials focus on extending the demo with more advanc
 Prerequisites
 -------------
 
+This tutorial assumes you have a working knowledge of working with ROS2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
-You also have created the ``learning_tf2_py`` package where we will continue working on.
+You also have created the ``learning_tf2_py`` :ref:`package <WritingATf2StaticBroadcasterPy>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -86,7 +87,8 @@ Open the file using your preferred text editor.
 
             # Declare and acquire `turtlename` parameter
             self.declare_parameter('turtlename', 'turtle')
-            self.turtlename = self.get_parameter('turtlename').get_parameter_value().string_value
+            self.turtlename = self.get_parameter(
+                'turtlename').get_parameter_value().string_value
 
             # Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose
             # callback function on each message
@@ -139,7 +141,8 @@ Firstly, we define and acquire a single parameter ``turtlename``, which specifie
 .. code-block:: python
 
     self.declare_parameter('turtlename', 'turtle')
-    self.turtlename = self.get_parameter('turtlename').get_parameter_value().string_value
+    self.turtlename = self.get_parameter(
+        'turtlename').get_parameter_value().string_value
 
 Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
 
@@ -153,9 +156,9 @@ Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``han
 
 Now, we create a Transform object and give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp, we'll just stamp it with the current time, ``ros::Time::now()``.
+#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``self.get_clock().now()``. This will return the current time used by the ``Node``.
 
-#. Then, we need to set the name of the parent frame of the link we're creating, in this case ``world``
+#. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 
 #. Finally, we need to set the name of the child node of the link we're creating, in this case this is the name of the turtle itself.
 
@@ -168,6 +171,8 @@ The handler function for the turtle pose message broadcasts this turtle's transl
     t.child_frame_id = self.turtlename
 
 Here we copy the information from the 3D turtle pose into the 3D transform.
+However, as the turtle only exists in 2D, we get x and y translation coordinates from the message, and set the z coordinate to 0.
+In addition to that the turtle can only rotate around one axis and this why we only want to rotate about the z axis and set rotation in x and y to 0.
 
 .. code-block:: python
 
@@ -180,7 +185,7 @@ Here we copy the information from the 3D turtle pose into the 3D transform.
     t.transform.rotation.z = q[2]
     t.transform.rotation.w = q[3]
 
-This is where the real work is done. Sending a transform with a ``TransformBroadcaster`` requires passing in just the transform itself.
+Finally we take the transform that we constructed and pass it to the ``sendTransform`` method of the ``TransformBroadcaster`` that will take care of broadcasting.
 
 .. code-block:: python
 
@@ -188,8 +193,8 @@ This is where the real work is done. Sending a transform with a ``TransformBroad
 
 .. note::
 
-    You can also publish static transforms on the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
-    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required (latched topic) and not periodically.
+    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
+    The static transforms will be published only once on the ``/tf_static`` topic and not periodically.
     For more details see :ref:`here <WritingATf2StaticBroadcasterPy>`.
 
 1.2 Add dependencies
@@ -219,7 +224,9 @@ Add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
-    'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
+    'console_scripts': [
+        'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
+    ],
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,6 +261,7 @@ file called ``turtle_tf2_demo.launch.py``, and add the following lines:
 ~~~~~~~~~~~~~~~~~~~~
 
 First we import required modules from the ``launch`` and ``launch_ros`` packages.
+It should be noted that ``launch`` is a generic launching framework (not ROS2 specific) and ``launch_ros`` has ROS2 specific things, like nodes that we import here.
 
 .. code-block:: python
 
@@ -291,10 +299,68 @@ The ``data_files`` field should now look like this:
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
     ],
 
+You can learn more about creating launch files in :ref:`this tutorial <ROS2Launch>`.
+
 3 Build and run
 ^^^^^^^^^^^^^^^
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies, build your updated package, and source the setup files.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro rolling -y
+
+   .. group-tab:: macOS
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+   .. group-tab:: Windows
+
+      rosdep only runs on Linux, so you can skip ahead to next step.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select learning_tf2_py
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 
@@ -308,7 +374,7 @@ In the second terminal window type the following command:
 
     ros2 run turtlesim turtle_teleop_key
 
-You will now see that the turtlesim simulation have started with one turtle in the middle that you can control.
+You will now see that the turtlesim simulation have started with one turtle that you can control.
 
 .. image:: turtlesim_broadcast.png
 
@@ -319,7 +385,7 @@ Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting b
     ros2 run tf2_ros tf2_echo world turtle1
 
 This should show you the pose of the first turtle.
-Drive around the turtle using the arrow keys (make sure your terminal window is active, not your simulator window).
+Drive around the turtle using the arrow keys (make sure your ``turtle_teleop_key`` terminal window is active, not your simulator window).
 In your console output you will see something similar to this:
 
 .. code-block:: console
@@ -339,3 +405,9 @@ In your console output you will see something similar to this:
 
 If you run ``tf2_echo`` for the transform between the ``world`` and ``turtle2``, you should not see a transform, because the second turtle is not there yet.
 However, as soon as we add the second turtle in the next tutorial, the pose of ``turtle2`` will be broadcast to tf2.
+
+Summary
+-------
+
+In this tutorial you learned how to broadast state of the robot to tf2 and how to use the ``tf2_echo`` tool.
+To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerPy>`.

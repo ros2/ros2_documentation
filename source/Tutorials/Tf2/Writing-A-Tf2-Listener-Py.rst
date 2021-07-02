@@ -21,7 +21,8 @@ In the previous tutorials we created a tf2 broadcaster to publish the pose of a 
 Prerequisites
 -------------
 
-In previous tutorial, we created a ``learning_tf2_py`` package where we will continue working on.
+This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
+In previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
 -----
@@ -95,6 +96,7 @@ Open the file using your preferred text editor.
                 self.get_logger().info('service not available, waiting again...')
 
             # Initialize request with turtle name and coordinates
+            # Note that x, y, and theta are defined as floats in turtlesim/srv/Spawn
             request = Spawn.Request()
             request.name = 'turtle2'
             request.x = float(4)
@@ -176,7 +178,7 @@ All this is wrapped in a try-except block to catch possible exceptions.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines:
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node:
 
 .. code-block:: python
 
@@ -212,3 +214,10 @@ In the second terminal window type the following command:
 ^^^^^^^^^^^^^^^^^^^^^^
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
+
+
+Summary
+-------
+
+In this tutorial you learned how to use tf2 to get access to frame transformations.
+You also have finished writing your own turtlesim demo that you have tried in the  :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
