@@ -1,11 +1,14 @@
 Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
 
+We start eclipse and select a eclipse-workspace.
+
 
 .. image:: images/eclipse_work_dir.png
    :target: images/eclipse_work_dir.png
    :alt: eclipse_work_dir
    
-   
+We create a c++ project
+
 .. image:: images/eclipse_create_c++_project.png
    :target: images/eclipse_create_c++_project.png
    :alt: eclipse_create_c++_project
@@ -15,10 +18,14 @@ Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
    :target: images/eclipse_c++_project_select_type.png
    :alt: eclipse_c++_project_select_type
    
+We see that we got c++ includes.
 .. image:: images/eclipse_c++_project_includes.png
    :target: images/eclipse_c++_project_includes.png
    :alt: eclipse_c++_project_includes
    
+   
+We now import our ROS2 project. The code is still in the old place.
+
 .. image:: images/eclipse_import_project.png
    :target: images/eclipse_import_project.png
    :alt: eclipse_import_project
@@ -33,6 +40,9 @@ Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
    :alt: eclipse_import_select_my_package
    
    
+   
+We see in the source code that the c++ includes got resolved but not the ROS2 ones.
+
 .. image:: images/eclipse_c++_wo_ros_includes.png
    :target: images/eclipse_c++_wo_ros_includes.png
    :alt: eclipse_c++_wo_ros_includes
@@ -48,17 +58,14 @@ Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
    :alt: eclipse_c++_add_directory_path
    
    
+We now see that the ROS2 includes got resolved too.
+
 .. image:: images/eclipse_c++_indexer_ok.png
    :target: images/eclipse_c++_indexer_ok.png
    :alt: eclipse_c++_indexer_ok
    
    
-.. image:: images/eclipse_c++_indexer_ok.png
-   :target: images/eclipse_c++_indexer_ok.png
-   :alt: eclipse_c++_indexer_ok
-   
-   
-Adding Builder colcon
+Adding Builder colcon, so that we can build with right-click on project and "Build project".
 
 .. image:: images/eclipse_c++_properties_builders.png
    :target: images/eclipse_c++_properties_builders.png
@@ -70,6 +77,8 @@ Adding Builder colcon
    :alt: eclipse_c++_builder_main
    
    
+With PYTHONPATH you can also build python projects.
+
 .. image:: images/eclipse_c++_builder_env.png
    :target: images/eclipse_c++_builder_env.png
    :alt: eclipse_c++_builder_env
