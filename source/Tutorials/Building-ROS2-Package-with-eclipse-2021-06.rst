@@ -1,5 +1,95 @@
 Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
 
-.. image:: images/tree_dev_ws.png
-   :target: images/tree_dev_ws.png
-   :alt: tree_dev_ws
+
+.. image:: images/eclipse_work_dir.png
+   :target: images/eclipse_work_dir.png
+   :alt: eclipse_work_dir
+   
+   
+.. image:: images/eclipse_create_c++_project.png
+   :target: images/eclipse_create_c++_project.png
+   :alt: eclipse_create_c++_project
+   
+   
+.. image:: images/eclipse_c++_project_select_type.png
+   :target: images/eclipse_c++_project_select_type.png
+   :alt: eclipse_c++_project_select_type
+   
+.. image:: images/eclipse_c++_project_includes.png
+   :target: images/eclipse_c++_project_includes.png
+   :alt: eclipse_c++_project_includes
+   
+.. image:: images/eclipse_import_project.png
+   :target: images/eclipse_import_project.png
+   :alt: eclipse_import_project
+   
+.. image:: images/eclipse_import_filesystem.png
+   :target: images/eclipse_import_filesystem.png
+   :alt: eclipse_import_filesystem
+   
+   
+.. image:: images/eclipse_import_select_my_package.png
+   :target: images/eclipse_import_select_my_package.png
+   :alt: eclipse_import_select_my_package
+   
+   
+.. image:: images/eclipse_c++_wo_ros_includes.png
+   :target: images/eclipse_c++_wo_ros_includes.png
+   :alt: eclipse_c++_wo_ros_includes
+   
+   
+.. image:: images/eclipse_c++_path_and_symbols.png
+   :target: images/eclipse_c++_path_and_symbols.png
+   :alt: eclipse_c++_path_and_symbols
+   
+   
+.. image:: images/eclipse_c++_add_directory_path.png
+   :target: images/eclipse_c++_add_directory_path.png
+   :alt: eclipse_c++_add_directory_path
+   
+   
+.. image:: images/eclipse_c++_indexer_ok.png
+   :target: images/eclipse_c++_indexer_ok.png
+   :alt: eclipse_c++_indexer_ok
+   
+   
+.. image:: images/eclipse_c++_indexer_ok.png
+   :target: images/eclipse_c++_indexer_ok.png
+   :alt: eclipse_c++_indexer_ok
+   
+   
+Adding Builder colcon
+
+.. image:: images/eclipse_c++_properties_builders.png
+   :target: images/eclipse_c++_properties_builders.png
+   :alt: eclipse_c++_properties_builders
+   
+   
+.. image:: images/eclipse_c++_builder_main.png
+   :target: images/eclipse_c++_builder_main.png
+   :alt: eclipse_c++_builder_main
+   
+   
+.. image:: images/eclipse_c++_builder_env.png
+   :target: images/eclipse_c++_builder_env.png
+   :alt: eclipse_c++_builder_env
+   
+   
+.. image:: images/eclipse_c++_properties_builders_with_colcon.png
+   :target: images/eclipse_c++_properties_builders_with_colcon.png
+   :alt: eclipse_c++_properties_builders_with_colcon
+   
+   
+Right-click on the project and select "Build Project"
+   
+.. image:: images/eclipse_c++_build_project_with_colcon.png
+   :target: images/eclipse_c++_build_project_with_colcon.png
+   :alt: eclipse_c++_build_project_with_colcon
+   
+   
+   
+   
+
+   
+   
+   
