@@ -1,4 +1,4 @@
-Building ROS2 Package with eclipse 2021-06 on ubuntu-20.04
+Building ROS2-galactic Package with eclipse 2021-06 on ubuntu-20.04
 
 You cannot create a ROS2 package with eclipse, you need to create it with commandline tools. 
 Follow this https://docs.ros.org/en/galactic/Tutorials/Creating-Your-First-ROS2-Package.html tutorial.
