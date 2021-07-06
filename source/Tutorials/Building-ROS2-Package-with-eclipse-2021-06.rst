@@ -47,7 +47,7 @@ We now import our ROS 2 project. The code is still in the old place.
    
    
    
-We see in the source code that the c++ includes got resolved but not the ROS2 ones.
+We see in the source code that the C++ includes got resolved but not the ROS 2 ones.
 
 .. image:: images/eclipse_c++_wo_ros_includes.png
    :target: images/eclipse_c++_wo_ros_includes.png
