@@ -64,7 +64,7 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
    :alt: eclipse_c++_add_directory_path
    
    
-We now see that the ROS2 includes got resolved too.
+We now see that the ROS 2 includes got resolved too.
 
 .. image:: images/eclipse_c++_indexer_ok.png
    :target: images/eclipse_c++_indexer_ok.png
