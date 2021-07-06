@@ -43,7 +43,7 @@ So what are the steps to making a working group?
    meetings. To join the calendar, send an e-mail request to Kat
    (kat@openrobotics.org) or Tully (tully@openrobotics) add that group to the
    ROS events calendar.
-6. To formalize your group you need to create a working group charter and a git
+#. To formalize your group you need to create a working group charter and a git
    repository to keep your documents and code. We have a working group template
    that can be found `here
    <https://github.com/ros2/tsc_working_group_governance_template>`_. Anyone in
@@ -76,9 +76,9 @@ So what are the steps to making a working group?
          recorder, and settings.
 
       ii) Once your meeting is over, find somewhere online to save the
-	  video. Feel free to use your own Youtube channel to post the video;
-	  alternatively Open Robotics can host the video on their Vimeo account
-	  by sending a download link to kat@openrobotics.org.
+          video. Feel free to use your own Youtube channel to post the video;
+          alternatively Open Robotics can host the video on their Vimeo account
+          by sending a download link to kat@openrobotics.org.
 
   b) Make sure to take notes! You should nominate a scribe or note taker who
      summarizes the meeting and posts the results of the meeting to discourse.
