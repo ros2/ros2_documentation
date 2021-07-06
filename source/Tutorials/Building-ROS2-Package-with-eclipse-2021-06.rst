@@ -12,7 +12,7 @@ We start eclipse and select a eclipse-workspace.
    :target: images/eclipse_work_dir.png
    :alt: eclipse_work_dir
    
-We create a c++ project
+We create a C++ project
 
 .. image:: images/eclipse_create_c++_project.png
    :target: images/eclipse_create_c++_project.png
