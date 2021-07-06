@@ -100,11 +100,3 @@ Right-click on the project and select "Build Project"
 .. image:: images/eclipse_c++_build_project_with_colcon.png
    :target: images/eclipse_c++_build_project_with_colcon.png
    :alt: eclipse_c++_build_project_with_colcon
-   
-   
-   
-   
-
-   
-   
-   
