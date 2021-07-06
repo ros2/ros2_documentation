@@ -30,7 +30,7 @@ We see that we got C++ includes.
    :alt: eclipse_c++_project_includes
    
    
-We now import our ROS2 project. The code is still in the old place.
+We now import our ROS 2 project. The code is still in the old place.
 
 .. image:: images/eclipse_import_project.png
    :target: images/eclipse_import_project.png
