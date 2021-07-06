@@ -40,8 +40,9 @@ a working group?
    (https://groups.google.com/my-groups) and adding your members.
 5. Now that you have an e-mail group you can associate that group with the ROS
    events calendar. The calendar is where you will schedule your working group
-   meetings. To join the calendar, send an e-mail request to Kat or Tully add
-   that group to the ROS events calendar.
+   meetings. To join the calendar, send an e-mail request to Kat
+   (kat@openrobotics.org) or Tully (tully@openrobotics) add that group to the
+   ROS events calendar.
 6. To formalize your group you need to create a working group charter and a git
    repository to keep your documents and code. We have a working group template
    that can be found `here
@@ -76,8 +77,9 @@ a working group?
 	 recorder, and settings.
 
       ii) Once your meeting is over, find somewhere online to save the
-	  video. Feel free to use Youtube. If you would like Open Robotics to
-	  host the video on our Vimeo account
+	  video. Feel free to use your own Youtube channel to post the video;
+	  alternatively Open Robotics can host the video on their Vimeo account
+	  by sending a download link to kat@openrobotics.org.
 
   b) Make sure to take notes! You should nominate a scribe or note taker who
      summarizes the meeting and posts the results of the meeting to discourse.
