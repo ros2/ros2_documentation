@@ -23,7 +23,7 @@ We create a C++ project
    :target: images/eclipse_c++_project_select_type.png
    :alt: eclipse_c++_project_select_type
    
-We see that we got c++ includes.
+We see that we got C++ includes.
 
 .. image:: images/eclipse_c++_project_includes.png
    :target: images/eclipse_c++_project_includes.png
