@@ -1,4 +1,13 @@
 Building ROS 2 Package with eclipse 2021-06
+===========================================
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
+
+   
+
+
 
 You cannot create a ROS 2 package with eclipse, you need to create it with commandline tools. 
 Follow the `Creating your first ROS 2 package tutorial <https://docs.ros.org/en/galactic/Tutorials/Creating-Your-First-ROS2-Package.html>`.
@@ -6,6 +15,7 @@ Follow the `Creating your first ROS 2 package tutorial <https://docs.ros.org/en/
 After you created your project, you can edit the source code and build it with eclipse.
 
 We start eclipse and select a eclipse-workspace.
+----------
 
 
 .. image:: images/eclipse_work_dir.png
@@ -31,6 +41,7 @@ We see that we got C++ includes.
    
    
 We now import our ROS 2 project. The code is still in the old place.
+----------
 
 .. image:: images/eclipse_import_project.png
    :target: images/eclipse_import_project.png
@@ -65,6 +76,7 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
    
    
 We now see that the ROS 2 includes got resolved too.
+----------
 
 .. image:: images/eclipse_c++_indexer_ok.png
    :target: images/eclipse_c++_indexer_ok.png
@@ -72,6 +84,7 @@ We now see that the ROS 2 includes got resolved too.
    
    
 Adding Builder colcon, so that we can build with right-click on project and "Build project".
+----------
 
 .. image:: images/eclipse_c++_properties_builders.png
    :target: images/eclipse_c++_properties_builders.png
