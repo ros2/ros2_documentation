@@ -27,7 +27,7 @@ This tutorial assumes basic C++ knowledge and that you have ``pluginlib`` instal
 
 .. code-block:: console
 
-  sudo apt-get install ros-$ROS_DISTRO-pluginlib
+  sudo apt-get install ros-{DISTRO}-pluginlib
 
 
 Tasks
