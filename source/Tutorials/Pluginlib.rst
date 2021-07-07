@@ -1,7 +1,7 @@
 Creating and Using Plugins (C++)
 ======================================
 
-**Goal:** Learn to use the create and load a simple plugin using pluginlib
+**Goal:** Learn to create and load a simple plugin using pluginlib
 
 **Tutorial level:** Beginner
 
