@@ -101,7 +101,7 @@ Now we're going to write two non-virtual implementations of our abstract class. 
 2.1 Source code for the plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open your second favorite editor and edit ``dev_ws/src/polygon_plugins/src/polygon_plugins.cpp``, and paste the following inside of it:
+Open ``dev_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and paste the following inside of it:
 
 .. code-block:: C++
 
