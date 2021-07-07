@@ -96,7 +96,7 @@ Now we're going to write two non-virtual implementations of our abstract class. 
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake_ros polygon_plugins --dependencies polygon_base pluginlib --library-name polygon_plugins
+  ros2 pkg create --build-type ament_cmake polygon_plugins --dependencies polygon_base pluginlib --library-name polygon_plugins
 
 2.1 Source code for the plugins
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
