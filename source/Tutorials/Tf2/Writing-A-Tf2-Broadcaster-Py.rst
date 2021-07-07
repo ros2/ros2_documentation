@@ -194,7 +194,7 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 .. note::
 
     You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
-    The static transforms will be published only once on the ``/tf_static`` topic and not periodically.
+    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, and not periodically.
     For more details see :ref:`here <WritingATf2StaticBroadcasterPy>`.
 
 1.2 Add dependencies

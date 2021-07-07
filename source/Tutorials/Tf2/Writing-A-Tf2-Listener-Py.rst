@@ -86,7 +86,7 @@ Open the file using your preferred text editor.
             super().__init__('turtle_tf2_frame_listener')
 
             self._tf_buffer = Buffer()
-            self._tf_listener = TransformListener(self._tf_buffer, self, spin_thread=False)
+            self._tf_listener = TransformListener(self._tf_buffer, self)
 
             # Create a client to spawn a turtle
             self.client = self.create_client(Spawn, 'spawn')
@@ -96,7 +96,7 @@ Open the file using your preferred text editor.
                 self.get_logger().info('service not available, waiting again...')
 
             # Initialize request with turtle name and coordinates
-            # Note that x, y, and theta are defined as floats in turtlesim/srv/Spawn
+            # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
             request = Spawn.Request()
             request.name = 'turtle2'
             request.x = float(4)
@@ -118,18 +118,26 @@ Open the file using your preferred text editor.
             # Look up for the transformation between turtle1 and turtle2 frames
             # and send velocity commands for turtle2 to reach turtle1
             try:
-                when = rclpy.time.Time()
+                now = rclpy.time.Time()
                 trans = self._tf_buffer.lookup_transform(
-                    to_frame_rel, from_frame_rel, when, timeout=Duration(seconds=1.0))
-
-                msg = Twist()
-                msg.angular.z = 1.0 * math.atan2(
-                    trans.transform.translation.y, trans.transform.translation.x)
-                msg.linear.x = 0.5 * math.sqrt(
-                    trans.transform.translation.x ** 2 + trans.transform.translation.y ** 2)
-                self.turtle_vel_.publish(msg)
+                    to_frame_rel,
+                    from_frame_rel,
+                    now,
+                    timeout=Duration(seconds=1.0))
             except LookupException:
                 self.get_logger().info('transform not ready')
+                return
+
+            msg = Twist()
+            msg.angular.z = 1.0 * math.atan2(
+                trans.transform.translation.y,
+                trans.transform.translation.x)
+
+            msg.linear.x = 0.5 * math.sqrt(
+                trans.transform.translation.x ** 2 +
+                trans.transform.translation.y ** 2)
+
+            self.turtle_vel_.publish(msg)
 
 
     def main():
@@ -156,7 +164,7 @@ Here, we create a ``TransformListener`` object. Once the listener is created, it
 
 .. code-block:: python
 
-    self._tf_listener = TransformListener(self._tf_buffer, self, spin_thread=False)
+    self._tf_listener = TransformListener(self._tf_buffer, self)
 
 Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
 
@@ -171,9 +179,12 @@ All this is wrapped in a try-except block to catch possible exceptions.
 
 .. code-block:: python
 
-    when = rclpy.time.Time()
+    now = rclpy.time.Time()
     trans = self._tf_buffer.lookup_transform(
-        to_frame_rel, from_frame_rel, when, timeout=Duration(seconds=1.0))
+        to_frame_rel,
+        from_frame_rel,
+        now,
+        timeout=Duration(seconds=1.0))
 
 2 Build and run
 ^^^^^^^^^^^^^^^
@@ -182,19 +193,26 @@ With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``
 
 .. code-block:: python
 
-    Node(
-        package='learning_tf2_py',
-        executable='turtle_tf2_broadcaster',
-        name='broadcaster2',
-        parameters=[
-            {'turtlename': 'turtle2'}
-        ]
-    ),
-    Node(
-        package='learning_tf2_py',
-        executable='turtle_tf2_listener',
-        name='listener'
-    ),
+    from launch import LaunchDescription
+    from launch_ros.actions import Node
+
+    def generate_launch_description():
+        return LaunchDescription([
+            ...,
+            Node(
+                package='learning_tf2_py',
+                executable='turtle_tf2_broadcaster',
+                name='broadcaster2',
+                parameters=[
+                    {'turtlename': 'turtle2'}
+                ]
+            ),
+            Node(
+                package='learning_tf2_py',
+                executable='turtle_tf2_listener',
+                name='listener'
+            ),
+        ])
 
 This will start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 Now you're ready to start your full turtle demo:
@@ -214,7 +232,6 @@ In the second terminal window type the following command:
 ^^^^^^^^^^^^^^^^^^^^^^
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
-
 
 Summary
 -------
