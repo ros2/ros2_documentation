@@ -38,11 +38,12 @@ So what are the steps to making a working group?
    to do. At this point you should have a list of working group members. Create
    a google group by going to Google groups
    (https://groups.google.com/my-groups) and adding your members.
+
 #. Now that you have an e-mail group you can associate that group with the ROS
    events calendar. The calendar is where you will schedule your working group
    meetings. To join the calendar, send an e-mail request to Kat
-   (kat@openrobotics.org) or Tully (tully@openrobotics) add that group to the
-   ROS events calendar.
+   (kat@openrobotics.org) or Tully (tully@openrobotics.org).
+
 #. To formalize your group you need to create a working group charter and a git
    repository to keep your documents and code. We have a working group template
    that can be found `here
@@ -67,11 +68,11 @@ So what are the steps to making a working group?
 #. Have your meetings! Regularly!
 
    a) Since we are a global community it can help to record your meetings. If
-      you have an invited lecture we higahly recommend recording it for the
+      you have an invited lecture we highly recommend recording it for the
       benefit of the whole community. Make sure the group / lecturer consents to
       being recorded, and it is wise to do a test run before the event.
 
-      i) On linux SimpleScreenRecorder works well but you may need to iterate to
+      i) On Linux SimpleScreenRecorder works well but you may need to iterate to
          find the best combination of video conferencing platform, screen
          recorder, and settings.
 
