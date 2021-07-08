@@ -316,11 +316,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies, 
 
    .. group-tab:: macOS
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
 
    .. group-tab:: Windows
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
 
 .. tabs::
 
@@ -360,7 +360,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies, 
 
     .. code-block:: console
 
-      call install/setup.bat
+      # CMD
+      call install\setup.bat
+
+      # Powershell
+      .\install\setup.ps1
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 

@@ -292,12 +292,11 @@ check for missing dependencies before building:
 
    .. group-tab:: macOS
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
+      rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
    .. group-tab:: Windows
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
-
+      rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
 Still in the root of your workspace, build your new package:
 
@@ -341,7 +340,11 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-      call install/setup.bat
+      # CMD
+      call install\setup.bat
+
+      # Powershell
+      .\install\setup.ps1
 
 Now run the ``static_turtle_tf2_broadcaster`` node:
 
