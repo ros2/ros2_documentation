@@ -3,6 +3,10 @@
 Project Governance
 ==================
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 Technical Steering Committee (TSC)
 ----------------------------------
 Since the beginning of ROS, the project has been overseen and prioritized primarily by one organization, first Willow Garage and now Open Robotics.
@@ -174,6 +178,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/How-To-Start-A-Community-Working-Group
 
 Working Groups (WGs)
 --------------------
@@ -203,7 +208,7 @@ Edge AI
 Embedded Systems
 ^^^^^^^^^^^^^^^^
 
-* Lead(s): Francesca Finocchiaro
+* Lead(s): Maria Merlan, Pablo Garrido
 * Resources:
 
  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
@@ -300,15 +305,21 @@ Tooling
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
 
+Community Working Groups
+------------------------
+
+The ROS 2 TSC is interested in encouraging and promoting working groups outside its direct purview.
+To provide extra visibility the TSC maintains a list of the community driven working groups here as well as working with the community to provide them with the same infrastructure.
+
 Hardware Acceleration
 ^^^^^^^^^^^^^^^^^^^^^
 
 * Lead(s): Víctor Mayoral Vilches
 * Resources:
 
-* Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
-* Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
-* Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
+ * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
+ * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
+ * Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.

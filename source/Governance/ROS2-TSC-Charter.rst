@@ -13,7 +13,7 @@ ROS 2 Technical Steering Committee Charter
    :local:
 
 Guiding Principles & Rationale
----------------------------------
+------------------------------
 
 The ROS 2 Project (“ROS 2” or “the project”) operates openly, such that plans, decisions, and processes are freely available to the general public in a timely manner.
 All interested parties should have access to information about the project direction and timeline, from casual observers to companies planning product releases.
