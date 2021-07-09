@@ -202,5 +202,30 @@ project in project explorer and select "Properties".
    :alt: eclipse_c++_add_directory_path
 
 
+9 Adding colcon as Builder
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+To build the project with right-click on  project and select "Build Project", we
+setup a builder. Right-click on your project and select "Properties".
+
+.. image:: images/eclipse_c++_properties_builders.png
+   :target: images/eclipse_c++_properties_builders.png
+   :alt: eclipse_c++_properties_builders
+   
+Click "Add" and use Program.
+  
+.. image:: images/eclipse_c++_builder_main.png
+   :target: images/eclipse_c++_builder_main.png
+   :alt: eclipse_c++_builder_main
+   
+.. image:: images/eclipse_c++_builder_env.png
+   :target: images/eclipse_c++_builder_env.png
+   :alt: eclipse_c++_builder_env 
+   
+   
+Now it should look like this.
+
+.. image:: images/eclipse_c++_properties_builders_with_colcon.png
+   :target: images/eclipse_c++_properties_builders_with_colcon.png
+   :alt: eclipse_c++_properties_builders_with_colcon 
 
