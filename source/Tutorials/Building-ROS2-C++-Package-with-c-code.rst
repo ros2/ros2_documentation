@@ -222,6 +222,11 @@ Click "Add" and use Program.
    :target: images/eclipse_c++_builder_main.png
    :alt: eclipse_c++_builder_main
    
+Note that the environment variables like AMENT_PREFIX_PATH getting updated if you
+source a setup.bash or setup.sh file. You get these env variables with the "env" command
+on console after sourcing your setup files. You need to perhaps also update this variable,
+when you source a new setup file.
+   
 .. image:: images/eclipse_c++_builder_env.png
    :target: images/eclipse_c++_builder_env.png
    :alt: eclipse_c++_builder_env 
