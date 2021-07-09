@@ -119,7 +119,8 @@ we got directly a history of our changes.
    :target: images/create-package-add-git.png
    :alt: create-package-add-git
    
-Start eclipse and select a eclipse-workspace.
+4 Start eclipse and select a eclipse-workspace.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/eclipse_work_dir.png
    :target: images/eclipse_work_dir.png
@@ -131,7 +132,8 @@ Open the Git View
    :target: images/eclipse-open-git-view.png
    :alt: eclipse-open-git-view
 
-Add the my_package git repository you created to the git view.
+5 Add the my_package git repository you created to the git view.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/add-existing-git-to-eclipse-view.png
    :target: images/add-existing-git-to-eclipse-view.png
@@ -143,13 +145,14 @@ Select the my_package you just created before.
    :target: images/eclipse-search-and-select-git-repo.png
    :alt: eclipse-search-and-select-git-repo
    
-Now you got our ROS 2 package in eclipse git view.
+Now you got your ROS 2 package in eclipse git view.
 
 .. image:: images/eclipse-selected-git-repo-in-view.png
    :target: images/eclipse-selected-git-repo-in-view.png
    :alt: eclipse-selected-git-repo-in-view
    
-To edit the files in this git repository, we import it.
+6 To edit the files in this git repository, we import it.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/eclipse-import-project-from-git-view.png
    :target: images/eclipse-import-project-from-git-view.png
@@ -166,5 +169,38 @@ You can now see, edit all files in project explorer.
    :target: images/eclipse-git-project-in-project-explorer.png
    :alt: eclipse-git-project-in-project-explorer
    
+7 To get all C++ includes resolved, convert the project to C++ to add C++ nature.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: images/eclipse-convert-to-c++-project.png
+   :target: images/eclipse-convert-to-c++-project.png
+   :alt: eclipse-convert-to-c++-project
+   
+.. image:: images/eclipse-convert-to-c++-select.png
+   :target: images/eclipse-convert-to-c++-select.png
+   :alt: eclipse-convert-to-c++-select
+   
+Now you can see the added includes in the project explorer view.
+
+.. image:: images/eclipse-c++-includes.png
+   :target: images/eclipse-c++-includes.png
+   :alt: eclipse-c++-includes
    
    
+8 Adding ROS 2 include path
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The C++ nature also allows you now to set include path. Right-click on your
+project in project explorer and select "Properties".
+
+.. image:: images/eclipse_c++_path_and_symbols.png
+   :target: images/eclipse_c++_path_and_symbols.png
+   :alt: eclipse_c++_path_and_symbols
+   
+.. image:: images/eclipse_c++_add_directory_path.png
+   :target: images/eclipse_c++_add_directory_path.png
+   :alt: eclipse_c++_add_directory_path
+
+
+
+
