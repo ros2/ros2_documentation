@@ -110,16 +110,61 @@ The command syntax for creating a new package in ROS 2 is:
 
         ros2 pkg create --build-type ament_cmake <package_name>
 
-   .. group-tab:: Python
-
-      .. code-block:: console
-
-        ros2 pkg create --build-type ament_python <package_name>
         
+Create your package my_package, and create a git repository from it.
+If we create a git repo from it, we can easily use it in eclipse, also
+we got directly a history of our changes.
+
+.. image:: images/create-package-add-git.png
+   :target: images/create-package-add-git.png
+   :alt: create-package-add-git
    
-We start eclipse and select a eclipse-workspace.
+Start eclipse and select a eclipse-workspace.
 
 .. image:: images/eclipse_work_dir.png
    :target: images/eclipse_work_dir.png
    :alt: eclipse_work_dir
+   
+Open the Git View
 
+.. image:: images/eclipse-open-git-view.png
+   :target: images/eclipse-open-git-view.png
+   :alt: eclipse-open-git-view
+
+Add the my_package git repository you created to the git view.
+
+.. image:: images/add-existing-git-to-eclipse-view.png
+   :target: images/add-existing-git-to-eclipse-view.png
+   :alt: add-existing-git-to-eclipse-view
+   
+Select the my_package you just created before.
+
+.. image:: images/eclipse-search-and-select-git-repo.png
+   :target: images/eclipse-search-and-select-git-repo.png
+   :alt: eclipse-search-and-select-git-repo
+   
+Now you got our ROS 2 package in eclipse git view.
+
+.. image:: images/eclipse-selected-git-repo-in-view.png
+   :target: images/eclipse-selected-git-repo-in-view.png
+   :alt: eclipse-selected-git-repo-in-view
+   
+To edit the files in this git repository, we import it.
+
+.. image:: images/eclipse-import-project-from-git-view.png
+   :target: images/eclipse-import-project-from-git-view.png
+   :alt: eclipse-import-project-from-git-view
+   
+.. image:: images/eclipse-select-import-git-view-project.png
+   :target: images/eclipse-select-import-git-view-project.png
+   :alt: eclipse-select-import-git-view-project
+   
+
+You can now see, edit all files in project explorer.
+
+.. image:: images/eclipse-git-project-in-project-explorer.png
+   :target: images/eclipse-git-project-in-project-explorer.png
+   :alt: eclipse-git-project-in-project-explorer
+   
+   
+   
