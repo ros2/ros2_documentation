@@ -301,3 +301,187 @@ To keep the package as simple as it gets, copy the needed files into your projec
 .. image:: images/eclipse-adc-files-copied.png
    :target: images/eclipse-adc-files-copied.png
    :alt: eclipse-adc-files-copied
+   
+   
+When looking at the main.c file from the High-Precision-AD-DA-Board project, we see that only
+DEV_ModuleInit(); ADS1256_init() and ADS1256_GetAll(ADC) is used to get the ADC values.
+
+.. image:: images/eclipse-adc-main-file.png
+   :target: images/eclipse-adc-main-file.png
+   :alt: eclipse-adc-main-file
+   
+   
+So, open the publish_member_function.cpp file and fill in this:
+
+.. code-block:: C++
+
+   // Copyright 2016 Open Source Robotics Foundation, Inc.
+   ///////////////////////////////////////////////////////
+   // Licensed under the Apache License, Version 2.0 (the "License");
+   // you may not use this file except in compliance with the License.
+   // You may obtain a copy of the License at
+   //////////////////////////////////////////
+   //     http://www.apache.org/licenses/LICENSE-2.0
+   /////////////////////////////////////////////////
+   // Unless required by applicable law or agreed to in writing, software
+   // distributed under the License is distributed on an "AS IS" BASIS,
+   // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   // See the License for the specific language governing permissions and
+   // limitations under the License.
+   
+   #include <chrono>
+   #include <functional>
+   #include <memory>
+   #include <string>
+   
+   #include "rclcpp/rclcpp.hpp"
+   #include "std_msgs/msg/string.hpp"
+   #include "std_msgs/msg/float32_multi_array.hpp"
+   
+   extern "C" {
+   #include "../include/my_package/ADS1256.h"
+   }
+   
+   
+   using namespace std::chrono_literals;
+   
+   /* This example creates a subclass of Node and uses std::bind() to register a
+    * member function as a callback from the timer. */
+   
+   class MinimalPublisher : public rclcpp::Node
+   {
+   public:
+     MinimalPublisher()
+     : Node("minimal_publisher"), count_(0)
+     {
+        ADS1256_init();
+        DEV_ModuleInit();
+   //   DEV_ModuleExit();
+   
+       publisher_ = this->create_publisher<std_msgs::msg::Float32MultiArray>("topic", 10);
+       timer_ = this->create_wall_timer(
+         500ms, std::bind(&MinimalPublisher::timer_callback, this));
+     }
+   
+   private:
+     void timer_callback()
+     {
+        ADS1256_GetAll(ADC);
+   
+        auto message = std_msgs::msg::Float32MultiArray();
+        for(i = 0; i < 8; i++)
+           message.data[i] = ADC[i]*5.0/0x7fffff;
+   
+   
+   //    auto message = std_msgs::msg::String();
+   //    message.data = "Hello, world! " + std::to_string(count_++);
+       RCLCPP_INFO(this->get_logger(), "Publishing: '%f'", message.data[0]);
+       publisher_->publish(message);
+     }
+     rclcpp::TimerBase::SharedPtr timer_;
+     rclcpp::Publisher<std_msgs::msg::Float32MultiArray>::SharedPtr publisher_;
+     size_t count_;
+     uint32_t ADC[8], i;
+   };
+   
+   int main(int argc, char * argv[])
+   {
+     rclcpp::init(argc, argv);
+     rclcpp::spin(std::make_shared<MinimalPublisher>());
+     rclcpp::shutdown();
+     return 0;
+   }
+
+
+If you include C code, the e.g. function-names should not be name mangled, what C++ is doing.
+To prevent that, use
+
+.. code-block:: C++
+
+   extern "C" {
+   #include "../include/my_package/ADS1256.h"
+   }
+
+
+Then put in simply the code from the main.c file as you can see.
+
+Now edit package.xml file
+
+.. image:: images/eclipse-package-xml.png
+   :target: images/eclipse-package-xml.png
+   :alt: eclipse-package-xml
+
+
+Now edit the CMakeLists.txt file.
+
+.. code-block:: C++
+
+   cmake_minimum_required(VERSION 3.8)
+   project(my_package)
+   
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic -lpthread -lm -lwiringPi)
+   endif()
+   
+   # find dependencies
+   find_package(ament_cmake REQUIRED)
+   find_package(rclcpp REQUIRED)
+   
+   add_executable(my_node src/publisher_member_function.cpp
+               src/ADS1256.c
+               src/DEV_Config.c)
+               
+   ament_target_dependencies(my_node rclcpp std_msgs)
+   
+   target_link_libraries(my_node wiringPi)
+   
+   target_include_directories(my_node PRIVATE
+     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+     $<INSTALL_INTERFACE:include>)
+   
+   if(BUILD_TESTING)
+     find_package(ament_lint_auto REQUIRED)
+     # the following line skips the linter which checks for copyrights
+     # uncomment the line when a copyright and license is not present in all source files
+     #set(ament_cmake_copyright_FOUND TRUE)
+     # the following line skips cpplint (only works in a git repo)
+     # uncomment the line when this package is not in a git repo
+     #set(ament_cmake_cpplint_FOUND TRUE)
+     ament_lint_auto_find_test_dependencies()
+   endif()
+   
+   install(TARGETS
+     my_node
+     DESTINATION lib/${PROJECT_NAME})
+   
+   ament_package()
+
+
+
+The most interresting part is
+
+.. code-block:: C++
+
+   if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     add_compile_options(-Wall -Wextra -Wpedantic -lpthread -lm -lwiringPi)
+   endif()
+   
+   target_link_libraries(my_node wiringPi)
+    
+    
+The DESTINATION must be inside lib/  or "ros2 run my_package my_node" will not find my_node.
+
+Perhaps also interresting, on ubuntu-20.04 (also on rpi4 image) you can install
+sudo apt install libwiringpi-dev
+
+   
+The next thing we need todo, we need to change the #include paths inside the new files.
+Like this.
+
+.. image:: images/eclipse-change-include-paths.png
+   :target: images/eclipse-change-include-paths.png
+   :alt: eclipse-change-include-paths
+   
+   
+Now we can build it with right-click on project and "Build Project" or "colcon build" on cmdline. Source setup files
+if you use cmdline.
