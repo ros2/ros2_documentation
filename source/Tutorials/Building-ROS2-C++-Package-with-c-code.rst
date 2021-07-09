@@ -303,6 +303,9 @@ To keep the package as simple as it gets, copy the needed files into your projec
    :alt: eclipse-adc-files-copied
    
    
+12 Making code changes
+^^^^^^^^^^^^^^^^^^^^^^
+   
 When looking at the main.c file from the High-Precision-AD-DA-Board project, we see that only
 DEV_ModuleInit(); ADS1256_init() and ADS1256_GetAll(ADC) is used to get the ADC values.
 
@@ -405,12 +408,17 @@ To prevent that, use
 
 Then put in simply the code from the main.c file as you can see.
 
+13 Edit package.xml
+^^^^^^^^^^^^^^^^^^^
+
 Now edit package.xml file
 
 .. image:: images/eclipse-package-xml.png
    :target: images/eclipse-package-xml.png
    :alt: eclipse-package-xml
 
+14 Edit CMakeLists.txt
+^^^^^^^^^^^^^^^^^^^^^^
 
 Now edit the CMakeLists.txt file.
 
@@ -474,7 +482,9 @@ The DESTINATION must be inside lib/  or "ros2 run my_package my_node" will not f
 Perhaps also interresting, on ubuntu-20.04 (also on rpi4 image) you can install
 sudo apt install libwiringpi-dev
 
-   
+15 Edit include path inside added files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  
 The next thing we need todo, we need to change the #include paths inside the new files.
 Like this.
 
@@ -482,6 +492,9 @@ Like this.
    :target: images/eclipse-change-include-paths.png
    :alt: eclipse-change-include-paths
    
-   
+16 Build the package
+^^^^^^^^^^^^^^^^^^^^
+
+ 
 Now we can build it with right-click on project and "Build Project" or "colcon build" on cmdline. Source setup files
 if you use cmdline.
