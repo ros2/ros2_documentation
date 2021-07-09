@@ -283,6 +283,8 @@ Right-click on git-view-repo and select import. You now got two projects in your
    :target: images/eclipse-adc-project-explorer.png
    :alt: eclipse-adc-project-explorer
 
+11 Copy the needed files from a e.g. pi-hat project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The files to use the ADC are here. ADS1256.c , ADS1256.h, DEV_Config.c,
 DEV_Config.h, Debug.h.
