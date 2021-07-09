@@ -6,6 +6,10 @@ Building ROS 2 C++ Package with C code
    :local:
    
    
+The intention is to write a tutorial to build ROS 2 packages for many,many e.g. raspberry-pi
+hats, because they mostly include c code for initial testing.
+   
+   
 1 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -228,4 +232,49 @@ Now it should look like this.
 .. image:: images/eclipse_c++_properties_builders_with_colcon.png
    :target: images/eclipse_c++_properties_builders_with_colcon.png
    :alt: eclipse_c++_properties_builders_with_colcon 
+
+
+10 Add source code to project
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We create a file in the src/ directory, which we name "publisher_member_function.cpp", just
+like in this tutorial
+
+:ref:`Write the publisher node <Write the publisher node>`.
+
+https://docs.ros.org/en/galactic/Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-publisher-node
+
+
+Then we copy the source code from https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+into this newly created file. We could build that now with right-click "Build Project".
+
+
+11 Clone a git repository from a e.g. pi-hat
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For this tutorial we see on the wiki-page https://www.waveshare.com/wiki/High-Precision_AD/DA_Board that
+there is a github repository with the code.
+
+https://github.com/waveshare/High-Precision-AD-DA-Board.git
+
+.. image:: images/eclipse-add-adc-git.png
+   :target: images/eclipse-add-adc-git.png
+   :alt: eclipse-add-adc-git 
+
+.. image:: images/eclipse-adc-git-branch-select.png
+   :target: images/eclipse-adc-git-branch-select.png
+   :alt: eclipse-adc-git-branch-select 
+   
+.. image:: images/eclipse-adc-git-local-destination.png
+   :target: images/eclipse-adc-git-local-destination.png
+   :alt: eclipse-adc-git-local-destination
+
+
+After that, import the git repository from the git-view into project explorer. Same as above.
+Right-click on git-view-repo and select import. You now got two projects in your project explorer.
+
+
+.. image:: images/eclipse-adc-project-explorer.png
+   :target: images/eclipse-adc-project-explorer.png
+   :alt: eclipse-adc-project-explorer
 
