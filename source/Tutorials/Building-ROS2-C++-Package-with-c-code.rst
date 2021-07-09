@@ -278,3 +278,19 @@ Right-click on git-view-repo and select import. You now got two projects in your
    :target: images/eclipse-adc-project-explorer.png
    :alt: eclipse-adc-project-explorer
 
+
+The files to use the ADC are here. ADS1256.c , ADS1256.h, DEV_Config.c,
+DEV_Config.h, Debug.h.
+
+.. image:: images/eclipse-adc-files.png
+   :target: images/eclipse-adc-files.png
+   :alt: eclipse-adc-files
+   
+   
+We could create another package and build a library, then use this library in your project.
+To keep the package as simple as it gets, copy the needed files into your project. 
+
+
+.. image:: images/eclipse-adc-files-copied.png
+   :target: images/eclipse-adc-files-copied.png
+   :alt: eclipse-adc-files-copied
