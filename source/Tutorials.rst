@@ -84,6 +84,7 @@ Miscellaneous
    Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
    Tutorials/Building-ROS2-Package-with-eclipse-2021-06
+   Tutorials/Building-ROS2-C++-Package-with-c-code
 
 Demos
 -----
