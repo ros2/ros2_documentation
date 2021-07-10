@@ -340,6 +340,7 @@ So, open the publish_member_function.cpp file and fill in this:
    #include "rclcpp/rclcpp.hpp"
    #include "std_msgs/msg/string.hpp"
    #include "std_msgs/msg/float32_multi_array.hpp"
+   #include "std_msgs/msg/multi_array_dimension.hpp"
    
    extern "C" {
    #include "../include/my_package/ADS1256.h"
@@ -372,13 +373,17 @@ So, open the publish_member_function.cpp file and fill in this:
         ADS1256_GetAll(ADC);
    
         auto message = std_msgs::msg::Float32MultiArray();
-        for(i = 0; i < 8; i++)
-           message.data[i] = ADC[i]*5.0/0x7fffff;
-   
-   
-   //    auto message = std_msgs::msg::String();
-   //    message.data = "Hello, world! " + std::to_string(count_++);
-       RCLCPP_INFO(this->get_logger(), "Publishing: '%f'", message.data[0]);
+        message.layout.dim.push_back(std_msgs::msg::MultiArrayDimension());
+        message.layout.dim[0].size = 8;
+        message.layout.dim[0].stride = 1;
+        message.layout.dim[0].label = "adc";
+        message.layout.data_offset = 0;
+
+        for(i = 0; i < 8; i++) {
+           message.data.push_back(ADC[i]*5.0/0x7fffff);
+     }
+
+    RCLCPP_INFO(this->get_logger(), "Publishing: '%f'", *message.data.data());
        publisher_->publish(message);
      }
      rclcpp::TimerBase::SharedPtr timer_;
@@ -498,3 +503,24 @@ Like this.
  
 Now we can build it with right-click on project and "Build Project" or "colcon build" on cmdline. Source setup files
 if you use cmdline.
+
+17 Run the ROS 2 Node
+^^^^^^^^^^^^^^^^^^^^^
+
+To run the node source the setup.sh file in dev_ws/install directory. "source /home/ros2/dev_ws/install/setup.sh". Then run
+"ros2 run my_package my_node" and look at the topic in another console (source all setup files) type "ros2 topic echo topic".
+
+
+17 Plot Node output with rqt
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In console run "rqt". Then in rqt select "Plugins->Visualization->Plot".  Then in the Plot window, type "/topic/data[0]" and "/topic/data[1]"
+and so on, for the 8 data values.
+
+.. image:: images/rqt-multifloat32array.png
+   :target: images/rqt-multifloat32array.png
+   :alt: rqt-multifloat32array
+
+
+
+
