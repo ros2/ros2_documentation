@@ -109,9 +109,16 @@ Open the file using your preferred text editor.
             t.header.stamp = self.get_clock().now().to_msg()
             t.header.frame_id = 'world'
             t.child_frame_id = self.turtlename
+
+            # Turtle only exists in 2D, thus we get x and y translation
+            # coordinates from the message and set the z coordinate to 0
             t.transform.translation.x = msg.x
             t.transform.translation.y = msg.y
             t.transform.translation.z = 0.0
+
+            # For the same reason, turtle can only rotate around one axis
+            # and this why we set rotation in x and y to 0 and obtain
+            # rotation in z axis from the message
             q = tf_transformations.quaternion_from_euler(0, 0, msg.theta)
             t.transform.rotation.x = q[0]
             t.transform.rotation.y = q[1]
@@ -171,14 +178,18 @@ The handler function for the turtle pose message broadcasts this turtle's transl
     t.child_frame_id = self.turtlename
 
 Here we copy the information from the 3D turtle pose into the 3D transform.
-However, as the turtle only exists in 2D, we get x and y translation coordinates from the message, and set the z coordinate to 0.
-In addition to that the turtle can only rotate around one axis and this why we only want to rotate about the z axis and set rotation in x and y to 0.
 
 .. code-block:: python
 
+    # Turtle only exists in 2D, thus we get x and y translation
+    # coordinates from the message and set the z coordinate to 0
     t.transform.translation.x = msg.x
     t.transform.translation.y = msg.y
     t.transform.translation.z = 0.0
+
+    # For the same reason, turtle can only rotate around one axis
+    # and this why we set rotation in x and y to 0 and obtain
+    # rotation in z axis from the message
     q = tf_transformations.quaternion_from_euler(0, 0, msg.theta)
     t.transform.rotation.x = q[0]
     t.transform.rotation.y = q[1]
@@ -189,12 +200,13 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 
 .. code-block:: python
 
+    # Send the transformation
     br.sendTransform(t)
 
 .. note::
 
     You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
-    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, and not periodically.
+    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
     For more details see :ref:`here <WritingATf2StaticBroadcasterPy>`.
 
 1.2 Add dependencies
@@ -304,7 +316,7 @@ You can learn more about creating launch files in :ref:`this tutorial <ROS2Launc
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-Run ``rosdep`` in the root of your workspace to check for missing dependencies, build your updated package, and source the setup files.
+Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
 .. tabs::
 
@@ -322,49 +334,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies, 
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
 
-.. tabs::
-
-  .. group-tab:: Linux
-
-    .. code-block:: console
-
-      colcon build --packages-select learning_tf2_py
-
-  .. group-tab:: macOS
-
-    .. code-block:: console
-
-      colcon build --packages-select learning_tf2_py
-
-  .. group-tab:: Windows
-
-    .. code-block:: console
-
-      colcon build --merge-install --packages-select learning_tf2_py
-
-.. tabs::
-
-  .. group-tab:: Linux
-
-    .. code-block:: console
-
-      . install/setup.bash
-
-  .. group-tab:: macOS
-
-    .. code-block:: console
-
-      . install/setup.bash
-
-  .. group-tab:: Windows
-
-    .. code-block:: console
-
-      # CMD
-      call install\setup.bat
-
-      # Powershell
-      .\install\setup.ps1
+Build your updated package, and source the setup files.
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 
