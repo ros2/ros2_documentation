@@ -190,6 +190,17 @@ See https://github.com/ros2/ros2cli/pull/642 for more details.
 
       ros2 param dump /my_node_name > my_node_name.yaml
 
+robot_state_publisher
+^^^^^^^^^^^^^^^^^^^^^
+
+Removal of deprecated ``use_tf_static`` parameter
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
+The deprecated ``use_tf_static`` parameter has been removed from ``robot_state_publisher``.
+This means that static transforms are unconditionally published to the ``/tf_static`` topic, and that the static transforms are published in a ``transient_local`` Quality of Service.
+This was the default behavior, and the behavior which the ``tf2_ros::TransformListener`` class expected before, so most code will not have to be changed.
+Any code that was relying on ``robot_state_publisher`` to periodically publish static transforms to ``/tf`` will have to be updated to subscribe to ``/tf_static`` as a ``transient_local`` subscription instead.
+
 Known Issues
 ------------
 
