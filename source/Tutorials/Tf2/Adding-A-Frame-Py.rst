@@ -1,0 +1,263 @@
+.. _AddingAFramePy:
+
+Adding a frame (Python)
+=========================================
+
+**Goal:** Learn how to to add an extra frame to tf2.
+
+**Tutorial level:** Intermediate
+
+**Time:** 10 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
+
+Background
+----------
+
+In previous tutorials, we recreated the turtle demo by adding a tf2 broadcaster and a tf2 listener.
+This tutorial will teach you how to add an extra frame to the transformation tree.
+In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
+
+1 Why adding frames
+^^^^^^^^^^^^^^^^^^^
+
+For many tasks related to transformations, it is easier to think inside a local frame.
+For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
+tf2 allows you to define a local frame for each sensor, link, or joint in your system.
+Finally, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
+
+2 Where to add frames
+^^^^^^^^^^^^^^^^^^^^^
+
+tf2 builds up a tree structure of frames, and thus it does not allow a closed loop in the frame structure.
+This means that a frame only has one single parent, but it can have multiple children.
+Currently, our tf2 tree contains three frames: ``world``, ``turtle1`` and ``turtle2``.
+The two turtle frames are children of the ``world`` frame.
+If we want to add a new frame to tf2, one of the three existing frames needs to be the parent frame, and the new one will become its child frame.
+
+.. image:: turtlesim_frames.png
+
+Tasks
+-----
+
+1 Write the fixed frame broadcaster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In our turtle example, we'll add a new frame  ``carrot1``, which will be the child of the ``turtle1``. This frame will serve as the goal for the second turtle.
+
+Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorials.
+Fire up your favorite editor and paste the following code into a new file called ``fixed_frame_tf2_broadcaster.py``.
+
+.. code-block:: python
+
+   from geometry_msgs.msg import TransformStamped
+
+   import rclpy
+   from rclpy.node import Node
+
+   from tf2_ros import TransformBroadcaster
+
+
+   class FixedFrameBroadcaster(Node):
+
+      def __init__(self):
+         super().__init__('fixed_frame_tf2_broadcaster')
+         self.br = TransformBroadcaster(self)
+         self.timer = self.create_timer(0.1, self.broadcast_timer_callback)
+
+      def broadcast_timer_callback(self):
+         t = TransformStamped()
+         t.header.stamp = self.get_clock().now().to_msg()
+         t.header.frame_id = 'turtle1'
+         t.child_frame_id = 'carrot1'
+         t.transform.translation.x = 0.0
+         t.transform.translation.y = 2.0
+         t.transform.translation.z = 0.0
+         t.transform.rotation.x = 0.0
+         t.transform.rotation.y = 0.0
+         t.transform.rotation.z = 0.0
+         t.transform.rotation.w = 1.0
+
+         self.br.sendTransform(t)
+
+
+   def main():
+      rclpy.init()
+      node = FixedFrameBroadcaster()
+      try:
+         rclpy.spin(node)
+      except KeyboardInterrupt:
+         pass
+
+      rclpy.shutdown()
+
+Don't forget to add the node to the ``setup.py``.
+The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
+
+1.1 Examine the code
+~~~~~~~~~~~~~~~~~~~~
+
+Let's take a look at the key lines in this piece of code.
+Here we create a new transform, from the parent ``turtle1`` to the new child ``carrot1``.
+The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` frame.
+
+.. code-block:: python
+
+   t = TransformStamped()
+   t.header.stamp = self.get_clock().now().to_msg()
+   t.header.frame_id = 'turtle1'
+   t.child_frame_id = 'carrot1'
+   t.transform.translation.x = 0.0
+   t.transform.translation.y = 2.0
+   t.transform.translation.z = 0.0
+
+1.2 Build and run
+~~~~~~~~~~~~~~~~~
+
+Edit the ``turtle_tf2_demo.launch.py`` launch file. Simply add the following line:
+
+.. code-block:: python
+
+   from launch import LaunchDescription
+   from launch_ros.actions import Node
+
+   def generate_launch_description():
+      return LaunchDescription([
+         ...,
+         Node(
+            package='learning_tf2_py',
+            executable='fixed_frame_tf2_broadcaster',
+            name='fixed_broadcaster',
+         ),
+      ])
+
+This will add our fixed ``carrot1`` frame to the turtlesim world.
+Finally, start the turtle broadcaster demo:
+
+.. code-block:: console
+
+   ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+
+You should also notice that the new ``carrot1`` frame appeared in the transformation tree.
+
+.. image:: turtlesim_frames_carrot.png
+
+1.3 Checking the results
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+So, if you drive the first turtle around, you notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
+That's because adding an extra frame does not affect the other frames, and our listener is still using the previously defined frames.
+So, let's change the behavior of the listener.
+
+Open the ``turtle_tf2_listener.py`` file, and simply replace ``turtle1`` with ``carrot1`` on line 62:
+
+.. code-block:: python
+
+   from_frame_rel = 'carrot1'
+   to_frame_rel = 'turtle2'
+
+Now just rebuild the package, restart the turtle demo, and you'll see the second turtle following the carrot instead of the first turtle!
+
+.. image:: carrot_static.png
+
+2 Write the dynamic frame broadcaster
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
+However, if you want to publish a moving frame you can code the broadcaster to change the frame over time.
+Let's change our ``carrot1`` frame so that it changes relative to ``turtle1`` frame over time.
+
+Create the file called ``dynamic_frame_tf2_broadcaster.py``:
+
+.. code-block:: python
+
+   import math
+
+   from geometry_msgs.msg import TransformStamped
+
+   import rclpy
+   from rclpy.node import Node
+
+   from tf2_ros import TransformBroadcaster
+
+
+   class DynamicFrameBroadcaster(Node):
+
+      def __init__(self):
+         super().__init__('dynamic_frame_tf2_broadcaster')
+         self.br = TransformBroadcaster(self)
+         self.timer = self.create_timer(0.1, self.broadcast_timer_callback)
+
+      def broadcast_timer_callback(self):
+         seconds, _ = self.get_clock().now().seconds_nanoseconds()
+         x = seconds * math.pi
+
+         t = TransformStamped()
+         t.header.stamp = self.get_clock().now().to_msg()
+         t.header.frame_id = 'turtle1'
+         t.child_frame_id = 'carrot1'
+         t.transform.translation.x = 10 * math.sin(x)
+         t.transform.translation.y = 10 * math.cos(x)
+         t.transform.translation.z = 0.0
+         t.transform.rotation.x = 0.0
+         t.transform.rotation.y = 0.0
+         t.transform.rotation.z = 0.0
+         t.transform.rotation.w = 1.0
+
+         self.br.sendTransform(t)
+
+
+   def main():
+      rclpy.init()
+      node = DynamicFrameBroadcaster()
+      try:
+         rclpy.spin(node)
+      except KeyboardInterrupt:
+         pass
+
+      rclpy.shutdown()
+
+2.1 Examine the code
+~~~~~~~~~~~~~~~~~~~~
+
+Instead of a fixed definition of our x and y offsets, we are using the ``sin()`` and ``cos()`` functions on the current time so that the offset of ``carrot1`` is constantly changing.
+
+.. code-block:: python
+
+   seconds, _ = self.get_clock().now().seconds_nanoseconds()
+   x = seconds * math.pi
+   ...
+   t.transform.translation.x = 10 * math.sin(x)
+   t.transform.translation.y = 10 * math.cos(x)
+
+2.2 Build and run
+~~~~~~~~~~~~~~~~~
+
+To test this code, change the ``fixed_frame_tf2_broadcaster`` executable name to ``dynamic_frame_tf2_broadcaster`` in ``turtle_tf2_demo.launch.py`` to point to our new, dynamic frame broadcaster:
+
+.. code-block:: python
+
+   from launch import LaunchDescription
+   from launch_ros.actions import Node
+
+   def generate_launch_description():
+      return LaunchDescription([
+         ...,
+         Node(
+            package='learning_tf2_py',
+            executable='dynamic_frame_tf2_broadcaster',
+            name='fixed_broadcaster',
+         ),
+      ])
+
+Rebuild the package, restart the turtle demo, and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
+
+.. image:: carrot_dynamic.png
+
+Summary
+-------
+
+In this tutorial, you learned about the tf2 transformation tree, its structure, and its features.
+You also learned how to add extra fixed and dynamic frames to tf2.

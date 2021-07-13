@@ -17,6 +17,7 @@ once for C++ and once for Python.
 
    Introduction-To-Tf2
    Writing-A-Tf2-Static-Broadcaster-Py
+   Adding-A-Frame-Py
 
 Workspace Setup
 ---------------
@@ -36,3 +37,7 @@ Learning tf2
 #. :ref:`Writing a tf2 static broadcaster (Python) <WritingATf2StaticBroadcasterPy>`.
 
    This tutorial teaches you how to broadcast static coordinate frames to tf2.
+
+#. :ref:`Adding a frame (Python) <AddingAFramePy>`.
+
+   This tutorial teaches you how to add an extra fixed frame to tf2.
