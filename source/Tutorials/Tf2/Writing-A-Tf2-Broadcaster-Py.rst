@@ -273,7 +273,7 @@ file called ``turtle_tf2_demo.launch.py``, and add the following lines:
 ~~~~~~~~~~~~~~~~~~~~
 
 First we import required modules from the ``launch`` and ``launch_ros`` packages.
-It should be noted that ``launch`` is a generic launching framework (not ROS2 specific) and ``launch_ros`` has ROS2 specific things, like nodes that we import here.
+It should be noted that ``launch`` is a generic launching framework (not ROS 2 specific) and ``launch_ros`` has ROS 2 specific things, like nodes that we import here.
 
 .. code-block:: python
 
