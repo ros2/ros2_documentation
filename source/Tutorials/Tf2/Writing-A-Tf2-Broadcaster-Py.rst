@@ -22,7 +22,7 @@ After that, the following tutorials focus on extending the demo with more advanc
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of working with ROS2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
 In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 You also have created the ``learning_tf2_py`` :ref:`package <WritingATf2StaticBroadcasterPy>`, which is where we will continue working from.
 
