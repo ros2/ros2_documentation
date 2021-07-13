@@ -20,9 +20,8 @@ Background
 
 The ``sros2`` package provides the tools and instructions to use ROS2 on top of DDS-Security.
 The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python).
-
-Although we are designing SROS2 to work with any secure middleware, at the moment we are testing with RTI Connext Secure 5.3.1 and eProsima's Fast-RTPS 1.6.0.
-If you want to run the demo using RTI Connext Secure you will need a license for it and you will need to install it.
+The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use.
+Please reach out to the `ROS 2 Security Working Group <https://docs.ros.org/en/foxy/Governance.html#security>`_ if you encounter any support issues.
 
 
 Installation
@@ -65,7 +64,7 @@ Before installing from source, you will need to have a recent version openssl (1
 
     If you don't have OpenSSL installed, please follow :ref:`these instructions <windows-install-binary-installing-prerequisites>`
 
-Fast-RTPS requires an additional CMake flag to build the security plugins, so the colcon invocation needs to be modified to pass:
+Fast-DDS requires an additional CMake flag to build the security plugins, so the colcon invocation needs to be modified to pass:
 
 .. code-block:: bash
 
@@ -284,3 +283,12 @@ Take the Quiz!
     The listener fails to launch.
     Security has been enabled and is being enforced.
     Since it still is not properly configured, an error is thrown rather than launching in non-secure mode.
+
+
+Learn More!
+-----------
+
+Are you ready to go further with ROS Security?
+Take a look at the `Secure Turtlebot2 Demo <https://github.com/ros-swg/turtlebot3_demo>`_.
+You'll find a functioning and complex implementation of ROS 2 security, ready to try out your own custom scenarios.
+Be sure to create pull requests and issues here so we can continue improving security support in ROS!

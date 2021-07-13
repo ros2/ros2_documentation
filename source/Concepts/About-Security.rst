@@ -37,11 +37,17 @@ A `ROS 2 security enclave <https://design.ros2.org/articles/ros2_security_enclav
 Three of these files define an enclave's identity, while three other files define the permissions to be granted to the enclave.
 All six files reside in a single directory, and nodes launched without a qualified enclave path use files in the default root level enclave.
 
+Enclave Identity
+^^^^^^^^^^^^^^^^
+
 The Identity Certificate Authority file ``identity_ca.cert.pem`` acts as the trust anchor used to identify participants.
 Each enclave also holds its unique identifying certificate in the file ``cert.pem``, and the associated private private key in the file ``key.pem``.
 Because the ``cert.pem`` certificate has been signed by identity certificate, when a participant presents this certificate to other domain members, they are able to validate the participant's identity using their own copy of the identity certificate.
 This valid certificate exchange allows the enclave to securely establish trusted communications with other participants.
 The enclave does not not share the ``key.pem`` private key, but only uses it for decryption and message signing.
+
+Enclave Permissions
+^^^^^^^^^^^^^^^^^^^
 
 The Permissions Certificate Authority file ``permissions_ca.cert.pem`` serves as the trust anchor to grant permissions to security enclaves.
 This certificate is used to create the signed file ``governance.p7s``, an XML document which defines domain-wide protection policies.
@@ -50,7 +56,10 @@ Domain members use a copy of the permissions CA to validate these signed files a
 
 Although these two certificate authorities enable separate workflows for identity and permissions, often the same certificate serves as both the identity and the permissions authority.
 
-The identity and permissions certificates also have associate private key files.
+Private Keys
+^^^^^^^^^^^^
+
+The identity and permissions certificates also have associated private key files.
 Add new enclaves to the domain by signing their Certificate Signing Request (CSR) with the identity certificate's private key.
 Similarly, grant permissions for a new enclave by signing a permissions XML document with the permission certificate's private key.
 

@@ -174,7 +174,7 @@ For more details about security enclaves, see the `design document <https://desi
 The security enclave is specifed by using the ROS argument ``--enclave`` when running a node.
 
 **Each security enclave requires six files** in order to enable security.
-Each file **must** be named as defined below, and as outlined in the DDS Security standard.
+Each file **must** be named as defined below, and as outlined in the `DDS Security standard <https://www.omg.org/spec/DDS-SECURITY/1.1/About-DDS-SECURITY/>`_.
 In order to avoid having mulitple copies of the same files, the ``sros2`` utilities create links for each enclave to the single governance policy, the Identity CA and Permissions CA descibed above.
 
 See the following six files within the ``listener`` enclave.
@@ -198,12 +198,10 @@ However, this file is not required to enable security since DDS uses the signed 
 Take the quiz!
 --------------
 
-See if you can aswer these questions about the ROS security keystore.
+See if you can answer these questions about the ROS security keystore.
 Begin with a new terminal session and enable security with the keystore created in the prior tutorial:
 
 .. code-block:: bash
-
-  source ~/.bashrc_ros2
 
   export ROS_SECURITY_KEYSTORE=~/sros2_demo/demo_keys
   export ROS_SECURITY_ENABLE=true
@@ -258,6 +256,3 @@ Make a backup copy of ``permissions.p7s`` before beginning.
       openssl smime -verify -in permissions.p7s -CAfile permissions_ca.cert.pem
 
 Restore your original, properly signed ``permissions.p7s`` file before proceeding to the next tutorial.
-
-
-

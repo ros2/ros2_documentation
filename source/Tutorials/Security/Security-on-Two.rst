@@ -7,7 +7,7 @@ Security Across Two Machines
 
 **Tutorial level:** Intermediate
 
-**Time:** 15 minutes
+**Time:** 7 minutes
 
 .. contents:: Contents
   :depth: 2
@@ -92,7 +92,7 @@ Now, we're ready to run a multi-machine talker/listener demo!
 Launch the nodes
 ----------------
 
-Once the environment is set up, launch the talker on ``Bob``:
+Once the environment is set up, run the talker on ``Bob``:
 
 .. code-block:: bash
 

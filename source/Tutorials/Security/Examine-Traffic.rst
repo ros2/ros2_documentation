@@ -47,11 +47,9 @@ The security environment variables are not set so security is not enabled for th
 .. code-block:: bash
 
   # In terminal 1:
-  source ~/.bashrc_ros2
   ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
   # In terminal 2:
-  source ~/.bashrc_ros2
   ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener
 
 
@@ -120,7 +118,7 @@ Enable encryption
 ^^^^^^^^^^^^^^^^^
 
 Stop both the talker and the listener nodes.
-Enable encryption for both by setting the security environment variables and launch them again.
+Enable encryption for both by setting the security environment variables and run them again.
 
 .. code-block:: bash
 
@@ -169,6 +167,7 @@ The typical discovery packet looks somewhat like the following::
 
 This packet is much larger and includes information which can be used to set up encryption among ROS nodes.
 As we will see shortly, this actually includes some of the security configuration files that were created when we enabled security.
+Interested in learning more? Take a look at the excellent paper `Network Reconnaissance and Vulnerability Excavation of Secure DDS Systems <https://arxiv.org/abs/1908.05310>`_ to understand why this matters.
 
 
 Display encrypted data packets

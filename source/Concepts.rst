@@ -104,8 +104,8 @@ You should see that these nodes discover each other automatically, and begin to 
 Security
 ^^^^^^^^
 
-ROS 2 includes the ability to secure communications among nodes within the ROS 2 graph.
-Similar to discovery, security happens through the underlying ROS 2 middleware.
+ROS 2 includes the ability to secure communications among nodes within the ROS 2 computational graph.
+Similar to discovery, security happens through the underlying ROS 2 middleware (provided it has support for the corresponding security plugins).
 No additional software installation is needed to enable security; however, the middleware requires configuration files for each ROS graph participant.
 These files enable encryption and authentication, and define policies both for individual nodes and for the overall ROS graph.
 ROS 2 also adds a master "on/off" switch to control security behavior.
