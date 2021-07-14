@@ -149,9 +149,10 @@ You should also notice that the new ``carrot1`` frame appeared in the transforma
 
 So, if you drive the first turtle around, you notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
 That's because adding an extra frame does not affect the other frames, and our listener is still using the previously defined frames.
-So, let's change the behavior of the listener.
 
-Open the ``turtle_tf2_listener.py`` file, and simply replace ``turtle1`` with ``carrot1`` on line 62:
+Therefore if we want our second turtle to follow the carrot instead of the first turtle, we need to make updates to our listener node.
+
+To do so, open the ``turtle_tf2_listener.py`` file, and change the ``from_frame_rel`` variable from ``turtle1`` to ``carrot1`` on line 62:
 
 .. code-block:: python
 
