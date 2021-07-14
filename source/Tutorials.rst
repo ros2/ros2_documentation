@@ -46,6 +46,7 @@ Beginner: Client Libraries
    Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Using-Parameters-In-A-Class-Python
    Tutorials/Getting-Started-With-Ros2doctor
+   Tutorials/Pluginlib
 
 Intermediate
 ------------
@@ -81,8 +82,8 @@ Miscellaneous
 
    Tutorials/Deploying-ROS-2-on-IBM-Cloud
    Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
-   Tutorials/Building-ROS-2-on-Linux-with-Eclipse-Oxygen
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
+   Tutorials/Building-ROS2-Package-with-eclipse-2021-06
 
 Demos
 -----
@@ -122,4 +123,3 @@ Examples
 --------
 
 * `Python and C++ minimal examples <https://github.com/ros2/examples>`__.
-
