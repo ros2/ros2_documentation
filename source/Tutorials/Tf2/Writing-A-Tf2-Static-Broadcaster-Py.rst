@@ -7,7 +7,7 @@ Writing a tf2 static broadcaster (Python)
 
 **Tutorial level:** Intermediate
 
-**Time:** 10 minutes
+**Time:** 15 minutes
 
 .. contents:: Contents
    :depth: 2
@@ -54,8 +54,37 @@ and all its necessary files and folders.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's first create the source files.
-Inside the ``src/learning_tf2_py/learning_tf2_py`` directory, create a new file called
-``static_turtle_tf2_broadcaster.py`` and paste the following code within:
+Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example static broadcaster code by entering the following command:
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+
+    .. group-tab:: macOS
+
+        .. code-block:: console
+
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py
+
+    .. group-tab:: Windows
+
+        In a Windows command line prompt:
+
+        .. code-block:: console
+
+                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+
+        Or in powershell:
+
+        .. code-block:: console
+
+                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py -o static_turtle_tf2_broadcaster.py
+
+Open the file using your preferred text editor.
 
 .. code-block:: python
 
@@ -263,12 +292,11 @@ check for missing dependencies before building:
 
    .. group-tab:: macOS
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
+      rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
    .. group-tab:: Windows
 
-      rosdep only runs on Linux, so you can skip ahead to next step.
-
+      rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
 Still in the root of your workspace, build your new package:
 
@@ -312,7 +340,11 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
 
     .. code-block:: console
 
-      call install/setup.bat
+      # CMD
+      call install\setup.bat
+
+      # Powershell
+      .\install\setup.ps1
 
 Now run the ``static_turtle_tf2_broadcaster`` node:
 
@@ -389,3 +421,9 @@ for use within ``launch`` files for setting static transforms. For example:
                arguments = ['0', '0', '1', '0', '0', '0', 'world', 'mystaticturtle']
          ),
       ])
+
+Summary
+-------
+
+In this tutorial you learned how to write your own node to publish static transforms to tf2.
+In addition, you learned how to publish required static transformations using ``static_transform_publisher`` and launch files.
