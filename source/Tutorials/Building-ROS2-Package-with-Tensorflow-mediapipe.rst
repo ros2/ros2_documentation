@@ -15,8 +15,15 @@ topic /hand_image.
 For rviz2 we write a urdf package with floating sphere links to display the 
 hand and using the mediapipe node to control it. 
    
-   
-1 Source the setup files
+  
+1 Install some packages
+^^^^^^^^^^^^^^^^^^^^^^^
+
+pip3 install opencv-python
+pip3 install mediapipe
+
+ 
+2 Source the setup files
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will need to run this command on every new shell you open to have access to the ROS 2 commands, like so:
@@ -45,7 +52,7 @@ You will need to run this command on every new shell you open to have access to 
     The exact command depends on where you installed ROS 2.
     If you're having problems, ensure the file path leads to your installation.
     
-2 Create a package
+3 Create a package
 ^^^^^^^^^^^^^^^^^^
 
 First, :ref:`source your ROS 2 installation <ConfigROS2>`.
@@ -82,7 +89,31 @@ The command syntax for creating a new package in ROS 2 is:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python <package_name>
+        ros2 pkg create --build-type ament_python --node-name mediapipe-hands mediapipe-hands
 
 
+4 Start eclipse and select a eclipse-workspace.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. image:: images/eclipse_work_dir.png
+   :target: images/eclipse_work_dir.png
+   :alt: eclipse_work_dir
+   
+Open the Git View
+
+.. image:: images/eclipse-open-git-view.png
+   :target: images/eclipse-open-git-view.png
+   :alt: eclipse-open-git-view
+
+5 Add the my_package git repository you created to the git view.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: images/add-existing-git-to-eclipse-view.png
+   :target: images/add-existing-git-to-eclipse-view.png
+   :alt: add-existing-git-to-eclipse-view
+   
+Select the my_package you just created before.
+
+.. image:: images/eclipse-search-and-select-git-repo.png
+   :target: images/eclipse-search-and-select-git-repo.png
+   :alt: eclipse-search-and-select-git-repo
