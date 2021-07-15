@@ -263,7 +263,7 @@ In order to separate testing from building the library with colcon, wrap all cal
 .. code-block:: cmake
 
     if(BUILD_TESTING)
-      find_package(ament_gtest)
+      find_package(ament_cmake_gtest)
       ament_add_gtest(<tests>)
     endif()
 
