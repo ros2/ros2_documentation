@@ -6,8 +6,12 @@ Building ROS 2 C++ Package with C code
    :local:
    
    
-The intention is to write a tutorial to build ROS 2 packages for many,many e.g. raspberry-pi
-hats, because they mostly include c code for initial testing.
+Implementing Tensorflow mediapipe and using Hands, for tracking multiple hands.
+Node publishs custom Hand.msg with x,y,z coordinates of the hands. Also a 
+image stream with the camera-image overlayed with the tracked hands on 
+topic /hand_image.
+For rviz2 we write a urdf package with floating sphere links to display the 
+hand and using the mediapipe node to control it. 
    
    
 1 Source the setup files
