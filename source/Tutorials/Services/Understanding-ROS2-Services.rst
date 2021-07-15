@@ -257,7 +257,7 @@ Summary
 -------
 
 Nodes can communicate using services in ROS 2.
-Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a reponse.
+Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response.
 
 You generally don’t want to use a service for continuous calls; topics or even actions would be better suited.
 
