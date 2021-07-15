@@ -297,13 +297,26 @@ Security
 Tooling
 ^^^^^^^
 
-* Lead(s): Emerson Knapp, Thomas Moulard
+* Lead(s): Emerson Knapp
 * Resources:
 
- * `ROS 2 Tooling Working Group Community <https://github.com/ros-tooling/community>`__
+ * `Charter <https://github.com/ros-tooling/community>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1UXWaEkT6ji0Z0uTtJJSni5Y6fiopM9qOOzv4ldeNaAM/edit>`__
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
+
+WebTools
+^^^^^^^^
+
+* Lead(s): Emerson Knapp
+* Resources:
+  
+ * `Charter <https://github.com/RobotWebTools/community>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1esrRj2x80TSCEHOwuh-cT_bQvAqqvloQAQr8mPMzcTc/edit>`__
+ * `Video Recordings <https://www.youtube.com/playlist?list=PLpUh4ScdBhSMb98_C0q_zIT8GNMehYBd>`__
+ * `Google Group <https://groups.google.com/g/ros-webtools-working-group>`__
+ * Discourse tag: `wg-webtools <https://discourse.ros.org/tags/wg-webtools>`__
 
 Community Working Groups
 ------------------------
