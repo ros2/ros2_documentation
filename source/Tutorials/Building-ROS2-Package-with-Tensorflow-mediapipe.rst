@@ -92,6 +92,8 @@ The command syntax for creating a new package in ROS 2 is:
         ros2 pkg create --build-type ament_python --node-name mediapipe-hands mediapipe-hands
 
 
+Then "cd mediapipe-hands" and run "git init;git add ."
+
 4 Start eclipse and select a eclipse-workspace.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
