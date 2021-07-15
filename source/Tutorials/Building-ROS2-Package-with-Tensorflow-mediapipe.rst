@@ -6,10 +6,12 @@ Building ROS 2 C++ Package with C code
    :local:
    
    
-Implementing Tensorflow mediapipe and using Hands, for tracking multiple hands.
-Node publishs custom Hand.msg with x,y,z coordinates of the hands. Also a 
+Implementing Tensorflow mediapipe (https://github.com/google/mediapipe) and 
+using Hands (https://google.github.io/mediapipe/solutions/hands), for tracking multiple hands.
+Node publishs custom Hand.msg with x,y,z coordinates of 21 3D hand-knuckle coordinates per hand. Also a 
 image stream with the camera-image overlayed with the tracked hands on 
 topic /hand_image.
+
 For rviz2 we write a urdf package with floating sphere links to display the 
 hand and using the mediapipe node to control it. 
    
