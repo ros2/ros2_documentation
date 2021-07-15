@@ -105,15 +105,11 @@ Open the Git View
    :target: images/eclipse-open-git-view.png
    :alt: eclipse-open-git-view
 
-5 Add the my_package git repository you created to the git view.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 Add the mediapipe-hands git repository you created to the git view.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: images/add-existing-git-to-eclipse-view.png
    :target: images/add-existing-git-to-eclipse-view.png
    :alt: add-existing-git-to-eclipse-view
    
-Select the my_package you just created before.
 
-.. image:: images/eclipse-search-and-select-git-repo.png
-   :target: images/eclipse-search-and-select-git-repo.png
-   :alt: eclipse-search-and-select-git-repo
