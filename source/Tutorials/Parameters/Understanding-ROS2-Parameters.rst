@@ -139,12 +139,12 @@ And the background of your turtlesim window should change colors:
 .. image:: set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your settings changes and reload them next time you start a node.
+However, you can save your setting changes and reload them the next time you start a node.
 
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can “dump” all of a node’s current parameter values into a file to save for later using the command:
+You can “dump” all of a node’s current parameter values into a file to save them for a later use using the command:
 
 .. code-block:: console
 
@@ -215,8 +215,8 @@ Your terminal will return the message:
 
   Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the "qos_overrides" parameters.
 
-7 Load parameter file
-^^^^^^^^^^^^^^^^^^^^^
+7 Load parameter file on node startup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To start the same node using your saved parameter values, use:
 
@@ -243,7 +243,7 @@ Summary
 
 Nodes have parameters to define their default configuration values.
 You can ``get`` and ``set`` parameter values from the command line.
-You can also save parameter settings to a file to reload in a future session.
+You can also save the parameter settings to a file to reload them in a future session.
 
 Next steps
 ----------
