@@ -173,8 +173,32 @@ The output should look like this:
     Action Clients:
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
+The output should look like this:
 
-You will learn more about ROS graph connection concepts in the upcoming tutorials.
+.. code-block:: console
+
+  /teleop_turtle
+    Subscribers:
+      /parameter_events: rcl_interfaces/msg/ParameterEvent
+    Publishers:
+      /parameter_events: rcl_interfaces/msg/ParameterEvent
+      /rosout: rcl_interfaces/msg/Log
+      /turtle1/cmd_vel: geometry_msgs/msg/Twist
+    Service Servers:
+      /teleop_turtle/describe_parameters: rcl_interfaces/srv/DescribeParameters
+      /teleop_turtle/get_parameter_types: rcl_interfaces/srv/GetParameterTypes
+      /teleop_turtle/get_parameters: rcl_interfaces/srv/GetParameters
+      /teleop_turtle/list_parameters: rcl_interfaces/srv/ListParameters
+      /teleop_turtle/set_parameters: rcl_interfaces/srv/SetParameters
+      /teleop_turtle/set_parameters_atomically: rcl_interfaces/srv/SetParametersAtomically
+    Service Clients:
+
+    Action Servers:
+
+    Action Clients:
+      /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
+
+You will learn more about the ROS graph connection concepts including the message types in the upcoming tutorials.
 
 Summary
 -------
