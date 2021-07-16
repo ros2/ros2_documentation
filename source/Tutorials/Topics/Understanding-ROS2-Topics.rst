@@ -71,7 +71,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
     rqt_graph
 
-You can also open rqt_graph by opening rqt and selecting **Plugins** > **Introspection** > **Nodes Graph**.
+You can also open rqt_graph by opening rqt via ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
 .. image:: rqt_graph.png
 
