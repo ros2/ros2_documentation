@@ -139,12 +139,12 @@ And the background of your turtlesim window should change colors:
 .. image:: set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your setting changes and reload them the next time you start a node.
+However, you can save your settings and reload them the next time you start a node.
 
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can “dump” all of a node’s current parameter values into a file to save them for a later use using the command:
+You can “dump” all of a node’s current parameter values into a file to save them for later by using the command:
 
 .. code-block:: console
 
@@ -171,7 +171,7 @@ If you open this file, you’ll see the following contents:
     ros__parameters:
       background_b: 255
       background_g: 86
-      background_r: 69
+      background_r: 150
       qos_overrides:
         /parameter_events:
           publisher:
