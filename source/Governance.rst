@@ -311,7 +311,7 @@ WebTools
 
 * Lead(s): Emerson Knapp
 * Resources:
-  
+
  * `Charter <https://github.com/RobotWebTools/community>`__
  * `Meeting Notes <https://docs.google.com/document/d/1esrRj2x80TSCEHOwuh-cT_bQvAqqvloQAQr8mPMzcTc/edit>`__
  * `Video Recordings <https://www.youtube.com/playlist?list=PLpUh4ScdBhSMb98_C0q_zIT8GNMehYBd>`__
