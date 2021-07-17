@@ -71,7 +71,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
     rqt_graph
 
-You can also open rqt_graph by opening rqt via ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
+You can also open rqt_graph by opening ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
 .. image:: rqt_graph.png
 
@@ -100,7 +100,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/color_sensor
   /turtle1/pose
 
-``ros2 topic list -t`` will return the same list of topics but this time with the topic type appended in brackets:
+``ros2 topic list -t`` will return the same list of topics, this time with the topic type appended in brackets:
 
 .. code-block:: console
 
@@ -110,7 +110,6 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/color_sensor [turtlesim/msg/Color]
   /turtle1/pose [turtlesim/msg/Pose]
 
-Thus topics are defined by names and types.
 These attributes, particularly the type, are how nodes know they’re talking about the same information as it moves over topics.
 
 If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
@@ -184,7 +183,7 @@ Which will return:
 Nodes send data over topics using messages.
 Publishers and subscribers must send and receive the same type of message to communicate.
 
-The topic types we saw earlier after running ``ros2 topic list -t`` let us know what type of messages is used on each topic.
+The topic types we saw earlier after running ``ros2 topic list -t`` let us know what message type is used on each topic.
 Recall that the ``cmd_vel`` topic has the type:
 
 .. code-block:: console
@@ -193,7 +192,7 @@ Recall that the ``cmd_vel`` topic has the type:
 
 This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twist``.
 
-Now we can run ``ros2 interface show <msg type>`` on a type to learn its details, specifically, what structure of data the message expects.
+Now we can run ``ros2 interface show <msg type>`` on this type to learn its details, specifically, what structure of data the message expects.
 
 .. code-block:: console
 
@@ -284,7 +283,7 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 .. image:: rqt_graph3.png
 
-In this case, ``/turtlesim`` also publishes in the ``pose`` topic to which a new ``echo`` node is subscribed.
+You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node is subscribed to.
 
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
