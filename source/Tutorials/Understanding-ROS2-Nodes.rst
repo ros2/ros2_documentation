@@ -172,7 +172,7 @@ The output should look like this:
 
 Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
 
-You will learn more about ROS graph connection concepts in the upcoming tutorials.
+You will learn more about the ROS graph connection concepts including the message types in the upcoming tutorials.
 
 Summary
 -------
