@@ -209,4 +209,34 @@ To come.
 Release Timeline
 ----------------
 
-To come.
+    Mon. March 21, 2022 - Alpha + RMW freeze
+        Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
+
+    Mon. April 4, 2022 - Freeze
+        API and feature freeze for ROS Base [1]_ packages in Rolling Ridley.
+        Only bug fix releases should be made after this point.
+        New packages can be released independently.
+
+    Mon. April 18, 2022 - Branch
+        Branch from Rolling Ridley.
+        ``rosdistro`` is reopened for Rolling PRs for ROS Base [1]_ packages.
+        Humble development shifts from ``ros-rolling-*`` packages to ``ros-humble-*`` packages.
+
+    Mon. April 25, 2022 - Beta
+        Updated releases of ROS Desktop [2]_ packages available.
+        Call for general testing.
+
+    Mon. May 16, 2022 - Release Candidate
+        Release Candidate packages are built.
+        Updated releases of ROS Desktop [2]_ packages available.
+
+    Thu. May 19, 2022 - Distro Freeze
+        Freeze rosdistro.
+        No PRs for Humble on the ``rosdistro`` repo will be merged (reopens after the release announcement).
+
+    Mon. May 23, 2022 - General Availability
+        Release announcement.
+        ``rosdistro`` is reopened for Humble PRs.
+
+.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
