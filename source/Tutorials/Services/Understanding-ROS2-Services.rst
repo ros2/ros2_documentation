@@ -29,7 +29,7 @@ Prerequisites
 
 Some concepts mentioned in this tutorial, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
 
-You will need the :ref:`turtlesim package <Turtlesim>`
+You will need the :ref:`turtlesim package <Turtlesim>`.
 
 As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
 
@@ -243,11 +243,10 @@ You will get this method-style view of what’s happening, and then the service 
 
 .. code-block:: console
 
-  waiting for service to become available...
-  requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='None')
+  requester: making request: turtlesim.srv.Spawn_Request(x=2.0, y=2.0, theta=0.2, name='')
 
   response:
-  turtlesim.srv.Spawn_Response(name='None')
+  turtlesim.srv.Spawn_Response(name='turtle2')
 
 Your turtlesim window will update with the newly spawned turtle right away:
 
