@@ -210,7 +210,7 @@ Release Timeline
 ----------------
 
     Mon. March 21, 2022 - Alpha + RMW freeze
-        Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW and vendor packages.
+        Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
 
     Mon. April 4, 2022 - Freeze
         API and feature freeze for ROS Base [1]_ packages in Rolling Ridley.
