@@ -300,8 +300,11 @@ We check these styles with a combination of Google's `cpplint.py <https://github
 
 We provide command line tools with custom configurations:
 
+* `ament_clang_format <https://github.com/ament/ament_lint/blob/master/ament_clang_format/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/master/ament_clang_format/ament_clang_format/configuration/.clang-format>`__
 * `ament_cpplint <https://github.com/ament/ament_lint/blob/master/ament_cpplint/doc/index.rst>`__
 * `ament_uncrustify <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/master/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
+
+Some formatters such as ament_uncrustify and ament_clang_format support ``--reformat`` options to apply changes in place.
 
 We also run other tools to detect and eliminate as many warnings as possible.
 Here's a non-exhaustive list of additional things we try to do on all of our packages:
