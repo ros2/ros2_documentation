@@ -157,14 +157,8 @@ To save your current configuration of ``/turtlesim``’s parameters into the fil
 
   ros2 param dump /turtlesim > turtlesim.yaml
 
-Your terminal will return the message:
-
-.. code-block:: console
-
-  Saving to: turtlesim.yaml
-
-You will find a new file in the directory your workspace is running in.
-If you open this file, you’ll see the following contents:
+You will find a new file in the working directory your shell is running in.
+If you open this file, you’ll see the following content:
 
 .. code-block:: YAML
 
@@ -193,7 +187,7 @@ You can load parameters from a file to a currently running node using the comman
 
   ros2 param load <node_name> <parameter_file>
 
-To load the ``turtlesim.yaml`` file generated with ``ros2 param dump > turtlesim.yaml`` into ``/turtlesim`` node’s parameters, enter the command:
+To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
 
 .. code-block:: console
 
