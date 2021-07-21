@@ -144,23 +144,24 @@ However, you can save your settings and reload them the next time you start a no
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can “dump” all of a node’s current parameter values into a file to save them for later by using the command:
+You can view all of a node’s current parameter values by using the command:
 
 .. code-block:: console
 
   ros2 param dump <node_name>
 
-To save your current configuration of ``/turtlesim``’s parameters, enter the command:
+The command prints to the standard output (stdout) by default but you can also redirect the parameter values into a file to save them for later.
+To save your current configuration of ``/turtlesim``’s parameters into the file ``turtlesim.yaml``, enter the command:
 
 .. code-block:: console
 
-  ros2 param dump /turtlesim
+  ros2 param dump /turtlesim > turtlesim.yaml
 
 Your terminal will return the message:
 
 .. code-block:: console
 
-  Saving to:  ./turtlesim.yaml
+  Saving to: turtlesim.yaml
 
 You will find a new file in the directory your workspace is running in.
 If you open this file, you’ll see the following contents:
@@ -192,11 +193,11 @@ You can load parameters from a file to a currently running node using the comman
 
   ros2 param load <node_name> <parameter_file>
 
-To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+To load the ``turtlesim.yaml`` file generated with ``ros2 param dump > turtlesim.yaml`` into ``/turtlesim`` node’s parameters, enter the command:
 
 .. code-block:: console
 
-  ros2 param load /turtlesim ./turtlesim.yaml
+  ros2 param load /turtlesim turtlesim.yaml
 
 Your terminal will return the message:
 
@@ -230,7 +231,7 @@ Stop your running turtlesim node so you can try reloading it with your saved par
 
 .. code-block:: console
 
-  ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
+  ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
 The turtlesim window should appear as usual, but with the purple background you set earlier.
 
