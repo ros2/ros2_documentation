@@ -1,7 +1,7 @@
 .. _AddingAFramePy:
 
 Adding a frame (Python)
-=========================================
+=======================
 
 **Goal:** Learn how to to add an extra frame to tf2.
 
@@ -20,18 +20,18 @@ In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broad
 This tutorial will teach you how to add an extra frame to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 
-1 Why adding frames
-^^^^^^^^^^^^^^^^^^^
+1 Why add frames?
+^^^^^^^^^^^^^^^^^
 
 For many tasks related to transformations, it is easier to think inside a local frame.
 For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
 tf2 allows you to define a local frame for each sensor, link, or joint in your system.
-Finally, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
+When transforming from one frame to another, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
 
 2 Where to add frames
 ^^^^^^^^^^^^^^^^^^^^^
 
-tf2 builds up a tree structure of frames, and thus it does not allow a closed loop in the frame structure.
+tf2 builds up a tree structure of frames, and thus does not allow a closed loop in the frame structure.
 This means that a frame only has one single parent, but it can have multiple children.
 Currently, our tf2 tree contains three frames: ``world``, ``turtle1`` and ``turtle2``.
 The two turtle frames are children of the ``world`` frame.
@@ -45,7 +45,8 @@ Tasks
 1 Write the fixed frame broadcaster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``. This frame will serve as the goal for the second turtle.
+In our turtle example, we'll add a new frame ``carrot1``, which will be the child of the ``turtle1``.
+This frame will serve as the goal for the second turtle.
 
 Let's first create the source files. Go to the ``learning_tf2_py`` package we created in the previous tutorials.
 Fire up your favorite editor and paste the following code into a new file called ``fixed_frame_tf2_broadcaster.py``.
@@ -116,8 +117,8 @@ The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` f
 1.2 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Now let's create a launch file for this example. With your text editor, create a new
-file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
+Now let's create a launch file for this example.
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
 
 .. code-block:: python
 
@@ -149,8 +150,7 @@ file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lin
       ])
 
 
-This launch file will first import the required packages and create a ``demo_nodes`` variable that will store
-nodes that we created in the previous tutorial's launch file.
+This launch file first imports the required packages, then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
@@ -175,7 +175,7 @@ You should notice that the new ``carrot1`` frame appeared in the transformation 
 1.3 Checking the results
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-So, if you drive the first turtle around, you notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
+If you drive the first turtle around, you should notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
 That's because adding an extra frame does not affect the other frames, and our listener is still using the previously defined frames.
 
 Therefore if we want our second turtle to follow the carrot instead of the first turtle, we need to make updates to our launch file.
@@ -300,8 +300,7 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
          ),
       ])
 
-Rebuild the package, and start the ``turtle_tf2_dynamic_frame_demo.launch.py`` launch file,
-and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
+Rebuild the package, and start the ``turtle_tf2_dynamic_frame_demo.launch.py`` launch file, and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
 
 .. image:: carrot_dynamic.png
 
