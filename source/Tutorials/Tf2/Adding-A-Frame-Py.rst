@@ -290,7 +290,6 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
          PythonLaunchDescriptionSource([os.path.join(
                get_package_share_directory('learning_tf2_py'), 'launch'),
                '/turtle_tf2_demo.launch.py']),
-
          launch_arguments={'target_frame': 'carrot1'}.items(),
          )
 
