@@ -10,7 +10,7 @@ Adding a frame (Python)
 **Time:** 10 minutes
 
 .. contents:: Contents
-   :depth: 2
+   :depth: 3
    :local:
 
 Background
@@ -162,7 +162,7 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
       name='fixed_broadcaster',
    ),
 
-1.2 Build and run
+1.3 Build and run
 ~~~~~~~~~~~~~~~~~
 
 Rebuild the package, and start the turtle broadcaster demo:
@@ -175,7 +175,7 @@ You should notice that the new ``carrot1`` frame appeared in the transformation 
 
 .. image:: turtlesim_frames_carrot.png
 
-1.3 Checking the results
+1.4 Checking the results
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you drive the first turtle around, you should notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
