@@ -6,3 +6,4 @@ Related Projects
    :maxdepth: 1
 
    Related-Projects/Intel-ROS2-Projects
+   Related-Projects/Nvidia-ROS2-Projects
