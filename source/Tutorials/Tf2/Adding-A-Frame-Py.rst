@@ -181,8 +181,15 @@ You should notice that the new ``carrot1`` frame appeared in the transformation 
 If you drive the first turtle around, you should notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
 That's because adding an extra frame does not affect the other frames, and our listener is still using the previously defined frames.
 
-Therefore if we want our second turtle to follow the carrot instead of the first turtle, we need to make updates to our launch file.
+Therefore if we want our second turtle to follow the carrot instead of the first turtle, we need to change value of the ``target_frame``.
+This can be done two ways.
+One way is to pass the ``target_frame`` argument to the launch file directly from the console:
 
+.. code-block:: console
+
+   ros2 launch learning_tf2_py turtle_tf2_fixed_frame_demo.launch.py target_frame:=carrot1
+
+The second way is to update the launch file.
 To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
 
 .. code-block:: python
