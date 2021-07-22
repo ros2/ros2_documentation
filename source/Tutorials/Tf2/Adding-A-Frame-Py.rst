@@ -114,8 +114,8 @@ The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` f
    t.transform.translation.y = 2.0
    t.transform.translation.z = 0.0
 
-1.2 Build and run
-~~~~~~~~~~~~~~~~~
+1.2 Write the launch file
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
 With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
@@ -162,7 +162,10 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
       name='fixed_broadcaster',
    ),
 
-Now start the turtle broadcaster demo:
+1.2 Build and run
+~~~~~~~~~~~~~~~~~
+
+Rebuild the package, and start the turtle broadcaster demo:
 
 .. code-block:: console
 
@@ -264,8 +267,8 @@ Instead of a fixed definition of our x and y offsets, we are using the ``sin()``
    t.transform.translation.x = 10 * math.sin(x)
    t.transform.translation.y = 10 * math.cos(x)
 
-2.2 Build and run
-~~~~~~~~~~~~~~~~~
+2.2 Write the launch file
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
 
@@ -299,6 +302,9 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
                name='dynamic_broadcaster',
          ),
       ])
+
+2.3 Build and run
+~~~~~~~~~~~~~~~~~
 
 Rebuild the package, and start the ``turtle_tf2_dynamic_frame_demo.launch.py`` launch file, and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
 
