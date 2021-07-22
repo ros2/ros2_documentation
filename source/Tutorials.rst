@@ -46,6 +46,7 @@ Beginner: Client Libraries
    Tutorials/Using-Parameters-In-A-Class-CPP
    Tutorials/Using-Parameters-In-A-Class-Python
    Tutorials/Getting-Started-With-Ros2doctor
+   Tutorials/Pluginlib
 
 Intermediate
 ------------
