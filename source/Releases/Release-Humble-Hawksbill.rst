@@ -155,6 +155,8 @@ For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 ``for_each_callback_group()`` method has replaced ``get_callback_groups()`` by providing a thread-safe way to access ``callback_groups_`` vector.
 ``for_each_callback_group()`` accepts a function as an argument, iterates over the stored callback groups, and calls the passed function to ones that are valid.
 
+For more details, please refer to this (pull request)[https://github.com/ros2/rclcpp/pull/1723]
+
 ros2cli
 ^^^^^^^
 
