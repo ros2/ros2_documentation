@@ -435,9 +435,9 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
 
     #include <chrono>
 
+    #include <example_interfaces/msg/int32.hpp>
     #include <rclcpp/rclcpp.hpp>
     #include <rclcpp/serialization.hpp>
-    #include <example_interfaces/msg/int32.hpp>
 
     #include <rosbag2_cpp/writer.hpp>
     #include <rosbag2_cpp/writers/sequential_writer.hpp>
