@@ -224,7 +224,7 @@ This is the data type that represents a single data sample in a bag.
         auto bag_message = std::make_shared<rosbag2_storage::SerializedBagMessage>();
 
 The next block of code is somewhat complex due to the memory management requirements of working directly with serialised data from the middleware.
-The memory of the serialised data is owned by the ``SerializedMessage`` object, but the ``SerializedBagMessage`` object we will pas to the bag must own the memory.
+The memory of the serialised data is owned by the ``SerializedMessage`` object, but the ``SerializedBagMessage`` object we will pass to the bag must own the memory.
 Otherwise the memory might go out of scope and be deleted before it is written to the bag, causing a memory access error.
 To prevent this, we call ``release_rcl_serialized_message()`` on the ``SerializedMessage`` object.
 This causes it to release its ownership of the memory, allowing the ``SerializedBagMessage`` to take ownership.
