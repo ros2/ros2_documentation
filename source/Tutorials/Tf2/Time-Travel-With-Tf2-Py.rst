@@ -16,7 +16,7 @@ Time travel with tf2 (Python)
 Background
 ----------
 
-In the previous tutorial, we discussed the basics of tf2 and time.
+In the previous tutorial, we discussed the :ref:`basics of tf2 and time <LearningAboutTf2AndTimePy>`.
 This tutorial will take this one step further and expose one of the most powerful tf2 tricks.
 
 Time travel

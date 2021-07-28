@@ -16,7 +16,8 @@ Learning about tf2 and time (Python)
 Background
 ----------
 
-In previous tutorials, we recreated the turtle demo and learned to add a new frame to the transformation tree.
+In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterPy>` and a :ref:`tf2 listener <WritingATf2ListenerPy>`.
+We also learned how to :ref:`add a new frame to the transformation tree <AddingAFramePy>`.
 This tutorial will teach you how use the timeout in ``lookup_transform`` function to wait for a transform to be available on the tf2 tree.
 
 Tasks
