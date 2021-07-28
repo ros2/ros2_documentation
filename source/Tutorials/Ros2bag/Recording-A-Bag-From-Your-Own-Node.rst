@@ -599,13 +599,13 @@ Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: Windows
 
@@ -812,13 +812,13 @@ Open a terminal, navigate to ``dev_ws``, and source the setup files.
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: Windows
 
