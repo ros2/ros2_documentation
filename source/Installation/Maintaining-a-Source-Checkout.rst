@@ -5,7 +5,7 @@ Maintaining a source checkout of {DISTRO_TITLE_FULL}
 
 .. note::
 
-   For instructions on maintaining a source checkout of the **latest development version of ROS2, refer to 
+   For instructions on maintaining a source checkout of the **latest development version** of ROS2, refer to 
    `Maintaining a source checkout of Rolling Ridley <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
