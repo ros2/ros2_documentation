@@ -49,11 +49,11 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
     .. code-block:: bash
 
        # CMD
-       > cd \dev\ros2
+       > cd \dev\ros2_{DISTRO}
        > curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
        # PowerShell
-       > cd \dev\ros2
+       > cd \dev\ros2_{DISTRO}
        > curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 
@@ -136,7 +136,7 @@ If you wish to know the versions of the set of repositories in your workspace, y
 
     .. code-block:: bash
 
-       > cd \dev\ros2
+       > cd \dev\ros2_{DISTRO}
        > vcs export src > my_ros2.repos
 
 This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.
