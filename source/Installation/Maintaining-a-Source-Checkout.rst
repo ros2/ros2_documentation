@@ -1,12 +1,12 @@
 .. _MaintainingSource:
 
-Maintaining a source checkout of {DISTRO_TITLE_FULL}
-====================================================
+Maintaining a source checkout of ROS 2 {DISTRO_TITLE}
+=====================================================
 
 .. note::
 
    For instructions on maintaining a source checkout of the **latest development version** of ROS2, refer to 
-   `Maintaining a source checkout of Rolling Ridley <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
+   `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
    :depth: 2
@@ -21,7 +21,7 @@ Update your repository list
 Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repositories and their version for that release.
 
 
-Latest {DISTRO_TITLE_FULL} branches
+Latest ROS 2 {DISTRO_TITLE} branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get the relevant repository list by running:
