@@ -25,8 +25,7 @@ After that, the following tutorials focus on extending the demo with more advanc
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`
-and :ref:`create a package <CreatePkg>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 
 Tasks
 -----
@@ -55,31 +54,31 @@ Inside the ``src/learning_tf2_cpp/src`` directory download the example static br
 
 .. tabs::
 
-    .. group-tab:: Linux
+   .. group-tab:: Linux
 
-        .. code-block:: console
+      .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
+         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
 
-    .. group-tab:: macOS
+   .. group-tab:: macOS
 
-        .. code-block:: console
+      .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
+         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
 
-    .. group-tab:: Windows
+   .. group-tab:: Windows
 
-        In a Windows command line prompt:
+      In a Windows command line prompt:
 
-        .. code-block:: console
+      .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
+         curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
 
-        Or in powershell:
+      Or in powershell:
 
-        .. code-block:: console
+      .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
+         curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
 
 Open the file using your preferred text editor.
 
@@ -246,7 +245,7 @@ As mentioned in the :ref:`Creating your first ROS 2 package tutorial <CreatePkg>
 
 .. code-block:: xml
 
-  <description>Examples of minimal publisher/subscriber using rclpy</description>
+  <description>Examples of static transform broadcaster using rclcpp</description>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
@@ -267,7 +266,7 @@ Make sure to save the file.
 2.3 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
 
-Now open the CMakeLists.txt file. Below the existing dependency find_package(ament_cmake REQUIRED), add the lines:
+Now open the CMakeLists.txt file. Below the existing dependency ``find_package(ament_cmake REQUIRED)``, add the lines:
 
 .. code-block:: console
 
@@ -327,49 +326,49 @@ Still in the root of your workspace, build your new package:
 
 .. tabs::
 
-  .. group-tab:: Linux
+   .. group-tab:: Linux
 
-    .. code-block:: console
+      .. code-block:: console
 
-      colcon build --packages-select learning_tf2_cpp
+         colcon build --packages-select learning_tf2_cpp
 
-  .. group-tab:: macOS
+   .. group-tab:: macOS
 
-    .. code-block:: console
+      .. code-block:: console
 
-      colcon build --packages-select learning_tf2_cpp
+         colcon build --packages-select learning_tf2_cpp
 
-  .. group-tab:: Windows
+   .. group-tab:: Windows
 
-    .. code-block:: console
+      .. code-block:: console
 
-      colcon build --merge-install --packages-select learning_tf2_cpp
+         colcon build --merge-install --packages-select learning_tf2_cpp
 
 Open a new terminal, navigate to the root of your workspace, and source the setup files:
 
 .. tabs::
 
-  .. group-tab:: Linux
+   .. group-tab:: Linux
 
-    .. code-block:: console
+      .. code-block:: console
 
-      . install/setup.bash
+         . install/setup.bash
 
-  .. group-tab:: macOS
+   .. group-tab:: macOS
 
-    .. code-block:: console
+      .. code-block:: console
 
-      . install/setup.bash
+         . install/setup.bash
 
-  .. group-tab:: Windows
+   .. group-tab:: Windows
 
-    .. code-block:: console
+      .. code-block:: console
 
-      # CMD
-      call install\setup.bat
+         # CMD
+         call install\setup.bat
 
-      # Powershell
-      .\install\setup.ps1
+         # Powershell
+         .\install\setup.ps1
 
 Now run the ``static_turtle_tf2_broadcaster`` node:
 
@@ -410,15 +409,12 @@ If everything went well you should see a single static transform
 The proper way to publish static transforms
 -------------------------------------------
 
-This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to publish static
-transforms. In your real development process you shouldn't have to write this code yourself
-and should privilege the use of the dedicated ``tf2_ros`` tool to do so. ``tf2_ros`` provides an
-executable named ``static_transform_publisher`` that can be used either as a commandline tool
-or a node that you can add to your launchfiles.
+This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to publish static transforms.
+In your real development process you shouldn't have to write this code yourself and should privilege the use of the dedicated ``tf2_ros`` tool to do so.
+``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
-yaw/pitch/roll in radians. (yaw is rotation about Z, pitch is rotation about Y,
-and roll is rotation about X).
+Publish a static coordinate transform to tf2 using an x/y/z offset in meters and yaw/pitch/roll in radians.
+(yaw is rotation about Z, pitch is rotation about Y, and roll is rotation about X).
 
 .. code-block:: console
 
