@@ -40,10 +40,10 @@ Learning tf2
 
    This tutorial teaches you how to broadcast static coordinate frames to tf2.
 
-#. :ref:`Writing a tf2 broadcaster (Python) <WritingATf2BroadcasterPy>`.
+#. Writing a tf2 broadcaster :ref:`(Python) <WritingATf2BroadcasterPy>`.
 
    This tutorial teaches you how to broadcast the state of a robot to tf2.
 
-#. :ref:`Writing a tf2 listener (Python) <WritingATf2ListenerPy>`.
+#. Writing a tf2 listener :ref:`(Python) <WritingATf2ListenerPy>`.
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
