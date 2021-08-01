@@ -17,6 +17,7 @@ once for C++ and once for Python.
 
    Introduction-To-Tf2
    Writing-A-Tf2-Static-Broadcaster-Py
+   Writing-A-Tf2-Static-Broadcaster-Cpp
    Writing-A-Tf2-Broadcaster-Py
    Writing-A-Tf2-Listener-Py
 
@@ -35,7 +36,7 @@ Learning tf2
    shows off some of the tf2 power in a multi-robot example using turtlesim.
    This also introduces using ``tf2_echo``, ``view_frames``, and ``rviz``.
 
-#. :ref:`Writing a tf2 static broadcaster (Python) <WritingATf2StaticBroadcasterPy>`.
+#. Writing a tf2 static broadcaster :ref:`(Python) <WritingATf2StaticBroadcasterPy>` :ref:`(C++) <WritingATf2StaticBroadcasterCpp>`.
 
    This tutorial teaches you how to broadcast static coordinate frames to tf2.
 

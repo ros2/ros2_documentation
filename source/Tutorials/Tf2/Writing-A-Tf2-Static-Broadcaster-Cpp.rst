@@ -19,9 +19,8 @@ Background
 In this tutorial we will write code to publish static transforms to tf2.
 This is a standalone tutorial covering the basics of static transforms.
 
-In the next two tutorials we will write the code to reproduce the demo
-from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial. After that,
-the following tutorials focus on extending the demo with more advanced tf2 features.
+In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features.
 
 Prerequisites
 -------------
@@ -35,10 +34,9 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First we will create a package that will be used for this tutorial
-and the following ones. The package called ``learning_tf2_cpp`` will depend on
-``rclpy``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``. Code for this tutorial is stored
-`here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp>`_.
+First we will create a package that will be used for this tutorial and the following ones.
+The package called ``learning_tf2_cpp`` will depend on ``rclcpp``, ``tf2``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``.
+Code for this tutorial is stored `here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp>`_.
 
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
@@ -47,14 +45,13 @@ Navigate to workspace's ``src`` folder and create a new package:
 
    ros2 pkg create --build-type ament_cmake learning_tf2_cpp
 
-Your terminal will return a message verifying the creation of your package ``learning_tf2_cpp``
-and all its necessary files and folders.
+Your terminal will return a message verifying the creation of your package ``learning_tf2_cpp`` and all its necessary files and folders.
 
 2 Write the static broadcaster node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's first create the source files.
-Inside the ``src/learning_tf2_cpp/learning_tf2_cpp`` directory download the example static broadcaster code by entering the following command:
+Inside the ``src/learning_tf2_cpp/src`` directory download the example static broadcaster code by entering the following command:
 
 .. tabs::
 
@@ -86,75 +83,162 @@ Inside the ``src/learning_tf2_cpp/learning_tf2_cpp`` directory download the exam
 
 Open the file using your preferred text editor.
 
-.. code-block:: python
+.. code-block:: C++
 
-   code
+   #include <geometry_msgs/msg/transform_stamped.hpp>
+
+   #include <rclcpp/rclcpp.hpp>
+   #include <tf2/LinearMath/Quaternion.h>
+   #include <tf2_ros/static_transform_broadcaster.h>
+
+   #include <memory>
+
+   using std::placeholders::_1;
+
+   class StaticFramePublisher : public rclcpp::Node
+   {
+   public:
+   explicit StaticFramePublisher(char * transformation[])
+   : Node("static_turtle_tf2_broadcaster")
+   {
+      tf_publisher_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
+
+      // Publish static transforms once at startup
+      this->make_transforms(transformation);
+   }
+
+   private:
+   void make_transforms(char * transformation[])
+   {
+      rclcpp::Time now;
+      geometry_msgs::msg::TransformStamped t;
+
+      t.header.stamp = now;
+      t.header.frame_id = "world";
+      t.child_frame_id = transformation[1];
+
+      t.transform.translation.x = atof(transformation[2]);
+      t.transform.translation.y = atof(transformation[3]);
+      t.transform.translation.z = atof(transformation[4]);
+      tf2::Quaternion q;
+      q.setRPY(
+         atof(transformation[5]),
+         atof(transformation[6]),
+         atof(transformation[7]));
+      t.transform.rotation.x = q.x();
+      t.transform.rotation.y = q.y();
+      t.transform.rotation.z = q.z();
+      t.transform.rotation.w = q.w();
+
+      tf_publisher_->sendTransform(t);
+   }
+   std::shared_ptr<tf2_ros::StaticTransformBroadcaster> tf_publisher_;
+   };
+
+   int main(int argc, char * argv[])
+   {
+   auto logger = rclcpp::get_logger("logger");
+
+   // Obtain parameters from command line arguments
+   if (argc != 8) {
+      RCLCPP_INFO(
+         logger, "Invalid number of parameters\nusage: "
+         "ros2 run learning_tf2_cpp static_turtle_tf2_broadcaster "
+         "child_frame_name x y z roll pitch yaw");
+      return 1;
+   }
+   if (strcmp(argv[1], "world") == 0) {
+      RCLCPP_INFO(logger, "Your static turtle name cannot be 'world'");
+      return 1;
+   }
+
+   // Pass parameters and initialize node
+   rclcpp::init(argc, argv);
+   rclcpp::spin(std::make_shared<StaticFramePublisher>(argv));
+   rclcpp::shutdown();
+   return 0;
+   }
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
-The first lines import required packages.`
-First we import the ``TransformStamped`` from the ``geometry_msgs``,
-that provides us a template for the message that we will
-publish to the transformation tree.
+The first lines import required packages.
+First we import the ``TransformStamped`` from the ``geometry_msgs``, that provides us a template for the message that we will publish to the transformation tree.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   #include <geometry_msgs/msg/transform_stamped.hpp>
 
-Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
+Afterward, ``rclcpp`` is imported so its ``rclcpp::Node`` class can be used.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   #include <rclcpp/rclcpp.hpp>
 
-The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of
-static transforms easy. To use the ``StaticTransformBroadcaster``, we need to import it from the
-``tf2_ros`` module. ``tf_transformations`` provides functions to convert euler angles to quaternions
-and vice versa.
+``tf2::Quaternion`` is a quaternions class constructor that provides functions to convert euler angles to quaternions and vice versa.
+The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
+To use the ``StaticTransformBroadcaster``, we need to import it from the ``tf2_ros`` module.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   #include <tf2/LinearMath/Quaternion.h>
+   #include <tf2_ros/static_transform_broadcaster.h>
 
-The ``StaticFramePublisher`` class constructor initializes the node with the name
-``static_turtle_tf2_broadcaster``. Then, ``StaticTransformBroadcaster``
-is created that will send one static transformation upon the startup.
+The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
+Then, ``StaticTransformBroadcaster`` is created that will send one static transformation upon the startup.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   tf_publisher_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
 
-Here we create a ``TransformStamped`` object which will be the message we will send over once
-populated. Before passing the actual transform values we need to give it the appropriate metadata.
+   this->make_transforms(transformation);
 
-#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``get_clock().now()``
+Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
+Before passing the actual transform values we need to give it the appropriate metadata.
+
+#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``rclcpp::Time``
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 
 #. Finally, we need to set the name of the child frame of the link we're creating
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   rclcpp::Time now;
+   geometry_msgs::msg::TransformStamped t;
+
+   t.header.stamp = now;
+   t.header.frame_id = "world";
+   t.child_frame_id = transformation[1];
 
 Here we populate the 6D pose (translation and rotation) of the turtle.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   t.transform.translation.x = atof(transformation[2]);
+   t.transform.translation.y = atof(transformation[3]);
+   t.transform.translation.z = atof(transformation[4]);
+   tf2::Quaternion q;
+   q.setRPY(
+     atof(transformation[5]),
+     atof(transformation[6]),
+     atof(transformation[7]));
+   t.transform.rotation.x = q.x();
+   t.transform.rotation.y = q.y();
+   t.transform.rotation.z = q.z();
+   t.transform.rotation.w = q.w();
 
 Finally we broadcast static transform using the ``sendTransform()`` function.
 
-.. code-block:: python
+.. code-block:: C++
 
-   ...
+   tf_publisher_->sendTransform(t);
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-Navigate one level back to the ``src/learning_tf2_cpp`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
+Navigate one level back to the ``src/learning_tf2_cpp`` directory, where the ``CMakeLists.txt`` and ``package.xml`` files have been created for you.
 
 Open ``package.xml`` with your text editor.
 
@@ -171,20 +255,51 @@ After the lines above, add the following dependencies corresponding to your node
 .. code-block:: xml
 
    <exec_depend>geometry_msgs</exec_depend>
-   <exec_depend>rclpy</exec_depend>
-   <exec_depend>tf_transformations</exec_depend>
+   <exec_depend>rclcpp</exec_depend>
+   <exec_depend>tf2</exec_depend>
    <exec_depend>tf2_ros</exec_depend>
    <exec_depend>turtlesim</exec_depend>
 
-This declares the required ``geometry_msgs``, ``tf_transformations``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
+This declares the required ``geometry_msgs``, ``rclcpp``, ``tf2``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
 
 Make sure to save the file.
 
-2.3 Add an entry point
-~~~~~~~~~~~~~~~~~~~~~~
+2.3 CMakeLists.txt
+~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ...
+Now open the CMakeLists.txt file. Below the existing dependency find_package(ament_cmake REQUIRED), add the lines:
+
+.. code-block:: console
+
+   find_package(geometry_msgs REQUIRED)
+   find_package(rclcpp REQUIRED)
+   find_package(tf2 REQUIRED)
+   find_package(tf2_ros REQUIRED)
+   find_package(turtlesim REQUIRED)
+
+After that, add the executable and name it ``static_turtle_tf2_broadcaster`` so you can run your node using ``ros2 run``:
+
+.. code-block:: console
+
+   add_executable(static_turtle_tf2_broadcaster src/static_turtle_tf2_broadcaster.cpp)
+   ament_target_dependencies(
+      static_turtle_tf2_broadcaster
+      geometry_msgs
+      rclcpp
+      tf2
+      tf2_ros
+      turtlesim
+   )
+
+Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
+
+.. code-block:: console
+
+   install(TARGETS
+      static_turtle_tf2_broadcaster
+      DESTINATION lib/${PROJECT_NAME})
+
+You could build your package now, source the local setup files, and run it.
 
 3 Build and run
 ^^^^^^^^^^^^^^^
