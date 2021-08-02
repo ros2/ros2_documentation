@@ -149,6 +149,14 @@ And an example of how the type adapter can be used:
 To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_) examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
 For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
+``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` classes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``for_each_callback_group()`` method has replaced ``get_callback_groups()`` by providing a thread-safe way to access ``callback_groups_`` vector.
+``for_each_callback_group()`` accepts a function as an argument, iterates over the stored callback groups, and calls the passed function to ones that are valid.
+
+For more details, please refer to this `pull request <https://github.com/ros2/rclcpp/pull/1723>`_.
+
 ros2cli
 ^^^^^^^
 
