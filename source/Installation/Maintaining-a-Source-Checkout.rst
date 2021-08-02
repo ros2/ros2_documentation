@@ -3,10 +3,12 @@
 Maintaining a source checkout of ROS 2 {DISTRO_TITLE}
 =====================================================
 
-.. note::
+.. ifconfig:: smv_current_version != '' and smv_current_version != 'rolling'
 
-   For instructions on maintaining a source checkout of the **latest development version** of ROS2, refer to
-   `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
+  .. note::
+
+     For instructions on maintaining a source checkout of the **latest development version** of ROS 2, refer to
+     `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
    :depth: 2
