@@ -162,20 +162,20 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
-The first lines import required packages.
-First we import the ``TransformStamped`` from the ``geometry_msgs``, that provides us a template for the message that we will publish to the transformation tree.
+The first lines include the required header files.
+We include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``TransformStamped`` message type, which we will publish to the transformation tree.
 
 .. code-block:: C++
 
    #include <geometry_msgs/msg/transform_stamped.hpp>
 
-Afterward, ``rclcpp`` is imported so its ``rclcpp::Node`` class can be used.
+Afterward, ``rclcpp`` is included so its ``rclcpp::Node`` class can be used.
 
 .. code-block:: C++
 
    #include <rclcpp/rclcpp.hpp>
 
-``tf2::Quaternion`` is a quaternions class constructor that provides functions to convert euler angles to quaternions and vice versa.
+``tf2::Quaternion`` is a class for a quaternion that provides convenient functions for converting Euler angles to quaternions and vice versa.
 The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
 To use the ``StaticTransformBroadcaster``, we need to import it from the ``tf2_ros`` module.
 
@@ -228,7 +228,7 @@ Here we populate the 6D pose (translation and rotation) of the turtle.
    t.transform.rotation.z = q.z();
    t.transform.rotation.w = q.w();
 
-Finally we broadcast static transform using the ``sendTransform()`` function.
+Finally, we broadcast static transform using the ``sendTransform()`` function.
 
 .. code-block:: C++
 
@@ -276,7 +276,7 @@ Now open the CMakeLists.txt file. Below the existing dependency ``find_package(a
    find_package(tf2_ros REQUIRED)
    find_package(turtlesim REQUIRED)
 
-After that, add the executable and name it ``static_turtle_tf2_broadcaster`` so you can run your node using ``ros2 run``:
+After that, add the executable and name it ``static_turtle_tf2_broadcaster``, which you'll use later with ``ros2 run``.
 
 .. code-block:: console
 
@@ -297,8 +297,6 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
    install(TARGETS
       static_turtle_tf2_broadcaster
       DESTINATION lib/${PROJECT_NAME})
-
-You could build your package now, source the local setup files, and run it.
 
 3 Build and run
 ^^^^^^^^^^^^^^^
