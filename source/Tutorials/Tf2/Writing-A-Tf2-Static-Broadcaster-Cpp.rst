@@ -146,6 +146,9 @@ Open the file using your preferred text editor.
          "child_frame_name x y z roll pitch yaw");
       return 1;
    }
+
+   // As the parent frame of the transform is `world`, it is
+   // necessary to check that the frame name passed is different
    if (strcmp(argv[1], "world") == 0) {
       RCLCPP_INFO(logger, "Your static turtle name cannot be 'world'");
       return 1;
@@ -176,8 +179,7 @@ Afterward, ``rclcpp`` is included so its ``rclcpp::Node`` class can be used.
    #include <rclcpp/rclcpp.hpp>
 
 ``tf2::Quaternion`` is a class for a quaternion that provides convenient functions for converting Euler angles to quaternions and vice versa.
-The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
-To use the ``StaticTransformBroadcaster``, we need to import it from the ``tf2_ros`` module.
+We also include ``tf2_ros/static_transform_broadcaster.h`` to use the ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
 
 .. code-block:: C++
 
@@ -249,7 +251,7 @@ As mentioned in the :ref:`Creating your first ROS 2 package tutorial <CreatePkg>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-After the lines above, add the following dependencies corresponding to your node’s import statements:
+After the lines above, add the following dependencies corresponding to your node’s include statements:
 
 .. code-block:: xml
 
