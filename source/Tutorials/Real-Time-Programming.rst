@@ -190,19 +190,23 @@ Plotting results
 
 You can plot the latency and pagefault statistics that are collected in this demo after the demo runs.
 
-Because the code has been instrumented with `rttest <https://github.com/ros2/rttest>`__, there are useful command line tools available to us:
+Because the code has been instrumented with `rttest <https://github.com/ros2/rttest>`__, there are useful command line arguments available:
 
--i Specify how many iterations to run the real-time loop.
-Default is 1000.
++---------+---------------------------------------------------------------------+---------------+
+| Command | Description                                                         | Default value |
++---------+---------------------------------------------------------------------+---------------+
+| -i      | Specify how many iterations to run the real-time loop               | 1000          |
++---------+---------------------------------------------------------------------+---------------+
+| -u      | Specify the update period with the default unit being microseconds. | 1ms           |
+|         |                                                                     |               |
+|         | Use the suffix "s" for seconds, "ms" for milliseconds,              |               |
+|         |                                                                     |               |
+|         | "us" for microseconds, and "ns" for nanoseconds.                    |               |
++---------+---------------------------------------------------------------------+---------------+
+| -f      | Specify the name of the file for writing the collected data.        |               |
++---------+---------------------------------------------------------------------+---------------+
 
--u Specify the update period.
-Default units are microseconds.
-Use the suffix "s" for seconds, "ms" for milliseconds, "us" for microseconds, and "ns" for nanoseconds.
-Default update period is 1ms.
-
--f Specify the name of the file for writing the collected data.
-
-Run the demo again with the name a file to save results to:
+Run the demo again with a filename to save results:
 
 .. code-block:: bash
 
