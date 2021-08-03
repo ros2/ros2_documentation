@@ -17,7 +17,9 @@ Background
 ----------
 
 In the previous tutorial, we discussed the :ref:`basics of tf2 and time <LearningAboutTf2AndTimePy>`.
-This tutorial will take this one step further and expose one of the most powerful tf2 tricks.
+This tutorial will take us one step further and expose a powerful tf2 trick: the time travel.
+This tf2 time travel feature can useful for various tasks, like monitoring the state of the robot for long period of time or building a follower robot that will follow the "steps" of the leader.
+We will use that time travel feature to look up for the transforms back in time and see where our first turtle was some time ago.
 
 Time travel
 -----------
@@ -47,7 +49,7 @@ But what after these 5 seconds? Let's just give it a try:
 
 .. image:: turtlesim_delay1.png
 
-Is your turtle driving around uncontrollably like in this screenshot? Let try to understand why this is happening.
+Is your turtle driving around uncontrollably like in this screenshot? Let's try to understand why this is happening.
 
 #. In our code we asked tf2 the following question: "What was the pose of ``carrot1`` 5 seconds ago, relative to ``turtle2`` 5 seconds ago?". This means we are controlling the second turtle based on where it was 5 seconds ago as well as where the first turtle was 5 seconds ago.
 
@@ -56,8 +58,7 @@ Is your turtle driving around uncontrollably like in this screenshot? Let try to
 Advanced API for lookup_transform
 ---------------------------------
 
-So how can we ask tf2 a question like that?
-To do so, we will use an advanced API that gives us the power to say explicitly when to acquire the required transformations.
+To ask the tf2 that particular question, we will use an advanced API that gives us the power to say explicitly when to acquire the required transformations.
 This is done by calling the ``lookup_transform_full`` method with additional parameters.
 Your code now would look like this:
 
