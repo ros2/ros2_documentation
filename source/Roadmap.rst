@@ -17,9 +17,13 @@ Humble Roadmap
 Humble Hawksbill is the ROS 2 release expected in May 2022.
 See :ref:`release <humble-release>` for a detailed timeline.
 
-The items in the roadmap below are the major features being worked on by Open Robotics.
-Note that the table is in priority order; the higher in the list they are, the more important they are.
+The items in the roadmap below are the major features planned for Humble Hawksbill.
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
+
+Open Robotics Contributions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+These are the features that are being worked on by Open Robotics and are prioritized: the higher they are in the list, the higher priority they are.
 
 .. raw:: html
 
@@ -63,6 +67,28 @@ The "Size" is an estimated size of the task, where *Small* means person-days to 
    * - Launch: Revamp launch testing
      - Large
      -
+
+Community Contributions
+^^^^^^^^^^^^^^^^^^^^^^^
+
+These are the features that are being worked on by the community.
+This list is not prioritized.
+If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
+
+.. list-table::
+   :widths: 40 15 20 25
+   :header-rows: 1
+
+   * - Task
+     - Size
+     - Owner
+     - Expected Completion
+   * -
+     -
+     -
+     -
+
+
 
 Planned releases
 ----------------
