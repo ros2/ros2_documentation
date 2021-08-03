@@ -16,8 +16,12 @@ Writing a tf2 static broadcaster (C++)
 Background
 ----------
 
-In this tutorial we will write code to publish static transforms to tf2.
-This is a standalone tutorial covering the basics of static transforms.
+Publishing static transforms is useful to define the relationship between robot base and its sensors or non-moving parts.
+For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
+
+This is a standalone tutorial covering the basics of static transforms, which consists of two parts.
+In the first part we will write code to publish static transforms to tf2.
+In the second part we will explain how to use the commandline ``static_transform_publisher`` executable tool in ``tf2_ros``.
 
 In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
 After that, the following tutorials focus on extending the demo with more advanced tf2 features.
