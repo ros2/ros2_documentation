@@ -34,7 +34,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 .. |lge| image:: Governance/lge.svg
 .. |microsoft| image:: Governance/microsoft.svg
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
-.. |picknik| image:: Governance/picknik.jpg
+.. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
 .. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
@@ -141,7 +141,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
           <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>PickNik: Dave Coleman</p></td>
         </tr>
         <tr class="tscclass">
