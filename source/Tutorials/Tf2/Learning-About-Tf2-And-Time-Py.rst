@@ -51,16 +51,16 @@ Edit the exception handling on line 81 by adding newly imported exceptions and `
       raise
       return
 
-Now run the launch file:
+If you now try to run the launch file, you will notice that it is failing:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+   ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
 
 2 Fix the listener node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-So, all of the sudden ``lookup_transform()`` is failing, telling you that the frame does not exist or that the data is in the future.
+You now should notice that ``lookup_transform()`` is failing. It tells you that the frame does not exist or that the data is in the future.
 To fix this, edit your code on line 76 as shown below (return the ``timeout`` parameter):
 
 .. code-block:: python
@@ -85,7 +85,7 @@ You can now run the launch file.
    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
 
 You should notice that ``lookup_transform()`` will actually block until the transform between the two turtles becomes available (this will usually take a few milli-seconds).
-Once the timeout has been reached (1 second in this case), an exception will be raised only if the transform is still not available.
+Once the timeout has been reached (one second in this case), an exception will be raised only if the transform is still not available.
 
 Summary
 -------
