@@ -169,9 +169,10 @@ This is particularly unexpected when using a reliable qos profile.
 
 The number of matching subscriptions to wait before starting publishing can be configured with the ``-w/--wait-matching-subscriptions`` flags, e.g.:
 
-```
-ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
-```
+.. code-block:: console
+
+   ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
+
 
 to wait for three matching subscriptions before starting to publish.
 
@@ -208,6 +209,19 @@ The deprecated ``use_tf_static`` parameter has been removed from ``robot_state_p
 This means that static transforms are unconditionally published to the ``/tf_static`` topic, and that the static transforms are published in a ``transient_local`` Quality of Service.
 This was the default behavior, and the behavior which the ``tf2_ros::TransformListener`` class expected before, so most code will not have to be changed.
 Any code that was relying on ``robot_state_publisher`` to periodically publish static transforms to ``/tf`` will have to be updated to subscribe to ``/tf_static`` as a ``transient_local`` subscription instead.
+
+
+rosidl_cmake
+^^^^^^^^^^^^
+
+Deprecatation of ``rosidl_target_interfaces()``
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+The CMake function ``rosidl_target_interfaces()`` has been deprecated.
+It now issues a CMake warning when it is called.
+Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then  ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
+See https://github.com/ros2/rosidl/pull/606 for more details.
+
 
 Known Issues
 ------------
