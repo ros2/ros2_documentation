@@ -219,7 +219,7 @@ Deprecation of ``rosidl_target_interfaces()``
 
 The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now issues a CMake warning when called.
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
-See https://github.com/ros2/rosidl/pull/606 for more details.
+See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
 
 Known Issues
