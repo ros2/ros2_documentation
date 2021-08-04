@@ -18,7 +18,8 @@ Background
 
 In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterPy>` and a :ref:`tf2 listener <WritingATf2ListenerPy>`.
 We also learned how to :ref:`add a new frame to the transformation tree <AddingAFramePy>`.
-Now we will learn about the ``timeout``, which makes ``lookup_transform`` wait for the specified transform for up to the specified duration before throwing an exception.
+Now we will learn more about the ``timeout`` argument which makes the ``lookup_transform`` wait for the specified transform for up to the specified duration before throwing an exception.
+This tool can be useful to listen for transforms that are published at varying rates or those incoming source with unreliable networking and non negligible latency.
 This tutorial will teach you how use the timeout in ``lookup_transform`` function to wait for a transform to be available on the tf2 tree.
 
 Tasks
