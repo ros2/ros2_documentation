@@ -14,6 +14,12 @@ First follow the steps for `Installing Prerequisites <windows-install-binary-ins
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
+Language support
+^^^^^^^^^^^^^^^^
+
+Make sure you have a locale which supports ``UTF-8``.
+For example, for a Chinese-language Windows 10 installation, you may need to install an `English language pack <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
+
 Additional prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
