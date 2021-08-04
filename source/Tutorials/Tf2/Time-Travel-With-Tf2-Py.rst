@@ -18,14 +18,16 @@ Background
 
 In the previous tutorial, we discussed the :ref:`basics of tf2 and time <LearningAboutTf2AndTimePy>`.
 This tutorial will take us one step further and expose a powerful tf2 trick: the time travel.
-This tf2 time travel feature can useful for various tasks, like monitoring the state of the robot for long period of time or building a follower robot that will follow the "steps" of the leader.
-We will use that time travel feature to look up for the transforms back in time and see where our first turtle was some time ago.
+In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
+
+This tf2 time travel feature can be useful for various tasks, like monitoring the state of the robot for long period of time or building a follower robot that will follow the "steps" of the leader.
+We will use that time travel feature to look up for the transforms back in time and program the ``turtle1`` follow 5 seconds behind the ``turtle2``.
 
 Time travel
 -----------
 
-So let's go back to where we ended in the previous tutorial `Learning about tf2 and time <LearningAboutTf2AndTimePy>`.
-First, go to your ``learning_tf2_py`` package.
+First, let's go back to where we ended in the previous tutorial `Learning about tf2 and time <LearningAboutTf2AndTimePy>`.
+Go to your ``learning_tf2_py`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
 Edit the code on lines 75-80 in the ``turtle_tf2_listener.py`` file to:
@@ -39,8 +41,7 @@ Edit the code on lines 75-80 in the ``turtle_tf2_listener.py`` file to:
         when,
         timeout=Duration(seconds=1.0))
 
-So now, if you would run this, what would you expect to see?
-Definitely, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of the first turtle.
+Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of the first turtle.
 But what after these 5 seconds? Let's just give it a try:
 
 .. code-block:: console
@@ -49,7 +50,7 @@ But what after these 5 seconds? Let's just give it a try:
 
 .. image:: turtlesim_delay1.png
 
-Is your turtle driving around uncontrollably like in this screenshot? Let's try to understand why this is happening.
+You should now notice that your turtle is driving around uncontrollably like in this screenshot. Let's try to understand reason behind that behavior.
 
 #. In our code we asked tf2 the following question: "What was the pose of ``carrot1`` 5 seconds ago, relative to ``turtle2`` 5 seconds ago?". This means we are controlling the second turtle based on where it was 5 seconds ago as well as where the first turtle was 5 seconds ago.
 
@@ -58,7 +59,7 @@ Is your turtle driving around uncontrollably like in this screenshot? Let's try 
 Advanced API for lookup_transform
 ---------------------------------
 
-To ask the tf2 that particular question, we will use an advanced API that gives us the power to say explicitly when to acquire the required transformations.
+To ask the tf2 that particular question, we will use an advanced API that gives us the power to say explicitly when to acquire the specified transformations.
 This is done by calling the ``lookup_transform_full`` method with additional parameters.
 Your code now would look like this:
 
