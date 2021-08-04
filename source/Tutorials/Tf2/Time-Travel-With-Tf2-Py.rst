@@ -111,5 +111,6 @@ And yes, the second turtle is directed to where the first carrot was 5 seconds a
 Summary
 -------
 
-In this tutorial, you have seen the power of tf2, and its time travel features.
-tf2 allowed you to go back in time and make frame transformations between old and current states by using the advanced ``lookup_transform_full`` API.
+In this tutorial, you have seen one of the advanced features of tf2.
+You learned that tf2 can transform data in time and learned how to do that with turtlesim example.
+tf2 allowed you to go back in time and make frame transformations between old and current states of turtles by using the advanced ``lookup_transform_full`` API.
