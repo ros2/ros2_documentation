@@ -214,12 +214,11 @@ Any code that was relying on ``robot_state_publisher`` to periodically publish s
 rosidl_cmake
 ^^^^^^^^^^^^
 
-Deprecatation of ``rosidl_target_interfaces()``
-"""""""""""""""""""""""""""""""""""""""""""""""
+Deprecation of ``rosidl_target_interfaces()``
+"""""""""""""""""""""""""""""""""""""""""""""
 
-The CMake function ``rosidl_target_interfaces()`` has been deprecated.
-It now issues a CMake warning when it is called.
-Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then  ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
+The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now issues a CMake warning when called.
+Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details.
 
 
