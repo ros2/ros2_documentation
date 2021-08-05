@@ -450,5 +450,6 @@ for use within ``launch`` files for setting static transforms. For example:
 Summary
 -------
 
-In this tutorial you learned how to write your own node to publish static transforms to tf2.
+In this tutorial you learned how static transforms are useful and how to define static relationships between frames, like the laser scanner attached to the robot base.
+You also learned how to write your own node to publish static transforms to tf2.
 In addition, you learned how to publish required static transformations using ``static_transform_publisher`` and launch files.
