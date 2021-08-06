@@ -20,9 +20,6 @@ Open Robotics hosts an online storefront on `Zazzle.com <https://www.zazzle.com/
 * `Canvas Prints <https://www.zazzle.com/store/openrobotics/products?dp=0&cg=196964974640243022&rf=238583394320947238>`__ Printed on wrapped canvas with selectable sizes.
 * `Sticker Sheets <https://www.zazzle.com/store/openrobotics/products?dp=0&cg=196936312033387169&rf=238583394320947238>`__ Printed on a sheet, 20 per sheet for the small, 6 per sheet in the large size.
 
-
-
-
 Brochure: Why ROS 2?
 --------------------
 
