@@ -451,5 +451,5 @@ Summary
 -------
 
 In this tutorial you learned how static transforms are useful to define static relationships between frames, like ``mystaticturtle`` in relation to the ``world`` frame.
-You also learned how to write your own node to publish static transforms to tf2.
-In addition, you learned how to publish required static transformations using ``static_transform_publisher`` and launch files.
+In addition, you learned how static transforms can be useful for understanding sensor data, such as from laser scanners, by relating the data to a common coordinate frame.
+Finally, you wrote your own node to publish static transforms to tf2 and learned how to publish required static transformations using ``static_transform_publisher`` executable and launch files.
