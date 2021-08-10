@@ -16,7 +16,7 @@ Writing a tf2 static broadcaster (C++)
 Background
 ----------
 
-Publishing static transforms is useful to define the relationship between robot base and its sensors or non-moving parts.
+Publishing static transforms is useful to define the relationship between a robot base and its sensors or non-moving parts.
 For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
 
 This is a standalone tutorial covering the basics of static transforms, which consists of two parts.
@@ -39,7 +39,7 @@ Tasks
 
 First we will create a package that will be used for this tutorial and the following ones.
 The package called ``learning_tf2_cpp`` will depend on ``rclcpp``, ``tf2``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``.
-Code for this tutorial is stored `here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp>`_.
+Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp>`_.
 
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
@@ -259,13 +259,13 @@ After the lines above, add the following dependencies corresponding to your node
 
 .. code-block:: xml
 
-   <exec_depend>geometry_msgs</exec_depend>
-   <exec_depend>rclcpp</exec_depend>
-   <exec_depend>tf2</exec_depend>
-   <exec_depend>tf2_ros</exec_depend>
-   <exec_depend>turtlesim</exec_depend>
+   <build_depend>geometry_msgs</build_depend>
+   <build_depend>rclcpp</build_depend>
+   <build_depend>tf2</build_depend>
+   <build_depend>tf2_ros</build_depend>
+   <build_depend>turtlesim</build_depend>
 
-This declares the required ``geometry_msgs``, ``rclcpp``, ``tf2``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
+This declares the required ``geometry_msgs``, ``rclcpp``, ``tf2``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is built and executed.
 
 Make sure to save the file.
 
@@ -316,7 +316,7 @@ check for missing dependencies before building:
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro rolling -y
+        rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -414,7 +414,7 @@ The proper way to publish static transforms
 -------------------------------------------
 
 This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to publish static transforms.
-In your real development process you shouldn't have to write this code yourself and should privilege the use of the dedicated ``tf2_ros`` tool to do so.
+In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
 Publish a static coordinate transform to tf2 using an x/y/z offset in meters and yaw/pitch/roll in radians.
