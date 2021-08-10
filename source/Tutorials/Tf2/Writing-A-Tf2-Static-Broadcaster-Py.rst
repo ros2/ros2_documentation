@@ -259,7 +259,7 @@ check for missing dependencies before building:
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro rolling -y
+        rosdep install -i --from-path src --rosdistro foxy -y
 
    .. group-tab:: macOS
 
