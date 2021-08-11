@@ -266,8 +266,7 @@ def smv_rewrite_configs(app, config):
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        if app.config.smv_current_version not in ['rolling']:
-            app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
         # Override default values
         distro = app.config.smv_current_version
