@@ -105,7 +105,7 @@ Open the file using your preferred text editor.
      : Node("static_turtle_tf2_broadcaster")
      {
        tf_publisher_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
-   
+
        // Publish static transforms once at startup
        this->make_transforms(transformation);
      }
@@ -115,11 +115,11 @@ Open the file using your preferred text editor.
      {
        rclcpp::Time now;
        geometry_msgs::msg::TransformStamped t;
-   
+
        t.header.stamp = now;
        t.header.frame_id = "world";
        t.child_frame_id = transformation[1];
-   
+
        t.transform.translation.x = atof(transformation[2]);
        t.transform.translation.y = atof(transformation[3]);
        t.transform.translation.z = atof(transformation[4]);
