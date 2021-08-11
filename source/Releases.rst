@@ -58,6 +58,9 @@ Rows in the table marked in green are the currently supported distributions.
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
    </style>
 
+.. |rolling| image:: Releases/rolling-small.png
+   :alt: Rolling logo
+
 .. |galactic| image:: Releases/galactic-small.png
    :alt: Galactic logo
 

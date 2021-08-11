@@ -250,8 +250,7 @@ def smv_rewrite_configs(app, config):
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        if app.config.smv_current_version != 'rolling':
-            app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
