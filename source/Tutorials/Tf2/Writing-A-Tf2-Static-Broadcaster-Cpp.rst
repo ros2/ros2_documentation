@@ -62,13 +62,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download the example static br
 
       .. code-block:: console
 
-         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
+         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp
+         wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp
 
    .. group-tab:: Windows
 
@@ -76,13 +76,13 @@ Inside the ``src/learning_tf2_cpp/src`` directory download the example static br
 
       .. code-block:: console
 
-         curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
+         curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
 
       Or in powershell:
 
       .. code-block:: console
 
-         curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/turtle_tf2_cpp/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
+         curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/static_turtle_tf2_broadcaster.cpp -o static_turtle_tf2_broadcaster.py
 
 Open the file using your preferred text editor.
 
