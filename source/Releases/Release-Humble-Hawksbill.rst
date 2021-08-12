@@ -149,6 +149,14 @@ And an example of how the type adapter can be used:
 To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_) examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
 For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
+``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` classes
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``for_each_callback_group()`` method has replaced ``get_callback_groups()`` by providing a thread-safe way to access ``callback_groups_`` vector.
+``for_each_callback_group()`` accepts a function as an argument, iterates over the stored callback groups, and calls the passed function to ones that are valid.
+
+For more details, please refer to this `pull request <https://github.com/ros2/rclcpp/pull/1723>`_.
+
 ros2cli
 ^^^^^^^
 
@@ -161,9 +169,10 @@ This is particularly unexpected when using a reliable qos profile.
 
 The number of matching subscriptions to wait before starting publishing can be configured with the ``-w/--wait-matching-subscriptions`` flags, e.g.:
 
-```
-ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
-```
+.. code-block:: console
+
+   ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
+
 
 to wait for three matching subscriptions before starting to publish.
 
@@ -200,6 +209,18 @@ The deprecated ``use_tf_static`` parameter has been removed from ``robot_state_p
 This means that static transforms are unconditionally published to the ``/tf_static`` topic, and that the static transforms are published in a ``transient_local`` Quality of Service.
 This was the default behavior, and the behavior which the ``tf2_ros::TransformListener`` class expected before, so most code will not have to be changed.
 Any code that was relying on ``robot_state_publisher`` to periodically publish static transforms to ``/tf`` will have to be updated to subscribe to ``/tf_static`` as a ``transient_local`` subscription instead.
+
+
+rosidl_cmake
+^^^^^^^^^^^^
+
+Deprecation of ``rosidl_target_interfaces()``
+"""""""""""""""""""""""""""""""""""""""""""""
+
+The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now issues a CMake warning when called.
+Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
+See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
+
 
 Known Issues
 ------------
