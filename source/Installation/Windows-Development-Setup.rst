@@ -34,8 +34,9 @@ Install additional prerequisites from Chocolatey
 
    > choco install -y cppcheck curl git winflexbison3
 
-You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
-In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+You will need to append the following folders to the PATH environment variable in the same order as shown here: ``C:\Program Files\Git\cmd``, ``C:\Program Files\Git\bin`` and ``C:\Program Files\Git\usr\bin``
+You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
+In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the paths at the end.
 
 
 Install Python prerequisites
