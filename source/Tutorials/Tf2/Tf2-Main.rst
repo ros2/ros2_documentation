@@ -49,7 +49,7 @@ Learning tf2
 #. :ref:`Writing a tf2 listener (Python) <WritingATf2ListenerPy>`.
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
-   
+
 #. :ref:`Adding a frame (Python) <AddingAFramePy>`.
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
@@ -62,4 +62,4 @@ Learning tf2
 #. :ref:`Time travel with tf2 (Python) <TimeTravelWithTf2Py>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
-   
+
