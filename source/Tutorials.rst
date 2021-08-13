@@ -60,6 +60,8 @@ Intermediate
    Tutorials/Launch-system
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
+   Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
+   Tutorials/Tf2/Tf2-Main
 
 Advanced
 --------
