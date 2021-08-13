@@ -24,7 +24,7 @@ Let's start by installing the demo package and its dependencies.
 
       .. code-block:: console
 
-         sudo apt-get install ros-rolling-turtle-tf2-py ros-rolling-tf2-tools
+         sudo apt-get install ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-tools
 
    .. group-tab:: From Source
 
