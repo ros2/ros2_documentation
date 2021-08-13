@@ -60,11 +60,8 @@ Intermediate
    Tutorials/Launch-system
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
-<<<<<<< HEAD
-=======
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
    Tutorials/Tf2/Tf2-Main
->>>>>>> 0fef2fb (Add Introduction to tf2 tutorial (#1628))
 
 Advanced
 --------
