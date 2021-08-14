@@ -12,6 +12,8 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
+    
+    An alternative binary built by the Microsoft IoT team is available at the end and it contains all desktop packages (but is currently not supporting galactic).
 
 System requirements
 -------------------
@@ -98,3 +100,21 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_{DISTRO}
+    
+    
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel. However, the project don't support a stable version for galactic yet. 
+
+You can find the up-to-date instructions for foxy `here <https://ms-iot.github.io/ROSOnWindows/GettingStarted/SetupRos2.html>`_.
+To install the galactic pre-version, change foxy with galactic. For the part ``Installing ROS 2 Binaries``,  replace the instructions with : 
+
+.. code-block:: bash
+
+   > mkdir c:\opt\chocolatey
+   > set ChocolateyInstall=c:\opt\chocolatey
+   > choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   > choco upgrade ros-galactic-desktop -y --execution-timeout=0 --pre
+
