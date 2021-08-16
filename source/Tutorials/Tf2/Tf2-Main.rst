@@ -19,12 +19,9 @@ once for C++ and once for Python.
    Writing-A-Tf2-Static-Broadcaster-Py
    Writing-A-Tf2-Broadcaster-Py
    Writing-A-Tf2-Listener-Py
-<<<<<<< HEAD
-=======
    Adding-A-Frame-Py
    Learning-About-Tf2-And-Time-Py
    Time-Travel-With-Tf2-Py
->>>>>>> 3f9c45f (tf2 Tutorial: Timestamp and time travel tf2 tutorials (Python) (#1770))
 
 Workspace Setup
 ---------------
@@ -52,8 +49,6 @@ Learning tf2
 #. :ref:`Writing a tf2 listener (Python) <WritingATf2ListenerPy>`.
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
-<<<<<<< HEAD
-=======
 
 #. :ref:`Adding a frame (Python) <AddingAFramePy>`.
 
@@ -67,5 +62,3 @@ Learning tf2
 #. :ref:`Time travel with tf2 (Python) <TimeTravelWithTf2Py>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
-
->>>>>>> 3f9c45f (tf2 Tutorial: Timestamp and time travel tf2 tutorials (Python) (#1770))
