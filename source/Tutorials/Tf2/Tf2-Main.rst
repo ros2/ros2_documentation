@@ -20,6 +20,8 @@ once for C++ and once for Python.
    Writing-A-Tf2-Broadcaster-Py
    Writing-A-Tf2-Listener-Py
    Adding-A-Frame-Py
+   Learning-About-Tf2-And-Time-Py
+   Time-Travel-With-Tf2-Py
 
 Workspace Setup
 ---------------
@@ -51,3 +53,12 @@ Learning tf2
 #. :ref:`Adding a frame (Python) <AddingAFramePy>`.
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
+
+#. :ref:`Learning about tf2 and time (Python) <LearningAboutTf2AndTimePy>`.
+
+   This tutorial teaches you to use the timeout in ``lookup_transform`` function to
+   wait for a transform to be available on the tf2 tree.
+
+#. :ref:`Time travel with tf2 (Python) <TimeTravelWithTf2Py>`.
+
+   This tutorial teaches you about advanced time travel features of tf2.
