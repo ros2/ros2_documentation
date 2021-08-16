@@ -99,7 +99,7 @@ Open the file using your preferred text editor.
        std::ostringstream stream;
        stream << "/" << turtlename_.c_str() << "/pose";
        std::string topic_name = stream.str();
-   
+
        subscription_ = this->create_subscription<turtlesim::msg::Pose>(
          topic_name, 10,
          std::bind(&FramePublisher::handle_turtle_pose, this, _1));
@@ -110,7 +110,7 @@ Open the file using your preferred text editor.
      {
        rclcpp::Time now;
        geometry_msgs::msg::TransformStamped t;
-   
+
        // Read message content and assign it to
        // corresponding tf variables
        t.header.stamp = now;
@@ -132,7 +132,7 @@ Open the file using your preferred text editor.
        t.transform.rotation.y = q.y();
        t.transform.rotation.z = q.z();
        t.transform.rotation.w = q.w();
-   
+
        // Send the transformation
        tf_broadcaster_->sendTransform(t);
      }
