@@ -16,12 +16,13 @@ Writing a tf2 listener (C++)
 Background
 ----------
 
-In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2. In this tutorial we'll create a tf2 listener to start using tf2.
+In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+In this tutorial we'll create a tf2 listener to start using tf2.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (C++) <WritingATf2BroadcasterCpp>`.
+This tutorial assumes you have completed the :ref:`tf2 broadcaster tutorial (C++) <WritingATf2BroadcasterCpp>`.
 In previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
 
 Tasks
@@ -278,4 +279,4 @@ Summary
 -------
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
-You also have finished writing your own turtlesim demo that you have tried in the  :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+You also have finished writing your own turtlesim demo that you first tried in :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
