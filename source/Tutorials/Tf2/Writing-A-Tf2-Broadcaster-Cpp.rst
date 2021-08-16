@@ -408,5 +408,5 @@ However, as soon as we add the second turtle in the next tutorial, the pose of `
 Summary
 -------
 
-In this tutorial you learned how to broadcast the state of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
+In this tutorial you learned how to broadcast the pose of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
 To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
