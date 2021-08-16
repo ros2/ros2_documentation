@@ -218,7 +218,7 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 
 .. note::
 
-    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
+    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros::StaticTransformBroadcaster`` instead of a ``tf2_ros::TransformBroadcaster``.
     The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
     For more details see :ref:`here <WritingATf2StaticBroadcasterCpp>`.
 
@@ -316,8 +316,8 @@ Add the following dependencies corresponding to your launch file's import statem
 
 .. code-block:: xml
 
-    <depend>launch</depend>
-    <depend>launch_ros</depend>
+    <exec_depend>launch</exec_depend>
+    <exec_depend>launch_ros</exec_depend>
 
 This declares the additional required ``launch`` and ``launch_ros`` dependencies when its code is executed.
 
@@ -408,5 +408,5 @@ However, as soon as we add the second turtle in the next tutorial, the pose of `
 Summary
 -------
 
-In this tutorial you learned how to broadast state of the robot to tf2 and how to use the ``tf2_echo`` tool.
+In this tutorial you learned how to broadcast the state of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
 To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
