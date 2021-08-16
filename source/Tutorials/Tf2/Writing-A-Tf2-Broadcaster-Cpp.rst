@@ -409,4 +409,3 @@ Summary
 -------
 
 In this tutorial you learned how to broadast state of the robot to tf2 and how to use the ``tf2_echo`` tool.
-To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
