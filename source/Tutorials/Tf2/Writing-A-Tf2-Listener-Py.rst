@@ -16,13 +16,13 @@ Writing a tf2 listener (Python)
 Background
 ----------
 
-In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2. In this tutorial we'll create a tf2 listener to start using tf2.
+In previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2. In this tutorial we'll create a tf2 listener to start using tf2.
 
 Prerequisites
 -------------
 
 This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
-In previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
+In the previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
 -----
