@@ -23,7 +23,7 @@ Prerequisites
 -------------
 
 This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+In the previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 You also have created the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>`, which is where we will continue working from.
 
 Tasks
