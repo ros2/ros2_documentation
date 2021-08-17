@@ -46,25 +46,31 @@ These are the features that are being worked on by Open Robotics and are priorit
    * - Middleware: Default middleware selection
      - Medium
      -
-   * - Middleware: Investigate using Zenoh as an RMW
+   * - Middleware: Report on feasibility of using Zenoh as an RMW
      - Medium
      -
-   * - Documentation: C++ API documentation for core packages
+   * - Documentation: Upload C++ API documentation for core packages to docs site
      - Medium
      -
-   * - Documentation: Make rosdoc2 buildfarm jobs support inter-package linking
-     - Small
-     -
-   * - Documentation: Python API documentation
-     - Medium
-     -
-   * - RViz2: Fix outstanding crashes, memory leaks, problems
-     - Medium
-     -
-   * - Tooling: Improve system-level debugging tools
+   * - Overlays work to override any package in a dependency tree
      - Large
      -
-   * - Launch: Revamp launch testing
+   * - Documentation: Add Python API support to rosdoc2
+     - Medium
+     -
+   * - Improve service and action reliability > 10Hz
+     - Medium
+     -
+   * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
+     - Small
+     -
+   * - Improve RViz2 stability
+     - Medium
+     -
+   * - Develop a system level QoS/network debugging tool
+     - Large
+     -
+   * - Revamp launch testing
      - Large
      -
 
