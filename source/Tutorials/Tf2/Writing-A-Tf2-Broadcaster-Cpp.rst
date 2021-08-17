@@ -17,13 +17,13 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
-After that, the following tutorials focus on extending the demo with more advanced tf2 features.
+After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
 This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
-In the previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 You also have created the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>`, which is where we will continue working from.
 
 Tasks
