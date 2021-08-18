@@ -17,13 +17,11 @@ Humble Roadmap
 Humble Hawksbill is the ROS 2 release expected in May 2022.
 See :ref:`release <humble-release>` for a detailed timeline.
 
-The items in the roadmap below are the major features planned for Humble Hawksbill.
+The items in the roadmap below are the major features being worked on by the ROS 2 community.
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
-Open Robotics Contributions
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-These are the features that are being worked on by Open Robotics and are prioritized: the higher they are in the list, the higher priority they are.
+If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
+If you'd like to take on one of these tasks, please :ref:`get in touch with us <Help>`.
 
 .. raw:: html
 
@@ -34,66 +32,61 @@ These are the features that are being worked on by Open Robotics and are priorit
    </style>
 
 .. list-table::
-   :widths: 60 15 25
-   :header-rows: 1
-
-   * - Task
-     - Size
-     - Expected Completion
-   * - Humble Release
-     - Large
-     - 2nd quarter 2022
-   * - Middleware: Default middleware selection
-     - Medium
-     -
-   * - Middleware: Report on feasibility of using Zenoh as an RMW
-     - Medium
-     -
-   * - Documentation: Upload C++ API documentation for core packages to docs site
-     - Medium
-     -
-   * - Overlays work to override any package in a dependency tree
-     - Large
-     -
-   * - Documentation: Add Python API support to rosdoc2
-     - Medium
-     -
-   * - Improve service and action reliability > 10Hz
-     - Medium
-     -
-   * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
-     - Small
-     -
-   * - Improve RViz2 stability
-     - Medium
-     -
-   * - Develop a system level QoS/network debugging tool
-     - Large
-     -
-   * - Revamp launch testing
-     - Large
-     -
-
-Community Contributions
-^^^^^^^^^^^^^^^^^^^^^^^
-
-These are the features that are being worked on by the community.
-This list is not prioritized.
-If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
-
-.. list-table::
-   :widths: 40 15 20 25
+   :widths: 40 10 25 25
    :header-rows: 1
 
    * - Task
      - Size
      - Owner
      - Expected Completion
-   * -
+   * - Identify if messages have changed over time
+     - Large
+     - Apex
      -
+   * - Develop a system level QoS/network debugging tool
+     - Large
+     - Open Robotics
      -
+   * - Documentation: Add Python API support to rosdoc2
+     - Medium
+     - Open Robotics
      -
-
+   * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
+     - Small
+     - Open Robotics
+     -
+   * - Documentation: Upload C++ API documentation for core packages to docs site
+     - Medium
+     - Open Robotics
+     -
+   * - Humble Release
+     - Large
+     - Open Robotics
+     - 2nd quarter 2022
+   * - Improve service and action reliability for frequencies greater than 10Hz
+     - Medium
+     - Open Robotics
+     -
+   * - Improve RViz2 stability
+     - Medium
+     - Open Robotics
+     -
+   * - Middleware: Default middleware selection
+     - Medium
+     - Open Robotics
+     -
+   * - Middleware: Report on feasibility of using Zenoh as an RMW
+     - Medium
+     - Open Robotics
+     -
+   * - Overlays work to override any package in a dependency tree
+     - Large
+     - Open Robotics
+     -
+   * - Revamp launch testing
+     - Large
+     - Open Robotics
+     -
 
 
 Planned releases
