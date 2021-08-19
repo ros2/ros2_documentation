@@ -1,18 +1,12 @@
 # ROS 2 TSC applicant intake process
 
-
 ## Objectives:
-
-
 
 1. Increase the pool of high quality applicants
 2. Help applicants understand what the ROS 2 TSC needs
 3. Help ROS 2 TSC better evaluate the applicants
 
-
 ## Process:
-
-
 
 1. Applicant inquires about joining TSC via [info@openrobotics.org](mailto:info@openrobotics.org) per [ROS 2 Governance](https://docs.ros.org/en/foxy/Governance.html#technical-steering-committee-tsc).
 2. Open Robotics responds with the application questions (below).
@@ -30,15 +24,11 @@
 8. [in TSC meeting] Applicant or Sponsor can address TSC. 5 minute presentation with up to 5 additional minutes of Q&A. 
 9. [in TSC meeting]: Synchronous private/unsharable discussion of the applications after applicant(s) leave the call. TSC members are to be discrete about what has been discussed.
 10. [after TSC meeting]: Asynchronous vote on the applicants completed in around 10 days
-11. Open Robotics notifies applicant(s) of TSC decision. \
-
-
+11. Open Robotics notifies applicant(s) of TSC decision.
 
 # Questionnaire for the applicant:
 
 The following is to be provided to the applicant by Open Robotics via email in response to them expressing interest in joining the ROS 2 TSC.
-
-
 
 1. To which aspect(s) of ROS 2 do you plan to make open source contributions?
 * For example contributions to [ROS 2 Common Packages](https://www.ros.org/reps/rep-2005.html)
@@ -56,12 +46,9 @@ The following is to be provided to the applicant by Open Robotics via email in r
 4. How do these contributions benefit your business or organization?
 * Why do you do this? 
 
-
 # Evaluation Guide for TSC members:
 
 The following is suggested guidance for TSC members to evaluate applicants: 
-
-
 
 1. _To which aspect(s) of ROS 2 do you plan to make open source contributions?_
 * Are the contributions useful to the community?
