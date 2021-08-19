@@ -1,3 +1,6 @@
 pip
-Sphinx
+docutils==0.16
+sphinx
 sphinx-tabs
+sphinx-multiversion
+sphinx-rtd-theme
