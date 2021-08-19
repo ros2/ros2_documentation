@@ -74,7 +74,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Middleware: Default middleware selection
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Middleware: Report on feasibility of using Zenoh as an RMW
      - Medium
      - Open Robotics
