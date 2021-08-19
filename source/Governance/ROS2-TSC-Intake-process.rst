@@ -7,7 +7,7 @@ Objectives
 ----------
 
 1. Increase the pool of high quality applicants
-2. Help applicants understand what the ROS 2 TSC needs
+2. Help applicants understand what the ROS 2 TSC expects from an application
 3. Help ROS 2 TSC better evaluate the applicants
 
 Process
