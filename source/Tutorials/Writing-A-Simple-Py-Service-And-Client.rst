@@ -280,6 +280,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
 
 Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+
 .. tabs::
 
   .. group-tab:: Linux
@@ -298,7 +299,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
     .. code-block:: console
 
-    colcon build --merge-install --packages-select py_srvcli
+      colcon build --merge-install --packages-select py_srvcli
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files:
 
