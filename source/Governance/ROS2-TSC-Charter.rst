@@ -82,8 +82,7 @@ The TSC cannot compel or oblige any action on the part of a member, his or her o
 
 #. Open Robotics, as the founding sponsor of the project, has permanent membership on the TSC, hosts TSC meetings, and provides a representative to serve as chairperson.
 
-#. Any organization or individual may apply for membership on the TSC by email to <info@openrobotics.org>. The ROS 2 TSC applicant intake process is `here
-   <https://github.com/ros2/ros2_documentation/Governance/ROS2_TSC_intake_process.md>`_
+#. Any organization or individual may apply for membership on the TSC by email to <info@openrobotics.org>. The ROS 2 TSC applicant intake process is :ref:`here <ROS2TSCIntake>`.
 
 Community representation
 ------------------------
