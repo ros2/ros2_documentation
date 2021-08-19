@@ -4,3 +4,4 @@ sphinx
 sphinx-tabs
 sphinx-multiversion
 sphinx-rtd-theme
+sphinx-copybutton
