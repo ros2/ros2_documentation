@@ -172,7 +172,7 @@ For that to work, the ``__init__`` code has to be changed to:
 
 .. code-block:: Python
 
-    # ...
+    import rclpy.node
 
     class MinimalParam(rclpy.node.Node):
         def __init__(self):
