@@ -50,12 +50,12 @@ If you wish to update a particular release, you can get its repository list by s
     .. code-block:: bash
 
        # CMD
-       > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy-release/ros2.repos -o ros2.repos
+       cd \dev\ros2
+       curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy-release/ros2.repos -o ros2.repos
 
        # PowerShell
-       > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/foxy-release/ros2.repos -o ros2.repos
+       cd \dev\ros2
+       curl https://raw.githubusercontent.com/ros2/ros2/foxy-release/ros2.repos -o ros2.repos
 
 The format of the name of the release comes from the tag associated with the release `here <https://github.com/ros2/ros2/tags>`__.
 
@@ -87,12 +87,12 @@ If you wish to checkout development branches for a particular release, you can g
     .. code-block:: bash
 
        # CMD
-       > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+       cd \dev\ros2
+       curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
        # PowerShell
-       > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+       cd \dev\ros2
+       curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
 
 Latest ROS 2 {DISTRO_TITLE} branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -122,12 +122,12 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
     .. code-block:: bash
 
        # CMD
-       > cd \dev\ros2_{DISTRO}
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+       cd \dev\ros2_{DISTRO}
+       curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
        # PowerShell
-       > cd \dev\ros2_{DISTRO}
-       > curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+       cd \dev\ros2_{DISTRO}
+       curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 
 Update your repositories
@@ -167,12 +167,12 @@ You should now be able to download the sources associated with the new repositor
     .. code-block:: bash
 
        # CMD
-       > vcs import src < ros2.repos
-       > vcs pull src
+       vcs import src < ros2.repos
+       vcs pull src
 
        # PowerShell
-       > vcs import --input ros2.repos src
-       > vcs pull src
+       vcs import --input ros2.repos src
+       vcs pull src
 
 Rebuild your workspace
 ----------------------
@@ -209,7 +209,7 @@ If you wish to know the versions of the set of repositories in your workspace, y
 
     .. code-block:: bash
 
-       > cd \dev\ros2_{DISTRO}
-       > vcs export src > my_ros2.repos
+       cd \dev\ros2_{DISTRO}
+       vcs export src > my_ros2.repos
 
 This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.
