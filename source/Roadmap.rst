@@ -88,6 +88,11 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Open Robotics
      -
 
+Additional project-specific roadmaps can be found in the links below:
+
+- Moveit2: https://moveit.ros.org/documentation/contributing/roadmap/
+- Nav2: https://navigation.ros.org/roadmap/roadmap.html
+
 
 Planned releases
 ----------------
