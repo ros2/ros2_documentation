@@ -109,9 +109,9 @@ These two additions will improve the ability to both visualize data in new ways 
    sensor_msgs/CompressedImage texture
    # Location of each vertex within the texture; in the range: [0.0-1.0]
    UVCoordinate[] uv_coordinates
-   
+
 RViz will fully support texture rendering through the embedded format.
-   
+
 To those familiar with ``mesh_resource``, ``resource_retriever`` should be familiar. This will allow the programmer to choose where they want to load data from, either a local file or a networked file. In the interest of being able to record all data in a rosbag, the ability to embed the texture image is included.
 
 **Meshes** were modified in a similar way to add the ability to embed a raw Mesh file for the purpose of recording and are modified in a similar way. The Meshfile message has two fields:
@@ -124,7 +124,7 @@ To those familiar with ``mesh_resource``, ``resource_retriever`` should be famil
 
    # This stores the raw text of the mesh file.
    uint8[] data
-   
+
 The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
