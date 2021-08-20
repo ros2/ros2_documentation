@@ -127,7 +127,7 @@ To those familiar with ``mesh_resource``, ``resource_retriever`` should be famil
    
 The embedded ``Meshfile`` message is not yet supported in implementation.
 
-Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_
+Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
 
 rclcpp
 ^^^^^^
