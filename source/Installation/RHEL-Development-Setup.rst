@@ -117,7 +117,7 @@ More info on working with a ROS workspace can be found in `this tutorial <../Tut
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
-Well then simply ``$ touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
+Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
 Environment setup
 -----------------

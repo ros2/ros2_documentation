@@ -3,7 +3,7 @@ First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/c
 
 .. code-block:: bash
 
-       $ apt-cache policy | grep universe
+       apt-cache policy | grep universe
         500 http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages
             release v=20.04,o=Ubuntu,a=focal,n=focal,l=Ubuntu,c=universe,b=amd64
 
