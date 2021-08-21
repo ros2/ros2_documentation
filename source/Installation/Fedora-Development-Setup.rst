@@ -8,7 +8,7 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
 
 .. code-block:: bash
 
-   $ sudo dnf install \
+   sudo dnf install \
      asio-devel \
      cmake \
      cppcheck \
