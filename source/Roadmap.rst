@@ -87,11 +87,11 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      - Open Robotics
      -
-   * - ContentFilteredTopic
+   * - Filter Topic Messages by Content in rclcpp
      - Large
      - Sony
      - 1st quarter 2022
-   * - WaitForAcknowledgments
+   * - Waiting For Acknowledgments by the reliable Publisher
      - Small
      - Sony
      - 4th quarter 2022
