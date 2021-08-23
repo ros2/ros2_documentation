@@ -87,11 +87,11 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      - Open Robotics
      -
-     * - ContentFilteredTopic
+   * - ContentFilteredTopic
      - Large
      - Sony
      - 1st quarter 2022
-     * - WaitForAcknowledgments
+   * - WaitForAcknowledgments
      - Small
      - Sony
      - 4th quarter 2022
