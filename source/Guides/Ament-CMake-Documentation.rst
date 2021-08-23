@@ -291,7 +291,7 @@ Ament contains CMake macros to simplify setting up GTests. Call:
 
 .. code-block:: cmake
 
-    find_package(ament_gtest)
+    find_package(ament_cmake_gtest)
     ament_add_gtest(some_test <test_sources>)
 
 to add a GTest.
@@ -303,7 +303,7 @@ The macros have additional parameters:
 
 .. code-block:: cmake
 
-    find_package(ament_gtest REQUIRED)
+    find_package(ament_cmake_gtest REQUIRED)
     ament_add_gtest(some_test <test_sources>
       APPEND_ENV PATH=some/addtional/path/for/testing/resources)
 
