@@ -196,11 +196,13 @@ All this is wrapped in a try-except block to catch possible exceptions.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node:
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py`` and add the following lines after your first ``turtle1`` broadcaster node. Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
 
 .. code-block:: python
 
     from launch import LaunchDescription
+    from launch.actions import DeclareLaunchArgument
+    from launch.substitutions import LaunchConfiguration
     from launch_ros.actions import Node
 
     def generate_launch_description():
