@@ -196,7 +196,7 @@ All this is wrapped in a try-except block to catch possible exceptions.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, add the following lines after your first ``turtle1`` broadcaster node and include the additional imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration``:
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py`` and add the following lines after your first ``turtle1`` broadcaster node. Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
 
 .. code-block:: python
 
