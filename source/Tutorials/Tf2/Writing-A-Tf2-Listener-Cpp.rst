@@ -86,7 +86,9 @@ Open the file using your preferred text editor.
    {
    public:
      FrameListener()
-     : Node("turtle_tf2_frame_listener")
+     : Node("turtle_tf2_frame_listener"),
+       service_called_(false),
+       turtle_spawned_(false)
      {
        // Declare and acquire `target_frame` parameter
        this->declare_parameter<std::string>("target_frame", "turtle1");
@@ -98,36 +100,12 @@ Open the file using your preferred text editor.
          std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
        // Create a client to spawn a turtle
-       rclcpp::Client<turtlesim::srv::Spawn>::SharedPtr spawner =
+       spawner_ =
          this->create_client<turtlesim::srv::Spawn>("spawn");
 
-       // Check if the service is available
-       while (!spawner->wait_for_service(1s)) {
-         if (!rclcpp::ok()) {
-           RCLCPP_ERROR(
-             this->get_logger(),
-             "Interrupted while waiting for the service. Exiting."
-           );
-           continue;
-         }
-         RCLCPP_INFO(
-           this->get_logger(),
-           "Service not available, waiting again..."
-         );
-       }
-
-       // Initialize request with turtle name and coordinates
-       // Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
-       auto request = std::make_shared<turtlesim::srv::Spawn::Request>();
-       request->x = 4.0;
-       request->y = 2.0;
-       request->theta = 0.0;
-       request->name = "turtle2";
-       // Call request
-       auto result = spawner->async_send_request(request);
-
        // Create turtle2 velocity publisher
-       publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("turtle2/cmd_vel", 1);
+       publisher_ =
+         this->create_publisher<geometry_msgs::msg::Twist>("turtle2/cmd_vel", 1);
 
        // Call on_timer function every second
        timer_ = this->create_wall_timer(
@@ -142,6 +120,28 @@ Open the file using your preferred text editor.
        std::string fromFrameRel = target_frame_.c_str();
        std::string toFrameRel = "turtle2";
 
+       if (!service_called_) {
+         // Check if the service is ready
+         if (!spawner_->service_is_ready()) {
+           return;
+         }
+
+         // Initialize request with turtle name and coordinates
+         // Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+         auto request = std::make_shared<turtlesim::srv::Spawn::Request>();
+         request->x = 4.0;
+         request->y = 2.0;
+         request->theta = 0.0;
+         request->name = "turtle2";
+         // Call request
+         result_ = spawner_->async_send_request(request);
+         service_called_ = true;
+         return;
+       } else if (service_called_ && !turtle_spawned_) {
+         RCLCPP_INFO(this->get_logger(), "Successfully spawned %s", result_.get()->name.c_str());
+         turtle_spawned_ = true;
+       }
+
        geometry_msgs::msg::TransformStamped transformStamped;
 
        // Look up for the transformation between target_frame and turtle2 frames
@@ -149,10 +149,12 @@ Open the file using your preferred text editor.
        try {
          transformStamped = tf_buffer_->lookupTransform(
            toFrameRel, fromFrameRel,
-           tf2::TimePoint(),
-           500ms);
-       } catch (tf2::LookupException & ex) {
-         RCLCPP_INFO(this->get_logger(), "transform not ready");
+           tf2::TimePointZero,
+           50ms);
+       } catch (tf2::TransformException & ex) {
+         RCLCPP_INFO(
+           this->get_logger(), "Could not transform %s to %s: %s",
+           toFrameRel.c_str(), fromFrameRel.c_str(), ex.what());
          return;
        }
 
@@ -170,13 +172,19 @@ Open the file using your preferred text editor.
 
        publisher_->publish(msg);
      }
-     rclcpp::TimerBase::SharedPtr timer_;
-     std::shared_ptr<tf2_ros::TransformListener> transform_listener_;
+     // Boolean values to store the information
+     // if the service for spawning turtle is available
+     bool service_called_;
+     // if the turtle was successfully spawned
+     bool turtle_spawned_;
+     rclcpp::Client<turtlesim::srv::Spawn>::SharedFuture result_;
+     rclcpp::Client<turtlesim::srv::Spawn>::SharedPtr spawner_{nullptr};
+     rclcpp::TimerBase::SharedPtr timer_{nullptr};
+     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_{nullptr};
+     std::shared_ptr<tf2_ros::TransformListener> transform_listener_{nullptr};
      std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
-     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
      std::string target_frame_;
    };
-
 
    int main(int argc, char * argv[])
    {
@@ -216,10 +224,10 @@ All this is wrapped in a try-except block to catch possible exceptions.
 
 .. code-block:: C++
 
-    transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
-        tf2::TimePoint(),
-        500ms);
+  transformStamped = tf_buffer_->lookupTransform(
+    toFrameRel, fromFrameRel,
+    tf2::TimePointZero,
+    50ms);
 
 2 Build and run
 ^^^^^^^^^^^^^^^
@@ -229,6 +237,9 @@ With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``
 .. code-block:: python
 
     from launch import LaunchDescription
+    from launch.actions import DeclareLaunchArgument
+    from launch.substitutions import LaunchConfiguration
+
     from launch_ros.actions import Node
 
     def generate_launch_description():
@@ -261,14 +272,14 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
+  ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 3 Checking the results
 ^^^^^^^^^^^^^^^^^^^^^^
