@@ -178,6 +178,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/ROS2-TSC-Intake-process
    Governance/How-To-Start-A-Community-Working-Group
 
 Working Groups (WGs)
