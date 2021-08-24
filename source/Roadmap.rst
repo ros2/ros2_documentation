@@ -87,6 +87,14 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      - Open Robotics
      -
+   * - Filter topic messages by content in rclcpp
+     - Large
+     - Sony
+     - 1st quarter 2022
+   * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
+     - Small
+     - Sony
+     - 4th quarter 2022
 
 Additional project-specific roadmaps can be found in the links below:
 
