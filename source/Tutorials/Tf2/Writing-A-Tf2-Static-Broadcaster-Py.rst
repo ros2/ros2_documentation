@@ -115,7 +115,7 @@ Open the file using your preferred text editor.
          self._tf_publisher = StaticTransformBroadcaster(self)
 
          # Publish static transforms once at startup
-         self._tf_publisher.sendTransform(self.make_transforms(transformation))
+         self.make_transforms(transformation)
 
       def make_transforms(self, transformation):
          static_transformStamped = TransformStamped()
@@ -132,7 +132,7 @@ Open the file using your preferred text editor.
          static_transformStamped.transform.rotation.z = quat[2]
          static_transformStamped.transform.rotation.w = quat[3]
 
-         return (static_transformStamped)
+         self._tf_publisher.sendTransform(static_transformStamped)
 
 
    def main():
