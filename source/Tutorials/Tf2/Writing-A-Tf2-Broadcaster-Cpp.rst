@@ -106,9 +106,9 @@ Open the file using your preferred text editor.
      }
 
    private:
-     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg) const
+     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
      {
-       rclcpp::Time now;
+       rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
 
        // Read message content and assign it to
@@ -170,7 +170,7 @@ Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``han
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``rclcpp::Time``. This will return the current time used by the ``Node``.
+#. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``this->get_clock()->now()``. This will return the current time used by the ``Node``.
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``.
 
@@ -180,7 +180,7 @@ The handler function for the turtle pose message broadcasts this turtle's transl
 
 .. code-block:: C++
 
-    rclcpp::Time now;
+    rclcpp::Time now = this->get_clock()->now();
     geometry_msgs::msg::TransformStamped t;
 
     // Read message content and assign it to
