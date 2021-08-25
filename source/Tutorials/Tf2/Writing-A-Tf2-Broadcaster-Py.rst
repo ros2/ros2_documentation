@@ -90,6 +90,9 @@ Open the file using your preferred text editor.
             self.turtlename = self.get_parameter(
                 'turtlename').get_parameter_value().string_value
 
+            # Initialize the transform broadcaster
+            self.br = TransformBroadcaster(self)
+
             # Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose
             # callback function on each message
             self.subscription = self.create_subscription(
@@ -100,8 +103,6 @@ Open the file using your preferred text editor.
             self.subscription
 
         def handle_turtle_pose(self, msg):
-            # Initialize the transform broadcaster
-            br = TransformBroadcaster(self)
             t = TransformStamped()
 
             # Read message content and assign it to
@@ -126,7 +127,7 @@ Open the file using your preferred text editor.
             t.transform.rotation.w = q[3]
 
             # Send the transformation
-            br.sendTransform(t)
+            self.br.sendTransform(t)
 
 
     def main():
@@ -201,7 +202,7 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 .. code-block:: python
 
     # Send the transformation
-    br.sendTransform(t)
+    self.br.sendTransform(t)
 
 .. note::
 
