@@ -197,7 +197,7 @@ is created that will send one static transformation upon the startup.
 .. code-block:: python
 
    self._tf_publisher = StaticTransformBroadcaster(self)
-   self._tf_publisher.sendTransform(self.make_transforms(transformation))
+   self.make_transforms(transformation)
 
 Here we create a ``TransformStamped`` object which will be the message we will send over once
 populated. Before passing the actual transform values we need to give it the appropriate metadata.
@@ -233,7 +233,7 @@ Finally we broadcast static transform using the ``sendTransform()`` function.
 
 .. code-block:: python
 
-   broadcaster.sendTransform(static_transformStamped)
+   self._tf_publisher.sendTransform(static_transformStamped)
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
