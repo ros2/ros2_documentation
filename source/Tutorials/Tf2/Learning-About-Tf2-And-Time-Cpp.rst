@@ -73,8 +73,8 @@ As a result, when you request a frame transform at time "now", you should wait a
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 tf2 provides a nice tool that will wait until a transform becomes available.
-You use this by adding a Duration parameter to ``lookupTransform()``.
-To fix this, edit your code as shown below (add the last ``timeout`` parameter):
+You use this by adding a timeout parameter to ``lookupTransform()``.
+To fix this, edit your code as shown below (add the last timeout parameter):
 
 .. code-block:: C++
 
