@@ -121,69 +121,66 @@ Open the file using your preferred text editor.
        std::string fromFrameRel = target_frame_.c_str();
        std::string toFrameRel = "turtle2";
 
-       if (!turtle_spawning_service_ready_) {
+       if (turtle_spawning_service_ready_) {
+         if (turtle_spawned_) {
+           geometry_msgs::msg::TransformStamped transformStamped;
+
+           // Look up for the transformation between target_frame and turtle2 frames
+           // and send velocity commands for turtle2 to reach target_frame
+           try {
+             transformStamped = tf_buffer_->lookupTransform(
+               toFrameRel, fromFrameRel,
+               tf2::TimePointZero);
+           } catch (tf2::TransformException & ex) {
+             RCLCPP_INFO(
+               this->get_logger(), "Could not transform %s to %s: %s",
+               toFrameRel.c_str(), fromFrameRel.c_str(), ex.what());
+             return;
+           }
+
+           geometry_msgs::msg::Twist msg;
+
+           static const double scaleRotationRate = 1.0;
+           msg.angular.z = scaleRotationRate * atan2(
+             transformStamped.transform.translation.y,
+             transformStamped.transform.translation.x);
+
+           static const double scaleForwardSpeed = 0.5;
+           msg.linear.x = scaleForwardSpeed * sqrt(
+             pow(transformStamped.transform.translation.x, 2) +
+             pow(transformStamped.transform.translation.y, 2));
+
+           publisher_->publish(msg);
+         } else {
+           RCLCPP_INFO(this->get_logger(), "Successfully spawned %s", result_.get()->name.c_str());
+           turtle_spawned_ = true;
+         }
+       } else {
          // Check if the service is ready
-         if (!spawner_->service_is_ready()) {
+         if (spawner_->service_is_ready()) {
+           // Initialize request with turtle name and coordinates
+           // Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+           auto request = std::make_shared<turtlesim::srv::Spawn::Request>();
+           request->x = 4.0;
+           request->y = 2.0;
+           request->theta = 0.0;
+           request->name = "turtle2";
+
+           // Call request
+           using ServiceResponseFuture =
+             rclcpp::Client<turtlesim::srv::Spawn>::SharedFuture;
+           auto response_received_callback = [this](ServiceResponseFuture future) {
+               auto result = future.get();
+               if (strcmp(result->name.c_str(), "turtle2") == 0) {
+                 turtle_spawning_service_ready_ = true;
+               } else {
+                 RCLCPP_ERROR(this->get_logger(), "Service callback result mismatch");
+               }
+             };
+           result_ = spawner_->async_send_request(request, response_received_callback);
+         } else {
            RCLCPP_INFO(this->get_logger(), "Service is not ready");
-           return;
          }
-
-         // Initialize request with turtle name and coordinates
-         // Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
-         auto request = std::make_shared<turtlesim::srv::Spawn::Request>();
-         request->x = 4.0;
-         request->y = 2.0;
-         request->theta = 0.0;
-         request->name = "turtle2";
-
-         // Call request
-         using ServiceResponseFuture =
-           rclcpp::Client<turtlesim::srv::Spawn>::SharedFuture;
-         auto response_received_callback = [this](ServiceResponseFuture future) {
-             auto result = future.get();
-             if (strcmp(result->name.c_str(), "turtle2") == 0) {
-               turtle_spawning_service_ready_ = true;
-             }
-           };
-         result_ = spawner_->async_send_request(request, response_received_callback);
-         return;
-       }
-
-       if (turtle_spawning_service_ready_ && !turtle_spawned_) {
-         RCLCPP_INFO(this->get_logger(), "Successfully spawned %s", result_.get()->name.c_str());
-         turtle_spawned_ = true;
-         return;
-       }
-
-       if (turtle_spawned_) {
-         geometry_msgs::msg::TransformStamped transformStamped;
-
-         // Look up for the transformation between target_frame and turtle2 frames
-         // and send velocity commands for turtle2 to reach target_frame
-         try {
-           transformStamped = tf_buffer_->lookupTransform(
-             toFrameRel, fromFrameRel,
-             tf2::TimePointZero);
-         } catch (tf2::TransformException & ex) {
-           RCLCPP_INFO(
-             this->get_logger(), "Could not transform %s to %s: %s",
-             toFrameRel.c_str(), fromFrameRel.c_str(), ex.what());
-           return;
-         }
-
-         geometry_msgs::msg::Twist msg;
-
-         static const double scaleRotationRate = 1.0;
-         msg.angular.z = scaleRotationRate * atan2(
-           transformStamped.transform.translation.y,
-           transformStamped.transform.translation.x);
-
-         static const double scaleForwardSpeed = 0.5;
-         msg.linear.x = scaleForwardSpeed * sqrt(
-           pow(transformStamped.transform.translation.x, 2) +
-           pow(transformStamped.transform.translation.y, 2));
-
-         publisher_->publish(msg);
        }
      }
      // Boolean values to store the information
