@@ -39,13 +39,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: Windows
 
@@ -53,13 +53,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-                curl -sk https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
 Open the file using your preferred text editor.
 
@@ -70,7 +70,6 @@ Open the file using your preferred text editor.
     from geometry_msgs.msg import Twist
 
     import rclpy
-    from rclpy.duration import Duration
     from rclpy.node import Node
 
     from tf2_ros import TransformException
@@ -97,7 +96,7 @@ Open the file using your preferred text editor.
             self.spawner = self.create_client(Spawn, 'spawn')
             # Boolean values to store the information
             # if the service for spawning turtle is available
-            self.service_called = False
+            self.turtle_spawning_service_ready = False
             # if the turtle was successfully spawned
             self.turtle_spawned = False
 
@@ -113,7 +112,7 @@ Open the file using your preferred text editor.
             from_frame_rel = self.target_frame
             to_frame_rel = 'turtle2'
 
-            if not self.service_called:
+            if not self.turtle_spawning_service_ready:
                 if not self.spawner.service_is_ready():
                     # Check if the service is ready
                     self.get_logger().info('Service is not ready')
@@ -128,9 +127,9 @@ Open the file using your preferred text editor.
                 request.theta = float(0)
                 # Call request
                 self.result = self.spawner.call_async(request)
-                self.service_called = True
+                self.turtle_spawning_service_ready = True
                 return
-            elif self.service_called and not self.turtle_spawned and self.result.done():
+            elif self.turtle_spawning_service_ready and not self.turtle_spawned and self.result.done():
                 self.get_logger().info(
                     f'Successfully spawned {self.result.result().name}')
                 self.turtle_spawned = True
@@ -143,8 +142,7 @@ Open the file using your preferred text editor.
                     trans = self.tf_buffer.lookup_transform(
                         to_frame_rel,
                         from_frame_rel,
-                        now,
-                        timeout=Duration(seconds=1.0))
+                        now)
                 except TransformException as ex:
                     self.get_logger().info(
                         f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
