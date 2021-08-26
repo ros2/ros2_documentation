@@ -175,6 +175,8 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
+To understand how the service behind spawning turtle works, please refer to :ref:`writing a simple service and client (Python) <PySrvCli>` tutorial.
+
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` package provides an implementation of a ``TransformListener`` to help make the task of receiving transforms easier.
 
