@@ -87,13 +87,13 @@ Open the file using your preferred text editor.
    public:
      FrameListener()
      : Node("turtle_tf2_frame_listener"),
-       service_called_(false),
+       turtle_spawning_service_ready_(false),
        turtle_spawned_(false)
      {
        // Declare and acquire `target_frame` parameter
        this->declare_parameter<std::string>("target_frame", "turtle1");
        this->get_parameter("target_frame", target_frame_);
-
+   
        tf_buffer_ =
          std::make_unique<tf2_ros::Buffer>(this->get_clock());
        transform_listener_ =
@@ -120,7 +120,7 @@ Open the file using your preferred text editor.
        std::string fromFrameRel = target_frame_.c_str();
        std::string toFrameRel = "turtle2";
 
-       if (!service_called_) {
+       if (!turtle_spawning_service_ready_) {
          // Check if the service is ready
          if (!spawner_->service_is_ready()) {
            RCLCPP_INFO(this->get_logger(), "Service is not ready");
@@ -141,14 +141,17 @@ Open the file using your preferred text editor.
          auto response_received_callback = [this](ServiceResponseFuture future) {
              auto result = future.get();
              if (strcmp(result->name.c_str(), "turtle2") == 0) {
-               service_called_ = true;
+               turtle_spawning_service_ready_ = true;
              }
            };
          result_ = spawner_->async_send_request(request, response_received_callback);
          return;
-       } else if (service_called_ && !turtle_spawned_) {
+       }
+
+       if (turtle_spawning_service_ready_ && !turtle_spawned_) {
          RCLCPP_INFO(this->get_logger(), "Successfully spawned %s", result_.get()->name.c_str());
          turtle_spawned_ = true;
+         return;
        }
 
        if (turtle_spawned_) {
@@ -184,7 +187,7 @@ Open the file using your preferred text editor.
      }
      // Boolean values to store the information
      // if the service for spawning turtle is available
-     bool service_called_;
+     bool turtle_spawning_service_ready_;
      // if the turtle was successfully spawned
      bool turtle_spawned_;
      rclcpp::Client<turtlesim::srv::Spawn>::SharedFuture result_;
@@ -206,6 +209,8 @@ Open the file using your preferred text editor.
 
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
+
+To understand how the service behind spawning turtle works, please refer to :ref:`writing a simple service and client (C++) <CppSrvCli>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` contains a ``TransformListener`` header file implementation that makes the task of receiving transforms easier.
