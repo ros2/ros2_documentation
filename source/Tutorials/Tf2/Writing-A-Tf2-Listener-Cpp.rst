@@ -93,7 +93,7 @@ Open the file using your preferred text editor.
        // Declare and acquire `target_frame` parameter
        this->declare_parameter<std::string>("target_frame", "turtle1");
        this->get_parameter("target_frame", target_frame_);
-   
+
        tf_buffer_ =
          std::make_unique<tf2_ros::Buffer>(this->get_clock());
        transform_listener_ =
