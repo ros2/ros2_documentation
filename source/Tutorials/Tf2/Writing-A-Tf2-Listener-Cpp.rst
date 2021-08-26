@@ -16,7 +16,8 @@ Writing a tf2 listener (C++)
 Background
 ----------
 
-In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+In previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+
 In this tutorial we'll create a tf2 listener to start using tf2.
 
 Prerequisites
