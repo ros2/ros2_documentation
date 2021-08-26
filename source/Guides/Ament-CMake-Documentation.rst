@@ -133,7 +133,7 @@ When building a reusable library, some information needs to be exported for down
 
 .. code-block:: cmake
 
-    ament_export_targets(export_my_library HAS_LIBRARY_TARGET)
+    ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
     ament_export_dependencies(some_dependency)
 
     install(
@@ -143,7 +143,7 @@ When building a reusable library, some information needs to be exported for down
 
     install(
       TARGETS my_library
-      EXPORT export_my_library
+      EXPORT my_libraryTargets
       LIBRARY DESTINATION lib
       ARCHIVE DESTINATION lib
       RUNTIME DESTINATION bin
@@ -184,7 +184,7 @@ Here is what's happening in the snippet above:
   It installs the CMake files for the ``my_library`` target.
   It is named exactly like the argument in ``ament_export_targets`` and could be named like the library.
   However, this will then prohibit using the ``ament_target_dependencies`` way of including your library.
-  To allow for full flexibility, it is advised to prepend the export target with something like ``export_<target>``.
+  To allow for full flexibility, it is advised to prepend the export target with something like ``<target>Targets``.
 
 - All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament
 
