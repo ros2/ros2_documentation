@@ -112,54 +112,55 @@ Open the file using your preferred text editor.
             from_frame_rel = self.target_frame
             to_frame_rel = 'turtle2'
 
-            if not self.turtle_spawning_service_ready:
-                if not self.spawner.service_is_ready():
+            if self.turtle_spawning_service_ready:
+                if self.turtle_spawned:
+                    # Look up for the transformation between target_frame and turtle2 frames
+                    # and send velocity commands for turtle2 to reach target_frame
+                    try:
+                        now = rclpy.time.Time()
+                        trans = self.tf_buffer.lookup_transform(
+                            to_frame_rel,
+                            from_frame_rel,
+                            now)
+                    except TransformException as ex:
+                        self.get_logger().info(
+                            f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
+                        return
+
+                    msg = Twist()
+                    scale_rotation_rate = 1.0
+                    msg.angular.z = scale_rotation_rate * math.atan2(
+                        trans.transform.translation.y,
+                        trans.transform.translation.x)
+
+                    scale_forward_speed = 0.5
+                    msg.linear.x = scale_forward_speed * math.sqrt(
+                        trans.transform.translation.x ** 2 +
+                        trans.transform.translation.y ** 2)
+
+                    self.publisher.publish(msg)
+                else:
+                    if self.result.done():
+                        self.get_logger().info(
+                            f'Successfully spawned {self.result.result().name}')
+                        self.turtle_spawned = True
+                    else:
+                        self.get_logger().info('Spawn is not finished')
+            else:
+                if self.spawner.service_is_ready():
+                    # Initialize request with turtle name and coordinates
+                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    request = Spawn.Request()
+                    request.name = 'turtle2'
+                    request.x = float(4)
+                    request.y = float(2)
+                    request.theta = float(0)
+                    # Call request
+                    self.result = self.spawner.call_async(request)
+                    self.turtle_spawning_service_ready = True
+                else:
                     # Check if the service is ready
                     self.get_logger().info('Service is not ready')
-                    return
-
-                # Initialize request with turtle name and coordinates
-                # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
-                request = Spawn.Request()
-                request.name = 'turtle2'
-                request.x = float(4)
-                request.y = float(2)
-                request.theta = float(0)
-                # Call request
-                self.result = self.spawner.call_async(request)
-                self.turtle_spawning_service_ready = True
-                return
-            elif self.turtle_spawning_service_ready and not self.turtle_spawned and self.result.done():
-                self.get_logger().info(
-                    f'Successfully spawned {self.result.result().name}')
-                self.turtle_spawned = True
-
-            if self.turtle_spawned:
-                # Look up for the transformation between target_frame and turtle2 frames
-                # and send velocity commands for turtle2 to reach target_frame
-                try:
-                    now = rclpy.time.Time()
-                    trans = self.tf_buffer.lookup_transform(
-                        to_frame_rel,
-                        from_frame_rel,
-                        now)
-                except TransformException as ex:
-                    self.get_logger().info(
-                        f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
-                    return
-
-                msg = Twist()
-                scale_rotation_rate = 1.0
-                msg.angular.z = scale_rotation_rate * math.atan2(
-                    trans.transform.translation.y,
-                    trans.transform.translation.x)
-
-                scale_forward_speed = 0.5
-                msg.linear.x = scale_forward_speed * math.sqrt(
-                    trans.transform.translation.x ** 2 +
-                    trans.transform.translation.y ** 2)
-
-                self.publisher.publish(msg)
 
 
     def main():
@@ -204,11 +205,10 @@ All this is wrapped in a try-except block to catch possible exceptions.
 .. code-block:: python
 
     now = rclpy.time.Time()
-    trans = self._tf_buffer.lookup_transform(
+    trans = self.tf_buffer.lookup_transform(
         to_frame_rel,
         from_frame_rel,
-        now,
-        timeout=Duration(seconds=1.0))
+        now)
 
 2 Build and run
 ^^^^^^^^^^^^^^^
