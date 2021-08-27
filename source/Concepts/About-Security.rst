@@ -41,7 +41,7 @@ Enclave Identity
 ^^^^^^^^^^^^^^^^
 
 The Identity Certificate Authority file ``identity_ca.cert.pem`` acts as the trust anchor used to identify participants.
-Each enclave also holds its unique identifying certificate in the file ``cert.pem``, and the associated private private key in the file ``key.pem``.
+Each enclave also holds its unique identifying certificate in the file ``cert.pem``, and the associated private key in the file ``key.pem``.
 Because the ``cert.pem`` certificate has been signed by identity certificate, when a participant presents this certificate to other domain members, they are able to validate the participant's identity using their own copy of the identity certificate.
 This valid certificate exchange allows the enclave to securely establish trusted communications with other participants.
 The enclave does not not share the ``key.pem`` private key, but only uses it for decryption and message signing.
