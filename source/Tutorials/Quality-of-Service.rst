@@ -30,14 +30,14 @@ You will also need the ROS package ``image_tools``.
 
       .. code-block:: bash
 
-        sudo apt-get install ros-foxy-image-tools
+        sudo apt-get install ros-{DISTRO}-image-tools
 
    .. group-tab:: From Source
 
       .. code-block:: bash
 
         # Clone and build the demos repo using the branch that matches your installation
-        git clone https://github.com/ros2/demos.git -b foxy
+        git clone https://github.com/ros2/demos.git -b {REPOS_FILE_BRANCH}
 
 
 Run the demo

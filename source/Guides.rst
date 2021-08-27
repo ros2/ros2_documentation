@@ -20,6 +20,7 @@ If you are new and looking to learn the ropes, start with the :ref:`Tutorials <T
    Guides/Developing-a-ROS-2-Package
    Guides/Ament-CMake-Documentation
    Guides/Launch-files-migration-guide
+   Guides/Launch-file-different-formats
    Guides/Parameters-YAML-files-migration-guide
    Guides/Node-arguments
    Guides/Sync-Vs-Async

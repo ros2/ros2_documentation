@@ -15,7 +15,7 @@ This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary 
 
     The pre-built binary does not include all ROS 2 packages.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/foxy-release/ros2.repos>`_.
+    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
 There are also `Debian packages <Ubuntu-Install-Debians>` available.
 
@@ -34,7 +34,7 @@ Downloading ROS 2
 
 
 * Go `the releases page <https://github.com/ros2/ros2/releases>`_
-* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-foxy-linux-x86_64.tar.bz2``.
+* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
 
@@ -43,9 +43,9 @@ Downloading ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_foxy
-       cd ~/ros2_foxy
-       tar xf ~/Downloads/ros2-foxy-linux-x86_64.tar.bz2
+       mkdir -p ~/ros2_{DISTRO}
+       cd ~/ros2_{DISTRO}
+       tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
 Installing and initializing rosdep
 ----------------------------------
@@ -66,7 +66,7 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_foxy/ros2-linux/share --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connext_cpp rosidl_typesupport_connext_c rosidl_typesupport_connext_cpp rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src --rosdistro {DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connextdds rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
 
 #. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
    Follow the normal install instructions: https://wiki.ros.org/noetic/Installation/Ubuntu
@@ -94,7 +94,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-  . ~/ros2_foxy/ros2-linux/setup.bash
+  . ~/ros2_{DISTRO}/ros2-linux/setup.bash
 
 Try some examples
 -----------------
@@ -103,14 +103,14 @@ In one terminal, source the setup file and then run a C++ ``talker``:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/ros2-linux/setup.bash
+   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/ros2-linux/setup.bash
+   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -139,10 +139,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_{DISTRO}

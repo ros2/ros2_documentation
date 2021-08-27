@@ -109,7 +109,7 @@ it will generate a daemon with a Fast RTPS implementation:
 
 .. code-block:: bash
 
-   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/foxy/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/{DISTRO}/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
 
 Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS 2 command line tools will fail.
 

@@ -35,6 +35,7 @@ node
 * Launches a new node.
 * Differences from ROS 1:
    * ``type`` attribute is now ``exec``.
+   * ``ns`` attribute is now ``namespace``.
    * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
 
 Example

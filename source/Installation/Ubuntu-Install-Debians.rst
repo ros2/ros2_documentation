@@ -9,14 +9,14 @@ Installing ROS 2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 Foxy Fitzroy are available for Ubuntu Focal.
+Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Focal.
 
 Resources
 ---------
 
 * Status Page:
 
-  * ROS 2 Foxy (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_foxy_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_foxy_ubv8.html>`__
+  * ROS 2 {DISTRO_TITLE} (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ufv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -47,14 +47,14 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-foxy-desktop
+   sudo apt install ros-{DISTRO}-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-foxy-ros-base
+   sudo apt install ros-{DISTRO}-ros-base
 
 Environment setup
 -----------------
@@ -66,35 +66,25 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   source /opt/ros/foxy/setup.bash
-
-Install argcomplete (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-ROS 2 command line tools use argcomplete to autocompletion.
-So if you want autocompletion, installing argcomplete is necessary.
-
-.. code-block:: bash
-
-   sudo apt install -y python3-argcomplete
+   source /opt/ros/{DISTRO}/setup.bash
 
 Try some examples
 -----------------
 
-If you installed ``ros-foxy-desktop`` above you can try some examples.
+If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/foxy/setup.bash
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   source /opt/ros/foxy/setup.bash
+   source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -127,4 +117,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo apt remove ros-foxy-* && sudo apt autoremove
+  sudo apt remove ros-{DISTRO}-* && sudo apt autoremove

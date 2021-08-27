@@ -131,12 +131,12 @@ And the background of your turtlesim window should change colors:
 .. image:: set.png
 
 Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your settings changes and reload them next time you start a node.
+However, you can save your settings and reload them the next time you start a node.
 
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can “dump” all of a node’s current parameter values into a file to save for later using the command:
+You can “dump” all of a node’s current parameter values into a file to save them for later by using the command:
 
 .. code-block:: console
 
@@ -168,8 +168,32 @@ If you open this file, you’ll see the following contents:
 
 Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
 
-6 Load parameter file
-^^^^^^^^^^^^^^^^^^^^^
+6 ros2 param load
+^^^^^^^^^^^^^^^^^
+
+You can load parameters from a file to a currently running node using the command:
+
+.. code-block:: console
+
+  ros2 param load <node_name> <parameter_file>
+
+To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+
+.. code-block:: console
+
+  ros2 param load /turtlesim ./turtlesim.yaml
+
+Your terminal will return the message:
+
+.. code-block:: console
+
+  Set parameter background_b successful
+  Set parameter background_g successful
+  Set parameter background_r successful
+  Set parameter use_sim_time successful
+
+7 Load parameter file on node startup
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To start the same node using your saved parameter values, use:
 
@@ -193,7 +217,7 @@ Summary
 
 Nodes have parameters to define their default configuration values.
 You can ``get`` and ``set`` parameter values from the command line.
-You can also save parameter settings to a file to reload in a future session.
+You can also save the parameter settings to a file to reload them in a future session.
 
 Next steps
 ----------

@@ -54,7 +54,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
       .. code-block:: console
 
-        source /opt/ros/foxy/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
 
    .. group-tab:: macOS
 
@@ -128,13 +128,7 @@ In the ``dev_ws/src`` directory, run the following command for the distro you're
 
 .. code-block:: console
 
-  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
-
-For example, if you're using Foxy:
-
-.. code-block:: console
-
-  git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
+  git clone https://github.com/ros/ros_tutorials.git -b {DISTRO}-devel
 
 Now ``ros_tutorials`` is cloned in your workspace.
 If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
@@ -189,7 +183,7 @@ From the root of your workspace (``dev_ws``), run the following command:
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro foxy -y
+        rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -278,7 +272,7 @@ In the new terminal, source your main ROS 2 environment as the “underlay”, s
 
       .. code-block:: console
 
-        source /opt/ros/foxy/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
 
    .. group-tab:: macOS
 

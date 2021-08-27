@@ -25,15 +25,21 @@ Recording topics is also a great way to share your work and allow others to recr
 Prerequisites
 -------------
 
+.. note::
+
+  For users of ROS 2 Foxy who need a more performant version of rosbag2, please see the `foxy-future branch of rosbag2 <https://github.com/ros2/rosbag2/tree/foxy-future>`__.
+  This is an officially-supported branch that is closer to the Galactic version, adding performance improvements and features, but is not API-compatible with the Foxy release.
+  For users just getting into this tutorial on Foxy, you can ignore this and move on with the default installation.
+
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
 If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
 
 .. code-block:: console
 
-  sudo apt-get install ros-foxy-ros2bag \
-                       ros-foxy-rosbag2-converter-default-plugins \
-                       ros-foxy-rosbag2-storage-default-plugins
+  sudo apt-get install ros-{DISTRO}-ros2bag \
+                       ros-{DISTRO}-rosbag2-converter-default-plugins \
+                       ros-{DISTRO}-rosbag2-storage-default-plugins
 
 This tutorial talks about concepts covered in previous tutorials, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`.
 It also uses the :ref:`turtlesim package <Turtlesim>`.

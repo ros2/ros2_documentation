@@ -112,7 +112,7 @@ You need the following things installed to build ROS 2:
         cryptography empy flake8 flake8-blind-except flake8-builtins \
         flake8-class-newline flake8-comprehensions flake8-deprecated \
         flake8-docstrings flake8-import-order flake8-quotes ifcfg \
-        importlib-metadata lark-parser lxml mock mypy netifaces \
+        importlib-metadata lark-parser lxml mock mypy==0.761 netifaces \
         nose pep8 pydocstyle pydot pygraphviz pyparsing \
         pytest-mock rosdep setuptools vcstool rosdistro
 
@@ -147,9 +147,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_{DISTRO}/src
+   cd ~/ros2_{DISTRO}
+   wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
    vcs import src < ros2.repos
 
 Install additional DDS vendors (optional)
@@ -163,7 +163,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this t
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_{DISTRO}/
    colcon build --symlink-install --packages-skip-by-dep python_qt_binding
 
 Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
@@ -176,7 +176,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/setup.bash
+   . ~/ros2_{DISTRO}/install/setup.bash
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -227,10 +227,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_{DISTRO}

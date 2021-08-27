@@ -64,6 +64,7 @@ Development Guides
    Contributing/Code-Style-Language-Versions
    Contributing/Quality-Guide
    Contributing/Migration-Guide
+   Contributing/Build-Farms
 
 What to work on
 ^^^^^^^^^^^^^^^

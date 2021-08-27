@@ -419,7 +419,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro <distro> -y
+        rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 

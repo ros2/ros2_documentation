@@ -25,7 +25,7 @@ A node may publish data to any number of topics and simultaneously have subscrip
 
 .. image:: Topic-MultiplePublisherandMultipleSubscriber.gif
 
-Topics are one of the important ways that data moves between nodes, and therefore between different parts of the system.
+Topics are one of the main ways in which data is moved between nodes and therefore between different parts of the system.
 
 
 Prerequisites
@@ -71,7 +71,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
     rqt_graph
 
-You can also open rqt_graph by opening rqt and selecting **Plugins** > **Introspection** > **Nodes Graph**.
+You can also open rqt_graph by opening ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
 .. image:: rqt_graph.png
 
@@ -100,7 +100,7 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/color_sensor
   /turtle1/pose
 
-``ros2 topic list -t`` will return the same list of topics, this time with the topic type appended in brackets after each:
+``ros2 topic list -t`` will return the same list of topics, this time with the topic type appended in brackets:
 
 .. code-block:: console
 
@@ -110,7 +110,6 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/color_sensor [turtlesim/msg/Color]
   /turtle1/pose [turtlesim/msg/Pose]
 
-Topics have names and types.
 These attributes, particularly the type, are how nodes know they’re talking about the same information as it moves over topics.
 
 If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
@@ -156,7 +155,7 @@ Now return to rqt_graph and uncheck the **Debug** box.
 
 .. image:: debug.png
 
-``/_ros2cli_26646`` is the node created by the ``echo`` we just ran (the number will change).
+``/_ros2cli_26646`` is the node created by the ``echo`` we just ran (the number might be different).
 Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed.
 
 5 ros2 topic info
@@ -184,7 +183,7 @@ Which will return:
 Nodes send data over topics using messages.
 Publishers and subscribers must send and receive the same type of message to communicate.
 
-The topic types we saw earlier after running ``ros2 topic list -t`` let us know what type of messages each topic can send.
+The topic types we saw earlier after running ``ros2 topic list -t`` let us know what message type is used on each topic.
 Recall that the ``cmd_vel`` topic has the type:
 
 .. code-block:: console
@@ -193,11 +192,13 @@ Recall that the ``cmd_vel`` topic has the type:
 
 This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twist``.
 
-Now we can run ``ros2 interface show <type>.msg`` on this type to learn its details, specifically, what structure of data the message expects.
+Now we can run ``ros2 interface show <msg type>`` on this type to learn its details, specifically, what structure of data the message expects.
 
 .. code-block:: console
 
     ros2 interface show geometry_msgs/msg/Twist
+
+For the message type from above it yields:
 
 .. code-block:: console
 
@@ -276,12 +277,12 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 .. image:: rqt_graph3.png
 
-In this case, ``/turtlesim`` is now publishing to the ``pose`` topic, and a new ``echo`` node is subscribed.
+You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node is subscribed to.
 
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
 
-For one last introspection on this process, you can report the rate at which data is published using:
+For one last introspection on this process, you can view the rate at which data is published using:
 
 .. code-block:: console
 

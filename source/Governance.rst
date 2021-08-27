@@ -3,6 +3,10 @@
 Project Governance
 ==================
 
+.. contents:: Table of Contents
+   :depth: 1
+   :local:
+
 Technical Steering Committee (TSC)
 ----------------------------------
 Since the beginning of ROS, the project has been overseen and prioritized primarily by one organization, first Willow Garage and now Open Robotics.
@@ -30,7 +34,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 .. |lge| image:: Governance/lge.svg
 .. |microsoft| image:: Governance/microsoft.svg
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
-.. |picknik| image:: Governance/picknik.jpg
+.. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
 .. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
@@ -126,7 +130,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>LG Electronics: Lokesh Kumar Goel</p></td>
+          <td class="tscclass" align="center"><p>LG Electronics: Herb Kuta</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
@@ -137,7 +141,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
           <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>PickNik: Dave Coleman</p></td>
         </tr>
         <tr class="tscclass">
@@ -174,6 +178,8 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/ROS2-TSC-Intake-process
+   Governance/How-To-Start-A-Community-Working-Group
 
 Working Groups (WGs)
 --------------------
@@ -203,7 +209,7 @@ Edge AI
 Embedded Systems
 ^^^^^^^^^^^^^^^^
 
-* Lead(s): Francesca Finocchiaro
+* Lead(s): Maria Merlan, Pablo Garrido
 * Resources:
 
  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
@@ -292,13 +298,42 @@ Security
 Tooling
 ^^^^^^^
 
-* Lead(s): Emerson Knapp, Thomas Moulard
+* Lead(s): Emerson Knapp
 * Resources:
 
- * `ROS 2 Tooling Working Group Community <https://github.com/ros-tooling/community>`__
+ * `Charter <https://github.com/ros-tooling/community>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1UXWaEkT6ji0Z0uTtJJSni5Y6fiopM9qOOzv4ldeNaAM/edit>`__
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tags/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
+
+WebTools
+^^^^^^^^
+
+* Lead(s): Emerson Knapp
+* Resources:
+
+ * `Charter <https://github.com/RobotWebTools/community>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1esrRj2x80TSCEHOwuh-cT_bQvAqqvloQAQr8mPMzcTc/edit>`__
+ * `Video Recordings <https://www.youtube.com/playlist?list=PLpUh4ScdBhSMb98_C0q_zIT8GNMehYBd>`__
+ * `Google Group <https://groups.google.com/g/ros-webtools-working-group>`__
+ * Discourse tag: `wg-webtools <https://discourse.ros.org/tags/wg-webtools>`__
+
+Community Working Groups
+------------------------
+
+The ROS 2 TSC is interested in encouraging and promoting working groups outside its direct purview.
+To provide extra visibility the TSC maintains a list of the community driven working groups here as well as working with the community to provide them with the same infrastructure.
+
+Hardware Acceleration
+^^^^^^^^^^^^^^^^^^^^^
+
+* Lead(s): Víctor Mayoral Vilches
+* Resources:
+
+ * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
+ * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
+ * Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.

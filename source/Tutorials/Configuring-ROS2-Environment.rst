@@ -54,7 +54,7 @@ You will need to run this command on every new shell you open to have access to 
 
       .. code-block:: console
 
-        source /opt/ros/foxy/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
 
    .. group-tab:: macOS
 
@@ -83,7 +83,9 @@ If you don’t want to have to source the setup file every time you open a new s
 
       .. code-block:: console
 
-        echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+        echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
+
+     To undo this, locate your system’s shell startup script and remove the appended source command.
 
    .. group-tab:: macOS
 
@@ -99,9 +101,14 @@ If you don’t want to have to source the setup file every time you open a new s
 
       .. code-block:: console
 
-        C:\dev\ros2_foxy\local_setup.ps1
+        C:\dev\ros2_{DISTRO}\local_setup.ps1
 
       PowerShell will request permission to run this script everytime a new shell is opened.
+      To avoid that issue you can run:
+
+      .. code-block:: console
+
+        Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
 
 To undo this (to change to another distro) in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
@@ -166,7 +173,7 @@ For example, if you're using Foxy, you would see:
 
   ROS_VERSION=2
   ROS_PYTHON_VERSION=3
-  ROS_DISTRO=foxy
+  ROS_DISTRO={DISTRO}
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
 If you need more specific help (because environment setup files can come from different places), you can `get answers <https://answers.ros.org>`__ from the community.

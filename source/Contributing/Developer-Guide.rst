@@ -682,6 +682,11 @@ There are several categories of jobs on the buildfarm:
   * packaging_osx
   * packaging_windows
 
+Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
+binary packages, continuous integration, testing, and analysis.
+
+For details, frequently asked questions, and troubleshooting see :ref:`build farms <BuildFarms>`.
+
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^
 
@@ -744,6 +749,7 @@ How to measure coverage locally using lcov (Ubuntu)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To measure coverage on your own machine, install ``lcov``.
+
 .. code-block:: bash
 
      sudo apt install -y lcov

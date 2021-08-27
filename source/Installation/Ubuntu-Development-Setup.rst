@@ -12,7 +12,7 @@ Building ROS 2 on Ubuntu Linux
 
 System requirements
 -------------------
-Debian-based target platforms for Foxy Fitzroy are (see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__):
+The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
 - Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
 - Tier 3: Debian Linux - Buster (10) 64-bit
@@ -86,9 +86,9 @@ Create a workspace and clone all repos:
 
 .. code-block:: bash
 
-   mkdir -p ~/ros2_foxy/src
-   cd ~/ros2_foxy
-   wget https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+   mkdir -p ~/ros2_{DISTRO}/src
+   cd ~/ros2_{DISTRO}
+   wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
    vcs import src < ros2.repos
 
 .. _linux-development-setup-install-dependencies-using-rosdep:
@@ -100,7 +100,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro foxy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro {DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
@@ -119,12 +119,12 @@ More info on working with a ROS workspace can be found in `this tutorial </Tutor
 
 .. code-block:: bash
 
-   cd ~/ros2_foxy/
+   cd ~/ros2_{DISTRO}/
    colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
-Well then simply ``$ touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
+Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
 Environment setup
 -----------------
@@ -136,7 +136,7 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_{DISTRO}/install/local_setup.bash
 
 .. _talker-listener:
 
@@ -147,14 +147,14 @@ In one terminal, source the setup file and then run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_{DISTRO}/install/local_setup.bash
    ros2 run demo_nodes_cpp talker
 
 In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   . ~/ros2_foxy/install/local_setup.bash
+   . ~/ros2_{DISTRO}/install/local_setup.bash
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
@@ -206,10 +206,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_foxy
+    rm -rf ~/ros2_{DISTRO}

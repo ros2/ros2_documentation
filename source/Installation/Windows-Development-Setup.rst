@@ -14,6 +14,12 @@ First follow the steps for `Installing Prerequisites <windows-install-binary-ins
 
 Stop and return here when you reach the "Downloading ROS 2" section.
 
+Language support
+^^^^^^^^^^^^^^^^
+
+Make sure you have a locale which supports ``UTF-8``.
+For example, for a Chinese-language Windows 10 installation, you may need to install an `English language pack <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
+
 Additional prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -26,7 +32,7 @@ First install git:
 
 .. code-block:: bash
 
-   > choco install -y git
+   choco install -y git
 
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
@@ -41,7 +47,7 @@ Let's start with ``vcstool``:
 
 .. code-block:: bash
 
-   > pip install -U vcstool
+   pip install -U vcstool
 
 You can test it out by just running ``vcs`` (you should be able to do this in the same cmd prompt).
 
@@ -49,7 +55,7 @@ Next, install ``colcon``:
 
 .. code-block:: bash
 
-   > pip install -U colcon-common-extensions
+   pip install -U colcon-common-extensions
 
 You can test it out by just running ``colcon`` (you should be able to do this in the same cmd prompt).
 
@@ -57,7 +63,7 @@ Also, you should install ``curl``:
 
 .. code-block:: bash
 
-   > choco install -y curl
+   choco install -y curl
 
 Install dependencies
 --------------------
@@ -66,7 +72,7 @@ Next install the latest version of ``setuptools`` and ``pip``:
 
 .. code-block:: bash
 
-   > <PATH_TO_PYTHON_EXECUTABLE> -m pip install -U setuptools pip
+   python -m pip install -U setuptools pip
 
 Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python38\python.exe``
 
@@ -74,25 +80,25 @@ Then you can continue installing other Python dependencies:
 
 .. code-block:: bash
 
-   > pip install -U catkin_pkg cryptography EmPy ifcfg lark-parser lxml numpy pyparsing pyyaml
+   pip install -U catkin_pkg cryptography EmPy ifcfg lark-parser lxml numpy pyparsing pyyaml
 
 Next install testing tools like ``pytest`` and others:
 
 .. code-block:: bash
 
-   > pip install -U pytest pytest-mock coverage mock
+   pip install -U pytest pytest-mock coverage mock
 
 Next install linters and checkers like ``flake8`` and others:
 
 .. code-block:: bash
 
-   > pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy pep8 pydocstyle
+   pip install -U flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mypy==0.761 pep8 pydocstyle
 
 Next install cppcheck:
 
 .. code-block:: bash
 
-   > choco install -y cppcheck
+   choco install -y cppcheck
 
 Next install xmllint:
 
@@ -123,7 +129,7 @@ Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you i
 
 .. code-block:: bash
 
-   > set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
+   set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
 
 You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` instead, but that requires Administrator.
 
@@ -136,32 +142,32 @@ Get the ROS 2 code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, for example ``C:\dev\ros2_foxy``:
+First setup a development folder, for example ``C:\dev\ros2_{DISTRO}``:
 
 .. code-block:: bash
 
-   > md \dev\ros2_foxy\src
-   > cd \dev\ros2_foxy
+   md \dev\ros2_{DISTRO}\src
+   cd \dev\ros2_{DISTRO}
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. code-block:: bash
 
    # CMD
-   > curl -sk https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+   curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
    # PowerShell
-   > curl https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos -o ros2.repos
+   curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
 .. code-block:: bash
 
    # CMD
-   > vcs import src < ros2.repos
+   vcs import src < ros2.repos
 
    # PowerShell
-   > vcs import --input ros2.repos src
+   vcs import --input ros2.repos src
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -177,11 +183,11 @@ To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools C
 
 Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
 
-To build the ``\dev\ros2_foxy`` folder tree:
+To build the ``\dev\ros2_{DISTRO}`` folder tree:
 
 .. code-block:: bash
 
-   > colcon build --merge-install
+   colcon build --merge-install
 
 .. note::
 
@@ -200,7 +206,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_foxy\install\local_setup.bat
+   call C:\dev\ros2_{DISTRO}\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
@@ -215,7 +221,7 @@ You can run the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test --merge-install
+   colcon test --merge-install
 
 .. note::
 
@@ -225,22 +231,22 @@ Afterwards you can get a summary of the tests using this command:
 
 .. code-block:: bash
 
-   > colcon test-result
+   colcon test-result
 
 To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
 Then, run a C++ ``talker``\ :
 
 .. code-block:: bash
 
-   > call install\local_setup.bat
-   > ros2 run demo_nodes_cpp talker
+   call install\local_setup.bat
+   ros2 run demo_nodes_cpp talker
 
 In a separate shell you can do the same, but instead run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   > call install\local_setup.bat
-   > ros2 run demo_nodes_py listener
+   call install\local_setup.bat
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -274,14 +280,14 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > choco install -y peazip
+   choco install -y peazip
 
 
 * You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
 
 .. code-block:: bash
 
-   > choco install -y svn hg
+   choco install -y svn hg
 
 
 * You'll need to quit and restart the command prompt after installing the above.
@@ -294,60 +300,56 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.8.3\PCbuild
-   > get_externals.bat
-   > build.bat -p x64 -d
+   cd C:\dev\Python-3.8.3\PCbuild
+   get_externals.bat
+   build.bat -p x64 -d
 
 
 * Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
 
-   > cd C:\dev\Python-3.8.3\PCbuild\amd64
-   > copy python_d.exe C:\Python38 /Y
-   > copy python38_d.dll C:\Python38 /Y
-   > copy python3_d.dll C:\Python38 /Y
-   > copy python38_d.lib C:\Python38\libs /Y
-   > copy python3_d.lib C:\Python38\libs /Y
-   > for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
+   cd C:\dev\Python-3.8.3\PCbuild\amd64
+   copy python_d.exe C:\Python38 /Y
+   copy python38_d.dll C:\Python38 /Y
+   copy python3_d.dll C:\Python38 /Y
+   copy python38_d.lib C:\Python38\libs /Y
+   copy python3_d.lib C:\Python38\libs /Y
+   for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
 
 .. code-block:: bash
 
-   > python_d
-   >>> import _ctypes
+   python_d -c "import _ctypes"
 
 * Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
 
 .. code-block:: bash
 
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
-   > python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
+   python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
+   python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
 
 * To verify the installation of these dependencies:
 
 .. code-block:: bash
 
-   > python_d
-   # No import errors should appear when executing the following lines
-   >>> from lxml import etree
-   >>> import numpy
+   python_d -c "from lxml import etree ; import numpy"
 
 * When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
 
 .. code-block:: bash
 
-   > python -m pip uninstall numpy lxml
-   > python -m pip install numpy lxml
+   python -m pip uninstall numpy lxml
+   python -m pip install numpy lxml
 
 * To create executables python scripts(.exe), python_d should be used to invoke colcon, along with the corresponding CMake build type.
   If you installed colcon using pip, the path to the colcon executable can be found with ``pip show colcon-core``.
 
 .. code-block:: bash
 
-   > python_d path\to\colcon_executable build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Debug
+   python_d path\to\colcon_executable build --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Debug
 
 * Hooray, you're done!
 
@@ -365,10 +367,10 @@ Uninstall
 ---------
 
 1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no Foxy install on your system.
+   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
 
 2. If you're also trying to free up space, you can delete the entire workspace directory with:
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_foxy
+      rmdir /s /q \ros2_{DISTRO}

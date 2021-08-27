@@ -121,7 +121,7 @@ Let's clone the `examples <https://github.com/ros2/examples>`__ repository into 
 
 .. code-block:: bash
 
-    git clone https://github.com/ros2/examples src/examples -b foxy
+    git clone https://github.com/ros2/examples src/examples -b {REPOS_FILE_BRANCH}
 
 Now the workspace should have the source code to the ROS 2 examples:
 
