@@ -106,7 +106,7 @@ Now open the file called ``fixed_frame_tf2_broadcaster.cpp``.
    private:
      void broadcast_timer_callback()
      {
-       rclcpp::Time now;
+       rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
 
        t.header.stamp = now;
@@ -310,13 +310,11 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.cpp``:
    private:
      void broadcast_timer_callback()
      {
+       rclcpp::Time now = this->get_clock()->now();
+       double x = now.seconds() * PI;
        geometry_msgs::msg::TransformStamped t;
 
-       rclcpp::Time now = this->now();
-       double x = now.seconds() * PI;
-
-       rclcpp::Time stamp;
-       t.header.stamp = stamp;
+       t.header.stamp = now;
        t.header.frame_id = "turtle1";
        t.child_frame_id = "carrot1";
        t.transform.translation.x = 10 * sin(x);
