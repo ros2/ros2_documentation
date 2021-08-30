@@ -117,4 +117,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo apt remove ros-{DISTRO}-* && sudo apt autoremove
+  sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
