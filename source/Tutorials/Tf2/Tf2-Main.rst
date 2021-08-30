@@ -21,6 +21,7 @@ once for C++ and once for Python.
    Writing-A-Tf2-Broadcaster-Py
    Writing-A-Tf2-Broadcaster-Cpp
    Writing-A-Tf2-Listener-Py
+   Writing-A-Tf2-Listener-Cpp
    Adding-A-Frame-Py
    Learning-About-Tf2-And-Time-Py
    Time-Travel-With-Tf2-Py
@@ -48,7 +49,7 @@ Learning tf2
 
    This tutorial teaches you how to broadcast the state of a robot to tf2.
 
-#. Writing a tf2 listener :ref:`(Python) <WritingATf2ListenerPy>`.
+#. Writing a tf2 listener :ref:`(Python) <WritingATf2ListenerPy>` :ref:`(C++) <WritingATf2ListenerCpp>`.
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
 
