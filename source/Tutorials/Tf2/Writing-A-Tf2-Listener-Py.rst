@@ -16,13 +16,15 @@ Writing a tf2 listener (Python)
 Background
 ----------
 
-In the previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2. In this tutorial we'll create a tf2 listener to start using tf2.
+In previous tutorials we created a tf2 broadcaster to publish the pose of a turtle to tf2.
+
+In this tutorial we'll create a tf2 listener to start using tf2.
 
 Prerequisites
 -------------
 
 This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
-In previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
+In the previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
 -----
@@ -39,13 +41,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: macOS
 
         .. code-block:: console
 
-            wget https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
+            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py
 
     .. group-tab:: Windows
 
@@ -53,13 +55,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-                curl -sk https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
 Open the file using your preferred text editor.
 
@@ -70,10 +72,9 @@ Open the file using your preferred text editor.
     from geometry_msgs.msg import Twist
 
     import rclpy
-    from rclpy.duration import Duration
     from rclpy.node import Node
 
-    from tf2_ros import LookupException
+    from tf2_ros import TransformException
     from tf2_ros.buffer import Buffer
     from tf2_ros.transform_listener import TransformListener
 
@@ -90,31 +91,22 @@ Open the file using your preferred text editor.
             self.target_frame = self.get_parameter(
                 'target_frame').get_parameter_value().string_value
 
-            self._tf_buffer = Buffer()
-            self._tf_listener = TransformListener(self._tf_buffer, self)
+            self.tf_buffer = Buffer()
+            self.tf_listener = TransformListener(self.tf_buffer, self)
 
             # Create a client to spawn a turtle
-            self.client = self.create_client(Spawn, 'spawn')
-
-            # Check if the service is available
-            while not self.client.wait_for_service(timeout_sec=5.0):
-                self.get_logger().info('service not available, waiting again...')
-
-            # Initialize request with turtle name and coordinates
-            # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
-            request = Spawn.Request()
-            request.name = 'turtle2'
-            request.x = float(4)
-            request.y = float(2)
-            request.theta = float(0)
-            # Call request
-            self.client.call_async(request)
+            self.spawner = self.create_client(Spawn, 'spawn')
+            # Boolean values to store the information
+            # if the service for spawning turtle is available
+            self.turtle_spawning_service_ready = False
+            # if the turtle was successfully spawned
+            self.turtle_spawned = False
 
             # Create turtle2 velocity publisher
-            self.turtle_vel_ = self.create_publisher(Twist, 'turtle2/cmd_vel', 1)
+            self.publisher = self.create_publisher(Twist, 'turtle2/cmd_vel', 1)
 
             # Call on_timer function every second
-            self._output_timer = self.create_timer(1.0, self.on_timer)
+            self.timer = self.create_timer(1.0, self.on_timer)
 
         def on_timer(self):
             # Store frame names in variables that will be used to
@@ -122,29 +114,55 @@ Open the file using your preferred text editor.
             from_frame_rel = self.target_frame
             to_frame_rel = 'turtle2'
 
-            # Look up for the transformation between target_frame and turtle2 frames
-            # and send velocity commands for turtle2 to reach target_frame
-            try:
-                now = rclpy.time.Time()
-                trans = self._tf_buffer.lookup_transform(
-                    to_frame_rel,
-                    from_frame_rel,
-                    now,
-                    timeout=Duration(seconds=1.0))
-            except LookupException:
-                self.get_logger().info('transform not ready')
-                return
+            if self.turtle_spawning_service_ready:
+                if self.turtle_spawned:
+                    # Look up for the transformation between target_frame and turtle2 frames
+                    # and send velocity commands for turtle2 to reach target_frame
+                    try:
+                        now = rclpy.time.Time()
+                        trans = self.tf_buffer.lookup_transform(
+                            to_frame_rel,
+                            from_frame_rel,
+                            now)
+                    except TransformException as ex:
+                        self.get_logger().info(
+                            f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
+                        return
 
-            msg = Twist()
-            msg.angular.z = 1.0 * math.atan2(
-                trans.transform.translation.y,
-                trans.transform.translation.x)
+                    msg = Twist()
+                    scale_rotation_rate = 1.0
+                    msg.angular.z = scale_rotation_rate * math.atan2(
+                        trans.transform.translation.y,
+                        trans.transform.translation.x)
 
-            msg.linear.x = 0.5 * math.sqrt(
-                trans.transform.translation.x ** 2 +
-                trans.transform.translation.y ** 2)
+                    scale_forward_speed = 0.5
+                    msg.linear.x = scale_forward_speed * math.sqrt(
+                        trans.transform.translation.x ** 2 +
+                        trans.transform.translation.y ** 2)
 
-            self.turtle_vel_.publish(msg)
+                    self.publisher.publish(msg)
+                else:
+                    if self.result.done():
+                        self.get_logger().info(
+                            f'Successfully spawned {self.result.result().name}')
+                        self.turtle_spawned = True
+                    else:
+                        self.get_logger().info('Spawn is not finished')
+            else:
+                if self.spawner.service_is_ready():
+                    # Initialize request with turtle name and coordinates
+                    # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                    request = Spawn.Request()
+                    request.name = 'turtle2'
+                    request.x = float(4)
+                    request.y = float(2)
+                    request.theta = float(0)
+                    # Call request
+                    self.result = self.spawner.call_async(request)
+                    self.turtle_spawning_service_ready = True
+                else:
+                    # Check if the service is ready
+                    self.get_logger().info('Service is not ready')
 
 
     def main():
@@ -160,6 +178,8 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
+To understand how the service behind spawning turtle works, please refer to :ref:`writing a simple service and client (Python) <PySrvCli>` tutorial.
+
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` package provides an implementation of a ``TransformListener`` to help make the task of receiving transforms easier.
 
@@ -171,7 +191,7 @@ Here, we create a ``TransformListener`` object. Once the listener is created, it
 
 .. code-block:: python
 
-    self._tf_listener = TransformListener(self._tf_buffer, self)
+    self.tf_listener = TransformListener(self.tf_buffer, self)
 
 Finally, we query the listener for a specific transformation. We call ``lookup_transform`` method with following arguments:
 
@@ -187,11 +207,10 @@ All this is wrapped in a try-except block to catch possible exceptions.
 .. code-block:: python
 
     now = rclpy.time.Time()
-    trans = self._tf_buffer.lookup_transform(
+    trans = self.tf_buffer.lookup_transform(
         to_frame_rel,
         from_frame_rel,
-        now,
-        timeout=Duration(seconds=1.0))
+        now)
 
 2 Build and run
 ^^^^^^^^^^^^^^^
