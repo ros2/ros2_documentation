@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
-In previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
+In the previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
 -----
