@@ -19,6 +19,7 @@ once for C++ and once for Python.
    Writing-A-Tf2-Static-Broadcaster-Py
    Writing-A-Tf2-Static-Broadcaster-Cpp
    Writing-A-Tf2-Broadcaster-Py
+   Writing-A-Tf2-Broadcaster-Cpp
    Writing-A-Tf2-Listener-Py
    Writing-A-Tf2-Listener-Cpp
    Adding-A-Frame-Py
@@ -44,7 +45,7 @@ Learning tf2
 
    This tutorial teaches you how to broadcast static coordinate frames to tf2.
 
-#. Writing a tf2 broadcaster :ref:`(Python) <WritingATf2BroadcasterPy>`.
+#. Writing a tf2 broadcaster :ref:`(Python) <WritingATf2BroadcasterPy>` :ref:`(C++) <WritingATf2BroadcasterCpp>`.
 
    This tutorial teaches you how to broadcast the state of a robot to tf2.
 
@@ -52,16 +53,16 @@ Learning tf2
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
 
-#. :ref:`Adding a frame (Python) <AddingAFramePy>`.
+#. Adding a frame :ref:`(Python) <AddingAFramePy>`.
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
 
-#. :ref:`Learning about tf2 and time (Python) <LearningAboutTf2AndTimePy>`.
+#. Learning about tf2 and time :ref:`(Python) <LearningAboutTf2AndTimePy>`.
 
    This tutorial teaches you to use the timeout in ``lookup_transform`` function to
    wait for a transform to be available on the tf2 tree.
 
-#. :ref:`Time travel with tf2 (Python) <TimeTravelWithTf2Py>`.
+#. Time travel with tf2 :ref:`(Python) <TimeTravelWithTf2Py>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
 

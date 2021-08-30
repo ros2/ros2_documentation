@@ -67,7 +67,7 @@ Your code now would look like this:
 
     when = self.get_clock().now() - rclpy.time.Duration(seconds=5.0)
     trans = self._tf_buffer.lookup_transform_full(
-            target_frame=to_frame_rel,turtle1
+            target_frame=to_frame_rel,
             target_time=rclpy.time.Time(),
             source_frame=from_frame_rel,
             source_time=when,

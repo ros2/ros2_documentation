@@ -130,7 +130,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>LG Electronics: Lokesh Kumar Goel</p></td>
+          <td class="tscclass" align="center"><p>LG Electronics: Herb Kuta</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
@@ -178,6 +178,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/ROS2-TSC-Intake-process
    Governance/How-To-Start-A-Community-Working-Group
 
 Working Groups (WGs)
