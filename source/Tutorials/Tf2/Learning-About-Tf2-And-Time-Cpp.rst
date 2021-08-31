@@ -41,7 +41,7 @@ Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` ca
 
 You can see that we specified a time equal to 0 by calling ``tf2::TimePointZero``.
 For tf2, time 0 means "the latest available" transform in the buffer.
-Now, change this line to get the transform at the current time, ``this->get_clock()->now()``: 
+Now, change this line to get the transform at the current time, ``this->get_clock()->now()``:
 
 .. code-block:: C++
 
@@ -70,7 +70,7 @@ It tells you that the frame does not exist or that the data is in the future.
 To understand why is this happening we need to understand how buffers work.
 Firstly, each listener has a buffer where it stores all the coordinate transforms coming from the different tf2 broadcasters.
 Secondly, when a broadcaster sends out a transform, it takes some time before that transform gets into the buffer (usually a couple of milliseconds).
-As a result, when you request a frame transform at time "now", you should wait a few milliseconds for that information to arrive. 
+As a result, when you request a frame transform at time "now", you should wait a few milliseconds for that information to arrive.
 
 2 Wait for transforms
 ^^^^^^^^^^^^^^^^^^^^^
