@@ -46,7 +46,7 @@ But what after these 5 seconds? Let's just give it a try:
 
 .. code-block:: console
 
-    ros2 launch turtle_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
 
 .. image:: turtlesim_delay1.png
 
@@ -101,7 +101,7 @@ Let's run the simulation again, this time with the advanced time-travel API:
 
 .. code-block:: console
 
-    ros2 launch turtle_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
 
 .. image:: turtlesim_delay2.png
 
