@@ -56,11 +56,11 @@ You should now notice that your turtle is driving around uncontrollably like in 
 
 #. However, what we really want to ask is: "What was the pose of ``carrot1`` 5 seconds ago, relative to the current position of the ``turtle2``?".
 
-Advanced API for lookup_transform
----------------------------------
+Advanced API for lookup_transform()
+-----------------------------------
 
 To ask the tf2 that particular question, we will use an advanced API that gives us the power to say explicitly when to acquire the specified transformations.
-This is done by calling the ``lookup_transform_full`` method with additional parameters.
+This is done by calling the ``lookup_transform_full()`` method with additional parameters.
 Your code now would look like this:
 
 .. code-block:: python
