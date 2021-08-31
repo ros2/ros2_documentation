@@ -56,11 +56,11 @@ You should now notice that your turtle is driving around uncontrollably like in 
 
 #. However, what we really want to ask is: "What was the pose of ``carrot1`` 5 seconds ago, relative to the current position of the ``turtle2``?".
 
-Advanced API for lookupTransform
---------------------------------
+Advanced API for lookupTransform()
+----------------------------------
 
 To ask the tf2 that particular question, we will use an advanced API that gives us the power to say explicitly when to acquire the specified transformations.
-This is done by calling the ``lookupTransform`` method with additional parameters.
+This is done by calling the ``lookupTransform()`` method with additional parameters.
 Your code now would look like this:
 
 .. code-block:: C++
@@ -112,4 +112,4 @@ Summary
 
 In this tutorial, you have seen one of the advanced features of tf2.
 You learned that tf2 can transform data in time and learned how to do that with turtlesim example.
-tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookupTransform`` API.
+tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookupTransform()`` API.
