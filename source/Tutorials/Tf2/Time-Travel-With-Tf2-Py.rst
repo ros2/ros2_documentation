@@ -20,8 +20,8 @@ In the previous tutorial, we discussed the :ref:`basics of tf2 and time <Learnin
 This tutorial will take us one step further and expose a powerful tf2 trick: the time travel.
 In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
 
-This tf2 time travel feature can be useful for various tasks, like monitoring the pose of the robot for long period of time or building a follower robot that will follow the "steps" of the leader.
-We will use that time travel feature to look up for the transforms back in time and program the ``turtle2`` follow 5 seconds behind the ``carrot1``.
+This tf2 time travel feature can be useful for various tasks, like monitoring the pose of the robot for a long period of time or building a follower robot that will follow the "steps" of the leader.
+We will use that time travel feature to look up transforms back in time and program ``turtle2`` to follow 5 seconds behind ``carrot1``.
 
 Time travel
 -----------
@@ -30,7 +30,7 @@ First, let's go back to where we ended in the previous tutorial :ref:`Learning a
 Go to your ``learning_tf2_py`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
-Edit the code with ``lookup_transform()`` call part in the ``turtle_tf2_listener.py`` file to:
+Edit the code with ``lookup_transform()`` call in the ``turtle_tf2_listener.py`` file to:
 
 .. code-block:: python
 
@@ -42,7 +42,7 @@ Edit the code with ``lookup_transform()`` call part in the ``turtle_tf2_listener
         timeout=Duration(seconds=0.05))
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
-But what after these 5 seconds? Let's just give it a try:
+But what happens after these 5 seconds? Let's just give it a try:
 
 .. code-block:: console
 
@@ -111,4 +111,4 @@ Summary
 
 In this tutorial, you have seen one of the advanced features of tf2.
 You learned that tf2 can transform data in time and learned how to do that with turtlesim example.
-tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookupTransform`` API.
+tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookup_transform()`` API.
