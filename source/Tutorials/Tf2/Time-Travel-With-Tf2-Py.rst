@@ -111,4 +111,4 @@ Summary
 
 In this tutorial, you have seen one of the advanced features of tf2.
 You learned that tf2 can transform data in time and learned how to do that with turtlesim example.
-tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookup_transform()`` API.
+tf2 allowed you to go back in time and make frame transformations between old and current poses of turtles by using the advanced ``lookup_transform_full()`` API.
