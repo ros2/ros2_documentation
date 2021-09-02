@@ -1,5 +1,5 @@
-Pre-release Testing
-===================
+Alternative Installation Sources for Testing
+============================================
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :ref:`InstallationGuide`.
@@ -8,6 +8,12 @@ This article describes several options if you would like to try out pre-released
 
 Debian testing repository
 -------------------------
+
+When packages are released into a rosdistro(using bloom), the buildfarm builds them into deb packages which are stored temporarily in the building apt repository.
+As packages build during the day, an automatic process periodically synchronizes the packages in **building** to a secondary repository called **ros-testing**.
+**ros-testing** is intended as a soaking area where developers and bleeding-edge users may give the packages extra testing, before they are manually synced into the public ros repository from which users typically install packages.
+
+Approximately every two weeks, the rosdistro's release manager manually synchronizes the contents of **ros-testing** into **main** ros repository.
 
 For Debian-based operating systems, you can install binary packages from the **ros-testing** repository.
 
