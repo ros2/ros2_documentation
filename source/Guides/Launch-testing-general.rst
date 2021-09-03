@@ -17,6 +17,7 @@ General Template
 Following snippet shows a general template that can be followed when writing test cases. The test functions usually end in assertions (assert, assertEqual, assertInStdout, etc)
 
 .. code-block:: python
+
    # Imports
    import unittest
    ...
@@ -52,13 +53,14 @@ The test starts with the generate_test_description function, decorated by @pytes
 The launch description must include a ``ReadyToTest`` action to signal to the test framework that it's safe to start the active tests.
 In the snippet below, the description indicates to the framework that it's safe to start the test around the same time the ExecuteProcess is run.  
 
-.. code-block:: python
-   def generate_test_description():
+:: 
+
+  def generate_test_description():
     return launch.LaunchDescription([
-        launch.actions.ExecuteProcess(
-            cmd=['echo', 'hello_world']
-        ),
-        launch_testing.actions.ReadyToTest()
+      launch.actions.ExecuteProcess(
+        cmd=['echo', 'hello_world']
+      ),
+      launch_testing.actions.ReadyToTest()
     ])
 
 The launch description can optionally include a dummy process ``launch_testing.util.KeepAliveProc()`` to keep the launch service alive while the tests are running. More more information check out `this example. <https://github.com/ros2/launch/blob/f891aed9f904df6397ef554f7e0b36bb37b30529/launch_testing/test/launch_testing/examples/args_launch_test.py#L63>`__
@@ -100,6 +102,7 @@ Note that currently this works for python processes launched using the interpret
 Example usage :
 
 .. code-block:: python
+
    launch.actions.ExecuteProcess(
 	cmd =['python3', 'some_script.py'],
 	additional_env={'PYTHONUNBUFFERED': '1'},
@@ -118,5 +121,3 @@ Further reading
 * `ROS2 launch system design document <https://design.ros2.org/articles/roslaunch.html>`__
 * `Architecture of launch <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__
 * `Launch testing readme <https://github.com/ros2/launch/tree/master/launch_testing#readme>`__
-
-
