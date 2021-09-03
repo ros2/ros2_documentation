@@ -1,6 +1,10 @@
 Launch testing usage
 ====================
 
+.. contents:: Contents
+   :depth: 2
+   :local:
+
 Overview
 --------
 `Launch testing <https://github.com/ros2/launch/tree/master/launch_testing>`__ is intended to be a framework to write launch integration tests. One can spawn nodes  and processes using this framework and can monitor :
@@ -120,4 +124,4 @@ Further reading
 ---------------
 * `ROS2 launch system design document <https://design.ros2.org/articles/roslaunch.html>`__
 * `Architecture of launch <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__
-* `Launch testing readme <https://github.com/ros2/launch/tree/master/launch_testing#readme>`__
+* `Launch testing readme <https://github.com/ros2/launch/tree/master/launch_testing#readme>`__ (GitHub repository)
