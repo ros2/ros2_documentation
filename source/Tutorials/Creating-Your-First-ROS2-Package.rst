@@ -386,7 +386,6 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
    .. group-tab:: CMake
 
     .. code-block:: xml
-     :linenos:
 
      <?xml version="1.0"?>
      <?xml-model
@@ -412,7 +411,6 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
    .. group-tab:: Python
 
     .. code-block:: xml
-     :linenos:
 
      <?xml version="1.0"?>
      <?xml-model
@@ -435,16 +433,15 @@ From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text e
       </export>
      </package>
 
-Input your name and email on line 7 if it hasn't been automatically populated for you.
-Then, edit the description on line 6 to summarize the package:
+Input your name and email on the ``maintainer`` line if it hasn't been automatically populated for you.
+Then, edit the ``description`` line to summarize the package:
 
 .. code-block:: xml
 
   <description>Beginner client libraries tutorials practice package</description>
 
-Then, update the license on line 8.
+Then update the ``license`` line.
 You can read more about open source licenses `here <https://opensource.org/licenses/alphabetical>`__.
-
 Since this package is only for practice, it’s safe to use any license. We use ``Apache License 2.0``:
 
 .. code-block:: xml
@@ -472,7 +469,6 @@ This is where your ``package.xml`` would list its dependencies on other packages
       Open ``setup.py`` with your preferred text editor.
 
       .. code-block:: python
-       :linenos:
 
        from setuptools import setup
 
@@ -501,7 +497,7 @@ This is where your ``package.xml`` would list its dependencies on other packages
           },
        )
 
-      Edit lines 16-19 to match ``package.xml``.
+      Edit the ``maintainer``, ``maintainer_email``, and ``description`` lines to match ``package.xml``.
 
       Don’t forget to save the file.
 
