@@ -126,7 +126,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="_images/irobot.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>iRobot: Ori Taka</p></td>
+          <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
