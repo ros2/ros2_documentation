@@ -19,15 +19,15 @@ Assertions are used to search for some given text in the standard streams of a p
       ...
       assert <something>
 
-** <TODO : IoHandler, ActiveIoHandler, (Active)ProcInfoHandler, usable actions reference, assertions in iohandlers > **
+*<TODO : IoHandler, ActiveIoHandler, (Active)ProcInfoHandler, usable actions reference, assertions in iohandlers >*
 
 Assertions
 ----------
 The package currently lists the following assertions :
 
 
-* ``assertExitCodes`` :
-  This action supports the following exit codes :
+* ``assertExitCodes`` : This action supports the following exit codes:
+
    - EXIT_OK = 0
    - EXIT_SIGINT = 130
    - EXIT_SIGQUIT = 131
@@ -35,6 +35,7 @@ The package currently lists the following assertions :
    - EXIT_SIGSEGV = 139
 
 * ``assertInStream`` : Assert that some text was found in a stream of a process. It accepts the following arguments :
+
       - proc_output: The process output captured by launch_test.  This is usually injected
         into test cases as self._proc_output
       - proc_output: An launch_testing.IoHandler
@@ -42,9 +43,9 @@ The package currently lists the following assertions :
       - expected_output: string or regex pattern or a list of the aforementioned types
       - process: The process whose output will be searched
       - process: A string (search by process name) or a launch.actions.ExecuteProcess object
-      -param cmd_args: Optional.  If 'process' is a string, cmd_args will be used to disambiguate
-      processes with the same name.  Pass launch_testing.asserts.NO_CMD_ARGS to match a proc without
-      command arguments
+      - param cmd_args: Optional.  If 'process' is a string, cmd_args will be used to disambiguate
+        processes with the same name.  Pass ``launch_testing.asserts.NO_CMD_ARGS`` to match a proc without
+        command arguments
       - cmd_args: string
       - output_filter: Optional. A function to filter output before attempting any assertion.
       - output_filter: callable
@@ -63,12 +64,13 @@ The package currently lists the following assertions :
 
 * ``assertDefaultStream`` : Return the stream that is used by default for `assertInStream`, which is typically `stderr`
 
-* ``assertSequentialStdout`` : Creates a context manager used to check stdout occured in a specific order.
+* ``assertSequentialStdout`` : Creates a context manager used to check stdout occured in a specific order
+
     - proc_output:  The captured output from a test run
     - process: The process whose output will be searched
     - process: A string (search by process name) or a launch.actions.ExecuteProcess object
     - cmd_args: Optional.  If 'proc' is a string, cmd_args will be used to disambiguate
-      processes with the same name.  Pass launch_testing.asserts.NO_CMD_ARGS to match a proc without
+      processes with the same name.  Pass ``launch_testing.asserts.NO_CMD_ARGS`` to match a proc without
       command arguments
     - cmd_args: string
 
