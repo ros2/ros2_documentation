@@ -95,6 +95,18 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Small
      - Sony
      - 4th quarter 2022
+   * - Performance improvements: Implement events executor in rclcpp
+     - Large
+     - iRobot
+     - 4th quarter 2021
+   * - Performance improvements: Improve intra-process optimization and loaned message APIs
+     - Medium
+     - iRobot
+     - 4th quarter 2021
+   * - Developer experience: Better integration of ROS 2 repos with package managers and documentation for building/running ROS 2 applications.
+     - Large
+     - iRobot
+     - 2th quarter 2022
 
 Additional project-specific roadmaps can be found in the links below:
 
