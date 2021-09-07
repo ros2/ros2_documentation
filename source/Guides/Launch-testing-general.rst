@@ -115,14 +115,45 @@ Example usage :
 	output='screen'
    )
 
-Handler objects 
----------------
-The launch_testing framework automatically adds some member fields to each test case so that the tests can access process output and exit codes.
+Context and handler objects 
+---------------------------
+The ``launch_testing`` framework has a "context" dictionary that is passed to the test cases. The ``proc_info`` and ``proc_output`` members a added automatically by the framework so that the tests can access process output and exit codes.
 
 * ``self.proc_info`` - a `ProcInfoHandler object <https://github.com/ros2/launch/blob/master/launch_testing/launch_testing/proc_info_handler.py>`__
 * ``self.proc_output`` - an `IoHandler object <https://github.com/ros2/launch/blob/master/launch_testing/launch_testing/io_handler.py>`__
 
 These objects provide dictionary like access to information about the running processes. They also contain methods that the active tests can use to wait for a process to exit or to wait for specific output.
+
+One can add more keys to the dictionary, as show in `this <https://github.com/ros2/launch/blob/8a7649de4d65d13e24f176f2005917a9ba3061a0/launch_testing/test/launch_testing/examples/context_launch_test.py#L61>`__ example, where we add ``int_val`` and ``dut`` as additional keys, which `can be accessed in the fixture methods by name <https://github.com/ros2/launch/blob/8a7649de4d65d13e24f176f2005917a9ba3061a0/launch_testing/test/launch_testing/examples/context_launch_test.py#L96>`__. In general, one can follow the following pseudocode template to add members to the context: 
+
+.. code-block:: python
+
+  @pytest.mark.launch_test
+  def generate_test_description():
+
+      ld = launch.LaunchDescription([
+          <some_launch_action>,
+          launch_testing.actions.ReadyToTest(),
+      ])
+
+      # Items in this dictionary will be added to the test cases as an attribute based on
+      # dictionary key
+      test_context = {
+          'new_member_1': 100,
+          'new_member_1': 10
+      }
+
+      return ld, test_context
+
+  ....
+
+  @launch_testing.post_shutdown_test()
+  class TestProcessOutput(unittest.TestCase):
+
+    def test_int_val(self, proc_info, proc_output, new_member_1, new_member_2):
+        ...
+        <some_assertion>
+
 
 Further reading
 ---------------
