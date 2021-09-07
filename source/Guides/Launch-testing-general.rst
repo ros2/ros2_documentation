@@ -8,6 +8,7 @@ Launch testing usage
 Overview
 --------
 `Launch testing <https://github.com/ros2/launch/tree/master/launch_testing>`__ is intended to be a framework to write launch integration tests. One can spawn nodes  and processes using this framework and can monitor :
+
 * Exit codes of processes
 * Whether the processes shutdown properly
 * ``stdin, stdout, stderr`` of all processes
@@ -71,8 +72,9 @@ The launch description can optionally include a dummy process ``launch_testing.u
 
 Examples
 --------
-It is recommended that the reader should go through the simple exmaples provided in the links below to get a feel of the general code flow.
+It is recommended that the reader should go through the simple examples provided in the links below to get a feel of the general code flow.
 Since ``launch_testing`` can be used for generic processes and separate from ROS related actions, the exmaples have been split in 2 directories.
+
 * Examples that do not require ROS actions are located `here <https://github.com/ros2/launch/tree/master/launch_testing/test/launch_testing/examples>`__. A brief explanation on them is located `here <https://github.com/ros2/launch/blob/master/launch_testing/README.md>`__
 * ROS specific examples are located here <TODO add link>. The README in the directory explains the usage.
 
@@ -116,8 +118,10 @@ Example usage :
 Handler objects 
 ---------------
 The launch_testing framework automatically adds some member fields to each test case so that the tests can access process output and exit codes.
+
 * ``self.proc_info`` - a `ProcInfoHandler object <https://github.com/ros2/launch/blob/master/launch_testing/launch_testing/proc_info_handler.py>`__
 * ``self.proc_output`` - an `IoHandler object <https://github.com/ros2/launch/blob/master/launch_testing/launch_testing/io_handler.py>`__
+
 These objects provide dictionary like access to information about the running processes. They also contain methods that the active tests can use to wait for a process to exit or to wait for specific output.
 
 Further reading
