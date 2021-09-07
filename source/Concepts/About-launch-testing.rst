@@ -74,6 +74,10 @@ The package currently lists the following assertions :
       command arguments
     - cmd_args: string
 
+``unittest.TestCase`` assertions
+--------------------------------
+Since the test fixture inherits from ``unittest.TestCase``, we can use the `assertions available for the parent class <https://docs.python.org/3/library/unittest.html#assert-methods>`__
+
 IoHandler, ActiveIoHandler
 --------------------------
 
