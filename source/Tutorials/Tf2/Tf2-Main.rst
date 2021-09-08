@@ -25,6 +25,7 @@ once for C++ and once for Python.
    Adding-A-Frame-Py
    Adding-A-Frame-Cpp
    Learning-About-Tf2-And-Time-Py
+   Learning-About-Tf2-And-Time-Cpp
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
 
@@ -59,7 +60,7 @@ Learning tf2
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
 
-#. Learning about tf2 and time :ref:`(Python) <LearningAboutTf2AndTimePy>`.
+#. Learning about tf2 and time :ref:`(Python) <LearningAboutTf2AndTimePy>` :ref:`(C++) <LearningAboutTf2AndTimeCpp>`.
 
    This tutorial teaches you to use the timeout in ``lookup_transform`` function to
    wait for a transform to be available on the tf2 tree.
