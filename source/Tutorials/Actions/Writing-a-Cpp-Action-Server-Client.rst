@@ -130,7 +130,6 @@ Open up ``action_tutorials_cpp/src/fibonacci_action_server.cpp``, and put the fo
 
 .. literalinclude:: server.cpp
     :language: c++
-    :linenos:
 
 The first few lines include all of the headers we need to compile.
 
@@ -257,7 +256,6 @@ Open up ``action_tutorials_cpp/src/fibonacci_action_client.cpp``, and put the fo
 
 .. literalinclude:: client.cpp
     :language: c++
-    :linenos:
 
 The first few lines include all of the headers we need to compile.
 

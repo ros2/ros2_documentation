@@ -25,7 +25,7 @@ once for C++ and once for Python.
    Adding-A-Frame-Py
    Learning-About-Tf2-And-Time-Py
    Time-Travel-With-Tf2-Py
-   Debugging-Tf2-Problems
+   Time-Travel-With-Tf2-Cpp
 
 Workspace Setup
 ---------------
@@ -63,13 +63,6 @@ Learning tf2
    This tutorial teaches you to use the timeout in ``lookup_transform`` function to
    wait for a transform to be available on the tf2 tree.
 
-#. Time travel with tf2 :ref:`(Python) <TimeTravelWithTf2Py>`.
+#. Time travel with tf2 :ref:`(Python) <TimeTravelWithTf2Py>` :ref:`(C++) <TimeTravelWithTf2Cpp>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
-
-Debugging tf2
---------------
-
-#. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
-
-   This tutorial teaches you about a systematic approach for debugging tf2 related problems.
