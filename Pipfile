@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+docutils = "==0.16"
+Sphinx = "*"
+sphinx-tabs = "*"
+sphinx-multiversion = "*"
+sphinx-rtd-theme = "*"
+sphinx-copybutton = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

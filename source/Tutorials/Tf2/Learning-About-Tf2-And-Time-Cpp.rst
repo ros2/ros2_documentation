@@ -24,7 +24,7 @@ This tutorial will teach you how to get a transform at a specific time.
 
 The possibility to acquire a transformation at any given time is a powerful tool for various robotics applications.
 For example, it can be useful to acquire the robot base poses relative to the map at specific time periods.
-This data can then be used for construction of simple path of the robot positions or for calculating derivatives for probabilistic applications that take previous positions into account.
+This data can then be used for construction of robot's path, calculation of derivatives, or for probabilistic applications that take previous positions into account.
 
 Tasks
 -----
