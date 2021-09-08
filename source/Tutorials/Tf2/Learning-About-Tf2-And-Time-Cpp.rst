@@ -22,10 +22,6 @@ This tree changes over time, and tf2 stores a time snapshot for every transform 
 Until now we used the ``lookpTransform()`` function to get access to the latest available transforms in that tf2 tree, without knowing at what time that transform was recorded.
 This tutorial will teach you how to get a transform at a specific time.
 
-The possibility to acquire a transformation at any given time is a powerful tool for various robotics applications.
-For example, it can be useful to acquire the robot base poses relative to the map at specific time periods.
-This data can then be used for construction of robot's path, calculation of derivatives, or for probabilistic applications that take previous positions into account.
-
 Tasks
 -----
 
@@ -111,4 +107,3 @@ Summary
 -------
 
 In this tutorial, you learned how to acquire a transform at a specific timestamp and how to wait for a transform to be available on the tf2 tree when using the ``lookupTransform()`` function.
-You also learned that this tf2 capability can be used for various simple and advanced robotics applications.
