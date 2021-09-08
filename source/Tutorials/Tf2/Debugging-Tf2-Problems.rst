@@ -250,7 +250,8 @@ Let's test this quickly by changing lines 75-79 to:
         this->now() - rclcpp::Duration::from_seconds(0.1));
    } catch (tf2::TransformException & ex) {
 
-So in the new code we are asking for the transform between the turtles 100 milliseconds ago (Why not 3? Just to be safe...).
+In the new code we are asking for the transform between the turtles 100 milliseconds ago.
+It is usual to use a longer periods, just to be sure that the transform will arrive.
 Stop the demo, build and run:
 
 .. code-block:: console
@@ -284,7 +285,7 @@ or like this:
         tf2::TimePoint());
    } catch (tf2::TransformException & ex) {
 
-And also can like this:
+You can learn more about timeouts in the :ref:`Learning about tf2 and time <LearningAboutTf2AndTimeCpp>` tutorial, and use them as below:
 
 .. code-block:: C++
 
@@ -293,7 +294,7 @@ And also can like this:
         toFrameRel,
         fromFrameRel,
         this->now(),
-        rclcpp::Duration::from_seconds(0.1));
+        rclcpp::Duration::from_seconds(0.05));
    } catch (tf2::TransformException & ex) {
 
 Summary
