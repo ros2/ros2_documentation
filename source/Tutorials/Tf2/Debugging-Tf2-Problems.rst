@@ -13,11 +13,18 @@ Debugging tf2 Problems
    :depth: 2
    :local:
 
-1 Setting and starting the example
-----------------------------------
+Background
+----------
 
 This tutorial walks you through the steps to debug a typical tf2 problem.
 It will also use many of the tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, ``view_frames``.
+This tutorial assumes you have completed the :ref:`learning tf2 <Tf2Main>` tutorials.
+
+Debugging example
+-----------------
+
+1 Setting and starting the example
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For this tutorial we will set up a demo application which has a number of problems.
 The goal of this tutorial is to apply a systematic approach to find and tackle these problems.
@@ -130,7 +137,7 @@ You should notice the following message:
    does not exist
 
 2 Finding the tf2 request
--------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Firstly, we need to find out what exactly we are asking tf2 to do.
 Therefore, we go into the part of the code that is using tf2.
@@ -156,7 +163,7 @@ The three arguments tell us directly what we are asking tf2: transform from fram
 Now, let's take a look at why this request to tf2 is failing.
 
 3 Checking the frames
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 First we want to find out if tf2 knows about our transform between ``turtle3`` and ``turtle1``:
 
@@ -201,7 +208,7 @@ And right away we run into the next problem:
    transform from frame [turtle1] to frame [turtle2]
 
 4 Checking the timestamp
-------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that we solved the frame name problem, it is time to look at the timestamps.
 Remember we are trying to get the transform between ``turtle2`` and ``turtle1`` at time ``now``.
@@ -281,8 +288,8 @@ And also can like this:
         this->now(), rclcpp::Duration::from_seconds(0.1));
    } catch (tf2::TransformException & ex) {
 
-5 Summary
----------
+Summary
+-------
 
 In this tutorial you learned how to use a systematic approach for debugging tf2 related problems.
 You also learned how to use tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor`` and ``view_frames`` to help you debug those tf2 problems.
