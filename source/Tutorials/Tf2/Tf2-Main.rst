@@ -23,6 +23,7 @@ once for C++ and once for Python.
    Writing-A-Tf2-Listener-Py
    Writing-A-Tf2-Listener-Cpp
    Adding-A-Frame-Py
+   Adding-A-Frame-Cpp
    Learning-About-Tf2-And-Time-Py
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
@@ -54,7 +55,7 @@ Learning tf2
 
    This tutorial teaches you how to use tf2 to get access to frame transformations.
 
-#. Adding a frame :ref:`(Python) <AddingAFramePy>`.
+#. Adding a frame :ref:`(Python) <AddingAFramePy>` :ref:`(C++) <AddingAFrameCpp>`.
 
    This tutorial teaches you how to add an extra fixed frame to tf2.
 
