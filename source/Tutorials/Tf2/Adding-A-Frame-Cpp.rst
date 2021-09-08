@@ -20,16 +20,15 @@ In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broad
 This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 
-1 Why add frames?
-^^^^^^^^^^^^^^^^^
-
 For many tasks related to transformations, it is easier to think inside a local frame.
 For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
 tf2 allows you to define a local frame for each sensor, link, or joint in your system.
 When transforming from one frame to another, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
 
-2 Where to add frames
-^^^^^^^^^^^^^^^^^^^^^
+
+
+tf2 tree
+--------
 
 tf2 builds up a tree structure of frames and, thus, does not allow a closed loop in the frame structure.
 This means that a frame only has one single parent, but it can have multiple children.
