@@ -248,7 +248,7 @@ Stop the demo, build and run:
 
 And you should finally see the turtle move!
 
-.. image:: tf2_debug.png
+.. image:: turtlesim_follow1.png
 
 That last fix we made is not really what you want to do, it was just to make sure that was our problem.
 The real fix would look like this:
