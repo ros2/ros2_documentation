@@ -25,8 +25,6 @@ For example, it is easiest to reason about laser scan measurements in a frame at
 tf2 allows you to define a local frame for each sensor, link, or joint in your system.
 When transforming from one frame to another, tf2 will take care of all the hidden intermediate frame transformations that are introduced.
 
-
-
 tf2 tree
 --------
 
