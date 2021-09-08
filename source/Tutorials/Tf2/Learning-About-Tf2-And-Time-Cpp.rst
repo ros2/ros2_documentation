@@ -110,5 +110,5 @@ Once the timeout has been reached (fifty milliseconds in this case), an exceptio
 Summary
 -------
 
-In this tutorial, you learned how to acqurie transform at speicific time stamp and to wait for a transform to be available on the tf2 tree when using the ``lookupTransform()`` function.
+In this tutorial, you learned how to acquire a transform at a specific timestamp and how to wait for a transform to be available on the tf2 tree when using the ``lookupTransform()`` function.
 You also learned that this tf2 capability can be used for various simple and advanced robotics applications.
