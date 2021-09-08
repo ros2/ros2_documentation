@@ -30,7 +30,7 @@ If it is not, you can install it using this command.
 
 .. code-block:: console
 
-  sudo apt install ros-${ROS_DISTRO}-rosbag2
+  sudo apt install ros-${DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
 You should have already completed the :ref:`basic ROS 2 bag tutorial <ROS2Bag>`.
