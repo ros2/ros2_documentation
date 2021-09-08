@@ -1,6 +1,6 @@
 .. _DebuggingTf2Problems:
 
-Debugging tf2 Problems
+Debugging tf2 problems
 ======================
 
 **Goal:** Learn how to use a systematic approach for debugging tf2 related problems.
