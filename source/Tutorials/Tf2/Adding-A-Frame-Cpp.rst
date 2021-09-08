@@ -17,7 +17,7 @@ Background
 ----------
 
 In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterCpp>` and a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
-This tutorial will teach you how to add an extra frame to the transformation tree.
+This tutorial will teach you how to add extra static and dynamic frames to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 
 1 Why add frames?
@@ -31,7 +31,7 @@ When transforming from one frame to another, tf2 will take care of all the hidde
 2 Where to add frames
 ^^^^^^^^^^^^^^^^^^^^^
 
-tf2 builds up a tree structure of frames, and thus does not allow a closed loop in the frame structure.
+tf2 builds up a tree structure of frames and, thus, does not allow a closed loop in the frame structure.
 This means that a frame only has one single parent, but it can have multiple children.
 Currently, our tf2 tree contains three frames: ``world``, ``turtle1`` and ``turtle2``.
 The two turtle frames are children of the ``world`` frame.
@@ -191,7 +191,7 @@ With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.la
       ])
 
 
-This launch file first imports the required packages, then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
+This launch file imports the required packages and then creates a ``demo_nodes`` variable that will store nodes that we created in the previous tutorial's launch file.
 
 The last part of the code will add our fixed ``carrot1`` frame to the turtlesim world using our ``fixed_frame_tf2_broadcaster`` node.
 
@@ -206,7 +206,7 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
 1.3 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Rebuild the package, and start the turtle broadcaster demo:
+Rebuild the package and start the turtle broadcaster demo:
 
 .. code-block:: console
 
@@ -220,7 +220,7 @@ You should notice that the new ``carrot1`` frame appeared in the transformation 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 If you drive the first turtle around, you should notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
-That's because adding an extra frame does not affect the other frames, and our listener is still using the previously defined frames.
+That's because adding an extra frame does not affect the other frames and our listener is still using the previously defined frames.
 
 Therefore if we want our second turtle to follow the carrot instead of the first turtle, we need to change value of the ``target_frame``.
 This can be done two ways.
