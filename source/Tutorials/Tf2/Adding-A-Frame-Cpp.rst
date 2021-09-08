@@ -17,7 +17,7 @@ Background
 ----------
 
 In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterCpp>` and a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
-This tutorial will teach you how to add extra static and dynamic frames to the transformation tree.
+This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 
 1 Why add frames?
@@ -397,4 +397,4 @@ Summary
 -------
 
 In this tutorial, you learned about the tf2 transformation tree, its structure, and its features.
-You also learned how to add extra fixed and dynamic frames to tf2.
+You also learned that it is easiest to think inside a local frame, and learned to add extra fixed and dynamic frames for that local frame.
