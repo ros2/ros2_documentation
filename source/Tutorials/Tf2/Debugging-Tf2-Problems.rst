@@ -51,7 +51,8 @@ and change ``lookupTransform()`` call in lines 75-79 from:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         tf2::TimePointZero);
    } catch (tf2::TransformException & ex) {
 
@@ -61,7 +62,8 @@ to:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         this->now());
    } catch (tf2::TransformException & ex) {
 
@@ -123,10 +125,10 @@ Now let's run it to see what happens:
    ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
 
 You will now see that the turtlesim came up.
-At the same time, if you run the ``turtle_teleop_key`` node of ``turtlesim`` package in another terminal window, you can use the arrow keys to drive the ``turtle1`` robot around.
-In the lower left corner there is a second robot.
+At the same time, if you run the ``turtle_teleop_key`` node of ``turtlesim`` package in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
+In the lower left corner there is a second turtle.
 
-If the demo would be working correctly, this second robot should be following the robot you can command with the arrow keys.
+If the demo would be working correctly, this second turtle should be following the turtle you can command with the arrow keys.
 However, it is not the case because we have to solve some problems first.
 You should notice the following message:
 
@@ -153,12 +155,13 @@ and lines 75-79:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         this->now());
    } catch (tf2::TransformException & ex) {
 
 Here we do the actual request to tf2.
-The three arguments tell us directly what we are asking tf2: transform from frame ``turtle3`` to frame ``turtle1`` at time ``nows``.
+The three arguments tell us directly what we are asking tf2: transform from frame ``turtle3`` to frame ``turtle1`` at time ``now``.
 
 Now, let's take a look at why this request to tf2 is failing.
 
@@ -189,7 +192,7 @@ Open the generated ``frames.pdf`` file to see the following output:
 
 .. image:: turtlesim_frames.png
 
-So obviously the problem is that we are requesting ``turtle3``, which does not exist.
+So obviously the problem is that we are requesting transform from frame ``turtle3`` which does not exist.
 To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 67.
 
 And now stop the running demo, build it, and run it again:
@@ -242,7 +245,8 @@ Let's test this quickly by changing lines 75-79 to:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         this->now() - rclcpp::Duration::from_seconds(0.1));
    } catch (tf2::TransformException & ex) {
 
@@ -264,7 +268,8 @@ The real fix would look like this:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         tf2::TimePointZero);
    } catch (tf2::TransformException & ex) {
 
@@ -274,7 +279,8 @@ or like this:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
+        toFrameRel,
+        fromFrameRel,
         tf2::TimePoint());
    } catch (tf2::TransformException & ex) {
 
@@ -284,8 +290,10 @@ And also can like this:
 
    try {
       transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel, fromFrameRel,
-        this->now(), rclcpp::Duration::from_seconds(0.1));
+        toFrameRel,
+        fromFrameRel,
+        this->now(),
+        rclcpp::Duration::from_seconds(0.1));
    } catch (tf2::TransformException & ex) {
 
 Summary
