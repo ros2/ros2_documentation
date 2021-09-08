@@ -66,4 +66,3 @@ Learning tf2
 #. Time travel with tf2 :ref:`(Python) <TimeTravelWithTf2Py>` :ref:`(C++) <TimeTravelWithTf2Cpp>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
-
