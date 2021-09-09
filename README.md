@@ -54,7 +54,7 @@ For example, when generating the docs for Rolling on the `rolling` branch:
 | {DISTRO} | rolling | ros-{DISTRO}-pkg |
 | {DISTRO_TITLE} | Rolling | ROS 2 {DISTRO_TITLE} |
 | {DISTRO_TITLE_FULL} | Rolling Ridley | ROS 2 {DISTRO_TITLE_FULL} |
-| {REPOS_FILE_BRANCH} | master | git checkout -b {REPOS_FILE_BRANCH} |
+| {REPOS_FILE_BRANCH} | master | git checkout {REPOS_FILE_BRANCH} |
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
 
