@@ -42,6 +42,22 @@ This has two drawbacks:
 To show local changes in the multiversion output, you must first commit the changes to a local branch.
 Then you must edit the [conf.py](./conf.py) file and change the `smv_branch_whitelist` variable to point to your branch.
 
+### Macros
+
+Macros can be used to simplify writing documentation that targets multiple distributions.
+
+Use a macro by including the macro name in curly braces.
+For example, when generating the docs for Rolling on the `rolling` branch:
+
+| Use | Becomes (for Rolling) | Example |
+|-----|-----------------------|---------|
+| {DISTRO} | rolling | ros-{DISTRO}-pkg |
+| {DISTRO_TITLE} | Rolling | ROS 2 {DISTRO_TITLE} |
+| {DISTRO_TITLE_FULL} | Rolling Ridley | ROS 2 {DISTRO_TITLE_FULL} |
+| {REPOS_FILE_BRANCH} | master | git checkout -b {REPOS_FILE_BRANCH} |
+
+The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
+
 ## Contributing to ROS 2
 
 To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/Contributing.html).
