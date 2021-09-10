@@ -73,6 +73,7 @@ Advanced
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
    Tutorials/FastDDS-Configuration/FastDDS-Configuration
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node
 
 Miscellaneous
 -------------
