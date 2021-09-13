@@ -43,6 +43,18 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      - Apex
      -
+   * - Rosbag2 playback controlled by /clock sim time
+     - Small
+     - AWS
+     - Q3 2021
+   * - Rosbag2 "Snapshot mode"
+     - Medium
+     - AWS
+     - Q3 2021
+   * - Interface definitions: get exact msg/srv/action definitions on the wire at runtime
+     - Large
+     - AWS / Foxglove
+     - Q1 2022
    * - Performance improvements: Implement events executor in rclcpp
      - Large
      - iRobot
@@ -107,18 +119,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Small
      - Sony
      - 4th quarter 2022
-   * - Rosbag2 playback controlled by /clock sim time
-     - Small
-     - AWS
-     - Q3 2021
-   * - Rosbag2 "Snapshot mode"
-     - Medium
-     - AWS
-     - Q3 2021
-   * - Interface definitions: get exact msg/srv/action definitions on the wire at runtime
-     - Large
-     - AWS / Foxglove
-     - Q1 2022
+
 
 Additional project-specific roadmaps can be found in the links below:
 
