@@ -16,18 +16,20 @@ Writing a tf2 static broadcaster (Python)
 Background
 ----------
 
-In this tutorial we will write code to publish static transforms to tf2.
-This is a standalone tutorial covering the basics of static transforms.
+Publishing static transforms is useful to define the relationship between a robot base and its sensors or non-moving parts.
+For example, it is easiest to reason about laser scan measurements in a frame at the center of the laser scanner.
 
-In the next two tutorials we will write the code to reproduce the demo
-from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial. After that,
-the following tutorials focus on extending the demo with more advanced tf2 features.
+This is a standalone tutorial covering the basics of static transforms, which consists of two parts.
+In the first part we will write code to publish static transforms to tf2.
+In the second part we will explain how to use the commandline ``static_transform_publisher`` executable tool in ``tf2_ros``.
+
+In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+After that, the following tutorials focus on extending the demo with more advanced tf2 features.
 
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`
-and :ref:`create a package <CreatePkg>`.
+In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
 
 Tasks
 -----
@@ -35,10 +37,9 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First we will create a package that will be used for this tutorial
-and the following ones. The package called ``learning_tf2_py`` will depend on
-``rclpy``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``. Code for this tutorial is stored
-`here <https://github.com/ros/geometry_tutorials/blob/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
+First we will create a package that will be used for this tutorial and the following ones.
+The package called ``learning_tf2_py`` will depend on ``rclpy``, ``tf2_ros``, ``geometry_msgs``, and ``turtlesim``.
+Code for this tutorial is stored `here <https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/static_turtle_tf2_broadcaster.py>`_.
 
 Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
 Navigate to workspace's ``src`` folder and create a new package:
@@ -47,8 +48,7 @@ Navigate to workspace's ``src`` folder and create a new package:
 
    ros2 pkg create --build-type ament_python learning_tf2_py
 
-Your terminal will return a message verifying the creation of your package ``learning_tf2_py``
-and all its necessary files and folders.
+Your terminal will return a message verifying the creation of your package ``learning_tf2_py`` and all its necessary files and folders.
 
 2 Write the static broadcaster node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -163,10 +163,8 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
-The first lines import required packages.`
-First we import the ``TransformStamped`` from the ``geometry_msgs``,
-that provides us a template for the message that we will
-publish to the transformation tree.
+The first lines import required packages.
+First we import the ``TransformStamped`` from the ``geometry_msgs``, that provides us a template for the message that we will publish to the transformation tree.
 
 .. code-block:: python
 
@@ -179,10 +177,9 @@ Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
    import rclpy
    from rclpy.node import Node
 
-The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of
-static transforms easy. To use the ``StaticTransformBroadcaster``, we need to import it from the
-``tf2_ros`` module. ``tf_transformations`` provides functions to convert euler angles to quaternions
-and vice versa.
+The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
+To use the ``StaticTransformBroadcaster``, we need to import it from the ``tf2_ros`` module.
+``tf_transformations`` provides functions for converting Euler angles to quaternions and vice versa.
 
 .. code-block:: python
 
@@ -190,17 +187,16 @@ and vice versa.
 
    import tf_transformations
 
-The ``StaticFramePublisher`` class constructor initializes the node with the name
-``static_turtle_tf2_broadcaster``. Then, ``StaticTransformBroadcaster``
-is created that will send one static transformation upon the startup.
+The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
+Then, ``StaticTransformBroadcaster`` is created that will send one static transformation upon the startup.
 
 .. code-block:: python
 
    self._tf_publisher = StaticTransformBroadcaster(self)
    self.make_transforms(transformation)
 
-Here we create a ``TransformStamped`` object which will be the message we will send over once
-populated. Before passing the actual transform values we need to give it the appropriate metadata.
+Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
+Before passing the actual transform values we need to give it the appropriate metadata.
 
 #. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``get_clock().now()``
 
@@ -229,7 +225,7 @@ Here we populate the 6D pose (translation and rotation) of the turtle.
    static_transformStamped.transform.rotation.z = quat[2]
    static_transformStamped.transform.rotation.w = quat[3]
 
-Finally we broadcast static transform using the ``sendTransform()`` function.
+Finally, we broadcast static transform using the ``sendTransform()`` function.
 
 .. code-block:: python
 
@@ -246,7 +242,7 @@ As mentioned in the :ref:`Creating your first ROS 2 package tutorial <CreatePkg>
 
 .. code-block:: xml
 
-  <description>Examples of minimal publisher/subscriber using rclpy</description>
+  <description>Learning tf2 with rclpy</description>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
@@ -267,10 +263,9 @@ Make sure to save the file.
 2.3 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point
-to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Add the following line between the ``'console_scripts':`` brackets:
+Finally, add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -279,8 +274,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace to
-check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
 .. tabs::
 
@@ -385,15 +379,12 @@ If everything went well you should see a single static transform
 The proper way to publish static transforms
 -------------------------------------------
 
-This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to publish static
-transforms. In your real development process you shouldn't have to write this code yourself
-and should privilege the use of the dedicated ``tf2_ros`` tool to do so. ``tf2_ros`` provides an
-executable named ``static_transform_publisher`` that can be used either as a commandline tool
-or a node that you can add to your launchfiles.
+This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to publish static transforms.
+In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
+``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
-yaw/pitch/roll in radians. (yaw is rotation about Z, pitch is rotation about Y,
-and roll is rotation about X).
+Publish a static coordinate transform to tf2 using an x/y/z offset in meters and yaw/pitch/roll in radians.
+(yaw is rotation about Z, pitch is rotation about Y, and roll is rotation about X).
 
 .. code-block:: console
 
@@ -405,8 +396,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
    ros2 run tf2_ros static_transform_publisher x y z qx qy qz qw frame_id child_frame_id
 
-``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as
-for use within ``launch`` files for setting static transforms. For example:
+``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
 .. code-block:: console
 
@@ -425,5 +415,6 @@ for use within ``launch`` files for setting static transforms. For example:
 Summary
 -------
 
-In this tutorial you learned how to write your own node to publish static transforms to tf2.
-In addition, you learned how to publish required static transformations using ``static_transform_publisher`` and launch files.
+In this tutorial you learned how static transforms are useful to define static relationships between frames, like ``mystaticturtle`` in relation to the ``world`` frame.
+In addition, you learned how static transforms can be useful for understanding sensor data, such as from laser scanners, by relating the data to a common coordinate frame.
+Finally, you wrote your own node to publish static transforms to tf2 and learned how to publish required static transformations using ``static_transform_publisher`` executable and launch files.

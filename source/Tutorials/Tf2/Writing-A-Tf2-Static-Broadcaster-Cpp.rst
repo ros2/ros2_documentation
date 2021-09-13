@@ -113,7 +113,7 @@ Open the file using your preferred text editor.
    private:
      void make_transforms(char * transformation[])
      {
-       rclcpp::Time now;
+       rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
 
        t.header.stamp = now;
@@ -170,7 +170,7 @@ Open the file using your preferred text editor.
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
 The first lines include the required header files.
-We include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``TransformStamped`` message type, which we will publish to the transformation tree.
+First we include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``TransformStamped`` message type, which we will publish to the transformation tree.
 
 .. code-block:: C++
 
@@ -202,7 +202,7 @@ Then, ``StaticTransformBroadcaster`` is created that will send one static transf
 Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
 Before passing the actual transform values we need to give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``rclcpp::Time``
+#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``get_clock()->now()``
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 
@@ -210,7 +210,7 @@ Before passing the actual transform values we need to give it the appropriate me
 
 .. code-block:: C++
 
-   rclcpp::Time now;
+   rclcpp::Time now = this->get_clock()->now();
    geometry_msgs::msg::TransformStamped t;
 
    t.header.stamp = now;
@@ -251,7 +251,7 @@ As mentioned in the :ref:`Creating your first ROS 2 package tutorial <CreatePkg>
 
 .. code-block:: xml
 
-  <description>Examples of static transform broadcaster using rclcpp</description>
+  <description>Learning tf2 with rclcpp</description>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
@@ -307,8 +307,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace to
-check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
 .. tabs::
 
@@ -430,8 +429,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
    ros2 run tf2_ros static_transform_publisher x y z qx qy qz qw frame_id child_frame_id
 
-``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as
-for use within ``launch`` files for setting static transforms. For example:
+``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
 .. code-block:: console
 
