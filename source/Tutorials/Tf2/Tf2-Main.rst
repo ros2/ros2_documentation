@@ -28,6 +28,7 @@ once for C++ and once for Python.
    Learning-About-Tf2-And-Time-Cpp
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
+   Debugging-Tf2-Problems
 
 Workspace Setup
 ---------------
@@ -69,3 +70,9 @@ Learning tf2
 
    This tutorial teaches you about advanced time travel features of tf2.
 
+Debugging tf2
+--------------
+
+#. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
+
+   This tutorial teaches you about a systematic approach for debugging tf2 related problems.
