@@ -7,7 +7,7 @@ Adding a frame (Python)
 
 **Tutorial level:** Intermediate
 
-**Time:** 10 minutes
+**Time:** 15 minutes
 
 .. contents:: Contents
    :depth: 3
