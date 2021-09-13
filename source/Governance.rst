@@ -106,7 +106,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Bosch: Karsten Knese</p></td>
+          <td class="tscclass" align="center"><p>Bosch: Ralph Lange</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
