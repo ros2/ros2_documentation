@@ -26,26 +26,26 @@ Debugging example
 1 Setting and starting the example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For this tutorial we will set up a demo application which has a number of problems.
+For this tutorial we will set up a demo application that has a number of problems.
 The goal of this tutorial is to apply a systematic approach to find and tackle these problems.
 First, let's create the source file.
 
-Go to the ``learning_tf2_cpp`` package we created in last tutorials.
-Inside the ``src`` directory make a copy of the source file ``turtle_tf2_listener.cpp`` and rename it as ``turtle_tf2_listener_debug.cpp``.
+Go to the ``learning_tf2_cpp`` package we created in :ref:`tf2 tutorials <Tf2Main>`.
+Inside the ``src`` directory make a copy of the source file ``turtle_tf2_listener.cpp`` and rename it to ``turtle_tf2_listener_debug.cpp``.
 
-Open the file using your preferred text editor, and change line 67 from:
+Open the file using your preferred text editor, and change line 67 from
 
 .. code-block:: C++
 
    std::string to_frame_rel = "turtle2";
 
-to:
+to
 
 .. code-block:: C++
 
    std::string to_frame_rel = "turtle3";
 
-and change ``lookupTransform()`` call in lines 75-79 from:
+and change ``lookupTransform()`` call in lines 75-79 from
 
 .. code-block:: C++
 
@@ -56,7 +56,7 @@ and change ``lookupTransform()`` call in lines 75-79 from:
         tf2::TimePointZero);
    } catch (tf2::TransformException & ex) {
 
-to:
+to
 
 .. code-block:: C++
 
@@ -116,7 +116,7 @@ In order to run this demo, we need to create a launch file ``start_tf2_debug_dem
          ),
       ])
 
-Don't forget to add the executable in the ``CMakeLists.txt`` of the package and build the package.
+Don't forget to add the ``turtle_tf2_listener_debug`` executable to the ``CMakeLists.txt`` and build the package.
 
 Now let's run it to see what happens:
 
@@ -125,9 +125,13 @@ Now let's run it to see what happens:
    ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
 
 You will now see that the turtlesim came up.
-At the same time, if you run the ``turtle_teleop_key`` node of ``turtlesim`` package in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
-In the lower left corner there is a second turtle.
+At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.
 
+.. code-block:: console
+
+   ros2 run turtlesim turtle_teleop_key
+
+You will also notice that there is a second turtle in the lower, left corner.
 If the demo would be working correctly, this second turtle should be following the turtle you can command with the arrow keys.
 However, it is not the case because we have to solve some problems first.
 You should notice the following message:
@@ -168,7 +172,7 @@ Now, let's take a look at why this request to tf2 is failing.
 3 Checking the frames
 ^^^^^^^^^^^^^^^^^^^^^
 
-First we want to find out if tf2 knows about our transform between ``turtle3`` and ``turtle1``:
+Firstly, to find out if tf2 knows about our transform between ``turtle3`` and ``turtle1``, we will use ``tf2_echo`` tool.
 
 .. code-block:: console
 
@@ -182,7 +186,8 @@ The output tells us that frame ``turtle3`` does not exist:
    Invalid frame ID "turtle3" passed to canTransform argument target_frame - frame does
    not exist
 
-Then what frames do exist? If you like to get a graphical representation of this, type:
+Then what frames do exist?
+If you like to get a graphical representation of this, use ``view_frames`` tool.
 
 .. code-block:: console
 
@@ -192,7 +197,7 @@ Open the generated ``frames.pdf`` file to see the following output:
 
 .. image:: turtlesim_frames.png
 
-So obviously the problem is that we are requesting transform from frame ``turtle3`` which does not exist.
+So obviously the problem is that we are requesting transform from frame ``turtle3``, which does not exist.
 To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 67.
 
 And now stop the running demo, build it, and run it again:
@@ -214,8 +219,8 @@ And right away we run into the next problem:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that we solved the frame name problem, it is time to look at the timestamps.
-Remember we are trying to get the transform between ``turtle2`` and ``turtle1`` at time ``now``.
-To get statistics on the timing, run:
+Remember, we are trying to get the transform between ``turtle2`` and ``turtle1`` at time ``now``.
+To get statistics on the timing, call ``tf2_monitor`` with corresponding frames.
 
 .. code-block:: console
 
@@ -251,7 +256,7 @@ Let's test this quickly by changing lines 75-79 to:
    } catch (tf2::TransformException & ex) {
 
 In the new code we are asking for the transform between the turtles 100 milliseconds ago.
-It is usual to use a longer periods, just to be sure that the transform will arrive.
+It is usual to use a longer periods, just to make sure that the transform will arrive.
 Stop the demo, build and run:
 
 .. code-block:: console
@@ -274,7 +279,7 @@ The real fix would look like this:
         tf2::TimePointZero);
    } catch (tf2::TransformException & ex) {
 
-or like this:
+Or like this:
 
 .. code-block:: C++
 
