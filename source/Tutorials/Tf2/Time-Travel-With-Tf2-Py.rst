@@ -30,7 +30,7 @@ First, let's go back to where we ended in the previous tutorial :ref:`Learning a
 Go to your ``learning_tf2_py`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
-Edit the code with ``lookup_transform()`` call in the ``turtle_tf2_listener.py`` file to:
+Edit the ``lookup_transform()`` call in ``turtle_tf2_listener.py`` file to:
 
 .. code-block:: python
 
