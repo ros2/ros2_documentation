@@ -219,7 +219,7 @@ And right away we run into the next problem:
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that we solved the frame name problem, it is time to look at the timestamps.
-Remember, we are trying to get the transform between ``turtle2`` and ``turtle1`` at time ``now``.
+Remember, we are trying to get the transform between ``turtle2`` and ``turtle1`` at the current time (i.e., ``now``).
 To get statistics on the timing, call ``tf2_monitor`` with corresponding frames.
 
 .. code-block:: console
