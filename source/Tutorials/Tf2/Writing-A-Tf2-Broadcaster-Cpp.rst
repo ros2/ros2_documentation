@@ -317,8 +317,8 @@ Add the following dependencies corresponding to your launch file's import statem
 
 .. code-block:: xml
 
-    <depend>launch</depend>
-    <depend>launch_ros</depend>
+    <exec_depend>launch</exec_depend>
+    <exec_depend>launch_ros</exec_depend>
 
 This declares the additional required ``launch`` and ``launch_ros`` dependencies when its code is executed.
 
