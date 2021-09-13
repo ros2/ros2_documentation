@@ -17,7 +17,7 @@ Background
 ----------
 
 This tutorial walks you through the steps to debug a typical tf2 problem.
-It will also use many of the tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, ``view_frames``.
+It will also use many of the tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, and ``view_frames``.
 This tutorial assumes you have completed the :ref:`learning tf2 <Tf2Main>` tutorials.
 
 Debugging example
@@ -306,4 +306,4 @@ Summary
 -------
 
 In this tutorial you learned how to use a systematic approach for debugging tf2 related problems.
-You also learned how to use tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor`` and ``view_frames`` to help you debug those tf2 problems.
+You also learned how to use tf2 debugging tools, such as ``tf2_echo``, ``tf2_monitor``, and ``view_frames`` to help you debug those tf2 problems.
