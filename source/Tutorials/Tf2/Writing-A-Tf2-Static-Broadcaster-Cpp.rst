@@ -202,7 +202,7 @@ Then, ``StaticTransformBroadcaster`` is created that will send one static transf
 Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
 Before passing the actual transform values we need to give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``get_clock()->now()``
+#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``this->get_clock()->now()``
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 

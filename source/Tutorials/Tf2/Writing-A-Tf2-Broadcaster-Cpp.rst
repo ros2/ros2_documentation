@@ -252,7 +252,8 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Now create a launch file for this demo. With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
+Now create a launch file for this demo.
+With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
 
@@ -316,8 +317,8 @@ Add the following dependencies corresponding to your launch file's import statem
 
 .. code-block:: xml
 
-    <exec_depend>launch</exec_depend>
-    <exec_depend>launch_ros</exec_depend>
+    <depend>launch</depend>
+    <depend>launch_ros</depend>
 
 This declares the additional required ``launch`` and ``launch_ros`` dependencies when its code is executed.
 
