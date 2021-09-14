@@ -301,8 +301,8 @@ In the dialog, select Enabled and click OK.
 
 Close and open your terminal to reset the environment and try building again.
 
-CMake packages unable to find asio, tinyxml2, tinyxml, eigen, or log4cxx
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+CMake packages unable to find asio, tinyxml2, tinyxml, or eigen
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We've seen that sometimes the chocolatey packages for ``asio``, ``tinyxml2``, etc. do not add important registry entries and CMake will be unable to find them when building ROS 2.
 We've not yet been able to identify the root cause, but uninstalling the chocolatey packages (with ``-n`` if the uninstall fails the first time), and then reinstalling them will fix the issue.

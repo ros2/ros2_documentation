@@ -75,7 +75,7 @@ You need the following things installed to build ROS 2:
        echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install dependencies for rcl_logging
-       brew install log4cxx spdlog
+       brew install spdlog
 
        # install dependencies for Cyclone DDS
        brew install bison cunit
