@@ -191,7 +191,7 @@ We also include ``tf2_ros/static_transform_broadcaster.h`` to use the ``StaticTr
    #include <tf2_ros/static_transform_broadcaster.h>
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
-Then, ``StaticTransformBroadcaster`` is created that will send one static transformation upon the startup.
+Then, ``StaticTransformBroadcaster`` is created, which will send one static transformation upon the startup.
 
 .. code-block:: C++
 
@@ -199,7 +199,7 @@ Then, ``StaticTransformBroadcaster`` is created that will send one static transf
 
    this->make_transforms(transformation);
 
-Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
+Here we create a ``TransformStamped`` object, which will be the message we will send over once populated.
 Before passing the actual transform values we need to give it the appropriate metadata.
 
 #. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``this->get_clock()->now()``
@@ -416,8 +416,8 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and yaw/pitch/roll in radians.
-(yaw is rotation about Z, pitch is rotation about Y, and roll is rotation about X).
+Publish a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
