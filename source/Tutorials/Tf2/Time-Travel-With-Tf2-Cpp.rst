@@ -30,7 +30,7 @@ First, let's go back to where we ended in the previous tutorial :ref:`Learning a
 Go to your ``learning_tf2_cpp`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
-Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to:
+Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
 
 .. code-block:: C++
 
