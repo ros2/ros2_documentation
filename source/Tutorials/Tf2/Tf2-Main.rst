@@ -27,6 +27,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Learning-About-Tf2-And-Time-Cpp
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
+   Debugging-Tf2-Problems
 
 Workspace setup
 ---------------
@@ -66,3 +67,10 @@ Learning tf2
 #. Time travel with tf2 :ref:`(Python) <TimeTravelWithTf2Py>` :ref:`(C++) <TimeTravelWithTf2Cpp>`.
 
    This tutorial teaches you about advanced time travel features of tf2.
+
+Debugging tf2
+-------------
+
+#. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
+
+   This tutorial teaches you about a systematic approach for debugging tf2 related problems.
