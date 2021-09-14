@@ -1,7 +1,3 @@
-.. redirect-from::
-
-  Tutorials/Ament-CMake-Python-Documentation
-
 ament_cmake_python user documentation
 =====================================
 
