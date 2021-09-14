@@ -67,8 +67,8 @@ select the second terminal window so that your keystrokes will be captured to d
 
 You can see that one turtle continuously moves to follow the turtle you are driving around.
 
-What is happening
------------------
+What is happening?
+------------------
 
 This demo is using the tf2 library to create three coordinate frames: a ``world`` frame, a ``turtle1`` frame, and a ``turtle2`` frame.
 This tutorial uses a tf2 broadcaster to publish the turtle coordinate frames and a tf2 listener to compute the difference in the turtle frames and move one turtle to follow the other.
