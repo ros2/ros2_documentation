@@ -514,9 +514,3 @@ Next steps
 
 Next, let's add something meaningful to a package.
 You'll start with a simple publisher/subscriber system, which you can choose to write in either :ref:`C++ <CppPubSub>` or :ref:`Python <PyPubSub>`.
-
-Related content
----------------
-
-For more advanced use-cases, CMake packages can contain Python code.
-See the `ament_cmake_python user documentation <../Guides/Ament-CMake-Python-Documentation>`__.
