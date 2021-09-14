@@ -33,7 +33,7 @@ The outline of a package called "my_project" with the ament_cmake build type tha
            └── my_script.py
 
 The ``__init__.py`` file can be empty, but it is needed to `make Python treat the directory containing it as a package <https://docs.python.org/3/tutorial/modules.html#packages>`__.
-There can also be a ``src`` or ``include`` directory alongside the ``CMakeLists.txt``.
+There can also be a ``src`` or ``include`` directory alongside the ``CMakeLists.txt`` which holds C/C++ code.
 
 Using ament_cmake_python
 ^^^^^^^^^^^^^^^^^^^^^^^^
