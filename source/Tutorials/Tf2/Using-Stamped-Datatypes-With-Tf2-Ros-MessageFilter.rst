@@ -73,21 +73,35 @@ Open the file using your preferred text editor.
 
 .. code-block:: python
 
+   # Copyright 2015 Open Source Robotics Foundation, Inc.
+   #
+   # Licensed under the Apache License, Version 2.0 (the "License");
+   # you may not use this file except in compliance with the License.
+   # You may obtain a copy of the License at
+   #
+   #     http://www.apache.org/licenses/LICENSE-2.0
+   #
+   # Unless required by applicable law or agreed to in writing, software
+   # distributed under the License is distributed on an "AS IS" BASIS,
+   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   # See the License for the specific language governing permissions and
+   # limitations under the License.
+
+   from geometry_msgs.msg import PointStamped
+   from geometry_msgs.msg import Twist
+
    import rclpy
    from rclpy.node import Node
-   from rclpy.duration import Duration
 
-   from geometry_msgs.msg import PointStamped, Point
-   from geometry_msgs.msg import Twist
    from turtlesim.msg import Pose
    from turtlesim.srv import Spawn
-   
-   
+
+
    class PointPublisher(Node):
 
        def __init__(self):
-           super().__init__('turtle_tf2_msg_broadcaster')
-        
+           super().__init__('turtle_tf2_message_broadcaster')
+
            self.client = self.create_client(Spawn, 'spawn')
            while not self.client.wait_for_service(timeout_sec=1.0):
                self.get_logger().info('service not available, waiting again...')
@@ -97,18 +111,18 @@ Open the file using your preferred text editor.
            request.y = float(2)
            request.theta = float(0)
            self.client.call_async(request)
-        
-           self.vel_pub = self.create_publisher(Twist, "/turtle3/cmd_vel",1) 
-           self.sub = self.create_subscription(Pose, "/turtle3/pose",self.handle_turtle_pose, 1) 
+
+           self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1)
+           self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1)
            self.sub
-           self.pub = self.create_publisher(PointStamped, "/turtle3/turtle_point_stamped", 1)
-        
-       def handle_turtle_pose(self,msg):
+           self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
+
+       def handle_turtle_pose(self, msg):
            vel_msg = Twist()
            vel_msg.linear.x = 1.0
            vel_msg.angular.z = 1.0
-           self.vel_pub.publish(vel_msg) 
-           
+           self.vel_pub.publish(vel_msg)
+
            ps = PointStamped()
            ps.header.stamp = self.get_clock().now().to_msg()
            ps.header.frame_id = 'world'
@@ -116,15 +130,15 @@ Open the file using your preferred text editor.
            ps.point.y = msg.y
            ps.point.z = 0.0
            self.pub.publish(ps)
-    
- 
+
+
    def main():
        rclpy.init()
-       node = PointPublisher()     
+       node = PointPublisher()
        try:
            rclpy.spin(node)
        except KeyboardInterrupt:
-           pass  
+           pass
        rclpy.shutdown()
 
 
@@ -150,17 +164,17 @@ Afterward, the node publishes the topic ``turtle3/cmd_vel`` and topic ``turtle3/
 
 .. code-block:: python
 
-    self.vel_pub = self.create_publisher(Twist, "/turtle3/cmd_vel",1) 
-    self.sub = self.create_subscription(Pose, "/turtle3/pose",self.handle_turtle_pose, 1) 
+    self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1) 
+    self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1) 
     self.sub
-    self.pub = self.create_publisher(PointStamped, "/turtle3/turtle_point_stamped", 1)
+    self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
 
 Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` moving along a circle, then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages of itself and publish it.
 
 .. code-block:: python
 
     vel_msg = Twist()
-    vel_msg.linear.x =1.0
+    vel_msg.linear.x = 1.0
     vel_msg.angular.z = 1.0
     self.vel_pub.publish(vel_msg) 
     
@@ -179,46 +193,59 @@ In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_m
 
 .. code-block:: python
 
-    from launch import LaunchDescription
-    from launch.actions import DeclareLaunchArgument
-    from launch.substitutions import LaunchConfiguration
+   # Copyright 2021 Open Source Robotics Foundation, Inc.
+   #
+   # Licensed under the Apache License, Version 2.0 (the "License");
+   # you may not use this file except in compliance with the License.
+   # You may obtain a copy of the License at
+   #
+   #     http://www.apache.org/licenses/LICENSE-2.0
+   #
+   # Unless required by applicable law or agreed to in writing, software
+   # distributed under the License is distributed on an "AS IS" BASIS,
+   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   # See the License for the specific language governing permissions and
+   # limitations under the License.
 
-    from launch_ros.actions import Node
+   from launch import LaunchDescription
+   from launch.actions import DeclareLaunchArgument
+   from launch_ros.actions import Node
 
-    def generate_launch_description():
-        return LaunchDescription([
-            DeclareLaunchArgument(
-                'target_frame', default_value='turtle1',
-                description='Target frame name.'
-            ),
-            Node(
-                package='turtlesim',
-                executable='turtlesim_node',
-                name='sim',
-                output='screen'
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster1',
-                parameters=[
-                    {'turtlename': 'turtle1'}
-                ]
-            ),
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_broadcaster',
-                name='broadcaster2',
-                parameters=[
-                    {'turtlename': 'turtle3'}
-                ]
-            ),         
-            Node(
-                package='learning_tf2_py',
-                executable='turtle_tf2_message_broadcaster',
-                name='message_broadcaster',
-            ),
-        ])
+
+   def generate_launch_description():
+       return LaunchDescription([
+           DeclareLaunchArgument(
+               'target_frame', default_value='turtle1',
+               description='Target frame name.'
+           ),
+           Node(
+               package='turtlesim',
+               executable='turtlesim_node',
+               name='sim',
+               output='screen'
+           ),
+           Node(
+               package='turtle_tf2_py',
+               executable='turtle_tf2_broadcaster',
+               name='broadcaster1',
+               parameters=[
+                   {'turtlename': 'turtle1'}
+               ]
+           ),
+           Node(
+               package='turtle_tf2_py',
+               executable='turtle_tf2_broadcaster',
+               name='broadcaster2',
+               parameters=[
+                   {'turtlename': 'turtle3'}
+               ]
+           ),
+           Node(
+               package='turtle_tf2_py',
+               executable='turtle_tf2_message_broadcaster',
+               name='message_broadcaster',
+           ),
+       ])
 
 
 1.3 Add an entry point and build the pakcage
@@ -261,6 +288,20 @@ And then we can build the package:
 Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will use the following code:
 
 .. code-block:: C++
+
+   // Copyright 2021 Open Source Robotics Foundation, Inc.
+   //
+   // Licensed under the Apache License, Version 2.0 (the "License");
+   // you may not use this file except in compliance with the License.
+   // You may obtain a copy of the License at
+   //
+   //     http://www.apache.org/licenses/LICENSE-2.0
+   //
+   // Unless required by applicable law or agreed to in writing, software
+   // distributed under the License is distributed on an "AS IS" BASIS,
+   // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   // See the License for the specific language governing permissions and
+   // limitations under the License.
 
    #include <rclcpp/rclcpp.hpp>
    #include <geometry_msgs/msg/point_stamped.hpp>
