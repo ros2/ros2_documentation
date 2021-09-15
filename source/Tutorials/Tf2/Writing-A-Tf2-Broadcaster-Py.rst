@@ -355,7 +355,7 @@ In the second terminal window type the following command:
 
 You will now see that the turtlesim simulation have started with one turtle that you can control.
 
-.. image:: turtlesim_broadcast.png
+.. image:: images/turtlesim_broadcast.png
 
 Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting broadcast to tf2:
 

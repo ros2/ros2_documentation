@@ -34,7 +34,7 @@ Currently, our tf2 tree contains three frames: ``world``, ``turtle1`` and ``turt
 The two turtle frames are children of the ``world`` frame.
 If we want to add a new frame to tf2, one of the three existing frames needs to be the parent frame, and the new one will become its child frame.
 
-.. image:: turtlesim_frames.png
+.. image:: images/turtlesim_frames.png
 
 Tasks
 -----
@@ -200,7 +200,7 @@ Rebuild the package and start the turtle broadcaster demo:
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
-.. image:: turtlesim_frames_carrot.png
+.. image:: images/turtlesim_frames_carrot.png
 
 1.4 Checking the results
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -229,7 +229,7 @@ To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the `
 
 Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
 
-.. image:: carrot_static.png
+.. image:: images/carrot_static.png
 
 2 Write the dynamic frame broadcaster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -370,7 +370,7 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
 
 Rebuild the package, and start the ``turtle_tf2_dynamic_frame_demo.launch.py`` launch file, and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
 
-.. image:: carrot_dynamic.png
+.. image:: images/carrot_dynamic.png
 
 Summary
 -------
