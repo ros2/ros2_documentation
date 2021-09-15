@@ -73,7 +73,7 @@ Open the file using your preferred text editor.
 
 .. code-block:: python
 
-   # Copyright 2015 Open Source Robotics Foundation, Inc.
+   # Copyright 2021 Open Source Robotics Foundation, Inc.
    #
    # Licensed under the Apache License, Version 2.0 (the "License");
    # you may not use this file except in compliance with the License.
@@ -114,7 +114,6 @@ Open the file using your preferred text editor.
 
            self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1)
            self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1)
-           self.sub
            self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
 
        def handle_turtle_pose(self, msg):
@@ -166,7 +165,6 @@ Afterward, the node publishes the topic ``turtle3/cmd_vel`` and topic ``turtle3/
 
     self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1) 
     self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1) 
-    self.sub
     self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
 
 Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` moving along a circle, then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages of itself and publish it.
@@ -310,7 +308,7 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
    #include <tf2_ros/message_filter.h>
    #include <tf2_ros/buffer.h>
    #include <tf2_ros/create_timer_ros.h>
-   #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+   #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
    #include <message_filters/subscriber.h>
    
    #include <chrono>
@@ -344,25 +342,27 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
        tf2_listener_ =
          std::make_shared<tf2_ros::TransformListener>(*tf2_buffer_);
        point_sub_.subscribe(this, "/turtle3/turtle_point_stamped");
-       tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout); 
+       tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(
+         point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout); 
        tf2_filter_->registerCallback(&PoseDrawer::msgCallback, this);
      }  
 
    //  Callback to register with tf2_ros::MessageFilter to be called when transforms are available
+
    private:
      void msgCallback(const geometry_msgs::msg::PointStamped::SharedPtr point_ptr)
      {
        geometry_msgs::msg::PointStamped point_out;
-       try
-       {
+       try {
          tf2_buffer_->transform(*point_ptr, point_out, target_frame_);
-         RCLCPP_INFO(this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n", 
-             point_out.point.x,
-             point_out.point.y,
-             point_out.point.z);
-       }catch(tf2::TransformException &ex)
-       {
-         RCLCPP_WARN(this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
+         RCLCPP_INFO(
+           this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n", 
+           point_out.point.x,
+           point_out.point.y,
+           point_out.point.z);
+       } catch(tf2::TransformException & ex) {
+         RCLCPP_WARN(
+           this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
        }    
      }
      std::string target_frame_;
@@ -397,7 +397,7 @@ Firstly, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_
    #include <tf2_ros/message_filter.h>
    #include <tf2_ros/buffer.h>
    #include <tf2_ros/create_timer_ros.h>
-   #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+   #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
    #include <message_filters/subscriber.h>
    
 
@@ -436,7 +436,8 @@ Thirdly, the constructor. When starting up the ROS 2 ``message_filters::Subscrib
      tf2_listener_ =
        std::make_shared<tf2_ros::TransformListener>(*tf2_buffer_);
      point_sub_.subscribe(this, "/turtle3/turtle_point_stamped");
-     tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout); 
+     tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(
+       point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout); 
      tf2_filter_->registerCallback(&PoseDrawer::msgCallback, this);
    }  
 
@@ -449,16 +450,16 @@ And lastly, the callback method. Once the data is ready, just call ``tf2_buffer_
      void msgCallback(const geometry_msgs::msg::PointStamped::SharedPtr point_ptr)
      {
        geometry_msgs::msg::PointStamped point_out;
-       try
-       {
+       try {
          tf2_buffer_->transform(*point_ptr, point_out, target_frame_);
-         RCLCPP_INFO(this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n", 
-             point_out.point.x,
-             point_out.point.y,
-             point_out.point.z);
-       }catch(tf2::TransformException &ex)
-       {
-         RCLCPP_WARN(this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
+         RCLCPP_INFO(
+           this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n", 
+           point_out.point.x,
+           point_out.point.y,
+           point_out.point.z);
+       } catch(tf2::TransformException & ex) {
+         RCLCPP_WARN(
+           this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
        }    
      }
 
@@ -485,12 +486,12 @@ After that, add the executable and name it ``turtle_tf2_message_filter``, which 
 
    add_executable(turtle_tf2_message_filter src/turtle_tf2_message_filter.cpp)
    ament_target_dependencies(      
-      geometry_msgs
-      rclcpp
-      tf2
-      tf2_ros
-      tf2_geometry_msgs
-      message_filters
+     geometry_msgs
+     rclcpp
+     tf2
+     tf2_ros
+     tf2_geometry_msgs
+     message_filters
    )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -498,8 +499,8 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 .. code-block:: console
 
    install(TARGETS
-      turtle_tf2_message_filter
-      DESTINATION lib/${PROJECT_NAME})
+     turtle_tf2_message_filter
+     DESTINATION lib/${PROJECT_NAME})
 
 Now open a new terminal, navigate to the root of your workspace, and rebuild the package with command:
 
