@@ -23,10 +23,10 @@ tf2 keeps track of all these frames over time, and allows you to ask questions l
 
 * Where was the head frame relative to the world frame 5 seconds ago?
 * What is the pose of the object in my gripper relative to my base?
-* What is the current pose of the base frame in the map frame? 
+* What is the current pose of the base frame in the map frame?
 
 tf2 can operate in a distributed system.
-This means all the information about the coordinate frames of a robot is available to all ROS 2 components on any computer in the system. 
+This means all the information about the coordinate frames of a robot is available to all ROS 2 components on any computer in the system.
 tf2 can operate with a central server that contains all transform information, or you can have every component in your distributed system build its own transform information database.
 
 Tutorials
@@ -40,12 +40,12 @@ There are essentially two main tasks that any user would use tf2 for, listening 
 
 If you use tf2, you will need to listen for transforms.
 What you will do is to receive and buffer all coordinate frames that are broadcasted in the system, and query for specific transforms between frames.
-Check out the writing a tf2 listener tutorial :ref:`(Python) <WritingATf2ListenerPy>` :ref:`(C++) <WritingATf2ListenerCpp>` to learn more. 
+Check out the writing a tf2 listener tutorial :ref:`(Python) <WritingATf2ListenerPy>` :ref:`(C++) <WritingATf2ListenerCpp>` to learn more.
 
 To extend the capabilities of a robot you will need to start broadcasting transforms.
 Broadcasting transforms means to send out the relative pose of coordinate frames to the rest of the system.
 A system can have many broadcasters that each provide information about a different part of the robot.
-Check out the writing a tf2 broadcaster tutorial :ref:`(Python) <WritingATf2BroadcasterPy>` :ref:`(C++) <WritingATf2BroadcasterCpp>` to learn more. 
+Check out the writing a tf2 broadcaster tutorial :ref:`(Python) <WritingATf2BroadcasterPy>` :ref:`(C++) <WritingATf2BroadcasterCpp>` to learn more.
 
 If your want to define static transforms in your tf2 tree, take a look at writing static tf2 broadcaster :ref:`(Python) <WritingATf2StaticBroadcasterPy>` :ref:`(C++) <WritingATf2StaticBroadcasterCpp>` tutorial.
 You should note that static transforms are published once and assumed to be not changing and therefore no time history stored.
