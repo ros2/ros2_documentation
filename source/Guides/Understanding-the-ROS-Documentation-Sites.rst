@@ -86,7 +86,7 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Notes:
 
   * We are not using the wiki for ROS 2 because of the overhead involved in moderating the wiki.
-    The wiki's functionality for ROS 2 will be replaced by `ROS 2 Docs` (including, per package documentation), `ROS Discourse`_, and `ROS Answers`_
+    The wiki's functionality for ROS 2 will be replaced by `ROS 2 Docs`, `ROS Discourse`_, and `ROS Answers`_
   * The wiki will active until at least the last ROS 1 distribution is EOL.
 
 `ROS.org <https://www.ros.org/>`_
