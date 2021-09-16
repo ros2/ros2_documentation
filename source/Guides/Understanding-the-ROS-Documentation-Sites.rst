@@ -16,6 +16,9 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Purpose:
   A Q&A community website for ROS 1 and 2 that is similar to `Stack Exchange <https://stackexchange.com/>`_.
 
+:References:
+  See the :ref:`Contact Page <Using ROS Answers>` for how to use ROS Answers.
+
 .. _ROS Design Section:
 
 `ROS Design <http://design.ros2.org/>`_
@@ -34,6 +37,9 @@ It should be helpful in understanding where specific resources live, how to ask 
 
 :Purpose:
   A forum for general discussions and announcements for the ROS community.
+
+:References:
+  See the :ref:`Contact Page <Using ROS Discourse>` for more information on discussions on ROS Discourse.
 
 .. _ROS Docs Section:
 
