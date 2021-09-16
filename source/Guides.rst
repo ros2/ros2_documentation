@@ -19,6 +19,7 @@ If you are new and looking to learn the ropes, start with the :ref:`Tutorials <T
    Guides/Installation-Troubleshooting
    Guides/Developing-a-ROS-2-Package
    Guides/Ament-CMake-Documentation
+   Guides/Ament-CMake-Python-Documentation
    Guides/Launch-files-migration-guide
    Guides/Launch-file-different-formats
    Guides/Parameters-YAML-files-migration-guide
