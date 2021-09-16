@@ -8,11 +8,15 @@ Understanding the ROS Documentation Sites
 This guide explains the ROS 1 and ROS 2 documentation infrastructure.
 It should be helpful in understanding where specific resources live, how to ask questions, and which sites are being maintained.
 
+.. _ROS Answers Section:
+
 `ROS Answers <https://answers.ros.org/questions/>`_
 ---------------------------------------------------
 
 :Purpose:
   A Q&A community website for ROS 1 and 2 that is similar to `Stack Exchange <https://stackexchange.com/>`_.
+
+.. _ROS Design Section:
 
 `ROS Design <http://design.ros2.org/>`_
 ---------------------------------------
@@ -23,11 +27,15 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Notes:
   :ref:`REPs Section` are preferable to new documents in ROS Design.
 
+.. _ROS Discourse Section:
+
 `ROS Discourse <https://discourse.ros.org/>`_
 ---------------------------------------------
 
 :Purpose:
   A forum for general discussions and announcements for the ROS community.
+
+.. _ROS Docs Section:
 
 `ROS Docs <https://docs.ros.org>`_ (this site)
 ----------------------------------------------
@@ -37,6 +45,8 @@ It should be helpful in understanding where specific resources live, how to ask 
   * ROS 1 and ROS 2 API documentation
   * ROS 2 core documentation, such as installation instructions, tutorials, guides, roadmap, etc.
 
+.. _REPs Section:
+
 `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`_
 ------------------------------------------------------------------------
 
@@ -44,7 +54,7 @@ It should be helpful in understanding where specific resources live, how to ask 
   A place for ROS 1 and ROS 2 design and conventions.
 
 :Notes:
-  REPs are preferred to ROS Design, since they have a more established review process.
+  REPs are preferable to :ref:`ROS Design Section`, since they have a more established review process.
 
 `ROS Index <https://index.ros.org/>`_
 -------------------------------------
@@ -58,7 +68,7 @@ It should be helpful in understanding where specific resources live, how to ask 
   * Seeing which ROS distributions a package supports (ROS 1 and ROS 2)
   * Linking to a packages repository, API documentation, or website
   * Inspecting a package's license, build type, maintainers, status, and dependencies
-  * Finding questions on `ROS Answers <https://answers.ros.org/questions/>`_ that involve the package
+  * Finding questions on :ref:`ROS Answers Section` that involve the package
 
   You can think of ROS 2 index as something similar to the `Python Package Index (PyPi) <https://pypi.org/>`_ for ROS packages.
 
@@ -89,7 +99,7 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Notes:
 
   * We are not using the wiki for ROS 2 because of the overhead involved in moderating the wiki.
-    The wiki's functionality for ROS 2 will be replaced by `ROS 2 Docs`, `ROS Discourse`_, and `ROS Answers`_
+    The wiki's functionality for ROS 2 will be replaced by :ref:`ROS Docs Section`, :ref:`ROS Discourse Section`, and :ref:`ROS Answers Section`
   * The wiki will active until at least the last ROS 1 distribution is EOL.
 
 `ROS.org <https://www.ros.org/>`_
@@ -105,4 +115,4 @@ Deprecated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ROS 2 docs hosts API documentation for distributions up to and including Galactic.
-From Humble and onwards, API documentation will be hosted at `ROS Docs`_.
+From Humble and onwards, API documentation will be hosted on :ref:`ROS Docs Section`.
