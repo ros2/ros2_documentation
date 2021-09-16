@@ -30,7 +30,7 @@ First, let's go back to where we ended in the previous tutorial :ref:`Learning a
 Go to your ``learning_tf2_cpp`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
-Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to:
+Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
 
 .. code-block:: C++
 
@@ -48,7 +48,7 @@ But what happens after these 5 seconds? Let's just give it a try:
 
     ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
 
-.. image:: turtlesim_delay1.png
+.. image:: images/turtlesim_delay1.png
 
 You should now notice that your turtle is driving around uncontrollably like in this screenshot. Let's try to understand reason behind that behavior.
 
@@ -103,7 +103,7 @@ Let's run the simulation again, this time with the advanced time-travel API:
 
     ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
 
-.. image:: turtlesim_delay2.png
+.. image:: images/turtlesim_delay2.png
 
 And yes, the second turtle is directed to where the first carrot was 5 seconds ago!
 

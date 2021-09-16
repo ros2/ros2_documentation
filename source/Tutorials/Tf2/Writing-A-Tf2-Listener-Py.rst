@@ -23,7 +23,7 @@ In this tutorial we'll create a tf2 listener to start using tf2.
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the writing a :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
+This tutorial assumes you have completed the :ref:`tf2 broadcaster tutorial (Python) <WritingATf2BroadcasterPy>`.
 In the previous tutorial, we created a ``learning_tf2_py`` package, which is where we will continue working from.
 
 Tasks
@@ -202,7 +202,7 @@ Finally, we query the listener for a specific transformation. We call ``lookup_t
 #. The time at which we want to transform
 
 Providing ``rclpy.time.Time()`` will just get us the latest available transform.
-All this is wrapped in a try-except block to catch possible exceptions.
+All this is wrapped in a try-except block to handle possible exceptions.
 
 .. code-block:: python
 
@@ -215,13 +215,15 @@ All this is wrapped in a try-except block to catch possible exceptions.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py`` and add the following lines after your first ``turtle1`` broadcaster node. Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node.
+Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
 
 .. code-block:: python
 
     from launch import LaunchDescription
     from launch.actions import DeclareLaunchArgument
     from launch.substitutions import LaunchConfiguration
+
     from launch_ros.actions import Node
 
     def generate_launch_description():
@@ -272,4 +274,4 @@ Summary
 -------
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
-You also have finished writing your own turtlesim demo that you have tried in the  :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+You also have finished writing your own turtlesim demo that you first tried in :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
