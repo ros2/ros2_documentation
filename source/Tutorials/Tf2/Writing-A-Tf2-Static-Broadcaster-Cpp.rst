@@ -113,7 +113,7 @@ Open the file using your preferred text editor.
    private:
      void make_transforms(char * transformation[])
      {
-       rclcpp::Time now;
+       rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
 
        t.header.stamp = now;
@@ -170,7 +170,7 @@ Open the file using your preferred text editor.
 
 Now let's look at the code that is relevant to publishing the static turtle pose to tf2.
 The first lines include the required header files.
-We include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``TransformStamped`` message type, which we will publish to the transformation tree.
+First we include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``TransformStamped`` message type, which we will publish to the transformation tree.
 
 .. code-block:: C++
 
@@ -191,7 +191,7 @@ We also include ``tf2_ros/static_transform_broadcaster.h`` to use the ``StaticTr
    #include <tf2_ros/static_transform_broadcaster.h>
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
-Then, ``StaticTransformBroadcaster`` is created that will send one static transformation upon the startup.
+Then, ``StaticTransformBroadcaster`` is created, which will send one static transformation upon the startup.
 
 .. code-block:: C++
 
@@ -199,10 +199,10 @@ Then, ``StaticTransformBroadcaster`` is created that will send one static transf
 
    this->make_transforms(transformation);
 
-Here we create a ``TransformStamped`` object which will be the message we will send over once populated.
+Here we create a ``TransformStamped`` object, which will be the message we will send over once populated.
 Before passing the actual transform values we need to give it the appropriate metadata.
 
-#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``rclcpp::Time``
+#. We need to give the transform being published a timestamp and we'll just stamp it with the current time, ``this->get_clock()->now()``
 
 #. Then we need to set the name of the parent frame of the link we're creating, in this case ``world``
 
@@ -210,7 +210,7 @@ Before passing the actual transform values we need to give it the appropriate me
 
 .. code-block:: C++
 
-   rclcpp::Time now;
+   rclcpp::Time now = this->get_clock()->now();
    geometry_msgs::msg::TransformStamped t;
 
    t.header.stamp = now;
@@ -251,7 +251,7 @@ As mentioned in the :ref:`Creating your first ROS 2 package tutorial <CreatePkg>
 
 .. code-block:: xml
 
-  <description>Examples of static transform broadcaster using rclcpp</description>
+  <description>Learning tf2 with rclcpp</description>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
@@ -307,8 +307,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace to
-check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace to check for missing dependencies before building:
 
 .. tabs::
 
@@ -417,8 +416,8 @@ This tutorial aimed to show how ``StaticTransformBroadcaster`` can be used to pu
 In your real development process you shouldn't have to write this code yourself and should use the dedicated ``tf2_ros`` tool to do so.
 ``tf2_ros`` provides an executable named ``static_transform_publisher`` that can be used either as a commandline tool or a node that you can add to your launchfiles.
 
-Publish a static coordinate transform to tf2 using an x/y/z offset in meters and yaw/pitch/roll in radians.
-(yaw is rotation about Z, pitch is rotation about Y, and roll is rotation about X).
+Publish a static coordinate transform to tf2 using an x/y/z offset in meters and roll/pitch/yaw in radians.
+In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectively.
 
 .. code-block:: console
 
@@ -430,8 +429,7 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
 
    ros2 run tf2_ros static_transform_publisher x y z qx qy qz qw frame_id child_frame_id
 
-``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as
-for use within ``launch`` files for setting static transforms. For example:
+``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
 .. code-block:: console
 
