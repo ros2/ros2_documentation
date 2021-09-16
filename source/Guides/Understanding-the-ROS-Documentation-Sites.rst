@@ -14,18 +14,11 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Purpose:
   A Q&A community website for ROS 1 and 2 that is similar to `Stack Exchange <https://stackexchange.com/>`_.
 
-:Notes:
-  We at Open Robotics are actively looking into alternatives.
-
 `ROS Design <http://design.ros2.org/>`_
 ---------------------------------------
 
 :Purpose:
   A place that documents many of the early ROS 2 design decisions.
-
-:Notes:
-  ROS Design was created in the early days of ROS 2 to avoid the process associated with `ROS Enhancement Proposals (REPs)`_.
-  Currently, we at Open Robotics are not adding to ROS Design and are looking to deprecate it after migrating some of its content.
 
 `ROS Discourse <https://discourse.ros.org/>`_
 ---------------------------------------------
@@ -61,7 +54,7 @@ It should be helpful in understanding where specific resources live, how to ask 
 
   * Seeing which ROS distributions a package supports (ROS 1 and ROS 2)
   * Linking to a packages repository, API documentation, or website
-  * Inspect a package's license, build type, maintainers, status, and dependencies
+  * Inspecting a package's license, build type, maintainers, status, and dependencies
   * Finding questions on `ROS Answers <https://answers.ros.org/questions/>`_ that involve the package
 
   You can think of ROS 2 index as something similar to the `Python Package Index (PyPi) <https://pypi.org/>`_ for ROS packages.
@@ -108,5 +101,5 @@ Deprecated
 `ROS 2 Docs <https://docs.ros2.org>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 Docs previously hosted ROS 2 API documentation.
-Currently, ROS 2 Docs redirects to `ROS Docs`_.
+ROS 2 docs hosts API documentation for distributions up to and including Galactic.
+From Humble and onwards, API documentation will be hosted at `ROS Docs`_.
