@@ -56,6 +56,8 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Notes:
   REPs are preferable to :ref:`ROS Design Section`, since they have a more established review process.
 
+.. _ROS Index Section:
+
 `ROS Index <https://index.ros.org/>`_
 -------------------------------------
 
@@ -99,7 +101,7 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Notes:
 
   * We are not using the wiki for ROS 2 because of the overhead involved in moderating the wiki.
-    The wiki's functionality for ROS 2 will be replaced by :ref:`ROS Docs Section`, :ref:`ROS Discourse Section`, and :ref:`ROS Answers Section`
+    The wiki's functionality for ROS 2 will be replaced by :ref:`ROS Docs Section`, :ref:`ROS Index Section`, :ref:`ROS Discourse Section`, and :ref:`ROS Answers Section`
   * The wiki will active until at least the last ROS 1 distribution is EOL.
 
 `ROS.org <https://www.ros.org/>`_
