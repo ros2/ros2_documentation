@@ -20,7 +20,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (19 as of 2021-02-22):
+The current members of the ROS 2 TSC are (20 as of 2021-09-13):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -36,6 +36,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
 .. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
+.. |rosindustrial| image:: Governance/ros-industrial.png
 .. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
 .. |sony| image:: Governance/sony.png
@@ -147,6 +148,10 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="_images/robotis.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROBOTIS: Will Son</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
