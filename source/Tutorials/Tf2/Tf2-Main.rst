@@ -28,6 +28,7 @@ once for C++ and once for Python.
    Learning-About-Tf2-And-Time-Cpp
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
+   Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
 
 Workspace Setup
 ---------------
@@ -69,3 +70,9 @@ Learning tf2
 
    This tutorial teaches you about advanced time travel features of tf2.
 
+Using sensor messages with tf2
+------------------------------
+
+#. :ref:`Using stamped datatypes with tf2_ros::MessageFilter <UsingStampedDatatypesWithTf2RosMessageFilter>`.
+
+   This tutorial teaches you how to use tf2_ros::MessageFilter to process stamped datatypes.
