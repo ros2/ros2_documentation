@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 This tutorial assumes you have completed the :ref:`tf2 broadcaster tutorial (C++) <WritingATf2BroadcasterCpp>`.
-In previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
+In the previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
 
 Tasks
 -----
@@ -152,7 +152,7 @@ Open the file using your preferred text editor.
 
            publisher_->publish(msg);
          } else {
-           RCLCPP_INFO(this->get_logger(), "Successfully spawned %s", result_.get()->name.c_str());
+           RCLCPP_INFO(this->get_logger(), "Successfully spawned");
            turtle_spawned_ = true;
          }
        } else {
@@ -177,7 +177,7 @@ Open the file using your preferred text editor.
                  RCLCPP_ERROR(this->get_logger(), "Service callback result mismatch");
                }
              };
-           result_ = spawner_->async_send_request(request, response_received_callback);
+           auto result = spawner_->async_send_request(request, response_received_callback);
          } else {
            RCLCPP_INFO(this->get_logger(), "Service is not ready");
          }
@@ -188,7 +188,6 @@ Open the file using your preferred text editor.
      bool turtle_spawning_service_ready_;
      // if the turtle was successfully spawned
      bool turtle_spawned_;
-     rclcpp::Client<turtlesim::srv::Spawn>::SharedFuture result_;
      rclcpp::Client<turtlesim::srv::Spawn>::SharedPtr spawner_{nullptr};
      rclcpp::TimerBase::SharedPtr timer_{nullptr};
      rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_{nullptr};
@@ -232,8 +231,8 @@ Finally, we query the listener for a specific transformation. We call ``lookup_t
 
 #. The time at which we want to transform
 
-Providing ``tf2::TimePoint()`` will just get us the latest available transform.
-All this is wrapped in a try-except block to catch possible exceptions.
+Providing ``tf2::TimePointZero()`` will just get us the latest available transform.
+All this is wrapped in a try-catch block to handle possible exceptions.
 
 .. code-block:: C++
 
@@ -244,7 +243,8 @@ All this is wrapped in a try-except block to catch possible exceptions.
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node:
+With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node.
+Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
 
 .. code-block:: python
 
