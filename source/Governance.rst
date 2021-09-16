@@ -151,7 +151,7 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ROS Industrial: Matt Robinson</p></td>
+          <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
