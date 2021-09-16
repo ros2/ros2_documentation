@@ -20,6 +20,9 @@ It should be helpful in understanding where specific resources live, how to ask 
 :Purpose:
   A place that documents many of the early ROS 2 design decisions.
 
+:Notes:
+  :ref:`REPs Section` are preferable to new documents in ROS Design.
+
 `ROS Discourse <https://discourse.ros.org/>`_
 ---------------------------------------------
 
