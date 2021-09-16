@@ -252,7 +252,8 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Now create a launch file for this demo. With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
+Now create a launch file for this demo.
+With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
 
@@ -375,7 +376,7 @@ In the second terminal window type the following command:
 
 You will now see that the turtlesim simulation have started with one turtle that you can control.
 
-.. image:: turtlesim_broadcast.png
+.. image:: images/turtlesim_broadcast.png
 
 Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting broadcast to tf2:
 
