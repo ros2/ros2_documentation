@@ -50,7 +50,7 @@ Check out the writing a tf2 broadcaster tutorial :ref:`(Python) <WritingATf2Broa
 In addition to that, tf2 can broadcast static transforms that do not change over time.
 This mainly saves storage and lookup time, though the publishing overhead is also improved.
 You should note that static transforms are published once and assumed to be not changing and therefore no time history stored.
-If your want to define static transforms in your tf2 tree, take a look at writing static tf2 broadcaster :ref:`(Python) <WritingATf2StaticBroadcasterPy>` :ref:`(C++) <WritingATf2StaticBroadcasterCpp>` tutorial.
+If you want to define static transforms in your tf2 tree, take a look at the writing static tf2 broadcaster :ref:`(Python) <WritingATf2StaticBroadcasterPy>` :ref:`(C++) <WritingATf2StaticBroadcasterCpp>` tutorial.
 
 You can also learn how to add fixed and dynamic frames to your tf2 tree in adding a frame :ref:`(Python) <AddingAFramePy>` :ref:`(C++) <AddingAFrameCpp>` tutorial.
 
