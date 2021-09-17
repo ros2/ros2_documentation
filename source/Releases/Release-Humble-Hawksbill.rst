@@ -263,6 +263,19 @@ The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now i
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
+geometry2
+^^^^^^^^^
+
+Deprecation of TF2Error::NO_ERROR, etc
+""""""""""""""""""""""""""""""""""""""
+
+The ``tf2`` library uses an enumeration called ``TF2Error`` to return errors.
+Unfortunately, one of the enumerators in there is called ``NO_ERROR``, which conflicts with a macro on Windows.
+To remedy this, a new set of enumerators in ``TF2Error`` were created, each with a ``TF2`` prefix.
+The previous enumerators are still available, but are now deprecated and will print a deprecation warning if used.
+All code that uses the ``TF2Error`` enumerator should be updated to use the new ``TF2`` prefixed errors.
+See https://github.com/ros2/geometry2/pull/349 for more details.
+
 
 Known Issues
 ------------
