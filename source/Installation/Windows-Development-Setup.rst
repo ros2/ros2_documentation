@@ -235,6 +235,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    copy python3_d.dll C:\Python38 /Y
    copy python38_d.lib C:\Python38\libs /Y
    copy python3_d.lib C:\Python38\libs /Y
+   copy sqlite3_d.dll C:\Python38\DLLs /Y
    for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
@@ -242,7 +243,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
 .. code-block:: bash
 
-   python_d -c "import _ctypes"
+   python_d -c "import _ctypes ; import coverage"
 
 * Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
 
