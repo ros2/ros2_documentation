@@ -129,6 +129,26 @@ The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
 
+rmw
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more details.
+
+rcl
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more details.
+
 rclcpp
 ^^^^^^
 
