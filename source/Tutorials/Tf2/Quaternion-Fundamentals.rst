@@ -139,7 +139,7 @@ C++
    q_orig.setRPY(0.0, 0.0, 0.0);
    // Rotate the previous pose by 180* about X
    q_rot.setRPY(3.14159, 0.0, 0.0);
-   q_new = q_rot*q_orig;
+   q_new = q_rot * q_orig;
    q_new.normalize();
 
 Python
@@ -172,14 +172,14 @@ You want to find the relative rotation, ``q_r``, that conversts ``q_1`` to ``q_2
 
 .. code-block:: C++
 
-   q_2 = q_r*q_1
+   q_2 = q_r * q_1
 
 You can solve for ``q_r`` similarly to solving a matrix equation.
 Invert ``q_1`` and right-multiply both sides. Again, the order of multiplication is important:
 
 .. code-block:: C++
 
-   q_r = q_2*q_1_inverse
+   q_r = q_2 * q_1_inverse
 
 Here's an example to get the relative rotation from the previous robot pose to the current robot pose in python:
 
