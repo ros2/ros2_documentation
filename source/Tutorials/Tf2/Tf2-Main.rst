@@ -28,6 +28,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
    Debugging-Tf2-Problems
+   Quaternion-Fundamentals
 
 Workspace setup
 ---------------
@@ -70,6 +71,10 @@ Learning tf2
 
 Debugging tf2
 -------------
+
+#. :ref:`Quaternion fundamentals <QuaternionFundamentals>`.
+
+   This tutorial teaches you basics of quaternion usage in ROS 2.
 
 #. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
 
