@@ -38,10 +38,13 @@ So what are the steps to making a working group?
    to do. At this point you should have a list of working group members. Create
    a google group by going to Google groups
    (https://groups.google.com/my-groups) and adding your members.
-   This mailing list should be named `<dashed-name>-working-group-invites@googlegroups.com`.
-   It should be setup such that anyone can join.
-   But no-one can post (aka only owners).
-   Anyone can view members.
+   This mailing list should be named ``<dashed-name>-working-group-invites@googlegroups.com``.
+   It should be setup such that:
+
+     * Anyone can join
+     * No one can post (aka only owners)
+     * Anyone can view members
+
    The mailing list will be used to distribute the invitations only, any communications should use ROS discourse with the working group's tag.
    Please add tfoote@osrfoundation.org as an owner of the mailing list to help with administration.
 
