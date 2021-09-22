@@ -285,7 +285,7 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
     See `this section <building-from-source>` and follow the instructions to get the "master" branches.
   - Trying with a different RMW implementation.
-    See `this page <../Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    See `this page <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Pull requests
 ^^^^^^^^^^^^^

@@ -9,7 +9,7 @@ ROS 2 Documentation
 
    Installation
    Tutorials
-   Guides
+   How-To-Guides
    Concepts
    Contributing
    Contact
@@ -46,7 +46,7 @@ Newcomers and experienced ROS users should consult this overview of our user-cen
 * :ref:`Tutorials <Tutorials>` walk you through small projects and sample usage of ROS 2, so you can learn the ropes by actually using the tools.
   They are organized by progression of necessary skills, making it the best place to start for new users.
 
-* :ref:`Guides <Guides>` answer all your "How do I...?" questions as short and to-the-point as possible, so you can find the information you need without needing to work through the narrative nature of the tutorials for context.
+* :ref:`How-to Guides` answer all your "How do I...?" questions as short and to-the-point as possible, so you can find the information you need without needing to work through the narrative nature of the tutorials for context.
 
 * :ref:`Concepts <ConceptsHome>` are high-level explanations and background information on core ROS 2 concepts,
   which should provide some context for topics covered in the tutorials.

@@ -9,7 +9,7 @@ index_pattern:
   - index.rst
   - Installation.rst
   - Tutorials.rst
-  - Guides.rst
+  - How-To-Guides.rst
   - Concepts.rst
   - Contributing.rst
   - Releases.rst
