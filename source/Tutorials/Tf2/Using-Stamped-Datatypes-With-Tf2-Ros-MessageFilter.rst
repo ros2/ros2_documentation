@@ -26,7 +26,8 @@ Suppose that a new turtle named ``turtle3`` is created and it doesn't have good 
 
 ``turtle1`` wants to know where ``turtle3`` is compared to itself.
 
-To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do it's operations. To make this easier the ``tf2_ros::MessageFilter`` is very useful. The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
+To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do it's operations.
+To make this easier the ``tf2_ros::MessageFilter`` is very useful. The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
 Setting the example
 -------------------
@@ -43,31 +44,31 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
 .. tabs::
 
-    .. group-tab:: Linux
+  .. group-tab:: Linux
 
-        .. code-block:: console
+    .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
+       wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
 
-    .. group-tab:: macOS
+  .. group-tab:: macOS
 
-        .. code-block:: console
+    .. code-block:: console
 
-            wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
+       wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py
 
-    .. group-tab:: Windows
+  .. group-tab:: Windows
 
-        In a Windows command line prompt:
+    In a Windows command line prompt:
 
-        .. code-block:: console
+    .. code-block:: console
 
-                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
+       curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
 
-        Or in powershell:
+    Or in powershell:
 
-        .. code-block:: console
+    .. code-block:: console
 
-                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
+       curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_message_broadcaster.py -o turtle_tf2_message_broadcaster.py
 
 Open the file using your preferred text editor.
 
@@ -102,19 +103,49 @@ Open the file using your preferred text editor.
        def __init__(self):
            super().__init__('turtle_tf2_message_broadcaster')
 
-           self.client = self.create_client(Spawn, 'spawn')
-           while not self.client.wait_for_service(timeout_sec=1.0):
-               self.get_logger().info('service not available, waiting again...')
-           request = Spawn.Request()
-           request.name = 'turtle3'
-           request.x = float(4)
-           request.y = float(2)
-           request.theta = float(0)
-           self.client.call_async(request)
+           # Create a client to spawn a turtle
+           self.spawner = self.create_client(Spawn, 'spawn')
+           # Boolean values to store the information
+           # if the service for spawning turtle is available
+           self.turtle_spawning_service_ready = False
+           # if the turtle was successfully spawned
+           self.turtle_spawned = False
+           # if the topics of turtle3 can be subscribed
+           self.turtle_pose_cansubscribe = False
 
-           self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1)
-           self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1)
-           self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
+           self.timer = self.create_timer(1.0, self.on_timer)
+
+       def on_timer(self):
+           if self.turtle_spawning_service_ready:
+               if self.turtle_spawned:
+                   self.turtle_pose_cansubscribe = True
+               else:
+                   if self.result.done():
+                       self.get_logger().info(
+                           f'Successfully spawned {self.result.result().name}')
+                       self.turtle_spawned = True
+                   else:
+                       self.get_logger().info('Spawn is not finished')
+           else:
+               if self.spawner.service_is_ready():
+                   # Initialize request with turtle name and coordinates
+                   # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+                   request = Spawn.Request()
+                   request.name = 'turtle3'
+                   request.x = float(4)
+                   request.y = float(2)
+                   request.theta = float(0)
+                   # Call request
+                   self.result = self.spawner.call_async(request)
+                   self.turtle_spawning_service_ready = True
+               else:
+                   # Check if the service is ready
+                   self.get_logger().info('Service is not ready')
+
+           if self.turtle_pose_cansubscribe:
+               self.vel_pub = self.create_publisher(Twist, 'turtle3/cmd_vel', 10)
+               self.sub = self.create_subscription(Pose, 'turtle3/pose', self.handle_turtle_pose, 10)
+               self.pub = self.create_publisher(PointStamped, 'turtle3/turtle_point_stamped', 10)
 
        def handle_turtle_pose(self, msg):
            vel_msg = Twist()
@@ -138,6 +169,7 @@ Open the file using your preferred text editor.
            rclpy.spin(node)
        except KeyboardInterrupt:
            pass
+
        rclpy.shutdown()
 
 
@@ -145,44 +177,44 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's take a look at the code.
-Firstly, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0).
+Firstly, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
 
 .. code-block:: python
 
-    self.client = self.create_client(Spawn, 'spawn')
-    while not self.client.wait_for_service(timeout_sec=1.0):
-        self.get_logger().info('service not available, waiting again...')
-    request = Spawn.Request()
-    request.name = 'turtle3'
-    request.x = float(4)
-    request.y = float(2)
-    request.theta = float(0)
-    self.client.call_async(request)
+   # Initialize request with turtle name and coordinates
+   # Note that x, y and theta are defined as floats in turtlesim/srv/Spawn
+   request = Spawn.Request()
+   request.name = 'turtle3'
+   request.x = float(4)
+   request.y = float(2)
+   request.theta = float(0)
+   Call request
+   self.result = self.spawner.call_async(request)
 
-Afterward, the node publishes the topic ``turtle3/cmd_vel`` and topic ``turtle3/turtle_point_stamped``, and subscribes to topic ``turtle3/pose`` and runs callback function ``handle_turtle_pose`` on every incoming message.
+Afterward, the node publishes the topic ``turtle3/cmd_vel``, topic ``turtle3/turtle_point_stamped``, and subscribes to topic ``turtle3/pose`` and runs callback function ``handle_turtle_pose`` on every incoming message.
 
 .. code-block:: python
 
-    self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 1)
-    self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 1)
-    self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 1)
+   self.vel_pub = self.create_publisher(Twist, '/turtle3/cmd_vel', 10)
+   self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 10)
+   self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 10)
 
 Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` moving along a circle, then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages of itself and publish it.
 
 .. code-block:: python
 
-    vel_msg = Twist()
-    vel_msg.linear.x = 1.0
-    vel_msg.angular.z = 1.0
-    self.vel_pub.publish(vel_msg)
+   vel_msg = Twist()
+   vel_msg.linear.x = 1.0
+   vel_msg.angular.z = 1.0
+   self.vel_pub.publish(vel_msg)
 
-    ps = PointStamped()
-    ps.header.stamp = self.get_clock().now().to_msg()
-    ps.header.frame_id = 'world'
-    ps.point.x = msg.x
-    ps.point.y = msg.y
-    ps.point.z = 0.0
-    self.pub.publish(ps)
+   ps = PointStamped()
+   ps.header.stamp = self.get_clock().now().to_msg()
+   ps.header.frame_id = 'world'
+   ps.point.x = msg.x
+   ps.point.y = msg.y
+   ps.point.z = 0.0
+   self.pub.publish(ps)
 
 1.2 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -253,9 +285,9 @@ Don't forget to add the executable in the ``setup.py`` file of the package:
 
 .. code-block:: python
 
-    'console_scripts': [
-        'turtle_tf2_msg_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
-    ],
+   'console_scripts': [
+       'turtle_tf2_msg_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
+   ],
 
 And then we can build the package:
 
@@ -265,19 +297,19 @@ And then we can build the package:
 
     .. code-block:: console
 
-      colcon build --packages-select learning_tf2_py
+       colcon build --packages-select learning_tf2_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select learning_tf2_py
+       colcon build --packages-select learning_tf2_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select learning_tf2_py
+       colcon build --merge-install --packages-select learning_tf2_py
 
 
 2 Writing the message filter/listener node
@@ -301,23 +333,25 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
    // See the License for the specific language governing permissions and
    // limitations under the License.
 
-   #include <rclcpp/rclcpp.hpp>
    #include <geometry_msgs/msg/point_stamped.hpp>
+   #include <message_filters/subscriber.h>
 
-   #include <tf2_ros/transform_listener.h>
-   #include <tf2_ros/message_filter.h>
+   #include <rclcpp/rclcpp.hpp>
    #include <tf2_ros/buffer.h>
    #include <tf2_ros/create_timer_ros.h>
-   #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
-   #include <message_filters/subscriber.h>
+   #include <tf2_ros/message_filter.h>
+   #include <tf2_ros/transform_listener.h>
+   #ifdef TF2_CPP_HEADERS
+     #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+   #else
+     #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+   #endif
 
    #include <chrono>
    #include <memory>
    #include <string>
 
-   using std::placeholders::_1;
    using namespace std::chrono_literals;
-
 
    class PoseDrawer : public rclcpp::Node
    {
@@ -325,29 +359,30 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
      PoseDrawer()
      : Node("turtle_tf2_pose_drawer")
      {
-       auto node = rclcpp::Node::make_shared("tf2_ros_message_filter");
-       auto create_timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
-         node->get_node_base_interface(),
-         node->get_node_timers_interface());
-       typedef std::chrono::duration<int> seconds_type;
-       seconds_type buffer_timeout(1);
-
        // Declare and acquire `target_frame` parameter
        this->declare_parameter<std::string>("target_frame", "turtle1");
        this->get_parameter("target_frame", target_frame_);
 
-       rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
-       tf2_buffer_ = std::make_shared<tf2_ros::Buffer>(node->get_clock());
-       tf2_buffer_->setCreateTimerInterface(create_timer_interface);
+       typedef std::chrono::duration<int> seconds_type;
+       seconds_type buffer_timeout(1);
+
+       tf2_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+       // Create the timer interface before call to waitForTransform,
+       // to avoid a tf2_ros::CreateTimerInterfaceException exception
+       auto timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
+         this->get_node_base_interface(),
+         this->get_node_timers_interface());
+       tf2_buffer_->setCreateTimerInterface(timer_interface);
        tf2_listener_ =
          std::make_shared<tf2_ros::TransformListener>(*tf2_buffer_);
+
        point_sub_.subscribe(this, "/turtle3/turtle_point_stamped");
        tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(
-         point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout);
+         point_sub_, *tf2_buffer_, target_frame_, 100, this->get_node_logging_interface(),
+         this->get_node_clock_interface(), buffer_timeout);
+       // Register a callback with tf2_ros::MessageFilter to be called when transforms are available
        tf2_filter_->registerCallback(&PoseDrawer::msgCallback, this);
      }
-
-   //  Callback to register with tf2_ros::MessageFilter to be called when transforms are available
 
    private:
      void msgCallback(const geometry_msgs::msg::PointStamped::SharedPtr point_ptr)
@@ -356,13 +391,14 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
        try {
          tf2_buffer_->transform(*point_ptr, point_out, target_frame_);
          RCLCPP_INFO(
-           this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n",
+           this->get_logger(), "Point of turtle3 in frame of turtle1: x:%f y:%f z:%f\n",
            point_out.point.x,
            point_out.point.y,
            point_out.point.z);
-       } catch(tf2::TransformException & ex) {
+       } catch (tf2::TransformException & ex) {
          RCLCPP_WARN(
-           this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
+           // Print exception which was caught
+           this->get_logger(), "Failure %s\n", ex.what());
        }
      }
      std::string target_frame_;
@@ -390,15 +426,19 @@ Firstly, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_
 
 .. code-block:: C++
 
-   #include <rclcpp/rclcpp.hpp>
    #include <geometry_msgs/msg/point_stamped.hpp>
+   #include <message_filters/subscriber.h>
 
-   #include <tf2_ros/transform_listener.h>
-   #include <tf2_ros/message_filter.h>
+   #include <rclcpp/rclcpp.hpp>
    #include <tf2_ros/buffer.h>
    #include <tf2_ros/create_timer_ros.h>
-   #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
-   #include <message_filters/subscriber.h>
+   #include <tf2_ros/message_filter.h>
+   #include <tf2_ros/transform_listener.h>
+   #ifdef TF2_CPP_HEADERS
+     #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+   #else
+     #include <tf2_geometry_msgs/tf2_geometry_msgs.h>
+   #endif
 
 
 Secondly, the persistent data. There need to be persistent instances of ``tf2_ros::Buffer``, ``tf2_ros::TransformListener`` and ``tf2_ros::MessageFilter``.
@@ -412,56 +452,62 @@ Secondly, the persistent data. There need to be persistent instances of ``tf2_ro
    std::shared_ptr<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>> tf2_filter_;
 
 
-Thirdly, the constructor. When starting up the ROS 2 ``message_filters::Subscriber`` must be initialized with the topic. And the ``tf2_ros::MessageFilter`` must be initialized with that ``Subscriber`` object. The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and callback function. The target frame is the frame into which it will make sure ``canTransform`` will succeed. And the callback function is the function which will be called when the data is ready.
+Thirdly, the constructor. When starting up the ROS 2 ``message_filters::Subscriber`` must be initialized with the topic. And the ``tf2_ros::MessageFilter`` must be initialized with that ``Subscriber`` object.
+The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and callback function. The target frame is the frame into which it will make sure ``canTransform`` will succeed. And the callback function is the function which will be called when the data is ready.
 
 .. code-block:: C++
 
    PoseDrawer()
    : Node("turtle_tf2_pose_drawer")
    {
-     auto node = rclcpp::Node::make_shared("tf2_ros_message_filter");
-     auto create_timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
-       node->get_node_base_interface(),
-       node->get_node_timers_interface());
-     typedef std::chrono::duration<int> seconds_type;
-     seconds_type buffer_timeout(1);
-
      // Declare and acquire `target_frame` parameter
      this->declare_parameter<std::string>("target_frame", "turtle1");
      this->get_parameter("target_frame", target_frame_);
 
-     rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
-     tf2_buffer_ = std::make_shared<tf2_ros::Buffer>(node->get_clock());
-     tf2_buffer_->setCreateTimerInterface(create_timer_interface);
+     typedef std::chrono::duration<int> seconds_type;
+     seconds_type buffer_timeout(1);
+
+     tf2_buffer_ = std::make_shared<tf2_ros::Buffer>(this->get_clock());
+     // Create the timer interface before call to waitForTransform,
+     // to avoid a tf2_ros::CreateTimerInterfaceException exception
+     auto timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
+       this->get_node_base_interface(),
+       this->get_node_timers_interface());
+     tf2_buffer_->setCreateTimerInterface(timer_interface);
      tf2_listener_ =
        std::make_shared<tf2_ros::TransformListener>(*tf2_buffer_);
+
      point_sub_.subscribe(this, "/turtle3/turtle_point_stamped");
      tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(
-       point_sub_, *tf2_buffer_, target_frame_, 10, node, buffer_timeout);
+       point_sub_, *tf2_buffer_, target_frame_, 100, this->get_node_logging_interface(),
+       this->get_node_clock_interface(), buffer_timeout);
+     // Register a callback with tf2_ros::MessageFilter to be called when transforms are available
      tf2_filter_->registerCallback(&PoseDrawer::msgCallback, this);
    }
+
 
 And lastly, the callback method. Once the data is ready, just call ``tf2_buffer_->transform`` and print to screen for the tutorial.
 
 .. code-block:: C++
 
-   //  Callback to register with tf2_ros::MessageFilter to be called when transforms are available
    private:
-     void msgCallback(const geometry_msgs::msg::PointStamped::SharedPtr point_ptr)
-     {
-       geometry_msgs::msg::PointStamped point_out;
-       try {
-         tf2_buffer_->transform(*point_ptr, point_out, target_frame_);
-         RCLCPP_INFO(
-           this->get_logger(), "point of turtle 3 in frame of turtle 1 Position(x:%f y:%f z:%f)\n",
-           point_out.point.x,
-           point_out.point.y,
-           point_out.point.z);
-       } catch(tf2::TransformException & ex) {
-         RCLCPP_WARN(
-           this->get_logger(), "Failure %s\n", ex.what()); //Print exception which was caught
-       }
+   void msgCallback(const geometry_msgs::msg::PointStamped::SharedPtr point_ptr)
+   {
+     geometry_msgs::msg::PointStamped point_out;
+     try {
+       tf2_buffer_->transform(*point_ptr, point_out, target_frame_);
+       RCLCPP_INFO(
+         this->get_logger(), "Point of turtle3 in frame of turtle1: x:%f y:%f z:%f\n",
+         point_out.point.x,
+         point_out.point.y,
+         point_out.point.z);
+     } catch (tf2::TransformException & ex) {
+       RCLCPP_WARN(
+         // Print exception which was caught
+         this->get_logger(), "Failure %s\n", ex.what());
      }
+   }
+
 
 2.2 Build the package
 ~~~~~~~~~~~~~~~~~~~~~
@@ -470,15 +516,27 @@ Before building the package ``learning_tf2_cpp``, please add two another depende
 
 .. code-block:: xml
 
-   <depend>tf2_geometry_msgs</depend>
    <depend>message_filters</depend>
+   <depend>tf2_geometry_msgs</depend>
+
 
 And in the ``CMakeLists.txt`` file, add two lines below the existing dependencies:
 
 .. code-block:: console
 
-   find_package(tf2_geometry_msgs REQUIRED)
    find_package(message_filters REQUIRED)
+   find_package(tf2_geometry_msgs REQUIRED)
+
+Most import, add these lines below the dependencies:
+
+.. code-block:: console
+
+   find_file(TF2_CPP_HEADERS
+     NAMES tf2_geometry_msgs.hpp
+     PATHS ${tf2_geometry_msgs_INCLUDE_DIRS}
+     NO_CACHE
+     PATH_SUFFIXES tf2_geometry_msgs
+   )
 
 After that, add the executable and name it ``turtle_tf2_message_filter``, which you'll use later with ``ros2 run``.
 
@@ -486,12 +544,13 @@ After that, add the executable and name it ``turtle_tf2_message_filter``, which 
 
    add_executable(turtle_tf2_message_filter src/turtle_tf2_message_filter.cpp)
    ament_target_dependencies(
+     turtle_tf2_message_filter
      geometry_msgs
+     message_filters
      rclcpp
      tf2
-     tf2_ros
      tf2_geometry_msgs
-     message_filters
+     tf2_ros
    )
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
@@ -506,23 +565,23 @@ Now open a new terminal, navigate to the root of your workspace, and rebuild the
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: console
+    .. code-block:: console
 
-         colcon build --packages-select learning_tf2_cpp
+       colcon build --packages-select learning_tf2_cpp
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-         colcon build --packages-select learning_tf2_cpp
+       colcon build --packages-select learning_tf2_cpp
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      .. code-block:: console
+    .. code-block:: console
 
-         colcon build --merge-install --packages-select learning_tf2_cpp
+       colcon build --merge-install --packages-select learning_tf2_cpp
 
 
 
@@ -594,13 +653,13 @@ If it's running right you should see streaming data like this:
 
 .. code-block:: console
 
-   [INFO] [1630016162.006173900] [turtle_tf2_pose_drawer]: point of turtle 3 in frame of turtle 1 Position(x:-6.493231 y:-2.961614 z:0.000000)
+   [INFO] [1630016162.006173900] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.493231 y:-2.961614 z:0.000000
 
-   [INFO] [1630016162.006291983] [turtle_tf2_pose_drawer]: point of turtle 3 in frame of turtle 1 Position(x:-6.472169 y:-3.004742 z:0.000000)
+   [INFO] [1630016162.006291983] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.472169 y:-3.004742 z:0.000000
 
-   [INFO] [1630016162.006326234] [turtle_tf2_pose_drawer]: point of turtle 3 in frame of turtle 1 Position(x:-6.479420 y:-2.990479 z:0.000000)
+   [INFO] [1630016162.006326234] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.479420 y:-2.990479 z:0.000000
 
-   [INFO] [1630016162.006355644] [turtle_tf2_pose_drawer]: point of turtle 3 in frame of turtle 1 Position(x:-6.486441 y:-2.976102 z:0.000000)
+   [INFO] [1630016162.006355644] [turtle_tf2_pose_drawer]: Point of turtle3 in frame of turtle1: x:-6.486441 y:-2.976102 z:0.000000
 
 
 Summary
