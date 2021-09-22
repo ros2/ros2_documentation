@@ -16,7 +16,7 @@ Quaternion fundamentals
 Background
 ----------
 
-A quaternion is a 4-tuple representation of orientation, which is a more concise than a rotation matrix.
+A quaternion is a 4-tuple representation of orientation, which is more concise than a rotation matrix.
 Quaternions are very efficient for analyzing situations where rotations in three dimensions are involved.
 Quaternions are used widely in robotics, quantum mechanics, computer vision, and 3D animation.
 
@@ -165,7 +165,7 @@ An easy way to invert a quaternion is to negate the w-component:
 ^^^^^^^^^^^^^^^^^^^^
 
 Say you have two quaternions from the same frame, ``q_1`` and ``q_2``.
-You want to find the relative rotation, ``q_r``, that conversts ``q_1`` to ``q_2`` in a following manner:
+You want to find the relative rotation, ``q_r``, that converts ``q_1`` to ``q_2`` in a following manner:
 
 .. code-block:: C++
 
