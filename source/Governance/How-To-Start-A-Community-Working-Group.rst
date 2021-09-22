@@ -74,7 +74,7 @@ So what are the steps to making a working group?
    c) URLs / Links / Contact Info for the meeting. Open Robotics uses Google
       Hangouts, but you can use whatever technology you would like.
 
-   When you schedule your meeting, create an event on the ROS Calendar and invite the google group so that anyone interested can sign up for automatic invitiations.
+   When you schedule your meeting, create an event on the ROS Calendar and invite the Google group so that anyone interested can sign up for automatic invitations.
 
 #. Have your meetings! Regularly!
 
