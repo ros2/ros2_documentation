@@ -45,7 +45,7 @@ So what are the steps to making a working group?
      * No one can post (aka only owners)
      * Anyone can view members
 
-   The mailing list will be used to distribute the invitations only, any communications should use ROS discourse with the working group's tag.
+   The mailing list will be used to distribute the invitations only, any communications should use `ROS discourse <https://discourse.ros.org>`__ with the working group's tag.
    Please add tfoote@osrfoundation.org as an owner of the mailing list to help with administration.
 
 #. Now that you have an e-mail group you can associate that group with the ROS
