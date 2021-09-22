@@ -8,6 +8,7 @@ ROS 2 Documentation
    :hidden:
 
    Installation
+   Docs-Guide
    Tutorials
    Guides
    Concepts

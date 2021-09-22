@@ -1,5 +1,5 @@
-Understanding the ROS Documentation Sites
-=========================================
+Docs Guide
+==========
 
 .. contents:: Table of Contents
    :depth: 2

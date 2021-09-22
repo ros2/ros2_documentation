@@ -16,7 +16,6 @@ If you are new and looking to learn the ropes, start with the :ref:`Tutorials <T
 .. toctree::
    :maxdepth: 1
 
-   Guides/Understanding-the-ROS-Documentation-Sites
    Guides/Installation-Troubleshooting
    Guides/Developing-a-ROS-2-Package
    Guides/Ament-CMake-Documentation
