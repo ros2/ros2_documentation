@@ -588,7 +588,7 @@ This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` 
 
    ros2 run turtlesim turtle_teleop_key
 
-.. image:: turtlesim_messagefilter.png
+.. image:: images/turtlesim_messagefilter.png
 
 Now if you echo the topic ``turtle3/turtle_point_stamped``:
 

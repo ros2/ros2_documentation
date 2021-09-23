@@ -28,8 +28,8 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Time-Travel-With-Tf2-Py
    Time-Travel-With-Tf2-Cpp
    Debugging-Tf2-Problems
-   Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
    Quaternion-Fundamentals
+   Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
 
 Workspace setup
 ---------------
@@ -72,6 +72,10 @@ Learning tf2
 
 Debugging tf2
 -------------
+
+#. :ref:`Quaternion fundamentals <QuaternionFundamentals>`.
+
+   This tutorial teaches you basics of quaternion usage in ROS 2.
 
 #. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
 
