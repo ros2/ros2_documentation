@@ -45,7 +45,7 @@ Newcomers and experienced ROS users should consult this overview of our user-cen
   You can choose your platform as well as the installation type and distribution that suits your needs.
 
 * The :ref:`Docs Guide` explains the ROS 1 and ROS 2 documentation infrastructure.
-  It should be helpful in understanding where specific resources live, how to ask questions, and which sites are being maintained.
+  It is helpful in understanding where specific resources live, how to ask questions, and which sites are maintained.
 
 * :ref:`Tutorials <Tutorials>` walk you through small projects and sample usage of ROS 2, so you can learn the ropes by actually using the tools.
   They are organized by progression of necessary skills, making it the best place to start for new users.

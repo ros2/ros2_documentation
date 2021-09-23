@@ -2,7 +2,7 @@ Docs Guide
 ==========
 
 This guide explains the ROS 1 and ROS 2 documentation infrastructure.
-It should be helpful in understanding where specific resources live, how to ask questions, and which sites are being maintained.
+It is helpful in understanding where specific resources live, how to ask questions, and which sites are maintained.
 
 .. contents:: Table of Contents
    :depth: 2
