@@ -3,9 +3,9 @@
 Using stamped datatypes with tf2_ros::MessageFilter
 ===================================================
 
-**Goal:** Learn how to use tf2_ros::MessageFilter to process stamped datatypes.
+**Goal:** Learn how to use ``tf2_ros::MessageFilter`` to process stamped datatypes.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 10 minutes
 
@@ -26,8 +26,7 @@ Suppose that a new turtle named ``turtle3`` is created and it doesn't have good 
 
 ``turtle1`` wants to know where ``turtle3`` is compared to itself.
 
-To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do it's operations.
-To make this easier the ``tf2_ros::MessageFilter`` is very useful. The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
+To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do its operations. To make this easier the ``tf2_ros::MessageFilter`` is very useful. The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
 Setting the example
 -------------------
@@ -35,7 +34,7 @@ Setting the example
 1 Write the broadcaster node of PointStamped messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For this tutorial we will set up a demo application which has a node (in Python) to broadcast the ``PointStamped`` messages of ``turtle3``.
+For this tutorial we will set up a demo application which has a node (in Python) to broadcast the ``PointStamped`` position messages of ``turtle3``.
 
 First, let's create the source file.
 
@@ -73,20 +72,6 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 Open the file using your preferred text editor.
 
 .. code-block:: python
-
-   # Copyright 2021 Open Source Robotics Foundation, Inc.
-   #
-   # Licensed under the Apache License, Version 2.0 (the "License");
-   # you may not use this file except in compliance with the License.
-   # You may obtain a copy of the License at
-   #
-   #     http://www.apache.org/licenses/LICENSE-2.0
-   #
-   # Unless required by applicable law or agreed to in writing, software
-   # distributed under the License is distributed on an "AS IS" BASIS,
-   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   # See the License for the specific language governing permissions and
-   # limitations under the License.
 
    from geometry_msgs.msg import PointStamped
    from geometry_msgs.msg import Twist
@@ -199,7 +184,7 @@ Afterward, the node publishes the topic ``turtle3/cmd_vel``, topic ``turtle3/tur
    self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 10)
    self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 10)
 
-Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` moving along a circle, then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages of itself and publish it.
+Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` move along a circle. Then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages and publish them.
 
 .. code-block:: python
 
@@ -222,20 +207,6 @@ Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Tw
 In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_message.launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_py``:
 
 .. code-block:: python
-
-   # Copyright 2021 Open Source Robotics Foundation, Inc.
-   #
-   # Licensed under the Apache License, Version 2.0 (the "License");
-   # you may not use this file except in compliance with the License.
-   # You may obtain a copy of the License at
-   #
-   #     http://www.apache.org/licenses/LICENSE-2.0
-   #
-   # Unless required by applicable law or agreed to in writing, software
-   # distributed under the License is distributed on an "AS IS" BASIS,
-   # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   # See the License for the specific language governing permissions and
-   # limitations under the License.
 
    from launch import LaunchDescription
    from launch.actions import DeclareLaunchArgument
@@ -286,7 +257,8 @@ Don't forget to add the executable in the ``setup.py`` file of the package:
 .. code-block:: python
 
    'console_scripts': [
-       'turtle_tf2_msg_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
+       ...
+       'turtle_tf2_message_broadcaster = learning_tf2_py.turtle_tf2_message_broadcaster:main',
    ],
 
 And then we can build the package:
@@ -315,23 +287,41 @@ And then we can build the package:
 2 Writing the message filter/listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will use the following code:
+Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file at first.
+
+Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+       wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp
+
+  .. group-tab:: Windows
+
+    In a Windows command line prompt:
+
+    .. code-block:: console
+
+       curl -sk wget https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
+
+    Or in powershell:
+
+    .. code-block:: console
+
+       curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_message_filter.cpp -o turtle_tf2_message_filter.cpp
+
+Open the file using your preferred text editor.
 
 .. code-block:: C++
-
-   // Copyright 2021 Open Source Robotics Foundation, Inc.
-   //
-   // Licensed under the Apache License, Version 2.0 (the "License");
-   // you may not use this file except in compliance with the License.
-   // You may obtain a copy of the License at
-   //
-   //     http://www.apache.org/licenses/LICENSE-2.0
-   //
-   // Unless required by applicable law or agreed to in writing, software
-   // distributed under the License is distributed on an "AS IS" BASIS,
-   // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   // See the License for the specific language governing permissions and
-   // limitations under the License.
 
    #include <geometry_msgs/msg/point_stamped.hpp>
    #include <message_filters/subscriber.h>
@@ -417,8 +407,6 @@ Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of `
    }
 
 
-You can download this code directly from file ``turtle_tf2_message_filter.cpp`` in the ``src`` subdirectory of the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>`.
-
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -453,7 +441,7 @@ Secondly, the persistent data. There need to be persistent instances of ``tf2_ro
 
 
 Thirdly, the constructor. When starting up the ROS 2 ``message_filters::Subscriber`` must be initialized with the topic. And the ``tf2_ros::MessageFilter`` must be initialized with that ``Subscriber`` object.
-The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and callback function. The target frame is the frame into which it will make sure ``canTransform`` will succeed. And the callback function is the function which will be called when the data is ready.
+The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and the callback function. The target frame is the frame into which it will make sure ``canTransform`` will succeed. And the callback function is the function that will be called when the data is ready.
 
 .. code-block:: C++
 
@@ -486,7 +474,7 @@ The other arguments of note in the ``MessageFilter`` constructor are the ``targe
    }
 
 
-And lastly, the callback method. Once the data is ready, just call ``tf2_buffer_->transform`` and print to screen for the tutorial.
+And lastly, the callback method. Once the data is ready, just call ``tf2_buffer_->transform`` and print outputs to the console.
 
 .. code-block:: C++
 
@@ -553,7 +541,7 @@ After that, add the executable and name it ``turtle_tf2_message_filter``, which 
      tf2_ros
    )
 
-Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
+Finally, add the ``install(TARGETS…)`` section (below other existing nodes) so ``ros2 run`` can find your executable:
 
 .. code-block:: console
 
@@ -665,4 +653,4 @@ If it's running right you should see streaming data like this:
 Summary
 -------
 
-In this tutorial you learned how to use sensor data/messages in tf2. Specifically speaking, you learned how to publish PointStamped messages on a topic, and how to listen to the topic and transform the frame of PointStamped messages with tf2_ros::MessageFilter.
+In this tutorial you learned how to use sensor data/messages in tf2. Specifically speaking, you learned how to publish ``PointStamped`` messages on a topic, and how to listen to the topic and transform the frame of ``PointStamped`` messages with ``tf2_ros::MessageFilter``.

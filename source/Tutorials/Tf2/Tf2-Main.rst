@@ -81,4 +81,4 @@ Using sensor messages with tf2
 
 #. :ref:`Using stamped datatypes with tf2_ros::MessageFilter <UsingStampedDatatypesWithTf2RosMessageFilter>`.
 
-   This tutorial teaches you how to use tf2_ros::MessageFilter to process stamped datatypes.
+   This tutorial teaches you how to use ``tf2_ros::MessageFilter`` to process stamped datatypes.
