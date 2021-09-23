@@ -129,6 +129,26 @@ The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
 
+rmw
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more details.
+
+rcl
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more details.
+
 rclcpp
 ^^^^^^
 
@@ -262,6 +282,19 @@ Deprecation of ``rosidl_target_interfaces()``
 The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now issues a CMake warning when called.
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
+
+geometry2
+^^^^^^^^^
+
+Deprecation of TF2Error::NO_ERROR, etc
+""""""""""""""""""""""""""""""""""""""
+
+The ``tf2`` library uses an enumeration called ``TF2Error`` to return errors.
+Unfortunately, one of the enumerators in there is called ``NO_ERROR``, which conflicts with a macro on Windows.
+To remedy this, a new set of enumerators in ``TF2Error`` were created, each with a ``TF2`` prefix.
+The previous enumerators are still available, but are now deprecated and will print a deprecation warning if used.
+All code that uses the ``TF2Error`` enumerator should be updated to use the new ``TF2`` prefixed errors.
+See https://github.com/ros2/geometry2/pull/349 for more details.
 
 
 Known Issues
