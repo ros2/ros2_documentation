@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Guides
+
 .. _How-to Guides:
 
 How-to Guides
