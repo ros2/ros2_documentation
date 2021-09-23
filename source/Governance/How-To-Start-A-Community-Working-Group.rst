@@ -38,6 +38,15 @@ So what are the steps to making a working group?
    to do. At this point you should have a list of working group members. Create
    a google group by going to Google groups
    (https://groups.google.com/my-groups) and adding your members.
+   This mailing list should be named ``<dashed-name>-working-group-invites@googlegroups.com``.
+   It should be setup such that:
+
+     * Anyone can join
+     * No one can post (aka only owners)
+     * Anyone can view members
+
+   The mailing list will be used to distribute the invitations only, any communications should use `ROS discourse <https://discourse.ros.org>`__ with the working group's tag.
+   Please add tfoote@osrfoundation.org as an owner of the mailing list to help with administration.
 
 #. Now that you have an e-mail group you can associate that group with the ROS
    events calendar. The calendar is where you will schedule your working group
@@ -64,6 +73,8 @@ So what are the steps to making a working group?
       that can auto adjust for each user’s timezone).
    c) URLs / Links / Contact Info for the meeting. Open Robotics uses Google
       Hangouts, but you can use whatever technology you would like.
+
+   When you schedule your meeting, create an event on the ROS Calendar and invite the Google group so that anyone interested can sign up for automatic invitations.
 
 #. Have your meetings! Regularly!
 
