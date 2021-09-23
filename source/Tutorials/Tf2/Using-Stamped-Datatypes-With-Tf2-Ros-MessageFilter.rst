@@ -289,7 +289,8 @@ And then we can build the package:
 
 Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file at first.
 
-Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
+Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.
+Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
 
 .. tabs::
 
