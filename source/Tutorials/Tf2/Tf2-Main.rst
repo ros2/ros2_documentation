@@ -29,6 +29,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Time-Travel-With-Tf2-Cpp
    Debugging-Tf2-Problems
    Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
+   Quaternion-Fundamentals
 
 Workspace setup
 ---------------
