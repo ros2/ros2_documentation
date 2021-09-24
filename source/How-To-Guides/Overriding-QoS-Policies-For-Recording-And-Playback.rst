@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Overriding-QoS-Policies-For-Recording-And-Playback
   Tutorials/Ros2bag/Overriding-QoS-Policies-For-Recording-And-Playback
 
 .. _ROS2Bag-QoS-Override:

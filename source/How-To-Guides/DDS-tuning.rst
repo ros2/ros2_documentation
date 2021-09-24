@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/DDS-tuning
   Troubleshooting/DDS-tuning
 
 DDS tuning information

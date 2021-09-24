@@ -44,7 +44,7 @@ New features in this ROS 2 release
 ``ros_args`` attribute & ``ros_arguments`` parameter for nodes in launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is now possible to provide `ROS-specific node arguments <../Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments <../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 

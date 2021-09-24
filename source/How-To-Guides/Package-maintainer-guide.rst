@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Guides/Package-maintainer-guide
+
 ROS 2 Package Maintainer Guide
 ==============================
 

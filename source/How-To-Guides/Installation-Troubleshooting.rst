@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Installation-Troubleshooting
   Troubleshooting/Installation-Troubleshooting
 
 Installation troubleshooting

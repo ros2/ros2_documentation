@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Parameters-YAML-files-migration-guide
   Tutorials/Parameters-YAML-files-migration-guide
 
 .. _yaml-ros1-ros2:
