@@ -6,6 +6,8 @@ Contact
 Different types of questions or discussions correspond to different avenues of communication;
 check the descriptions below to ensure you choose the right method.
 
+.. _Using ROS Answers:
+
 Support
 -------
 
@@ -54,6 +56,8 @@ Pull requests
 When you feel comfortable enough to suggest a specific change directly to the code, you can submit a pull request.
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
 See the :ref:`Contributing <Contributing>` page for more details and etiquette on how to contribute.
+
+.. _Using ROS Discourse:
 
 Discussion
 ----------
