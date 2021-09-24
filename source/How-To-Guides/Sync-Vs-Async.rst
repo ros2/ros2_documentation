@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Sync-Vs-Async
   Tutorials/Sync-Vs-Async
 
 .. _SyncAsync:

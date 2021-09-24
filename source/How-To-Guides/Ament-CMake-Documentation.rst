@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Ament-CMake-Documentation
   Tutorials/Ament-CMake-Documentation
 
 ament_cmake user documentation

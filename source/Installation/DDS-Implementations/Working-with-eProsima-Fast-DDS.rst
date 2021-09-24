@@ -54,7 +54,7 @@ The eProsima Fast DDS RMW can be selected by specifying the environment variable
 
    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-See also: `Working with multiple RMW implementations <../../Guides/Working-with-multiple-RMW-implementations>`
+See also: `Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
 Run the talker and listener
 ---------------------------

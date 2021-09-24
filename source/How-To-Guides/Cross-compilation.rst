@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Cross-compilation
   Tutorials/Cross-compilation
 
 Cross-compilation
