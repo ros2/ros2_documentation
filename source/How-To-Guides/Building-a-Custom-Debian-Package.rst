@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Guides/Building-a-Custom-Debian-Package
+
 Building a custom Debian package
 ================================
 
