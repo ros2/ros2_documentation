@@ -2,6 +2,7 @@
 
     Tutorials/Run-2-nodes-in-a-single-docker-container
     Tutorials/Run-2-nodes-in-two-separate-docker-containers
+    Guides/Run-2-nodes-in-two-separate-docker-containers
 
 Running ROS 2 nodes in Docker [community-contributed]
 =====================================================
