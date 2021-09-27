@@ -1,6 +1,7 @@
 .. redirect-from::
 
     RQt-Port-Plugin-Windows
+    Guides/RQt-Port-Plugin-Windows
     Tutorials/RQt-Port-Plugin-Windows
 
 Porting RQt plugins to Windows

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     RQt-Source-Install
+    Guides/RQt-Source-Install
 
 Building RQt from source
 ========================

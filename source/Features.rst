@@ -17,8 +17,8 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
    * - Support for `multiple DDS implementations <Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
-     - `Concept <Concepts/About-Different-Middleware-Vendors>`, `Guide <Guides/Working-with-multiple-RMW-implementations>`
-     - Currently ADLINK CycloneDDS, eProsima Fast RTPS, and RTI Connext are fully supported.
+     - `Concept <Concepts/About-Different-Middleware-Vendors>`, `How-to Guide <How-To-Guides/Working-with-multiple-RMW-implementations>`
+     - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - `Details <Concepts/About-ROS-2-Client-Libraries>`
      -
@@ -59,7 +59,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
      -
    * - Static remapping of ROS names
-     - `Guide <Guides/Node-arguments>`
+     - `How-to Guide <How-To-Guides/Node-arguments>`
      -
    * - Demos of an all-ROS 2 mobile robot
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__

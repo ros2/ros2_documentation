@@ -1,6 +1,7 @@
 .. redirect-from::
 
     RQt-Source-Install-Windows10
+    Guides/RQt-Source-Install-Windows10
 
 Building RQt from source on Windows 10
 ======================================

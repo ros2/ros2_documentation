@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Using-Python-Packages
   Tutorials/Using-Python-Packages
 
 .. _PythonPackages:

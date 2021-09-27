@@ -43,7 +43,7 @@ Supported RMW implementations
      - ``rmw_connext_cpp``
      - Full support. Support included in binaries, but Connext installed separately.
 
-For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../Guides/Working-with-multiple-RMW-implementations>` tutorial.
+For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
 Multiple RMW implementations
 ----------------------------
@@ -81,4 +81,4 @@ The implementation identifier is the name of the ROS package that provides the R
 For example, if both ``rmw_fastrtps_cpp`` and ``rmw_connext_cpp`` ROS packages are installed, ``rmw_connext_cpp`` would be the default.
 If ``rmw_cyclonedds_cpp`` is ever installed, it would be the default.
 
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.

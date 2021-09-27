@@ -1,5 +1,6 @@
 .. redirect-from::
 
+  Guides/Launch-files-migration-guide
   Tutorials/Launch-files-migration-guide
 
 .. _MigratingLaunch:
