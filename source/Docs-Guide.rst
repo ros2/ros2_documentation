@@ -1,3 +1,5 @@
+.. _Docs-Guide:
+
 Docs Guide
 ==========
 
