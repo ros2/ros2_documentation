@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Installation/Prerelease-Testing
+
 Alternative Installation Sources for Testing
 ============================================
 
