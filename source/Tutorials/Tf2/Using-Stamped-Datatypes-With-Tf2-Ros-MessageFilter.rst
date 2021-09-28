@@ -26,10 +26,12 @@ Suppose that a new turtle named ``turtle3`` is created and it doesn't have good 
 
 ``turtle1`` wants to know where ``turtle3`` is compared to itself.
 
-To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do its operations. To make this easier the ``tf2_ros::MessageFilter`` is very useful. The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
+To do this ``turtle1`` must listen to the topic where ``turtle3``'s pose is being published, wait until transforms into the desired frame are ready, and then do its operations.
+To make this easier the ``tf2_ros::MessageFilter`` is very useful.
+The ``tf2_ros::MessageFilter`` will take a subscription to any ROS 2 message with a header and cache it until it is possible to transform it into the target frame.
 
-Setting the example
--------------------
+Setting up the example
+----------------------
 
 1 Write the broadcaster node of PointStamped messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -162,7 +164,7 @@ Open the file using your preferred text editor.
 ~~~~~~~~~~~~~~~~~~~~
 
 Now let's take a look at the code.
-Firstly, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
+First, in the ``on_timer`` callback function, we spawn the ``turtle3`` by asynchronously calling the ``Spawn`` service of ``turtlesim``, and initialize its position at (4, 2, 0), when the turtle spawning service is ready.
 
 .. code-block:: python
 
@@ -184,7 +186,8 @@ Afterward, the node publishes the topic ``turtle3/cmd_vel``, topic ``turtle3/tur
    self.sub = self.create_subscription(Pose, '/turtle3/pose', self.handle_turtle_pose, 10)
    self.pub = self.create_publisher(PointStamped, '/turtle3/turtle_point_stamped', 10)
 
-Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` move along a circle. Then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages and publish them.
+Finally, in the callback function ``handle_turtle_pose``, we initialize the ``Twist`` messages of ``turtle3`` and publish them, which will make the ``turtle3`` move along a circle.
+Then we fill up the ``PointStamped`` messages of ``turtle3`` with incoming ``Pose`` messages and publish them.
 
 .. code-block:: python
 
@@ -287,7 +290,7 @@ And then we can build the package:
 2 Writing the message filter/listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file at first.
+Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file of message filter/listener node at first.
 
 Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.
 Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
@@ -411,7 +414,7 @@ Open the file using your preferred text editor.
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-Firstly, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_ros`` package. As well as the previously used ``tf2`` and ``ros2`` related headers.
+First, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_ros`` package, as well as the previously used ``tf2`` and ``ros2`` related headers.
 
 .. code-block:: C++
 
@@ -430,7 +433,7 @@ Firstly, you must include the ``tf2_ros::MessageFilter`` headers from the ``tf2_
    #endif
 
 
-Secondly, the persistent data. There need to be persistent instances of ``tf2_ros::Buffer``, ``tf2_ros::TransformListener`` and ``tf2_ros::MessageFilter``.
+Second, there needs to be persistent instances of ``tf2_ros::Buffer``, ``tf2_ros::TransformListener`` and ``tf2_ros::MessageFilter``.
 
 .. code-block:: C++
 
@@ -441,8 +444,11 @@ Secondly, the persistent data. There need to be persistent instances of ``tf2_ro
    std::shared_ptr<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>> tf2_filter_;
 
 
-Thirdly, the constructor. When starting up the ROS 2 ``message_filters::Subscriber`` must be initialized with the topic. And the ``tf2_ros::MessageFilter`` must be initialized with that ``Subscriber`` object.
-The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and the callback function. The target frame is the frame into which it will make sure ``canTransform`` will succeed. And the callback function is the function that will be called when the data is ready.
+Third, the ROS 2 ``message_filters::Subscriber`` must be initialized with the topic.
+And the ``tf2_ros::MessageFilter`` must be initialized with that ``Subscriber`` object.
+The other arguments of note in the ``MessageFilter`` constructor are the ``target_frame`` and the callback function.
+The target frame is the frame into which it will make sure ``canTransform`` will succeed.
+And the callback function is the function that will be called when the data is ready.
 
 .. code-block:: C++
 
@@ -475,7 +481,7 @@ The other arguments of note in the ``MessageFilter`` constructor are the ``targe
    }
 
 
-And lastly, the callback method. Once the data is ready, just call ``tf2_buffer_->transform`` and print outputs to the console.
+And last, the callback method will call ``tf2_buffer_->transform`` when the data is ready and print output to the console.
 
 .. code-block:: C++
 
@@ -516,7 +522,7 @@ And in the ``CMakeLists.txt`` file, add two lines below the existing dependencie
    find_package(message_filters REQUIRED)
    find_package(tf2_geometry_msgs REQUIRED)
 
-Most import, add these lines below the dependencies:
+Most importly, add these lines below the dependencies:
 
 .. code-block:: console
 
@@ -583,7 +589,8 @@ First we need to run several nodes (including the broadcaster node of PointStamp
 
    ros2 launch learning_tf2_py turtle_tf2_sensor_message.launch.py
 
-This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first. But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:
+This will bring up the ``turtlesim`` window with two turtles, where ``turtle3`` is moving along a circle, while ``turtle1`` isn't moving at first.
+But you can run the ``turtle_teleop_key`` node in another terminal to drive ``turtle1`` to move:
 
 .. code-block:: console
 
@@ -597,7 +604,7 @@ Now if you echo the topic ``turtle3/turtle_point_stamped``:
 
    ros2 topic echo /turtle3/turtle_point_stamped
 
-Then there will have outputs like this:
+Then there will be output like this:
 
 .. code-block:: console
 
@@ -638,7 +645,7 @@ When the demo is running, open another terminal and run the message filter/liste
 
    ros2 run learning_tf2_cpp turtle_tf2_message_filter
 
-If it's running right you should see streaming data like this:
+If it's running correctly you should see streaming data like this:
 
 .. code-block:: console
 
@@ -654,4 +661,5 @@ If it's running right you should see streaming data like this:
 Summary
 -------
 
-In this tutorial you learned how to use sensor data/messages in tf2. Specifically speaking, you learned how to publish ``PointStamped`` messages on a topic, and how to listen to the topic and transform the frame of ``PointStamped`` messages with ``tf2_ros::MessageFilter``.
+In this tutorial you learned how to use sensor data/messages in tf2.
+Specifically speaking, you learned how to publish ``PointStamped`` messages on a topic, and how to listen to the topic and transform the frame of ``PointStamped`` messages with ``tf2_ros::MessageFilter``.
