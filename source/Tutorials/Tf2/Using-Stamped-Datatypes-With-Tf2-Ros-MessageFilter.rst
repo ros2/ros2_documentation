@@ -290,7 +290,7 @@ And then we can build the package:
 2 Writing the message filter/listener node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file of message filter/listener node at first.
+Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file of the message filter/listener node.
 
 Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.
 Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
@@ -522,7 +522,7 @@ And in the ``CMakeLists.txt`` file, add two lines below the existing dependencie
    find_package(message_filters REQUIRED)
    find_package(tf2_geometry_msgs REQUIRED)
 
-Most importly, add these lines below the dependencies:
+Most importantly, add these lines below the dependencies:
 
 .. code-block:: console
 
