@@ -22,7 +22,7 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Fedora-Development-Setup
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
-   Installation/Prerelease-Testing
+   Installation/Testing
    Installation/DDS-Implementations
 
 Binary packages
