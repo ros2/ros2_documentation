@@ -29,6 +29,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
    Time-Travel-With-Tf2-Cpp
    Debugging-Tf2-Problems
    Quaternion-Fundamentals
+   Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
 
 Workspace setup
 ---------------
@@ -79,3 +80,10 @@ Debugging tf2
 #. :ref:`Debugging tf2 problems <DebuggingTf2Problems>`.
 
    This tutorial teaches you about a systematic approach for debugging tf2 related problems.
+
+Using sensor messages with tf2
+------------------------------
+
+#. :ref:`Using stamped datatypes with tf2_ros::MessageFilter <UsingStampedDatatypesWithTf2RosMessageFilter>`.
+
+   This tutorial teaches you how to use ``tf2_ros::MessageFilter`` to process stamped datatypes.
