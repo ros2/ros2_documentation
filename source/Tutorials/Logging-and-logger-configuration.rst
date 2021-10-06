@@ -206,7 +206,7 @@ The severity level for loggers could be set in a configuration file and setting 
 
        # set "RCUTILS_LOGGING_CONFIG_FILE=path_to_config_file"
 
-The config file have the following structure
+The config file has the following structure.
 
 .. code-block:: YAML
 
