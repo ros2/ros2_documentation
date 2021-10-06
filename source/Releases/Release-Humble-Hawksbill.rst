@@ -84,6 +84,13 @@ The corresponding parameter for the ``Node`` action in Python launch files is ``
 
 Related PRs: `ros2/launch_ros#249 <https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 <https://github.com/ros2/launch_ros/pull/253>`_.
 
+SROS2 Security enclaves now support Certificate Revocation Lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Certificate Revocation Lists (CRLs) are a concept where particular certificates can be revoked before their expiration.
+As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
+See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/master/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
+
 Changes since the Galactic release
 ----------------------------------
 
