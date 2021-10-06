@@ -162,7 +162,7 @@ Which will list the contents of the repo you just cloned, like so:
 
     roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
 
-The first three packages are being ignored; ``turtlesim`` is the only actual ROS 2 package in this repo.
+The first three packages are being ignored because they contain a ``COLCON_IGNORE`` file; ``turtlesim`` is the only actual ROS 2 package in this repo.
 
 Now you have populated your workspace with a sample package, but it isn’t a fully-functional workspace yet.
 You need to resolve dependencies and build the workspace first.
