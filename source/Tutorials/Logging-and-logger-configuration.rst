@@ -184,7 +184,7 @@ Restart the demo including the following command line arguments:
 Logger level configuration: configuration file
 --------------------------------------------
 
-The severity level for loggers could be set in a configuration file and setting environment variable ``RCUTILS_LOGGING_CONFIG_FILE`` to point to the file path
+The severity level for loggers could be set in a configuration file and setting environment variable ``RCUTILS_LOGGING_CONFIG_FILE`` to point to the file path.
 
 .. tabs::
 
