@@ -22,7 +22,6 @@ If not, please update your installation to include that package (use ``rosdep`` 
 
 All of the robot models mentioned in this tutorial (and the source files) can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
-
 One Shape
 ---------
 
@@ -43,7 +42,6 @@ Here’s about as simple as a urdf as you can make.
       </link>
     </robot>
 
-
 To translate the XML into English, this is a robot with the name ``myfirst``, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
 This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
 
@@ -51,8 +49,7 @@ To examine the model, launch the ``display.launch.py`` file:
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/01-myfirst.urdf
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/01-myfirst.urdf
 
 This does three things:
 
@@ -67,17 +64,15 @@ A slightly modified argument allows this to work regardless of the current worki
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=`ros2 pkg prefix --share urdf_tutorial`/urdf/01-myfirst.urdf
+  ros2 launch urdf_tutorial display.launch.py model:=`ros2 pkg prefix --share urdf_tutorial`/urdf/01-myfirst.urdf
 
 You'll have to change all example launch commands given in these tutorials if you are not running them from the ``urdf_tutorial`` package location.
 
 After launching ``display.launch.py``, you should end up with RViz showing you the following:
 
-
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/myfirst.png
   :width: 800
   :alt: my first image
-
 
 Things to note:
  * The fixed frame is the transform frame where the center of the grid is located.
@@ -122,7 +117,6 @@ We’ll start with inflexible, or fixed joints.
 
     </robot>
 
-
 * Note how we defined a 0.6m x 0.1m x 0.2m box
 * The joint is defined in terms of a parent and a child.
   URDF is ultimately a tree structure with one root link.
@@ -130,14 +124,11 @@ We’ll start with inflexible, or fixed joints.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/02-multipleshapes.urdf
-
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/02-multipleshapes.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/multipleshapes.png
   :width: 800
   :alt: Multiple Shapes
-
 
 Both of the shapes overlap with each other, because they share the same origin.
 If we want them not to overlap we must define more origins.
@@ -180,7 +171,6 @@ We also rotate the leg so it is upright.
 
     </robot>
 
-
 * Let’s start by examining the joint’s origin.
   It is defined in terms of the parent’s reference frame.
   So we are -0.22 meters in the y direction (to our left, but to the right relative to the axes) and 0.25 meters in the z direction (up).
@@ -193,14 +183,11 @@ We also rotate the leg so it is upright.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/03-origins.urdf
-
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/03-origins.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/origins.png
   :width: 800
   :alt: Origins Screenshot
-
 
 * The launch file runs packages that will create TF frames for each link in your model based on your URDF.
   Rviz uses this information to figure out where to display each shape.
@@ -218,7 +205,6 @@ Let’s take a look at the material tag.
 
 .. code-block:: xml
 
-
     <?xml version="1.0"?>
     <robot name="materials">
 
@@ -229,7 +215,6 @@ Let’s take a look at the material tag.
       <material name="white">
         <color rgba="1 1 1 1"/>
       </material>
-
 
       <link name="base_link">
         <visual>
@@ -274,8 +259,6 @@ Let’s take a look at the material tag.
 
     </robot>
 
-
-
 * The body is now blue.
   We’ve defined a new material called “blue”, with the red, green, blue and alpha channels defined as 0,0,0.8 and 1 respectively.
   All of the values can be in the range [0,1].
@@ -287,14 +270,11 @@ Let’s take a look at the material tag.
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/04-materials.urdf
-
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/04-materials.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/materials.png
   :width: 800
   :alt: Materials Screenshot
-
 
 Finishing the Model
 -------------------
@@ -305,7 +285,6 @@ We’ll also add few other pieces that we’ll use later.
 `[Source: 05-visual.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
 
 .. code-block:: xml
-
 
     <?xml version="1.0"?>
     <robot name="visual">
@@ -553,17 +532,13 @@ We’ll also add few other pieces that we’ll use later.
       </joint>
     </robot>
 
-
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/05-visual.urdf
-
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/05-visual.urdf
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/visual.png
   :width: 800
   :alt: Visual Screenshot
-
 
 How to add the sphere should be fairly self explanatory:
 
@@ -577,7 +552,6 @@ How to add the sphere should be fairly self explanatory:
       <material name="white"/>
     </visual>
   </link>
-
 
 The meshes here were borrowed from the PR2.
 They are separate files which you have to specify the path for.
@@ -600,8 +574,7 @@ The meshes for this tutorial are located within the ``urdf_tutorial`` package, i
   Often these are in separate files.
   These meshes reference the ``.tif`` files also in the meshes folder.
 * Meshes can also be sized using relative scaling parameters or a bounding box size.
-* We could have also referred to meshes in a completely different package, i.e. ``package://pr2_description/meshes/gripper_v0/l_finger.dae`` which will work if the ``pr2_description`` package is installed.
-
+* We could have also referred to meshes in a completely different package.
 
 There you have it.
 A R2D2-like URDF model.

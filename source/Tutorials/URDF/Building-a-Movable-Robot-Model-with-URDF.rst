@@ -7,8 +7,6 @@ Building a Movable Robot Model with URDF
 
 **Tutorial level:** Beginner
 
-## next.0.link= :ref:`Adding Physical and Collision Properties to the Model <URDFProperties>`
-
 In this tutorial, we’re going to revise the R2D2 model we made in the :ref:`previous tutorial <BuildingURDF>` so that it has movable joints.
 In the previous model, all of the joints were fixed.
 Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
@@ -22,7 +20,6 @@ Again, all of the robot models mentioned in this tutorial can be found in the `u
    :depth: 2
    :local:
 
-
 `Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints.
 You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.
 
@@ -30,24 +27,20 @@ To visualize and control this model, run the same command as the last tutorial:
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial display.launch.py  model:=urdf/06-flexible.urdf
-
+  ros2 launch urdf_tutorial display.launch.py model:=urdf/06-flexible.urdf
 
 However now this will also pop up a GUI that allows you to control the values of all the non-fixed joints.
 Play with the model some and see how it moves.
 Then, we can take a look at how we accomplished this.
 
-
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/flexible.png
   :width: 800
   :alt: Screenshot of Flexible Model
-
 
 The Head
 --------
 
 .. code-block:: xml
-
 
   <joint name="head_swivel" type="continuous">
     <parent link="base_link"/>
@@ -67,7 +60,6 @@ The Gripper
 
 .. code-block:: xml
 
-
   <joint name="left_gripper_joint" type="revolute">
     <axis xyz="0 0 1"/>
     <limit effort="1000.0" lower="0.0" upper="0.548" velocity="0.5"/>
@@ -75,7 +67,6 @@ The Gripper
     <parent link="gripper_pole"/>
     <child link="left_gripper"/>
   </joint>
-
 
 Both the right and the left gripper joints are modeled as revolute joints.
 This means that they rotate in the same way that the continuous joints do, but they have strict limits.
@@ -87,14 +78,12 @@ The Gripper Arm
 
 .. code-block:: xml
 
-
   <joint name="gripper_extension" type="prismatic">
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <limit effort="1000.0" lower="-0.38" upper="0" velocity="0.5"/>
     <origin rpy="0 0 0" xyz="0.19 0 0.2"/>
   </joint>
-
 
 The gripper arm is a different kind of joint, namely a prismatic joint.
 This means that it moves along an axis, not around it.

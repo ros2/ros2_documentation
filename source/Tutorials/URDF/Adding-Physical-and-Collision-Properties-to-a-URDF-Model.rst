@@ -13,7 +13,6 @@ In this tutorial, we’ll look at how to add some basic physical properties to y
    :depth: 2
    :local:
 
-
 Collision
 ---------
 
