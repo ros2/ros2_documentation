@@ -17,7 +17,7 @@ In this tutorial, we’re going to build a visual model of a robot that vaguely 
 In later tutorials, you’ll learn how to :ref:`articulate the model <MoveableURDF>`, :ref:`add in some physical properties <URDFProperties>`, and :ref:`generate neater code with xacro <URDFXacro>`, but for now, we’re going to focus on getting the visual geometry correct.
 
 Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed.
-If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ using ``apt-get``, this should already be the case.
+If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ binaries, this should already be the case.
 If not, please update your installation to include that package (use ``rosdep`` to check).
 
 All of the robot models mentioned in this tutorial (and the source files) can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
