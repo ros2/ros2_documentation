@@ -3,11 +3,11 @@
 Using ROS2 Launch for large projects
 ====================================
 
-**Goal:** 
+**Goal:**
 
 **Tutorial level:** Intermediate
 
-**Time:** 15 minutes
+**Time:** 20 minutes
 
 .. contents:: Contents
    :depth: 2
@@ -18,7 +18,7 @@ Background
 
 This tutorial describes some tips for writing launch files for large projects.
 The focus is on how to structure launch files so they may be reused as much as possible in different situations.
-We'll use the ``turtlesim`` and ``turtle_tf2_py`` packages for a case study.
+We will use the ``turtlesim`` and ``turtle_tf2_py`` packages for a case study.
 We will create a new package called a ``launch_tutorial`` with 6 different launch files and cover different ROS 2 launch tools and tips.
 
 Introduction
@@ -27,25 +27,22 @@ Introduction
 Large applications on a robot typically involve several interconnected nodes, each of which have many parameters.
 Simulation of multiple turtles in the turtle simulator can serve as a good example.
 The turtle simulation consists of multiple turtle nodes, the world configuration, and TF broadcaster and listener nodes.
-Collectively, there are a couple of ROS parameters that affect the behavior and appearance of these nodes.
+Collectively, there is a number of ROS parameters that affect the behavior and appearance of these nodes.
 
 ROS 2 launch file allows us to define all this in one place.
-Given a TURTLE, launching the file LAUNCHNAME.launch.py in the PKG package will bring up everything required for the robot to navigate.
-In this tutorial, we'll go over this launch file and the various features used.
-
-We would also like launch files to be as reusable as possible.
-In this case, moving between physically identical robots can be done without changing the launch files at all.
-Even a change such as moving from the robot to a simulator can be done with only a few changes.
-We'll go over how the launch file is structured to make this possible.
+By the end of a tutorial, launching the ``launch_turtlesim.launch.py`` in the ``launch_tutorial`` package will bring up everything required for the turtles to follow each other.
+In this tutorial, we'll go over this launch file and all related features used.
 
 Top-level organization
 ----------------------
 
-nested launch files and overall organization structure
+On a top level, we would like launch files to be as reusable as possible.
+In this case, moving between identical robots can be done without changing the launch files at all.
+Even a change such as moving from the robot to a simulator can be done with only a few changes.
+We'll go over how the launch file is structured to make this possible.
 
-Here is the top-level launch file that starts the fixed frame broadcasting to the turtlesim world.
-
-``launch_turtlesim.launch.py``
+Firstly, we will create a top-level launch file that will call separate launch files.
+To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
 .. code-block:: Python
 
@@ -96,25 +93,26 @@ Here is the top-level launch file that starts the fixed frame broadcasting to th
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes and parameters, and possibly nested includes, pertaining to one part of the system.
+To be exact, we launch two turtlesim simulation worlds, TF broadcaster and listener nodes, mimic and fixed frame broadcaster node.
+It can also be noted that some launch files just start one node, which is not the best way to do that, but it is done here to cover as much launch concepts as possible.
 
 .. note:: Design Tip: Top-level launch files should be short, and consist of include's to other files corresponding to subcomponents of the application, and commonly changed parameters.
 
-This makes it easy to swap out one piece of the system, as we'll see later.
+Writing launch files in a following manner makes it easy to swap out one piece of the system, as we'll see later.
 
 However, there are cases when some nodes or launch files have to launched separately due to performance and usage reasons.
 There is therefore no universal answer on whether or not to split things into multiple launch files.
 
 .. note:: Design tip: Be aware of the tradeoffs when deciding how many top-level launch files your application requires.
 
-Launch tools
-------------
 
-1 Parameters
-^^^^^^^^^^^^
+Parameters
+----------
 
-private parameters, remappings, GroupAction as a namespace, node naming
+1 Setting parameters in launch file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-``turtlesim_world_1.launch.py``
+Now let's create a new file called ``turtlesim_world_1.launch.py``.
 
 .. code-block:: Python
 
@@ -153,10 +151,14 @@ private parameters, remappings, GroupAction as a namespace, node naming
          ),
       ])
 
-2 Namespaces
-^^^^^^^^^^^^
+This launch file starts the ``turtlesim_node`` node that starts the turtlesim simulation.
+In addition to that we declared parameters that are passed to our nodes.
+This makes it easy to declare constants used for particular robot setup.
 
-``turtlesim_world_2.launch.py``
+2 Loading parameters from yaml file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now create a ``turtlesim_world_2.launch.py`` file.
 
 .. code-block:: Python
 
@@ -185,46 +187,29 @@ private parameters, remappings, GroupAction as a namespace, node naming
          )
       ])
 
-Note the only difference between the two nodes is their namespace values.
+This launch file will launch the same node, but with different parameter values.
+In addition, you could notice that pararmeters here loaded directly from the yaml file.
+Let's now create a ``turtlesim.yaml`` in the ``/config`` folder of our package.
+
+.. code-block:: YAML
+
+   /turtlesim2/sim:
+      ros__parameters:
+         background_b: 255
+         background_g: 86
+         background_r: 150
+
+If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
+
+To learn more about using parameters and using yaml files, take a look at the :ref:`Understanding ROS 2 parameters <ROS2Params>` tutorial.
+
+In the latter launch file you could notice that we have defined the ``namespace='turtlesim2'``. 
 Unique namespaces allow the system to start two simulators without node name nor topic name conflicts.
-
-3 Remapping
-^^^^^^^^^^^
-
-The first included element is a remapping.
-
-``mimic.launch.py``
-
-.. code-block:: Python
-
-   from launch import LaunchDescription
-   from launch_ros.actions import Node
-
-
-   def generate_launch_description():
-      return LaunchDescription([
-         Node(
-               package='turtlesim',
-               executable='mimic',
-               name='mimic',
-               remappings=[
-                  ('/input/pose', '/turtle2/pose'),
-                  ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-               ]
-         )
-      ])
-
-Mimic node is designed to receive pose on the topic ``/input/pose``.
-In the case of the turtlesim, pose is published on the ``/turtlesim1/turtle1/pose`` topic, so we remap it.
-
-.. note:: Design tip: Use topic remapping when a given type of information is published on different topics in different situations.
 
 Reusing launch files
 --------------------
-importing and using nested launch files
 
-
-``broadcaster_listener.launch.py``
+Create a ``broadcaster_listener.launch.py`` file.
 
 .. code-block:: Python
 
@@ -266,6 +251,56 @@ importing and using nested launch files
                ]
          ),
       ])
+
+
+In this example we reuse the same ``turtle_tf2_broadcaster`` node using different names and parameters during launch.
+This allows us to duplicate the same node without conflicts. 
+
+
+In addition to that we have declared the launch arguments with a default value.
+It means that this launch file can receive a paramter that it can pass forward to its nodes.
+This feature is used to change the target frame to carrot1 in our initial call in the main launch file.
+
+Recall that in our top-level launch file called this launch file and passed ``target_frame`` launch argument.
+
+.. code-block:: Python
+
+   broadcaster_listener_nodes = IncludeLaunchDescription(
+      PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/broadcaster_listener.launch.py']),
+      launch_arguments={'target_frame': 'turtle1'}.items(),
+      )
+
+Remapping
+---------
+
+``mimic.launch.py``
+
+.. code-block:: Python
+
+   from launch import LaunchDescription
+   from launch_ros.actions import Node
+
+
+   def generate_launch_description():
+      return LaunchDescription([
+         Node(
+               package='turtlesim',
+               executable='mimic',
+               name='mimic',
+               remappings=[
+                  ('/input/pose', '/turtle2/pose'),
+                  ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+               ]
+         )
+      ])
+
+Mimic node is designed to receive pose on the topic ``/input/pose``.
+In the case of the turtlesim, pose is published on the ``/turtlesim1/turtle1/pose`` topic, so we remap it.
+
+.. note:: Design tip: Use topic remapping when a given type of information is published on different topics in different situations.
+
 
 Parameter overrides
 -------------------
