@@ -15,4 +15,3 @@ URDF Tutorials
    Adding-Physical-and-Collision-Properties-to-a-URDF-Model
    Using-Xacro-to-Clean-Up-a-URDF-File
    Using-URDF-with-Robot-State-Publisher
-   Using-a-URDF-in-Gazebo

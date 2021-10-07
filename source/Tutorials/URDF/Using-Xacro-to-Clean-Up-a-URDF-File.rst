@@ -249,7 +249,3 @@ Often you want to create multiple similar looking objects in different locations
 * Common Trick 1: Use a name prefix to get two similarly named objects
 * Common Trick 2: Use math to calculate joint origins. In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.
 * Common Trick 3: Using a reflect parameter, and setting it to 1 or -1. See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.
-
-Next Steps
-^^^^^^^^^^
-This concludes this section however if you have completed all these steps you are well prepared to move into simulation. Continue on to :ref:`Using a URDF in Simulation <URDFSim>`
