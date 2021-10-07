@@ -134,7 +134,7 @@ Examples:
     <cylinder radius="${wheeldiam/2}" length="0.1"/>
     <origin xyz="${reflect*(width+.02)} 0 0.25" />
 
-You can also use more than the basic mathematical operations, like `sin` and `cos`.
+You can also use more than the basic mathematical operations, like ``sin`` and ``cos``.
 
 Macros
 ------
@@ -158,7 +158,7 @@ Let’s take a look at a simple useless macro.
     <origin rpy="0 0 0" xyz="0 0 0"/>
 
 * The name is not technically a required element, but you need to specify it to be able to use it.
-* Every instance of the `<xacro:$NAME />` is replaced with the contents of the `xacro:macro` tag.
+* Every instance of the ``<xacro:$NAME />`` is replaced with the contents of the ``xacro:macro`` tag.
 * Note that even though its not exactly the same (the two attributes have switched order), the generated XML is equivalent.
 * If the xacro with a specified name is not found, it will not be expanded and will NOT generate an error.
 

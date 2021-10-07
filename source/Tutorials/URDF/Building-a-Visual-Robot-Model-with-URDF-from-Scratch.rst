@@ -17,8 +17,8 @@ In this tutorial, we’re going to build a visual model of a robot that vaguely 
 In later tutorials, you’ll learn how to :ref:`articulate the model <MoveableURDF>`, :ref:`add in some physical properties <URDFProperties>`, and :ref:`generate neater code with xacro <URDFXacro>`, but for now, we’re going to focus on getting the visual geometry correct.
 
 Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed.
-If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ using `apt-get`, this should already be the case.
-If not, please update your installation to include that package (use `rosdep` to check).
+If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ using ``apt-get``, this should already be the case.
+If not, please update your installation to include that package (use ``rosdep`` to check).
 
 All of the robot models mentioned in this tutorial (and the source files) can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
@@ -28,7 +28,7 @@ One Shape
 
 First, we’re just going to explore one simple shape.
 Here’s about as simple as a urdf as you can make.
-`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf>`_
+`[Source: 01-myfirst.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf>`_
 
 .. code-block:: xml
 
@@ -47,7 +47,7 @@ Here’s about as simple as a urdf as you can make.
 To translate the XML into English, this is a robot with the name myfirst, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
 This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
 
-To examine the model, launch the `display.launch.py` file:
+To examine the model, launch the ``display.launch.py`` file:
 
 .. code-block:: console
 
@@ -60,8 +60,8 @@ This does three things:
  * Runs nodes to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
  * Starts Rviz with a configuration file
 
-Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the `urdf` directory is a direct child of the current working directory).
-If that is not the case, the relative path to `01-myfirst.urdf` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
+Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the ``urdf`` directory is a direct child of the current working directory).
+If that is not the case, the relative path to ``01-myfirst.urdf`` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
 
 A slightly modified argument allows this to work regardless of the current working directory:
 
@@ -69,9 +69,9 @@ A slightly modified argument allows this to work regardless of the current worki
 
   ros2 launch urdf_tutorial display.launch.py  model:=`ros2 pkg prefix --share urdf_tutorial`/urdf/01-myfirst.urdf
 
-You'll have to change all example launch commands given in these tutorials if you are not running them from the `urdf_tutorial` package location.
+You'll have to change all example launch commands given in these tutorials if you are not running them from the ``urdf_tutorial`` package location.
 
-After launching `display.launch.py`, you should end up with RViz showing you the following:
+After launching ``display.launch.py``, you should end up with RViz showing you the following:
 
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/myfirst.png
@@ -93,7 +93,7 @@ If we just add more link elements to the urdf, the parser won’t know where to 
 So, we have to add joints.
 Joint elements can refer to both flexible and inflexible joints.
 We’ll start with inflexible, or fixed joints.
-`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/02-multipleshapes.urdf>`_
+`[Source: 02-multipleshapes.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/02-multipleshapes.urdf>`_
 
 .. code-block:: xml
 
@@ -149,7 +149,7 @@ So R2D2’s leg attaches to the top half of his torso, on the side.
 So that’s where we specify the origin of the JOINT to be.
 Also, it doesn’t attach to the middle of the leg, it attaches to the upper part, so we must offset the origin for the leg as well.
 We also rotate the leg so it is upright.
-`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/03-origins.urdf>`_
+`[Source: 03-origins.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/03-origins.urdf>`_
 
 .. code-block:: xml
 
@@ -202,9 +202,9 @@ We also rotate the leg so it is upright.
   :alt: Origins Screenshot
 
 
- * The launch file runs packages that will create TF frames for each link in your model based on your URDF.
-   Rviz uses this information to figure out where to display each shape.
- * If a TF frame does not exist for a given URDF link, then it will be placed at the origin in white (ref. `related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
+* The launch file runs packages that will create TF frames for each link in your model based on your URDF.
+  Rviz uses this information to figure out where to display each shape.
+* If a TF frame does not exist for a given URDF link, then it will be placed at the origin in white (ref. `related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
 
 Material Girl
 -------------
@@ -214,7 +214,7 @@ Material Girl
 My robot and R2D2 are not red!”
 That’s a good point.
 Let’s take a look at the material tag.
-`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/04-materials.urdf>`_
+`[Source: 04-materials.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/04-materials.urdf>`_
 
 .. code-block:: xml
 
@@ -302,7 +302,7 @@ Finishing the Model
 Now we finish the model off with a few more shapes: feet, wheels, and head.
 Most notably, we add a sphere and a some meshes.
 We’ll also add few other pieces that we’ll use later.
-`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
+`[Source: 05-visual.urdf] <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
 
 .. code-block:: xml
 
@@ -581,8 +581,8 @@ How to add the sphere should be fairly self explanatory
 
 The meshes here were borrowed from the PR2.
 They are separate files which you have to specify the path for.
-You should use the `package://NAME_OF_PACKAGE/path` notation.
-The meshes for this tutorial are located within the `urdf_tutorial` package, in a folder called meshes.
+You should use the ``package://NAME_OF_PACKAGE/path`` notation.
+The meshes for this tutorial are located within the ``urdf_tutorial`` package, in a folder called meshes.
 
 .. code-block:: xml
 
@@ -598,9 +598,9 @@ The meshes for this tutorial are located within the `urdf_tutorial` package, in 
 * The meshes can be imported in a number of different formats.
   STL is fairly common, but the engine also supports DAE, which can have its own color data, meaning you don’t have to specify the color/material.
   Often these are in separate files.
-  These meshes reference the `.tif` files also in the meshes folder.
+  These meshes reference the ``.tif`` files also in the meshes folder.
 * Meshes can also be sized using relative scaling parameters or a bounding box size.
-* We could have also referred to meshes in a completely different package, i.e. `package://pr2_description/meshes/gripper_v0/l_finger.dae` which will work if the `pr2_description` package is installed.
+* We could have also referred to meshes in a completely different package, i.e. ``package://pr2_description/meshes/gripper_v0/l_finger.dae`` which will work if the ``pr2_description`` package is installed.
 
 
 There you have it.
