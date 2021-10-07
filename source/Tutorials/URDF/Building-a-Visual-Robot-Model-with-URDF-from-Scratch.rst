@@ -13,9 +13,12 @@ Building a Visual Robot Model with URDF from Scratch
    :depth: 2
    :local:
 
-In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2. In later tutorials, you’ll learn how to :ref:`articulate the model <MoveableURDF>`, :ref:`add in some physical properties <URDFProperties>`, and :ref:`generate neater code with xacro <URDFXacro>`. But for now, we’re going to focus on getting the visual geometry correct.
+In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2.
+In later tutorials, you’ll learn how to :ref:`articulate the model <MoveableURDF>`, :ref:`add in some physical properties <URDFProperties>`, and :ref:`generate neater code with xacro <URDFXacro>`, but for now, we’re going to focus on getting the visual geometry correct.
 
-Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed. If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ using `apt-get`, this should already be the case. If not, please update your installation to include that package (use `rosdep` to check).
+Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed.
+If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ using `apt-get`, this should already be the case.
+If not, please update your installation to include that package (use `rosdep` to check).
 
 All of the robot models mentioned in this tutorial (and the source files) can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
@@ -23,7 +26,9 @@ All of the robot models mentioned in this tutorial (and the source files) can be
 One Shape
 ---------
 
-First, we’re just going to explore one simple shape. Here’s about as simple as a urdf as you can make. `Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf>`_
+First, we’re just going to explore one simple shape.
+Here’s about as simple as a urdf as you can make.
+`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf>`_
 
 .. code-block:: xml
 
@@ -39,7 +44,8 @@ First, we’re just going to explore one simple shape. Here’s about as simple 
     </robot>
 
 
-To translate the XML into English, this is a robot with the name myfirst, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius. This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
+To translate the XML into English, this is a robot with the name myfirst, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
+This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
 
 To examine the model, launch the `display.launch.py` file:
 
@@ -48,13 +54,14 @@ To examine the model, launch the `display.launch.py` file:
   ros2 launch urdf_tutorial display.launch.py  model:=urdf/01-myfirst.urdf
 
 
-This does three things. It
+This does three things:
 
  * Loads the specified model and saves it as a parameter
  * Runs nodes to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
  * Starts Rviz with a configuration file
 
-Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the `urdf` directory is a direct child of the current working directory). If that is not the case, the relative path to `01-myfirst.urdf` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
+Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the `urdf` directory is a direct child of the current working directory).
+If that is not the case, the relative path to `01-myfirst.urdf` will not be valid, and you'll receive an error as soon as the launcher tries to load the urdf as a parameter.
 
 A slightly modified argument allows this to work regardless of the current working directory:
 
@@ -73,13 +80,20 @@ After launching `display.launch.py`, you should end up with RViz showing you the
 
 
 Things to note:
- * The fixed frame is transform frame where the center of the grid is located. Here, it’s a frame defined by our one link, base_link.
- * The visual element (the cylinder) has its origin at the center of its geometry as a default. Hence, half the cylinder is below the grid.
+ * The fixed frame is transform frame where the center of the grid is located.
+   Here, it’s a frame defined by our one link, base_link.
+ * The visual element (the cylinder) has its origin at the center of its geometry as a default.
+   Hence, half the cylinder is below the grid.
 
 Multiple Shapes
 ---------------
 
-Now let’s look at how to add multiple shapes/links. If we just add more link elements to the urdf, the parser won’t know where to put them. So, we have to add joints. Joint elements can refer to both flexible and inflexible joints. We’ll start with inflexible, or fixed joints. `Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/02-multipleshapes.urdf>`_
+Now let’s look at how to add multiple shapes/links.
+If we just add more link elements to the urdf, the parser won’t know where to put them.
+So, we have to add joints.
+Joint elements can refer to both flexible and inflexible joints.
+We’ll start with inflexible, or fixed joints.
+`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/02-multipleshapes.urdf>`_
 
 .. code-block:: xml
 
@@ -110,7 +124,9 @@ Now let’s look at how to add multiple shapes/links. If we just add more link e
 
 
 * Note how we defined a 0.6m x 0.1m x 0.2m box
-* The joint is defined in terms of a parent and a child. URDF is ultimately a tree structure with one root link. This means that the leg’s position is dependent on the base_link’s position.
+* The joint is defined in terms of a parent and a child.
+  URDF is ultimately a tree structure with one root link.
+  This means that the leg’s position is dependent on the base_link’s position.
 
 .. code-block:: console
 
@@ -123,12 +139,17 @@ Now let’s look at how to add multiple shapes/links. If we just add more link e
   :alt: Multiple Shapes
 
 
-Both of the shapes overlap with each other, because they share the same origin. If we want them not to overlap we must define more origins.
+Both of the shapes overlap with each other, because they share the same origin.
+If we want them not to overlap we must define more origins.
 
 Origins
 -------
 
-So R2D2’s leg attaches to the top half of his torso, on the side. So that’s where we specify the origin of the JOINT to be. Also, it doesn’t attach to the middle of the leg, it attaches to the upper part, so we must offset the origin for the leg as well. We also rotate the leg so it is upright. `Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/03-origins.urdf>`_
+So R2D2’s leg attaches to the top half of his torso, on the side.
+So that’s where we specify the origin of the JOINT to be.
+Also, it doesn’t attach to the middle of the leg, it attaches to the upper part, so we must offset the origin for the leg as well.
+We also rotate the leg so it is upright.
+`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/03-origins.urdf>`_
 
 .. code-block:: xml
 
@@ -160,8 +181,15 @@ So R2D2’s leg attaches to the top half of his torso, on the side. So that’s 
     </robot>
 
 
-* Let’s start by examining the joint’s origin. It is defined in terms of the parent’s reference frame. So we are -0.22 meters in the y direction (to our left, but to the right relative to the axes) and 0.25 meters in the z direction (up). This means that the origin for the child link will be up and to the right, regardless of the child link’s visual origin tag. Since we didn’t specify a rpy (roll pitch yaw) attribute, the child frame will be default have the same orientation as the parent frame.
-* Now, looking at the leg’s visual origin, it has both a xyz and rpy offset. This defines where the center of the visual element should be, relative to its origin. Since we want the leg to attach at the top, we offset the origin down by setting the z offset to be -0.3 meters. And since we want the long part of the leg to be parallel to the z axis, we rotate the visual part PI/2 around the Y axis.
+* Let’s start by examining the joint’s origin.
+  It is defined in terms of the parent’s reference frame.
+  So we are -0.22 meters in the y direction (to our left, but to the right relative to the axes) and 0.25 meters in the z direction (up).
+  This means that the origin for the child link will be up and to the right, regardless of the child link’s visual origin tag.
+  Since we didn’t specify a rpy (roll pitch yaw) attribute, the child frame will be default have the same orientation as the parent frame.
+* Now, looking at the leg’s visual origin, it has both a xyz and rpy offset.
+  This defines where the center of the visual element should be, relative to its origin.
+  Since we want the leg to attach at the top, we offset the origin down by setting the z offset to be -0.3 meters.
+  And since we want the long part of the leg to be parallel to the z axis, we rotate the visual part PI/2 around the Y axis.
 
 .. code-block:: console
 
@@ -174,13 +202,19 @@ So R2D2’s leg attaches to the top half of his torso, on the side. So that’s 
   :alt: Origins Screenshot
 
 
- * The launch file runs packages that will create TF frames for each link in your model based on your URDF. Rviz uses this information to figure out where to display each shape.
+ * The launch file runs packages that will create TF frames for each link in your model based on your URDF.
+   Rviz uses this information to figure out where to display each shape.
  * If a TF frame does not exist for a given URDF link, then it will be placed at the origin in white (ref. `related question <http://answers.ros.org/question/207947/how-do-you-use-externally-defined-materials-in-a-urdfxacro-file/>`_).
 
 Material Girl
 -------------
 
-“Alright,” I hear you say. “That’s very cute, but not everyone owns a B21. My robot and R2D2 are not red!” That’s a good point. Let’s take a look at the material tag. `Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/04-materials.urdf>`_
+“Alright,” I hear you say.
+“That’s very cute, but not everyone owns a B21.
+My robot and R2D2 are not red!”
+That’s a good point.
+Let’s take a look at the material tag.
+`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/04-materials.urdf>`_
 
 .. code-block:: xml
 
@@ -242,8 +276,13 @@ Material Girl
 
 
 
-* The body is now blue. We’ve defined a new material called “blue”, with the red, green, blue and alpha channels defined as 0,0,0.8 and 1 respectively. All of the values can be in the range [0,1]. This material is then referenced by the base_link's visual element. The white material is defined similarly
-* You could also define the material tag from within the visual element, and even reference it in other links. No one will even complain if you redefine it though.
+* The body is now blue.
+  We’ve defined a new material called “blue”, with the red, green, blue and alpha channels defined as 0,0,0.8 and 1 respectively.
+  All of the values can be in the range [0,1].
+  This material is then referenced by the base_link's visual element.
+  The white material is defined similarly.
+* You could also define the material tag from within the visual element, and even reference it in other links.
+  No one will even complain if you redefine it though.
 * You can also use a texture to specify an image file to be used for coloring the object
 
 .. code-block:: console
@@ -260,7 +299,10 @@ Material Girl
 Finishing the Model
 -------------------
 
-Now we finish the model off with a few more shapes: feet, wheels, and head. Most notably, we add a sphere and a some meshes. We’ll also add few other pieces that we’ll use later. `Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
+Now we finish the model off with a few more shapes: feet, wheels, and head.
+Most notably, we add a sphere and a some meshes.
+We’ll also add few other pieces that we’ll use later.
+`Source <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/05-visual.urdf>`_
 
 .. code-block:: xml
 
@@ -537,7 +579,10 @@ How to add the sphere should be fairly self explanatory
   </link>
 
 
-The meshes here were borrowed from the PR2. They are separate files which you have to specify the path for. You should use the `package://NAME_OF_PACKAGE/path` notation. The meshes for this tutorial are located within the `urdf_tutorial` package, in a folder called meshes.
+The meshes here were borrowed from the PR2.
+They are separate files which you have to specify the path for.
+You should use the `package://NAME_OF_PACKAGE/path` notation.
+The meshes for this tutorial are located within the `urdf_tutorial` package, in a folder called meshes.
 
 .. code-block:: xml
 
@@ -550,9 +595,14 @@ The meshes here were borrowed from the PR2. They are separate files which you ha
     </visual>
   </link>
 
-* The meshes can be imported in a number of different formats. STL is fairly common, but the engine also supports DAE, which can have its own color data, meaning you don’t have to specify the color/material. Often these are in separate files. These meshes reference the `.tif` files also in the meshes folder.
+* The meshes can be imported in a number of different formats.
+  STL is fairly common, but the engine also supports DAE, which can have its own color data, meaning you don’t have to specify the color/material.
+  Often these are in separate files.
+  These meshes reference the `.tif` files also in the meshes folder.
 * Meshes can also be sized using relative scaling parameters or a bounding box size.
 * We could have also referred to meshes in a completely different package, i.e. `package://pr2_description/meshes/gripper_v0/l_finger.dae` which will work if the `pr2_description` package is installed.
 
 
-There you have it. A R2D2-like URDF model. Now you can continue on to the next step, :ref:`making it move <MoveableURDF>`.
+There you have it.
+A R2D2-like URDF model.
+Now you can continue on to the next step, :ref:`making it move <MoveableURDF>`.

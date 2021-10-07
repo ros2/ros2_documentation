@@ -7,7 +7,9 @@ Using Xacro to Clean Up a URDF File
 
 **Tutorial level:** Beginner
 
-By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly. Fortunately, you can use the `xacro <https://index.ros.org/p/xacro>`_ package to make your life simpler. It does three things that are very helpful.
+By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly.
+Fortunately, you can use the `xacro <https://index.ros.org/p/xacro>`_ package to make your life simpler.
+It does three things that are very helpful.
 
  * Constants
  * Simple Math
@@ -22,13 +24,18 @@ In this tutorial, we take a look at all these shortcuts to help reduce the overa
 
 Using Xacro
 -----------
-As its name implies, `xacro <https://index.ros.org/p/xacro>`_ is a macro language. The xacro program runs all of the macros and outputs the result. Typical usage looks something like this:
+As its name implies, `xacro <https://index.ros.org/p/xacro>`_ is a macro language.
+The xacro program runs all of the macros and outputs the result.
+Typical usage looks something like this:
 
 .. code-block:: console
 
    xacro model.xacro > model.urdf
 
-You can also automatically generate the urdf in a launch file. This is convenient because it stays up to date and doesn’t use up hard drive space. However, it does take time to generate, so be aware that your launch file might take longer to start up. (I’m looking at you `pr2_description <https://index.ros.org/p/pr2_description>`_)
+You can also automatically generate the urdf in a launch file.
+This is convenient because it stays up to date and doesn’t use up hard drive space.
+However, it does take time to generate, so be aware that your launch file might take longer to start up.
+(I’m looking at you `pr2_description <https://index.ros.org/p/pr2_description>`_)
 
 .. code-block:: python
 
@@ -39,7 +46,8 @@ You can also automatically generate the urdf in a launch file. This is convenien
                                                          value_type=str)}]
     )
 
-At the top of the URDF file, you must specify a namespace in order for the file to parse properly. For example, these are the first two lines of a valid xacro file:
+At the top of the URDF file, you must specify a namespace in order for the file to parse properly.
+For example, these are the first two lines of a valid xacro file:
 
 .. code-block:: xml
 
@@ -68,9 +76,12 @@ Let’s take a quick look at our base_link in R2D2.
   </link>
 
 
-The information here is a little redundant. We specify the length and radius of the cylinder twice. Worse, if we want to change that, we need to do so in two different places.
+The information here is a little redundant.
+We specify the length and radius of the cylinder twice.
+Worse, if we want to change that, we need to do so in two different places.
 
-Fortunately, xacro allows you to specify properties which act as constants. Instead, of the above code, we can write this.
+Fortunately, xacro allows you to specify properties which act as constants.
+Instead, of the above code, we can write this.
 
 .. code-block:: xml
 
@@ -90,11 +101,14 @@ Fortunately, xacro allows you to specify properties which act as constants. Inst
         </collision>
     </link>
 
-* The two values are specified in the first two lines. They can be defined just about anywhere (assuming valid XML), at any level, before or after they are used. Usually they go at the top.
+* The two values are specified in the first two lines.
+  They can be defined just about anywhere (assuming valid XML), at any level, before or after they are used.
+  Usually they go at the top.
 * Instead of specifying the actual radius in the geometry element, we use a dollar sign and curly brackets to signify the value.
 * This code will generate the same code shown above.
 
-The value of the contents of the ${} construct are then used to replace the ${}. This means you can combine it with other text in the attribute.
+The value of the contents of the ${} construct are then used to replace the ${}.
+This means you can combine it with other text in the attribute.
 
 .. code-block:: xml
 
@@ -112,7 +126,8 @@ However, the contents in the ${} don’t have to only be a property, which bring
 
 Math
 ----
-You can build up arbitrarily complex expressions in the ${} construct using the four basic operations (+,-,*,/), the unary minus, and parenthesis. Examples:
+You can build up arbitrarily complex expressions in the ${} construct using the four basic operations (+,-,*,/), the unary minus, and parenthesis.
+Examples:
 
 .. code-block:: xml
 
@@ -149,7 +164,8 @@ Let’s take a look at a simple useless macro.
 
 Parameterized Macro
 ^^^^^^^^^^^^^^^^^^^
-You can also parameterize macros so that they don’t generate the same exact text every time. When combined with the math functionality, this is even more powerful.
+You can also parameterize macros so that they don’t generate the same exact text every time.
+When combined with the math functionality, this is even more powerful.
 
 First, let’s take an example of a simple macro used in R2D2.
 
@@ -202,7 +218,8 @@ You can also use entire blocks as parameters too.
 
 Practical Usage
 ---------------
-The xacro language is rather flexible in what it allows you to do. Here are a few useful ways that the xacro is used in the `R2D2 model <https://github.com/ros/urdf_tutorial/blob/master/urdf/08-macroed.urdf.xacro>`_, in addition to the default inertial macro shown above.
+The xacro language is rather flexible in what it allows you to do.
+Here are a few useful ways that the xacro is used in the `R2D2 model <https://github.com/ros/urdf_tutorial/blob/master/urdf/08-macroed.urdf.xacro>`_, in addition to the default inertial macro shown above.
 
 To see the model generated by a xacro file, run the same command as with previous tutorials:
 
@@ -214,7 +231,9 @@ To see the model generated by a xacro file, run the same command as with previou
 
 Leg macro
 ^^^^^^^^^
-Often you want to create multiple similar looking objects in different locations. Often, there will be some symmetry to the locations. You can use a macro and some simple math to reduce the amount of code you have to write, like we do with R2’s two legs.
+Often you want to create multiple similar looking objects in different locations.
+Often, there will be some symmetry to the locations.
+You can use a macro and some simple math to reduce the amount of code you have to write, like we do with R2’s two legs.
 
 .. code-block:: xml
 
@@ -247,5 +266,7 @@ Often you want to create multiple similar looking objects in different locations
     <xacro:leg prefix="left" reflect="-1" />
 
 * Common Trick 1: Use a name prefix to get two similarly named objects
-* Common Trick 2: Use math to calculate joint origins. In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.
-* Common Trick 3: Using a reflect parameter, and setting it to 1 or -1. See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.
+* Common Trick 2: Use math to calculate joint origins.
+  In the case that you change the size of your robot, changing a property with some math to calculate the joint offset will save a lot of trouble.
+* Common Trick 3: Using a reflect parameter, and setting it to 1 or -1.
+  See how we use the reflect parameter to put the legs on either side of the body in the base_to_${prefix}_leg origin.

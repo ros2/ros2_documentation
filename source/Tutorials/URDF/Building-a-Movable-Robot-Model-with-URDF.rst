@@ -9,9 +9,12 @@ Building a Movable Robot Model with URDF
 
 ## next.0.link= :ref:`Adding Physical and Collision Properties to the Model <URDFProperties>`
 
-In this tutorial, we’re going to revise the R2D2 model we made in the :ref:`previous tutorial <BuildingURDF>` so that it has movable joints. In the previous model, all of the joints were fixed. Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
+In this tutorial, we’re going to revise the R2D2 model we made in the :ref:`previous tutorial <BuildingURDF>` so that it has movable joints.
+In the previous model, all of the joints were fixed.
+Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
 
-Make sure you have installed all prerequisites before continuing. See the :ref:`previous tutorial <BuildingURDF>` for information on what is required.
+Make sure you have installed all prerequisites before continuing.
+See the :ref:`previous tutorial <BuildingURDF>` for information on what is required.
 
 Again, all of the robot models mentioned in this tutorial can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
@@ -20,7 +23,8 @@ Again, all of the robot models mentioned in this tutorial can be found in the `u
    :local:
 
 
-`Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints. You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.
+`Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints.
+You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.
 
 To visualize and control this model, run the same command as the last tutorial:
 
@@ -29,7 +33,9 @@ To visualize and control this model, run the same command as the last tutorial:
   ros2 launch urdf_tutorial display.launch.py  model:=urdf/06-flexible.urdf
 
 
-However now this will also pop up a GUI that allows you to control the values of all the non-fixed joints. Play with the model some and see how it moves. Then, we can take a look at how we accomplished this.
+However now this will also pop up a GUI that allows you to control the values of all the non-fixed joints.
+Play with the model some and see how it moves.
+Then, we can take a look at how we accomplished this.
 
 
 .. image:: https://raw.githubusercontent.com/ros/urdf_tutorial/ros2/images/flexible.png
@@ -50,9 +56,11 @@ The Head
     <origin xyz="0 0 0.3"/>
   </joint>
 
-The connection between the body and the head is a continuous joint, meaning that it can take on any angle from negative infinity to positive infinity. The wheels are also modeled like this, so that they can roll in both directions forever.
+The connection between the body and the head is a continuous joint, meaning that it can take on any angle from negative infinity to positive infinity.
+The wheels are also modeled like this, so that they can roll in both directions forever.
 
-The only additional information we have to add is the axis of rotation, here specified by an xyz triplet, which specifies a vector around which the head will rotate. Since we want it to go around the z axis, we specify the vector "0 0 1".
+The only additional information we have to add is the axis of rotation, here specified by an xyz triplet, which specifies a vector around which the head will rotate.
+Since we want it to go around the z axis, we specify the vector "0 0 1".
 
 The Gripper
 -----------
@@ -69,7 +77,10 @@ The Gripper
   </joint>
 
 
-Both the right and the left gripper joints are modeled as revolute joints. This means that they rotate in the same way that the continuous joints do, but they have strict limits. Hence, we must include the limit tag specifying the upper and lower limits of the joint (in radians). We also must specify a maximum velocity and effort for this joint but the actual values don't matter for our purposes here.
+Both the right and the left gripper joints are modeled as revolute joints.
+This means that they rotate in the same way that the continuous joints do, but they have strict limits.
+Hence, we must include the limit tag specifying the upper and lower limits of the joint (in radians).
+We also must specify a maximum velocity and effort for this joint but the actual values don't matter for our purposes here.
 
 The Gripper Arm
 ---------------
@@ -85,19 +96,28 @@ The Gripper Arm
   </joint>
 
 
-The gripper arm is a different kind of joint...namely a prismatic joint. This means that it moves along an axis, not around it. This translational movement is what allows our robot model to extend and retract its gripper arm.
+The gripper arm is a different kind of joint...namely a prismatic joint.
+This means that it moves along an axis, not around it.
+This translational movement is what allows our robot model to extend and retract its gripper arm.
 
 The limits of the prismatic arm are specified in the same way as a revolute joint, except that the units are meters, not radians.
 
 Other Types of Joints
 ---------------------
 
-There are two other kinds of joints that move around in space. Whereas the prismatic joint can only move along one dimension, a planar joint can move around in a plane, or two dimensions. Furthermore, a floating joint is unconstrained, and can move around in any of the three dimensions. These joints cannot be specified by just one number, and therefore aren’t included in this tutorial.
+There are two other kinds of joints that move around in space.
+Whereas the prismatic joint can only move along one dimension, a planar joint can move around in a plane, or two dimensions.
+Furthermore, a floating joint is unconstrained, and can move around in any of the three dimensions.
+These joints cannot be specified by just one number, and therefore aren’t included in this tutorial.
 
 Specifying the Pose
 -------------------
 
-As you move the sliders around in the GUI, the model moves in Rviz. How is this done? First the `GUI <https://index.ros.org/p/joint_state_publisher_gui>`_ parses the URDF and finds all the non-fixed joints and their limits. Then, it uses the values of the sliders to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ messages. Those are then used by `robot_state_publisher <https://index.ros.org/p/robot_state_publisher>`_ to calculate all of transforms between the different parts. The resulting transform tree is then used to display all of the shapes in Rviz.
+As you move the sliders around in the GUI, the model moves in Rviz.
+How is this done? First the `GUI <https://index.ros.org/p/joint_state_publisher_gui>`_ parses the URDF and finds all the non-fixed joints and their limits.
+Then, it uses the values of the sliders to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ messages.
+Those are then used by `robot_state_publisher <https://index.ros.org/p/robot_state_publisher>`_ to calculate all of transforms between the different parts.
+The resulting transform tree is then used to display all of the shapes in Rviz.
 
 Next steps
 ----------
