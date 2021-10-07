@@ -54,7 +54,7 @@ To examine the model, launch the ``display.launch.py`` file:
 This does three things:
 
  * Loads the specified model and saves it as a parameter
- * Runs nodes to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
+ * Runs nodes to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ and transforms (more on these later)
  * Starts Rviz with a configuration file
 
 Note that the launch command above assumes that you are executing it from the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package directory (ie: the ``urdf`` directory is a direct child of the current working directory).

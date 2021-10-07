@@ -104,7 +104,7 @@ Specifying the Pose
 
 As you move the sliders around in the GUI, the model moves in Rviz.
 How is this done? First the `GUI <https://index.ros.org/p/joint_state_publisher_gui>`_ parses the URDF and finds all the non-fixed joints and their limits.
-Then, it uses the values of the sliders to publish `sensor_msgs/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ messages.
+Then, it uses the values of the sliders to publish `sensor_msgs/msg/JointState <https://github.com/ros2/common_interfaces/blob/eloquent/sensor_msgs/msg/JointState.msg>`_ messages.
 Those are then used by `robot_state_publisher <https://index.ros.org/p/robot_state_publisher>`_ to calculate all of transforms between the different parts.
 The resulting transform tree is then used to display all of the shapes in Rviz.
 

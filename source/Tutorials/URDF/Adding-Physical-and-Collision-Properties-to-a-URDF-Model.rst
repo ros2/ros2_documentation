@@ -16,8 +16,8 @@ In this tutorial, we’ll look at how to add some basic physical properties to y
 Collision
 ---------
 
-So far, we’ve only specified our links with a single sub-element, visual, which defines (not surprisingly) what the robot looks like.
-However, in order to get collision detection to work or to simulate the robot, we need to define a collision element as well.
+So far, we’ve only specified our links with a single sub-element, ``visual``, which defines (not surprisingly) what the robot looks like.
+However, in order to get collision detection to work or to simulate the robot, we need to define a ``collision`` element as well.
 `Here is the new urdf <https://raw.githubusercontent.com/ros/urdf_tutorial/master/urdf/07-physics.urdf>`_ with collision and physical properties.
 
 Here is the code for our new base link.
@@ -46,11 +46,11 @@ Here is the code for our new base link.
 * You can also specify an origin in the same way as a subelement of the collision tag (as with the visual).
 
 In many cases, you’ll want the collision geometry and origin to be exactly the same as the visual geometry and origin.
-However, there are two main cases where you wouldn’t.
+However, there are two main cases where you wouldn’t:
 
- * Quicker Processing - Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
+ * **Quicker Processing**. Doing collision detection for two meshes is a lot more computational complex than for two simple geometries.
    Hence, you may want to replace the meshes with simpler geometries in the collision element.
- * Safe Zones - You may want to restrict movement close to sensitive equipment.
+ * **Safe Zones**. You may want to restrict movement close to sensitive equipment.
    For instance, if we didn’t want anything to collide with R2D2’s head, we might define the collision geometry to be a cylinder encasing his head to prevent anything from getting too close to his head.
 
 Physical Properties
@@ -122,10 +122,10 @@ Joint Dynamics
 How the joint moves is defined by the dynamics tag for the joint.
 There are two attributes here:
 
- * friction - The physical static friction.
+ * ``friction`` - The physical static friction.
    For prismatic joints, the units are Newtons.
    For revolving joints, the units are Newton meters.
- * damping - The physical damping value.
+ * ``damping`` - The physical damping value.
    For prismatic joints, the units are Newton seconds per meter.
    For revolving joints, Newton meter seconds per radian.
 

@@ -37,11 +37,15 @@ However, it does take time to generate, so be aware that your launch file might 
 
 .. code-block:: python
 
+    path_to_urdf = get_package_share_path('pr2_description') / 'robots' / 'pr2.urdf.xacro'
     robot_state_publisher_node = launch_ros.actions.Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
-        parameters=[{'robot_description': ParameterValue(Command(['xacro ', str(get_package_share_path('pr2_description') / 'robots/pr2.urdf.xacro')]),
-                                                         value_type=str)}]
+        parameters=[{
+            'robot_description': ParameterValue(
+                Command(['xacro ', str(path_to_urdf)]), value_type=str
+            )
+        }]
     )
 
 At the top of the URDF file, you must specify a namespace in order for the file to parse properly.
