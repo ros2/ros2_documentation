@@ -96,7 +96,7 @@ The Gripper Arm
   </joint>
 
 
-The gripper arm is a different kind of joint...namely a prismatic joint.
+The gripper arm is a different kind of joint, namely a prismatic joint.
 This means that it moves along an axis, not around it.
 This translational movement is what allows our robot model to extend and retract its gripper arm.
 

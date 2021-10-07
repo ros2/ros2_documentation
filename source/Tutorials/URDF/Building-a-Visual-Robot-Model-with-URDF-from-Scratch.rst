@@ -44,7 +44,7 @@ Here’s about as simple as a urdf as you can make.
     </robot>
 
 
-To translate the XML into English, this is a robot with the name myfirst, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
+To translate the XML into English, this is a robot with the name ``myfirst``, that contains only one link (a.k.a. part), whose visual component is just a cylinder 0.6 meters long with a 0.2 meter radius.
 This may seem like a lot of enclosing tags for a simple “hello world” type example, but it will get more complicated, trust me.
 
 To examine the model, launch the ``display.launch.py`` file:
@@ -80,7 +80,7 @@ After launching ``display.launch.py``, you should end up with RViz showing you t
 
 
 Things to note:
- * The fixed frame is transform frame where the center of the grid is located.
+ * The fixed frame is the transform frame where the center of the grid is located.
    Here, it’s a frame defined by our one link, base_link.
  * The visual element (the cylinder) has its origin at the center of its geometry as a default.
    Hence, half the cylinder is below the grid.
@@ -145,7 +145,7 @@ If we want them not to overlap we must define more origins.
 Origins
 -------
 
-So R2D2’s leg attaches to the top half of his torso, on the side.
+R2D2’s leg attaches to the top half of his torso, on the side.
 So that’s where we specify the origin of the JOINT to be.
 Also, it doesn’t attach to the middle of the leg, it attaches to the upper part, so we must offset the origin for the leg as well.
 We also rotate the leg so it is upright.
@@ -565,7 +565,7 @@ We’ll also add few other pieces that we’ll use later.
   :alt: Visual Screenshot
 
 
-How to add the sphere should be fairly self explanatory
+How to add the sphere should be fairly self explanatory:
 
 .. code-block:: xml
 
