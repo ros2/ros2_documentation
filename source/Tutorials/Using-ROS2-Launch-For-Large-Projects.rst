@@ -58,29 +58,34 @@ To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`
    def generate_launch_description():
       turtlesim_world_1 = IncludeLaunchDescription(
          PythonLaunchDescriptionSource([os.path.join(
-               get_package_share_directory('launch_tutorial'), 'launch'),
-               '/turtlesim_world_1.launch.py'])
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/turtlesim_world_1.launch.py'])
          )
       turtlesim_world_2 = IncludeLaunchDescription(
          PythonLaunchDescriptionSource([os.path.join(
-               get_package_share_directory('launch_tutorial'), 'launch'),
-               '/turtlesim_world_2.launch.py'])
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/turtlesim_world_2.launch.py'])
          )
       broadcaster_listener_nodes = IncludeLaunchDescription(
          PythonLaunchDescriptionSource([os.path.join(
-               get_package_share_directory('launch_tutorial'), 'launch'),
-               '/broadcaster_listener.launch.py']),
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/broadcaster_listener.launch.py']),
          launch_arguments={'target_frame': 'turtle1'}.items(),
          )
       mimic_node = IncludeLaunchDescription(
          PythonLaunchDescriptionSource([os.path.join(
-               get_package_share_directory('launch_tutorial'), 'launch'),
-               '/mimic.launch.py'])
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/mimic.launch.py'])
          )
       fixed_frame_node = IncludeLaunchDescription(
          PythonLaunchDescriptionSource([os.path.join(
-               get_package_share_directory('launch_tutorial'), 'launch'),
-               '/fixed_broadcaster.launch.py'])
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/fixed_broadcaster.launch.py'])
+         )
+      rviz_node = IncludeLaunchDescription(
+         PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/turtlesim_rviz.launch.py'])
          )
 
       return LaunchDescription([
@@ -88,7 +93,8 @@ To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`
          turtlesim_world_2,
          broadcaster_listener_nodes,
          mimic_node,
-         fixed_frame_node
+         fixed_frame_node,
+         rviz_node
       ])
 
 This launch file includes a set of other launch files.
@@ -139,15 +145,14 @@ Now let's create a new file called ``turtlesim_world_1.launch.py``.
          background_g_launch_arg,
          background_b_launch_arg,
          Node(
-               package='turtlesim',
-               executable='turtlesim_node',
-               name='sim',
-               parameters=[{
-                  'background_r': LaunchConfiguration('background_r'),
-                  'background_g': LaunchConfiguration('background_g'),
-                  'background_b': LaunchConfiguration('background_b'),
-               }]
-
+            package='turtlesim',
+            executable='turtlesim_node',
+            name='sim',
+            parameters=[{
+               'background_r': LaunchConfiguration('background_r'),
+               'background_g': LaunchConfiguration('background_g'),
+               'background_b': LaunchConfiguration('background_b'),
+            }]
          ),
       ])
 
@@ -179,11 +184,11 @@ Now create a ``turtlesim_world_2.launch.py`` file.
 
       return LaunchDescription([
          Node(
-               package='turtlesim',
-               executable='turtlesim_node',
-               namespace='turtlesim2',
-               name = 'sim',
-               parameters=[config]
+            package='turtlesim',
+            executable='turtlesim_node',
+            namespace='turtlesim2',
+            name = 'sim',
+            parameters=[config]
          )
       ])
 
@@ -223,32 +228,32 @@ Create a ``broadcaster_listener.launch.py`` file.
    def generate_launch_description():
       return LaunchDescription([
          DeclareLaunchArgument(
-               'target_frame', default_value='turtle1',
-               description='Target frame name.'
+            'target_frame', default_value='turtle1',
+            description='Target frame name.'
          ),
          Node(
-               package='turtle_tf2_py',
-               executable='turtle_tf2_broadcaster',
-               name='broadcaster1',
-               parameters=[
-                  {'turtlename': 'turtle1'}
-               ]
+            package='turtle_tf2_py',
+            executable='turtle_tf2_broadcaster',
+            name='broadcaster1',
+            parameters=[
+               {'turtlename': 'turtle1'}
+            ]
          ),
          Node(
-               package='turtle_tf2_py',
-               executable='turtle_tf2_broadcaster',
-               name='broadcaster2',
-               parameters=[
-                  {'turtlename': 'turtle2'}
-               ]
+            package='turtle_tf2_py',
+            executable='turtle_tf2_broadcaster',
+            name='broadcaster2',
+            parameters=[
+               {'turtlename': 'turtle2'}
+            ]
          ),
          Node(
-               package='turtle_tf2_py',
-               executable='turtle_tf2_listener',
-               name='listener',
-               parameters=[
-                  {'target_frame': LaunchConfiguration('target_frame')}
-               ]
+            package='turtle_tf2_py',
+            executable='turtle_tf2_listener',
+            name='listener',
+            parameters=[
+               {'target_frame': LaunchConfiguration('target_frame')}
+            ]
          ),
       ])
 
@@ -267,15 +272,15 @@ Recall that in our top-level launch file called this launch file and passed ``ta
 
    broadcaster_listener_nodes = IncludeLaunchDescription(
       PythonLaunchDescriptionSource([os.path.join(
-            get_package_share_directory('launch_tutorial'), 'launch'),
-            '/broadcaster_listener.launch.py']),
+         get_package_share_directory('launch_tutorial'), 'launch'),
+         '/broadcaster_listener.launch.py']),
       launch_arguments={'target_frame': 'turtle1'}.items(),
       )
 
 Remapping
 ---------
 
-``mimic.launch.py``
+Now create a ``mimic.launch.py`` file.
 
 .. code-block:: Python
 
@@ -286,21 +291,22 @@ Remapping
    def generate_launch_description():
       return LaunchDescription([
          Node(
-               package='turtlesim',
-               executable='mimic',
-               name='mimic',
-               remappings=[
-                  ('/input/pose', '/turtle2/pose'),
-                  ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
-               ]
+            package='turtlesim',
+            executable='mimic',
+            name='mimic',
+            remappings=[
+               ('/input/pose', '/turtle2/pose'),
+               ('/output/cmd_vel', '/turtlesim2/turtle1/cmd_vel'),
+            ]
          )
       ])
 
-Mimic node is designed to receive pose on the topic ``/input/pose``.
-In the case of the turtlesim, pose is published on the ``/turtlesim1/turtle1/pose`` topic, so we remap it.
+This launch file will start the ``mimic`` node, which is designed to receive target pose on the topic ``/input/pose``.
+In our case, we want to make the target pose that is published on the ``/turtle2/pose`` topic, so we remap it.
+Finally, we remap the ``/output/cmd_vel`` topic to ``/turtlesim2/turtle1/cmd_vel``.
+This way ``turtle1`` in our ``turtlesim2`` simulation world will follow ``turtle2`` in our initial turtlesim world.
 
 .. note:: Design tip: Use topic remapping when a given type of information is published on different topics in different situations.
-
 
 Parameter overrides
 -------------------
@@ -309,8 +315,36 @@ like --debug, --noninteractive, etc
 
 Config files
 ------------
-importing files like rviz configs (edited)
 
+Let's now create file called ``turtlesim_rviz.launch.py``.
+
+.. code-block:: Python
+
+   import os
+
+   from ament_index_python.packages import get_package_share_directory
+
+   from launch import LaunchDescription
+   from launch_ros.actions import Node
+
+   def generate_launch_description():
+      rviz_config = os.path.join(
+         get_package_share_directory('turtle_tf2_py'),
+         'rviz',
+         'turtle_rviz.rviz'
+         )
+
+      return LaunchDescription([
+         Node(
+            package='rviz2',
+            executable='rviz2',
+            name='rviz2',
+            arguments=['-d', rviz_config]
+         )
+      ])
+
+This launch file will start the RViz with configuration defined in the ``turtle_tf2_py`` package.
+This RViz configuration will set the world frame, enable TF vizualization and a top-down view.
 
 Environment Variables
 ---------------------
