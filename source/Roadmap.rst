@@ -41,7 +41,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Expected Completion
    * - Identify if messages have changed over time
      - Large
-     - Apex
+     - Apex.AI
      -
    * - Rosbag2 playback controlled by /clock sim time
      - Small
