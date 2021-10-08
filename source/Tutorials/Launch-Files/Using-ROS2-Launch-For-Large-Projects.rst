@@ -390,6 +390,38 @@ Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in 
 This launch file simply shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define namespaces for distinguishing nodes on different computers or robots.
 
+
+Results
+-------
+
+To finally see the result of our code, launch the top-level launch file using following command:
+
+.. code-block:: console
+
+   ros2 launch launch_tutorial launch_turtlesim.launch.py
+
+You will now see the two turtlesim simulations started.
+There are two turtles in the first one and one in the second one.
+In the first simulation, ``turtle2`` is spawned in the bottom-left part of the world.
+Its aim is to reach the ``carrot1`` frame which is in 5 meters away in x axis relative to the ``turtle1``.
+
+The ``turtlesim2/turtle1`` in the second is desgined to mimic the behaviour of the ``turtle2``.
+
+If you want to control the ``turtle1``, run the teleop node.
+
+.. code-block:: console
+
+   ros2 run turtlesim turtle_teleop_key
+
+As a result you will see similar picture:
+
+.. image:: images/turtlesim_worlds.png
+
+In addition to that, the RViz should have started.
+It will show all turtle frames relative to the ``world`` frame, whose origin is at the bottom-left corner.
+
+.. image:: images/turtlesim_rviz.png
+
 Summary
 -------
 
