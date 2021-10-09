@@ -1,6 +1,6 @@
 .. _UsingROS2LaunchForLargeProjects:
 
-Using ROS2 Launch for large projects
+Using ROS2 launch for large projects
 ====================================
 
 **Goal:** Learn best practices of managing large projects using ROS 2 launch files
@@ -390,11 +390,29 @@ Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in 
 This launch file simply shows the way environment variables can be called inside the launch files.
 Environment variables can be used to define namespaces for distinguishing nodes on different computers or robots.
 
+Running the code
+----------------
 
-Results
--------
+Update setup.py
+^^^^^^^^^^^^^^^
 
-To finally see the result of our code, launch the top-level launch file using following command:
+Open ``setup.py`` and add the following lines so that the launch files from the ``launch/`` folder and configuration file from the ``config/`` would be installed.
+The ``data_files`` field should now look like this:
+
+.. code-block:: Python
+
+   data_files=[
+         ...
+         (os.path.join('share', package_name, 'launch'),
+            glob(os.path.join('launch', '*.launch.py'))),
+         (os.path.join('share', package_name, 'config'),
+            glob(os.path.join('config', '*.yaml'))),
+      ],
+
+Build and run
+^^^^^^^^^^^^^
+
+To finally see the result of our code, build the package and launch the top-level launch file using following command:
 
 .. code-block:: console
 
