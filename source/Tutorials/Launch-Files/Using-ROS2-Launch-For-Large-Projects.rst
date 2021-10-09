@@ -18,8 +18,13 @@ Background
 
 This tutorial describes some tips for writing launch files for large projects.
 The focus is on how to structure launch files so they may be reused as much as possible in different situations.
-We will use the ``turtlesim`` and ``turtle_tf2_py`` packages for a case study.
-We will create a new package called a ``launch_tutorial`` with 7 different launch files and cover different ROS 2 launch tools.
+Additionally, it covers usage examples of different ROS 2 launch tools, like parameters, YAML files, remappings, namespaces, default arguments, and RViz configs.
+
+Prerequisites
+-------------
+
+This tutorial uses the :ref:`turtlesim <Turtlesim>` and :ref:`turtle_tf2_py <IntroToTf2>` packages.
+This tutorial also assumes you have created a new package called a ``launch_tutorial`` that will later include 7 different launch files.
 
 Introduction
 ------------
