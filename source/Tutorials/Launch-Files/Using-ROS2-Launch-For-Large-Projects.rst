@@ -217,10 +217,45 @@ If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start t
 
 To learn more about using parameters and using YAML files, take a look at the :ref:`Understanding ROS 2 parameters <ROS2Params>` tutorial.
 
-Finally, in the latter launch file, you will notice that we have defined the ``namespace='turtlesim2'``.
+3 Namespaces
+^^^^^^^^^^^^
+
+As you may have noticed, we have defined the namespace in the ``turtlesim_world_2.launch.py`` file.
 Unique namespaces allow the system to start two similar nodes without node name or topic name conflicts.
 
-3 Reusing nodes
+.. code-block:: Python
+
+   namespace='turtlesim2',
+
+However, if the launch file contains a large number of nodes, defining namespaces for each of them can become tedious.
+To solve that issue, the ``PushRosNamespace`` action can be used to define the global namespace for each launch file description.
+Every nested node will inherit that namespace automatically.
+
+To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2.launch.py`` file.
+Afterwards, we need to update the ``launch_turtlesim.launch.py`` to include the following lines:
+
+.. code-block:: Python
+
+   from launch.actions import GroupAction
+   from launch_ros.actions import PushRosNamespace
+
+      ...
+      turtlesim_world_2 = IncludeLaunchDescription(
+         PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('launch_tutorial'), 'launch'),
+            '/turtlesim_world_2.launch.py'])
+         )
+      turtlesim_world_2_with_namespace = GroupAction(
+        actions=[
+            PushRosNamespace('turtlesim2'),
+            turtlesim_world_2,
+         ]
+      )
+
+Finally, we replace the ``turtlesim_world_2`` to ``turtlesim_world_2_with_namespace`` in the ``return LaunchDescription`` statement.
+As a result, each node in the ``turtlesim_world_2.launch.py`` launch description will have a ``turtlesim2`` namespace.
+
+4 Reusing nodes
 ^^^^^^^^^^^^^^^
 
 Now create a ``broadcaster_listener.launch.py`` file.
@@ -275,7 +310,7 @@ This allows us to duplicate the same node without conflicts.
 
 We also start a ``turtle_tf2_listener`` node and set its ``target_frame`` parameter that we declared and acquired above.
 
-4 Parameter overrides
+5 Parameter overrides
 ^^^^^^^^^^^^^^^^^^^^^
 
 Recall that we called the ``broadcaster_listener.launch.py`` file in our top-level launch file.
@@ -294,7 +329,7 @@ This syntax allows us to change the default goal target frame to ``carrot1``.
 If you would like ``turtle2`` to follow ``turtle1`` instead of the ``carrot1``, just remove the line that defines ``launch_arguments``.
 This will assign ``target_frame`` its default value, which is ``turtle1``.
 
-5 Remapping
+6 Remapping
 ^^^^^^^^^^^
 
 Now create a ``mimic.launch.py`` file.
@@ -324,7 +359,7 @@ In our case, we want to remap the target pose from ``/turtle2/pose`` topic.
 Finally, we remap the ``/output/cmd_vel`` topic to ``/turtlesim2/turtle1/cmd_vel``.
 This way ``turtle1`` in our ``turtlesim2`` simulation world will follow ``turtle2`` in our initial turtlesim world.
 
-6 Config files
+7 Config files
 ^^^^^^^^^^^^^^
 
 Let's now create a file called ``turtlesim_rviz.launch.py``.
@@ -358,7 +393,7 @@ Let's now create a file called ``turtlesim_rviz.launch.py``.
 This launch file will start the RViz with the configuration file defined in the ``turtle_tf2_py`` package.
 This RViz configuration will set the world frame, enable TF visualization, and start RViz with a top-down view.
 
-7 Environment Variables
+8 Environment Variables
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in our package.
@@ -410,7 +445,7 @@ The ``data_files`` field should now look like this:
 2 Build and run
 ^^^^^^^^^^^^^^^
 
-To finally see the result of our code, build the package and launch the top-level launch file using following command:
+To finally see the result of our code, build the package and launch the top-level launch file using the following command:
 
 .. code-block:: console
 
@@ -419,9 +454,9 @@ To finally see the result of our code, build the package and launch the top-leve
 You will now see the two turtlesim simulations started.
 There are two turtles in the first one and one in the second one.
 In the first simulation, ``turtle2`` is spawned in the bottom-left part of the world.
-Its aim is to reach the ``carrot1`` frame which is in 5 meters away in x axis relative to the ``turtle1``.
+Its aim is to reach the ``carrot1`` frame which is five meters away on the x-axis relative to the ``turtle1`` frame.
 
-The ``turtlesim2/turtle1`` in the second is desgined to mimic the behavior of the ``turtle2``.
+The ``turtlesim2/turtle1`` in the second is designed to mimic the behavior of the ``turtle2``.
 
 If you want to control the ``turtle1``, run the teleop node.
 
@@ -429,7 +464,7 @@ If you want to control the ``turtle1``, run the teleop node.
 
    ros2 run turtlesim turtle_teleop_key
 
-As a result you will see similar picture:
+As a result, you will see a similar picture:
 
 .. image:: images/turtlesim_worlds.png
 
