@@ -35,7 +35,7 @@ The turtle simulation consists of multiple turtle nodes, the world configuration
 Between all of the nodes, there are a large number of ROS parameters that affect the behavior and appearance of these nodes.
 ROS 2 launch files allow us to start all nodes and set corresponding parameters in one place.
 By the end of a tutorial, you will build the ``launch_turtlesim.launch.py`` launch file in the ``launch_tutorial`` package.
-This launch file will bring up different nodes responsible for simulation of two turtlesim simulations, starting TF broadcasters and listener, loading parameters, and launching an RViz configuration.
+This launch file will bring up different nodes responsible for the simulation of two turtlesim simulations, starting TF broadcasters and listener, loading parameters, and launching an RViz configuration.
 In this tutorial, we'll go over this launch file and all related features used.
 
 Writing launch files
@@ -47,7 +47,7 @@ Writing launch files
 One of the aims in the process of writing launch files should be making them as reusable as possible.
 This could be done by clustering related nodes and configurations into separate launch files.
 Afterwards, a top-level launch file dedicated to a specific configuration could be written.
-This would allow moving between identical robots be done without changing the launch files at all.
+This would allow moving between identical robots to be done without changing the launch files at all.
 Even a change such as moving from a real robot to a simulated one can be done with only a few changes.
 
 We will now go over the top-level launch file structure that makes this possible.
@@ -109,7 +109,7 @@ To do this, let's create a ``launch_turtlesim.launch.py`` file in the ``/launch`
 
 This launch file includes a set of other launch files.
 Each of these included launch files contains nodes, parameters, and possibly, nested includes, which pertain to one part of the system.
-To be exact, we launch two turtlesim simulation worlds, TF broadcaster and listener nodes, mimic, fixed frame broadcasterm and RViz nodes.
+To be exact, we launch two turtlesim simulation worlds, TF broadcaster, TF listener, mimic, fixed frame broadcaster, and RViz nodes.
 
 .. note:: Design Tip: Top-level launch files should be short, consist of includes to other files corresponding to subcomponents of the application, and commonly changed parameters.
 
@@ -164,7 +164,6 @@ First, create a new file called ``turtlesim_world_1.launch.py``.
       ])
 
 This launch file starts the ``turtlesim_node`` node, which starts the turtlesim simulation, with simulation configuration parameters that are defined and passed to the nodes.
-.. Declaring parameters and arguments in launch files makes it easy to start nodes for a particular robot setup.
 
 2.2 Loading parameters from YAML file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -200,9 +199,9 @@ Now create a ``turtlesim_world_2.launch.py`` file.
       ])
 
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
-Defining arguments and parameters in YAML files makes it easy to store and load a large number of variables.
+Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
 In addition, YAML files can be easily exported from the current ``ros2 param`` list.
-To learn how to do that, refer to the the :ref:`Understanding ROS 2 parameters <ROS2Params>` tutorial.
+To learn how to do that, refer to the :ref:`Understanding ROS 2 parameters <ROS2Params>` tutorial.
 
 Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` folder of our package, which will be loaded by our launch file.
 
@@ -422,7 +421,7 @@ There are two turtles in the first one and one in the second one.
 In the first simulation, ``turtle2`` is spawned in the bottom-left part of the world.
 Its aim is to reach the ``carrot1`` frame which is in 5 meters away in x axis relative to the ``turtle1``.
 
-The ``turtlesim2/turtle1`` in the second is desgined to mimic the behaviour of the ``turtle2``.
+The ``turtlesim2/turtle1`` in the second is desgined to mimic the behavior of the ``turtle2``.
 
 If you want to control the ``turtle1``, run the teleop node.
 
