@@ -56,8 +56,8 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1k* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1k*.
+Download the *Win64 OpenSSL v1.1.1L* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1L*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters, as the following commands assume you used the default installation directory.
