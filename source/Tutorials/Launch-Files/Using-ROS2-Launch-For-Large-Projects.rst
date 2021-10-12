@@ -263,7 +263,7 @@ We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the foll
          background_r: 150
 
 Now include the ``turtlesim_world_3.launch.py`` launch description in our main launch file.
-Using that configuration file in our launch description will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
+Using that configuration file in our launch descriptions will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
 
 3 Namespaces
 ^^^^^^^^^^^^
@@ -469,7 +469,7 @@ Let's now create the last launch file called ``fixed_broadcaster.launch.py`` in 
       ])
 
 This launch file shows the way environment variables can be called inside the launch files.
-Environment variables can be used to define namespaces for distinguishing nodes on different computers or robots.
+Environment variables can be used to define or push namespaces for distinguishing nodes on different computers or robots.
 
 Running launch files
 --------------------
