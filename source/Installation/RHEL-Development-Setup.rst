@@ -161,7 +161,7 @@ Continue with the `tutorials and demos <../Tutorials>` to configure your environ
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :ref:`guide <WorkingWithMultipleROS2MiddlewareImplementations>` on how to work with multiple RMWs.
 
 Alternate compilers
 -------------------

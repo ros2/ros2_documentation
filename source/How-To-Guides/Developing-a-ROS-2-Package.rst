@@ -4,6 +4,8 @@
     Guides/Developing-a-ROS-2-Package
     Tutorials/Developing-a-ROS-2-Package
 
+.. _DevelopingAROS2Package:
+
 Developing a ROS 2 package
 ##########################
 

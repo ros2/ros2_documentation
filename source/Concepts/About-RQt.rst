@@ -56,7 +56,7 @@ Installing From Debian
 Building From Source
 ^^^^^^^^^^^^^^^^^^^^
 
-See `Building RQt from Source <../How-To-Guides/RQt-Source-Install>`.
+See :ref:`Building RQt from Source <BuildingRQtFromSource>`.
 
 RQt Components Structure
 ------------------------

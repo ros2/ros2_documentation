@@ -3,6 +3,8 @@
   Guides/Cross-compilation
   Tutorials/Cross-compilation
 
+.. _CrossCompilation:
+
 Cross-compilation
 =================
 

@@ -98,7 +98,7 @@ Here a list of the |packages| in the repository along with a short description:
 -  ``ament_cmake_python``
 
    - provides CMake functions for |packages| that contain Python code
-   - see the `ament_cmake_python user documentation <../How-To-Guides/Ament-CMake-Python-Documentation>`__
+   - see the :ref:`ament_cmake_python user documentation <AmentCmakePythonUserDocumentation>`
 
 -  ``ament_cmake_test``
 

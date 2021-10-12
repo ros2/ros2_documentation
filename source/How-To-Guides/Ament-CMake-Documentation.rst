@@ -3,6 +3,8 @@
   Guides/Ament-CMake-Documentation
   Tutorials/Ament-CMake-Documentation
 
+.. _AmentCmakeUserDocumentation:
+
 ament_cmake user documentation
 ==============================
 

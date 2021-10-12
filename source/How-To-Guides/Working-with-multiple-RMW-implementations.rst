@@ -4,6 +4,8 @@
     Guides/Working-with-multiple-RMW-implementations
     Tutorials/Working-with-multiple-RMW-implementations
 
+.. _WorkingWithMultipleROS2MiddlewareImplementations:
+
 Working with multiple ROS 2 middleware implementations
 ======================================================
 

@@ -27,4 +27,4 @@ It is a Python script that compiles ROS 2 source files for supported target arch
 Detailed design of the tool can be found on `ROS 2 design <https://design.ros2.org/articles/cc_build_tools.html>`__.
 Instructions to use the tool are in the `cross_compile package <https://github.com/ros-tooling/cross_compile>`__.
 
-If you are using an older version, please follow the `cross-compilation guide <../How-To-Guides/Cross-compilation>`.
+If you are using an older version, please follow the :ref:`cross-compilation guide <CrossCompilation>`.

@@ -248,6 +248,6 @@ Next steps
 .. note::
 
   You can also use XML and YAML to create launch files.
-  You can see a comparison of these different ROS 2 launch formats in :doc:`../../How-To-Guides/Launch-file-different-formats`.
+  You can see a comparison of these different ROS 2 launch formats in :ref:`Using Python, XML, and YAML for ROS 2 Launch Files guide <UsingPythonXMLAndYAMLForROS2LaunchFiles>`.
 
 In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``.

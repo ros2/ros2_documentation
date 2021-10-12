@@ -2,6 +2,8 @@
 
   Guides/Package-maintainer-guide
 
+.. _ROS2PackageMaintainerGuide:
+
 ROS 2 Package Maintainer Guide
 ==============================
 

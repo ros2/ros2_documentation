@@ -2,11 +2,13 @@
 
   Guides/Ament-CMake-Python-Documentation
 
+.. _AmentCmakePythonUserDocumentation:
+
 ament_cmake_python user documentation
 =====================================
 
 ``ament_cmake_python`` is a package that provides CMake functions for packages of the ``ament_cmake`` build type that contain Python code.
-See the `ament_cmake user documentation <Ament-CMake-Documentation>`__ for more information.
+See the :ref:`ament_cmake user documentation <AmentCmakeUserDocumentation>` for more information.
 
 .. note::
 

@@ -3,6 +3,8 @@
     RQt-Source-Install
     Guides/RQt-Source-Install
 
+.. _BuildingRQtFromSource:
+
 Building RQt from source
 ========================
 
@@ -52,7 +54,7 @@ Install Dependencies
    RQt-Source-Install-MacOS
    RQt-Source-Install-Windows10
 
-For non-Linux platforms, see the `macOS RQt source install page <RQt-Source-Install-MacOS>` or the `Windows 10 RQt source install page <RQt-Source-Install-Windows10>` before continuing here.
+For non-Linux platforms, see the :ref:`macOS RQt source install page <BuildingRQtFromSourceOnMacOS>` or the :ref:`Windows 10 RQt source install page <BuildingRQtFromSourceOnWindows10>` before continuing here.
 
 .. code-block:: bash
 

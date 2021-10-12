@@ -2,6 +2,8 @@
 
   Guides/Launch-file-different-formats
 
+.. _UsingPythonXMLAndYAMLForROS2LaunchFiles:
+
 Using Python, XML, and YAML for ROS 2 Launch Files
 ==================================================
 

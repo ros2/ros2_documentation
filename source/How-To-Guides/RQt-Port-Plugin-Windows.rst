@@ -4,6 +4,8 @@
     Guides/RQt-Port-Plugin-Windows
     Tutorials/RQt-Port-Plugin-Windows
 
+.. _PortingRQtPluginsToWindows:
+
 Porting RQt plugins to Windows
 ==============================
 

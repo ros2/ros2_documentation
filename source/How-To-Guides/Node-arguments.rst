@@ -4,6 +4,8 @@
     Guides/Node-arguments
     Tutorials/Node-arguments
 
+.. _PassingROSArgumentsToNodesViaTheCommandLine:
+
 Passing ROS arguments to nodes via the command-line
 ===================================================
 

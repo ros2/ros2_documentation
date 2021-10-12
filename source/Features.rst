@@ -17,7 +17,7 @@ For planned future development, see the :ref:`Roadmap <Roadmap>`.
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
    * - Support for `multiple DDS implementations <Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
-     - `Concept <Concepts/About-Different-Middleware-Vendors>`, `How-to Guide <How-To-Guides/Working-with-multiple-RMW-implementations>`
+     - `Concept <Concepts/About-Different-Middleware-Vendors>`, :ref:`How-to Guide <WorkingWithMultipleROS2MiddlewareImplementations>`
      - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
      - `Details <Concepts/About-ROS-2-Client-Libraries>`

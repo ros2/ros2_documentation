@@ -3,11 +3,13 @@
     RQt-Source-Install-MacOS
     Guides/RQt-Source-Install-MacOS
 
+.. _BuildingRQtFromSourceOnMacOS:
+
 Building RQt from source on macOS
 =================================
 
 This page provides specific information to building RQt from source on macOS.
-Follow these instructions before proceeding with `RQt Source Install <RQt-Source-Install>` page.
+Follow these instructions before proceeding with :ref:`RQt Source Install <BuildingRQtFromSource>` page.
 
 System Requirements
 -------------------
@@ -41,4 +43,4 @@ Another option is to update your ``PATH`` and ``CMAKE_PREFIX_PATH`` to include t
 Install RQt by source
 ---------------------
 
-Continue with the `RQt source install page <RQt-Source-Install>`.
+Continue with the :ref:`RQt source install page <BuildingRQtFromSource>`.

@@ -2,6 +2,8 @@
 
   Guides/Building-a-Custom-Debian-Package
 
+.. _BuildingACustomDebianPackage:
+
 Building a custom Debian package
 ================================
 

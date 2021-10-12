@@ -4,6 +4,8 @@
     Guides/Releasing-a-ROS-2-package-with-bloom
     Tutorials/Releasing-a-ROS-2-package-with-bloom
 
+.. _ReleasingAROS2PackageWithBloom:
+
 Releasing a ROS 2 package with bloom
 ====================================
 
