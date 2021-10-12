@@ -217,10 +217,57 @@ If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start t
 
 To learn more about using parameters and using YAML files, take a look at the :ref:`Understanding ROS 2 parameters <ROS2Params>` tutorial.
 
+2.3 Using wildcards in YAML files
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+There are cases when we want to set the same parameters in more than one node.
+These nodes could have different namespaces or names but still, have the same parameters.
+Defining separate YAML files and explicitly defining namespaces and node names is not efficient.
+To overcome that issue, wildcard characters can be used in YAML file configurations.
+They are used as substitutions for unknown characters in a text value.
+
+Now let's update our ``turtlesim_world_2.launch.py`` file to include one more ``turtlesim_node`` node.
+
+.. code-block:: Python
+
+   ...
+   Node(
+      package='turtlesim',
+      executable='turtlesim_node',
+      namespace='turtlesim3',
+      name='sim',
+      parameters=[config]
+   )
+
+Loading the same YAML file, however, will not affect the appearance of the third turtlesim world.
+The reason is that its parameters are stored under another namespace as shown below:
+
+.. code-block:: console
+
+   /turtlesim3/sim:
+      background_b
+      background_g
+      background_r
+
+Therefore, instead of creating a new configuration for the same node that use the same parameters, we can use wildcards syntax.
+``/**`` will assign all the parameters in every node, despite differences in node names and namespaces.
+
+We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the following manner:
+
+.. code-block:: YAML
+
+   /**:
+      ros__parameters:
+         background_b: 255
+         background_g: 86
+         background_r: 150
+
+Using that configuration file in our launch description will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
+
 3 Namespaces
 ^^^^^^^^^^^^
 
-As you may have noticed, we have defined the namespace in the ``turtlesim_world_2.launch.py`` file.
+As you may have noticed, we have defined namespaces for turlesim worlds in the ``turtlesim_world_2.launch.py`` file.
 Unique namespaces allow the system to start two similar nodes without node name or topic name conflicts.
 
 .. code-block:: Python
