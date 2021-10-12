@@ -1,4 +1,4 @@
-.. _URDF:
+.. _URDFPlusRSP:
 
 Using URDF with robot_state_publisher
 =====================================
