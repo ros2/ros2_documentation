@@ -226,7 +226,7 @@ Defining separate YAML files and explicitly defining namespaces and node names i
 To overcome that issue, wildcard characters can be used in YAML file configurations.
 They are used as substitutions for unknown characters in a text value.
 
-Now let's update our ``turtlesim_world_2.launch.py`` file to include one more ``turtlesim_node`` node.
+Now let's create a new ``turtlesim_world_3.launch.py`` file similar to ``turtlesim_world_2.launch.py`` to include one more ``turtlesim_node`` node.
 
 .. code-block:: Python
 
@@ -262,12 +262,13 @@ We will now update the ``turtlesim.yaml``, in the ``/config`` folder in the foll
          background_g: 86
          background_r: 150
 
+Now include the ``turtlesim_world_3.launch.py`` launch description in our main launch file.
 Using that configuration file in our launch description will assign ``background_b``, ``background_g``, and ``background_r`` parameters to specified values in ``turtlesim3/sim`` and ``turtlesim2/sim`` nodes.
 
 3 Namespaces
 ^^^^^^^^^^^^
 
-As you may have noticed, we have defined namespaces for turlesim worlds in the ``turtlesim_world_2.launch.py`` file.
+As you may have noticed, we have defined the namespace for the turlesim world in the ``turtlesim_world_2.launch.py`` file.
 Unique namespaces allow the system to start two similar nodes without node name or topic name conflicts.
 
 .. code-block:: Python
