@@ -221,10 +221,9 @@ To learn more about using parameters and using YAML files, take a look at the :r
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 There are cases when we want to set the same parameters in more than one node.
-These nodes could have different namespaces or names but still, have the same parameters.
-Defining separate YAML files and explicitly defining namespaces and node names is not efficient.
-To overcome that issue, wildcard characters can be used in YAML file configurations.
-They are used as substitutions for unknown characters in a text value.
+These nodes could have different namespaces or names but still have the same parameters.
+Defining separate YAML files that explicitly define namespaces and node names is not efficient.
+A solution is to use wildcard characters, which act as substitutions for unknown characters in a text value, to apply parameters to several different nodes.
 
 Now let's create a new ``turtlesim_world_3.launch.py`` file similar to ``turtlesim_world_2.launch.py`` to include one more ``turtlesim_node`` node.
 
