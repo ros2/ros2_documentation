@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 This tutorial uses the :ref:`turtlesim <Turtlesim>` and :ref:`turtle_tf2_py <IntroToTf2>` packages.
-This tutorial also assumes you have created a new package called ``launch_tutorial``.
+This tutorial also assumes you have :ref:`created a new package <CreatePkg>` called ``launch_tutorial``.
 
 Introduction
 ------------
