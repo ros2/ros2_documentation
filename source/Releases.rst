@@ -54,8 +54,8 @@ Rows in the table marked in green are the currently supported distributions.
      why it is like this.
    -->
    <style>
-     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -91,6 +91,10 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
+   * - `Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
+     - May 23rd, 2022
+     -
+     -
    * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
      - |galactic|
