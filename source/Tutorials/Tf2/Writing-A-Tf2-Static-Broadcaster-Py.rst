@@ -412,6 +412,8 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
          ),
       ])
 
+Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
+
 Summary
 -------
 
