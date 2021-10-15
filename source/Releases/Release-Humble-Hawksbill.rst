@@ -313,7 +313,7 @@ While this worked, it had a couple of problems:
 * The user had to specify *all* of the arguments, even if only setting one number
 * Reading the command-line to figure out what it was publishing was tricky
 
-To fix both of these issues, the command-line handling has been changed to use flags instead, and all flags are optional.
+To fix both of these issues, the command-line handling has been changed to use flags instead, and all flags except for ``--frame-id`` and ``--child-frame-id`` are optional.
 Thus, the above command-line can be simplified to: ``ros2 run tf2_ros static_transform_publisher --frame-id foo --child-frame-id bar``
 To change just the translation x, the command-line would be: ``ros2 run tf2_ros static_transform_publisher --x 1.5 --frame-id foo --child-frame-id bar``.
 
