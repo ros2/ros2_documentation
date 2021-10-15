@@ -388,13 +388,13 @@ In our case, roll/pitch/yaw refers to rotation about the x/y/z-axis, respectivel
 
 .. code-block:: console
 
-   ros2 run tf2_ros static_transform_publisher x y z yaw pitch roll frame_id child_frame_id
+   ros2 run tf2_ros static_transform_publisher --x x --y y --z z --yaw yaw --pitch pitch --roll roll --frame-id frame_id --child-frame-id child_frame_id
 
 Publish a static coordinate transform to tf2 using an x/y/z offset in meters and quaternion.
 
 .. code-block:: console
 
-   ros2 run tf2_ros static_transform_publisher x y z qx qy qz qw frame_id child_frame_id
+   ros2 run tf2_ros static_transform_publisher --x x --y y --z z --qx qx --qy qy --qz qz --qw qw --frame-id frame_id --child-frame-id child_frame_id
 
 ``static_transform_publisher`` is designed both as a command-line tool for manual use, as well as for use within ``launch`` files for setting static transforms. For example:
 
@@ -408,9 +408,11 @@ Publish a static coordinate transform to tf2 using an x/y/z offset in meters and
          Node(
                package='tf2_ros',
                executable='static_transform_publisher',
-               arguments = ['0', '0', '1', '0', '0', '0', 'world', 'mystaticturtle']
+               arguments = ['--x', '0', '--y', '0', '--z', '1', '--yaw', '0', '--pitch', '0', '--roll', '0', '--frame-id', 'world', '--child-frame-id', 'mystaticturtle']
          ),
       ])
+
+Note that all arguments except for ``--frame-id`` and ``--child-frame-id`` are optional; if a particular option isn't specified, then the identity will be assumed.
 
 Summary
 -------

@@ -303,6 +303,23 @@ The previous enumerators are still available, but are now deprecated and will pr
 All code that uses the ``TF2Error`` enumerator should be updated to use the new ``TF2`` prefixed errors.
 See https://github.com/ros2/geometry2/pull/349 for more details.
 
+More intuitive command-line arguments for static_transform_publisher
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``static_transform_publisher`` program used to take arguments like: ``ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 foo bar``.
+The first three numbers are the translation x, y, and z, the next 4 are the quaternion x, y, z, and w, and the last two arguments are the parent and child frame IDs.
+While this worked, it had a couple of problems:
+
+* The user had to specify *all* of the arguments, even if only setting one number
+* Reading the command-line to figure out what it was publishing was tricky
+
+To fix both of these issues, the command-line handling has been changed to use flags instead, and all flags except for ``--frame-id`` and ``--child-frame-id`` are optional.
+Thus, the above command-line can be simplified to: ``ros2 run tf2_ros static_transform_publisher --frame-id foo --child-frame-id bar``
+To change just the translation x, the command-line would be: ``ros2 run tf2_ros static_transform_publisher --x 1.5 --frame-id foo --child-frame-id bar``.
+
+The old-style arguments are still allowed in this release, but are deprecated and will print a warning.
+They will be removed in future releases.
+See https://github.com/ros2/geometry2/pull/392 for more details.
 
 Known Issues
 ------------
