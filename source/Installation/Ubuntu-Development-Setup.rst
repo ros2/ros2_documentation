@@ -104,6 +104,8 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src --rosdistro rolling -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
+.. include:: _rosdep_Linux_Mint.rst
+
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
