@@ -224,9 +224,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
-    'console_scripts': [
-        'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
-    ],
+   'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -315,13 +313,6 @@ The ``data_files`` field should now look like this:
         ...
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
     ],
-
-At the top of setup.py after "from setup tools import setup" add :
-
-.. code-block:: python
-import os
-from glob import glob
-
 
 You can learn more about creating launch files in :ref:`this tutorial <ROS2Launch>`.
 

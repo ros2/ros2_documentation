@@ -385,7 +385,7 @@ We can now check that the static transform has been published by echoing the ``t
 
 .. code-block:: console
 
-   ros2 topic echo /tf_static
+   ros2 topic echo --qos-reliability reliable --qos-durability transient_local /tf_static
 
 If everything went well you should see a single static transform
 
