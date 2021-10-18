@@ -87,7 +87,6 @@ We can use ``tf2_tools`` to look at what tf2 is doing behind the scenes.
 .. code-block:: console
 
    ros2 run tf2_tools view_frames.py
-   
 
 You will see:
 

@@ -223,8 +223,10 @@ to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 Finally, add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
-
-   'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
+   
+   'console_scripts': [
+       'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
+   ],
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
