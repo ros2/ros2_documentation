@@ -16,8 +16,10 @@ Practically speaking, 4 of those characters are always used by the drive letter,
 That means that only 256 characters are available for the *sum* of all parts of the path.
 This has two practical consequences for ROS 2:
 
-* Some of the ROS 2 internal path names are fairly long.  Because of this, we always recommend using a short path name for the root of your ROS 2 directory, like ``C:\dev``.
-* When building ROS 2 from source, the default isolated build mode of colcon can generate very long path names.  To avoid these very long path names, use ``--merge-install`` when building on Windows.
+* Some of the ROS 2 internal path names are fairly long. Because of this, we always recommend using a short path name for the root of your ROS 2 directory, like ``C:\dev``.
+* When building ROS 2 from source, the default isolated build mode of colcon can generate very long path names. To avoid these very long path names, use ``--merge-install`` when building on Windows.
+
+**Note**: It is possible to change Windows to have much longer maximum path lengths.  See `this article <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later>`__ for more information.
 
 Exporting symbols
 -----------------
@@ -52,7 +54,7 @@ Forward-slash vs. back-slash
 ----------------------------
 In Windows the default path separator is a backslash (``\``), which differs from the forward-slash (``/``) used in Linux and macOS.
 Most of the Windows APIs can deal with either as a path separator, but this is not universally true.
-For instance, the cmd.exe shell can only do tab-completion when using the backslash character, not the forward-slash.
+For instance, the ``cmd.exe`` shell can only do tab-completion when using the backslash character, not the forward-slash.
 For maximum compatibility on Windows, a backslash should always be used as the path separator on Windows.
 
 Patching vendored packages
@@ -94,12 +96,12 @@ All tests should have generous timeouts, and only expect events to happen eventu
 
 Shells
 ------
-There are two main command-line shells on Windows: the venerable cmd.exe, and PowerShell.
+There are two main command-line shells on Windows: the venerable ``cmd.exe``, and PowerShell.
 
-cmd.exe is the command shell that most closely emulates the old DOS shell, though with greatly enhanced capabilities.
+``cmd.exe`` is the command shell that most closely emulates the old DOS shell, though with greatly enhanced capabilities.
 It is completely text based, and only understands DOS/Windows ``batch`` files.
 
 PowerShell is the newer, object-based shell that Microsoft recommends for most new applications.
 It understands ``ps1`` files for configuration.
 
-ROS 2 supports both cmd.exe and PowerShell, so any changes (especially to things like ``ament`` or ``colcon``) should be tested on both.
+ROS 2 supports both ``cmd.exe`` and PowerShell, so any changes (especially to things like ``ament`` or ``colcon``) should be tested on both.
