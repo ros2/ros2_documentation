@@ -102,6 +102,8 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-5.3.1 urdfdom_headers"
 
+.. include:: _rosdep_Linux_Mint.rst
+
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
