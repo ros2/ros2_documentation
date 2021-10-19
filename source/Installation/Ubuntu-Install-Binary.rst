@@ -67,8 +67,11 @@ Set your rosdistro according to the release you downloaded.
 
        rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
-#. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
+.. include:: _rosdep_Linux_Mint.rst
+
+*Optional*\ :
+   | If you want to use the ROS 1<->2 bridge, then you must also install ROS 1. \
+   | Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
