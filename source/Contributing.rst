@@ -65,6 +65,7 @@ Development Guides
    Contributing/Quality-Guide
    Contributing/Migration-Guide
    Contributing/Build-Farms
+   Contributing/Windows-Tips-and-Tricks
 
 What to work on
 ^^^^^^^^^^^^^^^
