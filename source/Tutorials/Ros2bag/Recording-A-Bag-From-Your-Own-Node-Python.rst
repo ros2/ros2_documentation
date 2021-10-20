@@ -67,7 +67,7 @@ As always, though, make sure to add the description, maintainer email and name, 
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-Also be sure to add this information to the `setup.py` file as well.
+Also be sure to add this information to the ``setup.py`` file as well.
 
 .. code-block:: Python
 
@@ -208,7 +208,7 @@ The file finishes with the ``main`` function used to create an instance of the n
 2.2 Add entry point
 ~~~~~~~~~~~~~~~~~~~
 
-Open the `setup.py` file in the `bag_recorder_nodes_py` package and add an entry point for your node.
+Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an entry point for your node.
 
 .. code-block:: Python
 
@@ -405,7 +405,7 @@ As with the previous example, the data is not yet serialised, so we must seriali
 4.3 Add executable
 ~~~~~~~~~~~~~~~~~~
 
-Open the `setup.py` file in the `bag_recorder_nodes_py` package and add an entry point for your node.
+Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an entry point for your node.
 
 .. code-block:: Python
 
@@ -562,7 +562,7 @@ This allows us to generate a lot of data covering a wide span of time in much le
 5.3 Add executable
 ~~~~~~~~~~~~~~~~~~
 
-Open the `setup.py` file in the `bag_recorder_nodes_py` package and add an entry point for your node.
+Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an entry point for your node.
 
 .. code-block:: Python
 
