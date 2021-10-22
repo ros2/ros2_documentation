@@ -415,7 +415,7 @@ Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
-See `separate tutorial <../Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------

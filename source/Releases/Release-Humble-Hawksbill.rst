@@ -44,7 +44,7 @@ New features in this ROS 2 release
 ``ros_args`` attribute & ``ros_arguments`` parameter for nodes in launch files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-It is now possible to provide `ROS-specific node arguments <../Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments <../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 
@@ -83,6 +83,13 @@ The corresponding parameter for the ``Node`` action in Python launch files is ``
       ])
 
 Related PRs: `ros2/launch_ros#249 <https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 <https://github.com/ros2/launch_ros/pull/253>`_.
+
+SROS2 Security enclaves now support Certificate Revocation Lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Certificate Revocation Lists (CRLs) are a concept where particular certificates can be revoked before their expiration.
+As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
+See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/master/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
 
 Changes since the Galactic release
 ----------------------------------
@@ -128,6 +135,26 @@ To those familiar with ``mesh_resource``, ``resource_retriever`` should be famil
 The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
+
+rmw
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more details.
+
+rcl
+^^^
+
+``struct`` type name suffix changed from ``_t`` to ``_s``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+
+See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more details.
 
 rclcpp
 ^^^^^^
@@ -263,6 +290,36 @@ The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now i
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
+geometry2
+^^^^^^^^^
+
+Deprecation of TF2Error::NO_ERROR, etc
+""""""""""""""""""""""""""""""""""""""
+
+The ``tf2`` library uses an enumeration called ``TF2Error`` to return errors.
+Unfortunately, one of the enumerators in there is called ``NO_ERROR``, which conflicts with a macro on Windows.
+To remedy this, a new set of enumerators in ``TF2Error`` were created, each with a ``TF2`` prefix.
+The previous enumerators are still available, but are now deprecated and will print a deprecation warning if used.
+All code that uses the ``TF2Error`` enumerator should be updated to use the new ``TF2`` prefixed errors.
+See https://github.com/ros2/geometry2/pull/349 for more details.
+
+More intuitive command-line arguments for static_transform_publisher
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``static_transform_publisher`` program used to take arguments like: ``ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 foo bar``.
+The first three numbers are the translation x, y, and z, the next 4 are the quaternion x, y, z, and w, and the last two arguments are the parent and child frame IDs.
+While this worked, it had a couple of problems:
+
+* The user had to specify *all* of the arguments, even if only setting one number
+* Reading the command-line to figure out what it was publishing was tricky
+
+To fix both of these issues, the command-line handling has been changed to use flags instead, and all flags except for ``--frame-id`` and ``--child-frame-id`` are optional.
+Thus, the above command-line can be simplified to: ``ros2 run tf2_ros static_transform_publisher --frame-id foo --child-frame-id bar``
+To change just the translation x, the command-line would be: ``ros2 run tf2_ros static_transform_publisher --x 1.5 --frame-id foo --child-frame-id bar``.
+
+The old-style arguments are still allowed in this release, but are deprecated and will print a warning.
+They will be removed in future releases.
+See https://github.com/ros2/geometry2/pull/392 for more details.
 
 Known Issues
 ------------

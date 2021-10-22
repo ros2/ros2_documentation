@@ -13,7 +13,7 @@ Introduction to tf2
    :depth: 2
    :local:
 
-Installing the Demo
+Installing the demo
 -------------------
 
 Let's start by installing the demo package and its dependencies.
@@ -39,7 +39,7 @@ Additionally, install a ``transforms3d`` package, which provides the quaternion 
 
    pip3 install transforms3d
 
-Running the Demo
+Running the demo
 ----------------
 
 Now that we've installed the ``turtle_tf2_py`` tutorial package let's run the demo.
@@ -52,7 +52,7 @@ Then run the following command:
 
 You will see the turtlesim start with two turtles.
 
-.. image:: turtlesim_follow1.png
+.. image:: images/turtlesim_follow1.png
 
 In the second terminal window type the following command:
 
@@ -63,17 +63,17 @@ In the second terminal window type the following command:
 Once the turtlesim is started you can drive the central turtle around in the turtlesim using the keyboard arrow keys,
 select the second terminal window so that your keystrokes will be captured to drive the turtle.
 
-.. image:: turtlesim_follow2.png
+.. image:: images/turtlesim_follow2.png
 
 You can see that one turtle continuously moves to follow the turtle you are driving around.
 
-What is Happening
------------------
+What is happening?
+------------------
 
 This demo is using the tf2 library to create three coordinate frames: a ``world`` frame, a ``turtle1`` frame, and a ``turtle2`` frame.
 This tutorial uses a tf2 broadcaster to publish the turtle coordinate frames and a tf2 listener to compute the difference in the turtle frames and move one turtle to follow the other.
 
-tf2 Tools
+tf2 tools
 ---------
 
 Now let's look at how tf2 is being used to create this demo.
@@ -98,7 +98,7 @@ You will see:
 Here a tf2 listener is listening to the frames that are being broadcasted over ROS and drawing a tree of how the frames are connected.
 To view the tree, open the resulting ``frames.pdf`` with your favorite PDF viewer.
 
-.. image:: turtlesim_frames.png
+.. image:: images/turtlesim_frames.png
 
 Here we can see three frames that are broadcasted by tf2: ``world``, ``turtle1``, and ``turtle2``.
 The ``world`` here is the parent of the ``turtle1`` and ``turtle2`` frames.
@@ -146,6 +146,6 @@ Let's start rviz with the ``turtle_rviz.rviz`` configuration file using the `
 
    ros2 run rviz2 rviz2 -d $(ros2 pkg prefix --share turtle_tf2_py)/rviz/turtle_rviz.rviz
 
-.. image:: turtlesim_rviz.png
+.. image:: images/turtlesim_rviz.png
 
 In the side bar you will see the frames broadcasted by tf2. As you drive the turtle around you will see the frames move in rviz.

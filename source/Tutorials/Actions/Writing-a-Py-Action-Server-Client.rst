@@ -138,7 +138,6 @@ After every update of the feedback message in the for-loop, we publish the feedb
 
 .. literalinclude:: server_3.py
     :language: python
-    :lines: 1-37
     :emphasize-lines: 1,23,24,27-31,36
 
 After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:

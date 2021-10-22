@@ -75,7 +75,7 @@ You need the following things installed to build ROS 2:
        echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install dependencies for rcl_logging
-       brew install log4cxx spdlog
+       brew install spdlog
 
        # install dependencies for Cyclone DDS
        brew install bison cunit
@@ -208,7 +208,7 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Stay up to date
 ---------------

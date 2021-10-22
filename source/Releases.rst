@@ -54,8 +54,8 @@ Rows in the table marked in green are the currently supported distributions.
      why it is like this.
    -->
    <style>
-     .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -91,6 +91,10 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
+   * - `Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
+     - May 23rd, 2022
+     -
+     -
    * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
      - |galactic|
@@ -169,7 +173,7 @@ The Rolling distribution of ROS 2 serves as a staging area for future stable dis
 Unlike most stable ROS 2 distributions which have an initial release, a support window during which they are updated, and a definite end of support (see :ref:`list_of_distributions` above) the Rolling distribution is continuously updated and is subject to in-place updates which will at times include breaking changes.
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-`Releasing a ROS 2 package <Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+`Releasing a ROS 2 package <How-To-Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 `ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_.
 It was first introduced in June 2020.

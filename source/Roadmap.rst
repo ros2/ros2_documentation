@@ -41,8 +41,20 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Expected Completion
    * - Identify if messages have changed over time
      - Large
-     - Apex
+     - Apex.AI
      -
+   * - Rosbag2 playback controlled by /clock sim time
+     - Small
+     - AWS
+     - Q3 2021
+   * - Rosbag2 "Snapshot mode"
+     - Medium
+     - AWS
+     - Q3 2021
+   * - Interface definitions: get exact msg/srv/action definitions on the wire at runtime
+     - Large
+     - AWS / Foxglove
+     - Q1 2022
    * - Performance improvements: Implement events executor in rclcpp
      - Large
      - iRobot
@@ -106,7 +118,8 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
      - Small
      - Sony
-     - 4th quarter 2022
+     - 4th quarter 2021
+
 
 Additional project-specific roadmaps can be found in the links below:
 

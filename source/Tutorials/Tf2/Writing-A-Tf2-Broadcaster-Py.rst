@@ -17,7 +17,7 @@ Background
 ----------
 
 In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
-After that, the following tutorials focus on extending the demo with more advanced tf2 features.
+After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
@@ -162,7 +162,7 @@ Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``han
         self.handle_turtle_pose,
         1)
 
-Now, we create a Transform object and give it the appropriate metadata.
+Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
 #. We need to give the transform being published a timestamp, and we'll just stamp it with the current time by calling ``self.get_clock().now()``. This will return the current time used by the ``Node``.
 
@@ -174,6 +174,10 @@ The handler function for the turtle pose message broadcasts this turtle's transl
 
 .. code-block:: python
 
+    t = TransformStamped()
+
+    # Read message content and assign it to
+    # corresponding tf variables
     t.header.stamp = self.get_clock().now().to_msg()
     t.header.frame_id = 'world'
     t.child_frame_id = self.turtlename
@@ -210,42 +214,23 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
     The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
     For more details see :ref:`here <WritingATf2StaticBroadcasterPy>`.
 
-1.2 Add dependencies
-~~~~~~~~~~~~~~~~~~~~
-
-Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
-
-Open ``package.xml`` with your text editor.
-Add the following dependencies corresponding to your node's import statements:
-
-.. code-block:: xml
-
-    <exec_depend>launch</exec_depend>
-    <exec_depend>launch_ros</exec_depend>
-
-This declares the additional required ``launch`` and ``launch_ros`` dependencies when its code is executed.
-
-Make sure to save the file.
-
-1.3 Add an entry point
+1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To allow the ``ros2 run`` command to run your node, you must add the entry point
 to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 
-Add the following line between the ``'console_scripts':`` brackets:
+Finally, add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
-    'console_scripts': [
-        'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
-    ],
+    'turtle_tf2_broadcaster = learning_tf2_py.turtle_tf2_broadcaster:main',
 
 2 Write the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Now create a launch file for this demo. With your text editor, create a new
-file called ``turtle_tf2_demo.launch.py``, and add the following lines:
+Now create a launch file for this demo.
+With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
 
@@ -299,7 +284,24 @@ Now we run our nodes that start the turtlesim simulation and broadcast ``turtle1
         ]
     ),
 
-2.2 Update setup.py
+2.2 Add dependencies
+~~~~~~~~~~~~~~~~~~~~
+
+Navigate one level back to the ``src/learning_tf2_py`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files are located.
+
+Open ``package.xml`` with your text editor.
+Add the following dependencies corresponding to your launch file's import statements:
+
+.. code-block:: xml
+
+    <exec_depend>launch</exec_depend>
+    <exec_depend>launch_ros</exec_depend>
+
+This declares the additional required ``launch`` and ``launch_ros`` dependencies when its code is executed.
+
+Make sure to save the file.
+
+2.3 Update setup.py
 ~~~~~~~~~~~~~~~~~~~
 
 Reopen ``setup.py`` and add the line so that the launch files from the ``launch/`` folder would be installed.
@@ -311,6 +313,13 @@ The ``data_files`` field should now look like this:
         ...
         (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
     ],
+
+Also add the appropriate imports at the top of the file:
+
+.. code-block:: python
+
+    import os
+    from glob import glob
 
 You can learn more about creating launch files in :ref:`this tutorial <ROS2Launch>`.
 
@@ -351,7 +360,7 @@ In the second terminal window type the following command:
 
 You will now see that the turtlesim simulation have started with one turtle that you can control.
 
-.. image:: turtlesim_broadcast.png
+.. image:: images/turtlesim_broadcast.png
 
 Now, use the ``tf2_echo`` tool to check if the turtle pose is actually getting broadcast to tf2:
 
@@ -384,5 +393,5 @@ However, as soon as we add the second turtle in the next tutorial, the pose of `
 Summary
 -------
 
-In this tutorial you learned how to broadast state of the robot to tf2 and how to use the ``tf2_echo`` tool.
+In this tutorial you learned how to broadcast the pose of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
 To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerPy>`.

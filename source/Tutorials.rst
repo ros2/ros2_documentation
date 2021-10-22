@@ -7,7 +7,7 @@ The tutorials are a collection of step-by-step instructions meant to steadily bu
 
 The best way to approach the tutorials is to walk through them for the first time in order, as they build off of each other and are not meant to be comprehensive documentation.
 
-For quick solutions to more specific questions, see the :ref:`Guides`.
+For quick solutions to more specific questions, see the :ref:`How-To Guides`.
 
 Beginner
 --------
@@ -58,10 +58,12 @@ Intermediate
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
    Tutorials/Launch-system
+   Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
    Tutorials/Tf2/Tf2-Main
+   Tutorials/URDF/URDF-Main
 
 Advanced
 --------
@@ -108,7 +110,6 @@ Demos
    Tutorials/Managed-Nodes
    Tutorials/Intra-Process-Communication
    Tutorials/Rosbag-with-ROS1-Bridge
-   Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
    Tutorials/Real-Time-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
@@ -119,12 +120,11 @@ Demos
 * `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__.
 * `Recording and playback of topic data with rosbag using the ROS 1 bridge <Tutorials/Rosbag-with-ROS1-Bridge>`.
 * `Turtlebot 2 demo using ROS 2 <https://github.com/ros2/turtlebot2_demo>`__.
-* `TurtleBot 3 demo using ROS 2 <http://emanual.robotis.com/docs/en/platform/turtlebot3/ros2_setup/>`__. [community-contributed]
+* `TurtleBot 3 demo using ROS 2 <https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/>`__. [community-contributed]
 * `Simulate the TurtleBot 3 on ROS [community-contributed] <https://ubuntu.com/blog/simulate-the-turtlebot3>`__.
 * `Navigate TurtleBot 3 in simulation <https://github.com/cyberbotics/webots_ros2/wiki/Navigate-TurtleBot3>`__. [community-contributed]
 * `SLAM with TurtleBot3 in simulation <https://github.com/cyberbotics/webots_ros2/wiki/SLAM-with-TurtleBot3>`__. [community-contributed]
 * `MoveIt 2 arm motion planning demo <http://moveit2_tutorials.picknik.ai/>`__.
-* `Using URDF with robot_state_publisher <Tutorials/URDF/Using-URDF-with-Robot-State-Publisher>`.
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
