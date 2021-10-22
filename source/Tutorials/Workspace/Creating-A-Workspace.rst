@@ -183,6 +183,8 @@ From the root of your workspace (``dev_ws``), run the following command:
 
       .. code-block:: console
 
+        # cd if you're still in the ``src`` directory with the ``ros_tutorials`` clone
+        cd ..
         rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
