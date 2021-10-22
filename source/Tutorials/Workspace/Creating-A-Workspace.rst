@@ -181,7 +181,7 @@ From the root of your workspace (``dev_ws``), run the following command:
 
    .. group-tab:: Linux
 
-      .. code-block:: console
+      .. code-block:: bash
 
         # cd if you're still in the ``src`` directory with the ``ros_tutorials`` clone
         cd ..
