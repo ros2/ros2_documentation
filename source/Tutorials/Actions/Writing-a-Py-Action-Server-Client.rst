@@ -140,7 +140,8 @@ After every update of the feedback message in the for-loop, we publish the feedb
     :language: python
     :lines: 1-37
     :emphasize-lines: 1,23,24,27-31,36
-
+    I am not sure how to edit the code in yellow here. But this is where the changes have to be made. 
+    
 After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
 
 .. code-block:: bash
