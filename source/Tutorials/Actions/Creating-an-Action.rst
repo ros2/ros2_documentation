@@ -171,6 +171,10 @@ We can check that our action built successfully with the command line tool:
    . install/setup.bash
    # Check that our action definition exists
    ros2 interface show action_tutorials_interfaces/action/Fibonacci
+<<<<<<< HEAD
+=======
+
+>>>>>>> 85c7326 (Update Creating-an-Action.rst (#2044))
 
 You should see the Fibonacci action definition printed to the screen.
 
