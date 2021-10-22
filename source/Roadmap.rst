@@ -118,7 +118,7 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
      - Small
      - Sony
-     - 4th quarter 2022
+     - 4th quarter 2021
 
 
 Additional project-specific roadmaps can be found in the links below:
