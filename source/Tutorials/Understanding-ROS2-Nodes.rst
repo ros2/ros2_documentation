@@ -38,9 +38,9 @@ In ROS 2, a single executable (C++ program, Python program, etc.) can contain on
 Prerequisites
 -------------
 
-The :ref:`previous tutorial <Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+The :doc:`previous tutorial <./Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <./Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -60,7 +60,7 @@ To run turtlesim, open a new terminal, and enter the following command:
 
     ros2 run turtlesim turtlesim_node
 
-The turtlesim window will open, as you saw in the :ref:`previous tutorial <Turtlesim>`.
+The turtlesim window will open, as you saw in the :doc:`previous tutorial <./Turtlesim/Introducing-Turtlesim>`.
 
 Here, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
 
@@ -189,7 +189,7 @@ These tools are vital to understanding the flow of data in a complex, real-world
 Next steps
 ----------
 
-Now that you understand nodes in ROS 2, you can move on to the :ref:`topics tutorial <ROS2Topics>`.
+Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <./Topics/Understanding-ROS2-Topics>`.
 Topics are one of the communication types that connects nodes.
 
 Related content

@@ -35,9 +35,9 @@ Prerequisites
 
 We assume you've reviewed the basics in the :ref:`CustomInterfaces` tutorial before working through this one.
 
-You should have :ref:`ROS 2 installed <InstallationGuide>`, a :ref:`workspace <ROS2Workspace>`, and an understanding of :ref:`creating packages <CreatePkg>`.
+You should have :doc:`ROS 2 installed <../Installation>`, a :doc:`workspace <./Workspace/Creating-A-Workspace>`, and an understanding of :doc:`creating packages <./Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to :ref:`source ROS 2 <ConfigROS2>` in every new terminal you open.
+As always, don’t forget to :doc:`source ROS 2 <./Configuring-ROS2-Environment>` in every new terminal you open.
 
 Tasks
 -----
@@ -412,7 +412,7 @@ To confirm the message is being published on the ``address_book`` topic, open an
       install/setup.ps1
       ros2 topic echo /address_book
 
-We won't create a subscriber in this tutorial, but you can try to write one yourself for practice (use :ref:`CppPubSub` to help).
+We won't create a subscriber in this tutorial, but you can try to write one yourself for practice (use :doc:`./Writing-A-Simple-Cpp-Publisher-And-Subscriber` to help).
 
 5 (Extra) Use an existing interface definition
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

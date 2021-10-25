@@ -22,7 +22,7 @@ Providing a parameter namespace is optional.
 
 Each parameter consists of a key and a value, where the key is a string and the value could be one of the following types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[]
 
-For an hands-on tutorial with ROS parameters see :ref:`ROS2Params`.
+For an hands-on tutorial with ROS parameters see :doc:`../Tutorials/Parameters/Understanding-ROS2-Parameters`.
 
 Setting parameters
 ------------------

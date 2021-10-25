@@ -1,4 +1,4 @@
-.. _ConfigROS2:
+.. _./Configuring-ROS2-Environment:
 
 Configuring your ROS 2 environment
 ==================================
@@ -32,7 +32,7 @@ In other words, you won’t be able to use ROS 2.
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :ref:`InstallationGuide` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../Installation` page.
 
 The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
@@ -236,4 +236,4 @@ If you ever face any problems locating or using packages with ROS 2, the first t
 Next steps
 ----------
 
-Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :ref:`turtlesim tool <Turtlesim>`.
+Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :doc:`turtlesim tool <./Turtlesim/Introducing-Turtlesim>`.

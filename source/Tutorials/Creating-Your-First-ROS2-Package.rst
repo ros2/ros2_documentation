@@ -1,4 +1,4 @@
-.. _CreatePkg:
+.. _./Creating-Your-First-ROS2-Package:
 
 Creating your first ROS 2 package
 =================================
@@ -100,7 +100,7 @@ A trivial workspace might look like:
 Prerequisites
 -------------
 
-You should have a ROS 2 workspace after following the instructions in the :ref:`previous tutorial <ROS2Workspace>`.
+You should have a ROS 2 workspace after following the instructions in the :ref:`previous tutorial <./Workspace/Creating-A-Workspace>`.
 You will create your package in this workspace.
 
 
@@ -110,7 +110,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, :ref:`source your ROS 2 installation <ConfigROS2>`.
+First, :ref:`source your ROS 2 installation <./Configuring-ROS2-Environment>`.
 
 Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``dev_ws``, for your new package.`
 
@@ -513,4 +513,4 @@ Next steps
 ----------
 
 Next, let's add something meaningful to a package.
-You'll start with a simple publisher/subscriber system, which you can choose to write in either :ref:`C++ <CppPubSub>` or :ref:`Python <PyPubSub>`.
+You'll start with a simple publisher/subscriber system, which you can choose to write in either :doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :ref:`Python <PyPubSub>`.

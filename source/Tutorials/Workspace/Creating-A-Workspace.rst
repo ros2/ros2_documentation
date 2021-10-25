@@ -1,4 +1,4 @@
-.. _ROS2Workspace:
+.. _./Workspace/Creating-A-Workspace:
 
 Creating a workspace
 ====================
@@ -29,10 +29,10 @@ It's also possible to have several layers of underlays and overlays, with each s
 Prerequisites
 -------------
 
-* :ref:`ROS 2 installation <InstallationGuide>`
+* :doc:`ROS 2 installation <../../Installation>`
 * :ref:`colcon installation <Colcon>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
-* :ref:`turtlesim installation <Turtlesim>`
+* :doc:`turtlesim installation <../Turtlesim/Introducing-Turtlesim>`
 * Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 * Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
@@ -70,7 +70,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
         call C:\dev\ros2\local_setup.bat
 
-Consult the :ref:`installation guide <InstallationGuide>` you followed if these commands don’t work for you.
+Consult the :doc:`installation guide <../../Installation>` you followed if these commands don’t work for you.
 
 .. _new-directory:
 
@@ -402,4 +402,4 @@ Using overlays is recommended for working on a small number of packages, so you 
 Next steps
 ----------
 
-Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :ref:`create your own packages <CreatePkg>`.
+Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :ref:`create your own packages <./Creating-Your-First-ROS2-Package>`.

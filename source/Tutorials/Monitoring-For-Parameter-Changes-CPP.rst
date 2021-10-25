@@ -39,7 +39,7 @@ In this tutorial, you will create a new package to contain some sample code, wri
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+First, open a new terminal and :ref:`source your ROS 2 installation <./Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow :ref:`these instructions <new-directory>` if you no longer have the directory and need to create it again).
 

@@ -16,7 +16,7 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-In this tutorial, you will create :ref:`nodes <ROS2Nodes>` that pass information in the form of string messages to each other over a :ref:`topic <ROS2Topics>`.
+In this tutorial, you will create :doc:`nodes <./Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <./Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
@@ -25,7 +25,7 @@ The code used in these examples can be found `here <https://github.com/ros2/exam
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+In previous tutorials, you learned how to :doc:`create a workspace <./Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 A basic understanding of Python is recommended, but not entirely necessary.
 
@@ -35,7 +35,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <./Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -211,7 +211,7 @@ Navigate one level back to the ``dev_ws/src/py_pubsub`` directory, where the ``s
 
 Open ``package.xml`` with your text editor.
 
-As mentioned in the :ref:`previous tutorial <CreatePkg>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
+As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>`, make sure to fill in the ``<description>``, ``<maintainer>`` and ``<license>`` tags:
 
 .. code-block:: xml
 
@@ -358,7 +358,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 The subscriber node’s code is nearly identical to the publisher’s.
 The constructor creates a subscriber with the same arguments as the publisher.
-Recall from the :ref:`topics tutorial <ROS2Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topics tutorial <./Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
 
@@ -520,7 +520,7 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, you can choose to write it in either :ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`.
+Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :ref:`Python <PySrvCli>`.
 
 Related content
 ---------------

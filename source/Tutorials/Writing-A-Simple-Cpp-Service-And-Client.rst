@@ -16,7 +16,7 @@ Writing a simple service and client (C++)
 Background
 ----------
 
-When :ref:`nodes <ROS2Nodes>` communicate using :ref:`services <ROS2Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+When :doc:`nodes <./Understanding-ROS2-Nodes>` communicate using :doc:`services <./Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 The structure of the request and response is determined by a ``.srv`` file.
 
 The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
@@ -25,7 +25,7 @@ The example used here is a simple integer addition system; one node requests the
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
+In previous tutorials, you learned how to :doc:`create a workspace <./Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -33,7 +33,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <./Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
