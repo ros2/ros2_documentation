@@ -277,7 +277,7 @@ Now open the CMakeLists.txt file. Below the existing dependency ``find_package(a
 .. code-block:: console
 
    find_package(geometry_msgs REQUIRED)
-   find_package(rclcpp REQUIRED)
+   find_package(rclcpp REQUIRWe can now check that the static transform has been published by echoing the tf_static topicED)
    find_package(tf2 REQUIRED)
    find_package(tf2_ros REQUIRED)
    find_package(turtlesim REQUIRED)
@@ -373,7 +373,13 @@ Open a new terminal, navigate to the root of your workspace, and source the setu
          # Powershell
          .\install\setup.ps1
 
-Now run the ``static_turtle_tf2_broadcaster`` node:
+Open a new terminal. We can now check that the static transform has been published by echoing the ``tf_static`` topic
+
+.. code-block:: console
+
+   ros2 topic echo /tf_static
+   
+Open a new terminal. Now run the ``static_turtle_tf2_broadcaster`` node:
 
 .. code-block:: console
 
@@ -381,13 +387,7 @@ Now run the ``static_turtle_tf2_broadcaster`` node:
 
 This sets a turtle pose broadcast for ``mystaticturtle`` to float 1 meter above the ground.
 
-We can now check that the static transform has been published by echoing the ``tf_static`` topic
-
-.. code-block:: console
-
-   ros2 topic echo /tf_static
-
-If everything went well you should see a single static transform
+Go back to the terminal where you echoed the ``tf_static`` topic. If everything went well you should see a single static transform
 
 .. code-block:: console
 
