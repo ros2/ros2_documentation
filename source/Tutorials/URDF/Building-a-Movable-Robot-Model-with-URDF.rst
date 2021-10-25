@@ -7,12 +7,12 @@ Building a Movable Robot Model with URDF
 
 **Tutorial level:** Beginner
 
-In this tutorial, we’re going to revise the R2D2 model we made in the :ref:`previous tutorial <BuildingURDF>` so that it has movable joints.
+In this tutorial, we’re going to revise the R2D2 model we made in the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` so that it has movable joints.
 In the previous model, all of the joints were fixed.
 Now we’ll explore three other important types of joints: continuous, revolute and prismatic.
 
 Make sure you have installed all prerequisites before continuing.
-See the :ref:`previous tutorial <BuildingURDF>` for information on what is required.
+See the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` for information on what is required.
 
 Again, all of the robot models mentioned in this tutorial can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
@@ -111,4 +111,4 @@ The resulting transform tree is then used to display all of the shapes in Rviz.
 Next steps
 ----------
 
-Now that you have a visibly functional model, you can :ref:`add in some physical properties <URDFProperties>`, or :ref:`start using xacro to simplify your code <URDFXacro>`.
+Now that you have a visibly functional model, you can :doc:`add in some physical properties <./Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, or :doc:`start using xacro to simplify your code <./Using-Xacro-to-Clean-Up-a-URDF-File>`.
