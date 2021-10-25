@@ -32,31 +32,31 @@ tf2 can have every component in your distributed system build its own transform 
 Tutorials
 ---------
 
-We created a set of :doc:`tutorials <../Tutorials/Tf2/Tf2-Main>` that walks you through using tf2, step by step.
-You can get started on the :doc:`introduction to tf2 <../Tutorials/Tf2/Introduction-To-Tf2>` tutorial.
-For a complete list of all tf2 and tf2-related tutorials check out the :doc:`tutorials <../Tutorials/Tf2/Tf2-Main>` page.
+We created a set of :ref:`tutorials <Tf2Main>` that walks you through using tf2, step by step.
+You can get started on the :ref:`introduction to tf2 <IntroToTf2>` tutorial.
+For a complete list of all tf2 and tf2-related tutorials check out the :ref:`tutorials <Tf2Main>` page.
 
 There are essentially two main tasks that any user would use tf2 for, listening for transforms and broadcasting transforms.
 
 If you want to use tf2 to transform between coordinate frames, your nodes will need to listen for transforms.
 What you will do is to receive and buffer all coordinate frames that are broadcasted in the system, and query for specific transforms between frames.
-Check out the writing a tf2 listener tutorial :doc:`(Python) <../Tutorials/Tf2/Writing-A-Tf2-Listener-Py>` :doc:`(C++) <../Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp>` to learn more.
+Check out the writing a tf2 listener tutorial :ref:`(Python) <WritingATf2ListenerPy>` :ref:`(C++) <WritingATf2ListenerCpp>` to learn more.
 
 To extend the capabilities of a robot you will need to start broadcasting transforms.
 Broadcasting transforms means to send out the relative pose of coordinate frames to the rest of the system.
 A system can have many broadcasters that each provide information about a different part of the robot.
-Check out the writing a tf2 broadcaster tutorial :doc:`(Python) <../Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py>` :doc:`(C++) <../Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp>` to learn more.
+Check out the writing a tf2 broadcaster tutorial :ref:`(Python) <WritingATf2BroadcasterPy>` :ref:`(C++) <WritingATf2BroadcasterCpp>` to learn more.
 
 In addition to that, tf2 can broadcast static transforms that do not change over time.
 This mainly saves storage and lookup time, though the publishing overhead is also improved.
 You should note that static transforms are published once and assumed to be not changing and therefore no time history stored.
-If you want to define static transforms in your tf2 tree, take a look at the writing static tf2 broadcaster :doc:`(Python) <../Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py>` :doc:`(C++) <../Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp>` tutorial.
+If you want to define static transforms in your tf2 tree, take a look at the writing static tf2 broadcaster :ref:`(Python) <WritingATf2StaticBroadcasterPy>` :ref:`(C++) <WritingATf2StaticBroadcasterCpp>` tutorial.
 
-You can also learn how to add fixed and dynamic frames to your tf2 tree in adding a frame :doc:`(Python) <../Tutorials/Tf2/Adding-A-Frame-Py>` :doc:`(C++) <../Tutorials/Tf2/Adding-A-Frame-Cpp>` tutorial.
+You can also learn how to add fixed and dynamic frames to your tf2 tree in adding a frame :ref:`(Python) <AddingAFramePy>` :ref:`(C++) <AddingAFrameCpp>` tutorial.
 
 Once you are finished with the basic tutorials, you can move on to learn about tf2 and time.
-The tf2 and time tutorial :doc:`(Python) <../Tutorials/Tf2/Learning-About-Tf2-And-Time-Py>` :doc:`(C++) <../Tutorials/Tf2/Learning-About-Tf2-And-Time-Cpp>` teaches the basic principles of tf2 and time.
-The advanced tutorial about tf2 and time :doc:`(Python) <../Tutorials/Tf2/Time-Travel-With-Tf2-Py>` :doc:`(C++) <../Tutorials/Tf2/Time-Travel-With-Tf2-Cpp>` teaches the principles of time traveling with tf2.
+The tf2 and time tutorial :ref:`(Python) <LearningAboutTf2AndTimePy>` :ref:`(C++) <LearningAboutTf2AndTimeCpp>` teaches the basic principles of tf2 and time.
+The advanced tutorial about tf2 and time :ref:`(Python) <TimeTravelWithTf2Py>` :ref:`(C++) <TimeTravelWithTf2Cpp>` teaches the principles of time traveling with tf2.
 
 Paper
 -----
