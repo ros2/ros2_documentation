@@ -1,4 +1,4 @@
-.. _./Configuring-ROS2-Environment:
+.. _ConfigROS2:
 
 Configuring your ROS 2 environment
 ==================================

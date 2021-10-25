@@ -1,4 +1,4 @@
-.. _./Creating-Your-First-ROS2-Package:
+.. _CreatePkg:
 
 Creating your first ROS 2 package
 =================================
