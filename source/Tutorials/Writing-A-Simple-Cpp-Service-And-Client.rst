@@ -418,7 +418,7 @@ Next steps
 ----------
 
 In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
-Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
+Next, you'll learn how to :doc:`create custom interfaces <./Custom-ROS2-Interfaces>`.
 
 Related content
 ---------------

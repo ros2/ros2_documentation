@@ -349,7 +349,7 @@ Next steps
 ----------
 
 In the last few tutorials you've been utilizing interfaces to pass data across topics and services.
-Next, you'll learn how to :ref:`create custom interfaces <CustomInterfaces>`.
+Next, you'll learn how to :doc:`create custom interfaces <./Custom-ROS2-Interfaces>`.
 
 Related content
 ---------------
@@ -358,4 +358,4 @@ Related content
 
 * In this tutorial, you used the ``call_async()`` API in your client node to call the service.
   There is another service call API available for Python called synchronous calls.
-  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :ref:`Synchronous vs. asynchronous clients <SyncAsync>`.
+  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients <../How-To-Guides/Sync-Vs-Async>`.

@@ -28,7 +28,7 @@ Prerequisites
 
 - `rviz2 <https://index.ros.org/r/rviz/>`__
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <./Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----

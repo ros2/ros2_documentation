@@ -195,4 +195,4 @@ Topics are one of the communication types that connects nodes.
 Related content
 ---------------
 
-The :ref:`ConceptsHome` page adds some more detail to the concept of nodes.
+The :doc:`../Concepts` page adds some more detail to the concept of nodes.

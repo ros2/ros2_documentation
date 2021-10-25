@@ -20,7 +20,7 @@ Expanding on ROS 2 interfaces
 Background
 ----------
 
-In a :ref:`previous tutorial <CustomInterfaces>`, you learned how to create custom msg and srv interfaces.
+In a :doc:`previous tutorial <./Custom-ROS2-Interfaces>`, you learned how to create custom msg and srv interfaces.
 
 While best practice is to declare interfaces in dedicated interface packages, sometimes it can be convenient to declare, create and use an interface all in one package.
 
@@ -33,7 +33,7 @@ This tutorial will focus on the msg interface type, but the steps here are appli
 Prerequisites
 -------------
 
-We assume you've reviewed the basics in the :ref:`CustomInterfaces` tutorial before working through this one.
+We assume you've reviewed the basics in the :doc:`./Custom-ROS2-Interfaces` tutorial before working through this one.
 
 You should have :doc:`ROS 2 installed <../Installation>`, a :doc:`workspace <./Workspace/Creating-A-Workspace>`, and an understanding of :doc:`creating packages <./Creating-Your-First-ROS2-Package>`.
 
@@ -79,7 +79,7 @@ This message is composed of 5 fields:
 * address: of type string
 
 Notice that it's possible to set default values for fields within the message definition.
-See :ref:`InterfaceConcept` for more ways you can customize interfaces.
+See :doc:`../Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
 
 Next, we need to make sure that the msg file is turned into source code for C++, Python, and other languages.
 
@@ -502,7 +502,7 @@ Next steps
 ----------
 
 Next you will create a simple ROS 2 package with a custom parameter that you will learn to set from a launch file.
-Again, you can choose to write it in either :ref:`C++ <CppParamNode>` or :ref:`Python <PythonParamNode>`.
+Again, you can choose to write it in either :doc:`C++ <./Using-Parameters-In-A-Class-CPP>` or :doc:`Python <./Using-Parameters-In-A-Class-Python>`.
 
 Related content
 ---------------

@@ -354,7 +354,7 @@ Next steps
 ----------
 
 Now you've covered all of the core ROS 2 concepts.
-The last few tutorials in the "Users" set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :ref:`rqt_console`.
+The last few tutorials in the "Users" set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :doc:`./Rqt-Console/Using-Rqt-Console`.
 
 Related content
 ---------------

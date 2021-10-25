@@ -540,7 +540,7 @@ Next steps
 ----------
 
 Next you'll create another simple ROS 2 package using the service/client model.
-Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :ref:`Python <PySrvCli>`.
+Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`.
 
 Related content
 ---------------
