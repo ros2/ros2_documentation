@@ -36,6 +36,7 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
 .. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
+.. |ros2| image:: Governance/ros2_logo.png
 .. |rosindustrial| image:: Governance/ros-industrial.png
 .. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
