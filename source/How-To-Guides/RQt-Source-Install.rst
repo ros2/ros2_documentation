@@ -52,7 +52,7 @@ Install Dependencies
    RQt-Source-Install-MacOS
    RQt-Source-Install-Windows10
 
-For non-Linux platforms, see the :doc:`macOS RQt source install page <./RQt-Source-Install-MacOS>` or the :doc:`Windows 10 RQt source install page <./RQt-Source-Install-Windows10>` before continuing here.
+For non-Linux platforms, see the :doc:`macOS RQt source install page <RQt-Source-Install-MacOS>` or the :doc:`Windows 10 RQt source install page <RQt-Source-Install-Windows10>` before continuing here.
 
 .. code-block:: bash
 
