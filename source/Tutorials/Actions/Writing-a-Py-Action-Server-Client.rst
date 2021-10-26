@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 You will need the ``action_tutorials_interfaces`` package and the ``Fibonacci.action``
-interface defined in the previous tutorial, :ref:`ActionCreate`.
+interface defined in the previous tutorial, :doc:`./Creating-an-Action`.
 
 Tasks
 -----
@@ -33,7 +33,7 @@ Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's focus on writing an action server that computes the Fibonacci sequence
-using the action we created in the :ref:`ActionCreate` tutorial.
+using the action we created in the :doc:`./Creating-an-Action` tutorial.
 
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
 To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
@@ -162,7 +162,7 @@ The class is initialized by calling the ``Node`` constructor, naming our node ``
     :language: python
     :lines: 11
 
-Also in the class constructor, we create an action client using the custom action definition from the previous tutorial on :ref:`ActionCreate`:
+Also in the class constructor, we create an action client using the custom action definition from the previous tutorial on :doc:`./Creating-an-Action`:
 
 .. literalinclude:: client_0.py
     :language: python

@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 You will need the ``action_tutorials_interfaces`` package and the ``Fibonacci.action``
-interface defined in the previous tutorial, :ref:`ActionCreate`.
+interface defined in the previous tutorial, :doc:`./Creating-an-Action`.
 
 Tasks
 -----
@@ -32,12 +32,12 @@ Tasks
 1 Creating the action_tutorials_cpp package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As we saw in the :ref:`CreatePkg` tutorial, we need to create a new package to hold our C++ and supporting code.
+As we saw in the :doc:`../Creating-Your-First-ROS2-Package` tutorial, we need to create a new package to hold our C++ and supporting code.
 
 1.1 Creating the action_tutorials_cpp package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Go into the action workspace you created in the :ref:`previous tutorial <ActionCreate>` (remember to source the workspace), and create a new package for the C++ action server:
+Go into the action workspace you created in the :doc:`previous tutorial <./Creating-an-Action>` (remember to source the workspace), and create a new package for the C++ action server:
 
 
 .. tabs::
@@ -121,7 +121,7 @@ Open up ``action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h
 2 Writing an action server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's focus on writing an action server that computes the Fibonacci sequence using the action we created in the :ref:`ActionCreate` tutorial.
+Let's focus on writing an action server that computes the Fibonacci sequence using the action we created in the :doc:`./Creating-an-Action` tutorial.
 
 2.1 Writing the action server code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

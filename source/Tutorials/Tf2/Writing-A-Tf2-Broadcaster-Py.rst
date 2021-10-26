@@ -16,15 +16,15 @@ Writing a tf2 broadcaster (Python)
 Background
 ----------
 
-In the next two tutorials we will write the code to reproduce the demo from the :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+In the next two tutorials we will write the code to reproduce the demo from the :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
 After that, following tutorials focus on extending the demo with more advanced tf2 features, including the usage of timeouts in transformation lookups and time travel.
 
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :ref:`Introduction to tf2 tutorial <IntroToTf2>`.
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
-You also have created the ``learning_tf2_py`` :ref:`package <WritingATf2StaticBroadcasterPy>`, which is where we will continue working from.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`.
+In previous tutorials, you learned how to :doc:`create a workspace <../Workspace/Creating-A-Workspace>` and :doc:`create a package <../Creating-Your-First-ROS2-Package>`.
+You also have created the ``learning_tf2_py`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>`, which is where we will continue working from.
 
 Tasks
 -----
@@ -212,7 +212,7 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 
     You can also publish static transforms with the same pattern by instantiating a ``tf2_ros.StaticTransformBroadcaster`` instead of a ``tf2_ros.TransformBroadcaster``.
     The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
-    For more details see :ref:`here <WritingATf2StaticBroadcasterPy>`.
+    For more details see :doc:`here <./Writing-A-Tf2-Static-Broadcaster-Py>`.
 
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -321,7 +321,7 @@ Also add the appropriate imports at the top of the file:
     import os
     from glob import glob
 
-You can learn more about creating launch files in :ref:`this tutorial <ROS2Launch>`.
+You can learn more about creating launch files in :doc:`this tutorial <../Launch-Files/Creating-Launch-Files>`.
 
 3 Build and run
 ^^^^^^^^^^^^^^^
@@ -394,4 +394,4 @@ Summary
 -------
 
 In this tutorial you learned how to broadcast the pose of the robot (position and orientation of the turtle) to tf2 and how to use the ``tf2_echo`` tool.
-To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :ref:`tf2 listener <WritingATf2ListenerPy>`.
+To actually use the transforms broadcasted to tf2, you should move on to the next tutorial about creating a :doc:`tf2 listener <./Writing-A-Tf2-Listener-Py>`.

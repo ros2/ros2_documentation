@@ -16,7 +16,7 @@ Adding a frame (Python)
 Background
 ----------
 
-In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterPy>` and a :ref:`tf2 listener <WritingATf2ListenerPy>`.
+In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <./Writing-A-Tf2-Broadcaster-Py>` and a :doc:`tf2 listener <./Writing-A-Tf2-Listener-Py>`.
 This tutorial will teach you how to add extra fixed and dynamic frames to the transformation tree.
 In fact, adding a frame in tf2 is very similar to creating the tf2 broadcaster, but this example will show you some additional features of tf2.
 
