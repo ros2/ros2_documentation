@@ -310,8 +310,10 @@ In order to use the messages generated in the same package we need to use the fo
 
 .. code-block:: cmake
 
-  rosidl_target_interfaces(publish_address_book
+  rosidl_get_typesupport_target(cpp_typesupport_target
     ${PROJECT_NAME} "rosidl_typesupport_cpp")
+
+  target_link_libraries(publish_address_book "${cpp_typesupport_target}")
 
 This finds the relevant generated C++ code from ``AddressBook.msg`` and allows your target to link against it.
 
