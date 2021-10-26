@@ -9,8 +9,8 @@ See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution
 
 For distros before Eloquent, the only bundled vendor is eProsima's Fast DDS.
 Since Eloquent, both Fast DDS and Cyclone DDS are bundled, but Fast DDS is still the default.
-`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
-`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
+:doc:`Working with Eclipse Cyclone DDS <./DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
+:doc:`Working with eProsima Fast DDS <./DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
 
 .. toctree::
    :hidden:
@@ -21,7 +21,7 @@ Since Eloquent, both Fast DDS and Cyclone DDS are bundled, but Fast DDS is still
 If you would like to use one of the other vendors you will need to install their software separately before building.
 The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
 
-Once you've installed a new DDS vendor, you can change the vendor used at runtime: `Working with Multiple RMW Implementations </How-To-Guides/Working-with-multiple-RMW-implementations>`.
+Once you've installed a new DDS vendor, you can change the vendor used at runtime: :doc:`Working with Multiple RMW Implementations <../How-To-Guides/Working-with-multiple-RMW-implementations>`.
 
 Detailed instructions for installing other DDS vendors are provided below.
 
@@ -59,7 +59,7 @@ Now you can build as normal and support for RTI will be built as well.
 Official binary packages from RTI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+You can install the Connext 5.3.1 package for Linux provided by RTI, via options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 
 After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
 Note that if you're installing to a system directory use ``sudo`` as well.
@@ -88,7 +88,7 @@ Ubuntu Linux binary install
 RTI Connext (version 5.3.1, amd64 only)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+To use RTI Connext DDS there are full-suite install options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 or you can install a libraries-only Debian package of RTI Connext 5.3.1, available from the OSRF Apt repository
 under a `non-commercial license <https://www.rti.com/ncl>`__.
 
@@ -114,7 +114,7 @@ All options need you to source the setup file to set the ``NDDSHOME`` environmen
 
 Note: the above may need modification to match your RTI installation location
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <./DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 OSX source install
 ------------------
@@ -122,7 +122,7 @@ OSX source install
 RTI Connext (5.3)
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 
 You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
@@ -141,7 +141,7 @@ The setup file and path will depend on your macOS version.
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <./DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 OSX binary install
 ------------------
@@ -150,7 +150,7 @@ OSX binary install
 Enable Connext support
 ^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -162,7 +162,7 @@ Set the ``NDDSHOME`` environment variable:
 
 You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <./DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 Windows source install
 ----------------------
@@ -170,7 +170,7 @@ Windows source install
 RTI Connext 5.3
 ^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, use the RTI Launcher to load your license file.
 
@@ -183,7 +183,7 @@ Then before building ROS 2, set up the Connext environment:
 Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
 The path above is the current default path as of version 5.3.1, but will change as the version numbers increment in the future.
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <./DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 Windows binary install
 ----------------------
@@ -192,7 +192,7 @@ Windows binary install
 RTI Connext
 ^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for `university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <./DDS-Implementations/Install-Connext-University-Eval>`
 
 After installing, run RTI launcher and point it to your license file.
 
@@ -202,4 +202,4 @@ Set the ``NDDSHOME`` environment variable:
 
    set "NDDSHOME=C:\Program Files\rti_connext_dds-5.3.1"
 
-If you want to install the Connext DDS-Security plugins please refer to `this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <./DDS-Implementations/Install-Connext-Security-Plugins>`.
