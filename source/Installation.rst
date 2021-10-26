@@ -30,11 +30,11 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Ubuntu Linux - Focal Fossa (20.04)
 
- * `Debian packages <Installation/Ubuntu-Install-Debians>`
- * `"fat" archive <Installation/Ubuntu-Install-Binary>`
+ * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
+ * :doc:`"fat" archive <Installation/Ubuntu-Install-Binary>`
 
-* `macOS <Installation/macOS-Install-Binary>`
-* `Windows <Installation/Windows-Install-Binary>`
+* :doc:`macOS <Installation/macOS-Install-Binary>`
+* :doc:`Windows <Installation/Windows-Install-Binary>`
 
 
 .. _building-from-source:
@@ -45,9 +45,9 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* `Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
-* `macOS <Installation/macOS-Development-Setup>`
-* `Windows <Installation/Windows-Development-Setup>`
+* :doc:`Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
+* :doc:`macOS <Installation/macOS-Development-Setup>`
+* :doc:`Windows <Installation/Windows-Development-Setup>`
 
 
 Which install should you choose?
@@ -80,4 +80,4 @@ Building from source also gives you the option to install the absolute latest ve
 
 Contributing to ROS 2 core?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you plan to contribute directly to ROS 2 core packages, you can install the `latest development from source <Installation/Latest-Development-Setup>` which shares installation instructions with the `Rolling distribution <rolling_distribution>`.
+If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.

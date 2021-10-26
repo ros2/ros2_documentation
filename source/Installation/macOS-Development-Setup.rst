@@ -155,11 +155,11 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial </Tutorials/Colcon-Tutorial>`):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
 
@@ -210,13 +210,13 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 
 Stay up to date
 ---------------
 
-See :ref:`MaintainingSource` to periodically refresh your source installation.
+See :doc:`./Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

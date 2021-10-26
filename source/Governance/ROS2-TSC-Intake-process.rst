@@ -13,7 +13,7 @@ Objectives
 Process
 -------
 
-1. Applicant inquires about joining TSC via info@openrobotics.org per :ref:`ROS 2 Governance <Governance>`.
+1. Applicant inquires about joining TSC via info@openrobotics.org per :doc:`ROS 2 Governance <../Governance>`.
 2. Open Robotics responds with the application questions (below).
 3. Applicant completes and sends application to info@openrobotics.org.
 4. Open Robotics does an initial review and gives applicant feedback if warranted. For example:
