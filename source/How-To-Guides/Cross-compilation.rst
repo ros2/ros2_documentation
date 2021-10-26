@@ -10,7 +10,7 @@ Cross-compilation
    :depth: 2
    :local:
 
-For background information on cross-compilation, see the `conceptual article <../Concepts/About-Cross-Compilation>`.
+For background information on cross-compilation, see the :doc:`conceptual article <../Concepts/About-Cross-Compilation>`.
 
 This document provides you with details on how to cross-compile the ROS 2 software stack as well as provide examples for cross-compiling to systems based on the Arm cores.
 
@@ -91,7 +91,7 @@ The ``toolchain-file`` provide to CMake the information of the ``cross-compiler`
 
 Cross-compiling examples for Arm
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-After `downloading the ROS 2 source code <../Installation/Ubuntu-Development-Setup>`, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1 src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
+After :doc:`downloading the ROS 2 source code <../Installation/Ubuntu-Development-Setup>`, you can add cross-compilation assets to the workspace via ``git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1 src/ros2/cross_compile``. These are working examples on how to cross-compile for Arm cores.
 
 The following targets are supported:
  - Ubuntu-arm64: To be used with any ARMv8-A based system.
@@ -162,7 +162,7 @@ It will be used to install the ROS 2 dependencies on the target file-system with
     mkdir qemu-user-static
     cp /usr/bin/qemu-*-static qemu-user-static
 
-The standard `setup <../Installation/Ubuntu-Development-Setup>` process of ROS 2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
+The standard :doc:`setup <../Installation/Ubuntu-Development-Setup>` process of ROS 2 is run inside an arm docker. This is possible thanks to ``qemu-static``, which will emulate an arm machine. The base image used is an Ubuntu Bionic from Docker Hub.
 
 .. code-block:: bash
 
@@ -272,7 +272,7 @@ Instead of downloading the ROS 2 stack, just populate your workspace with your p
     git clone https://github.com/ros-tooling/cross_compile.git -b 0.0.1
     cd ..
 
-Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the `binary packages <../Installation/Ubuntu-Install-Debians>` to install ROS 2 instead of building from source.
+Generate and export the file-system as described in `3. Prepare the sysroot`_, but with the provided ``Dockerfile_ubuntu_arm64_prebuilt``. These ``_prebuilt`` Dockerfile will use the :doc:`binary packages <../Installation/Ubuntu-Install-Debians>` to install ROS 2 instead of building from source.
 
 Modify the environment variable ``ROS2_INSTALL_PATH`` to point to the installation directory:
 

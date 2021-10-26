@@ -57,7 +57,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If multiple nodes are being run within a single process (e.g. using `Composition <../Concepts/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
+If multiple nodes are being run within a single process (e.g. using :doc:`Composition <../Concepts/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
 
@@ -74,7 +74,7 @@ The following example will both change the node name and remap a topic (node and
 Logger configuration
 --------------------
 
-See ``--log-level`` argument usage in `the logging page <../Tutorials/Logging-and-logger-configuration>`.
+See ``--log-level`` argument usage in :doc:`the logging page <../Tutorials/Logging-and-logger-configuration>`.
 
 Parameters
 ----------
