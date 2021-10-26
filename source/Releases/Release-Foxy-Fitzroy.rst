@@ -42,7 +42,7 @@ Changes in Patch Release 7
 Fix launch frontend parser
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-A refactor of the launch frontend parser fixed some [issues parsing special characters](https://github.com/ros2/launch_ros/issues/214).
+A refactor of the launch frontend parser fixed some `issues parsing special characters <https://github.com/ros2/launch_ros/issues/214>`_.
 As a result, there has been a small behavior change when it comes to parsing strings.
 For example, previously to pass a number as a string you would have to add extra quotation marks (two sets of quotation marks were needed if using a substitution):
 
