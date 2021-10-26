@@ -16,8 +16,8 @@ Learning about tf2 and time (C++)
 Background
 ----------
 
-In previous tutorials, we recreated the turtle demo by writing a :ref:`tf2 broadcaster <WritingATf2BroadcasterCpp>` and a :ref:`tf2 listener <WritingATf2ListenerCpp>`.
-We also learned how to :ref:`add a new frame to the transformation tree <AddingAFrameCpp>` and learned how tf2 keeps track of a tree of coordinate frames.
+In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 listener <Writing-A-Tf2-Listener-Cpp>`.
+We also learned how to :doc:`add a new frame to the transformation tree <./Adding-A-Frame-Cpp>` and learned how tf2 keeps track of a tree of coordinate frames.
 This tree changes over time, and tf2 stores a time snapshot for every transform (for up to 10 seconds by default).
 Until now we used the ``lookpTransform()`` function to get access to the latest available transforms in that tf2 tree, without knowing at what time that transform was recorded.
 This tutorial will teach you how to get a transform at a specific time.
@@ -28,7 +28,7 @@ Tasks
 1 tf2 and time
 ^^^^^^^^^^^^^^
 
-So let's go back to where we ended in the :ref:`adding a frame tutorial <AddingAFrameCpp>`.
+So let's go back to where we ended in the :doc:`adding a frame tutorial <./Adding-A-Frame-Cpp>`.
 Go to ``learning_tf2_cpp`` package.
 Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` call:
 

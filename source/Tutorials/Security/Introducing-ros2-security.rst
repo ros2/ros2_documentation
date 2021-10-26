@@ -27,7 +27,7 @@ Please reach out to the `ROS 2 Security Working Group <https://docs.ros.org/en/f
 Installation
 ------------
 
-Typically security is available following installation using the :ref:`ROS 2 Installation Guide <InstallationGuide>` and the :ref:`configuration guide <ConfigROS2>`.
+Typically security is available following installation using the :doc:`ROS 2 Installation Guide <../../Installation>` and the :doc:`configuration guide <../Configuring-ROS2-Environment>`.
 However, if you intend to install from source or switch middleware implementations, consider the following caveats:
 
 

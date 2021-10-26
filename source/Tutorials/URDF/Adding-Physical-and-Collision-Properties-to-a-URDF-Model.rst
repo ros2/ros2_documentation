@@ -138,4 +138,4 @@ Check out the `spec <urdf/XML/joint>`_, as they are not included in this tutoria
 
 Next Steps
 ----------
-Reduce the amount of code and annoying math you have to do by :ref:`using xacro <URDFXacro>`.
+Reduce the amount of code and annoying math you have to do by :doc:`using xacro <./Using-Xacro-to-Clean-Up-a-URDF-File>`.

@@ -16,7 +16,7 @@ Time travel with tf2 (C++)
 Background
 ----------
 
-In the previous tutorial, we discussed the :ref:`basics of tf2 and time <LearningAboutTf2AndTimeCpp>`.
+In the previous tutorial, we discussed the :doc:`basics of tf2 and time <./Learning-About-Tf2-And-Time-Cpp>`.
 This tutorial will take us one step further and expose a powerful tf2 trick: the time travel.
 In short, one of the key features of tf2 library is that it is able to transform data in time as well as in space.
 
@@ -26,7 +26,7 @@ We will use that time travel feature to look up transforms back in time and prog
 Time travel
 -----------
 
-First, let's go back to where we ended in the previous tutorial :ref:`Learning about tf2 and time <LearningAboutTf2AndTimeCpp>`.
+First, let's go back to where we ended in the previous tutorial :doc:`Learning about tf2 and time <./Learning-About-Tf2-And-Time-Cpp>`.
 Go to your ``learning_tf2_cpp`` package.
 
 Now, instead of making the second turtle go to where the carrot is now, we will make the second turtle go to where the first carrot was 5 seconds ago.
