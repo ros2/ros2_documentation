@@ -43,7 +43,7 @@ Running the demo
 ----------------
 
 Now that we've installed the ``turtle_tf2_py`` tutorial package let's run the demo.
-First, open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+First, open a new terminal and :doc:`source your ROS 2 installation <../Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 Then run the following command:
 
 .. code-block:: console

@@ -28,7 +28,7 @@ All of these concepts will be elaborated on in later tutorials; for now, you wil
 Prerequisites
 -------------
 
-The previous tutorial, :ref:`ConfigROS2`, will show you how to set up your environment.
+The previous tutorial, :doc:`../Configuring-ROS2-Environment`, will show you how to set up your environment.
 
 Tasks
 -----
@@ -36,7 +36,7 @@ Tasks
 1 Install turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
-As always, start by sourcing your setup files in a new terminal, as described in the :ref:`previous tutorial <ConfigROS2>`.
+As always, start by sourcing your setup files in a new terminal, as described in the :doc:`previous tutorial <../Configuring-ROS2-Environment>`.
 
 Install the turtlesim package for your ROS 2 distro:
 
@@ -257,7 +257,7 @@ Using turtlesim and rqt is a great way to learn the core concepts of ROS 2.
 Next steps
 ----------
 
-Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :ref:`ROS2Nodes`.
+Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :doc:`../Understanding-ROS2-Nodes`.
 
 Related content
 ---------------
