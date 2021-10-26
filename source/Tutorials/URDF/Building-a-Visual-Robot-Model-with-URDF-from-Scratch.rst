@@ -14,7 +14,7 @@ Building a Visual Robot Model with URDF from Scratch
    :local:
 
 In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2.
-In later tutorials, you’ll learn how to :ref:`articulate the model <MoveableURDF>`, :ref:`add in some physical properties <URDFProperties>`, and :ref:`generate neater code with xacro <URDFXacro>`, but for now, we’re going to focus on getting the visual geometry correct.
+In later tutorials, you’ll learn how to :doc:`articulate the model <./Building-a-Movable-Robot-Model-with-URDF>`, :doc:`add in some physical properties <./Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, and :doc:`generate neater code with xacro <./Using-Xacro-to-Clean-Up-a-URDF-File>`, but for now, we’re going to focus on getting the visual geometry correct.
 
 Before continuing, make sure you have the `joint_state_publisher <https://index.ros.org/p/joint_state_publisher>`_ package installed.
 If you installed `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ binaries, this should already be the case.
@@ -578,4 +578,4 @@ The meshes for this tutorial are located within the ``urdf_tutorial`` package, i
 
 There you have it.
 A R2D2-like URDF model.
-Now you can continue on to the next step, :ref:`making it move <MoveableURDF>`.
+Now you can continue on to the next step, :doc:`making it move <./Building-a-Movable-Robot-Model-with-URDF>`.

@@ -16,7 +16,7 @@ Creating custom ROS 2 msg and srv files
 Background
 ----------
 
-In previous tutorials you utilized message and service interfaces to learn about :ref:`topics <ROS2Topics>`, :ref:`services <ROS2Services>`, and simple publisher/subscriber (:ref:`C++<CppPubSub>`/:ref:`Python<PyPubSub>`) and service/client (:ref:`C++<CppSrvCli>`/:ref:`Python<PySrvCli>`) nodes.
+In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <./Topics/Understanding-ROS2-Topics>`, :doc:`services <./Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) nodes.
 The interfaces you used were predefined in those cases.
 
 While it’s good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
@@ -25,9 +25,9 @@ This tutorial will introduce you to the simplest method of creating custom inter
 Prerequisites
 -------------
 
-You should have a :ref:`ROS 2 workspace <ROS2Workspace>`.
+You should have a :doc:`ROS 2 workspace <./Workspace/Creating-A-Workspace>`.
 
-This tutorial also uses the packages created in the publisher/subscriber (:ref:`C++ <CppPubSub>` and :ref:`Python<PyPubSub>`) and service/client  (:ref:`C++ <CppSrvCli>` and :ref:`Python<PySrvCli>`) tutorials to try out the new custom messages.
+This tutorial also uses the packages created in the publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and :doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client  (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` and :doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) tutorials to try out the new custom messages.
 
 Tasks
 -----
@@ -205,7 +205,7 @@ A few simple modifications to the nodes, ``CMakeLists`` and ``package`` files wi
 7.1 Testing ``Num.msg`` with pub/sub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With some slight modifications to the publisher/subscriber package created in a previous tutorial (:ref:`C++ <CppPubSub>` or :ref:`Python <PyPubSub>`), you can see ``Num.msg`` in action.
+With some slight modifications to the publisher/subscriber package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`), you can see ``Num.msg`` in action.
 Since you’ll be changing the standard string msg to a numerical one, the output will be slightly different.
 
 Publisher:
@@ -489,7 +489,7 @@ Since ``Num.msg`` relays only an integer, the talker should only be publishing i
 7.2 Testing ``AddThreeInts.srv`` with service/client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With some slight modifications to the service/client package created in a previous tutorial (:ref:`C++ <CppSrvCli>` or :ref:`Python <PySrvCli>`), you can see ``AddThreeInts.srv`` in action.
+With some slight modifications to the service/client package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`), you can see ``AddThreeInts.srv`` in action.
 Since you’ll be changing the original two integer request srv to a three integer request srv, the output will be slightly different.
 
 Service:
@@ -782,9 +782,9 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
 
 This is a simple method of interface creation and utilization.
-You can learn more about interfaces :ref:`here <InterfaceConcept>`.
+You can learn more about interfaces :doc:`here <../Concepts/About-ROS-Interfaces>`.
 
 Next steps
 ----------
 
-The :ref:`next tutorial <SinglePkgInterface>` covers more ways to use interfaces in ROS 2.
+The :doc:`next tutorial <./Single-Package-Define-And-Use-Interface>` covers more ways to use interfaces in ROS 2.

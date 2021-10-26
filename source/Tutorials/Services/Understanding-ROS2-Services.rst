@@ -27,11 +27,11 @@ While topics allow nodes to subscribe to data streams and get continual updates,
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like :doc:`nodes <../Understanding-ROS2-Nodes>` and :doc:`topics <../Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
 
-You will need the :ref:`turtlesim package <Turtlesim>`.
+You will need the :doc:`turtlesim package <../Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -85,7 +85,7 @@ There will be more about parameters in the next tutorial.
 In this tutorial, the parameter services will be omitted from discussion.
 
 For now, let’s focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the :ref:`“Introducing turtlesim and rqt” <Turtlesim>` tutorial.
+You may recall interacting with some of these services using rqt in the :doc:`“Introducing turtlesim and rqt” <../Turtlesim/Introducing-Turtlesim>` tutorial.
 
 
 3 ros2 service type
@@ -265,7 +265,7 @@ In this tutorial you used command line tools to identify, elaborate on, and call
 Next steps
 ----------
 
-In the next tutorial, :ref:`ROS2Params`, you will learn about configuring node settings.
+In the next tutorial, :doc:`../Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
 
 Related content
 ---------------

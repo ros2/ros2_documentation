@@ -40,7 +40,7 @@ For this tutorial we will set up a demo application which has a node (in Python)
 
 First, let's create the source file.
 
-Go to the ``learning_tf2_py`` :ref:`package <WritingATf2StaticBroadcasterPy>` we created in the previous tutorial.
+Go to the ``learning_tf2_py`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>` we created in the previous tutorial.
 Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the example sensor message broadcaster code by entering the following command:
 
 .. tabs::
@@ -292,7 +292,7 @@ And then we can build the package:
 
 Now, to get the streaming ``PointStamped`` data of ``turtle3`` in the frame of ``turtle1`` reliably, we will create the source file of the message filter/listener node.
 
-Go to the ``learning_tf2_cpp`` :ref:`package <WritingATf2StaticBroadcasterCpp>` we created in the previous tutorial.
+Go to the ``learning_tf2_cpp`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Cpp>` we created in the previous tutorial.
 Inside the ``src/learning_tf2_cpp/src`` directory download file ``turtle_tf2_message_filter.cpp`` by entering the following command:
 
 .. tabs::
