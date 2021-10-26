@@ -17,7 +17,7 @@ This guide describes how to write XML launch files for an easy migration from RO
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in `Launch System tutorial <../Tutorials/Launch-system>`.
+A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../Tutorials/Launch-system>`.
 
 
 Migrating tags from ROS 1 to ROS 2
@@ -217,7 +217,7 @@ Example
 Passing an argument via the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See `ROS 2 launch tutorial <../Tutorials/Launch-system>`.
+See :doc:`ROS 2 launch tutorial <../Tutorials/Launch-system>`.
 
 
 env
