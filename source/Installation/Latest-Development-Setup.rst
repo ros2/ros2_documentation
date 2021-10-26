@@ -7,7 +7,7 @@ This will give you the latest bug fixes and features.
 Testing binaries
 ----------------
 
-See :doc:`Testing <./Testing>`.
+See :doc:`Testing <Testing>`.
 
 Building from source
 --------------------
@@ -19,8 +19,8 @@ Building from source
 
 Follow the links below for the latest setup instructions for your platform:
 
-* :doc:`Ubuntu Linux <./Ubuntu-Development-Setup>`
-* :doc:`macOS <./macOS-Development-Setup>`
-* :doc:`Windows <./Windows-Development-Setup>`
+* :doc:`Ubuntu Linux <Ubuntu-Development-Setup>`
+* :doc:`macOS <macOS-Development-Setup>`
+* :doc:`Windows <Windows-Development-Setup>`
 
-For keeping your source code up-to-date, see :doc:`Maintaining a Source Checkout <./Maintaining-a-Source-Checkout>`.
+For keeping your source code up-to-date, see :doc:`Maintaining a Source Checkout <Maintaining-a-Source-Checkout>`.

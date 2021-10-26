@@ -17,7 +17,7 @@ This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary 
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-There are also :doc:`Debian packages <./Ubuntu-Install-Debians>` available.
+There are also :doc:`Debian packages <Ubuntu-Install-Debians>` available.
 
 System Requirements
 -------------------
@@ -87,7 +87,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <./DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Environment setup
 -----------------
