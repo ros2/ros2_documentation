@@ -6,6 +6,8 @@ Contact
 Different types of questions or discussions correspond to different avenues of communication;
 check the descriptions below to ensure you choose the right method.
 
+.. _Using ROS Answers:
+
 Support
 -------
 
@@ -31,7 +33,7 @@ Issues
 
 If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
 
-For example, if you are following the :ref:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
+For example, if you are following the :doc:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
 you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
 
 You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://github.com/ros2>`__.
@@ -53,7 +55,9 @@ Pull requests
 
 When you feel comfortable enough to suggest a specific change directly to the code, you can submit a pull request.
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
-See the :ref:`Contributing <Contributing>` page for more details and etiquette on how to contribute.
+See the :doc:`Contributing <Contributing>` page for more details and etiquette on how to contribute.
+
+.. _Using ROS Discourse:
 
 Discussion
 ----------

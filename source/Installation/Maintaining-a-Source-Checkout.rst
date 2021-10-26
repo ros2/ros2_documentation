@@ -1,7 +1,14 @@
 .. _MaintainingSource:
 
-Maintaining a source checkout of ROS 2
-======================================
+Maintaining a source checkout of ROS 2 {DISTRO_TITLE}
+=====================================================
+
+.. ifconfig:: smv_current_version != '' and smv_current_version != 'rolling'
+
+  .. note::
+
+     For instructions on maintaining a source checkout of the **latest development version** of ROS 2, refer to
+     `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
    :depth: 2
@@ -16,10 +23,10 @@ Update your repository list
 Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repositories and their version for that release.
 
 
-Latest development branches
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Latest ROS 2 {DISTRO_TITLE} branches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to checkout the latest development code for the upcoming ROS release, you can get the relevant repository list by running:
+If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get the relevant repository list by running:
 
 .. tabs::
 
@@ -27,29 +34,29 @@ If you wish to checkout the latest development code for the upcoming ROS release
 
     .. code-block:: bash
 
-       cd ~/ros2_ws
+       cd ~/ros2_{DISTRO}
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-       cd ~/ros2_ws
+       cd ~/ros2_{DISTRO}
        mv -i ros2.repos ros2.repos.old
-       wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+       wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
        # CMD
-       > cd \dev\ros2
-       > curl -sk https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+       cd \dev\ros2_{DISTRO}
+       curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
        # PowerShell
-       > cd \dev\ros2
-       > curl https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos -o ros2.repos
+       cd \dev\ros2_{DISTRO}
+       curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 
 Update your repositories
@@ -89,12 +96,12 @@ You should now be able to download the sources associated with the new repositor
     .. code-block:: bash
 
        # CMD
-       > vcs import src < ros2.repos
-       > vcs pull src
+       vcs import src < ros2.repos
+       vcs pull src
 
        # PowerShell
-       > vcs import --input ros2.repos src
-       > vcs pull src
+       vcs import --input ros2.repos src
+       vcs pull src
 
 Rebuild your workspace
 ----------------------
@@ -117,21 +124,21 @@ If you wish to know the versions of the set of repositories in your workspace, y
 
     .. code-block:: bash
 
-       cd ~/ros2_ws
+       cd ~/ros2_{DISTRO}
        vcs export src > my_ros2.repos
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-       cd ~/ros2_ws
+       cd ~/ros2_{DISTRO}
        vcs export src > my_ros2.repos
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-       > cd \dev\ros2
-       > vcs export src > my_ros2.repos
+       cd \dev\ros2_{DISTRO}
+       vcs export src > my_ros2.repos
 
 This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.

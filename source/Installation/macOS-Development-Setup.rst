@@ -75,7 +75,7 @@ You need the following things installed to build ROS 2:
        echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # install dependencies for rcl_logging
-       brew install log4cxx spdlog
+       brew install spdlog
 
        # install dependencies for Cyclone DDS
        brew install bison cunit
@@ -152,12 +152,12 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in `this tutorial </Tutorials/Colcon-Tutorial>`):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../Tutorials/Colcon-Tutorial>`):
 
 .. code-block:: bash
 
@@ -208,12 +208,12 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Stay up to date
 ---------------
 
-See :ref:`MaintainingSource` to periodically refresh your source installation.
+See :doc:`./Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

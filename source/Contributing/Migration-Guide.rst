@@ -409,13 +409,13 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 CLI usage <../Tutorials/Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :ref:`yaml-ros1-ros2` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :doc:`../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
-See `separate tutorial <../Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------

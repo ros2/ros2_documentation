@@ -20,7 +20,7 @@ The `design document <https://design.ros2.org/articles/roslaunch.html>`__ detail
 Writing a ROS 2 launch file
 ---------------------------
 
-If you haven't already, make sure you go through the tutorial on how to :ref:`create a ROS 2 package <CreatePkg>`.
+If you haven't already, make sure you go through the tutorial on how to :doc:`create a ROS 2 package <./Creating-Your-First-ROS2-Package>`.
 One way to create launch files in ROS 2 is using a Python file, which are executed by the ROS 2 CLI tool, ``ros2 launch``.
 We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and creating a new ``launch`` directory.
 

@@ -93,22 +93,22 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src --rosdistro {DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng asio"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr ignition-cmake2 ignition-math6 rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng asio"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, Cyclone DDS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Build the code in the workspace
 -------------------------------
 
-If you have already installed ROS 2 another way (either via Debians or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
+If you have already installed ROS 2 another way (either via RPMs or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
 You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
 The output should be empty.
 
-More info on working with a ROS workspace can be found in `this tutorial <../Tutorials/Colcon-Tutorial>`.
+More info on working with a ROS workspace can be found in :doc:`this tutorial <../Tutorials/Colcon-Tutorial>`.
 
 .. code-block:: bash
 
@@ -117,7 +117,7 @@ More info on working with a ROS workspace can be found in `this tutorial <../Tut
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
-Well then simply ``$ touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
+Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
 Environment setup
 -----------------
@@ -156,16 +156,12 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the `tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Alternate compilers
 -------------------
@@ -187,7 +183,7 @@ To configure CMake to detect and use Clang:
 Stay up to date
 ---------------
 
-See :ref:`MaintainingSource` to periodically refresh your source installation.
+See :doc:`./Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

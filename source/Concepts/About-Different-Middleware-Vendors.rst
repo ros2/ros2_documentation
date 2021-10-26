@@ -43,7 +43,7 @@ Supported RMW implementations
      - ``rmw_connextdds``
      - Full support. Support included in binaries, but Connext installed separately.
 
-For practical information on working with multiple RMW implementations, see the `"Working with multiple RMW implementations" <../Guides/Working-with-multiple-RMW-implementations>` tutorial.
+For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
 Multiple RMW implementations
 ----------------------------
@@ -52,7 +52,7 @@ The ROS 2 binary releases for currently active distros have built-in support for
 Since Galactic, the default is Cyclone DDS, which works without any additional installation steps, because we distribute it with our binary packages.
 Prior to Galactic, the default was Fast DDS, which works without any additional installation steps.
 
-Other RMWs like Fast DDS or Connext can be enabled by `installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Fast DDS or Connext can be enabled by :doc:`installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
@@ -79,4 +79,4 @@ The implementation identifier is the name of the ROS package that provides the R
 For example, if both ``rmw_fastrtps_cpp`` and ``rmw_connextdds`` ROS packages are installed, ``rmw_connextdds`` would be the default.
 If ``rmw_cyclonedds_cpp`` is ever installed, it would be the default.
 
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.

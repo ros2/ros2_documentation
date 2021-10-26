@@ -17,7 +17,7 @@ This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary 
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-There are also `Debian packages <Ubuntu-Install-Debians>` available.
+There are also :doc:`Debian packages <Ubuntu-Install-Debians>` available.
 
 System Requirements
 -------------------
@@ -35,7 +35,7 @@ Downloading ROS 2
 -----------------
 
 Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
@@ -69,10 +69,13 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src --rosdistro {DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps osrf_testing_tools_cpp poco_vendor rmw_connextdds rti-connext-dds-5.3.1 tinyxml_vendor tinyxml2_vendor urdfdom urdfdom_headers"
+       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "cyclonedds fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
-#. *Optional*\ : if you want to use the ROS 1<->2 bridge, then you must also install ROS 1.
-   Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
+.. include:: _rosdep_Linux_Mint.rst
+
+*Optional*\ :
+   | If you want to use the ROS 1<->2 bridge, then you must also install ROS 1. \
+   | Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
 
 Installing the python3 libraries
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,7 +87,7 @@ Installing the python3 libraries
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Environment setup
 -----------------
@@ -121,7 +124,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
 ----------------------
@@ -130,12 +133,12 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found `here <../Guides/Installation-Troubleshooting>`.
+Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
 
 Uninstall
 ---------

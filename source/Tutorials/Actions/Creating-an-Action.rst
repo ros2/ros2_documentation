@@ -16,7 +16,7 @@ Creating an action
 Background
 ----------
 
-You learned about actions previously in the :ref:`ROS2Actions` tutorial.
+You learned about actions previously in the :doc:`../Understanding-ROS2-Actions` tutorial.
 Like the other communication types and their respective interfaces (topics/msg and services/srv),
 you can also custom-define actions in your packages.
 This tutorial shows you how to define and build an action that you can use
@@ -25,12 +25,12 @@ with the action server and action client you will write in the next tutorial.
 Prerequisites
 -------------
 
-You should have :ref:`ROS 2 (Dashing or later)<InstallationGuide>` and
+You should have :doc:`ROS 2 (Dashing or later)<../../Installation>` and
 `colcon <https://colcon.readthedocs.org>`__ installed.
 
-Set up a :ref:`workspace <ROS2Workspace>` and create a package named ``action_tutorials_interfaces``:
+Set up a :doc:`workspace <../Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
 
-(Remember to :ref:`source your ROS 2 installation <ConfigROS2>` first.)
+(Remember to :doc:`source your ROS 2 installation <../Configuring-ROS2-Environment>` first.)
 
 .. tabs::
 
@@ -171,7 +171,7 @@ We can check that our action built successfully with the command line tool:
    # On Windows: call install/setup.bat
    . install/setup.bash
    # Check that our action definition exists
-   ros2 interface show action_tutorials/action/Fibonacci
+   ros2 interface show action_tutorials_interfaces/action/Fibonacci
 
 
 You should see the Fibonacci action definition printed to the screen.
@@ -186,7 +186,7 @@ and how to verify a successful build.
 Next steps
 ----------
 
-Next, let's utilize your newly defined action interface by creating an action service and client (in :ref:`Python <ActionsPy>` or :ref:`C++ <ActionsCpp>`).
+Next, let's utilize your newly defined action interface by creating an action service and client (in :doc:`Python <./Writing-a-Py-Action-Server-Client>` or :doc:`C++ <./Writing-a-Cpp-Action-Server-Client>`).
 
 Related content
 ---------------

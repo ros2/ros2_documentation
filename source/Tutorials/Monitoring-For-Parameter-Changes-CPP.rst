@@ -25,8 +25,8 @@ Prerequisites
 
 Before starting this tutorial, you should first complete the following tutorials:
 
-- :ref:`ROS2Params`
-- :ref:`CppParamNode`
+- :doc:`./Parameters/Understanding-ROS2-Parameters`
+- :doc:`./Using-Parameters-In-A-Class-CPP`
 
 In addition, you must be running the Galactic distribution of ROS 2.
 
@@ -39,7 +39,7 @@ In this tutorial, you will create a new package to contain some sample code, wri
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+First, open a new terminal and :doc:`source your ROS 2 installation <./Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow :ref:`these instructions <new-directory>` if you no longer have the directory and need to create it again).
 
@@ -344,6 +344,6 @@ The ParameterEventHandler is a convenient way to monitor for parameter changes s
 Related content
 ---------------
 
-To learn how to adapt ROS 1 parameter files for ROS 2, see the :ref:`Migrating YAML parameter files from ROS 1 to ROS2<yaml-ros1-ros2>` tutorial.
+To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2<../How-To-Guides/Parameters-YAML-files-migration-guide>` tutorial.
 
 

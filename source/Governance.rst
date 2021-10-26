@@ -14,13 +14,13 @@ That approach has worked well enough, as evidenced by the widespread adoption of
 
 But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, starting with these areas: determining the roadmap, developing core tools and libraries, and establishing working groups to focus on important topics.
 To that end, we've established a Technical Steering Committee (TSC).
-As described in the :ref:`charter <ROS2TSCCharter>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
+As described in the :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
 Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org/reps/rep-2005.html>`_.
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (19 as of 2021-02-22):
+The current members of the ROS 2 TSC are (20 as of 2021-09-13):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -34,8 +34,9 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
 .. |lge| image:: Governance/lge.svg
 .. |microsoft| image:: Governance/microsoft.svg
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
-.. |picknik| image:: Governance/picknik.jpg
+.. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
+.. |rosindustrial| image:: Governance/ros-industrial.png
 .. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
 .. |sony| image:: Governance/sony.png
@@ -106,7 +107,7 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Bosch: Karsten Knese</p></td>
+          <td class="tscclass" align="center"><p>Bosch: Ralph Lange</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
@@ -126,11 +127,11 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="_images/irobot.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>iRobot: Ori Taka</p></td>
+          <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>LG Electronics: Lokesh Kumar Goel</p></td>
+          <td class="tscclass" align="center"><p>LG Electronics: Herb Kuta</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
@@ -141,12 +142,16 @@ The current members of the ROS 2 TSC are (19 as of 2021-02-22):
           <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>PickNik: Dave Coleman</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="_images/robotis.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROBOTIS: Will Son</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
@@ -178,12 +183,13 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
    :maxdepth: 1
 
    Governance/ROS2-TSC-Charter
+   Governance/ROS2-TSC-Intake-process
    Governance/How-To-Start-A-Community-Working-Group
 
 Working Groups (WGs)
 --------------------
 
-As described in its :ref:`charter <ROS2TSCCharter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
+As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 The current WGs are (11 as of 2021-01-12):
 

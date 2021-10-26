@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 You will need the ``action_tutorials_interfaces`` package and the ``Fibonacci.action``
-interface defined in the previous tutorial, :ref:`ActionCreate`.
+interface defined in the previous tutorial, :doc:`./Creating-an-Action`.
 
 Tasks
 -----
@@ -33,7 +33,7 @@ Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's focus on writing an action server that computes the Fibonacci sequence
-using the action we created in the :ref:`ActionCreate` tutorial.
+using the action we created in the :doc:`./Creating-an-Action` tutorial.
 
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
 To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
@@ -45,7 +45,6 @@ and add the following code:
 
 .. literalinclude:: server_0.py
     :language: python
-    :linenos:
 
 Line 8 defines a class ``FibonacciActionServer`` that is a subclass of ``Node``.
 The class is initialized by calling the ``Node`` constructor, naming our node ``fibonacci_action_server``:
@@ -111,7 +110,6 @@ We can use the method `succeed() <http://docs.ros2.org/latest/api/rclpy/api/acti
 
 .. literalinclude:: server_1.py
     :language: python
-    :linenos:
     :lines: 18-22
     :emphasize-lines: 3
 
@@ -121,7 +119,6 @@ Now let's make our goal execution actually compute and return the requested Fibo
 
 .. literalinclude:: server_2.py
     :language: python
-    :linenos:
     :lines: 18-30
     :emphasize-lines: 4-7,12
 
@@ -141,8 +138,6 @@ After every update of the feedback message in the for-loop, we publish the feedb
 
 .. literalinclude:: server_3.py
     :language: python
-    :linenos:
-    :lines: 1-37
     :emphasize-lines: 1,23,24,27-31,36
 
 After restarting the action server, we can confirm that feedback is now published by using the command line tool with the ``--feedback`` option:
@@ -159,7 +154,6 @@ Open a new file, let's call it ``fibonacci_action_client.py``, and add the follo
 
 .. literalinclude:: client_0.py
     :language: python
-    :linenos:
 
 We've defined a class ``FibonacciActionClient`` that is a subclass of ``Node``.
 The class is initialized by calling the ``Node`` constructor, naming our node ``fibonacci_action_client``:
@@ -168,7 +162,7 @@ The class is initialized by calling the ``Node`` constructor, naming our node ``
     :language: python
     :lines: 11
 
-Also in the class constructor, we create an action client using the custom action definition from the previous tutorial on :ref:`ActionCreate`:
+Also in the class constructor, we create an action client using the custom action definition from the previous tutorial on :doc:`./Creating-an-Action`:
 
 .. literalinclude:: client_0.py
     :language: python
@@ -267,7 +261,6 @@ Here's the complete code for this example:
 
 .. literalinclude:: client_1.py
     :language: python
-    :linenos:
 
 The `ActionClient.send_goal_async() <http://docs.ros2.org/latest/api/rclpy/api/actions.html#rclpy.action.client.ActionClient.send_goal_async>`_ method returns a future to a goal handle.
 First we register a callback for when the future is complete:
@@ -333,7 +326,6 @@ Here's the complete code for this example:
 
 .. literalinclude:: client_2.py
     :language: python
-    :linenos:
 
 Here's the callback function for feedback messages:
 

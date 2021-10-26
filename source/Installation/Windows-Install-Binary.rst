@@ -26,7 +26,7 @@ Downloading ROS 2
 -----------------
 
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
-Instead you may download nightly `prerelease binaries <Prerelease_binaries>`.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
 
@@ -47,7 +47,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   > call C:\dev\ros2_{DISTRO}\local_setup.bat
+   call C:\dev\ros2_{DISTRO}\local_setup.bat
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
@@ -58,13 +58,13 @@ In a command shell, set up the ROS 2 environment as described above and then run
 
 .. code-block:: bash
 
-   > ros2 run demo_nodes_cpp talker
+   ros2 run demo_nodes_cpp talker
 
 Start another command shell and run a Python ``listener``\ :
 
 .. code-block:: bash
 
-   > ros2 run demo_nodes_py listener
+   ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
@@ -73,7 +73,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the `tutorials and demos </Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
 ----------------------
@@ -82,7 +82,7 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
@@ -99,4 +99,4 @@ Uninstall
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_{DISTRO}
+      rmdir /s /q \ros2_{DISTRO}

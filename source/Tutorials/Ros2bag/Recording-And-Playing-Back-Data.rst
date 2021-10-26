@@ -34,10 +34,10 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
   sudo apt-get install ros-{DISTRO}-ros2bag \
                        ros-{DISTRO}-rosbag2-storage-default-plugins
 
-This tutorial talks about concepts covered in previous tutorials, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`.
-It also uses the :ref:`turtlesim package <Turtlesim>`.
+This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes>` and :doc:`topics <../Topics/Understanding-ROS2-Topics>`.
+It also uses the :doc:`turtlesim package <../Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -254,10 +254,10 @@ Next steps
 ----------
 
 You’ve completed the "Beginner: CLI Tools" tutorials!
-The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :ref:`ROS2Workspace`.
+The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../Workspace/Creating-A-Workspace`.
 
 Related content
 ---------------
 
 A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
-For more information on QoS compatibility and ``ros2 bag``, see :ref:`ROS2Bag-QoS-Override`.
+For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback`.

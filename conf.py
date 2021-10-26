@@ -73,7 +73,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme', 'sphinx.ext.ifconfig','sphinx_copybutton']
 
 # Intersphinx mapping
 
@@ -266,8 +266,7 @@ def smv_rewrite_configs(app, config):
         app.config.html_baseurl = app.config.html_baseurl + '/' + app.config.smv_current_version
         app.config.project = 'ROS 2 Documentation: ' + app.config.smv_current_version.title()
 
-        if app.config.smv_current_version not in ['rolling']:
-            app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
+        app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
         # Override default values
         distro = app.config.smv_current_version
