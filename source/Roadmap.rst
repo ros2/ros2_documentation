@@ -21,7 +21,7 @@ The items in the roadmap below are the major features being worked on by the ROS
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
 If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
-If you'd like to take on one of these tasks, please :ref:`get in touch with us <Help>`.
+If you'd like to take on one of these tasks, please :doc:`get in touch with us <Contact>`.
 
 .. raw:: html
 
@@ -130,15 +130,15 @@ Additional project-specific roadmaps can be found in the links below:
 Planned releases
 ----------------
 
-Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
+Please see the :doc:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
 Contributing to ROS 2
 ---------------------
 
 Looking for something to work on, or just want to help out? Here are a few resources to get you going.
 
-1. The :ref:`Contributing <Contributing>` guide describes how to make a contribution to ROS 2.
-2. Check out the list of :ref:`Feature Ideas <FeatureIdeas>` for inspiration.
+1. The :doc:`Contributing <Contributing>` guide describes how to make a contribution to ROS 2.
+2. Check out the list of :doc:`Feature Ideas <Feature-Ideas>` for inspiration.
 3. For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
 4. The core code for ROS 2 is in the `ros2 GitHub organization <https://github.com/ros2>`__.
 5. The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.

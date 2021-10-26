@@ -91,51 +91,51 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
-   * - `Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
+   * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      -
      -
-   * - `Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
+   * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
      - |galactic|
      - November 2022
-   * - `Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
+   * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - June 5th, 2020
      - |foxy|
      - May 2023
-   * - `Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
+   * - :doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22nd, 2019
      - |eloquent|
      - November 2020
-   * - `Dashing Diademata <Releases/Release-Dashing-Diademata>`
+   * - :doc:`Dashing Diademata <Releases/Release-Dashing-Diademata>`
      - May 31st, 2019
      - |dashing|
      - May 2021
-   * - `Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
+   * - :doc:`Crystal Clemmys <Releases/Release-Crystal-Clemmys>`
      - December 14th, 2018
      - |crystal|
      - December 2019
-   * - `Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
+   * - :doc:`Bouncy Bolson <Releases/Release-Bouncy-Bolson>`
      - July 2nd, 2018
      - |bouncy|
      - July 2019
-   * - `Ardent Apalone <Releases/Release-Ardent-Apalone>`
+   * - :doc:`Ardent Apalone <Releases/Release-Ardent-Apalone>`
      - December 8th, 2017
      - |ardent|
      - December 2018
-   * - `beta3 <Releases/Beta3-Overview>`
+   * - :doc:`beta3 <Releases/Beta3-Overview>`
      - September 13th, 2017
      -
      - December 2017
-   * - `beta2 <Releases/Beta2-Overview>`
+   * - :doc:`beta2 <Releases/Beta2-Overview>`
      - July 5th, 2017
      -
      - September 2017
-   * - `beta1 <Releases/Beta1-Overview>`
+   * - :doc:`beta1 <Releases/Beta1-Overview>`
      - December 19th, 2016
      -
      - Jul 2017
-   * - `alpha1 - alpha8 <Releases/Alpha-Overview>`
+   * - :doc:`alpha1 - alpha8 <Releases/Alpha-Overview>`
      - August 31th, 2015
      -
      - December 2016
@@ -143,7 +143,7 @@ Rows in the table marked in green are the currently supported distributions.
 Future Distributions
 --------------------
 
-For details on upcoming features see the :ref:`roadmap <Roadmap>`.
+For details on upcoming features see the :doc:`roadmap <Roadmap>`.
 
 There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 
@@ -156,7 +156,7 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Supported for
      - Planned changes
-   * - `Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
+   * - :doc:`Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
      - May 2022
      - TBD
      - TBD
@@ -173,9 +173,9 @@ The Rolling distribution of ROS 2 serves as a staging area for future stable dis
 Unlike most stable ROS 2 distributions which have an initial release, a support window during which they are updated, and a definite end of support (see :ref:`list_of_distributions` above) the Rolling distribution is continuously updated and is subject to in-place updates which will at times include breaking changes.
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-`Releasing a ROS 2 package <How-To-Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <How-To-Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
-`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_.
+:doc:`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_.
 It was first introduced in June 2020.
 
 The Rolling distribution will receive frequent and possibly compatibility-breaking releases in core packages and we recommend most people use the most recent stable distribution instead.
