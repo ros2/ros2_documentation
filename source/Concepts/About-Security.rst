@@ -82,4 +82,4 @@ These variables generally assist ROS in managing enclaves and locating the secur
 Learn More
 ----------
 
-For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`../Tutorials/Security/Introducing-ros2-security>`.
+For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`../Tutorials/Security/Introducing-ros2-security`.
