@@ -213,7 +213,7 @@ See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on 
 Stay up to date
 ---------------
 
-See :ref:`MaintainingSource` to periodically refresh your source installation.
+See :doc:`./Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------

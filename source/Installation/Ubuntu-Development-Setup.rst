@@ -198,7 +198,7 @@ To configure CMake to detect and use Clang:
 Stay up to date
 ---------------
 
-See :ref:`MaintainingSource` to periodically refresh your source installation.
+See :doc:`./Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
 Troubleshooting
 ---------------
