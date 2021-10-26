@@ -242,7 +242,7 @@ We will also require justification for merging a change or making a release that
 Linters and static analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :ref:`ROS code style <CodeStyle>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
+We will use :doc:`ROS code style <Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
 All linters/static analysis that are part of ``ament_lint_common`` must be used.
 
 The `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
@@ -687,7 +687,7 @@ There are several categories of jobs on the buildfarm:
 Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
 binary packages, continuous integration, testing, and analysis.
 
-For details, frequently asked questions, and troubleshooting see :ref:`build farms <BuildFarms>`.
+For details, frequently asked questions, and troubleshooting see :doc:`build farms <Build-Farms>`.
 
 Note on Coverage runs
 ^^^^^^^^^^^^^^^^^^^^^

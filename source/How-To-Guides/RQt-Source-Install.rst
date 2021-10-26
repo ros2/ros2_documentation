@@ -26,7 +26,7 @@ Building From Source
 --------------------
 
 In order to build RQt from source, first create a ROS 2 workspace at ``~/ros2_ws/``.
-This is step is already covered in `building ROS 2 from source instructions <../Installation>`, so we skip it here.
+This is step is already covered in :doc:`building ROS 2 from source instructions <../Installation>`, so we skip it here.
 
 Download RQt Repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -52,7 +52,7 @@ Install Dependencies
    RQt-Source-Install-MacOS
    RQt-Source-Install-Windows10
 
-For non-Linux platforms, see the `macOS RQt source install page <RQt-Source-Install-MacOS>` or the `Windows 10 RQt source install page <RQt-Source-Install-Windows10>` before continuing here.
+For non-Linux platforms, see the :doc:`macOS RQt source install page <RQt-Source-Install-MacOS>` or the :doc:`Windows 10 RQt source install page <RQt-Source-Install-Windows10>` before continuing here.
 
 .. code-block:: bash
 
@@ -106,4 +106,4 @@ Windows
 Using RQt
 ----------
 
-See `Overview of RQt <../Concepts/About-RQt>`.
+See :doc:`Overview of RQt <../Concepts/About-RQt>`.

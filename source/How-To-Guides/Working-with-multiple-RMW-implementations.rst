@@ -16,12 +16,12 @@ This page explains the default RMW implementation and how to specify an alternat
 Prerequisites
 --------------
 
-You should have already read the `DDS and ROS middleware implementations page <../Concepts/About-Different-Middleware-Vendors>`.
+You should have already read the :doc:`DDS and ROS middleware implementations page <../Concepts/About-Different-Middleware-Vendors>`.
 
 Specifying RMW implementations
 ------------------------------
 
-To have multiple RMW implementations available for use you must have installed the ROS 2 binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (the RMW implementations are included in the build by default if their compile-time dependencies are met). See `Install DDS implementations <../Installation/DDS-Implementations>`.
+To have multiple RMW implementations available for use you must have installed the ROS 2 binaries and any additional dependencies for specific RMW implementations, or built ROS 2 from source with multiple RMW implementations in the workspace (the RMW implementations are included in the build by default if their compile-time dependencies are met). See :doc:`Install DDS implementations <../Installation/DDS-Implementations>`.
 
 ----
 
