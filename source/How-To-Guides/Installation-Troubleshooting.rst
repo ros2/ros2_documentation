@@ -228,11 +228,11 @@ When building qt_gui_cpp there may be errors look like the following:
    ---
    Failed   <<< qt_gui_cpp [ Exited with code 1 ]
 
-To fix this issue, follow `these steps <RQt-Source-Install-MacOS>` to install dependencies for RQt.
+To fix this issue, follow :doc:`these steps <./RQt-Source-Install-MacOS>` to install dependencies for RQt.
 
 rosdep install error ``homebrew: Failed to detect successful installation of [qt5]``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-While following the `Creating a workspace <../Tutorials/Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
+While following the :doc:`Creating a workspace <../Tutorials/Workspace/Creating-A-Workspace>` tutorial, you might encounter the following error stating that ``rosdep`` failes to install Qt5.
 
 .. code-block:: bash
 
@@ -267,7 +267,7 @@ Import failing even with library present on the system
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sometimes ``rclpy`` fails to be imported because of some missing DLLs on your system.
-If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the `installation instructions <windows-install-binary-installing-prerequisites>`).
+If so, make sure to install all the dependencies listed in the "Installing prerequisites" sections of the :ref:`installation instructions <windows-install-binary-installing-prerequisites>`).
 
 If you are installing from binaries, you may need to update your dependencies: they must be the same version as those used to build the binaries.
 

@@ -7,9 +7,9 @@ Building RQt from source on Windows 10
 ======================================
 
 This page provides specific information to building RQt from source on Windows.
-Follow these instructions before proceeding with the `RQt Source Install <RQt-Source-Install>` page.
+Follow these instructions before proceeding with the :doc:`RQt Source Install <./RQt-Source-Install>` page.
 
-If you have not done so, follow the `ROS 2 Windows Development Setup guide <../Installation/Windows-Development-Setup>` before continuing.
+If you have not done so, follow the :doc:`ROS 2 Windows Development Setup guide <../Installation/Windows-Development-Setup>` before continuing.
 
 System Requirements
 -------------------
@@ -91,4 +91,4 @@ Manually merging this patch is the currently recommended solution (not verified)
 Install RQt by source
 ---------------------
 
-Continue with the `RQt source install page <RQt-Source-Install>`.
+Continue with the :doc:`RQt source install page <./RQt-Source-Install>`.
