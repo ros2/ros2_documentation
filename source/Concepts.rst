@@ -81,7 +81,7 @@ The following client libraries are maintained by the ROS 2 team:
 * rclpy = Python client library
 
 Additionally, other client libraries have been developed by the ROS community.
-See the :ref:`ROS 2 Client Libraries <ROS-2-Client-Libraries>` article for more details.
+See the :doc:`ROS 2 Client Libraries <Concepts/About-ROS-2-Client-Libraries>` article for more details.
 
 Discovery
 ^^^^^^^^^
@@ -94,9 +94,9 @@ It can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes will only establish connections with other nodes if they have compatible `Quality of Service <../Tutorials/Quality-of-Service>` settings.
+Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <../Tutorials/Quality-of-Service>` settings.
 
-Take the `talker-listener demo <talker-listener>` for example.
+Take the :ref:`talker-listener demo <talker-listener>` for example.
 Running the C++ talker node in one terminal will publish messages on a topic,
 and the Python listener node running in another terminal  will subscribe to messages on the same topic.
 
@@ -113,7 +113,7 @@ ROS 2 also adds a master "on/off" switch to control security behavior.
 
 ROS utilities can create the authoritative `trust anchor <https://en.wikipedia.org/wiki/Trust_anchor>`_ for a ROS application, or an external certificate authority can be used.
 
-See the :ref:`ROS 2 Security <ROS-2-Security>` article for additional details or ROS security features.
+See the :doc:`ROS 2 Security <Concepts/About-Security>` article for additional details or ROS security features.
 
 
 Related Content
