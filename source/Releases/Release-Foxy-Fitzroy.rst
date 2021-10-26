@@ -36,6 +36,33 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
+Changes in Patch Release 7
+--------------------------
+
+Fix launch frontend parser
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A refactor of the launch frontend parser fixed some [issues parsing special characters](https://github.com/ros2/launch_ros/issues/214).
+As a result, there has been a small behavior change when it comes to parsing strings.
+For example, previously to pass a number as a string you would have to add extra quotation marks (two sets of quotation marks were needed if using a substitution):
+
+.. code-block:: xml
+
+   <!-- results in the string value "'3'" -->
+   <param name="foo" value="''3''"/>
+
+After the refactor, the above will result in the the string ``"''3''"`` (note the extra set of quotation marks).
+Now, users should use the ``type`` attribute to signal that the value should be interpretted as a string:
+
+.. code-block:: xml
+
+   <param name="foo" value="3", type="str"/>
+
+Related pull requests:
+
+* `launch#530 <https://github.com/ros2/launch/pull/530>`_
+* `launch_ros#265 <https://github.com/ros2/launch_ros/pull/265>`_
+
 Changes in Patch Release 2
 --------------------------
 
