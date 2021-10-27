@@ -52,11 +52,11 @@ For example, previously to pass a number as a string you would have to add extra
    <param name="foo" value="''3''"/>
 
 After the refactor, the above will result in the the string ``"''3''"`` (note the extra set of quotation marks).
-Now, users should use the ``type`` attribute to signal that the value should be interpretted as a string:
+Now, users should use the ``type`` attribute to signal that the value should be interpreted as a string:
 
 .. code-block:: xml
 
-   <param name="foo" value="3", type="str"/>
+   <param name="foo" value="3" type="str"/>
 
 Related pull requests:
 
