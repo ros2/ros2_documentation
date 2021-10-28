@@ -1,7 +1,11 @@
 Using variants
 ==============
 
-Variants, referred to as "metapackages" in ROS 1 are packages which provide no functionality directly but depend on a specified set of ROS packages in order to provide a convenient installation mechanism for the entire group of packages at once.
+Metapackages do not provide software directly but depend on a group of other related packages to provide a convienent installation mechanism for the complete group of packages. [#]_ [#]_
+Variants are a list of official metapackages for commonly useful groups of ROS packages.
+
+.. [#] https://wiki.debian.org/metapackage
+.. [#] https://help.ubuntu.com/community/MetaPackages
 
 The different variants in ROS 2 are specified in `REP-2001 <https://ros.org/reps/rep-2001.html>`_.
 
