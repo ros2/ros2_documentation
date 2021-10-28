@@ -130,39 +130,7 @@ In the ``dev_ws/src`` directory, run the following command for the distro you're
 
   git clone https://github.com/ros/ros_tutorials.git -b {DISTRO}-devel
 
-Now ``ros_tutorials`` is cloned in your workspace.
-If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
-
-To see the packages inside ``ros_tutorials``, enter the command:
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        ls ros_tutorials
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        ls ros_tutorials
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        dir ros_tutorials
-
-
-Which will list the contents of the repo you just cloned, like so:
-
-.. code-block:: console
-
-    roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
-
-The first three packages are being ignored because they contain a ``COLCON_IGNORE`` file; ``turtlesim`` is the only actual ROS 2 package in this repo.
+Now ``ros_tutorials`` is cloned in your workspace.  The ``ros_tutorials`` repository contains the ``turtlesim`` package, which we'll use in the rest of this tutorial.  The other packages in this repository are not built because they contain a ``COLCON_IGNORE`` file.
 
 Now you have populated your workspace with a sample package, but it isn’t a fully-functional workspace yet.
 You need to resolve dependencies and build the workspace first.
