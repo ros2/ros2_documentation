@@ -293,18 +293,45 @@ For convenience, you can use the tool ``ros2 pkg create`` to create a new packag
 
 .. note:: For ``catkin`` users, this is the equivalent of ``catkin_create_package``.
 
+Setup ``colcon_cd``
+-------------------
+
+The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
+As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_install/src/some_ros_package``.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        echo "export _colcon_cd_root=/opt/ros/{DISTRO}/" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        echo "source /usr/local/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
+        echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
+
+   .. group-tab:: Windows
+
+      Not yet available
+
+Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
+To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
+
+
 Tips
 ----
 
 
-*
-  If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
+* If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
-*
-  If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
+* If you want to avoid configuring and building tests in CMake packages you can pass: ``--cmake-args -DBUILD_TESTING=0``.
 
-*
-  If you want to run a single particular test from a package:
+* If you want to run a single particular test from a package:
 
   .. code-block:: bash
 
