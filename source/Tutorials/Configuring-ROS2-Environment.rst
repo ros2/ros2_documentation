@@ -112,35 +112,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
 To undo this (to change to another distro) in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
-3 Add ``colcon_cd`` to your shell startup script
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
-As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_install/src/some_ros_package``.
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        echo "source /usr/share/colcon_cd/function/colcon_cd.sh" >> ~/.bashrc
-        echo "export _colcon_cd_root=~/ros2_install" >> ~/.bashrc
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        TODO
-
-   .. group-tab:: Windows
-
-      Not yet available
-
-Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
-To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
-
-4 Check environment variables
+3 Check environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sourcing ROS 2 setup files will set several environment variables necessary for operating ROS 2.
