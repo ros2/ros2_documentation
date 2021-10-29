@@ -27,19 +27,8 @@ Now documentation can be built locally
 The build process can take some time.
 In order to see the output, open ``build/html/index.html`` in your browser.
 
-..
-   Depending 
-
-   Installation
-
-   Tutorials
-
-   How-To-Guides
-
-   Concepts
-
-rst Guide
----------
+Writing pages
+-------------
 
 Table of Contents
 ^^^^^^^^^^^^^^^^^
@@ -47,6 +36,7 @@ Table of Contents
 There are two types of directives used for generation of tables of contents, ``.. toctree::`` and ``.. contents::``.
 The ``.. toctree::`` is used in a top level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
 This directive creates both left navigation panel and in-page navigation links to the child pages listed.
+It helps readers to understand the structure of documentation and navigate between separate pages.
 
 .. code-block:: rst
 
@@ -54,11 +44,11 @@ This directive creates both left navigation panel and in-page navigation links t
       :maxdepth: 1
 
 The ``.. contents::`` directive is used for generation of table of contents for each individual page.
-It parses the all existing headings in a page and build an in-page nested table of contents.
-It helps readers to navigate in a page.
+It parses all present headings in a page and builds an in-page nested table of contents.
+It helps readers to see an overview of the content and navigate in a page.
 
 The ``.. contents::`` directive supports definition of maximum depth of nested sections.
-Using ``:depth: 2`` will only show Sections and Subsections.
+Using ``:depth: 2`` will only show Sections and Subsections in the table of contents.
 
 .. code-block:: rst
 
@@ -70,7 +60,7 @@ Headings
 ^^^^^^^^^^^^^^^^^
 
 There are four main Heading types used in the documentation.
-Number of symbols has to match the length of the title.
+Note that the number of symbols has to match the length of the title.
 
 .. code-block:: rst
 
@@ -80,11 +70,13 @@ Number of symbols has to match the length of the title.
    Section Header
    --------------
 
-   Subsection Header
-   ^^^^^^^^^^^^^^^^^
+   2 Subsection Header
+   ^^^^^^^^^^^^^^^^^^^
 
-   Subsubsection Header
-   ~~~~~~~~~~~~~~~~~~~~
+   2.4 Subsubsection Header
+   ~~~~~~~~~~~~~~~~~~~~~~~~
+
+We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and in How-To-Guides.
 
 Lists
 ^^^^^
@@ -109,12 +101,14 @@ Use ``*`` for unordered lists with bullet points and ``#.`` for listing numbered
 Code Formatting
 ^^^^^^^^^^^^^^^
 
+In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
+
 .. code-block:: rst
 
    In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
 
 Code blocks inside a page needs to be captured using ``.. code-block::`` directive.
-``.. code-block::`` supports highlighting code for various syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
+``.. code-block::`` supports code highlighting for syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
 Code that is used inside directive needs to be indented.
 
 .. code-block:: rst
@@ -144,29 +138,30 @@ References and Links
 External links
 ~~~~~~~~~~~~~~
 
-The syntax is for creating links to external web-pages is 
+The syntax is for creating links to external web-pages is shown below.
 
 .. code-block:: rst
 
    `ROS Docs <https://docs.ros.org>`_
 
-which appear as `ROS Docs <https://docs.ros.org>`_.
+The above link will appear as `ROS Docs <https://docs.ros.org>`_.
 Note the underscore after the final single quote.
 
 
 Internal links
 ~~~~~~~~~~~~~~
 
-The ``:doc:`` directive is used to create links to other pages.
+The ``:doc:`` directive is used to create links to other pages in the same documentation.
 The syntax is shown below.
-Note that the relative path to the file is used.
 
 .. code-block:: rst
 
    :doc:`Quality of Service <../Tutorials/Quality-of-Service>`
 
-The ``ref`` directive is used to make links to specific parts of current or other pages.
-This could be headings, images or code sections.
+Note that the relative path to the file is used.
+
+The ``ref`` directive is used to make links to specific parts of a page.
+This could be headings, images or code sections in current of different page.
 
 
 For this you will need to define an explicit target before a desired object.
@@ -183,3 +178,5 @@ Now you can create links to that header as shown below.
 .. code-block:: rst
 
    :ref:`talker-listener demo <talker-listener>`
+
+Reference links work like HTML anchor links such as file.html#talker-listener.
