@@ -101,7 +101,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       {
         rclcpp::Time time_stamp = this->now();
 
-        writer_->write(*msg, "chatter", "std_msgs/msg/String", time_stamp);
+        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
       }
 
       rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
@@ -171,7 +171,7 @@ This is why we pass in the topic name and the topic type.
 
 .. code-block:: C++
 
-        writer_->write(*msg, "chatter", "std_msgs/msg/String", time_stamp);
+        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
 
 The class contains two member variables.
 

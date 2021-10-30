@@ -343,7 +343,7 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
         /**
          * Actions to run every time a new message is received
          */
-        void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
+        void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
         {
             RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
         }
