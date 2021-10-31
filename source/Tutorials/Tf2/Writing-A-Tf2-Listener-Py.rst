@@ -123,7 +123,8 @@ Open the file using your preferred text editor.
                         trans = self.tf_buffer.lookup_transform(
                             to_frame_rel,
                             from_frame_rel,
-                            now)
+                            now,
+                            timeout=rclpy.duration.Duration(seconds=2.0))
                     except TransformException as ex:
                         self.get_logger().info(
                             f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
