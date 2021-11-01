@@ -36,7 +36,7 @@ If it is not, you can install it using this command.
   sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
-You should have already completed the :ref:`basic ROS 2 bag tutorial <ROS2Bag>`.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <./Recording-And-Playing-Back-Data>`.
 
 Tasks
 -----
