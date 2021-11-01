@@ -147,7 +147,7 @@ Other writers with different behaviours may be available in the [``rosbag2`` sou
 
 Now that we have a writer object, we can open the bag using it.
 We specify the URI of the bag to create and the format (``sqlite3``), leaving other options at their defaults.
-The default conversion options are used, which will perform no conversion, instead storing messages in the serialisation format they are received in.
+The default conversion options are used, which will perform no conversion and store the messages in the serialization format they are received in.
 
 .. code-block:: Python
 
