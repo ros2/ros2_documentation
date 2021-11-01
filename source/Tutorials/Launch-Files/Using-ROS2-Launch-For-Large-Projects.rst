@@ -24,7 +24,7 @@ Prerequisites
 -------------
 
 This tutorial uses the :doc:`turtlesim <../Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../Tf2/Introduction-To-Tf2>` packages.
-This tutorial also assumes you have :doc:`created a new package <../Creating-Your-First-ROS2-Package>` called ``launch_tutorial``.
+This tutorial also assumes you have :doc:`created a new package <../Creating-Your-First-ROS2-Package>` called ``launch_tutorial``. Make sure to use the ``--build-type ament_python`` flag when creating the package.
 
 Introduction
 ------------
