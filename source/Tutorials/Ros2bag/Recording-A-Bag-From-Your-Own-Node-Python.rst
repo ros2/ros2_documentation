@@ -1,7 +1,7 @@
 .. _ROS2BagOwnNodePython:
 
-Recording a bag from your own node
-==================================
+Recording a bag from your own node (Python)
+===========================================
 
 **Goal:** Record data from your own Python node to a bag.
 
