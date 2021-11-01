@@ -83,53 +83,53 @@ Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory,
 
 .. code-block:: Python
 
-    import rclpy
-    from rclpy.node import Node
-    from rclpy.serialization import serialize_message
-    from std_msgs.msg import String
+   import rclpy
+   from rclpy.node import Node
+   from rclpy.serialization import serialize_message
+   from std_msgs.msg import String
 
-    import rosbag2_py
+   import rosbag2_py
 
-    class SimpleBagRecorder(Node):
-        def __init__(self):
-            super().__init__('simple_bag_recorder')
-            self.writer = rosbag2_py.SequentialWriter()
+   class SimpleBagRecorder(Node):
+       def __init__(self):
+           super().__init__('simple_bag_recorder')
+           self.writer = rosbag2_py.SequentialWriter()
 
-            storage_options = rosbag2_py._storage.StorageOptions(
-                uri='my_bag',
-                storage_id='sqlite3')
-            converter_options = rosbag2_py._storage.ConverterOptions('', '')
-            self.writer.open(storage_options, converter_options)
+           storage_options = rosbag2_py._storage.StorageOptions(
+               uri='my_bag',
+               storage_id='sqlite3')
+           converter_options = rosbag2_py._storage.ConverterOptions('', '')
+           self.writer.open(storage_options, converter_options)
 
-            topic_info = rosbag2_py._storage.TopicMetadata(
-                name='chatter',
-                type='std_msgs/msg/String',
-                serialization_format='cdr')
-            self.writer.create_topic(topic_info)
+           topic_info = rosbag2_py._storage.TopicMetadata(
+               name='chatter',
+               type='std_msgs/msg/String',
+               serialization_format='cdr')
+           self.writer.create_topic(topic_info)
 
-            self.subscription = self.create_subscription(
-                String,
-                'chatter',
-                self.topic_callback,
-                10)
-            self.subscription
+           self.subscription = self.create_subscription(
+               String,
+               'chatter',
+               self.topic_callback,
+               10)
+           self.subscription
 
-        def topic_callback(self, msg):
-            self.writer.write(
-                'chatter',
-                serialize_message(msg),
-                self.get_clock().now().nanoseconds)
-
-
-    def main(args=None):
-        rclpy.init(args=args)
-        sbr = SimpleBagRecorder()
-        rclpy.spin(sbr)
-        rclpy.shutdown()
+       def topic_callback(self, msg):
+           self.writer.write(
+               'chatter',
+               serialize_message(msg),
+               self.get_clock().now().nanoseconds)
 
 
-    if __name__ == '__main__':
-        main()
+   def main(args=None):
+       rclpy.init(args=args)
+       sbr = SimpleBagRecorder()
+       rclpy.spin(sbr)
+       rclpy.shutdown()
+
+
+   if __name__ == '__main__':
+       main()
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -143,7 +143,7 @@ Other writers with different behaviours may be available in the [``rosbag2`` sou
 
 .. code-block:: Python
 
-            self.writer = rosbag2_py.SequentialWriter()
+   self.writer = rosbag2_py.SequentialWriter()
 
 Now that we have a writer object, we can open the bag using it.
 We specify the URI of the bag to create and the format (``sqlite3``), leaving other options at their defaults.
@@ -151,11 +151,11 @@ The default conversion options are used, which will perform no conversion, inste
 
 .. code-block:: Python
 
-            storage_options = rosbag2_py._storage.StorageOptions(
-                uri='my_bag',
-                storage_id='sqlite3')
-            converter_options = rosbag2_py._storage.ConverterOptions('', '')
-            self.writer.open(storage_options, converter_options)
+   storage_options = rosbag2_py._storage.StorageOptions(
+       uri='my_bag',
+       storage_id='sqlite3')
+   converter_options = rosbag2_py._storage.ConverterOptions('', '')
+   self.writer.open(storage_options, converter_options)
 
 Next, we need to tell the writer about the topics we wish to store.
 This is done by creating a ``TopicMetadata`` object and registering it with the writer.
@@ -163,23 +163,23 @@ This object specifies the topic name, topic data type, and serialization format 
 
 .. code-block:: Python
 
-            topic_info = rosbag2_py._storage.TopicMetadata(
-                name='chatter',
-                type='std_msgs/msg/String',
-                serialization_format='cdr')
-            self.writer.create_topic(topic_info)
+   topic_info = rosbag2_py._storage.TopicMetadata(
+       name='chatter',
+       type='std_msgs/msg/String',
+       serialization_format='cdr')
+   self.writer.create_topic(topic_info)
 
 With the writer now set up to record data we pass to it, we create a subscription and specify a callback for it.
 We will write data to the bag in the callback.
 
 .. code-block:: Python
 
-            self.subscription = self.create_subscription(
-                String,
-                'chatter',
-                self.topic_callback,
-                10)
-            self.subscription
+   self.subscription = self.create_subscription(
+       String,
+       'chatter',
+       self.topic_callback,
+       10)
+   self.subscription
 
 The callback receives the message in unserialised form, as is standard for the ``rclpy`` API.
 It passes it to the writer, specifying the topic that the data is for and the timestamp to record with the message.
@@ -189,21 +189,21 @@ For this reason, we call ``serialize_message()`` and pass the result of that to 
 
 .. code-block:: Python
 
-        def topic_callback(self, msg):
-            self.writer.write(
-                'chatter',
-                serialize_message(msg),
-                self.get_clock().now().nanoseconds)
+   def topic_callback(self, msg):
+       self.writer.write(
+           'chatter',
+           serialize_message(msg),
+           self.get_clock().now().nanoseconds)
 
 The file finishes with the ``main`` function used to create an instance of the node and start ROS processing it.
 
 .. code-block:: Python
 
-    def main(args=None):
-        rclpy.init(args=args)
-        sbr = SimpleBagRecorder()
-        rclpy.spin(sbr)
-        rclpy.shutdown()
+   def main(args=None):
+       rclpy.init(args=args)
+       sbr = SimpleBagRecorder()
+       rclpy.spin(sbr)
+       rclpy.shutdown()
 
 2.2 Add entry point
 ~~~~~~~~~~~~~~~~~~~
@@ -212,11 +212,11 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 
 .. code-block:: Python
 
-    entry_points={
-        'console_scripts': [
-            'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
-        ],
-    },
+   entry_points={
+       'console_scripts': [
+           'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
+       ],
+   },
 
 
 3 Build and run
@@ -270,13 +270,13 @@ Now run the node:
 
 .. code-block:: console
 
-    ros2 run bag_recorder_nodes_py simple_bag_recorder
+   ros2 run bag_recorder_nodes_py simple_bag_recorder
 
 Open a second terminal and run the ``talker`` example node.
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp talker
+   ros2 run demo_nodes_cpp talker
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
@@ -286,13 +286,13 @@ Then, in one terminal start the ``listener`` example node.
 
 .. code-block:: console
 
-    ros2 run demo_nodes_cpp listener
+   ros2 run demo_nodes_cpp listener
 
 In the other terminal, use ``ros2 bag`` to play the bag recorded by your node.
 
 .. code-block:: console
 
-    ros2 bag play my_bag
+   ros2 bag play my_bag
 
 You will see the messages from the bag being received by the ``listener`` node.
 
@@ -315,51 +315,51 @@ Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory,
 
 .. code-block:: Python
 
-    import rclpy
-    from rclpy.node import Node
-    from rclpy.serialization import serialize_message
-    from example_interfaces.msg import Int32
+   import rclpy
+   from rclpy.node import Node
+   from rclpy.serialization import serialize_message
+   from example_interfaces.msg import Int32
 
-    import rosbag2_py
+   import rosbag2_py
 
-    class DataGeneratorNode(Node):
-        def __init__(self):
-            super().__init__('data_generator_node')
-            self.data = Int32()
-            self.data.data = 0
-            self.writer = rosbag2_py.SequentialWriter()
+   class DataGeneratorNode(Node):
+       def __init__(self):
+           super().__init__('data_generator_node')
+           self.data = Int32()
+           self.data.data = 0
+           self.writer = rosbag2_py.SequentialWriter()
 
-            storage_options = rosbag2_py._storage.StorageOptions(
-                uri='timed_synthetic_bag',
-                storage_id='sqlite3')
-            converter_options = rosbag2_py._storage.ConverterOptions('', '')
-            self.writer.open(storage_options, converter_options)
+           storage_options = rosbag2_py._storage.StorageOptions(
+               uri='timed_synthetic_bag',
+               storage_id='sqlite3')
+           converter_options = rosbag2_py._storage.ConverterOptions('', '')
+           self.writer.open(storage_options, converter_options)
 
-            topic_info = rosbag2_py._storage.TopicMetadata(
-                name='synthetic',
-                type='example_interfaces/msg/Int32',
-                serialization_format='cdr')
-            self.writer.create_topic(topic_info)
+           topic_info = rosbag2_py._storage.TopicMetadata(
+               name='synthetic',
+               type='example_interfaces/msg/Int32',
+               serialization_format='cdr')
+           self.writer.create_topic(topic_info)
 
-            self.timer = self.create_timer(1, self.timer_callback)
+           self.timer = self.create_timer(1, self.timer_callback)
 
-        def timer_callback(self):
-            self.writer.write(
-                'synthetic',
-                serialize_message(self.data),
-                self.get_clock().now().nanoseconds)
-            self.data.data += 1
-
-
-    def main(args=None):
-        rclpy.init(args=args)
-        dgn = DataGeneratorNode()
-        rclpy.spin(dgn)
-        rclpy.shutdown()
+       def timer_callback(self):
+           self.writer.write(
+               'synthetic',
+               serialize_message(self.data),
+               self.get_clock().now().nanoseconds)
+           self.data.data += 1
 
 
-    if __name__ == '__main__':
-        main()
+   def main(args=None):
+       rclpy.init(args=args)
+       dgn = DataGeneratorNode()
+       rclpy.spin(dgn)
+       rclpy.shutdown()
+
+
+   if __name__ == '__main__':
+       main()
 
 4.2 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -371,36 +371,36 @@ First, the name of the bag is changed.
 
 .. code-block:: Python
 
-            storage_options = rosbag2_py._storage.StorageOptions(
-                uri='timed_synthetic_bag',
-                storage_id='sqlite3')
+   storage_options = rosbag2_py._storage.StorageOptions(
+       uri='timed_synthetic_bag',
+       storage_id='sqlite3')
 
 The name of the topic is also changed, as is the data type stored.
 
 .. code-block:: Python
 
-            topic_info = rosbag2_py._storage.TopicMetadata(
-                name='synthetic',
-                type='example_interfaces/msg/Int32',
-                serialization_format='cdr')
-            self.writer.create_topic(topic_info)
+   topic_info = rosbag2_py._storage.TopicMetadata(
+       name='synthetic',
+       type='example_interfaces/msg/Int32',
+       serialization_format='cdr')
+   self.writer.create_topic(topic_info)
 
 Rather than a subscription to a topic, this node has a timer.
 The timer fires with a one-second period, and calls the given member function when it does.
 
 .. code-block:: Python
 
-            self.timer = self.create_timer(1, self.timer_callback)
+   self.timer = self.create_timer(1, self.timer_callback)
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
 As with the previous example, the data is not yet serialised, so we must serialise it before passing it to the writer.
 
 .. code-block:: Python
 
-            self.writer.write(
-                'synthetic',
-                serialize_message(self.data),
-                self.get_clock().now().nanoseconds)
+   self.writer.write(
+       'synthetic',
+       serialize_message(self.data),
+       self.get_clock().now().nanoseconds)
 
 4.3 Add executable
 ~~~~~~~~~~~~~~~~~~
@@ -409,12 +409,12 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 
 .. code-block:: Python
 
-    entry_points={
-        'console_scripts': [
-            'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
-            'data_generator_node = bag_recorder_nodes_py.data_generator_node:main',
-        ],
-    },
+   entry_points={
+       'console_scripts': [
+           'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
+           'data_generator_node = bag_recorder_nodes_py.data_generator_node:main',
+       ],
+   },
 
 4.4 Build and run
 ~~~~~~~~~~~~~~~~~
@@ -469,20 +469,20 @@ Now run the node:
 
 .. code-block:: console
 
-    ros2 run bag_recorder_nodes data_generator_node
+   ros2 run bag_recorder_nodes data_generator_node
 
 Wait for 30 seconds or so, then terminate the node with ``ctrl-c``.
 Next, play back the created bag.
 
 .. code-block:: console
 
-    ros2 bag play timed_synthetic_bag
+   ros2 bag play timed_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-    ros2 topic echo /synthetic
+   ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 
@@ -499,41 +499,41 @@ Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory,
 
 .. code-block:: Python
 
-    from rclpy.clock import Clock
-    from rclpy.duration import Duration
-    from rclpy.serialization import serialize_message
-    from example_interfaces.msg import Int32
+   from rclpy.clock import Clock
+   from rclpy.duration import Duration
+   from rclpy.serialization import serialize_message
+   from example_interfaces.msg import Int32
 
-    import rosbag2_py
+   import rosbag2_py
 
 
-    def main(args=None):
-        writer = rosbag2_py.SequentialWriter()
+   def main(args=None):
+       writer = rosbag2_py.SequentialWriter()
 
-        storage_options = rosbag2_py._storage.StorageOptions(
-            uri='big_synthetic_bag',
-            storage_id='sqlite3')
-        converter_options = rosbag2_py._storage.ConverterOptions('', '')
-        writer.open(storage_options, converter_options)
+       storage_options = rosbag2_py._storage.StorageOptions(
+           uri='big_synthetic_bag',
+           storage_id='sqlite3')
+       converter_options = rosbag2_py._storage.ConverterOptions('', '')
+       writer.open(storage_options, converter_options)
 
-        topic_info = rosbag2_py._storage.TopicMetadata(
-            name='synthetic',
-            type='example_interfaces/msg/Int32',
-            serialization_format='cdr')
-        writer.create_topic(topic_info)
+       topic_info = rosbag2_py._storage.TopicMetadata(
+           name='synthetic',
+           type='example_interfaces/msg/Int32',
+           serialization_format='cdr')
+       writer.create_topic(topic_info)
 
-        time_stamp = Clock().now()
-        for ii in range(0, 100):
-            data = Int32()
-            data.data = ii
-            writer.write(
-                'synthetic',
-                serialize_message(data),
-                time_stamp.nanoseconds)
-            time_stamp += Duration(seconds=1)
+       time_stamp = Clock().now()
+       for ii in range(0, 100):
+           data = Int32()
+           data.data = ii
+           writer.write(
+               'synthetic',
+               serialize_message(data),
+               time_stamp.nanoseconds)
+           time_stamp += Duration(seconds=1)
 
-    if __name__ == '__main__':
-        main()
+   if __name__ == '__main__':
+       main()
 
 5.2 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -549,15 +549,15 @@ This allows us to generate a lot of data covering a wide span of time in much le
 
 .. code-block:: Python
 
-        time_stamp = Clock().now()
-        for ii in range(0, 100):
-            data = Int32()
-            data.data = ii
-            writer.write(
-                'synthetic',
-                serialize_message(data),
-                time_stamp.nanoseconds)
-            time_stamp += Duration(seconds=1)
+   time_stamp = Clock().now()
+   for ii in range(0, 100):
+       data = Int32()
+       data.data = ii
+       writer.write(
+           'synthetic',
+           serialize_message(data),
+           time_stamp.nanoseconds)
+       time_stamp += Duration(seconds=1)
 
 5.3 Add executable
 ~~~~~~~~~~~~~~~~~~
@@ -566,13 +566,13 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 
 .. code-block:: Python
 
-    entry_points={
-        'console_scripts': [
-            'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
-            'data_generator_node = bag_recorder_nodes_py.data_generator_node:main',
-            'data_generator_executable = bag_recorder_nodes_py.data_generator_executable:main',
-        ],
-    },
+   entry_points={
+       'console_scripts': [
+           'simple_bag_recorder = bag_recorder_nodes_py.simple_bag_recorder:main',
+           'data_generator_node = bag_recorder_nodes_py.data_generator_node:main',
+           'data_generator_executable = bag_recorder_nodes_py.data_generator_executable:main',
+       ],
+   },
 
 5.4 Build and run
 ~~~~~~~~~~~~~~~~~
@@ -627,7 +627,7 @@ Now run the executable:
 
 .. code-block:: console
 
-    ros2 run bag_recorder_nodes data_generator_executable
+   ros2 run bag_recorder_nodes data_generator_executable
 
 Note that the executable runs and finishes very quickly.
 
@@ -635,13 +635,13 @@ Now play back the created bag.
 
 .. code-block:: console
 
-    ros2 bag play big_synthetic_bag
+   ros2 bag play big_synthetic_bag
 
 Open a second terminal and echo the ``/synthetic`` topic.
 
 .. code-block:: console
 
-    ros2 topic echo /synthetic
+   ros2 topic echo /synthetic
 
 You will see the data that was generated and stored in the bag printed to the console at a rate of one message per second.
 Even though the bag was generated rapidly it is still played back at the rate the time stamps indicate.
