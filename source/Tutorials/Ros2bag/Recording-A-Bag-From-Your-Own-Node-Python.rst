@@ -55,8 +55,8 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 In this case, the package will use the ``rosbag2_py`` package as well as the ``rclpy`` package.
 A dependency on the ``example_interfaces`` package is also required for message definitions.
 
-1.1 Update ``package.xml``
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.1 Update ``package.xml`` and ``setup.py``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.txt``.
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
