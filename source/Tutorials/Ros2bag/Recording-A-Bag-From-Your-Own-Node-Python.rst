@@ -463,7 +463,8 @@ Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
       call install/setup.bat
 
-(If the ``timed_synthetic_bag`` directory already exists, you must first delete it before running the node.)
+If the ``timed_synthetic_bag`` directory already exists, you must first delete it before running the node.
+This is because ``rosbag2`` will not overwrite existing bags by default, and so the destination directory cannot exist.
 
 Now run the node:
 
