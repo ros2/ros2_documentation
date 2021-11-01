@@ -24,7 +24,7 @@ Let's start by installing the demo package and its dependencies.
 
       .. code-block:: console
 
-         sudo apt-get install ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-tools
+         sudo apt-get install ros-{DISTRO}-turtle-tf2-py ros-{DISTRO}-tf2-tools ros-{DISTRO}-tf-transformations
 
    .. group-tab:: From Source
 
@@ -33,7 +33,7 @@ Let's start by installing the demo package and its dependencies.
          # Clone and build the geometry_tutorials repo using the branch that matches your installation
          git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
-Additionally, install a ``transforms3d`` package, which provides the quaternion and euler angle transformation functionality.
+Additionally, install a ``transforms3d`` Python package, which provides the quaternion and euler angle transformation functionality for the ``tf_transformations`` package.
 
 .. code-block:: console
 
