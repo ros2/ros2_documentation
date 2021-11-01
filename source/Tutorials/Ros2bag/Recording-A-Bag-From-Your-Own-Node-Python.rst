@@ -280,6 +280,8 @@ Open a second terminal and run the ``talker`` example node.
 
 This will start publishing data on the ``chatter`` topic.
 As the bag-writing node receives this data, it will write it to the ``my_bag`` bag.
+If the ``my_bag`` directory already exists, you must first delete it before running the ``simple_bag_recorder`` node.
+This is because ``rosbag2`` will not overwrite existing bags by default, and so the destination directory cannot exist.
 
 Terminate both nodes.
 Then, in one terminal start the ``listener`` example node.
@@ -464,7 +466,6 @@ Open a new terminal, navigate to ``dev_ws``, and source the setup files.
       call install/setup.bat
 
 If the ``timed_synthetic_bag`` directory already exists, you must first delete it before running the node.
-This is because ``rosbag2`` will not overwrite existing bags by default, and so the destination directory cannot exist.
 
 Now run the node:
 
@@ -622,7 +623,7 @@ Open a terminal, navigate to ``dev_ws``, and source the setup files.
 
       call install/setup.bat
 
-(If the ``big_synthetic_bag`` directory already exists, you must first delete it before running the executable.)
+If the ``big_synthetic_bag`` directory already exists, you must first delete it before running the executable.
 
 Now run the executable:
 
