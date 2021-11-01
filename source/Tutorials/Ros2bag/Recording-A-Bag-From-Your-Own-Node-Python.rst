@@ -137,7 +137,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory,
 The ``import`` statements at the top are the package dependencies.
 Note the importation of the ``rosbag2_py`` package for the functions and structures necessary to work with bag files.
 
-In the class constructor we begin by creating the writer object we will use to write to the bag.
+In the class constructor, we begin by creating the writer object that we will use to write to the bag.
 We are creating a ``SequentialWriter``, which writes messages into the bag in the order received.
 Other writers with different behaviours may be available in the [``rosbag2`` source](https://github.com/ros2/rosbag2/tree/master/rosbag2_cpp/include/rosbag2_cpp/writers).
 
