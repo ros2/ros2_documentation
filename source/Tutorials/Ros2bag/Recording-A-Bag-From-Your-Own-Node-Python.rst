@@ -181,8 +181,7 @@ We will write data to the bag in the callback.
        10)
    self.subscription
 
-The callback receives the message in unserialised form, as is standard for the ``rclpy`` API.
-It passes it to the writer, specifying the topic that the data is for and the timestamp to record with the message.
+The callback receives the message in unserialized form (as is standard for the ``rclpy`` API) and passes the message to the writer, specifying the topic that the data is for and the timestamp to record with the message.
 However, the writer requires serialised message to store in the bag.
 This means that we need to serialise the data before passing it to the writer.
 For this reason, we call ``serialize_message()`` and pass the result of that to the writer, rather than passing in the message directly.
