@@ -226,6 +226,18 @@ For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
 For more details, please refer to this `pull request <https://github.com/ros2/rclcpp/pull/1723>`_.
 
+``add_to_wait_set`` method from ``Waitable`` class changes its return type from ``bool`` to ``void``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Before, classes derived from ``Waitable`` overriding ``add_to_wait_set`` were returning false when failing to add elements to the wait set, so the caller had to check this return value an throw or handle the error. This error handling should now be done directly on ``add_to_wait_set`` method, throwing if necessary. It is not required to return anything if no errors happened. Thus, this is a breaking change for downstream uses of ``Waitable``.
+
+See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
+
+``get_notify_guard_condition`` method return type from ``NodeBaseInterface`` class changed from ``rcl_guard_condition_t *`` to ``rclcpp::GuardCondition &``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Now ``rclcpp`` uses the ``GuardCondition`` class wrapper around ``rcl_guard_condition_t``, so ``get_notify_guard_condition`` returns now a reference to the node's ``rclcpp::GuardCondition``. Thus, this is a breaking change for downstream uses of ``NodeBaseInterface`` and ``NodeBase``.
+
+See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
+
 ros2cli
 ^^^^^^^
 
