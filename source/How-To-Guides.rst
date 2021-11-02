@@ -39,6 +39,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
    How-To-Guides/Package-maintainer-guide
    How-To-Guides/Building-a-Custom-Debian-Package
+   How-To-Guides/Topics-Services-Actions
 
 .. toctree::
   :hidden:
