@@ -655,6 +655,6 @@ Summary
 
 You created a node that records data it receives on a topic into a bag.
 You tested recording a bag using the node, and verified the data was recorded by playing back the bag.
-This approach can be used to record to a bag additional data to that received over a topic, for example the results of processing received data.
+This approach can be used to record a bag with additional data than it received over a topic, for example with results obtained from processing the received data.
 You then went on to create a node and an executable to generate synthetic data and store it in a bag.
 The latter approaches are useful especially for generating synthetic data that can be used, for example, as training sets.
