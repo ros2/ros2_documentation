@@ -3,16 +3,12 @@
 Topics vs Services vs Actions
 =============================
 
-**Level:** Beginner
-
-**Time:** 5 minutes
-
 .. contents:: Contents
-   :depth: 2
+   :depth: 1
    :local:
 
 When designing a system there are three primary styles of interfaces.
-The specifications for the content is in the :Interfaces Overview:`InterfaceConcept`
+The specifications for the content is in the :doc:`Interfaces Overview <../Concepts/About-ROS-Interfaces>`.
 This is written to provide the reader with guidelines about when to use each type of interface.
 
 Topics
