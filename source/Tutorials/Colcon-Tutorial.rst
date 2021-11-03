@@ -322,10 +322,34 @@ As an example ``colcon_cd some_ros_package`` would quickly bring you to the dire
 Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
 To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
 
+Setup ``colcon`` tab completion
+-------------------------------
+
+The command ``colcon`` `supports command completion <https://colcon.readthedocs.io/en/released/user/installation.html#enable-completion>`__ for bash and bash-like shells if the ``colcon-argcomplete`` package is installed.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        echo "source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        echo "source $HOME/.local/share/colcon_argcomplete/hook/colcon-argcomplete.bash" >> ~/.bash_profile
+
+   .. group-tab:: Windows
+
+      Not yet available
+
+Depending to the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html>`__ for more details.
+To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
 
 Tips
 ----
-
 
 * If you do not want to build a specific package place an empty file named ``COLCON_IGNORE`` in the directory and it will not be indexed.
 
