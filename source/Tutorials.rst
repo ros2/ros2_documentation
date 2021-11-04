@@ -59,6 +59,7 @@ Intermediate
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
    Tutorials/Launch-system
    Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
+   Tutorials/Launch-Files/Using-Event-Handlers-and-Substitutions
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
