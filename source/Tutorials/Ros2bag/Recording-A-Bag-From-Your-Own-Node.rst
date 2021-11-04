@@ -104,7 +104,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
         writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
       }
 
-      rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
+      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
     };
 
@@ -184,7 +184,7 @@ The class contains two member variables.
 
 .. code-block:: C++
 
-      rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
+      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
 
 The file finishes with the ``main`` function used to create an instance of the node and start ROS processing it.
