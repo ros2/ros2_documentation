@@ -63,6 +63,32 @@ Increase the value, for example, to 128MB, by running:
 Significantly increasing this parameter’s value is an attempt to ensure that the buffer never becomes completely full.
 However, the value would likely have to be significantly high to hold all data received during the time window of ``ipfrag_time``, assuming every UDP packet lacks one fragment.
 
+**Issue:** Sending custom messages with large variable-sized arrays of non-primitive types causes high serialization/deserialization overhead and CPU load.
+This can lead to stalling of the publisher due to excessive time spent in ``publish()`` and tools like ``ros2 topic hz`` under reporting the actual frequency of messages being received.
+Note that for example ``builtin_interfaces/Time`` is also considered a non-primitive type and will incur higher serialization overhead.
+Because of the increased serialization overhead, severe performance degradation can be observed when naively transitioning custom message types from ROS 1 to ROS 2.
+
+**Workaround:** Use multiple arrays of primitives instead of a single array of custom types, or pack into byte array as done e.g. in ``PointCloud2`` messages.
+For example, instead of defining a ``FooArray`` message as:
+
+.. code-block:: console
+
+    Foo[] my_large_array
+
+with ``Foo`` is defined as:
+
+.. code-block:: console
+
+    uint64 foo_1
+    uint32 foo_2
+
+Instead, define ``FooArray`` as:
+
+.. code-block:: console
+
+    uint64[] foo_1_array
+    uint32[] foo_2_array
+
 Fast RTPS tuning
 ----------------
 
