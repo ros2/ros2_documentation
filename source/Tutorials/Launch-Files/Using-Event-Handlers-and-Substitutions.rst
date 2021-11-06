@@ -241,7 +241,7 @@ Now create an ``example.launch.py`` file in the same folder.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In the ``example.launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations and arguments are defined.
-``LaunchConfiguration`` substitution allows to acquire the value of the launch argument in any part of the launch description.
+These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
 
 .. code-block:: python
@@ -274,8 +274,7 @@ The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``Lau
         name='sim'
     )
 
-Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
-It makes a call to the spawn service of the turtlesim node.
+Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument and it makes a call to the spawn service of the turtlesim node.
 The ``cmd`` argument is defined using the ``FindExecutable`` substitution to find the path to the ``ros2`` executable.
 Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
