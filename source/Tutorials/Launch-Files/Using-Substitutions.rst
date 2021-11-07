@@ -15,7 +15,7 @@ Background
 ----------
 
 Launch files are used to start nodes, services and execute processes.
-This set of actions may have arguments, which can affect their behavior.
+This set of actions may have arguments, which affect their behavior.
 Substitutions can be used in arguments to provide more flexibility when describing reusable launch files.
 Substitutions are variables that are only evaluated during execution of the launch description and can be used to acquire specific information like a launch configuration, an environment variable, or to evaluate an arbitrary Python expression.
 
@@ -103,8 +103,8 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
     from launch import LaunchDescription
     from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
     from launch.conditions import IfCondition
-    from launch.substitutions import (FindExecutable, LaunchConfiguration,
-                                    PythonExpression, TextSubstitution)
+    from launch.substitutions import (LaunchConfiguration, PythonExpression,
+                                    TextSubstitution)
 
 
     def generate_launch_description():
@@ -133,8 +133,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
         )
         spawn_turtle = ExecuteProcess(
             cmd=[[
-                FindExecutable(name='ros2'),
-                ' service call ',
+                'ros2 service call ',
                 turtlesim_ns,
                 '/spawn ',
                 'turtlesim/srv/Spawn ',
@@ -144,11 +143,9 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
         )
         change_background_r = ExecuteProcess(
             cmd=[[
-                FindExecutable(name='ros2'),
-                ' param set ',
+                'ros2 param set ',
                 turtlesim_ns,
-                '/sim background_r ',
-                '120'
+                '/sim background_r 120'
             ]],
             shell=True
         )
@@ -162,8 +159,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
                 ])
             ),
             cmd=[[
-                FindExecutable(name='ros2'),
-                ' param set ',
+                'ros2 param set ',
                 turtlesim_ns,
                 '/sim background_r ',
                 new_background_r
@@ -220,15 +216,14 @@ The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``Lau
 
 Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
 This command makes a call to the spawn service of the turtlesim node.
-The ``cmd`` argument is defined using the ``FindExecutable`` substitution to find the path to the ``ros2`` executable.
+
 Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
 .. code-block:: python
 
     spawn_turtle = ExecuteProcess(
         cmd=[[
-            FindExecutable(name='ros2'),
-            ' service call ',
+            'ros2 service call ',
             turtlesim_ns,
             '/spawn ',
             'turtlesim/srv/Spawn ',
@@ -245,8 +240,7 @@ The evaluation inside the ``IfCondition`` is done using the ``PythonExpression``
 
     change_background_r = ExecuteProcess(
         cmd=[[
-            FindExecutable(name='ros2'),
-            ' param set ',
+            'ros2 param set ',
             turtlesim_ns,
             '/sim background_r ',
             '120'
@@ -263,8 +257,7 @@ The evaluation inside the ``IfCondition`` is done using the ``PythonExpression``
             ])
         ),
         cmd=[[
-            FindExecutable(name='ros2'),
-            ' param set ',
+            'ros2 param set ',
             turtlesim_ns,
             '/sim background_r ',
             new_background_r
