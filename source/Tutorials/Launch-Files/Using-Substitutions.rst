@@ -5,7 +5,7 @@ Using substitutions in launch files
 
 **Tutorial level:** Advanced
 
-**Time:** 10 minutes
+**Time:** 15 minutes
 
 .. contents:: Table of Contents
    :depth: 1
@@ -14,7 +14,9 @@ Using substitutions in launch files
 Background
 ----------
 
-Launch files can contain substitutions.
+Launch files are used to start nodes, services and execute processes.
+This set of actions may have arguments, which can affect their behavior.
+Substitutions can be used in arguments to provide more flexibility when describing reusable launch files.
 Substitutions are variables that are only evaluated during execution of the launch description and can be used to acquire specific information like a launch configuration, an environment variable, or to evaluate an arbitrary Python expression.
 
 This tutorial shows usage examples of substitutions in ROS 2 launch files.
@@ -31,7 +33,7 @@ Using substitutions
 1 Parent launch file
 ^^^^^^^^^^^^^^^^^^^^
 
-Firstly, we will create a launch file that will call another launch file.
+Firstly, we will create a launch file that will call and pass arguments to another launch file.
 To do this, create an ``example_main.launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
 
 .. code-block:: python
@@ -216,7 +218,8 @@ The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``Lau
         name='sim'
     )
 
-Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument and it makes a call to the spawn service of the turtlesim node.
+Afterwards, the ``ExecuteProcess`` action called ``spawn_turtle`` is defined with the corresponding ``cmd`` argument.
+This command makes a call to the spawn service of the turtlesim node.
 The ``cmd`` argument is defined using the ``FindExecutable`` substitution to find the path to the ``ros2`` executable.
 Additionally, the ``LaunchConfiguration`` substitution is used to get the value of the ``turtlesim_ns`` launch argument to construct a command string.
 
@@ -236,6 +239,7 @@ Additionally, the ``LaunchConfiguration`` substitution is used to get the value 
 
 The same approach is used for the ``change_background_r`` and ``change_background_r_conditioned`` actions that change the turtlesim background's red color parameter.
 The difference is that the ``change_background_r_conditioned`` action is only executed if the provided ``new_background_r`` argument equals ``200`` and the ``use_provided_red`` launch argument is set to ``True``.
+The evaluation inside the ``IfCondition`` is done using the ``PythonExpression`` substitution.
 
 .. code-block:: python
 
@@ -318,7 +322,10 @@ Now you can pass the desired arguments to the launch file as follows:
 
     ros2 launch launch_tutorial example_substitutions.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
-Documentation
--------------
+Summary
+-------
 
-`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`_ provides detailed information about the event handlers and substitutions.
+In this tutorial, you learned about using substitutions in launch files.
+You learned about their possibilities and how they can be used to create reusable launch files.
+
+You can now learn more about :doc:`using event handlers in launch files <./Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.

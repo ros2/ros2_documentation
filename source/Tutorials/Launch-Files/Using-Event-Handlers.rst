@@ -5,7 +5,7 @@ Using event handlers in launch files
 
 **Tutorial level:** Advanced
 
-**Time:** 20 minutes
+**Time:** 15 minutes
 
 .. contents:: Table of Contents
    :depth: 1
@@ -290,3 +290,9 @@ Documentation
 -------------
 
 `The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`_ provides detailed information about the event handlers and substitutions.
+
+Summary
+-------
+
+In this tutorial, you learned about using event hanlders in launch files.
+You learned about their syntax and how they can be used to define a complex set of rules to dynamically modify the launch file.
