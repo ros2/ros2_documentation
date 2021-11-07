@@ -60,6 +60,8 @@ Intermediate
    Tutorials/Launch-system
    Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
    Tutorials/Launch-Files/Using-Event-Handlers-and-Substitutions
+   Tutorials/Launch-Files/Using-Substitutions
+   Tutorials/Launch-Files/Using-Event-Handlers
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
