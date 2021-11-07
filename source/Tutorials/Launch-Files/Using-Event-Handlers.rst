@@ -36,7 +36,7 @@ Using event handlers
 1 Event hanlders example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now create an ``example_event_handlers.launch.py`` file in the same folder.
+Create a new file called ``example_event_handlers.launch.py`` file in the ``/launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -289,10 +289,10 @@ Additionally, it will log messages to the console when:
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`_ provides detailed information about the event handlers and substitutions.
+`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`_ provides detailed information about available event handlers.
 
 Summary
 -------
 
 In this tutorial, you learned about using event hanlders in launch files.
-You learned about their syntax and how they can be used to define a complex set of rules to dynamically modify the launch file.
+You learned about their syntax and usage examples to define a complex set of rules to dynamically modify launch files.

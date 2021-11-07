@@ -34,7 +34,7 @@ Using substitutions
 ^^^^^^^^^^^^^^^^^^^^
 
 Firstly, we will create a launch file that will call and pass arguments to another launch file.
-To do this, create an ``example_main.launch.py`` file in the ``/launch`` folder of our ``launch_tutorial`` package.
+To do this, create an ``example_main.launch.py`` file in the ``/launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -104,7 +104,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
     from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
     from launch.conditions import IfCondition
     from launch.substitutions import (LaunchConfiguration, PythonExpression,
-                                    TextSubstitution)
+                                      TextSubstitution)
 
 
     def generate_launch_description():
@@ -145,7 +145,8 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
             cmd=[[
                 'ros2 param set ',
                 turtlesim_ns,
-                '/sim background_r 120'
+                '/sim background_r ',
+                '120'
             ]],
             shell=True
         )
@@ -315,10 +316,16 @@ Now you can pass the desired arguments to the launch file as follows:
 
     ros2 launch launch_tutorial example_substitutions.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
+
+Documentation
+-------------
+
+`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`_ provides detailed information about available substitutions.
+
 Summary
 -------
 
 In this tutorial, you learned about using substitutions in launch files.
-You learned about their possibilities and how they can be used to create reusable launch files.
+You learned about their possibilities and capabilities to create reusable launch files.
 
 You can now learn more about :doc:`using event handlers in launch files <./Using-Event-Handlers>` which are used to define a complex set of rules which can be used to dynamically modify the launch file.
