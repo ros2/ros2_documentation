@@ -589,7 +589,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
