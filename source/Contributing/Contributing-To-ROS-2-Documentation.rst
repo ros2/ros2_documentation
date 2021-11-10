@@ -32,7 +32,7 @@ Building the site locally
 Firstly, install requirements located in the ``requirements.txt`` file.
 
 .. code-block:: console
-   
+
    pip3 install --user --upgrade -r requirements.txt
 
 Building the site for one branch
@@ -128,7 +128,7 @@ Both of them support nested definitions and will render accordingly.
 .. code-block:: rst
 
    * bullet point
-  
+
      * bullet point nested
      * bullet point nested
 
