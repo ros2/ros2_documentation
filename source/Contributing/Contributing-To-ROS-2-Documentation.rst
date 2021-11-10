@@ -5,49 +5,90 @@ Contributing to ROS 2 Documentation
    :depth: 2
    :local:
 
+Contributions to this site are most welcome.
 This page explains how to contribute to ROS 2 Documentation.
+Please be sure to read the below sections carefully before contributing.
 
-Building documentation locally
-------------------------------
+The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://holzhaus.github.io/sphinx-multiversion/master/index.html>`_.
 
-The source code of documentation is located in the `ROS 2 Documentation Github page <https://github.com/ros2/ros2_documentation>`_.
-Fork the repository, clone and navigate to the root folder.
-In order to build the documentation locally and test it install requirements located in the ``requirements.txt`` file.
+Branch structure
+----------------
+
+The source code of documentation is located in the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`_.
+This repository is set up with one branch per ROS 2 distribution to handle differences between the distributions.
+If a change is common to all ROS 2 distributions, it should be made to the ``rolling`` branch (and then will be backported as appropriate).
+If a change is specific to a particular ROS 2 distribution, it should be made to the respective branch.
+
+Source structure
+----------------
+
+The source files for the site are all located under the ``source`` subdirectory.
+Templates for various sphinx plugins are located under ``source/_templates``.
+The root directory contains configuration and files required to locally build the site for testing.
+
+Building the site locally
+-------------------------
+
+Firstly, install requirements located in the ``requirements.txt`` file.
 
 .. code-block:: console
    
    pip3 install --user --upgrade -r requirements.txt
 
-Now documentation can be built locally 
+Building the site for one branch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To build the site for just this branch, type ``make html`` at the top-level of the repository.
+This is the recommended way to test out local changes.
 
 .. code-block:: console
 
    make html
 
 The build process can take some time.
-In order to see the output, open ``build/html/index.html`` in your browser.
+To see the output, open ``build/html/index.html`` in your browser.
+
+Building the site for all branches
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To build the site for all branches, type ``make multiversion`` from the ``rolling`` branch.
+This has two drawbacks:
+
+#. The multiversion plugin doesn't understand how to do incremental builds, so it always rebuilds everything.
+   This can be slow.
+
+#. When typing ``make multiversion``, it will always check out exactly the branches listed in the ``conf.py`` file.
+   That means that local changes will not be shown.
+
+To show local changes in the multiversion output, you must first commit the changes to a local branch.
+Then you must edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
 
 Writing pages
 -------------
 
+The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
+This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+
+You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
+
 Table of Contents
 ^^^^^^^^^^^^^^^^^
 
-There are two types of directives used for generation of tables of contents, ``.. toctree::`` and ``.. contents::``.
-The ``.. toctree::`` is used in a top level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
+There are two types of directives used for the generation of a table of contents, ``.. toctree::`` and ``.. contents::``.
+The ``.. toctree::`` is used in top-level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
 This directive creates both left navigation panel and in-page navigation links to the child pages listed.
-It helps readers to understand the structure of documentation and navigate between separate pages.
+It helps readers to understand the structure of separate documentation sections and navigate between pages.
 
 .. code-block:: rst
 
    .. toctree::
       :maxdepth: 1
 
-The ``.. contents::`` directive is used for generation of table of contents for each individual page.
+The ``.. contents::`` directive is used for the generation of a table of contents for that particular page.
 It parses all present headings in a page and builds an in-page nested table of contents.
-It helps readers to see an overview of the content and navigate in a page.
+It helps readers to see an overview of the content and navigate inside a page.
 
-The ``.. contents::`` directive supports definition of maximum depth of nested sections.
+The ``.. contents::`` directive supports the definition of maximum depth of nested sections.
 Using ``:depth: 2`` will only show Sections and Subsections in the table of contents.
 
 .. code-block:: rst
@@ -57,7 +98,7 @@ Using ``:depth: 2`` will only show Sections and Subsections in the table of cont
       :local:
 
 Headings
-^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 There are four main Heading types used in the documentation.
 Note that the number of symbols has to match the length of the title.
@@ -76,16 +117,16 @@ Note that the number of symbols has to match the length of the title.
    2.4 Subsubsection Header
    ~~~~~~~~~~~~~~~~~~~~~~~~
 
-We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and in How-To-Guides.
+We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and How-To-Guides.
 
 Lists
 ^^^^^
 
-Use ``*`` for unordered lists with bullet points and ``#.`` for listing numbered items.
+Stars ``*`` are used for listing unordered items with bullet points and number sign ``#.``  is used for listing numbered items.
+Both of them support nested definitions and will render accordingly.
 
 .. code-block:: rst
 
-   * bullet point
    * bullet point
   
      * bullet point nested
@@ -107,9 +148,9 @@ In-text code can be formatted using ``backticks`` for showing ``highlighted`` co
 
    In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
 
-Code blocks inside a page needs to be captured using ``.. code-block::`` directive.
+Code blocks inside a page need to be captured using ``.. code-block::`` directive.
 ``.. code-block::`` supports code highlighting for syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
-Code that is used inside directive needs to be indented.
+Code inside the directive needs to be indented.
 
 .. code-block:: rst
 
@@ -126,7 +167,7 @@ Code that is used inside directive needs to be indented.
 Images
 ^^^^^^
 
-Images can inserted using the ``.. image::`` directive.
+Images can be inserted using the ``.. image::`` directive.
 
 .. code-block:: rst
 
@@ -138,7 +179,7 @@ References and Links
 External links
 ~~~~~~~~~~~~~~
 
-The syntax is for creating links to external web-pages is shown below.
+The syntax of creating links to external web pages is shown below.
 
 .. code-block:: rst
 
@@ -147,12 +188,10 @@ The syntax is for creating links to external web-pages is shown below.
 The above link will appear as `ROS Docs <https://docs.ros.org>`_.
 Note the underscore after the final single quote.
 
-
 Internal links
 ~~~~~~~~~~~~~~
 
-The ``:doc:`` directive is used to create links to other pages in the same documentation.
-The syntax is shown below.
+The ``:doc:`` directive is used to create in-text links to other pages.
 
 .. code-block:: rst
 
@@ -161,10 +200,10 @@ The syntax is shown below.
 Note that the relative path to the file is used.
 
 The ``ref`` directive is used to make links to specific parts of a page.
-This could be headings, images or code sections in current of different page.
+These could be headings, images or code sections inside the current or different page.
 
-
-For this you will need to define an explicit target before a desired object.
+Definition of explicit target right before the desired object is required.
+In the example below, the target is defined as ``_talker-listener`` one line before the heading ``Try some examples``.
 
 .. code-block:: rst
 
@@ -173,10 +212,30 @@ For this you will need to define an explicit target before a desired object.
    Try some examples
    -----------------
 
-Now you can create links to that header as shown below.
+Now the link from any page in the documentation to that header can be created.
 
 .. code-block:: rst
 
    :ref:`talker-listener demo <talker-listener>`
 
-Reference links work like HTML anchor links such as file.html#talker-listener.
+This link will navigate a reader to the target page with an HTML anchor link ``#talker-listener``.
+
+Macros
+~~~~~~
+
+Macros can be used to simplify writing documentation that targets multiple distributions.
+
+Use a macro by including the macro name in curly braces.
+For example, when generating the docs for Rolling on the ``rolling`` branch:
+
+
+=====================  =====================  ==================================
+Use                    Becomes (for Rolling)  Example
+=====================  =====================  ==================================
+\{DISTRO\}             rolling                ros-\{DISTRO\}-pkg
+\{DISTRO_TITLE\}       Rolling                ROS 2 \{DISTRO_TITLE\}
+\{DISTRO_TITLE_FULL\}  Rolling Ridley         ROS 2 \{DISTRO_TITLE_FULL\}
+\{REPOS_FILE_BRANCH\}  master                 git checkout \{REPOS_FILE_BRANCH\}
+=====================  =====================  ==================================
+
+The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
