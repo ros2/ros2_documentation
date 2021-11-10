@@ -1,7 +1,7 @@
 .. _ROS2BagOwnNode:
 
-Recording a bag from your own node
-==================================
+Recording a bag from your own node (C++)
+========================================
 
 **Goal:** Record data from your own C++ node to a bag.
 
