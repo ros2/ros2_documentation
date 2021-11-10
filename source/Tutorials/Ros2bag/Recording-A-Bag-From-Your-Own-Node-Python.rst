@@ -232,19 +232,19 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes
+      colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
@@ -431,19 +431,19 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes
+      colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a new terminal, navigate to ``dev_ws``, and source the setup files.
 
@@ -473,7 +473,7 @@ Now run the node:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes data_generator_node
+   ros2 run bag_recorder_nodes_py data_generator_node
 
 Wait for 30 seconds or so, then terminate the node with ``ctrl-c``.
 Next, play back the created bag.
@@ -595,13 +595,13 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
     .. code-block:: console
 
-      colcon build --packages-select bag_recorder_nodes
+      colcon build --packages-select bag_recorder_nodes_py
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      colcon build --merge-install --packages-select bag_recorder_nodes
+      colcon build --merge-install --packages-select bag_recorder_nodes_py
 
 Open a terminal, navigate to ``dev_ws``, and source the setup files.
 
@@ -631,7 +631,7 @@ Now run the executable:
 
 .. code-block:: console
 
-   ros2 run bag_recorder_nodes data_generator_executable
+   ros2 run bag_recorder_nodes_py data_generator_executable
 
 Note that the executable runs and finishes very quickly.
 
