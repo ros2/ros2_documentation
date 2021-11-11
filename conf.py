@@ -73,7 +73,7 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme', 'sphinx.ext.ifconfig']
+extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme', 'sphinx.ext.ifconfig','sphinx_copybutton']
 
 # Intersphinx mapping
 
@@ -112,14 +112,30 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'foxy'
+smv_latest_version = 'galactic'
+smv_eol_versions = ['crystal', 'dashing', 'eloquent']
 
+distro_full_names = {
+    'crystal': 'Crystal Clemmys',
+    'dashing': 'Dashing Diademata',
+    'eloquent': 'Eloquent Elusor',
+    'foxy': 'Foxy Fitzroy',
+    'galactic': 'Galactic Geochelone',
+    'rolling': 'Rolling Ridley',
+}
 
+# These default values will be overridden when building multiversion
+macros = {
+    'DISTRO': 'rolling',
+    'DISTRO_TITLE': 'Rolling',
+    'DISTRO_TITLE_FULL': 'Rolling Ridley',
+    'REPOS_FILE_BRANCH': 'master',
+}
 
 html_favicon = 'favicon.ico'
 
@@ -252,11 +268,30 @@ def smv_rewrite_configs(app, config):
 
         app.config.html_logo = 'source/Releases/' + app.config.smv_current_version + '-small.png'
 
+        # Override default values
+        distro = app.config.smv_current_version
+        app.config.macros = {
+            'DISTRO': distro,
+            'DISTRO_TITLE': distro.title(),
+            'DISTRO_TITLE_FULL': distro_full_names[distro],
+            'REPOS_FILE_BRANCH' : 'master' if distro == 'rolling' else distro,
+        }
+
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
     if app.config.smv_current_version != '':
         context['github_version'] = app.config.smv_current_version + '/source/'
+        context['eol_versions'] = app.config.smv_eol_versions
+
+def expand_macros(app, docname, source):
+    result = source[0]
+    for key, value in app.config.macros.items():
+        result = result.replace(f'{{{key}}}', value)
+    source[0] = result
 
 def setup(app):
     app.connect('config-inited', smv_rewrite_configs)
     app.connect('html-page-context', github_link_rewrite_branch)
+    app.connect('source-read', expand_macros)
+    app.add_config_value('smv_eol_versions', [], 'html')
+    app.add_config_value('macros', {}, True)
     RedirectFrom.register(app)
