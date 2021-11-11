@@ -66,6 +66,7 @@ Development Guides
    Contributing/Migration-Guide
    Contributing/Build-Farms
    Contributing/Windows-Tips-and-Tricks
+   Contributing/Contributing-To-ROS-2-Documentation
 
 What to work on
 ^^^^^^^^^^^^^^^
