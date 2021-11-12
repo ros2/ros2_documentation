@@ -77,6 +77,7 @@ Advanced
    Tutorials/FastDDS-Configuration/FastDDS-Configuration
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
+   Tutorials/Simulators/Creating-Your-First-ROS2-Webots-Simulation
 
 Security
 --------
