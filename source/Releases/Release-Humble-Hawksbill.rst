@@ -163,7 +163,7 @@ Support Type Adaption for Publishers and Subscriptions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 After defining a type adapter, custom data structures can be used directly by publishers and subscribers, which helps to avoid additional work for the programmer and potential sources of errors.
-This is especially useful when working with complex data types, such as when converting OpenCV's ``cv::Map`` to ROS's ``sensor_msgs/msg/Image`` type.
+This is especially useful when working with complex data types, such as when converting OpenCV's ``cv::Mat`` to ROS's ``sensor_msgs/msg/Image`` type.
 
 Here is an example of a type adapter that converts ``std_msgs::msg::String`` to ``std::string``:
 
