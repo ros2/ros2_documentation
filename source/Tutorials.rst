@@ -75,9 +75,9 @@ Advanced
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
    Tutorials/FastDDS-Configuration/FastDDS-Configuration
+   Tutorials/Simulators/Creating-a-Robot-Simulation-Webots.rst
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
-   Tutorials/Simulators/Creating-Your-First-ROS2-Webots-Simulation
 
 Security
 --------
