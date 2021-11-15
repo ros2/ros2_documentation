@@ -38,11 +38,11 @@ This tutorial assumes you followed the tutorials :doc:`../Creating-Your-First-RO
 Install Webots
 ^^^^^^^^^^^^^^
 
-Go on the `Webots Github release page <https://github.com/cyberbotics/webots/releases/latest>`_ to download the Debian package and then run the following command, ``VERSION`` being the version of Webots you downloaded:
+Webots will be automatically installed when you will run the launcher in task ``8``.
 
-.. code-block:: bash
+.. note::
 
-        sudo apt install ./webots_VERSION_amd64.deb
+    If you want to install Webots you can `download the Debian package <https://github.com/cyberbotics/webots/releases/latest>`_.
 
 Install webots_ros2
 ^^^^^^^^^^^^^^^^^^^
@@ -94,9 +94,8 @@ You should end with the following folder structure:
 
 Simulations in Webots rely on world files containing objects called ``nodes`` (different from the standard ROS node).
 You will need a world file with a robot to launch your simulation.
-Please go on this `page <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_ to learn how to create your own robot or download a premade one.
-The robot will be saved in a world file with the extension ``.wbt``.
-Be sure to save this world file in the folder ``my_package/worlds/`` with the name ``my_world.wbt``.
+Please `download this world file <https://github.com/cyberbotics/webots_ros2/wiki/assets/tutorialCreateWebotsRobot/my_world.zip>`_ and save it in the folder ``my_package/worlds/``.
+A custom robot is modeled in this world ``my_world.wbt``.
 
 Here is what you should see if you open ``my_world.wbt`` in Webots (**File** > **Open World**).
 
@@ -116,13 +115,15 @@ We will need them for your plugin ``my_robot_driver.py``.
 4 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task you will create the urdf file to add the python plugin ``my_robot_driver.py``.
+In this task you will create the URDF file to add the python plugin ``my_robot_driver.py``.
 The ``webots_ros2_driver`` ROS node will be able to detect it and launch it.
 
 In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` with this code:
 
 .. literalinclude:: Code/my_robot_webots.urdf
     :language: xml
+
+Note that Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions (but this can be done with another tool of Webots).
 
 5 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -237,7 +238,7 @@ Then open a second terminal to send a command and run:
 
 .. code-block:: bash
 
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
 Your robot is now moving forward!
 
@@ -265,7 +266,7 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
     :language: xml
     :lines: 3-18
 
-The ROS2 interface will then look for the **DistanceSensor** nodes, using the standard parameters in the ``<ros>`` it will activate them and use the given names for naming the corresponding topics.
+The ROS2 interface will then look for the **DistanceSensor** nodes, using the standard parameters in the ``<ros>`` tags it will activate them and use the given names for naming the corresponding topics.
 
 11 Updating my_robot_driver.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -315,7 +316,7 @@ First your robot will go forward and then it will turn clockwise in the circle a
 Summary
 -------
 
-In this tutorial, you created a simulation with Webots, used a custom robot and implemented a Python plugin to use its motors and sensors.
+In this tutorial, you set up a simulation with Webots, used a custom robot and implemented a Python plugin to use its motors and sensors.
 
 Next steps
 ----------
@@ -330,4 +331,4 @@ Taking example on those previous tutorials will be a good starting point:
 Related content
 ---------------
 
-In order to build more complex robot you can refer to the official `User Guide <https://cyberbotics.com/doc/guide/index>`_ and `Reference Manual <https://cyberbotics.com/doc/reference/index>`_ pages of Webots.
+In case you want to learn how to create your own robot, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
