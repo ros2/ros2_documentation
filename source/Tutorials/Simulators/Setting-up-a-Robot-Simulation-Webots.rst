@@ -1,9 +1,9 @@
 .. _Simulators:
 
-Creating a Robot Simulation (Webots)
-====================================
+Setting-up a Robot Simulation (Webots)
+======================================
 
-**Goal:** Install and discover the Webots simulator with the webots_ros2 package.
+**Goal:** Setup a robot simulation and control it from ROS 2.
 
 **Tutorial level:** Advanced
 
@@ -22,17 +22,18 @@ This provides realistic simulation results that should match the behaviors obser
 Hence, what you get in simulation is very close to what you will observe when transferring your ROS 2 controllers to a real robot.
 
 webots_ros2 is a package offering an interface between ROS2 and Webots with the help of the sub-package webots_ros2_driver that you will use in this tutorial.
-There is also some other sub-packages containing examples with different robots such as the TurtleBot 3 you may find on the :doc:`../../Tutorials` page under the ``Demos`` section.
+There are also some other sub-packages containing demos with different robots such as the TurtleBot 3.
+Such demos are detailed in the :doc:`../../Tutorials` page under the ``Demos`` section.
 
-This tutorial will introduce you how to create your first simulation by modeling your robot and implementing a Python plugin derived from webots_ros2_driver.
+This tutorial will introduce you how to create your first simulation by using a custom robot and implementing a Python plugin derived from webots_ros2_driver.
 
 Prerequisites
 -------------
 
-Precedent tutorials
-^^^^^^^^^^^^^^^^^^^
+Previous tutorials
+^^^^^^^^^^^^^^^^^^
 
-This tutorial assume you followed the tutorials :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Using-ROS2-Launch-For-Large-Projects`.
+This tutorial assumes you followed the tutorials :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Using-ROS2-Launch-For-Large-Projects`.
 
 Install Webots
 ^^^^^^^^^^^^^^
@@ -88,8 +89,8 @@ You should end with the following folder structure:
               ├── setup.cfg
               └── setup.py
 
-2 Create the simulation world in Webots
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 Setup the simulation world in Webots
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Simulations in Webots rely on world files containing objects called ``nodes`` (different from the standard ROS node).
 You will need a world file with a robot to launch your simulation.
@@ -314,7 +315,7 @@ First your robot will go forward and then it will turn clockwise in the circle a
 Summary
 -------
 
-In this tutorial, you created a simulation with Webots, modeled your own robot and implemented a Python plugin to use its motors and sensors.
+In this tutorial, you created a simulation with Webots, used a custom robot and implemented a Python plugin to use its motors and sensors.
 
 Next steps
 ----------
