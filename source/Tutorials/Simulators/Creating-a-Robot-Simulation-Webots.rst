@@ -7,7 +7,7 @@ Creating a Robot Simulation (Webots)
 
 **Tutorial level:** Advanced
 
-**Time:** 45 minutes
+**Time:** 20 minutes
 
 .. contents:: Contents
    :depth: 2
@@ -92,128 +92,16 @@ You should end with the following folder structure:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Simulations in Webots rely on world files containing objects called ``nodes`` (different from the standard ROS node).
-Before creating a robot you will create the environment in which your robot will evolve.
-First, launch Webots.
+You will need a world file with a robot to launch your simulation.
+Please go on this `page <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_ to learn how to create your own robot or download a premade one.
+The robot will be saved in a world file with the extension ``.wbt``.
+Be sure to save this world file in the folder ``my_package/worlds/`` with the name ``my_world.wbt``.
 
-Once it is open, click on **File** > **New World**.
-A new empty world will be created.
-
-.. image:: Image/empty_world.png
-
-Now you will add some light, a background and an arena.
-Press **Ctrl+Shift+A** to add an object or press the **Add** button (the 2nd button of the top toolbar, the ``+`` icon).
-Then use the search bar, type ``TexturedBackground``, click on the corresponding object and then press the **Add** button.
-
-.. image:: Image/Step_1.png
-
-Repeat the process to add a ``TexturedBackgroundLight`` node and a ``CircleArena`` node in order to obtain the same setup than in the following image.
-
-.. image:: Image/Step_2.png
-
-You can now navigate into your world with the **right click** of the mouse and rotate the point of view with the **left click**.
-Go to **File** > **Save World As ...**, navigate to ``my_package/worlds/`` and save your file with the name ``my_world.wbt``.
-
-3 Create the robot in Webots
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Your world environment is ready and it is time to create your robot!
-You will start gently with a robot composed of a cylindrical body and two wheels.
-
-3.1 Body of the robot
-~~~~~~~~~~~~~~~~~~~~~
-
-Start by adding a ``Robot`` object.
-Press the **Add** button, open **Base nodes** (double click or press the arrow button) and then click on **Robot** > **Add**.
-
-.. image:: Image/Step_3.png
-
-In the scene tree (on the left), expand the **Robot** pan.
-You will now add the components of the robot.
-
-Click on **children** > **Ctrl+Shift+A** > **Base nodes** > **Transform** > **Add** to add a ``Transform`` node.
-Then expand the new created node (the ``Transform`` node) and set the translation to **0 0 0.0415** in order to elevate a bit your robot.
-
-.. image:: Image/Step_6.png
-
-Add a ``Shape`` node to **children** of the new node.
-
-Select **appearance** of the **Shape** node and add a ``PBRAppearance`` node.
-Expand the **PBRAppearance** node, click on **baseColor** and chose a color for the body of your robot, so you will be able to distinguish this part.
-Also set the roughness to 1 and metalness to 0 to have a better visual aspect.
-
-Expand the **Shape** node, select **geometry** and add a ``Cylinder`` node.
-In the **Cylinder** node set the height to **0.08** and the radius to **0.045**.
-Click on the **Cylinder** node and in the **DEF** field (under the scene tree) type ``BODY``.
-This mechanism of Webots will permit us to reuse the parameters of this cylinder later.
-
-You should have the following setup at this point:
-
-.. image:: Image/Step_7.png
-
-To the **boundingObject** field of your robot add a ``Transform`` node.
-Set also the translation of this **Tranform** to **0 0 0.0415**.
-Inside this new node add to the **children** field the ``BODY`` node you defined previously (you will find it in the **USE** field).
-
-.. image:: Image/Step_8.png
-
-Add to your robot a ``Physics`` node to the corresponding field in order to enable the collision with other objects.
-Then select the field **controller** > **Select...** > **<extern>** to indicate to the simulator that the controller used will be extern to Webots (as you will use a ROS node).
-
-You should end with this setup for the second part of the body of your robot:
-
-.. image:: Image/Step_11.png
-
-3.2 Left wheel of the robot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Now you will add the wheels to your robot.
-Let's start with the left one.
-Select **Robot** > **children** and then add a ``HingeJoint`` node.
-
-.. image:: Image/Step_13.png
-
-Then select **jointParameters** and add a ``HingeJointParameters`` node.
-Select **device**, add a ``RotationalMotor`` node and then configure the **HingeJointParameters** add **RotationalMotor** nodes like below.
-
-.. image:: Image/Step_18.png
-
-This will indicate around which ``axis`` the wheel should rotate and the ``anchor`` indicates an offset.
-Next select **endPoint**, add a ``Solid`` node and set it up like here in a similar manner you did for the body of the robot:
-
-.. image:: Image/Step_16.png
-
-Then change the name to ``left wheel`` and add to the **boundingObject** a ``WHEEL`` node (you will find it again in the **USE** field).
-Add to your robot a ``Physics`` node to its corresponding field once again in order to enable the collisions.
-You should end with the following for the ``endPoint Solid`` node.
-
-.. image:: Image/Step_19.png
-
-3.3 Right wheel of the robot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Creating the second wheel is bit easier as you can use the ``DEF-USE`` mechanism of Webots.
-Select **Robot** > **children** > **HingeJoint** and then add a ``HingeJoint`` node.
-You have to select the first **HingeJoint** in order to have the second **HingeJoint** below.
-This will enable to correctly benefit of the ``DEF-USE`` mechanism as you can only have a ``USE`` if there is a corresponding ``DEF`` defined above in the scene tree.
-
-Once again select **jointParameters** and add a ``HingeJointParameters`` node.
-Select **device**, add a ``RotationalMotor`` node and then configure the **HingeJointParameters** add **RotationalMotor** nodes like below.
-
-.. image:: Image/Step_21.png
-
-Select **endPoint**, add a ``Solid`` node and inside the new **children** add the ``WHEEL`` node.
-Then change the name to ``right wheel`` and add to the **boundingObject** another ``WHEEL`` node.
-Finally add to your robot a ``Physics`` node to its corresponding field.
-
-.. image:: Image/Step_23.png
-
-Congratulations!
-You have now a simulation with a simple robot ready to be launched with ROS.
-Do not forget to save your file with **Ctrl+S**.
+Here is what you should see if you open ``my_world.wbt`` in Webots (**File** > **Open World**).
 
 .. image:: Image/Step_24.png
 
-4 Prepare the package.xml file
+3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In the ``<package format="3">`` balise add the following:
@@ -224,7 +112,7 @@ In the ``<package format="3">`` balise add the following:
 
 We will need them for your plugin ``my_robot_driver.py``.
 
-5 Create the my_robot_webots.urdf file
+4 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task you will create the urdf file to add the python plugin ``my_robot_driver.py``.
@@ -235,7 +123,7 @@ In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` w
 .. literalinclude:: Code/my_robot_webots.urdf
     :language: xml
 
-6 Change the my_robot_driver.py file
+5 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go the file ``my_package/my_package/my_robot_driver.py`` and replace the code inside with:
@@ -270,7 +158,7 @@ If a non null command is in memory then motors commands will be computed and app
 If the command ``X`` is negative, the robot will turn in place.
 Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
 
-7 Modify the setup.py file
+6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task you will modify the setup.py file to include the extra files you added.
@@ -294,7 +182,7 @@ Here you will declare in the ``data_files`` variable your new extra files like `
 
 In ``entry_points`` a Webots specific part is added.
 
-8 Create the launch file
+7 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task you will create the launch file to easily launch Webots and your ROS controller in a single command.
@@ -332,7 +220,7 @@ Typically, you provide it the ``robot_description`` parameters from a URDF file 
 
 The code here is standard to simply start the two nodes and in case Webots is closed the other node ``my_robot_driver`` will also be shut down.
 
-9 Test the code
+8 Test the code
 ^^^^^^^^^^^^^^^
 
 From a terminal in your ROS2 working directory run:
@@ -352,36 +240,18 @@ Then open a second terminal to send a command and run:
 
 Your robot is now moving forward!
 
-10 Going further
+.. image:: Image/Step_25.png
+
+9 Going further
 ^^^^^^^^^^^^^^^^
 
 Your robot is now able to blindly follow your orders but it will be better if it was not colliding in the wall with the previous command after some time.
 
 .. image:: Image/Step_26.png
 
-Let's add some sensors in order to make the robot turn if it is facing the wall.
-Open ``my_world.wbt`` in Webots and start by adding a ``DistanceSensor`` node in the **children** field of your robot.
-Then configure the sensor as described in the following image in order to correctly place and model the sensor:
+You will now use the sensors of your robot to detect obstacles.
 
-.. image:: Image/Sensor1_1.png
-
-Next rename the sensor and configure the **lookupTable**, the **numberOfRays** and the **aperture** field.
-You might need to press **lookupTable** > **Ctrl+Shift+A** in order to add a new line in the **lookupTable** field.
-
-.. image:: Image/Sensor1_2.png
-
-Creating the second sensor is straightforward and you can follow this structure:
-
-.. image:: Image/Sensor_2.png
-
-Now you can confirm that your sensors are well modeled by going to **View** > **Optional Rendering** > **Show DistanceSensor Rays** or pressing **Ctrl+F10**.
-You should see two white lines per sensor in a horizontal plan in front of your robot.
-
-.. image:: Image/Sensor_view.png
-
-Perfect, your robot is ready! Do not forget to save your world with **Ctrl+S**.
-
-11 Updating package.xml and my_robot_webots.urdf
+10 Updating package.xml and my_robot_webots.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We will have to modify those files in order to make the sensors work.
@@ -396,7 +266,7 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
 
 The ROS2 interface will then look for the **DistanceSensor** nodes, using the standard parameters in the ``<ros>`` it will activate them and use the given names for naming the corresponding topics.
 
-12 Updating my_robot_driver.py
+11 Updating my_robot_driver.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Return to the file ``my_package/my_package/my_robot_driver.py`` and replace the code inside with:
@@ -426,7 +296,7 @@ In case there is an obstacle on the right the robot will turn in place.
 In case the obstacle is on the left the robot will turn on the right.
 Otherwise it will go forward.
 
-13 Test the obstacle avoidance code
+12 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 From a terminal in your ROS2 working directory run:
