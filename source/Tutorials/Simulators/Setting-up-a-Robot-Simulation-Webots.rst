@@ -160,6 +160,11 @@ If a non null command is in memory then motors commands will be computed and app
 If the command ``X`` is negative, the robot will turn in place.
 Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
 
+.. note::
+
+    The purpose of this code is only to show a simple example.
+    In fact you could avoid the use of this python plugin by using another sub-package ``webots_ros2_control`` that will ease the control of a differential wheeled robot.
+
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -256,9 +261,12 @@ You will now use the sensors of your robot to detect obstacles.
 10 Updating package.xml and my_robot_webots.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We will have to modify those files in order to make the sensors work.
+You will start by slightly modify these two files in order to make the enable the sensors.
+Go to your file ``package.xml`` and in the ``<package format="3">`` balise add the following:
 
-Replace ``<exec_depend>geometry_msgs</exec_depend>`` by ``<exec_depend>sensor_msgs</exec_depend>`` in ``package.xml``.
+.. literalinclude:: Code/package_sensor.xml
+    :language: xml
+    :lines: 11
 
 Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots>`` tag:
 
@@ -268,39 +276,57 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
 
 The ROS2 interface will then look for the **DistanceSensor** nodes, using the standard parameters in the ``<ros>`` tags it will activate them and use the given names for naming the corresponding topics.
 
-11 Updating my_robot_driver.py
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+11 Creating a ROS node to avoid obstacle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Return to the file ``my_package/my_package/my_robot_driver.py`` and replace the code inside with:
+Your robot will use a standard ROS node in order to detect the wall and send commands to avoid it.
+Add a file ``obstacle_avoider.py`` to ``my_package/my_package/`` and fill it with:
 
-.. literalinclude:: Code/my_robot_driver_sensor.py
+.. literalinclude:: Code/obstacle_avoider.py
     :language: python
 
-This code will be sufficient to make the robot move and avoid obstacles.
+This node will simply create a publisher for the command and subscribe to the sensors topics here:
 
-.. literalinclude:: Code/my_robot_driver_sensor.py
+.. literalinclude:: Code/obstacle_avoider.py
     :language: python
-    :lines: 22-23
+    :lines: 14-17
 
-Now the node will subscribe to the topics of the two sensors.
+When a measure is recieved from the left sensor it will be saved:
 
-.. literalinclude:: Code/my_robot_driver_sensor.py
+.. literalinclude:: Code/obstacle_avoider.py
     :language: python
-    :lines: 25-29
+    :lines: 19-20
 
-This two callback functions will simply register the last measurement recieved for each sensor.
+And finally when a measure is recieved from the right sensor a command will be sent to the topic ``/cmd_vel`` in case any of the two sensors has detect an obstacle.
+If the right sensor detects an obstacle the command will make the robot turn in place clockwise.
+Otherwise if only the left sensor detects an obstacle the command will make the robot turn right.
 
-.. literalinclude:: Code/my_robot_driver_sensor.py
+.. literalinclude:: Code/obstacle_avoider.py
     :language: python
-    :lines: 31-45
+    :lines: 22-37
 
-In case there is an obstacle on the right the robot will turn in place.
-In case the obstacle is on the left the robot will turn on the right.
-Otherwise it will go forward.
+12 Updating setup.py and robot_launch.py
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-12 Test the obstacle avoidance code
+You will also have to slightly modify these two other files in order to launch your new node.
+Go to your file ``setup.py`` and add ``'obstacle_avoider = my_package.obstacle_avoider:main'`` to ``'console_scripts'``:
+
+.. literalinclude:: Code/setup_sensor.py
+    :language: python
+    :lines: 24-27
+
+And finally in your file ``robot_launch.py`` replace ``def generate_launch_description():`` by the code bellow:
+
+.. literalinclude:: Code/robot_launch_sensor.py
+    :language: python
+    :lines: 10-42
+
+This will create an ``obstacle_avoider`` node and it will be prepared to be launched in ``LaunchDescription``.
+
+13 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Repeat the same commands as in tasks ``8`` to test your code.
 From a terminal in your ROS2 working directory run:
 
 .. code-block:: bash
@@ -309,7 +335,13 @@ From a terminal in your ROS2 working directory run:
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
 
-First your robot will go forward and then it will turn clockwise in the circle arena.
+Then open a second terminal to send a command and run:
+
+.. code-block:: bash
+
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+
+First your robot will go forward and before hitting the wall it will turn clockwise.
 
 .. image:: Image/Robot_clock_wise.png
 
