@@ -86,15 +86,15 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Documentation: Add Python API support to rosdoc2
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
      - Small
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Documentation: Upload C++ API documentation for core packages to docs site
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Humble Release
      - Large
      - Open Robotics
@@ -102,27 +102,27 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Improve service and action reliability for frequencies greater than 10Hz
      - Medium
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Improve RViz2 stability
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Middleware: Default middleware selection
      - Medium
      - Open Robotics
-     - 4th quarter 2021
+     - Complete
    * - Middleware: Report on feasibility of using Zenoh as an RMW
      - Medium
      - Open Robotics
-     -
+     - Complete
    * - Overlays work to override any package in a dependency tree
      - Large
      - Open Robotics
-     -
+     - 2nd quarter 2022
    * - Revamp launch testing
      - Large
      - Open Robotics
-     -
+     - Complete
    * - Filter topic messages by content in rclcpp
      - Large
      - Sony
