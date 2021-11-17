@@ -24,6 +24,5 @@ setup(
         'console_scripts': [
             'my_robot_driver = my_package.my_robot_driver:main',
         ],
-        'launch.frontend.launch_extension': ['launch_ros = launch_ros'],
     },
 )

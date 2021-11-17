@@ -179,18 +179,7 @@ Go to the file ``my_package/setup.py`` and replace the code inside with:
 .. literalinclude:: Code/setup.py
     :language: python
 
-This primarly modificates two parts of the code.
-In this part you declared in the ``data_files`` variable your new extra files like ``my_world.wbt`` or ``my_robot_webots.urdf``.
-
-.. literalinclude:: Code/setup.py
-    :language: python
-    :lines: 4-15
-
-And in the second part you added in ``entry_points`` a Webots specific part.
-
-.. literalinclude:: Code/setup.py
-    :language: python
-    :lines: 23-28
+This will declare in the ``data_files`` variable your new extra files like ``my_world.wbt`` or ``my_robot_webots.urdf``.
 
 7 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
