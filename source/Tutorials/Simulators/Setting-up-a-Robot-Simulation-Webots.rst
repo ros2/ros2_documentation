@@ -22,7 +22,7 @@ This provides realistic simulation results that should match the behaviors obser
 Hence, what you get in simulation is very close to what you will observe when transferring your ROS 2 controllers to a real robot.
 
 webots_ros2 is a package offering an interface between ROS2 and Webots with the help of the sub-package webots_ros2_driver that you will use in this tutorial.
-There are also some other sub-packages containing demos with different robots such as the TurtleBot 3.
+There are also some other sub-packages containing demos with different robots such as the TurtleBot3.
 Such demos are detailed in the :doc:`../../Tutorials` page under the ``Demos`` section.
 
 This tutorial will introduce you how to create your first simulation by using a custom robot and implementing a Python plugin derived from webots_ros2_driver.
@@ -60,14 +60,21 @@ Tasks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To be able to customize your simulation with ROS2 you will organize the code with a custom package.
-Start by creating a new package named ``my_package``.
+Start by creating a new package named ``my_package`` from the ``src`` folder of your ROS2 workspace.
 
 .. code-block:: console
 
+        cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
 The option ``--node-name my_robot_driver`` is here to create a file you will modify later.
 Now create new ``launch`` and ``worlds`` directories inside your ``my_package`` folder.
+
+.. code-block:: console
+
+        cd my_package
+        mkdir launch/ worlds/
+
 You should end with the following folder structure:
 
 .. code-block:: console
@@ -94,12 +101,8 @@ You should end with the following folder structure:
 
 Simulations in Webots rely on world files containing objects called ``nodes`` (different from the standard ROS node).
 You will need a world file with a robot to launch your simulation.
-Please `download this world file <https://github.com/cyberbotics/webots_ros2/wiki/assets/tutorialCreateWebotsRobot/my_world.zip>`_ and save it in the folder ``my_package/worlds/``.
-A custom robot is modeled in this world ``my_world.wbt``.
-
-Here is what you should see if you open ``my_world.wbt`` in Webots (**File** > **Open World**).
-
-.. image:: Image/Step_24.png
+Please `download this world file <https://github.com/cyberbotics/webots_ros2/wiki/assets/tutorialCreateWebotsRobot/my_world.zip>`_ and extract it in the folder ``my_package/worlds/``.
+A custom robot is already modeled in this world ``my_world.wbt``.
 
 3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +113,7 @@ In the ``<package format="3">`` balise add the following:
     :language: xml
     :lines: 10-12
 
-We will need them for your plugin ``my_robot_driver.py``.
+You will need them for your plugin ``my_robot_driver.py``.
 
 4 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -123,17 +126,18 @@ In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` w
 .. literalinclude:: Code/my_robot_webots.urdf
     :language: xml
 
-Note that Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions (but this can be done with another tool of Webots).
+With this URDF file Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions
+(but this can be done with this `tool <https://github.com/cyberbotics/urdf2webots>`_ to convert an URDF file to the native format ``PROTO`` of Webots).
 
 5 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go the file ``my_package/my_package/my_robot_driver.py`` and replace the code inside with:
+Go to the file ``my_package/my_robot_driver.py`` and replace the code inside with:
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
 
-This code is composed of three parts:
+The class is composed of three parts:
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
@@ -156,7 +160,7 @@ This callback function will simply register the last command recieved.
     :lines: 32-53
 
 This function is called every step of the simulation.
-If a non null command is in memory then motors commands will be computed and applied.
+If a non null command is in ``self.__target_twist`` then motors commands will be computed and applied.
 If the command ``X`` is negative, the robot will turn in place.
 Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
 
@@ -170,31 +174,30 @@ Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to tur
 
 In this task you will modify the setup.py file to include the extra files you added.
 
-Replace the code inside with the following code:
+Go to the file ``my_package/setup.py`` and replace the code inside with:
 
 .. literalinclude:: Code/setup.py
     :language: python
 
-This primarly modificate the code in two places.
+This primarly modificates two parts of the code.
+In this part you declared in the ``data_files`` variable your new extra files like ``my_world.wbt`` or ``my_robot_webots.urdf``.
 
 .. literalinclude:: Code/setup.py
     :language: python
     :lines: 4-15
 
-Here you will declare in the ``data_files`` variable your new extra files like ``my_world.wbt`` or ``my_robot_webots.urdf``.
+And in the second part you added in ``entry_points`` a Webots specific part.
 
 .. literalinclude:: Code/setup.py
     :language: python
     :lines: 23-28
 
-In ``entry_points`` a Webots specific part is added.
-
 7 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task you will create the launch file to easily launch Webots and your ROS controller in a single command.
+In this task. you will create the launch file to easily launch Webots and your ROS controller in a single command.
 
-In ``my_package/launch`` folder create a file named ``robot_launch.py`` with the following code:
+In ``my_package/launch`` folder create a file named ``robot_launch.py`` with this code:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
@@ -207,11 +210,6 @@ The code is explained as the following:
 
 The ``WebotsLauncher`` is a Webots custom action that allows you to start a Webots simulation instance.
 It searches for the Webots installation in the path specified by the ``WEBOTS_HOME`` environment variable and default installation paths.
-The accepted arguments are:
-
-* ``world`` (str): Path to the world to launch.
-* ``gui`` (bool): Whether to display GUI or not.
-* ``mode`` (str): Can be ``pause``, ``realtime``, or ``fast``.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
@@ -225,12 +223,12 @@ Typically, you provide it the ``robot_description`` parameters from a URDF file 
     :language: python
     :lines: 27-36
 
-The code here is standard to simply start the two nodes and in case Webots is closed the other node ``my_robot_driver`` will also be shut down.
+The code above is used to start the two nodes and in case Webots is closed the other node ``my_robot_driver`` will also be shut down.
 
 8 Test the code
 ^^^^^^^^^^^^^^^
 
-From a terminal in your ROS2 working directory run:
+From a terminal in your ROS2 workspace run:
 
 .. code-block:: bash
 
@@ -249,19 +247,16 @@ Your robot is now moving forward!
 
 .. image:: Image/Step_25.png
 
-9 Going further
-^^^^^^^^^^^^^^^^
-
 Your robot is now able to blindly follow your orders but it will be better if it was not colliding in the wall with the previous command after some time.
 
 .. image:: Image/Step_26.png
 
 You will now use the sensors of your robot to detect obstacles.
 
-10 Updating package.xml and my_robot_webots.urdf
+9 Updating package.xml and my_robot_webots.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will start by slightly modify these two files in order to make the enable the sensors.
+You will start by modify these two files in order to enable the sensors.
 Go to your file ``package.xml`` and in the ``<package format="3">`` balise add the following:
 
 .. literalinclude:: Code/package_sensor.xml
@@ -274,18 +269,18 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
     :language: xml
     :lines: 3-18
 
-The ROS2 interface will then look for the **DistanceSensor** nodes, using the standard parameters in the ``<ros>`` tags it will activate them and use the given names for naming the corresponding topics.
+The ROS2 interface will use the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
 
-11 Creating a ROS node to avoid obstacle
+10 Creating a ROS node to avoid obstacle
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your robot will use a standard ROS node in order to detect the wall and send commands to avoid it.
-Add a file ``obstacle_avoider.py`` to ``my_package/my_package/`` and fill it with:
+In ``my_package/my_package/`` folder create a file named ``obstacle_avoider.py`` with this code:
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
 
-This node will simply create a publisher for the command and subscribe to the sensors topics here:
+This node will create a publisher for the command and subscribe to the sensors topics here:
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
@@ -297,37 +292,39 @@ When a measure is recieved from the left sensor it will be saved:
     :language: python
     :lines: 19-20
 
-And finally when a measure is recieved from the right sensor a command will be sent to the topic ``/cmd_vel`` in case any of the two sensors has detect an obstacle.
-If the right sensor detects an obstacle the command will make the robot turn in place clockwise.
-Otherwise if only the left sensor detects an obstacle the command will make the robot turn right.
+Finally, a command will be sent to the topic ``/cmd_vel`` in case any of the two sensors has detected an obstacle.
+If the right sensor detects an obstacle, ``command_message`` will make the robot turn in place clockwise.
+Otherwise, if only the left sensor detects an obstacle, ``command_message`` will make the robot move forward on the right.
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
     :lines: 22-37
 
-12 Updating setup.py and robot_launch.py
+11 Updating setup.py and robot_launch.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You will also have to slightly modify these two other files in order to launch your new node.
-Go to your file ``setup.py`` and add ``'obstacle_avoider = my_package.obstacle_avoider:main'`` to ``'console_scripts'``:
+You have to modify these two other files to launch your new node.
+Go to the file ``setup.py`` and replace ``'console_scripts'`` with:
 
 .. literalinclude:: Code/setup_sensor.py
     :language: python
-    :lines: 24-27
+    :lines: 24-26
 
-And finally in your file ``robot_launch.py`` replace ``def generate_launch_description():`` by the code bellow:
+This will add an entry point for the ``obstacle_avoider`` node.
+
+Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
     :lines: 10-42
 
-This will create an ``obstacle_avoider`` node and it will be prepared to be launched in ``LaunchDescription``.
+This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
-13 Test the obstacle avoidance code
+12 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Repeat the same commands as in tasks ``8`` to test your code.
-From a terminal in your ROS2 working directory run:
+From a terminal in your ROS2 workspace run:
 
 .. code-block:: bash
 
@@ -341,7 +338,7 @@ Then open a second terminal to send a command and run:
 
             ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
-First your robot will go forward and before hitting the wall it will turn clockwise.
+Your robot will go forward and before hitting the wall it will turn clockwise.
 
 .. image:: Image/Robot_clock_wise.png
 
