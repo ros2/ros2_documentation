@@ -113,7 +113,7 @@ In the ``<package format="3">`` balise add the following:
     :language: xml
     :lines: 10-12
 
-You will need them for your plugin ``my_robot_driver.py``.
+You will need those packages for your plugin ``my_robot_driver.py``.
 
 4 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -137,13 +137,9 @@ Go to the file ``my_package/my_robot_driver.py`` and replace the code inside wit
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
 
-The class is composed of three parts:
+The class is composed of three parts.
 
-.. literalinclude:: Code/my_robot_driver.py
-    :language: python
-    :lines: 11-27
-
-This is the counterpart of ``def __init__(self):`` in a traditional ROS node.
+Below is the counterpart of ``def __init__(self):`` in a traditional ROS node.
 Here you will get the reference of the robot as a ``Supervisor`` instance.
 It allows you to access the standard Webots API (see this `page <https://cyberbotics.com/doc/reference/supervisor>`_).
 Next the code get the reference of the motors and initialize them.
@@ -151,18 +147,22 @@ Finally a node is created to register a callback to a topic ``/cmd_vel``.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
+    :lines: 11-27
+
+Then comes the definition of a callback function that will register the last command ``twist`` recieved.
+
+.. literalinclude:: Code/my_robot_driver.py
+    :language: python
     :lines: 29-30
 
-This callback function will simply register the last command recieved.
+This function ``step`` is called at every step of the simulation.
+If a non null command is in ``self.__target_twist`` then motors commands will be computed and applied.
+If the command ``X`` is negative, the robot will turn in place.
+Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :lines: 32-53
-
-This function is called every step of the simulation.
-If a non null command is in ``self.__target_twist`` then motors commands will be computed and applied.
-If the command ``X`` is negative, the robot will turn in place.
-Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
 
 .. note::
 
@@ -193,26 +193,26 @@ In ``my_package/launch`` folder create a file named ``robot_launch.py`` with thi
 
 The code is explained as the following:
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :lines: 14-16
-
 The ``WebotsLauncher`` is a Webots custom action that allows you to start a Webots simulation instance.
 It searches for the Webots installation in the path specified by the ``WEBOTS_HOME`` environment variable and default installation paths.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
+    :lines: 14-16
+
+Then the node which interacts with a robot in the Webots simulation is created.
+It is located in the ``webots_ros2_driver`` package under name ``driver`` you need to run such a node for each robot in the simulation.
+Typically, you provide it the ``robot_description`` parameters from a URDF file (containing for this tutorial the Python plugin ``my_robot_driver.py``).
+
+.. literalinclude:: Code/robot_launch.py
+    :language: python
     :lines: 18-25
 
-The node which interacts with a robot in the Webots simulation is located in the ``webots_ros2_driver`` package under name ``driver``.
-It is necessary to run such a node for each robot in the simulation.
-Typically, you provide it the ``robot_description`` parameters from a URDF file containing for this tutorial the Python plugin ``my_robot_driver.py``.
+The code below is used to start the two nodes and in case Webots is closed the other node ``my_robot_driver`` will also be shut down.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :lines: 27-36
-
-The code above is used to start the two nodes and in case Webots is closed the other node ``my_robot_driver`` will also be shut down.
 
 8 Test the code
 ^^^^^^^^^^^^^^^
@@ -240,7 +240,7 @@ Your robot is now able to blindly follow your orders but it will be better if it
 
 .. image:: Image/Step_26.png
 
-You will now use the sensors of your robot to detect obstacles.
+To do so you will now use the sensors of your robot to detect obstacles.
 
 9 Updating package.xml and my_robot_webots.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
