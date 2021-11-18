@@ -70,8 +70,7 @@ Install development tools and ROS tools
      flake8-quotes \
      pytest-repeat \
      pytest-rerunfailures \
-     pytest \
-     setuptools
+     pytest
 
 Ubuntu 18.04 is not an officially supported platform, but may still work.  You'll need at least the following additional dependencies:
 
