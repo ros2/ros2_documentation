@@ -321,6 +321,17 @@ The old-style arguments are still allowed in this release, but are deprecated an
 They will be removed in future releases.
 See https://github.com/ros2/geometry2/pull/392 for more details.
 
+Transform listener spin thread no longer executes node callbacks
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``tf2_ros::TransformListener`` no longer spins on the provided node object.
+Instead, it creates a callback group to execute callbacks on the entities it creates internally.
+This means if you have set the parameter ``spin_thread=true`` when creating a transform listener, you
+can no longer depend on your own callbacks to be executed.
+You must call a ``spin`` function on your node (e.g. ``rclcpp::spin``), or add your node to your own executor.
+
+Related pull request: `geometry2#442 <https://github.com/ros2/geometry2/pull/442>`_
+
 Known Issues
 ------------
 
