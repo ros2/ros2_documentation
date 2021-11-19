@@ -16,16 +16,15 @@ Setting-up a Robot Simulation (Webots)
 Background
 ----------
 
-Webots is a robot simulator that can be used with ROS 2.
-Unlike turtlesim, it provides physics-based models for robots, sensors, actuators and objects.
-This provides realistic simulation results that should match the behaviors observed in the real world.
-Hence, what you get in simulation is very close to what you will observe when transferring your ROS 2 controllers to a real robot.
+Several robot simulators can be used with ROS 2, such as Gazebo, Ignition, Webots, etc.
+Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
+Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
+In this tutorial, we are going to use Webots to introduce a very simple ROS 2 simulation scenario.
 
-webots_ros2 is a package offering an interface between ROS2 and Webots with the help of the sub-package webots_ros2_driver that you will use in this tutorial.
-There are also some other sub-packages containing demos with different robots such as the TurtleBot3.
-Such demos are detailed in the :doc:`../../Tutorials` page under the ``Demos`` section.
-
-This tutorial will introduce you how to create your first simulation by using a custom robot and implementing a Python plugin derived from webots_ros2_driver.
+The webots_ros2 package provides an interface between ROS 2 and Webots.
+It includes several sub-packages, but in this tutorial, we are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
+Some other sub-packages contain demos with different robots such as the TurtleBot3.
+They are documented in the :doc:`../../Tutorials` page under the ``Demos`` section.
 
 Prerequisites
 -------------
