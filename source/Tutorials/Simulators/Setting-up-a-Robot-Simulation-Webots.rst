@@ -212,7 +212,7 @@ Webots will be automatically installed in case it was not already installed.
 
 .. note::
 
-    If you want to install Webots you can `download the Debian package <https://github.com/cyberbotics/webots/releases/latest>`_.
+    If you want to install Webots manually, you can download it `here <https://github.com/cyberbotics/webots/releases/latest>`_.
 
 
 Then open a second terminal and send a command with:
