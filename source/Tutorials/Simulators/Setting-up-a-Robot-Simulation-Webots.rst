@@ -58,7 +58,7 @@ Start by creating a new package named ``my_package`` from the ``src`` folder of 
         cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
-The option ``--node-name my_robot_driver`` is here to create a file you will modify later.
+The option ``--node-name my_robot_driver`` create a file you will modify later.
 Now create new ``launch`` and ``worlds`` directories inside your ``my_package`` folder.
 
 .. code-block:: console
@@ -107,21 +107,7 @@ Add the following inside the ``<package format="3">`` tag:
 
 You will need these packages for your plugin ``my_robot_driver.py``.
 
-4 Create the my_robot_webots.urdf file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-In this task you will create the URDF file to add the python plugin ``my_robot_driver.py``.
-The ``webots_ros2_driver`` ROS node will be able to detect it and launch it.
-
-In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` with this code:
-
-.. literalinclude:: Code/my_robot_webots.urdf
-    :language: xml
-
-With this URDF file Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions
-(but this can be done with this `tool <https://github.com/cyberbotics/urdf2webots>`_ to convert an URDF file to the native format ``PROTO`` of Webots).
-
-5 Change the my_robot_driver.py file
+4 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Go to the file ``my_package/my_robot_driver.py`` and replace the code inside with:
@@ -147,10 +133,10 @@ Then comes the definition of a callback function that will register the last com
     :language: python
     :lines: 29-30
 
-This function ``step`` is called at every step of the simulation.
-If a non null command is in ``self.__target_twist`` then motors commands will be computed and applied.
-If the command ``X`` is negative, the robot will turn in place.
-Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to turn in case the command ``Y`` is not null.
+The function ``step(self)`` is called at every step of the simulation.
+If ``self.__target_twist`` is not null motors commands will be computed and applied.
+If ``linear.x`` is negative, the robot will turn in place.
+Otherwise it will go forward and turn in case ``linear.y`` is not null.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
@@ -161,11 +147,24 @@ Otherwise it will have one wheel at ``MAX_SPEED`` and slow down the other to tur
     The purpose of this code is only to show a simple example.
     In fact you could avoid the use of this python plugin by using another sub-package ``webots_ros2_control`` that will ease the control of a differential wheeled robot.
 
+5 Create the my_robot_webots.urdf file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In this task you will create an URDF file to add the python plugin ``my_robot_driver.py``.
+The ``webots_ros2_driver`` ROS node will be able to detect it and launch it.
+
+In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` with this code:
+
+.. literalinclude:: Code/my_robot_webots.urdf
+    :language: xml
+
+With this URDF file Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions
+(this can be done with this `tool <https://github.com/cyberbotics/urdf2webots>`_ to convert an URDF file to the native format ``PROTO`` of Webots).
+
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task you will modify the setup.py file to include the extra files you added.
-
 Go to the file ``my_package/setup.py`` and replace the code inside with:
 
 .. literalinclude:: Code/setup.py
@@ -176,24 +175,23 @@ This will declare in the ``data_files`` variable your new extra files like ``my_
 7 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task. you will create the launch file to easily launch Webots and your ROS controller in a single command.
-
-In ``my_package/launch`` folder create a file named ``robot_launch.py`` with this code:
+In this task. you will create the launch file to easily launch the simulation and your ROS controller in a single command.
+In ``my_package/launch`` folder create a new file named ``robot_launch.py`` with this code:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
 
 The code is explained as the following:
 
-The ``WebotsLauncher`` is a Webots custom action that allows you to start a Webots simulation instance.
-It searches for the Webots installation in the path specified by the ``WEBOTS_HOME`` environment variable and default installation paths.
+The ``WebotsLauncher`` is a custom action that allows you to start a Webots simulation instance.
+You have to specify which world the simulator will use.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :lines: 14-16
 
-Then the node which interacts with a robot in the Webots simulation is created.
-It is located in the ``webots_ros2_driver`` package under name ``driver`` you need to run such a node for each robot in the simulation.
+Then the node which interacts with a robot in the simulation is created.
+It is located in the ``webots_ros2_driver`` package under name ``driver`` and you need to run such a node for each robot in the simulation.
 Typically, you provide it the ``robot_description`` parameters from a URDF file (containing for this tutorial the Python plugin ``my_robot_driver.py``).
 
 .. literalinclude:: Code/robot_launch.py
@@ -225,7 +223,7 @@ Webots will be automatically installed in case it was not already installed.
     If you want to install Webots you can `download the Debian package <https://github.com/cyberbotics/webots/releases/latest>`_.
 
 
-Then open a second terminal to send a command and run:
+Then open a second terminal and send a command with:
 
 .. code-block:: bash
 
@@ -235,7 +233,8 @@ Your robot is now moving forward!
 
 .. image:: Image/Step_25.png
 
-Your robot is now able to blindly follow your orders but it will be better if it was not colliding in the wall with the previous command after some time.
+At this point your robot is now able to blindly follow your orders.
+But it will be better if it was not colliding in the wall with the previous command after some time.
 
 .. image:: Image/Step_26.png
 
@@ -255,7 +254,7 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
 
 .. literalinclude:: Code/my_robot_webots_sensor.urdf
     :language: xml
-    :lines: 3-18
+    :lines: 4-18
 
 The ROS2 interface will use the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
 
@@ -333,7 +332,7 @@ Your robot will go forward and before hitting the wall it will turn clockwise.
 Summary
 -------
 
-In this tutorial, you set up a simulation with Webots, used a custom robot and implemented a Python plugin to use its motors and sensors.
+In this tutorial, you set up a simulation with Webots, used a custom robot, implemented a Python plugin to control its motors and implemented a ROS node to use its sensors.
 
 Next steps
 ----------
