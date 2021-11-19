@@ -29,15 +29,8 @@ They are documented in the :doc:`../../Tutorials` page under the ``Demos`` secti
 Prerequisites
 -------------
 
-Previous tutorials
-^^^^^^^^^^^^^^^^^^
-
-This tutorial assumes you followed the tutorials :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Using-ROS2-Launch-For-Large-Projects`.
-
-Install webots_ros2
-^^^^^^^^^^^^^^^^^^^
-
-You can simply install webots_ros2 with this command:
+The previous tutorials, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Using-ROS2-Launch-For-Large-Projects` will show you how to set-up a ROS 2 package and use a launch file to manage a large project.
+In addition, you will need to install webots_ros2 with this command:
 
 .. code-block:: bash
 
