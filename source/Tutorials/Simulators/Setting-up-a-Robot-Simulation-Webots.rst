@@ -35,15 +35,6 @@ Previous tutorials
 
 This tutorial assumes you followed the tutorials :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Using-ROS2-Launch-For-Large-Projects`.
 
-Install Webots
-^^^^^^^^^^^^^^
-
-Webots will be automatically installed when you will run the launcher in task ``8``.
-
-.. note::
-
-    If you want to install Webots you can `download the Debian package <https://github.com/cyberbotics/webots/releases/latest>`_.
-
 Install webots_ros2
 ^^^^^^^^^^^^^^^^^^^
 
@@ -59,7 +50,7 @@ Tasks
 1 Create the structure of your package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To be able to customize your simulation with ROS2 you will organize the code with a custom package.
+To be able to customize your simulation with ROS2 you will organize the code in a custom package.
 Start by creating a new package named ``my_package`` from the ``src`` folder of your ROS2 workspace.
 
 .. code-block:: console
@@ -96,24 +87,25 @@ You should end with the following folder structure:
               ├── setup.cfg
               └── setup.py
 
-2 Setup the simulation world in Webots
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 Setup the simulation world
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Simulations in Webots rely on world files containing objects called ``nodes`` (different from the standard ROS node).
-You will need a world file with a robot to launch your simulation.
-Please `download this world file <https://github.com/cyberbotics/webots_ros2/wiki/assets/tutorialCreateWebotsRobot/my_world.zip>`_ and extract it in the folder ``my_package/worlds/``.
-A custom robot is already modeled in this world ``my_world.wbt``.
+You will need a world file containing a robot to launch your simulation.
+:download:`Download this world file <Code/my_world.wbt>` and move it in ``my_package/worlds/``.
+
+This is actually a fairly simple text file you can visualize in a text editor.
+A simple robot is already included in this ``my_world.wbt`` world file.
 
 3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In the ``<package format="3">`` balise add the following:
+Add the following inside the ``<package format="3">`` tag:
 
 .. literalinclude:: Code/package.xml
     :language: xml
     :lines: 10-12
 
-You will need those packages for your plugin ``my_robot_driver.py``.
+You will need these packages for your plugin ``my_robot_driver.py``.
 
 4 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -225,7 +217,14 @@ From a terminal in your ROS2 workspace run:
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
 
-in order to launch the simulation.
+in order to launch the simulation. 
+Webots will be automatically installed in case it was not already installed.
+
+.. note::
+
+    If you want to install Webots you can `download the Debian package <https://github.com/cyberbotics/webots/releases/latest>`_.
+
+
 Then open a second terminal to send a command and run:
 
 .. code-block:: bash
@@ -246,7 +245,7 @@ To do so you will now use the sensors of your robot to detect obstacles.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will start by modify these two files in order to enable the sensors.
-Go to your file ``package.xml`` and in the ``<package format="3">`` balise add the following:
+Go to your file ``package.xml`` and add the following inside the ``<package format="3">`` tag:
 
 .. literalinclude:: Code/package_sensor.xml
     :language: xml
@@ -260,8 +259,8 @@ Then in the file ``my_robot_webots.urdf`` add the following inside the ``<webots
 
 The ROS2 interface will use the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
 
-10 Creating a ROS node to avoid obstacle
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+10 Creating a ROS node to avoid obstacles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Your robot will use a standard ROS node in order to detect the wall and send commands to avoid it.
 In ``my_package/my_package/`` folder create a file named ``obstacle_avoider.py`` with this code:
