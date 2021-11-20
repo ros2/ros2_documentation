@@ -181,8 +181,10 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
             )
         ])
 
-In the ``example_substitutions.launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations and arguments are defined.
+In the ``example_substitutions.launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+They are used to store values of launch arguments in the above variables and to pass them to required actions.
 These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
+
 ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
 Default values of launch arguments are defined using ``TextSubstitution``.
 
