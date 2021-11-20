@@ -122,7 +122,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
         )
         new_background_r_launch_arg = DeclareLaunchArgument(
             'new_background_r',
-            default_value=TextSubstitution(text='200')
+            default_value='200'
         )
 
         turtlesim_node = Node(
@@ -184,6 +184,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
 In the ``example_substitutions.launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations and arguments are defined.
 These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
+Default values of launch arguments are defined using ``TextSubstitution``.
 
 .. code-block:: python
 
@@ -201,7 +202,7 @@ These ``LaunchConfiguration`` substitutions allow us to acquire the value of the
     )
     new_background_r_launch_arg = DeclareLaunchArgument(
         'new_background_r',
-        default_value=TextSubstitution(text='200')
+        default_value='200'
     )
 
 The ``turtlesim_node`` node with the ``namespace`` set to ``turtlesim_ns`` ``LaunchConfiguration`` substitution is defined.
