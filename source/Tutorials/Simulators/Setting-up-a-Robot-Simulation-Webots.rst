@@ -110,16 +110,15 @@ Open ``my_package/my_robot_driver.py`` in your favorite editor and its contents 
 As you can see, the class implements three methods.
 
 The first one is the counterpart of the ``def __init__(self):`` constructor for a ROS node.
-Here you will get the reference of the robot as a ``Supervisor`` instance.
-It allows you to access the standard Webots API (see this `page <https://cyberbotics.com/doc/reference/supervisor>`_).
-Next the code get the reference of the motors and initialize them.
-Finally a node is created to register a callback to a topic ``/cmd_vel``.
+We first get the robot instance used in the simulation which allows us to access the Webots API for the robot node (see this `page <https://cyberbotics.com/doc/reference/robot>`_).
+Then, we get the two motor instances and initialize them with target position and target velocity values.
+Finally a ROS node is created to register a callback to a ROS topic named ``/cmd_vel``.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :lines: 11-27
 
-Then comes the definition of a callback function that will register the last command ``twist`` received.
+Then comes the implementation of the callback function that will be called for each ``twist`` message received on the ``/cmd_vel`` topic.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
