@@ -107,7 +107,7 @@ Open ``my_package/my_robot_driver.py`` in your favorite editor and replace its c
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
 
-As you can see, the class implements three methods.
+As you can see, the ``MyRobotDriver`` class implements three methods.
 
 The first one is the counterpart of the ``def __init__(self):`` constructor for a ROS node.
 We first get the robot instance used in the simulation which allows us to access the Webots API for the robot node (see this `page <https://cyberbotics.com/doc/reference/robot>`_).
