@@ -90,7 +90,7 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 
 .. note::
 
-    In case you want to learn how to create your own robot, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
+    In case you want to learn how to create your own robot model in Webots, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
 
 
 3 Prepare the package.xml file
