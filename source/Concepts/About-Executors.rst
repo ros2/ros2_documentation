@@ -15,10 +15,10 @@ The explicit Executor class (in `executor.hpp <https://github.com/ros2/rclcpp/bl
 
 In the following, we focus on the C++ Client Library *rclcpp*.
 
-Simple use
-----------
+Basic use
+---------
 
-In the simplest case, the main thread is used for processing the incoming messages and events of a Node by calling the *spin* function as follows:
+In the simplest case, the main thread is used for processing the incoming messages and events of a Node by calling ``rclcpp::spin(..)`` as follows:
 
 .. code-block:: cpp
 
@@ -31,7 +31,7 @@ In the simplest case, the main thread is used for processing the incoming messag
       // Instantiate a node.
       rclcpp::Node::SharedPtr node = ...
 
-      // Run the executor. 
+      // Run the executor.
       rclcpp::spin(node);
       
       // Shutdown and exit.
@@ -39,7 +39,7 @@ In the simplest case, the main thread is used for processing the incoming messag
       return 0;
    }
 
-The call to *spin* basically expands to an instatiation and invokation of the Single-Threaded Executor, which is the simples Executor:
+The call to ``spin(node)`` basically expands to an instatiation and invokation of the Single-Threaded Executor, which is the simplest Executor:
 
 .. code-block:: cpp
 
@@ -47,29 +47,39 @@ The call to *spin* basically expands to an instatiation and invokation of the Si
    executor.add_node(node);
    executor.spin();
 
-By invoking *spin* of the Executor instance, the current thread starts querying the rcl and middleware layers for incoming messages and other events and calls the corresponding callback functions until the node shuts down. In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function. (This is a crucial difference to ROS 1.) A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
+By invoking ``spin()`` of the Executor instance, the current thread starts querying the rcl and middleware layers for incoming messages and other events and calls the corresponding callback functions until the node shuts down.
+In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function. (This is a crucial difference to ROS 1.)
+A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
 
 .. image:: images/executors_basic_principle.png
 
 The Single-Threaded Executor is also used by the container process for :doc:`components <./About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
-Other Executors and advanced use
---------------------------------
+Types of Executors
+------------------
 
 Currently, rclcpp provides three Executor types, derived from a shared parent class:
 
-.. code-block:: text
+.. graphviz::
 
-                                      Executor
-                                         ^
-                                         |
-               /-------------------------|----------------------------\
-               |                         |                            |
-     SingleThreadedExecutor     MultiThreadedExecutor     StaticSingleThreadedExecutor
+   digraph Flatland {
+   
+      Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty]; 
+      Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty]; 
+      Executor -> StaticSingleThreadedExecutor [dir = back, arrowtail = empty];
+      Executor  [shape=polygon,sides=4];
+      SingleThreadedExecutor  [shape=polygon,sides=4];
+      MultiThreadedExecutor  [shape=polygon,sides=4];
+      StaticSingleThreadedExecutor  [shape=polygon,sides=4];
+      
+      }
 
-The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel. The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc. It performs this scan only once when the node is added, while the other two executors regularly scan for such changes. Therefore, the Static Single-Threaded Executor should be used only with nodes that create all subscriptions, timers, etc. during initialization.
+The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
+The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc.
+It performs this scan only once when the node is added, while the other two executors regularly scan for such changes.
+Therefore, the Static Single-Threaded Executor should be used only with nodes that create all subscriptions, timers, etc. during initialization.
 
-All three executors can be used with multiple nodes by calling *add_node* for each node. 
+All three executors can be used with multiple nodes by calling ``add_node(..)`` for each node.
 
 .. code-block:: cpp
 
@@ -83,12 +93,15 @@ All three executors can be used with multiple nodes by calling *add_node* for ea
    executor.add_node(node2);
    executor.spin();
 
-In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together. In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
+In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
+In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
 
 Callback groups
 ---------------
 
-The rclcpp allows assigning callbacks to different callback groups of a node. Such a callback group can be created by the ``create_callback_group`` function of the Node class. The callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
+The rclcpp allows organizing the callbacks of a node in groups.
+Such a *callback group* can be created by the ``create_callback_group`` function of the Node class.
+Then, this callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
 
 .. code-block:: cpp
 
@@ -100,19 +113,29 @@ The rclcpp allows assigning callbacks to different callback groups of a node. Su
    my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(), 
                                                 callback, options);
 
-If no callback group TODO ...
+All subscriptions, timers, etc. that are created without the indication of a callback group are assigned to the *default callback group*.
+The default callback group can be queried via ``NodeBaseInterface::get_default_callback_group()``.
 
-Rclcpp differentiates between two types of callback groups, specified by at instantiation time:
+There are two types of callback groups, where the type has to be specified at instantiation time:
 
-* *Mutually exclusive:* The callbacks of this group must not be executed in parallel.
-* *Reentrant:* The callbacks of this group may be executed in parallel.
+* *Mutually exclusive:* Callbacks of this group must not be executed in parallel.
+* *Reentrant:* Callbacks of this group may be executed in parallel.
 
-The 
+Callbacks of different callback groups may always be executed in parallel.
+The Multi-Threaded Executor uses its threads as a pool to process a many callbacks as possible in parallel according to these conditions.
+
+Since Galactic, the interface of the Executor base class has been refined by a new function ``add_callback_group(..)``.
+This allows distributing callback groups to different Executors.
+By configuring the underlying threads using the operating system scheduler, specific callbacks can be prioritized over other callbacks.
+For example, the subscriptions and timers of a control loop can be prioritized over all other subscriptions and standard services of a node.
+The `examples_rclcpp_cbg_executor package <https://github.com/ros2/examples/tree/master/rclcpp/executors/cbg_executor>`_ provides a demo of this mechanism.
 
 Scheduling semantics
 --------------------
 
 Add text here ...
+
+.. image:: images/executors_scheduling_semantics.png
 
 Outlook
 -------
