@@ -33,7 +33,7 @@ In the simplest case, the main thread is used for processing the incoming messag
 
       // Run the executor.
       rclcpp::spin(node);
-      
+
       // Shutdown and exit.
       ...
       return 0;
@@ -63,15 +63,15 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 .. graphviz::
 
    digraph Flatland {
-   
-      Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty]; 
-      Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty]; 
+
+      Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
+      Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
       Executor -> StaticSingleThreadedExecutor [dir = back, arrowtail = empty];
       Executor  [shape=polygon,sides=4];
       SingleThreadedExecutor  [shape=polygon,sides=4];
       MultiThreadedExecutor  [shape=polygon,sides=4];
       StaticSingleThreadedExecutor  [shape=polygon,sides=4];
-      
+
       }
 
 The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
@@ -110,7 +110,7 @@ Then, this callback group can be specified when creating a subscription, timer, 
    rclcpp::SubscriptionOptions options;
    options.callback_group = my_callback_group;
 
-   my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(), 
+   my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(),
                                                 callback, options);
 
 All subscriptions, timers, etc. that are created without the indication of a callback group are assigned to the *default callback group*.
