@@ -332,10 +332,7 @@ Your robot will go forward and before hitting the wall it will turn clockwise.
 Summary
 -------
 
-In this tutorial, you:
-1. set-up a realistic robot simulation with Webots,
-2. implemented a Python plugin to control the motors of the robot, and
-3. implemented a ROS node using the sensors to avoid the obstacles.
+In this tutorial, you set-up a realistic robot simulation with Webots, implemented a Python plugin to control the motors of the robot, and implemented a ROS node using the sensors to avoid the obstacles.
 
 Next steps
 ----------
