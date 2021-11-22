@@ -1,7 +1,7 @@
 .. _UsingROS2LaunchForLargeProjects:
 
-Using ROS2 launch for large projects
-====================================
+Using ROS 2 launch for large projects
+=====================================
 
 **Goal:** Learn best practices of managing large projects using ROS 2 launch files
 
