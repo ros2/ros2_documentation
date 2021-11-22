@@ -155,18 +155,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot_webots
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
     However, URDF files usually contain much more information.
 
-6 Modify the setup.py file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Now, you have to modify the setup.py file to include the extra files you added.
-Open ``my_package/setup.py`` and replace its contents with:
-
-.. literalinclude:: Code/setup.py
-    :language: python
-
-This sets-up the package and declare in the ``data_files`` variable the new added files: ``my_world.wbt`` or ``my_robot_webots.urdf``.
-
-7 Create the launch file
+6 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this task. you will create the launch file to easily launch the simulation and your ROS controller in a single command.
@@ -197,6 +186,17 @@ The code below is used to start the two nodes and in case Webots is closed the o
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :lines: 27-36
+
+7 Modify the setup.py file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, you have to modify the setup.py file to include the extra files you added.
+Open ``my_package/setup.py`` and replace its contents with:
+
+.. literalinclude:: Code/setup.py
+    :language: python
+
+This sets-up the package and declare in the ``data_files`` variable the new added files: ``my_world.wbt`` or ``my_robot_webots.urdf``.
 
 8 Test the code
 ^^^^^^^^^^^^^^^
