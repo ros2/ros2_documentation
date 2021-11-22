@@ -88,6 +88,11 @@ You will need a world file containing a robot to launch your simulation.
 This is actually a fairly simple text file you can visualize in a text editor.
 A simple robot is already included in this ``my_world.wbt`` world file.
 
+.. note::
+
+    In case you want to learn how to create your own robot, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
+
+
 3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -338,8 +343,3 @@ Taking example on those previous tutorials will be a good starting point:
 * :doc:`../Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python`.
 
 * :doc:`../Tf2/Tf2-Main`.
-
-Related content
----------------
-
-In case you want to learn how to create your own robot, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
