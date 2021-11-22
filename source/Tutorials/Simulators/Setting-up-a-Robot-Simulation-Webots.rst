@@ -83,7 +83,7 @@ You should end with the following folder structure:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will need a world file containing a robot to launch your simulation.
-:download:`Download this world file <Code/my_world.wbt>` and move it in ``my_package/worlds/``.
+:download:`Download this world file <Code/my_world.wbt>` and move it inside ``my_package/worlds/``.
 
 This is actually a fairly simple text file you can visualize in a text editor.
 A simple robot is already included in this ``my_world.wbt`` world file.
