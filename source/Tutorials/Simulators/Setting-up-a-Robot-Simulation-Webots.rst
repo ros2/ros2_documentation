@@ -102,7 +102,7 @@ These packages will be needed by the ``my_robot_driver.py`` plugin.
 4 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open ``my_package/my_robot_driver.py`` in your favorite editor and its contents with the following:
+Open ``my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
