@@ -13,14 +13,14 @@ class ObstacleAvoider(Node):
 
         self.__publisher = self.create_publisher(Twist, 'cmd_vel', 1)
 
-        self.create_subscription(Range, 'l_sensor', self.__l_sensor_callback, 1)
-        self.create_subscription(Range, 'r_sensor', self.__r_sensor_callback, 1)
+        self.create_subscription(Range, 'left_sensor', self.__left_sensor_callback, 1)
+        self.create_subscription(Range, 'right_sensor', self.__right_sensor_callback, 1)
 
-    def __l_sensor_callback(self, msg):
-        self.__l_sensor_value = msg.range
+    def __left_sensor_callback(self, message):
+        self.__left_sensor_value = message.range
 
-    def __r_sensor_callback(self, msg):
-        self.__r_sensor_value = msg.range
+    def __right_sensor_callback(self, message):
+        self.__right_sensor_value = message.range
 
         command_message = Twist()
 
