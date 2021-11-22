@@ -39,19 +39,19 @@ In addition, you will need to install webots_ros2 with this command:
 Tasks
 -----
 
-1 Create the structure of your package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 Create the package structure
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To be able to customize your simulation with ROS2 you will organize the code in a custom package.
-Start by creating a new package named ``my_package`` from the ``src`` folder of your ROS2 workspace.
+Let's organize the code in a custom ROS 2 package.
+Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 workspace.
 
 .. code-block:: console
 
         cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
-The option ``--node-name my_robot_driver`` create a file you will modify later.
-Now create new ``launch`` and ``worlds`` directories inside your ``my_package`` folder.
+The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that we will modify later.
+Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
 .. code-block:: console
 
@@ -91,25 +91,25 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add the following inside the ``<package format="3">`` tag:
+Add the following packages inside the ``<package format="3">`` tag:
 
 .. literalinclude:: Code/package.xml
     :language: xml
     :lines: 10-12
 
-You will need these packages for your plugin ``my_robot_driver.py``.
+These packages will be needed by the ``my_robot_driver.py`` plugin.
 
 4 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the file ``my_package/my_robot_driver.py`` and replace the code inside with:
+Open ``my_package/my_robot_driver.py`` in your favorite editor and its contents with the following:
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
 
-The class is composed of three parts.
+As you can see, the class implements three methods.
 
-Below is the counterpart of ``def __init__(self):`` in a traditional ROS node.
+The first one is the counterpart of the ``def __init__(self):`` constructor for a ROS node.
 Here you will get the reference of the robot as a ``Supervisor`` instance.
 It allows you to access the standard Webots API (see this `page <https://cyberbotics.com/doc/reference/supervisor>`_).
 Next the code get the reference of the motors and initialize them.
@@ -119,13 +119,13 @@ Finally a node is created to register a callback to a topic ``/cmd_vel``.
     :language: python
     :lines: 11-27
 
-Then comes the definition of a callback function that will register the last command ``twist`` recieved.
+Then comes the definition of a callback function that will register the last command ``twist`` received.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :lines: 29-30
 
-The function ``step(self)`` is called at every step of the simulation.
+The ``step(self)`` function is called at every time step of the simulation.
 If ``self.__target_twist`` is not null motors commands will be computed and applied.
 If ``linear.x`` is negative, the robot will turn in place.
 Otherwise it will go forward and turn in case ``linear.y`` is not null.
