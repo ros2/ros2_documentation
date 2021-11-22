@@ -109,7 +109,7 @@ Open ``my_package/my_robot_driver.py`` in your favorite editor and replace its c
 
 As you can see, the ``MyRobotDriver`` class implements three methods.
 
-The first one, named ``init(self, ...)``, is the ROS node counterpart of the Python ``__init__(self, ...)`` constructor.
+The first method, named ``init(self, ...)``, is actually the ROS node counterpart of the Python ``__init__(self, ...)`` constructor.
 It first gets the robot instance from the simulation (which can be used to access the `Webots robot API <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_).
 Then, it gets the two motor instances and initialize them with a target position and a target velocity.
 Finally a ROS node is created and a callback method is registered for a ROS topic named ``/cmd_vel`` that will handle ``Twist`` messages.
@@ -118,14 +118,15 @@ Finally a ROS node is created and a callback method is registered for a ROS topi
     :language: python
     :lines: 11-27
 
-Then comes the implementation of the ``__cmd_vel_callback`` callback method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic.
+Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :lines: 29-30
 
-The ``step(self)`` function is called at every time step of the simulation.
-If ``self.__target_twist`` is not null motors commands will be computed and applied.
+Finally, the ``step(self)`` method is called at every time step of the simulation.
+The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
+At each time step, if ``self.__target_twist`` is not null, motors commands will be computed and applied.
 If ``linear.x`` is negative, the robot will turn in place.
 Otherwise it will go forward and turn in case ``linear.y`` is not null.
 
@@ -135,33 +136,35 @@ Otherwise it will go forward and turn in case ``linear.y`` is not null.
 
 .. note::
 
-    The purpose of this code is only to show a simple example.
-    In fact you could avoid the use of this python plugin by using another sub-package ``webots_ros2_control`` that will ease the control of a differential wheeled robot.
+    The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
+    However, you could avoid the use of a python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control`` that facilitates the control of a differential wheeled robot, but introduces a new dependency.
 
 5 Create the my_robot_webots.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task you will create an URDF file to add the python plugin ``my_robot_driver.py``.
-The ``webots_ros2_driver`` ROS node will be able to detect it and launch it.
+You now have to create a URDF file to declare the ``my_robot_driver.py`` Python plugin.
+This will allow the ``webots_ros2_driver`` ROS node to launch the plugin.
 
-In ``my_package/resource`` folder create a file named ``my_robot_webots.urdf`` with this code:
+In the ``my_package/resource`` folder create a text file named ``my_robot_webots.urdf`` with this contents:
 
 .. literalinclude:: Code/my_robot_webots.urdf
     :language: xml
 
-With this URDF file Webots will only parse ROS 2 configuration like this plugin but it will not parse link/joint descriptions
-(this can be done with this `tool <https://github.com/cyberbotics/urdf2webots>`_ to convert an URDF file to the native format ``PROTO`` of Webots).
+.. note::
+
+    This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
+    However, URDF files usually contain much more information.
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this task you will modify the setup.py file to include the extra files you added.
-Go to the file ``my_package/setup.py`` and replace the code inside with:
+Now, you have to modify the setup.py file to include the extra files you added.
+Open ``my_package/setup.py`` and replace its contents with:
 
 .. literalinclude:: Code/setup.py
     :language: python
 
-This will declare in the ``data_files`` variable your new extra files like ``my_world.wbt`` or ``my_robot_webots.urdf``.
+This sets-up the package and declare in the ``data_files`` variable the new added files: ``my_world.wbt`` or ``my_robot_webots.urdf``.
 
 7 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
