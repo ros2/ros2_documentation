@@ -19,7 +19,7 @@ Background
 Several robot simulators can be used with ROS 2, such as Gazebo, Ignition, Webots, etc.
 Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
 Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
-In this tutorial, we are going to use Webots to introduce a very simple ROS 2 simulation scenario.
+In this tutorial, we are going to use the Webots robot simulator to introduce a very simple ROS 2 simulation scenario.
 
 The webots_ros2 package provides an interface between ROS 2 and Webots.
 It includes several sub-packages, but in this tutorial, we are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
