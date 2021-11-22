@@ -111,7 +111,7 @@ As you can see, the ``MyRobotDriver`` class implements three methods.
 
 The first one is the counterpart of the ``def __init__(self):`` constructor for a ROS node.
 We first get the robot instance used in the simulation which allows us to access the `Webots robot API <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_).
-Then, we get the two motor instances and initialize them with target position and target velocity values.
+Then, we get the two motor instances and initialize them with a target position and target velocity.
 Finally a ROS node is created to register a callback for a ROS topic named ``/cmd_vel``.
 
 .. literalinclude:: Code/my_robot_driver.py
