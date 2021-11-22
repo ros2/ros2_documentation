@@ -332,13 +332,16 @@ Your robot will go forward and before hitting the wall it will turn clockwise.
 Summary
 -------
 
-In this tutorial, you set up a simulation with Webots, used a custom robot, implemented a Python plugin to control its motors and implemented a ROS node to use its sensors.
+In this tutorial, you:
+1. set-up a realistic robot simulation with Webots,
+2. implemented a Python plugin to control the motors of the robot, and
+3. implemented a ROS node using the sensors to avoid the obstacles.
 
 Next steps
 ----------
 
-You might want to improve the plugin as you will do with a standard ROS node or create new nodes.
-Taking example on those previous tutorials will be a good starting point:
+You might want to improve the plugin or create new nodes to change the behavior of the robot.
+Taking inspiration from these previous tutorials is a good starting point:
 
 * :doc:`../Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python`.
 
