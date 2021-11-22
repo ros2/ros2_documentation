@@ -5,11 +5,13 @@ You have the choice to either [build by yourself](https://github.com/cyberbotics
 
 In case you download the world file, open it in Webots and take a look how the robot is composed. Then you can directly jump to part [Launch the driver node](https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot#launch-the-driver-node).
 
+Be aware: this tutorial has been made in the version R2022a of Webots with axis `Z` up.
+With older versions the positions, rotations and axis for the motors will not be the same.
+
 # Build the robot
 
 ## Create the simulation world in Webots
 
-Simulations in Webots rely on world files containing objects called `nodes` (different from the standard ROS node).
 Before creating a robot you will create the environment in which your robot will evolve.
 First, launch Webots.
 
@@ -19,7 +21,7 @@ A new empty world will be created.
 ![empty_world](./assets/tutorialCreateWebotsRobot/empty_world.png)
 
 Now you will add some light, a background and an arena.
-Press `Ctrl+Shift+A` to add an object or press the `Add` button (the 2nd button of the top toolbar, the `+` icon).
+Press `Ctrl+Shift+A` to add an object or press the `Add` button (the second button of the top toolbar, the `+` icon).
 Then use the search bar, type `TexturedBackground`, click on the corresponding object and then press the `Add` button.
 
 ![add_background](./assets/tutorialCreateWebotsRobot/add_background.png)
@@ -51,16 +53,17 @@ Then expand the new created node (the `Transform` node) and set the translation 
 
 ![transform_up](./assets/tutorialCreateWebotsRobot/transform_up.png)
 
-Add a `Shape` node to `children` of the new node.
-
-Select `appearance` of the `Shape` node and add a `PBRAppearance` node.
-Expand the `PBRAppearance` node, click on `baseColor` and chose a color for the body of your robot, so you will be able to distinguish this part.
-Also set the roughness to 1 and metalness to 0 to have a better visual aspect.
+Add a `Shape` node to `children` of the `Transform` node.
 
 Expand the `Shape` node, select `geometry` and add a `Cylinder` node.
 In the `Cylinder` node set the height to `0.08` and the radius to `0.045`.
 Click on the `Cylinder` node and in the `DEF` field (under the scene tree) type `BODY`.
-This mechanism of Webots will permit you to reuse the parameters of this cylinder later.
+
+This `DEF_USE` mechanism permit you to define the parameters of this cylinder with `DEF` and to reuse these parameters later with `USE`.
+
+Select the `appearance` field of the `Shape` node and add a `PBRAppearance` node.
+Expand the `PBRAppearance` node, click on `baseColor` and chose a color for the body of your robot, so you will be able to distinguish this part.
+Also set the roughness to 1 and metalness to 0 to have a better visual aspect.
 
 You should have the following setup at this point:
 
@@ -68,12 +71,12 @@ You should have the following setup at this point:
 
 To the `boundingObject` field of your robot add a `Transform` node.
 Set also the translation of this `Tranform` to `0 0 0.0415`.
-Inside this new node add to the `children` field the `BODY` node you defined previously (you will find it in the `USE` field).
+Inside this new node add to the `children` field the `BODY` node you defined previously (you will find it in the `USE` list).
 
 ![cylinder_DEF](./assets/tutorialCreateWebotsRobot/cylinder_DEF.png)
 
-Add to your robot a `Physics` node to the corresponding field in order to enable the collision with other objects.
-Then select the field `controller` > `Select...` > `<extern>` to indicate to the simulator that the controller used will be extern to Webots (as you will use a ROS node).
+Add to your robot a `Physics` node to the field `physics` in order to enable the collision with other objects.
+Then, select the field `controller` > `Select...` > `<extern>` to indicate to the simulator that the controller used will be extern to Webots (as you will use a ROS node).
 
 You should end with this setup for the second part of the body of your robot:
 
@@ -81,32 +84,33 @@ You should end with this setup for the second part of the body of your robot:
 
 ### Left wheel of the robot
 
-Now you will add the wheels to your robot.
+Now you will add the wheels to your robot so it can move.
 Let's start with the left one.
 Select `Robot` > `children` and then add a `HingeJoint` node.
 
 ![hinge_joint](./assets/tutorialCreateWebotsRobot/hinge_joint.png)
 
-Then select `jointParameters` and add a `HingeJointParameters` node.
-Select `device`, add a `RotationalMotor` node and then configure the `HingeJointParameters` and `RotationalMotor` nodes like below.
+Next select `jointParameters` and add a `HingeJointParameters` node.
+Select `device`, add a `RotationalMotor` node and configure the `HingeJointParameters` and `RotationalMotor` nodes in the same it is depicated below.
 
 ![left_motor](./assets/tutorialCreateWebotsRobot/left_motor.png)
 
-`axis` will indicate around which axis the wheel should rotate and `anchor` indicates an offset.
-Next select `endPoint`, add a `Solid` node and set it up like here in a similar manner you did for the body of the robot:
+`axis` will indicate around which axis the wheel should rotate and `anchor` indicates an offset between the axis of the wheel and the base of the robot.
+Select `endPoint`, add a `Solid` node and set it up like here in a similar manner you did for the body of the robot:
 
 ![left_wheel_solid](./assets/tutorialCreateWebotsRobot/left_wheel_solid.png)
 
-Then change the name to `left wheel` and add to the `boundingObject` a `WHEEL` node (you will find it again in the `USE` field).
-Add to your robot a `Physics` node to its corresponding field once again in order to enable the collisions.
+Change the name to `left wheel` and add to the `boundingObject` a `WHEEL` node (you will find it again in the `USE` list).
+Add to your `endPoint Solid` a `Physics` node to its field `physics` once again in order to enable the collisions.
 You should end with the following for the `endPoint Solid` node.
 
 ![left_wheel_bounding](./assets/tutorialCreateWebotsRobot/left_wheel_bounding.png)
 
 ### Right wheel of the robot
 
-Creating the second wheel is bit easier as you can use the `DEF-USE` mechanism of Webots.
-Select `Robot` > `children` > `HingeJoint` and then add a `HingeJoint` node.
+Creating the second wheel is easier as you can use the `DEF-USE` mechanism of Webots.
+Select `Robot` > `children` > `HingeJoint` and add a `HingeJoint` node.
+
 You have to select the first `HingeJoint` in order to have the second `HingeJoint` below.
 This will enable to correctly benefit of the `DEF-USE` mechanism as you can only have a `USE` if there is a corresponding `DEF` defined above in the scene tree.
 
@@ -133,7 +137,7 @@ Your robot is now able to move but it will not be able to avoid obstacle.
 
 Let's add some sensors in order to make the robot able to detect front obstacles.
 Start by adding a `DistanceSensor` node in the `children` field of your robot.
-Then configure the sensor as described in the following image in order to correctly place and model the sensor:
+Then, configure the sensor as described in the following image in order to correctly place and model the sensor:
 
 ![Sensor_1_1](./assets/tutorialCreateWebotsRobot/Sensor_1_1.png)
 
@@ -142,7 +146,7 @@ You might need to press `lookupTable` > `Ctrl+Shift+A` in order to add a new lin
 
 ![Sensor_1_2](./assets/tutorialCreateWebotsRobot/Sensor_1_2.png)
 
-Creating the second sensor is straightforward and you can follow this structure:
+Creating the second sensor is straightforward and you can follow this structure (you might copy/paste `ds0 DistanceSensor` and adapt it):
 
 ![Sensor_2](./assets/tutorialCreateWebotsRobot/Sensor_2.png)
 
