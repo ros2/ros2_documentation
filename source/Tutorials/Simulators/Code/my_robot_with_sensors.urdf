@@ -15,7 +15,6 @@
                 <alwaysOn>true</alwaysOn>
             </ros>
         </device>
-
         <plugin type="my_package.my_robot_driver.MyRobotDriver" />
     </webots>
 </robot>
