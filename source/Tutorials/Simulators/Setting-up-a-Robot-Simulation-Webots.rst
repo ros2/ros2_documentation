@@ -255,7 +255,7 @@ Then, in the ``my_robot.urdf`` file, add the following content inside the ``<web
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
-    :lines: 4-18
+    :lines: 4-17
 
 The ROS 2 interface uses the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
 
