@@ -292,7 +292,7 @@ Otherwise, if only the left sensor detects an obstacle, ``command_message`` will
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify these two other files to launch your new node.
-Go to the file ``setup.py`` and replace ``'console_scripts'`` with:
+Edit ``setup.py`` and replace ``'console_scripts'`` with:
 
 .. literalinclude:: Code/setup_sensor.py
     :language: python
