@@ -151,7 +151,7 @@ Outlook
 While the three Executors of rclcpp work well for general in most applications there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order. Here is a summary of some of these issues:
 
 1. Complex and mixed scheduling semantics. Ideally you want well defined scheduling semantics to perform a formal timing analysis.
-2. Callbacks may suffer from priority inversion. Higher priority callbacks may be blocked by lower priority callbacks. 
+2. Callbacks may suffer from priority inversion. Higher priority callbacks may be blocked by lower priority callbacks.
 3. No explicit control over the callbacks execution order
 4. No built-in control over triggering for specific topics.
 
