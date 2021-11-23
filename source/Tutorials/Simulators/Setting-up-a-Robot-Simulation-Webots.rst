@@ -97,7 +97,7 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 3 Prepare the package.xml file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Add the following packages inside the ``<package format="3">`` tag:
+Open the ``package.xml`` file in your favorite editor and add the following packages inside the ``<package format="3">`` tag:
 
 .. literalinclude:: Code/package.xml
     :language: xml
