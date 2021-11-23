@@ -70,7 +70,7 @@ You should end with the following folder structure:
               │   ├── __init__.py
               │   └── my_robot_driver.py
               ├── resource/
-              │   └── my_package/
+              │   └── my_package
               ├── test/
               │   ├── test_copyright.py
               │   ├── test_flake8.py
