@@ -283,13 +283,14 @@ When a measure is received from the left sensor it will be copied to a member fi
     :language: python
     :lines: 19-20
 
-Finally, a message will be sent to the ``/cmd_vel`` topic in case any of the two sensors has detected an obstacle.
+Finally, a message will be sent to the ``/cmd_vel`` topic when the measure of the right sensor is received.
 If the right sensor detects an obstacle, ``command_message`` will make the robot turn clockwise in place.
-Otherwise, if only the left sensor detects an obstacle, ``command_message`` will make the robot move forward, leaning to the right.
+If only the left sensor detects an obstacle, ``command_message`` will make the robot move forward, leaning to the right.
+Otherwise, ``command_message`` will make the robot move forward.
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
-    :lines: 22-37
+    :lines: 22-39
 
 11 Updating setup.py and robot_launch.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,13 +323,6 @@ From a terminal in your ROS 2 workspace run:
             colcon build
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
-
-Then, open a second terminal and run:
-
-.. code-block:: bash
-
-            source install/setup.bash
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
 Your robot will go forward and before hitting the wall it will turn clockwise.
 

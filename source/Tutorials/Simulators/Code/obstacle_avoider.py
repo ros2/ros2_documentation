@@ -24,17 +24,19 @@ class ObstacleAvoider(Node):
 
         command_message = Twist()
 
-        if self.__r_sensor_value < 0.9 * MAX_RANGE:
+        if self.__right_sensor_value < 0.9 * MAX_RANGE:
             command_message.linear.x = 0.0
-            command_message.linear.y = 10.0
+            command_message.linear.y = 1.0
 
-            self.__publisher.publish(command_message)
+        elif self.__left_sensor_value < 0.9 * MAX_RANGE:
+            command_message.linear.x = 1.0
+            command_message.linear.y = 1.0
 
-        elif self.__l_sensor_value < 0.9 * MAX_RANGE:
-            command_message.linear.x = 10.0
-            command_message.linear.y = 10.0
+        else:
+            command_message.linear.x = 1.0
+            command_message.linear.y = 0.0
 
-            self.__publisher.publish(command_message)
+        self.__publisher.publish(command_message)
 
 
 def main(args=None):
