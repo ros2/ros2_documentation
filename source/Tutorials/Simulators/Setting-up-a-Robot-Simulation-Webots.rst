@@ -21,8 +21,8 @@ Unlike turtlesim, they provide fairly realistic results relying on physics-based
 Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
 In this tutorial, you are going to use the Webots robot simulator to set-up and run a very simple ROS 2 simulation scenario.
 
-The webots_ros2 package provides an interface between ROS 2 and Webots.
-It includes several sub-packages, but in this tutorial, you are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
+The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
+It includes several sub-packages, but in this tutorial, you are going to use only the ``webots_ros2_driver`` sub-package to implement a Python plugin controlling a simulated robot.
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
 They are documented in the :doc:`../../Tutorials` page under the Demos section.
 
@@ -31,7 +31,7 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../Tutorials`.
 In particular, :doc:`../Turtlesim/Introducing-Turtlesim`, :doc:`../Topics/Understanding-ROS2-Topics`, :doc:`../Workspace/Creating-A-Workspace`, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Creating-Launch-Files` are particularly relevant.
-Finally, you will need to install webots_ros2 with this command:
+Finally, you will need to install ``webots_ros2`` with this command:
 
 .. code-block:: bash
 
