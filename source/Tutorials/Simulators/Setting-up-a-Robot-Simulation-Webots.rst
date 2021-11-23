@@ -241,6 +241,8 @@ But it will eventually bump into the wall as you order it to move forwards.
 .. image:: Image/Step_26.png
 
 To prevent this, let's use the sensors of the robot to detect the obstacles and avoid them.
+Close the Webots window, this should also shutdown your ROS nodes started from the launcher.
+Close also the topic command with ``Ctrl-C`` in the second terminal.
 
 9 Updating package.xml and my_robot.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
