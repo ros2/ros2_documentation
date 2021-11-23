@@ -159,7 +159,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot_webots
 .. note::
 
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
-    However, URDF files usually contain much more information.
+    However, URDF files usually contain much more information as explained in the URDF tutorials: :doc:`../URDF/URDF-Main`.
 
 6 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
