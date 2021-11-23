@@ -24,7 +24,7 @@ In this tutorial, you are going to use the Webots robot simulator to set-up and 
 The webots_ros2 package provides an interface between ROS 2 and Webots.
 It includes several sub-packages, but in this tutorial, you are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
-They are documented in the :doc:`../../Tutorials` page under the ``Demos`` section.
+They are documented in the :doc:`../../Tutorials` page under the Demos section.
 
 Prerequisites
 -------------
