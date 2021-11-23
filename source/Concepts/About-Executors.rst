@@ -133,9 +133,17 @@ The `examples_rclcpp_cbg_executor package <https://github.com/ros2/examples/tree
 Scheduling semantics
 --------------------
 
-Add text here ...
+If the processing time of the callbacks is shorter than the period with which messages and events occur, the Executor basically processes them in FIFO order.
+However, if the processing time of some callbacks is longer, messages and events will be queued on the lower layers of the stack.
+The wait set mechanism reports only very little information about these queues to the Executor.
+In detail, it only reports whether there are any messages for a certain topic or not.
+The Executor uses this information to process the messages (including services and actions) in a round-robin fashion - but not in FIFO order.
+In addition, it prioritizes all timer events over the messages.
+The following flow diagram visualizes this scheduling semantics.
 
 .. image:: images/executors_scheduling_semantics.png
+
+This semantics was first described in the ECRTS paper by Casini et al., given at the bottom of this page.
 
 Outlook
 -------
