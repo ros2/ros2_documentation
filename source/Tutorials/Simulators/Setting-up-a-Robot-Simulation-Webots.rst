@@ -324,7 +324,7 @@ From a terminal in your ROS 2 workspace run:
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
 
-Your robot will go forward and before hitting the wall it will turn clockwise.
+Your robot should go forward and before hitting the wall it will turn clockwise.
 
 .. image:: Image/Robot_clock_wise.png
 
@@ -337,7 +337,7 @@ Next steps
 ----------
 
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
-Taking inspiration from these previous tutorials is a good starting point:
+Taking inspiration from these previous tutorials could be a starting point:
 
 * :doc:`../Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python`.
 
