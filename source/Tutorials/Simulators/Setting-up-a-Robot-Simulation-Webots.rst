@@ -327,6 +327,7 @@ Then, open a second terminal and run:
 
 .. code-block:: bash
 
+            source install/setup.bash
             ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
 Your robot will go forward and before hitting the wall it will turn clockwise.
