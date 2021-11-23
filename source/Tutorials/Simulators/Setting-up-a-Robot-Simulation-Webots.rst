@@ -19,10 +19,10 @@ Background
 Several robot simulators can be used with ROS 2, such as Gazebo, Ignition, Webots, etc.
 Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
 Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
-In this tutorial, we are going to use the Webots robot simulator to introduce a very simple ROS 2 simulation scenario.
+In this tutorial, you are going to use the Webots robot simulator to set-up and run a very simple ROS 2 simulation scenario.
 
 The webots_ros2 package provides an interface between ROS 2 and Webots.
-It includes several sub-packages, but in this tutorial, we are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
+It includes several sub-packages, but in this tutorial, you are going to use only the webots_ros2_driver sub-package to implement a Python plugin controlling a simulated robot.
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
 They are documented in the :doc:`../../Tutorials` page under the ``Demos`` section.
 
@@ -50,7 +50,7 @@ Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 
         cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
-The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that we will modify later.
+The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
 Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
 .. code-block:: console
@@ -178,8 +178,8 @@ You have to specify in the constructor which world file the simulator will open.
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
-In our case, we need to run a single instance of this node, because we have a single robot in the simulation.
-But if we had more robots in the simulation we would have to run one instance of this node per robot.
+In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
+But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
 .. literalinclude:: Code/robot_launch.py
