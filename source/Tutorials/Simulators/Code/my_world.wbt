@@ -140,4 +140,5 @@ Robot {
   physics Physics {
   }
   controller "<extern>"
+  name "my_robot"
 }
