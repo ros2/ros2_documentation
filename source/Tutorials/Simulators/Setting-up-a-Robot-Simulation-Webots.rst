@@ -145,15 +145,15 @@ Otherwise it will go forward and turn in case ``linear.y`` is not null.
     The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
     However, you could avoid the use of a python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control`` that facilitates the control of a differential wheeled robot, but introduces a new dependency.
 
-5 Create the my_robot_webots.urdf file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+5 Create the my_robot.urdf file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You now have to create a URDF file to declare the ``my_robot_driver.py`` Python plugin.
 This will allow the ``webots_ros2_driver`` ROS node to launch the plugin.
 
-In the ``my_package/resource`` folder create a text file named ``my_robot_webots.urdf`` with this contents:
+In the ``my_package/resource`` folder create a text file named ``my_robot.urdf`` with this contents:
 
-.. literalinclude:: Code/my_robot_webots.urdf
+.. literalinclude:: Code/my_robot.urdf
     :language: xml
 
 .. note::
@@ -203,7 +203,7 @@ Open ``my_package/setup.py`` and replace its contents with:
 .. literalinclude:: Code/setup.py
     :language: python
 
-This sets-up the package and adds in the ``data_files`` variable the newly added files: ``my_world.wbt``, ``my_robot_webots.urdf`` and ``robot_launch.py``.
+This sets-up the package and adds in the ``data_files`` variable the newly added files: ``my_world.wbt``, ``my_robot.urdf`` and ``robot_launch.py``.
 
 8 Test the code
 ^^^^^^^^^^^^^^^
@@ -241,7 +241,7 @@ But it will eventually bump into the wall as you order it to move forwards.
 
 To prevent this, let's use the sensors of the robot to detect the obstacles and avoid them.
 
-9 Updating package.xml and my_robot_webots.urdf
+9 Updating package.xml and my_robot.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's modify these two files to enable the sensors.
@@ -251,9 +251,9 @@ Open ``package.xml`` and add the following content inside the ``<package format=
     :language: xml
     :lines: 11
 
-Then, in the ``my_robot_webots.urdf`` file, add the following content inside the ``<webots>`` tag:
+Then, in the ``my_robot.urdf`` file, add the following content inside the ``<webots>`` tag:
 
-.. literalinclude:: Code/my_robot_webots_sensor.urdf
+.. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
     :lines: 4-18
 
