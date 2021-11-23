@@ -30,7 +30,7 @@ Prerequisites
 -------------
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../Tutorials`.
-In particular, :doc:`../Turtlesim/Introducing-Turtlesim`, :doc:`../Topics/Understanding-ROS2-Topics`, :doc:`../Workspace/Creating-A-Workspace`, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Creating-Launch-Files` are particularly relevant.
+In particular, :doc:`../Turtlesim/Introducing-Turtlesim`, :doc:`../Topics/Understanding-ROS2-Topics`, :doc:`../Workspace/Creating-A-Workspace`, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Creating-Launch-Files` are useful prerequisites.
 Finally, you will need to install ``webots_ros2`` with this command:
 
 .. code-block:: bash
