@@ -143,7 +143,7 @@ The following flow diagram visualizes this scheduling semantics.
 
 .. image:: images/executors_scheduling_semantics.png
 
-This semantics was first described in the ECRTS paper by Casini et al., given at the bottom of this page.
+This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
 
 Outlook
 -------
