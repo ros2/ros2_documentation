@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<robot name="My robot Webots">
+<robot name="My robot">
     <webots>
         <device reference="ds0" type="DistanceSensor">
             <ros>
