@@ -166,7 +166,7 @@ These issues have been partially addressed by the following developments:
 * `rclcpp WaitSet <https://github.com/ros2/rclcpp/blob/master/rclcpp/include/rclcpp/wait_set.hpp>`_: The ``WaitSet`` class of rclcpp allows waiting directly on subscriptions, timers, service servers, action servers, etc. instead of using an Executor.
   It can be used to implement deterministic, user-defined processing sequences, possibly processing multiple messages from different subscriptions together.
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/master/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
-* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Exector from the C Client Library *rclc* developed for micro-ROS gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
+* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc* developed for micro-ROS gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
 
 Further information
