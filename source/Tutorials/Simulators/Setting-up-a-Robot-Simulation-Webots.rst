@@ -49,7 +49,7 @@ Finally, you will need to install ``webots_ros2`` with this command:
       .. code-block:: console
 
         # Install webots_ros2 and dependencies
-        cd \ros2_ws
+        cd \dev_ws
         pip install rosinstall_generator
         rosinstall_generator webots_ros2 --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
         vcs import src < deps.repos
@@ -75,14 +75,14 @@ Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 
 
       .. code-block:: console
 
-        cd ~/ros2_ws/src
+        cd ~/dev_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        cd \ros2_ws\src
+        cd \dev_ws\src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
 The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
