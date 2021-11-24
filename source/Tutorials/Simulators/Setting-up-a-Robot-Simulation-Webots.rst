@@ -33,9 +33,32 @@ It is recommended to understand basic ROS principles covered in the beginner :do
 In particular, :doc:`../Turtlesim/Introducing-Turtlesim`, :doc:`../Topics/Understanding-ROS2-Topics`, :doc:`../Workspace/Creating-A-Workspace`, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Creating-Launch-Files` are useful prerequisites.
 Finally, you will need to install ``webots_ros2`` with this command:
 
-.. code-block:: bash
+.. tabs::
 
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        sudo apt update
         sudo apt-get install ros-{DISTRO}-webots-ros2
+
+   .. group-tab:: Windows
+
+      On Windows you will have to clone ``webots_ros2`` repository and install dependencies in order to use it.
+
+      .. code-block:: console
+
+        # Install webots_ros2 and dependencies
+        cd \ros2_ws
+        pip install rosinstall_generator
+        rosinstall_generator webots_ros2 --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
+        vcs import src < deps.repos
+
+        # Build the packages
+        colcon build
+
+        # Source this workspace
+        call install\local_setup.bat
 
 Tasks
 -----
@@ -46,9 +69,20 @@ Tasks
 Let's organize the code in a custom ROS 2 package.
 Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 workspace.
 
-.. code-block:: console
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
 
         cd ~/ros2_ws/src
+        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        cd \ros2_ws\src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
 
 The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
@@ -210,11 +244,23 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
 From a terminal in your ROS2 workspace run:
 
-.. code-block:: bash
+.. tabs::
 
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        colcon build
+        source install/local_setup.bash
+        ros2 launch my_package robot_launch.py
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        colcon build
+        call install/local_setup.bat
+        ros2 launch my_package robot_launch.py
 
 This will launch the simulation. 
 Webots will be automatically installed on the first run in case it was not already installed.
@@ -226,10 +272,9 @@ Webots will be automatically installed on the first run in case it was not alrea
 
 Then, open a second terminal and send a command with:
 
-.. code-block:: bash
+.. code-block:: console
 
-            source install/setup.bash
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
 Your robot is now moving forward!
 
@@ -318,11 +363,23 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 Repeat the same commands as in tasks ``8`` to test your code.
 From a terminal in your ROS 2 workspace run:
 
-.. code-block:: bash
+.. tabs::
 
-            colcon build
-            source install/local_setup.bash
-            ros2 launch my_package robot_launch.py
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        colcon build
+        source install/local_setup.bash
+        ros2 launch my_package robot_launch.py
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        colcon build
+        call install/local_setup.bat
+        ros2 launch my_package robot_launch.py           
 
 Your robot will go forward and before hitting the wall it will turn clockwise.
 
