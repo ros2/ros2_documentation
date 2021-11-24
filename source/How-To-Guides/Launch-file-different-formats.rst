@@ -259,17 +259,6 @@ or run the file directly by specifying the path to the launch file
 
   ros2 launch <path_to_launch_file>
 
-.. note::
-
-  For packages with launch files, it is a good idea to add an ``exec_depend`` dependency on the ``ros2launch`` package in your package's ``package.xml``:
-
-  .. code-block:: xml
-
-    <exec_depend>ros2launch</exec_depend>
-
-  This helps make sure that the ``ros2 launch`` command is available after building your package.
-  It also ensures that all launch file formats are recognized.
-
 Setting arguments
 ^^^^^^^^^^^^^^^^^
 
