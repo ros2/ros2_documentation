@@ -4,7 +4,7 @@
   <name>my_package</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="user.name@mail.com">name</maintainer>
+  <maintainer email="name@mail.com">name</maintainer>
   <license>TODO: License declaration</license>
 
   <exec_depend>rclpy</exec_depend>
