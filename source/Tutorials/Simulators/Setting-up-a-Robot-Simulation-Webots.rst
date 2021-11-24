@@ -278,12 +278,12 @@ Then, open a second terminal and send a command with:
 
 The robot is now moving forward.
 
-.. image:: Image/Step_25.png
+.. image:: Image/Robot_moving_forward.png
 
 At this point, the robot is able to blindly follow your motor commands.
 But it will eventually bump into the wall as you order it to move forwards.
 
-.. image:: Image/Step_26.png
+.. image:: Image/Robot_colliding_wall.png
 
 To prevent this, let's use the sensors of the robot to detect the obstacles and avoid them.
 Close the Webots window, this should also shutdown your ROS nodes started from the launcher.
