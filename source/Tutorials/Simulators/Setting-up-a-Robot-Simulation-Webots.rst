@@ -271,7 +271,7 @@ Webots will be automatically installed on the first run in case it was not alrea
 Then, open a second terminal and send a command with:
 
 .. code-block:: console
-
+            source install/setup.bash
             ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
 The robot is now moving forward.
