@@ -44,8 +44,6 @@ Finally, you will need to install ``webots_ros2`` with this command:
 
    .. group-tab:: Windows
 
-      On Windows you will have to clone ``webots_ros2`` repository and install dependencies in order to use it.
-
       .. code-block:: console
 
         # Install webots_ros2 and dependencies
