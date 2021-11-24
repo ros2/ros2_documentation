@@ -155,7 +155,7 @@ Here is a summary of some of these issues:
    Ideally you want well defined scheduling semantics to perform a formal timing analysis.
 2. Callbacks may suffer from priority inversion.
    Higher priority callbacks may be blocked by lower priority callbacks.
-3. No explicit control over the callbacks execution order
+3. No explicit control over the callbacks execution order.
 4. No built-in control over triggering for specific topics.
 
 Additionally, the executor overhead in terms of CPU and memory usage is considerable.
