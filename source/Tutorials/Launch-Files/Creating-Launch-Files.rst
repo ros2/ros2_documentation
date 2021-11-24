@@ -210,7 +210,7 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
     <exec_depend>ros2launch</exec_depend>
 
   This helps make sure that the ``ros2 launch`` command is available after building your package.
-  It also ensures that all launch file formats are recognized.
+  It also ensures that all :doc:`launch file formats <../../How-To-Guides/Launch-file-different-formats>` are recognized.
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
