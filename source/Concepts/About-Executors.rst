@@ -48,7 +48,8 @@ The call to ``spin(node)`` basically expands to an instatiation and invokation o
    executor.spin();
 
 By invoking ``spin()`` of the Executor instance, the current thread starts querying the rcl and middleware layers for incoming messages and other events and calls the corresponding callback functions until the node shuts down.
-In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function. (This is a crucial difference to ROS 1.)
+In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function.
+(This is a crucial difference to ROS 1.)
 A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
 
 .. image:: images/executors_basic_principle.png
