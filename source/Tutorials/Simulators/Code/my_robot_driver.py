@@ -4,9 +4,6 @@ from geometry_msgs.msg import Twist
 HALF_DISTANCE_BETWEEN_WHEELS = 0.09 / 2
 WHEEL_RADIUS = 0.025
 
-def clamp(value, value_min, value_max):
-    return min(max(value, value_min), value_max)
-
 class MyRobotDriver:
     def init(self, webots_node, properties):
         self.__robot = webots_node.robot

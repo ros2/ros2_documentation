@@ -156,13 +156,13 @@ Finally a ROS node is created and a callback method is registered for a ROS topi
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
-    :lines: 11-27
+    :lines: 8-24
 
-Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic.
+Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` variable.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
-    :lines: 29-30
+    :lines: 26-27
 
 Finally, the ``step(self)`` method is called at every time step of the simulation.
 The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
@@ -172,7 +172,7 @@ This conversion depends on the structure of the robot, more specifically on the 
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
-    :lines: 32-42
+    :lines: 29-39
 
 .. note::
 
@@ -198,7 +198,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 6 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's create now the launch file to easily launch the simulation and your ROS controller with a single command.
+Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
 In the ``my_package/launch`` folder create a new text file named ``robot_launch.py`` with this code:
 
 .. literalinclude:: Code/robot_launch.py
@@ -274,14 +274,14 @@ Then, open a second terminal and send a command with:
 
 .. code-block:: console
 
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.0}}'
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
 
-The robot is now moving in anticlockwise circles.
+The robot is now moving forward.
 
-.. image:: Image/Robot_anti_clockwise.png
+.. image:: Image/Step_25.png
 
-At this point, the robot is now able to blindly follow your motor commands.
-But it will eventually bump into the wall if you order it to move forwards.
+At this point, the robot is able to blindly follow your motor commands.
+But it will eventually bump into the wall as you order it to move forwards.
 
 .. image:: Image/Step_26.png
 
