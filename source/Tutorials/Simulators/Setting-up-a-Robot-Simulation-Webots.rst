@@ -166,13 +166,13 @@ Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callbac
 
 Finally, the ``step(self)`` method is called at every time step of the simulation.
 The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
-At each time step, if ``self.__target_twist`` is not null, motors commands will be computed and applied.
-If ``linear.x`` is negative, the robot will turn in place.
-Otherwise it will go forward and turn in case ``linear.y`` is not null.
+At each time step, the method will retrieve the desired ``forward_speed`` and ``angular_speed`` from ``self.__target_twist``.
+As the motors are controlled with angular velocities, the method will then convert the ``forward_speed`` and ``angular_speed`` into individual commands for each wheel.
+This conversion depends on the structure of the robot, more specifically on the radius of the wheel and the distance between them.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
-    :lines: 32-53
+    :lines: 32-42
 
 .. note::
 
@@ -274,14 +274,14 @@ Then, open a second terminal and send a command with:
 
 .. code-block:: console
 
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 1.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}'
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.0}}'
 
-Your robot is now moving forward!
+The robot is now moving in anticlockwise circles.
 
-.. image:: Image/Step_25.png
+.. image:: Image/Robot_anti_clockwise.png
 
 At this point, the robot is now able to blindly follow your motor commands.
-But it will eventually bump into the wall as you order it to move forwards.
+But it will eventually bump into the wall if you order it to move forwards.
 
 .. image:: Image/Step_26.png
 
@@ -329,13 +329,12 @@ When a measure is received from the left sensor it will be copied to a member fi
     :lines: 19-20
 
 Finally, a message will be sent to the ``/cmd_vel`` topic when the measure of the right sensor is received.
-If the right sensor detects an obstacle, ``command_message`` will make the robot turn clockwise in place.
-If only the left sensor detects an obstacle, ``command_message`` will make the robot move forward, leaning to the right.
-Otherwise, ``command_message`` will make the robot move forward.
+The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
+If any of the two sensors detect an obstacle, ``command_message`` will also register a rotational speed in ``angular.z`` in order to make the robot turn right.
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
-    :lines: 22-39
+    :lines: 22-32
 
 11 Updating setup.py and robot_launch.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
