@@ -91,7 +91,7 @@ Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
         cd my_package
         mkdir launch worlds
 
-You should end with the following folder structure:
+You should end up with the following folder structure:
 
 .. code-block:: console
 
