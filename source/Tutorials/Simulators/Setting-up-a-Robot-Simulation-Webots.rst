@@ -382,7 +382,7 @@ From a terminal in your ROS 2 workspace run:
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
 
-.. image:: Image/Robot_clock_wise.png
+.. image:: Image/Robot_clockwise.png
 
 Summary
 -------
