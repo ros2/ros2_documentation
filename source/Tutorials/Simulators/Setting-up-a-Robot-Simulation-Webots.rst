@@ -74,16 +74,17 @@ Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 
       .. code-block:: console
 
         cd ~/dev_ws/src
-        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
+        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
         cd \dev_ws\src
-        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package
+        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
 The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
+The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option will specify the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
 Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
 .. code-block:: console
@@ -125,20 +126,18 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 
     In case you want to learn how to create your own robot model in Webots, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
 
-
-3 Prepare the package.xml file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Open the ``package.xml`` file in your favorite editor and add the following packages inside the ``<package format="3">`` tag:
-
-.. literalinclude:: Code/package.xml
-    :language: xml
-    :lines: 10-12
-
-These packages will be needed by the ``my_robot_driver.py`` plugin.
-
-4 Change the my_robot_driver.py file
+3 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+As explain in the ``Background`` section, you will use the ``webots_ros2_driver`` sub-package.
+This sub-package will automatically creates a ROS 2 interface for most sensors.
+You can extend the interface using ``C++`` or ``Python`` plugins and you will do it in this task by changing the ``my_robot_driver.py`` file.
+
+.. note::
+
+    The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
+    However, you could avoid the use of this Python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control``, introducing a new dependency.
+    This other sub-package creates an interface with the ``ros2_control`` package that facilitates the control of a differential wheeled robot.
 
 Open ``my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
 
@@ -172,12 +171,7 @@ This conversion depends on the structure of the robot, more specifically on the 
     :language: python
     :lines: 29-39
 
-.. note::
-
-    The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
-    However, you could avoid the use of a Python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control`` that facilitates the control of a differential wheeled robot, but introduces a new dependency.
-
-5 Create the my_robot.urdf file
+4 Create the my_robot.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You now have to create a URDF file to declare the ``my_robot_driver.py`` Python plugin.
@@ -193,7 +187,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
     However, URDF files usually contain much more information as explained in the :doc:`../URDF/URDF-Main`.
 
-6 Create the launch file
+5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
@@ -219,17 +213,22 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
     :language: python
     :lines: 18-25
 
-Finally, the two nodes are started in such a way that if the ``webots`` launcher node is shutdown, the other ``my_robot_driver`` node will be shutdown as well.
-And closing Webots from the graphical user interface will automatically shutdown the ``webots`` launcher and hence the ``my_robot_driver`` node.
+After that the two nodes are prepared to be launched inside the ``LaunchDescription``:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
-    :lines: 27-36
+    :lines: 27-29
 
-7 Modify the setup.py file
+Finally, an optional part is added in order to shutdown all the nodes once the Webots process dies (e.g. closing Webots from the graphical user interface).
+
+.. literalinclude:: Code/robot_launch.py
+    :language: python
+    :lines: 30-35
+
+6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Finally, before you can start the launch file, you have to modify the `setup.py` file to include the extra files you added.
+Finally, before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
 Open ``my_package/setup.py`` and replace its contents with:
 
 .. literalinclude:: Code/setup.py
@@ -237,7 +236,7 @@ Open ``my_package/setup.py`` and replace its contents with:
 
 This sets-up the package and adds in the ``data_files`` variable the newly added files: ``my_world.wbt``, ``my_robot.urdf`` and ``robot_launch.py``.
 
-8 Test the code
+7 Test the code
 ^^^^^^^^^^^^^^^
 
 From a terminal in your ROS2 workspace run:
@@ -288,7 +287,7 @@ To prevent this, let's use the sensors of the robot to detect the obstacles and 
 Close the Webots window, this should also shutdown your ROS nodes started from the launcher.
 Close also the topic command with ``Ctrl+C`` in the second terminal.
 
-9 Updating package.xml and my_robot.urdf
+8 Updating package.xml and my_robot.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Let's modify these two files to enable the sensors.
@@ -302,12 +301,12 @@ Then, in the ``my_robot.urdf`` file, add the following content inside the ``<web
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
-    :lines: 4-17
+    :lines: 4-15
 
 The ROS 2 interface uses the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
 
-10 Creating a ROS node to avoid obstacles
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+9 Creating a ROS node to avoid obstacles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The robot will use a standard ROS node to detect the wall and send motor commands to avoid it.
 In the ``my_package/my_package/`` folder, create a file named ``obstacle_avoider.py`` with this code:
@@ -335,7 +334,7 @@ If any of the two sensors detect an obstacle, ``command_message`` will also regi
     :language: python
     :lines: 22-32
 
-11 Updating setup.py and robot_launch.py
+10 Updating setup.py and robot_launch.py
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify these two other files to launch your new node.
@@ -355,7 +354,7 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
-12 Test the obstacle avoidance code
+11 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Repeat the same commands as in tasks ``8`` to test your code.
