@@ -175,7 +175,7 @@ This conversion depends on the structure of the robot, more specifically on the 
 .. note::
 
     The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
-    However, you could avoid the use of a python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control`` that facilitates the control of a differential wheeled robot, but introduces a new dependency.
+    However, you could avoid the use of a Python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control`` that facilitates the control of a differential wheeled robot, but introduces a new dependency.
 
 5 Create the my_robot.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -229,7 +229,7 @@ And closing Webots from the graphical user interface will automatically shutdown
 7 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Finally before you can start the launch file, you have to modify the setup.py file to include the extra files you added.
+Finally, before you can start the launch file, you have to modify the `setup.py` file to include the extra files you added.
 Open ``my_package/setup.py`` and replace its contents with:
 
 .. literalinclude:: Code/setup.py
