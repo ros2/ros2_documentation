@@ -151,7 +151,7 @@ As you can see, the ``MyRobotDriver`` class implements three methods.
 
 The first method, named ``init(self, ...)``, is actually the ROS node counterpart of the Python ``__init__(self, ...)`` constructor.
 It first gets the robot instance from the simulation (which can be used to access the `Webots robot API <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_).
-Then, it gets the two motor instances and initialize them with a target position and a target velocity.
+Then, it gets the two motor instances and initializes them with a target position and a target velocity.
 Finally a ROS node is created and a callback method is registered for a ROS topic named ``/cmd_vel`` that will handle ``Twist`` messages.
 
 .. literalinclude:: Code/my_robot_driver.py
@@ -381,7 +381,7 @@ From a terminal in your ROS 2 workspace run:
         call install/local_setup.bat
         ros2 launch my_package robot_launch.py           
 
-Your robot will go forward and before hitting the wall it will turn clockwise.
+Your robot should go forward and before hitting the wall it should turn clockwise.
 
 .. image:: Image/Robot_clock_wise.png
 
@@ -394,7 +394,7 @@ Next steps
 ----------
 
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
-Taking inspiration from these previous tutorials is a good starting point:
+Taking inspiration from these previous tutorials could be a starting point:
 
 * :doc:`../Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python`.
 
