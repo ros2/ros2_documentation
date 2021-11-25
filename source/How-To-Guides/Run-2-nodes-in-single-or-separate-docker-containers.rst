@@ -10,18 +10,18 @@ Running ROS 2 nodes in Docker [community-contributed]
 Run two nodes in a single docker container
 ------------------------------------------
 
-Pull the ROS docker image with tag "${DISTRO}-desktop".
+Pull the ROS docker image with tag "{DISTRO}-desktop".
 
 .. code-block:: bash
 
-   docker pull osrf/ros:${DISTRO}-desktop
+   docker pull osrf/ros:{DISTRO}-desktop
 
 
 Run the image in a container in interactive mode.
 
 .. code-block:: bash
 
-   $ docker run -it osrf/ros:${DISTRO}-desktop
+   $ docker run -it osrf/ros:{DISTRO}-desktop
    root@<container-id>:/#
 
 
@@ -62,13 +62,13 @@ Open a terminal. Run the image in a container in interactive mode and launch a t
 
 .. code-block:: bash
 
-   docker run -it --rm osrf/ros:${DISTRO}-desktop ros2 run demo_nodes_cpp talker
+   docker run -it --rm osrf/ros:{DISTRO}-desktop ros2 run demo_nodes_cpp talker
 
 Open a second terminal. Run the image in a container in interactive mode and launch a topic subscriber (executable ``listener`` from the package ``demo_nodes_cpp``)  with ``ros2 run``:
 
 .. code-block:: bash
 
-   docker run -it --rm osrf/ros:${DISTRO}-desktop ros2 run demo_nodes_cpp listener
+   docker run -it --rm osrf/ros:{DISTRO}-desktop ros2 run demo_nodes_cpp listener
 
 As an alternative to the command line invocation, you can create a ``docker-compose.yml`` file (here version 2) with the following (minimal) content:
 
@@ -78,10 +78,10 @@ As an alternative to the command line invocation, you can create a ``docker-comp
 
    services:
      talker:
-       image: osrf/ros:${DISTRO}-desktop
+       image: osrf/ros:{DISTRO}-desktop
        command: ros2 run demo_nodes_cpp talker
      listener:
-       image: osrf/ros:${DISTRO}-desktop
+       image: osrf/ros:{DISTRO}-desktop
        command: ros2 run demo_nodes_cpp listener
        depends_on:
          - talker
