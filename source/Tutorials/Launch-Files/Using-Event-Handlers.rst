@@ -115,7 +115,7 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``/lau
                 '/sim background_r ',
                 new_background_r
             ]],
-            shell=True,
+            shell=True
         )
 
         return LaunchDescription([
