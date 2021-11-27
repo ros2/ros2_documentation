@@ -103,8 +103,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
     from launch import LaunchDescription
     from launch.actions import DeclareLaunchArgument, ExecuteProcess, TimerAction
     from launch.conditions import IfCondition
-    from launch.substitutions import (LaunchConfiguration, PythonExpression,
-                                      TextSubstitution)
+    from launch.substitutions import LaunchConfiguration, PythonExpression
 
 
     def generate_launch_description():
@@ -114,11 +113,11 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
 
         turtlesim_ns_launch_arg = DeclareLaunchArgument(
             'turtlesim_ns',
-            default_value=TextSubstitution(text='turtlesim1')
+            default_value='turtlesim1'
         )
         use_provided_red_launch_arg = DeclareLaunchArgument(
             'use_provided_red',
-            default_value=TextSubstitution(text='False')
+            default_value='False'
         )
         new_background_r_launch_arg = DeclareLaunchArgument(
             'new_background_r',
@@ -186,7 +185,6 @@ They are used to store values of launch arguments in the above variables and to 
 These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 
 ``DeclareLaunchArgument`` is used to define the launch argument that can be passed from the above launch file or from the console.
-Default values of launch arguments are defined using ``TextSubstitution``.
 
 .. code-block:: python
 
@@ -196,11 +194,11 @@ Default values of launch arguments are defined using ``TextSubstitution``.
 
     turtlesim_ns_launch_arg = DeclareLaunchArgument(
         'turtlesim_ns',
-        default_value=TextSubstitution(text='turtlesim1')
+        default_value='turtlesim1'
     )
     use_provided_red_launch_arg = DeclareLaunchArgument(
         'use_provided_red',
-        default_value=TextSubstitution(text='False')
+        default_value='False'
     )
     new_background_r_launch_arg = DeclareLaunchArgument(
         'new_background_r',

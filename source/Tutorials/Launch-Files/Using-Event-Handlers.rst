@@ -47,11 +47,11 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``/lau
                                 LogInfo, RegisterEventHandler, TimerAction)
     from launch.conditions import IfCondition
     from launch.event_handlers import (OnExecutionComplete, OnProcessExit,
-                                        OnProcessIO, OnProcessStart, OnShutdown)
+                                    OnProcessIO, OnProcessStart, OnShutdown)
     from launch.events import Shutdown
     from launch.substitutions import (EnvironmentVariable, FindExecutable,
-                                        LaunchConfiguration, LocalSubstitution,
-                                        PythonExpression, TextSubstitution)
+                                    LaunchConfiguration, LocalSubstitution,
+                                    PythonExpression)
 
 
     def generate_launch_description():
@@ -61,15 +61,15 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``/lau
 
         turtlesim_ns_launch_arg = DeclareLaunchArgument(
             'turtlesim_ns',
-            default_value=TextSubstitution(text='turtlesim1')
+            default_value='turtlesim1'
         )
         use_provided_red_launch_arg = DeclareLaunchArgument(
             'use_provided_red',
-            default_value=TextSubstitution(text='False')
+            default_value='False'
         )
         new_background_r_launch_arg = DeclareLaunchArgument(
             'new_background_r',
-            default_value=TextSubstitution(text='200')
+            default_value='200'
         )
 
         turtlesim_node = Node(
@@ -103,8 +103,7 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``/lau
             condition=IfCondition(
                 PythonExpression([
                     new_background_r,
-                    ' == ',
-                    TextSubstitution(text=str(200)),
+                    ' == 200',
                     ' and ',
                     use_provided_red
                 ])
@@ -116,7 +115,7 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``/lau
                 '/sim background_r ',
                 new_background_r
             ]],
-            shell=True
+            shell=True,
         )
 
         return LaunchDescription([
