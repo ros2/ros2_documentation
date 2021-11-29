@@ -291,17 +291,11 @@ To prevent this, let's use the sensors of the robot to detect the obstacles and 
 Close the Webots window, this should also shutdown your ROS nodes started from the launcher.
 Close also the topic command with ``Ctrl+C`` in the second terminal.
 
-8 Updating package.xml and my_robot.urdf
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+8 Updating my_robot.urdf
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's modify these two files to enable the sensors.
-Open ``package.xml`` and add the following content inside the ``<package format="3">`` tag:
-
-.. literalinclude:: Code/package_sensor.xml
-    :language: xml
-    :lines: 11
-
-Then, in the ``my_robot.urdf`` file, add the following content inside the ``<webots>`` tag:
+You have to modify the URDF file in order to enable the sensors.
+In ``my_robot.urdf`` add the following content inside the ``<webots>`` tag:
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
