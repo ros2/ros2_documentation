@@ -208,7 +208,7 @@ You have to specify in the constructor which world file the simulator will open.
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
-The node will be able to communicate with the robot by using a custom protocol based on IPC and shared memory.
+The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
