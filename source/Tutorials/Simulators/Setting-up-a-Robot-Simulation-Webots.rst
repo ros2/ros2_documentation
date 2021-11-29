@@ -133,9 +133,8 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 3 Change the my_robot_driver.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As explain in the ``Background`` section, you will use the ``webots_ros2_driver`` sub-package.
-This sub-package will automatically creates a ROS 2 interface for most sensors.
-You can extend the interface using ``C++`` or ``Python`` plugins and you will do it in this task by changing the ``my_robot_driver.py`` file.
+The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 interface for most sensors.
+In this task, you will extend this interface by changing the ``my_robot_driver.py`` file.
 
 .. note::
 
