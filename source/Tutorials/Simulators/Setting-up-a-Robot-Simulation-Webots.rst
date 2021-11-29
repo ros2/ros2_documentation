@@ -217,13 +217,13 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
     :language: python
     :lines: 18-25
 
-After that the two nodes are prepared to be launched inside the ``LaunchDescription``:
+After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :lines: 27-29
 
-Finally, an optional part is added in order to shutdown all the nodes once the Webots process dies (e.g. closing Webots from the graphical user interface).
+Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
