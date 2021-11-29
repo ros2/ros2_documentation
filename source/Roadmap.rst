@@ -55,6 +55,18 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Large
      - AWS / Foxglove
      - Q1 2022
+   * - Multi-threaded Executor for rclc
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Configurable Executor thread priorities for rclcpp
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Various small improvements to Diagnostics
+     - Small
+     - Bosch
+     - 1st quarter 2022
    * - Performance improvements: Implement events executor in rclcpp
      - Large
      - iRobot
@@ -119,18 +131,6 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Small
      - Sony
      - 4th quarter 2021
-   * - Multi-threaded Executor for rclc
-     - Medium
-     - Bosch
-     - 1st quarter 2022
-   * - Configurable Executor thread priorities for rclcpp
-     - Medium
-     - Bosch
-     - 1st quarter 2022
-   * - Various small improvements to Diagnostics
-     - Small
-     - Bosch
-     - 1st quarter 2022
 
 
 Additional project-specific roadmaps can be found in the links below:
