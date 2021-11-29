@@ -95,7 +95,7 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
       <tbody>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ADLINK Technology: Joe Speed</p></td>
+          <td class="tscclass" align="center"><p>ADLINK Technology: Angelo Corsaro</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="_images/amazon.svg" style="height: 35px;" /></a></p></td>
