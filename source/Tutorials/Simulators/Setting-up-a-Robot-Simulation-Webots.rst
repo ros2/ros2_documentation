@@ -40,7 +40,7 @@ Finally, you will need to install ``webots_ros2_driver`` with this command:
       .. code-block:: console
 
         sudo apt update
-        sudo apt-get install ros-{DISTRO}-webots-ros2-driver
+        sudo apt install ros-{DISTRO}-webots-ros2-driver
 
    .. group-tab:: Windows
 
@@ -142,7 +142,7 @@ In this task, you will extend this interface by changing the ``my_robot_driver.p
     However, you could avoid the use of this Python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control``, introducing a new dependency.
     This other sub-package creates an interface with the ``ros2_control`` package that facilitates the control of a differential wheeled robot.
 
-Open ``my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
+Open ``my_package/my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
@@ -355,7 +355,7 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 11 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Repeat the same commands as in tasks ``8`` to test your code.
+Repeat the same first commands as in task ``7`` to launch the simulation.
 From a terminal in your ROS 2 workspace run:
 
 .. tabs::
@@ -376,7 +376,8 @@ From a terminal in your ROS 2 workspace run:
         call install/local_setup.bat
         ros2 launch my_package robot_launch.py           
 
-Your robot should go forward and before hitting the wall it should turn clockwise. You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.
+Your robot should go forward and before hitting the wall it should turn clockwise.
+You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.
 
 .. image:: Image/Robot_turning_clockwise.png
 
