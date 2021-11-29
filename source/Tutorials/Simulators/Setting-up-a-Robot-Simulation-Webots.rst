@@ -31,7 +31,7 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../Tutorials`.
 In particular, :doc:`../Turtlesim/Introducing-Turtlesim`, :doc:`../Topics/Understanding-ROS2-Topics`, :doc:`../Workspace/Creating-A-Workspace`, :doc:`../Creating-Your-First-ROS2-Package` and :doc:`../Launch-Files/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2`` with this command:
+Finally, you will need to install ``webots_ros2_driver`` with this command:
 
 .. tabs::
 
@@ -40,16 +40,16 @@ Finally, you will need to install ``webots_ros2`` with this command:
       .. code-block:: console
 
         sudo apt update
-        sudo apt-get install ros-{DISTRO}-webots-ros2
+        sudo apt-get install ros-{DISTRO}-webots-ros2-driver
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-        # Install webots_ros2 and dependencies
+        # Install webots_ros2_driver and dependencies
         cd \dev_ws
         pip install rosinstall_generator
-        rosinstall_generator webots_ros2 --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
+        rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
         vcs import src < deps.repos
 
         # Build the packages
@@ -57,6 +57,10 @@ Finally, you will need to install ``webots_ros2`` with this command:
 
         # Source this workspace
         call install\local_setup.bat
+
+.. note::
+
+    If you want to install the whole ``webots_ros2`` package, you can follow this `link <https://github.com/cyberbotics/webots_ros2/wiki/Getting-Started`_.
 
 Tasks
 -----
@@ -205,6 +209,7 @@ You have to specify in the constructor which world file the simulator will open.
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
+The node will be able to communicate with the robot by using a custom protocol based on IPC and shared memory.
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
