@@ -88,7 +88,7 @@ Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
 The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
-The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option will specify the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
+The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option specifies the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
 Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
 .. code-block:: console
