@@ -60,7 +60,7 @@ Finally, you will need to install ``webots_ros2_driver`` with this command:
 
 .. note::
 
-    If you want to install the whole ``webots_ros2`` package, you can follow this `link <https://github.com/cyberbotics/webots_ros2/wiki/Getting-Started`_.
+    If you want to install the whole ``webots_ros2`` package, follow these `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Getting-Started`_.
 
 Tasks
 -----
