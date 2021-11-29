@@ -20,7 +20,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (20 as of 2021-09-13):
+The current members of the ROS 2 TSC are (22 as of 2021-11-29):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -38,7 +38,6 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
 .. |robotis| image:: Governance/robotis.png
 .. |ros2| image:: Governance/ros2_logo.png
 .. |rosindustrial| image:: Governance/ros-industrial.png
-.. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
 .. |sony| image:: Governance/sony.png
 .. |tri| image:: Governance/tri_logo_landscape-web.svg
@@ -153,10 +152,6 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Rover Robotics: Nick Fragale</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="_images/samsung.svg" style="height: 25px;" /></a></p></td>
