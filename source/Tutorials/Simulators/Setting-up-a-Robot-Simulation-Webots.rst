@@ -156,12 +156,14 @@ Finally a ROS node is created and a callback method is registered for a ROS topi
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
+    :dedent: 4
     :lines: 8-24
 
 Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` member variable.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
+    :dedent: 4
     :lines: 26-27
 
 Finally, the ``step(self)`` method is called at every time step of the simulation.
@@ -172,6 +174,7 @@ This conversion depends on the structure of the robot, more specifically on the 
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
+    :dedent: 4
     :lines: 29-39
 
 4 Create the my_robot.urdf file
@@ -204,6 +207,7 @@ You have to specify in the constructor which world file the simulator will open.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
+    :dedent: 4
     :lines: 14-16
 
 Then, the ROS node interacting with the simulated robot is created.
@@ -215,18 +219,21 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
+    :dedent: 4
     :lines: 18-25
 
 After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
+    :dedent: 4
     :lines: 27-29
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
+    :dedent: 8
     :lines: 30-35
 
 6 Modify the setup.py file
@@ -260,7 +267,7 @@ From a terminal in your ROS2 workspace run:
       .. code-block:: console
 
         colcon build
-        call install/local_setup.bat
+        call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
 This will launch the simulation. 
@@ -299,6 +306,7 @@ In ``my_robot.urdf`` add the following content inside the ``<webots>`` tag:
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
+    :dedent: 8
     :lines: 4-15
 
 The ROS 2 interface uses the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
@@ -316,12 +324,14 @@ This node will create a publisher for the command and subscribe to the sensors t
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
+    :dedent: 8
     :lines: 14-17
 
 When a measure is received from the left sensor it will be copied to a member field:
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
+    :dedent: 4
     :lines: 19-20
 
 Finally, a message will be sent to the ``/cmd_vel`` topic when the measure of the right sensor is received.
@@ -330,6 +340,7 @@ If any of the two sensors detect an obstacle, ``command_message`` will also regi
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
+    :dedent: 4
     :lines: 22-32
 
 10 Updating setup.py and robot_launch.py
@@ -340,6 +351,7 @@ Edit ``setup.py`` and replace ``'console_scripts'`` with:
 
 .. literalinclude:: Code/setup_sensor.py
     :language: python
+    :dedent: 8
     :lines: 24-26
 
 This will add an entry point for the ``obstacle_avoider`` node.
@@ -358,6 +370,8 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 Repeat the same first commands as in task ``7`` to launch the simulation.
 From a terminal in your ROS 2 workspace run:
 
+As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
+
 .. tabs::
 
    .. group-tab:: Linux
@@ -373,7 +387,7 @@ From a terminal in your ROS 2 workspace run:
       .. code-block:: console
 
         colcon build
-        call install/local_setup.bat
+        call install\local_setup.bat
         ros2 launch my_package robot_launch.py           
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
