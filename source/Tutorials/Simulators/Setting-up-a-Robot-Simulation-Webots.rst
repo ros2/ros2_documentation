@@ -237,7 +237,7 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
     :lines: 30-35
 
 6 Modify the setup.py file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Finally, before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
 Open ``my_package/setup.py`` and replace its contents with:
@@ -282,7 +282,7 @@ Then, open a second terminal and send a command with:
 
 .. code-block:: console
 
-            ros2 topic pub /cmd_vel geometry_msgs/Twist  "linear: { x: -0.1 }"
+            ros2 topic pub /cmd_vel geometry_msgs/Twist  "linear: { x: 0.1 }"
 
 The robot is now moving forward.
 
@@ -301,7 +301,7 @@ Close also the topic command with ``Ctrl+C`` in the second terminal.
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify the URDF file in order to enable the sensors.
-In ``my_robot.urdf`` add the following content inside the ``<webots>`` tag:
+In ``my_robot.urdf`` add the following content inside the ``<webots>`` tag beside the already existing ``<plugin>`` tag:
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
@@ -365,9 +365,6 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 
 11 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Repeat the same first commands as in task ``7`` to launch the simulation.
-From a terminal in your ROS 2 workspace run:
 
 As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
