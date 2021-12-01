@@ -270,7 +270,7 @@ From a terminal in your ROS2 workspace run:
         call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
-This will launch the simulation. 
+This will launch the simulation.
 Webots will be automatically installed on the first run in case it was not already installed.
 
 .. note::
@@ -384,7 +384,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
         colcon build
         call install\local_setup.bat
-        ros2 launch my_package robot_launch.py           
+        ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
 You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.
