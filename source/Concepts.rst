@@ -15,6 +15,7 @@ Conceptual overviews provide relatively high-level, general background informati
    Concepts/About-ROS-2-Client-Libraries
    Concepts/About-ROS-Interfaces
    Concepts/About-ROS-2-Parameters
+   Concepts/About-Executors
    Concepts/About-Topic-Statistics
    Concepts/About-Command-Line-Tools
    Concepts/About-RQt
