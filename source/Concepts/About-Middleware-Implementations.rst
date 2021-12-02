@@ -31,7 +31,7 @@ A ROS middleware implementation is typically made up of a few |packages| in a si
 
 The ``<implementation_name>_cmake_module`` |package| contains any CMake Modules and functions needed to find the supporting dependencies for the middleware implementation.
 For example, ``rti_connext_dds_cmake_module`` provides wrapper logic around the CMake Module shipped with RTI Connext DDS to make sure that all packages that depend on it will select the same installation of RTI Connext DDS.
-Similarly, ``fastrtps_cmake_module`` includes a CMake Module to find eProsima's Fast DDS.
+Similarly, ``fastrtps_cmake_module`` includes a CMake Module to find eProsima's Fast DDS and ``gurumdds_cmake_module`` includes a CMake Module to find GurumNetwork's Gurum DDS.
 Not all implementations will have a package like this: for example, Eclipe's Cyclone DDS already provides a CMake Module which is used directly by its RMW implementation without the need of additional wrappers.
 
 The ``rmw_<implementation_name>_<language>`` |package| implements the ``rmw`` C |API| in a particular language.
@@ -52,6 +52,7 @@ The rmw implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cp
 
 The rmw implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 
+The rmw implementation for ``Gurum DDS`` is on |GitHub|_ at `ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_.
 
 To learn more about what is required to create a new middleware implementation for ROS see this page:
 
