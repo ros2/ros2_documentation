@@ -181,7 +181,7 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative:  <a href="https://www.linkedin.com/in/brett-aldrich-42915b97/">Brett Aldrich </a></p></td>
         </tr>
-        </tbody>
+      </tbody>
     </table>
     <br/>
 
