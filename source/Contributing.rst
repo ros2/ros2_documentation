@@ -43,7 +43,7 @@ Discussions and support
 -----------------------
 
 Some of the easiest ways to contribute to ROS 2 involve engaging in community discussions and support.
-You can find more information on how to pitch in on the :ref:`Contact <Help>` page.
+You can find more information on how to pitch in on the :doc:`Contact <Contact>` page.
 
 Contributing code
 -----------------
@@ -51,7 +51,7 @@ Contributing code
 Setting up your development environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get started, you'll want to install from source; follow `the source installation instructions <building-from-source>` for your platform.
+To get started, you'll want to install from source; follow :ref:`the source installation instructions <building-from-source>` for your platform.
 
 Development Guides
 ^^^^^^^^^^^^^^^^^^
@@ -66,6 +66,7 @@ Development Guides
    Contributing/Migration-Guide
    Contributing/Build-Farms
    Contributing/Windows-Tips-and-Tricks
+   Contributing/Contributing-To-ROS-2-Documentation
 
 What to work on
 ^^^^^^^^^^^^^^^
@@ -86,9 +87,9 @@ Submitting your code changes
 
 Code contributions should be made via pull requests to `the appropriate ros2 repositories <https://github.com/ros2>`__.
 
-We ask all contributors to follow the practices explained in `the developer guide <Contributing/Developer-Guide>`.
+We ask all contributors to follow the practices explained in :doc:`the developer guide <Contributing/Developer-Guide>`.
 
-Please be sure to `run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
+Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
 
 Becoming a core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^

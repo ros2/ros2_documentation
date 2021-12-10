@@ -27,11 +27,11 @@ Running a single launch file with the ``ros2 launch`` command will start up your
 Prerequisites
 -------------
 
-This tutorial uses the :ref:`rqt_graph and turtlesim <Turtlesim>` packages.
+This tutorial uses the :doc:`rqt_graph and turtlesim <../Turtlesim/Introducing-Turtlesim>` packages.
 
 You will also need to use a text editor of your preference.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -199,7 +199,18 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
 
       ros2 launch <package_name> <launch_file_name>
 
-  You will learn more about :ref:`creating packages <CreatePkg>` in a later tutorial.
+  You will learn more about :doc:`creating packages <../Creating-Your-First-ROS2-Package>` in a later tutorial.
+
+.. note::
+
+  For packages with launch files, it is a good idea to add an ``exec_depend`` dependency on the ``ros2launch`` package in your package's ``package.xml``:
+
+  .. code-block:: xml
+
+    <exec_depend>ros2launch</exec_depend>
+
+  This helps make sure that the ``ros2 launch`` command is available after building your package.
+  It also ensures that all :doc:`launch file formats <../../How-To-Guides/Launch-file-different-formats>` are recognized.
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
@@ -250,4 +261,4 @@ Next steps
   You can also use XML and YAML to create launch files.
   You can see a comparison of these different ROS 2 launch formats in :doc:`../../How-To-Guides/Launch-file-different-formats`.
 
-In the next tutorial, :ref:`ROS2Bag`, you'll learn about another helpful tool, ``ros2bag``.
+In the next tutorial, :doc:`../Ros2bag/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.

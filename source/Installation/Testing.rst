@@ -6,7 +6,7 @@ Alternative Installation Sources for Testing
 ============================================
 
 Many ROS packages are provided as pre-built binaries.
-Usually, you will get the released version of binaries when following :ref:`InstallationGuide`.
+Usually, you will get the released version of binaries when following :doc:`../Installation`.
 There are also pre-released versions of binaries that are useful for testing before making an official release.
 This article describes several options if you would like to try out pre-released versions of ROS binaries.
 
@@ -21,7 +21,7 @@ Approximately every two weeks, the rosdistro's release manager manually synchron
 
 For Debian-based operating systems, you can install binary packages from the **ros-testing** repository.
 
-1. Make sure you have a working ROS 2 installation from Debian packages (see :ref:`InstallationGuide`).
+1. Make sure you have a working ROS 2 installation from Debian packages (see :doc:`../Installation`).
 
 2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2-latest.list`` and change ``ros2`` with ``ros2-testing``.
    For example, on Ubuntu Focal the contents should look like the following:
@@ -71,7 +71,7 @@ Fat binaries
 For core packages, we run nightly packaging jobs for Ubuntu Linux, macOS, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the `latest development setup <Latest-Development-Setup>` for your platform.
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Latest-Development-Setup>` for your platform.
 
 2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
 

@@ -21,8 +21,8 @@ The review is looking for:
 * Correct code
 * Conforms to developer guidelines:
 
-    * `Developer Guide <../Contributing/Developer-Guide>`
-    * `Code Style Guide <../Contributing/Code-Style-Language-Versions>`
+    * :doc:`Developer Guide <../Contributing/Developer-Guide>`
+    * :doc:`Code Style Guide <../Contributing/Code-Style-Language-Versions>`
 
 * Adds tests for the bug/feature
 * Adds documentation for new features
@@ -178,6 +178,6 @@ Getting help
 
 While doing maintenance on a package, questions about general procedures or individual issues may come up.
 
-For general questions, please follow the `contributing guidelines <../Contributing>`.
+For general questions, please follow the :doc:`contributing guidelines <../Contributing>`.
 
 For questions on individual issues, please tag the ROS 2 GitHub team (@ros/team), and someone on the team will take a look.

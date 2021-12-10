@@ -6,12 +6,12 @@ ament_cmake_python user documentation
 =====================================
 
 ``ament_cmake_python`` is a package that provides CMake functions for packages of the ``ament_cmake`` build type that contain Python code.
-See the `ament_cmake user documentation <Ament-CMake-Documentation>`__ for more information.
+See the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for more information.
 
 .. note::
 
    Pure Python packages should use the ``ament_python`` build type in most cases.
-   To create an ``ament_python`` package, see `Creating your first ROS 2 package <../Tutorials/Creating-Your-First-ROS2-Package>`__.
+   To create an ``ament_python`` package, see :doc:`Creating your first ROS 2 package <../Tutorials/Creating-Your-First-ROS2-Package>`.
    ``ament_cmake_python`` should only be used in cases where that is not possible, like when mixing C/C++ and Python code.
 
 .. contents:: Table of Contents

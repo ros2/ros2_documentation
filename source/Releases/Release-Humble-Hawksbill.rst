@@ -163,7 +163,7 @@ Support Type Adaption for Publishers and Subscriptions
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
 After defining a type adapter, custom data structures can be used directly by publishers and subscribers, which helps to avoid additional work for the programmer and potential sources of errors.
-This is especially useful when working with complex data types, such as when converting OpenCV's ``cv::Map`` to ROS's ``sensor_msgs/msg/Image`` type.
+This is especially useful when working with complex data types, such as when converting OpenCV's ``cv::Mat`` to ROS's ``sensor_msgs/msg/Image`` type.
 
 Here is an example of a type adapter that converts ``std_msgs::msg::String`` to ``std::string``:
 
@@ -225,6 +225,22 @@ For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 ``for_each_callback_group()`` accepts a function as an argument, iterates over the stored callback groups, and calls the passed function to ones that are valid.
 
 For more details, please refer to this `pull request <https://github.com/ros2/rclcpp/pull/1723>`_.
+
+``add_to_wait_set`` method from ``Waitable`` class changes its return type from ``bool`` to ``void``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Before, classes derived from ``Waitable`` overriding ``add_to_wait_set`` were returning false when failing to add elements to the wait set, so the caller had to check this return value and throw or handle the error.
+This error handling should now be done directly on ``add_to_wait_set`` method, throwing if necessary.
+It is not required to return anything if no errors happened.
+Thus, this is a breaking change for downstream uses of ``Waitable``.
+
+See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
+
+``get_notify_guard_condition`` method return type from ``NodeBaseInterface`` class changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Now ``rclcpp`` uses the ``GuardCondition`` class wrapper around ``rcl_guard_condition_t``, so ``get_notify_guard_condition`` returns a reference to the node's ``rclcpp::GuardCondition``.
+Thus, this is a breaking change for downstream uses of ``NodeBaseInterface`` and ``NodeBase``.
+
+See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
 
 ros2cli
 ^^^^^^^
@@ -320,6 +336,17 @@ To change just the translation x, the command-line would be: ``ros2 run tf2_ros 
 The old-style arguments are still allowed in this release, but are deprecated and will print a warning.
 They will be removed in future releases.
 See https://github.com/ros2/geometry2/pull/392 for more details.
+
+Transform listener spin thread no longer executes node callbacks
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+``tf2_ros::TransformListener`` no longer spins on the provided node object.
+Instead, it creates a callback group to execute callbacks on the entities it creates internally.
+This means if you have set the parameter ``spin_thread=true`` when creating a transform listener, you
+can no longer depend on your own callbacks to be executed.
+You must call a ``spin`` function on your node (e.g. ``rclcpp::spin``), or add your node to your own executor.
+
+Related pull request: `geometry2#442 <https://github.com/ros2/geometry2/pull/442>`_
 
 Known Issues
 ------------

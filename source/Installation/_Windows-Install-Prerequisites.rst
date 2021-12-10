@@ -39,7 +39,9 @@ Run the installer with default parameters, as the following commands assume you 
 
 This command sets an environment variable that persists over sessions:
 
-* ``setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"``
+.. code-block:: bash
+
+   setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
@@ -54,9 +56,8 @@ Install Visual Studio 2019.
 
 If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
 
-Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2:
-
-   https://visualstudio.microsoft.com/downloads/
+Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2.
+`You can download the installer directly through this link. <https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_
 
 Make sure that the Visual C++ features are installed.
 
@@ -69,7 +70,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Install OpenCV
 ^^^^^^^^^^^^^^

@@ -29,10 +29,10 @@ It's also possible to have several layers of underlays and overlays, with each s
 Prerequisites
 -------------
 
-* :ref:`ROS 2 installation <InstallationGuide>`
-* :ref:`colcon installation <Colcon>`
+* :doc:`ROS 2 installation <../../Installation>`
+* :doc:`colcon installation <../Colcon-Tutorial>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
-* :ref:`turtlesim installation <Turtlesim>`
+* :doc:`turtlesim installation <../Turtlesim/Introducing-Turtlesim>`
 * Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 * Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
@@ -70,7 +70,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
         call C:\dev\ros2\local_setup.bat
 
-Consult the :ref:`installation guide <InstallationGuide>` you followed if these commands don’t work for you.
+Consult the :doc:`installation guide <../../Installation>` you followed if these commands don’t work for you.
 
 .. _new-directory:
 
@@ -130,39 +130,7 @@ In the ``dev_ws/src`` directory, run the following command for the distro you're
 
   git clone https://github.com/ros/ros_tutorials.git -b {DISTRO}-devel
 
-Now ``ros_tutorials`` is cloned in your workspace.
-If you view the contents of ``dev_ws/src`` now, you will see the new ``ros_tutorials`` directory.
-
-To see the packages inside ``ros_tutorials``, enter the command:
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        ls ros_tutorials
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        ls ros_tutorials
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        dir ros_tutorials
-
-
-Which will list the contents of the repo you just cloned, like so:
-
-.. code-block:: console
-
-    roscpp_tutorials  rospy_tutorials  ros_tutorials  turtlesim
-
-The first three packages are being ignored; ``turtlesim`` is the only actual ROS 2 package in this repo.
+Now ``ros_tutorials`` is cloned in your workspace.  The ``ros_tutorials`` repository contains the ``turtlesim`` package, which we'll use in the rest of this tutorial.  The other packages in this repository are not built because they contain a ``COLCON_IGNORE`` file.
 
 Now you have populated your workspace with a sample package, but it isn’t a fully-functional workspace yet.
 You need to resolve dependencies and build the workspace first.
@@ -402,4 +370,4 @@ Using overlays is recommended for working on a small number of packages, so you 
 Next steps
 ----------
 
-Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :ref:`create your own packages <CreatePkg>`.
+Now that you understand the details behind creating, building and sourcing your own workspace, you can learn how to :doc:`create your own packages <../Creating-Your-First-ROS2-Package>`.

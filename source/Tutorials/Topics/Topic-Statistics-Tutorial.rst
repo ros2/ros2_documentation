@@ -17,25 +17,25 @@ ROS 2 Topic Statistics Tutorial (C++)
 Background
 ----------
 
-This is a short tutorial of how to enable :ref:`Topic Statistics<AboutTopicStats>`
-in ROS 2 and view the published statistics output using command line tools (:ref:`ros2topic<ROS2Topics>`).
+This is a short tutorial of how to enable :doc:`Topic Statistics<../../Concepts/About-Topic-Statistics>`
+in ROS 2 and view the published statistics output using command line tools (:doc:`ros2topic<./Understanding-ROS2-Topics>`).
 
 ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
 called Topic Statistics.
 With Topic Statistics enabled for your subscription, you can characterize the performance of your
 system or use the data to help diagnose any present issues.
 
-For more details please see the :ref:`Topic Statistics Concepts Page<AboutTopicStats>`.
+For more details please see the :doc:`Topic Statistics Concepts Page<../../Concepts/About-Topic-Statistics>`.
 
 Prerequisites
 -------------
 
 An installation from either binaries or source.
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>`,
-:ref:`create a package <CreatePkg>`, and create a :ref:`C++ <CppPubSub>` publisher and subscriber.
+In previous tutorials, you learned how to :doc:`create a workspace <../Workspace/Creating-A-Workspace>`,
+:doc:`create a package <../Creating-Your-First-ROS2-Package>`, and create a :doc:`C++ <../Writing-A-Simple-Cpp-Publisher-And-Subscriber>` publisher and subscriber.
 
-This tutorial assumes that you still have your ``cpp_pubsub`` package from the :ref:`C++ <CppPubSub>` tutorial.
+This tutorial assumes that you still have your ``cpp_pubsub`` package from the :doc:`C++ <../Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial.
 
 Tasks
 -----
@@ -43,7 +43,7 @@ Tasks
 1 Write the subscriber node with statistics enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the :ref:`previous tutorial <CppPubSub>`, and
+Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the :doc:`previous tutorial <../Writing-A-Simple-Cpp-Publisher-And-Subscriber>`, and
 download the example talker code by entering the following command:
 
 .. tabs::
@@ -104,7 +104,7 @@ Open the file using your preferred text editor.
       }
 
     private:
-      void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
+      void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
       {
         RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
       }
@@ -122,7 +122,7 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-As in the :ref:`C++ <CppPubSub>` tutorial, we have a subscriber node which receives string messages from the
+As in the :doc:`C++ <../Writing-A-Simple-Cpp-Publisher-And-Subscriber>` tutorial, we have a subscriber node which receives string messages from the
 ``topic`` topic from the ``topic_callback`` function.
 However, we've now added options to configure the subscription to enable topic statistics with
 the ``rclcpp::SubscriptionOptions()`` options struct.
@@ -241,7 +241,7 @@ then you will see that name instead of ``/statistics``.
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
 
-We can visualize this using :ref:`RQt <RQt_Overview_Usage>`
+We can visualize this using :doc:`RQt <../../Concepts/About-RQt>`
 
 .. image:: topic_stats_rqt.png
 
@@ -324,7 +324,7 @@ Summary
 -------
 
 You created a subscriber node with topic statistics enabled, which published statistics data from
-the :ref:`C++ <CppPubSub>`'s publisher node. You were able to compile and run this node. While running,
+the :doc:`C++ <../Writing-A-Simple-Cpp-Publisher-And-Subscriber>`'s publisher node. You were able to compile and run this node. While running,
 you were able to observe the statistics data.
 
 Related content

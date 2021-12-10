@@ -26,9 +26,9 @@ Their content is usually informational, for the sake of the user.
 Prerequisites
 -------------
 
-You will need :ref:`rqt_console and turtlesim <Turtlesim>` installed.
+You will need :doc:`rqt_console and turtlesim <../Turtlesim/Introducing-Turtlesim>` installed.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -65,7 +65,7 @@ Now start ``turtlesim`` in a new terminal with the following command:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To produce log messages for ``rqt_console`` to display, let’s have the turtle run into the wall.
-In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :ref:`topics tutorial <ROS2Topics>`) below:
+In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../Topics/Understanding-ROS2-Topics>`) below:
 
 .. code-block:: console
 
@@ -127,4 +127,4 @@ You might want to examine log messages for any number of reasons, usually to fin
 Next steps
 ----------
 
-The next tutorial will teach you how to :ref:`create launch files <ROS2Launch>`.
+The next tutorial will teach you how to :doc:`create launch files <../Launch-Files/Creating-Launch-Files>`.

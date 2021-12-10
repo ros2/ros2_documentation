@@ -7,7 +7,7 @@ The tutorials are a collection of step-by-step instructions meant to steadily bu
 
 The best way to approach the tutorials is to walk through them for the first time in order, as they build off of each other and are not meant to be comprehensive documentation.
 
-For quick solutions to more specific questions, see the :ref:`How-To Guides`.
+For quick solutions to more specific questions, see the :doc:`How-To-Guides`.
 
 Beginner
 --------
@@ -59,6 +59,8 @@ Intermediate
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
    Tutorials/Launch-system
    Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
+   Tutorials/Launch-Files/Using-Substitutions
+   Tutorials/Launch-Files/Using-Event-Handlers
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
@@ -75,7 +77,8 @@ Advanced
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
    Tutorials/FastDDS-Configuration/FastDDS-Configuration
-   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
 
 Security
 --------

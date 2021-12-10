@@ -21,7 +21,7 @@ The items in the roadmap below are the major features being worked on by the ROS
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
 If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
-If you'd like to take on one of these tasks, please :ref:`get in touch with us <Help>`.
+If you'd like to take on one of these tasks, please :doc:`get in touch with us <Contact>`.
 
 .. raw:: html
 
@@ -55,6 +55,18 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
      - Large
      - AWS / Foxglove
      - Q1 2022
+   * - Multi-threaded Executor for rclc
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Configurable Executor thread priorities for rclcpp
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Various small improvements to Diagnostics
+     - Small
+     - Bosch
+     - 1st quarter 2022
    * - Performance improvements: Implement events executor in rclcpp
      - Large
      - iRobot
@@ -74,15 +86,15 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Documentation: Add Python API support to rosdoc2
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
      - Small
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Documentation: Upload C++ API documentation for core packages to docs site
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Humble Release
      - Large
      - Open Robotics
@@ -90,27 +102,27 @@ If you'd like to take on one of these tasks, please :ref:`get in touch with us <
    * - Improve service and action reliability for frequencies greater than 10Hz
      - Medium
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Improve RViz2 stability
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Middleware: Default middleware selection
      - Medium
      - Open Robotics
-     - 4th quarter 2021
+     - Complete
    * - Middleware: Report on feasibility of using Zenoh as an RMW
      - Medium
      - Open Robotics
-     -
+     - Complete
    * - Overlays work to override any package in a dependency tree
      - Large
      - Open Robotics
-     -
+     - 2nd quarter 2022
    * - Revamp launch testing
      - Large
      - Open Robotics
-     -
+     - Complete
    * - Filter topic messages by content in rclcpp
      - Large
      - Sony
@@ -130,15 +142,15 @@ Additional project-specific roadmaps can be found in the links below:
 Planned releases
 ----------------
 
-Please see the :ref:`Distributions page <Releases>` for the timeline of and information about future distributions.
+Please see the :doc:`Distributions page <Releases>` for the timeline of and information about future distributions.
 
 Contributing to ROS 2
 ---------------------
 
 Looking for something to work on, or just want to help out? Here are a few resources to get you going.
 
-1. The :ref:`Contributing <Contributing>` guide describes how to make a contribution to ROS 2.
-2. Check out the list of :ref:`Feature Ideas <FeatureIdeas>` for inspiration.
+1. The :doc:`Contributing <Contributing>` guide describes how to make a contribution to ROS 2.
+2. Check out the list of :doc:`Feature Ideas <Feature-Ideas>` for inspiration.
 3. For more information on the design of ROS 2 please see `design.ros2.org <https://design.ros2.org>`__.
 4. The core code for ROS 2 is in the `ros2 GitHub organization <https://github.com/ros2>`__.
 5. The Discourse forum/mailing list for discussing ROS 2 design is `ng-ros <https://discourse.ros.org/c/ng-ros>`__.

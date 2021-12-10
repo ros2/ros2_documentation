@@ -14,13 +14,13 @@ That approach has worked well enough, as evidenced by the widespread adoption of
 
 But with ROS 2, we want to broaden participation to accelerate ROS 2 delivery, starting with these areas: determining the roadmap, developing core tools and libraries, and establishing working groups to focus on important topics.
 To that end, we've established a Technical Steering Committee (TSC).
-As described in the :ref:`charter <ROS2TSCCharter>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
+As described in the :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC comprises representatives of organizations that are contributing to the development of ROS 2, and it has the responsibility to set the technical direction for the project.
 
 Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org/reps/rep-2005.html>`_.
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (20 as of 2021-09-13):
+The current members of the ROS 2 TSC are (22 as of 2021-11-29):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -36,8 +36,8 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
 .. |picknik| image:: Governance/picknik.png
 .. |robotis| image:: Governance/robotis.png
+.. |ros2| image:: Governance/ros2_logo.png
 .. |rosindustrial| image:: Governance/ros-industrial.png
-.. |rover| image:: Governance/rover.png
 .. |samsung| image:: Governance/samsung.svg
 .. |sony| image:: Governance/sony.png
 .. |tri| image:: Governance/tri_logo_landscape-web.svg
@@ -95,7 +95,7 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
       <tbody>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ADLINK Technology: Joe Speed</p></td>
+          <td class="tscclass" align="center"><p>ADLINK Technology: Angelo Corsaro</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="_images/amazon.svg" style="height: 35px;" /></a></p></td>
@@ -154,10 +154,6 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
           <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://roverrobotics.com"><img alt="Rover Robotics logo" src="_images/rover.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Rover Robotics: Nick Fragale</p></td>
-        </tr>
-        <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="_images/samsung.svg" style="height: 25px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Samsung: Steven Macenski</p></td>
         </tr>
@@ -173,6 +169,7 @@ The current members of the ROS 2 TSC are (20 as of 2021-09-13):
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="_images/windriver.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Wind River: Andrei Kholodnyi</p></td>
         </tr>
+
 	 <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/omichel"> Oliver Michel </a> </p></td>
@@ -201,7 +198,7 @@ If you are interested in joining the ROS 2 TSC, please inquire via info@openrobo
 Working Groups (WGs)
 --------------------
 
-As described in its :ref:`charter <ROS2TSCCharter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
+As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
 The current WGs are (11 as of 2021-01-12):
 

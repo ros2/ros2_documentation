@@ -73,7 +73,7 @@ This code above should be pretty self explanatory... we're creating an abstract 
 
 We need to make this header available to other classes, so open ``dev_ws/src/polygon_base/CMakeLists.txt`` for editing. Add the following lines after the ``ament_target_dependencies`` command.
 
-.. code-block:: console
+.. code-block:: cmake
 
     install(
       DIRECTORY include/
@@ -82,7 +82,7 @@ We need to make this header available to other classes, so open ``dev_ws/src/pol
 
 And add this command before the ``ament_package`` command
 
-.. code-block:: console
+.. code-block:: cmake
 
     ament_export_include_directories(
       include
@@ -191,7 +191,7 @@ A couple things to note:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 The last step is to export your plugins via ``CMakeLists.txt``. This is a change from ROS 1, where the exporting was done via ``package.xml``. Add the following block to your ``dev_ws/src/polygon_plugins/CMakeLists.txt`` after the line reading ``find_package(pluginlib REQUIRED)``
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_library(polygon_plugins src/polygon_plugins.cpp)
     target_include_directories(polygon_plugins PUBLIC
@@ -215,7 +215,7 @@ The last step is to export your plugins via ``CMakeLists.txt``. This is a change
 
 And before the ``ament_package`` command, add
 
-.. code-block:: console
+.. code-block:: cmake
 
     ament_export_libraries(
       polygon_plugins

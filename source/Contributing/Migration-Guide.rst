@@ -409,7 +409,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 CLI usage <../Tutorials/Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :ref:`yaml-ros1-ros2` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :doc:`../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------

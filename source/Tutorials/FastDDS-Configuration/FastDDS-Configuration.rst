@@ -33,8 +33,8 @@ In order to get more information about using *Fast DDS* on ROS 2, please check t
 Prerequisites
 -------------
 
-This tutorial assumes that you know how to :ref:`create a package <CreatePkg>`.
-It also assumes you know how to write a :ref:`simple publisher and subscriber<CppPubSub>` and a :ref:`simple service and client<CppSrvCli>`.
+This tutorial assumes that you know how to :doc:`create a package <../Creating-Your-First-ROS2-Package>`.
+It also assumes you know how to write a :doc:`simple publisher and subscriber<../Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and a :doc:`simple service and client <../Writing-A-Simple-Cpp-Service-And-Client>`.
 Although the examples are implemented in C++, the same concepts apply to Python packages.
 
 
@@ -343,7 +343,7 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
         /**
          * Actions to run every time a new message is received
          */
-        void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
+        void topic_callback(const std_msgs::msg::String::ConstSharedPtr msg) const
         {
             RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
         }

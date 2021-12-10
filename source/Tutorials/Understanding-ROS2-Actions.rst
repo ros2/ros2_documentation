@@ -23,7 +23,7 @@ Actions are built on topics and services.
 Their functionality is similar to services, except actions can be canceled.
 They also provide steady feedback, as opposed to services which return a single response.
 
-Actions use a client-server model, similar to the publisher-subscriber model (described in the :ref:`topics tutorial <ROS2Topics>`).
+Actions use a client-server model, similar to the publisher-subscriber model (described in the :doc:`topics tutorial <./Topics/Understanding-ROS2-Topics>`).
 An “action client” node sends a goal to an “action server” node that acknowledges the goal and returns a stream of feedback and a result.
 
 .. image:: Action-SingleActionClient.gif
@@ -31,11 +31,11 @@ An “action client” node sends a goal to an “action server” node that ack
 Prerequisites
 -------------
 
-This tutorial builds off concepts, like :ref:`nodes <ROS2Nodes>` and :ref:`topics <ROS2Topics>`, covered in previous tutorials.
+This tutorial builds off concepts, like :doc:`nodes <./Understanding-ROS2-Nodes>` and :doc:`topics <./Topics/Understanding-ROS2-Topics>`, covered in previous tutorials.
 
-This tutorial uses the :ref:`turtlesim package <Turtlesim>`.
+This tutorial uses the :doc:`turtlesim package <./Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :ref:`every new terminal you open <ConfigROS2>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <./Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -69,7 +69,7 @@ When you launch the ``/teleop_turtle`` node, you will see the following message 
     Use G|B|V|C|D|E|R|T keys to rotate to absolute orientations. 'F' to cancel a rotation.
 
 Let’s focus on the second line, which corresponds to an action.
-(The first instruction corresponds to the “cmd_vel” topic, discussed previously in the :ref:`topics tutorial <ROS2Topics>`.)
+(The first instruction corresponds to the “cmd_vel” topic, discussed previously in the :doc:`topics tutorial <./Topics/Understanding-ROS2-Topics>`.)
 
 Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a “box” around the ``F`` key on a US QWERTY keyboard (if you are not using a QWERTY keyboard, see `this link <https://en.wikipedia.org/wiki/QWERTY#/media/File:KB_United_States.svg>`__ to follow along).
 Each key’s position around ``F`` corresponds to that orientation in turtlesim.
@@ -354,7 +354,7 @@ Next steps
 ----------
 
 Now you've covered all of the core ROS 2 concepts.
-The last few tutorials in the "Users" set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :ref:`rqt_console`.
+The last few tutorials in the "Users" set will introduce you to some tools and techniques that will make using ROS 2 easier, starting with :doc:`./Rqt-Console/Using-Rqt-Console`.
 
 Related content
 ---------------

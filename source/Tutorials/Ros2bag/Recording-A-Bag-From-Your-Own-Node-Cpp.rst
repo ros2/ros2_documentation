@@ -1,7 +1,7 @@
 .. _ROS2BagOwnNode:
 
-Recording a bag from your own node
-==================================
+Recording a bag from your own node (C++)
+========================================
 
 **Goal:** Record data from your own C++ node to a bag.
 
@@ -33,7 +33,7 @@ If it is not, you can install it using this command.
   sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
-You should have already completed the :ref:`basic ROS 2 bag tutorial <ROS2Bag>`.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <./Recording-And-Playing-Back-Data>`.
 
 Tasks
 -----
@@ -41,14 +41,14 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 Navigate into the ``dev_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake bag_recorder_nodes --dependencies rclcpp rosbag2_cpp example_interfaces
+  ros2 pkg create --build-type ament_cmake bag_recorder_nodes --dependencies example_interfaces rclcpp rosbag2_cpp std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
@@ -76,7 +76,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
 
 
     #include <rclcpp/rclcpp.hpp>
-    #include <example_interfaces/msg/string.hpp>
+    #include <std_msgs/msg/string.hpp>
 
     #include <rosbag2_cpp/writer.hpp>
 
@@ -92,7 +92,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
 
         writer_->open("my_bag");
 
-        subscription_ = create_subscription<example_interfaces::msg::String>(
+        subscription_ = create_subscription<std_msgs::msg::String>(
           "chatter", 10, std::bind(&SimpleBagRecorder::topic_callback, this, _1));
       }
 
@@ -101,10 +101,10 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       {
         rclcpp::Time time_stamp = this->now();
 
-        writer_->write(*msg, "chatter", "example_interfaces/msg/String", time_stamp);
+        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
       }
 
-      rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
+      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
     };
 
@@ -142,7 +142,7 @@ We will write data to the bag in the callback.
 
 .. code-block:: C++
 
-        subscription_ = create_subscription<example_interfaces::msg::String>(
+        subscription_ = create_subscription<std_msgs::msg::String>(
           "chatter", 10, std::bind(&SimpleBagRecorder::topic_callback, this, _1));
 
 The callback itself is different from a typical callback.
@@ -171,7 +171,7 @@ This is why we pass in the topic name and the topic type.
 
 .. code-block:: C++
 
-        writer_->write(*msg, "chatter", "example_interfaces/msg/String", time_stamp);
+        writer_->write(msg, "chatter", "std_msgs/msg/String", time_stamp);
 
 The class contains two member variables.
 
@@ -184,7 +184,7 @@ The class contains two member variables.
 
 .. code-block:: C++
 
-      rclcpp::Subscription<rclcpp::SerializedMessage>::SharedPtr subscription_;
+      rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
 
 The file finishes with the ``main`` function used to create an instance of the node and start ROS processing it.
@@ -218,7 +218,7 @@ Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED
 .. code-block:: console
 
     add_executable(simple_bag_recorder src/simple_bag_recorder.cpp)
-    ament_target_dependencies(simple_bag_recorder rclcpp rosbag2_cpp)
+    ament_target_dependencies(simple_bag_recorder rclcpp rosbag2_cpp std_msgs)
 
     install(TARGETS
       simple_bag_recorder
@@ -336,7 +336,7 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
       DataGenerator()
       : Node("data_generator")
       {
-        data.data = 0;
+        data_.data = 0;
         writer_ = std::make_unique<rosbag2_cpp::Writer>();
 
         writer_->open("timed_synthetic_bag");
@@ -353,14 +353,14 @@ Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file ca
     private:
       void timer_callback()
       {
-        writer_->write(data, "synthetic", "example_interfaces/msg/Int32", now());
+        writer_->write(data_, "synthetic", now());
 
-        ++data.data;
+        ++data_.data;
       }
 
       rclcpp::TimerBase::SharedPtr timer_;
       std::unique_ptr<rosbag2_cpp::Writer> writer_;
-      example_interfaces::msg::Int32 data;
+      example_interfaces::msg::Int32 data_;
     };
 
     int main(int argc, char * argv[])
@@ -403,12 +403,12 @@ The timer fires with a one-second period, and calls the given member function wh
 
 Within the timer callback, we generate (or otherwise obtain, e.g. read from a serial port connected to some hardware) the data we wish to store in the bag.
 The important difference between this and the previous sample is that the data is not yet serialised.
-Instead we are passing to the writer object a ROS message data type, in this case an instance of ``example_interfaces/msg/Int32``.
+Instead we are passing a ROS message data type to the writer object, in this case an instance of ``example_interfaces/msg/Int32``.
 The writer will serialise the data for us before writing it into the bag.
 
 .. code-block:: C++
 
-        writer_->write(data, "synthetic", now());
+        writer_->write(data_, "synthetic", now());
 
 4.3 Add executable
 ~~~~~~~~~~~~~~~~~~

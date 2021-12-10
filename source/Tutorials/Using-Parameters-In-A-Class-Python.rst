@@ -16,22 +16,22 @@ Using parameters in a class (Python)
 Background
 ----------
 
-When making your own :ref:`nodes <ROS2Nodes>` you will sometimes need to add parameters that can be set from the launch file.
+When making your own :doc:`nodes <./Understanding-ROS2-Nodes>` you will sometimes need to add parameters that can be set from the launch file.
 
 This tutorial will show you how to create those parameters in a Python class, and how to set them in a launch file.
 
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :ref:`create a workspace <ROS2Workspace>` and :ref:`create a package <CreatePkg>`.
-You have also learned about :ref:`parameters <ROS2Params>` and their function in a ROS 2 system.
+In previous tutorials, you learned how to :doc:`create a workspace <./Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+You have also learned about :doc:`parameters <./Parameters/Understanding-ROS2-Parameters>` and their function in a ROS 2 system.
 
 Tasks
 -----
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :ref:`source your ROS 2 installation <ConfigROS2>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <./Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -298,7 +298,7 @@ There are two ways to change the parameter:
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-This part will use the knowledge you have gained from the :ref:`tutoral about parameters <ROS2Params>` and apply it to the node you have just created.
+This part will use the knowledge you have gained from the :doc:`tutoral about parameters <./Parameters/Understanding-ROS2-Parameters>` and apply it to the node you have just created.
 
 Make sure the node is running:
 
@@ -443,4 +443,4 @@ You added the entry point so that you could build and run it, and used ``ros2 pa
 Next steps
 ----------
 
-Now that you have some packages and ROS 2 systems of your own, the :ref:`next tutorial <Ros2Doctor>` will show you how to examine issues in your environment and systems in case you have problems.
+Now that you have some packages and ROS 2 systems of your own, the :doc:`next tutorial <./Getting-Started-With-Ros2doctor>` will show you how to examine issues in your environment and systems in case you have problems.

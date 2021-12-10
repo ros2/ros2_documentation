@@ -23,7 +23,7 @@ In this tutorial we'll create a tf2 listener to start using tf2.
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the :ref:`tf2 broadcaster tutorial (C++) <WritingATf2BroadcasterCpp>`.
+This tutorial assumes you have completed the :doc:`tf2 broadcaster tutorial (C++) <./Writing-A-Tf2-Broadcaster-Cpp>`.
 In the previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
 
 Tasks
@@ -207,7 +207,7 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-To understand how the service behind spawning turtle works, please refer to :ref:`writing a simple service and client (C++) <CppSrvCli>` tutorial.
+To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` contains a ``TransformListener`` header file implementation that makes the task of receiving transforms easier.
@@ -302,4 +302,4 @@ Summary
 -------
 
 In this tutorial you learned how to use tf2 to get access to frame transformations.
-You also have finished writing your own turtlesim demo that you first tried in :ref:`Introduction to tf2 <IntroToTf2>` tutorial.
+You also have finished writing your own turtlesim demo that you first tried in :doc:`Introduction to tf2 <./Introduction-To-Tf2>` tutorial.
