@@ -111,7 +111,7 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Canonical: Sid Faber</p></td>
+          <td class="tscclass" align="center"><p>Canonical: Jeremie Deray</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="_images/eprosima.svg" style="height: 35px;" /></a></p></td>
@@ -214,7 +214,7 @@ Control
 Edge AI
 ^^^^^^^
 
-* Lead(s): Joe Speed
+* Lead(s): TBD
 * Resources:
 
  * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
@@ -301,7 +301,7 @@ Safety
 Security
 ^^^^^^^^
 
-* Lead(s): Sid Faber
+* Lead(s): Jeremie Deray
 * Resources:
 
  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
