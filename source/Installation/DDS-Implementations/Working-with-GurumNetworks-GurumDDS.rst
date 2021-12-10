@@ -6,7 +6,7 @@ Working with GurumNetworks GurumDDS
 ===================================
 
 rmw_gurumdds is a implementation of the ROS middleware interface using GurumNetworks GurumDDS.
-More information about GurumDDS is available on our website: https://gurum.cc
+More information about GurumDDS is available on our website: https://gurum.cc/index_eng
 
 
 Prerequisites
@@ -20,7 +20,7 @@ from the :doc:`Building ROS 2 on Ubuntu Linux <../Ubuntu-Development-Setup>`.
 | Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
 | Windows binary installer of GurumDDS will be supported soon.
 |
-| GurumDDS requires a license. See the next page: https://gurum.cc/free_trial.html
+| GurumDDS requires a license. See the next page: https://gurum.cc/free_trial_eng.html
 | After getting a license, move it to the following location.
 
 =============  ================
@@ -54,7 +54,7 @@ First, clone rosidl_typesupport_gurumdds and rmw_gurumdds in the ROS 2 workspace
    git clone https://github.com/ros2/rmw_gurumdds ros2/rmw_gurumdds
    git clone https://github.com/ros2/rosidl_typesupport_gurumdds ros2/rosidl_typesupport_gurumdds
 
-Then, install necessary packages for Gurum DDS.
+Then, install necessary packages for GurumDDS.
 
 .. code-block:: bash
 
@@ -81,7 +81,7 @@ See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/W
 Run the talker and listener
 ---------------------------
 
-| Now run ``talker`` and ``listener`` to test Gurum DDS.
+| Now run ``talker`` and ``listener`` to test GurumDDS.
 | Don't forget to set up environment by setup script.
 
 .. code-block:: bash
