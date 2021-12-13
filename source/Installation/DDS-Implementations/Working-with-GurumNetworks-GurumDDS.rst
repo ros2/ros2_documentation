@@ -16,12 +16,12 @@ The following description assumes that you have completed the 'Environment setup
 from the :doc:`Installing ROS 2 via Debian Packages <../Ubuntu-Install-Debians>` or
 from the :doc:`Building ROS 2 on Ubuntu Linux <../Ubuntu-Development-Setup>`.
 
-| rmw_gurumdds requires version of GurumDDS-2.7.x.
-| Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
-| Windows binary installer of GurumDDS will be supported soon.
-|
-| GurumDDS requires a license. See the next page: https://gurum.cc/free_trial_eng.html
-| After getting a license, move it to the following location.
+rmw_gurumdds requires version of GurumDDS-2.7.x.
+Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
+Windows binary installer of GurumDDS will be supported soon.
+
+GurumDDS requires a license. See the next page: https://gurum.cc/free_trial_eng.html
+After getting a license, move it to the following location.
 
 =============  ================
  DDS Version   License Location
@@ -34,8 +34,8 @@ from the :doc:`Building ROS 2 on Ubuntu Linux <../Ubuntu-Development-Setup>`.
 Install packages
 ----------------
 
-| The easiest way is to install from ROS 2 apt repository.
-| When ros-{DISTRO}-rmw-gurumdds-cpp is installed, gurumdds-2.7 is also installed.
+The easiest way is to install from ROS 2 apt repository.
+When ros-{DISTRO}-rmw-gurumdds-cpp is installed, gurumdds-2.7 is also installed.
 
 .. code-block:: bash
 
@@ -61,7 +61,7 @@ Then, install necessary packages for GurumDDS.
    cd ..
    rosdep install --from src -i --rosdistro {DISTRO}
 
-| Finally, run colcon build.
+Finally, run colcon build.
 
 .. code-block:: bash
 
@@ -81,8 +81,8 @@ See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/W
 Run the talker and listener
 ---------------------------
 
-| Now run ``talker`` and ``listener`` to test GurumDDS.
-| Don't forget to set up environment by setup script.
+Now run ``talker`` and ``listener`` to test GurumDDS.
+Don't forget to set up environment by setup script.
 
 .. code-block:: bash
 
