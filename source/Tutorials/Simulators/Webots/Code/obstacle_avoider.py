@@ -27,7 +27,7 @@ class ObstacleAvoider(Node):
         command_message.linear.x = 0.1
 
         if self.__left_sensor_value < 0.9 * MAX_RANGE or self.__right_sensor_value < 0.9 * MAX_RANGE:
-            command_message.angular.z = -2.0       
+            command_message.angular.z = -2.0
 
         self.__publisher.publish(command_message)
 

@@ -31,7 +31,7 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Turtlesim/Introducing-Turtlesim`, :doc:`../../Topics/Understanding-ROS2-Topics`, :doc:`../../Workspace/Creating-A-Workspace`, :doc:`../../Creating-Your-First-ROS2-Package` and :doc:`../../Launch-Files/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` with this command:
+Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
 
 .. tabs::
 
@@ -70,24 +70,13 @@ Tasks
 
 Let's organize the code in a custom ROS 2 package.
 Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 workspace.
+Change the current directory of your terminal to ``dev_ws/src`` and run:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        cd ~/dev_ws/src
         ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        cd \dev_ws\src
-        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
-
-The ``--node-name my_robot_driver`` option should create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
+The ``--node-name my_robot_driver`` option will create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
 The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option specifies the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
 Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
@@ -301,14 +290,12 @@ Close also the topic command with ``Ctrl+C`` in the second terminal.
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify the URDF file in order to enable the sensors.
-In ``my_robot.urdf`` add the following content inside the ``<webots>`` tag beside the already existing ``<plugin>`` tag:
+In ``my_robot.urdf`` replace the whole contents with:
 
 .. literalinclude:: Code/my_robot_with_sensors.urdf
     :language: xml
-    :dedent: 8
-    :lines: 4-15
 
-The ROS 2 interface uses the standard parameters in the ``<ros>`` tags to enable the **DistanceSensor** nodes and name their topics.
+The ROS 2 interface will parse the ``<device>`` tags referring to the **DistanceSensor** nodes and use the standard parameters in the ``<ros>`` tags to enable the sensors and name their topics.
 
 9 Creating a ROS node to avoid obstacles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -326,14 +313,14 @@ This node will create a publisher for the command and subscribe to the sensors t
     :dedent: 8
     :lines: 14-17
 
-When a measure is received from the left sensor it will be copied to a member field:
+When a measurement is received from the left sensor it will be copied to a member field:
 
 .. literalinclude:: Code/obstacle_avoider.py
     :language: python
     :dedent: 4
     :lines: 19-20
 
-Finally, a message will be sent to the ``/cmd_vel`` topic when the measure of the right sensor is received.
+Finally, a message will be sent to the ``/cmd_vel`` topic when a measurement from the right sensor is received.
 The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
 If any of the two sensors detect an obstacle, ``command_message`` will also register a rotational speed in ``angular.z`` in order to make the robot turn right.
 
@@ -351,7 +338,7 @@ Edit ``setup.py`` and replace ``'console_scripts'`` with:
 .. literalinclude:: Code/setup_sensor.py
     :language: python
     :dedent: 8
-    :lines: 24-26
+    :lines: 24-27
 
 This will add an entry point for the ``obstacle_avoider`` node.
 

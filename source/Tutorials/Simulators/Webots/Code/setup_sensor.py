@@ -22,6 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'my_robot_driver = my_package.my_robot_driver:main',
             'obstacle_avoider = my_package.obstacle_avoider:main'
         ],
     },
