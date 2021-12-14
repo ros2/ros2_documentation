@@ -365,7 +365,7 @@ Then, instead of using the ``ns`` attribute, add the ``push-ros-namespace`` acti
       <push-ros-namespace namespace="my_ns"/>
       <include file="another_launch_file"/>
    </group>
-   
+
 Nesting ``include`` tags under a ``group`` tag is only required when specifying a namespace
 
 Substitutions
