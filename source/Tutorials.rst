@@ -75,6 +75,32 @@ Advanced
    Tutorials/Topics/Topic-Statistics-Tutorial
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
+<<<<<<< HEAD
+=======
+   Tutorials/FastDDS-Configuration/FastDDS-Configuration
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
+
+Simulation
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
+
+Security
+--------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Security/Introducing-ros2-security
+   Tutorials/Security/The-Keystore
+   Tutorials/Security/Security-on-Two
+   Tutorials/Security/Examine-Traffic
+   Tutorials/Security/Access-Controls
+>>>>>>> 16f8516 (New advanced tutorial: "Setting-up a Robot Simulation (Webots)" (#2156))
 
 Miscellaneous
 -------------
