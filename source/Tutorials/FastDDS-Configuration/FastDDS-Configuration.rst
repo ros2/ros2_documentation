@@ -23,8 +23,7 @@ This implementation is available in all ROS 2 distributions, both from binaries 
 
 ROS 2 RMW only allows for the configuration of certain middleware QoS
 (see `ROS 2 QoS policies <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings/#qos-policies>`_).
-However, ``rmw_fastrtps`` offers extended configuration capabilities
-to take full advantage of the features in *Fast DDS*.
+However, ``rmw_fastrtps`` offers extended configuration capabilities to take full advantage of the features in *Fast DDS*.
 This tutorial will guide you through a series of examples explaining how to use XML files to unlock this extended configuration.
 
 In order to get more information about using *Fast DDS* on ROS 2, please check the `following documentation <https://fast-dds.docs.eprosima.com/en/latest/fastdds/ros2/ros2.html>`__.
@@ -43,7 +42,8 @@ Mixing synchronous and asynchronous publications in the same node
 
 In this first example, a node with two publishers, one of them with synchronous publication mode and the other one with asynchronous publication mode, will be created.
 
-``rmw_fastrtps`` uses asynchronous publication mode by default. When the publisher invokes the write operation, the data is copied into a queue,
+``rmw_fastrtps`` uses asynchronous publication mode by default.
+When the publisher invokes the write operation, the data is copied into a queue,
 a background thread (asynchronous thread) is notified about the addition to the queue, and control of the thread is returned to the user before the data is actually sent.
 The background thread is in charge of consuming the queue and sending the data to every matched reader.
 
@@ -132,6 +132,10 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
             // Publish the message using the synchronous publisher
             sync_publisher_->publish(sync_message);
 
+            // Create a new message to be sent
+            auto async_message = std_msgs::msg::String();
+            async_message.data = "ASYNC: Hello, world! " + std::to_string(count_);
+
             // Log the message to the console to show progress
             RCLCPP_INFO(this->get_logger(), "Asynchronously publishing: '%s'", async_message.data.c_str());
 
@@ -165,33 +169,33 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
 
 Now open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyncWriter`` so you can run your node using ``ros2 run``:
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(SyncAsyncWriter src/sync_async_writer.cpp)
     ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
 
 Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
 
-.. code-block:: console
+.. code-block:: cmake
 
     install(TARGETS
-      SyncAsyncWriter
-      DESTINATION lib/${PROJECT_NAME})
+        SyncAsyncWriter
+        DESTINATION lib/${PROJECT_NAME})
 
 You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections and comments, so it looks like this:
 
-.. code-block:: console
+.. code-block:: cmake
 
-    cmake_minimum_required(VERSION 3.5)
-    project(cpp_pubsub)
+    cmake_minimum_required(VERSION 3.8)
+    project(sync_async_node_example_cpp)
 
     # Default to C++14
     if(NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 14)
+      set(CMAKE_CXX_STANDARD 14)
     endif()
 
     if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic)
+      add_compile_options(-Wall -Wextra -Wpedantic)
     endif()
 
     find_package(ament_cmake REQUIRED)
@@ -202,8 +206,8 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
     ament_target_dependencies(SyncAsyncWriter rclcpp std_msgs)
 
     install(TARGETS
-    SyncAsyncWriter
-    DESTINATION lib/${PROJECT_NAME})
+        SyncAsyncWriter
+        DESTINATION lib/${PROJECT_NAME})
 
     ament_package()
 
@@ -366,7 +370,7 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
 
 Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyncReader`` under the previous ``SyncAsyncWriter``:
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(SyncAsyncReader src/sync_async_reader.cpp)
     ament_target_dependencies(SyncAsyncReader rclcpp std_msgs)
@@ -571,7 +575,9 @@ Their profiles should now look like this:
         </qos>
     </subscriber>
 
-Open two terminals. Do not forget to source the setup files and to set the required environment variables.
+Also be sure to remove the "default_subscriber" subscriber profile.
+Open two terminals.
+Do not forget to source the setup files and to set the required environment variables.
 On the first terminal run the publisher node, and the subscriber node on the other one.
 You should see that only the ``/async_topic`` messages are reaching the subscriber.
 The ``/sync_topic`` subscriber is not receiving the data as it is in a different partition from the corresponding publisher.
@@ -607,10 +613,10 @@ Add a new source file named ``src/ping_service.cpp`` on your package with the fo
 
 .. code-block:: C++
 
+    #include <memory>
+
     #include "rclcpp/rclcpp.hpp"
     #include "example_interfaces/srv/trigger.hpp"
-
-    #include <memory>
 
     /**
      * Service action: responds with success=true and prints the request on the console
@@ -650,12 +656,11 @@ Create the client in a file named ``src/ping_client.cpp`` with the following con
 
 .. code-block:: C++
 
+    #include <chrono>
+    #include <memory>
+
     #include "rclcpp/rclcpp.hpp"
     #include "example_interfaces/srv/trigger.hpp"
-
-    #include <chrono>
-    #include <cstdlib>
-    #include <memory>
 
     using namespace std::chrono_literals;
 
@@ -697,15 +702,17 @@ Create the client in a file named ``src/ping_client.cpp`` with the following con
         return 0;
     }
 
-Open the ``CMakeLists.txt`` file and add a two new executables ``ping_service`` and ``ping_client``:
+Open the ``CMakeLists.txt`` file and add two new executables ``ping_service`` and ``ping_client``:
 
-.. code-block:: console
+.. code-block:: cmake
+
+    find_package(example_interfaces REQUIRED)
 
     add_executable(ping_service src/ping_service.cpp)
-    ament_target_dependencies(ping_service rclcpp std_msgs)
+    ament_target_dependencies(ping_service example_interfaces rclcpp)
 
     add_executable(ping_client src/ping_client.cpp)
-    ament_target_dependencies(ping_client rclcpp std_msgs)
+    ament_target_dependencies(ping_client example_interfaces rclcpp)
 
     install(TARGETS
         ping_service
@@ -831,4 +838,3 @@ At the same time, the output in the server console has been updated:
     [INFO] [1612977403.805799037] [ping_server]: Ready to serve
     [INFO] [1612977404.807314904] [ping_server]: Incoming request
     [INFO] [1612977404.836405125] [ping_server]: Sending back response
-
