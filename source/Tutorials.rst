@@ -80,6 +80,14 @@ Advanced
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
 
+Simulation
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
+
 Miscellaneous
 -------------
 
