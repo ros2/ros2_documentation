@@ -700,12 +700,15 @@ Create the client in a file named ``src/ping_client.cpp`` with the following con
 Open the ``CMakeLists.txt`` file and add a two new executables ``ping_service`` and ``ping_client``:
 
 .. code-block:: console
-
+    find_package(ament_cmake REQUIRED)
+    find_package(rclcpp REQUIRED)
+    find_package(example_interfaces REQUIRED)
+    
     add_executable(ping_service src/ping_service.cpp)
-    ament_target_dependencies(ping_service rclcpp std_msgs)
+    ament_target_dependencies(ping_service rclcpp example_interfaces)
 
     add_executable(ping_client src/ping_client.cpp)
-    ament_target_dependencies(ping_client rclcpp std_msgs)
+    ament_target_dependencies(ping_client rclcpp example_interfaces)
 
     install(TARGETS
         ping_service
