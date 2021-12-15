@@ -76,6 +76,14 @@ Advanced
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
 
+Simulation
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
+
 Miscellaneous
 -------------
 
