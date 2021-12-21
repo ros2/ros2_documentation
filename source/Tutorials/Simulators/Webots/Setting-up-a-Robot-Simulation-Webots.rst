@@ -146,7 +146,7 @@ Finally a ROS node is created and a callback method is registered for a ROS topi
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 8-24
+    :lines: 9-25
 
 Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` member variable.
 
