@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Launch-Files/Using-ROS2-Launch-for-Large-Projects
+
 .. _UsingROS2LaunchForLargeProjects:
 
 Using ROS 2 launch for large projects
