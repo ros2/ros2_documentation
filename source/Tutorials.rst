@@ -26,7 +26,6 @@ Beginner: CLI Tools
    Tutorials/Parameters/Understanding-ROS2-Parameters
    Tutorials/Understanding-ROS2-Actions
    Tutorials/Rqt-Console/Using-Rqt-Console
-   Tutorials/Launch-Files/Creating-Launch-Files
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
 
 Beginner: Client Libraries
@@ -57,13 +56,10 @@ Intermediate
    Tutorials/Actions/Creating-an-Action
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
-   Tutorials/Launch-system
-   Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
-   Tutorials/Launch-Files/Using-Substitutions
-   Tutorials/Launch-Files/Using-Event-Handlers
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
+   Tutorials/Launch/Launch-Main
    Tutorials/Tf2/Tf2-Main
    Tutorials/URDF/URDF-Main
 
