@@ -37,7 +37,7 @@ New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* `New launch system <../Tutorials/Launch-system>` featuring a much more capable and flexible Python API.
+* `New launch system <../Tutorials/Launch/Launch-system>` featuring a much more capable and flexible Python API.
 * Parameters can be passed as `command line arguments <../How-To-Guides/Node-arguments>` to C++ executables.
 * Static remapping via `command line arguments <../How-To-Guides/Node-arguments>`.
 * Various improvements to the Python client library.

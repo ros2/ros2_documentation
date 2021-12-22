@@ -321,7 +321,7 @@ Also add the appropriate imports at the top of the file:
     import os
     from glob import glob
 
-You can learn more about creating launch files in :doc:`this tutorial <../Launch-Files/Creating-Launch-Files>`.
+You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
 3 Build and run
 ^^^^^^^^^^^^^^^

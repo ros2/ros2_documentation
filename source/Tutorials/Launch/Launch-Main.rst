@@ -1,7 +1,7 @@
 .. _LaunchFilesMain:
 
-Launch File Tutorials
-=====================
+Launch Tutorials
+================
 
 ROS 2 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
 
@@ -33,7 +33,7 @@ Learning Launch
 
    Substitutions can be used to provide more flexibility when describing reusable launch files.
 
-#. :doc:`Using ROS 2 Launch For Large Projects <./Launch-system>`.
+#. :doc:`Using ROS 2 Launch For Large Projects <./Using-ROS2-Launch-For-Large-Projects>`.
 
    This tutorial describes some tips for writing launch files for large projects.
    The focus is on how to structure launch files so they may be reused as much as possible in different situations.

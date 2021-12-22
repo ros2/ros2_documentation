@@ -1,4 +1,6 @@
-.. _ROS2Launch:
+.. redirect-from::
+
+  Tutorials/Launch-Files/Creating-Launch-Files
 
 Creating a launch file
 ======================
@@ -255,7 +257,7 @@ You can create launch files using Python, and run them using the ``ros2 launch``
 
 .. note::
 
-   For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<./Launch-Files-Main>`.
+   For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<./Launch-Main>`.
 
 .. note::
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Launch-Files/Using-Event-Handlers
+
 Using event handlers in launch files
 ====================================
 

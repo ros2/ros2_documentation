@@ -1,7 +1,7 @@
 .. redirect-from::
 
-    Launch-system
-    ../Launch-system
+  Tutorials/Launch-system
+  Tutorials/Launch-Files/Launch-system
 
 Launching/monitoring multiple nodes with Launch
 ===============================================

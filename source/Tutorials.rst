@@ -58,8 +58,8 @@ Intermediate
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
-   Tutorials/Launch-Files/Launch-Files-Main
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
+   Tutorials/Launch/Launch-Main
    Tutorials/Tf2/Tf2-Main
    Tutorials/URDF/URDF-Main
 
