@@ -1,9 +1,9 @@
-#VRML_SIM R2021b utf8
+#VRML_SIM R2022a utf8
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.06750834915738668 0.4204490417174527 0.9048012080633624 3.4301283492059724
-  position -0.5330653428885737 1.6720406742243783 1.3428920098698358
+  orientation -0.33185733874619844 -0.09874274160469809 0.9381474178937331 3.686018050088086
+  position 1.700313773507203 1.0549607538959629 1.4846240848267684
   follow "my_robot"
 }
 TexturedBackground {
@@ -11,7 +11,6 @@ TexturedBackground {
 TexturedBackgroundLight {
 }
 CircleArena {
-  rotation 1 0 0 1.5708003061004252
 }
 Robot {
   children [
@@ -27,18 +26,22 @@ Robot {
       ]
       endPoint Solid {
         translation 0 0.045 0.025
-        rotation 1 0 0 0
         children [
-          DEF WHEEL Shape {
-            appearance PBRAppearance {
-              baseColor 1 0 0
-              roughness 1
-              metalness 0
-            }
-            geometry Cylinder {
-              height 0.01
-              radius 0.025
-            }
+          DEF WHEEL Transform {
+            rotation 1 0 0 1.5707996938995747
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 1 0 0
+                  roughness 1
+                  metalness 0
+                }
+                geometry Cylinder {
+                  height 0.01
+                  radius 0.025
+                }
+              }
+            ]
           }
         ]
         name "left wheel"
@@ -70,7 +73,6 @@ Robot {
     }
     Transform {
       translation 0 0 0.0415
-      rotation 1 0 0 1.5708
       children [
         Shape {
           appearance PBRAppearance {
@@ -87,10 +89,10 @@ Robot {
     }
     DistanceSensor {
       translation 0.042 0.02 0.063
-      rotation 0.9351130202419243 0.25056300542381216 0.25056300542381216 1.63783
+      rotation 0 0 1 0.5236003061004253
       children [
         DEF SENSOR Transform {
-          rotation 0.5773489358556708 -0.5773509358554485 -0.5773509358554485 -2.094395307179586
+          rotation 0 1 0 1.5708
           children [
             Shape {
               appearance PBRAppearance {
@@ -117,7 +119,7 @@ Robot {
     }
     DistanceSensor {
       translation 0.042 -0.02 0.063
-      rotation 0.9351130202419243 -0.25056300542381216 -0.25056300542381216 1.63783
+      rotation 0 0 1 -0.5235996938995747
       children [
         USE SENSOR
       ]
@@ -133,7 +135,6 @@ Robot {
   ]
   boundingObject Transform {
     translation 0 0 0.0415
-    rotation 1 0 0 1.5708
     children [
       USE BODY
     ]
