@@ -337,7 +337,7 @@ Update the ``install(DIRECTORY…)`` to include the ``launch`` line.
         ...
     )
 
-You can learn more about creating launch files in :doc:`this tutorial <../Launch-Files/Creating-Launch-Files>`.
+You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
 3 Build and run
 ^^^^^^^^^^^^^^^

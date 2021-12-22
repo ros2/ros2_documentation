@@ -1,4 +1,6 @@
-.. _ROS2Launch:
+.. redirect-from::
+
+  Tutorials/Launch-Files/Creating-Launch-Files
 
 Creating a launch file
 ======================
@@ -16,7 +18,7 @@ Creating a launch file
 Background
 ----------
 
-In the tutorials up until now, you have been opening new terminals for every new node you run.
+In most of the introductory tutorials, you have been opening new terminals for every new node you run.
 As you create more complex systems with more and more nodes running simultaneously, opening terminals and reentering configuration details becomes tedious.
 
 Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
@@ -253,12 +255,11 @@ Summary
 Launch files simplify running complex systems with many nodes and specific configuration details.
 You can create launch files using Python, and run them using the ``ros2 launch`` command.
 
-Next steps
-----------
+.. note::
+
+   For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<./Launch-Main>`.
 
 .. note::
 
   You can also use XML and YAML to create launch files.
   You can see a comparison of these different ROS 2 launch formats in :doc:`../../How-To-Guides/Launch-file-different-formats`.
-
-In the next tutorial, :doc:`../Ros2bag/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.
