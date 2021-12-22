@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Launch-Files/Using-Substitutions
+
 Using substitutions in launch files
 ===================================
 
