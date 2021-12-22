@@ -166,7 +166,7 @@ To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
 
    choco install graphviz
 
-You will need to append the Graphviz bin folder ``C:\Program Files (x86)\GraphvizX.XX\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
+You will need to append the Graphviz bin folder ``C:\Program Files\Graphviz\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
 
 Downloading ROS 2
 -----------------
