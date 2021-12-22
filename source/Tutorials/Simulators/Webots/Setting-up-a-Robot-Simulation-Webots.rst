@@ -83,7 +83,8 @@ Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 .. code-block:: console
 
         cd my_package
-        mkdir launch worlds
+        mkdir launch
+        mkdir worlds
 
 You should end up with the following folder structure:
 
