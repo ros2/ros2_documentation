@@ -26,7 +26,6 @@ Beginner: CLI Tools
    Tutorials/Parameters/Understanding-ROS2-Parameters
    Tutorials/Understanding-ROS2-Actions
    Tutorials/Rqt-Console/Using-Rqt-Console
-   Tutorials/Launch-Files/Creating-Launch-Files
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
 
 Beginner: Client Libraries
