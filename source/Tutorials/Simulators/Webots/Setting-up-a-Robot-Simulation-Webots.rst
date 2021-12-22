@@ -153,7 +153,7 @@ Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callbac
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 26-27
+    :lines: 27-28
 
 Finally, the ``step(self)`` method is called at every time step of the simulation.
 The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
@@ -164,7 +164,7 @@ This conversion depends on the structure of the robot, more specifically on the 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 29-39
+    :lines: 30-40
 
 4 Create the my_robot.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
