@@ -146,14 +146,14 @@ Finally a ROS node is created and a callback method is registered for a ROS topi
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 9-25
+    :lines: 8-24
 
 Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` member variable.
 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 27-28
+    :lines: 26-27
 
 Finally, the ``step(self)`` method is called at every time step of the simulation.
 The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
@@ -164,7 +164,7 @@ This conversion depends on the structure of the robot, more specifically on the 
 .. literalinclude:: Code/my_robot_driver.py
     :language: python
     :dedent: 4
-    :lines: 30-40
+    :lines: 29-39
 
 4 Create the my_robot.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
