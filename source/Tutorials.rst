@@ -57,12 +57,9 @@ Intermediate
    Tutorials/Actions/Creating-an-Action
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
-   Tutorials/Launch-system
-   Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
-   Tutorials/Launch-Files/Using-Substitutions
-   Tutorials/Launch-Files/Using-Event-Handlers
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
+   Tutorials/Launch-Files/Launch-Files-Main
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
    Tutorials/Tf2/Tf2-Main
    Tutorials/URDF/URDF-Main
