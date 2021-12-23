@@ -134,7 +134,7 @@ If not specified, these coefficients default to zero.
 Other Tags
 ----------
 In the realm of pure URDF (i.e. excluding Gazebo-specific tags), there are two remaining tags to help define the joints: calibration and safety controller.
-Check out the `spec <urdf/XML/joint>`_, as they are not included in this tutorial.
+Check out the `spec <https://wiki.ros.org/urdf/XML/joint>`_, as they are not included in this tutorial.
 
 Next Steps
 ----------
