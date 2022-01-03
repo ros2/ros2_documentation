@@ -357,11 +357,7 @@ In order to include a launch file under a **namespace** as in ROS 1 then the ``i
       <include file="another_launch_file"/>
    </group>
 
-<<<<<<< HEAD
-To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
-=======
-Then, instead of using the ``ns`` attribute, add the ``push-ros-namespace`` action tag to specify the namespace:
->>>>>>> 57081bc (Update Launch-files-migration-guide.rst (#2170))
+Then, instead of using the ``ns`` attribute, add the ``push_ros_namespace`` action tag to specify the namespace:
 
 .. code-block:: xml
 
