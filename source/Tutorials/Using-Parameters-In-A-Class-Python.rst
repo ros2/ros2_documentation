@@ -68,8 +68,6 @@ Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create 
 
     import rclpy
     import rclpy.node
-    from rclpy.exceptions import ParameterNotDeclaredException
-    from rcl_interfaces.msg import ParameterType
 
     class MinimalParam(rclpy.node.Node):
         def __init__(self):
@@ -112,8 +110,6 @@ The ``import`` statements below are used to import the package dependencies.
 
     import rclpy
     import rclpy.node
-    from rclpy.exceptions import ParameterNotDeclaredException
-    from rcl_interfaces.msg import ParameterType
 
 The next piece of code creates the class and the constructor.
 ``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
@@ -184,7 +180,7 @@ For that to work, the ``__init__`` code has to be changed to:
             my_parameter_descriptor = ParameterDescriptor(description='This parameter is mine!')
 
             self.declare_parameter('my_parameter',
-                                   'default value for my_parameter',
+                                   'world',
                                    my_parameter_descriptor)
 
 The rest of the code remains the same.
@@ -287,7 +283,7 @@ Now run the node:
 
      ros2 run python_parameters param_talker
 
-Except the first message where the parameter had a default value (an empty string), the terminal should return the following message every 2 seconds:
+The terminal should return the following message every 2 seconds:
 
 .. code-block:: console
 
