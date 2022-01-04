@@ -1,6 +1,7 @@
 .. redirect-from::
 
-    Launch-system
+  Tutorials/Launch-system
+  Tutorials/Launch-Files/Launch-system
 
 Launching/monitoring multiple nodes with Launch
 ===============================================
@@ -20,7 +21,7 @@ The `design document <https://design.ros2.org/articles/roslaunch.html>`__ detail
 Writing a ROS 2 launch file
 ---------------------------
 
-If you haven't already, make sure you go through the tutorial on how to :doc:`create a ROS 2 package <./Creating-Your-First-ROS2-Package>`.
+If you haven't already, make sure you go through the tutorial on how to :doc:`create a ROS 2 package <../Creating-Your-First-ROS2-Package>`.
 One way to create launch files in ROS 2 is using a Python file, which are executed by the ROS 2 CLI tool, ``ros2 launch``.
 We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and creating a new ``launch`` directory.
 
@@ -81,7 +82,7 @@ Inside your launch directory, create a new launch file with the ``.launch.py`` s
 For example ``my_script.launch.py``.
 
 ``.launch.py`` is not specifically required as the file suffix for launch files.
-Another popular option is ``_launch.py``, used in the :ref:`beginner level launch files tutorial <ROS2Launch>`.
+Another popular option is ``_launch.py``, used in the :doc:`beginner level launch files tutorial <Creating-Launch-Files>`.
 If you do change the suffix, make sure to adjust the ``glob()`` argument in your ``setup.py`` file accordingly.
 
 Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
@@ -120,7 +121,7 @@ Example of ROS 2 launch concepts
 --------------------------------
 
 The launch file in `this example <https://github.com/ros2/launch_ros/blob/foxy/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
-launches two nodes, one of which is a node with a `managed lifecycle <Managed-Nodes>` (a "lifecycle node").
+launches two nodes, one of which is a node with a `managed lifecycle <../Managed-Nodes>` (a "lifecycle node").
 Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when they transition between states.
 The events can then be acted on through the launch framework.
 For example, by emitting other events (such as requesting another state transition, which lifecycle nodes launched through ``launch_ros`` automatically have event handlers for) or triggering other *actions* (e.g. starting another node).

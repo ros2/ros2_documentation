@@ -30,7 +30,7 @@ Prerequisites
 -------------
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
-In particular, :doc:`../../Turtlesim/Introducing-Turtlesim`, :doc:`../../Topics/Understanding-ROS2-Topics`, :doc:`../../Workspace/Creating-A-Workspace`, :doc:`../../Creating-Your-First-ROS2-Package` and :doc:`../../Launch-Files/Creating-Launch-Files` are useful prerequisites.
+In particular, :doc:`../../Turtlesim/Introducing-Turtlesim`, :doc:`../../Topics/Understanding-ROS2-Topics`, :doc:`../../Workspace/Creating-A-Workspace`, :doc:`../../Creating-Your-First-ROS2-Package` and :doc:`../../Launch/Creating-Launch-Files` are useful prerequisites.
 Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
 
 .. tabs::
@@ -389,7 +389,5 @@ Next steps
 
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
 Taking inspiration from these previous tutorials could be a starting point:
-
-* :doc:`../../Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python`.
 
 * :doc:`../../Tf2/Tf2-Main`.

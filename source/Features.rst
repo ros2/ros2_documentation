@@ -53,7 +53,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - :doc:`Concept <Concepts/About-Command-Line-Tools>`
      -
    * - Launch system for coordinating multiple nodes
-     - :doc:`Tutorial <Tutorials/Launch-system>`
+     - :doc:`Tutorial <Tutorials/Launch/Launch-system>`
      -
    * - Namespace support for nodes and topics
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
