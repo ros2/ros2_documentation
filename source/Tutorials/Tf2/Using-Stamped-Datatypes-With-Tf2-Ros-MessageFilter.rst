@@ -252,7 +252,7 @@ In order to run this demo, we need to create a launch file ``turtle_tf2_sensor_m
        ])
 
 
-1.3 Add an entry point and build the pakcage
+1.3 Add an entry point and build the package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Don't forget to add the executable in the ``setup.py`` file of the package:
