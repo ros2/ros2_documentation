@@ -40,10 +40,10 @@ Tasks
 
   mkdir -p ~/dev_ws/src  # change as needed
   cd ~/dev_ws/src
-  ros2 pkg create urdf_tutorial --build-type ament_python --dependencies rclpy
-  cd urdf_tutorial
+  ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy
+  cd urdf_tutorial_r2d2
 
-You should now see a ``urdf_tutorial`` folder.
+You should now see a ``urdf_tutorial_r2d2`` folder.
 Next you will make several changes to it.
 
 2 Create the URDF File
@@ -55,8 +55,8 @@ Create the directory where we will store some assets:
 
   mkdir -p urdf
 
-Download the :download:`URDF file <r2d2.urdf.xml>` and save it as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.urdf.xml``.
-Download the :download:`Rviz configuration file <r2d2.rviz>` and save it as ``~/dev_ws/src/urdf_tutorial/urdf/r2d2.rviz``.
+Download the :download:`URDF file <r2d2.urdf.xml>` and save it as ``~/dev_ws/src/urdf_tutorial_r2d2/urdf/r2d2.urdf.xml``.
+Download the :download:`Rviz configuration file <r2d2.rviz>` and save it as ``~/dev_ws/src/urdf_tutorial_r2d2/urdf/r2d2.rviz``.
 
 3 Publish the state
 ^^^^^^^^^^^^^^^^^^^
@@ -64,7 +64,7 @@ Download the :download:`Rviz configuration file <r2d2.rviz>` and save it as ``~/
 Now we need a method for specifying what state the robot is in.
 To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``urdf_tutorial/state_publisher.py``
+Fire up your favorite editor and paste the following code into ``urdf_tutorial_r2d2/state_publisher.py``
 
 .. code-block:: python
 
@@ -178,7 +178,7 @@ Open your editor and paste the following code, saving it as ``launch/demo.launch
 
       urdf_file_name = 'r2d2.urdf.xml'
       urdf = os.path.join(
-          get_package_share_directory('urdf_tutorial'),
+          get_package_share_directory('urdf_tutorial_r2d2'),
           urdf_file_name)
       with open(urdf, 'r') as infp:
           robot_desc = infp.read()
@@ -196,7 +196,7 @@ Open your editor and paste the following code, saving it as ``launch/demo.launch
               parameters=[{'use_sim_time': use_sim_time, 'robot_description': robot_desc}],
               arguments=[urdf]),
           Node(
-              package='urdf_tutorial',
+              package='urdf_tutorial_r2d2',
               executable='state_publisher',
               name='state_publisher',
               output='screen'),
@@ -233,7 +233,7 @@ Edit the ``setup.py`` file as follows:
 .. code-block:: python
 
         'console_scripts': [
-            'state_publisher = urdf_tutorial.state_publisher:main'
+            'state_publisher = urdf_tutorial_r2d2.state_publisher:main'
         ],
 
 Save the ``setup.py`` file with your changes.
@@ -244,7 +244,7 @@ Save the ``setup.py`` file with your changes.
 .. code-block:: console
 
   cd ~/dev_ws
-  colcon build --symlink-install --packages-select urdf_tutorial
+  colcon build --symlink-install --packages-select urdf_tutorial_r2d2
   source install/setup.bash
 
 
@@ -255,13 +255,13 @@ Launch the package
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial demo.launch.py
+  ros2 launch urdf_tutorial_r2d2 demo.launch.py
 
 Open a new terminal, the run Rviz using
 
 .. code-block:: console
 
-  rviz2 -d ~/dev_ws/install/urdf_tutorial/share/urdf_tutorial/r2d2.rviz
+  rviz2 -d ~/dev_ws/install/urdf_tutorial_r2d2/share/urdf_tutorial_r2d2/r2d2.rviz
 
 See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how to use Rviz.
 
