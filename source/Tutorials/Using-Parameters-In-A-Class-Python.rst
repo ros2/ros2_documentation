@@ -113,8 +113,8 @@ The ``import`` statements below are used to import the package dependencies.
 
 The next piece of code creates the class and the constructor.
 ``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
-The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a
-parameter with the name ``my_parameter`` and a default value of ``world``.
+The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a parameter with the name ``my_parameter`` and a default value of ``world``.
+The parameter type is inferred from the default value, so in this case it would be set to a string type.
 
 .. code-block:: Python
 
@@ -128,7 +128,8 @@ parameter with the name ``my_parameter`` and a default value of ``world``.
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
 Next,the ``get_logger`` function ensures the message is logged.
-Then, we set the parameter 'my_parameter' back to the default string value 'world'.
+The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
+In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
 
 .. code-block:: Python
 
