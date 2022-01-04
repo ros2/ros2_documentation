@@ -19,7 +19,7 @@ Background
 In previous tutorials, we recreated the turtle demo by writing a :doc:`tf2 broadcaster <Writing-A-Tf2-Broadcaster-Cpp>` and a :doc:`tf2 listener <Writing-A-Tf2-Listener-Cpp>`.
 We also learned how to :doc:`add a new frame to the transformation tree <./Adding-A-Frame-Cpp>` and learned how tf2 keeps track of a tree of coordinate frames.
 This tree changes over time, and tf2 stores a time snapshot for every transform (for up to 10 seconds by default).
-Until now we used the ``lookpTransform()`` function to get access to the latest available transforms in that tf2 tree, without knowing at what time that transform was recorded.
+Until now we used the ``lookupTransform()`` function to get access to the latest available transforms in that tf2 tree, without knowing at what time that transform was recorded.
 This tutorial will teach you how to get a transform at a specific time.
 
 Tasks
