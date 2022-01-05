@@ -74,8 +74,6 @@ Next install the latest version of ``setuptools`` and ``pip``:
 
    python -m pip install -U setuptools pip
 
-Where ``PATH_TO_PYTHON_EXECUTABLE`` looks like: ``c:\python38\python.exe``
-
 Then you can continue installing other Python dependencies:
 
 .. code-block:: bash
