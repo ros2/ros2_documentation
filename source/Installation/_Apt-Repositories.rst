@@ -21,7 +21,7 @@ First authorize our GPG key with apt.
 .. code-block:: bash
 
    sudo apt update && sudo apt install curl gnupg lsb-release
-   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+   sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 Then add the repository to your sources list.
 
