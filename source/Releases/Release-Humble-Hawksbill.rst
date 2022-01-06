@@ -284,6 +284,13 @@ See https://github.com/ros2/ros2cli/pull/642 for more details.
 
       ros2 param dump /my_node_name > my_node_name.yaml
 
+``ros2 param set`` now accepts more YAML syntax
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Previously, attempting to set a string like "off" to a parameter that was of string type did not work.
+That's because ``ros2 param set`` interprets the command-line arguments as YAML, and YAML considers "off" to be a boolean type.
+As of https://github.com/ros2/ros2cli/pull/684 , ``ros2 param set`` now accepts the YAML escape sequence of "!!str off" to ensure that the value is considered a string.
+
 robot_state_publisher
 ^^^^^^^^^^^^^^^^^^^^^
 
