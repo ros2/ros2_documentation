@@ -48,6 +48,12 @@ This is the recommended way to test out local changes.
 The build process can take some time.
 To see the output, open ``build/html/index.html`` in your browser.
 
+You can also run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+
+.. code-block:: console
+
+   make test
+
 Building the site for all branches
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
