@@ -11,3 +11,6 @@ help:
 .PHONY: help Makefile
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
+
+test:
+	doc8 --ignore D001 --ignore-path build
