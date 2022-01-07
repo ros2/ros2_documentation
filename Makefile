@@ -16,3 +16,6 @@ multiversion: Makefile
 .PHONY: help Makefile multiversion
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
+
+test:
+	doc8 --ignore D001 --ignore-path build
