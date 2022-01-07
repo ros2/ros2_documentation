@@ -15,17 +15,6 @@ Creating a launch file
    :depth: 2
    :local:
 
-Background
-----------
-
-In most of the introductory tutorials, you have been opening new terminals for every new node you run.
-As you create more complex systems with more and more nodes running simultaneously, opening terminals and reentering configuration details becomes tedious.
-
-Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
-
-Running a single launch file with the ``ros2 launch`` command will start up your entire system - all nodes and their configurations - at once.
-
-
 Prerequisites
 -------------
 
