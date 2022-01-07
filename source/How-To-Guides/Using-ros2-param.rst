@@ -49,7 +49,7 @@ To set the value of a parameter on a node:
   ros param set /my_node use_sim_time false
 
 The value that is passed on the command-line is in YAML, which allows arbitrary YAML expressions to be used.
-However, it also means that certain expressions will be interpreted than might be expected.
+However, it also means that certain expressions will be interpreted differently than might be expected.
 For instance, if the parameter ``my_string`` on node ``my_node`` is of type string, the following will not work:
 
 .. code-block:: console
@@ -62,6 +62,20 @@ This can be worked around by using the YAML syntax for explicitly setting string
 .. code-block:: console
 
   ros param set /my_node my_string '!!str off'
+
+Additionally, YAML supports heterogeneous lists, containing (say) a string, a boolean, and an integer.
+However, ROS 2 parameters do not support heterogenous lists, so any YAML list that has multiple types will be interpreted as a string.
+Assuming that the parameter ``my_int_array`` on node ``my_node`` is of type integer array, the following will not work:
+
+.. code-block:: console
+
+  ros param set /my_node my_int_array '[foo,off,1]'
+
+The following string typed parameter would work:
+
+.. code-block:: console
+
+  ros param set /my_node my_string '[foo,off,1]'
 
 ``ros2 param delete``
 ---------------------
