@@ -57,11 +57,6 @@ For instance, if the parameter ``my_string`` on node ``my_node`` is of type stri
   ros param set /my_node my_string off
 
 That's because YAML is interpreting "off" as a boolean, and ``my_string`` is a string type.
-This can be worked around by using the YAML syntax for explicitly setting strings, e.g.:
-
-.. code-block:: console
-
-  ros param set /my_node my_string '!!str off'
 
 ``ros2 param delete``
 ---------------------
