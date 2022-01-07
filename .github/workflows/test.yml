@@ -19,4 +19,4 @@ jobs:
           pip install doc8
 
       - run: make html
-      - run: doc8 --ignore D001 --ignore-path build
+      - run: make test
