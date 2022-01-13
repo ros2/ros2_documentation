@@ -45,7 +45,7 @@ Supported RMW implementations
    * - GurumNetworks *GurumDDS*
      - commercial
      - ``rmw_gurumdds_cpp``
-     - Full support. Support included in binaries, but GurumDDS installed separately.
+     - Community support. Support included in binaries, but GurumDDS installed separately.
 
 For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
