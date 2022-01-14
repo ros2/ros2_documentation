@@ -12,7 +12,7 @@ Composing multiple nodes in a single process
 Background
 ----------
 
-See the `conceptual article <../Concepts/About-Composition>`.
+See the :doc:`conceptual article <../Concepts/About-Composition>`.
 
 Run the demos
 -------------
@@ -268,6 +268,28 @@ The corresponding entries appear in ``ros2 component list``:
 .. note::
 
    Namespace remappings of the container do not affect loaded components.
+
+Passing parameter values into components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``ros2 component load`` command-line supports passing arbitrary parameters to the node as it is constructed.
+This functionality can be used as follows:
+
+.. code-block:: bash
+
+   $ ros2 component load /ComponentManager image_tools image_tools::Cam2Image -p burger_mode:=true
+
+Passing additional arguments into components
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``ros2 component load`` command-line supports passing particular options to the component manager for use when constructing the node.
+As of now, the only command-line option that is supported is to instantiate a node using intra-process communication.
+This functionality can be used as follows:
+
+.. code-block:: bash
+
+   $ ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true
+
 
 Composable nodes as shared libraries
 ------------------------------------
