@@ -144,6 +144,12 @@ Copy the data into a local file, and then run:
 
   ros2 launch <path_to_launch_file>
 
+Intra-process communications
+----------------------------
+
+All of the above examples use an extra argument to setup intra-process communication between the nodes.
+For more information on what intra-process communications are, see the :doc:`intra-process comms tutorial <../Tutorials/Intra-Process-Communication>`.
+
 Python, XML, or YAML: Which should I use?
 -----------------------------------------
 

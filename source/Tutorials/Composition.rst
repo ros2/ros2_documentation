@@ -290,7 +290,6 @@ This functionality can be used as follows:
 
    $ ros2 component load /ComponentManager composition composition::Talker -e use_intra_process_comms:=true
 
-
 Composable nodes as shared libraries
 ------------------------------------
 
