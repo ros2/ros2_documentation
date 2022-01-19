@@ -19,23 +19,13 @@ In ROS 2 we aim to improve on the design of Nodelets by addressing some fundamen
 
 In this demo we'll be highlighting how nodes can be composed manually, by defining the nodes separately but combining them in different process layouts without changing the node's code or limiting its abilities.
 
-Build the demos
----------------
+Installing the demos
+--------------------
 
-These demos should work on any of the three major OSs (Windows, Mac, or Linux).
-Some of them do require OpenCV to have been installed.
+See the :doc:`installation instructions <../Installation>` for details on installing ROS 2.
 
-Using the pre-built binaries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you've installed the binaries, simply source the ROS 2 setup file and then skip down to any of the individual demos to see how to run them.
-
-Building from source
-^^^^^^^^^^^^^^^^^^^^
-
-Make sure you have OpenCV installed and then follow the source instructions.
-You can find the from source instructions linked from the main `ros2 installation page <../Installation>`.
-Once built source the setup file and continue down to one of the specific demos to read about them and for instructions on how to run them.
+If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-intra-process-demo`` installed.
+If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.
 
 Running and understanding the demos
 -----------------------------------
@@ -274,7 +264,7 @@ To test those expectations, let's run it:
 
 .. code-block:: bash
 
-   % ros2 run intra_process_demo cyclic_pipeline
+   $ ros2 run intra_process_demo cyclic_pipeline
    Published first message with value:  42, and address: 0x7fd2ce0a2bc0
    Received message with value:         42, and address: 0x7fd2ce0a2bc0
      sleeping for 1 second...
@@ -307,14 +297,16 @@ The image pipeline demo
 
 In this demo we'll use OpenCV to capture, annotate, and then view images.
 
-Note for macOS users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
+.. note::
 
-.. code-block:: bash
+  If you are on macOS and these examples do not work or you receive an error like ``ddsi_conn_write failed -1``, then you'll need to increase your system wide UDP packet size:
 
-   $ sudo sysctl -w net.inet.udp.recvspace=209715
-   $ sudo sysctl -w net.inet.udp.maxdgram=65500
+  .. code-block:: bash
 
-These changes will not persist after a reboot.
+    $ sudo sysctl -w net.inet.udp.recvspace=209715
+    $ sudo sysctl -w net.inet.udp.maxdgram=65500
+
+  These changes will not persist after a reboot.
 
 Simple pipeline
 ~~~~~~~~~~~~~~~
@@ -394,38 +386,3 @@ One other important thing to get right is to avoid interruption of the intra pro
 
 
 It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step. This means that the intra process zero-copy is preserved even when an external view is subscribed as well. You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
-
-Looking forward
----------------
-
-These demos are the foundation for some cool new features on which we're actively working, but right now some things are missing.
-
-Room for Improvement
-^^^^^^^^^^^^^^^^^^^^
-
-Let's start by looking at what we at OSRF know we can do better or differently and move on from there.
-
-Performance, Performance, Performance
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-This is a very rough first draft. There is a lot of room for improvement, even beyond what has been enumerated above. We'll start to improve performance as we dig into the details of the system, build up a better understanding of exactly what our middleware vendors are doing, and try alternative strategies for implementing intra process.
-
-Latching
-~~~~~~~~
-
-We haven't fully implemented the concept of latching yet, but it's very likely we'll need to adjust the implementation of the intra process manager to account for the fact that late intra process subscriptions should be delivered to as well. There are several options on how to do that, and we'll do some testing and figure out what to do in the near future.
-
-Beyond Pub/Sub
-~~~~~~~~~~~~~~
-
-We've not done any of this with Services, Parameters, or Actions, but we will.
-
-Type Masquerading
-~~~~~~~~~~~~~~~~~
-
-This is one of the coolest upcoming features that we didn't get to in this demo.
-Imagine the image pipeline demo above, but rather than passing ``sensor_msgs/Image``\ s around, you're publishing and subscribing to ``cv::Mat`` objects. This exists in ROS 1, see: https://wiki.ros.org/roscpp/Overview/MessagesSerializationAndAdaptingTypes
-
-In ROS 1, this is accomplished by serializing/deserializing the third party type when handling it. This means that with intra process you'll be serializing when passing it between nodelets. But in ROS 2 we want to do it in the most performant way possible. Similar to how these demos have been demonstrating that an instance of a message can be used through the whole pipeline in certain cases, we'd like to do the same with third party types. So conceivably you could have the image pipeline with a single ``cv::Mat`` which never gets copied by the middleware. To do this requires some additional intelligence in the intra process manager, but we've already got a design and some proof of concepts in the works.
-
-Given these features, hopefully there will come a point where you can trust the middleware to handle your data as efficiently as is possible. This will allow you to write performant algorithms without sacrificing modularity or introspection!
