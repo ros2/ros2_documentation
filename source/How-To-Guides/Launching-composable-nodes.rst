@@ -66,74 +66,6 @@ The launch files all do the following:
 
           return launch.LaunchDescription([container])
 
-  .. group-tab:: XML
-
-    .. code-block:: xml
-
-      <launch>
-          <node_container pkg="rclcpp_components" exec="component_container" name="image_container" namespace="">
-              <composable_node pkg="image_tools" plugin="image_tools::Cam2Image" name="cam2image" namespace="">
-                  <remap from="/image" to="/burgerimage" />
-                  <param name="width" value="320" />
-                  <param name="height" value="240" />
-                  <param name="burger_mode" value="true" />
-                  <param name="history" value="keep_last" />
-                  <extra_arg name="use_intra_process_comms" value="true" />
-              </composable_node>
-              <composable_node pkg="image_tools" plugin="image_tools::ShowImage" name="showimage" namespace="">
-                  <remap from="/image" to="/burgerimage" />
-                  <param name="history" value="keep_last" />
-                  <extra_arg name="use_intra_process_comms" value="true" />
-              </composable_node>
-          </node_container>
-      </launch>
-
-  .. group-tab:: YAML
-
-    .. code-block:: yaml
-
-      launch:
-
-          - node_container:
-              pkg: rclcpp_components
-              exec: component_container
-              name: image_container
-              namespace: ''
-              composable_node:
-                  -   pkg: image_tools
-                      plugin: image_tools::Cam2Image
-                      name: cam2image
-                      namespace: ''
-                      remap:
-                          - from: /image
-                            to: /burgerimage
-                      param:
-                          - name: width
-                            value: 320
-                          - name: height
-                            value: 240
-                          - name: burger_mode
-                            value: true
-                          - name: history
-                            value: keep_last
-                      extra_arg:
-                          - name: use_intra_process_comms
-                            value: 'true'
-
-                  -   pkg: image_tools
-                      plugin: image_tools::ShowImage
-                      name: showimage
-                      namespace: ''
-                      remap:
-                          - from: /image
-                            to: /burgerimage
-                      param:
-                          - name: history
-                            value: keep_last
-                      extra_arg:
-                          - name: use_intra_process_comms
-                            value: 'true'
-
 Using the Launch files from the command-line
 --------------------------------------------
 
@@ -149,8 +81,3 @@ Intra-process communications
 
 All of the above examples use an extra argument to setup intra-process communication between the nodes.
 For more information on what intra-process communications are, see the :doc:`intra-process comms tutorial <../Tutorials/Intra-Process-Communication>`.
-
-Python, XML, or YAML: Which should I use?
------------------------------------------
-
-See the discussion in :doc:`Launch-file-different-formats` for more information.
