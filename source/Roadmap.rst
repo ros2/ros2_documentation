@@ -51,10 +51,6 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Medium
      - AWS
      - Q3 2021
-   * - Interface definitions: get exact msg/srv/action definitions on the wire at runtime
-     - Large
-     - AWS / Foxglove
-     - Q1 2022
    * - Multi-threaded Executor for rclc
      - Medium
      - Bosch
