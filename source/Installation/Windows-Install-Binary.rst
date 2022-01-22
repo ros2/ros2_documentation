@@ -171,7 +171,7 @@ You will need to append the Graphviz bin folder ``C:\Program Files\Graphviz\bin`
 Downloading ROS 2
 -----------------
 
-* Go the releases page: https://github.com/ros2/ros2/releases
+* Go to the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
 
 .. note::
@@ -180,7 +180,34 @@ Downloading ROS 2
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``. Please note that debug libraries may require some more additional configuration/setup to work. For example, python has to be installed with debugging symbols and debug binaries enabled. Otherwise, it will not work. See `this <https://github.com/ros2/ros2/issues/525#issuecomment-658771320>`__.
+   | To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``.
+
+   | Please note that debug libraries require some more additional configuration/setup to work as given below.
+
+   | If you just want release version then skip to the next step: `Unpack the zip file somewhere`.
+
+   | Python installation may require modification to enable debugging symbols and debug binaries.
+
+   | Search in windows **Search Bar** and open **Apps and Features**.
+
+   | Search for the installed Python version.
+
+   | Click Modify.
+
+   .. image:: https://i.imgur.com/xf7uysV.png
+      :width: 500 px
+
+   | Click Next to go to **Advanced Options**.
+
+   .. image:: https://i.imgur.com/pVpXR5x.png
+      :width: 500 px
+
+   | Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+   
+   .. image:: https://i.imgur.com/N4R1jEx.png
+      :width: 500 px
+
+   | Click Install.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
