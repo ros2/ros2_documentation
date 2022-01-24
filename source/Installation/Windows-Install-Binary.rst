@@ -87,8 +87,8 @@ Microsoft provides a free of charge version of Visual Studio 2019, named Communi
 Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
-
-   .. image:: https://i.imgur.com/2h0IxCk.png
+   
+   .. image:: /images/vs_community_screenshot.png
 
 Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
@@ -180,34 +180,34 @@ Downloading ROS 2
 
 .. note::
 
-   | To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+    To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
 
-   | Please note that debug libraries require some more additional configuration/setup to work as given below.
+    Please note that debug libraries require some more additional configuration/setup to work as given below.
 
-   | If you just want release version then skip to "Unpacking the zip file somewhere".
+    If you just want release version then skip to "Unpacking the zip file somewhere".
 
-   | Python installation may require modification to enable debugging symbols and debug binaries.
+    Python installation may require modification to enable debugging symbols and debug binaries.
 
-   | Search in windows **Search Bar** and open **Apps and Features**.
+    Search in windows **Search Bar** and open **Apps and Features**.
 
-   | Search for the installed Python version.
+    Search for the installed Python version.
 
-   | Click Modify.
+    Click Modify.
 
-   .. image:: https://i.imgur.com/xf7uysV.png
-      :width: 500 px
+      .. image:: /images/python_installation_modify.png
+         :width: 500 px
 
-   | Click Next to go to **Advanced Options**.
+    Click Next to go to **Advanced Options**.
 
-   .. image:: https://i.imgur.com/pVpXR5x.png
-      :width: 500 px
+      .. image:: /images/python_installation_next.png
+         :width: 500 px
 
-   | Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+    Make sure **Download debugging symbols** and **Download debug binaries** are checked.
    
-   .. image:: https://i.imgur.com/N4R1jEx.png
-      :width: 500 px
+      .. image:: /images/python_installation_enable_debug.png
+         :width: 500 px
 
-   | Click Install.
+    Click Install.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
