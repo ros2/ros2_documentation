@@ -184,7 +184,7 @@ Downloading ROS 2
 
    | Please note that debug libraries require some more additional configuration/setup to work as given below.
 
-   | If you just want release version then skip to the next step: `Unpack the zip file somewhere`.
+   | If you just want release version then skip to "Unpacking the zip file somewhere".
 
    | Python installation may require modification to enable debugging symbols and debug binaries.
 
