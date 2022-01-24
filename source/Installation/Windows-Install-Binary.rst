@@ -180,7 +180,7 @@ Downloading ROS 2
 
 .. note::
 
-   | To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``.
+   | To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
 
    | Please note that debug libraries require some more additional configuration/setup to work as given below.
 
