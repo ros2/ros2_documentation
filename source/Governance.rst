@@ -20,7 +20,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (22 as of 2021-11-29):
+The current members of the ROS 2 TSC are (21 as of 2021-11-29):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -31,7 +31,6 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
 .. |gvsc| image:: Governance/gvsc.png
 .. |intel| image:: Governance/intel.svg
 .. |irobot| image:: Governance/irobot.png
-.. |lge| image:: Governance/lge.svg
 .. |microsoft| image:: Governance/microsoft.svg
 .. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
 .. |picknik| image:: Governance/picknik.png
@@ -130,10 +129,6 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
           <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.lg.com"><img alt="LG Electronics logo" src="_images/lge.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>LG Electronics: Herb Kuta</p></td>
-        </tr>
-        <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
         </tr>
@@ -143,7 +138,7 @@ The current members of the ROS 2 TSC are (22 as of 2021-11-29):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>PickNik: Dave Coleman</p></td>
+          <td class="tscclass" align="center"><p>PickNik: Henning Kayser</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="_images/robotis.png" style="height: 35px;" /></a></p></td>
@@ -199,7 +194,7 @@ Working Groups (WGs)
 
 As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establishes working groups (WGs) to discuss and make progress on specific topics.
 
-The current WGs are (11 as of 2021-01-12):
+The current WGs are (12 as of 2021-01-12):
 
 Control
 ^^^^^^^
