@@ -25,13 +25,13 @@ Learning Launch
 
    A more advanced overview of how launch files work and of the resources and documentation available for them.
 
-#. :doc:`Using Event Handlers <./Using-Event-Handlers>`.
-
-   Event handlers can be useful for monitoring the state of processes or to define a complex set of rules that can be used to dynamically modify the launch file.
-
 #. :doc:`Using Substitutions <./Using-Substitutions>`.
 
    Substitutions can be used to provide more flexibility when describing reusable launch files.
+
+#. :doc:`Using Event Handlers <./Using-Event-Handlers>`.
+
+   Event handlers can be useful for monitoring the state of processes or to define a complex set of rules that can be used to dynamically modify the launch file.
 
 #. :doc:`Using ROS 2 Launch For Large Projects <./Using-ROS2-Launch-For-Large-Projects>`.
 
