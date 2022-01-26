@@ -37,7 +37,7 @@ This tutorial extends the code shown in the :doc:`Using substitutions in launch 
 Using event handlers
 --------------------
 
-1 Event hanlders example launch file
+1 Event handlers example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new file called ``example_event_handlers.launch.py`` file in the ``/launch`` folder of the ``launch_tutorial`` package.
@@ -297,5 +297,5 @@ Documentation
 Summary
 -------
 
-In this tutorial, you learned about using event hanlders in launch files.
+In this tutorial, you learned about using event handlers in launch files.
 You learned about their syntax and usage examples to define a complex set of rules to dynamically modify launch files.
