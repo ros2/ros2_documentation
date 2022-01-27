@@ -20,15 +20,170 @@ Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
+<<<<<<< HEAD
 .. include:: _Windows-Install-Prerequisites.rst
+=======
+Installing prerequisites
+------------------------
+
+Install Chocolatey
+^^^^^^^^^^^^^^^^^^
+
+Chocolatey is a package manager for Windows, install it by following their installation instructions:
+
+https://chocolatey.org/
+
+You'll use Chocolatey to install some other developer tools.
+
+Install Python
+^^^^^^^^^^^^^^
+
+Open a Command Prompt and type the following to install Python via Chocolatey:
+
+.. code-block:: bash
+
+   choco install -y python --version 3.8.3
+
+ROS 2 expects the python installation to be available in directory ``C:\python38``.
+Double check that it is installed there.
+
+Install Visual C++ Redistributables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open a Command Prompt and type the following to install them via Chocolatey:
+
+.. code-block:: bash
+
+   choco install -y vcredist2013 vcredist140
+
+Install OpenSSL
+^^^^^^^^^^^^^^^
+
+Download the *Win64 OpenSSL v1.1.1L* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1L*.
+Don't download the Win32 or Light versions.
+
+Run the installer with default parameters, as the following commands assume you used the default installation directory.
+
+This command sets an environment variable that persists over sessions:
+
+.. code-block:: bash
+
+   setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
+
+You will also need to append the OpenSSL-Win64 bin folder to your PATH.
+You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
+In the resulting dialog, click "Environment Variables", then click "Path" on the bottom pane, finally click "Edit" and add the path below.
+
+* ``C:\Program Files\OpenSSL-Win64\bin\``
+
+Install Visual Studio
+^^^^^^^^^^^^^^^^^^^^^
+
+Install Visual Studio 2019.
+
+If you already have a paid version of Visual Studio 2019 (Professional, Enterprise), skip this step.
+
+Microsoft provides a free of charge version of Visual Studio 2019, named Community, which can be used to build applications that use ROS 2.
+`You can download the installer directly through this link. <https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&rel=16&src=myvs&utm_medium=microsoft&utm_source=my.visualstudio.com&utm_campaign=download&utm_content=vs+community+2019>`_
+
+Make sure that the Visual C++ features are installed.
+
+An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
+
+   .. image:: images/vs_community_screenshot.png
+
+Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
+
+Install additional DDS implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+
+Install OpenCV
+^^^^^^^^^^^^^^
+
+Some of the examples require OpenCV to be installed.
+
+You can download a precompiled version of OpenCV 3.4.6 from https://github.com/ros2/ros2/releases/download/opencv-archives/opencv-3.4.6-vc16.VS2019.zip .
+
+Assuming you unpacked it to ``C:\opencv``\ , type the following on a Command Prompt (requires Admin privileges):
+
+.. code-block:: bash
+
+   setx -m OpenCV_DIR C:\opencv
+
+Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries.
+You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
+
+Install dependencies
+^^^^^^^^^^^^^^^^^^^^
+
+There are a few dependencies not available in the Chocolatey package database.
+In order to ease the manual installation process, we provide the necessary Chocolatey packages.
+
+As some chocolatey packages rely on it, we start by installing CMake
+
+.. code-block:: bash
+
+   choco install -y cmake
+
+You will need to append the CMake bin folder ``C:\Program Files\CMake\bin`` to your PATH.
+
+Please download these packages from `this <https://github.com/ros2/choco-packages/releases/latest>`__ GitHub repository.
+
+* asio.1.12.1.nupkg
+* bullet.2.89.0.nupkg
+* cunit.2.1.3.nupkg
+* eigen-3.3.4.nupkg
+* tinyxml-usestl.2.6.2.nupkg
+* tinyxml2.6.0.0.nupkg
+* log4cxx.0.10.0.nupkg
+
+Once these packages are downloaded, open an administrative shell and execute the following command:
+
+.. code-block:: bash
+
+   choco install -y -s <PATH\TO\DOWNLOADS> asio cunit eigen tinyxml-usestl tinyxml2 log4cxx bullet
+
+Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
+
+You must also install some python dependencies for command-line tools:
+
+.. code-block:: bash
+
+   python -m pip install -U catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools rosdistro
+
+RQt dependencies
+~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python -m pip install -U pydot PyQt5
+
+.. _Foxy_windows-install-binary-installing-rqt-dependencies:
+
+To run rqt_graph, you'll need `Graphviz <https://graphviz.gitlab.io/>`__.
+
+.. code-block:: bash
+
+   choco install graphviz
+
+You will need to append the Graphviz bin folder ``C:\Program Files\Graphviz\bin`` to your PATH, by navigating to "Edit the system environment variables" as described above.
+>>>>>>> 0198e34 (Clarity on debug libraries further settings (#2226))
 
 Downloading ROS 2
 -----------------
 
+<<<<<<< HEAD
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+=======
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
+>>>>>>> 0198e34 (Clarity on debug libraries further settings (#2226))
 
 .. note::
 
@@ -36,7 +191,12 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 
 .. note::
 
+<<<<<<< HEAD
     To download the ROS 2 debug libraries you'll need to download ``ros2-package-windows-debug-AMD64.zip``
+=======
+    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+    Then continue on with downloading ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+>>>>>>> 0198e34 (Clarity on debug libraries further settings (#2226))
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
@@ -99,4 +259,83 @@ Uninstall
 
    .. code-block:: bash
 
+<<<<<<< HEAD
       rmdir /s /q \ros2_{DISTRO}
+=======
+    rmdir /s /q \ros2_{DISTRO}
+
+Extra Stuff for Debug
+---------------------
+
+To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+Please note that debug libraries require some more additional configuration/setup to work as given below.
+
+Python installation may require modification to enable debugging symbols and debug binaries:
+
+* Search in windows **Search Bar** and open **Apps and Features**.
+* Search for the installed Python version.
+
+* Click Modify.
+
+      .. image:: images/python_installation_modify.png
+         :width: 500 px
+
+* Click Next to go to **Advanced Options**.
+
+      .. image:: images/python_installation_next.png
+         :width: 500 px
+
+* Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+
+      .. image:: images/python_installation_enable_debug.png
+         :width: 500 px
+
+* Click Install.
+
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel.
+
+Install ROS 2 builds
+^^^^^^^^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   mkdir c:\opt\chocolatey
+   set PYTHONNOUSERSITE=1
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   choco upgrade ros-foxy-desktop -y --execution-timeout=0
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   call C:\opt\ros\foxy\x64\local_setup.bat
+
+Stay up-to-date
+^^^^^^^^^^^^^^^
+
+To keep up-to-date with the latest builds, run:
+
+.. code-block:: bash
+
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco upgrade all -y --execution-timeout=0
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   rmdir /s /q C:\opt\
+>>>>>>> 0198e34 (Clarity on debug libraries further settings (#2226))
