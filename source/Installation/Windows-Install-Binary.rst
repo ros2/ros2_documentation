@@ -181,6 +181,7 @@ Downloading ROS 2
 .. note::
 
     To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+    Then continue on with downloading ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
