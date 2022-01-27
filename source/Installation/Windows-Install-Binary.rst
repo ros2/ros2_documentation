@@ -88,7 +88,7 @@ Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
-   .. image:: https://i.imgur.com/2h0IxCk.png
+   .. image:: images/vs_community_screenshot.png
 
 Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
@@ -171,7 +171,7 @@ You will need to append the Graphviz bin folder ``C:\Program Files\Graphviz\bin`
 Downloading ROS 2
 -----------------
 
-* Go the releases page: https://github.com/ros2/ros2/releases
+* Go to the releases page: https://github.com/ros2/ros2/releases
 * Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-AMD64.zip``.
 
 .. note::
@@ -180,7 +180,8 @@ Downloading ROS 2
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-foxy-*-windows-debug-AMD64.zip``
+    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+    Then continue on with downloading ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
@@ -244,6 +245,34 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_{DISTRO}
+
+Extra Stuff for Debug
+---------------------
+
+To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+Please note that debug libraries require some more additional configuration/setup to work as given below.
+
+Python installation may require modification to enable debugging symbols and debug binaries:
+
+* Search in windows **Search Bar** and open **Apps and Features**.
+* Search for the installed Python version.
+
+* Click Modify.
+
+      .. image:: images/python_installation_modify.png
+         :width: 500 px
+
+* Click Next to go to **Advanced Options**.
+
+      .. image:: images/python_installation_next.png
+         :width: 500 px
+
+* Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+
+      .. image:: images/python_installation_enable_debug.png
+         :width: 500 px
+
+* Click Install.
 
 (Alternative) ROS 2 Build Installation from aka.ms/ros
 --------------------------------------------------------
