@@ -336,6 +336,8 @@ Known Issues
 * `[ros2/ros2#922] <https://github.com/ros2/ros2/issues/922>`_ Services' performance is flaky for ``rclcpp`` nodes using eProsima Fast-RTPS or ADLINK CycloneDDS as RMW implementation.
   Specifically, service clients sometimes do not receive the response from servers.
 
+* `[ros2/rclcpp#1212] <https://github.com/ros2/rclcpp/issues/1212>`_ Ready reentrant Waitable objects can attempt to execute multiple times.
+
 
 Timeline before the release
 ---------------------------
