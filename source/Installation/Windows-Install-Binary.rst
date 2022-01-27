@@ -180,34 +180,7 @@ Downloading ROS 2
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
-
-    Please note that debug libraries require some more additional configuration/setup to work as given below.
-
-    If you just want release version then skip to "Unpacking the zip file somewhere".
-
-    Python installation may require modification to enable debugging symbols and debug binaries.
-
-    Search in windows **Search Bar** and open **Apps and Features**.
-
-    Search for the installed Python version.
-
-    Click Modify.
-
-      .. image:: images/python_installation_modify.png
-         :width: 500 px
-
-    Click Next to go to **Advanced Options**.
-
-      .. image:: images/python_installation_next.png
-         :width: 500 px
-
-    Make sure **Download debugging symbols** and **Download debug binaries** are checked.
-
-      .. image:: images/python_installation_enable_debug.png
-         :width: 500 px
-
-    Click Install.
+    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
@@ -271,6 +244,34 @@ Uninstall
    .. code-block:: bash
 
     rmdir /s /q \ros2_{DISTRO}
+
+Extra Stuff for Debug
+---------------------
+
+To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+Please note that debug libraries require some more additional configuration/setup to work as given below.
+
+Python installation may require modification to enable debugging symbols and debug binaries:
+
+* Search in windows **Search Bar** and open **Apps and Features**.
+* Search for the installed Python version.
+
+* Click Modify.
+
+      .. image:: images/python_installation_modify.png
+         :width: 500 px
+
+* Click Next to go to **Advanced Options**.
+
+      .. image:: images/python_installation_next.png
+         :width: 500 px
+
+* Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+
+      .. image:: images/python_installation_enable_debug.png
+         :width: 500 px
+
+* Click Install.
 
 (Alternative) ROS 2 Build Installation from aka.ms/ros
 --------------------------------------------------------
