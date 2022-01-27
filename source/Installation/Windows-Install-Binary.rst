@@ -87,8 +87,8 @@ Microsoft provides a free of charge version of Visual Studio 2019, named Communi
 Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
-   
-   .. image:: /images/vs_community_screenshot.png
+
+   .. image:: images/vs_community_screenshot.png
 
 Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
@@ -194,17 +194,17 @@ Downloading ROS 2
 
     Click Modify.
 
-      .. image:: /images/python_installation_modify.png
+      .. image:: images/python_installation_modify.png
          :width: 500 px
 
     Click Next to go to **Advanced Options**.
 
-      .. image:: /images/python_installation_next.png
+      .. image:: images/python_installation_next.png
          :width: 500 px
 
     Make sure **Download debugging symbols** and **Download debug binaries** are checked.
-   
-      .. image:: /images/python_installation_enable_debug.png
+
+      .. image:: images/python_installation_enable_debug.png
          :width: 500 px
 
     Click Install.
