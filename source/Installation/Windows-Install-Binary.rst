@@ -36,7 +36,8 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 
 .. note::
 
-    To download the ROS 2 debug libraries you'll need to download ``ros2-package-windows-debug-AMD64.zip``
+    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+    Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
@@ -99,4 +100,79 @@ Uninstall
 
    .. code-block:: bash
 
-      rmdir /s /q \ros2_{DISTRO}
+    rmdir /s /q \ros2_{DISTRO}
+
+Extra Stuff for Debug
+---------------------
+
+To download the ROS 2 debug libraries you'll need to download ``ros2-{DISTRO}-*-windows-debug-AMD64.zip``.
+Please note that debug libraries require some more additional configuration/setup to work as given below.
+
+Python installation may require modification to enable debugging symbols and debug binaries:
+
+* Search in windows **Search Bar** and open **Apps and Features**.
+* Search for the installed Python version.
+
+* Click Modify.
+
+      .. image:: images/python_installation_modify.png
+         :width: 500 px
+
+* Click Next to go to **Advanced Options**.
+
+      .. image:: images/python_installation_next.png
+         :width: 500 px
+
+* Make sure **Download debugging symbols** and **Download debug binaries** are checked.
+
+      .. image:: images/python_installation_enable_debug.png
+         :width: 500 px
+
+* Click Install.
+
+(Alternative) ROS 2 Build Installation from aka.ms/ros
+--------------------------------------------------------
+
+https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
+This section explains how to install ROS 2 from this channel.
+
+Install ROS 2 builds
+^^^^^^^^^^^^^^^^^^^^
+
+In an administrative command prompt, run the following commands.
+
+.. code-block:: bash
+
+   mkdir c:\opt\chocolatey
+   set PYTHONNOUSERSITE=1
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
+   choco upgrade ros-foxy-desktop -y --execution-timeout=0
+
+Environment setup
+^^^^^^^^^^^^^^^^^^
+
+Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
+
+.. code-block:: bash
+
+   call C:\opt\ros\foxy\x64\local_setup.bat
+
+Stay up-to-date
+^^^^^^^^^^^^^^^
+
+To keep up-to-date with the latest builds, run:
+
+.. code-block:: bash
+
+   set ChocolateyInstall=c:\opt\chocolatey
+   choco upgrade all -y --execution-timeout=0
+
+Uninstall
+^^^^^^^^^
+
+If you want to completely remove the environment downloaded above, run this command:
+
+.. code-block:: bash
+
+   rmdir /s /q C:\opt\
