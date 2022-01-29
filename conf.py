@@ -74,10 +74,10 @@ pygments_style = 'sphinx'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 extensions = [
+    'sphinx.ext.graphviz',
     'sphinx.ext.ifconfig',
     'sphinx.ext.intersphinx',
     'sphinx_copybutton',
-    'sphinx.ext.graphviz',
     'sphinx_multiversion',
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
