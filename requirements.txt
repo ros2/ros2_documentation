@@ -6,3 +6,4 @@ sphinx-copybutton
 sphinx-multiversion
 sphinx-rtd-theme
 sphinx-tabs
+sphinx_sitemap
