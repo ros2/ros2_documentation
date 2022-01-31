@@ -63,6 +63,19 @@ Related pull requests:
 * `launch#530 <https://github.com/ros2/launch/pull/530>`_
 * `launch_ros#265 <https://github.com/ros2/launch_ros/pull/265>`_
 
+Fix memory leaks and undefined behavior in rmw_fastrtps_dynamic_cpp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+API was changed in the following header files:
+
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport.hpp``
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport_impl.hpp``
+
+Though technically they are publically accessible, it is unlikely people are using them directly.
+Therefore, we decided to break API in order to fix memory leaks and undefined behavior.
+
+The fix was originally submitted in `rmw_fastrtps#429 <https://github.com/ros2/rmw_fastrtps/pull/429>`_ and later backported to Foxy in `rmw_fastrtps#577 <https://github.com/ros2/rmw_fastrtps/pull/577>`_.
+
 Changes in Patch Release 2
 --------------------------
 
