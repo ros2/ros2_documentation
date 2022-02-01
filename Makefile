@@ -11,7 +11,12 @@ help:
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
+<<<<<<< HEAD
 	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url='foxy/index.html'\" /></head></html>" > build/html/index.html
+=======
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=galactic/index.html\" /></head></html>" > build/html/index.html
+	python3 make_sitemapindex.py
+>>>>>>> fc8a4a5 (Add sitemap (#2261))
 
 .PHONY: help Makefile multiversion
 %: Makefile
