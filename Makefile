@@ -8,7 +8,16 @@ OPTS       =-c .
 help:
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
 
+<<<<<<< HEAD
 .PHONY: help Makefile
+=======
+multiversion: Makefile
+	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
+	@echo "<html><head><meta http-equiv=\"refresh\" content=\"0; url=galactic/index.html\" /></head></html>" > build/html/index.html
+	python3 make_sitemapindex.py
+
+.PHONY: help Makefile multiversion
+>>>>>>> fc8a4a5 (Add sitemap (#2261))
 %: Makefile
 	@$(BUILD) -M $@ "$(SOURCE)" "$(OUT)" $(OPTS)
 
