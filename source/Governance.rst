@@ -168,7 +168,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.foxglove.dev"><img alt="Foxglove logo" src="_images/foxglove.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Foxglove:  Adrian Macneil</p></td>
-        </tr>	
+        </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/omichel"> Oliver Michel </a> </p></td>
