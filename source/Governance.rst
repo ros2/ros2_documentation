@@ -20,7 +20,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (21 as of 2021-11-29):
+The current members of the ROS 2 TSC are (22 as of 2022-02-01):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
