@@ -20,7 +20,7 @@ Packages relevant to this ROS 2 TSC are listed in `REP 2005 <https://www.ros.org
 
 Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>`_.
 
-The current members of the ROS 2 TSC are (21 as of 2021-11-29):
+The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 
 .. |adlink| image:: Governance/adlink.png
 .. |amazon| image:: Governance/amazon.svg
@@ -41,6 +41,7 @@ The current members of the ROS 2 TSC are (21 as of 2021-11-29):
 .. |sony| image:: Governance/sony.png
 .. |tri| image:: Governance/tri_logo_landscape-web.svg
 .. |windriver| image:: Governance/windriver.png
+.. |foxglove| image:: Governance/foxglove.png
 
 .. raw:: html
 
@@ -163,6 +164,10 @@ The current members of the ROS 2 TSC are (21 as of 2021-11-29):
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="_images/windriver.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Wind River: Andrei Kholodnyi</p></td>
+        </tr>
+        <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.foxglove.dev"><img alt="Foxglove logo" src="_images/foxglove.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Foxglove:  Adrian Macneil</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
