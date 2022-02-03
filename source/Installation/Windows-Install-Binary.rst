@@ -13,8 +13,6 @@ This page explains how to install ROS 2 on Windows from a pre-built binary packa
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-    An alternative binary built by the Microsoft IoT team is available at the end and it contains all desktop packages.
-
 System requirements
 -------------------
 
@@ -280,48 +278,4 @@ Python installation may require modification to enable debugging symbols and deb
 --------------------------------------------------------
 
 https://aka.ms/ros project hosts ROS 2 builds against the release snapshots.
-This section explains how to install ROS 2 from this channel.
-
 You can find the up-to-date instructions `here <https://ms-iot.github.io/ROSOnWindows/GettingStarted/SetupRos2.html>`_.
-
-
-Install ROS 2 builds
-^^^^^^^^^^^^^^^^^^^^
-
-In an administrative command prompt, run the following commands.
-
-.. code-block:: bash
-
-   mkdir c:\opt\chocolatey
-   set PYTHONNOUSERSITE=1
-   set ChocolateyInstall=c:\opt\chocolatey
-   choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
-   choco upgrade ros-{DISTRO}-desktop -y --execution-timeout=0
-
-Environment setup
-^^^^^^^^^^^^^^^^^^
-
-Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
-
-.. code-block:: bash
-
-   call C:\opt\ros\{DISTRO}\x64\local_setup.bat
-
-Stay up-to-date
-^^^^^^^^^^^^^^^
-
-To keep up-to-date with the latest builds, run:
-
-.. code-block:: bash
-
-   set ChocolateyInstall=c:\opt\chocolatey
-   choco upgrade all -y --execution-timeout=0
-
-Uninstall
-^^^^^^^^^
-
-If you want to completely remove the environment downloaded above, run this command:
-
-.. code-block:: bash
-
-   rmdir /s /q C:\opt\
