@@ -8,7 +8,8 @@ ADLINK's OpenSplice is no longer supported as of Foxy.
 See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
 
 For distros before Eloquent, the only bundled vendor is eProsima's Fast DDS.
-Since Eloquent, both Fast DDS and Cyclone DDS are bundled, but Fast DDS is still the default.
+In Eloquent and Foxy, both Fast DDS and Cyclone DDS are bundled, but Fast DDS is still the default.
+Starting with Galactic, the only bundled vendor is Eclipse's Cyclone DDS.
 :doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
 :doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
 :doc:`Working with GurumNetworks GurumDDS <DDS-Implementations/Working-with-GurumNetworks-GurumDDS>` explains how to utilize GurumDDS.
