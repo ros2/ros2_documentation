@@ -201,6 +201,17 @@ As described in its :doc:`charter <Governance/ROS2-TSC-Charter>`, the TSC establ
 
 The current WGs are (12 as of 2021-01-12):
 
+Client Libraries
+^^^^^^^^^^^^^^^^
+
+* Lead(s): Geoffrey Biggs, Alberto Soragna
+* Resources:
+
+ * Meeting invite group: `ros-client-libraries-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-client-libraries-working-group-invites>`_
+ * `Meeting minutes and agendas <https://docs.google.com/document/d/1UXWaEkT6ji0Z0uTtJJSni5Y6fiopM9qOOzv4ldeNaAM/edit>`_
+ * Working group charter: https://github.com/ros2-client-libraries-wg/community
+ * Discourse tag: `wg-client-libraries <https://discourse.ros.org/tags/wg-client-libraries>`_
+
 Control
 ^^^^^^^
 
