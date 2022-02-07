@@ -278,7 +278,7 @@ Real-time
 Rust
 ^^^^
 
-* Lead(s): Ruffin White, Geoffrey Biggs
+* Lead(s): Geoffrey Biggs, Esteve Fernandez, Jacob Hassold, Ruffin White
 * Resources:
 
  * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
