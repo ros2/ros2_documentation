@@ -47,8 +47,8 @@ If you're using a version of bloom older than 0.6.8 you'll need to use the v3 in
 Minor differences from ROS 1 Bloom
 ----------------------------------
 
-If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you. The major
-difference is that release repositories for ROS 2 packages live in a dedicated github organization:
+If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you.
+The major difference is that release repositories for ROS 2 packages live in a dedicated github organization:
 `ROS 2 release repositories <https://github.com/ros2-gbp/>`.
 If you don't have a respository there for your package, yet, create a ticket for
 `nuclearsandwich <https://github.com/nuclearsandwich>` or give him a ping
