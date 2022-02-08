@@ -57,9 +57,8 @@ Since stable distributions created from Rolling will start with release reposito
 
 A ros2-gbp release repository may become a hard requirement for Rolling in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
 
-In the meantime, a new workflow
-`based on Terraform <https://discourse.ros.org/t/upcoming-changes-to-ros2-gbp-organization/21878/4>`
-is in the making. Stay tuned!
+In order to request new release repositories or update maintainer access to existing release repositories in the ros2-gbp organization you can `create an issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new/choose>`__ in the `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org`__ management repository.
+
 
 Procedure
 ---------
