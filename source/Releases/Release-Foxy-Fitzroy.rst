@@ -36,6 +36,46 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
+Changes in Patch Release 7
+--------------------------
+
+Fix launch frontend parser
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A refactor of the launch frontend parser fixed some `issues parsing special characters <https://github.com/ros2/launch_ros/issues/214>`_.
+As a result, there has been a small behavior change when it comes to parsing strings.
+For example, previously to pass a number as a string you would have to add extra quotation marks (two sets of quotation marks were needed if using a substitution):
+
+.. code-block:: xml
+
+   <!-- results in the string value "'3'" -->
+   <param name="foo" value="''3''"/>
+
+After the refactor, the above will result in the the string ``"''3''"`` (note the extra set of quotation marks).
+Now, users should use the ``type`` attribute to signal that the value should be interpreted as a string:
+
+.. code-block:: xml
+
+   <param name="foo" value="3" type="str"/>
+
+Related pull requests:
+
+* `launch#530 <https://github.com/ros2/launch/pull/530>`_
+* `launch_ros#265 <https://github.com/ros2/launch_ros/pull/265>`_
+
+Fix memory leaks and undefined behavior in rmw_fastrtps_dynamic_cpp
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+API was changed in the following header files:
+
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport.hpp``
+- ``rmw_fastrtps_dynamic_cpp/TypeSupport_impl.hpp``
+
+Though technically they are publically accessible, it is unlikely people are using them directly.
+Therefore, we decided to break API in order to fix memory leaks and undefined behavior.
+
+The fix was originally submitted in `rmw_fastrtps#429 <https://github.com/ros2/rmw_fastrtps/pull/429>`_ and later backported to Foxy in `rmw_fastrtps#577 <https://github.com/ros2/rmw_fastrtps/pull/577>`_.
+
 Changes in Patch Release 2
 --------------------------
 
