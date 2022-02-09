@@ -48,7 +48,7 @@ Minor differences from ROS 1 Bloom
 ----------------------------------
 
 If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you.
-The major difference is that release repositories for ROS 2 packages live in a dedicated github organization:
+The major difference is that release repositories for ROS 2 packages live in a dedicated GitHub organization:
 `ROS 2 release repositories <https://github.com/ros2-gbp/>`.
 In order to take advantage of new automation supporting the `Rolling distribution <../Releases/Release-Rolling-Ridley>` Open Robotics recommends that release repositories for ROS 2 are hosted in the dedicated `ros2-gbp GitHub organization <https://github.com/ros2-gbp/>`.
 
