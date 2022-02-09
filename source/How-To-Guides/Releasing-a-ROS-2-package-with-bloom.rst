@@ -49,7 +49,7 @@ Minor differences from ROS 1 Bloom
 
 If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you.
 The major difference is that release repositories for ROS 2 packages live in a dedicated GitHub organization:
-`ROS 2 release repositories <https://github.com/ros2-gbp/>`.
+`ROS 2 release repositories <https://github.com/ros2-gbp/>`__.
 The dedicated organization allows new automation supporting the :doc:`Rolling distribution <../Releases/Release-Rolling-Ridley>`.
 
 Release repositories hosted elsewhere are still supported for stable distributions if you are not planning to release the repository into Rolling.
@@ -57,7 +57,7 @@ Since stable distributions created from Rolling will start with release reposito
 
 A ros2-gbp release repository may become a hard requirement for Rolling in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
 
-In order to request new release repositories or update maintainer access to existing release repositories in the ros2-gbp organization you can `create an issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new/choose>`__ in the `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org`__ management repository.
+In order to request new release repositories or update maintainer access to existing release repositories in the ros2-gbp organization you can `create an issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new/choose>`__ in the `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`__ management repository.
 
 
 Procedure
