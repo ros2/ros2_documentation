@@ -347,9 +347,13 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
         /**
          * Actions to run every time a new message is received
          */
+<<<<<<< HEAD
         void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
+=======
+        void topic_callback(const std_msgs::msg::String & msg) const
+>>>>>>> e4cd3cb (Use `const&` signature for read-only sub callbacks (#2297))
         {
-            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg->data.c_str());
+            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
         }
 
         // A subscriber that listens to topic 'sync_topic'
