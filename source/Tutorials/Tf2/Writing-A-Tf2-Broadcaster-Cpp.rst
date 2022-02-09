@@ -106,11 +106,7 @@ Open the file using your preferred text editor.
      }
 
    private:
-<<<<<<< HEAD
-     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
-=======
      void handle_turtle_pose(const turtlesim::msg::Pose & msg)
->>>>>>> e4cd3cb (Use `const&` signature for read-only sub callbacks (#2297))
      {
        rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;

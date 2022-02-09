@@ -356,11 +356,7 @@ Open the ``subscriber_member_function.cpp`` with your text editor.
         }
 
       private:
-<<<<<<< HEAD
-        void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
-=======
         void topic_callback(const std_msgs::msg::String & msg) const
->>>>>>> e4cd3cb (Use `const&` signature for read-only sub callbacks (#2297))
         {
           RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
         }
@@ -402,11 +398,7 @@ The only field declaration in this class is the subscription.
 .. code-block:: C++
 
     private:
-<<<<<<< HEAD
-      void topic_callback(const std_msgs::msg::String::SharedPtr msg) const
-=======
       void topic_callback(const std_msgs::msg::String & msg) const
->>>>>>> e4cd3cb (Use `const&` signature for read-only sub callbacks (#2297))
       {
         RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
       }

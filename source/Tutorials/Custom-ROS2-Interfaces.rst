@@ -325,11 +325,7 @@ Subscriber:
         }
 
       private:
-<<<<<<< HEAD
-        void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const  // CHANGE
-=======
         void topic_callback(const tutorial_interfaces::msg::Num & msg) const  // CHANGE
->>>>>>> e4cd3cb (Use `const&` signature for read-only sub callbacks (#2297))
         {
           RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");     // CHANGE
         }
