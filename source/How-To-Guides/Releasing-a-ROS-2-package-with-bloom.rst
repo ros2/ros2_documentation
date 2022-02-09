@@ -71,4 +71,4 @@ Build Status
 ------------
 
 * Individual build details on the build farm `Jenkins <http://build.ros2.org/>`__ frontend.
-* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `Galactic-Default <http://repo.ros2.org/status_page/ros_galactic_default.html>`__).
+* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `{DISTRO_TITLE} Default <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__).
