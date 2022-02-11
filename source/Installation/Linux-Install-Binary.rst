@@ -54,7 +54,7 @@ Installing and initializing rosdep
        sudo apt update
        sudo apt install -y python-rosdep
        sudo rosdep init
-       rosdep update
+       rosdep update --rosdistro=eloquent
 
 .. _linux-install-binary-install-missing-dependencies:
 
