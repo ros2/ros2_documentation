@@ -44,10 +44,21 @@ If you're using a version of bloom older than 0.6.8 you'll need to use the v3 in
 
    export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros/rosdistro/master/index.yaml'
 
-No differences from ROS 1 Bloom
--------------------------------
+Minor differences from ROS 1 Bloom
+----------------------------------
 
-If you've bloomed packages before in ROS 1, the ROS 2 process is exactly the same.
+If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you.
+The major difference is that release repositories for ROS 2 packages live in a dedicated GitHub organization:
+`ROS 2 release repositories <https://github.com/ros2-gbp/>`__.
+The dedicated organization allows new automation supporting the :doc:`Rolling distribution <../Releases/Release-Rolling-Ridley>`.
+
+Release repositories hosted elsewhere are still supported for stable distributions if you are not planning to release the repository into Rolling.
+Since stable distributions created from Rolling will start with release repositories in the ros2-gbp organization it is recommend that you use the ros2-gbp release repositories for all ROS 2 distributions to avoid fragmenting the release information.
+
+A ros2-gbp release repository may become a hard requirement for Rolling in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
+
+In order to request new release repositories or update maintainer access to existing release repositories in the ros2-gbp organization you can `create an issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new/choose>`__ in the `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`__ management repository.
+
 
 Procedure
 ---------
@@ -60,4 +71,4 @@ Build Status
 ------------
 
 * Individual build details on the build farm `Jenkins <http://build.ros2.org/>`__ frontend.
-* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `Foxy-Default <http://repo.ros2.org/status_page/ros_foxy_default.html>`__).
+* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `{DISTRO_TITLE} Default <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__).
