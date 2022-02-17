@@ -56,7 +56,7 @@ For non-Linux platforms, see the :doc:`macOS RQt source install page <RQt-Source
 
 .. code-block:: bash
 
-   rosdep install --from-paths src --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps libopensplice67 rti-connext-dds-5.3.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src --rosdistro bouncy -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers"
 
 Build The Workspace
 ^^^^^^^^^^^^^^^^^^^
