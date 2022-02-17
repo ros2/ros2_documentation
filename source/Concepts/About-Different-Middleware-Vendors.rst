@@ -67,9 +67,6 @@ Here is a list of inter-vendor communication configurations that are not support
 
 - Fast DDS <-> Connext
    - ``WString`` published by Fast DDS can't be received correctly by Connext on macOS
-- OpenSplice <-> OpenSplice
-   - does not support ``WString``
-   - ``WString`` is mapped to ``String`` which has a different wire representation
 - Connext <-> Cyclone DDS
    - does not support pub/sub communication for ``WString``
 
