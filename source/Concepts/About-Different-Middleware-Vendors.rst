@@ -66,7 +66,6 @@ For many cases you will find that nodes using different RMW implementations are 
 Here is a list of inter-vendor communication configurations that are not supported:
 
 - Fast DDS <-> Connext
-   - does not support communication over pub/sub
    - ``WString`` published by Fast DDS can't be received correctly by Connext on macOS
 - OpenSplice <-> OpenSplice
    - does not support ``WString``
