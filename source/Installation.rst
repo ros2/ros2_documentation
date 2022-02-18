@@ -28,6 +28,16 @@ Binary packages
 
 We provide ROS 2 binary packages for the following platforms:
 
+.. note::
+
+    OpenRobotics only creates binaries for Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#foxy-fitzroy-may-2020-may-2023>`_. This means that only the following operating systems can use the Foxy Fitzroy binary package installation method:
+    
+    * Ubuntu 20.04
+    * macOS Mojave (10.14)
+    * Windows (VS 2019)
+    
+    If you are not running any of these operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run Foxy Fitzroy.
+
 * Ubuntu Linux - Focal Fossa (20.04)
 
  * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
