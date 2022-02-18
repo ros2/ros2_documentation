@@ -28,16 +28,13 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 Binary packages
 ---------------
 
-<<<<<<< HEAD
-We currently provide ROS 2 binary packages for the following platforms:
-=======
-Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#foxy-fitzroy-may-2020-may-2023>`__.
+Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-june-2020-ongoing>`__.
+Given the nature of Rolling, this list may be updated at any time.
 If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
 
 We provide ROS 2 binary packages for the following platforms:
->>>>>>> ee36db6 (update installation page to note REP-2000 (#2316))
 
-* Ubuntu Linux - Focal Fossa (20.04)
+* Ubuntu Linux - Jammy Jellyfish (22.04)
 
   * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
   * :doc:`"fat" archive <Installation/Ubuntu-Install-Binary>`
@@ -47,14 +44,7 @@ We provide ROS 2 binary packages for the following platforms:
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>`
   * :doc:`"fat" archive <Installation/RHEL-Install-Binary>`
 
-<<<<<<< HEAD
-* :doc:`Windows <Installation/Windows-Install-Binary>`
-=======
-* :doc:`macOS Mojave (10.14) <Installation/macOS-Install-Binary>`
 * :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
->>>>>>> ee36db6 (update installation page to note REP-2000 (#2316))
-
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
 
 
 .. _building-from-source:
