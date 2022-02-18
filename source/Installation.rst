@@ -26,11 +26,10 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
 Binary packages
 ---------------
 
+Binaries are only created for the Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#foxy-fitzroy-may-2020-may-2023>`__.
+If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run ROS 2 on your platform.
+
 We provide ROS 2 binary packages for the following platforms:
-
-.. note::
-
-    OpenRobotics only creates binaries for Tier 1 operating systems listed in `REP-2000 <https://www.ros.org/reps/rep-2000.html#foxy-fitzroy-may-2020-may-2023>`_. If you are not running any of the following operating systems you may need to build from source or use a :doc:`container solution <How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>` to run Foxy Fitzroy.
 
 * Ubuntu Linux - Focal Fossa (20.04)
 
