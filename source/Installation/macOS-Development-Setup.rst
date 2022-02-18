@@ -113,13 +113,8 @@ You need the following things installed to build ROS 2:
         flake8-class-newline flake8-comprehensions flake8-deprecated \
         flake8-docstrings flake8-import-order flake8-quotes ifcfg \
         importlib-metadata lark-parser lxml mock mypy==0.761 netifaces \
-<<<<<<< HEAD
-        nose pep8 pydocstyle pydot pygraphviz pyparsing \
-        pytest-mock rosdep setuptools vcstool rosdistro
-=======
         nose pep8 pydocstyle pydot pygraphviz "pyparsing>=2.4,<3" \
-        pytest-mock rosdep setuptools vcstool matplotlib psutil rosdistro
->>>>>>> 0059415 (fix: incompatible dependency with cmake ls (#2303))
+        pytest-mock rosdep rosdistro setuptools vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
