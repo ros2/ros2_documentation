@@ -19,7 +19,7 @@ Large community projects involve multiple developers from all over the globe and
 Further Community Projects
 --------------------------
 
-The global ROS community develops maintains hundreds of further packages on top of the core ROS 2 stack. Some of them come with own websites for documentation. Your best entry point to discover these works is the **ROS Index** `(index.ros.org) <https://index.ros.org/packages/>`_.
+The global ROS community develops maintains hundreds of further packages on top of the core ROS 2 stack. Some of them come with their own websites for documentation. Your best entry point to discover these works is the **ROS Index** `(index.ros.org) <https://index.ros.org/packages/>`_.
 
 *Hint for developers:* If you maintain a ``README.md`` file in the root of your package folder (which is not necessary the root of your repository), this file is rendered into the overview page of your package at `index.ros.org <https://index.ros.org/packages/>`_. The file may be used for documenting your package and supersedes the package documentation pages in the ROS Wiki from ROS 1. See the `fmi_adapter package <https://index.ros.org/p/fmi_adapter/github-boschresearch-fmi_adapter/#foxy>`_ as an example.
 
