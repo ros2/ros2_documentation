@@ -286,17 +286,6 @@ Real-time
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tags/wg-real-time>`_
  * Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-realtime:matrix.org>`_
 
-Rust
-^^^^
-
-* Lead(s): Geoffrey Biggs, Esteve Fernandez, Jacob Hassold, Ruffin White
-* Resources:
-
- * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
- * Meeting invite group `ros-rust-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-rust-working-group-invites>`_
- * Discourse tag: `wg-rust <https://discourse.ros.org/tags/wg-rust>`_
- * Matrix chat `+rosorg-rust:matrix.org <https://matrix.to/#/+rosorg-rust:matrix.org>`_
-
 Safety
 ^^^^^^
 
@@ -358,6 +347,17 @@ Hardware Acceleration
  * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
  * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
  * Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
+
+Rust
+^^^^
+
+* Lead(s): Esteve Fernandez, Jacob Hassold
+* Resources:
+
+ * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
+ * Meeting invite group `ros-rust-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-rust-working-group-invites>`_
+ * Discourse tag: `wg-rust <https://discourse.ros.org/tags/wg-rust>`_
+ * Matrix chat `+rosorg-rust:matrix.org <https://matrix.to/#/+rosorg-rust:matrix.org>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
