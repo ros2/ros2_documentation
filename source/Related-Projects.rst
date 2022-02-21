@@ -19,7 +19,7 @@ Large community projects involve multiple developers from all over the globe and
 Further Community Projects
 --------------------------
 
-The global ROS community develops maintains hundreds of further packages on top of the core ROS 2 stack.
+The global ROS community develops and maintains hundreds of further packages on top of the core ROS 2 stack.
 Some of them come with their own websites for documentation.
 Your best entry point to discover these works is the **ROS Index** `(index.ros.org) <https://index.ros.org/packages/>`_.
 
