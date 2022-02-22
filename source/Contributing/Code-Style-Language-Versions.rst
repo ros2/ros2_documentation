@@ -345,7 +345,7 @@ CMake
 Version
 ^^^^^^^
 
-We will target CMake 3.5.
+We will target CMake 3.8.
 
 Style
 ^^^^^
