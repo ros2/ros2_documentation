@@ -10,7 +10,7 @@ Ignition Gazebo
 Large Community Projects
 ------------------------
 
-Large community projects involve multiple developers from all over the globe and are typically backed by a dedicated working group (cf. :ref:`governance`).
+Large community projects involve multiple developers from all over the globe and are typically backed by a dedicated working group (cf. :doc:`Governance`).
 
 * **Navigation2** `(navigation.ros.org) <https://navigation.ros.org/>`_: Comprehensive and flexible navigation stack for mobile robots using ROS 2.
 * **MoveIt** `(moveit.ros.org) <https://moveit.ros.org/>`_: A rich platform for building manipulation applications featuring advanced kinematics, motion planning, control, collision checking, and much more.
