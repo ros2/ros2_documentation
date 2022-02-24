@@ -34,6 +34,8 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
   sudo apt-get install ros-{DISTRO}-ros2bag \
                        ros-{DISTRO}-rosbag2-storage-default-plugins
 
+You must also have ``console_bridge`` installed on your machine. The steps to install it are documented `here <http://wiki.ros.org/console_bridge>`_.
+
 This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes>` and :doc:`topics <../Topics/Understanding-ROS2-Topics>`.
 It also uses the :doc:`turtlesim package <../Turtlesim/Introducing-Turtlesim>`.
 
