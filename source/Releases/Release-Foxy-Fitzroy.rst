@@ -42,7 +42,7 @@ Changes in Patch Release 7 (2022-02-08)
 Launch set_env frontend behavior change
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-`launch#468 <https://github.com/ros2/launch/pull/468>`_ inadvertantly changed behavior to the scope of the ``set_env`` action in frontend launch files.
+`launch#468 <https://github.com/ros2/launch/pull/468>`_ inadvertently changed behavior to the scope of the ``set_env`` action in frontend launch files.
 Changes to environment variables using the ``set_env`` action are no longer scoped to parent ``group`` actions, and instead apply globally.
 Since it was backported, the change affects this release.
 
