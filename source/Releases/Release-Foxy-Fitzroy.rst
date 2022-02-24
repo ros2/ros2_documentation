@@ -39,6 +39,21 @@ During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issue
 Changes in Patch Release 7
 --------------------------
 
+Launch set_env frontend behavior change
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+`launch#468 <https://github.com/ros2/launch/pull/468>`_ inadvertantly changed behavior to the scope of the ``set_env`` action in frontend launch files.
+Changes to environment variables using the ``set_env`` action are no longer scoped to parent ``group`` actions, and instead apply globally.
+Since it was backported, the change affects this release.
+
+We consider this change a regression and intend to change the behavior back in the next patch release.
+We also plan to fix the behavior in Python launch files, which have never scoped setting environment variables properly.
+
+Related issues:
+
+* `ros2#1244 <https://github.com/ros2/ros2/issues/1244>`_
+* `launch#597 <https://github.com/ros2/launch/issues/597>`_
+
 Fix launch frontend parser
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
