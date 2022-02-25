@@ -46,4 +46,4 @@ Pre-built Docker container
 
 A pre-built container for the desktop variant is available as well, which only requires a docker pull command.
 
-See :doc:`this page <../How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers>`__ for more information.
+See :doc:`this page <Run-2-nodes-in-single-or-separate-docker-containers>` for more information.
