@@ -46,7 +46,7 @@ Launch set_env frontend behavior change
 Changes to environment variables using the ``set_env`` action are no longer scoped to parent ``group`` actions, and instead apply globally.
 Since it was backported, the change affects this release.
 
-We consider this change a regression and intend to change the behavior back in the next patch release.
+We consider this change a regression and intend to fix the behavior in the next patch release and in future ROS distributions.
 We also plan to fix the behavior in Python launch files, which have never scoped setting environment variables properly.
 
 Related issues:
