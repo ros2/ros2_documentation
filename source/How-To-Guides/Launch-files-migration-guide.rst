@@ -217,6 +217,7 @@ Example
 Passing an argument via the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+See :doc:`Passing ROS arguments to nodes via the command-line <Node-arguments.html>`.
 See :doc:`ROS 2 launch tutorial <../Tutorials/Launch/Launch-system>`.
 
 
