@@ -70,23 +70,35 @@ First setup a development folder, for example ``C:\dev\ros2_{DISTRO}``:
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
-.. code-block:: bash
+.. tabs::
 
-   # CMD
-   curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+  .. group-tab:: CMD
 
-   # PowerShell
-   curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+    .. code-block:: bash
+
+      curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+
+  .. group-tab:: Powershell
+
+    .. code-block:: bash
+
+      curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
-.. code-block:: bash
+.. tabs::
 
-   # CMD
-   vcs import src < ros2.repos
+  .. group-tab:: CMD
 
-   # PowerShell
-   vcs import --input ros2.repos src
+    .. code-block:: bash
+
+      vcs import src < ros2.repos
+
+  .. group-tab:: Powershell
+
+    .. code-block:: bash
+
+      vcs import --input ros2.repos src
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
