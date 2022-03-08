@@ -21,9 +21,9 @@ You can now install ROS 2 using the normal binary installation instructions for 
 Raspberry Pi OS with ROS 2 in docker
 ------------------------------------
 
-Raspberry Pi OS 64 bit version is not listed on the Raspberry Pi downloads page, but the images are `available here <https://downloads.raspberrypi.org/raspios_arm64/images/>`__.
+Raspberry Pi OS 64 bit version is `available here <https://www.raspberrypi.com/software/operating-systems/>`__.
 
-Raspberry Pi OS is based on Debian which receives Tier 3 support, but it can run Ubuntu Focal docker containers for Tier 1 support.
+Raspberry Pi OS is based on Debian which receives Tier 3 support, but it can run Ubuntu docker containers for Tier 1 support.
 
 After flashing the OS, `install Docker <https://docs.docker.com/engine/install/debian/#install-using-the-convenience-script>`__.
 
