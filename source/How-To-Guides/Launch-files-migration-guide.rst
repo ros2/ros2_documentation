@@ -330,7 +330,7 @@ It's a replacement of ``arg`` tag with a value attribute.
 
 .. code-block:: xml
 
-   <let var="foo" value="asd"/>
+   <let name="foo" value="asd"/>
 
 executable
 ^^^^^^^^^^
