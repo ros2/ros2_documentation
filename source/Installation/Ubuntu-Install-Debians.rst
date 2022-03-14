@@ -122,3 +122,13 @@ have already installed from binaries, run the following command:
 .. code-block:: bash
 
   sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+
+You may also want to remove the repostiory:
+
+.. code-block:: bash
+
+  sudo rm /etc/apt/sources.list.d/ros2.list
+  sudo apt update
+  sudo apt autoremove
+  # Consider upgrading for packages previously shadowed.
+  sudo apt upgrade
