@@ -12,8 +12,8 @@ See the `Loaned Messages <https://design.ros2.org/articles/zero_copy.html>`__ ar
 How to disable Loaned Messages
 ------------------------------
 
-In default, *Loaned Messages* will try to borrow the memory from underlying middleware if it supports *Loaned Messages*.
-``ROS_DISABLE_LOANED_MESSAGES`` environment variable is provided to user that allows to disable *Loaned Messages* and fallback to normal publisher / subscription w/o any code change or middleware configuration.
+By default, *Loaned Messages* will try to borrow the memory from underlying middleware if it supports *Loaned Messages*.
+The ``ROS_DISABLE_LOANED_MESSAGES`` environment variable can be used to disable *Loaned Messages*, and fallback to normal publisher and subscription behavior, without any code changes or middleware configuration.
 You can set the environment variable with the following command:
 
 .. tabs::
