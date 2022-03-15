@@ -123,7 +123,7 @@ You must also install some additional python dependencies:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy ifcfg importlib-metadata lark-parser lxml matplotlib netifaces numpy opencv-python PyQt5 pip pillow psutil pycairo pydot pyparsing pyyaml rosdistro setuptools
+   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark-parser lxml matplotlib netifaces numpy opencv-python PyQt5 pip pillow psutil pycairo pydot pyparsing pyyaml rosdistro setuptools
 
 
 Install Qt5
