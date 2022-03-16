@@ -108,10 +108,10 @@ You need the following things installed to build ROS 2:
         argcomplete catkin_pkg colcon-common-extensions coverage \
         cryptography empy flake8 flake8-blind-except flake8-builtins \
         flake8-class-newline flake8-comprehensions flake8-deprecated \
-        flake8-docstrings flake8-import-order flake8-quotes ifcfg \
-        importlib-metadata lark-parser lxml mock mypy==0.761 netifaces \
-        nose pep8 pydocstyle pydot pygraphviz pyparsing \
-        pytest-mock rosdep setuptools vcstool matplotlib psutil rosdistro
+        flake8-docstrings flake8-import-order flake8-quotes \
+        importlib-metadata lark-parser lxml matplotlib mock mypy==0.931 netifaces \
+        nose pep8 psutil pydocstyle pydot pygraphviz "pyparsing>=2.4,<3" \
+        pytest-mock rosdep rosdistro setuptools vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 
@@ -152,7 +152,7 @@ Create a workspace and clone all repos:
 Install additional DDS vendors (optional)
 -----------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -207,7 +207,7 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 
 Additional RMW implementations (optional)
 -----------------------------------------
-The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Stay up to date

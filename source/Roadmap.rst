@@ -74,7 +74,7 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Developer experience: Better integration of ROS 2 repos with package managers and documentation for building/running ROS 2 applications.
      - Large
      - iRobot
-     - 2th quarter 2022
+     - 2nd quarter 2022
    * - Develop a system level QoS/network debugging tool
      - Large
      - Open Robotics
@@ -126,7 +126,7 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
      - Small
      - Sony
-     - 4th quarter 2021
+     - Complete
 
 
 Additional project-specific roadmaps can be found in the links below:

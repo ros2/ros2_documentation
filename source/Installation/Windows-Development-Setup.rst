@@ -70,28 +70,40 @@ First setup a development folder, for example ``C:\dev\ros2_{DISTRO}``:
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
-.. code-block:: bash
+.. tabs::
 
-   # CMD
-   curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+  .. group-tab:: CMD
 
-   # PowerShell
-   curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+    .. code-block:: bash
+
+      curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
+
+  .. group-tab:: Powershell
+
+    .. code-block:: bash
+
+      curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
 
-.. code-block:: bash
+.. tabs::
 
-   # CMD
-   vcs import src < ros2.repos
+  .. group-tab:: CMD
 
-   # PowerShell
-   vcs import --input ros2.repos src
+    .. code-block:: bash
+
+      vcs import src < ros2.repos
+
+  .. group-tab:: Powershell
+
+    .. code-block:: bash
+
+      vcs import --input ros2.repos src
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <DDS-Implementations>`.
 
 Build the ROS 2 code
 --------------------
@@ -186,7 +198,7 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 
 Additional RMW implementations (optional)
 -----------------------------------------
-The default middleware that ROS 2 uses is ``Cyclone DDS``, but the middleware (RMW) can be replaced at runtime.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 
