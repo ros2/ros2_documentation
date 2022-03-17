@@ -102,11 +102,12 @@ Callback groups
 
 The rclcpp allows organizing the callbacks of a node in groups.
 Such a *callback group* can be created by the ``create_callback_group`` function of the Node class.
+The callback group must be stored throughout execution of the node (eg. as a class member), or otherwise the executor won't be able to trigger the callbacks.
 Then, this callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
 
 .. code-block:: cpp
 
-   auto my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+   my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
 
    rclcpp::SubscriptionOptions options;
    options.callback_group = my_callback_group;
