@@ -1,4 +1,4 @@
-.. _Simulators:
+.. _SimulatorsIgnition:
 
 Setting-up a Robot Simulation (Ignition Gazebo)
 ===============================================
@@ -133,7 +133,7 @@ For this matter we have two options:
 
         sudo apt-get install ros-<ROS_DISTRO>-teleop-twist-keyboard
 
-The defaul topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but we can remap this
+The default topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but we can remap this
 topic to make use of the topic used in the bridge:
 
 .. tabs::
@@ -214,4 +214,4 @@ Now you should see the data from the lidar in RVIZ2:
 Summary
 -------
 
-In this tutorial, you launch a robot simulation with Ignition Gazebo, launch bridge swith actuators and sensors, visualize data from a sensor and move a diff drive robot.
+In this tutorial, you launch a robot simulation with Ignition Gazebo, launch bridges with actuators and sensors, visualize data from a sensor and move a diff drive robot.
