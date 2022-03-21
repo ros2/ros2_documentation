@@ -20,8 +20,8 @@ ROS Projects
 
 Simulation Projects
 -------------------
-* `Isaac Sim Nav2 <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_navigation.html>`__ : In this ROS2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 project.
-* `Isaac Sim Multiple Robot ROS2 Navigation <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_multi_navigation.html>`__ : In this ROS2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 stack to perform simultaneous multiple robot navigation.
+* `Isaac Sim Nav2 <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_navigation.html>`__ : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 project.
+* `Isaac Sim Multiple Robot ROS 2 Navigation <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_multi_navigation.html>`__ : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 stack to perform simultaneous multiple robot navigation.
 
 References
 ----------
