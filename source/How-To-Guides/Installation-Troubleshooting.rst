@@ -90,8 +90,6 @@ Multiple host interference
 If you're running multiple instances on the same network you may get interference.
 To avoid this you can set the environment variable ``ROS_DOMAIN_ID`` to a different integer, the default is zero.
 This will define the DDS domain id for your system.
-Note that if you are using the OpenSplice DDS implementation you will also need to update the OpenSplice configuration file accordingly.
-The location of the configuration file is referenced in the ``OSPL_URI`` environment variable.
 
 Exception sourcing setup.bash
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

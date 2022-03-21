@@ -26,7 +26,7 @@ Beginner: CLI Tools
    Tutorials/Parameters/Understanding-ROS2-Parameters
    Tutorials/Understanding-ROS2-Actions
    Tutorials/Rqt-Console/Using-Rqt-Console
-   Tutorials/Launch-Files/Creating-Launch-Files
+   Tutorials/Launch/CLI-Intro
    Tutorials/Ros2bag/Recording-And-Playing-Back-Data
 
 Beginner: Client Libraries
@@ -57,11 +57,10 @@ Intermediate
    Tutorials/Actions/Creating-an-Action
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
-   Tutorials/Launch-system
-   Tutorials/Launch-Files/Using-ROS2-Launch-For-Large-Projects
    Tutorials/Composition
    Tutorials/Colcon-Tutorial
    Tutorials/Monitoring-For-Parameter-Changes-CPP.rst
+   Tutorials/Launch/Launch-Main
    Tutorials/Tf2/Tf2-Main
    Tutorials/URDF/URDF-Main
 
@@ -75,7 +74,16 @@ Advanced
    Tutorials/Discovery-Server/Discovery-Server
    Tutorials/Allocator-Template-Tutorial
    Tutorials/FastDDS-Configuration/FastDDS-Configuration
-   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
+   Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
+
+Simulation
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
 
 Security
 --------

@@ -27,7 +27,7 @@ To have multiple RMW implementations available for use you must have installed t
 
 Both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION`` that allows the user to select the RMW implementation to use when running ROS 2 applications.
 
-The user may set this variable to a specific implementation identifier, such as ``rmw_cyclonedds_cpp``, ``rmw_fastrtps_cpp``, or ``rmw_connextdds``.
+The user may set this variable to a specific implementation identifier, such as ``rmw_cyclonedds_cpp``, ``rmw_fastrtps_cpp``, ``rmw_connextdds``, or ``rmw_gurumdds_cpp``.
 
 For example, to run the talker demo using the C++ talker and Python listener with the Connext RMW implementation:
 
@@ -65,7 +65,7 @@ For example, to run the talker demo using the C++ talker and Python listener wit
 Adding RMW implementations to your workspace
 --------------------------------------------
 
-Suppose that you have built your ROS 2 workspace with only Cyclone DDS installed and therefore only the Cyclone DDS RMW implementation built.
+Suppose that you have built your ROS 2 workspace with only Fast DDS installed and therefore only the Fast DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
 If you then install an additional DDS implementation, Connext for example, you will need to re-trigger the check for a Connext installation that occurs when the Connext RMW implementation is being built.
 You can do this by specifying the ``--cmake-force-configure`` flag on your next workspace build, and you should see that the RMW implementation package then gets built for the newly installed DDS implementation.
@@ -106,11 +106,11 @@ and
 
    ros2 node list
 
-it will generate a daemon with a Cyclone DDS implementation:
+it will generate a daemon with a Fast DDS implementation:
 
 .. code-block:: bash
 
-   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/{DISTRO}/bin/_ros2_daemon --rmw-implementation rmw_cyclonedds_cpp --ros-domain-id 22
+   21318 22.0  0.6 535896 55044 pts/8    Sl   16:14   0:00 /usr/bin/python3 /opt/ros/{DISTRO}/bin/_ros2_daemon --rmw-implementation rmw_fastrtps_cpp --ros-domain-id 22
 
 Even if you run the command line tool again with the correct RMW implementation, the daemon's RMW implementation will not change and the ROS 2 command line tools will fail.
 

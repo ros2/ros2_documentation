@@ -26,6 +26,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Ament-CMake-Python-Documentation
    How-To-Guides/Launch-files-migration-guide
    How-To-Guides/Launch-file-different-formats
+   How-To-Guides/Launching-composable-nodes
    How-To-Guides/Parameters-YAML-files-migration-guide
    How-To-Guides/Node-arguments
    How-To-Guides/Sync-Vs-Async
@@ -39,6 +40,10 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers
    How-To-Guides/Package-maintainer-guide
    How-To-Guides/Building-a-Custom-Debian-Package
+   How-To-Guides/Topics-Services-Actions
+   How-To-Guides/Using-Variants
+   How-To-Guides/Using-ros2-param
+   How-To-Guides/Installing-on-Raspberry-Pi
 
 .. toctree::
   :hidden:

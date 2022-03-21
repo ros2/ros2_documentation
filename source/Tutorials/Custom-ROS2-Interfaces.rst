@@ -98,7 +98,7 @@ To convert the interfaces you defined into language-specific code (like C++ and 
   rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Num.msg"
     "srv/AddThreeInts.srv"
-   )
+  )
 
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
@@ -325,9 +325,9 @@ Subscriber:
         }
 
       private:
-        void topic_callback(const tutorial_interfaces::msg::Num::SharedPtr msg) const  // CHANGE
+        void topic_callback(const tutorial_interfaces::msg::Num & msg) const  // CHANGE
         {
-          RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg->num << "'");     // CHANGE
+          RCLCPP_INFO_STREAM(this->get_logger(), "I heard: '" << msg.num << "'");     // CHANGE
         }
         rclcpp::Subscription<tutorial_interfaces::msg::Num>::SharedPtr subscription_;  // CHANGE
       };

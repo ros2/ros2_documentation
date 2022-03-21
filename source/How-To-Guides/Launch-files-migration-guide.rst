@@ -17,7 +17,7 @@ This guide describes how to write XML launch files for an easy migration from RO
 Background
 ----------
 
-A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../Tutorials/Launch-system>`.
+A description of the ROS 2 launch system and its Python API can be found in :doc:`Launch System tutorial <../Tutorials/Launch/Launch-system>`.
 
 
 Migrating tags from ROS 1 to ROS 2
@@ -37,7 +37,7 @@ node
 * Differences from ROS 1:
    * ``type`` attribute is now ``exec``.
    * ``ns`` attribute is now ``namespace``.
-   * The following attributes aren't available: ``machine``, ``respawn``, ``respawn_delay``, ``clear_params``.
+   * The following attributes aren't available: ``machine``, ``respawn_delay``, ``clear_params``.
 
 Example
 ~~~~~~~
@@ -217,7 +217,7 @@ Example
 Passing an argument via the command line
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See :doc:`ROS 2 launch tutorial <../Tutorials/Launch-system>`.
+See :doc:`ROS 2 launch tutorial <../Tutorials/Launch/Launch-system>`.
 
 
 env
@@ -330,7 +330,7 @@ It's a replacement of ``arg`` tag with a value attribute.
 
 .. code-block:: xml
 
-   <let var="foo" value="asd"/>
+   <let name="foo" value="asd"/>
 
 executable
 ^^^^^^^^^^
@@ -349,7 +349,7 @@ Example
 Replacing an include tag
 ------------------------
 
-To have exactly the same behavior as Available in ROS 1, ``include`` tags must be nested in a ``group`` tag.
+In order to include a launch file under a **namespace** as in ROS 1 then the ``include`` tags must be nested in a ``group`` tag.
 
 .. code-block:: xml
 
@@ -357,7 +357,7 @@ To have exactly the same behavior as Available in ROS 1, ``include`` tags must b
       <include file="another_launch_file"/>
    </group>
 
-To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
+Then, instead of using the ``ns`` attribute, add the ``push_ros_namespace`` action tag to specify the namespace:
 
 .. code-block:: xml
 
@@ -365,6 +365,8 @@ To replace the ``ns`` attribute, ``push_ros_namespace`` action must be used:
       <push_ros_namespace namespace="my_ns"/>
       <include file="another_launch_file"/>
    </group>
+
+Nesting ``include`` tags under a ``group`` tag is only required when specifying a namespace
 
 Substitutions
 -------------

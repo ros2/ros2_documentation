@@ -127,4 +127,4 @@ You might want to examine log messages for any number of reasons, usually to fin
 Next steps
 ----------
 
-The next tutorial will teach you how to :doc:`create launch files <../Launch-Files/Creating-Launch-Files>`.
+The next tutorial will teach you about starting multiple nodes at once with :doc:`ROS 2 Launch <../Launch/CLI-Intro>`.

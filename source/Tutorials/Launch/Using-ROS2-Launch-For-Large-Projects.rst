@@ -1,7 +1,11 @@
+.. redirect-from::
+
+    Tutorials/Launch-Files/Using-ROS2-Launch-for-Large-Projects
+
 .. _UsingROS2LaunchForLargeProjects:
 
-Using ROS2 launch for large projects
-====================================
+Using ROS 2 launch for large projects
+=====================================
 
 **Goal:** Learn best practices of managing large projects using ROS 2 launch files
 
@@ -24,7 +28,7 @@ Prerequisites
 -------------
 
 This tutorial uses the :doc:`turtlesim <../Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../Tf2/Introduction-To-Tf2>` packages.
-This tutorial also assumes you have :doc:`created a new package <../Creating-Your-First-ROS2-Package>` called ``launch_tutorial``.
+This tutorial also assumes you have :doc:`created a new package <../Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
 
 Introduction
 ------------

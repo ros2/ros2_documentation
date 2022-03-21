@@ -1,4 +1,6 @@
-.. _ROS2Launch:
+.. redirect-from::
+
+  Tutorials/Launch-Files/Creating-Launch-Files
 
 Creating a launch file
 ======================
@@ -12,17 +14,6 @@ Creating a launch file
 .. contents:: Contents
    :depth: 2
    :local:
-
-Background
-----------
-
-In the tutorials up until now, you have been opening new terminals for every new node you run.
-As you create more complex systems with more and more nodes running simultaneously, opening terminals and reentering configuration details becomes tedious.
-
-Launch files allow you to start up and configure a number of executables containing ROS 2 nodes simultaneously.
-
-Running a single launch file with the ``ros2 launch`` command will start up your entire system - all nodes and their configurations - at once.
-
 
 Prerequisites
 -------------
@@ -201,6 +192,17 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
 
   You will learn more about :doc:`creating packages <../Creating-Your-First-ROS2-Package>` in a later tutorial.
 
+.. note::
+
+  For packages with launch files, it is a good idea to add an ``exec_depend`` dependency on the ``ros2launch`` package in your package's ``package.xml``:
+
+  .. code-block:: xml
+
+    <exec_depend>ros2launch</exec_depend>
+
+  This helps make sure that the ``ros2 launch`` command is available after building your package.
+  It also ensures that all :doc:`launch file formats <../../How-To-Guides/Launch-file-different-formats>` are recognized.
+
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
 .. code-block:: console
@@ -242,12 +244,11 @@ Summary
 Launch files simplify running complex systems with many nodes and specific configuration details.
 You can create launch files using Python, and run them using the ``ros2 launch`` command.
 
-Next steps
-----------
+.. note::
+
+   For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<./Launch-Main>`.
 
 .. note::
 
   You can also use XML and YAML to create launch files.
   You can see a comparison of these different ROS 2 launch formats in :doc:`../../How-To-Guides/Launch-file-different-formats`.
-
-In the next tutorial, :doc:`../Ros2bag/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.

@@ -51,10 +51,18 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Medium
      - AWS
      - Q3 2021
-   * - Interface definitions: get exact msg/srv/action definitions on the wire at runtime
-     - Large
-     - AWS / Foxglove
-     - Q1 2022
+   * - Multi-threaded Executor for rclc
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Configurable Executor thread priorities for rclcpp
+     - Medium
+     - Bosch
+     - 1st quarter 2022
+   * - Various small improvements to Diagnostics
+     - Small
+     - Bosch
+     - 1st quarter 2022
    * - Performance improvements: Implement events executor in rclcpp
      - Large
      - iRobot
@@ -66,7 +74,7 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Developer experience: Better integration of ROS 2 repos with package managers and documentation for building/running ROS 2 applications.
      - Large
      - iRobot
-     - 2th quarter 2022
+     - 2nd quarter 2022
    * - Develop a system level QoS/network debugging tool
      - Large
      - Open Robotics
@@ -74,15 +82,15 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Documentation: Add Python API support to rosdoc2
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
      - Small
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Documentation: Upload C++ API documentation for core packages to docs site
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Humble Release
      - Large
      - Open Robotics
@@ -90,27 +98,27 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Improve service and action reliability for frequencies greater than 10Hz
      - Medium
      - Open Robotics
-     -
+     - 1st quarter 2022
    * - Improve RViz2 stability
      - Medium
      - Open Robotics
-     -
+     - 4th quarter 2021
    * - Middleware: Default middleware selection
      - Medium
      - Open Robotics
-     - 4th quarter 2021
+     - Complete
    * - Middleware: Report on feasibility of using Zenoh as an RMW
      - Medium
      - Open Robotics
-     -
+     - Complete
    * - Overlays work to override any package in a dependency tree
      - Large
      - Open Robotics
-     -
+     - 2nd quarter 2022
    * - Revamp launch testing
      - Large
      - Open Robotics
-     -
+     - Complete
    * - Filter topic messages by content in rclcpp
      - Large
      - Sony
@@ -118,7 +126,7 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
      - Small
      - Sony
-     - 4th quarter 2021
+     - Complete
 
 
 Additional project-specific roadmaps can be found in the links below:

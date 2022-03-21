@@ -1,7 +1,9 @@
-pip
+doc8
 docutils==0.16
+pip
 sphinx
-sphinx-tabs
+sphinx-copybutton
 sphinx-multiversion
 sphinx-rtd-theme
-sphinx-copybutton
+sphinx-sitemap
+sphinx-tabs

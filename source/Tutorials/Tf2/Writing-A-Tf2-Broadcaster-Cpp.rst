@@ -106,7 +106,7 @@ Open the file using your preferred text editor.
      }
 
    private:
-     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
+     void handle_turtle_pose(const turtlesim::msg::Pose & msg)
      {
        rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
@@ -119,15 +119,15 @@ Open the file using your preferred text editor.
 
        // Turtle only exists in 2D, thus we get x and y translation
        // coordinates from the message and set the z coordinate to 0
-       t.transform.translation.x = msg->x;
-       t.transform.translation.y = msg->y;
+       t.transform.translation.x = msg.x;
+       t.transform.translation.y = msg.y;
        t.transform.translation.z = 0.0;
 
        // For the same reason, turtle can only rotate around one axis
        // and this why we set rotation in x and y to 0 and obtain
        // rotation in z axis from the message
        tf2::Quaternion q;
-       q.setRPY(0, 0, msg->theta);
+       q.setRPY(0, 0, msg.theta);
        t.transform.rotation.x = q.x();
        t.transform.rotation.y = q.y();
        t.transform.rotation.z = q.z();
@@ -195,15 +195,15 @@ Here we copy the information from the 3D turtle pose into the 3D transform.
 
     // Turtle only exists in 2D, thus we get x and y translation
     // coordinates from the message and set the z coordinate to 0
-    t.transform.translation.x = msg->x;
-    t.transform.translation.y = msg->y;
+    t.transform.translation.x = msg.x;
+    t.transform.translation.y = msg.y;
     t.transform.translation.z = 0.0;
 
     // For the same reason, turtle can only rotate around one axis
     // and this why we set rotation in x and y to 0 and obtain
     // rotation in z axis from the message
     tf2::Quaternion q;
-    q.setRPY(0, 0, msg->theta);
+    q.setRPY(0, 0, msg.theta);
     t.transform.rotation.x = q.x();
     t.transform.rotation.y = q.y();
     t.transform.rotation.z = q.z();
@@ -337,7 +337,7 @@ Update the ``install(DIRECTORY…)`` to include the ``launch`` line.
         ...
     )
 
-You can learn more about creating launch files in :doc:`this tutorial <../Launch-Files/Creating-Launch-Files>`.
+You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
 3 Build and run
 ^^^^^^^^^^^^^^^

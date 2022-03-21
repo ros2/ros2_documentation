@@ -16,7 +16,6 @@ jobs:
       - name: Install dependencies with pip
         run: |
           pip install --no-warn-script-location --user --upgrade -r requirements.txt
-          pip install doc8
 
       - run: make html
-      - run: doc8 --ignore D001 --ignore-path build
+      - run: make test

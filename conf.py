@@ -73,7 +73,16 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme', 'sphinx.ext.ifconfig','sphinx_copybutton']
+extensions = [
+    'sphinx.ext.graphviz',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.intersphinx',
+    'sphinx_copybutton',
+    'sphinx_multiversion',
+    'sphinx_tabs.tabs',
+    'sphinx_rtd_theme',
+    'sphinx_sitemap',
+]
 
 # Intersphinx mapping
 
@@ -94,6 +103,7 @@ intersphinx_mapping = {
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
+    'analytics_id': 'UA-17821189-2',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,

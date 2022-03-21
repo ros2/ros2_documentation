@@ -64,7 +64,7 @@ Before installing from source, you will need to have a recent version openssl (1
 
     If you don't have OpenSSL installed, please follow :ref:`these instructions <windows-install-binary-installing-prerequisites>`
 
-Fast-DDS requires an additional CMake flag to build the security plugins, so the colcon invocation needs to be modified to pass:
+Fast DDS requires an additional CMake flag to build the security plugins, so the colcon invocation needs to be modified to pass:
 
 .. code-block:: bash
 
