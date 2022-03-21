@@ -19,11 +19,10 @@ ROS Projects
 * `ROS 2 Packages for DeepStream SDK <https://github.com/NVIDIA-AI-IOT/ros2_deepstream>`__: ROS 2 package for NVIDIA DeepStream SDK.
 
 Simulation Projects
-------------
+-------------------
 * `Isaac Sim Nav2 <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_navigation.html>`__ : In this ROS2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 project.
 * `Isaac Sim Multiple Robot ROS2 Navigation <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_multi_navigation.html>`__ : In this ROS2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS2 Nav2 stack to perform simultaneous multiple robot navigation.
 
 References
 ----------
-
 More updates on NVIDIA Jetson ROS 2 can be found `here <https://nvidia-ai-iot.github.io/ros2_jetson/>`__.
