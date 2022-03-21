@@ -4,7 +4,7 @@ NVIDIA ROS 2 Projects
 NVIDIA Jetson is working towards developing ROS 2 packages to ease the development of AI applications for robotics.
 
 
-ROS Projects
+Key Projects
 ------------
 
 * `ROS and ROS 2 Docker Images <https://github.com/NVIDIA-AI-IOT/ros2_jetson/tree/main/docker>`__ : Docker images for easy deployment on the NVIDIA Jetson platform, consisting of ROS 2, PyTorch, and other important machine learning libraries.
@@ -18,11 +18,7 @@ ROS Projects
 * `ROS 2 Package for Jetson stats <https://github.com/NVIDIA-AI-IOT/ros2_jetson_stats>`__: ROS 2 package for monitoring and controlling your NVIDIA Jetson [Xavier NX, Nano, AGX Xavier, TX1, TX2].
 * `ROS 2 Packages for DeepStream SDK <https://github.com/NVIDIA-AI-IOT/ros2_deepstream>`__: ROS 2 package for NVIDIA DeepStream SDK.
 
-Simulation Projects
--------------------
-* `Isaac Sim Nav2 <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_navigation.html>`__ : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS 2 Nav2 project.
-* `Isaac Sim Multiple Robot ROS 2 Navigation <https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros2_multi_navigation.html>`__ : In this ROS 2 sample, we are demonstrating Omniverse Isaac Sim integrated with the ROS 2 Nav2 stack to perform simultaneous multiple robot navigation.
-
 References
 ----------
+
 More updates on NVIDIA Jetson ROS 2 can be found `here <https://nvidia-ai-iot.github.io/ros2_jetson/>`__.
