@@ -35,6 +35,7 @@ node
 * `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/node>`__.
 * Launches a new node.
 * Differences from ROS 1:
+
    * ``type`` attribute is now ``exec``.
    * ``ns`` attribute is now ``namespace``.
    * The following attributes aren't available: ``machine``, ``respawn_delay``, ``clear_params``.
@@ -173,6 +174,7 @@ include
 * `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/include>`__.
 * Allows including another launch file.
 * Differences from ROS 1:
+
    * Available in ROS 1, included content was scoped.
      In ROS 2, it's not.
      Nest includes in ``group`` tags to scope them.
@@ -194,6 +196,7 @@ arg
 * `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/arg>`__.
 * ``arg`` is used for declaring a launch argument, or to pass an argument when using ``include`` tags.
 * Differences from ROS 1:
+
    * ``value`` attribute is not allowed.
      Use ``let`` tag for this.
    * ``doc`` is now ``description``.
@@ -214,12 +217,17 @@ Example
       </node>
    </launch>
 
-Passing an argument via the command line
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Passing an argument to the launch file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See :doc:`Passing ROS arguments to nodes via the command-line <Node-arguments.html>`.
-See :doc:`ROS 2 launch tutorial <../Tutorials/Launch/Launch-system>`.
+In the XML launch file above, the ``topic_name`` defaults to the name ``chatter``, but can be configured on the command-line.
+Assuming the above launch configuration is in a file named ``mylaunch.xml``, a different topic name can be used by launching it with the following:
 
+.. code-block:: bash
+
+   ros2 launch mylaunch.xml topic_name:=custom_topic_name
+
+There is some additional information about passing command-line arguments in :doc:`Using Substitutions <../Tutorials/Launch/Using-Substitutions>`.
 
 env
 ^^^
@@ -227,6 +235,7 @@ env
 * `Available in ROS 1 <https://wiki.ros.org/roslaunch/XML/env>`__.
 * Sets an environment variable.
 * It has been replaced with ``env``, ``set_env`` and ``unset_env``:
+
    * ``env`` can only be used nested in a ``node`` or ``executable`` tag.
      ``if`` and ``unless`` tags aren't supported.
    * ``set_env`` can be nested within the root tag ``launch`` or in ``group`` tags.
@@ -260,6 +269,7 @@ group
 * Allows limiting the scope of launch configurations.
   Usually used together with ``let``, ``include`` and ``push_ros_namespace`` tags.
 * Differences from ROS 1:
+
    * There is no ``ns`` attribute.
      See the new ``push_ros_namespace`` tag as a workaround.
    * ``clear_params`` attribute isn't available.
