@@ -5,7 +5,7 @@ Setting-up a Robot Simulation (Ignition Gazebo)
 
 **Goal:** Launch a Simulation with Ignition Gazebo and ROS 2
 
-**Tutorial level:** Medium
+**Tutorial level:** Intermediate
 
 **Time:** 20 minutes
 
@@ -16,12 +16,12 @@ Setting-up a Robot Simulation (Ignition Gazebo)
 Prerequisites
 -------------
 
-First at all you should install ROS 2 and Ignition Gazebo. You have two options:
+First of all you should install ROS 2 and Ignition Gazebo. You have two options:
 
- * Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/ignitionrobotics/ros_ign)>`__
- * Compile from sources:
-    * `ROS 2 install instructions <https://docs.ros.org/>`__
-    * `Ignition install instructions <https://ignitionrobotics.org/docs>`__
+ - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/ignitionrobotics/ros_ign)>`__.
+ - Compile from sources:
+    - `ROS 2 install instructions <https://docs.ros.org/>`__
+    - `Ignition install instructions <https://ignitionrobotics.org/docs>`__
 
 Tasks
 -----
@@ -29,10 +29,10 @@ Tasks
 1 Launch the simulation
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-In this demo we are going to simulate in Ignition Gazebo a simple diff drive robot.
-We are going to use one of the world defined in the Ignition Gazebo examples called
+In this demo you are going to simulate a simple diff drive robot in Ignition Gazebo.
+You are going to use one of the worlds defined in the Ignition Gazebo examples called
 `visualize_lidar.sdf <https://github.com/ignitionrobotics/ign-gazebo/blob/main/examples/worlds/visualize_lidar.sdf>`__.
-To run this example you should execute in a terminal:
+To run this example you should execute the following command in a terminal:
 
 
 .. tabs::
@@ -45,7 +45,8 @@ To run this example you should execute in a terminal:
 
 .. image:: Image/gazebo_diff_drive.png
 
-When the simulation is running we can check with the ``ign`` command line tool the topics provided by Ignition Gazebo:
+When the simulation is running you can check the topics provided by Ignition
+Gazebo with the ``ign`` command line tool:
 
 .. tabs::
 
@@ -69,8 +70,8 @@ When the simulation is running we can check with the ``ign`` command line tool t
         /world/diff_drive/state
         /world/diff_drive/stats
 
-But if we try to run ``ros2 topic list`` the output should be free of any robot topic.
-Because we didn't launch any ROS 2 node yet.
+Since we have not launched an ROS 2 nodes yet, the output from ``ros2 topic list``
+should be free of any robot topics:
 
 .. tabs::
 
@@ -85,8 +86,9 @@ Because we didn't launch any ROS 2 node yet.
 2 Configuring ROS 2
 ^^^^^^^^^^^^^^^^^^^
 
-To be able to communicate our simulation with ROS 2 we need to use a package called ``ros_ign_bridge``. This package provides
-a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. You can install this package typing:
+To be able to communicate our simulation with ROS 2 you need to use a package called ``ros_ign_bridge``.
+This package provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport.
+You can install this package by typing:
 
 .. tabs::
 
@@ -94,10 +96,10 @@ a network bridge which enables the exchange of messages between ROS 2 and Igniti
 
       .. code-block:: console
 
-        sudo apt-get install ros-<ROS_DISTRO>-ros-ign-bridge
+        sudo apt-get install ros-{ROS_DISTRO}-ros-ign-bridge
 
-At this point we are ready to launch a bridge from ROS to Ignition. In particular we are going to create a bridge for the topic
-``/model/vehicle_blue/cmd_vel``
+At this point you are ready to launch a bridge from ROS to Ignition.
+In particular you are going to create a bridge for the topic ``/model/vehicle_blue/cmd_vel``:
 
 .. tabs::
 
@@ -105,13 +107,13 @@ At this point we are ready to launch a bridge from ROS to Ignition. In particula
 
       .. code-block:: console
 
-        source /opt/ros/<ROS_DISTRO>/setup.bash
+        source /opt/ros/{ROS_DISTRO}/setup.bash
         ros2 run ros_ign_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
 
-To check more details about the ```ros_ign_bridge`` please check this [README](https://github.com/ignitionrobotics/ros_ign/tree/ros2/ros_ign_bridge).
+For more details about the ``ros_ign_bridge`` please check this `README <https://github.com/ignitionrobotics/ros_ign/tree/ros2/ros_ign_bridge>`__ .
 
 Once the bridge is running the robot is able to follow your motor commands.
-For this matter we have two options:
+There are two options:
 
 * Send a command to the topic using ``ros2 topic pub``
 
@@ -131,12 +133,12 @@ For this matter we have two options:
 
        .. code-block:: console
 
-        sudo apt-get install ros-<ROS_DISTRO>-teleop-twist-keyboard
+        sudo apt-get install ros-{ROS_DISTRO}-teleop-twist-keyboard
 
-The default topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but we can remap this
-topic to make use of the topic used in the bridge:
+ The default topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but you can remap this
+ topic to make use of the topic used in the bridge:
 
-.. tabs::
+ .. tabs::
 
    .. group-tab:: Linux
 
@@ -175,9 +177,11 @@ topic to make use of the topic used in the bridge:
 3 Visualizing lidar data in ROS 2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The diff drive robot has a lidar. To send the data generated by Ignition to ROS 2, we need to launch another bridge.
-In the case the data from the lidar is provided in the Ignition Transport topic ``/lidar2``. In this case we are going to remap the
-topic in the bridge. This topic will be available under the topic ``/lidar_scan``
+The diff drive robot has a lidar.
+To send the data generated by Ignition to ROS 2, you need to launch another bridge.
+In the case the data from the lidar is provided in the Ignition Transport topic ``/lidar2``,
+which you are going to remap in the bridge.
+This topic will be available under the topic ``/lidar_scan``:
 
 .. tabs::
 
@@ -185,10 +189,10 @@ topic in the bridge. This topic will be available under the topic ``/lidar_scan`
 
       .. code-block:: console
 
-        source /opt/ros/<ROS_DISTRO>/setup.bash
+        source /opt/ros/{ROS_DISTRO}/setup.bash
         ros2 run ros_ign_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
-To visualize the data from the lidar in ROS 2 we can use RVIZ2
+To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
 .. tabs::
 
@@ -199,7 +203,7 @@ To visualize the data from the lidar in ROS 2 we can use RVIZ2
         source /opt/ros/<ROS_DISTRO>/setup.bash
         rviz2
 
-Then we need to configure the ``fixed frame``:
+Then you need to configure the ``fixed frame``:
 
 .. image:: Image/fixed_frame.png
 
@@ -207,11 +211,12 @@ And then click in the button "Add" to include a display to visualize the lidar:
 
 .. image:: Image/add_lidar.png
 
-Now you should see the data from the lidar in RVIZ2:
+Now you should see the data from the lidar in Rviz2:
 
 .. image:: Image/rviz2.png
 
 Summary
 -------
 
-In this tutorial, you launch a robot simulation with Ignition Gazebo, launch bridges with actuators and sensors, visualize data from a sensor and move a diff drive robot.
+In this tutorial, you launched a robot simulation with Ignition Gazebo, launched
+bridges with actuators and sensors, visualized data from a sensor, and moved a diff drive robot.
