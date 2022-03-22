@@ -1,5 +1,5 @@
-Packaging your ROS 2 package as a snap
-===========================================
+Packaging your ROS 2 package as a snap [community-contributed]
+==============================================================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -33,7 +33,7 @@ It's recommended to install it from the Snap Store:
 Snapcraft has built-in support for ``Colcon``.
 You point it to your package, and tell it what commands to include in the snap.
 
-For our example, we will use demo_nodes_cpp from the `ros2_demos <https://github.com/ros2/demos/tree/foxy>`_.
+For our example, we will use demo_nodes_cpp from the `ros2_demos <https://github.com/ros2/demos/tree/{DISTRO}>`_.
 
 Initialize a new snapcraft project here:
 
@@ -63,15 +63,15 @@ Open that ``snap/snapcraft.yaml`` file and make it look like this:
       ros-demos:
         plugin: colcon
         source: https://github.com/ros2/demos.git
-        source-branch: foxy
+        source-branch: {DISTRO}
         colcon-packages: [demo_nodes_cpp]
         build-packages: [make, gcc, g++]
-        stage-packages: [ros-foxy-ros2launch]
+        stage-packages: [ros-{DISTRO}-ros2launch]
 
     apps:
       ros2-talker-listener:
-        command: opt/ros/foxy/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
-        extensions: [ros2-foxy]
+        command: opt/ros/{DISTRO}/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
+        extensions: [ros2-{DISTRO}]
 
 Let's break it down.
 
@@ -119,10 +119,10 @@ Parts
       ros-demos:
         plugin: colcon
         source: https://github.com/ros2/demos.git
-        source-branch: foxy
+        source-branch: {DISTRO}
         colcon-packages: [demo_nodes_cpp]
         build-packages: [make, gcc, g++]
-        stage-packages: [ros-foxy-ros2launch]
+        stage-packages: [ros-{DISTRO}-ros2launch]
 
 Parts define how to build your app.
 In this case, we have one: ``ros2-demos``.
@@ -135,13 +135,13 @@ Apps
 
     apps:
       ros2-talker-listener:
-        command: opt/ros/foxy/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
-        extensions: [ros2-foxy]
+        command: opt/ros/{DISTRO}/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
+        extensions: [ros2-{DISTRO}]
 
 Apps are the commands exposed to end users.
 Each key under apps is the command name that should be made available on users' systems.
 The command specifies the path to the binary to be run.
-The extensions `ros2-foxy basically <https://snapcraft.io/docs/ros2-extension>`_ adds the ROS 2 APT package repository.
+The extensions `ros2-{DISTRO} basically <https://snapcraft.io/docs/ros2-extension>`_ adds the ROS 2 APT package repository.
 
 Building the snap
 ^^^^^^^^^^^^^^^^^
