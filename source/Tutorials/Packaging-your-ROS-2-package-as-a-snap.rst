@@ -70,8 +70,8 @@ Open that ``snap/snapcraft.yaml`` file and make it look like this:
 
     apps:
       ros2-talker-listener:
-      command: opt/ros/foxy/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
-      extensions: [ros2-foxy]
+        command: opt/ros/foxy/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
+        extensions: [ros2-foxy]
 
 Let's break it down.
 
