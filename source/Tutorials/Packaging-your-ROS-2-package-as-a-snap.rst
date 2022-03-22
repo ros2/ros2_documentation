@@ -19,7 +19,7 @@ They offer several features that address important concerns as one gets closer t
 Creating a snap
 ---------------
 
-This tutorial will demonstrate how to use `snapcraft <https://github.com/snapcore/snapcraft>`_ to create a new snap, and then the usage.
+This tutorial will demonstrate how to use `snapcraft <https://github.com/snapcore/snapcraft>`_ to create a new snap, and then how to use it.
 
 First, install snapcraft.
 It's recommended to install it from the Snap Store:
