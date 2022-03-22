@@ -92,7 +92,7 @@ Miscellaneous
    Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node
    Tutorials/Building-ROS2-Package-with-eclipse-2021-06
-   Tutorials/Packing-your-ROS2-package-as-a-snap
+   Tutorials/Packaging-your-ROS-2-package-as-a-snap
 
 Demos
 -----

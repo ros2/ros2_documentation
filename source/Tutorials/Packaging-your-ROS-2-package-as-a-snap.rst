@@ -1,6 +1,4 @@
-.. _CreateSnap:
-
-Packing your ROS2 package as a snap
+Packaging your ROS 2 package as a snap
 ===========================================
 
 .. contents:: Table of Contents
@@ -15,7 +13,7 @@ offer several features that address important concerns as one gets closer to
 shipping a robotic platform:
 
 - Container solution: Snaps bundle all your dependencies and assets in one
-  package (including ROS2) making your application installable on dozens of
+  package (including ROS 2) making your application installable on dozens of
   Linux distributions and across distro versions.
 - Strict confinement: Snaps are designed to be `secure and isolated <https://snapcraft.io/docs/snap-confinement>`_ from the
   underlying system and other applications, with `dedicated interfaces <https://snapcraft.io/docs/supported-interfaces>`_ to
@@ -29,9 +27,9 @@ shipping a robotic platform:
 Creating a snap
 ---------------
 
-This tutorial will demonstrate how to use `Snapcraft <https://github.com/snapcore/snapcraft>`_ to create a new snap, and then the usage.
+This tutorial will demonstrate how to use `snapcraft <https://github.com/snapcore/snapcraft>`_ to create a new snap, and then the usage.
 
-First, install Snapcraft. It's recommended to install it from the Snap Store:
+First, install snapcraft. It's recommended to install it from the Snap Store:
 
 .. code-block:: bash
 
@@ -45,11 +43,11 @@ You point it to your package, and tell it what commands to include in the snap.
 
 For our example, we will use demo_nodes_cpp from the `ros2_demos <https://github.com/ros2/demos/tree/foxy>`_.
 
-Initialize a new Snapcraft project here:
+Initialize a new snapcraft project here:
 
 .. code-block:: bash
 
-    Snapcraft init
+    snapcraft init
 
 This will create a file in a subdirectory ``snap/snapcraft.yaml``.
 
@@ -62,9 +60,9 @@ Open that ``snap/snapcraft.yaml`` file and make it look like this:
 
     name: ros2-talker-listener
     version: '0.1'
-    summary: ROS2 Talker/Listener example
+    summary: ROS 2 Talker/Listener example
     description: |
-      This example launches a ROS2 talker and listener.
+      This example launches a ROS 2 talker and listener.
 
     confinement: devmode
     base: core20
@@ -92,9 +90,9 @@ Metadata
 
     name: ros2-talker-listener
     version: '0.1'
-    summary: ROS2 Talker/Listener example
+    summary: ROS 2 Talker/Listener example
     description: |
-      This example launches a ROS2 talker and listener.
+      This example launches a ROS 2 talker and listener.
 
 This is the basic `metadata <https://snapcraft.io/docs/snapcraft-top-level-metadata>`_ that all snaps require.
 These fields are fairly self-explanatory, but note that the name must be globally unique among all snaps.
@@ -151,7 +149,7 @@ Apps
 Apps are the commands exposed to end users.
 Each key under apps is the command name that should be made available on users' systems.
 The command specifies the path to the binary to be run.
-The extensions `ros2-foxy basically <https://snapcraft.io/docs/ros2-extension>`_ adds the ROS2 APT package repository.
+The extensions `ros2-foxy basically <https://snapcraft.io/docs/ros2-extension>`_ adds the ROS 2 APT package repository.
 
 Building the snap
 ^^^^^^^^^^^^^^^^^
@@ -172,14 +170,14 @@ Giving:
     [...]
     Snapped ros2-talker-listener_0.1_amd64.snap
 
-That will take a few minutes. You'll see Snapcraft using `rosdep <http://docs.ros.org/independent/api/rosdep/html/>`_ to pull the dependencies of your package.
+That will take a few minutes. You'll see snapcraft using `rosdep <http://docs.ros.org/independent/api/rosdep/html/>`_ to pull the dependencies of your package.
 Finally, it builds the package, and installs them into the snap.
 
 Testing the snap
 ^^^^^^^^^^^^^^^^
 
-This snap is completely standalone: it includes ROS2,
-meaning that you don't even need to install ROS2 on your system.
+This snap is completely standalone: it includes ROS 2,
+meaning that you don't even need to install ROS 2 on your system.
 Test it out yourself:
 
 .. code-block:: bash
@@ -203,4 +201,4 @@ And you'll see the familiar output:
     [listener-2] [INFO] [1646934736.523614075] [listener]: I heard: [Hello World: 2]
 
 You can find more information about snap
-on the `snapcraft documentation <https://snapcraft.io/docs>`_ and `ROS2 snap page <https://snapcraft.io/docs/ros2-applications>`_.
+on the `snapcraft documentation <https://snapcraft.io/docs>`_ and `ROS 2 snap page <https://snapcraft.io/docs/ros2-applications>`_.
