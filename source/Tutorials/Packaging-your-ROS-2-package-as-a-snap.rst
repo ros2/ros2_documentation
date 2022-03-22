@@ -118,11 +118,11 @@ Parts
     parts:
       ros-demos:
         plugin: colcon
-          source: https://github.com/ros2/demos.git
-          source-branch: foxy
-          colcon-packages: [demo_nodes_cpp]
-          build-packages: [make, gcc, g++]
-          stage-packages: [ros-foxy-ros2launch]
+        source: https://github.com/ros2/demos.git
+        source-branch: foxy
+        colcon-packages: [demo_nodes_cpp]
+        build-packages: [make, gcc, g++]
+        stage-packages: [ros-foxy-ros2launch]
 
 Parts define how to build your app.
 In this case, we have one: ``ros2-demos``.
