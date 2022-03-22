@@ -16,12 +16,14 @@ Setting-up a Robot Simulation (Ignition Gazebo)
 Prerequisites
 -------------
 
-First of all you should install ROS 2 and Ignition Gazebo. You have two options:
+First of all you should install ROS 2 and Ignition Gazebo.
+You have two options:
 
  - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/ignitionrobotics/ros_ign)>`__.
  - Compile from sources:
-    - `ROS 2 install instructions <https://docs.ros.org/>`__
-    - `Ignition install instructions <https://ignitionrobotics.org/docs>`__
+
+   - :doc:`ROS 2 install instructions <../../../Installation>`
+   - `Ignition install instructions <https://ignitionrobotics.org/docs>`__
 
 Tasks
 -----
@@ -70,7 +72,7 @@ Gazebo with the ``ign`` command line tool:
         /world/diff_drive/state
         /world/diff_drive/stats
 
-Since we have not launched an ROS 2 nodes yet, the output from ``ros2 topic list``
+Since you have not launched an ROS 2 nodes yet, the output from ``ros2 topic list``
 should be free of any robot topics:
 
 .. tabs::
@@ -96,7 +98,7 @@ You can install this package by typing:
 
       .. code-block:: console
 
-        sudo apt-get install ros-{ROS_DISTRO}-ros-ign-bridge
+        sudo apt-get install ros-{DISTRO}-ros-ign-bridge
 
 At this point you are ready to launch a bridge from ROS to Ignition.
 In particular you are going to create a bridge for the topic ``/model/vehicle_blue/cmd_vel``:
@@ -107,7 +109,7 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
 
       .. code-block:: console
 
-        source /opt/ros/{ROS_DISTRO}/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
         ros2 run ros_ign_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
 
 For more details about the ``ros_ign_bridge`` please check this `README <https://github.com/ignitionrobotics/ros_ign/tree/ros2/ros_ign_bridge>`__ .
@@ -133,7 +135,7 @@ There are two options:
 
        .. code-block:: console
 
-        sudo apt-get install ros-{ROS_DISTRO}-teleop-twist-keyboard
+        sudo apt-get install ros-{DISTRO}-teleop-twist-keyboard
 
  The default topic where ``teleop_twist_keyboard`` is publishing Twist messages is ``/cmd_vel`` but you can remap this
  topic to make use of the topic used in the bridge:
@@ -144,7 +146,7 @@ There are two options:
 
       .. code-block:: console
 
-        source /opt/ros/<ROS_DISTRO>/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
         ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/model/vehicle_blue/cmd_vel
 
         This node takes keypresses from the keyboard and publishes them
@@ -189,7 +191,7 @@ This topic will be available under the topic ``/lidar_scan``:
 
       .. code-block:: console
 
-        source /opt/ros/{ROS_DISTRO}/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
         ros2 run ros_ign_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
 To visualize the data from the lidar in ROS 2 you can use Rviz2:
@@ -200,7 +202,7 @@ To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
       .. code-block:: console
 
-        source /opt/ros/<ROS_DISTRO>/setup.bash
+        source /opt/ros/{DISTRO}/setup.bash
         rviz2
 
 Then you need to configure the ``fixed frame``:
