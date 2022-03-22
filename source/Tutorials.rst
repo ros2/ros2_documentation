@@ -79,7 +79,7 @@ Simulation
 .. toctree::
    :maxdepth: 1
 
-   Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
+   Tutorials/Simulators/Simulation-Main
 
 Miscellaneous
 -------------
