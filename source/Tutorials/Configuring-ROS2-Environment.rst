@@ -190,7 +190,7 @@ Once you have determined a unique integer for your group of ROS 2 agents, you ca
 
         set ROS_DOMAIN_ID=<your_domain_id>
 
-      If you want to make this permanant between shell sessions, also run:
+      If you want to make this permanent between shell sessions, also run:
 
       .. code-block:: console
 
