@@ -104,7 +104,7 @@ And call it from the CLI:
 
     ros2 bag play --qos-profile-overrides-path reliability_override.yaml my_bag
 
-We can see the results with ``ros2topic``
+We can see the results with ``ros2 topic``
 
 .. code-block:: console
 
