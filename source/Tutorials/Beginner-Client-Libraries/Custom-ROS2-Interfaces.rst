@@ -75,6 +75,14 @@ In the ``tutorial_interfaces/msg`` directory you just created, make a new file c
 
 This is your custom message that transfers a single 64-bit integer called ``num``.
 
+You can also use message types from other packages to e.g. define a message that describes a sphere at a given position (``Sphere.msg``):
+
+.. code-block:: console
+
+    geometry_msgs/Point center
+    float64  radius
+
+
 2.2 srv definition
 ~~~~~~~~~~~~~~~~~~
 
@@ -101,8 +109,9 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 
   rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Num.msg"
+    "msg/Sphere.msg
     "srv/AddThreeInts.srv"
-    DEPENDENCIES geometry_msgs # Add packages of used message-types
+    DEPENDENCIES geometry_msgs # Add packages of used message-types, in this case geometry_msgs for Sphere.msg
   )
 
 .. note::
