@@ -153,3 +153,59 @@ So for the ``ros_comm`` repository the corresponding release repository is calle
 
 Once you have created this new release repository then you are ready to configure and release
 you package. Grab the release repository url from the github page, because you'll need it next.
+
+Releasing Your Packages
+-----------------------
+
+.. note::
+
+   If you have two factor authorization enabled on github,
+   please follow this tutorial first:
+   `GithubManualAuthorization <https://wiki.ros.org/bloom/Tutorials/GithubManualAuthorization>`_.
+
+Normally you will make a call like this:
+
+.. code-block:: bash
+
+   # This is an example, do not run this one, run the next one
+   bloom-release --rosdistro <ros_distro> --track <ros_distro> repository_name
+
+In order to release the packages from a repository, but on the first release
+(and any time you want to configure a new 'track' of settings) you'll want to add the
+``--edit`` option:
+
+.. code-block:: bash
+
+   # Replace <ros_distro> with the ROS distribution, e.g. indigo
+   $ bloom-release --rosdistro <ros_distro> --track <ros_distro> <your_repository_name> --edit
+
+This option will allow you to edit the track specified before making a release.
+This is required on the first release as you do not yet have a track, so bloom will first create
+one for you and then allow you to configure it. Please note that ``repository_name`` is not its url,
+it is its reference in ``distribution.yaml``.
+
+When you run the above command, it will go out to the ROS distro file for the ROS distro which
+you specified and look for your repository's information. Since this is your first release, it
+will not find your repository's information, so it will ask you for the release repository url,
+like this:
+
+.. code-block:: bash
+
+   No reasonable default release repository url could be determined from previous releases.
+   Release repository url [press enter to abort]:
+
+You will only have to provide this information on the first release, but put your RELEASE
+repository url here. This is the repository you just created above.
+
+Next bloom may ask you about initializing the new repository.
+
+.. code-block:: bash
+
+   Freshly initialized git repository detected.
+   An initial empty commit is going to be made.
+   Continue [Y/n]?
+
+Hit ``enter`` or type 'y' and then hit enter to continue.
+
+Now bloom will setup a ``master`` branch (this is where the configurations are stored) and
+begin prompting you for information about the release.
