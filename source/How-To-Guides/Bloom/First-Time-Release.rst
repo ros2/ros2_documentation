@@ -122,3 +122,34 @@ but you can pick minor or major using the ``--bump`` option.
 
 Even if you do not use ``catkin_prepare_release``, you must have one or more valid
 ``package.xml`` (s) with the same version and a matching tag in your upstream repository.
+
+Creating a Release Repository
+-----------------------------
+
+The next step is to create a release repository. Bloom requires that you have a separate
+"release" repository for releasing your package. This repository must be a git repository
+and is normally hosted externally by a service such as GitHub. For example, all of the ROS
+release repositories are in the `ros-gbp github organization <https://github.com/ros-gbp>`_.
+These repositories are the result of running bloom on a repository containing one or more
+catkin packages.
+
+We highly recommend that you host your release repository on `GitHub <https://github.com/>`_.
+This tutorial uses GitHub, but you can also create your release repository locally and host it
+somewhere else.
+
+Creating a Release Repository on github.com
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new repository in the github organization or on the github user of your choice.
+By convention you should name it as your package name with the ``-release`` suffix.
+So for the ``ros_comm`` repository the corresponding release repository is called
+``ros_comm-release``.
+
+.. note::
+
+   When creating your github.com repository, check the box **Initialize this repository with a
+   README.md**, this way it starts out as a valid git repo.
+   Bloom will later fill this file with information about released versions.
+
+Once you have created this new release repository then you are ready to configure and release
+you package. Grab the release repository url from the github page, because you'll need it next.
