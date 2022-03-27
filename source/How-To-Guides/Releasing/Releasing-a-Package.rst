@@ -11,10 +11,15 @@ Releasing a Package
 .. toctree::
    :hidden:
 
-   First-Time-Release
-   Releasing-a-Package-Update
-   Releasing-for-a-New-Distro
-   Releasing-a-Third-Party-Package
+   Obtain-Access-to-Release-Repository
+   Prerequisites
+   Release-Preparation
+   Release
+
+.. First-Time-Release
+.. Releasing-a-Package-Update
+.. Releasing-for-a-New-Distro
+.. Releasing-a-Third-Party-Package
 
 Introduction
 ------------
@@ -23,25 +28,25 @@ This page describes how to prepare a repository for release on the public ROS 2 
 After you've created a package, this is the next step towards getting your package in to the
 publicly-available Debian packages (i.e., you will be able to install the package via ``apt``).
 
-#. :doc:`Releasing a Package for the First Time <First-Time-Release>`
+.. #. :doc:`Releasing a Package for the First Time <First-Time-Release>`
 
-   Start here if the packages you want to release have not been released previously in any
-   ROS distributions.
+..    Start here if the packages you want to release have not been released previously in any
+..    ROS distributions.
 
-#. :doc:`Releasing a Package Update <Releasing-a-Package-Update>`
+.. #. :doc:`Releasing a Package Update <Releasing-a-Package-Update>`
 
-   Follow this if you want to release updates for a package that has
-   already been released.
+..    Follow this if you want to release updates for a package that has
+..    already been released.
 
-#. :doc:`Releasing for a New Distro <Releasing-for-a-New-Distro>`
+.. #. :doc:`Releasing for a New Distro <Releasing-for-a-New-Distro>`
 
-   Follow this if you want your already-released package released into a new ROS
-   distribution.
+..    Follow this if you want your already-released package released into a new ROS
+..    distribution.
 
-#. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
+.. #. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
 
-   Follow this if you want to release a third party (non-ROS) package into the ROS ecosystem for
-   you and others to use.
+..    Follow this if you want to release a third party (non-ROS) package into the ROS ecosystem for
+..    you and others to use.
    
 
 Required Tools
