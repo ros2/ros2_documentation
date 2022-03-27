@@ -1,5 +1,5 @@
-Releasing a Package for the First Time
-======================================
+Releasing for the First Time
+============================
 
 .. contents:: Table of Contents
    :depth: 3
@@ -29,7 +29,7 @@ If you are already part of the release team for your project, fill out the
 `Add New Release Repositories <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_
 issue template.
 
-Now, you must for the ros2-gbp maintainers to create an empty release repository for you.
+Now, you must wait for the ros2-gbp maintainers to create an empty release repository for you.
 Once the release repository is available, you should have push access to it. 
 Note the release repository's url because you'll need it later.
 
@@ -106,9 +106,9 @@ from the previous step has filled in your CHANGELOG.rst from previous commit mes
 
 .. code-block:: rst
 
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   Changelog for package rqt_image_overlay
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   Changelog for package your_package
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    Forthcoming
    -----------
@@ -147,7 +147,7 @@ for a well formatted example.
 Commit the Changelog
 ^^^^^^^^^^^^^^^^^^^^
 
-Don't forget to **commit your new/updated changelog**.
+Don't forget to **commit your new changelog**.
 
 Set package version
 ^^^^^^^^^^^^^^^^^^^

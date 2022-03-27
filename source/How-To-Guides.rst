@@ -34,7 +34,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback
    How-To-Guides/Working-with-multiple-RMW-implementations
    How-To-Guides/Cross-compilation
-   How-To-Guides/Bloom/Releasing-a-ROS-2-package-with-bloom
+   How-To-Guides/Releasing/Releasing-a-Package
    How-To-Guides/Using-Python-Packages
    How-To-Guides/RQt-Port-Plugin-Windows
    How-To-Guides/Run-2-nodes-in-single-or-separate-docker-containers

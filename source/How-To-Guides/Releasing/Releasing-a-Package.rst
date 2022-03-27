@@ -5,13 +5,14 @@
     Tutorials/Releasing-a-ROS-2-package-with-bloom
     How-To-Guides/Releasing-a-ROS-2-package-with-bloom
 
-Releasing a ROS 2 package with bloom
-====================================
+Releasing a Package
+===================
 
 .. toctree::
    :hidden:
 
    First-Time-Release
+   Releasing-a-Package-Update
 
 Introduction
 ------------
@@ -20,9 +21,14 @@ This page describes how to prepare a repository for release on the public ROS 2 
 After you've created a package, this is the next step towards getting your package in to the
 publicly-available Debian packages (i.e., you will be able to install the package via ``apt``).
 
-#. :doc:`Releasing a Package for the First Time <./First-Time-Release>`.
+#. :doc:`Releasing a Package for the First Time <First-Time-Release>`
 
    Start with this tutorial if the packages you want to release have not been released previously.
+
+#. :doc:`Releasing a Package Update <Releasing-a-Package-Update>`
+
+   Follow this tutorial if you are trying to release updates for a package that has
+   already been released.
 
 Required Tools
 --------------
