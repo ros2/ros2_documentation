@@ -13,6 +13,8 @@ Releasing a Package
 
    First-Time-Release
    Releasing-a-Package-Update
+   Releasing-for-a-New-Distro
+   Releasing-a-Third-Party-Package
 
 Introduction
 ------------
@@ -23,12 +25,24 @@ publicly-available Debian packages (i.e., you will be able to install the packag
 
 #. :doc:`Releasing a Package for the First Time <First-Time-Release>`
 
-   Start with this tutorial if the packages you want to release have not been released previously.
+   Start here if the packages you want to release have not been released previously in any
+   ROS distributions.
 
 #. :doc:`Releasing a Package Update <Releasing-a-Package-Update>`
 
-   Follow this tutorial if you are trying to release updates for a package that has
+   Follow this if you want to release updates for a package that has
    already been released.
+
+#. :doc:`Releasing for a New Distro <Releasing-for-a-New-Distro>`
+
+   Follow this if you want your already-released package released into a new ROS
+   distribution.
+
+#. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
+
+   Follow this if you want to release a third party (non-ROS) package into the ROS ecosystem for
+   you and others to use.
+   
 
 Required Tools
 --------------

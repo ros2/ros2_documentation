@@ -33,23 +33,24 @@ Now, you must wait for the ros2-gbp maintainers to create an empty release repos
 Once the release repository is available, you should have push access to it. 
 Note the release repository's url because you'll need it later.
 
-Install Bloom
--------------
+Install catkin_pkg and bloom
+----------------------------
 
-`Bloom <http://ros-infrastructure.github.io/bloom/>`_ is a release automation tool,
-designed to make generating platform specific release artifacts from source projects easier.
-
+Install `catkin_pkg <https://github.com/ros-infrastructure/catkin_pkg>`_ and
+`Bloom <http://ros-infrastructure.github.io/bloom/>`_.
 On Ubuntu the recommend method is to use apt:
 
 .. code-block:: bash
 
-   sudo apt-get install python-bloom
+   sudo apt install python3-catkin-pkg python3-bloom
 
-On other systems you can install bloom via pypi:
+.. note::
 
-.. code-block:: bash
+   On other systems you can install via pypi:
 
-   sudo pip install -U bloom
+   .. code-block:: bash
+
+      pip3 install -U bloom catkin_pkg
 
 Prerelease Check List
 ---------------------
