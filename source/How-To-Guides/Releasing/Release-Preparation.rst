@@ -26,7 +26,9 @@ Install catkin_pkg
 ------------------
 
 `catkin_pkg <https://github.com/ros-infrastructure/catkin_pkg>`_ is a python library that contains
-scripts to simplify the release preparation process.
+scripts to simplify the release preparation process. Despite the usage of *catkin* in the name,
+which is the ament equivalent of ROS1, the tool works for preparing ament packages too.
+
 On Ubuntu the recommended installation method is to use ``apt``:
 
 .. code-block:: bash

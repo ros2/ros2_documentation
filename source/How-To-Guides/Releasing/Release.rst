@@ -79,7 +79,7 @@ like this:
 
 bloom is designed to allow the release of the same package for different ROS distributions and
 versions in the same release repository. To facilitate this, bloom uses release "tracks" to
-maintain configurations for different release processes. For normal catkin-based ROS packages
+maintain configurations for different release processes. For normal ament-based ROS packages
 the default release track is recommended.
 
 In the ``bloom-release`` command you ran above, you specified the ``--track``.
@@ -165,12 +165,12 @@ are also supported.
 Version
 ~~~~~~~
 
-Press enter to accept the default unless you are releasing a non-catkin package.
+Press enter to accept the default unless you are releasing a non-ament package.
 
 Release Tag
 ~~~~~~~~~~~
 
-Press enter to accept the default unless you are releasing a non-catkin package.
+Press enter to accept the default unless you are releasing a non-ament package.
 
 Upstream Devel Branch
 ~~~~~~~~~~~~~~~~~~~~~
