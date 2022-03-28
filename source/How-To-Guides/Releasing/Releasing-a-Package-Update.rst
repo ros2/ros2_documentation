@@ -85,7 +85,7 @@ concisely convey the exact changes that have happened since the last release to 
 Once you have a nicely formatted changelog, **commit your updated changelog**.
 
 Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
-See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_ 
+See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_
 for a well formatted example.
 
 .. note::
@@ -130,7 +130,8 @@ This script performs the following:
 Release your Packages
 ---------------------
 
-The actual releasing of the package should be performed using the command below:
+The actual releasing of the package should be performed using one of the commands below,
+depending on your circumstances:
 
 .. code-block:: bash
 

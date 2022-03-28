@@ -12,14 +12,9 @@ Releasing a Package
    :hidden:
 
    Obtain-Access-to-Release-Repository
-   Prerequisites
    Release-Preparation
    Release
-
-.. First-Time-Release
-.. Releasing-a-Package-Update
-.. Releasing-for-a-New-Distro
-.. Releasing-a-Third-Party-Package
+   Releasing-a-Third-Party-Package
 
 Introduction
 ------------
@@ -47,7 +42,7 @@ publicly-available Debian packages (i.e., you will be able to install the packag
 
 ..    Follow this if you want to release a third party (non-ROS) package into the ROS ecosystem for
 ..    you and others to use.
-   
+
 
 Required Tools
 --------------
