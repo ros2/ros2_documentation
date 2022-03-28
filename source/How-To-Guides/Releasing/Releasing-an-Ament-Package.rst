@@ -1,21 +1,44 @@
-Release
-=======
+Releasing an Ament Package
+==========================
 
 .. contents:: Table of Contents
    :depth: 3
    :local:
 
-Install Bloom
--------------
+Before you start
+----------------
+
+Before releasing the package, here's a list of things that you'd want to check you've completed:
+
+* Your code is up-to-date
+* Your package builds correctly
+* All your tests are passing
+* You've pushed all changes from your machine to the upstream repository.
+
+.. note::
+
+   The **upstream repository** is the repository where you do your development and host the source
+   code of your package. This repository can be hosted anywhere (even locally) and can be a git,
+   hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans
+   for tar.bz and zip).
+
+Install catkin_pkg and bloom
+----------------------------
+
+`catkin_pkg <https://github.com/ros-infrastructure/catkin_pkg>`_ is a python library that contains
+scripts to be used in the steps `Writing a Change Log`_ and `Bump the package version`_.
+Despite the use of the word *catkin* (which is the ROS1 equivalent of ament) in the library name,
+it works for preparing ament packages too.
 
 `Bloom <http://ros-infrastructure.github.io/bloom/>`_ is a release automation tool,
-designed to make generating platform specific release artifacts from source projects easier. 
+designed to generate platform specific release artifacts from source projects in
+the `Releasing Your Packages`_ step.
 
-On Ubuntu the recommended installation method is to use apt:
+On Ubuntu the recommended installation method is to use ``apt``:
 
 .. code-block:: bash
 
-   sudo apt install python3-bloom
+   sudo apt install python3-catkin-pkg python3-bloom 
 
 .. note::
 
@@ -23,8 +46,117 @@ On Ubuntu the recommended installation method is to use apt:
 
    .. code-block:: bash
 
-      pip3 install -U bloom
+      pip3 install -U catkin_pkg bloom
 
+Writing a Change Log
+--------------------
+
+To make it easier for users and contributors to see precisely what notable changes have been made
+between each release, you are recommended to have a changelog for your package.
+
+In the steps below, the package changelogs will be incorporated as part of the source working tree
+as recommended in
+`REP-132: Incorporation of Changelogs into Package Source Tree <https://www.ros.org/reps/rep-0132.html>`_.
+
+Generate / Update CHANGELOG.rst
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If this is the first time you're releasing the package, you'll likely not have a
+``CHANGELOG.rst`` file in your package yet. Rather than creating this file manually, let the
+``--all`` flag generate the file for you.
+
+If this is not your first release and you already
+have a ``CHANGELOG.rst`` per package, omit the ``--all`` flag and let the script make an entry for
+the upcoming release for you.
+
+.. code-block:: bash
+
+   # Run either:
+   catkin_generate_changelog
+   catkin_generate_changelog --all  # To generate CHANGELOG.rst
+
+Clean up the Changelog
+^^^^^^^^^^^^^^^^^^^^^^
+
+Open ``CHANGELOG.rst`` in an editor. You will see that the command ``catkin_generate_changelog``
+from the previous step has simply populated it with commit messages, like below:
+
+.. code-block:: rst
+
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   Changelog for package your_package
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   Forthcoming
+   -----------
+   * you can modify commit message here
+   * and here
+
+You should clean up the list of commit messages to concisely convey  to your users and maintainers,
+the notable changes have been made since the last release.
+
+See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_
+for a well-formatted example.
+Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
+
+.. note::
+
+   You should **not** modify the ``Forthcoming`` heading, as this will be replaced with the
+   package version number by ``catkin_prepare_release`` later on.
+
+.. warning::
+
+   If you have any commit messages ending in an underscore, such as member variables (e.g. ``name_``)
+   this will throw an error with the RST Changelog format because RST treats those as
+   `link targets <http://docutils.sourceforge.net/docs/user/rst/quickstart.html#sections>`_.
+   The error will be something like:
+
+   .. code-block::
+
+      <string>:21: (ERROR/3) Unknown target name: "name".
+
+   To fix this, you'll need to escape the variable, for example:
+
+   .. code-block::
+
+      * fix for checking the ``name_``
+
+Commit the Changelog
+^^^^^^^^^^^^^^^^^^^^
+
+**Don't forget this step!**  Commit the ``CHANGELOG.rst`` files you cleaned up.
+
+Bump the package version
+------------------------
+
+Every release of the package must have a unique version number. Run:
+
+.. code-block:: bash
+
+   catkin_prepare_release
+
+which performs the following:
+
+#. increases the package version in ``package.xml``
+#. replaces the heading ``Forthcoming`` with ``version (date)`` (eg. ``0.0.1 (2022-01-08)``) in ``CHANGELOG.rst``
+#. commits those changes
+#. creates a tag (eg. ``0.0.1``)
+#. pushes those changes to upstream
+
+.. note::
+
+   By default this command increases the patch version of your package, e.g. ``0.1.1`` -> ``0.1.2``,
+   but you can pick minor or major using the ``--bump`` option.
+
+.. note::
+
+   Even if you do not use ``catkin_prepare_release``, you must have one or more valid
+   ``package.xml`` with the same version and a matching tag in your upstream repository.
+   For example, if you are going to release version 0.1.0 of your
+   package, then bloom expects there to be a 0.1.0 tag in your upstream repository.
+
+   If you have a custom version tagging scheme you'd like to use, then bloom can handle while
+   configuring a release track using the 'Release Tag' configuration.
 
 Releasing Your Packages
 -----------------------
@@ -37,17 +169,11 @@ Releasing Your Packages
 The actual releasing of the package should be performed using one of the commands below, where
 you should replace ``foo`` with the name of your repository:
 
-* Releasing a package for the first time, or when editing an existing release track:
+* Releasing a package for the first time, for a new distro, or editing an existing release track:
 
    .. code-block:: bash
 
       bloom-release --rosdistro {DISTRO} --track {DISTRO}  --edit foo
-
-* Releasing for a new distro:
-
-   .. code-block:: bash
-
-      bloom-release --rosdistro {DISTRO} --track {DISTRO} --new-track foo
 
 * Releasing a package update on an existing release track:
 
@@ -55,8 +181,15 @@ you should replace ``foo`` with the name of your repository:
 
       bloom-release --rosdistro {DISTRO} foo
 
-If releasing a package update on an existing release track, you can skip the next section.
-If you used the ``--edit`` or ``--new-track`` flag, continue with `Configuring the Release Track`_.
+.. tip::
+
+   * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
+   * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
+   * ``--edit`` tells bloom to create the track if it doesn't exist and configure it.
+
+If you used the ``--edit`` flag, continue with `Configuring the Release Track`_.
+If you're releasing a package update on an existing release track without editing it,
+you can skip the next section.
 
 Configuring the Release Track
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -214,8 +347,8 @@ Can be left as the default in most cases.
 .. One of these commands is called ``git-bloom-config`` and it lets you manage your tracks.
 .. Run ``git-bloom-config -h`` to get more information about how to manage your release tracks.
 
-Opening a Pull Request (Automatic)
-----------------------------------
+Pull Request to rosdistro
+-------------------------
 
 .. warning::
 
@@ -253,16 +386,16 @@ To enter your repository you need to fill out a section like this:
        version: ros2
      status: developed
 
-Note that you should put the **https://** url of the RELEASE repository here, not the url of your
-source repository. 
+You should put the **https://** url of the RELEASE repository here, not the url of your
+upstream repository.
 
-Note that you must:
+.. note::
 
-* put the full version which is the version of your
-  package plus the release increment number separated by a hyphen. (eg. ``0.0.1-1``).
-  The release increment number is increased each time you release a package of the same version,
-  this can occur when adding patches to the release repository or when changing the release settings.
-* put your package into the list of packages in ALPHABETICAL order.
+   * put the full version which is the version of your
+     package plus the release increment number separated by a hyphen. (eg. ``0.0.1-1``).
+     The release increment number is increased each time you release a package of the same version,
+     this can occur when adding patches to the release repository or when changing the release settings.
+   * put your package into the list of packages in ALPHABETICAL order.
 
 .. note::
 

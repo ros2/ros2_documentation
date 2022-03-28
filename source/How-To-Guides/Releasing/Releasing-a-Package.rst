@@ -12,8 +12,7 @@ Releasing a Package
    :hidden:
 
    Obtain-Access-to-Release-Repository
-   Release-Preparation
-   Release
+   Releasing-an-Ament-Package
    Releasing-a-Third-Party-Package
    Github-Manual-Authorization
 
@@ -21,45 +20,19 @@ Releasing a package in ROS2 means to make your package available on the public R
 After you've created a package, this is the next step towards getting your package in to the
 publicly-available Debian packages so that others can install the package via ``apt``.
 
-**Select and follow the instructions** for the type of package you are releasing:
+First, **follow instructions to** :doc:`Obtain Access to Release Repository <Obtain-Access-to-Release-Repository>`.
 
-* `Releasing an Ament Package`_
+Second, **select one of the following**, according to the type of package you are releasing:
+
+* :doc:`Releasing an Ament Package <Releasing-an-Ament-Package>`
 
    A package which contains a ``package.xml`` and follows the packaging guidelines
-   of ament, regardless of the underlying build system. Most ROS packages are ament packages.
+   of ament. Most ROS packages are ament packages.
    
-* `Releasing a Third Party Package`_
+* :doc:`Releasing an Ament Package <Releasing-an-Ament-Package>`
 
    A third party package that doesn't follow the packaging guidelines of ament and doesn't contain
    a ``package.xml``.
 
-Releasing an Ament Package
---------------------------
-
-An ament package is any package which contains a package.xml and follows the packaging guidelines
-of ament, regardless of the underlying build system. Most ROS packages are ament packages.
-
-Conduct the following in order:
-
-#. :doc:`Obtain Access to Release Repository <Obtain-Access-to-Release-Repository>`
-#. :doc:`Release Preparation <Release-Preparation>`
-#. :doc:`Release <Release>`
-
-Releasing a Third Party Package
--------------------------------
-
-A third party package is a software package which exists outside of the ROS
-ecosystem, is used by packages in the ROS ecosystem, but is not released widely as a system
-dependency.
-These software packages might be designed to be used outside of the ROS ecosystem,
-but are not big enough or mature enough to be released into operating system package managers.
-Instead they are released using the ROS infrastructure along side a ROS distribution as if
-they were actually ROS packages.
-
-They require a separate release procedure as they don't follow the packaging guidelines of
-ament and don't contain a ``package.xml``.
-
-Conduct the following in order:
-
-#. :doc:`Obtain Access to Release Repository <Obtain-Access-to-Release-Repository>`
-#. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
+Once you successfully follow the instructions, your package should be released into the ROS
+ecosystem on the next synchronization!

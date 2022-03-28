@@ -56,7 +56,6 @@ If you don't have a release repo for your project yet, raise an
 `Add New Release Repositories issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_.
 You must wait for the ros2-gbp maintainers to create an empty release repository for you.
 
-
 What if my release repo isn't on ros2-gbp?
 ------------------------------------------
 
