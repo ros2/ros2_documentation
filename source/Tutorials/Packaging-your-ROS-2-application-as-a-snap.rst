@@ -110,7 +110,7 @@ Security model
 To get started, we won't confine this application.
 Unconfined applications, specified with ``devmode``,
 can only be released to the ``edge`` channel of the snapcraft store.
-For more information about snaps Security model, please refer to the `online documentation <https://snapcraft.io/docs/choosing-a-security-model>`_
+For more information about snaps Security model, please refer to the `online documentation <https://snapcraft.io/docs/choosing-a-security-model>`__
 
 Parts
 """""
@@ -132,7 +132,7 @@ Parts can point to local directories, remote git repositories, or tarballs.
 Here, we specify our source as a GitHub repository at a specific branch.
 We also specifically tell ``Colcon`` to build the ``demo_nodes_cpp`` package.
 Furthermore we tell snapcraft that packages such as ``make`` are necessary at build time while the package ``ros-{DISTRO}-ros2launch`` is necessary at run time.
-For more information about the plugin and it options, please refer to the `online documentation <https://snapcraft.io/docs/the-colcon-plugin>`_.
+For more information about the plugin and it options, please refer to the `online documentation <https://snapcraft.io/docs/the-colcon-plugin>`__.
 
 Apps
 """"
