@@ -197,7 +197,7 @@ Now we can run ``ros2 interface show <type>.msg`` on this type to learn its deta
 
 .. code-block:: console
 
-  ros2 msg show geometry_msgs/msg/Twist
+  ros2 interface show geometry_msgs/msg/Twist
 
 .. code-block:: console
 
