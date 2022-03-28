@@ -55,14 +55,15 @@ you should replace ``foo`` with the name of your repository:
 
       bloom-release --rosdistro {DISTRO} foo
 
+If releasing a package update on an existing release track, you can skip the next section.
+If you used the ``--edit`` or ``--new-track`` flag, continue with `Configuring the Release Track`_.
 
-Configuring a Release Track
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuring the Release Track
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you're releasing a package update without configuring the track, you can skip the instructions
-here.
-If you ran the script with the ``--edit`` or ``--new-track`` flag, you will be prompted
-to configure the track. Follow the instructions here:
+.. warning::
+
+   If you're releasing a package update without configuring the track, skip these instructions
 
 The ``bloom-release`` script will prompt you through to perform the following:
 
@@ -94,9 +95,8 @@ Release Repository url
    No reasonable default release repository url could be determined from previous releases.
    Release repository url [press enter to abort]:
 
-Put your RELEASE repository url here. This is the repository you requested on ros2-gbp.
-
-Next bloom may ask you about initializing the new repository.
+Put your release repository on ros2-gbp here (eg. ``https://github.com/ros2-gbp/foo``).
+Next bloom may ask you about initializing the new repository:
 
 .. code-block:: bash
 
@@ -125,8 +125,6 @@ put ``foo`` here.
 Upstream Repository URI
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The next configuration is the upstream repository uri:
-
 .. code-block:: bash
 
    Upstream Repository URI:
@@ -136,12 +134,7 @@ The next configuration is the upstream repository uri:
          where the :{version} token will be replaced with the version for this release.
       [None]:
 
-This is an important setting; you should put the uri of your repository on which you do development.
-This is NOT the place where you intend to host this release repository. In this case,
-I will pretend that our code is hosted in the ``bar`` organization on github and put
-``https://github.com/bar/foo.git``.
-
-Next, bloom will prompt you for the upstream repository type.
+This is an important setting. You should put the uri of your code repository (eg. ``https://github.com/bar/foo.git``).
 
 Upstream Repository Type
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -159,8 +152,8 @@ Upstream Repository Type
          Upstream URI is a tarball
       ['git']:
 
-In this example our upstream repository is ``git``, but ``svn``, ``hg``, and hosted ``tar`` archives
-are also supported.
+You must specify the type of upstream repository you are using. Leave this as ``git``, unless your
+upstream repository is of a different type (``svn``, ``hg``, or hosted ``tar`` archives).
 
 Version
 ~~~~~~~
@@ -308,3 +301,7 @@ and public repositories, so it might take as long as a month before your
 package is available on the public ROS debian repositories (i.e. available via apt-get).
 To get updates on when the next synchronization (sync) is coming, check the
 `ROS discussion forums <https://discourse.ros.org/>`_.
+
+Individual build details are on the Jenkins build farm `build.ros2.org <http://build.ros2.org/>`__.
+Check `ROS {DISTRO} Default Package Status <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__
+to see status of released packages.

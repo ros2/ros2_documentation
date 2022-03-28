@@ -17,87 +17,49 @@ Releasing a Package
    Releasing-a-Third-Party-Package
    Github-Manual-Authorization
 
-Introduction
-------------
-
-This page describes how to prepare a repository for release on the public ROS 2 buildfarm.
+Releasing a package in ROS2 means to make your package available on the public ROS 2 buildfarm.
 After you've created a package, this is the next step towards getting your package in to the
-publicly-available Debian packages (i.e., you will be able to install the package via ``apt``).
+publicly-available Debian packages so that others can install the package via ``apt``.
 
-.. #. :doc:`Releasing a Package for the First Time <First-Time-Release>`
+**Select and follow the instructions** for the type of package you are releasing:
 
-..    Start here if the packages you want to release have not been released previously in any
-..    ROS distributions.
+* `Releasing an Ament Package`_
 
-.. #. :doc:`Releasing a Package Update <Releasing-a-Package-Update>`
+   A package which contains a ``package.xml`` and follows the packaging guidelines
+   of ament, regardless of the underlying build system. Most ROS packages are ament packages.
+   
+* `Releasing a Third Party Package`_
 
-..    Follow this if you want to release updates for a package that has
-..    already been released.
+   A third party package that doesn't follow the packaging guidelines of ament and doesn't contain
+   a ``package.xml``.
 
-.. #. :doc:`Releasing for a New Distro <Releasing-for-a-New-Distro>`
+Releasing an Ament Package
+--------------------------
 
-..    Follow this if you want your already-released package released into a new ROS
-..    distribution.
+An ament package is any package which contains a package.xml and follows the packaging guidelines
+of ament, regardless of the underlying build system. Most ROS packages are ament packages.
 
-.. #. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
+Conduct the following in order:
 
-..    Follow this if you want to release a third party (non-ROS) package into the ROS ecosystem for
-..    you and others to use.
+#. :doc:`Obtain Access to Release Repository <Obtain-Access-to-Release-Repository>`
+#. :doc:`Release Preparation <Release-Preparation>`
+#. :doc:`Release <Release>`
 
+Releasing a Third Party Package
+-------------------------------
 
-Required Tools
---------------
+A third party package is a software package which exists outside of the ROS
+ecosystem, is used by packages in the ROS ecosystem, but is not released widely as a system
+dependency.
+These software packages might be designed to be used outside of the ROS ecosystem,
+but are not big enough or mature enough to be released into operating system package managers.
+Instead they are released using the ROS infrastructure along side a ROS distribution as if
+they were actually ROS packages.
 
-* ``bloom`` >= 0.10.7
-* ``catkin_pkg`` >= 0.4.23
+They require a separate release procedure as they don't follow the packaging guidelines of
+ament and don't contain a ``package.xml``.
 
-Ensure that you have the latest version of bloom and catkin_pkg
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Conduct the following in order:
 
-See above version requirements.
-
-
-*
-  Make sure you have the ros repositories in your sources (see instructions :ref:`here <linux-install-debians-setup-sources>`).
-
-*
-  Install the latest version of bloom and catkin_pkg:
-
-  .. code-block:: bash
-
-     sudo apt install python3-catkin-pkg python3-bloom
-
-If you're using a version of bloom older than 0.6.8 you'll need to use the v3 index url for releasing.
-
-.. code-block:: bash
-
-   export ROSDISTRO_INDEX_URL='https://raw.githubusercontent.com/ros/rosdistro/master/index.yaml'
-
-Minor differences from ROS 1 Bloom
-----------------------------------
-
-If you've bloomed packages before in ROS 1, the ROS 2 process should be familiar to you.
-The major difference is that release repositories for ROS 2 packages live in a dedicated GitHub organization:
-`ROS 2 release repositories <https://github.com/ros2-gbp/>`__.
-The dedicated organization allows new automation supporting the :doc:`Rolling distribution <../../Releases/Release-Rolling-Ridley>`.
-
-Release repositories hosted elsewhere are still supported for stable distributions if you are not planning to release the repository into Rolling.
-Since stable distributions created from Rolling will start with release repositories in the ros2-gbp organization it is recommend that you use the ros2-gbp release repositories for all ROS 2 distributions to avoid fragmenting the release information.
-
-A ros2-gbp release repository may become a hard requirement for Rolling in the future and maintaining a single release repository for all ROS 2 distributions simplifies the maintenance of releases for both the Rolling distribution maintainers and package maintainers.
-
-In order to request new release repositories or update maintainer access to existing release repositories in the ros2-gbp organization you can `create an issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new/choose>`__ in the `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`__ management repository.
-
-
-Procedure
----------
-
-Same as in ROS 1: `Following this tutorial <https://wiki.ros.org/bloom/Tutorials/FirstTimeRelease>`__
-
-If porting a ROS 1 package to ROS 2, it's recommended to create a new ``-release`` repository.
-
-Build Status
-------------
-
-* Individual build details on the build farm `Jenkins <http://build.ros2.org/>`__ frontend.
-* The `ROS 2 Package Status Pages <http://repo.ros2.org/status_page/>`__ (e.g. `{DISTRO_TITLE} Default <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__).
+#. :doc:`Obtain Access to Release Repository <Obtain-Access-to-Release-Repository>`
+#. :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`

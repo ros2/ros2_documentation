@@ -58,24 +58,24 @@ Generate / Update CHANGELOG.rst
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If this is the first time you're releasing the package, you'll likely not have a
-``CHANGELOG.rst`` file in your package(s) yet. Rather than creating this file manually, add the
-``--all`` flag to let the following script generate the file(s) for you and make an entry for the
-upcoming release for you.
+``CHANGELOG.rst`` file in your package yet. Rather than creating this file manually, let the
+``--all`` flag generate the file for you.
 
-If this is not your first release and you already have a ``CHANGELOG.rst`` per package,
-omit the ``--all`` flag and let the script make an entry for the upcoming release for you.
+If this is not your first release and you already
+have a ``CHANGELOG.rst`` per package, omit the ``--all`` flag and let the script make an entry for
+the upcoming release for you.
 
 .. code-block:: bash
 
    # Run either:
-   catkin_generate_changelog --all  # If CHANGELOG.rst doesn't exist yet
-   catkin_generate_changelog        # If CHANGELOG.rst already exists
+   catkin_generate_changelog
+   catkin_generate_changelog --all  # To generate CHANGELOG.rst
 
 Clean up the Changelog
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Open ``CHANGELOG.rst`` in an editor. You will see that the command ``catkin_generate_changelog``
-from the previous step has filled in your CHANGELOG.rst with your commit messages, like below:
+from the previous step has simply populated it with commit messages, like below:
 
 .. code-block:: rst
 
@@ -91,9 +91,9 @@ from the previous step has filled in your CHANGELOG.rst with your commit message
 You should clean up the list of commit messages to concisely convey the exact changes that have
 happened since the last release to your users and maintainers.
 
-Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
 See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_
 for a well formatted example.
+Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
 
 You should **not** modify the ``Forthcoming`` heading, as this will be replaced with the
 package version number by ``catkin_prepare_release`` later on.
@@ -124,8 +124,7 @@ After cleaning up the changelogs for all packages, commit your changelogs.
 Bump package version
 --------------------
 
-Every release of the package must have a new package version, higher than the previous release.
-Bump the package's version by running:
+Every release of the package must have a new package version. Bump the package's version by running:
 
 .. code-block:: bash
 
