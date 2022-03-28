@@ -15,6 +15,7 @@ Releasing a Package
    Release-Preparation
    Release
    Releasing-a-Third-Party-Package
+   Github-Manual-Authorization
 
 Introduction
 ------------

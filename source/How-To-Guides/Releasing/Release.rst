@@ -31,9 +31,8 @@ Releasing Your Packages
 
 .. note::
 
-   If you have two factor authorization enabled on github,
-   please follow this tutorial first:
-   `GithubManualAuthorization <https://wiki.ros.org/bloom/Tutorials/GithubManualAuthorization>`_.
+   If you have two factor authorization enabled on github, follow
+   :doc:`Github Manual Authorization <Github-Manual-Authorization>` first.
 
 The actual releasing of the package should be performed using one of the commands below, where
 you should replace ``foo`` with the name of your repository:
