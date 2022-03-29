@@ -31,7 +31,7 @@ First, let us install snapcraft.
 
 Snapcraft has built-in support for ``Colcon``.
 
-For our example, we will use the ``demo_nodes_cpp`` package from the `ros2_demos <https://github.com/ros2/demos/tree/{DISTRO}>`_.
+For your example, you will use the ``demo_nodes_cpp`` package from the `ros2_demos <https://github.com/ros2/demos/tree/{DISTRO}>`_.
 
 Initialize a new snapcraft project here:
 
@@ -73,7 +73,7 @@ Open the freshly created ``snap/snapcraft.yaml`` file and copy over the followin
         command: opt/ros/{DISTRO}/bin/ros2 launch demo_nodes_cpp talker_listener.launch.py
         extensions: [ros2-{DISTRO}]
 
-Don't worry, we will break it down together.
+Let's break it down.
 
 Metadata
 """"""""
@@ -107,7 +107,7 @@ Security model
 
     confinement: devmode
 
-To get started, we won't confine this application.
+To get started, you won't confine this application.
 Unconfined applications, specified with ``devmode``,
 can only be released to the ``edge`` channel of the snapcraft store.
 For more information about snaps Security model, please refer to the `online documentation <https://snapcraft.io/docs/choosing-a-security-model>`__.
@@ -127,12 +127,12 @@ Parts
         stage-packages: [ros-{DISTRO}-ros2launch]
 
 Parts define how to build the app.
-In this case, we have one: ``ros-demos``.
+In this case, you have one: ``ros-demos``.
 Parts can point to local directories, remote git repositories, or tarballs.
-Here, we specify our source as a GitHub repository at a specific branch.
-We also specifically tell ``Colcon`` to build the ``demo_nodes_cpp`` package.
-Furthermore we tell snapcraft that packages such as ``make`` are necessary at build time while the package ``ros-{DISTRO}-ros2launch`` is necessary at run time.
-For more information about the plugin and it options, please refer to the `online documentation <https://snapcraft.io/docs/the-colcon-plugin>`__.
+Here, you specify your source as a GitHub repository at a specific branch.
+You also specifically tell ``Colcon`` to build the ``demo_nodes_cpp`` package.
+Furthermore you tell snapcraft that packages such as ``make`` are necessary at build time while the package ``ros-{DISTRO}-ros2launch`` is necessary at run time.
+For more information about the plugin and its options, please refer to the `online documentation <https://snapcraft.io/docs/the-colcon-plugin>`__.
 
 Apps
 """"
@@ -152,7 +152,7 @@ Finally, the extensions `ros2-{DISTRO} <https://snapcraft.io/docs/ros2-extension
 Building the snap
 ^^^^^^^^^^^^^^^^^
 
-Now that we are all set up, let's build the snap:
+Now that you are all set up, let's build the snap:
 
 .. code-block:: bash
 
@@ -170,19 +170,19 @@ Giving:
     Snapped ros2-talker-listener_0.1_amd64.snap
 
 That will take a few minutes.
-From the logs, and among other things, we can see snapcraft using `rosdep <http://docs.ros.org/independent/api/rosdep/html/>`_ to pull the dependencies for our example but also ``Colcon`` building the application.
+From the logs, and among other things, you can see snapcraft using `rosdep <http://docs.ros.org/independent/api/rosdep/html/>`_ to pull the dependencies for your example but also ``Colcon`` building the application.
 
 Testing the snap
 ^^^^^^^^^^^^^^^^
 
-This snap is completely standalone: it includes ROS 2 and our application, meaning that one doesn't even need to install ROS 2 on the host system.
+This snap is completely standalone: it includes ROS 2 and your application, meaning that one doesn't even need to install ROS 2 on the host system.
 Let's test it out:
 
 .. code-block:: bash
 
     sudo snap install ros2-talker-listener_0.1_amd64.snap --devmode
 
-Note that we use ``--devmode`` here because the snap confinement is set as ``devmode``.
+Note that you use ``--devmode`` here because the snap confinement is set as ``devmode``.
 The moment of truth, will it run?
 
 .. code-block:: bash
@@ -196,6 +196,6 @@ The moment of truth, will it run?
     [talker-1] [INFO] [1646934736.523025881] [talker]: Publishing: 'Hello World: 2'
     [listener-2] [INFO] [1646934736.523614075] [listener]: I heard: [Hello World: 2]
 
-It does! We see the expected output!
+It does! You see the expected output!
 
 You can find more information about snap on the `snapcraft documentation <https://snapcraft.io/docs>`_ and `ROS 2 snap page <https://snapcraft.io/docs/ros2-applications>`_.
