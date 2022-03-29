@@ -110,7 +110,7 @@ Security model
 To get started, we won't confine this application.
 Unconfined applications, specified with ``devmode``,
 can only be released to the ``edge`` channel of the snapcraft store.
-For more information about snaps Security model, please refer to the `online documentation <https://snapcraft.io/docs/choosing-a-security-model>`__
+For more information about snaps Security model, please refer to the `online documentation <https://snapcraft.io/docs/choosing-a-security-model>`__.
 
 Parts
 """""
