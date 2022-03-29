@@ -80,7 +80,7 @@ You can also use message types from other packages to e.g. define a message that
 .. code-block:: console
 
     geometry_msgs/Point center
-    float64  radius
+    float64 radius
 
 
 2.2 srv definition
@@ -109,7 +109,7 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 
   rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Num.msg"
-    "msg/Sphere.msg
+    "msg/Sphere.msg"
     "srv/AddThreeInts.srv"
     DEPENDENCIES geometry_msgs # Add packages of used message-types, in this case geometry_msgs for Sphere.msg
   )
