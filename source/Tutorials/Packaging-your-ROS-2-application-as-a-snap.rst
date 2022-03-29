@@ -11,7 +11,7 @@ What are snaps?
 `Snaps <https://snapcraft.io/docs/robotics>`_ are containers that bundle an application and all its dependencies.
 They offer several features that address important concerns as one gets closer to shipping a robotic platform:
 
-- **Container solution**: Snaps bundle your application along with all the necessary dependencies and assets in one package including ROS 2. Your application is then easily installable on dozens of Linux distributions and across distro versions.
+- **Container solution**: Snaps bundle your application along with all the necessary dependencies (including ROS 2) and assets in one package. Your application is then easily installable on dozens of Linux distributions and across distro versions.
 - **Strict confinement**: Snaps are designed to be `secure and isolated <https://snapcraft.io/docs/snap-confinement>`_ from the underlying system and other applications, with `dedicated interfaces <https://snapcraft.io/docs/supported-interfaces>`_ to access the host machine.
 - **Managing updates**: Snaps can update `automatically and transactionally <https://snapcraft.io/docs/keeping-snaps-up-to-date>`_, making sure your robot is never broken and always up-to-date.
 - **Release management**: Snaps' `multiple release channels <https://snapcraft.io/docs/channels>`_ allow you to have role-based access controls and application versioning, making A/B testing easy and releasing fixes faster.
