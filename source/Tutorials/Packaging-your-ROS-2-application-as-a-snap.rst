@@ -31,7 +31,7 @@ First, let us install snapcraft.
 
 Snapcraft has built-in support for ``Colcon``.
 
-For our example, we will use the ``demo_nodes_cpp`` from the `ros2_demos <https://github.com/ros2/demos/tree/{DISTRO}>`_.
+For our example, we will use the ``demo_nodes_cpp`` package from the `ros2_demos <https://github.com/ros2/demos/tree/{DISTRO}>`_.
 
 Initialize a new snapcraft project here:
 
