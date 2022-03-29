@@ -147,7 +147,7 @@ Apps
 Apps are the commands exposed to end users.
 Each key under apps is the command name that should be made available on users' systems.
 The ``command`` keyword specifies the command to be run as its name suggests.
-Finally, the extensions `ros2-{DISTRO} <https://snapcraft.io/docs/ros2-extension>`_ essentially sets up the ROS 2 apt package repository together with the necessary environment variables.
+Finally, the extensions `ros2-{DISTRO} <https://snapcraft.io/docs/ros2-extension>`__ essentially sets up the ROS 2 apt package repository together with the necessary environment variables.
 
 Building the snap
 ^^^^^^^^^^^^^^^^^
