@@ -97,7 +97,7 @@ Base
     base: core20
 
 The `base <https://snapcraft.io/docs/base-snaps>`_ keyword defines a special kind of snap that provides a run-time environment with a minimal set of libraries that are common to most applications.
-`Core20 <https://snapcraft.io/core20>`_ is the current standard base for snap building and is akin to `Ubuntu 20.04 LTS <http://releases.ubuntu.com/20.04/>`_.
+`Core20 <https://snapcraft.io/core20>`_ is the current standard base for snap building and is based on `Ubuntu 20.04 LTS <http://releases.ubuntu.com/20.04/>`_.
 It is, therefore, the base used for {DISTRO}.
 
 Security model
