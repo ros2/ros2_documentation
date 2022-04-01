@@ -5,8 +5,8 @@ Github Manual Authorization
    :depth: 3
    :local:
 
-If you have two-factor authentication enabled for github, bloom cannot log in with your github
-password alone. There are two steps:
+If you have two-factor authentication enabled for github, bloom cannot log in with your github password alone.
+There are two steps:
 
 #. Create a personal access token on github and tell bloom about it.
    This is used for pull-requestopening.
@@ -19,19 +19,21 @@ Token-based Authentication
 Create an access token
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the github website and login. Open the settings page, go to `Developer Settings <https://github.com/settings/developers>`_
-and click on `Personal access tokens <https://github.com/settings/tokens>`_ in the menu on the left.
+Go to the github website and login.
+Open the settings page, go to `Developer Settings <https://github.com/settings/developers>`_ and click on `Personal access tokens <https://github.com/settings/tokens>`_ in the menu on the left.
 
 Click the "Generate new token" button, and follow the instructions.
 Make sure that the "public_repo" and "workflow" authorization is granted under the repo subtree.
 Set the description to something like "Bloom token".
 After you have created the token, you will end up back at the "Personal access tokens" page.
-The new token will be highlighted in green. Copy the alphanumeric token to the clipboard.
+The new token will be highlighted in green.
+Copy the alphanumeric token to the clipboard.
 
 Configure bloom to use the token
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open ``~/.config/bloom`` in a text editor. If it doesn't exist, create it.
+Open ``~/.config/bloom`` in a text editor.
+If it doesn't exist, create it.
 Enter the following text into the file:
 
 .. code-block:: text
@@ -41,19 +43,17 @@ Enter the following text into the file:
       "oauth_token": "<token-you-created-for-bloom>"
    }
 
-Filling in your username and the token you made in the previous step. Save the file.
-From now on, bloom should be able to automatically create pull requests to rosdistro for
-you when you do releases.
+Filling in your username and the token you made in the previous step.
+Save the file.
+From now on, bloom should be able to automatically create pull requests to rosdistro for you when you do releases.
 
 You may still see request for username/password from Bloom when releasing.
-If so, the next step is to redirect the https requests to use your ssh authentication for
-the repository pull and push.
+If so, the next step is to redirect the https requests to use your ssh authentication for the repository pull and push.
 
 Re-route https through ssh
 --------------------------
 
-As suggested `here <http://answers.ros.org/question/234494/diagnosing-issues-with-bloom-github-two-factor-authentication/>`_,
-you can also re-route bloom's https traffic through ssh by editing your ``.gitconfig`` file:
+As suggested `here <http://answers.ros.org/question/234494/diagnosing-issues-with-bloom-github-two-factor-authentication/>`_, you can also re-route bloom's https traffic through ssh by editing your ``.gitconfig`` file:
 
 .. code-block:: text
 
@@ -63,8 +63,7 @@ you can also re-route bloom's https traffic through ssh by editing your ``.gitco
    [url "git@github.com:"]
      insteadOf = https://github.com/
 
-If you choose this option, be sure not to forget
-`enable ssh connection with github <https://help.github.com/articles/generating-an-ssh-key/>`_.
+If you choose this option, be sure not to forget `enable ssh connection with github <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
 Bash Script for setting up OAuth Token
 --------------------------------------
