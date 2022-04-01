@@ -32,7 +32,7 @@ On Ubuntu the recommended installation method is to use ``apt``:
 
 .. code-block:: bash
 
-   sudo apt install python3-catkin-pkg python3-bloom 
+   sudo apt install python3-catkin-pkg python3-bloom
 
 .. note::
 
@@ -332,7 +332,7 @@ You can open a pull request by simply visiting `{DISTRO}/distribution.yaml <http
 
 To enter your repository you need to fill out a section like this:
 
-.. code-block:: yaml  
+.. code-block:: yaml
 
    foo:
      doc:
@@ -362,9 +362,9 @@ You should put the **https://** url of the RELEASE repository here, not the url 
 .. note::
 
    If your repository contains multiple packages, their names must be listed in the distro file, too.
-   For example if the repository contains two packages ``baz`` and ``qux`` they will be listed as below: 
+   For example if the repository contains two packages ``baz`` and ``qux`` they will be listed as below:
 
-   .. code-block:: yaml  
+   .. code-block:: yaml
 
       foo:
         doc:
