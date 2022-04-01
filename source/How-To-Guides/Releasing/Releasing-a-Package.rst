@@ -29,7 +29,7 @@ Second, **select one of the following**, according to the type of package you ar
    A package which contains a ``package.xml`` and follows the packaging guidelines
    of ament. Most ROS packages are ament packages.
    
-* :doc:`Releasing an Ament Package <Releasing-an-Ament-Package>`
+* :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
 
    A third party package that doesn't follow the packaging guidelines of ament and doesn't contain
    a ``package.xml``.
