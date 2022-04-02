@@ -1,23 +1,22 @@
 Releasing a Third Party Package
 ===============================
 
-A third party package is a software package which exists outside of the ROS ecosystem, is used by packages in the ROS ecosystem, but is not released widely as a system dependency.
+.. contents:: Table of Contents
+   :depth: 3
+   :local:
+
+In this context a third party package is a software package which exists outside of the ROS ecosystem, is used by packages in the ROS ecosystem, but is not released widely as a system dependency.
 These software packages might be designed to be used outside of the ROS ecosystem, but are not big enough or mature enough to be released into operating system package managers.
 Instead they are released using the ROS infrastructure along side a ROS distribution as if they were actually ROS packages.
 
-In this context a third party package is a non-ament package, which you want to release into the ROS ecosystem.
-The requirements for a package to be released into the ROS ecosystem is detailed in `REP-0136: Releasing Third Party, Non catkin Packages <http://ros.org/reps/rep-0136.html>`_.
-Basically the package must do these things:
-
-* Have a ``package.xml``
-
-   * Which run_depend's on catkin
-   * And which has a <build_type> tag in the <export> tag
-* Install a ``package.xml``
+See `REP-0136: Releasing Third Party, Non catkin Packages <http://ros.org/reps/rep-0136.html>`_ for a detailed explanation about releasing third party packages.
 
 The details relating to these requirements are in the REP.
 
 A third party package can accomplish these requirements in two ways: in the upstream repository, or in the release repository.
+
+Depending on whether you can adapt the third party package, 
+
 
 Modifying the Upstream Repository
 ---------------------------------
@@ -59,7 +58,55 @@ Alternatively, to copy and edit from an old track (eg. copying from a galactic t
    git-bloom-config edit {DISTRO}
 
 Where ``{DISTRO}`` is the name of the track you created (and is typically the name of the rosdistro you want to release to).
-Follow the instructions for configuring a release track to enter the configuration, **barring the following differences**.
+Follow the instructions for configuring a release track to enter the configuration.
+
+Repository Name
+~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   Repository Name:
+      <name>
+         Name of the repository (used in the archive name)
+      upstream
+         Default value, leave this as upstream if you are unsure
+      ['upstream']:
+
+This name is trivial, but can be used to provide additional tags and to create nicer archive names.
+Leave this as ``upstream`` if you are unsure.
+
+Upstream Repository URI
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   Upstream Repository URI:
+      <uri>
+         Any valid URI. This variable can be templated, for example an svn url
+         can be templated as such: "https://svn.foo.com/foo/tags/foo-:{version}"
+         where the :{version} token will be replaced with the version for this release.
+      [None]:
+
+You should put the uri of your third party library code. (eg. ``https://github.com/bar/foo.git``)
+
+Upstream VCS Type
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   Upstream VCS Type:
+      git
+         Upstream URI is a git repository
+      hg
+         Upstream URI is a hg repository
+      svn
+         Upstream URI is a svn repository
+      tar
+         Upstream URI is a tarball
+      ['git']: 
+
+You must specify the type of upstream repository you are using.
+Leave this as ``git``, unless your upstream repository is of a different type (``svn``, ``hg``, or hosted ``tar`` archives).
 
 Version
 ~~~~~~~
@@ -67,19 +114,72 @@ Version
 .. code-block:: bash
 
    Version:
-   :{ask}
-      This means that the user will be prompted for the version each release.
-      This also means that the upstream devel will be ignored.
-   :{auto}
-      This means the version will be guessed from the devel branch.
-      This means that the devel branch must be set, the devel branch must exist,
-      and there must be a valid package.xml in the upstream devel branch.
-   <version>
-      This will be the version used.
-      It must be updated for each new upstream version.
-   [':{auto}']:
+      :{ask}
+         This means that the user will be prompted for the version each release.
+         This also means that the upstream devel will be ignored.
+      :{auto}
+         This means the version will be guessed from the devel branch.
+         This means that the devel branch must be set, the devel branch must exist,
+         and there must be a valid package.xml in the upstream devel branch.
+      <version>
+         This will be the version used.
+         It must be updated for each new upstream version.
+      [':{auto}']:
 
-Since there is no package.xml upstream bloom cannot guess the version ``:{auto}``, but we can make bloom prompt the releaser for the version each time by putting in ``:{ask}``.
+Set this to ``:{ask}``, so bloom asks for the package version during the release process.
+
+Release Tag
+~~~~~~~~~~~
+
+.. code-block:: bash
+   
+   Release Tag:
+      :{version}
+         This means that the release tag will match the :{version} tag.
+         This can be further templated, for example: "foo-:{version}" or "v:{version}"
+         
+         This can describe any vcs reference. For git that means {tag, branch, hash},
+         for hg that means {tag, branch, hash}, for svn that means a revision number.
+         For tar this value doubles as the sub directory (if the repository is
+         in foo/ of the tar ball, putting foo here will cause the contents of
+         foo/ to be imported to upstream instead of foo itself).
+      :{ask}
+         This means the user will be prompted for the release tag on each release.
+      :{none}
+         For svn and tar only you can set the release tag to :{none}, so that
+         it is ignored.  For svn this means no revision number is used.
+      ['None']:
+
+The Release Tag refers to which tag or branch you want to import the code from.
+If you always want to pull in the latest ``master`` branch at the time of release from the upstream project, enter ``master``.
+
+Alternatively, if you want to be prompted to enter a different tag every time you do a release, enter ``:{ask}``.
+This is useful if the upstream project has frequent tagged releases and you want to refer to the new tag every time you're releasing.
+
+Upstream Devel Branch
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   Upstream Devel Branch:
+      <vcs reference>
+         Branch in upstream repository on which to search for the version.
+         This is used only when version is set to ':{auto}'.
+      [None]:
+
+Leave this as ``none`` because it is unused when the version is set to ``:{ask}``.
+
+ROS Distro
+~~~~~~~~~~
+
+.. code-block:: bash
+
+   ROS Distro:
+      <ROS distro>
+         This can be any valid ROS distro, e.g. indigo, kinetic, lunar, melodic
+      ['{DISTRO}']: 
+
+Set this to {DISTRO}.
 
 Patches Directory
 ~~~~~~~~~~~~~~~~~
@@ -87,18 +187,23 @@ Patches Directory
 .. code-block:: bash
 
    Patches Directory:
-   <path in bloom branch>
-      This can be any valid relative path in the bloom branch. The contents
-      of this folder will be overlaid onto the upstream branch after each
-      import-upstream.  Additionally, any package.xml files found in the
-      overlay will have the :{version} string replaced with the current
-      version being released.
-   :{none}
-      Use this if you want to disable overlaying of files.
-   ['rolling']:
+      <path in bloom branch>
+         This can be any valid relative path in the bloom branch. The contents
+         of this folder will be overlaid onto the upstream branch after each
+         import-upstream.  Additionally, any package.xml files found in the
+         overlay will have the :{version} string replaced with the current
+         version being released.
+      :{none}
+         Use this if you want to disable overlaying of files.
+      ['rolling']:
 
 Set this to {DISTRO} or any name you like.
 This will be the folder in the ``master`` branch which contains your ``package.xml``.
+
+Release Repository Push URL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Can be left as the default in most cases.
 
 Adding a Package.xml to the master branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -157,7 +262,8 @@ Now create ``package.xml`` in the folder you just created, using this as a refer
 
 The ``:{version}`` will be replaced by the version being released each time.
 
-In the case described above, each time you run bloom on the release repository,
+In the case described above, each time you run bloom on the release repository:
+
 * the user will be prompted for the version being released
 * an archive of the upstream source code will be fetched based on the "release tag" configuration
 * imported into the release repository's upstream branch
@@ -174,6 +280,10 @@ At this point you need to commit the package.xml template to the master branch:
 Adding an Install Rule as a Patch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+.. note::
+
+   Is this is not your first time releasing of this package, skip this step.
+
 Before adding the install rule as a patch you need to run git-bloom-release once so that there is a release branch to patch:
 
 .. code-block:: bash
@@ -181,6 +291,19 @@ Before adding the install rule as a patch you need to run git-bloom-release once
    git-bloom-release {DISTRO}
 
 Where ``{DISTRO}`` is the name of the track you created earlier.
+
+You'll be prompted for the following:
+
+Version
+~~~~~~~
+
+.. code-block:: bash
+
+   What version are you releasing (version should normally be MAJOR.MINOR.PATCH)?
+
+Enter a version for your package.
+Follow the `ROS2 versioning guidelines <https://docs.ros.org/en/{DISTRO}/Contributing/Developer-Guide.html#versioning>`_.
+
 
 After running once you can add your patch. Start by checking out the release branch:
 
