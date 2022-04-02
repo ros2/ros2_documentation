@@ -15,6 +15,24 @@ The details relating to these requirements are in the REP.
 
 A third party package can accomplish these requirements in two ways: in the upstream repository, or in the release repository.
 
+Install bloom
+-------------
+
+`Bloom <http://ros-infrastructure.github.io/bloom/>`_ is a release automation tool, designed to generate platform specific release artifacts from source projects.
+
+On Ubuntu the recommended installation method is to use ``apt``:
+
+.. code-block:: bash
+
+   sudo apt install python3-bloom
+
+.. note::
+
+   On non-debian systems you can install via pypi:
+
+   .. code-block:: bash
+
+      pip3 install -U bloom
 
 Modifying the Upstream Repository
 ---------------------------------
