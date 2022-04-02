@@ -15,8 +15,6 @@ The details relating to these requirements are in the REP.
 
 A third party package can accomplish these requirements in two ways: in the upstream repository, or in the release repository.
 
-Depending on whether you can adapt the third party package, 
-
 
 Modifying the Upstream Repository
 ---------------------------------
@@ -103,7 +101,7 @@ Upstream VCS Type
          Upstream URI is a svn repository
       tar
          Upstream URI is a tarball
-      ['git']: 
+      ['git']:
 
 You must specify the type of upstream repository you are using.
 Leave this as ``git``, unless your upstream repository is of a different type (``svn``, ``hg``, or hosted ``tar`` archives).
@@ -132,12 +130,12 @@ Release Tag
 ~~~~~~~~~~~
 
 .. code-block:: bash
-   
+
    Release Tag:
       :{version}
          This means that the release tag will match the :{version} tag.
          This can be further templated, for example: "foo-:{version}" or "v:{version}"
-         
+
          This can describe any vcs reference. For git that means {tag, branch, hash},
          for hg that means {tag, branch, hash}, for svn that means a revision number.
          For tar this value doubles as the sub directory (if the repository is
@@ -177,7 +175,7 @@ ROS Distro
    ROS Distro:
       <ROS distro>
          This can be any valid ROS distro, e.g. indigo, kinetic, lunar, melodic
-      ['{DISTRO}']: 
+      ['{DISTRO}']:
 
 Set this to {DISTRO}.
 
