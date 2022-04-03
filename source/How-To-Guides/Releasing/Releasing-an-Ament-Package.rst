@@ -171,7 +171,6 @@ If you're releasing a package update on an existing release track without editin
 
 Configuring the Release Track
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 .. warning::
 
    If you're releasing a package update without configuring the track, skip these instructions
@@ -190,124 +189,39 @@ For normal ament-based ROS packages the default release track is recommended.
 In the ``bloom-release`` command you ran above, you specified the ``--track``.
 By convention you should create tracks with the same name as the ROS distro you are releasing for, but you could name your track what ever you wanted.
 
-Release Repository url
-~~~~~~~~~~~~~~~~~~~~~~
+Let's look at a common scenario.
 
-.. code-block:: bash
+You are trying to release ament library called ``foo`` hosted on Github at ``https://github.com/bar/foo.git``.
+You want the ``main`` branch from the library to be released it into the ROS ecosystem.
+You already have an empty release repository (``https://github.com/ros2-gbp/foo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
 
-   No reasonable default release repository url could be determined from previous releases.
-   Release repository url [press enter to abort]:
+For this scenario, the table below summarises the responses to the questions:
 
-Put your release repository on ros2-gbp here (eg. ``https://github.com/ros2-gbp/foo``).
-Next bloom may ask you about initializing the new repository:
+.. list-table::
+   :header-rows: 1
 
-.. code-block:: bash
-
-   Freshly initialized git repository detected.
-   An initial empty commit is going to be made.
-   Continue [Y/n]?
-
-Hit enter or type ``y`` and then hit enter to continue.
-
-Repository Name
-~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   Repository Name:
-      upstream
-         Default value, leave this as upstream if you are unsure
-      <name>
-         Name of the repository (used in the archive name)
-      ['upstream']:
-
-This name is trivial, but can be used to provide additional tags and to create nicer archive names.
-Since our example has a single package called ``foo`` in the repository, it would be appropriate to put ``foo`` here.
-
-Upstream Repository URI
-~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   Upstream Repository URI:
-      <uri>
-         Any valid URI. This variable can be templated, for example an svn url
-         can be templated as such: "https://svn.foo.com/foo/tags/foo-:{version}"
-         where the :{version} token will be replaced with the version for this release.
-      [None]:
-
-This is an important setting.
-You should put the uri of your code repository (eg. ``https://github.com/bar/foo.git``).
-
-Upstream Repository Type
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   Upstream VCS Type:
-      svn
-         Upstream URI is a svn repository
-      git
-         Upstream URI is a git repository
-      hg
-         Upstream URI is a hg repository
-      tar
-         Upstream URI is a tarball
-      ['git']:
-
-You must specify the type of upstream repository you are using.
-Leave this as ``git``, unless your upstream repository is of a different type (``svn``, ``hg``, or hosted ``tar`` archives).
-
-Version
-~~~~~~~
-
-Press enter to accept the default unless you are releasing a non-ament package.
-
-Release Tag
-~~~~~~~~~~~
-
-Press enter to accept the default unless you are releasing a non-ament package.
-
-Upstream Devel Branch
-~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   Upstream Devel Branch:
-      <vcs reference>
-         Branch in upstream repository on which to search for the version.
-         This is used only when version is set to ':{auto}'.
-      [None]:
-
-You need to potentially modify this.
-This option is the branch of your upstream repository from which you tag releases.
-If this is left ``None`` then the default branch for your repository is used when guessing the version being released.
-If you want to use a branch besides the default branch, choose that.
-For example, if you want to use the branch ``ros2`` for this release track, enter ``ros2``.
-
-ROS Distro
-~~~~~~~~~~
-
-Next the ROS distro is required:
-
-.. code-block:: bash
-
-   ROS Distro:
-      <ROS distro>
-         This can be any valid ROS distro, e.g. indigo, kinetic, lunar, melodic
-      ['indigo']:
-
-Type ``{DISTRO}`` and press enter.
-
-Patches Directory
-~~~~~~~~~~~~~~~~~
-
-Can be left as the default in most cases.
-
-Release Repository Push URL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Can be left as the default in most cases.
+   * - Configuration
+     - Value
+   * - Release Repository url
+     - ``https://github.com/ros2-gbp/foo.git``
+   * - Repository Name
+     - ``foo``
+   * - Upstream Repository URI
+     - ``https://github.com/bar/foo.git``
+   * - Upstream VCS Type
+     - ``git``
+   * - Version
+     -
+   * - Release Tag
+     -
+   * - Upstream Devel Branch
+     - ``main``
+   * - ROS Distro
+     - ``{DISTRO}``
+   * - Patches Directory
+     -
+   * - Release Repository Push URL
+     -
 
 .. There are many command which come with bloom, even though you will most likely only need
 .. to run ``bloom-release``. Many of the bloom commands are prefixed with ``git-``, which indicates
