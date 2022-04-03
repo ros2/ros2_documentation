@@ -224,7 +224,7 @@ Can be left as the default in most cases.
 Adding a Package.xml to the master branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now that we have informed bloom that there will be patches in the master branch under the {DISTRO} folder (or whatever you told it) we need to put a package.xml there for it to overlay onto the upstream have importing.
+Now that you have informed bloom that there will be patches in the master branch under the {DISTRO} folder (or whatever you told it) you need to put a package.xml there for it to overlay onto the upstream have importing.
 First change to the master branch and create the patches folder you specified above:
 
 .. code-block:: bash
@@ -401,19 +401,143 @@ Then perform a release as usual:
 
    git-bloom-release {DISTRO}
 
-Finishing the Release
----------------------
+Opening a Pull Request
+----------------------
 
+Finally, you have to raise a Pull Request to add / update your repository in `rosdistro/{DISTRO}/distribution.yaml <https://github.com/ros/rosdistro/blob/master/{DISTRO}/distribution.yaml>`_.
+Run:
 
-.. (TODO): Check if the following instructions are correct. Shouldn't we run bloom-release with pull-request-only?
+.. code-block:: bash
 
-Now you can finish the first time release tutorial, starting with Running bloom for the First Time.
+   bloom-release --rosdistro {DISTRO} --track {DISTRO} foo --pull-request-only
+
+You will be prompted to enter the following.
+
+Release repository url
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   Release repository url [press enter to abort]:
+
+Enter your release repository here (eg. ``https://github.com/ros2-gbp/foo-release.git``)
+
+Adding Documentation
+^^^^^^^^^^^^^^^^^^^^
+
+When bloom asks you for documentation, it is not necessarily asking for a link to any form of documentation.
+It is asking for the source repository which could contain documentation (ie: in addition to source code).
+In most cases, that will be the repository containing the C++/Python/whatever sources for your package, as that would result in automatic builds of **API documentation** and some other things.
+
+.. code-block:: bash
+
+   Would you like to add documentation information for this repository? [Y/n]?
+
+If you would like API documentation to be generated automatically, simply press enter, or press ``Y`` and then Enter.
+If you don't have API documentation, press ``n`` and then Enter.
+
+.. code-block:: bash
+
+   Please enter your repository information for the doc generation job.
+   This information should point to the repository from which documentation should be generated.
+   VCS Type must be one of git, svn, hg, or bzr.
+   VCS Type:
+
+You must specify the type of repository you are using.
+Enter ``git``, unless your upstream repository is of a different type (``svn``, ``hg``, or ``bzr``), and press Enter.
+
+.. code-block:: bash
+
+   VCS url:
+
+Enter your release repository here (eg. ``https://github.com/ros2-gbp/foo-release.git``)
+
+.. code-block:: bash
+
+   VCS version must be a branch, tag, or commit, e.g. master or 0.1.0
+   VCS version:
+
+Enter ``master`` here.
 
 .. note::
 
-   .. (TODO) Try and understand what this means...?
+   Even if you don't have documentation in your repository, add this field.
+   Pull Requests to `rosdistro <https://github.com/ros/rosdistro>`_ without a documentation field will get disapproved.
 
-   Note: If you are rereleasing a third party package to meet the new recommendation you should make sure there are no patches to the release/* or debian/* branches which need to be ported.
+Adding Source Repository
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   Please enter information which points to the active development branch for this repository.
+   This information is used to run continuous integration jobs and for developers to checkout from.
+   VCS Type must be one of git, svn, hg, or bzr.
+   VCS type:
+
+You must specify the type of repository you are using.
+Enter ``git``, unless your upstream repository is of a different type (``svn``, ``hg``, or ``bzr``), and press Enter.
+
+.. code-block:: bash
+
+   VCS url:
+
+Enter your release repository here (eg. ``https://github.com/ros2-gbp/foo-release.git``)
+
+.. code-block:: bash
+
+   VCS version must be a branch, tag, or commit, e.g. master or 0.1.0
+   VCS version:
+
+Enter ``releases/{DISTRO}/foo`` here.
+
+Pull Request Testing
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   Would you like to turn on pull request testing? [y/N]? 
+
+Simply press Enter, or type ``N`` and press enter.
+
+Maintenance Status
+^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   Would you like to add a maintenance status for this repository? [Y/n]? 
+
+Simply press Enter, or type ``Y`` and press enter.
+
+.. code-block:: bash
+
+   Please enter a maintenance status.
+   Valid maintenance statuses:
+   - developed: active development is in progress
+   - maintained: no new development, but bug fixes and pull requests are addressed
+   - unmaintained: looking for new maintainer, bug fixes and pull requests will not be addressed
+   - end-of-life: should not be used, will disappear at some point
+   Status:
+
+Type ``maintained``, and press Enter.
+
+.. code-block:: bash
+
+   You can also enter a status description.
+   This is usually reserved for giving a reason when a status is 'end-of-life'.
+   Status Description [press Enter for no change]:
+
+Simply press Enter.
+
+Open a Pull Request?
+^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   Open a pull request from 'sample_user/rosdistro:bloom-foo-1' into 'ros/rosdistro:master'?
+   Continue [Y/n]?
+
+Simply press Enter, or type ``Y`` and press Enter.
+This should open the PR for you.
 
 Future Releases
 ---------------
@@ -423,7 +547,7 @@ Future Releases
 Troubleshooting
 ---------------
 
-There are a few more details which might be necessary for some releases and for converting previously released third party packages using the new recommendation.
+There are a few more details which might be necessary for some releases.
 
 Custom Build Commands
 ^^^^^^^^^^^^^^^^^^^^^
