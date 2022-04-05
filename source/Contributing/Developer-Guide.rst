@@ -291,19 +291,26 @@ Branches
 ^^^^^^^^
 
 .. note::
-    These are really just guidelines though! It’s up to the package maintainers to manage their preferences.
+    These are just guidelines.
+    It is up to the package maintainer to choose branch names that match their own workflow.
 
-It is good practice to have **separate branches** in a package's source repository for each ros distro it is targeting. Releases are made **FROM** those branches, targeting the appropriate distro. Development can also happen on those branches.
+It is good practice to have **separate branches** in a package's source repository for each ROS distribution it is targeting.
+These branches are typically named after the distribution they target.
+For example, a `humble` branch for development targeted specifically at the Humble distribution.
+Releases are also made from these branches, targeting the appropriate distribution.
+Development targeted at a specific ROS distribution can happen on the appropriate branch.
 
-Example: Development commits and releases targeting `foxy` are made from the `foxy` branch.
+For example: Development commits targeting `foxy` are made to the `foxy` branch, and package releases for `foxy` are made from that same branch.
 
 .. note::
-    This means to keep all branches targeting different distros up to date, maintenance, backporting and upkeep has to be done!
-    You might even need to, where necessary, make independent releases for those distros if there are any changes to be made.
+    This requires the package maintainers to perform backports or forwardports as appropriate to keep all branches up to date with features.
+    The maintainers must also perform general maintenance (bug fixes, etc.) on all branches from which package releases are still made.
+    For example, if a feature is merged into the Rolling-specific branch (e.g. `rolling` or `main`), and that feature is also appropriate to the Galactic distribution (does not break API, etc.), then it is good practice to backport the feature to the Galactic-specific branch.
+    The maintainers may make releases for those older distributions if there are new features or bug fixes available.
 
-**What about Main and Rolling?**
+**What about `main` and `rolling`?**
 
-`main` typically targets the next unreleased ROS distro, though with `rolling` (for rolling releases), you might decide to develop and release from a `rolling` branch instead.
+`main` typically targets `rolling <https://docs.ros.org/en/rolling/Releases/Release-Rolling-Ridley.html/>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a `rolling` branch instead.
 
 Pull requests
 ^^^^^^^^^^^^^
