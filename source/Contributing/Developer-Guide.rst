@@ -313,7 +313,7 @@ For example: Development commits targeting `foxy` are made to the `foxy` branch,
 
 **What about `main` and `rolling`?**
 
-`main` typically targets `rolling <https://docs.ros.org/en/rolling/Releases/Release-Rolling-Ridley.html/>`_ (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a `rolling` branch instead.
+`main` typically targets :doc:`Rolling <../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a `rolling` branch instead.
 
 Pull requests
 ^^^^^^^^^^^^^
