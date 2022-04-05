@@ -167,7 +167,17 @@ Giving:
     Launching a VM.
     Launched: snapcraft-ros2-talker-listener
     [...]
+    This part is missing libraries that cannot be satisfied with any available stage-packages known to snapcraft:
+    libnddsc.so
+    libnddscore.so
+    libnddscpp.so
+    librosidl_typesupport_connext_c.so
+    librosidl_typesupport_connext_cpp.so
+    librticonnextmsgcpp.so
     Snapped ros2-talker-listener_0.1_amd64.snap
+
+.. note::
+    The warnings regarding the missing libraries are false positives. These libraries are build time dependencies only. This will be fixed in a future release of ``snapcraft``.
 
 That will take a few minutes.
 From the logs, and among other things, you can see snapcraft using `rosdep <http://docs.ros.org/independent/api/rosdep/html/>`_ to pull the dependencies for your example but also ``Colcon`` building the application.
