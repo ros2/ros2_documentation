@@ -176,7 +176,7 @@ Giving:
     librticonnextmsgcpp.so
     Snapped ros2-talker-listener_0.1_amd64.snap
 
-.. warning::
+.. note::
     The warnings regarding the missing libraries are false positives. These libraries are build time dependencies only. This will be fixed in a future release of ``snapcraft``.
 
 That will take a few minutes.
