@@ -286,6 +286,24 @@ When filing an issue please make sure to:
     See `this section <building-from-source>` and follow the instructions to get the "master" branches.
   - Trying with a different RMW implementation.
     See `this page <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    
+Branches
+^^^^^^^^
+
+.. note::
+    These are really just guidelines though! It’s up to the package maintainers to manage their preferences.
+
+It is good practice to have **separate branches** in a package's source repository for each ros distro it is targeting. Releases are made **FROM** those branches, targeting the appropriate distro. Development can also happen on those branches.
+
+Example: Development commits and releases targeting `foxy` are made from the `foxy` branch.
+
+.. note::
+    This means to keep all branches targeting different distros up to date, maintenance, backporting and upkeep has to be done!
+    You might even need to, where necessary, make independent releases for those distros if there are any changes to be made.
+
+**What about Main and Rolling?**
+
+`main` typically targets the next unreleased ROS distro, though with `rolling` (for rolling releases), you might decide to develop and release from a `rolling` branch instead.
 
 Pull requests
 ^^^^^^^^^^^^^
