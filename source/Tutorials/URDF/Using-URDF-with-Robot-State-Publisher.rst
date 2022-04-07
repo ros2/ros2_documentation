@@ -64,7 +64,7 @@ Download the :download:`Rviz configuration file <r2d2.rviz>` and save it as ``~/
 Now we need a method for specifying what state the robot is in.
 To do this, we must specify all three joints and the overall odometry.
 
-Fire up your favorite editor and paste the following code into ``urdf_tutorial_r2d2/state_publisher.py``
+Fire up your favorite editor and paste the following code into ``~/dev_ws/src/urdf_tutorial_r2d2/urdf_tutorial_r2d2/state_publisher.py``
 
 .. code-block:: python
 
@@ -160,8 +160,8 @@ Fire up your favorite editor and paste the following code into ``urdf_tutorial_r
 4 Create a launch file
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new ``launch`` folder.
-Open your editor and paste the following code, saving it as ``launch/demo.launch.py``
+Create a new ``~/dev_ws/src/urdf_tutorial_r2d2/launch`` folder.
+Open your editor and paste the following code, saving it as ``~/dev_ws/src/urdf_tutorial_r2d2/launch/demo.launch.py``
 
 .. code-block:: python
 
@@ -207,7 +207,7 @@ Open your editor and paste the following code, saving it as ``launch/demo.launch
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 You must tell the **colcon** build tool how to install your Python package.
-Edit the ``setup.py`` file as follows:
+Edit the ``~/dev_ws/src/urdf_tutorial_r2d2/setup.py`` file as follows:
 
 - include these import statements
 
