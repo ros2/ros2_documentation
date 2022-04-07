@@ -94,7 +94,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      -
-     -
+     - May 2027
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
      - |galactic|

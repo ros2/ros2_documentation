@@ -76,6 +76,14 @@ To resolve this, you can either set the default implementation to what is was be
 Troubleshooting
 ---------------
 
+Checking the Current RMW
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+To check the RMW that is currently in use you simply check the ``RMW_IMPLEMENTATION`` environment variable. On Linux systems ``printenv`` prints the full list of environment variables.
+Other operating systems will have other procedures for viewing environment variables.
+If ``RMW_IMPLEMENTATION`` is not in the environment it is safe to assume you are using the default for your ROS distro, otherwise the current RMW is the value listed.
+The default RMW for each ROS Distro can be found in `REP-2000 <https://www.ros.org/reps/rep-2000.html#platforms-by-distribution>`_.
+
 Ensuring use of a particular RMW implementation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
