@@ -86,8 +86,6 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Launch
 
-  * Support use case of using ``xacro`` to perform substitutions before passing the result containing parameters
-  * Use pytest for launch testing
   * Support for launching multi-node executables (i.e. manual composition)
   * Extend launch XML/YAML support: events and event handlers, tag namespaces and aliasing
 
@@ -125,9 +123,7 @@ The trailing stars indicate the rough effort: 1 star for small, 2 stars for medi
 
 * Support more DDS / RTPS implementations:
 
-  * Connext 6, see `ros2/rmw_connext#375 <https://github.com/ros2/rmw_connext/issues/375>`_
-  * Connext dynamic [\*]
-  * RTI's micro implementation [\*]
+  * RTI Connext DDS Micro (implemented, not enabled by default or officially supported).
 
 * Security improvements:
 
@@ -146,10 +142,7 @@ Reducing Technical Debt
 * API review, specifically user-facing APIs in rclcpp and rclpy
 * Refactor the rclcpp API into separate packages focused on a single aspect, rclcpp should afterward still provide the combined user-facing API
 * Revisit message allocators, consider using std::polymorphic_allocator to address problems
-* Synchronize / reconcile design docs with the implementation.
-
-  * Pre-release retrospective review (APIs, docs, etc.)
-
+* Synchronize / reconcile `design docs <https://design.ros2.org>`__ with the implementation.
 * Address / classify pending tickets
 * Address TODOs in code / docs
 * Remove tinyxml as a dependency
