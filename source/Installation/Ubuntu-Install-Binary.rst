@@ -22,7 +22,13 @@ There are also :doc:`Debian packages <Ubuntu-Install-Debians>` available.
 System Requirements
 -------------------
 
+<<<<<<< HEAD
 We support Ubuntu Linux Focal Fossa (20.04) 64-bit x86 and 64-bit ARM.
+=======
+We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
+The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+Most people will want to use a stable ROS distribution.
+>>>>>>> 9144100 (Switch focal references to jammy. (#2397))
 
 Add the ROS 2 apt repository
 ----------------------------
