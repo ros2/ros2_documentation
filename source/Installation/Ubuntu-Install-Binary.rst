@@ -22,7 +22,7 @@ There are also :doc:`Debian packages <Ubuntu-Install-Debians>` available.
 System Requirements
 -------------------
 
-We currently support Ubuntu Linux Focal Fossa (20.04) 64-bit x86 and 64-bit ARM.
+We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
