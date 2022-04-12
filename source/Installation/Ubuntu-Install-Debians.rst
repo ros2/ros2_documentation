@@ -123,7 +123,7 @@ have already installed from binaries, run the following command:
 
   sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
 
-You may also want to remove the repostiory:
+You may also want to remove the repository:
 
 .. code-block:: bash
 

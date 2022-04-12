@@ -5,7 +5,7 @@ First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/c
 
    apt-cache policy | grep universe
     500 http://us.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages
-        release v=20.04,o=Ubuntu,a=jammy,n=jammy,l=Ubuntu,c=universe,b=amd64
+        release v=22.04,o=Ubuntu,a=jammy,n=jammy,l=Ubuntu,c=universe,b=amd64
 
 If you don't see an output line like the one above, then enable the Universe repository with these instructions.
 
