@@ -91,6 +91,25 @@ Certificate Revocation Lists (CRLs) are a concept where particular certificates 
 As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
 See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/master/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
 
+ROS 2 ContentFilteredTopic
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 ContentFilteredTopic supports a more sophisticated subscription that indicates the subscriber does not want to necessarily see all values of each instance published under the Topic.
+ROS 2 ContentFilteredTopic can be used to request content-based subscriptions when underlying RMW implementation supports this feature.
+
+.. list-table:: ROS 2 ContentFilteredTopic Support
+   :widths: 25 25
+
+   * - rmw_fastrtps
+     - supported
+   * - rmw_connextdds
+     - supported
+   * - rmw_cyclonedds
+     - not supported
+
+
+Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
+
 Changes since the Galactic release
 ----------------------------------
 
