@@ -9,7 +9,7 @@ Installing ROS 2 via Debian Packages
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Focal.
+Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
 Most people will want to use a stable ROS distribution.
@@ -19,7 +19,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ufv8.html>`__
+  * ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ufv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 

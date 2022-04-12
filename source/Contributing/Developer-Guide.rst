@@ -651,14 +651,10 @@ Additionally, we test all pull requests against these platforms before merging.
 This is the current set of target platforms and architectures, though it evolves overtime:
 
 
-* Ubuntu 20.04 Focal
+* Ubuntu 22.04 Jammy
 
   * amd64
   * aarch64
-
-* macOS 10.14 Mojave
-
-  * amd64
 
 * Windows 10
 
@@ -672,7 +668,6 @@ There are several categories of jobs on the buildfarm:
   * ci_linux: build + test the code on Ubuntu Xenial
   * ci_linux-aarch64: build + test the code on Ubuntu Xenial on an ARM 64-bit machine (aarch64)
   * ci_linux_coverage: build + test + generation of test coverage
-  * ci_osx: build + test the code on MacOS 10.12
   * ci_windows: build + test the code on Windows 10
   * ci_launcher: trigger all the jobs listed above
 
@@ -682,21 +677,18 @@ There are several categories of jobs on the buildfarm:
 
     * nightly_linux_debug
     * nightly_linux-aarch64_debug
-    * nightly_osx_debug
     * nightly_win_deb
 
   * Release: build + test the code with CMAKE_BUILD_TYPE=Release
 
     * nightly_linux_release
     * nightly_linux-aarch64_release
-    * nightly_osx_release
     * nightly_win_rel
 
   * Repeated: build then run each test up to 20 times or until failed (aka flakiness hunter)
 
     * nightly_linux_repeated
     * nightly_linux-aarch64_repeated
-    * nightly_osx_repeated
     * nightly_win_rep
 
   * Coverage:
@@ -709,7 +701,6 @@ There are several categories of jobs on the buildfarm:
 * packaging (run every night; result is bundled into an archive):
 
   * packaging_linux
-  * packaging_osx
   * packaging_windows
 
 Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
