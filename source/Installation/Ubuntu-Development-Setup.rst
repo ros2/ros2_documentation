@@ -16,7 +16,7 @@ System requirements
 -------------------
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 1: Ubuntu Linux - Focal Fossa (20.04) 64-bit
+- Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
 - Tier 3: Debian Linux - Bullseye (11) 64-bit
 
 

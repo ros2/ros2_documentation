@@ -4,7 +4,7 @@ Features Status
 ===============
 
 The features listed below are available in the current ROS 2 release.
-Unless otherwise specified, the features are available for all supported platforms (Ubuntu 20.04, macOS 10.14.x, Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
+Unless otherwise specified, the features are available for all supported platforms (Ubuntu 22.04 (Jammy), Windows 10), DDS implementations (eProsima Fast DDS, RTI Connext DDS, and Eclipse Cyclone DDS) and programming language client libraries (C++ and Python).
 For planned future development, see the :doc:`Roadmap <Roadmap>`.
 
 .. list-table::
