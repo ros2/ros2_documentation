@@ -111,7 +111,7 @@ You need the following things installed to build ROS 2:
         flake8-docstrings flake8-import-order flake8-quotes \
         importlib-metadata lark-parser lxml matplotlib mock mypy==0.931 netifaces \
         nose pep8 psutil pydocstyle pydot pygraphviz "pyparsing>=2.4,<3" \
-        pytest-mock rosdep rosdistro setuptools vcstool
+        pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
 

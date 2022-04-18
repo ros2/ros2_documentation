@@ -48,6 +48,8 @@ Install development tools and ROS tools
      patch \
      python3-colcon-common-extensions \
      python3-pip \
+     python3-pydocstyle \
+     python3-pytest \
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
@@ -55,7 +57,7 @@ Install development tools and ROS tools
    # install some pip packages needed for testing and
    # not available as RPMs
    python3 -m pip install -U --user \
-     flake8-blind-except \
+     flake8-blind-except==0.1.1 \
      flake8-builtins \
      flake8-class-newline \
      flake8-comprehensions \
@@ -63,12 +65,9 @@ Install development tools and ROS tools
      flake8-docstrings \
      flake8-import-order \
      flake8-quotes \
-     mypy==0.761 \
-     pydocstyle \
+     mypy==0.931 \
      pytest-repeat \
-     pytest-rerunfailures \
-     pytest \
-     setuptools
+     pytest-rerunfailures
 
 .. _Rolling_rhel-dev-get-ros2-code:
 
