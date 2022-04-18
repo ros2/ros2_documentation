@@ -26,7 +26,7 @@ We then use ``robot_state_publisher`` to publish the entire robot state to ``/tf
 Prerequisites
 -------------
 
-- `rviz2 <https://index.ros.org/r/rviz/>`__
+- `rviz2 <https://index.ros.org/p/rviz2/>`__
 
 As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
