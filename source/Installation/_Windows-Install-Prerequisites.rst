@@ -17,7 +17,7 @@ Open a Command Prompt and type the following to install Python via Chocolatey:
 
 .. code-block:: bash
 
-   choco install -y python --version 3.8.3
+   choco install -y python --version 3.10.4
 
 Install Visual C++ Redistributables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
