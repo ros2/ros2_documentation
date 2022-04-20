@@ -17,7 +17,7 @@ The easiest way is to install from ROS 2 apt repository.
 
 .. code-block:: bash
 
-   sudo apt install ros-galactic-rmw-fastrtps-cpp
+   sudo apt install ros-{DISTRO}-rmw-fastrtps-cpp
 
 Build from source code
 ----------------------
