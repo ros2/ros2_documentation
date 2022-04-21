@@ -106,11 +106,11 @@ You need the following things installed to build ROS 2:
 
        python3 -m pip install -U \
         argcomplete catkin_pkg colcon-common-extensions coverage \
-        cryptography empy flake8 flake8-blind-except flake8-builtins \
+        cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
         flake8-class-newline flake8-comprehensions flake8-deprecated \
         flake8-docstrings flake8-import-order flake8-quotes \
-        importlib-metadata lark-parser lxml matplotlib mock mypy==0.931 netifaces \
-        nose pep8 psutil pydocstyle pydot pygraphviz "pyparsing>=2.4,<3" \
+        importlib-metadata lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
+        nose pep8 psutil pydocstyle pydot pygraphviz pyparsing==2.4.7 \
         pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
 
    Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
