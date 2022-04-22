@@ -7,8 +7,6 @@ Monitoring for parameter changes (C++)
 
 **Time:** 20 minutes
 
-**Minimum Platform:** Galactic
-
 .. contents:: Contents
    :depth: 2
    :local:
@@ -27,8 +25,6 @@ Before starting this tutorial, you should first complete the following tutorials
 
 - :doc:`./Parameters/Understanding-ROS2-Parameters`
 - :doc:`./Using-Parameters-In-A-Class-CPP`
-
-In addition, you must be running the Galactic distribution of ROS 2.
 
 Tasks
 -----
