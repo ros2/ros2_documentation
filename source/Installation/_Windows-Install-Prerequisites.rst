@@ -125,13 +125,11 @@ First upgrade pip and setuptools:
 
    python -m pip install -U pip setuptools==59.6.0
 
-
 Now install some additional python dependencies:
 
 .. code-block:: bash
 
    python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
-
 
 Install Qt5
 ^^^^^^^^^^^
