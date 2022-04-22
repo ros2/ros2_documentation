@@ -60,7 +60,7 @@ Install development tools and ROS tools
      python3-flake8-deprecated \
      python3-flake8-docstrings \
      python3-flake8-import-order \
-     python3-flake8-quotes
+     python3-flake8-quotes \
      python3-pip \
      python3-pytest \
      python3-pytest-cov \
