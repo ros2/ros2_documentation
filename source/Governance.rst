@@ -215,9 +215,10 @@ Client Libraries
 Control
 ^^^^^^^
 
-* Lead(s): Bence Magyar, Karsten Knese
+* Lead(s): Bence Magyar
 * Resources:
 
+ * Webite link: https://control.ros.org
  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
 
