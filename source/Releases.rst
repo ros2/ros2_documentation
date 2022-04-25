@@ -36,6 +36,7 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Release-Galactic-Geochelone.rst
    Releases/Galactic-Geochelone-Complete-Changelog.rst
    Releases/Release-Humble-Hawksbill.rst
+   Releases/Humble-Hawksbill-Complete-Changelog.rst
    Releases/Release-Rolling-Ridley.rst
 
 .. raw:: html

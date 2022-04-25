@@ -13,6 +13,7 @@ ROS 2 Humble Hawksbill (codename 'humble'; May, 2022)
 
 *Humble Hawksbill* is the eighth release of ROS 2.
 What follows is highlights of the important changes and features in Humble Hawksbill since the last release.
+For a list of all of the changes since Galactic, see the `long form changelog <Humble-Hawksbill-Complete-Changelog>`.
 
 Supported Platforms
 -------------------
@@ -21,15 +22,18 @@ Humble Hawksbill is primarily supported on the following platforms:
 
 Tier 1 platforms:
 
-TBD
+* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019): ``amd64``
 
 Tier 2 platforms:
 
-TBD
+* RHEL 8: ``amd64``
 
 Tier 3 platforms:
 
-TBD
+* Ubuntu 20.04 (Focal): ``amd64``
+* macOS: ``amd64``
+* Debian Bullseye: ``amd64``
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
