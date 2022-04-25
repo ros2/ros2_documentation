@@ -119,12 +119,17 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
-You must also install some additional python dependencies:
+First upgrade pip and setuptools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pip pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro setuptools==59.6.0
+   python -m pip install -U pip setuptools==59.6.0
 
+Now install some additional python dependencies:
+
+.. code-block:: bash
+
+   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
 
 Install Qt5
 ^^^^^^^^^^^
