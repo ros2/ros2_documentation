@@ -170,16 +170,12 @@ Restart the demo including the following command line argument:
 This configures the default severity for any unset logger to the debug severity level.
 You should see debug output from loggers from the demo itself and from the ROS 2 core.
 
-As of the Galactic ROS 2 release, the severity level for individual loggers can be configured from the command-line.
+The severity level for individual loggers can be configured from the command-line.
 Restart the demo including the following command line arguments:
 
-.. tabs::
+.. code-block:: bash
 
-  .. group-tab:: Galactic and newer
-
-    .. code-block:: bash
-
-       ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
+   ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
 
 
 Console output formatting
