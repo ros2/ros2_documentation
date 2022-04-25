@@ -53,10 +53,9 @@ Multiple RMW implementations
 ----------------------------
 
 The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast DDS, RTI Connext Pro, Eclipse Cyclone DDS, GurumNetworks GurumDDS).
-Since Galactic, the default is Cyclone DDS, which works without any additional installation steps, because we distribute it with our binary packages.
-Prior to Galactic, the default was Fast DDS, which works without any additional installation steps.
+The default RMW implementation in Foxy is Fast DDS, which works without any additional installation steps.
 
-Other RMWs like Fast DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Eclipse Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
