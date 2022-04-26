@@ -21,6 +21,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    :maxdepth: 1
 
    How-To-Guides/Installation-Troubleshooting
+   How-To-Guides/Visualizing-ROS-2-Data-With-Foxglove-Studio.rst
    How-To-Guides/Developing-a-ROS-2-Package
    How-To-Guides/Ament-CMake-Documentation
    How-To-Guides/Ament-CMake-Python-Documentation
