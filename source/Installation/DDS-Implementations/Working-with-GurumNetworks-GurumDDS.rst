@@ -2,8 +2,8 @@
 
     Working-with-GurumNetworks-GurumDDS
 
-Working with GurumNetworks GurumDDS
-===================================
+GurumNetworks GurumDDS
+======================
 
 rmw_gurumdds is a implementation of the ROS middleware interface using GurumNetworks GurumDDS.
 More information about GurumDDS is available on our website: https://gurum.cc/index_eng

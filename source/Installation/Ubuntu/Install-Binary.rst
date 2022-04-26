@@ -1,9 +1,9 @@
 .. redirect-from::
 
-   Installation/Linux-Install-Binary
+   Installation/Linux/Install-Binary
 
-Installing ROS 2 on Ubuntu Linux
-================================
+Installing ROS 2 from a binary
+==============================
 
 .. contents:: Table of Contents
    :depth: 2

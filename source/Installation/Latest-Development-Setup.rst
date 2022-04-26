@@ -1,5 +1,5 @@
-Installing the latest ROS 2 development
-=======================================
+Latest ROS 2 development
+========================
 
 If you plan to contribute directly to the latest ROS 2 development, you can install ROS 2 by building it from source or installing testing binaries.
 This will give you the latest bug fixes and features.

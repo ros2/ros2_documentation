@@ -1,15 +1,11 @@
-.. redirect-from::
-
-   Installation/Linux-Install-Debians
-
-Installing ROS 2 via Debian Packages
-====================================
+Installing ROS 2 via RPM packages
+=================================
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy.
+RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
 Most people will want to use a stable ROS distribution.
@@ -19,7 +15,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ufv8.html>`__
+  * ROS 2 {DISTRO_TITLE} (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -27,38 +23,51 @@ Resources
 Set locale
 ----------
 
-.. include:: _Ubuntu-Set-Locale.rst
+.. include:: _Set-Locale.rst
 
-.. _linux-install-debians-setup-sources:
+.. _rhel-install-rpms-setup-sources:
 
 Setup Sources
 -------------
 
-.. include:: _Apt-Repositories.rst
-
-.. _linux-install-debians-install-ros-2-packages:
-
-Install ROS 2 packages
-----------------------
-
-Update your apt repository caches after setting up the repositories.
+You will need to enable the EPEL repositories and the PowerTools repository:
 
 .. code-block:: bash
 
-   sudo apt update
+   sudo dnf install 'dnf-command(config-manager)' epel-release -y
+   sudo dnf config-manager --set-enabled powertools
+
+Next, download the ROS 2 .repo file:
+
+.. code-block:: bash
+
+   sudo dnf install curl
+   sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
+
+Then, update your metadata cache.
+DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
+
+.. code-block:: bash
+
+   sudo dnf makecache
+
+.. _rhel-install-rpms-install-ros-2-packages:
+
+Install ROS 2 packages
+----------------------
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-desktop
+   sudo dnf install ros-{DISTRO}-desktop
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-ros-base
+   sudo dnf install ros-{DISTRO}-ros-base
 
 Environment setup
 -----------------
@@ -99,10 +108,6 @@ Next steps after installing
 ---------------------------
 Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
@@ -121,14 +126,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
-
-You may also want to remove the repository:
-
-.. code-block:: bash
-
-  sudo rm /etc/apt/sources.list.d/ros2.list
-  sudo apt update
-  sudo apt autoremove
-  # Consider upgrading for packages previously shadowed.
-  sudo apt upgrade
+  sudo dnf remove ros-{DISTRO}-*

@@ -1,7 +1,7 @@
 .. _MaintainingSource:
 
-Maintaining a source checkout of ROS 2 {DISTRO_TITLE}
-=====================================================
+Maintaining source checkout
+===========================
 
 .. ifconfig:: smv_current_version != '' and smv_current_version != 'rolling'
 

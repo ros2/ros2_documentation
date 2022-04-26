@@ -1,5 +1,5 @@
-Working with eProsima Fast DDS
-==============================
+eProsima Fast DDS
+=================
 
 eProsima Fast DDS is a complete open-source DDS implementation for real time embedded architectures and operating systems.
 See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds

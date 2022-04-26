@@ -1,5 +1,5 @@
-Installing ROS 2 on RHEL
-========================
+Installing ROS 2 from a binary
+==============================
 
 .. contents:: Table of Contents
    :depth: 2

@@ -10,15 +10,10 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Ubuntu-Development-Setup
-   Installation/Ubuntu-Install-Binary
-   Installation/Ubuntu-Install-Debians
+   Installation/Ubuntu
    Installation/macOS-Development-Setup
-   Installation/Windows-Development-Setup
-   Installation/Windows-Install-Binary
-   Installation/RHEL-Development-Setup
-   Installation/RHEL-Install-Binary
-   Installation/RHEL-Install-RPMs
+   Installation/Windows
+   Installation/RHEL
    Installation/Fedora-Development-Setup
    Installation/Latest-Development-Setup
    Installation/Maintaining-a-Source-Checkout
@@ -36,15 +31,15 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Ubuntu Linux - Jammy Jellyfish (22.04)
 
-  * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
-  * :doc:`"fat" archive <Installation/Ubuntu-Install-Binary>`
+  * :doc:`Debian packages <Installation/Ubuntu/Install-Debians>`
+  * :doc:`"fat" archive <Installation/Ubuntu/Install-Binary>`
 
 * RHEL 8
 
-  * :doc:`RPM packages <Installation/RHEL-Install-RPMs>`
-  * :doc:`"fat" archive <Installation/RHEL-Install-Binary>`
+  * :doc:`RPM packages <Installation/RHEL/Install-RPMs>`
+  * :doc:`"fat" archive <Installation/RHEL/Install-Binary>`
 
-* :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
+* :doc:`Windows (VS 2019) <Installation/Windows/Install-Binary>`
 
 
 .. _building-from-source:
@@ -55,10 +50,10 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* :doc:`Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
+* :doc:`Ubuntu Linux <Installation/Ubuntu/Development-Setup>`
 * :doc:`macOS <Installation/macOS-Development-Setup>`
-* :doc:`RHEL <Installation/RHEL-Development-Setup>`
-* :doc:`Windows <Installation/Windows-Development-Setup>`
+* :doc:`RHEL <Installation/RHEL/Development-Setup>`
+* :doc:`Windows <Installation/Windows/Development-Setup>`
 
 
 Which install should you choose?

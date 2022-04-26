@@ -2,10 +2,10 @@
 
 .. redirect-from::
 
-   Installation/Linux-Development-Setup
+   Installation/Linux/Development-Setup
 
-Building ROS 2 on Ubuntu Linux
-==============================
+Building ROS 2
+==============
 
 .. contents:: Table of Contents
    :depth: 2

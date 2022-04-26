@@ -1,5 +1,5 @@
-Installing University or Evaluation versions of RTI Connext DDS
-===============================================================
+RTI Connext DDS (university or evaluation versions)
+===================================================
 
 A libraries-only version of RTI Connext DDS 6.0.1 may be installed per the :doc:`installation instructions <../../Installation>` for
 Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial license <https://www.rti.com/ncl>`__.

@@ -1,7 +1,7 @@
 .. _rhel-latest:
 
-Building ROS 2 on RHEL
-======================
+Building ROS 2
+==============
 
 .. contents:: Table of Contents
    :depth: 2
@@ -22,7 +22,7 @@ System setup
 Set locale
 ^^^^^^^^^^
 
-.. include:: _RHEL-Set-Locale.rst
+.. include:: _Set-Locale.rst
 
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
