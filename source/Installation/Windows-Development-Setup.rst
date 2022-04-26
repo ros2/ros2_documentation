@@ -45,7 +45,7 @@ Installing additional Python dependencies:
 
 .. code-block:: bash
 
-   pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.761 pep8 pydocstyle pytest pytest-mock vcstool
+   pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.931 pep8 pydocstyle pytest pytest-mock vcstool
 
 Install miscellaneous prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
