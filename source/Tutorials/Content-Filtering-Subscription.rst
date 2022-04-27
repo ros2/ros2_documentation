@@ -247,7 +247,7 @@ Application can also check if content filtering subscription is enabled on the s
 In this demo, ``ContentFilteringSubscriber`` node creates the content filtering subscription that receives temperature data only if the temperature data is less than -30.0 or greater than 100.0.
 
 As explained before, content filtering subscription depends on RMW implementation.
-Application uses ``is_cft_enabled`` method to check if the content filtering is enabled on the subscription. 
+Application uses ``is_cft_enabled`` method to check if the content filtering is enabled on the subscription.
 
 To test content filtering subscription, let's run it:
 
