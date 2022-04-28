@@ -1,13 +1,9 @@
-.. redirect-from::
-
-    Content-Filtering-Subscription
-
 Content Filtering Subscription
 ==============================
 
 **Goal:** Create a content filtering subscription.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 15 minutes
 
@@ -18,7 +14,7 @@ Content Filtering Subscription
 Overview
 --------
 
-ROS applications typically consist of topics to transmit the data from publishers to subscriptions.
+ROS 2 applications typically consist of topics to transmit the data from publishers to subscriptions.
 Basically subscriptions receive all published data from publishers on the topic.
 But sometimes subscription might be interested in only a subset of the data which is being sent by publishers.
 Content filtering subscription can support a content-based subscription, so that subscription can only receive the data which is interesting for the application.
@@ -40,11 +36,8 @@ Content filtering subscription requires RMW implementation support to enable con
    * - rmw_cyclonedds
      - not supported
 
-Filtering expression and parameters
------------------------------------
-
-Currently all RMW implementation that support content filtering subscription are `DDS <https://www.omg.org/omg-dds-portal/>`__ implementation, and ROS 2 just depends on these implementations.
-That says supported filtering expression and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
+Currently all RMW implementations that support content filtering subscription are `DDS <https://www.omg.org/omg-dds-portal/>`__ implementation, and ROS 2 just depends on these implementations.
+That means that the supported filtering expressions and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
 
 Installing the demo
 -------------------
@@ -130,8 +123,8 @@ https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filt
 
     }  // namespace demo_nodes_cpp
 
-For using content filtering subscription, all of the management have to be done on subscriptions as receivers.
-``ContentFilteringPublisher`` node creates publisher that publishes simulated temperature data starts from -100.0 and ends at 150.0 with a step size of 10.0 every second.
+When using content filtering subscription, all of the management have to be done on subscriptions as receivers.
+The ``ContentFilteringPublisher`` node creates a publisher that publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.
 
 We can run the demo by executing ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
 
@@ -241,13 +234,13 @@ https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filt
 
     }  // namespace demo_nodes_cpp
 
-To enable content filtering subscription, application can set filtering expression and expression parameters in ``SubscriptionOptions`` to describe the requirement and criteria while creating subscription.
-Application can also check if content filtering subscription is enabled on the subscription.
+To enable content filtering subscription, applications can set filtering expression and expression parameters in ``SubscriptionOptions`` to describe the requirement and criteria while creating the subscription.
+The application can also check if content filtering subscription is enabled on the subscription.
 
-In this demo, ``ContentFilteringSubscriber`` node creates the content filtering subscription that receives temperature data only if the temperature data is less than -30.0 or greater than 100.0.
+In this demo, the ``ContentFilteringSubscriber`` node creates the content filtering subscription that receives temperature data only if the temperature data is less than -30.0 or greater than 100.0.
 
-As explained before, content filtering subscription depends on RMW implementation.
-Application uses ``is_cft_enabled`` method to check if the content filtering is enabled on the subscription.
+As explained before, content filtering subscription depends on the RMW implementation.
+Applications can use the ``is_cft_enabled`` method to check if the content filtering is enabled on the subscription.
 
 To test content filtering subscription, let's run it:
 
@@ -277,7 +270,7 @@ To test content filtering subscription, let's run it:
 
 You should see the message that explains content filtering subscription is enabled and it receives messages only if temperature data is less than -30.0 or greater than 100.0.
 
-If content filtering subscription cannot be enabled since RMW implementation does not support, application can still create the normal subscription successfully without content filtering.
+If content filtering subscription cannot be enabled since RMW implementation does not support it, the application can still create the normal subscription successfully without content filtering.
 We can run this case by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher`` command.
 
 .. code-block:: bash
@@ -302,10 +295,10 @@ We can run this case by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 r
     [INFO] [1651096656.245833975] [content_filtering_subscriber]: I receive a temperature data: [50.000000]
     [INFO] [1651096657.245971483] [content_filtering_subscriber]: I receive a temperature data: [60.000000]
 
-You can see the message ``Content filter is not enabled`` because underlying RMW implementation does not support, but successfully create the normal subscription to receive all temperature data.
+You can see the message ``Content filter is not enabled`` because underlying RMW implementation does not support the feature, but the demo still successfully creates the normal subscription to receive all temperature data.
 
-Related contents
-----------------
+Related content
+---------------
 
 - `content filtering examples <https://github.com/ros2/examples/blob/master/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__ that covers all interfaces for content filtering subscription.
 - `content filtering design PR <https://github.com/ros2/design/pull/282>`__
