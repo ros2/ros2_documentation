@@ -16,15 +16,15 @@ Overview
 
 ROS 2 applications typically consist of topics to transmit the data from publishers to subscriptions.
 Basically subscriptions receive all published data from publishers on the topic.
-But sometimes subscription might be interested in only a subset of the data which is being sent by publishers.
-Content filtering subscription can support a content-based subscription, so that subscription can only receive the data which is interesting for the application.
+But sometimes a subscription might be interested in only a subset of the data which is being sent by publishers.
+A content filtering subscription can support a content-based subscription, so that the subscription only receives the data which is interesting for the application.
 
-In this demo we'll be highlighting how to manage content filtering subscription and how it works.
+In this demo we'll be highlighting how to manage content filtering subscriptions and how it works.
 
 RMW Support
 -----------
 
-Content filtering subscription requires RMW implementation support to enable content-based subscription.
+Content filtering subscriptions require RMW implementation support to enable content-based subscription.
 
 .. list-table::  Content-Filtering-Subscription Support Status
    :widths: 25 25
@@ -36,7 +36,7 @@ Content filtering subscription requires RMW implementation support to enable con
    * - rmw_cyclonedds
      - not supported
 
-Currently all RMW implementations that support content filtering subscription are `DDS <https://www.omg.org/omg-dds-portal/>`__ implementation, and ROS 2 just depends on these implementations.
+Currently all RMW implementations that support content filtering subscriptions are `DDS <https://www.omg.org/omg-dds-portal/>`__ implementations, and ROS 2 just depends on these implementations.
 That means that the supported filtering expressions and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
 
 Installing the demo
@@ -50,12 +50,12 @@ If you downloaded the archive or built ROS 2 from source, it will already be par
 Temperature filtering demo
 --------------------------
 
-This demo is designed to show how content filtering subscription works for emergency temperature.
-The content filtering subscription filters out the uninteresting temperature data not to receive the message, so that subscription callback is not issued.
+This demo is designed to show how a content filtering subscription works for emergency temperature.
+The content filtering subscription filters out the uninteresting temperature data so that the subscription callback is not issued.
 
 ContentFilteringPublisher:
 
-https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp
+https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp
 
 .. code-block:: c++
 
@@ -123,10 +123,10 @@ https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filt
 
     }  // namespace demo_nodes_cpp
 
-When using content filtering subscription, all of the management have to be done on subscriptions as receivers.
+When using a content filtering subscription, all of the management has to be done on subscriptions as receivers.
 The ``ContentFilteringPublisher`` node creates a publisher that publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.
 
-We can run the demo by executing ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
+We can run the demo by running the ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
 
 .. code-block:: bash
 
@@ -164,7 +164,7 @@ We can run the demo by executing ``ros2 run demo_nodes_cpp content_filtering_pub
 
 ContentFilteringSubscriber:
 
-https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp
+https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp
 
 .. code-block:: c++
 
@@ -234,7 +234,7 @@ https://github.com/ros2/demos/blob/master/demo_nodes_cpp/src/topics/content_filt
 
     }  // namespace demo_nodes_cpp
 
-To enable content filtering subscription, applications can set filtering expression and expression parameters in ``SubscriptionOptions`` to describe the requirement and criteria while creating the subscription.
+To enable a content filtering subscription, applications can set filtering expression and expression parameters in ``SubscriptionOptions`` to describe the requirement and criteria while creating the subscription.
 The application can also check if content filtering subscription is enabled on the subscription.
 
 In this demo, the ``ContentFilteringSubscriber`` node creates the content filtering subscription that receives temperature data only if the temperature data is less than -30.0 or greater than 100.0.
@@ -270,7 +270,7 @@ To test content filtering subscription, let's run it:
 
 You should see the message that explains content filtering subscription is enabled and it receives messages only if temperature data is less than -30.0 or greater than 100.0.
 
-If content filtering subscription cannot be enabled since RMW implementation does not support it, the application can still create the normal subscription successfully without content filtering.
+If a content filtering subscription cannot be enabled since the RMW implementation does not support it, the application can still create the normal subscription successfully without content filtering.
 We can run this case by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher`` command.
 
 .. code-block:: bash
