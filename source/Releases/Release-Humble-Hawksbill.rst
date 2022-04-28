@@ -97,7 +97,7 @@ Content Filtered Topics
 Content Filtered Topics supports a more sophisticated subscription that indicates the subscriber does not want to necessarily see all values of each instance published under the Topic.
 Content Filtered Topics can be used to request content-based subscriptions when underlying RMW implementation supports this feature.
 
-.. list-table:: Content Filtered Topics Support
+.. list-table:: RMW Content Filtered Topics support
    :widths: 25 25
 
    * - rmw_fastrtps
@@ -106,7 +106,6 @@ Content Filtered Topics can be used to request content-based subscriptions when 
      - supported
    * - rmw_cyclonedds
      - not supported
-
 
 To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/master/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
 
