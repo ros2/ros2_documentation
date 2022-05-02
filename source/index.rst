@@ -32,7 +32,8 @@ From drivers and state-of-the-art algorithms to powerful developer tools, ROS ha
 Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
 The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn’t.
 
-For ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
+This site contains the documentation for ROS 2.
+If you are looking for ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
 
 Getting started
 ---------------
