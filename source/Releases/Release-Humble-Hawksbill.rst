@@ -95,6 +95,26 @@ Certificate Revocation Lists (CRLs) are a concept where particular certificates 
 As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
 See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/master/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
 
+Content Filtered Topics
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Content Filtered Topics supports a more sophisticated subscription that indicates the subscriber does not want to necessarily see all values of each instance published under the Topic.
+Content Filtered Topics can be used to request content-based subscriptions when underlying RMW implementation supports this feature.
+
+.. list-table:: RMW Content Filtered Topics support
+   :widths: 25 25
+
+   * - rmw_fastrtps
+     - supported
+   * - rmw_connextdds
+     - supported
+   * - rmw_cyclonedds
+     - not supported
+
+To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/master/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
+
+Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
+
 Changes since the Galactic release
 ----------------------------------
 
@@ -219,7 +239,7 @@ And an example of how the type adapter can be used:
      10,
      [](const std::string & msg) {...});
 
-To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_) examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
+To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_ examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
 For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
 ``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` classes
