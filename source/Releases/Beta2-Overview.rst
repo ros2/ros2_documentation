@@ -44,7 +44,7 @@ New demo application
   * `joystick_drivers <https://github.com/ros2/joystick_drivers.git>`__
   * `teleop_twist_joy <https://github.com/ros2/teleop_twist_joy.git>`__
 
-* `Dummy_robot demo <../Tutorials/dummy-robot-demo>`:
+* `Dummy_robot demo <../Tutorials/Demos/dummy-robot-demo>`:
 
   * `robot_model <https://github.com/ros2/robot_model>`__
   * `robot_state_publisher <https://github.com/ros2/robot_state_publisher>`__
