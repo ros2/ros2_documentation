@@ -121,6 +121,7 @@ Demos
    Tutorials/Real-Time-Programming
    Tutorials/dummy-robot-demo
    Tutorials/Logging-and-logger-configuration
+   Tutorials/Content-Filtering-Subscription
 
 * `Use quality-of-service settings to handle lossy networks <Tutorials/Quality-of-Service>`.
 * `Management of nodes with managed lifecycles <Tutorials/Managed-Nodes>`.
@@ -136,6 +137,7 @@ Demos
 * `Write real-time safe code that uses the ROS 2 APIs <Tutorials/Real-Time-Programming>`.
 * `Use the robot state publisher to publish joint states and TF <Tutorials/dummy-robot-demo>`.
 * `Logging and logger configuration <Tutorials/Logging-and-logger-configuration>`.
+* `Content filtering subscription <Tutorials/Content-Filtering-Subscription>`.
 
 Examples
 --------
