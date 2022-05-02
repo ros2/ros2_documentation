@@ -1,3 +1,6 @@
+.. redirect-from::
+
+  Docs-Guide
 
 ROS 2 Documentation
 ===================
