@@ -40,7 +40,7 @@ Getting started
 
 * :doc:`Tutorials <Tutorials>` 
 
-  - Best place to start for new users!
+  - The best place to start for new users!
   - Hands-on sample projects that help you build a progression of necessary skills
 
 * :doc:`How-To-Guides` 
