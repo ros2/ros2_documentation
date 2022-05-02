@@ -135,7 +135,7 @@ Use the templates
 ^^^^^^^^^^^^^^^^^
 
 Security policies can quickly become confusing, so the ``sros2`` utilities add the ability to create policies from templates.
-Do this by using the `sample policy file <https://github.com/ros2/sros2/blob/master/sros2/test/policies/sample.policy.xml#L1>`_ provided in the ``sros2`` repository.
+Do this by using the `sample policy file <https://github.com/ros2/sros2/blob/{REPOS_FILE_BRANCH}/sros2/test/policies/sample.policy.xml#L1>`_ provided in the ``sros2`` repository.
 Let's creates a policy for both the ``talker`` and the ``listener`` to only use the ``chatter`` topic.
 
 Begin by downloading the ``sros2`` repository with the sample policy files:

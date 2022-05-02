@@ -20,7 +20,7 @@ In this tutorial, you will create :doc:`nodes <./Understanding-ROS2-Nodes>` that
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
-The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclpy/topics>`__.
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/topics>`__.
 
 Prerequisites
 -------------
@@ -62,13 +62,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 
    .. group-tab:: Windows
 
@@ -76,13 +76,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py -o publisher_member_function.py
 
 Now there will be a new file named ``publisher_member_function.py`` adjacent to ``__init__.py``.
 
@@ -283,13 +283,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        wget https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
+        wget https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 
    .. group-tab:: Windows
 
@@ -297,13 +297,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py -o subscriber_member_function.py
 
 Now the directory should have these files:
 
@@ -525,4 +525,4 @@ Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Se
 Related content
 ---------------
 
-There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/topics>`_ repo.
+There are several ways you could write a publisher and subscriber in Python; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/topics>`_ repo.

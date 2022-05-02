@@ -385,6 +385,6 @@ In this tutorial, you put together a C++ action server and action client line by
 Related content
 ---------------
 
-* There are several ways you could write an action server and client in C++; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp>`_ repo.
+* There are several ways you could write an action server and client in C++; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp>`_ repo.
 
 * For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
