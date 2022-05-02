@@ -56,7 +56,7 @@ Getting started
 
 * :doc:`Contributing <Contributing>`
 
-  - Best practices for contributing to these docs
+  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
 
 * :doc:`Contact <Contact>` 
 
@@ -78,7 +78,7 @@ If you're interested in the advancement of the ROS 2 project:
 
 * :doc:`Feature Ideas <Feature-Ideas>` 
 
-  - Ideas for features that are coming soon
+  - Ideas for nice-to-have features that are not under active development
 
 * :doc:`Roadmap <Roadmap>` 
 
@@ -86,7 +86,7 @@ If you're interested in the advancement of the ROS 2 project:
 
 * :doc:`ROSCon talks <ROSCon-Content>` 
 
-  - Presentations by the ROS community on the latest utilizations and updates
+  - Presentations by the community on ROS 2
 
 * :doc:`Project governance <Governance>` 
 
