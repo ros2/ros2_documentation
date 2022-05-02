@@ -1,5 +1,5 @@
-Installing ROS 2 via RPM Packages
-=================================
+RHEL: Install via RPM packages
+==============================
 
 .. contents:: Table of Contents
    :depth: 2

@@ -4,8 +4,8 @@
 
    Installation/Linux-Development-Setup
 
-Building ROS 2 on Ubuntu Linux
-==============================
+Ubuntu Linux: Build from source
+===============================
 
 .. contents:: Table of Contents
    :depth: 2

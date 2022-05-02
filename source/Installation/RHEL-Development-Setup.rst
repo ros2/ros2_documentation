@@ -1,7 +1,7 @@
 .. _rhel-latest:
 
-Building ROS 2 on RHEL
-======================
+RHEL: Build from source
+=======================
 
 .. contents:: Table of Contents
    :depth: 2

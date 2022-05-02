@@ -4,8 +4,8 @@
 
 .. _macOS-latest:
 
-Building ROS 2 on macOS
-=======================
+macOS: Build from source
+========================
 
 .. contents:: Table of Contents
    :depth: 2

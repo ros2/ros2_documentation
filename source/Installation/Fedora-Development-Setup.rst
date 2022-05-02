@@ -1,5 +1,5 @@
-Building ROS 2 on Fedora Linux
-==============================
+Fedora Linux: Build from source
+===============================
 
 How to setup the development environment?
 -----------------------------------------

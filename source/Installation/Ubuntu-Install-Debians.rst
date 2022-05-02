@@ -2,8 +2,8 @@
 
    Installation/Linux-Install-Debians
 
-Installing ROS 2 via Debian Packages
-====================================
+Ubuntu Linux: Install via Debian packages
+=========================================
 
 .. contents:: Table of Contents
    :depth: 2

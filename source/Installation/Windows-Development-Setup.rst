@@ -1,7 +1,7 @@
 .. _windows-latest:
 
-Building ROS 2 on Windows
-=========================
+Windows: Build from source
+==========================
 
 .. contents:: Table of Contents
    :depth: 2
