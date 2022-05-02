@@ -99,7 +99,8 @@ If you're interested in the advancement of the ROS 2 project:
 
 * `ROS 2 Design <http://design.ros2.org/>`__ 
 
-  - Design decisions behind ROS 2 development
+  - Early design decisions behind ROS 2 development
+  - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
 
 Other ROS resources
 -------------------
@@ -148,14 +149,7 @@ Other ROS resources
 Deprecated
 ^^^^^^^^^^
 
-* `ROS Design <http://design.ros2.org/>`__ (ROS 2)
-
-  - Early design decisions
-  - Deprecated in favor of `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
-
-* `ROS 2 Docs <https://docs.ros2.org>`_ site (ROS 2)
-
-  - Docs for distributions up to and including Galactic only
+The `deprecated ROS 2 docs site <https://docs.ros2.org>`_  only documents distributions up to and including Galactic.
 
 Contributing
 ------------
