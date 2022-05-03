@@ -149,7 +149,7 @@ Other ROS resources
 Deprecated
 ^^^^^^^^^^
 
-The `deprecated ROS 2 docs site <https://docs.ros2.org>`_  only documents distributions up to and including Galactic.
+The `deprecated ROS 2 docs site <https://docs.ros2.org>`_  has API documentation up to and including Galactic.
 
 Contributing
 ------------
