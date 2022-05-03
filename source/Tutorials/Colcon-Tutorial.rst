@@ -285,9 +285,9 @@ colcon supports multiple build types.
 The recommended build types are ``ament_cmake`` and ``ament_python``.
 Also supported are pure ``cmake`` packages.
 
-An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/foxy/ament_index_python>`__ , where the setup.py is the primary entry point for building.
+An example of an ``ament_python`` build is the `ament_index_python package <https://github.com/ament/ament_index/tree/{REPOS_FILE_BRANCH}/ament_index_python>`__ , where the setup.py is the primary entry point for building.
 
-A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/foxy/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
+A package such as `demo_nodes_cpp <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp>`__ uses the ``ament_cmake`` build type, and uses CMake as the build tool.
 
 For convenience, you can use the tool ``ros2 pkg create`` to create a new package based on a template.
 

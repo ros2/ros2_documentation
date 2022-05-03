@@ -52,19 +52,19 @@ download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+            wget -O member_function_with_topic_statistics.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
    .. group-tab:: Windows
 
       Right click this link and select Save As ``publisher_member_function.cpp``:
 
-      https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
+      https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function_with_topic_statistics.cpp
 
 Now there will be a new file named ``member_function_with_topic_statistics.cpp``.
 Open the file using your preferred text editor.
@@ -300,7 +300,7 @@ The terminal should start publishing statistics messages every 10 seconds, becau
       data: 0.4463309283488427
     ---
 
-From the `message definition <https://github.com/ros2/rcl_interfaces/tree/master/statistics_msgs>`__
+From the `message definition <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/statistics_msgs>`__
 the ``data_types`` are as follows
 
 ===============    ===================
@@ -331,4 +331,4 @@ Related content
 ---------------
 
 To observe how the ``message_age`` period is calculated please see the
-`ROS 2 Topic Statistics demo <https://github.com/ros2/demos/tree/master/topic_statistics_demo>`__.
+`ROS 2 Topic Statistics demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/topic_statistics_demo>`__.

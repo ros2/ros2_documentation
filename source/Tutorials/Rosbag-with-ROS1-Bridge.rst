@@ -7,7 +7,7 @@ Recording and playback of topic data with rosbag using the ROS 1 bridge
 
 This tutorial is a follow up to the *Bridge communication between ROS 1 and ROS 2* demo as can be found listed with the other `demos <../Tutorials>`, and in the following it is assumed you have completed that tutorial already.
 
-The ros1_bridge can either be installed from `binary packages <../Installation>` or `built from source <https://github.com/ros2/ros1_bridge/blob/foxy/README.md#building-the-bridge-from-source>`__; both work for these examples.
+The ros1_bridge can either be installed from `binary packages <../Installation>` or `built from source <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md#building-the-bridge-from-source>`__; both work for these examples.
 
 What follows is a series of additional examples, like that ones that come at the end of the aforementioned *Bridge communication between ROS 1 and ROS 2* demo.
 

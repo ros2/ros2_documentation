@@ -10,7 +10,7 @@ Implement a custom memory allocator
    :local:
 
 This tutorial will teach you how to integrate a custom allocator for publishers and subscribers so that the default heap allocator is never called while your ROS nodes are executing.
-The code for this tutorial is available `here <https://github.com/ros2/demos/blob/foxy/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__.
+The code for this tutorial is available `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__.
 
 Background
 ----------
@@ -205,7 +205,7 @@ You can also override the global new and delete operators:
 
 where the variables we are incrementing are just global static integers, and ``is_running`` is a global static boolean that gets toggled right before the call to ``spin``.
 
-The `example executable <https://github.com/ros2/demos/blob/foxy/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables. To run the example executable, use:
+The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/allocator_tutorial.cpp>`__ prints the value of the variables. To run the example executable, use:
 
 .. code-block:: bash
 
@@ -232,7 +232,7 @@ As a matter of fact, these allocations/deallocations originate in the underlying
 
 Proving this is out of the scope of this tutorial, but you can check out the test for the allocation path that gets run as part of the ROS 2 continuous integration testing, which backtraces through the code and figures out whether certain function calls originate in the rmw implementation or in a DDS implementation:
 
-https://github.com/ros2/realtime_support/blob/foxy/tlsf_cpp/test/test_tlsf.cpp#L41
+https://github.com/ros2/realtime_support/blob/{REPOS_FILE_BRANCH}/tlsf_cpp/test/test_tlsf.cpp#L41
 
 Note that this test is not using the custom allocator we just created, but the TLSF allocator (see below).
 
@@ -241,11 +241,11 @@ The TLSF allocator
 
 ROS 2 offers support for the TLSF (Two Level Segregate Fit) allocator, which was designed to meet real-time requirements:
 
-https://github.com/ros2/realtime_support/tree/foxy/tlsf_cpp
+https://github.com/ros2/realtime_support/tree/{REPOS_FILE_BRANCH}/tlsf_cpp
 
 For more information about TLSF, see http://www.gii.upv.es/tlsf/
 
 Note that the TLSF allocator is licensed under a dual-GPL/LGPL license.
 
 A full working example using the TLSF allocator is here:
-https://github.com/ros2/realtime_support/blob/foxy/tlsf_cpp/example/allocator_example.cpp
+https://github.com/ros2/realtime_support/blob/{REPOS_FILE_BRANCH}/tlsf_cpp/example/allocator_example.cpp
