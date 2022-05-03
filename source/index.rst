@@ -42,16 +42,16 @@ Getting started
 
   - Instructions to set up ROS 2 for the first time
 
-* :doc:`Tutorials <Tutorials>` 
+* :doc:`Tutorials <Tutorials>`
 
   - The best place to start for new users!
   - Hands-on sample projects that help you build a progression of necessary skills
 
-* :doc:`How-To-Guides` 
+* :doc:`How-To-Guides`
 
   - Quick answers to your "How do I...?" questions without working through the :doc:`Tutorials <Tutorials>`
 
-* :doc:`Concepts <Concepts>` 
+* :doc:`Concepts <Concepts>`
 
   - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
 
@@ -59,7 +59,7 @@ Getting started
 
   - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
 
-* :doc:`Contact <Contact>` 
+* :doc:`Contact <Contact>`
 
   - Answers to your questions or a forum to start a discussion
 
@@ -69,35 +69,35 @@ The ROS 2 project
 
 If you're interested in the advancement of the ROS 2 project:
 
-* :doc:`Releases <Releases>` 
+* :doc:`Releases <Releases>`
 
   - Past, present and future ROS 2 distributions
 
-* :doc:`Features Status <Features>` 
+* :doc:`Features Status <Features>`
 
   - Features in the current release
 
-* :doc:`Feature Ideas <Feature-Ideas>` 
+* :doc:`Feature Ideas <Feature-Ideas>`
 
   - Ideas for nice-to-have features that are not under active development
 
-* :doc:`Roadmap <Roadmap>` 
+* :doc:`Roadmap <Roadmap>`
 
   - Planned work for ROS 2 development
 
-* :doc:`ROSCon talks <ROSCon-Content>` 
+* :doc:`ROSCon talks <ROSCon-Content>`
 
   - Presentations by the community on ROS 2
 
-* :doc:`Project governance <Governance>` 
+* :doc:`Project governance <Governance>`
 
   - Information about the ROS Technical Steering Committee
 
-* :doc:`Marketing <Marketing>` 
+* :doc:`Marketing <Marketing>`
 
   - Downloadable marketing materials
 
-* `ROS 2 Design <http://design.ros2.org/>`__ 
+* `ROS 2 Design <http://design.ros2.org/>`__
 
   - Early design decisions behind ROS 2 development
   - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
