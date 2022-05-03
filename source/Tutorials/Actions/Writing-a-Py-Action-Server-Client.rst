@@ -38,7 +38,7 @@ using the action we created in the :doc:`./Creating-an-Action` tutorial.
 Until now, you've created packages and used ``ros2 run`` to run your nodes.
 To keep things simple in this tutorial, however, we’ll scope the action server to a single file.
 If you'd like to see what a complete package for the actions tutorials looks like, check out
-`action_tutorials <https://github.com/ros2/demos/tree/master/action_tutorials>`__.
+`action_tutorials <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/action_tutorials>`__.
 
 Open a new file in your home directory, let's call it ``fibonacci_action_server.py``,
 and add the following code:
@@ -352,6 +352,6 @@ In this tutorial, you put together a Python action server and action client line
 Related content
 ---------------
 
-* There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclpy/actions>`_ repo.
+* There are several ways you could write an action server and client in Python; check out the ``minimal_action_server`` and ``minimal_action_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/actions>`_ repo.
 
 * For more detailed information about ROS actions, please refer to the `design article <http://design.ros2.org/articles/actions.html>`__.
