@@ -5,7 +5,7 @@
 Building a custom Debian package
 ================================
 
-Many Ubuntu users install ROS 2 on their system by installing :doc:`debian packages <../Installation/Ubuntu-Install-Debians>`.
+Many Ubuntu users install ROS 2 on their system by installing :doc:`debian packages <../Installation/Recommended/Ubuntu-Install-Debians>`.
 This guide gives a short set of instructions to build local, custom Debian packages.
 
 .. contents:: Table of Contents

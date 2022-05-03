@@ -2,8 +2,8 @@
 
   Installation/Fedora-Development-Setup
 
-Fedora
-======
+Fedora (source)
+===============
 
 How to setup the development environment?
 -----------------------------------------

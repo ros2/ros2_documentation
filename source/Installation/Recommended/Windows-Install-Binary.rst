@@ -1,5 +1,5 @@
-Windows
-=======
+Windows (binary)
+================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -20,7 +20,7 @@ Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
-.. include:: _Windows-Install-Prerequisites.rst
+.. include:: ../_Windows-Install-Prerequisites.rst
 
 Downloading ROS 2
 -----------------
@@ -74,12 +74,12 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
@@ -111,17 +111,17 @@ Python installation may require modification to enable debugging symbols and deb
 
 * Click Modify.
 
-      .. image:: images/python_installation_modify.png
+      .. image:: ../images/python_installation_modify.png
          :width: 500 px
 
 * Click Next to go to **Advanced Options**.
 
-      .. image:: images/python_installation_next.png
+      .. image:: ../images/python_installation_next.png
          :width: 500 px
 
 * Make sure **Download debugging symbols** and **Download debug binaries** are checked.
 
-      .. image:: images/python_installation_enable_debug.png
+      .. image:: ../images/python_installation_enable_debug.png
          :width: 500 px
 
 * Click Install.

@@ -10,11 +10,8 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Ubuntu-Install-Binary
-   Installation/Windows-Install-Binary
-   Installation/RHEL-Install-Binary
-   Installation/Build-From-Source
-   Installation/Install-Via-Packages
+   Installation/Recommended
+   Installation/Alternatives
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/DDS-Implementations
@@ -30,15 +27,15 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Ubuntu Linux - Jammy Jellyfish (22.04)
 
-  * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
-  * :doc:`"fat" archive <Installation/Ubuntu-Install-Binary>`
+  * :doc:`Debian packages <Installation/Recommended/Ubuntu-Install-Debians>` (recommended)
+  * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
 * RHEL 8
 
-  * :doc:`RPM packages <Installation/RHEL-Install-RPMs>`
-  * :doc:`"fat" archive <Installation/RHEL-Install-Binary>`
+  * :doc:`RPM packages <Installation/Recommended/RHEL-Install-RPMs>` (recommended)
+  * :doc:`"fat" archive <Installation/Alternatives/RHEL-Install-Binary>`
 
-* :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
+* :doc:`Windows (VS 2019) <Installation/Recommended/Windows-Install-Binary>`
 
 
 .. _building-from-source:
@@ -49,10 +46,10 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* :doc:`Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
-* :doc:`macOS <Installation/macOS-Development-Setup>`
-* :doc:`RHEL <Installation/RHEL-Development-Setup>`
-* :doc:`Windows <Installation/Windows-Development-Setup>`
+* :doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`
+* :doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`
+* :doc:`RHEL <Installation/Alternatives/RHEL-Development-Setup>`
+* :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
 
 
 Which install should you choose?
@@ -85,4 +82,4 @@ Building from source also gives you the option to install the absolute latest ve
 
 Contributing to ROS 2 core?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.
+If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Alternatives/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.

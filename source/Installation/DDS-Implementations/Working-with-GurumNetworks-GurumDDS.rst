@@ -13,8 +13,8 @@ Prerequisites
 -------------
 
 The following description assumes that you have completed the 'Environment setup' process
-from the :doc:`Installing ROS 2 via Debian Packages <../Ubuntu-Install-Debians>` or
-from the :doc:`Building ROS 2 on Ubuntu Linux <../Ubuntu-Development-Setup>`.
+from the :doc:`Installing ROS 2 via Debian Packages <../Recommended/Ubuntu-Install-Debians>` or
+from the :doc:`Building ROS 2 on Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`.
 
 rmw_gurumdds requires version of GurumDDS-2.7.x.
 Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
