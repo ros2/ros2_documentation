@@ -20,7 +20,7 @@ Background
 In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <./Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
-The code used in these examples can be found `here <https://github.com/ros2/examples/tree/master/rclcpp/topics>`__.
+The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/topics>`__.
 
 Prerequisites
 -------------
@@ -61,13 +61,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp
+            wget -O publisher_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp
 
    .. group-tab:: Windows
 
@@ -75,13 +75,13 @@ Download the example talker code by entering the following command:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_publisher/member_function.cpp -o publisher_member_function.cpp
 
 Now there will be a new file named ``publisher_member_function.cpp``.
 Open the file using your preferred text editor.
@@ -307,13 +307,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp
+            wget -O subscriber_member_function.cpp https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp
 
    .. group-tab:: Windows
 
@@ -321,13 +321,13 @@ Enter the following code in your terminal:
 
       .. code-block:: console
 
-            curl -sk https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl -sk https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
       Or in powershell:
 
       .. code-block:: console
 
-            curl https://raw.githubusercontent.com/ros2/examples/master/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
+            curl https://raw.githubusercontent.com/ros2/examples/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/member_function.cpp -o subscriber_member_function.cpp
 
 Entering ``ls`` in the console will now return:
 
@@ -545,4 +545,4 @@ Again, you can choose to write it in either :doc:`C++ <./Writing-A-Simple-Cpp-Se
 Related content
 ---------------
 
-There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp/topics>`_ repo.
+There are several ways you could write a publisher and subscriber in C++; check out the ``minimal_publisher`` and ``minimal_subscriber`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/topics>`_ repo.

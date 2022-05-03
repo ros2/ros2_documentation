@@ -47,7 +47,7 @@ Navigate into ``dev_ws/src`` and create a new package:
 Your terminal will return a message verifying the creation of your package ``cpp_srvcli`` and all its necessary files and folders.
 
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
-``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/master/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
+``example_interfaces`` is the package that includes `the .srv file <https://github.com/ros2/example_interfaces/blob/{REPOS_FILE_BRANCH}/srv/AddTwoInts.srv>`__ you will need to structure your requests and responses:
 
 .. code-block:: console
 
@@ -423,4 +423,4 @@ Next, you'll learn how to :doc:`create custom interfaces <./Custom-ROS2-Interfac
 Related content
 ---------------
 
-* There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/master/rclcpp/services>`_ repo.
+* There are several ways you could write a service and client in C++; check out the ``minimal_service`` and ``minimal_client`` packages in the `ros2/examples <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/services>`_ repo.

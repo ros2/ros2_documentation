@@ -121,7 +121,7 @@ After running ``colcon build`` and sourcing your workspace, you should be able t
 Example of ROS 2 launch concepts
 --------------------------------
 
-The launch file in `this example <https://github.com/ros2/launch_ros/blob/master/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
+The launch file in `this example <https://github.com/ros2/launch_ros/blob/{REPOS_FILE_BRANCH}/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
 launches two nodes, one of which is a node with a `managed lifecycle <../Managed-Nodes>` (a "lifecycle node").
 Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when they transition between states.
 The events can then be acted on through the launch framework.
@@ -132,7 +132,7 @@ In the aforementioned example, various transition requests are requested of the 
 Documentation
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/master/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
+`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
 
 Additional documentation/examples of launch capabilities are forthcoming.
 See `the source code <https://github.com/ros2/launch>`__ in the meantime.
