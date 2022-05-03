@@ -2,8 +2,8 @@
 
    Installation/Linux-Install-Binary
 
-Installing ROS 2 on Ubuntu Linux
-================================
+Ubuntu 
+======
 
 .. contents:: Table of Contents
    :depth: 2

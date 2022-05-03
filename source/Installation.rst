@@ -10,17 +10,11 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Ubuntu-Development-Setup
    Installation/Ubuntu-Install-Binary
-   Installation/Ubuntu-Install-Debians
-   Installation/macOS-Development-Setup
-   Installation/Windows-Development-Setup
    Installation/Windows-Install-Binary
-   Installation/RHEL-Development-Setup
    Installation/RHEL-Install-Binary
-   Installation/RHEL-Install-RPMs
-   Installation/Fedora-Development-Setup
-   Installation/Latest-Development-Setup
+   Installation/Build-From-Source
+   Installation/Install-Via-Packages
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/DDS-Implementations

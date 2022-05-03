@@ -1,5 +1,9 @@
-Installing ROS 2 via RPM Packages
-=================================
+.. redirect-from::
+
+   Installation/RHEL-Install-RPMs
+
+RHEL
+====
 
 .. contents:: Table of Contents
    :depth: 2
@@ -23,7 +27,7 @@ Resources
 Set locale
 ----------
 
-.. include:: _RHEL-Set-Locale.rst
+.. include:: ../_RHEL-Set-Locale.rst
 
 .. _rhel-install-rpms-setup-sources:
 

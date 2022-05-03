@@ -2,8 +2,8 @@
 
    Installation/Prerelease-Testing
 
-Alternative Installation Sources for Testing
-============================================
+Testing alternatives
+====================
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :doc:`../Installation`.
