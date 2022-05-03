@@ -17,7 +17,7 @@ See the :doc:`conceptual article <../Concepts/About-Composition>`.
 Run the demos
 -------------
 
-The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/foxy/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/foxy/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/foxy/composition>`__ packages, and can be run with the following commands.
+The demos use executables from `rclcpp_components <https://github.com/ros2/rclcpp/tree/{REPOS_FILE_BRANCH}/rclcpp_components>`__, `ros2component <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__, and  `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ packages, and can be run with the following commands.
 
 
 Discover available components
@@ -50,8 +50,7 @@ Verify that the container is running via ``ros2`` command line tools:
    $ ros2 component list
    /ComponentManager
 
-In the second shell (see `talker <https://github.com/ros2/demos/blob/foxy/composition/src/talker_component.cpp>`__ source code).
-The command will return the unique ID of the loaded component as well as the node name.
+In the second shell load the talker component (see `talker <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/talker_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -61,7 +60,7 @@ The command will return the unique ID of the loaded component as well as the nod
 
 Now the first shell should show a message that the component was loaded as well as repeated message for publishing a message.
 
-Another command in the second shell (see `listener <https://github.com/ros2/demos/blob/foxy/composition/src/listener_component.cpp>`__ source code):
+Run another command in the second shell to load the listener component (see `listener <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/listener_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -91,8 +90,7 @@ In the first shell:
 
    ros2 run rclcpp_components component_container
 
-
-In the second shell (see `server <https://github.com/ros2/demos/blob/foxy/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/foxy/composition/src/client_component.cpp>`__ source code):
+In the second shell (see `server <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/server_component.cpp>`__ and `client <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/client_component.cpp>`__ source code):
 
 .. code-block:: bash
 
@@ -107,7 +105,7 @@ Compile-time composition using ROS services (2.)
 This demos shows that the same shared libraries can be reused to compile a single executable running multiple components.
 The executable contains all four components from above: talker and listener as well as server and client.
 
-In the shell call (see `source code <https://github.com/ros2/demos/blob/foxy/composition/src/manual_composition.cpp>`__):
+In the shell call (see `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__):
 
 .. code-block:: bash
 
@@ -122,8 +120,8 @@ This should show repeated messages from both pairs, the talker and the listener 
 Run-time composition using dlopen
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demo presents an alternative to 1. by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
-The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/foxy/composition/src/dlopen_composition.cpp>`__).
+This demo presents an alternative to run-time composition by creating a generic container process and explicitly passing the libraries to load without using ROS interfaces.
+The process will open each library and create one instance of each "rclcpp::Node" class in the library `source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/dlopen_composition.cpp>`__).
 
 .. tabs::
 

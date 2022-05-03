@@ -172,11 +172,11 @@ Enforcing reliability on a lossy channel means that the publisher (in this case,
 Let's now try running both programs, but with more suitable settings.
 First of all, we'll use the ``-p reliability:=best_effort`` option to enable best effort communication.
 The publisher will now just attempt to deliver the network packets, and don't expect acknowledgement from the consumer.
-We see now that some of the frame on the ``showimage`` side were dropped, the frame numbers in the shell running ``showimage`` won't be consecutive anymore:
+We see now that some of the frames on the ``showimage`` side were dropped, so the frame numbers in the shell running ``showimage`` won't be consecutive anymore:
 
 
-.. image:: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
-   :target: https://raw.githubusercontent.com/ros2/demos/master/image_tools/doc/qos-best-effort.png
+.. image:: https://raw.githubusercontent.com/ros2/demos/{REPOS_FILE_BRANCH}/image_tools/doc/qos-best-effort.png
+   :target: https://raw.githubusercontent.com/ros2/demos/{REPOS_FILE_BRANCH}/image_tools/doc/qos-best-effort.png
    :alt: Best effort image transfer
 
 

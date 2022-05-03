@@ -91,7 +91,7 @@ Logger level configuration: programmatically
 After 10 iterations the level of the logger will be set to ``DEBUG``, which will cause additional messages to be logged.
 
 Some of these debug messages cause additional functions/expressions to be evaluated, which were previously skipped as ``DEBUG`` log calls were not enabled.
-See `the source code <https://github.com/ros2/demos/blob/foxy/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
+See `the source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
 
 Logger level configuration: externally
 --------------------------------------
