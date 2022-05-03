@@ -91,7 +91,7 @@ If you're interested in the advancement of the ROS 2 project:
 
 * :doc:`Project governance <Governance>`
 
-  - Information about the ROS Technical Steering Committee
+  - Information about the ROS Technical Steering Committee, Working Groups, and upcoming events
 
 * :doc:`Marketing <Marketing>`
 
