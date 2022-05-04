@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Governance/ROS2-TSC-Charter
+
 .. _ROS2TSCCharter:
 
 ==========================================

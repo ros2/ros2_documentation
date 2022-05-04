@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Governance
+
 .. _Governance:
 
 Project Governance
@@ -22,26 +26,26 @@ Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>
 
 The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 
-.. |adlink| image:: Governance/adlink.png
-.. |amazon| image:: Governance/amazon.svg
-.. |apex| image:: Governance/apex.png
-.. |bosch| image:: Governance/bosch_75h.jpg
-.. |canonical| image:: Governance/ubuntu.svg
-.. |eprosima| image:: Governance/eprosima.svg
-.. |gvsc| image:: Governance/gvsc.png
-.. |intel| image:: Governance/intel.svg
-.. |irobot| image:: Governance/irobot.png
-.. |microsoft| image:: Governance/microsoft.svg
-.. |openrobotics| image:: Governance/openrobotics-logo-stacked.png
-.. |picknik| image:: Governance/picknik.png
-.. |robotis| image:: Governance/robotis.png
-.. |ros2| image:: Governance/ros2_logo.png
-.. |rosindustrial| image:: Governance/ros-industrial.png
-.. |samsung| image:: Governance/samsung.svg
-.. |sony| image:: Governance/sony.png
-.. |tri| image:: Governance/tri_logo_landscape-web.svg
-.. |windriver| image:: Governance/windriver.png
-.. |foxglove| image:: Governance/foxglove.png
+.. |adlink| image:: Governance/images/adlink.png
+.. |amazon| image:: Governance/images/amazon.svg
+.. |apex| image:: Governance/images/apex.png
+.. |bosch| image:: Governance/images/bosch_75h.jpg
+.. |canonical| image:: Governance/images/ubuntu.svg
+.. |eprosima| image:: Governance/images/eprosima.svg
+.. |gvsc| image:: Governance/images/gvsc.png
+.. |intel| image:: Governance/images/intel.svg
+.. |irobot| image:: Governance/images/irobot.png
+.. |microsoft| image:: Governance/images/microsoft.svg
+.. |openrobotics| image:: Governance/images/openrobotics-logo-stacked.png
+.. |picknik| image:: Governance/images/picknik.png
+.. |robotis| image:: Governance/images/robotis.png
+.. |ros2| image:: Governance/images/ros2_logo.png
+.. |rosindustrial| image:: Governance/images/ros-industrial.png
+.. |samsung| image:: Governance/images/samsung.svg
+.. |sony| image:: Governance/images/sony.png
+.. |tri| image:: Governance/images/tri_logo_landscape-web.svg
+.. |windriver| image:: Governance/images/windriver.png
+.. |foxglove| image:: Governance/images/foxglove.png
 
 .. raw:: html
 

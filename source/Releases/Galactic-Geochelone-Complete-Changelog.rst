@@ -1,5 +1,5 @@
-ROS 2 Galactic Geochelone Complete Changelog
-============================================
+Galactic Geochelone changelog
+=============================
 
 This page is a list of the complete changes in all ROS 2 core packages since the previous release.
 

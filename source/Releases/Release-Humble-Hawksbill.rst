@@ -4,8 +4,8 @@
 
 .. move this directive when next release page is created
 
-ROS 2 Humble Hawksbill (codename 'humble'; May, 2022)
-=====================================================
+Humble Hawksbill (``humble``)
+=============================
 
 .. toctree::
    :hidden:
@@ -194,7 +194,7 @@ launch_ros
 Passing ROS arguments to node actions
 """""""""""""""""""""""""""""""""""""
 
-It is now possible to provide `ROS-specific node arguments <../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
+It is now possible to provide `ROS-specific node arguments <../../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
 .. tabs::
 
