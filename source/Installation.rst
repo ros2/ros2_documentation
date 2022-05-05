@@ -10,7 +10,9 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Recommended
+   Installation/Ubuntu-Install-Debians
+   Installation/Windows-Install-Binary
+   Installation/RHEL-Install-RPMs
    Installation/Alternatives
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
@@ -27,15 +29,15 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Ubuntu Linux - Jammy Jellyfish (22.04)
 
-  * :doc:`Debian packages <Installation/Recommended/Ubuntu-Install-Debians>` (recommended)
+  * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
 * RHEL 8
 
-  * :doc:`RPM packages <Installation/Recommended/RHEL-Install-RPMs>` (recommended)
+  * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/RHEL-Install-Binary>`
 
-* :doc:`Windows (VS 2019) <Installation/Recommended/Windows-Install-Binary>`
+* :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
 
 
 .. _building-from-source:

@@ -1,7 +1,6 @@
 .. redirect-from::
 
    Installation/Linux-Install-Debians
-   Installation/Ubuntu-Install-Debians
 
 Ubuntu (Debian)
 ===============

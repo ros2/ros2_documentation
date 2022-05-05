@@ -13,7 +13,7 @@ This page explains how to install ROS 2 on RHEL from a pre-built binary package.
     All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
     The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-There are also :doc:`RPM packages <../Recommended/RHEL-Install-RPMs>` available.
+There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available.
 
 System Requirements
 -------------------

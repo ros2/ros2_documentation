@@ -1,7 +1,3 @@
-.. redirect-from::
-
-   Installation/RHEL-Install-RPMs
-
 RHEL (RPM)
 ==========
 
