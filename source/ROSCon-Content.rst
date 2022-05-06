@@ -7,6 +7,10 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
+  .. group-tab:: 2021
+
+    Videos for ROSCon 2021 are at `ROSCon 2021 <https://roscon.ros.org/world/2021>`__
+
   .. group-tab:: 2020
 
     .. list-table::
@@ -139,15 +143,3 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `slides <https://roscon.ros.org/2015/presentations/ros2_on_small_embedded_systems.pdf>`__ / `video <https://vimeo.com/142150576>`__
        * - Real-time control in ROS and ROS 2
          - `slides <https://roscon.ros.org/2015/presentations/RealtimeROS2.pdf>`__ / `video <https://vimeo.com/142621778>`__
-
-  .. group-tab:: 2014
-
-    .. list-table::
-       :header-rows: 1
-
-       * - Title
-         - Links
-       * - Why you want to use ROS 2
-         - `slides <https://www.osrfoundation.org/wordpress2/wp-content/uploads/2015/04/ROSCON-2014-Why-you-want-to-use-ROS-2.pdf>`__ / `video <https://vimeo.com/107531013>`__
-       * - Next-generation ROS: Building on DDS
-         - `slides <https://roscon.ros.org/2014/wp-content/uploads/2014/07/ROSCON-2014-Next-Generation-of-ROS-on-top-of-DDS.pdf>`__ / `video <https://vimeo.com/106992622>`__
