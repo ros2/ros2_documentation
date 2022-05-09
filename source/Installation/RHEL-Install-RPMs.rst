@@ -6,9 +6,6 @@ Installing ROS 2 via RPM Packages
    :local:
 
 RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
-Most people will want to use a stable ROS distribution.
 
 Resources
 ---------

@@ -19,8 +19,6 @@ System Requirements
 -------------------
 
 We currently support RHEL 8 64-bit.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-Most people will want to use a stable ROS distribution.
 
 Enable required repositories
 ----------------------------
@@ -45,9 +43,7 @@ There are a few packages that must be installed in order to get and unpack the b
 Downloading ROS 2
 -----------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
-
+* Go to the `releases page <https://github.com/ros2/ros2/releases>`_
 * Download the latest package for RHEL; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.

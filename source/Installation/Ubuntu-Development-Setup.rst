@@ -71,7 +71,7 @@ Install development tools and ROS tools
      python3-vcstool \
      wget
 
-.. _Rolling_linux-dev-get-ros2-code:
+.. _linux-dev-get-ros2-code:
 
 Get ROS 2 code
 --------------
