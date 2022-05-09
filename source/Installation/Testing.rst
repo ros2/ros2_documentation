@@ -64,3 +64,55 @@ For Debian-based operating systems, you can install binary packages from the **r
       sudo apt dist-upgrade
 
 .. _Prerelease_binaries:
+<<<<<<< HEAD
+=======
+
+Fat binaries
+------------
+
+For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, and Windows.
+These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
+
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Latest-Development-Setup>` for your platform.
+
+2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
+
+3. Under the heading "Last Successful Artifacts" you should see a download link (e.g. for Windows, ``ros2-package-windows-AMD64.zip``).
+
+4. Download and extract the archive to your file system.
+
+5. To use the fat binary installation, source the ``setup.*`` file that can be found in the root of the archive.
+
+   .. tabs::
+
+     .. group-tab:: Ubuntu Linux and RHEL
+
+       .. code-block:: sh
+
+          source path/to/extracted/archive/setup.bash
+
+     .. group-tab:: Windows
+
+       .. code-block:: sh
+
+          call path\to\extracted\archive\setup.bat
+
+Docker
+------
+
+For Ubuntu Linux, there is also a nightly Docker image based on the nightly fat archive.
+
+1. Pull the Docker image:
+
+   .. code-block:: sh
+
+      docker pull osrf/ros2:nightly
+
+2. Start an interactive container:
+
+   .. code-block:: sh
+
+      docker run -it osrf/ros2:nightly
+
+For support on running GUI applications in Docker, take a look at the tutorial `User GUI's with Docker <https://wiki.ros.org/docker/Tutorials/GUI>`_ or the tool `rocker <https://github.com/osrf/rocker>`_.
+>>>>>>> fc3573c (we don't provide macOS nightly archives now (#2471))
