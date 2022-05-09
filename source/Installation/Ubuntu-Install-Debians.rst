@@ -27,14 +27,14 @@ Resources
 Set locale
 ----------
 
-.. include:: ../_Ubuntu-Set-Locale.rst
+.. include:: _Ubuntu-Set-Locale.rst
 
 .. _linux-install-debians-setup-sources:
 
 Setup Sources
 -------------
 
-.. include:: ../_Apt-Repositories.rst
+.. include:: _Apt-Repositories.rst
 
 .. _linux-install-debians-install-ros-2-packages:
 

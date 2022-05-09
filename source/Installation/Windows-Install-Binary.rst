@@ -20,7 +20,7 @@ Only Windows 10 is supported.
 
 .. _windows-install-binary-installing-prerequisites:
 
-.. include:: ../_Windows-Install-Prerequisites.rst
+.. include:: _Windows-Install-Prerequisites.rst
 
 Downloading ROS 2
 -----------------
@@ -111,17 +111,17 @@ Python installation may require modification to enable debugging symbols and deb
 
 * Click Modify.
 
-      .. image:: ../images/python_installation_modify.png
+      .. image:: images/python_installation_modify.png
          :width: 500 px
 
 * Click Next to go to **Advanced Options**.
 
-      .. image:: ../images/python_installation_next.png
+      .. image:: images/python_installation_next.png
          :width: 500 px
 
 * Make sure **Download debugging symbols** and **Download debug binaries** are checked.
 
-      .. image:: ../images/python_installation_enable_debug.png
+      .. image:: images/python_installation_enable_debug.png
          :width: 500 px
 
 * Click Install.

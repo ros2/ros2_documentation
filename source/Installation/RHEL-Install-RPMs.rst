@@ -23,7 +23,7 @@ Resources
 Set locale
 ----------
 
-.. include:: ../_RHEL-Set-Locale.rst
+.. include:: _RHEL-Set-Locale.rst
 
 .. _rhel-install-rpms-setup-sources:
 
