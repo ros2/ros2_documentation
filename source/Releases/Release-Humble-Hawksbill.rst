@@ -240,6 +240,21 @@ We can now start node containers and load components into them from frontend lau
 
 Related PR: `ros2/launch_ros#235 <https://github.com/ros2/launch_ros/pull/235>`_
 
+Parameter substitution
+""""""""""""""""""""""
+
+The new ``ParameterSubstitution`` lets you substitute the value of a parameter set previously in launch with the ``SetParameter`` action.
+For example,
+
+.. code-block:: xml
+
+   <launch>
+     <set_parameter name="foo" value="bar" />
+     <log message="Parameter foo has value $(param foo)" />
+   </launch>
+
+Related PR: `ros2/launch_ros#297 <https://github.com/ros2/launch_ros/pull/297>`_
+
 New actions
 """""""""""
 
