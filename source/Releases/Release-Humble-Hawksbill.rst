@@ -99,6 +99,14 @@ Check out the `package README for details and examples. <https://github.com/ros2
 
 Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_
 
+New actions
+"""""""""""
+
+* ``AppendEnvironmentVariable`` appends a value to an existing environment variable.
+  * Related PR: `ros2/launch#543 <https://github.com/ros2/launch/pull/543>`_
+* ``ResetLaunchConfigurations`` resets any configuration applied to the launch configuration.
+  * Related PR: `ros2/launch#515 <https://github.com/ros2/launch/pull/515>`_
+
 launch_ros
 ^^^^^^^^^^
 
@@ -187,6 +195,14 @@ We can now start node containers and load components into them from frontend lau
                    name: listener
 
 Related PR: `ros2/launch_ros#235 <https://github.com/ros2/launch_ros/pull/235>`_
+
+New actions
+"""""""""""
+
+* ``RosTimer`` acts like the launch ``TimerAction``, but uses a ROS clock (so it can use simulation time, for example).
+  * Related PRs: `ros2/launch_ros#244 <https://github.com/ros2/launch_ros/pull/244>`_ and `ros2/launch_ros#264 <https://github.com/ros2/launch_ros/pull/264>`_
+* ``SetParametersFromFile`` passes a ROS parameters file to all nodes in a launch file (including node components).
+  * Related PRs: `ros2/launch_ros#260 <https://github.com/ros2/launch_ros/pull/260>`_ and `ros2/launch_ros#281 <https://github.com/ros2/launch_ros/pull/281>`_
 
 SROS2 Security enclaves now support Certificate Revocation Lists
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
