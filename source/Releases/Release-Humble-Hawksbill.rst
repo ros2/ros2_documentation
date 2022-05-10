@@ -89,6 +89,16 @@ If you would like disable scoping for launch configurations and and environment 
 
 Related PR: `ros2/launch#601 <https://github.com/ros2/launch/pull/601>`_
 
+launch_pytest
+"""""""""""""
+
+We've added a new package, ``launch_pytest``, that acts as an alternative to ``launch_testing``.
+``launch_pytest`` is a simple pytest plugin that provides pytest fixtures to manage the lifetime of a launch service.
+
+Check out the `package README for details and examples. <https://github.com/ros2/launch/tree/master/launch_pytest>`_
+
+Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_
+
 launch_ros
 ^^^^^^^^^^
 
