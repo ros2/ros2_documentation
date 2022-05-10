@@ -99,6 +99,13 @@ Check out the `package README for details and examples. <https://github.com/ros2
 
 Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_
 
+Allow matching target actions with a callable
+"""""""""""""""""""""""""""""""""""""""""""""
+
+Event handlers that take a target action object to match can now also take a callable instead to do the matching.
+
+Related PR: `ros2/launch_ros#540 <https://github.com/ros2/launch/pull/540>`_
+
 New actions
 """""""""""
 
