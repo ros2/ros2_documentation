@@ -120,6 +120,29 @@ For example,
 
 Related PR: `ros2/launch#557 <https://github.com/ros2/launch/pull/557>`_
 
+Boolean substitutions
+"""""""""""""""""""""
+
+New substitutions ``NotSubstitution``, ``AndSubstitution``, and ``OrSubstitution`` provide a convenient way to perform logical operations, for example
+
+.. code-block:: xml
+
+   <launch>
+     <let name="p" value="true" />
+     <let name="q" value="false" />
+     <group if="$(or $(var p) $(var q))">
+       <log message="The first condition is true" />
+     </group>
+     <group unless="$(and $(var p) $(var q))">
+       <log message="The second condition is false" />
+     </group>
+     <group if="$(not $(var q))">
+       <log message="The third condition is true" />
+     </group>
+   </launch>
+
+Related PR: `ros2/launch#598 <https://github.com/ros2/launch/pull/598>`_
+
 New actions
 """""""""""
 
