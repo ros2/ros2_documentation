@@ -145,6 +145,49 @@ The corresponding parameter for the ``Node`` action in Python launch files is ``
 
 Related PRs: `ros2/launch_ros#249 <https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 <https://github.com/ros2/launch_ros/pull/253>`_.
 
+Frontend support for composable nodes
+"""""""""""""""""""""""""""""""""""""
+
+We can now start node containers and load components into them from frontend launch files, for example:
+
+.. tabs::
+
+   .. group-tab:: XML
+
+    .. code-block:: xml
+
+       <launch>
+         <node_container pkg="rclcpp_components" exec="component_container" name="my_container" namespace="">
+           <composable_node pkg="composition" plugin="composition::Talker" name="talker" />
+         </node_container>
+         <load_composable_node target="my_container">
+           <composable_node pkg="composition" plugin="composition::Listener" name="listener" />
+         </load_composable_node>
+       </launch>
+
+   .. group-tab:: YAML
+
+      .. code-block:: yaml
+
+         launch:
+           - node_container:
+               pkg: rclcpp_components
+               exec: component_container
+               name: my_container
+               namespace: ''
+               composable_node:
+                 - pkg: composition
+                   plugin: composition::Talker
+                   name: talker
+           - load_composable_node:
+               target: my_container
+               composable_node:
+                 - pkg: composition
+                   plugin: composition::Listener
+                   name: listener
+
+Related PR: `ros2/launch_ros#235 <https://github.com/ros2/launch_ros/pull/235>`_
+
 SROS2 Security enclaves now support Certificate Revocation Lists
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
