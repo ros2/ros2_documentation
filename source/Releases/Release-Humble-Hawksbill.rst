@@ -45,8 +45,55 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-``ros_args`` attribute & ``ros_arguments`` parameter for nodes in launch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+launch
+^^^^^^
+
+Scoping environment variables in group actions
+""""""""""""""""""""""""""""""""""""""""""""""
+
+Similar to launch configurations, now by default, the state of environment variables are scoped to group actions.
+
+For example, in the following launch files the executed processe will echo the value ``1`` (before Humble it would echo ``2``):
+
+.. tabs::
+
+   .. group-tab:: XML
+
+    .. code-block:: xml
+
+      <launch>
+        <set_env name="FOO" value="1" />
+        <group>
+          <set_env name="FOO" value="2" />
+        </group>
+        <executable cmd="echo $FOO" output="screen" shell="true" />
+      </launch>
+
+   .. group-tab:: Python
+
+      .. code-block:: python
+
+        import launch
+        import launch.actions
+
+        def generate_launch_description():
+            return launch.LaunchDescription([
+                launch.actions.SetEnvironmentVariable(name='FOO', value='1'),
+                launch.actions.GroupAction([
+                    launch.actions.SetEnvironmentVariable(name='FOO', value='2'),
+                ]),
+                launch.actions.ExecuteProcess(cmd=['echo', '$FOO'], output='screen', shell=True),
+            ])
+
+If you would like disable scoping for launch configurations and and environment variables you can set the ``scoped`` argument (or attribute) to false.
+
+Related PR: `ros2/launch#601 <https://github.com/ros2/launch/pull/601>`_
+
+launch_ros
+^^^^^^^^^^
+
+Passing ROS arguments to node actions
+"""""""""""""""""""""""""""""""""""""
 
 It is now possible to provide `ROS-specific node arguments <../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
