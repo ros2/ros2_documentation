@@ -28,7 +28,8 @@ The ROS build farms perform several different jobs.
 For each job type you will find a detailed description of what they do and how they work:
 
 * `release jobs`_ generate binary packages, e.g., debian packages
-* `devel jobs`_ build and test ROS packages within a single repository
+* `devel jobs`_ build and test ROS packages within a single repository on a polling basis
+* `pull_request jobs`_ build and test ROS packages within a single repository triggered by webhooks
 * `CI jobs`_ build and test ROS packages across repositories with the option of using artifacts
   from other CI jobs to speed up the build
 * `doc jobs`_ generate the API documentation of packages and extract information from the manifests
@@ -54,6 +55,9 @@ The names of the jobs encode their type and purpose: [1]_
 * devel jobs:
 
    * ``{distro}dev__{package}__{platform}`` perform a CI build for the releasing branch
+
+* pull_request jobs
+
    * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
 
    For instance, the PR job for rclcpp on ROS 2 Galactic (running on Ubuntu Focal amd64) is named ``Gpr__rclcpp__ubuntu_focal_amd64``.
@@ -63,8 +67,8 @@ Execution
 
 Execution of the jobs depends on the type of the job:
 
-* `devel jobs`_ will be triggered every time a commit is done to the respective branch or to the
-  respective pull request of the upstream [2]_ repository
+* `devel jobs`_ will be triggered every time a commit is done to the respective branch polling based on a configured frequency.
+* `pull_request jobs`_ will be triggered by webhooks from respective pull request of the upstream [2]_ repository
 * `release jobs`_ will be triggered once every time a new package version is released, i.e. a new
   rosdistro_ pull request was accepted for this package. The source jobs are triggered by a version
   change in the rosdistro distribution file, the binary jobs are triggered by their source counterpart.
@@ -133,6 +137,8 @@ The following links provide more details and insights into the build farms:
 .. _`release jobs`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/release_jobs.rst
 .. _`devel jobs`:
+   https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/devel_jobs.rst
+.. _`pull_request jobs`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/devel_jobs.rst
 .. _`CI jobs`:
    https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/jobs/ci_jobs.rst
