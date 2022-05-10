@@ -104,7 +104,21 @@ Allow matching target actions with a callable
 
 Event handlers that take a target action object to match can now also take a callable instead to do the matching.
 
-Related PR: `ros2/launch_ros#540 <https://github.com/ros2/launch/pull/540>`_
+Related PR: `ros2/launch#540 <https://github.com/ros2/launch/pull/540>`_
+
+Access to math module when evaluating Python expressions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Inside ``PythonExpression`` substitutions (``eval``) we can now use symbols from Python's math module.
+For example,
+
+.. code-block:: xml
+
+   <launch>
+     <log message="$(eval 'ceil(pi)')" />
+   </launch>
+
+Related PR: `ros2/launch#557 <https://github.com/ros2/launch/pull/557>`_
 
 New actions
 """""""""""
