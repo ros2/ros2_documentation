@@ -120,7 +120,10 @@ See the :doc:`ROS 2 Security <Concepts/About-Security>` article for additional d
 Related Content
 ^^^^^^^^^^^^^^^
 
+:ref:`See the ROS 2 citations <citation>` for more explanation of concepts and citable resources.
+
 For a brief video introduction to ROS 2, see this community contributed content:
 
 * `Getting started with ROS Part 1: Nodes, Parameters and Topics <https://youtu.be/46TPAKXBOF8>`_
 * `Getting started with ROS Part 2: Services and Actions <https://youtu.be/keZAJ83eEoM>`_
+
