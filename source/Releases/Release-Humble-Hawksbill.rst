@@ -242,6 +242,22 @@ And an example of how the type adapter can be used:
 To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_ examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
 For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
+``wait_for_all_acked`` method added to ``Publisher``
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This new method will block until all messages in the publisher queue are acked by the matching subscriptions or the specified timeout expires.
+It is only useful for reliable publishers, as in the case of best effort QoS there's no acking.
+Examples:
+
+.. code-block:: cpp
+  auto pub = node->create_publisher<std_msgs::msg::String>(...);
+  ...
+  pub->publish(my_msg);
+  ...
+  pub->wait_for_all_acked(); // or pub->wait_for_all_acked(timeout)
+
+For a more complete example, see `here <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function_with_wait_for_all_acked.cpp>`_.
+
 ``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` classes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -265,6 +281,20 @@ Now ``rclcpp`` uses the ``GuardCondition`` class wrapper around ``rcl_guard_cond
 Thus, this is a breaking change for downstream uses of ``NodeBaseInterface`` and ``NodeBase``.
 
 See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
+
+rclpy
+^^^^^
+
+Managed nodes
+"""""""""""""
+
+Lifecycle nodes support was added to rclpy.
+A complete demo can be found `here <https://github.com/ros2/demos/tree/humble/lifecycle_py>`_.
+
+``wait_for_all_acked`` method added to ``Publisher``
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Similar to the feature added to rclcpp.
 
 ros2cli
 ^^^^^^^
