@@ -250,13 +250,14 @@ It is only useful for reliable publishers, as in the case of best effort QoS the
 Examples:
 
 .. code-block:: cpp
-  auto pub = node->create_publisher<std_msgs::msg::String>(...);
-  ...
-  pub->publish(my_msg);
-  ...
-  pub->wait_for_all_acked(); // or pub->wait_for_all_acked(timeout)
 
-For a more complete example, see `here <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function_with_wait_for_all_acked.cpp>`_.
+    auto pub = node->create_publisher<std_msgs::msg::String>(...);
+    ...
+    pub->publish(my_msg);
+    ...
+    pub->wait_for_all_acked(); // or pub->wait_for_all_acked(timeout)
+
+For a more complete example, see `here <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function_with_wait_for_all_acked.cpp>`__.
 
 ``get_callback_groups`` method removed from ``NodeBase`` and ``Node`` classes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -289,7 +290,7 @@ Managed nodes
 """""""""""""
 
 Lifecycle nodes support was added to rclpy.
-A complete demo can be found `here <https://github.com/ros2/demos/tree/humble/lifecycle_py>`_.
+A complete demo can be found `here <https://github.com/ros2/demos/tree/humble/lifecycle_py>`__.
 
 ``wait_for_all_acked`` method added to ``Publisher``
 """"""""""""""""""""""""""""""""""""""""""""""""""""
