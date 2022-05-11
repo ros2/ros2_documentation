@@ -62,6 +62,9 @@ Rows in the table marked in green are the currently supported distributions.
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
 
+.. |humble| image:: Releases/humble-small.png
+   :alt: Humble logo
+
 .. |galactic| image:: Releases/galactic-small.png
    :alt: Galactic logo
 
@@ -94,7 +97,7 @@ Rows in the table marked in green are the currently supported distributions.
      - EOL date
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
-     -
+     - |humble|
      - May 2027
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
@@ -151,16 +154,14 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
 .. list-table::
    :class: future-distros
    :header-rows: 1
-   :widths: 25 30 20 25
+   :widths: 30 40 30
 
    * - Distro
      - Release date
-     - Supported for
-     - Planned changes
+     - Supported until
    * - :doc:`Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
      - May 2022
-     - TBD
-     - TBD
+     - May 2027
 
 
 The expectation is to release new ROS 2 distributions once per year.
