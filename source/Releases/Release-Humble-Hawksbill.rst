@@ -45,8 +45,117 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-``ros_args`` attribute & ``ros_arguments`` parameter for nodes in launch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+launch
+^^^^^^
+
+Scoping environment variables in group actions
+""""""""""""""""""""""""""""""""""""""""""""""
+
+Similar to launch configurations, now by default, the state of environment variables are scoped to group actions.
+
+For example, in the following launch files the executed processe will echo the value ``1`` (before Humble it would echo ``2``):
+
+.. tabs::
+
+   .. group-tab:: XML
+
+    .. code-block:: xml
+
+      <launch>
+        <set_env name="FOO" value="1" />
+        <group>
+          <set_env name="FOO" value="2" />
+        </group>
+        <executable cmd="echo $FOO" output="screen" shell="true" />
+      </launch>
+
+   .. group-tab:: Python
+
+      .. code-block:: python
+
+        import launch
+        import launch.actions
+
+        def generate_launch_description():
+            return launch.LaunchDescription([
+                launch.actions.SetEnvironmentVariable(name='FOO', value='1'),
+                launch.actions.GroupAction([
+                    launch.actions.SetEnvironmentVariable(name='FOO', value='2'),
+                ]),
+                launch.actions.ExecuteProcess(cmd=['echo', '$FOO'], output='screen', shell=True),
+            ])
+
+If you would like disable scoping for launch configurations and and environment variables you can set the ``scoped`` argument (or attribute) to false.
+
+Related PR: `ros2/launch#601 <https://github.com/ros2/launch/pull/601>`_
+
+launch_pytest
+"""""""""""""
+
+We've added a new package, ``launch_pytest``, that acts as an alternative to ``launch_testing``.
+``launch_pytest`` is a simple pytest plugin that provides pytest fixtures to manage the lifetime of a launch service.
+
+Check out the `package README for details and examples. <https://github.com/ros2/launch/tree/master/launch_pytest>`_
+
+Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_
+
+Allow matching target actions with a callable
+"""""""""""""""""""""""""""""""""""""""""""""
+
+Event handlers that take a target action object to match can now also take a callable instead to do the matching.
+
+Related PR: `ros2/launch#540 <https://github.com/ros2/launch/pull/540>`_
+
+Access to math module when evaluating Python expressions
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Inside ``PythonExpression`` substitutions (``eval``) we can now use symbols from Python's math module.
+For example,
+
+.. code-block:: xml
+
+   <launch>
+     <log message="$(eval 'ceil(pi)')" />
+   </launch>
+
+Related PR: `ros2/launch#557 <https://github.com/ros2/launch/pull/557>`_
+
+Boolean substitutions
+"""""""""""""""""""""
+
+New substitutions ``NotSubstitution``, ``AndSubstitution``, and ``OrSubstitution`` provide a convenient way to perform logical operations, for example
+
+.. code-block:: xml
+
+   <launch>
+     <let name="p" value="true" />
+     <let name="q" value="false" />
+     <group if="$(or $(var p) $(var q))">
+       <log message="The first condition is true" />
+     </group>
+     <group unless="$(and $(var p) $(var q))">
+       <log message="The second condition is false" />
+     </group>
+     <group if="$(not $(var q))">
+       <log message="The third condition is true" />
+     </group>
+   </launch>
+
+Related PR: `ros2/launch#598 <https://github.com/ros2/launch/pull/598>`_
+
+New actions
+"""""""""""
+
+* ``AppendEnvironmentVariable`` appends a value to an existing environment variable.
+  * Related PR: `ros2/launch#543 <https://github.com/ros2/launch/pull/543>`_
+* ``ResetLaunchConfigurations`` resets any configuration applied to the launch configuration.
+  * Related PR: `ros2/launch#515 <https://github.com/ros2/launch/pull/515>`_
+
+launch_ros
+^^^^^^^^^^
+
+Passing ROS arguments to node actions
+"""""""""""""""""""""""""""""""""""""
 
 It is now possible to provide `ROS-specific node arguments <../How-To-Guides/Node-arguments>` directly, without needing to use ``args`` with a leading ``--ros-args`` flag:
 
@@ -87,6 +196,72 @@ The corresponding parameter for the ``Node`` action in Python launch files is ``
       ])
 
 Related PRs: `ros2/launch_ros#249 <https://github.com/ros2/launch_ros/pull/249>`_ and `ros2/launch_ros#253 <https://github.com/ros2/launch_ros/pull/253>`_.
+
+Frontend support for composable nodes
+"""""""""""""""""""""""""""""""""""""
+
+We can now start node containers and load components into them from frontend launch files, for example:
+
+.. tabs::
+
+   .. group-tab:: XML
+
+    .. code-block:: xml
+
+       <launch>
+         <node_container pkg="rclcpp_components" exec="component_container" name="my_container" namespace="">
+           <composable_node pkg="composition" plugin="composition::Talker" name="talker" />
+         </node_container>
+         <load_composable_node target="my_container">
+           <composable_node pkg="composition" plugin="composition::Listener" name="listener" />
+         </load_composable_node>
+       </launch>
+
+   .. group-tab:: YAML
+
+      .. code-block:: yaml
+
+         launch:
+           - node_container:
+               pkg: rclcpp_components
+               exec: component_container
+               name: my_container
+               namespace: ''
+               composable_node:
+                 - pkg: composition
+                   plugin: composition::Talker
+                   name: talker
+           - load_composable_node:
+               target: my_container
+               composable_node:
+                 - pkg: composition
+                   plugin: composition::Listener
+                   name: listener
+
+Related PR: `ros2/launch_ros#235 <https://github.com/ros2/launch_ros/pull/235>`_
+
+Parameter substitution
+""""""""""""""""""""""
+
+The new ``ParameterSubstitution`` lets you substitute the value of a parameter set previously in launch with the ``SetParameter`` action.
+For example,
+
+.. code-block:: xml
+
+   <launch>
+     <set_parameter name="foo" value="bar" />
+     <log message="Parameter foo has value $(param foo)" />
+   </launch>
+
+Related PR: `ros2/launch_ros#297 <https://github.com/ros2/launch_ros/pull/297>`_
+
+New actions
+"""""""""""
+
+* ``RosTimer`` acts like the launch ``TimerAction``, but uses a ROS clock (so it can use simulation time, for example).
+  * Related PRs: `ros2/launch_ros#244 <https://github.com/ros2/launch_ros/pull/244>`_ and `ros2/launch_ros#264 <https://github.com/ros2/launch_ros/pull/264>`_
+* ``SetParametersFromFile`` passes a ROS parameters file to all nodes in a launch file (including node components).
+  * Related PRs: `ros2/launch_ros#260 <https://github.com/ros2/launch_ros/pull/260>`_ and `ros2/launch_ros#281 <https://github.com/ros2/launch_ros/pull/281>`_
 
 SROS2 Security enclaves now support Certificate Revocation Lists
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
