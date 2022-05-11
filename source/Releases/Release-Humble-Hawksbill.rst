@@ -40,7 +40,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-To come.
+`Install Humble Hawksbill <../../humble/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
