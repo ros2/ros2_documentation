@@ -318,7 +318,9 @@ These two additions will improve the ability to both visualize data in new ways 
 
 RViz will fully support texture rendering through the embedded format.
 
-To those familiar with ``mesh_resource``, ``resource_retriever`` should be familiar. This will allow the programmer to choose where they want to load data from, either a local file or a networked file. In the interest of being able to record all data in a rosbag, the ability to embed the texture image is included.
+To those familiar with ``mesh_resource``, ``resource_retriever`` should be familiar.
+This will allow the programmer to choose where they want to load data from, either a local file or a networked file.
+In the interest of being able to record all data in a rosbag, the ability to embed the texture image is included.
 
 **Meshes** were modified in a similar way to add the ability to embed a raw Mesh file for the purpose of recording and are modified in a similar way. The Meshfile message has two fields:
 
@@ -341,7 +343,9 @@ rmw
 ``struct`` type name suffix changed from ``_t`` to ``_s``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``.
+Aliases with ``_t`` suffixes remain in place.
+Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
 
 See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more details.
 
@@ -351,7 +355,9 @@ rcl
 ``struct`` type name suffix changed from ``_t`` to ``_s``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``. Aliases with ``_t`` suffixes remain in place. Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
+To avoid type name duplication errors between ``struct`` type names and their ``typedef``-ed aliases when generating code documentation, the suffix for all ``struct`` type names has been changed from ``_t`` to ``_s``.
+Aliases with ``_t`` suffixes remain in place.
+Thus, this change is a breaking change only for code that uses full ``struct`` type specifiers i.e. ``struct type_name_t``.
 
 See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more details.
 
@@ -487,7 +493,6 @@ The number of matching subscriptions to wait before starting publishing can be c
 .. code-block:: console
 
    ros2 topic pub -1 -w 3 /chatter std_msgs/msg/String "{data: 'foo'}"
-
 
 to wait for three matching subscriptions before starting to publish.
 
