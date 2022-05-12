@@ -590,7 +590,6 @@ rosbag2
 
 New playback and recording controls
 """""""""""""""""""""""""""""""""""
-`REP 2007 <https://ros.org/reps/rep-2007.html>`_
 
 Several pull requests have been added to enhance the user's control over playback of bags.
 Pull request `931 <https://github.com/ros2/rosbag2/pull/931>`_ adds the ability to specify a time stamp to begin playing from.
@@ -598,17 +597,17 @@ Due to pull request `789 <https://github.com/ros2/rosbag2/pull/789>`_ it is now 
 
 Relatedly, ``rosbag2`` has gained new ways for users to control playback as it is happening.
 Pull request `847 <https://github.com/ros2/rosbag2/pull/847>`_ adds keyboard controls for pausing, resuming, and playing the next message during playback from a terminal.
-It is also possible to start playback paused thanks to pull requests `905 <https://github.com/ros2/rosbag2/pull/905>`_ and `904 <https://github.com/ros2/rosbag2/pull/904,>`_ which makes it easy for the user to initiate playback and then step through messages, such as when debugging a pipeline.
+It is also possible to start playback paused thanks to pull requests `905 <https://github.com/ros2/rosbag2/pull/905>`_ and `904 <https://github.com/ros2/rosbag2/pull/904>`_, which makes it easy for the user to initiate playback and then step through messages, such as when debugging a pipeline.
 Pull request `836 <https://github.com/ros2/rosbag2/pull/836>`_ adds an interface for seeking within bags, allowing the user to move around within a bag during playback.
 
-Finally, a new snapshot mode has been added to recording in pull request `851 <https://github.com/ros2/rosbag2/pull/851.>`_
+Finally, a new snapshot mode has been added to recording in pull request `851 <https://github.com/ros2/rosbag2/pull/851>`_.
 This mode, useful for incident recording, allows recording to begin filling up buffers, but not begin writing data to disc until a service is called.
 
 Burst-mode playback
 """""""""""""""""""
 
 While the playback of data from a bag in real-time is the most well-known use case for bag files, there are situations where you want the data in the bag as fast as possible.
-With pull request `977 <https://github.com/ros2/rosbag2/pull/977,>`_ ``rosbag2`` has gained the ability to "burst" data from the bag.
+With pull request `977 <https://github.com/ros2/rosbag2/pull/977>`_, ``rosbag2`` has gained the ability to "burst" data from the bag.
 In burst mode, the data is played back as fast as possible.
 This is useful in applications such as machine learning.
 
