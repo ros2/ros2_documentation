@@ -41,7 +41,7 @@ This command sets an environment variable that persists over sessions:
 
 .. code-block:: bash
 
-   setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
+   setx /m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
@@ -83,7 +83,7 @@ Assuming you unpacked it to ``C:\opencv``, type the following on a Command Promp
 
 .. code-block:: bash
 
-   setx -m OpenCV_DIR C:\opencv
+   setx /m OpenCV_DIR C:\opencv
 
 Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries.
 You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
