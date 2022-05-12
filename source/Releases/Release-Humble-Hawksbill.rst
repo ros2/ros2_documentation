@@ -302,6 +302,40 @@ See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`_
 Relatedly, the ``--launch-prefix-filter`` command-line option was added to selectively add the prefix from ``--launch-prefix`` to executables.
 See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ for more information.
 
+``ros2 topic echo`` has a ``--flow-style`` argument
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This allows the user to force ``flow style`` for the YAML representation of data on a topic.
+Without this option, the output from ``ros2 topic echo /tf_static`` could look something like:
+
+.. code-block::
+
+  transforms:
+  - header:
+      stamp:
+        sec: 1651172841
+        nanosec: 433705575
+      frame_id: single_rrbot_link3
+    child_frame_id: single_rrbot_camera_link
+    transform:
+      translation:
+        x: 0.05
+        y: 0.0
+        z: 0.9
+      rotation:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        w: 1.0
+
+With this option, the output would look something like:
+
+.. code-block::
+
+  transforms: [{header: {stamp: {sec: 1651172841, nanosec: 433705575}, frame_id: single_rrbot_link3}, child_frame_id: single_rrbot_camera_link, transform: {translation: {x: 0.05, y: 0.0, z: 0.9}, rotation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}]
+
+See the `PyYAML documentation <https://pyyaml.docsforge.com/master/documentation/#dictionaries-without-nested-collections-are-not-dumped-correctly>`__ for more information.
+
 Changes since the Galactic release
 ----------------------------------
 
