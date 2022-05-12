@@ -1,13 +1,13 @@
 .. _ZeroCopyLoanedMessages:
 
-Zero Copy Loaned Messages
-=========================
+Disabling Zero Copy Loaned Messages
+===================================
 
 .. contents:: Contents
    :depth: 1
    :local:
 
-See the `Loaned Messages <https://design.ros2.org/articles/zero_copy.html>`__ article for details on ``ROS_DISABLE_LOANED_MESSAGES`` environment variable.
+See the `Loaned Messages <https://design.ros2.org/articles/zero_copy.html>`__ article for details on how loaned messages work.
 
 How to disable Loaned Messages
 ------------------------------

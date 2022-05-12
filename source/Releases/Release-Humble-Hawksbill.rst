@@ -370,6 +370,12 @@ Thus, this change is a breaking change only for code that uses full ``struct`` t
 
 See `ros2/rcl#932 <https://github.com/ros2/rcl/pull/932>`__ for more details.
 
+ROS_DISABLE_LOANED_MESSAGES environment variable added
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This environment variable can be used to disable loaned messages support, independently if the rmw supports them or not.
+For more details, see the guide :doc:`Disabling Zero Copy Loaned Messages <../How-To-Guides/Disabling-ZeroCopy-loaned-messages>`.
+
 rclcpp
 ^^^^^^
 
