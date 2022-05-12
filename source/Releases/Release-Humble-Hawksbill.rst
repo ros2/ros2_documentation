@@ -537,6 +537,13 @@ Thus, this is a breaking change for downstream uses of ``NodeBaseInterface`` and
 
 See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
 
+``sleep_until`` and ``sleep_for`` methods added to ``Clock``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Two new methods were added to allow sleeping on a particular clock in `ros2/rclcpp#1814 <https://github.com/ros2/rclcpp/pull/1814>`__ and `ros2/rclcpp#1828 <https://github.com/ros2/rclcpp/pull/1828>`__.
+``Clock::sleep_until`` will suspend the current thread until the clock reaches a particular time.
+``Clock::sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
+Both methods will wake early if the ``Context`` is shutdown.
+
 rclpy
 ^^^^^
 
