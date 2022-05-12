@@ -345,6 +345,15 @@ To avoid type name duplication errors between ``struct`` type names and their ``
 
 See `ros2/rmw#313 <https://github.com/ros2/rmw/pull/313>`__ for more details.
 
+rmw_connextdds
+^^^^^^^^^^^^^^
+
+Use Connext 6 by default
+""""""""""""""""""""""""
+
+By default, Humble Hawksbill uses Connext 6.0.1 as the DDS implementation for ``rmw_connextdds``.
+It is still possible to use Connext 5.3.1 with ``rmw_connextdds``, but it must be rebuilt from source.
+
 rcl
 ^^^
 
