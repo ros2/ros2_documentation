@@ -549,6 +549,13 @@ Previously, attempting to set a string like "off" to a parameter that was of str
 That's because ``ros2 param set`` interprets the command-line arguments as YAML, and YAML considers "off" to be a boolean type.
 As of https://github.com/ros2/ros2cli/pull/684 , ``ros2 param set`` now accepts the YAML escape sequence of "!!str off" to ensure that the value is considered a string.
 
+``ros2 pkg create`` can automatically generate a LICENSE file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+If the ``--license`` flag is passed to ``ros2 pkg create``, and the license is one of the known licenses, ``ros2 pkg create`` will now automatically generate a LICENSE file in the root of the package.
+For a list of known licenses, run ``ros2 pkg create --license ? <package_name>``.
+See the associated `pull request <https://github.com/ros2/ros2cli/pull/650>`__ for more information.
+
 robot_state_publisher
 ^^^^^^^^^^^^^^^^^^^^^
 
