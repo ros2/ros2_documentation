@@ -290,6 +290,18 @@ To learn more, see the `content_filtering <https://github.com/ros2/examples/blob
 
 Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
 
+ros2cli
+^^^^^^^
+
+``ros2 launch`` has a ``--launch-prefix`` argument
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This allows passing a prefix to all executables in a launch file, which is useful in many debugging situations.
+See the associated `pull request <https://github.com/ros2/launch_ros/pull/254>`__, as well as the :ref:`tutorial <launch-prefix-example>` for more information.
+
+Relatedly, the ``--launch-prefix-filter`` command-line option was added to selectively add the prefix from ``--launch-prefix`` to executables.
+See the `pull request <https://github.com/ros2/launch_ros/pull/261>`__ for more information.
+
 Changes since the Galactic release
 ----------------------------------
 
