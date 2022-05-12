@@ -275,6 +275,8 @@ group
    * ``clear_params`` attribute isn't available.
    * It doesn't accept ``remap`` nor ``param`` tags as children.
 
+.. _launch-prefix-example:
+
 Example
 ~~~~~~~
 
