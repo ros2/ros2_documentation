@@ -551,6 +551,13 @@ A complete demo can be found `here <https://github.com/ros2/demos/tree/humble/li
 
 Similar to the feature added to rclcpp.
 
+``sleep_until`` and ``sleep_for`` methods added to ``Clock``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Two new methods were added to allow sleeping on a particular clock in `ros2/rclpy#858 <https://github.com/ros2/rclpy/pull/858>`__ and `ros2/rclpy#864 <https://github.com/ros2/rclpy/pull/864>`__.
+``sleep_until`` will suspend the current thread until the clock reaches a particular time.
+``sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
+Both methods will wake early if the ``Context`` is shutdown.
+
 ros2cli
 ^^^^^^^
 
