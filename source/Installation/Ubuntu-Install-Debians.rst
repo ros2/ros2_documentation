@@ -53,6 +53,12 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
    sudo apt install ros-{DISTRO}-desktop
 
+Desktop-Full Install: ROS, RViz, demos, tutorials, simulation, perception.
+
+.. code-block:: bash
+
+   sudo apt install ros-{DISTRO}-desktop-full
+
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
@@ -75,6 +81,9 @@ Set up your environment by sourcing the following file.
 Try some examples
 -----------------
 
+Talker-listener
+^^^^^^^^^^^^^^^
+
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
@@ -94,6 +103,31 @@ In another terminal source the setup file and then run a Python ``listener``\ :
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
+
+Differential drive robot
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you installed ``ros-{DISTRO}-desktop-full`` above you can try some simulation examples.
+
+In one terminal, source the setup file and then launch a simulated differential drive robot:
+
+.. code-block:: bash
+
+   source /opt/ros/{DISTRO}/setup.bash
+   ros2 launch ros_ign_gazebo_demos diff_drive.launch.py
+
+The Gazebo simulator and RViz visualization should come up.
+
+In another terminal source the setup file and then send a command to a robot:
+
+.. code-block:: bash
+
+   source /opt/ros/{DISTRO}/setup.bash
+   ros2 topic pub /model/vehicle_blue/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.5}, angular: {z: 0.05}}"
+
+You should see the vehicle start moving, and its odometry be updated on RViz.
+This verifies that simulation and visualization are working properly.
+Hooray! You can try more simulation demos `here <https://github.com/gazebosim/ros_gz/tree/ros2/ros_ign_gazebo_demos>`__.
 
 Next steps after installing
 ---------------------------
