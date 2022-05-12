@@ -507,6 +507,22 @@ Similar to the feature added to rclcpp.
 ros2cli
 ^^^^^^^
 
+``ros2`` commands disable output buffering by default
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Prior to this release, running a command like:
+
+.. code-block::
+
+  ros2 echo /chatter | grep "Hello"
+
+would not print any data until the output buffer was full.
+Users could work around this by setting PYTHONUNBUFFERED=1, but that was not very user friendly.
+
+Instead, all ``ros2`` commands now do line-buffering by default, so commands like the above work as soon as a newline is printed.
+To disable this behavior and use default python buffering rules, use the option ``--use-python-default-buffering``.
+See the `original issue <https://github.com/ros2/ros2cli/issues/595>`__ and the `pull request <https://github.com/ros2/ros2cli/pull/659>`__ for more information.
+
 ``ros2 topic pub`` will wait for one matching subscription when using ``--times/--once/-1``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
