@@ -556,14 +556,14 @@ ros2cli
 ``ros2`` commands disable output buffering by default
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Prior to this release, running a command like:
+Prior to this release, running a command like
 
 .. code-block::
 
   ros2 echo /chatter | grep "Hello"
 
 would not print any data until the output buffer was full.
-Users could work around this by setting PYTHONUNBUFFERED=1, but that was not very user friendly.
+Users could work around this by setting ``PYTHONUNBUFFERED=1``, but that was not very user friendly.
 
 Instead, all ``ros2`` commands now do line-buffering by default, so commands like the above work as soon as a newline is printed.
 To disable this behavior and use default python buffering rules, use the option ``--use-python-default-buffering``.
