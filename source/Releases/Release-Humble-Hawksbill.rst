@@ -71,6 +71,7 @@ How to include the header:
 Where the header is installed to:
 
 .. code-block:: CMake
+
     ${CMAKE_INSTALL_PREFIX}/include/my_project/my_project/version.h
 
 launch
