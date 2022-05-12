@@ -36,7 +36,7 @@ The goal of the ROS 2 project is to adapt to these changes, leveraging what is g
 This site contains the documentation for ROS 2.
 If you are looking for ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
 
-If you use ROS 2 in your work, please see :ref:`citation` to cite ROS 2.
+If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to cite ROS 2.
 
 Getting started
 ---------------
