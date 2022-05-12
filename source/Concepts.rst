@@ -120,7 +120,7 @@ See the :doc:`ROS 2 Security <Concepts/About-Security>` article for additional d
 Related Content
 ^^^^^^^^^^^^^^^
 
-:ref:`See the ROS 2 citations <citation>` for more explanation of concepts and citable resources.
+:doc:`See the ROS 2 citations <Citations>` for more explanation of concepts and citable resources.
 
 For a brief video introduction to ROS 2, see this community contributed content:
 
