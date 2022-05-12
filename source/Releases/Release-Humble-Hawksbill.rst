@@ -336,6 +336,18 @@ With this option, the output would look something like:
 
 See the `PyYAML documentation <https://pyyaml.docsforge.com/master/documentation/#dictionaries-without-nested-collections-are-not-dumped-correctly>`__ for more information.
 
+``ros2 topic echo`` can filter data based on message contents
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This allows the user to only print out data on a topic that matches a certain Python expression.
+For instance, using the following argument will only print out string messages that start with 'foo':
+
+.. code-block::
+
+   ros2 topic echo --filter 'm.data.startswith("foo")` /chatter
+
+See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for more information.
+
 Changes since the Galactic release
 ----------------------------------
 
