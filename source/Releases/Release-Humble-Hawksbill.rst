@@ -319,7 +319,8 @@ These two additions will improve the ability to both visualize data in new ways 
 RViz will fully support texture rendering through the embedded format.
 
 To those familiar with ``mesh_resource``, ``resource_retriever`` should be familiar.
-This will allow the programmer to choose where they want to load data from, either a local file or a networked file. In the interest of being able to record all data in a rosbag, the ability to embed the texture image is included.
+This will allow the programmer to choose where they want to load data from, either a local file or a networked file.
+In the interest of being able to record all data in a rosbag, the ability to embed the texture image is included.
 
 **Meshes** were modified in a similar way to add the ability to embed a raw Mesh file for the purpose of recording and are modified in a similar way. The Meshfile message has two fields:
 
