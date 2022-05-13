@@ -674,6 +674,12 @@ See the associated `pull request <https://github.com/ros2/ros2cli/pull/650>`__ f
 robot_state_publisher
 ^^^^^^^^^^^^^^^^^^^^^
 
+Added ``frame_prefix`` parameter
+""""""""""""""""""""""""""""""""
+A new parameter ``frame_prefix`` was added in `ros/robot_state_publisher#159 <https://github.com/ros/robot_state_publisher/pull/159>`__.
+This parameter is a string which is prepended to all frame names published by ``robot_state_publisher``.
+Similar to ``tf_prefix`` in the original ``tf`` library in ROS 1, this parameter can be used to publish the same robot description multiple times with different frame names.
+
 Removal of deprecated ``use_tf_static`` parameter
 """""""""""""""""""""""""""""""""""""""""""""""""
 
