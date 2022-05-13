@@ -134,6 +134,41 @@ The launch files all do the following:
                           - name: use_intra_process_comms
                             value: 'true'
 
+However, containers can sometimes be launched by other launch files or from a commandline.
+In that case, you need to add your components to an existing container.
+For this, you may use ``LoadComposableNodes`` to load components into a given container.
+
+.. code-block:: python
+
+  # Example container
+  container = Node(
+      name='my_container',
+      package='rclcpp_components',
+      executable='component_container_isolated',
+      parameters=[configured_params],
+      output='screen')
+
+  # ...
+
+  # Nodes to launch
+  load_composable_nodes = LoadComposableNodes(
+      target_container='my_container',
+      composable_node_descriptions=[
+          ComposableNode(
+              package='nav2_controller',
+              plugin='nav2_controller::ControllerServer',
+              name='controller_server',
+              parameters=[configured_params]),
+          ComposableNode(
+              package='nav2_smoother',
+              plugin='nav2_smoother::SmootherServer',
+              name='smoother_server',
+              parameters=[configured_params])
+      ],
+  )
+
+  # ...
+
 Using the Launch files from the command-line
 --------------------------------------------
 
