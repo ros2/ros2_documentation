@@ -644,6 +644,19 @@ The CMake function ``rosidl_target_interfaces()`` has been deprecated, and now i
 Users wanting to use messages/services/actions in the same ROS package that generated them should instead call ``rosidl_get_typesupport_target()`` and then ``target_link_libraries()`` to make their targets depend on the returned typesupport target.
 See https://github.com/ros2/rosidl/pull/606 for more details, and https://github.com/ros2/demos/pull/529 for an example of using the new function.
 
+
+rviz2
+^^^^^
+
+Fixed some crashes, memory leaks and remove duplicate code between some other relevant improvements:
+
+  * `Efficiently handle 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
+
+  * `Adds the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__
+
+  * `Computed inertia with ignition-math <https://github.com/ros2/rviz/pull/751>`__
+
+
 geometry2
 ^^^^^^^^^
 
