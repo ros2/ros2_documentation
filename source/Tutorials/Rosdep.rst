@@ -68,18 +68,18 @@ We would search ``base.yaml`` for ``doxygen`` and come across:
 
 .. code-block:: yaml
 
-	doxygen:
-	  arch: [doxygen]
-	  debian: [doxygen]
-	  fedora: [doxygen]
-	  freebsd: [doxygen]
-	  gentoo: [app-doc/doxygen]
-	  macports: [doxygen]
-	  nixos: [doxygen]
-	  openembedded: [doxygen@meta-oe]
-	  opensuse: [doxygen]
-	  rhel: [doxygen]
-	  ubuntu: [doxygen]
+  doxygen:
+    arch: [doxygen]
+    debian: [doxygen]
+    fedora: [doxygen]
+    freebsd: [doxygen]
+    gentoo: [app-doc/doxygen]
+    macports: [doxygen]
+    nixos: [doxygen]
+    openembedded: [doxygen@meta-oe]
+    opensuse: [doxygen]
+    rhel: [doxygen]
+    ubuntu: [doxygen]
 
 That means our rosdep key is ``doxygen``, which would resolve to those various names in different operating system's package managers for installation.
 
