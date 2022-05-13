@@ -45,6 +45,35 @@ Installation
 New features in this ROS 2 release
 ----------------------------------
 
+
+ament_cmake_gen_version_h
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Generating a C/C++ header with version info
+"""""""""""""""""""""""""""""""""""""""""""
+A new CMake function to generate a header with the package version info was added to the `ament_cmake_gen_version_h` in `ament/ament_cmake#377 <https://github.com/ament/ament_cmake/pull/377>`__.
+Here's the simplest use case:
+
+.. code-block:: CMake
+
+    project(my_project)
+    add_library(my_lib ...)
+    ament_generate_version_header(my_lib)
+
+It will generate a header with version info from the ``package.xml`` and make it available to targets that link against the ``my_lib`` library.
+
+How to include the header:
+
+.. code-block:: C
+
+    #include <my_project/version.h>
+
+Where the header is installed to:
+
+.. code-block:: CMake
+
+    ${CMAKE_INSTALL_PREFIX}/include/my_project/my_project/version.h
+
 launch
 ^^^^^^
 
