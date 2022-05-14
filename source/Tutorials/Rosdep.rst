@@ -113,11 +113,10 @@ A call for that would appear as the following, if in the root of the workspace w
 
 .. code-block:: bash
 
-    rosdep install --from-paths src -r -y --ignore-src
+    rosdep install --from-paths src -y --ignore-src
 
 Breaking that down:
 
 - ``--from-paths src`` specifies the path to check for ``package.xml`` files to resolve keys for
 - ``-y`` means to default yes to all prompts from the package manager to install without prompts
-- ``-r`` means to silently fail if a key is not available to continue installing other dependencies
 - ``--ignore-src`` means to ignore installing dependencies, even if a rosdep key exists, if the package itself is also in the workspace.
