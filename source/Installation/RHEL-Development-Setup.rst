@@ -91,7 +91,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-5.3.1 urdfdom_headers pydocstyle python3-mypy python3-babeltrace python3-lttng asio"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "asio fastcdr python3-babeltrace python3-mypy rti-connext-dds-5.3.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
