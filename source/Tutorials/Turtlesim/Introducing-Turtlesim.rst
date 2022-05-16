@@ -223,7 +223,7 @@ The values for **r**, **g** and **b**, between 0 and 255, will set the color of 
 To have turtle1 draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
 Don't forget to call the service after updating the values.
 
-If you return to the terminal where ``turtle_teleop_node`` is running and press the arrow keys, you will see turtle1’s pen has changed.
+If you return to the terminal where ``turtle_teleop_key`` is running and press the arrow keys, you will see turtle1’s pen has changed.
 
 .. image:: new_pen.png
 
