@@ -579,6 +579,16 @@ Two new methods were added to allow sleeping on a particular clock in `ros2/rclc
 ``Clock::sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
 Both methods will wake early if the ``Context`` is shutdown.
 
+rclcpp_lifecycle
+^^^^^^^^^^^^^^^^
+
+Active and deactivate transitions of publishers will be triggered automatically
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Before, users needed to override ``LifecylceNode::on_activate()`` and ``LifecylceNode::on_deactivate()`` and call the similarly named methods on ``LifecyclePublisher`` to make the transition actually happen.
+Now, ``LifecylceNode`` provides a default interface of these methods that already do this.
+See the implementation of the ``lifecycle_talker`` node `here <https://github.com/ros2/demos/tree/humble/lifecycle>`__.
+
 rclpy
 ^^^^^
 
