@@ -16,7 +16,7 @@ What is rosdep?
 It can be or is invoked when:
 
 - Building a workspace and needing appropriate dependencies to build the packages within
-- ``apt`` install packages (e.g. ``sudo apt install ros-rolling-nav2-simple-commander``) to check the dependencies needed for it to execute
+- ``apt`` install packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute
 - and more!
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
