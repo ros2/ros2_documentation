@@ -63,7 +63,7 @@ In general, there are two files of interest: ``rosdep/base.yaml`` and ``rosdep/p
 To find a key, search for your library in this file (preferably ctrl+F, its long) and find the name in ``yaml`` that contains it.
 This is the key to put in a ``package.xml`` file.
 
-For example, imagine a package had a dependency on ``doxygen`` because they're a great piece of software that cares about quality documentation (hint hint).
+For example, imagine a package had a dependency on ``doxygen`` because it is a great piece of software that cares about quality documentation (hint hint).
 We would search ``base.yaml`` for ``doxygen`` and come across:
 
 .. code-block:: yaml
