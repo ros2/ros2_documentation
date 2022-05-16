@@ -51,7 +51,7 @@ ament_cmake_gen_version_h
 
 Generating a C/C++ header with version info
 """""""""""""""""""""""""""""""""""""""""""
-A new CMake function to generate a header with the package version info was added to the `ament_cmake_gen_version_h` in `ament/ament_cmake#377 <https://github.com/ament/ament_cmake/pull/377>`__.
+A new CMake function to generate a header with the package version info was added to the ``ament_cmake_gen_version_h`` in `ament/ament_cmake#377 <https://github.com/ament/ament_cmake/pull/377>`__.
 Here's the simplest use case:
 
 .. code-block:: CMake
@@ -70,9 +70,9 @@ How to include the header:
 
 Where the header is installed to:
 
-.. code-block:: CMake
+.. code-block:: cmake
 
-    ${CMAKE_INSTALL_PREFIX}/include/my_project/my_project/version.h
+    set(VERSION_HEADER ${CMAKE_INSTALL_PREFIX}/include/my_project/my_project/version.h)
 
 launch
 ^^^^^^
