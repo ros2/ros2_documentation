@@ -3,15 +3,8 @@ Alternatives
 
 A list of alternative ways to install ROS 2 – whether it's by building from source or installing a binary.
 
-* Ubuntu
-
-* Windows
-
-* RHEL
-
 .. toctree::
-   :hidden:
-   :glob:
+   :maxdepth: 1
 
    Alternatives/Ubuntu-Development-Setup
    Alternatives/Ubuntu-Install-Binary
