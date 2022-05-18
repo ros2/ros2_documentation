@@ -1,9 +1,10 @@
 .. redirect-from::
 
   Installation/OSX-Install-Binary
+  Installation/macOS-Install-Binary
 
-Installing ROS 2 on macOS
-=========================
+macOS (binary)
+==============
 
 .. contents:: Table of Contents
    :depth: 2
@@ -147,7 +148,7 @@ Downloading ROS 2
 Install additional DDS implementations (optional)
 -------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, eProsima's Fast RTPS, you can find instructions `here <../DDS-Implementations>`.
 
 Environment setup
 -----------------
@@ -189,7 +190,7 @@ The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the 
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast-RTPS``, but the middleware (RMW) can be replaced at runtime.
-See the `guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the `guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------

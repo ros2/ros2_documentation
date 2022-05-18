@@ -36,7 +36,7 @@ Since many of the operations done in the demo to optimize performance or OS-spec
 
 Also this must be built from source using a the static DDS API. **Currently the only supported implementation is Connext**.
 
-First, follow the instructions to build ROS 2 `from source <../Installation/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
+First, follow the instructions to build ROS 2 `from source <../Installation/Alternatives/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
 
 Run the tests
 ^^^^^^^^^^^^^
