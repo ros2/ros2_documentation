@@ -1,5 +1,5 @@
-Installing DDS implementations
-==============================
+DDS implementations
+===================
 
 By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
 It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
