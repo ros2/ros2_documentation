@@ -717,9 +717,15 @@ Fixed some crashes, memory leaks and remove duplicate code between some other re
 
   * `Efficiently handle 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
 
-  * `Adds the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__
-
   * `Computed inertia with ignition-math <https://github.com/ros2/rviz/pull/751>`__
+
+  * `Adds the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__. Now we can create a gradient pull from a texture map instead of the default grayscale. This will enable complex coloring of markers.
+
+  .. image:: images/triangle_marker_with_gradient.png
+
+  * Visualize Inertia and mass
+
+  .. image:: images/rviz_mass_inertia.png
 
 
 geometry2
