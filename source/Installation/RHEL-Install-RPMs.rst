@@ -111,12 +111,12 @@ Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshooting
 ---------------
 
-Troubleshooting techniques can be found :doc:`here <../../How-To-Guides/Installation-Troubleshooting>`.
+Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
 
 Uninstall
 ---------
