@@ -1,5 +1,5 @@
-Installing Connext security plugins
-===================================
+Connext security plugins
+========================
 
 The Connext DDS Libraries are included with ROS 2 under a `non-commercial
 license <https://www.rti.com/ncl>`__ and do not include the security
