@@ -2,8 +2,8 @@
 
    Installation/Prerelease-Testing
 
-Alternative Installation Sources for Testing
-============================================
+Testing with pre-release binaries
+=================================
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :doc:`../Installation`.
@@ -71,7 +71,7 @@ Fat binaries
 For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Latest-Development-Setup>` for your platform.
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Alternatives/Latest-Development-Setup>` for your platform.
 
 2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
 
