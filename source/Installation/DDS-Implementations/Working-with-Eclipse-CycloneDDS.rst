@@ -2,8 +2,8 @@
 
     Working-with-Eclipse-CycloneDDS
 
-Working with Eclipse Cyclone DDS
-================================
+Eclipse Cyclone DDS
+===================
 
 Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.

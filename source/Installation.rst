@@ -10,15 +10,9 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    :hidden:
    :glob:
 
-   Installation/Ubuntu-Development-Setup
-   Installation/Ubuntu-Install-Binary
    Installation/Ubuntu-Install-Debians
-   Installation/macOS-Development-Setup
-   Installation/macOS-Install-Binary
-   Installation/Windows-Development-Setup
    Installation/Windows-Install-Binary
-   Installation/Fedora-Development-Setup
-   Installation/Latest-Development-Setup
+   Installation/Alternatives
    Installation/Maintaining-a-Source-Checkout
    Installation/Testing
    Installation/DDS-Implementations
@@ -33,10 +27,10 @@ We provide ROS 2 binary packages for the following platforms:
 
 * Ubuntu Linux - Focal Fossa (20.04)
 
- * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>`
- * :doc:`"fat" archive <Installation/Ubuntu-Install-Binary>`
+  * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)
+  * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* :doc:`macOS Mojave (10.14) <Installation/macOS-Install-Binary>`
+* :doc:`macOS Mojave (10.14) <Installation/Alternatives/macOS-Install-Binary>`
 * :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
 
 
@@ -48,9 +42,9 @@ Building from source
 We support building ROS 2 from source on the following platforms:
 
 
-* :doc:`Ubuntu Linux <Installation/Ubuntu-Development-Setup>`
-* :doc:`macOS <Installation/macOS-Development-Setup>`
-* :doc:`Windows <Installation/Windows-Development-Setup>`
+* :doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`
+* :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
+* :doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`
 
 
 Which install should you choose?
@@ -83,4 +77,4 @@ Building from source also gives you the option to install the absolute latest ve
 
 Contributing to ROS 2 core?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.
+If you plan to contribute directly to ROS 2 core packages, you can install the :doc:`latest development from source <Installation/Alternatives/Latest-Development-Setup>` which shares installation instructions with the :ref:`Rolling distribution <rolling_distribution>`.
