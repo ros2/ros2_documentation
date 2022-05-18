@@ -92,7 +92,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 liborocos-kdl-dev pydocstyle python3-babeltrace python3-lttng python3-mypy python3-pykdl rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 liborocos-kdl-dev python3-babeltrace python3-mypy python3-pykdl rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------

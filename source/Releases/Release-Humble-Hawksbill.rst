@@ -45,6 +45,35 @@ Installation
 New features in this ROS 2 release
 ----------------------------------
 
+
+ament_cmake_gen_version_h
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Generating a C/C++ header with version info
+"""""""""""""""""""""""""""""""""""""""""""
+A new CMake function to generate a header with the package version info was added to the ``ament_cmake_gen_version_h`` in `ament/ament_cmake#377 <https://github.com/ament/ament_cmake/pull/377>`__.
+Here's the simplest use case:
+
+.. code-block:: CMake
+
+    project(my_project)
+    add_library(my_lib ...)
+    ament_generate_version_header(my_lib)
+
+It will generate a header with version info from the ``package.xml`` and make it available to targets that link against the ``my_lib`` library.
+
+How to include the header:
+
+.. code-block:: C
+
+    #include <my_project/version.h>
+
+Where the header is installed to:
+
+.. code-block:: cmake
+
+    set(VERSION_HEADER ${CMAKE_INSTALL_PREFIX}/include/my_project/my_project/version.h)
+
 launch
 ^^^^^^
 
@@ -147,8 +176,11 @@ New actions
 """""""""""
 
 * ``AppendEnvironmentVariable`` appends a value to an existing environment variable.
+
   * Related PR: `ros2/launch#543 <https://github.com/ros2/launch/pull/543>`_
+
 * ``ResetLaunchConfigurations`` resets any configuration applied to the launch configuration.
+
   * Related PR: `ros2/launch#515 <https://github.com/ros2/launch/pull/515>`_
 
 launch_ros
@@ -259,8 +291,11 @@ New actions
 """""""""""
 
 * ``RosTimer`` acts like the launch ``TimerAction``, but uses a ROS clock (so it can use simulation time, for example).
+
   * Related PRs: `ros2/launch_ros#244 <https://github.com/ros2/launch_ros/pull/244>`_ and `ros2/launch_ros#264 <https://github.com/ros2/launch_ros/pull/264>`_
+
 * ``SetParametersFromFile`` passes a ROS parameters file to all nodes in a launch file (including node components).
+
   * Related PRs: `ros2/launch_ros#260 <https://github.com/ros2/launch_ros/pull/260>`_ and `ros2/launch_ros#281 <https://github.com/ros2/launch_ros/pull/281>`_
 
 SROS2 Security enclaves now support Certificate Revocation Lists
@@ -537,6 +572,23 @@ Thus, this is a breaking change for downstream uses of ``NodeBaseInterface`` and
 
 See `ros2/rclcpp#1612 <https://github.com/ros2/rclcpp/pull/1612>`__ for more details.
 
+``sleep_until`` and ``sleep_for`` methods added to ``Clock``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Two new methods were added to allow sleeping on a particular clock in `ros2/rclcpp#1814 <https://github.com/ros2/rclcpp/pull/1814>`__ and `ros2/rclcpp#1828 <https://github.com/ros2/rclcpp/pull/1828>`__.
+``Clock::sleep_until`` will suspend the current thread until the clock reaches a particular time.
+``Clock::sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
+Both methods will wake early if the ``Context`` is shutdown.
+
+rclcpp_lifecycle
+^^^^^^^^^^^^^^^^
+
+Active and deactivate transitions of publishers will be triggered automatically
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Before, users needed to override ``LifecylceNode::on_activate()`` and ``LifecylceNode::on_deactivate()`` and call the similarly named methods on ``LifecyclePublisher`` to make the transition actually happen.
+Now, ``LifecylceNode`` provides a default interface of these methods that already do this.
+See the implementation of the ``lifecycle_talker`` node `here <https://github.com/ros2/demos/tree/humble/lifecycle>`__.
+
 rclpy
 ^^^^^
 
@@ -550,6 +602,13 @@ A complete demo can be found `here <https://github.com/ros2/demos/tree/humble/li
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
 Similar to the feature added to rclcpp.
+
+``sleep_until`` and ``sleep_for`` methods added to ``Clock``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Two new methods were added to allow sleeping on a particular clock in `ros2/rclpy#858 <https://github.com/ros2/rclpy/pull/858>`__ and `ros2/rclpy#864 <https://github.com/ros2/rclpy/pull/864>`__.
+``sleep_until`` will suspend the current thread until the clock reaches a particular time.
+``sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
+Both methods will wake early if the ``Context`` is shutdown.
 
 ros2cli
 ^^^^^^^
@@ -624,6 +683,12 @@ See the associated `pull request <https://github.com/ros2/ros2cli/pull/650>`__ f
 
 robot_state_publisher
 ^^^^^^^^^^^^^^^^^^^^^
+
+Added ``frame_prefix`` parameter
+""""""""""""""""""""""""""""""""
+A new parameter ``frame_prefix`` was added in `ros/robot_state_publisher#159 <https://github.com/ros/robot_state_publisher/pull/159>`__.
+This parameter is a string which is prepended to all frame names published by ``robot_state_publisher``.
+Similar to ``tf_prefix`` in the original ``tf`` library in ROS 1, this parameter can be used to publish the same robot description multiple times with different frame names.
 
 Removal of deprecated ``use_tf_static`` parameter
 """""""""""""""""""""""""""""""""""""""""""""""""
