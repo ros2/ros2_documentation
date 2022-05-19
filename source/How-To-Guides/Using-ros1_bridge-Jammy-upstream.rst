@@ -19,22 +19,22 @@ Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debi
 The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflicts with that in the ROS 2 package repository.
 
 If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.
-The error will be: 
+The error will be:
 
 .. code-block:: bash
-$ apt install ros-core-dev
-Reading package lists... Done
-Building dependency tree... Done
-Reading state information... Done
-Some packages could not be installed. This may mean that you have
-requested an impossible situation or if you are using the unstable
-distribution that some required packages have not yet been created
-or been moved out of Incoming.
-The following information may help to resolve the situation:
+  $ apt install ros-core-dev
+  Reading package lists... Done
+  Building dependency tree... Done
+  Reading state information... Done
+  Some packages could not be installed. This may mean that you have
+  requested an impossible situation or if you are using the unstable
+  distribution that some required packages have not yet been created
+  or been moved out of Incoming.
+  The following information may help to resolve the situation:
 
-The following packages have unmet dependencies:
- ros-core-dev : Depends: catkin but it is not installable
-E: Unable to correct problems, you have held broken packages.
+  The following packages have unmet dependencies:
+   ros-core-dev : Depends: catkin but it is not installable
+  E: Unable to correct problems, you have held broken packages.
 .. _ros1-bridge-apt-error:
 
 To correct this, remove packages.ros.org from your ``sources.list``.
