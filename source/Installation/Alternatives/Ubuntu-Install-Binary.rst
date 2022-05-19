@@ -61,6 +61,8 @@ Installing and initializing rosdep
 Installing the missing dependencies
 -----------------------------------
 
+.. include:: ../_Apt-Upgrade-Admonition.rst
+
 Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
