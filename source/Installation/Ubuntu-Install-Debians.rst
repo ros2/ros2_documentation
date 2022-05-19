@@ -49,6 +49,13 @@ Update your apt repository caches after setting up the repositories.
 
 .. include:: _Apt-Upgrade-Admonition.rst
 
+.. warning::
+
+   Due to early updates in Ubuntu 22.04 it is important that ``systemd`` and ``udev``-related packages are updated before installing ROS 2.
+   The installation of ROS 2's dependencies on a freshly installed system without upgrading can trigger the **removal of critical system packages**.
+
+   (Refer to `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_, `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_)
+
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
