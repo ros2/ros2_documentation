@@ -816,7 +816,7 @@ Known Issues
 ------------
 
 When installing ROS 2 on an Ubuntu 22.04 Jammy host it is important to update your system before installing ROS 2 packages.
-It is _particularly_ important to make sure that `systemd` and `udev` are updated to the latest available version otherwise installing `ros-humble-desktop`, which depends on `libudev1` could cause the removal of system critical packages. `1272 <https://github.com/ros2/ros2/issues/1272>`_
+It is *particularly* important to make sure that `systemd` and `udev` are updated to the latest available version otherwise installing `ros-humble-desktop`, which depends on `libudev1` could cause the removal of system critical packages. `1272 <https://github.com/ros2/ros2/issues/1272>`_
 
 Release Timeline
 ----------------
