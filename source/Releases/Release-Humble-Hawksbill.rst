@@ -717,7 +717,7 @@ We've added `the ability to apply textures defined via URI to arbitrary triangle
 Now we can create a gradient pull from a texture map instead of the default grayscale.
 This will enable complex coloring of markers. To use this, you should use the
 ``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
-You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__
+You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__.
 
 .. image:: images/triangle_marker_with_gradient.png
 
