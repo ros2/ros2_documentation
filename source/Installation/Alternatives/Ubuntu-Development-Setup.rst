@@ -91,6 +91,8 @@ Create a workspace and clone all repos:
 Install dependencies using rosdep
 ---------------------------------
 
+.. include:: ../_Apt-Upgrade-Admonition.rst
+
 .. code-block:: bash
 
    sudo rosdep init
