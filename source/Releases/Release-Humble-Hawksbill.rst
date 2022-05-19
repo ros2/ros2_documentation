@@ -713,19 +713,23 @@ See https://github.com/ros2/rosidl/pull/606 for more details, and https://github
 rviz2
 ^^^^^
 
-Fixed some crashes, memory leaks and remove duplicate code between some other relevant improvements:
+We've added `the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__
+Now we can create a gradient pull from a texture map instead of the default grayscale.
+This will enable complex coloring of markers. To use this, you should use the
+``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
+You can find more information `here <https://github.com/ros2/common_interfaces/pull/153/files>`__
 
-  * `Efficiently handle 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
+.. image:: images/triangle_marker_with_gradient.png
 
-  * `Computed inertia with ignition-math <https://github.com/ros2/rviz/pull/751>`__
+We also added the ability to visualize inertias. To do this, you select enable 'Inertia' in the 'Mass Properties' under the robot model:
 
-  * `Adds the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__. Now we can create a gradient pull from a texture map instead of the default grayscale. This will enable complex coloring of markers.
+.. image:: images/rviz_mass_inertia.png
 
-  .. image:: images/triangle_marker_with_gradient.png
+You can see an image of an inertia below.
 
-  * Visualize Inertia and mass
+.. image:: images/tb4_inertia.png
 
-  .. image:: images/rviz_mass_inertia.png
+Some smaller changes are that we've `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`_ and have `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`_.
 
 
 geometry2
