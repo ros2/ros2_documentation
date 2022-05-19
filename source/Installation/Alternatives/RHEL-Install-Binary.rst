@@ -74,6 +74,13 @@ Installing and initializing rosdep
 Installing the missing dependencies
 -----------------------------------
 
+ROS 2 binary archives are built on frequently updated RHEL systems.
+It is always recommended that you ensure your system is up to date before installing new packages.
+
+.. code-block:: bash
+
+   sudo dnf update
+
 Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
