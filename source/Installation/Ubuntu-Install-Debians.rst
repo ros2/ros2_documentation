@@ -47,12 +47,7 @@ Update your apt repository caches after setting up the repositories.
 
    sudo apt update
 
-ROS 2 packages are built on frequently updated Ubuntu systems.
-It is always recommended that you ensure your system is up to date before installing new packages.
-
-.. code-block:: bash
-
-   sudo apt upgrade
+.. include:: _Apt-Upgrade-Admonishment.rst
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
