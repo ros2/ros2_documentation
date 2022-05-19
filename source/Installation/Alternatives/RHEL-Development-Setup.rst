@@ -92,6 +92,8 @@ Create a workspace and clone all repos:
 Install dependencies using rosdep
 ---------------------------------
 
+.. include:: ../_Dnf-Update-Admonition.rst
+
 .. code-block:: bash
 
    sudo rosdep init
