@@ -4,19 +4,18 @@ Managing Dependencies W/ rosdep
 ===============================
 
 Author: Steve Macenski
-Last edited: May 13, 2022
 
 This tutorial will explain how to manage external dependencies using ``rosdep``.
-``rosdep`` is ROS's dependency management utility that can work with ROS packages and external libraries.
 
 What is rosdep?
 ---------------
 
+``rosdep`` is ROS's dependency management utility that can work with ROS packages and external libraries.
 ``rosdep`` is a command-line utility for identifying and installing dependencies to build or install a package.
 It can be or is invoked when:
 
 - Building a workspace and needing appropriate dependencies to build the packages within
-- ``apt`` install packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute
+- Install packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute
 - and more!
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
@@ -120,3 +119,6 @@ Breaking that down:
 - ``--from-paths src`` specifies the path to check for ``package.xml`` files to resolve keys for
 - ``-y`` means to default yes to all prompts from the package manager to install without prompts
 - ``--ignore-src`` means to ignore installing dependencies, even if a rosdep key exists, if the package itself is also in the workspace.
+
+There are additional arguments and options available.
+Use ``rosdep -h`` to see them.
