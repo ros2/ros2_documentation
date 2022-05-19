@@ -47,7 +47,7 @@ Update your apt repository caches after setting up the repositories.
 
    sudo apt update
 
-.. include:: _Apt-Upgrade-Admonishment.rst
+.. include:: _Apt-Upgrade-Admonition.rst
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 

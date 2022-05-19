@@ -74,7 +74,7 @@ Installing and initializing rosdep
 Installing the missing dependencies
 -----------------------------------
 
-.. include:: _Dnf-Update-Admonition.rst
+.. include:: ../_Dnf-Update-Admonition.rst
 
 Set your rosdistro according to the release you downloaded.
 
