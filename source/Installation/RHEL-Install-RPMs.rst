@@ -54,6 +54,8 @@ DNF may prompt you to verify the GPG key, which should match the location ``http
 Install ROS 2 packages
 ----------------------
 
+.. include:: _Dnf-Update-Admonition.rst
+
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
