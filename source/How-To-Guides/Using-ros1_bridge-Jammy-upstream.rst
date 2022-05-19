@@ -5,25 +5,47 @@ Using ``ros1_bridge`` with upstream ROS on Ubuntu 22.04
    :depth: 1
    :local:
 
-The release of ROS 2 Humble on Ubuntu 22.04 Jammy Jellyfish marks the first ROS 2 release on a platform with no official ROS 1 release.
+The release of ROS 2 Humble (and Rolling) on Ubuntu 22.04 Jammy Jellyfish marks the first ROS 2 release on a platform with no official ROS 1 release.
 While ROS 1 Noetic will continue to be supported through the duration of its `long term support window <https://www.ros.org/reps/rep-0003.html#noetic-ninjemys-may-2020-may-2025>`__, it will only target Ubuntu 20.04.
 Alternatively, there are :doc:`upstream variants of ROS 1 packages <metapackages>` in Debian and Ubuntu that are not maintained as an official distribution by the ROS maintainers.
 
-This guide outlines the current mechanism for bridging ROS 2 Humble with these upstream packages on Ubuntu 22.04 Jammy Jellyfish.
-This provides a migration path for users who still depend on ROS 1, but desire moving to Humble/Jammy.
+This guide outlines the current mechanism for bridging ROS 2 releases with these upstream packages on Ubuntu 22.04 Jammy Jellyfish.
+This provides a migration path for users who still depend on ROS 1, but desire moving to newer ROS 2 and Ubuntu releases.
 
 ROS 2 via Debian packages
 -------------------------
 
-Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debians>` currently does not work for ROS 2 Humble on Ubuntu Jammy.
+Installing :doc:`ROS 2 from Debian packages <../Installation/Ubuntu-Install-Debians>` currently does not work for ROS 2 on Ubuntu Jammy.
 The version of ``catkin-pkg-modules`` available in the Ubuntu repository conflicts with that in the ROS 2 package repository.
+
+If the ROS 2 apt repository is in the available apt repositories (``/etc/apt/sources.list.d``), no ROS 1 packages will be installable.
+The error will be: 
+
+.. code-block:: bash
+$ apt install ros-core-dev
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+The following information may help to resolve the situation:
+
+The following packages have unmet dependencies:
+ ros-core-dev : Depends: catkin but it is not installable
+E: Unable to correct problems, you have held broken packages.
+.. _ros1-bridge-apt-error:
+
+To correct this, remove packages.ros.org from your ``sources.list``.
+If you were following the ROS 2 installation guide, tsimplem remove ``/etc/apt/sources.list.d/ros-2-latest.list``
 
 For now, to support ``ros1_bridge``, follow the instructions below for building ROS 2 from source.
 
 ROS 2 from source
 -----------------
 
-Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-Development-Setup` is the only configuration that works for ROS 2 Humble on Ubuntu Jammy.
+Installing :doc:`ROS 2 from Source <../Installation/Alternatives/Ubuntu-Development-Setup` is the only configuration that works for ROS 2 on Ubuntu Jammy.
 
 Below is a summary of the necessary instructions from the source build instructions.
 The substantial deviation is that we skip using the ROS 2 apt repositories because of conflicting packages.
@@ -63,7 +85,7 @@ Since we aren't using the ROS 2 apt repositories, ``colcon`` must be installed v
 .. _linux-dev-get-ros2-code:
 
 
-From here, continue with the source install guide to build ROS 2 Humble.
+From here, continue with the source install guide to build ROS 2.
 
 Install ROS 1 from Ubuntu packages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
