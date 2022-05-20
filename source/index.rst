@@ -14,6 +14,7 @@ ROS 2 Documentation
    Tutorials
    How-To-Guides
    Concepts
+   API Documentation <https://docs.ros.org/en/{DISTRO}/p>
    Contributing
    Contact
    ROSCon-Content
