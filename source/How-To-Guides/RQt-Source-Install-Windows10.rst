@@ -26,7 +26,7 @@ Dependencies
 
 The primary dependencies of the RQt package are sip and PyQt5.
 PySide2 may be supported in the future.
-Even though they are provided through PyPi and chocolatey, you must install them by source to get compatible versions.
+Even though they are provided through PyPI and chocolatey, you must install them by source to get compatible versions.
 
 Install sip by source
 ^^^^^^^^^^^^^^^^^^^^^
