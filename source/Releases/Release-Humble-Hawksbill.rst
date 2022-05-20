@@ -610,6 +610,12 @@ Two new methods were added to allow sleeping on a particular clock in `ros2/rclp
 ``sleep_for`` will suspend the current thread until the clock advances a certain amount of time from when the method was called.
 Both methods will wake early if the ``Context`` is shutdown.
 
+ros1_bridge
+^^^^^^^^^^^
+
+Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
+More details about using ``ros1_bridge`` with Jammy packages are avilable in `the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst>`__.
+
 ros2cli
 ^^^^^^^
 
@@ -815,9 +821,12 @@ These topics will no longer be automatically added to the bag.
 Known Issues
 ------------
 
-When `installing ROS 2 on an Ubuntu 22.04 Jammy host <../../humble/Installation/Ubuntu-Install-Debians.html>`__ it is important to update your system before installing ROS 2 packages.
-It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
-Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
+* When `installing ROS 2 on an Ubuntu 22.04 Jammy host <../../humble/Installation/Ubuntu-Install-Debians.html>`__ it is important to update your system before installing ROS 2 packages.
+  It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
+  Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
+
+* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` document for more information.
+
 
 Release Timeline
 ----------------
