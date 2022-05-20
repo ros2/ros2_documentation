@@ -43,6 +43,11 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Topics-Services-Actions
    How-To-Guides/Using-Variants
    How-To-Guides/Using-ros2-param
+<<<<<<< HEAD
+=======
+   How-To-Guides/Using-ros1_bridge-Jammy-upstream
+   How-To-Guides/Disabling-ZeroCopy-loaned-messages
+>>>>>>> d3f12f5 (Add instructions for using ros1_bridge with Jammy (#2594) (#2608))
    How-To-Guides/Installing-on-Raspberry-Pi
 
 .. toctree::
