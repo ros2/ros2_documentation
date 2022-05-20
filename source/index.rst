@@ -124,7 +124,7 @@ Other ROS resources
 
 * `ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)
 
-  - Indexed list of all packages (i.e. `Python Package Index (PyPi) <https://pypi.org/>`_ for ROS packages)
+  - Indexed list of all packages (i.e. `Python Package Index (PyPI) <https://pypi.org/>`_ for ROS packages)
   - See which ROS distributions a package supports
   - Link to a package's repository, API documentation, or website
   - Inspect a package's license, build type, maintainers, status, and dependencies
