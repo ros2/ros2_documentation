@@ -800,6 +800,21 @@ With pull request `977 <https://github.com/ros2/rosbag2/pull/977>`_, ``rosbag2``
 In burst mode, the data is played back as fast as possible.
 This is useful in applications such as machine learning.
 
+Zero-Copy playback
+""""""""""""""""""
+
+By default, if loaned message can be used, playback messages are published as loaned message.
+This can help to reduce the number of data copies, so there is a greater benefit for sending big data.
+Pull request `981 <https://github.com/ros2/rosbag2/pull/981>`_ adds ``--disable-loan-message`` option for playback.
+
+Wait for an acknowledgment
+""""""""""""""""""""""""""
+
+This new option will wait until all published messages are acknowledged by all subscribers or until the timeout elapses in millisecond before play is terminated.
+Especially for the case of sending message with big size in a short time.
+This option is valid only if the publisher's QOS profile is RELIABLE.
+Pull request `951 <https://github.com/ros2/rosbag2/pull/951>`_ adds ``--wait-for-all-acked`` option for playback.
+
 Bag editing
 """""""""""
 
