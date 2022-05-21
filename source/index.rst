@@ -159,3 +159,4 @@ Contributing
 
 We're always working to improve our documentation.
 You can help by submitting pull requests for fixes or issues for suggestions on `our GitHub repository <https://github.com/ros2/ros2_documentation>`__.
+See the :doc:`contribution guide <Contributing/Contributing-To-ROS-2-Documentation>`.
