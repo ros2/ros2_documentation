@@ -413,7 +413,7 @@ Visualize YUV images in RViz
 """"""""""""""""""""""""""""
 
 It is now possible to directly visualize YUV images inside of RViz, rather than having to convert to RGB first.
-See https://github.com/ros2/rviz/pull/701 for details.
+See `ros2/rviz#701 <https://github.com/ros2/rviz/pull/701>`__ for details.
 
 Allow rendering of objects > 100 meters
 """""""""""""""""""""""""""""""""""""""
@@ -423,7 +423,7 @@ A new configuration property called "Far Plane Distance" in the rviz camera plug
 
 .. image:: images/rviz2-far-plane-distance.png
 
-See https://github.com/ros2/rviz/pull/849 for more information.
+See `ros2/rviz#849 <https://github.com/ros2/rviz/pull/849>`__ for more information.
 
 Changes since the Galactic release
 ----------------------------------
