@@ -875,6 +875,10 @@ Known Issues
 
 * When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` document for more information.
 
+* Some major Linux distributions have started patching Python to install packages to ``/usr/local``, which is breaking some parts of ``ament_package`` and builds with ``colcon``.
+  In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.
+  There is currently a `proposed solution <https://github.com/colcon/colcon-core/pull/512>`_ which requires further testing before widespread release.
+
 
 Release Timeline
 ----------------
