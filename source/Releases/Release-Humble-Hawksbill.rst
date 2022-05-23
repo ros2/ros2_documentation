@@ -877,6 +877,10 @@ Known Issues
   In particular, using Ubuntu Jammy with ``setuptools`` installed from pip will manifest this misbehavior, and is therefore not recommended.
   There is currently a `proposed solution <https://github.com/colcon/colcon-core/pull/512>`_ which requires further testing before widespread release.
 
+* ROS 2 bags that are split by size or duration are not played correctly.
+  Only the last bag recorded is played.
+  It is recommended to avoid splitting bags by size or duration.
+  Details can be found in `ros2/rosbag2#966 <https://github.com/ros2/rosbag2/issues/966>`__.
 
 Release Timeline
 ----------------
