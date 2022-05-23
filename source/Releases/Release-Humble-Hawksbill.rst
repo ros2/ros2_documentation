@@ -434,7 +434,7 @@ Added ``PRISM`` type to SolidPrimitive
 """"""""""""""""""""""""""""""""""""""
 
 The ``SolidPrimitive`` message had a new ``PRISM`` type added, along with the appropriate metadata.
-See https://github.com/ros2/common_interfaces/pull/167 for more information.
+See `ros2/common_interfaces#167 <https://github.com/ros2/common_interfaces/pull/167>`_ for more information.
 
 rmw
 ^^^
