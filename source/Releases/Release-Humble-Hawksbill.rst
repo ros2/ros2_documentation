@@ -383,6 +383,38 @@ For instance, using the following argument will only print out string messages t
 
 See the `pull request <https://github.com/ros2/ros2cli/pull/654>`__ for more information.
 
+
+rviz2
+^^^^^
+
+Apply textures to arbitrary triangle lists
+""""""""""""""""""""""""""""""""""""""""""
+
+We've added `the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__.
+Now we can create a gradient pull from a texture map instead of the default grayscale.
+This will enable complex coloring of markers.
+To use this, you should use the ``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
+You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__.
+
+.. image:: images/triangle_marker_with_gradient.png
+
+Visualization of mass properties (including inertia)
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+We also added the ability to visualize inertias. To do this, you select enable 'Inertia' in the 'Mass Properties' under the robot model:
+
+.. image:: images/rviz_mass_inertia.png
+
+You can see an image of an inertia below.
+
+.. image:: images/tb4_inertia.png
+
+Visualize YUV images in RViz
+""""""""""""""""""""""""""""
+
+It is now possible to directly visualize YUV images inside of RViz, rather than having to convert to RGB first.
+See https://github.com/ros2/rviz/pull/701 for details.
+
 Changes since the Galactic release
 ----------------------------------
 
@@ -719,23 +751,8 @@ See https://github.com/ros2/rosidl/pull/606 for more details, and https://github
 rviz2
 ^^^^^
 
-We've added `the ability to apply textures defined via URI to arbitrary triangle lists using UV Coordinates <https://github.com/ros2/rviz/pull/719>`__.
-Now we can create a gradient pull from a texture map instead of the default grayscale.
-This will enable complex coloring of markers. To use this, you should use the
-``visualization_msgs/Marker.msg`` and fill the ``texture_resource``, ``texture``, ``uv_coordinates`` and ``mesh_file`` fields.
-You can find more information `here <https://github.com/ros2/common_interfaces/pull/153>`__.
-
-.. image:: images/triangle_marker_with_gradient.png
-
-We also added the ability to visualize inertias. To do this, you select enable 'Inertia' in the 'Mass Properties' under the robot model:
-
-.. image:: images/rviz_mass_inertia.png
-
-You can see an image of an inertia below.
-
-.. image:: images/tb4_inertia.png
-
-Some smaller changes are that we've `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__ and have `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
+* `improved the efficiency of 3-bytes pixel formats <https://github.com/ros2/rviz/pull/743>`__
+* `changed the way inertias are computed to use ignition math rather than Ogre's math libraries <https://github.com/ros2/rviz/pull/751>`__.
 
 
 geometry2
