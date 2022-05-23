@@ -50,7 +50,7 @@ The names of the jobs encode their type and purpose: [1]_
    * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
    * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
 
-   For instance, the binary packaging job of rclcpp on ROS 2 Galactic (running on Ubuntu Focal amd64) is named ``Gbin_uF64__rclcpp__ubuntu_focal_amd64__binary``.
+   For instance, the binary packaging job of rclcpp on ROS 2 Humble (running on Ubuntu Jammy amd64) is named ``Hbin_uJ64__rclcpp__ubuntu_focal_amd64__binary``.
 
 * devel jobs:
 
@@ -60,7 +60,7 @@ The names of the jobs encode their type and purpose: [1]_
 
    * ``{distro}pr__{package}__{platform}`` perform a CI build for a pull request
 
-   For instance, the PR job for rclcpp on ROS 2 Galactic (running on Ubuntu Focal amd64) is named ``Gpr__rclcpp__ubuntu_focal_amd64``.
+   For instance, the PR job for rclcpp on ROS 2 Humble (running on Ubuntu Jammy amd64) is named ``Hpr__rclcpp__ubuntu_jammy_amd64``.
 
 Execution
 .........

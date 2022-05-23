@@ -307,7 +307,7 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
     The maintainers must also perform general maintenance (bug fixes, etc.) on all branches from which package releases are still made.
 
     For example, if a feature is merged into the Rolling-specific branch (e.g. ``rolling`` or ``main``), and that feature is also appropriate
-    to the Galactic distribution (does not break API, etc.), then it is good practice to backport the feature to the Galactic-specific branch.
+    to the Humble distribution (does not break API, etc.), then it is good practice to backport the feature to the Humble-specific branch.
 
     The maintainers may make releases for those older distributions if there are new features or bug fixes available.
 
