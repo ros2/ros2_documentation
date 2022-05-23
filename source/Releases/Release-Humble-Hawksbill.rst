@@ -430,6 +430,12 @@ The embedded ``Meshfile`` message is not yet supported in implementation.
 
 Related PRs: `ros2/common_interfaces#153 <https://github.com/ros2/common_interfaces/pull/153>`_ `ros2/rviz#719 <https://github.com/ros2/rviz/pull/719>`_
 
+Added ``PRISM`` type to SolidPrimitive
+""""""""""""""""""""""""""""""""""""""
+
+The ``SolidPrimitive`` message had a new ``PRISM`` type added, along with the appropriate metadata.
+See https://github.com/ros2/common_interfaces/pull/167 for more information.
+
 rmw
 ^^^
 
