@@ -661,7 +661,6 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are avilable in `the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst>`__.
 
 ros2cli
 ^^^^^^^
@@ -872,7 +871,7 @@ Known Issues
   It is *particularly* important to make sure that ``systemd`` and ``udev`` are updated to the latest available version otherwise installing ``ros-humble-desktop``, which depends on ``libudev1``, could cause the removal of system critical packages.
   Details can be found in `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_
 
-* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.  See the :doc:`ros1_bridge on Ubuntu Jammy <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` document for more information.
+* When ROS 2 apt repositories are available, ROS 1 packages in Ubuntu are not installable.
 
 
 Release Timeline
