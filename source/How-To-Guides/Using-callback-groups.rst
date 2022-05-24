@@ -6,9 +6,9 @@ Using Callback Groups
 =====================
 
 When running a node in a Multi-Threaded Executor, ROS 2 offers callback
-groups as a tool for controlling the execution of different
-callbacks. This page is meant as a guide on how to use callback
-groups efficiently. It is assumed that the reader has a basic understanding
+groups as a tool for controlling the execution of different callbacks.
+This page is meant as a guide on how to use callback groups efficiently.
+It is assumed that the reader has a basic understanding
 about the concept of :doc:`executors <../Concepts/About-Executors>`.
 
 .. contents:: Table of Contents
@@ -25,7 +25,8 @@ execution of callbacks:
 * Reentrant Callback Group
 
 These callback groups restrict the execution of their callbacks in
-different ways. In short:
+different ways.
+In short:
 
 * Mutually Exclusive Callback Group prevents its callbacks from being
   executed in parallel - essentially making it as if the callbacks in the group
@@ -39,9 +40,9 @@ different ways. In short:
   be executed parallel to each other.
 
 It is also important to keep in mind that different ROS 2 entities relay
-their callback group to all callbacks they spawn. For example, if one
-assigns a callback group to an action client, all callbacks created by
-the client will be assigned to that callback group.
+their callback group to all callbacks they spawn.
+For example, if one assigns a callback group to an action client,
+all callbacks created by the client will be assigned to that callback group.
 
 Callback groups can be created by a node's ``create_callback_group``
 function in rclcpp and by calling the constructor of the group in rclpy.
@@ -80,8 +81,8 @@ About callbacks
 ^^^^^^^^^^^^^^^
 
 In the context of ROS 2 and executors, a callback means a function whose
-scheduling and execution is handled by an executor. Examples of
-callbacks in this context are
+scheduling and execution is handled by an executor.
+Examples of callbacks in this context are
 
 * subscription callbacks (receiving and handling data from a topic),
 * timer callbacks,
@@ -92,16 +93,18 @@ callbacks in this context are
 Below are a couple important points about callbacks that should be kept
 in mind when working with callback groups.
 
-* Almost everything in ROS 2 is a callback! Every function that is run
-  by an executor is, by definition, a callback. The non-callback functions
-  in a ROS 2 system are found mainly at the edge of the system (user and
-  sensor inputs etc).
+* Almost everything in ROS 2 is a callback!
+  Every function that is run by an executor is, by definition, a callback.
+  The non-callback functions in a ROS 2 system are found mainly at
+  the edge of the system (user and sensor inputs etc).
 * Sometimes the callbacks are hidden and their presence may not be obvious
-  from the user/developer API. This is the case especially with any kind of
-  “synchronous” call to a service or an action (in rclpy). For example, the
-  synchronous call ``Client.call(request)`` to a service adds a Future's
-  done-callback that needs to be executed during the execution of the
-  function call, but this callback is not directly visible to the user.
+  from the user/developer API.
+  This is the case especially with any kind of “synchronous” call to a
+  service or an action (in rclpy).
+  For example, the synchronous call ``Client.call(request)`` to a service
+  adds a Future's done-callback that needs to be executed during the
+  execution of the function call, but this callback is not directly
+  visible to the user.
 
 
 Controlling execution
@@ -111,20 +114,22 @@ In order to control execution with callback groups, one can consider the
 following guidelines.
 
 * Register callbacks that should never be executed in parallel ot the same
-  Mutually Exclusive Callback Group. An example case might be that the
-  callbacks are accessing shared critical and non-thread-safe resources.
+  Mutually Exclusive Callback Group.
+  An example case might be that the callbacks are accessing shared
+  critical and non-thread-safe resources.
 * If you have a callback whose execution instances need to be able to overlap
-  with each other, register it to a Reentrant Callback Group. An example case
-  could be an action server that needs to be able to process several action
-  calls in parallel to each other.
+  with each other, register it to a Reentrant Callback Group.
+  An example case could be an action server that needs to be able to process
+  several action calls in parallel to each other.
 * If you have different callbacks that require to be potentially executed
   in parallel to one another, register them to
 
   * a Reentrant Callback Group, or
   * different Mutually Exclusive Callback Groups (this option is good if you
     want the callbacks to not overlap themselves or also need thread
-    safety with respect to some other callbacks) or different callback
-    groups of any type (choose the types according to other criteria).
+    safety with respect to some other callbacks)
+    or different callback groups of any type (choose the types according
+    to other criteria).
 
 Note that the option in the list is a valid way of allowing parallel
 execution for different callbacks, and can even be more desirable than simply
@@ -135,24 +140,28 @@ Avoiding deadlocks
 
 Setting up callback groups of a node incorrectly can lead to deadlocks (or
 other unwanted behavior), especially if one desires to use synchronous calls to
-services or actions. Indeed, even the API documentation of ROS 2 mentions that
+services or actions.
+Indeed, even the API documentation of ROS 2 mentions that
 synchronous calls to actions or services should not be done in callbacks,
-because it can lead to deadlocks. While using asynchronous calls is indeed
-safer in this regard, synchronous calls can also be made to work.
+because it can lead to deadlocks.
+While using asynchronous calls is indeed safer in this regard, synchronous
+calls can also be made to work.
 On the other hand, synchronous calls also have their advantages, such as
-making the code simpler and easier to understand. Hence, this section provides
-some guidelines on how to set up a node's callback groups correctly in order to
-avoid deadlocks.
+making the code simpler and easier to understand.
+Hence, this section provides some guidelines on how to set up a node's
+callback groups correctly in order to avoid deadlocks.
 
 First thing to note here is that every node's default callback group is a
-Mutually Exclusive Callback Group. If the user does not specify any other
-callback group when creating a timer, subscription, client etc., any callbacks
-created then or later by these entities will use the node's default callback
-group. Furthermore, if everything in a node uses the same Mutually Exclusive
+Mutually Exclusive Callback Group.
+If the user does not specify any other callback group when creating a timer,
+subscription, client etc., any callbacks created then or later by these
+entities will use the node's default callback group.
+Furthermore, if everything in a node uses the same Mutually Exclusive
 Callback Group, that node essentially acts as if it was handled
-by a Single Threaded Executor, even if a multi-threaded one is specified! Thus,
-whenever one decides to use a Multi-Threaded Executor, some callback groups
-should always be specified in order for the executor choice to make sense.
+by a Single Threaded Executor, even if a multi-threaded one is specified!
+Thus, whenever one decides to use a Multi-Threaded Executor,
+some callback group(s) should always be specified in order for the
+executor choice to make sense.
 
 With the above in mind, here are a couple guidelines to help avoid deadlocks:
 
@@ -167,9 +176,9 @@ With the above in mind, here are a couple guidelines to help avoid deadlocks:
   result (or if you want to make absolutetly sure that there is never a
   possibility of a deadlock), use asynchronous calls.
 
-Failing the first point will always cause a deadlock. An example of such a
-case would be making a synchronous service call in a timer callback (see the
-next section for an example).
+Failing the first point will always cause a deadlock.
+An example of such a case would be making a synchronous service call
+in a timer callback (see the next section for an example).
 
 
 Examples
@@ -378,8 +387,8 @@ service calls:
           rclpy.shutdown()
 
 The client node's constructor contains options for setting the
-callback groups of the service client and the timer. With the
-default setting above (both being ``nullptr`` / ``None``),
+callback groups of the service client and the timer.
+With the default setting above (both being ``nullptr`` / ``None``),
 both the timer and the client will use the node's default
 Mutually Exclusive Callback Group.
 
@@ -420,20 +429,21 @@ using the same Mutually Exclusive Callback Group (the node's default).
 When the service call is made, the client then passes its callback
 group to the Future object (hidden inside the call-method in the
 Python version) whose done-callback needs to execute for the result
-of the service call to be available. But because this done-callback
-and the timer callback are in the same Mutually Exclusive group and
-the timer callback is still executing (waiting for the result of the
-service call), the done-callback never gets to execute. The stuck
-timer callback also blocks any other executions of itself, so the
+of the service call to be available.
+But because this done-callback and the timer callback are in the
+same Mutually Exclusive group and the timer callback is still
+executing (waiting for the result of the service call),
+the done-callback never gets to execute.
+The stuck timer callback also blocks any other executions of itself, so the
 timer does not fire for a second time.
 
 Solution
 ^^^^^^^^
 
 We can fix this easily - for example - by assigning the timer and client
-to different callback groups. So, let us change the first two lines
-of the client node's constructor to be as follows (everything else
-shall stay the same):
+to different callback groups.
+Thus, let us change the first two lines of the client node's constructor
+to be as follows (everything else shall stay the same):
 
 .. tabs::
 
@@ -483,9 +493,11 @@ each service call gets the result as it should:
       ^C[INFO] [1653034416.021962246] [service_node]: KeyboardInterrupt, shutting down.
 
 One might consider if just avoiding the node's default callback group
-is enough. This is not the case: replacing the default group by a
-different Mutually Exclusive group changes nothing. Thus, the
-following configuration also leads to the previously discovered deadlock.
+is enough.
+This is not the case: replacing the default group by a
+different Mutually Exclusive group changes nothing.
+Thus, the following configuration also leads to the previously
+discovered deadlock.
 
 .. tabs::
 
@@ -504,9 +516,10 @@ following configuration also leads to the previously discovered deadlock.
       timer_cb_group = client_cb_group
 
 In fact, the exact condition with which everything works in this case
-is that the timer and client must not belong to the same Mutually
-Exclusive group. Hence, all of the following configurations (and
-some others as well) produce the desired outcome where the timer fires
+is that the timer and client must not belong to the same
+Mutually Exclusive group.
+Hence, all of the following configurations (and some others as well)
+produce the desired outcome where the timer fires
 repeatedly and service calls are completed.
 
 .. tabs::
