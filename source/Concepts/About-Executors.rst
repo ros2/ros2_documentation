@@ -101,23 +101,36 @@ In case of a Multi-Threaded Executor, the actual parallelism depends on the call
 Callback groups
 ---------------
 
-The rclcpp allows organizing the callbacks of a node in groups.
-Such a *callback group* can be created by the ``create_callback_group`` function of the Node class.
+ROS 2 allows organizing the callbacks of a node in groups.
+In rclcpp, such a *callback group* can be created by the ``create_callback_group`` function of the Node class. 
+In rclpy, the same is done by calling the constructor of the specific callback group type.
 The callback group must be stored throughout execution of the node (eg. as a class member), or otherwise the executor won't be able to trigger the callbacks.
 Then, this callback group can be specified when creating a subscription, timer, etc. - for example by the subscription options:
 
-.. code-block:: cpp
+.. tabs::
 
-   my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+   .. group-tab:: C++
 
-   rclcpp::SubscriptionOptions options;
-   options.callback_group = my_callback_group;
+      .. code-block:: cpp
 
-   my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(),
-                                                callback, options);
+        my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+
+        rclcpp::SubscriptionOptions options;
+        options.callback_group = my_callback_group;
+
+        my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(),
+                                                     callback, options);
+   .. group-tab:: Python
+
+      .. code-block:: python
+
+        my_callback_group = MutuallyExclusiveCallbackGroup()
+        my_subscription = self.create_subscription(Int32, "/topic", self.callback, qos_profile=1,
+                                                   callback_group=my_callback_group)
 
 All subscriptions, timers, etc. that are created without the indication of a callback group are assigned to the *default callback group*.
-The default callback group can be queried via ``NodeBaseInterface::get_default_callback_group()``.
+The default callback group can be queried via ``NodeBaseInterface::get_default_callback_group()`` in rclcpp 
+and by ``Node.default_callback_group`` in rclpy.
 
 There are two types of callback groups, where the type has to be specified at instantiation time:
 
@@ -125,9 +138,10 @@ There are two types of callback groups, where the type has to be specified at in
 * *Reentrant:* Callbacks of this group may be executed in parallel.
 
 Callbacks of different callback groups may always be executed in parallel.
-The Multi-Threaded Executor uses its threads as a pool to process a many callbacks as possible in parallel according to these conditions.
+The Multi-Threaded Executor uses its threads as a pool to process a many callbacks as possible in parallel according to these conditions. 
+For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
 
-Since Galactic, the interface of the Executor base class has been refined by a new function ``add_callback_group(..)``.
+Since Galactic, the interface of the Executor base class in rclcpp has been refined by a new function ``add_callback_group(..)``.
 This allows distributing callback groups to different Executors.
 By configuring the underlying threads using the operating system scheduler, specific callbacks can be prioritized over other callbacks.
 For example, the subscriptions and timers of a control loop can be prioritized over all other subscriptions and standard services of a node.
