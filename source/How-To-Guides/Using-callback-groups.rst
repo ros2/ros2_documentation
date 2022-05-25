@@ -408,7 +408,7 @@ in terminals, we get the following outputs.
 
       [INFO] [1653034371.758739131] [client_node]: Starting client node, shut down with CTRL-C
       [INFO] [1653034372.755865649] [client_node]: Sending request
-      ^C[INFO] [1653034398.161674869] [client_node]: KeyboardInterrupt, shutting down.
+      ^C[INFO] [1653034398.161674869] [client_node]: Keyboard interrupt, shutting down.
 
   .. group-tab:: Server
 
