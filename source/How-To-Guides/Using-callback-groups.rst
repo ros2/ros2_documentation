@@ -381,7 +381,7 @@ service calls:
               node.get_logger().info('Beginning client, shut down with CTRL-C')
               executor.spin()
           except KeyboardInterrupt:
-              node.get_logger().info('KeyboardInterrupt, shutting down.\n')
+              node.get_logger().info('Keyboard interrupt, shutting down.\n')
           node.destroy_node()
           rclpy.shutdown()
 
