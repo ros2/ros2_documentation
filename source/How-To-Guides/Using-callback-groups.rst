@@ -46,8 +46,7 @@ all callbacks created by the client will be assigned to that callback group.
 
 Callback groups can be created by a node's ``create_callback_group``
 function in rclcpp and by calling the constructor of the group in rclpy.
-The callback group can then be passed to a subscription, timer, etc.
-to be used when executing callbacks of that entity.
+The callback group can then be passed as argument/option when creating a subscription, timer, etc.
 
 .. tabs::
 
