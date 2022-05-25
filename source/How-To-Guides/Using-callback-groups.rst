@@ -240,7 +240,7 @@ We have two nodes - one providing a simple service:
 
             RCLCPP_INFO(service_node->get_logger(), "Starting server node, shut down with CTRL-C");
             rclcpp::spin(service_node);
-            RCLCPP_INFO(service_node->get_logger(), "KeyboardInterrupt, shutting down.\n");
+            RCLCPP_INFO(service_node->get_logger(), "Keyboard interrupt, shutting down.\n");
 
             rclcpp::shutdown();
             return 0;
