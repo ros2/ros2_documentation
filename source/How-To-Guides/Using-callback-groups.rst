@@ -478,7 +478,7 @@ each service call gets the result as it should:
       [INFO] [1653067526.432893954] [client_node]: Received response
       [INFO] [1653067527.431828287] [client_node]: Sending request
       [INFO] [1653067527.432848369] [client_node]: Received response
-      ^C[INFO] [1653067528.400052749] [client_node]: KeyboardInterrupt, shutting down.
+      ^C[INFO] [1653067528.400052749] [client_node]: Keyboard interrupt, shutting down.
 
   .. group-tab:: Server
 
