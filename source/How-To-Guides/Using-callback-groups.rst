@@ -416,7 +416,7 @@ in terminals, we get the following outputs.
 
       [INFO] [1653034355.308958238] [service_node]: Starting server node, shut down with CTRL-C
       [INFO] [1653034372.758197320] [service_node]: Received request, responding...
-      ^C[INFO] [1653034416.021962246] [service_node]: KeyboardInterrupt, shutting down.
+      ^C[INFO] [1653034416.021962246] [service_node]: Keyboard interrupt, shutting down.
 
 So, it turns out that instead of the service being called repeatedly,
 the response of the first call is never received, after which the
