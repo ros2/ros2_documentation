@@ -157,7 +157,7 @@ subscription, client etc., any callbacks created then or later by these
 entities will use the node's default callback group.
 Furthermore, if everything in a node uses the same Mutually Exclusive
 Callback Group, that node essentially acts as if it was handled
-by a Single Threaded Executor, even if a multi-threaded one is specified!
+by a Single-Threaded Executor, even if a multi-threaded one is specified!
 Thus, whenever one decides to use a Multi-Threaded Executor,
 some callback group(s) should always be specified in order for the
 executor choice to make sense.
