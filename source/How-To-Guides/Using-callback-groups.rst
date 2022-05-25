@@ -339,7 +339,7 @@ service calls:
 
           RCLCPP_INFO(client_node->get_logger(), "Starting client node, shut down with CTRL-C");
           executor.spin();
-          RCLCPP_INFO(client_node->get_logger(), "KeyboardInterrupt, shutting down.\n");
+          RCLCPP_INFO(client_node->get_logger(), "Keyboard interrupt, shutting down.\n");
 
           rclcpp::shutdown();
           return 0;
