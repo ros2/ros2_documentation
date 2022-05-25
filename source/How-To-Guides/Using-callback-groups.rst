@@ -271,7 +271,7 @@ We have two nodes - one providing a simple service:
                 node.get_logger().info("Starting server node, shut down with CTRL-C")
                 rclpy.spin(node)
             except KeyboardInterrupt:
-                node.get_logger().info('KeyboardInterrupt, shutting down.\n')
+                node.get_logger().info('Keyboard interrupt, shutting down.\n')
             node.destroy_node()
             rclpy.shutdown()
 
