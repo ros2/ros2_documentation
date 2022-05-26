@@ -112,7 +112,7 @@ Controlling execution
 In order to control execution with callback groups, one can consider the
 following guidelines.
 
-* Register callbacks that should never be executed in parallel ot the same
+* Register callbacks that should never be executed in parallel to the same
   Mutually Exclusive Callback Group.
   An example case might be that the callbacks are accessing shared
   critical and non-thread-safe resources.
