@@ -172,7 +172,7 @@ With the above in mind, here are a couple guidelines to help avoid deadlocks:
 
 * If the above configuration is not possible due to other requirements - such
   as thread-safety and/or blocking of other callbacks while waiting for the
-  result (or if you want to make absolutetly sure that there is never a
+  result (or if you want to make absolutely sure that there is never a
   possibility of a deadlock), use asynchronous calls.
 
 Failing the first point will always cause a deadlock.
