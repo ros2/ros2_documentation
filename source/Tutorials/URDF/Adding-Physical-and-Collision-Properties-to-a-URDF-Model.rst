@@ -81,7 +81,7 @@ Here is a simple one.
     </collision>
     <inertial>
       <mass value="10"/>
-      <inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+      <inertia ixx="1e-3" ixy="0.0" ixz="0.0" iyy="1e-3" iyz="0.0" izz="1e-3"/>
     </inertial>
   </link>
 
