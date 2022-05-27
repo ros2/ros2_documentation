@@ -54,6 +54,7 @@ Intermediate
 .. toctree::
    :maxdepth: 1
 
+   Tutorials/Rosdep
    Tutorials/Actions/Creating-an-Action
    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
    Tutorials/Actions/Writing-a-Py-Action-Server-Client
