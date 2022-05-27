@@ -1,7 +1,7 @@
 .. _rosdep:
 
-Managing Dependencies W/ rosdep
-===============================
+Managing Dependencies with rosdep
+=================================
 
 Author: Steve Macenski
 
