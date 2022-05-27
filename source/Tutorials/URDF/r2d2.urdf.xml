@@ -23,7 +23,7 @@
   <link name="leg1">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
@@ -55,7 +55,7 @@
   <link name="leg2">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
@@ -87,7 +87,7 @@
   <link name="body">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
@@ -119,7 +119,7 @@
   <link name="head">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
@@ -149,7 +149,7 @@
   <link name="rod">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
@@ -182,7 +182,7 @@
   <link name="box">
     <inertial>
       <mass value="1"/>
-      <inertia ixx="100" ixy="0" ixz="0" iyy="100" iyz="0" izz="100" />
+      <inertia ixx="1e-3" ixy="0" ixz="0" iyy="1e-3" iyz="0" izz="1e-3" />
       <origin/>
     </inertial>
 
