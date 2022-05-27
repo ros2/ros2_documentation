@@ -140,8 +140,7 @@ Callbacks of different callback groups may always be executed in parallel.
 The Multi-Threaded Executor uses its threads as a pool to process a many callbacks as possible in parallel according to these conditions.
 For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
 
-Since Galactic, the interface of the Executor base class in rclcpp has been refined by a new function ``add_callback_group(..)``.
-This allows distributing callback groups to different Executors.
+The Executor base class in rclcpp also has the function ``add_callback_group(..)``, which allows distributing callback groups to different Executors.
 By configuring the underlying threads using the operating system scheduler, specific callbacks can be prioritized over other callbacks.
 For example, the subscriptions and timers of a control loop can be prioritized over all other subscriptions and standard services of a node.
 The `examples_rclcpp_cbg_executor package <https://github.com/ros2/examples/tree/master/rclcpp/executors/cbg_executor>`_ provides a demo of this mechanism.
