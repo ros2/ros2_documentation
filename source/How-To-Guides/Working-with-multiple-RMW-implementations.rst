@@ -27,7 +27,7 @@ To have multiple RMW implementations available for use you must have installed t
 
 Both C++ and Python nodes support an environment variable ``RMW_IMPLEMENTATION`` that allows the user to select the RMW implementation to use when running ROS 2 applications.
 
-The user may set this variable to a specific implementation identifier, such as ``rmw_cyclonedds_cpp``, ``rmw_fastrtps_cpp``, ``rmw_connextdds``, or ``rmw_gurumdds_cpp``.
+The user may set this variable to a specific implementation identifier, such as ``rmw_cyclonedds_cpp``, ``rmw_fastrtps_cpp``, ``rmw_connext_cpp``, or ``rmw_gurumdds_cpp``.
 
 For example, to run the talker demo using the C++ talker and Python listener with the Connext RMW implementation:
 
