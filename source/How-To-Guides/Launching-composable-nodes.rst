@@ -155,14 +155,9 @@ For this, you may use ``LoadComposableNodes`` to load components into a given co
       target_container='my_container',
       composable_node_descriptions=[
           ComposableNode(
-              package='nav2_controller',
-              plugin='nav2_controller::ControllerServer',
-              name='controller_server',
-              parameters=[configured_params]),
-          ComposableNode(
-              package='nav2_smoother',
-              plugin='nav2_smoother::SmootherServer',
-              name='smoother_server',
+              package='rclcpp_components',
+              plugin='image_tools::Cam2Image',
+              name='cam2image',
               parameters=[configured_params])
       ],
   )
