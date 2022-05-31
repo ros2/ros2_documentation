@@ -23,7 +23,7 @@ In this tutorial we'll create a tf2 listener to start using tf2.
 Prerequisites
 -------------
 
-This tutorial assumes you have completed the :doc:`tf2 broadcaster tutorial (C++) <./Writing-A-Tf2-Broadcaster-Cpp>`.
+This tutorial assumes you have completed the :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>` and the :doc:`tf2 broadcaster tutorial (C++) <./Writing-A-Tf2-Broadcaster-Cpp>`.
 In the previous tutorial, we created a ``learning_tf2_cpp`` package, which is where we will continue working from.
 
 Tasks
@@ -240,11 +240,38 @@ All this is wrapped in a try-catch block to handle possible exceptions.
     toFrameRel, fromFrameRel,
     tf2::TimePointZero);
 
-2 Build and run
-^^^^^^^^^^^^^^^
+1.2 CMakeLists.txt
+~~~~~~~~~~~~~~~~~~
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node.
-Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
+Navigate one level back to the ``learning_tf2_cpp`` directory, where the ``CMakeLists.txt`` and ``package.xml`` files are located.
+
+Now open the ``CMakeLists.txt`` add the executable and name it ``turtle_tf2_listener``, which you'll use later with ``ros2 run``.
+
+.. code-block:: console
+
+    add_executable(turtle_tf2_listener src/turtle_tf2_listener.cpp)
+    ament_target_dependencies(
+        turtle_tf2_listener
+        geometry_msgs
+        rclcpp
+        tf2
+        tf2_ros
+        turtlesim
+    )
+
+Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
+
+.. code-block:: console
+
+    install(TARGETS
+        turtle_tf2_listener
+        DESTINATION lib/${PROJECT_NAME})
+
+2 Update the launch file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open the launch file called ``turtle_tf2_demo.launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports.
+The resulting file should look like:
 
 .. code-block:: python
 
@@ -254,9 +281,22 @@ Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfi
 
     from launch_ros.actions import Node
 
+
     def generate_launch_description():
         return LaunchDescription([
-            ...,
+            Node(
+                package='turtlesim',
+                executable='turtlesim_node',
+                name='sim'
+            ),
+            Node(
+                package='learning_tf2_cpp',
+                executable='turtle_tf2_broadcaster',
+                name='broadcaster1',
+                parameters=[
+                    {'turtlename': 'turtle1'}
+                ]
+            ),
             DeclareLaunchArgument(
                 'target_frame', default_value='turtle1',
                 description='Target frame name.'
@@ -280,6 +320,50 @@ Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfi
         ])
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+
+3 Build and run
+^^^^^^^^^^^^^^^
+
+Run ``rosdep`` in the root of your workspace to check for missing dependencies.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+
+   .. group-tab:: macOS
+
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+
+   .. group-tab:: Windows
+
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+
+From the root of your workspace, build your updated package, and source the setup files.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+         colcon build --packages-select learning_tf2_cpp
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+         colcon build --packages-select learning_tf2_cpp
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+         colcon build --merge-install --packages-select learning_tf2_cpp
+
 Now you're ready to start your full turtle demo:
 
 .. code-block:: console
