@@ -22,7 +22,7 @@ After that, following tutorials focus on extending the demo with more advanced t
 Prerequisites
 -------------
 
-This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`.
+This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>` and :doc:`tf2 static broadcaster tutorial (C++) <./Writing-A-Tf2-Static-Broadcaster-Cpp>`.
 In previous tutorials, you learned how to :doc:`create a workspace <../Workspace/Creating-A-Workspace>` and :doc:`create a package <../Creating-Your-First-ROS2-Package>`.
 You also have created the ``learning_tf2_cpp`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Cpp>`, which is where we will continue working from.
 
@@ -216,12 +216,6 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
     // Send the transformation
     tf_broadcaster_->sendTransform(t);
 
-.. note::
-
-    You can also publish static transforms with the same pattern by instantiating a ``tf2_ros::StaticTransformBroadcaster`` instead of a ``tf2_ros::TransformBroadcaster``.
-    The static transforms will be published on the ``/tf_static`` topic and will be sent only when required, not periodically.
-    For more details see :doc:`here <./Writing-A-Tf2-Static-Broadcaster-Cpp>`.
-
 1.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
 
@@ -328,14 +322,11 @@ Make sure to save the file.
 ~~~~~~~~~~~~~~~~~~
 
 Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``launch/`` folder would be installed.
-Update the ``install(DIRECTORY…)`` to include the ``launch`` line.
 
 .. code-block:: console
 
-    install(DIRECTORY
-        launch
-        ...
-    )
+    install(DIRECTORY launch
+      DESTINATION share/${PROJECT_NAME})
 
 You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
@@ -360,7 +351,27 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
 
-Build your updated package, and source the setup files.
+From the root of your workspace, build your updated package, and source the setup files.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+         colcon build --packages-select learning_tf2_cpp
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+         colcon build --packages-select learning_tf2_cpp
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+         colcon build --merge-install --packages-select learning_tf2_cpp
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 
