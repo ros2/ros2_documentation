@@ -96,7 +96,7 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
-   * - I Turtle
+   * - Iron Irwini
      - May 23rd, 2023
      - TBD
      - TBD
