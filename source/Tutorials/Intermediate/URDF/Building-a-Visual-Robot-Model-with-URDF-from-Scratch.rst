@@ -474,7 +474,7 @@ We’ll also add few other pieces that we’ll use later.
         <visual>
           <origin rpy="0.0 0 0" xyz="0 0 0"/>
           <geometry>
-            <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+            <mesh filename="$(find urdf_tutorial)/meshes/l_finger.dae"/>
           </geometry>
         </visual>
       </link>
@@ -488,7 +488,7 @@ We’ll also add few other pieces that we’ll use later.
         <visual>
           <origin rpy="0.0 0 0" xyz="0.09137 0.00495 0"/>
           <geometry>
-            <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
+            <mesh filename="$(find urdf_tutorial)/meshes/l_finger_tip.dae"/>
           </geometry>
         </visual>
       </link>
@@ -516,7 +516,7 @@ We’ll also add few other pieces that we’ll use later.
         <visual>
           <origin rpy="-3.1415 0 0" xyz="0.09137 0.00495 0"/>
           <geometry>
-            <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
+            <mesh filename="$(find urdf_tutorial)/meshes/l_finger_tip.dae"/>
           </geometry>
         </visual>
       </link>
@@ -574,7 +574,7 @@ How to add the sphere should be fairly self explanatory:
 
 The meshes here were borrowed from the PR2.
 They are separate files which you have to specify the path for.
-You should use the ``package://NAME_OF_PACKAGE/path`` notation.
+You should use the ``$(find NAME_OF_PACKAGE)/path`` notation.
 The meshes for this tutorial are located within the ``urdf_tutorial`` package, in a folder called meshes.
 
 .. code-block:: xml
@@ -583,7 +583,7 @@ The meshes for this tutorial are located within the ``urdf_tutorial`` package, i
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
+        <mesh filename="$(find urdf_tutorial)/meshes/l_finger.dae"/>
       </geometry>
     </visual>
   </link>
