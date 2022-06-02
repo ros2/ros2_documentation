@@ -191,7 +191,7 @@ If you like to get a graphical representation of this, use ``view_frames`` tool.
 
 .. code-block:: console
 
-   ros2 run tf2_tools view_frames
+   ros2 run tf2_tools view_frames.py
 
 Open the generated ``frames.pdf`` file to see the following output:
 
