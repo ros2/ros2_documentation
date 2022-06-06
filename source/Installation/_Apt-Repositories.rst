@@ -4,10 +4,13 @@ First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/c
 .. code-block:: bash
 
    apt-cache policy | grep universe
+
+If you don't see an output line like the one below, then enable the Universe repository with the instructions in this section.
+
+.. code-block:: bash
+
     500 http://us.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages
         release v=22.04,o=Ubuntu,a=jammy,n=jammy,l=Ubuntu,c=universe,b=amd64
-
-If you don't see an output line like the one above, then enable the Universe repository with these instructions.
 
 .. code-block:: bash
 
