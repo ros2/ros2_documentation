@@ -100,7 +100,7 @@ A trivial workspace might look like:
 Prerequisites
 -------------
 
-You should have a ROS 2 workspace after following the instructions in the :doc:`previous tutorial </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+You should have a ROS 2 workspace after following the instructions in the :doc:`previous tutorial <./Creating-A-Workspace/Creating-A-Workspace>`.
 You will create your package in this workspace.
 
 
@@ -110,7 +110,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+First, :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``dev_ws``, for your new package.
 

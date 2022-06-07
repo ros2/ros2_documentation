@@ -38,8 +38,8 @@ ROS 2 Launch files allow you to start up and configure a number of executables c
 .. note::
 
   You can also use XML and YAML to create launch files.
-  You can see a comparison of these different ROS 2 launch formats in :doc:`/How-To-Guides/Launch-file-different-formats`.
+  You can see a comparison of these different ROS 2 launch formats in :doc:`../../../How-To-Guides/Launch-file-different-formats`.
 
 .. note::
 
-   If you are coming from ROS 1, you can use the :doc:`ROS Launch Migration guide </How-To-Guides/Launch-files-migration-guide>` to help you migrate your launch files to ROS 2.
+   If you are coming from ROS 1, you can use the :doc:`ROS Launch Migration guide <../../../How-To-Guides/Launch-files-migration-guide>` to help you migrate your launch files to ROS 2.

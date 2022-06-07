@@ -35,9 +35,9 @@ Prerequisites
 
 We assume you've reviewed the basics in the :doc:`./Custom-ROS2-Interfaces` tutorial before working through this one.
 
-You should have :doc:`ROS 2 installed </Installation/>`, a :doc:`workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`, and an understanding of :doc:`creating packages <./Creating-Your-First-ROS2-Package>`.
+You should have :doc:`ROS 2 installed <../../Installation>`, a :doc:`workspace <./Creating-A-Workspace/Creating-A-Workspace>`, and an understanding of :doc:`creating packages <./Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to :doc:`source ROS 2 </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal you open.
+As always, don’t forget to :doc:`source ROS 2 <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal you open.
 
 Tasks
 -----
@@ -79,7 +79,7 @@ This message is composed of 5 fields:
 * address: of type string
 
 Notice that it's possible to set default values for fields within the message definition.
-See :doc:`/Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
+See :doc:`../../Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
 
 Next, we need to make sure that the msg file is turned into source code for C++, Python, and other languages.
 

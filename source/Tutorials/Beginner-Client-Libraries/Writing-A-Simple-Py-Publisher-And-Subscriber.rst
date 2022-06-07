@@ -16,7 +16,7 @@ Writing a simple publisher and subscriber (Python)
 Background
 ----------
 
-In this tutorial, you will create :doc:`nodes </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+In this tutorial, you will create :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 The example used here is a simple “talker” and “listener” system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
@@ -25,7 +25,7 @@ The code used in these examples can be found `here <https://github.com/ros2/exam
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 A basic understanding of Python is recommended, but not entirely necessary.
 
@@ -35,7 +35,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -358,7 +358,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
 
 The subscriber node’s code is nearly identical to the publisher’s.
 The constructor creates a subscriber with the same arguments as the publisher.
-Recall from the :doc:`topics tutorial </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
+Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
 .. code-block:: python
 

@@ -26,7 +26,7 @@ Running a single launch file with the ``ros2 launch`` command will start up your
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`/Installation/` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../../../Installation/` page.
 
 The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
@@ -66,14 +66,14 @@ This command will run the following launch file:
 .. note::
 
   The launch file above is written in Python, but you can also use XML and YAML to create launch files.
-  You can see a comparison of these different ROS 2 launch formats in :doc:`/How-To-Guides/Launch-file-different-formats`.
+  You can see a comparison of these different ROS 2 launch formats in :doc:`../../../How-To-Guides/Launch-file-different-formats`.
 
 This will run two turtlesim nodes:
 
 .. image:: images/turtlesim_multisim.png
 
 For now, don't worry about the contents of this launch file.
-You can find more information on ROS 2 launch in the :doc:`ROS 2 launch tutorials </Tutorials/Intermediate/Launch/Launch-Main>`.
+You can find more information on ROS 2 launch in the :doc:`ROS 2 launch tutorials <../../Intermediate/Launch/Launch-Main>`.
 
 (Optional) Control the Turtlesim Nodes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -103,9 +103,9 @@ Summary
 The significance of what you've done so far is that you've run two turtlesim nodes with one command.
 Once you learn to write your own launch files, you'll be able to run multiple nodes - and setup their configuration - in a similar way, with the ``ros2 launch`` command.
 
-For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page</Tutorials/Intermediate/Launch/Launch-Main>`.
+For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<../../Intermediate/Launch/Launch-Main>`.
 
 Next steps
 ----------
 
-In the next tutorial, :doc:`/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.
+In the next tutorial, :doc:`../Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.

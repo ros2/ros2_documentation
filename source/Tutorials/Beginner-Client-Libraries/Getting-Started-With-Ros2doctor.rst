@@ -26,7 +26,7 @@ Prerequisites
 ``ros2doctor`` is part of the ``ros2cli`` package.
 As long as you have ``ros2cli`` installed (which any normal install should have), you will be able to use ``ros2doctor``.
 
-This tutorial uses :doc:`turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` to illustrate some of the examples.
+This tutorial uses :doc:`turtlesim <../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` to illustrate some of the examples.
 
 Tasks
 -----

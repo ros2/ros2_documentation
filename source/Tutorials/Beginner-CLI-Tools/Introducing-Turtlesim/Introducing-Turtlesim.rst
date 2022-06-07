@@ -32,7 +32,7 @@ All of these concepts will be elaborated on in later tutorials; for now, you wil
 Prerequisites
 -------------
 
-The previous tutorial, :doc:`/Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment`, will show you how to set up your environment.
+The previous tutorial, :doc:`../Configuring-ROS2-Environment`, will show you how to set up your environment.
 
 Tasks
 -----
@@ -40,7 +40,7 @@ Tasks
 1 Install turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
-As always, start by sourcing your setup files in a new terminal, as described in the :doc:`previous tutorial </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, start by sourcing your setup files in a new terminal, as described in the :doc:`previous tutorial <../Configuring-ROS2-Environment>`.
 
 Install the turtlesim package for your ROS 2 distro:
 

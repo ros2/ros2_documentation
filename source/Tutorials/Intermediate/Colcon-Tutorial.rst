@@ -54,9 +54,9 @@ Install ROS 2
 
 To build the samples, you will need to install ROS 2.
 
-Follow the `installation instructions </Installation/>`.
+Follow the :doc:`installation instructions <../../Installation>`.
 
-.. attention:: If installing from Debian packages, this tutorial requires the `desktop installation <linux-install-debians-install-ros-2-packages>`.
+.. attention:: If installing from Debian packages, this tutorial requires the :ref:`desktop installation <linux-install-debians-install-ros-2-packages>`.
 
 Basics
 ------
@@ -142,7 +142,7 @@ Source an underlay
 ^^^^^^^^^^^^^^^^^^
 
 It is important that we have sourced the environment for an existing ROS 2 installation that will provide our workspace with the necessary build dependencies for the example packages.
-This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see `Installation </Installation/>`).
+This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see :doc:`Installation <../../Installation>`).
 We call this environment an **underlay**.
 
 Our workspace, ``ros2_examples_ws``, will be an **overlay** on top of the existing ROS 2 installation.
@@ -153,7 +153,7 @@ Build the workspace
 
 .. attention::
 
-   To build packages on Windows you need to be in a Visual Studio environment, see `Building the ROS 2 Code <windows-dev-build-ros2>` for more details.
+   To build packages on Windows you need to be in a Visual Studio environment, see :ref:`Building the ROS 2 Code <windows-dev-build-ros2>` for more details.
 
 In the root of the workspace, run ``colcon build``.
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.

@@ -16,7 +16,7 @@ Writing a simple service and client (Python)
 Background
 ----------
 
-When :doc:`nodes </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
+When :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` communicate using :doc:`services <../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, the node that sends a request for data is called the client node, and the one that responds to the request is the service node.
 The structure of the request and response is determined by a ``.srv`` file.
 
 The example used here is a simple integer addition system; one node requests the sum of two integers, and the other responds with the result.
@@ -24,7 +24,7 @@ The example used here is a simple integer addition system; one node requests the
 Prerequisites
 -------------
 
-In previous tutorials, you learned how to :doc:`create a workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <./Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <./Creating-Your-First-ROS2-Package>`.
 
 Tasks
 -----
@@ -32,7 +32,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
@@ -358,4 +358,4 @@ Related content
 
 * In this tutorial, you used the ``call_async()`` API in your client node to call the service.
   There is another service call API available for Python called synchronous calls.
-  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients </How-To-Guides/Sync-Vs-Async>`.
+  We do not recommend using synchronous calls, but if you'd like to learn more about them, read the guide to :doc:`Synchronous vs. asynchronous clients <../../How-To-Guides/Sync-Vs-Async>`.

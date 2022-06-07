@@ -33,7 +33,7 @@ Prerequisites
 
 The :doc:`previous tutorial <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` provides some useful background information on nodes that is built upon here.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -63,7 +63,7 @@ Recall from the :doc:`previous tutorial <../Understanding-ROS2-Nodes/Understandi
 
 Throughout this tutorial, we will use ``rqt_graph`` to visualize the changing nodes and topics, as well as the connections between them.
 
-The :doc:`turtlesim tutorial </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` tells you how to install rqt and all its plugins, including ``rqt_graph``.
+The :doc:`turtlesim tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` tells you how to install rqt and all its plugins, including ``rqt_graph``.
 
 To run rqt_graph, open a new terminal and enter the command:
 
@@ -324,4 +324,4 @@ You should now have a good idea of how data moves around a ROS 2 system.
 Next steps
 ----------
 
-Next you'll learn about another communication type in the ROS graph with the tutorial :doc:`/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services`
+Next you'll learn about another communication type in the ROS graph with the tutorial :doc:`../Understanding-ROS2-Services/Understanding-ROS2-Services`

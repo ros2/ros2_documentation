@@ -40,7 +40,7 @@ Prerequisites
 
 The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----

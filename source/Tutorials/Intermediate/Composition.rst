@@ -12,7 +12,7 @@ Composing multiple nodes in a single process
 Background
 ----------
 
-See the :doc:`conceptual article </Concepts/About-Composition>`.
+See the :doc:`conceptual article <../../Concepts/About-Composition>`.
 
 Run the demos
 -------------

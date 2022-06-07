@@ -27,8 +27,8 @@ Additionally, it covers usage examples of different ROS 2 launch tools, like par
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../Tf2/Introduction-To-Tf2>` packages.
-This tutorial also assumes you have :doc:`created a new package </Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
+This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` and :doc:`turtle_tf2_py <../Tf2/Introduction-To-Tf2>` packages.
+This tutorial also assumes you have :doc:`created a new package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
 
 Introduction
 ------------
@@ -205,7 +205,7 @@ Now create a ``turtlesim_world_2.launch.py`` file.
 This launch file will launch the same ``turtlesim_node`` with parameter values that are loaded directly from the YAML configuration file.
 Defining arguments and parameters in YAML files make it easy to store and load a large number of variables.
 In addition, YAML files can be easily exported from the current ``ros2 param`` list.
-To learn how to do that, refer to the :doc:`Understand parameters </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
+To learn how to do that, refer to the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` folder of our package, which will be loaded by our launch file.
 
@@ -219,7 +219,7 @@ Let's now create a configuration file, ``turtlesim.yaml``, in the ``/config`` fo
 
 If we now start the ``turtlesim_world_2.launch.py`` launch file, we will start the ``turtlesim_node`` with preconfigured background colors.
 
-To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
+To learn more about using parameters and using YAML files, take a look at the :doc:`Understand parameters <../../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` tutorial.
 
 2.3 Using wildcards in YAML files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

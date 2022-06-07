@@ -32,7 +32,7 @@ In other words, you won’t be able to use ROS 2.
 Prerequisites
 -------------
 
-Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`/Installation/` page.
+Before starting these tutorials, install ROS 2 by following the instructions on the ROS 2 :doc:`../../Installation` page.
 
 The commands used in this tutorial assume you followed the binary packages installation guide for your operating system (Debian packages for Linux).
 You can still follow along if you built from source, but the path to your setup files will likely be different.
@@ -154,7 +154,7 @@ If you need more specific help (because environment setup files can come from di
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the `domain ID </Concepts/About-Domain-ID>` article for details on ROS domain IDs.
+See the `domain ID <../../Concepts/About-Domain-ID>` article for details on ROS domain IDs.
 
 Once you have determined a unique integer for your group of ROS 2 agents, you can set the environment variable with the following command:
 
@@ -208,4 +208,4 @@ If you ever face any problems locating or using packages with ROS 2, the first t
 Next steps
 ----------
 
-Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :doc:`turtlesim tool </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+Now that you have a working ROS 2 installation and you know how to source its setup files, you can start learning the ins and outs of ROS 2 with the :doc:`turtlesim tool <./Introducing-Turtlesim/Introducing-Turtlesim>`.

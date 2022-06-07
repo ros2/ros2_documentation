@@ -16,7 +16,7 @@ Creating custom msg and srv files
 Background
 ----------
 
-In previous tutorials you utilized message and service interfaces to learn about :doc:`topics </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) nodes.
+In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) nodes.
 The interfaces you used were predefined in those cases.
 
 While it’s good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
@@ -25,7 +25,7 @@ This tutorial will introduce you to the simplest method of creating custom inter
 Prerequisites
 -------------
 
-You should have a :doc:`ROS 2 workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+You should have a :doc:`ROS 2 workspace <./Creating-A-Workspace/Creating-A-Workspace>`.
 
 This tutorial also uses the packages created in the publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and :doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client  (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` and :doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) tutorials to try out the new custom messages.
 
@@ -782,7 +782,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
 
 This is a simple method of interface creation and utilization.
-You can learn more about interfaces :doc:`here </Concepts/About-ROS-Interfaces>`.
+You can learn more about interfaces :doc:`here <../../Concepts/About-ROS-Interfaces>`.
 
 Next steps
 ----------

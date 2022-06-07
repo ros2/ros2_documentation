@@ -22,7 +22,7 @@ You have two options:
  - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/ignitionrobotics/ros_ign>`__.
  - Compile from sources:
 
-   - :doc:`ROS 2 install instructions </Installation/>`
+   - :doc:`ROS 2 install instructions <../../../../Installation>`
    - `Ignition install instructions <https://ignitionrobotics.org/docs>`__
 
 Tasks

@@ -6,7 +6,7 @@ Building a package with Eclipse 2021-06
    :local:
 
 You cannot create a ROS 2 package with eclipse, you need to create it with commandline tools.
-Follow the :doc:`Create a package </Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial.
+Follow the :doc:`Create a package <../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` tutorial.
 
 After you created your project, you can edit the source code and build it with eclipse.
 

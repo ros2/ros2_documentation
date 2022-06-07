@@ -27,7 +27,7 @@ Please reach out to the `ROS 2 Security Working Group <https://docs.ros.org/en/f
 Installation
 ------------
 
-Typically security is available following installation using the :doc:`ROS 2 Installation Guide </Installation/>` and the :doc:`configuration guide </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+Typically security is available following installation using the :doc:`ROS 2 Installation Guide <../../../Installation>` and the :doc:`configuration guide <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 However, if you intend to install from source or switch middleware implementations, consider the following caveats:
 
 
@@ -74,10 +74,10 @@ Fast DDS requires an additional CMake flag to build the security plugins, so the
 Selecting an alternate middleware
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you choose not to use the default middleware implementation, be sure to `change your DDS implementation </Installation/DDS-Implementations/>` before proceeding.
+If you choose not to use the default middleware implementation, be sure to :doc:`change your DDS implementation <../../../Installation/DDS-Implementations/>` before proceeding.
 
 ROS2 allows you to change the DDS implementation at runtime.
-See `how to work with mulitple RMW implementations </How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
+See `how to work with mulitple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
 
 Note that secure communication between vendors is not supported.
 

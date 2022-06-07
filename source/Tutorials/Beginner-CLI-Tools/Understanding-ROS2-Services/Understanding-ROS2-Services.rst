@@ -27,11 +27,11 @@ While topics allow nodes to subscribe to data streams and get continual updates,
 Prerequisites
 -------------
 
-Some concepts mentioned in this tutorial, like :doc:`Nodes </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
+Some concepts mentioned in this tutorial, like :doc:`Nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`Topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, were covered in previous tutorials in the series.
 
-You will need the :doc:`turtlesim package </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -85,7 +85,7 @@ There will be more about parameters in the next tutorial.
 In this tutorial, the parameter services will be omitted from discussion.
 
 For now, let’s focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim and rqt </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
+You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
 
 
 3 ros2 service type
@@ -265,7 +265,7 @@ In this tutorial you used command line tools to identify, elaborate on, and call
 Next steps
 ----------
 
-In the next tutorial, :doc:`/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
+In the next tutorial, :doc:`../Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`, you will learn about configuring node settings.
 
 Related content
 ---------------

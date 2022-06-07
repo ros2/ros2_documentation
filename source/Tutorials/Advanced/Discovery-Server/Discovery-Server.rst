@@ -64,7 +64,7 @@ For a more detailed explanation about the configuration of the discovery server,
 Prerequisites
 -------------
 
-This tutorial assumes you have a ROS 2 Foxy (or newer) :doc:`installation </Installation/>`.
+This tutorial assumes you have a ROS 2 Foxy (or newer) :doc:`installation <../../../Installation>`.
 If your installation is using a ROS 2 version lower than Foxy, you cannot use the ``fastdds`` tool.
 Thus, in order to use the Discovery Server, you can update your repository to use a different Fast DDS version, or configure the discovery server using the `Fast DDS XML QoS configuration <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastdds/discovery/discovery_server.html#discovery-server>`__.
 
@@ -74,12 +74,12 @@ Run this tutorial
 
 The ``talker-listener`` ROS 2 demo creates a ``talker`` node that publishes a "hello world" message every second, and a ``listener`` node that listens to these messages.
 
-By :doc:`sourcing ROS 2 </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` you will get access to the CLI tool ``fastdds``.
+By :doc:`sourcing ROS 2 <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` you will get access to the CLI tool ``fastdds``.
 This tool gives access to the `discovery tool <https://fast-dds.docs.eprosima.com/en/v2.1.0/fastddscli/cli/cli.html#discovery>`__, which can be used to launch a discovery server. This server will manage the discovery process for the nodes that connect to it.
 
 .. important::
 
-    Do not forget to :doc:`source ROS 2 </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal opened.
+    Do not forget to :doc:`source ROS 2 <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal opened.
 
 
 Setup Discovery Server

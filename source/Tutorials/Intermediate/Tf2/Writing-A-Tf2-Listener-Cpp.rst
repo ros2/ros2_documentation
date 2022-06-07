@@ -207,7 +207,7 @@ Open the file using your preferred text editor.
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) </Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
+To understand how the service behind spawning turtle works, please refer to :doc:`writing a simple service and client (C++) <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>` tutorial.
 
 Now, let's take a look at the code that is relevant to get access to frame transformations.
 The ``tf2_ros`` contains a ``TransformListener`` header file implementation that makes the task of receiving transforms easier.

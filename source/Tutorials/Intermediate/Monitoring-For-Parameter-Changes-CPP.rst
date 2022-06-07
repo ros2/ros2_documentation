@@ -23,8 +23,8 @@ Prerequisites
 
 Before starting this tutorial, you should first complete the following tutorials:
 
-- :doc:`/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
-- :doc:`/Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP`
+- :doc:`../Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`
+- :doc:`../Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP`
 
 Tasks
 -----
@@ -35,7 +35,7 @@ In this tutorial, you will create a new package to contain some sample code, wri
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-First, open a new terminal and :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+First, open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow :ref:`these instructions <new-directory>` if you no longer have the directory and need to create it again).
 
@@ -340,6 +340,6 @@ The ParameterEventHandler is a convenient way to monitor for parameter changes s
 Related content
 ---------------
 
-To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2</How-To-Guides/Parameters-YAML-files-migration-guide>` tutorial.
+To learn how to adapt ROS 1 parameter files for ROS 2, see the :doc:`Migrating YAML parameter files from ROS 1 to ROS2 <../../How-To-Guides/Parameters-YAML-files-migration-guide>` tutorial.
 
 

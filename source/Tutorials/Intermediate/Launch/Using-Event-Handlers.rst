@@ -29,8 +29,8 @@ This tutorial shows usage examples of event handlers in ROS 2 launch files.
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
-This tutorial also assumes you have :doc:`created a new package </Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
+This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
+This tutorial also assumes you have :doc:`created a new package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
 
 This tutorial extends the code shown in the :doc:`Using substitutions in launch files <./Using-Substitutions>` tutorial.
 

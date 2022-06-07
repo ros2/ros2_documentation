@@ -20,14 +20,14 @@ A parameter is a configuration value of a node.
 You can think of parameters as node settings.
 A node can store parameters as integers, floats, booleans, strings, and lists.
 In ROS 2, each node maintains its own parameters.
-For more background on parameters, please see :doc:`the concept document </Concepts/About-ROS-2-Parameters>`.
+For more background on parameters, please see :doc:`the concept document <../../../Concepts/About-ROS-2-Parameters>`.
 
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`turtlesim package </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----

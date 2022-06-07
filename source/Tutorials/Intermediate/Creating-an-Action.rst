@@ -28,9 +28,9 @@ Prerequisites
 You should have :doc:`ROS 2 (Dashing or later)<../../Installation>` and
 `colcon <https://colcon.readthedocs.org>`__ installed.
 
-Set up a :doc:`workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
+Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
 
-(Remember to :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` first.)
+(Remember to :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` first.)
 
 .. tabs::
 
@@ -186,7 +186,7 @@ and how to verify a successful build.
 Next steps
 ----------
 
-Next, let's utilize your newly defined action interface by creating an action service and client (in :doc:`Python </Tutorials/Intermediate/Writing-an-Action-Server-Client/Py>` or :doc:`C++ </Tutorials/Intermediate/Writing-an-Action-Server-Client/Cpp>`).
+Next, let's utilize your newly defined action interface by creating an action service and client (in :doc:`Python <Writing-an-Action-Server-Client/Py>` or :doc:`C++ <Writing-an-Action-Server-Client/Cpp>`).
 
 Related content
 ---------------

@@ -23,7 +23,7 @@ Prerequisites
 -------------
 
 This tutorial assumes you have a working knowledge of ROS 2 and you have completed the :doc:`Introduction to tf2 tutorial <./Introduction-To-Tf2>`.
-In previous tutorials, you learned how to :doc:`create a workspace </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package </Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+In previous tutorials, you learned how to :doc:`create a workspace <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and :doc:`create a package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 You also have created the ``learning_tf2_py`` :doc:`package <./Writing-A-Tf2-Static-Broadcaster-Py>`, which is where we will continue working from.
 
 Tasks

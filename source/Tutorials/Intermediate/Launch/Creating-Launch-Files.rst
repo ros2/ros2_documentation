@@ -18,11 +18,11 @@ Creating a launch file
 Prerequisites
 -------------
 
-This tutorial uses the :doc:`rqt_graph and turtlesim </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` packages.
+This tutorial uses the :doc:`rqt_graph and turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` packages.
 
 You will also need to use a text editor of your preference.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -190,7 +190,7 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
 
       ros2 launch <package_name> <launch_file_name>
 
-  You will learn more about :doc:`creating packages </Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` in a later tutorial.
+  You will learn more about :doc:`creating packages <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` in a later tutorial.
 
 .. note::
 
@@ -201,7 +201,7 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
     <exec_depend>ros2launch</exec_depend>
 
   This helps make sure that the ``ros2 launch`` command is available after building your package.
-  It also ensures that all :doc:`launch file formats </How-To-Guides/Launch-file-different-formats>` are recognized.
+  It also ensures that all :doc:`launch file formats <../../../How-To-Guides/Launch-file-different-formats>` are recognized.
 
 Two turtlesim windows will open, and you will see the following ``[INFO]`` messages telling you which nodes your launch file has started:
 
@@ -251,4 +251,4 @@ You can create launch files using Python, and run them using the ``ros2 launch``
 .. note::
 
   You can also use XML and YAML to create launch files.
-  You can see a comparison of these different ROS 2 launch formats in :doc:`/How-To-Guides/Launch-file-different-formats`.
+  You can see a comparison of these different ROS 2 launch formats in :doc:`../../..//How-To-Guides/Launch-file-different-formats`.

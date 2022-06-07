@@ -22,7 +22,7 @@ The interface between the ROS 2 stack and *Fast DDS* is provided by the ROS 2 mi
 This implementation is available in all ROS 2 distributions, both from binaries and from sources.
 
 ROS 2 RMW only allows for the configuration of certain middleware QoS
-(see `ROS 2 QoS policies <https://index.ros.org/doc/ros2/Concepts/About-Quality-of-Service-Settings/#qos-policies>`_).
+(see :doc:`ROS 2 QoS policies <../../Concepts/About-Quality-of-Service-Settings>`).
 However, ``rmw_fastrtps`` offers extended configuration capabilities to take full advantage of the features in *Fast DDS*.
 This tutorial will guide you through a series of examples explaining how to use XML files to unlock this extended configuration.
 
@@ -33,7 +33,7 @@ Prerequisites
 -------------
 
 This tutorial assumes that you know how to :doc:`create a package <../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-It also assumes you know how to write a :doc:`simple publisher and subscriber</Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and a :doc:`simple service and client </Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`.
+It also assumes you know how to write a :doc:`simple publisher and subscriber<../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>` and a :doc:`simple service and client <../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Service-And-Client>`.
 Although the examples are implemented in C++, the same concepts apply to Python packages.
 
 

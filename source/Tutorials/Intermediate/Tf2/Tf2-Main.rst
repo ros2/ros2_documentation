@@ -34,7 +34,7 @@ If you want to learn both C++ and Python, you should go through the tutorials on
 Workspace setup
 ---------------
 
-If you have not yet created a workspace in which to complete the tutorials, :doc:`follow this tutorial </Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
+If you have not yet created a workspace in which to complete the tutorials, :doc:`follow this tutorial <../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>`.
 
 Learning tf2
 ------------

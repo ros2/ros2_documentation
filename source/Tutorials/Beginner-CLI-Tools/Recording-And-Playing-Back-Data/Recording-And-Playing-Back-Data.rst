@@ -34,10 +34,10 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
   sudo apt-get install ros-{DISTRO}-ros2bag \
                        ros-{DISTRO}-rosbag2-storage-default-plugins
 
-This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics </Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-It also uses the :doc:`turtlesim package </Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+It also uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -254,10 +254,10 @@ Next steps
 ----------
 
 You’ve completed the "Beginner: CLI Tools" tutorials!
-The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
+The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
 
 Related content
 ---------------
 
 A more thorough explanation of ``ros2 bag`` can be found in the README `here <https://github.com/ros2/rosbag2>`__.
-For more information on QoS compatibility and ``ros2 bag``, see :doc:`/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback`.
+For more information on QoS compatibility and ``ros2 bag``, see :doc:`../../../How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback`.

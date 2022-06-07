@@ -36,7 +36,7 @@ If it is not, you can install it using this command.
   sudo apt install ros-{DISTRO}-rosbag2
 
 This tutorial discusses using ROS 2 bags, including from the terminal.
-You should have already completed the :doc:`basic ROS 2 bag tutorial </Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`.
 
 Tasks
 -----
@@ -44,7 +44,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-Open a new terminal and :doc:`source your ROS 2 installation </Tutorials/Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
+Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
 Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 Navigate into the ``dev_ws/src`` directory and create a new package:
