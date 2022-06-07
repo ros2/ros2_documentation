@@ -5,7 +5,7 @@ First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/c
 
    apt-cache policy | grep universe
 
-If you don't see an output line like the one below, then enable the Universe repository with the instructions in this section.
+This should output a line like the one below:
 
 .. code-block:: bash
 
