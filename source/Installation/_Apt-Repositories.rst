@@ -12,11 +12,12 @@ This should output a line like the one below:
     500 http://us.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages
         release v=22.04,o=Ubuntu,a=jammy,n=jammy,l=Ubuntu,c=universe,b=amd64
 
+ If you don't see an output line like the one above, then enable the Universe repository with these instructions.
+ 
 .. code-block:: bash
 
    sudo apt install software-properties-common
    sudo add-apt-repository universe
-
 
 Now add the ROS 2 apt repository to your system.
 First authorize our GPG key with apt.
