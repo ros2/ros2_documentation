@@ -75,7 +75,7 @@ Each launch file performs the following actions:
             launch_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace(LaunchConfiguration('chatter_ns')),
+                    PushRosNamespace('chatter_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             os.path.join(
