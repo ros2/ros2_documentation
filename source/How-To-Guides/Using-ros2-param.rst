@@ -6,7 +6,7 @@ Using the ``ros2 param`` command-line tool
    :local:
 
 Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../Concepts/About-ROS-2-Parameters>`.
-The ``ros2 param`` command-line tool is a wrapper around these service calls that makes it easy to manipulate parameters from the command-line.
+The ``ros2 param`` command-line tool is a wrapper around these services calls that makes it easy to manipulate parameters from the command-line.
 
 ``ros2 param list``
 -------------------
