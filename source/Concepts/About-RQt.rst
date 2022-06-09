@@ -64,7 +64,7 @@ RQt Components Structure
 RQt consists of two metapackages:
 
 * *rqt* - core infrastucture modules.
-* *rqt_common_plugins* - Commonly used debugging tools.
+* *rqt_common_plugins* - Often useful debugging tools.
 
 Advantage of RQt framework
 --------------------------
