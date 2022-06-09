@@ -19,7 +19,7 @@ To get all of the parameters on a given node:
 
   ros2 param list /my_node
 
-To get all of the parameters on all nodes in the system (this can take a long time on a complicated network):
+To get all of the parameters on all nodes in the system (this can take a long time on a complex network):
 
 .. code-block:: console
 
