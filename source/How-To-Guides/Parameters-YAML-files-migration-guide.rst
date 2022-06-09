@@ -27,7 +27,7 @@ For example, here is a parameters file in ROS 1:
    ports: [11312, 11311, 21311]
    debug: true
 
-Let's assume that the first two parameters are for a node named ``/lidar_ns/lidar_node_name``, the second parameter is for a node named ``/imu``, and the last parameter we want to set on both nodes.
+Let's assume that the first two parameters are for a node named ``/lidar_ns/lidar_node_name``, the next parameter is for a node named ``/imu``, and the last parameter we want to set on both nodes.
 
 We would construct our ROS 2 parameters file as follows:
 
