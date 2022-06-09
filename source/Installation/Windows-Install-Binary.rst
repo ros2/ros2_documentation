@@ -25,10 +25,8 @@ Only Windows 10 is supported.
 Downloading ROS 2
 -----------------
 
-Binary releases of {DISTRO_TITLE_FULL} are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
-
-* Download the latest package for Windows, e.g., ``ros2-package-windows-AMD64.zip``.
+* Go to the releases page: https://github.com/ros2/ros2/releases
+* Download the latest package for Windows, e.g., ``ros2-{DISTRO}-*-windows-release-amd64.zip``.
 
 .. note::
 
