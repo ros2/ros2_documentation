@@ -331,7 +331,7 @@ Similarly, there is a CMake macro to set up GTest including GMock:
 
 .. code-block:: cmake
 
-    find_package(ament_gmock REQUIRED)
+    find_package(ament_cmake_gmock REQUIRED)
     ament_add_gmock(some_test <test_sources>)
 
 It has the same additional parameters as ``ament_add_gtest``.
