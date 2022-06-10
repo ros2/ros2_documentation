@@ -35,19 +35,19 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Tutorial <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
      - Available for topics and services, not yet available for actions.
    * - Quality of service settings for handling non-ideal networks
-     - :doc:`Demo <Tutorials/Quality-of-Service>`
+     - :doc:`Demo <Tutorials/Demos/Quality-of-Service>`
      -
    * - Inter- and intra-process communication using the same API
-     - :doc:`Demo <Tutorials/Intra-Process-Communication>`
+     - :doc:`Demo <Tutorials/Demos/Intra-Process-Communication>`
      - Currently only in C++.
    * - Composition of node components at compile, link, load, or run time
-     - :doc:`Demo <Tutorials/Composition>`
+     - :doc:`Demo <Tutorials/Intermediate/Composition>`
      - Currently only in C++.
    * - Multiple executors (at level of callback groups) in same node
      - `Demo <https://github.com/ros2/examples/tree/humble/rclcpp/executors/cbg_executor>`__
      - Only in C++.
    * - Support for nodes with managed lifecycles
-     - :doc:`Demo <Tutorials/Managed-Nodes>`
+     - :doc:`Demo <Tutorials/Demos/Managed-Nodes>`
      - Currently only in C++.
    * - DDS-Security support
      - `Demo <https://github.com/ros2/sros2>`__
@@ -56,7 +56,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - :doc:`Concept <Concepts/About-Command-Line-Tools>`
      -
    * - Launch system for coordinating multiple nodes
-     - :doc:`Tutorial <Tutorials/Launch/Launch-system>`
+     - :doc:`Tutorial <Tutorials/Intermediate/Launch/Launch-system>`
      -
    * - Namespace support for nodes and topics
      - `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
@@ -68,13 +68,13 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Demo <https://github.com/ros2/turtlebot2_demo>`__
      -
    * - Preliminary support for real-time code
-     - :doc:`Demo <Tutorials/Real-Time-Programming>`, :doc:`demo <Tutorials/Allocator-Template-Tutorial>`
+     - :doc:`Demo <Tutorials/Demos/Real-Time-Programming>`, :doc:`demo <Tutorials/Advanced/Allocator-Template-Tutorial>`
      - Linux only. Not available for Fast RTPS.
    * - Preliminary support for "bare-metal" microcontrollers
      - `Wiki <https://github.com/ros2/freertps/wiki>`__
      -
    * - Content filtering subscription
-     - :doc:`Demo <Tutorials/Content-Filtering-Subscription>`
+     - :doc:`Demo <Tutorials/Demos/Content-Filtering-Subscription>`
      - Currently only in C++.
 
 Besides core features of the platform, the biggest impact of ROS comes from its available packages.
