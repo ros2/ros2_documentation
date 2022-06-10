@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  How-To-Guides
+  Guides
 
 .. _How-to Guides:
 
