@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Getting-Started-With-Ros2doctor
+
 .. _Ros2Doctor:
 
 Using ``ros2doctor`` to identify issues

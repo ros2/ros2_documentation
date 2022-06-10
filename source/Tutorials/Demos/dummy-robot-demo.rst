@@ -1,6 +1,7 @@
 .. redirect-from::
 
     dummy-robot-demo
+    Tutorials/dummy-robot-demo
 
 Experimenting with a dummy robot
 ================================

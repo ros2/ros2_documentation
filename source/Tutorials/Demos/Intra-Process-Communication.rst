@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Intra-Process-Communication
+    Tutorials/Intra-Process-Communication
 
 Setting up efficient intra-process communication
 ================================================

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Understanding-ROS2-Nodes
+    
 .. _ROS2Nodes:
 
 Understanding nodes

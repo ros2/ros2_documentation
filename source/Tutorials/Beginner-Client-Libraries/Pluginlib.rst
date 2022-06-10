@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Pluginlib
+   
 Creating plugins (C++)
 ======================
 

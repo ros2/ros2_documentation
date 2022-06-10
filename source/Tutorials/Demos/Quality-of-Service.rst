@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Quality-of-Service
+    Tutorials/Quality-of-Service
 
 Using quality-of-service settings for lossy networks
 ====================================================

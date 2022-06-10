@@ -1,3 +1,8 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Learning-About-Tf2-And-Time-Py
+
+
 .. _LearningAboutTf2AndTimePy:
 
 Using time (Python)

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Writing-A-Simple-Py-Service-And-Client
+
 .. _PySrvCli:
 
 Writing a simple service and client (Python)

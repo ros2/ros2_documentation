@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Writing-A-Simple-Py-Publisher-And-Subscriber
+
 .. _PyPubSub:
 
 Writing a simple publisher and subscriber (Python)

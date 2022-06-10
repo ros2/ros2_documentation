@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Allocator-Template-Tutorial
+    Tutorials/Allocator-Template-Tutorial
 
 Implementing a custom memory allocator
 ======================================

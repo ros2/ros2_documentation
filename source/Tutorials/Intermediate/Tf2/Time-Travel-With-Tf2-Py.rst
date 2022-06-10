@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Learning-About-Tf2-And-Time-Py
+
 .. _TimeTravelWithTf2Py:
 
 Traveling in time (Python)

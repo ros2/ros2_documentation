@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Time-Travel-With-Tf2-Cpp
+
 .. _TimeTravelWithTf2Cpp:
 
 Traveling in time (C++)

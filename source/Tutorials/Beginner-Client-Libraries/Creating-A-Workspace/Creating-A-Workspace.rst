@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Workspace/Creating-A-Workspace
+
 .. _ROS2Workspace:
 
 Creating a workspace

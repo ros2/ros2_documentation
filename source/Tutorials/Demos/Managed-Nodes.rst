@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Managed-Nodes
+    Tutorials/Managed-Nodes
 
 Managing nodes with managed lifecycles
 ======================================

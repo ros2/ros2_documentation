@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Custom-ROS2-Interfaces.rst
+
 .. _CustomInterfaces:
 
 Creating custom msg and srv files

@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Using-Parameters-In-A-Class-CPP
+
+
 .. _CppParamNode:
 
 Using parameters in a class (C++)

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Monitoring-For-Parameter-Changes-CPP
+
 Monitoring parameter changes (C++)
 ==================================
 

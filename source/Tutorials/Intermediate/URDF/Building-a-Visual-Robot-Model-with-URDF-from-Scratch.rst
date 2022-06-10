@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch
+
 .. _BuildingURDF:
 
 Building a visual robot model from scratch

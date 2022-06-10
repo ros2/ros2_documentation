@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
+
 .. _WritingATf2StaticBroadcasterPy:
 
 Writing a static broadcaster (Python)

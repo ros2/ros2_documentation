@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
+
 .. _WritingATf2BroadcasterCpp:
 
 Writing a broadcaster (C++)

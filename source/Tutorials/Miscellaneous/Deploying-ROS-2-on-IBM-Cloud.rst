@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Deploying-ROS2-on-IBM-Cloud
+    Tutorials/Deploying-ROS-2-on-IBM-Cloud
 
 Deploying on IBM Cloud Kubernetes [community-contributed]
 =========================================================

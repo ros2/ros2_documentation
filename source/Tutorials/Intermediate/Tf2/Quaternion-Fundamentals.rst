@@ -1,3 +1,8 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Quaternion-Fundamentals
+
+
 .. _QuaternionFundamentals:
 
 Using quaternions

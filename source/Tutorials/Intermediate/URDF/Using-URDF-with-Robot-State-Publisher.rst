@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
+
 .. _URDFPlusRSP:
 
 Using ``robot_state_publisher``

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
+
 .. _URDFXacro:
 
 Using Xacro to clean up your code

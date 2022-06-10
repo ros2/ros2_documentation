@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Topic-Statistics-Tutorial
+    Tutorials/Topics/Topic-Statistics-Tutorial
 
 Enabling topic statistics (C++)
 ===============================

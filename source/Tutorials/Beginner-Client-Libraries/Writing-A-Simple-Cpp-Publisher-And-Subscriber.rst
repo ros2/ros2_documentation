@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Writing-A-Simple-Cpp-Publisher-And-Subscriber
+
 .. _CppPubSub:
 
 Writing a simple publisher and subscriber (C++)

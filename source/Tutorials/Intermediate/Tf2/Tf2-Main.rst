@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Tf2-Main
+
 .. _Tf2Main:
 
 ``tf2``

@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Rosbag-with-ROS1-Bridge
+    Tutorials/Rosbag-with-ROS1-Bridge
 
 Recording and playing back data with ``rosbag`` using the ROS 1 bridge
 ======================================================================

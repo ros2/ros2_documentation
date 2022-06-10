@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Rosdep
+    
 .. _rosdep:
 
 Managing Dependencies with rosdep

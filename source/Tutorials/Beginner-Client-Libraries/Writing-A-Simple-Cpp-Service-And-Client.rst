@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Writing-A-Simple-Cpp-Service-And-Client
+
+
 .. _CppSrvCli:
 
 Writing a simple service and client (C++)

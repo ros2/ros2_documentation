@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/URDF/Building-a-Movable-Robot-Model-with-URDF
+
 .. _MoveableURDF:
 
 Building a movable robot model

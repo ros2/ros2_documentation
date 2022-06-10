@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Composition
+    Tutorials/Composition
 
 Composing multiple nodes in a single process
 ============================================

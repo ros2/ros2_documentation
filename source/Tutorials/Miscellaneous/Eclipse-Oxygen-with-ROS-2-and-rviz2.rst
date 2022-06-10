@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Eclipse-Oxygen-with-ROS-2-and-rviz2
+    Tutorials/Eclipse-Oxygen-with-ROS-2-and-rviz2
 
 Using Eclipse Oxygen with ``rviz2`` [community-contributed]
 ===========================================================

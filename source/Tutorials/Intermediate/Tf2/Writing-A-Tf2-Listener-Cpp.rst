@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
+
 .. _WritingATf2ListenerCpp:
 
 Writing a listener (C++)

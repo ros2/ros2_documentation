@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Building-ROS2-Package-with-eclipse-2021-06
+
+
 Building a package with Eclipse 2021-06
 =======================================
 

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
+
 .. _URDFProperties:
 
 Adding physical and collision properties

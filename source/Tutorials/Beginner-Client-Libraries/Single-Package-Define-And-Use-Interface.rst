@@ -3,6 +3,7 @@
 .. redirect-from::
 
     Rosidl-Tutorial
+    Tutorials/Single-Package-Define-And-Use-Interface
 
 Implementing custom interfaces
 ==============================

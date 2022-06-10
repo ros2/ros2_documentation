@@ -3,6 +3,8 @@
 .. redirect-from::
 
     Colcon-Tutorial
+    Tutorials/Colcon-Tutorial
+
 
 Using ``colcon`` to build packages
 ==================================

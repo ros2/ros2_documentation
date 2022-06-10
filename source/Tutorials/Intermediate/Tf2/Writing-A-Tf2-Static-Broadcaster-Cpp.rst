@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Cpp
+
 .. _WritingATf2StaticBroadcasterCpp:
 
 Writing a static broadcaster (C++)

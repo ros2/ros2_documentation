@@ -1,3 +1,7 @@
+.. redirect-from::
+
+   Tutorials/Tf2/Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
+
 .. _UsingStampedDatatypesWithTf2RosMessageFilter:
 
 Using stamped datatypes with ``tf2_ros::MessageFilter``

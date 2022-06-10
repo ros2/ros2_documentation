@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Real-Time-Programming
+    Tutorials/Real-Time-Programming
 
 Understanding real-time programming
 ===================================
