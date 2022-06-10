@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Security/Security-on-Two
+
+
 .. _Security-on-Two:
 
 Ensuring security across machines

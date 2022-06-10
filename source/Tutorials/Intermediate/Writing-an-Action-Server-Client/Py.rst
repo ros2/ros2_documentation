@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Actions/Writing-a-Py-Action-Server-Client
+
 .. _ActionsPy:
 
 Writing an action server and client (Python)

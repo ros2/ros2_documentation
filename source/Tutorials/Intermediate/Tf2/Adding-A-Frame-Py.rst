@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    source/Tutorials/Tf2/Adding-A-Frame-Py
+
+
 .. _AddingAFramePy:
 
 Adding a frame (Python)

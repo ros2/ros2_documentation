@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Cpp
+
+
 .. _ROS2BagOwnNode:
 
 Recording a bag from a node (C++)

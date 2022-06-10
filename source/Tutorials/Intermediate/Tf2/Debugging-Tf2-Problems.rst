@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Tf2/Debugging-Tf2-Problems
+
+
 .. _DebuggingTf2Problems:
 
 Debugging

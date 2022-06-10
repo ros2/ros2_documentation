@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Tf2/Adding-A-Frame-Cpp
+
+
 .. _AddingAFrameCpp:
 
 Adding a frame (C++)

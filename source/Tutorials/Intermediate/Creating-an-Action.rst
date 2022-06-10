@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Actions/Creating-an-Action
+
 .. _ActionCreate:
 
 Creating an action

@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Security/Access-Controls
+
 .. _Access-Controls:
 
 Setting access controls

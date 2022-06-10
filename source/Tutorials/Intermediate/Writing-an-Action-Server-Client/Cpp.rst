@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Actions/Writing-a-Cpp-Action-Server-Client
+
 .. _ActionsCpp:
 
 Writing an action server and client (C++)

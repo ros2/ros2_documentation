@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Security/Examine-Traffic
+
 .. _Examine-Traffic:
 
 Examining network traffic

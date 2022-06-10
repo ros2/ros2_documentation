@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Tutorials/Launch-Files/Using-Substitutions
+    Tutorials/Intermediate/Launch/Using-Substitutions
 
 Using substitutions
 ===================

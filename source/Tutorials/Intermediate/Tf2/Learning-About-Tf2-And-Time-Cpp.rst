@@ -1,3 +1,8 @@
+.. redirect-from::
+
+      Tutorials/Tf2/Learning-About-Tf2-And-Time-Cpp
+
+
 .. _LearningAboutTf2AndTimeCpp:
 
 Using time (C++)

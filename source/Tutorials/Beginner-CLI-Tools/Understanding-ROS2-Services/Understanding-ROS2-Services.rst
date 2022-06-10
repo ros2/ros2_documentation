@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Services/Understanding-ROS2-Services
+
+
 .. _ROS2Services:
 
 Understanding services

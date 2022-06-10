@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Simulators/Simulation-Main
+
 .. _SimulationMain:
 
 Simulation

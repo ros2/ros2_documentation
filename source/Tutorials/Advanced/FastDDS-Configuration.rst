@@ -1,6 +1,7 @@
 .. redirect-from::
 
     FastDDS-Configuration
+    Tutorials/FastDDS-Configuration/FastDDS-Configuration
 
 Unlocking the potential of Fast DDS as middleware [community-contributed]
 =========================================================================

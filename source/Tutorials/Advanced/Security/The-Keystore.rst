@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Security/The-Keystore
+
+
 .. _The-Keystore:
 
 Understanding the security keystore

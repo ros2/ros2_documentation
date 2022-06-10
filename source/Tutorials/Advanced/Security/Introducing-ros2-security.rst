@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Security/Introducing-ros2-security
+
+
 .. _sros2:
 .. _ROS-2-Security-Tutorials:
 

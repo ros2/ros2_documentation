@@ -1,3 +1,8 @@
+.. redirect-from::
+
+      Tutorials/Tf2/Introduction-To-Tf2
+
+
 .. _IntroToTf2:
 
 Introducing ``tf2``

@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
+
+
 .. _SimulatorsIgnition:
 
 Setting up a robot simulation (Ignition Gazebo)

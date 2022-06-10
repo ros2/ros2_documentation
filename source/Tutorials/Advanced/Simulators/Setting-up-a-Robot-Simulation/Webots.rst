@@ -1,3 +1,8 @@
+.. redirect-from::
+
+    Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
+
+
 .. _Simulators:
 
 Setting up a robot simulation (Webots)

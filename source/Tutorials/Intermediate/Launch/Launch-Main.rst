@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Tutorials/Launch-Files/Launch-Main
+
 .. _LaunchFilesMain:
 
 Launch
