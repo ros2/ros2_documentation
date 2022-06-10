@@ -170,7 +170,7 @@ Here is what's happening in the snippet above:
    This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
 
 - The last large install command installs the library.
-  Archives and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
+  Archive and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
 
 .. note::
 
@@ -386,7 +386,7 @@ which registers the macro ``rosidl_generator_cpp_generate_interfaces.cmake`` for
 When the extension point gets executed, this will trigger the execution of the script ``rosidl_generator_cpp_generate_interfaces.cmake`` here.
 In particular, this will call the generator whenever the function ``rosidl_generate_interfaces`` gets executed.
 
-The most important extension point aside from ``rosidl_generate_interfaces`` for generators is ``ament_package``, which will simply execute scripts with the ``ament_package()`` call.
+The most important extension point for generators, aside from ``rosidl_generate_interfaces``, is ``ament_package``, which will simply execute scripts with the ``ament_package()`` call.
 This extension point is useful when registering resources (see below).
 
 ``ament_register_extension`` is a function which takes exactly three arguments:
