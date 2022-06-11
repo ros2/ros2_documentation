@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Learning-About-Tf2-And-Time-Py
+   Tutorials/Tf2/Time-Travel-With-Tf2-Py
 
 .. _TimeTravelWithTf2Py:
 

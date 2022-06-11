@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Tutorials/Intermediate/Launch/Using-Substitutions
+    
 
 Using substitutions
 ===================
