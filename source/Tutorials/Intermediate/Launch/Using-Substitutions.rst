@@ -1,7 +1,3 @@
-.. redirect-from::
-
-    
-
 Using substitutions
 ===================
 

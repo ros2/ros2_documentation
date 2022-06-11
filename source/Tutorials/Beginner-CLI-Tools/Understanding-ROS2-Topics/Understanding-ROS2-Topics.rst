@@ -1,7 +1,7 @@
 .. redirect-from::
 
     Tutorials/Topics/Understanding-ROS2-Topics
- 
+
 .. _ROS2Topics:
 
 Understanding topics
