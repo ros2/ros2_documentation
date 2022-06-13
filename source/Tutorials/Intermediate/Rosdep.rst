@@ -1,11 +1,21 @@
 .. redirect-from::
 
-        Tutorials/Rosdep
+    Tutorials/Rosdep
 
 .. _rosdep:
 
 Managing Dependencies with rosdep
 =================================
+
+**Goal:** Manage external dependencies using ``rosdep``.
+
+**Tutorial level:** Intermediate
+
+**Time:** 5 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 Author: Steve Macenski
 

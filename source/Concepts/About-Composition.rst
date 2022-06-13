@@ -78,4 +78,4 @@ The three most common ones are:
 Practical application
 ---------------------
 
-Try the :doc:`Composition demos </Tutorials/Intermediate/Composition>`.
+Try the :doc:`Composition demos <../Tutorials/Intermediate/Composition>`.

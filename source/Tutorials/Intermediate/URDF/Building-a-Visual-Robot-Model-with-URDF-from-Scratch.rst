@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Tutorials/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch
+    Tutorials/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch
 
 .. _BuildingURDF:
 
@@ -9,13 +9,15 @@ Building a visual robot model from scratch
 
 **Goal:** Learn how to build a visual model of a robot that you can view in Rviz
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
-**Note:** This tutorial assumes you know how to write well-formatted XML code
+**Time:** 20 minutes
 
 .. contents:: Contents
    :depth: 2
    :local:
+
+.. note:: This tutorial assumes you know how to write well-formatted XML code
 
 In this tutorial, we’re going to build a visual model of a robot that vaguely looks like R2D2.
 In later tutorials, you’ll learn how to :doc:`articulate the model <./Building-a-Movable-Robot-Model-with-URDF>`, :doc:`add in some physical properties <./Adding-Physical-and-Collision-Properties-to-a-URDF-Model>`, and :doc:`generate neater code with xacro <./Using-Xacro-to-Clean-Up-a-URDF-File>`, but for now, we’re going to focus on getting the visual geometry correct.

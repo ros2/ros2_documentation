@@ -1,15 +1,21 @@
 .. redirect-from::
 
-  Tutorials/URDF/Building-a-Movable-Robot-Model-with-URDF
+    Tutorials/URDF/Building-a-Movable-Robot-Model-with-URDF
 
 .. _MoveableURDF:
 
 Building a movable robot model
 ==============================
 
-**Goal:** Learn how to define movable joints in URDF
+**Goal:** Learn how to define movable joints in URDF.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
+
+**Time:** 10 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 In this tutorial, we’re going to revise the R2D2 model we made in the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` so that it has movable joints.
 In the previous model, all of the joints were fixed.
@@ -19,10 +25,6 @@ Make sure you have installed all prerequisites before continuing.
 See the :doc:`previous tutorial <./Building-a-Visual-Robot-Model-with-URDF-from-Scratch>` for information on what is required.
 
 Again, all of the robot models mentioned in this tutorial can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
-
-.. contents:: Contents
-   :depth: 2
-   :local:
 
 `Here is the new urdf <https://github.com/ros/urdf_tutorial/blob/ros2/urdf/06-flexible.urdf>`_ with flexible joints.
 You can compare it to the previous version to see everything that has changed, but we’re just going to focus on three example joints.

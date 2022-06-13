@@ -1,12 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Learning-About-Tf2-And-Time-Py
-
+    Tutorials/Tf2/Learning-About-Tf2-And-Time-Py
 
 .. _LearningAboutTf2AndTimePy:
 
 Using time (Python)
-====================================
+===================
 
 **Goal:** Learn to use the ``timeout`` in ``lookup_transform`` function to wait for a transform to be available on the tf2 tree.
 

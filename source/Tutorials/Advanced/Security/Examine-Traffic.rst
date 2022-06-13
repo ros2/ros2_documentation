@@ -7,7 +7,7 @@
 Examining network traffic
 =========================
 
-**Goal:** Capture and examine raw ROS 2 network traffic
+**Goal:** Capture and examine raw ROS 2 network traffic.
 
 **Tutorial level:** Advanced
 

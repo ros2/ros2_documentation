@@ -4,6 +4,7 @@ Beginner: Client libraries
 .. toctree::
    :maxdepth: 1
 
+   Beginner-Client-Libraries/Colcon-Tutorial
    Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace
    Beginner-Client-Libraries/Creating-Your-First-ROS2-Package
    Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber

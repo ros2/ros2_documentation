@@ -1,7 +1,6 @@
 .. redirect-from::
 
-      Tutorials/Tf2/Introduction-To-Tf2
-
+    Tutorials/Tf2/Introduction-To-Tf2
 
 .. _IntroToTf2:
 

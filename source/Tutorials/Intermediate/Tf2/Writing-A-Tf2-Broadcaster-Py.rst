@@ -1,11 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
+    Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Py
 
 .. _WritingATf2BroadcasterPy:
 
 Writing a broadcaster (Python)
-==================================
+==============================
 
 **Goal:** Learn how to broadcast the state of a robot to tf2.
 

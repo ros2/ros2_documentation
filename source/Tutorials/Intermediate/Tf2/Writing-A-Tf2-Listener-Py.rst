@@ -1,11 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Writing-A-Tf2-Listener-Py
+    Tutorials/Tf2/Writing-A-Tf2-Listener-Py
 
 .. _WritingATf2ListenerPy:
 
 Writing a listener (Python)
-===============================
+===========================
 
 **Goal:** Learn how to use tf2 to get access to frame transformations.
 

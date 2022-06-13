@@ -2,7 +2,6 @@
 
     Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
 
-
 .. _SimulatorsIgnition:
 
 Setting up a robot simulation (Ignition Gazebo)
@@ -10,7 +9,7 @@ Setting up a robot simulation (Ignition Gazebo)
 
 **Goal:** Launch a Simulation with Ignition Gazebo and ROS 2
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 20 minutes
 

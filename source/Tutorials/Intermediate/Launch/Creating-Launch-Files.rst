@@ -1,13 +1,14 @@
 .. redirect-from::
 
   Tutorials/Launch-Files/Creating-Launch-Files
+  Tutorials/Launch/Creating-Launch-Files
 
 Creating a launch file
 ======================
 
 **Goal:** Create a launch file to run a complex ROS 2 system.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 

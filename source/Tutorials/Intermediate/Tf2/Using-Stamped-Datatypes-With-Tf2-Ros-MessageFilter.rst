@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
+    Tutorials/Tf2/Using-Stamped-Datatypes-With-Tf2-Ros-MessageFilter
 
 .. _UsingStampedDatatypesWithTf2RosMessageFilter:
 
@@ -9,7 +9,7 @@ Using stamped datatypes with ``tf2_ros::MessageFilter``
 
 **Goal:** Learn how to use ``tf2_ros::MessageFilter`` to process stamped datatypes.
 
-**Tutorial level:** Advanced
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 

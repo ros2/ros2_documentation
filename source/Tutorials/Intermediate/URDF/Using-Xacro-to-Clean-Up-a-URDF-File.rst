@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
+    Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File
 
 .. _URDFXacro:
 
@@ -9,7 +9,13 @@ Using Xacro to clean up your code
 
 **Goal:** Learn some tricks to reduce the amount of code in a URDF file using Xacro
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
+
+**Time:** 20 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 By now, if you’re following all these steps at home with your own robot design, you might be sick of doing all sorts of math to get very simple robot descriptions to parse correctly.
 Fortunately, you can use the `xacro <https://index.ros.org/p/xacro>`_ package to make your life simpler.
@@ -20,10 +26,6 @@ It does three things that are very helpful.
  * Macros
 
 In this tutorial, we take a look at all these shortcuts to help reduce the overall size of the URDF file and make it easier to read and maintain.
-
-.. contents:: Contents
-   :depth: 2
-   :local:
 
 Using Xacro
 -----------

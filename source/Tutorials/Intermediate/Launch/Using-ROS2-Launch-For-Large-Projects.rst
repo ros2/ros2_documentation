@@ -1,13 +1,14 @@
 .. redirect-from::
 
     Tutorials/Launch-Files/Using-ROS2-Launch-for-Large-Projects
+    Tutorials/Launch/Using-ROS2-Launch-for-Large-Projects
 
 .. _UsingROS2LaunchForLargeProjects:
 
 Managing large projects
 =======================
 
-**Goal:** Learn best practices of managing large projects using ROS 2 launch files
+**Goal:** Learn best practices of managing large projects using ROS 2 launch files.
 
 **Tutorial level:** Intermediate
 

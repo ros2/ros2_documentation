@@ -2,16 +2,15 @@
 
     Tutorials/Security/Introducing-ros2-security
 
-
 .. _sros2:
 .. _ROS-2-Security-Tutorials:
 
 Setting up security
 ===================
 
-**Goal:** Set up security with ``sros2``
+**Goal:** Set up security with ``sros2``.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 15 minutes
 

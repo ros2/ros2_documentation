@@ -5,7 +5,6 @@
     Colcon-Tutorial
     Tutorials/Colcon-Tutorial
 
-
 Using ``colcon`` to build packages
 ==================================
 
@@ -13,7 +12,13 @@ Using ``colcon`` to build packages
    :depth: 2
    :local:
 
-This is a brief tutorial of how to create and build a ROS 2 workspace with ``colcon``.
+**Goal:** Build a ROS 2 workspace with ``colcon``.
+
+**Tutorial level:** Beginner
+
+**Time:** 20 minutes
+
+This is a brief tutorial on how to create and build a ROS 2 workspace with ``colcon``.
 It is a practical tutorial and not designed to replace the core documentation.
 
 Background

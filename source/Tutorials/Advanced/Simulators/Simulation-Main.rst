@@ -7,7 +7,7 @@
 Simulation
 ==========
 
-These set of tutorials will teach you how to configure different simulators with ROS 2.
+This set of tutorials will teach you how to configure different simulators with ROS 2.
 
 .. contents:: Contents
    :depth: 2
@@ -16,5 +16,5 @@ These set of tutorials will teach you how to configure different simulators with
 .. toctree::
    :maxdepth: 1
 
-   Setting-up-a-Robot-Simulation/Webots
-   Setting-up-a-Robot-Simulation/Ignition
+   Webots
+   Ignition

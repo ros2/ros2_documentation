@@ -2,15 +2,14 @@
 
     Tutorials/Security/The-Keystore
 
-
 .. _The-Keystore:
 
 Understanding the security keystore
 ===================================
 
-**Goal:** Explore files located in the ROS 2 Security Keystore
+**Goal:** Explore files located in the ROS 2 security keystore.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 15 minutes
 

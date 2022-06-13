@@ -1,12 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Quaternion-Fundamentals
-
+    Tutorials/Tf2/Quaternion-Fundamentals
 
 .. _QuaternionFundamentals:
 
-Using quaternions
-=================
+Quaternion fundamentals
+=======================
 
 **Goal:** Learn the basics of quaternion usage in ROS 2.
 

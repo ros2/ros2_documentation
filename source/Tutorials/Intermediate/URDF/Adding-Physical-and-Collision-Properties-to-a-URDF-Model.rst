@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Tutorials/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
+    Tutorials/URDF/Adding-Physical-and-Collision-Properties-to-a-URDF-Model
 
 .. _URDFProperties:
 
@@ -9,13 +9,15 @@ Adding physical and collision properties
 
 **Goal:** Learn how to add collision and inertial properties to links, and how to add joint dynamics to joints.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
-In this tutorial, we’ll look at how to add some basic physical properties to your URDF model and how to specify its collision properties.
+**Time:** 10 minutes
 
 .. contents:: Contents
    :depth: 2
    :local:
+
+In this tutorial, we’ll look at how to add some basic physical properties to your URDF model and how to specify its collision properties.
 
 Collision
 ---------

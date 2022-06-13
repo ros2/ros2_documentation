@@ -3,12 +3,12 @@
     FastDDS-Configuration
     Tutorials/FastDDS-Configuration/FastDDS-Configuration
 
-Unlocking the potential of Fast DDS as middleware [community-contributed]
-=========================================================================
+Unlocking the potential of Fast DDS middleware [community-contributed]
+======================================================================
 
 **Goal:** This tutorial will show how to use the extended configuration capabilities of Fast DDS in ROS 2.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 20 minutes
 

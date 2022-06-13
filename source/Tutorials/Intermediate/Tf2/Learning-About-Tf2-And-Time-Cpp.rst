@@ -1,12 +1,11 @@
 .. redirect-from::
 
-      Tutorials/Tf2/Learning-About-Tf2-And-Time-Cpp
-
+    Tutorials/Tf2/Learning-About-Tf2-And-Time-Cpp
 
 .. _LearningAboutTf2AndTimeCpp:
 
 Using time (C++)
-=================================
+================
 
 **Goal:** Learn how to get a transform at a specific time and wait for a transform to be available on the tf2 tree using ``lookupTransform()`` function.
 

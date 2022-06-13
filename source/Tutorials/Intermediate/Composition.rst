@@ -10,6 +10,12 @@ Composing multiple nodes in a single process
    :depth: 2
    :local:
 
+**Goal:** Compose multiple nodes into a single process.
+
+**Tutorial level:** Intermediate
+
+**Time:** 20 minutes
+
 Background
 ----------
 

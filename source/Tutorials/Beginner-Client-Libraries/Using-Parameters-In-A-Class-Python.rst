@@ -2,8 +2,6 @@
 
     Tutorials/Using-Parameters-In-A-Class-Python
 
-
-
 .. _PythonParamNode:
 
 Using parameters in a class (Python)

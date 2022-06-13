@@ -1,11 +1,11 @@
 .. redirect-from::
 
-  Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
+    Tutorials/URDF/Using-URDF-with-Robot-State-Publisher
 
 .. _URDFPlusRSP:
 
-Using ``robot_state_publisher``
-===============================
+Using URDF with ``robot_state_publisher``
+=========================================
 
 **Goal:** Simulate a walking robot modeled in URDF and view it in Rviz.
 

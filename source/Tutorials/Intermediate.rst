@@ -9,7 +9,6 @@ Intermediate
    Intermediate/Writing-an-Action-Server-Client/Cpp
    Intermediate/Writing-an-Action-Server-Client/Py
    Intermediate/Composition
-   Intermediate/Colcon-Tutorial
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Launch/Launch-Main
    Intermediate/Tf2/Tf2-Main

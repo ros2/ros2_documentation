@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   Tutorials/Launch/CLI-Intro
+    Tutorials/Launch/CLI-Intro
 
 .. _ROS2Launch:
 

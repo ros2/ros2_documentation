@@ -12,5 +12,5 @@ Beginner: CLI tools
    Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters
    Beginner-CLI-Tools/Understanding-ROS2-Actions/Understanding-ROS2-Actions
    Beginner-CLI-Tools/Using-Rqt-Console/Using-Rqt-Console
-   Beginner-CLI-Tools/CLI-Intro/CLI-Intro
+   Beginner-CLI-Tools/Launching-Multiple-Nodes/Launching-Multiple-Nodes
    Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data

@@ -1,6 +1,6 @@
 .. redirect-from::
 
-  Tutorials/Turtlesim/Introducing-Turtlesim
+    Tutorials/Turtlesim/Introducing-Turtlesim
 
 .. _Turtlesim:
 

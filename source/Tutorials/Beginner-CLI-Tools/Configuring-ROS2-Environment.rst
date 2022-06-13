@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Configuring-ROS2-Environment
+
 .. _ConfigROS2:
 
 Configuring environment

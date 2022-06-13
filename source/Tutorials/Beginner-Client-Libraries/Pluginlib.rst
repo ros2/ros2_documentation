@@ -1,17 +1,15 @@
 .. redirect-from::
 
-   Tutorials/Pluginlib
+    Tutorials/Pluginlib
 
-Creating plugins (C++)
-======================
+Creating and using plugins (C++)
+================================
 
 **Goal:** Learn to create and load a simple plugin using pluginlib
 
 **Tutorial level:** Beginner
 
-.. **Time:** 20 minutes
-
-**Minimum Platform:** Ardent
+**Time:** 20 minutes
 
 .. contents:: Contents
    :depth: 3

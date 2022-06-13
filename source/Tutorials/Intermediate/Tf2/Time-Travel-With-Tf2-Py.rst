@@ -1,15 +1,15 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Time-Travel-With-Tf2-Py
+    Tutorials/Tf2/Time-Travel-With-Tf2-Py
 
 .. _TimeTravelWithTf2Py:
 
 Traveling in time (Python)
-=============================
+==========================
 
 **Goal:** Learn about advanced time travel features of tf2.
 
-**Tutorial level:** Advanced
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 

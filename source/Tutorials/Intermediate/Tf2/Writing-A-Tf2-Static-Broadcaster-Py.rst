@@ -1,11 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
+    Tutorials/Tf2/Writing-A-Tf2-Static-Broadcaster-Py
 
 .. _WritingATf2StaticBroadcasterPy:
 
 Writing a static broadcaster (Python)
-=========================================
+=====================================
 
 **Goal:** Learn how to broadcast static coordinate frames to tf2.
 

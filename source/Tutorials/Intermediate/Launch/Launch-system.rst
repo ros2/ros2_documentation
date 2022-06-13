@@ -2,9 +2,20 @@
 
   Tutorials/Launch-system
   Tutorials/Launch-Files/Launch-system
+  Tutorials/Launch/Launch-system
 
 Launching and monitoring multiple nodes
 =======================================
+
+**Goal:** Write a launch file to start multiple nodes.
+
+**Tutorial level:** Intermediate
+
+**Time:** 10 minutes
+
+.. contents:: Contents
+   :depth: 2
+   :local:
 
 ROS 2 launch system
 -------------------

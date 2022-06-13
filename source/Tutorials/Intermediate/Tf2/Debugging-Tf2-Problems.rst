@@ -2,7 +2,6 @@
 
     Tutorials/Tf2/Debugging-Tf2-Problems
 
-
 .. _DebuggingTf2Problems:
 
 Debugging
@@ -10,7 +9,7 @@ Debugging
 
 **Goal:** Learn how to use a systematic approach for debugging tf2 related problems.
 
-**Tutorial level:** Advanced
+**Tutorial level:** Intermediate
 
 **Time:** 10 minutes
 

@@ -34,10 +34,10 @@ Prerequisites
 -------------
 
 * :doc:`ROS 2 installation <../../../Installation>`
-* :doc:`colcon installation <../../Intermediate/Colcon-Tutorial>`
+* :doc:`colcon installation <../Colcon-Tutorial>`
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :doc:`turtlesim installation <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
-* Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
+* Have :doc:`rosdep installed <../../Intermediate/Rosdep>`
 * Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
 

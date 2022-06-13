@@ -2,17 +2,16 @@
 
     Tutorials/Security/Security-on-Two
 
-
 .. _Security-on-Two:
 
 Ensuring security across machines
 =================================
 
-**Goal:** Make two different machines communicate securely
+**Goal:** Make two different machines communicate securely.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
-**Time:** 7 minutes
+**Time:** 5 minutes
 
 .. contents:: Contents
   :depth: 2

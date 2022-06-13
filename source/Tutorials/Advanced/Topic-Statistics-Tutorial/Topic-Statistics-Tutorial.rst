@@ -6,9 +6,9 @@
 Enabling topic statistics (C++)
 ===============================
 
-**Goal:** Enable ROS 2 Topic Statistics and view the output statistics data
+**Goal:** Enable ROS 2 Topic Statistics and view the output statistics data.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 10 minutes
 

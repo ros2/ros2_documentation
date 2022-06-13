@@ -1,14 +1,14 @@
 .. redirect-from::
 
-        Discovery-Server
-        Tutorials/Discovery-Server/Discovery-Server
+    Discovery-Server
+    Tutorials/Discovery-Server/Discovery-Server
 
 Using Fast DDS Discovery Server as discovery protocol [community-contributed]
 =============================================================================
 
 **Goal:** This tutorial will show how to launch ROS 2 Nodes using the **Fast DDS Discovery Server** discovery protocol.
 
-**Tutorial level:** Intermediate
+**Tutorial level:** Advanced
 
 **Time:** 20 minutes
 

@@ -1,7 +1,6 @@
 .. redirect-from::
 
-        Tutorials/Rqt-Console/Using-Rqt-Console
-
+    Tutorials/Rqt-Console/Using-Rqt-Console
 
 .. _rqt_console:
 
@@ -132,4 +131,4 @@ You might want to examine log messages for any number of reasons, usually to fin
 Next steps
 ----------
 
-The next tutorial will teach you about starting multiple nodes at once with :doc:`ROS 2 Launch <../CLI-Intro/CLI-Intro>`.
+The next tutorial will teach you about starting multiple nodes at once with :doc:`ROS 2 Launch <../Launching-Multiple-Nodes/Launching-Multiple-Nodes>`.

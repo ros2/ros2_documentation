@@ -2,7 +2,6 @@
 
     Tutorials/Ros2bag/Recording-A-Bag-From-Your-Own-Node-Python
 
-
 .. _ROS2BagOwnNodePython:
 
 Recording a bag from a node (Python)

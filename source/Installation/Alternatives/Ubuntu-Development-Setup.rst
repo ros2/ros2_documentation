@@ -114,7 +114,7 @@ Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in
 You can make sure that ROS 2 is not sourced with the command ``printenv | grep -i ROS``.
 The output should be empty.
 
-More info on working with a ROS workspace can be found in :doc:`this tutorial </Tutorials/Intermediate/Colcon-Tutorial>`.
+More info on working with a ROS workspace can be found in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 
 .. code-block:: bash
 

@@ -1,14 +1,19 @@
+.. redirect-from::
+
+    Tutorials/Launch-Files/Using-Substitutions
+    Tutorials/Launch/Using-Substitutions
+
 Using substitutions
 ===================
 
-**Goal:** Learn about substitutions in ROS 2 launch files
+**Goal:** Learn about substitutions in ROS 2 launch files.
 
-**Tutorial level:** Advanced
+**Tutorial level:** Intermediate
 
 **Time:** 15 minutes
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 Background

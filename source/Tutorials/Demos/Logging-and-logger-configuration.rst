@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Logging-and-logger-configuration
+    Tutorials/Logging-and-logger-configuration
 
 Configuring loggers
 ===================

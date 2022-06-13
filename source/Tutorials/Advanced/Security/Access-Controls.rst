@@ -7,7 +7,7 @@
 Setting access controls
 =======================
 
-**Goal:** Limit the topics a node can use
+**Goal:** Limit the topics a node can use.
 
 **Tutorial level:** Advanced
 

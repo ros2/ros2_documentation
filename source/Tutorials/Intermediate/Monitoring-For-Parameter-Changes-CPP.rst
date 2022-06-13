@@ -2,12 +2,12 @@
 
     Tutorials/Monitoring-For-Parameter-Changes-CPP
 
-Monitoring parameter changes (C++)
-==================================
+Monitoring for parameter changes (C++)
+======================================
 
 **Goal:** Learn to use the ParameterEventHandler class to monitor and respond to parameter changes.
 
-**Tutorial level:** Beginner
+**Tutorial level:** Intermediate
 
 **Time:** 20 minutes
 

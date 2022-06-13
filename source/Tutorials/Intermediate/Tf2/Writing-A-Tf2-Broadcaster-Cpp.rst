@@ -1,11 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
+    Tutorials/Tf2/Writing-A-Tf2-Broadcaster-Cpp
 
 .. _WritingATf2BroadcasterCpp:
 
 Writing a broadcaster (C++)
-===============================
+===========================
 
 **Goal:** Learn how to broadcast the state of a robot to tf2.
 

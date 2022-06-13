@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Creating-Your-First-ROS2-Package
+
 .. _CreatePkg:
 
 Creating a package

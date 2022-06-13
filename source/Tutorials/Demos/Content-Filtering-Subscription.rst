@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Tutorials/Content-Filtering-Subscription
+
 Creating a content filtering subscription
 =========================================
 

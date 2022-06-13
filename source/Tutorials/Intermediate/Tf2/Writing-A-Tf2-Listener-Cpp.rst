@@ -1,11 +1,11 @@
 .. redirect-from::
 
-   Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
+    Tutorials/Tf2/Writing-A-Tf2-Listener-Cpp
 
 .. _WritingATf2ListenerCpp:
 
 Writing a listener (C++)
-============================
+========================
 
 **Goal:** Learn how to use tf2 to get access to frame transformations.
 
