@@ -15,7 +15,13 @@ RUN apt-get update && \
         git-all \
         graphviz \
         make \
-        python3-pip && \
+        python3-doc8 \
+        python3-docutils \
+        python3-pip \
+        python3-sphinx \
+        python3-sphinx-copybutton \
+        python3-sphinx-rtd-theme \
+        python3-sphinx-tabs && \
     rm -rf /var/lib/apt/lists/*
 
 RUN useradd -u $uid -m $user
@@ -25,4 +31,4 @@ WORKDIR /tmp/doc_repository
 
 USER $user
 
-CMD pip3 install --no-warn-script-location --user --upgrade -r requirements.txt && make multiversion
+CMD pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt && make multiversion
