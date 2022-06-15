@@ -1,4 +1,4 @@
-.. _upcoming-release:
+.. _latest_release:
 
 .. _humble-release:
 
