@@ -1,5 +1,3 @@
-.. _latest_release:
-
 .. _galactic-release:
 
 ROS 2 Galactic Geochelone (codename 'galactic'; May, 2021)

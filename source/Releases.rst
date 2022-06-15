@@ -37,6 +37,7 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Galactic-Geochelone-Complete-Changelog.rst
    Releases/Release-Humble-Hawksbill.rst
    Releases/Humble-Hawksbill-Complete-Changelog.rst
+   Releases/Release-Iron-Irwini.rst
    Releases/Release-Rolling-Ridley.rst
 
 .. raw:: html
@@ -96,7 +97,7 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
-   * - Iron Irwini
+   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 23rd, 2023
      - TBD
      - TBD
