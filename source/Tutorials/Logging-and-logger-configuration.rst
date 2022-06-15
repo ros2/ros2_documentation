@@ -177,6 +177,62 @@ Restart the demo including the following command line arguments:
 
    ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
 
+Logger level configuration: configuration file
+--------------------------------------------
+
+The severity level for loggers could be set in a configuration file and setting environment variable ``RCUTILS_LOGGING_CONFIG_FILE`` to point to the file path.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_CONFIG_FILE="path_to_config_file"
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      export RCUTILS_LOGGING_CONFIG_FILE="path_to_config_file"
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+       # set "RCUTILS_LOGGING_CONFIG_FILE=path_to_config_file"
+
+The config file has the following structure.
+
+.. code-block:: YAML
+
+   # This is a comment
+   logger1_name=severity # severity could fatal/error/debug/info/warn case-insensitive
+   logger2.child_logger=debug # Another comment
+   # This is a special name used to set the default logger level
+   default_logger_level=info
+
+.. note::
+
+   The command line severity level prevails the one from the ``RCUTILS_LOGGING_CONFIG_FILE``, for example having the following configuration file
+
+   .. code-block:: YAML
+
+      default_logger_level=info
+      logger_usage_demo=error
+
+   Running the following command will set the default logger level to ``debug`` not ``info``
+
+   .. code-block:: bash
+
+      ros2 run logging_demo logging_demo_main --ros-args --log-level debug
+
+   Same here logger_usage_demo's level will be ``debug`` rather than ``error``
+
+   .. code-block:: bash
+
+      ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
+
 
 Console output formatting
 ^^^^^^^^^^^^^^^^^^^^^^^^^
