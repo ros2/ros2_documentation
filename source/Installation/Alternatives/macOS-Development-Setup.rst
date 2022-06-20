@@ -151,7 +151,7 @@ If you would like to use another DDS or RTPS vendor besides the default, you can
 Build the ROS 2 code
 --------------------
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Colcon-Tutorial>`):
+Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
 
 .. code-block:: bash
 

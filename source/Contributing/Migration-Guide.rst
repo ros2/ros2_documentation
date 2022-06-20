@@ -84,7 +84,7 @@ Build system
 ^^^^^^^^^^^^
 
 The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
-and the build tool is  `colcon <../Tutorials/Colcon-Tutorial/>`.
+and the build tool is :doc:`colcon <../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
@@ -407,7 +407,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
-* See `ROS 2 CLI usage <../Tutorials/Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+* See :doc:`ROS 2 CLI usage <../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
 * See :doc:`../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
