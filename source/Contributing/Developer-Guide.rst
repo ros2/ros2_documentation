@@ -474,7 +474,7 @@ The usual workflow is:
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see `colcon tutorial <../Tutorials/Colcon-Tutorial>`)
+* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org
