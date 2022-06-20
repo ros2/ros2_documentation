@@ -7,6 +7,11 @@
 ROS 2 Humble Hawksbill (codename 'humble'; May, 2022)
 =====================================================
 
+.. toctree::
+   :hidden:
+
+   Humble-Hawksbill-Complete-Changelog.rst
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
