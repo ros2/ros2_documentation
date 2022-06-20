@@ -95,7 +95,7 @@ It can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <../Tutorials/Quality-of-Service>` settings.
+Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <../Tutorials/Demos/Quality-of-Service>` settings.
 
 Take the :ref:`talker-listener demo <talker-listener>` for example.
 Running the C++ talker node in one terminal will publish messages on a topic,

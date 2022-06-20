@@ -38,7 +38,7 @@ A synchronous client will block the calling thread when sending a request to a s
 The call can take arbitrary amounts of time to complete.
 Once complete, the response returns directly to the client.
 
-The following is an example of how to correctly execute a synchronous service call from a client node, similar to the async node in the :doc:`Simple Service and Client <../Tutorials/Writing-A-Simple-Py-Service-And-Client>` tutorial.
+The following is an example of how to correctly execute a synchronous service call from a client node, similar to the async node in the :doc:`Simple Service and Client <../Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>` tutorial.
 
 .. code-block:: python
 
@@ -136,7 +136,7 @@ Since sending a request doesn’t block anything, a loop can be used to both spi
         if future.done():
             #Get response
 
-The :doc:`Simple Service and Client <../Tutorials/Writing-A-Simple-Py-Service-And-Client>` tutorial for Python illustrates how to perform an async service call and retrieve the ``future`` using a loop.
+The :doc:`Simple Service and Client <../Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber>` tutorial for Python illustrates how to perform an async service call and retrieve the ``future`` using a loop.
 
 The ``future`` can also be retrieved using a timer or callback, like in `this example <https://github.com/ros2/examples/blob/master/rclpy/services/minimal_client/examples_rclpy_minimal_client/client_async_callback.py>`_, a dedicated thread, or by another method.
 It is up to you, as the caller, to decide how to store ``future``, check on its status, and retrieve your response.
