@@ -67,7 +67,7 @@ The following example will both change the node name and remap a topic (node and
 Logger configuration
 --------------------
 
-See ``--log-level`` argument usage in :doc:`the logging page <../Tutorials/Logging-and-logger-configuration>`.
+See ``--log-level`` argument usage in :doc:`the logging page <../Tutorials/Demos/Logging-and-logger-configuration>`.
 
 Parameters
 ----------

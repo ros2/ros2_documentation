@@ -5,8 +5,8 @@ Using ROS 2 launch to launch composable nodes
    :depth: 1
    :local:
 
-In the :doc:`Composition tutorial <../Tutorials/Composition>`, you learned about composable nodes and how to use them from the command-line.
-In the :doc:`Launch tutorials <../Tutorials/Launch/Launch-Main>`, you learned about launch files and how to use them to manage multiple nodes.
+In the :doc:`Composition tutorial <../Tutorials/Intermediate/Composition>`, you learned about composable nodes and how to use them from the command-line.
+In the :doc:`Launch tutorials <../Tutorials/Intermediate/Launch/Launch-Main>`, you learned about launch files and how to use them to manage multiple nodes.
 
 This guide will combine the above two topics and teach you how to write launch files for composable nodes.
 
@@ -80,4 +80,4 @@ Intra-process communications
 ----------------------------
 
 All of the above examples use an extra argument to setup intra-process communication between the nodes.
-For more information on what intra-process communications are, see the :doc:`intra-process comms tutorial <../Tutorials/Intra-Process-Communication>`.
+For more information on what intra-process communications are, see the :doc:`intra-process comms tutorial <../Tutorials/Demos/Intra-Process-Communication>`.
