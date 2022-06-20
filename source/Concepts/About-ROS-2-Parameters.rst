@@ -24,7 +24,7 @@ Each parameter consists of a key, a value, and a descriptor.
 The key is a string and the value is one of the following types: bool, int64, float64, string, byte[], bool[], int64[], float64[] or string[].
 By default all descriptors are empty, but can contain parameter descriptions, value ranges, type information, and additional constraints.
 
-For an hands-on tutorial with ROS parameters see :doc:`../Tutorials/Parameters/Understanding-ROS2-Parameters`.
+For an hands-on tutorial with ROS parameters see :doc:`../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters`.
 
 Parameters background
 ---------------------
@@ -34,7 +34,7 @@ Declaring parameters
 
 By default, a node needs to *declare* all of the parameters that it will accept during its lifetime.
 This is so that the type and the name of the parameter are well-defined at node startup time, which reduces the chances of misconfiguration later on.
-See :doc:`../Tutorials/Using-Parameters-In-A-Class-CPP` or :doc:`../Tutorials/Using-Parameters-In-A-Class-Python` for tutorials on declaring and using parameters from a node.
+See :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python` for tutorials on declaring and using parameters from a node.
 
 For some types of nodes, not all of the parameters will be known ahead of time.
 In these cases, the node can be instantiated with ``allow_undeclared_parameters`` set to ``true``, which will allow parameters to be get and set on the node even if they haven't been declared.
@@ -76,7 +76,7 @@ The main purpose of this callback is to give the user the ability to react to ch
 Interacting with parameters
 ---------------------------
 
-ROS 2 nodes can perform parameter operations through node APIs as described in :doc:`../Tutorials/Using-Parameters-In-A-Class-CPP` or :doc:`../Tutorials/Using-Parameters-In-A-Class-Python`.
+ROS 2 nodes can perform parameter operations through node APIs as described in :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python`.
 External processes can perform parameter operations via parameter services that are created by default when a node is instantiated.
 The services that are created by default are:
 
@@ -103,7 +103,7 @@ Setting initial parameter values when launching nodes
 -----------------------------------------------------
 
 Initial parameter values can also be set when running the node through the ROS 2 launch facility.
-See :doc:`this document <../Tutorials/Launch/Using-ROS2-Launch-For-Large-Projects>` for information on how to specify parameters via launch.
+See :doc:`this document <../Tutorials/Intermediate/Launch/Using-ROS2-Launch-For-Large-Projects>` for information on how to specify parameters via launch.
 
 Manipulating parameter values at runtime
 ----------------------------------------

@@ -28,7 +28,7 @@ By making the process layout a deploy-time decision the user can choose between:
 
 
 * running multiple nodes in separate processes with the benefits of process/fault isolation as well as easier debugging of individual nodes and
-* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <../Tutorials/Intra-Process-Communication>`).
+* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <../Tutorials/Demos/Intra-Process-Communication>`).
 
 Additionally ``ros2 launch`` can be used to automate these actions through specialized launch actions.
 
@@ -78,4 +78,4 @@ The three most common ones are:
 Practical application
 ---------------------
 
-Try the :doc:`Composition demos <../Tutorials/Composition>`.
+Try the :doc:`Composition demos <../Tutorials/Intermediate/Composition>`.
