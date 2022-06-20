@@ -401,9 +401,9 @@ The major features included in this release are:
 * Support `multiple DDS vendors <https://design.ros2.org/articles/ros_on_dds.html#vendors-and-licensing>`__
 * Support messaging primitives: topics (publish / subscribe), services (request / response), and parameters
 * Support Linux (Ubuntu Trusty), OS X (Yosemite) and Windows (8)
-* `Use quality-of-service settings to handle lossy networks <../Tutorials/Quality-of-Service>`
-* `Communicate inter-process or intra-process with the same API <../Tutorials/Intra-Process-Communication>`
-* `Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Real-Time-Programming>`
+* `Use quality-of-service settings to handle lossy networks <../Tutorials/Demos/Quality-of-Service>`
+* `Communicate inter-process or intra-process with the same API <../Tutorials/Demos/Intra-Process-Communication>`
+* `Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Demos/Real-Time-Programming>`
 * `Run ROS 2 on "bare-metal" microcontrollers (no operating system) <https://github.com/ros2/freertps/wiki>`__
 * `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README>`__
 
