@@ -193,31 +193,22 @@ Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file calle
               self.get_logger().info('service not available, waiting again...')
           self.req = AddTwoInts.Request()
 
-      def send_request(self):
-          self.req.a = int(sys.argv[1])
-          self.req.b = int(sys.argv[2])
+      def send_request(self, a, b):
+          self.req.a = a
+          self.req.b = b
           self.future = self.cli.call_async(self.req)
+          rclpy.spin_until_future_complete(self, self.future)
+          return self.future.result()
 
 
   def main():
       rclpy.init()
 
       minimal_client = MinimalClientAsync()
-      minimal_client.send_request()
-
-      while rclpy.ok():
-          rclpy.spin_once(minimal_client)
-          if minimal_client.future.done():
-              try:
-                  response = minimal_client.future.result()
-              except Exception as e:
-                  minimal_client.get_logger().info(
-                      'Service call failed %r' % (e,))
-              else:
-                  minimal_client.get_logger().info(
-                      'Result of add_two_ints: for %d + %d = %d' %
-                      (minimal_client.req.a, minimal_client.req.b, response.sum))
-              break
+      response = minimal_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
+      minimal_client.get_logger().info(
+          'Result of add_two_ints: for %d + %d = %d' %
+          (int(sys.argv[1]), int(sys.argv[2]), response.sum))
 
       minimal_client.destroy_node()
       rclpy.shutdown()
