@@ -40,7 +40,7 @@ The benefit of Multi-Threaded Executors is being able to process multiple callba
 
 Thus, we need to make use of additional executors.
 This guide highlights how to use additional Single Threaded Executors to enable calling services and actions within other callbacks by means of executors and callback groups in C++.
-In python, it will show how to use this with multiple ``Node`` objects instead, since ``rclpy`` does not have analogous structures of executors and callback groups. 
+In python, it will show how to use this with multiple ``Node`` objects instead, since ``rclpy`` does not have analogous structures of executors and callback groups.
 
 .. note::
     Similar processes as described below can be used to leverage executors and callback groups to have multiple parallel processed callbacks within a given program.
@@ -143,10 +143,10 @@ In ``rclpy``, there are not the exact same concepts as in ``rclcpp``.
 We cannot add our interfaces to callback groups and independent executors in the same fashion.
 Instead, we will create additional ``Node`` classes to break apart capabilities into different threads to enable nested interfaces.
 
-The following (**non-functioning**) example is where one might start if having a node with an action service who's callback requires calling a service, the same as in the ``rclcpp`` demo prior. 
+The following (**non-functioning**) example is where one might start if having a node with an action service who's callback requires calling a service, the same as in the ``rclcpp`` demo prior.
 
 .. code-block:: python
-    
+
     class MyNode(Node):
 
         def __init__(self):
