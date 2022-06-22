@@ -1,3 +1,5 @@
+.. _callback_groups:
+
 Using Callback Groups
 =====================
 
