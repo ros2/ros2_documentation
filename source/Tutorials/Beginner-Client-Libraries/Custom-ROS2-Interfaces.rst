@@ -103,8 +103,8 @@ To convert the interfaces you defined into language-specific code (like C++ and 
     "msg/Num.msg"
     "srv/AddThreeInts.srv"
   )
-  
-Note: `the library name must match ${PROJECT_NAME} as shown above <https://github.com/ros2/rosidl/issues/441#issuecomment-591025515>`__.
+
+Note: `the library name must match ${PROJECT_NAME} as shown above <https://github.com/ros2/rosidl/issues/441#issuecomment-591025515>`_.
 
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
