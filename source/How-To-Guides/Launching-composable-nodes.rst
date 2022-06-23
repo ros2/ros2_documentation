@@ -134,6 +134,127 @@ The launch files all do the following:
                           - name: use_intra_process_comms
                             value: 'true'
 
+
+Loading composable nodes into an existing container
+---------------------------------------------------
+
+Containers can sometimes be launched by other launch files or from a commandline.
+In that case, you need to add your components to an existing container.
+For this, you may use ``LoadComposableNodes`` to load components into a given container.
+The below example launches the same nodes as above.
+
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import LoadComposableNodes, Node
+      from launch_ros.descriptions import ComposableNode
+
+      def generate_launch_description():
+          container = Node(
+              name='image_container',
+              package='rclcpp_components',
+              executable='component_container',
+              output='both',
+          )
+
+          load_composable_nodes = LoadComposableNodes(
+              target_container='image_container',
+              composable_node_descriptions=[
+                  ComposableNode(
+                       package='image_tools',
+                      plugin='image_tools::Cam2Image',
+                      name='cam2image',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}],
+                  ),
+                  ComposableNode(
+                      package='image_tools',
+                      plugin='image_tools::ShowImage',
+                      name='showimage',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}]
+                  ),
+              ],
+          )
+
+          return LaunchDescription([container, load_composable_nodes])
+
+  .. group-tab:: XML
+
+    .. code-block:: xml
+
+      <launch>
+          <node pkg="rclcpp_components" exec="component_container" name="image_container">
+          </node>
+          <load_composable_node target="image_container">
+              <composable_node pkg="image_tools" plugin="image_tools::Cam2Image" name="cam2image">
+                  <remap from="/image" to="/burgerimage" />
+                  <param name="width" value="320" />
+                  <param name="height" value="240" />
+                  <param name="burger_mode" value="true" />
+                  <param name="history" value="keep_last" />
+                  <extra_arg name="use_intra_process_comms" value="true" />
+              </composable_node>
+              <composable_node pkg="image_tools" plugin="image_tools::ShowImage" name="showimage" namespace="">
+                  <remap from="/image" to="/burgerimage" />
+                  <param name="history" value="keep_last" />
+                  <extra_arg name="use_intra_process_comms" value="true" />
+              </composable_node>
+          </load_composable_node>
+      </launch>
+
+  .. group-tab:: YAML
+
+    .. code-block:: yaml
+
+      launch:
+          - node_container:
+              pkg: rclcpp_components
+              exec: component_container
+              name: image_container
+              namespace: ''
+              composable_node:
+                  -   pkg: image_tools
+                      plugin: image_tools::Cam2Image
+                      name: cam2image
+                      namespace: ''
+                      remap:
+                          - from: /image
+                            to: /burgerimage
+                      param:
+                          - name: width
+                            value: 320
+                          - name: height
+                            value: 240
+                          - name: burger_mode
+                            value: true
+                          - name: history
+                            value: keep_last
+                      extra_arg:
+                          - name: use_intra_process_comms
+                            value: 'true'
+
+                  -   pkg: image_tools
+                      plugin: image_tools::ShowImage
+                      name: showimage
+                      namespace: ''
+                      remap:
+                          - from: /image
+                            to: /burgerimage
+                      param:
+                          - name: history
+                            value: keep_last
+                      extra_arg:
+                          - name: use_intra_process_comms
+                            value: 'true'
+
+
 Using the Launch files from the command-line
 --------------------------------------------
 
