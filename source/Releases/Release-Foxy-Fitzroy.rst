@@ -1,5 +1,5 @@
-ROS 2 Foxy Fitzroy (codename 'foxy'; June 5th, 2020)
-====================================================
+Foxy Fitzroy (``foxy``)
+=======================
 
 .. contents:: Table of Contents
    :depth: 2

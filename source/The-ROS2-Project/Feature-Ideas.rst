@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Feature-Ideas
+
 .. _FeatureIdeas:
 
 Feature Ideas
@@ -9,7 +13,7 @@ Feature Ideas
 
 The following are feature ideas in no specific order.
 This list contains features that we think are important and can make for good contributions to ROS 2.
-:doc:`Please get in touch with us <Contact>` before digging into a new feature.
+:doc:`Please get in touch with us <../Contact>` before digging into a new feature.
 We can offer guidance, and connect you with other developers.
 
 Design / Concept

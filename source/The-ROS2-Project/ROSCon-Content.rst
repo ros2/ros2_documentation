@@ -1,7 +1,11 @@
+.. redirect-from::
+
+  ROSCon-Content
+
 .. _ROSCon:
 
-ROSCon Content
-==============
+ROSCon Talks
+============
 
 The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2 and provide information about the workings of ROS 2 and various demos:
 
