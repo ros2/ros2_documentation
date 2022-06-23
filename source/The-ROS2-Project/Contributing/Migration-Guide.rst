@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Migration-Guide
+    Contributing/Migration-Guide
 
 Migration guide from ROS 1
 ==========================
@@ -84,7 +85,7 @@ Build system
 ^^^^^^^^^^^^
 
 The build system in ROS 2 is called `ament <https://design.ros2.org/articles/ament.html>`__
-and the build tool is :doc:`colcon <../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
+and the build tool is :doc:`colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`.
 Ament is built on CMake: ``ament_cmake`` provides CMake functions to make writing ``CMakeLists.txt`` files easier.
 
 Build tool
@@ -407,15 +408,15 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 
 * See `ROS 2 Parameter design document <https://design.ros2.org/articles/ros_parameters.html>`_ for more details about the system model.
 
-* See :doc:`ROS 2 CLI usage <../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
+* See :doc:`ROS 2 CLI usage <../../Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Parameters/Understanding-ROS2-Parameters>` for a better understanding of how the CLI tools work and its differences with ROS 1 tooling.
 
-* See :doc:`../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
+* See :doc:`../../How-To-Guides/Parameters-YAML-files-migration-guide` to see how YAML parameter files are parsed in ROS 2 and their differences with ROS implementation.
 
 Launch files
 ------------
 
 While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
-See `separate tutorial <../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
+See `separate tutorial <../../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
 ----------------------------------------------------------
@@ -607,7 +608,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and `concept overview <../Concepts/About-Quality-of-Service-Settings>`.
+and `concept overview <../../Concepts/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
@@ -969,7 +970,7 @@ Update scripts
 ROS CLI arguments
 ~~~~~~~~~~~~~~~~~
 
-Since `ROS Eloquent <../Releases/Release-Eloquent-Elusor>`, ROS arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
+Since `ROS Eloquent <../../Releases/Release-Eloquent-Elusor>`, ROS arguments should be scoped with ``--ros-args`` and a trailing ``--`` (the trailing double dash may be elided if no arguments follow it).
 
 Remapping names is similar to ROS 1, taking on the form ``from:=to``, except that it must be preceded by a ``--remap`` (or ``-r``) flag.
 For example:

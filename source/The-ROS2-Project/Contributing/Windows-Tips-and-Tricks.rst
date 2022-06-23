@@ -1,3 +1,7 @@
+.. redirect-from::
+
+    Contributing/Windows-Tips-and-Tricks
+
 Windows Tips and Tricks
 =======================
 
