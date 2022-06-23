@@ -104,6 +104,10 @@ To convert the interfaces you defined into language-specific code (like C++ and 
     "srv/AddThreeInts.srv"
   )
 
+.. note::
+
+  The library name must match ${PROJECT_NAME} (see https://github.com/ros2/rosidl/issues/441#issuecomment-591025515).
+
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
 
