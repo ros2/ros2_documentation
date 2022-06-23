@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Beta3-Overview
+  Beta3-Overview
 
-Beta 3 (codename 'r2b3'; September 2017)
-========================================
+Beta 3 (``r2b3``)
+=================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -13,7 +13,7 @@ Supported Platforms
 -------------------
 
 We support ROS 2 Beta 3 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
-We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/beta3/>`__).
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/beta3/>`__).
 
 Features
 --------
@@ -41,7 +41,7 @@ New demo application
 Selected features from previous Alpha/Beta releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the complete list, see `earlier release notes <../Releases>`.
+For the complete list, see `earlier release notes <../index>`.
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
 

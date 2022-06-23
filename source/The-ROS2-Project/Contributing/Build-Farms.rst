@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Contributing/Build-Farms
+
 .. _BuildFarms:
 
 ===============

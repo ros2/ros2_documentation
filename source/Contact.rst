@@ -55,7 +55,7 @@ Pull requests
 
 When you feel comfortable enough to suggest a specific change directly to the code, you can submit a pull request.
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
-See the :doc:`Contributing <Contributing>` page for more details and etiquette on how to contribute.
+See the :doc:`Contributing <The-ROS2-Project/Contributing>` page for more details and etiquette on how to contribute.
 
 .. _Using ROS Discourse:
 

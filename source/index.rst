@@ -11,18 +11,12 @@ ROS 2 Documentation
    :hidden:
 
    Installation
+   Releases
    Tutorials
    How-To-Guides
    Concepts
-   Contributing
    Contact
-   ROSCon-Content
-   Releases
-   Features
-   Roadmap
-   Feature-Ideas
-   Governance
-   Marketing
+   The-ROS2-Project
    Related-Projects
    Glossary
    Citations
@@ -58,10 +52,6 @@ Getting started
 
   - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
 
-* :doc:`Contributing <Contributing>`
-
-  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
-
 * :doc:`Contact <Contact>`
 
   - Answers to your questions or a forum to start a discussion
@@ -72,38 +62,37 @@ The ROS 2 project
 
 If you're interested in the advancement of the ROS 2 project:
 
-* :doc:`Releases <Releases>`
+* :doc:`Contributing <The-ROS2-Project/Contributing>`
+
+  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
+
+* :doc:`Distributions <Releases>`
 
   - Past, present and future ROS 2 distributions
 
-* :doc:`Features Status <Features>`
+* :doc:`Features Status <The-ROS2-Project/Features>`
 
   - Features in the current release
 
-* :doc:`Feature Ideas <Feature-Ideas>`
+* :doc:`Feature Ideas <The-ROS2-Project/Feature-Ideas>`
 
   - Ideas for nice-to-have features that are not under active development
 
-* :doc:`Roadmap <Roadmap>`
+* :doc:`Roadmap <The-ROS2-Project/Roadmap>`
 
   - Planned work for ROS 2 development
 
-* :doc:`ROSCon talks <ROSCon-Content>`
+* :doc:`ROSCon Talks <The-ROS2-Project/ROSCon-Content>`
 
   - Presentations by the community on ROS 2
 
-* :doc:`Project governance <Governance>`
+* :doc:`Project Governance <The-ROS2-Project/Governance>`
 
   - Information about the ROS Technical Steering Committee, Working Groups, and upcoming events
 
-* :doc:`Marketing <Marketing>`
+* :doc:`Marketing <The-ROS2-Project/Marketing>`
 
   - Downloadable marketing materials
-
-* `ROS 2 Design <http://design.ros2.org/>`__
-
-  - Early design decisions behind ROS 2 development
-  - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
 
 Other ROS resources
 -------------------
@@ -152,11 +141,11 @@ Other ROS resources
 Deprecated
 ^^^^^^^^^^
 
-The `deprecated ROS 2 docs site <https://docs.ros2.org>`_  has API documentation up to and including Galactic.
+* `ROS 2 Docs <https://docs.ros2.org>`_
 
-Contributing
-------------
+  - API documentation up to and including Galactic
 
-We're always working to improve our documentation.
-You can help by submitting pull requests for fixes or issues for suggestions on `our GitHub repository <https://github.com/ros2/ros2_documentation>`__.
-See the :doc:`contribution guide <Contributing/Contributing-To-ROS-2-Documentation>`.
+* `ROS 2 Design <http://design.ros2.org/>`__
+
+  - Early design decisions behind ROS 2 development
+  - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
