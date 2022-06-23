@@ -38,9 +38,10 @@ We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for ou
   * rationale: C99 is pretty much ubiquitous now
 
 * C++ style ``//`` comments are allowed
-* Always place literals on the left-hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
+* (optional) Always place literals on the left-hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
 
   * rationale: ``ret == 0`` too easily turns into ``ret = 0`` by accident
+  * optional because when using ``-Wall`` (or equivalent) modern compilers will warn you when this happens
 
 All of the following modifications only apply if we are not writing Python modules:
 
