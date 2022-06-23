@@ -1,7 +1,11 @@
+.. redirect-from::
+
+  Marketing
+
 .. _Marketing:
 
-Marketing Materials
-===================
+Marketing
+=========
 
 General Use ROS Artwork
 -----------------------
@@ -29,9 +33,9 @@ License: `CC BY-ND 4.0 <https://creativecommons.org/licenses/by-nd/4.0/>`__
 
 Available formats:
 
-* :download:`A4 (for web/email) <Marketing/ros2-brochure-a4-web.pdf>`
-* :download:`A4 (for print) <Marketing/ros2-brochure-a4-print.pdf>`
-* :download:`US Letter (for web/email) <Marketing/ros2-brochure-ltr-web.pdf>`
-* :download:`US Letter (for print) <Marketing/ros2-brochure-ltr-print.pdf>`
+* :download:`A4 (for web/email) <Marketing/documents/ros2-brochure-a4-web.pdf>`
+* :download:`A4 (for print) <Marketing/documents/ros2-brochure-a4-print.pdf>`
+* :download:`US Letter (for web/email) <Marketing/documents/ros2-brochure-ltr-web.pdf>`
+* :download:`US Letter (for print) <Marketing/documents/ros2-brochure-ltr-print.pdf>`
 
 

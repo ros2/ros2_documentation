@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Contributing/Contributing-to-ROS-2-Documentation
+
 Contributing to ROS 2 Documentation
 ===================================
 

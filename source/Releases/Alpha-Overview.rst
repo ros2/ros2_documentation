@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Alpha-Overview
+   Alpha-Overview
 
-ROS 2 alpha releases (Aug 2015 - Oct 2016)
-==========================================
+Alphas
+======
 
 .. contents:: Table of Contents
    :depth: 2
@@ -11,7 +11,7 @@ ROS 2 alpha releases (Aug 2015 - Oct 2016)
 
 This is a merged version of the previously separated pages for the 8 alpha releases of ROS 2.
 
-We hope that you try them out and `provide feedback <../Contact>`.
+We hope that you try them out and `provide feedback <../../Contact>`.
 
 ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 ----------------------------------------------------------------
@@ -19,7 +19,7 @@ ROS 2 alpha8 release (code name *Hook-and-Loop*; October 2016)
 Changes to supported DDS vendors
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 supports multiple middleware implementations (see `this page <../Concepts/About-Different-Middleware-Vendors>` for more details).
+ROS 2 supports multiple middleware implementations (see `this page <../../Concepts/About-Different-Middleware-Vendors>` for more details).
 Until Alpha 8, ROS 2 was supporting ROS middleware implementations for eProsima's Fast RTPS, RTI's Connext and PrismTech's OpenSplice.
 To streamline our efforts, as of Alpha 8, Fast RTPS and Connext (static) will be supported, with Fast RTPS (`now Apache 2.0-licensed <http://www.eprosima.com/index.php/company-all/news/61-eprosima-goes-apache>`__) shipped as the default.
 
@@ -43,7 +43,7 @@ The improvements included in this release are:
 * Fixed various bugs with the previous alpha release
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha7 release (code name *Glue Gun*\ ; July 2016)
 --------------------------------------------------------
@@ -76,7 +76,7 @@ The major features included in this release are:
   * See: https://github.com/ros2/turtlebot2_demo
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha6 release (code name *Fastener*; June 2016)
 ------------------------------------------------------
@@ -111,7 +111,7 @@ The major features included in this release are:
   * Strings
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha5 release (code name *Epoxy*; April 2016)
 ------------------------------------------------------
@@ -139,7 +139,7 @@ The major features included in this release are:
 * Added 32-bit and 64-bit ARM as experimentally supported platforms.
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha4 release (code name *Duct tape*; February 2016)
 -----------------------------------------------------------
@@ -165,11 +165,11 @@ Status
 On February 17, 2016, we are releasing ROS 2 alpha4,
 code-named **Duct tape**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous releases.
-To that end, we built a set of `demos <../Tutorials>` that
+To that end, we built a set of `demos <../../Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <../Contact>`.
+feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
@@ -200,7 +200,7 @@ The major features included in this release are:
   * New concept of extensible "time sources" for ROS Time, the default time source will be like ROS 1 (implementation pending)
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha3 release (code name *Cement*; December 2015)
 ----------------------------------------------------------
@@ -227,11 +227,11 @@ Status
 On December 18, 2015, we are releasing ROS 2 alpha3,
 code-named **Cement**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous releases.
-To that end, we built a set of `demos <../Tutorials>` that
+To that end, we built a set of `demos <../../Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <../Contact>`.
+feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
@@ -271,7 +271,7 @@ The major features included in this release are:
 * A partial port of tf2 including the core libraries and core command line tools.
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha2 release (code name *Baling wire*; October 2015)
 --------------------------------------------------------------
@@ -300,11 +300,11 @@ Status
 On November 3, 2015, we are releasing ROS 2 alpha2,
 code-named **Baling wire**.
 Our primary goal with this release is to add more features, while also addressing the feedback we received for the previous alpha 1 release.
-To that end, we built a set of `demos <../Tutorials>` that
+To that end, we built a set of `demos <../../Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <../Contact>`.
+feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
@@ -336,7 +336,7 @@ The major features included in this release are:
 * FreeRTPS improvements
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
 
 ROS 2 alpha1 release (code name *Anchor*; August 2015)
 --------------------------------------------------------
@@ -367,11 +367,11 @@ code-named **Anchor**.
 Our primary goal with this release is to give
 you the opportunity to understand how ROS 2 works, in particular how it
 differs from ROS 1.
-To that end, we built a set of `demos <../Tutorials>` that
+To that end, we built a set of `demos <../../Tutorials>` that
 show some of the key features of ROS 2.
 We encourage you to try out those
 demos, look at the code that implements them, and `provide
-feedback <../Contact>`.
+feedback <../../Contact>`.
 We're especially interested to know how well (or
 poorly) we're addressing use cases that are important to you.
 
@@ -408,4 +408,4 @@ The major features included in this release are:
 * `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README>`__
 
 Pretty much anything not listed above is not included in this release.
-The next steps are described in the `Roadmap <../Roadmap>`.
+The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.

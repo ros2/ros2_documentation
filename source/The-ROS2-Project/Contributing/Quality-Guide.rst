@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Quality-Guide
+    Contributing/Quality-Guide
 
 Quality guide: ensuring code quality
 ====================================

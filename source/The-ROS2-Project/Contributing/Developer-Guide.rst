@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Developer-Guide
+    Contributing/Developer-Guide
 
 ROS 2 developer guide
 =====================
@@ -156,7 +157,7 @@ Guidelines for backporting PRs
 When changing an older version of ROS:
 
 * Make sure the features or fixes are accepted and merged in the master branch before opening a PR to backport the changes to older versions.
-* When backporting to older versions, also consider backporting to any other `still supported versions <../Releases>`, even non-LTS versions.
+* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
   If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
 * Link to all PRs whose changes you're backporting from the description of your backport PR.
@@ -269,7 +270,7 @@ When filing an issue please make sure to:
   - **The specific version of ROS 2.**
     Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
     It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../Concepts/About-Different-Middleware-Vendors>` for how to determine which one).
+  - **The DDS/RMW implementation being used** (see `this page <../../Concepts/About-Different-Middleware-Vendors>` for how to determine which one).
     Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
   - **The ROS 2 client library being used.**
     Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
@@ -283,7 +284,7 @@ When filing an issue please make sure to:
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
     See `this section <building-from-source>` and follow the instructions to get the "master" branches.
   - Trying with a different RMW implementation.
-    See `this page <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+    See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
 
 Branches
 ^^^^^^^^
@@ -311,7 +312,7 @@ For example: Development commits targeting ``foxy`` are made to the ``foxy`` bra
 
 **What about** ``main`` **and** ``rolling`` **?**
 
-``main`` typically targets :doc:`Rolling <../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
 
 Pull requests
 ^^^^^^^^^^^^^
@@ -474,7 +475,7 @@ The usual workflow is:
 
 * Write tests
 * Enable and run linters
-* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
+* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
 * Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
 
   * Go to ci.ros2.org

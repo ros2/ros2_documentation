@@ -1,5 +1,5 @@
-ROS 2 Rolling Ridley (codename 'rolling'; June 2020)
-==========================================================
+Rolling Ridley (``rolling``)
+============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -35,7 +35,7 @@ Tier 3 platforms:
 Installation
 ------------
 
-`Install Rolling Ridley <../Installation>`
+`Install Rolling Ridley <../../rolling/Installation.html>`__
 
 New features and changes in this release
 ----------------------------------------
