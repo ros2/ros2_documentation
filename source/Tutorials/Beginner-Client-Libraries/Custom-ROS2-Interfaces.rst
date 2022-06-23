@@ -102,6 +102,7 @@ To convert the interfaces you defined into language-specific code (like C++ and 
   rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Num.msg"
     "srv/AddThreeInts.srv"
+    # DEPENDENCIES geometry_msgs  # Add this line if message types from an external message package (e.g. geometry_msgs) are used.
   )
 
 4 ``package.xml``
