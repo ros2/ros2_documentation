@@ -66,6 +66,59 @@ The launch files all do the following:
 
           return launch.LaunchDescription([container])
 
+
+
+Loading composable nodes into an existing container
+---------------------------------------------------
+
+Containers can sometimes be launched by other launch files or from a commandline.
+In that case, you need to add your components to an existing container.
+For this, you may use ``LoadComposableNodes`` to load components into a given container.
+The below example launches the same nodes as above.
+
+.. tabs::
+
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+      from launch import LaunchDescription
+      from launch_ros.actions import LoadComposableNodes, Node
+      from launch_ros.descriptions import ComposableNode
+
+      def generate_launch_description():
+          container = Node(
+              name='image_container',
+              package='rclcpp_components',
+              executable='component_container',
+              output='both',
+          )
+
+          load_composable_nodes = LoadComposableNodes(
+              target_container='image_container',
+              composable_node_descriptions=[
+                  ComposableNode(
+                       package='image_tools',
+                      plugin='image_tools::Cam2Image',
+                      name='cam2image',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'width': 320, 'height': 240, 'burger_mode': True, 'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}],
+                  ),
+                  ComposableNode(
+                      package='image_tools',
+                      plugin='image_tools::ShowImage',
+                      name='showimage',
+                      remappings=[('/image', '/burgerimage')],
+                      parameters=[{'history': 'keep_last'}],
+                      extra_arguments=[{'use_intra_process_comms': True}]
+                  ),
+              ],
+          )
+
+          return LaunchDescription([container, load_composable_nodes])
+
+
 Using the Launch files from the command-line
 --------------------------------------------
 
