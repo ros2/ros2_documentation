@@ -1,6 +1,5 @@
-
-ROS 2 Eloquent Elusor (codename 'eloquent'; November 22nd, 2019)
-================================================================
+Eloquent Elusor (``eloquent``)
+==============================
 
 .. contents:: Table of Contents
    :depth: 2

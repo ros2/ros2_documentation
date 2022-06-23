@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Beta1-Overview
+  Beta1-Overview
 
-Beta 1 (codename 'Asphalt'; December 2016)
-==========================================
+Beta 1 (``Asphalt``)
+====================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -24,13 +24,13 @@ Improvements since Alpha 8 release
 * A standard lifecycle for managed nodes.
 * Improved support for Quality of Service tuning and tests.
 * `New and updated design documents <https://design.ros2.org/>`__
-* More `tutorials <../Tutorials>` and `examples <https://github.com/ros2/examples>`__
+* More `tutorials <../../Tutorials>` and `examples <https://github.com/ros2/examples>`__
 * Bridging services to / from ROS 1 (in addition to topics)
 
 Selected features from previous Alpha releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the complete list, see `earlier release notes <../Releases>`.
+For the complete list, see `earlier release notes <../index>`.
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:
