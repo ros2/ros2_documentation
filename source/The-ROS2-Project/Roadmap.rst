@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Roadmap
+
 .. _Roadmap:
 
 Roadmap
@@ -21,7 +25,7 @@ The items in the roadmap below are the major features being worked on by the ROS
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
 If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
-If you'd like to take on one of these tasks, please :doc:`get in touch with us <Contact>`.
+If you'd like to take on one of these tasks, please :doc:`get in touch with us <../Contact>`.
 
 .. raw:: html
 
@@ -138,7 +142,7 @@ Additional project-specific roadmaps can be found in the links below:
 Planned releases
 ----------------
 
-Please see the :doc:`Distributions page <Releases>` for the timeline of and information about future distributions.
+Please see the :doc:`Distributions page <../Releases>` for the timeline of and information about future distributions.
 
 Contributing to ROS 2
 ---------------------

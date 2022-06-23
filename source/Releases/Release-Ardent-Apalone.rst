@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Release-Ardent-Apalone
+  Release-Ardent-Apalone
 
-ROS 2 Ardent Apalone (codename 'ardent'; December 2017)
-=======================================================
+Ardent Apalone (``ardent``)
+===========================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -21,7 +21,7 @@ This version of ROS 2 is supported on three platforms:
 * Mac macOS 10.12 (Sierra)
 * Windows 10
 
-Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
+Binary packages as well as instructions for how to compile from source are provided for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/ardent/>`__).
 
 Features
 --------
@@ -58,7 +58,7 @@ New features in this ROS 2 release
 * HSR demo `see Beta 3 <Beta3-Overview>`
 * Turtlebot demo `see Beta 2 <Beta2-Overview>`
 
-For a more detailed description please see the `Features <../Features>` page.
+For a more detailed description please see the `Features <../../The-ROS2-Project/Features>` page.
 
 Changes since Beta 3 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^

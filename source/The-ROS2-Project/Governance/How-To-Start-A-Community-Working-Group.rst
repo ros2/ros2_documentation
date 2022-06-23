@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Governance/How-To-Start-A-Community-Working-Group
+
 How to Start a Community Working Group
 ======================================
 
@@ -62,7 +66,7 @@ So what are the steps to making a working group?
 
 #. Now that you have a working group charter, e-mail group, and source
    repository, you can add all of that information to the :doc:`ROS 2 project governance
-   website <../Governance>` by sending a pull request to https://github.com/ros2/ros2_documentation.
+   website <index>` by sending a pull request to https://github.com/ros2/ros2_documentation.
 
 #. Now it is time to schedule your first official working group meeting! We
    recommend announcing the meeting on ROS Discourse approximately one week
