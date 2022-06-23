@@ -1,6 +1,5 @@
-
-ROS 2 Dashing Diademata (codename 'dashing'; May 31st, 2019)
-============================================================
+Dashing Diademata (``dashing``)
+===============================
 
 .. contents:: Table of Contents
    :depth: 2

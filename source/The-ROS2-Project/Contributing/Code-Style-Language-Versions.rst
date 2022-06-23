@@ -1,3 +1,7 @@
+.. redirect-from::
+
+  Contributing/Code-Style-Language-Versions
+
 .. _CodeStyle:
 
 Code style and language versions

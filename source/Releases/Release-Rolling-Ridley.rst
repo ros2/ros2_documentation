@@ -1,5 +1,5 @@
-ROS 2 Rolling Ridley (codename 'rolling'; June 2020)
-==========================================================
+Rolling Ridley (``rolling``)
+============================
 
 .. contents:: Table of Contents
    :depth: 2
