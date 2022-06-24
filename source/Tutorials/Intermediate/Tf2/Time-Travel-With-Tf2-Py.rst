@@ -39,11 +39,11 @@ Edit the ``lookup_transform()`` call in ``turtle_tf2_listener.py`` file to
 .. code-block:: python
 
     when = self.get_clock().now() - rclpy.time.Duration(seconds=5.0)
-    trans = self._tf_buffer.lookup_transform(
+    trans = self.tf_buffer.lookup_transform(
         to_frame_rel,
         from_frame_rel,
         when,
-        timeout=Duration(seconds=0.05))
+        timeout=rclpy.duration.Duration(seconds=0.05))
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
 But what happens after these 5 seconds? Let's just give it a try:
@@ -70,13 +70,13 @@ Your code now would look like this:
 .. code-block:: python
 
     when = self.get_clock().now() - rclpy.time.Duration(seconds=5.0)
-    trans = self._tf_buffer.lookup_transform_full(
+    trans = self.tf_buffer.lookup_transform_full(
             target_frame=to_frame_rel,
             target_time=rclpy.time.Time(),
             source_frame=from_frame_rel,
             source_time=when,
             fixed_frame='world',
-            timeout=Duration(seconds=0.05))
+            timeout=rclpy.duration.Duration(seconds=0.05))
 
 The advanced API for ``lookup_transform_full()`` takes six arguments:
 
