@@ -41,13 +41,13 @@ Open the file using your preferred text editor, and change line 67 from
 
 .. code-block:: C++
 
-   std::string to_frame_rel = "turtle2";
+   std::string toFrameRel = "turtle2";
 
 to
 
 .. code-block:: C++
 
-   std::string to_frame_rel = "turtle3";
+   std::string toFrameRel = "turtle3";
 
 and change ``lookupTransform()`` call in lines 75-79 from
 
