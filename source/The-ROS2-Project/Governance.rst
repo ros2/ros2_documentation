@@ -98,91 +98,91 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
     <table class="tscclass">
       <tbody>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="_images/adlink.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="../_images/adlink.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ADLINK Technology: Angelo Corsaro</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="_images/amazon.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="../_images/amazon.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Amazon: Camilo Buscaron</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.apex.ai"><img alt="Apex.AI logo" src="_images/apex.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.apex.ai"><img alt="Apex.AI logo" src="../_images/apex.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Apex.AI: Lyle Johnson</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.bosch.com"><img alt="Bosch logo" src="../_images/bosch_75h.jpg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Bosch: Ralph Lange</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="../_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Canonical: Jeremie Deray</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="_images/eprosima.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="../_images/eprosima.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>eProsima: Jaime Martin Losa</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://gvsc.army.mil"><img alt="GVSC logo" src="_images/gvsc.png" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://gvsc.army.mil"><img alt="GVSC logo" src="../_images/gvsc.png" style="height: 50px;" /></a></p></td>
           <td class="tscclass" align="center"><p>GVSC: Jerry Towler (SwRI)</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.intel.com"><img alt="Intel logo" src="_images/intel.svg" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.intel.com"><img alt="Intel logo" src="../_images/intel.svg" style="height: 50px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Intel: Harold Yang</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="_images/irobot.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="../_images/irobot.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="_images/microsoft.svg" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.microsoft.com"><img alt="Microsoft logo" src="../_images/microsoft.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="_images/picknik.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="../_images/picknik.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>PickNik: Henning Kayser</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="_images/robotis.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.robotis.com"><img alt="ROBOTIS logo" src="../_images/robotis.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROBOTIS: Will Son</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="../_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="_images/samsung.svg" style="height: 25px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="../_images/samsung.svg" style="height: 25px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Samsung: Steven Macenski</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="_images/sony.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="../_images/sony.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Sony: Tomoya Fujita</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.tri.global"><img alt="TRI logo" src="_images/tri_logo_landscape-web.svg" style="height: 50px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.tri.global"><img alt="TRI logo" src="../_images/tri_logo_landscape-web.svg" style="height: 50px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Toyota Research Institute: Ian McMahon</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="_images/windriver.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.windriver.com"><img alt="Wind River logo" src="../_images/windriver.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Wind River: Andrei Kholodnyi</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.foxglove.dev"><img alt="Foxglove logo" src="_images/foxglove.png" style="height: 60px;" /></a></p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.foxglove.dev"><img alt="Foxglove logo" src="../_images/foxglove.png" style="height: 60px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Foxglove:  Adrian Macneil</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
+          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/omichel"> Oliver Michel </a> </p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
+          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/pmusau17"> Patrick Musau </a></p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="_images/ros2_logo.png" style="height: 60px;" /></p></td>
+          <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative:  <a href="https://www.linkedin.com/in/brett-aldrich-42915b97/">Brett Aldrich </a></p></td>
         </tr>
       </tbody>
