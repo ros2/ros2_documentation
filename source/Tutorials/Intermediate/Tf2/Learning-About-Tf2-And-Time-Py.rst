@@ -75,7 +75,7 @@ To fix this, edit your code on line 76 as shown below (return the ``timeout`` pa
       to_frame_rel,
       from_frame_rel,
       now,
-      timeout=Duration(seconds=1.0))
+      timeout=rclpy.duration.Duration(seconds=1.0))
 
 The ``lookup_transform`` can take four arguments, where the last one is an optional timeout.
 It will block for up to that duration waiting for it to timeout.
