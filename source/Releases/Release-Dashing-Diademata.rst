@@ -33,7 +33,11 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
+<<<<<<< HEAD
 `Install Dashing Diademata <../Installation>`
+=======
+`Install Dashing Diademata <../../dashing/Installation.html>`__
+>>>>>>> b7cbc04 (Fix links to installation instructions. (#2797))
 
 New features in this ROS 2 release
 ----------------------------------
