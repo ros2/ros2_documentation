@@ -125,7 +125,6 @@ Now open the file called ``fixed_frame_tf2_broadcaster.py``.
 
       rclpy.shutdown()
 
-Don't forget to add the node to the ``setup.py``.
 The code is very similar to the tf2 broadcaster tutorial example and the only difference is that the transform here does not change over time.
 
 1.1 Examine the code
@@ -145,11 +144,23 @@ The ``carrot1`` frame is 2 meters offset in y axis in terms of the ``turtle1`` f
    t.transform.translation.y = 2.0
    t.transform.translation.z = 0.0
 
-1.2 Write the launch file
-~~~~~~~~~~~~~~~~~~~~~~~~~
+1.2 Add an entry point
+~~~~~~~~~~~~~~~~~~~~~~
+
+To allow the ``ros2 run`` command to run your node, you must add the entry point
+to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Finally, add the following line between the ``'console_scripts':`` brackets:
+
+.. code-block:: python
+
+    'fixed_frame_tf2_broadcaster = learning_tf2_py.fixed_frame_tf2_broadcaster:main',
+
+2 Write the launch file
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
+With your text editor, create a new file called ``launch/turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
 
 .. code-block:: python
 
@@ -193,8 +204,9 @@ The last part of the code will add our fixed ``carrot1`` frame to the turtlesim 
       name='fixed_broadcaster',
    ),
 
-1.3 Build and run
-~~~~~~~~~~~~~~~~~
+
+3 Build and run
+~~~~~~~~~~~~~~~
 
 Rebuild the package and start the turtle broadcaster demo:
 
@@ -206,8 +218,8 @@ You should notice that the new ``carrot1`` frame appeared in the transformation 
 
 .. image:: images/turtlesim_frames_carrot.png
 
-1.4 Checking the results
-~~~~~~~~~~~~~~~~~~~~~~~~
+4 Checking the results
+~~~~~~~~~~~~~~~~~~~~~~
 
 If you drive the first turtle around, you should notice that the behavior didn't change from the previous tutorial, even though we added a new frame.
 That's because adding an extra frame does not affect the other frames and our listener is still using the previously defined frames.
@@ -235,7 +247,7 @@ Now just rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.p
 
 .. image:: images/carrot_static.png
 
-2 Write the dynamic frame broadcaster
+5 Write the dynamic frame broadcaster
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The extra frame we published in this tutorial is a fixed frame that doesn't change over time in relation to the parent frame.
@@ -321,7 +333,7 @@ Now open the file called ``dynamic_frame_tf2_broadcaster.py``:
 
       rclpy.shutdown()
 
-2.1 Examine the code
+5.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
 Instead of a fixed definition of our x and y offsets, we are using the ``sin()`` and ``cos()`` functions on the current time so that the offset of ``carrot1`` is constantly changing.
@@ -334,10 +346,22 @@ Instead of a fixed definition of our x and y offsets, we are using the ``sin()``
    t.transform.translation.x = 10 * math.sin(x)
    t.transform.translation.y = 10 * math.cos(x)
 
-2.2 Write the launch file
-~~~~~~~~~~~~~~~~~~~~~~~~~
+5.2 Add an entry point
+~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
+To allow the ``ros2 run`` command to run your node, you must add the entry point
+to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Finally, add the following line between the ``'console_scripts':`` brackets:
+
+.. code-block:: python
+
+    'dynamic_frame_tf2_broadcaster = learning_tf2_py.dynamic_frame_tf2_broadcaster:main',
+
+6 Write the launch file
+~~~~~~~~~~~~~~~~~~~~~~~
+
+To test this code, create a new launch file ``launch/turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
 
 .. code-block:: python
 
@@ -369,8 +393,8 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
          ),
       ])
 
-2.3 Build and run
-~~~~~~~~~~~~~~~~~
+7 Build and run
+~~~~~~~~~~~~~~~
 
 Rebuild the package, and start the ``turtle_tf2_dynamic_frame_demo.launch.py`` launch file, and now you’ll see that the second turtle is following the carrot's position that is constantly changing.
 
