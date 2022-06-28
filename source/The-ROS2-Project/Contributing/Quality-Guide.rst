@@ -72,13 +72,13 @@ Static code analysis as part of the ament package build
 
 * ``rclcpp``:
 
-  * `rclcpp/rclcpp/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/master/rclcpp/CMakeLists.txt>`__
-  * `rclcpp/rclcpp/package.xml <https://github.com/ros2/rclcpp/blob/master/rclcpp/package.xml>`__
+  * `rclcpp/rclcpp/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/CMakeLists.txt>`__
+  * `rclcpp/rclcpp/package.xml <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/package.xml>`__
 
 * ``rclcpp_lifecycle``:
 
-  * `rclcpp/rclcpp_lifecycle/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/master/rclcpp_lifecycle/CMakeLists.txt>`__
-  * `rclcpp/rclcpp_lifecycle/package.xml <https://github.com/ros2/rclcpp/blob/master/rclcpp_lifecycle/package.xml>`__
+  * `rclcpp/rclcpp_lifecycle/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_lifecycle/CMakeLists.txt>`__
+  * `rclcpp/rclcpp_lifecycle/package.xml <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_lifecycle/package.xml>`__
 
 **Resulting context**:
 
@@ -110,7 +110,7 @@ Static Thread Safety Analysis via Code Annotation
 
 To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the semantics of the code. These annotations are Clang-specific attributes - e.g. ``__attribute__(capability()))``. Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
 
-These macros can be found in `rcpputils/thread_safety_annotations.h <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
+These macros can be found in `rcpputils/thread_safety_annotations.hpp <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
 
 The Thread Safety Analysis documentation states
   Thread safety analysis can be used with any threading library, but it does require that the threading API be wrapped in classes and methods which have the appropriate annotations

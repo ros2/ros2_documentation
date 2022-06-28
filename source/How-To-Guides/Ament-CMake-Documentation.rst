@@ -270,7 +270,7 @@ In order to separate testing from building the library with colcon, wrap all cal
 Linting
 ^^^^^^^
 
-It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
+It's advised to use the combined call from `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst#ament_lint_auto>`_:
 
 .. code-block:: cmake
 
@@ -279,10 +279,10 @@ It's advised to use the combined call from `ament_lint_auto <https://github.com/
 
 This will run linters as defined in the ``package.xml``.
 It is recommended to use the set of linters defined by the package ``ament_lint_common``.
-The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs <https://github.com/ament/ament_lint/blob/master/ament_lint_common/doc/index.rst>`_.
+The individual linters included there, as well as their functions, can be seen in the `ament_lint_common docs <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_common/doc/index.rst>`_.
 
 Linters provided by ament can also be added separately, instead of running ``ament_lint_auto``.
-One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/master/ament_cmake_lint_cmake/doc/index.rst>`_.
+One example of how to do so can be found in the `ament_cmake_lint_cmake documentation <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cmake_lint_cmake/doc/index.rst>`_.
 
 Testing
 ^^^^^^^
@@ -431,7 +431,7 @@ This can be achieved using the ament index (also called "resource index").
 The ament index explained
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/doc/resource_index.md>`__
+For details on the design and intentions, see `here <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/doc/resource_index.md>`__
 
 In principle, the ament index is contained in a folder within the install/share folder of your package.
 It contains shallow subfolders named after different types of resources.
