@@ -90,7 +90,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 23rd, 2023
      - TBD
-     - TBD
+     - November 2024
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      - |humble|
@@ -157,7 +157,7 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Supported until
    * - :doc:`Iron Irwini<Releases/Release-Iron-Irwini>`
      - May 2023
-     - TBD
+     - November 2024
 
 
 The expectation is to release new ROS 2 distributions once per year.
