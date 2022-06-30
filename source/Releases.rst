@@ -155,9 +155,9 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
    * - Distro
      - Release date
      - Supported until
-   * - :doc:`Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
-     - May 2022
-     - May 2027
+   * - :doc:`Iron Irwini<Releases/Release-Iron-Irwini>`
+     - May 2023
+     - TBD
 
 
 The expectation is to release new ROS 2 distributions once per year.
