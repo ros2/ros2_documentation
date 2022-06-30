@@ -56,31 +56,4 @@ To come.
 Release Timeline
 ----------------
 
-    Mon. April 10, 2023 - Alpha + RMW freeze
-        Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
-
-    Mon. April 17, 2023 - Freeze
-        API and feature freeze for ROS Base [1]_ packages in Rolling Ridley.
-        Only bug fix releases should be made after this point.
-        New packages can be released independently.
-
-    Mon. April 24, 2023 - Branch
-        Branch from Rolling Ridley.
-        ``rosdistro`` is reopened for Rolling PRs for ROS Base [1]_ packages.
-        Iron development shifts from ``ros-rolling-*`` packages to ``ros-iron-*`` packages.
-
-    Mon. May 1, 2023 - Beta
-        Updated releases of ROS Desktop [2]_ packages available.
-        Call for general testing.
-
-    Mon. May 15, 2023 - Release Candidate
-        Release Candidate packages are built.
-        Updated releases of ROS Desktop [2]_ packages available.
-
-    Thu. May 18, 2023 - Distro Freeze
-        Freeze rosdistro.
-        No PRs for Iron on the ``rosdistro`` repo will be merged (reopens after the release announcement).
-
-    Tue. May 23, 2023 - General Availability
-        Release announcement.
-        ``rosdistro`` is reopened for Iron PRs.
+To come.
