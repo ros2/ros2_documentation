@@ -21,7 +21,6 @@ ROS Projects
 * `ROS 2 Package for Human Pose Estimation <https://github.com/NVIDIA-AI-IOT/ros2_trt_pose>`__: A ROS 2 package for human pose estimation.
 * `ROS 2 Package for Hand Pose Estimation and Gesture Classification <https://github.com/NVIDIA-AI-IOT/ros2_trt_pose_hand>`__: A ROS 2 package for real-time hand pose estimation and gesture classification using TensorRT.
 * `GPU accelerated ROS 2 Packages for Monocular Depth Estimation <https://github.com/NVIDIA-AI-IOT/ros2_torch2trt_examples>`__: ROS 2 package for NVIDIA GPU-accelerated torch2trtxb examples such as monocular depth estimation and text detection.
-* `ROS 2 Package for Jetson stats <https://github.com/NVIDIA-AI-IOT/ros2_jetson_stats>`__: ROS 2 package for monitoring and controlling your NVIDIA Jetson [Xavier NX, Nano, AGX Xavier, TX1, TX2].
 * `ROS 2 Packages for DeepStream SDK <https://github.com/NVIDIA-AI-IOT/ros2_deepstream>`__: ROS 2 package for NVIDIA DeepStream SDK.
 
 Simulation Projects
