@@ -7,7 +7,7 @@ ISAAC ROS Projects
 ------------
 * `Isaac ROS Nitros <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros>`__: Isaac Transport for ROS package for hardware-acceleration friendly movement of messages.
 * `Isaac ROS DNN Stereo Disparity <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_disparity>`__: DNN Stereo Disparity includes packages for predicting disparity of stereo input.
-* `Isaac ROS Proximity Segmentation <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_proximity_segmentation> `__: Hardware-accelerated packages for proximity segmentation.
+* `Isaac ROS Proximity Segmentation <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_proximity_segmentation>`__: Hardware-accelerated packages for proximity segmentation.
 * `Isaac ROS Nvblox <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nvblox>`__ : Hardware-accelerated 3D scene reconstruction and Nav2 local costmap provider using nvblox.
 * `Isaac ROS Object Detection <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection>`__ : Deep learning model support for object detection including DetectNet.
 * `Isaac ROS DNN Inference <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_inference>`__ : This repository provides two NVIDIA GPU-accelerated ROS 2 nodes that perform deep learning inference using custom models. One node uses the TensorRT SDK, while the other uses the Triton SDK.
