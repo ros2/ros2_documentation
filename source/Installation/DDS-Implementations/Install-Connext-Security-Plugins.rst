@@ -1,5 +1,5 @@
-Installing Connext security plugins
-===================================
+Connext security plugins
+========================
 
 The Connext DDS Libraries are included with ROS 2 under a `non-commercial
 license <https://www.rti.com/ncl>`__ and do not include the security
@@ -8,7 +8,7 @@ university and research license versions of RTI Connext DDS Pro, which
 is bundled with tools for system debugging, monitoring, record/replay,
 etc.
 
-The Connext DDS Evaluation Version (5.3.1) includes the security plugins, and can be downloaded via options available for :doc:`university, purchase or evaluation <Install-Connext-University-Eval>`.
+The Connext DDS Evaluation Version (6.0.1) includes the security plugins, and can be downloaded via options available for :doc:`university, purchase or evaluation <Install-Connext-University-Eval>`.
 
 A video walk-thru of this installation (tools and security plug-ins) is
 available
@@ -45,6 +45,6 @@ installed into the 'rti\_connext\_dds-[version]' directory in your home
 directory space (this was created during installation of the RTI host
 tools). Note: this directory location may need to be placed in your PATH
 environment variable.
-See the `RTI Security Plugins Getting Started Guide <https://community.rti.com/static/documentation/connext-dds/5.3.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ for more information.
+See the `RTI Security Plugins Getting Started Guide <https://community.rti.com/static/documentation/connext-dds/6.0.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ for more information.
 
 Installation complete.

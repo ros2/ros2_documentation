@@ -2,14 +2,14 @@
 
    Installation/Linux-Install-Debians
 
-Installing ROS 2 via Debian Packages
-====================================
+Ubuntu (Debian)
+===============
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Focal.
+Debian packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for Ubuntu Jammy.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
 Most people will want to use a stable ROS distribution.
@@ -19,7 +19,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (Ubuntu Focal): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ufv8.html>`__
+  * ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -46,6 +46,15 @@ Update your apt repository caches after setting up the repositories.
 .. code-block:: bash
 
    sudo apt update
+
+.. include:: _Apt-Upgrade-Admonition.rst
+
+.. warning::
+
+   Due to early updates in Ubuntu 22.04 it is important that ``systemd`` and ``udev``-related packages are updated before installing ROS 2.
+   The installation of ROS 2's dependencies on a freshly installed system without upgrading can trigger the **removal of critical system packages**.
+
+   Please refer to `ros2/ros2#1272 <https://github.com/ros2/ros2/issues/1272>`_ and `Launchpad #1974196 <https://bugs.launchpad.net/ubuntu/+source/systemd/+bug/1974196>`_ for more information.
 
 Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
@@ -75,6 +84,9 @@ Set up your environment by sourcing the following file.
 Try some examples
 -----------------
 
+Talker-listener
+^^^^^^^^^^^^^^^
+
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
 In one terminal, source the setup file and then run a C++ ``talker``\ :
@@ -97,7 +109,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
 ----------------------
@@ -123,7 +135,7 @@ have already installed from binaries, run the following command:
 
   sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
 
-You may also want to remove the repostiory:
+You may also want to remove the repository:
 
 .. code-block:: bash
 

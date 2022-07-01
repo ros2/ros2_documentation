@@ -45,13 +45,13 @@ If you don’t want to make a rosdep key, but the package is available in your s
 
     sudo apt install python3-serial
 
-If the package is available on `The Python Package Index (PyPi) <https://pypi.org/>`_ and you want to install globally on your system:
+If the package is available on `The Python Package Index (PyPI) <https://pypi.org/>`_ and you want to install globally on your system:
 
 .. code-block::
 
     python3 -m pip install -U pyserial
 
-If the package is available on PyPi and you want to install locally to your user:
+If the package is available on PyPI and you want to install locally to your user:
 
 .. code-block:: console
 

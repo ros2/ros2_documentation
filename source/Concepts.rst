@@ -95,7 +95,7 @@ It can be summarized as follows:
 #. Nodes periodically advertise their presence so that connections can be made with new-found entities, even after the initial discovery period.
 #. Nodes advertise to other nodes when they go offline.
 
-Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <../Tutorials/Quality-of-Service>` settings.
+Nodes will only establish connections with other nodes if they have compatible :doc:`Quality of Service <../Tutorials/Demos/Quality-of-Service>` settings.
 
 Take the :ref:`talker-listener demo <talker-listener>` for example.
 Running the C++ talker node in one terminal will publish messages on a topic,
@@ -120,7 +120,10 @@ See the :doc:`ROS 2 Security <Concepts/About-Security>` article for additional d
 Related Content
 ^^^^^^^^^^^^^^^
 
+:doc:`See the ROS 2 citations <Citations>` for more explanation of concepts and citable resources.
+
 For a brief video introduction to ROS 2, see this community contributed content:
 
 * `Getting started with ROS Part 1: Nodes, Parameters and Topics <https://youtu.be/46TPAKXBOF8>`_
 * `Getting started with ROS Part 2: Services and Actions <https://youtu.be/keZAJ83eEoM>`_
+

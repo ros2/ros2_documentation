@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Beta2-Overview
+  Beta2-Overview
 
-Beta 2 (codename 'r2b2'; July 2017)
-===================================
+Beta 2 (``r2b2``)
+=================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -13,7 +13,7 @@ Supported Platforms
 -------------------
 
 We support ROS 2 Beta 2 on three platforms: Ubuntu 16.04 (Xenial), macOS 10.12 (Sierra), and Windows 10.
-We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/beta2/>`__).
+We provide both binary packages and instructions for how to compile from source for all 3 platforms (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/beta2/>`__).
 
 Features
 --------
@@ -23,9 +23,9 @@ Improvements since Beta 1 release
 
 * DDS_Security support (aka SROS2, see `sros2 <https://github.com/ros2/sros2>`__)
 * Debian packages for Ubuntu Xenial
-* Typesupport has been redesigned so that you only build a single executable and can choose one of the available RMW implementations by setting an environment variable (see `documentation <../How-To-Guides/Working-with-multiple-RMW-implementations>`).
+* Typesupport has been redesigned so that you only build a single executable and can choose one of the available RMW implementations by setting an environment variable (see `documentation <../../How-To-Guides/Working-with-multiple-RMW-implementations>`).
 * Namespace support for nodes and topics (see `design article <https://design.ros2.org/articles/topic_and_service_names.html>`__, see known issues below).
-* A set of command-line tools using the extensible ``ros2`` command (see `conceptual article <../Concepts/About-Command-Line-Tools>`).
+* A set of command-line tools using the extensible ``ros2`` command (see `conceptual article <../../Concepts/About-Command-Line-Tools>`).
 * A set of macros for logging messages in C / C++ (see API docs of `rcutils <https://docs.ros2.org/beta2/api/rcutils/index.html>`__).
 
 New demo application
@@ -44,7 +44,7 @@ New demo application
   * `joystick_drivers <https://github.com/ros2/joystick_drivers.git>`__
   * `teleop_twist_joy <https://github.com/ros2/teleop_twist_joy.git>`__
 
-* `Dummy_robot demo <../Tutorials/dummy-robot-demo>`:
+* `Dummy_robot demo <../Tutorials/Demos/dummy-robot-demo>`:
 
   * `robot_model <https://github.com/ros2/robot_model>`__
   * `robot_state_publisher <https://github.com/ros2/robot_state_publisher>`__
@@ -52,7 +52,7 @@ New demo application
 Selected features from previous Alpha/Beta releases
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the complete list, see `earlier release notes <../Releases>`.
+For the complete list, see `earlier release notes <../index>`.
 
 
 * C++ and Python implementations of ROS 2 client libraries including APIs for:

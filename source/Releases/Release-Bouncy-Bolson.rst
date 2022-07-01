@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Release-Bouncy-Bolson
+  Release-Bouncy-Bolson
 
-ROS 2 Bouncy Bolson (codename 'bouncy'; June 2018)
-==================================================
+Bouncy Bolson (``bouncy``)
+==========================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -28,7 +28,7 @@ This version of ROS 2 is supported on four platforms (see `REP 2000 <https://www
 * Mac macOS 10.12 (Sierra)
 * Windows 10 with Visual Studio 2017
 
-Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
+Binary packages as well as instructions for how to compile from source are provided (see `install instructions <../../Installation>` as well as `documentation <https://docs.ros2.org/bouncy/>`__).
 
 Features
 --------
@@ -37,20 +37,20 @@ New features in this ROS 2 release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-* `New launch system <../Tutorials/Launch/Launch-system>` featuring a much more capable and flexible Python API.
+* `New launch system <../Tutorials/Intermediate/Launch/Launch-system>` featuring a much more capable and flexible Python API.
 * Parameters can be passed as `command line arguments <../How-To-Guides/Node-arguments>` to C++ executables.
 * Static remapping via `command line arguments <../How-To-Guides/Node-arguments>`.
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.
-* More `command line tools <../Concepts/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
+* More `command line tools <../../Concepts/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
 * Binary packages / fat archives support three RMW implementations by default (without the need to build from source):
 
   * eProsima's Fast RTPS (default)
   * RTI's Connext
   * ADLINK's OpenSplice
 
-For an overview of all features available, including those from earlier releases, please see the `Features <../Features>` page.
+For an overview of all features available, including those from earlier releases, please see the `Features <../../The-ROS2-Project/Features>` page.
 
 Changes since the Ardent release
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

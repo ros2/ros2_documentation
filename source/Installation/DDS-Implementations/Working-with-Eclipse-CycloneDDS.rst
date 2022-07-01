@@ -2,8 +2,8 @@
 
     Working-with-Eclipse-CycloneDDS
 
-Working with Eclipse Cyclone DDS
-================================
+Eclipse Cyclone DDS
+===================
 
 Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
 Cyclone DDS is developed completely in the open as an Eclipse IoT project.
@@ -34,7 +34,7 @@ First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source direct
 .. code-block:: bash
 
    cd ros2_ws/src
-   git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds
+   git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {REPOS_FILE_BRANCH}
    git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds
 
 Then, install necessary packages for Cyclone DDS.

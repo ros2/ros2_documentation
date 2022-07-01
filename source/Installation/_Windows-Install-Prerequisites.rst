@@ -31,8 +31,8 @@ Open a Command Prompt and type the following to install them via Chocolatey:
 Install OpenSSL
 ^^^^^^^^^^^^^^^
 
-Download the *Win64 OpenSSL v1.1.1L* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1L*.
+Download the *Win64 OpenSSL v1.1.1n* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1n*.
 Don't download the Win32 or Light versions.
 
 Run the installer with default parameters, as the following commands assume you used the default installation directory.
@@ -41,7 +41,7 @@ This command sets an environment variable that persists over sessions:
 
 .. code-block:: bash
 
-   setx -m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
+   setx /m OPENSSL_CONF "C:\Program Files\OpenSSL-Win64\bin\openssl.cfg"
 
 You will need to append the OpenSSL-Win64 bin folder to your PATH.
 You can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
@@ -70,7 +70,7 @@ Make sure that no C++ CMake tools are installed by unselecting them in the list 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, Fast DDS, you can find instructions :doc:`here <DDS-Implementations>`.
+If you would like to use another DDS or RTPS vendor besides the default, Fast DDS, you can find instructions `here <DDS-Implementations>`_.
 
 Install OpenCV
 ^^^^^^^^^^^^^^
@@ -83,7 +83,7 @@ Assuming you unpacked it to ``C:\opencv``, type the following on a Command Promp
 
 .. code-block:: bash
 
-   setx -m OpenCV_DIR C:\opencv
+   setx /m OpenCV_DIR C:\opencv
 
 Since you are using a precompiled ROS version, we have to tell it where to find the OpenCV libraries.
 You have to extend the ``PATH`` variable to ``C:\opencv\x64\vc16\bin``.
@@ -119,44 +119,37 @@ Once these packages are downloaded, open an administrative shell and execute the
 
 Please replace ``<PATH\TO\DOWNLOADS>`` with the folder you downloaded the packages to.
 
-You must also install some additional python dependencies:
+First upgrade pip and setuptools:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark-parser lxml matplotlib netifaces numpy opencv-python PyQt5 pip pillow psutil pycairo pydot pyparsing pyyaml rosdistro setuptools
+   python -m pip install -U pip setuptools==59.6.0
 
+Now install some additional python dependencies:
+
+.. code-block:: bash
+
+   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
 
 Install Qt5
 ^^^^^^^^^^^
 
-This section is only required if you are building rviz, but it comes with our default set of sources, so if you don't know, then assume you are building it.
+Download the `5.12.X offline installer <https://www.qt.io/offline-installers>`_ from Qt's website.
+Run the installer.
+Make sure to select the ``MSVC 2017 64-bit`` component under the ``Qt`` -> ``Qt 5.12.12`` tree.
 
-First get the installer from Qt's website:
-
-https://www.qt.io/download
-
-Select the Open Source version and then the ``Qt Online Installer for Windows``.
-
-Run the installer and install Qt5.
-
-We recommend you install it to the default location of ``C:\Qt``, but if you choose somewhere else, make sure to update the paths below accordingly.
-When selecting components to install, the only thing you absolutely need is the appropriate MSVC 64-bit component under the ``Qt`` -> ``Qt 5.15.0`` tree.
-We're using ``5.15.0`` as of the writing of this document and that's what we recommend since that's all we test on Windows, but later Qt5 versions will probably work too.
-Be sure to select ``MSVC 2019 64-bit``.
-After that, the default settings are fine.
-
-Finally, set the ``Qt5_DIR`` environment variable in the ``cmd.exe`` where you intend to build so that CMake can find it:
+Finally, in an administrator ``cmd.exe`` window set these environment variables.
+The commands below assume you installed it to the default location of ``C:\Qt``.
 
 .. code-block:: bash
 
-   set Qt5_DIR=C:\Qt\5.15.0\msvc2019_64
-   set QT_QPA_PLATFORM_PLUGIN_PATH=C:\Qt\5.15.0\msvc2019_64\plugins\platforms
+   setx /m Qt5_DIR C:\Qt\Qt5.12.12\5.12.12\msvc2017_64
+   setx /m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\Qt5.12.12\5.12.12\msvc2017_64\plugins\platforms
 
-You could set it permanently with ``setx -m Qt5_DIR C:\Qt\5.15.0\msvc2019_64`` and ``setx -m QT_QPA_PLATFORM_PLUGIN_PATH C:\Qt\5.15.0\msvc2019_64\plugins\platforms`` instead, but that requires Administrator.
 
 .. note::
 
-   This path might change based on which MSVC version you're using or if you installed it to a different directory.
+   This path might change based on the installed MSVC version, the directory Qt was installed to, and the version of Qt installed.
 
 RQt dependencies
 ^^^^^^^^^^^^^^^^

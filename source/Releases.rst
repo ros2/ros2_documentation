@@ -23,20 +23,12 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
-   Releases/Alpha-Overview.rst
-   Releases/Beta1-Overview.rst
-   Releases/Beta2-Overview.rst
-   Releases/Beta3-Overview.rst
-   Releases/Release-Ardent-Apalone.rst
-   Releases/Release-Bouncy-Bolson.rst
-   Releases/Release-Crystal-Clemmys.rst
-   Releases/Release-Dashing-Diademata.rst
-   Releases/Release-Eloquent-Elusor.rst
-   Releases/Release-Foxy-Fitzroy.rst
-   Releases/Release-Galactic-Geochelone.rst
-   Releases/Galactic-Geochelone-Complete-Changelog.rst
    Releases/Release-Humble-Hawksbill.rst
+   Releases/Release-Galactic-Geochelone.rst
+   Releases/Release-Foxy-Fitzroy.rst
    Releases/Release-Rolling-Ridley.rst
+   Releases/Development.rst
+   Releases/End-of-Life.rst
 
 .. raw:: html
 
@@ -56,10 +48,14 @@ Rows in the table marked in green are the currently supported distributions.
    <style>
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
+     .rst-content table.docutils:not(.field-list) tr:nth-child(4) td {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
+
+.. |humble| image:: Releases/humble-small.png
+   :alt: Humble logo
 
 .. |galactic| image:: Releases/galactic-small.png
    :alt: Galactic logo
@@ -91,9 +87,13 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
+   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
+     - May 23rd, 2023
+     - TBD
+     - TBD
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
-     -
+     - |humble|
      - May 2027
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
@@ -143,23 +143,21 @@ Rows in the table marked in green are the currently supported distributions.
 Future Distributions
 --------------------
 
-For details on upcoming features see the :doc:`roadmap <Roadmap>`.
+For details on upcoming features see the :doc:`roadmap <The-ROS2-Project/Roadmap>`.
 
 There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day <https://www.worldturtleday.org/>`_).
 
 .. list-table::
    :class: future-distros
    :header-rows: 1
-   :widths: 25 30 20 25
+   :widths: 30 40 30
 
    * - Distro
      - Release date
-     - Supported for
-     - Planned changes
+     - Supported until
    * - :doc:`Humble Hawksbill<Releases/Release-Humble-Hawksbill>`
      - May 2022
-     - TBD
-     - TBD
+     - May 2027
 
 
 The expectation is to release new ROS 2 distributions once per year.
@@ -173,7 +171,7 @@ The Rolling distribution of ROS 2 serves as a staging area for future stable dis
 Unlike most stable ROS 2 distributions which have an initial release, a support window during which they are updated, and a definite end of support (see :ref:`list_of_distributions` above) the Rolling distribution is continuously updated and is subject to in-place updates which will at times include breaking changes.
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-:doc:`Releasing a ROS 2 package <How-To-Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <../How-To-Guides/Releasing-a-ROS-2-package-with-bloom>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
 
 :doc:`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2 as proposed in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_.
 It was first introduced in June 2020.

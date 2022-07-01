@@ -1,5 +1,5 @@
-ROS 2 Rolling Ridley (codename 'rolling'; June 2020)
-==========================================================
+Rolling Ridley (``rolling``)
+============================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -22,20 +22,19 @@ Rolling Ridley is currently supported on the following platforms:
 
 Tier 1 platforms:
 
-* Ubuntu 20.04 (Focal): ``amd64`` and ``arm64``
-* Mac macOS 10.14 (Mojave)
+* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
 * Windows 10 (Visual Studio 2019)
 
 Tier 3 platforms:
 
-* Ubuntu 20.04 (Focal): ``arm32``
 * Debian Buster (10): ``amd64``, ``arm64`` and ``arm32``
+* Mac macOS 10.14 (Mojave)
 * OpenEmbedded Thud (2.6) / webOS OSE: ``arm32`` and ``x86``
 
 Installation
 ------------
 
-`Install Rolling Ridley <../Installation>`
+`Install Rolling Ridley <../../Installation>`
 
 New features and changes in this release
 ----------------------------------------

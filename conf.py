@@ -61,7 +61,7 @@ default_role = 'any'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -122,12 +122,12 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(galactic|foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(humble|galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'galactic'
+smv_latest_version = 'humble'
 smv_eol_versions = ['crystal', 'dashing', 'eloquent']
 
 distro_full_names = {
@@ -136,6 +136,7 @@ distro_full_names = {
     'eloquent': 'Eloquent Elusor',
     'foxy': 'Foxy Fitzroy',
     'galactic': 'Galactic Geochelone',
+    'humble': 'Humble Hawksbill',
     'rolling': 'Rolling Ridley',
 }
 

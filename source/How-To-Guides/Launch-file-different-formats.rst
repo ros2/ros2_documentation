@@ -75,7 +75,7 @@ Each launch file performs the following actions:
             launch_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace(LaunchConfiguration('chatter_ns')),
+                    PushRosNamespace('chatter_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             os.path.join(
@@ -298,6 +298,6 @@ However, if your launch file requires flexibility that you cannot achieve with X
 Using Python for ROS 2 launch is more flexible because of following two reasons:
 
 * Python is a scripting language, and thus you can leverage the language and its libraries in your launch files.
-* `ros2/launch <https://github.com/ros2/launch>`_ (general launch features) and `ros2/launch_ros <https://github.com/ros2/launch_ros>`_ (ROS 2 specific launch features) are written in Python and thus you have lower level access to launch features that may not exposed by XML and YAML.
+* `ros2/launch <https://github.com/ros2/launch>`_ (general launch features) and `ros2/launch_ros <https://github.com/ros2/launch_ros>`_ (ROS 2 specific launch features) are written in Python and thus you have lower level access to launch features that may not be exposed by XML and YAML.
 
 That being said, a launch file written in Python may be more complex and verbose than one in XML or YAML.

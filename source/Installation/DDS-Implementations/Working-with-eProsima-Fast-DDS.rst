@@ -1,5 +1,5 @@
-Working with eProsima Fast DDS
-==============================
+eProsima Fast DDS
+=================
 
 eProsima Fast DDS is a complete open-source DDS implementation for real time embedded architectures and operating systems.
 See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
@@ -17,7 +17,7 @@ The easiest way is to install from ROS 2 apt repository.
 
 .. code-block:: bash
 
-   sudo apt install ros-galactic-rmw-fastrtps-cpp
+   sudo apt install ros-{DISTRO}-rmw-fastrtps-cpp
 
 Build from source code
 ----------------------

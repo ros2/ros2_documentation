@@ -73,7 +73,7 @@ Here a list of the |packages| in the repository along with a short description:
 
 -  ``ament_cmake``
 
-   - aggregates all other |packages| in this repository, users need only to depend on this.
+   - aggregates all other |packages| in this repository, users need only to depend on this
 
 -  ``ament_cmake_auto``
 

@@ -4,8 +4,13 @@ First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/c
 .. code-block:: bash
 
    apt-cache policy | grep universe
-    500 http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages
-        release v=20.04,o=Ubuntu,a=focal,n=focal,l=Ubuntu,c=universe,b=amd64
+
+This should output a line like the one below:
+
+.. code-block:: bash
+
+    500 http://us.archive.ubuntu.com/ubuntu jammy/universe amd64 Packages
+        release v=22.04,o=Ubuntu,a=jammy,n=jammy,l=Ubuntu,c=universe,b=amd64
 
 If you don't see an output line like the one above, then enable the Universe repository with these instructions.
 
@@ -13,7 +18,6 @@ If you don't see an output line like the one above, then enable the Universe rep
 
    sudo apt install software-properties-common
    sudo add-apt-repository universe
-
 
 Now add the ROS 2 apt repository to your system.
 First authorize our GPG key with apt.

@@ -34,7 +34,7 @@ To get the value of a parameter on a node:
 
 .. code-block:: console
 
-  ros param get /my_node use_sim_time
+  ros2 param get /my_node use_sim_time
 
 ``ros2 param set``
 ------------------
@@ -46,7 +46,7 @@ To set the value of a parameter on a node:
 
 .. code-block:: console
 
-  ros param set /my_node use_sim_time false
+  ros2 param set /my_node use_sim_time false
 
 The value that is passed on the command-line is in YAML, which allows arbitrary YAML expressions to be used.
 However, it also means that certain expressions will be interpreted differently than might be expected.
@@ -54,7 +54,7 @@ For instance, if the parameter ``my_string`` on node ``my_node`` is of type stri
 
 .. code-block:: console
 
-  ros param set /my_node my_string off
+  ros2 param set /my_node my_string off
 
 That's because YAML is interpreting "off" as a boolean, and ``my_string`` is a string type.
 This can be worked around by using the YAML syntax for explicitly setting strings, e.g.:
@@ -86,7 +86,7 @@ See :doc:`the concept document <../Concepts/About-ROS-2-Parameters>` for more in
 
 .. code-block:: console
 
-  ros param delete /my_node my_string
+  ros2 param delete /my_node my_string
 
 ``ros2 param describe``
 -----------------------
@@ -95,7 +95,7 @@ This command will provide a textual description of a particular parameter on a p
 
 .. code-block:: console
 
-  ros param describe /my_node use_sim_time
+  ros2 param describe /my_node use_sim_time
 
 ``ros2 param dump``
 -------------------
@@ -105,7 +105,7 @@ The output of this command can then be used to re-run the node with the same par
 
 .. code-block:: console
 
-  ros param dump /my_node
+  ros2 param dump /my_node
 
 ``ros2 param load``
 -------------------
@@ -115,4 +115,4 @@ That is, this command can reload values at runtime that were dumped out by ``ros
 
 .. code-block:: console
 
-  ros param load /my_node my_node.yaml
+  ros2 param load /my_node my_node.yaml

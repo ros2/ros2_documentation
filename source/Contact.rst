@@ -15,7 +15,7 @@ Need help troubleshooting your system?
 First, search `ROS Answers <https://answers.ros.org>`__ to see if others have had similar issues, and if their solution works for you.
 
 If not, ask a new question on `ROS Answers <https://answers.ros.org>`__.
-Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``galactic``.
+Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``humble``.
 If your question is related to the documentation here, add a tag like ``docs``, or more specifically, ``tutorials``.
 
 Contributing support
@@ -55,7 +55,7 @@ Pull requests
 
 When you feel comfortable enough to suggest a specific change directly to the code, you can submit a pull request.
 Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
-See the :doc:`Contributing <Contributing>` page for more details and etiquette on how to contribute.
+See the :doc:`Contributing <The-ROS2-Project/Contributing>` page for more details and etiquette on how to contribute.
 
 .. _Using ROS Discourse:
 

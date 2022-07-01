@@ -1,9 +1,12 @@
-.. _latest_release:
-
 .. _galactic-release:
 
-ROS 2 Galactic Geochelone (codename 'galactic'; May, 2021)
-==========================================================
+Galactic Geochelone (``galactic``)
+==================================
+
+.. toctree::
+   :hidden:
+
+   Galactic-Geochelone-Complete-Changelog.rst
 
 .. contents:: Table of Contents
    :depth: 2
@@ -39,7 +42,7 @@ For more information about RMW implementations, compiler / interpreter versions,
 Installation
 ------------
 
-`Install Galactic Geochelone <../../galactic/Installation.html>`__
+`Install Galactic Geochelone <../../../galactic/Installation.html>`__
 
 New features in this ROS 2 release
 ----------------------------------
@@ -237,7 +240,7 @@ Tools to check for QoS incompatibilities
 
 Built on top of new QoS compatibility check APIs, ``ros2doctor`` and ``rqt_graph`` can now detect and report QoS incompatibilities between publishers and subscriptions.
 
-Given a publisher and a subscription with `incompatible QoS settings <../Concepts/About-Quality-of-Service-Settings>`:
+Given a publisher and a subscription with `incompatible QoS settings <../../Concepts/About-Quality-of-Service-Settings>`:
 
 Terminal 1:
 
@@ -497,7 +500,7 @@ Default RMW changed to Eclipse Cyclone DDS
 During the Galactic development process, the ROS 2 Technical Steering Committee `voted <https://discourse.ros.org/t/ros-2-galactic-default-middleware-announced/18064>`__ to change the default ROS middleware (RMW) to `Eclipse Cyclone DDS <https://github.com/eclipse-cyclonedds/cyclonedds>`__ project of `Eclipse Foundation <https://www.eclipse.org>`__.
 Without any configuration changes, users will get Eclipse Cyclone DDS by default.
 Fast DDS and Connext are still Tier-1 supported RMW vendors, and users can opt-in to use one of these RMWs at their discretion by using the ``RMW_IMPLEMENTATION`` environment variable.
-See the `Working with multiple RMW implementations guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` for more information.
+See the `Working with multiple RMW implementations guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for more information.
 
 Connext RMW changed to rmw_connextdds
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -951,7 +954,7 @@ Timeline before the release
         Call for general testing.
 
     Mon. May 17, 2021 - RC
-        Release Candidate packages are built.
+      Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
 
     Thu. May 20, 2021 - Distro Freeze
@@ -959,7 +962,7 @@ Timeline before the release
         No PRs for Galactic on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
     Sun. May 23, 2021 - General Availability
-        Release announcement.
+      Release announcement.
         ``rosdistro`` is reopened for Galactic PRs.
 
 .. [1] The ``ros_core`` variant is described in `REP 2001 (ros-core) <https://www.ros.org/reps/rep-2001.html#ros-core>`_.

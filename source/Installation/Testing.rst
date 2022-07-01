@@ -2,8 +2,8 @@
 
    Installation/Prerelease-Testing
 
-Alternative Installation Sources for Testing
-============================================
+Testing with pre-release binaries
+=================================
 
 Many ROS packages are provided as pre-built binaries.
 Usually, you will get the released version of binaries when following :doc:`../Installation`.
@@ -24,12 +24,12 @@ For Debian-based operating systems, you can install binary packages from the **r
 1. Make sure you have a working ROS 2 installation from Debian packages (see :doc:`../Installation`).
 
 2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2-latest.list`` and change ``ros2`` with ``ros2-testing``.
-   For example, on Ubuntu Focal the contents should look like the following:
+   For example, on Ubuntu Jammy the contents should look like the following:
 
    .. code-block:: sh
 
-      # deb http://packages.ros.org/ros2/ubuntu focal main
-      deb http://packages.ros.org/ros2-testing/ubuntu focal main
+      # deb http://packages.ros.org/ros2/ubuntu jammy main
+      deb http://packages.ros.org/ros2-testing/ubuntu jammy main
 
 3. Update the ``apt`` index:
 
@@ -53,8 +53,8 @@ For Debian-based operating systems, you can install binary packages from the **r
 
    .. code-block:: sh
 
-      deb http://packages.ros.org/ros2/ubuntu focal main
-      # deb http://packages.ros.org/ros2-testing/ubuntu focal main
+      deb http://packages.ros.org/ros2/ubuntu jammy main
+      # deb http://packages.ros.org/ros2-testing/ubuntu jammy main
 
    and doing an update and upgrade:
 
@@ -68,10 +68,10 @@ For Debian-based operating systems, you can install binary packages from the **r
 Fat binaries
 ------------
 
-For core packages, we run nightly packaging jobs for Ubuntu Linux, macOS, and Windows.
+For core packages, we run nightly packaging jobs for Ubuntu Linux, RHEL, and Windows.
 These packaging jobs produce archives with pre-built binaries that can be downloaded and extracted to your filesystem.
 
-1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Latest-Development-Setup>` for your platform.
+1. Make sure you have all dependencies installed according to the :doc:`latest development setup <Alternatives/Latest-Development-Setup>` for your platform.
 
 2. Go to https://ci.ros2.org/view/packaging/ and select a packaging job from the list corresponding to your platform.
 
@@ -83,13 +83,7 @@ These packaging jobs produce archives with pre-built binaries that can be downlo
 
    .. tabs::
 
-     .. group-tab:: Linux
-
-       .. code-block:: sh
-
-          source path/to/extracted/archive/setup.bash
-
-     .. group-tab:: macOS
+     .. group-tab:: Ubuntu Linux and RHEL
 
        .. code-block:: sh
 

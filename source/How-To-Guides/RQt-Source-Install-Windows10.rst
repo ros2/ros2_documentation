@@ -9,7 +9,7 @@ Building RQt from source on Windows 10
 This page provides specific information to building RQt from source on Windows.
 Follow these instructions before proceeding with the :doc:`RQt Source Install <RQt-Source-Install>` page.
 
-If you have not done so, follow the :doc:`ROS 2 Windows Development Setup guide <../Installation/Windows-Development-Setup>` before continuing.
+If you have not done so, follow the :doc:`ROS 2 Windows Development Setup guide <../Installation/Alternatives/Windows-Development-Setup>` before continuing.
 
 System Requirements
 -------------------
@@ -26,7 +26,7 @@ Dependencies
 
 The primary dependencies of the RQt package are sip and PyQt5.
 PySide2 may be supported in the future.
-Even though they are provided through PyPi and chocolatey, you must install them by source to get compatible versions.
+Even though they are provided through PyPI and chocolatey, you must install them by source to get compatible versions.
 
 Install sip by source
 ^^^^^^^^^^^^^^^^^^^^^
