@@ -243,7 +243,7 @@ Now that you have the message structure, you can publish data onto a topic direc
 
 The ``'<args>'`` argument is the actual data you’ll pass to the topic, in the structure you just discovered in the previous section.
 
-It’s important to note that this argument needs to be input in YAML syntax.
+It’s important to note that this argument needs to be input in JSON syntax.
 Input the full command like so:
 
 .. code-block:: console
