@@ -84,3 +84,6 @@ Release Timeline
     Tue. May 23, 2023 - General Availability
         Release announcement.
         ``rosdistro`` is reopened for Iron PRs.
+
+.. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
+.. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
