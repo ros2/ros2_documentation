@@ -255,6 +255,8 @@ To use it for a package called ``my_library``:
 
     target_compile_definitions(my_library PRIVATE "MY_LIBRARY_BUILDING_LIBRARY")
 
+For more details, see :doc:`Windows Symbol Visibility in the Windows Tips and Tricks document</The-ROS2-Project/Contributing/Windows-Tips-and-Tricks>`.
+
 Testing and Linting
 -------------------
 

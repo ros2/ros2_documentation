@@ -71,7 +71,7 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In order to make the package compile and work on Windows, we need to add in some "visibility control".
-For details on why this is needed, see `here <https://docs.microsoft.com/en-us/cpp/cpp/dllexport-dllimport>`_.
+For more details, see :doc:`Windows Symbol Visibility in the Windows Tips and Tricks document</The-ROS2-Project/Contributing/Windows-Tips-and-Tricks>`.
 
 Open up ``action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h``, and put the following code in:
 
