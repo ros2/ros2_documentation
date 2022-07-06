@@ -101,9 +101,9 @@ In another terminal source the setup file and then run a Python ``listener``\ :
 
 .. code-block:: bash
 
+   # Replace ".bash" with your shell if you're not using bash
+   # Possible values are: setup.bash, setup.sh, setup.zsh
    source /opt/ros/{DISTRO}/setup.bash
-   #replace ".bash" with your shell if you're not using bash
-   #Possible values are: setup.bash, setup.sh, setup.zsh
    ros2 run demo_nodes_py listener
 
 You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
