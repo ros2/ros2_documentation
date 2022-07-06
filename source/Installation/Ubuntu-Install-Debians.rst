@@ -76,9 +76,9 @@ Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
+   # Replace ".bash" with your shell if you're not using bash
+   # Possible values are: setup.bash, setup.sh, setup.zsh
    source /opt/ros/{DISTRO}/setup.bash
-   #Replace ".bash" with your shell if you're not using bash
-   #Possible values are: setup.bash, setup.sh, setup.zsh
 
 Try some examples
 -----------------
