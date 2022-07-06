@@ -1,10 +1,10 @@
 NVIDIA HUMBLE ROS 2 Projects
-=====================
+============================
 
 NVIDIA provides packages for the development of AI applications for robotics.
 
 ISAAC ROS Projects
-------------
+------------------
 * `Isaac ROS Nitros <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_nitros>`__: Isaac Transport for ROS package for hardware-acceleration friendly movement of messages.
 * `Isaac ROS DNN Stereo Disparity <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_dnn_stereo_disparity>`__: DNN Stereo Disparity includes packages for predicting disparity of stereo input.
 * `Isaac ROS Proximity Segmentation <https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_proximity_segmentation>`__: Hardware-accelerated packages for proximity segmentation.
