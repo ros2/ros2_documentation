@@ -38,10 +38,10 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-Navigate into ``dev_ws/src`` and create a new package:
+Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
@@ -89,7 +89,7 @@ Add the same information to the ``setup.py`` file for the ``maintainer``, ``main
 2 Write the service node
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``service_member_function.py`` and paste the following code within:
+Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``service_member_function.py`` and paste the following code within:
 
 .. code-block:: python
 
@@ -162,7 +162,7 @@ Finally, the main class initializes the ROS 2 Python client library, instantiate
 2.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``dev_ws/src/py_srvcli`` directory).
+To allow the ``ros2 run`` command to run your node, you must add the entry point to ``setup.py`` (located in the ``ros2_ws/src/py_srvcli`` directory).
 
 Add the following line between the ``'console_scripts':`` brackets:
 
@@ -173,7 +173,7 @@ Add the following line between the ``'console_scripts':`` brackets:
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``client_member_function.py`` and paste the following code within:
+Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file called ``client_member_function.py`` and paste the following code within:
 
 .. code-block:: python
 
@@ -255,7 +255,7 @@ The ``entry_points`` field of your ``setup.py`` file should look like this:
 4 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -274,13 +274,13 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package:
 
 .. code-block:: console
 
   colcon build --packages-select py_srvcli
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
 .. tabs::
 
@@ -310,7 +310,7 @@ Now run the service node:
 
 The node will wait for the client’s request.
 
-Open another terminal and source the setup files from inside ``dev_ws`` again.
+Open another terminal and source the setup files from inside ``ros2_ws`` again.
 Start the client node, followed by any two integers separated by a space:
 
 .. code-block:: console
