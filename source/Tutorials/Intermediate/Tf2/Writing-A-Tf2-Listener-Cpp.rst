@@ -381,7 +381,7 @@ In the second terminal window type the following command:
 
   ros2 run turtlesim turtle_teleop_key
 
-3 Checking the results
+4 Checking the results
 ^^^^^^^^^^^^^^^^^^^^^^
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
