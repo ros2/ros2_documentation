@@ -47,8 +47,8 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
-Navigate into the ``dev_ws/src`` directory and create a new package:
+Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
@@ -74,7 +74,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
 
 .. code-block:: C++
 
