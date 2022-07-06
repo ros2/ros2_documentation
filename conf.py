@@ -82,6 +82,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap',
+    'sphinxext.remoteliteralinclude',
 ]
 
 # Intersphinx mapping

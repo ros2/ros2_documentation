@@ -7,3 +7,4 @@ sphinx-multiversion
 sphinx-rtd-theme
 sphinx-sitemap
 sphinx-tabs
+sphinxext-remoteliteralinclude
