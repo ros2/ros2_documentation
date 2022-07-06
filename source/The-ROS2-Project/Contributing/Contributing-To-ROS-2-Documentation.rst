@@ -39,6 +39,17 @@ Firstly, install requirements located in the ``requirements.txt`` file.
 
    pip3 install --user --upgrade -r requirements.txt
 
+In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
+
+On Debian/Ubuntu, the ``graphviz`` package provides this:
+
+.. code-block:: console
+
+   sudo apt install graphviz
+
+On Windows download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
+Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
+
 Building the site for one branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
