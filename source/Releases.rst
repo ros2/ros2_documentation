@@ -155,7 +155,7 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
    * - Distro
      - Release date
      - Supported until
-   * - :doc:`Iron Irwini<Releases/Release-Iron-Irwini>`
+   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 2023
      - November 2024
 
