@@ -43,7 +43,7 @@ If the first command did not return a response similar to:
 
    Received from xx.xxx.xxx.xx:43751: 'Hello World!'
 
-then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__.
+then you will need to update your firewall configuration to allow multicast using `ufw <https://help.ubuntu.com/community/UFW>`__. Note that this step is not applicable to Windows systems.
 
 .. code-block:: bash
 

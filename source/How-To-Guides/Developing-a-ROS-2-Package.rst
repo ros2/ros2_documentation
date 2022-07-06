@@ -34,6 +34,8 @@ All ROS 2 packages begin by running the command
 
 in your workspace (usually ``~/ros2_ws/src``).
 
+Note that it is recommended to name your workspace after your project. For example, "nav2_ws" or "carma_ws" instead of simply "ros2_ws."
+
 To create a package for a specific client library:
 
 .. tabs::
