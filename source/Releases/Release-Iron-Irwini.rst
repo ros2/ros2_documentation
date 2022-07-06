@@ -56,6 +56,12 @@ To come.
 Release Timeline
 ----------------
 
+    November, 2022 - Platform decisions
+        REP 2000 is updated with the target platforms and major dependency versions.
+
+    By January, 2023 - Rolling platform shift
+        Build farm is updated with the new platform versions and dependency versions for Iron Irwini.
+
     Mon. April 10, 2023 - Alpha + RMW freeze
         Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
 
