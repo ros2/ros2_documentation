@@ -121,6 +121,8 @@ Add the following lines to ``package.xml``
   <exec_depend>rosidl_default_runtime</exec_depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
+  
+The ``<exec_depend>`` tag is used to specify runtime or execution-stage dependencies and the ``rosidl_interface_packages`` is the name of the dependency group to which the package belongs, declared using the ``<member_of_group>`` tag.
 
 5 Build the ``tutorial_interfaces`` package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
