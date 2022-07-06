@@ -1,4 +1,4 @@
-NVIDIA HUMBLE ROS 2 Projects
+NVIDIA ROS 2 Projects
 ============================
 
 NVIDIA provides packages for the development of AI applications for robotics.
