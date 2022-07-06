@@ -112,7 +112,7 @@ There is no specific due date for the items in this process, but in general earl
      - Notes
    * - ✓
      - Find the ROS Boss
-     - The "ROS Boss" is the person in charge of shepherding a distribution through the development, release, update, and EOL'ing stages of its life.
+     - The "ROS Boss" is the person in charge of shepherding a distribution through the development, release, update, and EOL'ing stages of its life. They are chosen from the internal ROS 2 team at Open Robotics.
    * - ✓
      - Run process to choose the distribution name
      - The ROS Boss curates the process of choosing the distribution's name, using input from sources such as the community and potential naming conflicts.
