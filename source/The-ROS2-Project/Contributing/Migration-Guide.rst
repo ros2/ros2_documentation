@@ -301,24 +301,79 @@ Use of service objects
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Service callbacks in ROS 2 do not have boolean return values.
-Instead of returning false on failures, throwing exceptions is recommended.
+Instead of returning false on failures, there are some ways to handle failure:
 
-.. code-block:: cpp
+* Throwing exceptions and add a timeout on the client side.
+   .. code-block:: cpp
 
-   // ROS 1 style is in comments, ROS 2 follows, uncommented.
-   // #include "nav_msgs/GetMap.h"
-   #include "nav_msgs/srv/get_map.hpp"
+      // ROS 1 style is in comments, ROS 2 follows, uncommented.
+      // #include "nav_msgs/GetMap.h"
+      #include "nav_msgs/srv/get_map.hpp"
 
-   // bool service_callback(
-   //   nav_msgs::GetMap::Request & request,
-   //   nav_msgs::GetMap::Response & response)
-   void service_callback(
-     const std::shared_ptr<nav_msgs::srv::GetMap::Request> request,
-     std::shared_ptr<nav_msgs::srv::GetMap::Response> response)
-   {
-     // ...
-     // return true;  // or false for failure
-   }
+      // bool service_callback(
+      //   nav_msgs::GetMap::Request & request,
+      //   nav_msgs::GetMap::Response & response)
+      void service_callback(
+      const std::shared_ptr<rmw_request_id_t>/*request_header*/,
+      const std::shared_ptr<nav_msgs::srv::GetMap::Request> request,
+      std::shared_ptr<nav_msgs::srv::GetMap::Response> response)
+      {
+         // ...
+         // return true;  // or false for failure
+      }
+Throwing exceptions can cause that client hangs on waiting for response. So it needs to add a timeout on the client side.
+
+* To add a success field in the response message
+   .. code-block:: cpp
+
+      // ROS 1 style is in comments, ROS 2 follows, uncommented.
+      // #include "nav_msgs/GetMap.h"
+      #include "nav_msgs/srv/get_map.hpp"
+
+      // bool service_callback(
+      //   nav_msgs::GetMap::Request & request,
+      //   nav_msgs::GetMap::Response & response)
+      void service_callback(
+      const std::shared_ptr<nav_msgs::srv::GetMap::Request> request,
+      std::shared_ptr<nav_msgs::srv::GetMap::Response> response)
+      {
+         auto response = std::make_shared<nav_msgs::srv::GetMap::Response>();
+         // ...
+         if (!has_map_) {
+            // return false;
+            response->result = false;
+         }
+         else
+         {
+            // return true;
+            response->result = false;
+         }
+         map_server_->send_response(*request_header, *response);
+      }
+
+* Terminate server.
+   .. code-block:: cpp
+
+      // ROS 1 style is in comments, ROS 2 follows, uncommented.
+      // #include "nav_msgs/GetMap.h"
+      #include "nav_msgs/srv/get_map.hpp"
+
+      // bool service_callback(
+      //   nav_msgs::GetMap::Request & request,
+      //   nav_msgs::GetMap::Response & response)
+      void service_callback(
+      const std::shared_ptr<nav_msgs::srv::GetMap::Request> request,
+      std::shared_ptr<nav_msgs::srv::GetMap::Response> response)
+      {
+         auto response = std::make_shared<nav_msgs::srv::GetMap::Response>();
+         // ...
+         if (!has_map_) {
+            // return false;
+            return;
+         }
+         // return true;
+         map_server_->send_response(*request_header, *response);
+      }
 
 Usages of ros::Time
 ~~~~~~~~~~~~~~~~~~~
