@@ -40,89 +40,10 @@ This demo is designed to show that the intra process publish/subscribe connectio
 
 First let's take a look at the source:
 
-https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp
-
-.. code-block:: c++
-
-   #include <chrono>
-   #include <cinttypes>
-   #include <cstdio>
-   #include <memory>
-   #include <string>
-   #include <utility>
-
-   #include "rclcpp/rclcpp.hpp"
-   #include "std_msgs/msg/int32.hpp"
-
-   using namespace std::chrono_literals;
-
-   // Node that produces messages.
-   struct Producer : public rclcpp::Node
-   {
-     Producer(const std::string & name, const std::string & output)
-     : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
-     {
-       // Create a publisher on the output topic.
-       pub_ = this->create_publisher<std_msgs::msg::Int32>(output, 10);
-       std::weak_ptr<std::remove_pointer<decltype(pub_.get())>::type> captured_pub = pub_;
-       // Create a timer which publishes on the output topic at ~1Hz.
-       auto callback = [captured_pub]() -> void {
-           auto pub_ptr = captured_pub.lock();
-           if (!pub_ptr) {
-             return;
-           }
-           static int32_t count = 0;
-           std_msgs::msg::Int32::UniquePtr msg(new std_msgs::msg::Int32());
-           msg->data = count++;
-           printf(
-             "Published message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
-           pub_ptr->publish(std::move(msg));
-         };
-       timer_ = this->create_wall_timer(1s, callback);
-     }
-
-     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr pub_;
-     rclcpp::TimerBase::SharedPtr timer_;
-   };
-
-   // Node that consumes messages.
-   struct Consumer : public rclcpp::Node
-   {
-     Consumer(const std::string & name, const std::string & input)
-     : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
-     {
-       // Create a subscription on the input topic which prints on receipt of new messages.
-       sub_ = this->create_subscription<std_msgs::msg::Int32>(
-         input,
-         10,
-         [](std_msgs::msg::Int32::UniquePtr msg) {
-           printf(
-             " Received message with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
-         });
-     }
-
-     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr sub_;
-   };
-
-   int main(int argc, char * argv[])
-   {
-     setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-     rclcpp::init(argc, argv);
-     rclcpp::executors::SingleThreadedExecutor executor;
-
-     auto producer = std::make_shared<Producer>("producer", "number");
-     auto consumer = std::make_shared<Consumer>("consumer", "number");
-
-     executor.add_node(producer);
-     executor.add_node(consumer);
-     executor.spin();
-
-     rclcpp::shutdown();
-
-     return 0;
-   }
+.. rli:: https://github.com/ros2/demos/raw/93e3cf89b3d4882b2733c63a008d13672517cab9/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp
+    :caption: `intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp <https://github.com/ros2/demos/blob/93e3cf89b3d4882b2733c63a008d13672517cab9/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp>`_
+    :language: c++
+    :lines: 15-
 
 As you can see by looking at the ``main`` function, we have a producer and a consumer node, we add them to a single threaded executor, and then call spin.
 
@@ -171,87 +92,10 @@ The cyclic pipeline demo
 This demo is similar to the previous one, but instead of the producer creating a new message for each iteration, this demo only ever uses one message instance.
 This is achieved by creating a cycle in the graph and "kicking off" communication by externally making one of the nodes publish before spinning the executor:
 
-https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp
-
-.. code-block:: c++
-
-   #include <chrono>
-   #include <cinttypes>
-   #include <cstdio>
-   #include <memory>
-   #include <string>
-   #include <utility>
-
-   #include "rclcpp/rclcpp.hpp"
-   #include "std_msgs/msg/int32.hpp"
-
-   using namespace std::chrono_literals;
-
-   // This node receives an Int32, waits 1 second, then increments and sends it.
-   struct IncrementerPipe : public rclcpp::Node
-   {
-     IncrementerPipe(const std::string & name, const std::string & in, const std::string & out)
-     : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
-     {
-       // Create a publisher on the output topic.
-       pub = this->create_publisher<std_msgs::msg::Int32>(out, 10);
-       std::weak_ptr<std::remove_pointer<decltype(pub.get())>::type> captured_pub = pub;
-       // Create a subscription on the input topic.
-       sub = this->create_subscription<std_msgs::msg::Int32>(
-         in,
-         10,
-         [captured_pub](std_msgs::msg::Int32::UniquePtr msg) {
-           auto pub_ptr = captured_pub.lock();
-           if (!pub_ptr) {
-             return;
-           }
-           printf(
-             "Received message with value:         %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
-           printf("  sleeping for 1 second...\n");
-           if (!rclcpp::sleep_for(1s)) {
-             return;    // Return if the sleep failed (e.g. on ctrl-c).
-           }
-           printf("  done.\n");
-           msg->data++;    // Increment the message's data.
-           printf(
-             "Incrementing and sending with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
-             reinterpret_cast<std::uintptr_t>(msg.get()));
-           pub_ptr->publish(std::move(msg));    // Send the message along to the output topic.
-         });
-     }
-
-     rclcpp::Publisher<std_msgs::msg::Int32>::SharedPtr pub;
-     rclcpp::Subscription<std_msgs::msg::Int32>::SharedPtr sub;
-   };
-
-   int main(int argc, char * argv[])
-   {
-     setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-     rclcpp::init(argc, argv);
-     rclcpp::executors::SingleThreadedExecutor executor;
-
-     // Create a simple loop by connecting the in and out topics of two IncrementerPipe's.
-     // The expectation is that the address of the message being passed between them never changes.
-     auto pipe1 = std::make_shared<IncrementerPipe>("pipe1", "topic1", "topic2");
-     auto pipe2 = std::make_shared<IncrementerPipe>("pipe2", "topic2", "topic1");
-     rclcpp::sleep_for(1s);  // Wait for subscriptions to be established to avoid race conditions.
-     // Publish the first message (kicking off the cycle).
-     std::unique_ptr<std_msgs::msg::Int32> msg(new std_msgs::msg::Int32());
-     msg->data = 42;
-     printf(
-       "Published first message with value:  %d, and address: 0x%" PRIXPTR "\n", msg->data,
-       reinterpret_cast<std::uintptr_t>(msg.get()));
-     pipe1->pub->publish(std::move(msg));
-
-     executor.add_node(pipe1);
-     executor.add_node(pipe2);
-     executor.spin();
-
-     rclcpp::shutdown();
-
-     return 0;
-   }
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp
+    :caption: `intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp>`_
+    :language: c++
+    :lines: 15-
 
 Unlike the previous demo, this demo uses only one Node, instantiated twice with different names and configurations.
 The graph ends up being ``pipe1`` -> ``pipe2`` -> ``pipe1`` ... in a loop.
