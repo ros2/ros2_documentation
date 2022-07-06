@@ -41,10 +41,10 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-So, navigate into ``dev_ws/src``, and run the package creation command:
+So, navigate into ``ros2_ws/src``, and run the package creation command:
 
 .. code-block:: console
 
@@ -55,7 +55,7 @@ Your terminal will return a message verifying the creation of your package ``py_
 2 Write the publisher node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate into ``dev_ws/src/py_pubsub/py_pubsub``.
+Navigate into ``ros2_ws/src/py_pubsub/py_pubsub``.
 Recall that this directory is a `Python package <https://docs.python.org/3/tutorial/modules.html#packages>`__ with the same name as the ROS 2 package it's nested in.
 
 Download the example talker code by entering the following command:
@@ -211,7 +211,7 @@ First the ``rclpy`` library is initialized, then the node is created, and then i
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
 
-Navigate one level back to the ``dev_ws/src/py_pubsub`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
+Navigate one level back to the ``ros2_ws/src/py_pubsub`` directory, where the ``setup.py``, ``setup.cfg``, and ``package.xml`` files have been created for you.
 
 Open ``package.xml`` with your text editor.
 
@@ -278,7 +278,7 @@ You could build your package now, source the local setup files, and run it, but 
 3 Write the subscriber node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Return to ``dev_ws/src/py_pubsub/py_pubsub`` to create the next node.
+Return to ``ros2_ws/src/py_pubsub/py_pubsub`` to create the next node.
 Enter the following code in your terminal:
 
 .. tabs::
@@ -415,7 +415,7 @@ Make sure to save the file, and then your pub/sub system should be ready for use
 4 Build and run
 ^^^^^^^^^^^^^^^
 You likely already have the ``rclpy`` and ``std_msgs`` packages installed as part of your ROS 2 system.
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -434,7 +434,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
 
-Still in the root of your workspace, ``dev_ws``, build your new package:
+Still in the root of your workspace, ``ros2_ws``, build your new package:
 
 .. tabs::
 
@@ -456,7 +456,7 @@ Still in the root of your workspace, ``dev_ws``, build your new package:
 
       colcon build --merge-install --packages-select py_pubsub
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
 .. tabs::
 
@@ -495,7 +495,7 @@ The terminal should start publishing info messages every 0.5 seconds, like so:
   [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
   ...
 
-Open another terminal, source the setup files from inside ``dev_ws`` again, and then start the listener node:
+Open another terminal, source the setup files from inside ``ros2_ws`` again, and then start the listener node:
 
 .. code-block:: console
 
