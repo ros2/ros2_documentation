@@ -216,8 +216,20 @@ All this is wrapped in a try-except block to handle possible exceptions.
         from_frame_rel,
         now)
 
-2 Build and run
-^^^^^^^^^^^^^^^
+1.2 Add an entry point
+~~~~~~~~~~~~~~~~~~~~~~
+
+To allow the ``ros2 run`` command to run your node, you must add the entry point
+to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
+
+Finally, add the following line between the ``'console_scripts':`` brackets:
+
+.. code-block:: python
+
+    'turtle_tf2_listener = learning_tf2_py.turtle_tf2_listener:main',
+
+2 Update the launch file
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node.
 Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
@@ -256,6 +268,34 @@ Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfi
         ])
 
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
+
+
+3 Build and run
+^^^^^^^^^^^^^^^
+
+Run ``rosdep`` in the root of your workspace to check for missing dependencies.
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+
+   .. group-tab:: macOS
+
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+
+   .. group-tab:: Windows
+
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+
+Build your updated package, and source the setup files.
+
+4 Checking the results
+^^^^^^^^^^^^^^^^^^^^^^
+
 Now you're ready to start your full turtle demo:
 
 .. code-block:: console
@@ -268,9 +308,6 @@ In the second terminal window type the following command:
 .. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
-
-3 Checking the results
-^^^^^^^^^^^^^^^^^^^^^^
 
 To see if things work, simply drive around the first turtle using the arrow keys (make sure your terminal window is active, not your simulator window), and you'll see the second turtle following the first one!
 
