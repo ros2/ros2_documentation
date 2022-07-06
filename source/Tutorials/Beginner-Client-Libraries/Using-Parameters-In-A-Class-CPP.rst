@@ -159,6 +159,24 @@ Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the 
       return 0;
     }
 
+.. note::
+  There is another common way to declare and read parameters as well.
+  The declaration of the parameter in the constructor can be changed as follows:
+
+  .. code-block::  C++
+
+      // this->declare_parameter<std::string>("my_parameter", "world"); <- Replace this line
+      parameter_string_ = this->declare_parameter("my_parameter", "world");
+  This declares the parameter as before, and assigns the default value to ``parameter_string_``.
+
+  Reading the parameter in ``respond()`` can also take a different form:
+
+  .. code-block::  C++
+
+      // this->get_parameter("my_parameter", parameter_string_); <- Replace this line
+      parameter_string_ = this->get_parameter("my_parameter").as_string();
+  This reads the parameter as ``rclcpp::Parameter``, casts it to ``std::String`` and assigns the value to ``parameter_string_``.
+  There are return type casting functions available for ``int``, ``bool`` and ``double`` as well, incuding their arrays.
 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
