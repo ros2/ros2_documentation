@@ -96,7 +96,7 @@ Please don't send your question more than once: The question was seen. If you di
 
 On https://answers.ros.org you can edit your question to provide more details. The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
 
-It's considered bad form to list your personal deadlines; Community members answering questions also have them.
+It's considered bad form to list your personal deadlines; community members answering questions also have them.
 
 Do not beg for help. If there is someone willing and able to help with your problem, you usually get a response. Asking for faster answers will mostly have a negative effect.
 
