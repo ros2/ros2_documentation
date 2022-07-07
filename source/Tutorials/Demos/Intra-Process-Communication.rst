@@ -335,9 +335,7 @@ Let's run the demo by executing the following executable:
 You should see something like this:
 
 
-.. image:: https://i.imgur.com/tqiIVgT.png
-   :target: https://i.imgur.com/tqiIVgT.png
-   :alt:
+.. image:: images/intra-process-demo-pipeline-single-window.png
 
 
 You can pause the rendering of the image by pressing the spacebar and you can resume by pressing the spacebar again.
@@ -357,9 +355,7 @@ Let's run it with the command:
    ros2 run intra_process_demo image_pipeline_with_two_image_view
 
 
-.. image:: https://i.imgur.com/iLIT02t.png
-   :target: https://i.imgur.com/iLIT02t.png
-   :alt:
+.. image:: images/intra-process-demo-pipeline-two-windows-copy.png
 
 
 Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time. You can stop the updating to inspect the pointers written to the screen.
@@ -381,9 +377,7 @@ Pipeline with interprocess viewer
 One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
 
 
-.. image:: https://i.imgur.com/MoWRH1u.png
-   :target: https://i.imgur.com/MoWRH1u.png
-   :alt:
+.. image:: images/intra-process-demo-pipeline-inter-process.png
 
 
 It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step. This means that the intra process zero-copy is preserved even when an external view is subscribed as well. You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
