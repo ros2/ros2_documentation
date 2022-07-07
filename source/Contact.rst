@@ -3,13 +3,13 @@
 Contact
 =======
 
-Different types of questions or discussions correspond to different avenues of communication;
-check the descriptions below to ensure you choose the right method.
-
 .. _Using ROS Answers:
 
 Support
 -------
+
+Different types of questions or discussions correspond to different avenues of communication;
+check the descriptions below to ensure you choose the right method.
 
 Need help troubleshooting your system?
 First, search `ROS Answers <https://answers.ros.org>`__ to see if others have had similar issues, and if their solution works for you.
@@ -40,14 +40,16 @@ You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://git
 
 Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 
-Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue. And try a general search you may also find results from `ROS Discourse <https://discourse.ros.org/>`__ the  `ros-users mailing list archive <http://lists.ros.org/lurker/list/ros-users.html>`__ and other sites.
+Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue. 
 
 If it has not been reported, feel free to open an issue in the appropriate repository tracker.
 If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
 
 When filing an issue, please make sure to:
 
-* Include enough information for another person to understand the issue. Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong. If following a tutorial or online instructions provide a link to the specific instructions. 
+* Include enough information for another person to understand the issue. 
+Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong. 
+If following a tutorial or online instructions provide a link to the specific instructions. 
 * Use a descriptive headline or subject line. Bad: "rviz doesn't work". Good: "Rviz crashing looking for missing .so after latest apt update"
 * Include information about the exact platform, software, versions, and environment relevant to the problem.
   This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it). 
@@ -63,7 +65,7 @@ As appropriate, also include your:
 * Ogre.log for rviz, if possible (run with rviz -l)
 * Bag files and code samples that can reproduce the problem
 * Gifs or movies to demonstrate the problem
-Always tag your questions appropriately. You must tag at least the rosdistro version. Format code snippets. To make your code snippets and error messages human readable, format them correctly (mark the code and press Ctrl-k).
+
 
 Pull requests
 -------------
@@ -90,9 +92,16 @@ We encourage all members of the ROS community to participate in these design dis
 Etiquette
 ----------
 
-Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments on the internet. Assuming good faith gives the benefit of the doubt to those trying to help you, avoiding: insulting well meaning community members, and poisoning the mood. Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
+Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments on the internet. 
+Assuming good faith gives the benefit of the doubt to those trying to help you, avoiding: insulting well meaning community members, and poisoning the mood. 
+Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
 
-Please don't send your question more than once: The question was seen. If you didn't get a response then likely nobody has had time to answer you. Alternatively, it could be that nobody knows the answer. In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. This also applies to crossposting. Try to pick the forum which you think matches best and ask there. If you are referred to a new forum, provide a link to the old discussion.
+Please don't send your question more than once: The question was seen. 
+If you didn't get a response then likely nobody has had time to answer you. 
+Alternatively, it could be that nobody knows the answer. In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
+This also applies to crossposting. 
+Try to pick the forum which you think matches best and ask there. 
+If you are referred to a new forum, provide a link to the old discussion.
 
 On https://answers.ros.org you can edit your question to provide more details. The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
 
@@ -104,7 +113,7 @@ Do not add unrelated content to posts. The content of posts should be focused on
 
 * For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
-Minimize references to content behind pay walls. The content posted on the wiki and in Ask should "generally" be free and open to all users. Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users. Where possible primary sources should be free and open with paid content playing a supporting role.
+Minimize references to content behind pay walls. The content posted on `ROS Discourse <https://discourse.ros.org/>` and `ROS Answers <https://answers.ros.org/>` should "generally" be free and open to all users. Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users. Where possible primary sources should be free and open with paid content playing a supporting role.
 
 Single link posts are to be avoided. Generally speaking, posting a single link answer is less helpful and can be easily confused with spam. Moreover, links may degrade over time or be replaced. Paraphrasing a link's content along with some contextual information and attribution is often much more helpful.
 
