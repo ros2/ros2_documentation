@@ -53,7 +53,7 @@ When filing an issue, please make sure to:
   This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it). 
 * Any warnings or errors. Cut and paste them directly from the terminal window to which they were printed. Please do not re-type or include a screenshot.  
 * In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
-* When discussing any compiling/linking/installation issues, also provide gcc version
+* When discussing any compiling/linking/installation issues, also provide the compiler version
 
 As appropriate, also include your:
 * ROS environment variables (env | grep ROS)
