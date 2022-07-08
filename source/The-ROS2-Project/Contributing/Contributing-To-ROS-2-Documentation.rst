@@ -84,6 +84,17 @@ This has two drawbacks:
 To show local changes in the multiversion output, you must first commit the changes to a local branch.
 Then you must edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
 
+Checking for broken links
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To check for broken links on the site, run:
+
+.. code-block:: console
+
+   make linkcheck
+
+This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
+
 Writing pages
 -------------
 
