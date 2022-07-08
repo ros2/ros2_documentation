@@ -121,7 +121,7 @@ There are three attributes to specify:
 
  * mu - `Friction coefficient <https://simple.wikipedia.org/wiki/Coefficient_of_friction>`_
  * kp - `Stiffness coefficient <https://en.wikipedia.org/wiki/Stiffness>`_
- * kd - `Dampening coefficient <https://en.wikipedia.org/wiki/Damping_ratio#Definition>`_
+ * kd - `Dampening coefficient <https://en.wikipedia.org/wiki/Damping_ratio#Damping_ratio_definition>`_
 
 Joint Dynamics
 ^^^^^^^^^^^^^^
