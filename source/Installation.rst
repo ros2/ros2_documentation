@@ -18,6 +18,8 @@ Options for installing ROS 2 {DISTRO_TITLE_FULL}:
    Installation/Testing
    Installation/DDS-Implementations
 
+.. _binary-packages:
+
 Binary packages
 ---------------
 
