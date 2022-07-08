@@ -103,7 +103,8 @@ This also applies to crossposting.
 Try to pick the forum which you think matches best and ask there. 
 If you are referred to a new forum, provide a link to the old discussion.
 
-On https://answers.ros.org you can edit your question to provide more details. The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
+On https://answers.ros.org you can edit your question to provide more details.
+The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
 
 It's considered bad form to list your personal deadlines; community members answering questions also have them.
 
