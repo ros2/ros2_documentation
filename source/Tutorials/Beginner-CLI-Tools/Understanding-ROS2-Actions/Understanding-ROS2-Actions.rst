@@ -75,7 +75,7 @@ When you launch the ``/teleop_turtle`` node, you will see the following message 
 Let’s focus on the second line, which corresponds to an action.
 (The first instruction corresponds to the “cmd_vel” topic, discussed previously in the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.)
 
-Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a “box” around the ``F`` key on your keyboard.
+Notice that the letter keys ``G|B|V|C|D|E|R|T`` form a “box” around the ``F`` key on a US QWERTY keyboard (if you are not using a QWERTY keyboard, see `this link <https://upload.wikimedia.org/wikipedia/commons/d/da/KB_United_States.svg>`__ to follow along).
 Each key’s position around ``F`` corresponds to that orientation in turtlesim.
 For example, the ``E`` will rotate the turtle’s orientation to the upper left corner.
 
