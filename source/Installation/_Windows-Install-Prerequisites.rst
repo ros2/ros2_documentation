@@ -67,11 +67,6 @@ An easy way to make sure they're installed is to select the ``Desktop developmen
 
 Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
-Install additional DDS implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions `here <DDS-Implementations>`_.
-
 Install OpenCV
 ^^^^^^^^^^^^^^
 
@@ -152,3 +147,8 @@ RQt dependencies
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 The installer will ask if to add graphviz to PATH, choose to either add it to the current user or all users.
+
+Install additional DDS implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you would like to use another DDS or RTPS vendor besides the default, Eclipse Cyclone DDS, you can find instructions :doc:`here </Installation/DDS-Implementations>`.

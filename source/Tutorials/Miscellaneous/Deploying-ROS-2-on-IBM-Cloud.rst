@@ -200,7 +200,7 @@ Step 2: Running the image on IBM Cloud
 
 The following steps assume you have an IBM cloud account and have
 ibmcloud CLI installed. If not, please check this
-`link <https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html#install_use>`__
+`link <https://cloud.ibm.com/docs/cli/reference/ibmcloud/download_cli.html>`__
 out to get that done first.
 
 We also need to make sure that the CLI plug-in for the IBM Cloud
@@ -509,7 +509,7 @@ implications of your choices:
 After you create your cluster, you will be redirected to a page which
 details how you can set up the CLI tools and access your cluster. Please
 follow these instructions (or check the instructions
-`here <https://github.com/mm-nasr/ros2_ibmcloud/Kubernetes-Cluster-Set-Up.md>`__)and
+`here <https://github.com/mm-nasr/ros2_ibmcloud/blob/main/Kubernetes-Cluster-Set-up.md>`__)and
 wait for the progress bar to show that the worker nodes you created are
 ready by indicating *Normal* next to the cluster name. You can also
 reach this screen from the IBM Cloud Console inside the Kubernetes.

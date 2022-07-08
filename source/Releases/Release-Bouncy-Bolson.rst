@@ -65,7 +65,7 @@ Changes since the `Ardent Apalone <Release-Ardent-Apalone>` release:
   DDS partitions are not being used anymore for this.
 * The recommended build tool is now ``colcon`` instead of ``ament_tools``.
   This switch has no `implications <https://design.ros2.org/articles/build_tool.html#implications>`__ for the code in each ROS 2 package.
-  The install instructions have been updated and the `read-the-docs page <https://colcon.readthedocs.io/en/latest/migration/ament_tools.html>`__ describes how to map an existing ``ament_tools`` call to ``colcon``.
+  The install instructions have been updated and the `read-the-docs page <https://colcon.readthedocs.io/en/main/migration/ament_tools.html>`__ describes how to map an existing ``ament_tools`` call to ``colcon``.
 * The argument order of `this rclcpp::Node::create_subscription() signature <https://docs.ros2.org/bouncy/api/rclcpp/classrclcpp_1_1_node.html#a283fb006c46470cf43a4ae5ef4a16ccd>`__ has been modified.
 
 Known Issues

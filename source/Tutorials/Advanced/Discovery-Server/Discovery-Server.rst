@@ -51,7 +51,7 @@ The following figure shows the decrease in discovery messages:
     :align: center
 
 This architecture reduces the number of messages sent between the server and clients dramatically.
-In the following graph, the reduction in network traffic over the discovery phase for the `RMF Clinic demonstration <https://github.com/osrf/rmf_demos#Clinic-World>`__ is shown:
+In the following graph, the reduction in network traffic over the discovery phase for the `RMF Clinic demonstration <https://github.com/osrf/rmf_demos>`__ is shown:
 
 .. image:: figures/discovery_server_v2_performance.svg
     :align: center

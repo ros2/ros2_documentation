@@ -405,7 +405,7 @@ The major features included in this release are:
 * `Communicate inter-process or intra-process with the same API <../Tutorials/Demos/Intra-Process-Communication>`
 * `Write real-time safe code that uses the ROS 2 APIs <../Tutorials/Demos/Real-Time-Programming>`
 * `Run ROS 2 on "bare-metal" microcontrollers (no operating system) <https://github.com/ros2/freertps/wiki>`__
-* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README>`__
+* `Bridge communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
 
 Pretty much anything not listed above is not included in this release.
 The next steps are described in the `Roadmap <../../The-ROS2-Project/Roadmap>`.
