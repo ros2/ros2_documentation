@@ -122,7 +122,10 @@ The content posted on `ROS Discourse <https://discourse.ros.org/>` and `ROS Answ
 Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
 Where possible primary sources should be free and open with paid content playing a supporting role.
 
-Single link posts are to be avoided. Generally speaking, posting a single link answer is less helpful and can be easily confused with spam. Moreover, links may degrade over time or be replaced. Paraphrasing a link's content along with some contextual information and attribution is often much more helpful.
+Single link posts are to be avoided.
+Generally speaking, posting a single link answer is less helpful and can be easily confused with spam.
+Moreover, links may degrade over time or be replaced.
+Paraphrasing a link's content along with some contextual information and attribution is often much more helpful.
 
 Private contact
 ---------------
