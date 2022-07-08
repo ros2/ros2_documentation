@@ -27,7 +27,7 @@ You have two options:
  - Compile from sources:
 
    - :doc:`ROS 2 install instructions <../../../../Installation>`
-   - `Ignition install instructions <https://ignitionrobotics.org/docs>`__
+   - `Ignition install instructions <https://gazebosim.org/docs>`__
 
 Tasks
 -----

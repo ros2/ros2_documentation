@@ -124,7 +124,7 @@ The following links provide more details and insights into the build farms:
 
 * https://github.com/ros-infrastructure/ros_buildfarm/blob/master/doc/index.rst - General
   documentation of the build farm infrastructure and the generated build jobs
-* http://wiki.ros.org/regression_tests#How_do_I_setup_my_system_to_run_a_prerelease.3F
+* http://wiki.ros.org/regression_tests#Setting_up_Your_Computer_for_Prerelease
 * http://wiki.ros.org/buildfarm - ROS wiki entry for the ROS 1 build farm (partially *outdated*)
 * https://github.com/ros-infrastructure/cookbook-ros-buildfarm - Installs and configures ROS build
   farm machines

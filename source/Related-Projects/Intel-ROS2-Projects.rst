@@ -5,7 +5,7 @@
 Intel ROS 2 Projects
 ====================
 
-Intel® Robotics Open Source Project (Intel® ROS Project) to enable object detection/location/tracking, people detection, vehicle detection, industry robot arm grasp point analysis with kinds of Intel technologies and platforms, including CPU, GPU, `Intel® Movidius™ NCS <https://developer.movidius.com/>`__ optimized deep learning backend, FPGA, `Intel® RealSense™ <http://www.intel.com/realsense>`__ camera, etc.
+Intel® Robotics Open Source Project (Intel® ROS Project) to enable object detection/location/tracking, people detection, vehicle detection, industry robot arm grasp point analysis with kinds of Intel technologies and platforms, including CPU, GPU, `Intel® Movidius™ NCS <https://www.intel.com/content/www/us/en/developer/tools/neural-compute-stick/overview.html>`__ optimized deep learning backend, FPGA, `Intel® RealSense™ <https://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html>`__ camera, etc.
 
 Key Projects
 ------------
