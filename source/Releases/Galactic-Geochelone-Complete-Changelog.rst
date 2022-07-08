@@ -816,17 +816,17 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * fix build issues
 * make the libraries public
 * API documentation review update
-* suppress misleading camera_info_manager error messages [`#5273 <https://github.com/ros-perception/image_common/issues/5273>`__]
-* remove deprecated global CameraInfoManager symbol for Fuerte (`#4971 <https://github.com/ros-perception/image_common/issues/4971>`__)
+* suppress misleading camera_info_manager error messages [#5273]
+* remove deprecated global CameraInfoManager symbol for Fuerte (#4971)
 * Revert to using boost::mutex, not boost::recursive_mutex.
 * Hack saveCalibrationFile() to stat() the containing directory and attempt to create it if necessary.  Test for this case.
 * Reload camera info when camera name changes.
 * Implement most new Electric API changes, with test cases.
 * Add ${ROS_HOME} expansion, with unit test cases. Do not use "$$" for a single '$', look for "${" instead.
-* Use case-insensitive comparisons for parsing URL tags (`#4761 <https://github.com/ros-perception/image_common/issues/4761>`__). Add unit test cases to cover this.  Add unit test case for camera name containing video mode.
+* Use case-insensitive comparisons for parsing URL tags (#4761). Add unit test cases to cover this.  Add unit test case for camera name containing video mode.
 * add test for resolving an empty URL
-* Deprecate use of global CameraInfoManager symbol in E-turtle (`#4786 <https://github.com/ros-perception/image_common/issues/4786>`__). Modify unit tests accordingly.
-* provide camera_info_manager namespace, fixes `#4760 <https://github.com/ros-perception/image_common/issues/4760>`__
+* Deprecate use of global CameraInfoManager symbol in E-turtle (#4786). Modify unit tests accordingly.
+* provide camera_info_manager namespace, fixes #4760
 * Add support for "package://" URLs.
 * Fixed tests to work with new CameraInfo.
 * Moved image_common from camera_drivers.
@@ -4687,7 +4687,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 
 * Reenable test that used to be flaky. (`#467 <https://github.com/ros2/system_tests/issues/467>`__)
 * Get_parameters_service\_ should return empty if allow_undeclared\_ is false. (`#466 <https://github.com/ros2/system_tests/issues/466>`__)
-* Make test pass after rclcpp`#1532 <https://github.com/ros2/system_tests/issues/1532>`__. (`#465 <https://github.com/ros2/system_tests/issues/465>`__)
+* Make test pass after rclcpp#1532. (`#465 <https://github.com/ros2/system_tests/issues/465>`__)
 * Adapt tests to statically typed parameters. (`#462 <https://github.com/ros2/system_tests/issues/462>`__)
 * Guard against TOCTTOU with rclcpp::ok and rclcpp:spin_some. (`#459 <https://github.com/ros2/system_tests/issues/459>`__)
 * Update parameter client test with timeout. (`#457 <https://github.com/ros2/system_tests/issues/457>`__)
