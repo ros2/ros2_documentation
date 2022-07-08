@@ -111,7 +111,9 @@ It's considered bad form to list your personal deadlines; community members answ
 Do not beg for help. If there is someone willing and able to help with your problem, you usually get a response.
 Asking for faster answers will mostly have a negative effect.
 
-Do not add unrelated content to posts. The content of posts should be focused on the topic at hand and not include unrelated content. Content, links, and images unrelated to the topic are considered spam.
+Do not add unrelated content to posts.
+The content of posts should be focused on the topic at hand and not include unrelated content.
+Content, links, and images unrelated to the topic are considered spam.
 
 * For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
