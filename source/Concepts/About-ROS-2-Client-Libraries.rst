@@ -38,7 +38,6 @@ While the C++ and Python client libraries are maintained by the core ROS 2 team,
 * `JVM and Android <https://github.com/esteve/ros2_java>`__
 * `Objective C and iOS <https://github.com/esteve/ros2_objc>`__
 * `C# <https://github.com/firesurfer/rclcs>`__
-* `Swift <https://github.com/younata/rclSwift>`__
 * `Node.js <https://www.npmjs.com/package/rclnodejs>`__
 * `Ada <https://github.com/ada-ros/ada4ros2>`__
 * `_.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__
