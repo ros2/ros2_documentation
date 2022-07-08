@@ -60,9 +60,7 @@ If you now open in a next terminal your RViz, you'll see your robot. 🎉
 This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``. Once you did that, you should see a similar picture:
 
 
-.. image:: https://i.imgur.com/pCFDTCv.png
-   :target: https://i.imgur.com/pCFDTCv.png
-   :alt:
+.. image:: images/rviz-dummy-robot.png
 
 
 What's happening?
