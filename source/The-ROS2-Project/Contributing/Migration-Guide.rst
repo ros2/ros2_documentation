@@ -852,7 +852,7 @@ individually, rather than including all the directories for all targets:
 
 .. code-block:: cmake
 
-   target_include_directories(target PUBLIC ${Boost_INCLUDE_DIRS})
+   target_include_directories(target PUBLIC include ${Boost_INCLUDE_DIRS})
 
 Similar to how we found each dependent package separately, we need to link
 each one to the build target.
