@@ -159,6 +159,33 @@ Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the 
       return 0;
     }
 
+2.1.1 (Optional) Add ParameterDescriptor
+""""""""""""""""""""""""""""""""""""""""
+Optionally, you can set a descriptor for the parameter.
+Descriptors allow you to specify a text description of the parameter and its constraints, like making it read-only, specifying a range, etc.
+For that to work, the code in the constructor has to be changed to:
+
+.. code-block:: C++
+
+    // ...
+
+    class ParametersClass: public rclcpp::Node
+    {
+      public:
+        ParametersClass()
+          : Node("minimal_param_node")
+        {
+          auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+          param_desc.description = "This parameter is mine!";
+
+          this->declare_parameter<std::string>("my_parameter", "world", param_desc);
+          timer_ = this->create_wall_timer(
+          1000ms, std::bind(&ParametersClass::respond, this));
+        }
+
+The rest of the code remains the same.
+Once you run the node, you can then run ``ros2 param describe /minimal_param_node my_parameter`` to see the type and description.
+
 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
