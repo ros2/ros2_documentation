@@ -111,7 +111,8 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
 
-Because the interfaces rely on ``rosidl_default_generators`` for generating language-specific code, you need to declare a dependency on it. The ``<exec_depend>`` tag is used to specify runtime or execution-stage dependencies and the ``rosidl_interface_packages`` is the name of the dependency group to which the package belongs, declared using the ``<member_of_group>`` tag. 
+Because the interfaces rely on ``rosidl_default_generators`` for generating language-specific code, you need to declare a dependency on it.
+The ``<exec_depend>`` tag is used to specify runtime or execution-stage dependencies and the ``rosidl_interface_packages`` is the name of the dependency group to which the package belongs, declared using the ``<member_of_group>`` tag. 
 
 Add the following lines to ``package.xml``
 
