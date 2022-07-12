@@ -81,7 +81,7 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
     {
       public:
         ParametersClass()
-          : Node("parameter_node")
+          : Node("minimal_param_node")
         {
           this->declare_parameter<std::string>("my_parameter", "world");
           timer_ = this->create_wall_timer(
@@ -120,7 +120,7 @@ Next, ``timer_`` is initialized, which causes the ``respond`` function to be exe
     {
       public:
         ParametersClass()
-          : Node("parameter_node")
+          : Node("minimal_param_node")
         {
           this->declare_parameter<std::string>("my_parameter", "world");
           timer_ = this->create_wall_timer(
@@ -167,11 +167,11 @@ Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp
 
 .. code-block:: console
 
-    add_executable(parameter_node src/cpp_parameters_node.cpp)
-    ament_target_dependencies(parameter_node rclcpp)
+    add_executable(minimal_param_node src/cpp_parameters_node.cpp)
+    ament_target_dependencies(minimal_param_node rclcpp)
 
     install(TARGETS
-      parameter_node
+      minimal_param_node
       DESTINATION lib/${PROJECT_NAME}
     )
 
@@ -245,13 +245,13 @@ Now run the node:
 
 .. code-block:: console
 
-     ros2 run cpp_parameters parameter_node
+     ros2 run cpp_parameters minimal_param_node
 
 The terminal should return the following message every second:
 
 .. code-block:: console
 
-    [INFO] [parameter_node]: Hello world
+    [INFO] [minimal_param_node]: Hello world
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
 There are two ways to accomplish this.
@@ -265,7 +265,7 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run cpp_parameters parameter_node
+     ros2 run cpp_parameters minimal_param_node
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
@@ -278,10 +278,10 @@ To change it simply run the following line in the console:
 
 .. code-block:: console
 
-    ros2 param set /parameter_node my_parameter earth
+    ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you get the output ``Set parameter successful``.
-If you look at the other terminal, you should see the output change to ``[INFO] [parameter_node]: Hello earth``
+If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -299,8 +299,8 @@ In there, create a new file called ``cpp_parameters_launch.py``
       return LaunchDescription([
           Node(
               package="cpp_parameters",
-              executable="parameter_node",
-              name="custom_parameter_node",
+              executable="minimal_param_node",
+              name="custom_minimal_param_node",
               output="screen",
               emulate_tty=True,
               parameters=[
@@ -309,7 +309,7 @@ In there, create a new file called ``cpp_parameters_launch.py``
           )
       ])
 
-Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``parameter_node``.
+Here you can see that we set ``my_parameter`` to ``earth`` when we launch our node ``minimal_param_node``.
 By adding the two lines below, we ensure our output is printed in our console.
 
 .. code-block:: console
@@ -381,7 +381,7 @@ The terminal should return the following message every second:
 
 .. code-block:: console
 
-    [parameter_node-1] [INFO] [custom_parameter_node]: Hello earth
+    [minimal_param_node-1] [INFO] [custom_minimal_param_node]: Hello earth
 
 Summary
 -------
