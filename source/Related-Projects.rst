@@ -2,10 +2,10 @@
 Related Projects
 ================
 
-Ignition Gazebo
----------------
+Gazebo
+------
 
-**Gazebo** and its successor **Ignition Gazebo** `(gazebosim.org) <http://gazebosim.org/>`_ are the first open-source choice for 3D physics simulation of ROS-based robots.
+**Gazebo** `(gazebosim.org) <http://gazebosim.org/>`_ and its predecessor Gazebo Classic are the first open-source choice for 3D physics simulation of ROS-based robots.
 
 Large Community Projects
 ------------------------
