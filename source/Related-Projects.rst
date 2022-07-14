@@ -5,7 +5,7 @@ Related Projects
 Gazebo
 ------
 
-**Gazebo** `(gazebosim.org) <http://gazebosim.org/>`_ and its predecessor Gazebo Classic are the first open-source choice for 3D physics simulation of ROS-based robots.
+**Gazebo** `(gazebosim.org) <http://gazebosim.org/>`_ and its predecessor Gazebo Classic are the first open source choice for 3D physics simulation of ROS-based robots.
 
 Large Community Projects
 ------------------------
