@@ -400,7 +400,7 @@ performance testing package and performance improvements
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 A thorough performance analysis project was performed on rosbag2 since the Foxy release.
-The full initial report is available at https://github.com/ros2/rosbag2/blob/master/rosbag2_performance/rosbag2_performance_benchmarking/docs/rosbag2_performance_improvements.pdf .
+The full initial report is available at https://github.com/ros2/rosbag2/blob/galactic/rosbag2_performance/rosbag2_performance_benchmarking/docs/rosbag2_performance_improvements.pdf .
 The package ``rosbag2_performance_benchmarking`` provides tools to run performance analyses, especially on recording, which helps us maintain and improve the performance of rosbag2.
 
 Following this report, key work was done do improve the performance to a much more usable state for actual robot workflows.
@@ -698,7 +698,7 @@ If the previous dynamic behavior is desired, there is an mechanism to opt it in 
     descriptor.dynamic_typing = true;
     node->declare_parameter("dynamically_typed_param", rclcpp::ParameterValue{}, descriptor);
 
-For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
+For more details see https://github.com/ros2/rclcpp/blob/galactic/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
 New API for checking QoS profile compatibility
 """"""""""""""""""""""""""""""""""""""""""""""
@@ -774,7 +774,7 @@ Run these commands to see how statically and dynamically typed parameters are di
     $ ros2 param set /static_param_example static_param 42
     Setting parameter failed: Wrong parameter type, expected 'Type.STRING' got 'Type.INTEGER'
 
-For more details see https://github.com/ros2/rclcpp/blob/master/rclcpp/doc/notes_on_statically_typed_parameters.md.
+For more details see https://github.com/ros2/rclcpp/blob/galactic/rclcpp/doc/notes_on_statically_typed_parameters.md.
 
 New API for checking QoS profile compatibility
 """"""""""""""""""""""""""""""""""""""""""""""

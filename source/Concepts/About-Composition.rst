@@ -36,7 +36,7 @@ Additionally ``ros2 launch`` can be used to automate these actions through speci
 Writing a Component
 -------------------
 
-Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/master/composition/src/talker_component.cpp>`__).
+Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/talker_component.cpp>`__).
 A component is commonly a subclass of ``rclcpp::Node``.
 Since it is not in control of the thread it shouldn't perform any long running or blocking tasks in its constructor.
 Instead it can use timers to get periodic notification.
@@ -64,14 +64,14 @@ Additionally, once a component is created, it must be registered with the index 
 Using Components
 ----------------
 
-The `composition <https://github.com/ros2/demos/tree/master/composition>`__ package contains a couple of different approaches on how to use components.
+The `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ package contains a couple of different approaches on how to use components.
 The three most common ones are:
 
 
-#. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/master/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/master/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
+#. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/{REPOS_FILE_BRANCH}/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
    The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
-   Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/master/ros2component>`__ to invoke the ROS service with the passed command line arguments
-#. Create a `custom executable <https://github.com/ros2/demos/blob/master/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
+   Instead of calling the ROS service programmatically you can also use a `command line tool <https://github.com/ros2/ros2cli/tree/{REPOS_FILE_BRANCH}/ros2component>`__ to invoke the ROS service with the passed command line arguments
+#. Create a `custom executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/manual_composition.cpp>`__ containing multiple nodes which are known at compile time.
    This approach requires that each component has a header file (which is not strictly needed for the first case).
 #. Create a launch file and use ``ros2 launch`` to create a container process with multiple components loaded.
 
