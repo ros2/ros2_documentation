@@ -39,9 +39,9 @@ New features in this ROS 2 release
 
 A few features and improvements we would like to highlight:
 
-* `Components <https://index.ros.org/doc/ros2/Tutorials/Composition/>`__ are now the recommended way to write your node.
+* :doc:`Components <../Tutorials/Intermediate/Composition>` are now the recommended way to write your node.
   They can be used standalone as well as being composed within a process and both ways are fully support from ``launch`` files.
-* The `intra-process communication <https://github.com/ros2/ros2_documentation/edit/master/source/Tutorials/Intra-Process-Communication.rst>`__ (C++ only) has been improved - both in terms of latency as well as minimizing copies.
+* The :doc:`intra-process communication <../Tutorials/Demos/Intra-Process-Communication>` (C++ only) has been improved - both in terms of latency as well as minimizing copies.
 * The Python client library has been updated to match most of the C++ equivalent and some important bug fixes and improvements have landed related to memory usage and performance.
 * Parameters are now a complete alternative to ``dynamic_reconfigure`` from ROS 1 including constraints like ranges or being read-only.
 * By relying on (a subset of) `IDL 4.2 <https://www.omg.org/spec/IDL/4.2>`__ for the message generation pipeline it is now possible to use ``.idl`` files (beside ``.msg`` / ``.srv`` / ``.action`` files).
@@ -697,7 +697,7 @@ launch
 The ``launch_testing`` package caught up with the ``launch`` package redesign done in Bouncy Bolson.
 The legacy Python API, already moved into the ``launch.legacy`` submodule, has thus been deprecated and removed.
 
-See ``launch`` `examples <https://github.com/ros2/launch/tree/master/launch/examples>`__ and `documentation <https://github.com/ros2/launch/tree/master/launch/doc>`__ for reference on how to use its new API.
+See ``launch`` `examples <https://github.com/ros2/launch/tree/dashing/launch/examples>`__ and `documentation <https://github.com/ros2/launch/tree/dashing/launch/doc>`__ for reference on how to use its new API.
 
 See `demos tests <https://github.com/ros2/demos>`__ for reference on how to use the new ``launch_testing`` API.
 
