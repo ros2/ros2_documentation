@@ -111,7 +111,7 @@ Setting parameters from YAML files
 
 Parameters can be set from the command-line in the form of yaml files.
 
-`See here <https://github.com/ros2/rcl/tree/foxy/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
+`See here <https://github.com/ros2/rcl/tree/{REPOS_FILE_BRANCH}/rcl_yaml_param_parser>`__ for examples of the yaml file syntax.
 
 As an example, save the following as ``demo_params.yaml``:
 

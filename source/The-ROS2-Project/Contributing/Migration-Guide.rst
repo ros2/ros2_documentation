@@ -15,7 +15,7 @@ There are two different kinds of package migrations:
 * Migrating the source code of an existing package from ROS 1 to ROS 2 with the intent that a significant part of the source code will stay the same or at least similar.
   An example for this could be `pluginlib <https://github.com/ros/pluginlib>`_ where the source code is maintained in different branches within the same repository and commonly patches can be ported between those branches when necessary.
 * Implementing the same or similar functionality of a ROS 1 package for ROS 2 but with the assumption that the source code will be significantly different.
-  An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/master/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
+  An example for this could be `roscpp <https://github.com/ros/ros_comm/tree/melodic-devel/clients/roscpp>`_ in ROS 1 and `rclcpp <https://github.com/ros2/rclcpp/tree/rolling/rclcpp>`_ in ROS 2 which are separate repositories and don't share any code.
 
 This article focuses on the former case and describes the high-level steps to migrate a ROS 1 package to ROS 2.
 It does not aim to be a step-by-step migration instruction and is not considered the *final* "solution".
@@ -57,7 +57,7 @@ Service files must end in ``.srv`` and must be located in the subfolder ``srv``.
 Actions files must end in ``.action`` and must be located in the subfolder ``action``.
 
 These files might need to be updated to comply with the `ROS Interface definition <https://design.ros2.org/articles/interface_definition.html>`__.
-Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/master/builtin_interfaces>`__ package.
+Some primitive types have been removed and the types ``duration`` and ``time`` which were builtin types in ROS 1 have been replaced with normal message definitions and must be used from the `builtin_interfaces <https://github.com/ros2/rcl_interfaces/tree/{REPOS_FILE_BRANCH}/builtin_interfaces>`__ package.
 Also some naming conventions are stricter than in ROS 1.
 
 In your ``package.xml``:
@@ -150,7 +150,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
     Invoke ``ament_package`` instead but **after** all targets have been registered.
 
   *
-    The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
+    The only valid argument for `ament_package <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/cmake/core/ament_package.cmake>`__ is ``CONFIG_EXTRAS``.
     All other arguments are covered by separate functions which all need to be invoked *before* ``ament_package``:
 
     * Instead of passing ``CATKIN_DEPENDS ...`` call ``ament_export_dependencies(...)`` before.
@@ -161,7 +161,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
     **TODO document ament_export_targets (``ament_export_interfaces`` in Eloquent and older)?**
 
 *
-  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/master/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
+  Replace the invocation of ``add_message_files``, ``add_service_files`` and ``generate_messages`` with `rosidl_generate_interfaces <https://github.com/ros2/rosidl/blob/{REPOS_FILE_BRANCH}/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake>`__.
 
 
   *
@@ -189,7 +189,7 @@ Apply the following changes to use ``ament_cmake`` instead of ``catkin``:
   Related CMake variables like ``CATKIN_DEVEL_PREFIX`` do not exist anymore.
 
 
-  * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/master/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
+  * The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments are passed to the new function `ament_export_dependencies <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_export_dependencies/cmake/ament_export_dependencies.cmake>`__.
   * ``CATKIN_GLOBAL_BIN_DESTINATION``: ``bin``
   * ``CATKIN_GLOBAL_INCLUDE_DESTINATION``: ``include``
   * ``CATKIN_GLOBAL_LIB_DESTINATION``: ``lib``
@@ -415,7 +415,7 @@ In ROS 2, parameters are associated per node and are configurable at runtime wit
 Launch files
 ------------
 
-While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/master/launch>`__) as well as XML and YAML files.
+While launch files in ROS 1 are always specified using `.xml <https://wiki.ros.org/roslaunch/XML>`__ files, ROS 2 supports Python scripts to enable more flexibility (see `launch package <https://github.com/ros2/launch/tree/{REPOS_FILE_BRANCH}/launch>`__) as well as XML and YAML files.
 See `separate tutorial <../../How-To-Guides/Launch-files-migration-guide>` on migrating launch files from ROS 1 to ROS 2.
 
 Example: Converting an existing ROS 1 package to use ROS 2
