@@ -48,7 +48,7 @@ We will also adhere to some ROS-specific rules built on top of ``semver's`` full
   * Patch (interface-preserving) and minor (non-breaking) version increments do not break compatibility, so these sorts of changes *are* allowed within a release.
 
   * Major ROS releases are the best time to release breaking changes.
-    If a core package needs multiple breaking changes, they should be merged into their integration branch (e.g. master) to allow catching problems in CI quickly, but released together to reduce the number of major releases for ROS users.
+    If a core package needs multiple breaking changes, they should be merged into their integration branch (e.g. rolling) to allow catching problems in CI quickly, but released together to reduce the number of major releases for ROS users.
 
   * Though major increments require a new distribution, a new distribution does not necessarily require a major bump (if development and release can happen without breaking API).
 
@@ -156,7 +156,7 @@ Guidelines for backporting PRs
 
 When changing an older version of ROS:
 
-* Make sure the features or fixes are accepted and merged in the master branch before opening a PR to backport the changes to older versions.
+* Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
 * When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
 * If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
   If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
@@ -241,10 +241,10 @@ We will also require justification for merging a change or making a release that
 Linters and static analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :doc:`ROS code style <Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/master/ament_lint_common/doc/index.rst>`_.
+We will use :doc:`ROS code style <Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc/index.rst>`_.
 All linters/static analysis that are part of ``ament_lint_common`` must be used.
 
-The `ament_lint_auto <https://github.com/ament/ament_lint/blob/master/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
+The `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
 
 General Practices
 -----------------
@@ -282,7 +282,7 @@ When filing an issue please make sure to:
 - Mention troubleshooting steps that have been tried already, including:
 
   - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
-    See `this section <building-from-source>` and follow the instructions to get the "master" branches.
+    See `this section <building-from-source>` and follow the instructions to get the "rolling" branches.
   - Trying with a different RMW implementation.
     See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
 
@@ -355,7 +355,7 @@ If you need libraries to have different versions then consider splitting them in
 Development process
 ^^^^^^^^^^^^^^^^^^^
 
-* The default branch (in most cases the master branch) must always build, pass all tests and compile without warnings.
+* The default branch (in most cases the rolling branch) must always build, pass all tests and compile without warnings.
   If at any time there is a regression it is the top priority to restore at least the previous state.
 * Always build with tests enabled.
 * Always run tests locally after changes and before proposing them in a pull request.

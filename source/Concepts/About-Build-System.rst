@@ -114,7 +114,7 @@ This feature essentially replaces the "devel space" from ``catkin`` because it h
 
 Another feature provided by ``ament_cmake_core`` is the |package| resource indexing which is a way for |packages| to indicate that they contain a resource of some type.
 The design of this feature makes it much more efficient to answer simple questions like what |packages| are in this prefix (e.g. ``/usr/local``) because it only requires that you list the files in a single possible location under that prefix.
-You can read more about this feature in the `design docs <https://github.com/ament/ament_cmake/blob/master/ament_cmake_core/doc/resource_index.md>`_ for the resource index.
+You can read more about this feature in the `design docs <https://github.com/ament/ament_cmake/blob/{REPOS_FILE_BRANCH}/ament_cmake_core/doc/resource_index.md>`_ for the resource index.
 
 Like ``catkin``, ``ament_cmake_core`` also provides environment setup files and |package| specific environment hooks.
 The environment setup files, often named something like ``setup.bash``, are a place for |package| developers to define changes to the environment that are needed to utilize their |package|.
