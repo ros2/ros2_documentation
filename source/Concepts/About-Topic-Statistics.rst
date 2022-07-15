@@ -58,7 +58,7 @@ After enabling this feature for a specific node via the subscription configurati
 received message age and received message period measurements are enabled for that specific subscription.
 
 The data is published as a `statistics_msg/msg/MetricsMessage
-<https://github.com/ros2/rcl_interfaces/blob/master/statistics_msgs/msg/MetricsMessage.msg>`__
+<https://github.com/ros2/rcl_interfaces/blob/{REPOS_FILE_BRANCH}/statistics_msgs/msg/MetricsMessage.msg>`__
 at a configurable period (default 1 second) to a configurable topic (default ``/statistics``).
 Note that the publishing period also serves as the sample collection window period.
 

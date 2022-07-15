@@ -1510,9 +1510,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Scott K Logan
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`libstatistics_collector <https://github.com/ros-tooling/libstatistics_collector/tree/master/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`libstatistics_collector <https://github.com/ros-tooling/libstatistics_collector/tree/galactic/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fix: measured values after the decimal point are truncated `#79 <https://github.com/ros-tooling/libstatistics_collector/issues/79>`__ (`#80 <https://github.com/ros-tooling/libstatistics_collector/issues/80>`__)
 * Update linter to run on rolling+focal (`#81 <https://github.com/ros-tooling/libstatistics_collector/issues/81>`__)
@@ -3105,9 +3105,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Audrow Nash, Claire Wang, Ivan Santiago Paunovic
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`ros2bag <https://github.com/ros2/rosbag2/tree/master/ros2bag/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`ros2bag <https://github.com/ros2/rosbag2/tree/galactic/ros2bag/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * /clock publisher in Player (`#695 <https://github.com/ros2/rosbag2/issues/695>`__)
 * Introducing Reindexer CLI (`#699 <https://github.com/ros2/rosbag2/issues/699>`__)
@@ -3385,9 +3385,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Michel Hidalgo
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2 <https://github.com/ros2/rosbag2/tree/master/rosbag2/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2 <https://github.com/ros2/rosbag2/tree/galactic/rosbag2/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * RMW-implementation-searcher converter in rosbag2_cpp (`#670 <https://github.com/ros2/rosbag2/issues/670>`__)
@@ -3399,9 +3399,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Emerson Knapp, Karsten Knese, Mabel Zhang, Michael Jeronimo
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_compression <https://github.com/ros2/rosbag2/tree/master/rosbag2_compression/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_compression <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_compression/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Reindexer core (`#641 <https://github.com/ros2/rosbag2/issues/641>`__) Add a new C++ Reindexer class for reconstructing metadata from bags that are missing it.
@@ -3427,18 +3427,18 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Christophe Bedard, Devin Bonnie, Emerson Knapp, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, P. J. Reed, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_compression_zstd <https://github.com/ros2/rosbag2/tree/master/rosbag2_compression_zstd/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_compression_zstd <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_compression_zstd/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add test_depend ament_cmake_gmock (`#639 <https://github.com/ros2/rosbag2/issues/639>`__)
 * Move zstd compressor to its own package (`#636 <https://github.com/ros2/rosbag2/issues/636>`__)
 * Contributors: Emerson Knapp, Shane Loretz
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_cpp <https://github.com/ros2/rosbag2/tree/master/rosbag2_cpp/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_cpp <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_cpp/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add set_rate to PlayerClock (`#727 <https://github.com/ros2/rosbag2/issues/727>`__)
 * Enforce non-null now_fn in TimeControllerClock (`#731 <https://github.com/ros2/rosbag2/issues/731>`__)
@@ -3479,17 +3479,17 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Alexander, Chris Lalancette, Dirk Thomas, Emerson Knapp, Ivan Santiago Paunovic, Jacob Perron, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, P. J. Reed, Patrick Spieler, Tomoya Fujita, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_interfaces <https://github.com/ros2/rosbag2/tree/master/rosbag2_interfaces/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_interfaces <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_interfaces/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add rosbag2_interfaces package with playback service definitions (`#728 <https://github.com/ros2/rosbag2/issues/728>`__)
 * Contributors: Emerson Knapp
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_performance_benchmarking <https://github.com/ros2/rosbag2/tree/master/rosbag2_performance/rosbag2_performance_benchmarking/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_performance_benchmarking <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_performance/rosbag2_performance_benchmarking/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * fixed a memory leak in no-transport benchmark (`#674 <https://github.com/ros2/rosbag2/issues/674>`__)
 * report of performance improvements in rosbag2 (roughly since Foxy) (`#651 <https://github.com/ros2/rosbag2/issues/651>`__)
@@ -3503,9 +3503,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Karsten Knese, Michael Jeronimo, Piotr Jaroszek
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_py <https://github.com/ros2/rosbag2/tree/master/rosbag2_py/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_py <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_py/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove -Werror from builds, enable it in Action CI (`#722 <https://github.com/ros2/rosbag2/issues/722>`__)
 * Split Rosbag2Transport into Player and Recorder classes - first pass to enable further progress (`#721 <https://github.com/ros2/rosbag2/issues/721>`__)
@@ -3530,9 +3530,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Emerson Knapp, Ivan Santiago Paunovic, Karsten Knese, Mabel Zhang, Michael Jeronimo, P. J. Reed, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_storage <https://github.com/ros2/rosbag2/tree/master/rosbag2_storage/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_storage <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_storage/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove -Werror from builds, enable it in Action CI (`#722 <https://github.com/ros2/rosbag2/issues/722>`__)
 * PlayerClock initial implementation - Player functionally unchanged (`#689 <https://github.com/ros2/rosbag2/issues/689>`__)
@@ -3550,9 +3550,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Barry Xu, Emerson Knapp, Josh Langsfeld, Karsten Knese, Michael Jeronimo, Scott K Logan, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_storage_default_plugins <https://github.com/ros2/rosbag2/tree/master/rosbag2_storage_default_plugins/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_storage_default_plugins <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_storage_default_plugins/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove -Werror from builds, enable it in Action CI (`#722 <https://github.com/ros2/rosbag2/issues/722>`__)
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
@@ -3566,9 +3566,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Emerson Knapp, Karsten Knese, Michael Jeronimo, P. J. Reed, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_test_common <https://github.com/ros2/rosbag2/tree/master/rosbag2_test_common/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_test_common <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_test_common/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove -Werror from builds, enable it in Action CI (`#722 <https://github.com/ros2/rosbag2/issues/722>`__)
 * Fix bad_function_call by replacing rclcpp::spin_some with SingleThreadedExecutor (`#705 <https://github.com/ros2/rosbag2/issues/705>`__)
@@ -3579,9 +3579,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Emerson Knapp, Michael Jeronimo
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_tests <https://github.com/ros2/rosbag2/tree/master/rosbag2_tests/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_tests <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_tests/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Remove -Werror from builds, enable it in Action CI (`#722 <https://github.com/ros2/rosbag2/issues/722>`__)
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
@@ -3608,9 +3608,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Adam Dąbrowski, Alexander, Emerson Knapp, Jaison Titus, Karsten Knese, Marwan Taher, Michael Jeronimo, jhdcs
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`rosbag2_transport <https://github.com/ros2/rosbag2/tree/master/rosbag2_transport/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosbag2_transport <https://github.com/ros2/rosbag2/tree/galactic/rosbag2_transport/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * cleanup cmakelists (`#726 <https://github.com/ros2/rosbag2/issues/726>`__)
 * turn recorder into a node (`#724 <https://github.com/ros2/rosbag2/issues/724>`__)
@@ -4453,9 +4453,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`shared_queues_vendor <https://github.com/ros2/rosbag2/tree/master/shared_queues_vendor/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`shared_queues_vendor <https://github.com/ros2/rosbag2/tree/galactic/shared_queues_vendor/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Update the package.xml files with the latest Open Robotics maintainers (`#535 <https://github.com/ros2/rosbag2/issues/535>`__)
@@ -4478,9 +4478,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Dirk Thomas, Scott K Logan, shonigmann
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`sqlite3_vendor <https://github.com/ros2/rosbag2/tree/master/sqlite3_vendor/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`sqlite3_vendor <https://github.com/ros2/rosbag2/tree/galactic/sqlite3_vendor/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Always preserve source permissions in vendor packages (`#645 <https://github.com/ros2/rosbag2/issues/645>`__)
@@ -4564,9 +4564,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Alejandro Hernández Cordero, Chris Lalancette, Michel Hidalgo, Stephen Brawner, brawner, shonigmann
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`tango_icons_vendor <https://github.com/ros-visualization/tango_icons_vendor/tree/master/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`tango_icons_vendor <https://github.com/ros-visualization/tango_icons_vendor/tree/galactic/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Add exec_depend on tango-icon-theme system package (`#8 <https://github.com/ros-visualization/tango_icons_vendor/issues/8>`__)
 * Added common linters (`#7 <https://github.com/ros-visualization/tango_icons_vendor/issues/7>`__) * Added common linters * Fixed license in package.xml
@@ -5123,9 +5123,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Ivan Santiago Paunovic, Scott K Logan, Sean Yen
 
 
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-`zstd_vendor <https://github.com/ros2/rosbag2/tree/master/zstd_vendor/CHANGELOG.rst>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`zstd_vendor <https://github.com/ros2/rosbag2/tree/galactic/zstd_vendor/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Explicitly add emersonknapp as maintainer (`#692 <https://github.com/ros2/rosbag2/issues/692>`__)
 * Always preserve source permissions in vendor packages (`#645 <https://github.com/ros2/rosbag2/issues/645>`__)

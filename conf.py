@@ -145,7 +145,7 @@ macros = {
     'DISTRO': 'rolling',
     'DISTRO_TITLE': 'Rolling',
     'DISTRO_TITLE_FULL': 'Rolling Ridley',
-    'REPOS_FILE_BRANCH': 'master',
+    'REPOS_FILE_BRANCH': 'rolling',
 }
 
 html_favicon = 'favicon.ico'
@@ -285,7 +285,7 @@ def smv_rewrite_configs(app, config):
             'DISTRO': distro,
             'DISTRO_TITLE': distro.title(),
             'DISTRO_TITLE_FULL': distro_full_names[distro],
-            'REPOS_FILE_BRANCH' : 'master' if distro == 'rolling' else distro,
+            'REPOS_FILE_BRANCH' : distro,
         }
 
 def github_link_rewrite_branch(app, pagename, templatename, context, doctree):
