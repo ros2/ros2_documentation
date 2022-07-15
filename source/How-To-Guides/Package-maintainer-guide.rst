@@ -27,7 +27,7 @@ The review is looking for:
 * Adds tests for the bug/feature
 * Adds documentation for new features
 * Clean Continuous Integration run
-* Targets default branch (usually "master", "main", or "ros2")
+* Targets default branch (usually "rolling")
 * Has at least one approval from a maintainer that is not the author
 
 Continuous Integration

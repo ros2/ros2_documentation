@@ -129,7 +129,7 @@ launch_pytest
 We've added a new package, ``launch_pytest``, that acts as an alternative to ``launch_testing``.
 ``launch_pytest`` is a simple pytest plugin that provides pytest fixtures to manage the lifetime of a launch service.
 
-Check out the `package README for details and examples. <https://github.com/ros2/launch/tree/master/launch_pytest>`_
+Check out the `package README for details and examples. <https://github.com/ros2/launch/tree/humble/launch_pytest>`_
 
 Related PR: `ros2/launch#528 <https://github.com/ros2/launch/pull/528>`_
 
@@ -308,7 +308,7 @@ SROS2 Security enclaves now support Certificate Revocation Lists
 
 Certificate Revocation Lists (CRLs) are a concept where particular certificates can be revoked before their expiration.
 As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
-See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/master/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
+See `the SROS2 tutorials <https://github.com/ros2/sros2/blob/humble/SROS2_Linux.md#certificate-revocation-lists>`__ for an example of how to use it.
 
 Content Filtered Topics
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -326,7 +326,7 @@ Content Filtered Topics can be used to request content-based subscriptions when 
    * - rmw_cyclonedds
      - not supported
 
-To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/master/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
+To learn more, see the `content_filtering <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`_ examples.
 
 Related design PR: `ros2/design#282 <https://github.com/ros2/design/pull/282>`_.
 
