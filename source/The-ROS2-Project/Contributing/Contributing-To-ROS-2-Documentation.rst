@@ -267,7 +267,7 @@ Use                    Becomes (for Rolling)  Example
 \{DISTRO\}             rolling                ros-\{DISTRO\}-pkg
 \{DISTRO_TITLE\}       Rolling                ROS 2 \{DISTRO_TITLE\}
 \{DISTRO_TITLE_FULL\}  Rolling Ridley         ROS 2 \{DISTRO_TITLE_FULL\}
-\{REPOS_FILE_BRANCH\}  master                 git checkout \{REPOS_FILE_BRANCH\}
+\{REPOS_FILE_BRANCH\}  rolling                git checkout \{REPOS_FILE_BRANCH\}
 =====================  =====================  ==================================
 
 The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.

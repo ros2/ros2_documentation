@@ -11,7 +11,7 @@ Overview
 
 Execution management in ROS 2 is explicated by the concept of Executors.
 An Executor uses one or more threads of the underlying operating system to invoke the callbacks of subscriptions, timers, service servers, action servers, etc. on incoming messages and events.
-The explicit Executor class (in `executor.hpp <https://github.com/ros2/rclcpp/blob/master/rclcpp/include/rclcpp/executor.hpp>`_ in rclcpp, in `executors.py <https://github.com/ros2/rclpy/blob/master/rclpy/rclpy/executors.py>`_ in rclpy, or in `executor.h <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_ in rclc) provides more control over execution management than the spin mechanism in ROS 1, although the basic API is very similar.
+The explicit Executor class (in `executor.hpp <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/executor.hpp>`_ in rclcpp, in `executors.py <https://github.com/ros2/rclpy/blob/{REPOS_FILE_BRANCH}/rclpy/rclpy/executors.py>`_ in rclpy, or in `executor.h <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_ in rclc) provides more control over execution management than the spin mechanism in ROS 1, although the basic API is very similar.
 
 In the following, we focus on the C++ Client Library *rclcpp*.
 
@@ -143,7 +143,7 @@ For tips on how to use callback groups efficiently, see :doc:`Using Callback Gro
 The Executor base class in rclcpp also has the function ``add_callback_group(..)``, which allows distributing callback groups to different Executors.
 By configuring the underlying threads using the operating system scheduler, specific callbacks can be prioritized over other callbacks.
 For example, the subscriptions and timers of a control loop can be prioritized over all other subscriptions and standard services of a node.
-The `examples_rclcpp_cbg_executor package <https://github.com/ros2/examples/tree/master/rclcpp/executors/cbg_executor>`_ provides a demo of this mechanism.
+The `examples_rclcpp_cbg_executor package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/executors/cbg_executor>`_ provides a demo of this mechanism.
 
 Scheduling semantics
 --------------------
@@ -178,9 +178,9 @@ The Static Single-Threaded Executor reduces this overhead greatly but it might b
 
 These issues have been partially addressed by the following developments:
 
-* `rclcpp WaitSet <https://github.com/ros2/rclcpp/blob/master/rclcpp/include/rclcpp/wait_set.hpp>`_: The ``WaitSet`` class of rclcpp allows waiting directly on subscriptions, timers, service servers, action servers, etc. instead of using an Executor.
+* `rclcpp WaitSet <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/wait_set.hpp>`_: The ``WaitSet`` class of rclcpp allows waiting directly on subscriptions, timers, service servers, action servers, etc. instead of using an Executor.
   It can be used to implement deterministic, user-defined processing sequences, possibly processing multiple messages from different subscriptions together.
-  The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/master/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
+  The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
 * `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc* developed for micro-ROS gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
 

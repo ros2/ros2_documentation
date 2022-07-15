@@ -218,7 +218,7 @@ Change in Serialized Message Callback Signature
 """""""""""""""""""""""""""""""""""""""""""""""
 
 The pull request `ros2/rclcpp#1081 <https://github.com/ros2/rclcpp/pull/1081>`_ introduces a new signature of the callbacks for retrieving ROS messages in serialized form.
-The previously used C-Struct `rcl_serialized_message_t <https://github.com/ros2/rmw/blob/master/rmw/include/rmw/serialized_message.h>`_ is being superseded by a C++ data type `rclcpp::SerializedMessage <https://github.com/ros2/rclcpp/blob/master/rclcpp/include/rclcpp/serialized_message.hpp>`_.
+The previously used C-Struct `rcl_serialized_message_t <https://github.com/ros2/rmw/blob/foxy/rmw/include/rmw/serialized_message.h>`_ is being superseded by a C++ data type `rclcpp::SerializedMessage <https://github.com/ros2/rclcpp/blob/foxy/rclcpp/include/rclcpp/serialized_message.hpp>`_.
 
 The example nodes in ``demo_nodes_cpp``, namely ``talker_serialized_message`` as well as ``listener_serialized_message`` reflect these changes.
 
