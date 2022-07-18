@@ -192,6 +192,8 @@ To launch ``turtlesim_mimic_launch.py``, enter into the directory you created ea
       ros2 launch <package_name> <launch_file_name>
 
   You will learn more about :doc:`creating packages <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` in a later tutorial.
+  To provide launch files for a C++ package, installation steps are specified in `CMakefiles.txt`, for Python this is done in `setup.py`.
+  Examples of this can be seen :doc:`here <Launch-system>`.
 
 .. note::
 
