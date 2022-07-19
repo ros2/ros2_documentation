@@ -594,21 +594,23 @@ That doesn't happen with a ``std::shared_future``, as its ``get()`` method retur
 Example:
 
 .. code-block:: cpp
-  auto future = client->async_send_request(req);
-  ...
-  do_something_with_response(future.get());
-  ...
-  do_something_else_with_response(future.get());  # this will throw an exception now!!
+
+    auto future = client->async_send_request(req);
+    ...
+    do_something_with_response(future.get());
+    ...
+    do_something_else_with_response(future.get());  # this will throw an exception now!!
 
 should be updated to:
 
 .. code-block:: cpp
-  auto future = client->async_send_request(req);
-  ...
-  auto response = future.get();
-  do_something_with_response(response);
-  ...
-  do_something_else_with_response(response);
+
+    auto future = client->async_send_request(req);
+    ...
+    auto response = future.get();
+    do_something_with_response(response);
+    ...
+    do_something_else_with_response(response);
 
 If a shared future is needed, the ``std::future::share()`` method can be used.
 
