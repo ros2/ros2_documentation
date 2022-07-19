@@ -593,11 +593,11 @@ Examples:
 
 .. code-block:: cpp
 
-    auto pub = node->create_publisher<std_msgs::msg::String>(...);
-    ...
-    pub->publish(my_msg);
-    ...
-    pub->wait_for_all_acked(); // or pub->wait_for_all_acked(timeout)
+   auto pub = node->create_publisher<std_msgs::msg::String>(...);
+   ...
+   pub->publish(my_msg);
+   ...
+   pub->wait_for_all_acked(); // or pub->wait_for_all_acked(timeout)
 
 For a more complete example, see `here <https://github.com/ros2/examples/blob/humble/rclcpp/topics/minimal_publisher/member_function_with_wait_for_all_acked.cpp>`__.
 
