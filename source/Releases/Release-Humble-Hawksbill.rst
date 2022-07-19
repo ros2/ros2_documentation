@@ -584,6 +584,34 @@ And an example of how the type adapter can be used:
 To learn more, see the `publisher <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_publisher/member_function_with_type_adapter.cpp>`_ and `subscription <https://github.com/ros2/examples/blob/b83b18598b198b4a5ba44f9266c1bb39a393fa17/rclcpp/topics/minimal_subscriber/member_function_with_type_adapter.cpp>`_ examples, as well as a more complex `demo <https://github.com/ros2/demos/pull/482>`_.
 For more details, see `REP 2007 <https://ros.org/reps/rep-2007.html>`_.
 
+``Client::asnyc_send_request(request)`` returns a ``std::future`` instead of a ``std::shared_future``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+This change was implemented in `rclcpp#1734 <https://github.com/ros2/rclcpp/pull/1734>`_.
+This breaks API, as ``std::future::get()`` methods extracts the value from the future.
+That means, if that method is called for a second time it will throw an exception.
+That doesn't happen with a ``std::shared_future``, as its ``get()`` method returns a ``const &``.
+Example:
+
+.. code-block:: cpp
+  auto future = client->async_send_request(req);
+  ...
+  do_something_with_response(future.get());
+  ...
+  do_something_else_with_response(future.get());  # this will throw an exception now!!
+
+should be updated to:
+
+.. code-block:: cpp
+  auto future = client->async_send_request(req);
+  ...
+  auto response = future.get();
+  do_something_with_response(response);
+  ...
+  do_something_else_with_response(response);
+
+If a shared future is needed, the ``std::future::share()`` method can be used.
+
 ``wait_for_all_acked`` method added to ``Publisher``
 """"""""""""""""""""""""""""""""""""""""""""""""""""
 
