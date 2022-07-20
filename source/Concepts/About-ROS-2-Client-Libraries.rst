@@ -76,14 +76,13 @@ The ``rcl`` |API| provides functions for things like creating nodes, publishers 
 Since ``rcl`` and ``rclc`` are so similar to each other, ``rclc`` essential can be described as ``rcl`` plus execution (Executor and threading).
 However, the distinction becomes clearer when you consider client libraries in different languages.
 
-The ``rclc`` repository is located on |GitHub|_ at `ros2/rclc <https://github.com/ros2/rclc>`_ and contains the |package| ``rclc`` which contains the development resources, interface and reference implementation that is required at runtime.
+The ``rclc`` repository is located on |GitHub|_ at `ros2/rclc <https://github.com/ros2/rclc>`_ and contains the |package| ``rclc`` which contains the development resources, interface and reference implementation that is required at runtime. The generated ``rclc`` |API| docs is here:
 
-   ..     
-      warning::
-      TODO: Link to the ``rclc`` |API| docs
+`http://docs.ros.org/en/humble/p/rclc/ <http://docs.ros.org/en/humble/p/rclc/>`_
+
 
 Additional client libraries
-~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community have created additional client libraries:
 
