@@ -79,7 +79,7 @@ However, the distinction becomes clearer when you consider client libraries in d
 The ``rclc`` repository is located on |GitHub|_ at `ros2/rclc <https://github.com/ros2/rclc>`_ and contains the |package| ``rclc`` which contains the development resources, interface and reference implementation that is required at runtime.
 
    ..     
-   warning::
+      warning::
       TODO: Link to the ``rclc`` |API| docs
 
 Additional client libraries
