@@ -23,7 +23,7 @@ This has two practical consequences for ROS 2:
 * Some of the ROS 2 internal path names are fairly long. Because of this, we always recommend using a short path name for the root of your ROS 2 directory, like ``C:\dev``.
 * When building ROS 2 from source, the default isolated build mode of colcon can generate very long path names. To avoid these very long path names, use ``--merge-install`` when building on Windows.
 
-**Note**: It is possible to change Windows to have much longer maximum path lengths.  
+**Note**: It is possible to change Windows to have much longer maximum path lengths.
 See `this article <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later>`__ for more information.
 
 Exporting symbols
@@ -111,8 +111,8 @@ In order to build your library with correctly exported symbols, you will need to
 WINDOWS_EXPORT_ALL_SYMBOLS Target Property
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-CMake implements a macro which will export all symbols on Windows. 
-The ``WINDOWS_EXPORT_ALL_SYMBOLS`` property causes function symbols to be automatically exported on windows. 
+CMake implements a macro which will export all symbols on Windows.
+The ``WINDOWS_EXPORT_ALL_SYMBOLS`` property causes function symbols to be automatically exported on windows.
 More detail of how it works can be found in the `WINDOWS_EXPORT_ALL_SYMBOLS CMake Documentation <https://cmake.org/cmake/help/latest/prop_tgt/WINDOWS_EXPORT_ALL_SYMBOLS.html>`__.
 The property can be implemented by adding the following to the CMakeLists file:
 
@@ -121,9 +121,9 @@ The property can be implemented by adding the following to the CMakeLists file:
    set_target_properties(${LIB_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 If there is more than one library in a CMakeLists file you will need to call ``set_target_properties`` on each of them separately.
-Note: A binary on Windows can only export 65,536 symbols. 
+Note: A binary on Windows can only export 65,536 symbols.
 If a binary exports more than that, you will get an error and should use the visibility_control headers.
-There is an exception to this method in the case of global data symbols. 
+There is an exception to this method in the case of global data symbols.
 For example, a global static data member like the one below.
 
 .. code-block:: c++
@@ -134,10 +134,10 @@ For example, a global static data member like the one below.
    static const int Global_data_num;
 
 
-In these cases dllimprort/dllexport must be applied explicitly. 
+In these cases dllimprort/dllexport must be applied explicitly.
 This can be done using generate_export_header as described in the following article: `Create dlls on Windows without declspec() using new CMake export all feature <https://blog.kitware.com/create-dlls-on-windows-without-declspec-using-new-cmake-export-all-feature/>`__.
 
-Finally, it is important that the header file that exports the symbols be included into at least one of the ``.cpp`` files in the package so that the macros will get expanded and placed into the resulting binary. 
+Finally, it is important that the header file that exports the symbols be included into at least one of the ``.cpp`` files in the package so that the macros will get expanded and placed into the resulting binary.
 Otherwise the symbols will still not be callable.
 
 
