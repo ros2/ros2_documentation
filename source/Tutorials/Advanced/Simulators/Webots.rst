@@ -54,6 +54,7 @@ Finally, you will need to install ``webots_ros2_driver`` from a terminal with th
         cd \dev_ws
         python -m pip install rosinstall_generator vcstool
         rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
+        mkdir src
         vcs import src < deps.repos
 
         # Build the packages
