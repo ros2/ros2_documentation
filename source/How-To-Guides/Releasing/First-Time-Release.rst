@@ -67,8 +67,10 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
    * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
 
+You will be prompted to enter information to configure a new track.
+
 You are trying to release ament library called ``my_repo`` hosted on GitHub at ``https://github.com/my_organization/my_repo.git``.
-You want the ``main`` branch from the library to be released it into the ROS ecosystem.
+You want the ``rolling`` branch from the library to be released.
 You already have an empty release repository (``https://github.com/ros2-gbp/my_repo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
 
 For this scenario, the table below summarises the responses to the questions:
@@ -79,25 +81,25 @@ For this scenario, the table below summarises the responses to the questions:
 
    * - Configuration
      - Value
-   * - Release Repository url
+   * - :ref:`Release Repository url <release-repository-url>`
      - ``https://github.com/ros2-gbp/my_repo-release.git``
-   * - Repository Name
+   * - :ref:`Repository Name <repository-name>`
      - ``my_repo``
-   * - Upstream Repository URI
+   * - :ref:`Upstream Repository URI <upstream-repository-uri>`
      - ``https://github.com/my_organization/my_repo.git``
-   * - Upstream VCS Type
+   * - :ref:`Upstream VCS Type <upstream-vcs-type>`
      - ``git``
-   * - Version
+   * - :ref:`Version <version>`
      -
-   * - Release Tag
+   * - :ref:`Release Tag <release-tag>`
      -
-   * - Upstream Devel Branch
-     - ``main``
-   * - ROS Distro
+   * - :ref:`Upstream Devel Branch <upstream-devel-branch>`
+     - ``rolling``
+   * - :ref:`ROS Distro <ros-distro>`
      - ``{DISTRO}``
-   * - Patches Directory
+   * - :ref:`Patches Directory <patches-directory>`
      -
-   * - Release Repository Push URL
+   * - :ref:`Release Repository Push URL <release-repository-push-url>`
      -
 
 .. There are many command which come with bloom, even though you will most likely only need

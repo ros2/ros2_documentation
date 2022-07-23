@@ -1,5 +1,5 @@
-Release Track Configurations
-============================
+Release Track Settings
+======================
 
 .. contents:: Table of Contents
    :depth: 3
@@ -14,6 +14,8 @@ Track
 Bloom is designed to allow the release of the same package for different ROS distributions and versions in the same release repository.
 To facilitate this, bloom uses release "tracks" to maintain configurations for different release processes.
 By convention you should create tracks with the same name as the ROS distro you are releasing for.
+
+.. _release-repository-url:
 
 Release Repository url
 ----------------------
@@ -35,6 +37,8 @@ bloom may ask you about initializing the new repository, as following:
 
 Simply press enter or type ``y`` and then press enter.
 
+.. _repository-name:
+
 Repository Name
 ---------------
 
@@ -48,6 +52,8 @@ Repository Name
       ['upstream']:
 
 This name is trivial, but can be used to provide additional tags and to create nicer archive names.
+
+.. _upstream-repository-uri:
 
 Upstream Repository URI
 -----------------------
@@ -65,6 +71,8 @@ The **upstream repository** is the repository where you do your development and 
 This repository can be hosted anywhere (even locally) and can be a git, hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans for tar.bz and zip).
 
 If you're using GitHub, make sure you **use the https address** (eg. ``https://github.com/bar/foo.git``) and not the ssh address (eg. ``git@github.com:bar/foo.git``)
+
+.. _upstream-vcs-type:
 
 Upstream VCS Type
 -----------------
@@ -85,6 +93,8 @@ Upstream VCS Type
 This is the `Upstream Repository URI`_'s version control system (VCS) type.
 You must specify the type of vcs your repository is using, from  ``svn``, ``git``, ``hg`` or ``tar``.
 
+.. _version:
+
 Version
 -------
 
@@ -104,6 +114,8 @@ Version
       [':{auto}']:
 
 This is the package release version.
+
+.. _release-tag:
 
 Release Tag
 -----------
@@ -133,6 +145,7 @@ If you always want to pull in the latest ``master`` branch at the time of releas
 Alternatively, if you want to be prompted to enter a different tag every time you do a release, enter ``:{ask}``.
 This is useful if the upstream project has frequent tagged releases and you want to refer to the new tag every time you're releasing.
 
+.. _upstream-devel-branch:
 
 Upstream Devel Branch
 ---------------------
@@ -151,6 +164,8 @@ If this is left ``None`` then the default branch for your repository is used whe
 If you want to use a branch besides the default branch, choose that.
 For example, if you want to use the branch ``rolling`` for this release track, enter ``rolling``.
 
+.. _ros-distro:
+
 ROS Distro
 ----------
 
@@ -163,6 +178,8 @@ ROS Distro
 
 This is the distribution you're planning on releasing the package into.
 If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``.
+
+.. _patches-directory:
 
 Patches Directory
 -----------------
@@ -182,6 +199,8 @@ Patches Directory
 
 This is only relevant if you're releasing a third party package.
 This is the directory where your patches are.
+
+.. _release-repository-push-url:
 
 Release Repository Push URL
 ---------------------------
