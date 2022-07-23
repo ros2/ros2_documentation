@@ -92,7 +92,7 @@ For this scenario, the table below summarises the responses to the questions:
    * - :ref:`Upstream Devel Branch <upstream-devel-branch>`
      -
    * - :ref:`ROS Distro <ros-distro>`
-     - ``{DISTRO}``
+   -
    * - :ref:`Patches Directory <patches-directory>`
      - ``patch``
    * - :ref:`Release Repository Push URL <release-repository-push-url>`

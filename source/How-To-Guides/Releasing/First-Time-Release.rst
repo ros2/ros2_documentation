@@ -28,7 +28,7 @@ Install bloom
 Generate Changelog
 ------------------
 
-For your users and for the developers, it is important to keep the changelog up to date.
+Generate a ``CHANGELOG.rst`` file per package in your repo with the following command:
 
 .. code-block:: bash
 
@@ -52,28 +52,31 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 
 .. code-block:: bash
 
-  bloom-release --rosdistro {DISTRO} --track {DISTRO} --new-track my_repo
+  bloom-release --new-track --rosdistro {DISTRO} --track {DISTRO} my_repo
 
-``bloom-release`` will perform the following:
+.. ``bloom-release`` will perform the following:
 
-* Generate a new :ref:`track <track>` and configure it
-* Generate platform specific release artifacts
-* Push them to the release repository
-* Open a Pull Request from your GitHub account to `rosdistro <https://github.com/ros/rosdistro>`_ with changes to add your repository to ``{DISTRO}/distribution.yaml``.
+.. * Generate a new :ref:`track <track>` and configure it
+.. * Generate platform specific release artifacts
+.. * Push them to the release repository
+.. * Open a Pull Request from your GitHub account to `rosdistro <https://github.com/ros/rosdistro>`_ with changes to add your repository to ``{DISTRO}/distribution.yaml``.
 
 .. tip::
 
+   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
    * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
-   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
+
 
 You will be prompted to enter information to configure a new track.
+In a common scenario such as:
 
-You are trying to release ament library called ``my_repo`` hosted on GitHub at ``https://github.com/my_organization/my_repo.git``.
-You want the ``rolling`` branch from the library to be released.
-You already have an empty release repository (``https://github.com/ros2-gbp/my_repo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
+* You are releasing a repository called ``my_repo``
+* You are releasing a branch called ``main``
+* The repository is hosted on GitHub at ``https://github.com/my_organization/my_repo.git``
+* Your release repository is at ``https://github.com/ros2-gbp/my_repo-release.git``
 
-For this scenario, the table below summarises the responses to the questions:
+You should respond to the prompts as following:
 
 .. list-table::
    :header-rows: 1
@@ -94,13 +97,18 @@ For this scenario, the table below summarises the responses to the questions:
    * - :ref:`Release Tag <release-tag>`
      -
    * - :ref:`Upstream Devel Branch <upstream-devel-branch>`
-     - ``rolling``
+     - ``main``
    * - :ref:`ROS Distro <ros-distro>`
-     - ``{DISTRO}``
+     -
    * - :ref:`Patches Directory <patches-directory>`
      -
    * - :ref:`Release Repository Push URL <release-repository-push-url>`
      -
+
+.. note::
+
+  An empty cell in the table indicates that the default value should be used.
+  Simply respond to the prompt by pressing Enter.
 
 .. There are many command which come with bloom, even though you will most likely only need
 .. to run ``bloom-release``. Many of the bloom commands are prefixed with ``git-``, which indicates
