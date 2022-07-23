@@ -8,7 +8,7 @@ Obtain Access to Release Repository
 About ros2-gbp
 --------------
 
-`ros2-gbp <https://github.com/ros2-gbp>`_ is a Github organization that stores a list of release teams and their release repositories.
+`ros2-gbp <https://github.com/ros2-gbp>`_ is a GitHub organization that stores a list of release teams and their release repositories.
 gbp is an acronym for `git-buildpackage <http://honk.sigxcpu.org/projects/git-buildpackage/manual-html/man.gbp.buildpackage.html>`_.
 
 To release a package, you need a release repository on ros2-gbp to store the results of the release process.
@@ -24,7 +24,7 @@ To set this up, continue on to `Requesting`_.
 Requesting
 ----------
 
-Interactions with ros2-gbp are done through raising Github issues as instructed below.
+Interactions with ros2-gbp are done through raising GitHub issues as instructed below.
 It is recommended that you get this done early, as it may take some time for the ros2-gbp maintainers to respond to your requests.
 
 Request for a new release team

@@ -46,34 +46,26 @@ Bloom Release
 
 .. note::
 
-   If you have two factor authorization enabled on github, follow :doc:`Github Manual Authorization <Github-Manual-Authorization>` first.
+   If you have two factor authorization enabled on GitHub, follow :doc:`GitHub Manual Authorization <GitHub-Manual-Authorization>` first.
 
-The actual releasing of the package is performed using one of the commands below, where ``my_repo`` is replaced with the name of your repository:
+Run the following command, replacing ``my_repo`` with the name of your repository:
 
-* Releasing a package for the first time, for a new distro, or editing an existing release track:
+.. code-block:: bash
 
-   .. code-block:: bash
-
-      bloom-release --rosdistro {DISTRO} --track {DISTRO}  --edit my_repo
-
-* Releasing a package update on an existing release track:
-
-   .. code-block:: bash
-
-      bloom-release --rosdistro {DISTRO} my_repo
+  bloom-release --rosdistro {DISTRO} --track {DISTRO} --new-track my_repo
 
 .. tip::
 
    * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
-   * ``--edit`` tells bloom to create the track if it doesn't exist and configure it.
+   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
 
-The ``bloom-release`` script will prompt you through to perform the following:
+``bloom-release`` will perform the following:
 
-* Setup a new track and configure it
+* Generate a new :ref:`track <track>` and configure it
 * Generate platform specific release artifacts
-* Push them to your release repository
-* Fork `rosdistro <https://github.com/ros/rosdistro>`_ to your github account and open a Pull Request back upstream with your package to added to ``{DISTRO}/distribution.yaml``.
+* Push them to the release repository
+* Open a Pull Request from your GitHub account to `rosdistro <https://github.com/ros/rosdistro>`_ with changes to add your repository to ``{DISTRO}/distribution.yaml``.
 
 bloom is designed to allow the release of the same package for different ROS distributions and versions in the same release repository.
 To facilitate this, bloom uses release "tracks" to maintain configurations for different release processes.
@@ -84,7 +76,7 @@ By convention you should create tracks with the same name as the ROS distro you 
 
 Let's look at a common scenario.
 
-You are trying to release ament library called ``my_repo`` hosted on Github at ``https://github.com/my_organization/my_repo.git``.
+You are trying to release ament library called ``my_repo`` hosted on GitHub at ``https://github.com/my_organization/my_repo.git``.
 You want the ``main`` branch from the library to be released it into the ROS ecosystem.
 You already have an empty release repository (``https://github.com/ros2-gbp/my_repo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
 

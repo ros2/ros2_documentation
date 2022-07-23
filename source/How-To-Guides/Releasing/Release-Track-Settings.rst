@@ -5,10 +5,18 @@ Release Track Configurations
    :depth: 3
    :local:
 
-This page explains bloom release track configurations in detail.
+
+.. _track:
+
+Track
+-----
+
+Bloom is designed to allow the release of the same package for different ROS distributions and versions in the same release repository.
+To facilitate this, bloom uses release "tracks" to maintain configurations for different release processes.
+By convention you should create tracks with the same name as the ROS distro you are releasing for.
 
 Release Repository url
-~~~~~~~~~~~~~~~~~~~~~~
+----------------------
 
 .. code-block:: bash
 
@@ -56,7 +64,7 @@ Upstream Repository URI
 The **upstream repository** is the repository where you do your development and host the source code of your package.
 This repository can be hosted anywhere (even locally) and can be a git, hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans for tar.bz and zip).
 
-If you're using github, make sure you **use the https address** (eg. ``https://github.com/bar/foo.git``) and not the ssh address (eg. ``git@github.com:bar/foo.git``)
+If you're using GitHub, make sure you **use the https address** (eg. ``https://github.com/bar/foo.git``) and not the ssh address (eg. ``git@github.com:bar/foo.git``)
 
 Upstream VCS Type
 -----------------

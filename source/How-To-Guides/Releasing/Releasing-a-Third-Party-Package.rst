@@ -65,7 +65,7 @@ Follow the instructions for configuring a release track to enter the configurati
 
 Let's look at a common scenario.
 
-You are trying to release a third party library called ``foo`` hosted on Github at ``https://github.com/bar/foo.git``.
+You are trying to release a third party library called ``foo`` hosted on GitHub at ``https://github.com/bar/foo.git``.
 You want a mirror of the ``main`` branch from the library to be released it into the ROS ecosystem.
 You already have an empty release repository (``https://github.com/ros2-gbp/foo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
 

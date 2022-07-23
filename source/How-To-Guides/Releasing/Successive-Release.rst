@@ -43,9 +43,9 @@ Bloom Release
 
 .. note::
 
-   If you have two factor authorization enabled on github, follow :doc:`Github Manual Authorization <Github-Manual-Authorization>` first.
+   If you have two factor authorization enabled on GitHub, follow :doc:`GitHub Manual Authorization <GitHub-Manual-Authorization>` first.
 
-Let bloom generate package artifacts for different platforms with the following command, where you should replace ``my_repo`` with the name of your repository:
+Run the following command, replacing ``my_repo`` with the name of your repository:
 
 .. code-block:: bash
 

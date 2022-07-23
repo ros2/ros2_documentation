@@ -1,14 +1,14 @@
-Github Manual Authorization
+GitHub Manual Authorization
 ===========================
 
 .. contents:: Table of Contents
    :depth: 3
    :local:
 
-If you have two-factor authentication enabled for github, bloom cannot log in with your github password alone.
+If you have two-factor authentication enabled for GitHub, bloom cannot log in with your GitHub password alone.
 There are two steps:
 
-#. Create a personal access token on github and tell bloom about it.
+#. Create a personal access token on GitHub and tell bloom about it.
    This is used for pull-requestopening.
 #. Re-route https traffic through ssh (assuming you have public-key authentication enabled).
    (This will only enable git push and pull, but not pull-request opening)
@@ -19,7 +19,7 @@ Token-based Authentication
 Create an access token
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the github website and login.
+Go to the GitHub website and login.
 Open the settings page, go to `Developer Settings <https://github.com/settings/developers>`_ and click on `Personal access tokens <https://github.com/settings/tokens>`_ in the menu on the left.
 
 Click the "Generate new token" button, and follow the instructions.
@@ -57,13 +57,13 @@ As suggested `here <http://answers.ros.org/question/234494/diagnosing-issues-wit
 
 .. code-block:: text
 
-   # Always use ssh for github, even if the remote URL uses https or git
+   # Always use ssh for GitHub, even if the remote URL uses https or git
    [url "git@github.com:"]
      insteadOf = git://github.com/
    [url "git@github.com:"]
      insteadOf = https://github.com/
 
-If you choose this option, be sure not to forget `enable ssh connection with github <https://help.github.com/articles/generating-an-ssh-key/>`_.
+If you choose this option, be sure not to forget `enable ssh connection with GitHub <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
 Bash Script for setting up OAuth Token
 --------------------------------------
@@ -72,10 +72,10 @@ In case you use automatic setup scripts for your computer, you might find this s
 
 .. code-block:: bash
 
-   # Install Bloom Github oauth access token for releasing ROS packages
+   # Install Bloom GitHub oauth access token for releasing ROS packages
    function installros_github_token() {
-   read -p "Your Github username: " userName
-   read -p "A Github oauth token for your account: " oAuthToken
+   read -p "Your GitHub username: " userName
+   read -p "A GitHub oauth token for your account: " oAuthToken
    rm -f $HOME/.config/bloom
    cat <<EOF >> $HOME/.config/bloom
    {

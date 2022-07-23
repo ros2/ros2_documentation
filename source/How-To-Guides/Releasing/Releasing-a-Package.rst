@@ -15,7 +15,7 @@ Releasing a Package
    First-Time-Release
    Successive-Release
    Releasing-a-Third-Party-Package
-   Github-Manual-Authorization
+   GitHub-Manual-Authorization
    Release-Track-Settings
 
 Releasing a package in ROS 2 means to make your package available on the public ROS 2 buildfarm.

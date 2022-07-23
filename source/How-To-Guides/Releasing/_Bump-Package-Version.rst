@@ -15,4 +15,4 @@ which performs the following:
 
 .. note::
 
-   By default this command increases the patch version of your package, e.g. ``0.1.1`` -> ``0.1.2``, but you can pick minor or major using the ``--bump`` option.
+   By default this command increases the patch version of your package, e.g. ``0.0.0`` -> ``0.0.1``, but you can pick minor or major using the ``--bump`` option.
