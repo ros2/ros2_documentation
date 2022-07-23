@@ -14,7 +14,6 @@ Releasing a Package
    Request-Access-to-Release-Repository
    First-Time-Release
    Successive-Releases
-   Releasing-a-Third-Party-Package
    GitHub-Manual-Authorization
    Changelog-Guide
    Release-Track-Settings
@@ -33,9 +32,5 @@ Second, **select one of the following**, according to the type of package you ar
 * :doc:`Successive Releases <Successive-Releases>`
 
    If you have already released a ROS package, you can release a new version of it with this guide.
-
-* :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
-
-   A third party package that doesn't follow the packaging guidelines of ament and doesn't contain a ``package.xml``.
 
 Once you successfully follow the instructions, your package will be released into the ROS ecosystem on the next synchronization!
