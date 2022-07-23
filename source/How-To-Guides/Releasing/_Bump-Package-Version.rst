@@ -11,8 +11,10 @@ which performs the following:
 #. replaces the heading ``Forthcoming`` with ``version (date)`` (eg. ``0.0.1 (2022-01-08)``) in ``CHANGELOG.rst``
 #. commits those changes
 #. creates a tag (eg. ``0.0.1``)
-#. pushes those changes to upstream
+#. pushes those changes to your project repository
 
 .. note::
 
-   By default this command increases the patch version of your package, e.g. ``0.0.0`` -> ``0.0.1``, but you can pick minor or major using the ``--bump`` option.
+   By default the patch version of the package is increased, such as from ``0.0.0`` to ``0.0.1``.
+   To increment the minor or major version instead, run ``catkin_prepare_release --bump minor`` or ``catkin_prepare_release --bump major``.
+   For more details, see ``catkin_prepare_release --help``.

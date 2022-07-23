@@ -63,7 +63,7 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 
 .. tip::
 
-   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
+   * ``--new-track`` tells bloom to create a new :ref:`track <what-is-a-track>` and configure it.
    * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
 
@@ -91,7 +91,7 @@ You should respond to the prompts as following:
    * - :ref:`Upstream Repository URI <upstream-repository-uri>`
      - ``https://github.com/my_organization/my_repo.git``
    * - :ref:`Upstream VCS Type <upstream-vcs-type>`
-     - ``git``
+     -
    * - :ref:`Version <version>`
      -
    * - :ref:`Release Tag <release-tag>`
@@ -117,7 +117,7 @@ You should respond to the prompts as following:
 .. One of these commands is called ``git-bloom-config`` and it lets you manage your tracks.
 .. Run ``git-bloom-config -h`` to get more information about how to manage your release tracks.
 
-Bloom will automatically create a pull request for you on `rosdistro <https://github.com/ros/rosdistro>`_.
+Bloom will automatically create a pull request for you against `rosdistro <https://github.com/ros/rosdistro>`_.
 
 Next Steps
 ----------

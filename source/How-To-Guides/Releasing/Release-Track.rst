@@ -1,33 +1,45 @@
-Release Track Settings
-======================
+Release Track
+=============
 
 .. contents:: Table of Contents
    :depth: 3
    :local:
 
+.. _what-is-a-track:
 
-.. _track:
+What is a Track?
+----------------
 
-Track
------
+Bloom requires the user to enter configuration information when releasing packages for the first time.
+Such information is stored in the release repository to prevent having to manually enter the information again for successive releases.
 
-Bloom is designed to allow the release of the same package for different ROS distributions and versions in the same release repository.
-To facilitate this, bloom uses release "tracks" to maintain configurations for different release processes.
+Having one set of configurations for your repository is not enough to release packages into multiple distributions because configurations will differ for each distribution.
+
+To facilitate this, bloom uses release tracks to maintain configurations for different release processes.
 By convention you should create tracks with the same name as the ROS distro you are releasing for.
+
+All release track configurations are stored in ``tracks.yaml`` on the master branch of the release repository.
+
+Track Configurations
+--------------------
+
+Track configurations are explained in more detail along with the prompts from bloom.
 
 .. _release-repository-url:
 
 Release Repository url
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
+
+This is the url of your release repository, and should be of form ``https://github.com/ros2-gbp/my_repo-release.git`` if your release repository is hosted on ros2-gbp.
 
 .. code-block:: bash
 
    No reasonable default release repository url could be determined from previous releases.
    Release repository url [press enter to abort]:
 
-This is the url of your release repository, from :doc:`Request-Access-to-Release-Repository <Request-Access-to-Release-Repository>`.
+Paste your release repository URL and press Enter.
 
-bloom may ask you about initializing the new repository, as following:
+Bloom may additionally ask you about initializing the new repository, as following:
 
 .. code-block:: bash
 
@@ -35,12 +47,14 @@ bloom may ask you about initializing the new repository, as following:
    An initial empty commit is going to be made.
    Continue [Y/n]?
 
-Simply press enter or type ``y`` and then press enter.
+Simply press Enter to accept the default of yes.
 
 .. _repository-name:
 
 Repository Name
 ---------------
+
+The repository name is trivial, but it is recommended to set this to the name of your project.
 
 .. code-block:: bash
 
@@ -51,12 +65,15 @@ Repository Name
          Name of the repository (used in the archive name)
       ['upstream']:
 
-This name is trivial, but can be used to provide additional tags and to create nicer archive names.
+Type the name of your project (eg. ``my_project``) and press Enter.
 
 .. _upstream-repository-uri:
 
 Upstream Repository URI
 -----------------------
+
+The **upstream repository** is the repository where your source code is.
+This is most likely an https link to your project hosted on a git hosting service such as GitHub or GitLab.
 
 .. code-block:: bash
 
@@ -67,15 +84,15 @@ Upstream Repository URI
          where the :{version} token will be replaced with the version for this release.
       [None]:
 
-The **upstream repository** is the repository where you do your development and host the source code of your package.
-This repository can be hosted anywhere (even locally) and can be a git, hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans for tar.bz and zip).
-
-If you're using GitHub, make sure you **use the https address** (eg. ``https://github.com/bar/foo.git``) and not the ssh address (eg. ``git@github.com:bar/foo.git``)
+Make sure you **use the https address** (eg. ``https://github.com/my_organization/my_repo.git``) and not the ssh address (eg. ``git@github.com:my_organization/my_repo.git``)
 
 .. _upstream-vcs-type:
 
 Upstream VCS Type
 -----------------
+
+This is the `Upstream Repository URI`_'s version control system (VCS) type.
+You must specify the type of vcs your repository is using, from  ``svn``, ``git``, ``hg`` or ``tar``.
 
 .. code-block:: bash
 
@@ -90,13 +107,14 @@ Upstream VCS Type
          Upstream URI is a tarball
       ['git']:
 
-This is the `Upstream Repository URI`_'s version control system (VCS) type.
-You must specify the type of vcs your repository is using, from  ``svn``, ``git``, ``hg`` or ``tar``.
+Most repositories will use git, but you may use hg or svn if you have a legacy repository.
 
 .. _version:
 
 Version
 -------
+
+This is the version of the package you are releasing.
 
 .. code-block:: bash
 
@@ -113,7 +131,9 @@ Version
          It must be updated for each new upstream version.
       [':{auto}']:
 
-This is the package release version.
+Setting this to ``:{ask}`` will bring up a prompt asking for the version every time you run a release with bloom.
+
+Setting this to ``:{auto}`` will automatically determine the version from the devel branch's package.xml.
 
 .. _release-tag:
 

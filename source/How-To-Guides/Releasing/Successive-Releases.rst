@@ -51,11 +51,7 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 
    bloom-release --rosdistro {DISTRO} my_repo
 
-Bloom will automatically create a pull request for you on `rosdistro <https://github.com/ros/rosdistro>`_.
-
-.. tip::
-
-   You don't have to do perform this step in a clone of the repository.
+Bloom will automatically create a pull request for you against `rosdistro <https://github.com/ros/rosdistro>`_.
 
 Next Steps
 ----------
