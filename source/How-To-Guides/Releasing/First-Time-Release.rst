@@ -1,5 +1,5 @@
-First Time Release of a Catkin Package
-======================================
+First Time Release
+==================
 
 This guide explains how to release a Catkin package.
 If you plan on releasing a ROS package that you developed, this is the guide to follow.
@@ -41,14 +41,14 @@ Bump the package version
 
 .. include:: _Bump-Package-Version.rst
 
-Releasing Your Packages
------------------------
+Bloom Release
+-------------
 
 .. note::
 
    If you have two factor authorization enabled on github, follow :doc:`Github Manual Authorization <Github-Manual-Authorization>` first.
 
-The actual releasing of the package should be performed using one of the commands below, where you should replace ``my_repo`` with the name of your repository:
+The actual releasing of the package is performed using one of the commands below, where ``my_repo`` is replaced with the name of your repository:
 
 * Releasing a package for the first time, for a new distro, or editing an existing release track:
 
@@ -67,9 +67,6 @@ The actual releasing of the package should be performed using one of the command
    * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
    * ``--edit`` tells bloom to create the track if it doesn't exist and configure it.
-
-Configuring the Release Track
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``bloom-release`` script will prompt you through to perform the following:
 

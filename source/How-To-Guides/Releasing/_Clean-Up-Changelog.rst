@@ -21,7 +21,7 @@ Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
 
 .. note::
 
-   You should **not** modify the ``Forthcoming`` heading, as this will be replaced with the package version number by ``catkin_prepare_release`` later on.
+   Do **not** modify the ``Forthcoming`` heading as this will be replaced with the package version number by ``catkin_prepare_release`` later on.
 
 .. warning::
 

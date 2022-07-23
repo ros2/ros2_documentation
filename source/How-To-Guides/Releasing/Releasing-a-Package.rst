@@ -12,8 +12,8 @@ Releasing a Package
    :hidden:
 
    Obtain-Access-to-Release-Repository
-   First-Time-Release-of-a-Catkin-Package
-   Successive-Releases-for-a-Catkin-Package
+   First-Time-Release
+   Successive-Release
    Releasing-a-Third-Party-Package
    Github-Manual-Authorization
    Release-Track-Settings
@@ -25,11 +25,11 @@ First, **follow instructions to** :doc:`Obtain Access to Release Repository <Obt
 
 Second, **select one of the following**, according to the type of package you are releasing:
 
-* :doc:`First Time Release of a Catkin Package <First-Time-Release-of-a-Catkin-Package>`
+* :doc:`First Time Release <First-Time-Release>`
 
    If you are ready to release a ROS package that you have developed for the first time, follow this guide.
 
-* :doc:`Successive Releases for a Catkin Package <Successive-Releases-for-a-Catkin-Package>`
+* :doc:`Successive Release <Successive-Release>`
 
    If you have already released a ROS package, you can release a new version of it with this guide.
 
@@ -37,4 +37,4 @@ Second, **select one of the following**, according to the type of package you ar
 
    A third party package that doesn't follow the packaging guidelines of ament and doesn't contain a ``package.xml``.
 
-Once you successfully follow the instructions, your package should be released into the ROS ecosystem on the next synchronization!
+Once you successfully follow the instructions, your package will be released into the ROS ecosystem on the next synchronization!

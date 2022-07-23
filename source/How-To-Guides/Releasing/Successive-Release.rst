@@ -1,5 +1,5 @@
-Successive Releases for a Catkin Package
-========================================
+Successive Release
+==================
 
 This guide explains how to release a new version of a ROS package that has already been released.
 
@@ -38,8 +38,8 @@ Bump the package version
 
 .. include:: _Bump-Package-Version.rst
 
-Releasing Your Package
-----------------------
+Bloom Release
+-------------
 
 .. note::
 
