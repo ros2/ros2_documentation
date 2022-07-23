@@ -27,11 +27,11 @@ Second, **select one of the following**, according to the type of package you ar
 
 * :doc:`First Time Release of a Catkin Package <First-Time-Release-of-a-Catkin-Package>`
 
-   If you have developed a ROS package and are ready to release it for the first time, follow this guide.
+   If you are ready to release a ROS package that you have developed for the first time, follow this guide.
 
 * :doc:`Successive Releases for a Catkin Package <Successive-Releases-for-a-Catkin-Package>`
 
-   If you are a package maintainer and have some new changes you want to release, follow this guide.
+   If you have already released a ROS package, you can release a new version of it with this guide.
 
 * :doc:`Releasing a Third Party Package <Releasing-a-Third-Party-Package>`
 

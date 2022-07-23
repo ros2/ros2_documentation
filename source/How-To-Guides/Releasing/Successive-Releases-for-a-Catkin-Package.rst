@@ -27,90 +27,16 @@ Updating Changelog
 
 For your users and for the developers, it is important to keep the changelog up to date.
 
-Update CHANGELOG.rst
-^^^^^^^^^^^^^^^^^^^^
-
-If this is not your first release and you already have a ``CHANGELOG.rst`` per package, omit the ``--all`` flag and let the script make an entry for the upcoming release for you.
-
 .. code-block:: bash
 
    catkin_generate_changelog
 
-Clean up the Changelog
-^^^^^^^^^^^^^^^^^^^^^^
-
-Open ``CHANGELOG.rst`` in an editor.
-You will see that the command ``catkin_generate_changelog`` from the previous step has simply populated it with commit messages, like below:
-
-.. code-block:: rst
-
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   Changelog for package your_package
-   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-   Forthcoming
-   -----------
-   * you can modify commit message here
-   * and here
-
-You should clean up the list of commit messages to concisely convey  to your users and maintainers, the notable changes have been made since the last release.
-
-See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_ for a well-formatted example.
-Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
-
-.. note::
-
-   You should **not** modify the ``Forthcoming`` heading, as this will be replaced with the package version number by ``catkin_prepare_release`` later on.
-
-.. warning::
-
-   If you have any commit messages ending in an underscore, such as member variables (e.g. ``name_``) this will throw an error with the RST Changelog format because RST treats those as `link targets <http://docutils.sourceforge.net/docs/user/rst/quickstart.html#sections>`_.
-   The error will be something like:
-
-   .. code-block::
-
-      <string>:21: (ERROR/3) Unknown target name: "name".
-
-   To fix this, you'll need to escape the variable, for example:
-
-   .. code-block::
-
-      * fix for checking the ``name_``
-
-Commit the Changelog
-^^^^^^^^^^^^^^^^^^^^
-
-**Don't forget this step!**
-Commit the ``CHANGELOG.rst`` files you cleaned up.
+.. include:: _Clean-Up-Changelog.rst
 
 Bump the package version
 ------------------------
 
-Every release of the package must have a unique version number.
-Run:
-
-.. code-block:: bash
-
-   catkin_prepare_release
-
-which performs the following:
-
-#. increases the package version in ``package.xml``
-#. replaces the heading ``Forthcoming`` with ``version (date)`` (eg. ``0.0.1 (2022-01-08)``) in ``CHANGELOG.rst``
-#. commits those changes
-#. creates a tag (eg. ``0.0.1``)
-#. pushes those changes to upstream
-
-.. note::
-
-   By default this command increases the patch version of your package, e.g. ``0.1.1`` -> ``0.1.2``, but you can pick minor or major using the ``--bump`` option.
-
-.. note::
-
-   Even if you do not use ``catkin_prepare_release``, you must have one or more valid ``package.xml`` with the same version and a matching tag in your upstream repository.
-   For example, if you are going to release version 0.1.0 of your package, then bloom expects there to be a 0.1.0 tag in your upstream repository.
-
-   If you have a custom version tagging scheme you'd like to use, then bloom can handle while configuring a release track using the 'Release Tag' configuration.
+.. include:: _Bump-Package-Version.rst
 
 Releasing Your Packages
 -----------------------
