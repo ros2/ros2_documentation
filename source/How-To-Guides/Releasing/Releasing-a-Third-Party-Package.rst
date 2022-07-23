@@ -27,7 +27,7 @@ By adding a ``package.xml`` and a rule to install it in the upstream repository,
 This is a clean solution because it doesn't require any modifications to the normal release process and has almost no impact on the upstream repository.
 Additionally, if the ``package.xml`` and install rule is in the upstream source code, then the third party package can be built along side ament packages even when checked out from source.
 If you choose this method, then simply create a ``package.xml``, and add a rule to your build system to install the ``package.xml``.
-Then, when you are ready to release, follow :doc:`Releasing an Ament Package <Releasing-a-Catkin-Package>`.
+Then, when you are ready to release, follow :doc:`First Time Release <First-Time-Release>`.
 
 Modifying the Release Repository
 --------------------------------
