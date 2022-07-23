@@ -51,9 +51,9 @@ What if my release repo isn't on ros2-gbp?
 
 If you or someone else has already released the package you are trying to release in a ROS distro before Humble, there may be a release repository hosted somewhere else.
 
-If porting a ROS 1 package to ROS 2, follow standard procedure to request for a new release repository for your ROS2 releases.
+If porting a ROS 1 package to ROS 2, follow standard procedure to request for a new release repository for your ROS 2 releases.
 
-If you've released for ROS2 in a distro before Humble, when raising the `Add New Release Repositories issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_, **specify your current release repository url**, and follow standard procedure for the rest.
+If you've released for ROS 2 in a distro before Humble, when raising the `Add New Release Repositories issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_, **specify your current release repository url**, and follow standard procedure for the rest.
 
 .. note::
 

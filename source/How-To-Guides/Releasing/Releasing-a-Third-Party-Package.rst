@@ -41,7 +41,7 @@ By adding a ``package.xml`` and a rule to install it in the upstream repository,
 This is a clean solution because it doesn't require any modifications to the normal release process and has almost no impact on the upstream repository.
 Additionally, if the ``package.xml`` and install rule is in the upstream source code, then the third party package can be built along side ament packages even when checked out from source.
 If you choose this method, then simply create a ``package.xml``, and add a rule to your build system to install the ``package.xml``.
-Then, when you are ready to release, follow :doc:`Releasing an Ament Package <Releasing-an-Ament-Package>`.
+Then, when you are ready to release, follow :doc:`Releasing an Ament Package <Releasing-a-Catkin-Package>`.
 
 Modifying the Release Repository
 --------------------------------
@@ -215,7 +215,7 @@ Version
    What version are you releasing (version should normally be MAJOR.MINOR.PATCH)?
 
 Enter a version for your package.
-Follow the `ROS2 versioning guidelines <https://docs.ros.org/en/{DISTRO}/Contributing/Developer-Guide.html#versioning>`_.
+Follow the `ROS 2 versioning guidelines <https://docs.ros.org/en/{DISTRO}/Contributing/Developer-Guide.html#versioning>`_.
 
 
 After running once you can add your patch. Start by checking out the release branch:

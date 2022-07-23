@@ -14,8 +14,8 @@ Before you start
 ----------------
 
 Before releasing the package, here's a list of things that you'd want to check you've completed:
-
 * Your code is up-to-date
+
 * Your package builds correctly
 * All your tests are passing
 * You've pushed all changes from your machine to the upstream repository.
@@ -257,7 +257,7 @@ To enter your repository you need to fill out a section like this:
      doc:
        type: git
        url: https://github.com/my_organization/my_repo.git
-       version: ros2
+       version: rolling
      release:
        tags:
          release: release/{DISTRO}/{package}/{version}
@@ -266,7 +266,7 @@ To enter your repository you need to fill out a section like this:
      source:
        type: git
        url: https://github.com/my_organization/my_repo.git
-       version: ros2
+       version: rolling
      status: developed
 
 You should put the **https://** url of the RELEASE repository here, not the url of your upstream repository.
@@ -281,7 +281,7 @@ You should put the **https://** url of the RELEASE repository here, not the url 
 .. note::
 
    If your repository contains multiple packages, their names must be listed in the distro file, too.
-   For example if the repository contains two packages ``baz`` and ``qux`` they will be listed as below:
+   For example if the repository contains two packages ``my_package_1`` and ``my_package_2`` they will be listed as below:
 
    .. code-block:: yaml
 
@@ -289,11 +289,11 @@ You should put the **https://** url of the RELEASE repository here, not the url 
         doc:
           type: git
           url: https://github.com/my_organization/my_repo.git
-          version: ros2
+          version: rolling
         release:
           packages:
-          - baz
-          - qux
+          - my_package_1
+          - my_package_2
           tags:
             release: release/{DISTRO}/{package}/{version}
           url: https://github.com/ros2-gbp/my_repo-release.git
@@ -301,7 +301,7 @@ You should put the **https://** url of the RELEASE repository here, not the url 
         source:
           type: git
           url: https://github.com/my_organization/my_repo.git
-          version: ros2
+          version: rolling
         status: developed
 
 Next Steps

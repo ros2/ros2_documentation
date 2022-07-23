@@ -140,7 +140,7 @@ You need to potentially modify this.
 This option is the branch of your upstream repository from which you tag releases.
 If this is left ``None`` then the default branch for your repository is used when guessing the version being released.
 If you want to use a branch besides the default branch, choose that.
-For example, if you want to use the branch ``ros2`` for this release track, enter ``ros2``.
+For example, if you want to use the branch ``rolling`` for this release track, enter ``rolling``.
 
 ROS Distro
 ----------
