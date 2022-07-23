@@ -1,5 +1,5 @@
-Obtain Access to Release Repository
-===================================
+Request Access to Release Repository
+====================================
 
 .. contents:: Table of Contents
    :depth: 3

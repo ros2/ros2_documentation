@@ -25,7 +25,7 @@ Release Repository url
    No reasonable default release repository url could be determined from previous releases.
    Release repository url [press enter to abort]:
 
-This is the url of your release repository, from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
+This is the url of your release repository, from :doc:`Request-Access-to-Release-Repository <Request-Access-to-Release-Repository>`.
 
 bloom may ask you about initializing the new repository, as following:
 
