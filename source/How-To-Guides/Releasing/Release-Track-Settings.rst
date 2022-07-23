@@ -53,7 +53,8 @@ Upstream Repository URI
          where the :{version} token will be replaced with the version for this release.
       [None]:
 
-This is a URI to where your code is.
+The **upstream repository** is the repository where you do your development and host the source code of your package.
+This repository can be hosted anywhere (even locally) and can be a git, hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans for tar.bz and zip).
 
 If you're using github, make sure you **use the https address** (eg. ``https://github.com/bar/foo.git``) and not the ssh address (eg. ``git@github.com:bar/foo.git``)
 

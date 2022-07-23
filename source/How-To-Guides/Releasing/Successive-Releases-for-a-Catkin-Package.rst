@@ -1,10 +1,7 @@
-Releasing a Catkin Package
-==========================
+Successive Releases for a Catkin Package
+========================================
 
-This guide explains how to release a Catkin package.
-If you plan on releasing a ROS package that you develoepd, this is the guide to follow.
-Due to the numerous options available when releasing a ROS package, this guide will not be able to cover every detail.
-It intends to cover the most common use case.
+This guide explains how to release a new version of a ROS package that has already been released.
 
 .. contents:: Table of Contents
    :depth: 3
@@ -13,60 +10,31 @@ It intends to cover the most common use case.
 Before you start
 ----------------
 
-Before releasing the package, here's a list of things that you'd want to check you've completed:
-* Your code is up-to-date
+.. include:: _Before-you-Start.rst
 
-* Your package builds correctly
-* All your tests are passing
-* You've pushed all changes from your machine to the upstream repository.
+Install catkin_pkg
+------------------
 
-.. note::
+.. include:: _Install-Catkin-Package.rst
 
-   The **upstream repository** is the repository where you do your development and host the source code of your package.
-   This repository can be hosted anywhere (even locally) and can be a git, hg, or svn repository or the location of an archive (tar.gz only for now, but there are plans for tar.bz and zip).
+Install bloom
+-------------
 
-Install catkin_pkg and bloom
-----------------------------
+.. include:: _Install-Bloom.rst
 
-`catkin_pkg <https://github.com/ros-infrastructure/catkin_pkg>`_ is a python library that contains scripts to be used in the steps `Writing a Change Log`_ and `Bump the package version`_.
-Despite the use of the word *catkin* (which is the ROS1 equivalent of ament) in the library name, it works for preparing ament packages too.
+Updating Changelog
+------------------
 
-`Bloom <http://ros-infrastructure.github.io/bloom/>`_ is a release automation tool, designed to generate platform specific release artifacts from source projects in the `Releasing Your Packages`_ step.
+For your users and for the developers, it is important to keep the changelog up to date.
 
-On Ubuntu the recommended installation method is to use ``apt``:
-
-.. code-block:: bash
-
-   sudo apt install python3-catkin-pkg python3-bloom
-
-.. note::
-
-   On non-debian systems you can install via pypi:
-
-   .. code-block:: bash
-
-      pip3 install -U catkin_pkg bloom
-
-Writing a Change Log
---------------------
-
-To make it easier for users and contributors to see precisely what notable changes have been made between each release, you are recommended to have a changelog for your package.
-
-In the steps below, the package changelogs will be incorporated as part of the source working tree as recommended in `REP-132: Incorporation of Changelogs into Package Source Tree <https://www.ros.org/reps/rep-0132.html>`_.
-
-Generate / Update CHANGELOG.rst
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If this is the first time you're releasing the package, you'll likely not have a ``CHANGELOG.rst`` file in your package yet.
-Rather than creating this file manually, let the ``--all`` flag generate the file for you.
+Update CHANGELOG.rst
+^^^^^^^^^^^^^^^^^^^^
 
 If this is not your first release and you already have a ``CHANGELOG.rst`` per package, omit the ``--all`` flag and let the script make an entry for the upcoming release for you.
 
 .. code-block:: bash
 
-   # Run either:
    catkin_generate_changelog
-   catkin_generate_changelog --all  # To generate CHANGELOG.rst
 
 Clean up the Changelog
 ^^^^^^^^^^^^^^^^^^^^^^

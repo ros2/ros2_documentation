@@ -1,0 +1,5 @@
+Here's a list of things you'd want to check before you start:
+
+* You have a clone of the repository on your computer.
+* Your repository is hosted on a remote such as Github.
+* Both the remote repository and your clone are up-to-date.
