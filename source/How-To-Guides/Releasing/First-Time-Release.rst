@@ -54,12 +54,6 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 
   bloom-release --rosdistro {DISTRO} --track {DISTRO} --new-track my_repo
 
-.. tip::
-
-   * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
-   * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
-   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
-
 ``bloom-release`` will perform the following:
 
 * Generate a new :ref:`track <track>` and configure it
@@ -67,14 +61,11 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 * Push them to the release repository
 * Open a Pull Request from your GitHub account to `rosdistro <https://github.com/ros/rosdistro>`_ with changes to add your repository to ``{DISTRO}/distribution.yaml``.
 
-bloom is designed to allow the release of the same package for different ROS distributions and versions in the same release repository.
-To facilitate this, bloom uses release "tracks" to maintain configurations for different release processes.
-For normal ament-based ROS packages the default release track is recommended.
+.. tip::
 
-In the ``bloom-release`` command you ran above, you specified the ``--track``.
-By convention you should create tracks with the same name as the ROS distro you are releasing for, but you could name your track what ever you wanted.
-
-Let's look at a common scenario.
+   * ``--rosdistro {DISTRO}`` indicates that this release is for the ``{DISTRO}`` distro
+   * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
+   * ``--new-track`` tells bloom to create a new :ref:`track <track>` and configure it.
 
 You are trying to release ament library called ``my_repo`` hosted on GitHub at ``https://github.com/my_organization/my_repo.git``.
 You want the ``main`` branch from the library to be released it into the ROS ecosystem.
@@ -84,6 +75,7 @@ For this scenario, the table below summarises the responses to the questions:
 
 .. list-table::
    :header-rows: 1
+   :widths: 1 2
 
    * - Configuration
      - Value
