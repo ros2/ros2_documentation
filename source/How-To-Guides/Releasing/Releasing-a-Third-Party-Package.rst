@@ -11,8 +11,6 @@ Instead they are released using the ROS infrastructure along side a ROS distribu
 
 See `REP-0136: Releasing Third Party, Non catkin Packages <http://ros.org/reps/rep-0136.html>`_ for a detailed explanation about releasing third party packages.
 
-The details relating to these requirements are in the REP.
-
 A third party package can accomplish these requirements in two ways: in the upstream repository, or in the release repository.
 
 Install bloom
@@ -92,7 +90,7 @@ For this scenario, the table below summarises the responses to the questions:
    * - :ref:`Upstream Devel Branch <upstream-devel-branch>`
      -
    * - :ref:`ROS Distro <ros-distro>`
-   -
+     -
    * - :ref:`Patches Directory <patches-directory>`
      - ``patch``
    * - :ref:`Release Repository Push URL <release-repository-push-url>`
