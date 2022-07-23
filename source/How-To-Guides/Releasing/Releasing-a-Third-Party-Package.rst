@@ -73,28 +73,29 @@ For this scenario, the table below summarises the responses to the questions:
 
 .. list-table::
    :header-rows: 1
+   :widths: 1 2
 
    * - Configuration
      - Value
-   * - Release Repository url
+   * - :ref:`Release Repository url <release-repository-url>`
      - ``https://github.com/ros2-gbp/foo.git``
-   * - Repository Name
+   * - :ref:`Repository Name <repository-name>`
      - ``foo``
-   * - Upstream Repository URI
+   * - :ref:`Upstream Repository URI <upstream-repository-uri>`
      - ``https://github.com/bar/foo.git``
-   * - Upstream VCS Type
+   * - :ref:`Upstream VCS Type <upstream-vcs-type>`
      - ``git``
-   * - Version
+   * - :ref:`Version <version>`
      - ``:{ask}``
-   * - Release Tag
+   * - :ref:`Release Tag <release-tag>`
      - ``main``
-   * - Upstream Devel Branch
+   * - :ref:`Upstream Devel Branch <upstream-devel-branch>`
      -
-   * - ROS Distro
+   * - :ref:`ROS Distro <ros-distro>`
      - ``{DISTRO}``
-   * - Patches Directory
+   * - :ref:`Patches Directory <patches-directory>`
      - ``patch``
-   * - Release Repository Push URL
+   * - :ref:`Release Repository Push URL <release-repository-push-url>`
      -
 
 Adding a Package.xml to the Patches Directory of the master branch
