@@ -14,7 +14,7 @@ You will see that ``catkin_generate_changelog`` has populated the file with comm
 
 Clean up the list of commit messages to concisely convey  to your users and maintainers, the notable changes have been made since the last release.
 
-**Commit the ``CHANGELOG.rst`` files you cleaned up.**
+**Commit the CHANGELOG.rst files.**
 
 See `rclcpp's CHANGELOG.rst <https://github.com/ros2/rclcpp/blob/master/rclcpp/CHANGELOG.rst>`_ for a well-formatted example.
 Incorrectly formatted ``CHANGELOG.rst`` can cause problems with your package.
