@@ -107,7 +107,7 @@ You must specify the type of vcs your repository is using, from  ``svn``, ``git`
          Upstream URI is a tarball
       ['git']:
 
-Most repositories will use git, but you may use hg or svn if you have a legacy repository.
+Most repositories will be using git, but some legacy repositories might be using hg or svn.
 
 .. _version:
 
@@ -170,6 +170,10 @@ This is useful if the upstream project has frequent tagged releases and you want
 Upstream Devel Branch
 ---------------------
 
+The upstream devel branch is the name of the branch in your :ref:`upstream repository <upstream-repository-uri>` that you are releasing.
+If you use separate branches for each ROS distribution, this field would be different for each release track.
+It is used to determine the version of the package you are releasing when :ref:`Version` is set to ``:{auto}``.
+
 .. code-block:: bash
 
    Upstream Devel Branch:
@@ -178,16 +182,15 @@ Upstream Devel Branch
          This is used only when version is set to ':{auto}'.
       [None]:
 
-You need to potentially modify this.
-This option is the branch of your upstream repository from which you tag releases.
-If this is left ``None`` then the default branch for your repository is used when guessing the version being released.
-If you want to use a branch besides the default branch, choose that.
-For example, if you want to use the branch ``rolling`` for this release track, enter ``rolling``.
+To release from a branch called ``{DISTRO}``, enter ``{DISTRO}``.
+Leaving this as ``None`` would result in the version being determined from the default branch of your repository.
 
 .. _ros-distro:
 
 ROS Distro
 ----------
+
+This is the distribution you're planning on releasing the package into.
 
 .. code-block:: bash
 
@@ -196,13 +199,14 @@ ROS Distro
          This can be any valid ROS distro, e.g. indigo, kinetic, lunar, melodic
       ['indigo']:
 
-This is the distribution you're planning on releasing the package into.
 If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``.
 
 .. _patches-directory:
 
 Patches Directory
 -----------------
+
+This is only relevant if you're releasing a third party package.
 
 .. code-block:: bash
 
@@ -217,7 +221,6 @@ Patches Directory
          Use this if you want to disable overlaying of files.
       [None]:
 
-This is only relevant if you're releasing a third party package.
 This is the directory where your patches are.
 
 .. _release-repository-push-url:
