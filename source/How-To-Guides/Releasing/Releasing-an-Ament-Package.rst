@@ -1,5 +1,10 @@
-Releasing an Ament Package
+Releasing a Catkin Package
 ==========================
+
+This guide explains how to release a Catkin package.
+If you plan on releasing a ROS package that you develoepd, this is the guide to follow.
+Due to the numerous options available when releasing a ROS package, this guide will not be able to cover every detail.
+It intends to cover the most common use case.
 
 .. contents:: Table of Contents
    :depth: 3
@@ -146,19 +151,19 @@ Releasing Your Packages
 
    If you have two factor authorization enabled on github, follow :doc:`Github Manual Authorization <Github-Manual-Authorization>` first.
 
-The actual releasing of the package should be performed using one of the commands below, where you should replace ``foo`` with the name of your repository:
+The actual releasing of the package should be performed using one of the commands below, where you should replace ``my_repo`` with the name of your repository:
 
 * Releasing a package for the first time, for a new distro, or editing an existing release track:
 
    .. code-block:: bash
 
-      bloom-release --rosdistro {DISTRO} --track {DISTRO}  --edit foo
+      bloom-release --rosdistro {DISTRO} --track {DISTRO}  --edit my_repo
 
 * Releasing a package update on an existing release track:
 
    .. code-block:: bash
 
-      bloom-release --rosdistro {DISTRO} foo
+      bloom-release --rosdistro {DISTRO} my_repo
 
 .. tip::
 
@@ -191,9 +196,9 @@ By convention you should create tracks with the same name as the ROS distro you 
 
 Let's look at a common scenario.
 
-You are trying to release ament library called ``foo`` hosted on Github at ``https://github.com/bar/foo.git``.
+You are trying to release ament library called ``my_repo`` hosted on Github at ``https://github.com/my_organization/my_repo.git``.
 You want the ``main`` branch from the library to be released it into the ROS ecosystem.
-You already have an empty release repository (``https://github.com/ros2-gbp/foo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
+You already have an empty release repository (``https://github.com/ros2-gbp/my_repo-release.git``), from :doc:`Obtain-Access-to-Release-Repository <Obtain-Access-to-Release-Repository>`.
 
 For this scenario, the table below summarises the responses to the questions:
 
@@ -203,11 +208,11 @@ For this scenario, the table below summarises the responses to the questions:
    * - Configuration
      - Value
    * - Release Repository url
-     - ``https://github.com/ros2-gbp/foo.git``
+     - ``https://github.com/ros2-gbp/my_repo-release.git``
    * - Repository Name
-     - ``foo``
+     - ``my_repo``
    * - Upstream Repository URI
-     - ``https://github.com/bar/foo.git``
+     - ``https://github.com/my_organization/my_repo.git``
    * - Upstream VCS Type
      - ``git``
    * - Version
@@ -248,19 +253,19 @@ To enter your repository you need to fill out a section like this:
 
 .. code-block:: yaml
 
-   foo:
+   my_repo:
      doc:
        type: git
-       url: https://github.com/bar/foo.git
+       url: https://github.com/my_organization/my_repo.git
        version: ros2
      release:
        tags:
          release: release/{DISTRO}/{package}/{version}
-       url: https://github.com/ros2-gbp/foo-release.git
+       url: https://github.com/ros2-gbp/my_repo-release.git
        version: 0.0.1-1
      source:
        type: git
-       url: https://github.com/bar/foo.git
+       url: https://github.com/my_organization/my_repo.git
        version: ros2
      status: developed
 
@@ -280,10 +285,10 @@ You should put the **https://** url of the RELEASE repository here, not the url 
 
    .. code-block:: yaml
 
-      foo:
+      my_repo:
         doc:
           type: git
-          url: https://github.com/bar/foo.git
+          url: https://github.com/my_organization/my_repo.git
           version: ros2
         release:
           packages:
@@ -291,11 +296,11 @@ You should put the **https://** url of the RELEASE repository here, not the url 
           - qux
           tags:
             release: release/{DISTRO}/{package}/{version}
-          url: https://github.com/ros2-gbp/foo-release.git
+          url: https://github.com/ros2-gbp/my_repo-release.git
           version: 0.0.1-1
         source:
           type: git
-          url: https://github.com/bar/foo.git
+          url: https://github.com/my_organization/my_repo.git
           version: ros2
         status: developed
 
