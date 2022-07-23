@@ -598,7 +598,7 @@ Example:
     ...
     do_something_with_response(future.get());
     ...
-    do_something_else_with_response(future.get());  # this will throw an exception now!!
+    do_something_else_with_response(future.get());  // this will throw an exception now!!
 
 should be updated to:
 
