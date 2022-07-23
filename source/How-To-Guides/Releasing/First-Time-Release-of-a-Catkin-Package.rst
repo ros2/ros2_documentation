@@ -68,14 +68,8 @@ The actual releasing of the package should be performed using one of the command
    * ``--track {DISTRO}`` indicates that you want the track name to be ``{DISTRO}``
    * ``--edit`` tells bloom to create the track if it doesn't exist and configure it.
 
-If you used the ``--edit`` flag, continue with `Configuring the Release Track`_.
-If you're releasing a package update on an existing release track without editing it, you can skip the next section.
-
 Configuring the Release Track
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. warning::
-
-   If you're releasing a package update without configuring the track, skip these instructions
 
 The ``bloom-release`` script will prompt you through to perform the following:
 
@@ -132,82 +126,9 @@ For this scenario, the table below summarises the responses to the questions:
 .. One of these commands is called ``git-bloom-config`` and it lets you manage your tracks.
 .. Run ``git-bloom-config -h`` to get more information about how to manage your release tracks.
 
-Pull Request to rosdistro
--------------------------
-
-.. warning::
-
-  If the automated pull request was opened successfully, then you **do not need to open one manually** as described here.
-  You can simply skip this section.
-
-Normally your ``bloom-release`` call should open a pull request for you, but if there is a problem or you do not wish for it to open the pull request on your behalf you can manually open a pull request also.
-
-In the unlikely case that the automated pull request does not open successfully, you will have to manually open a pull request with modifications to rosdistro.
-
-You can open a pull request by simply visiting `{DISTRO}/distribution.yaml <https://github.com/ros/rosdistro/blob/master/{DISTRO}/distribution.yaml>`_ and clicking the edit button (note: you have to be logged into Github for this to work), make your changes and then click "Propose Changes" at the bottom right of the page.
-
-To enter your repository you need to fill out a section like this:
-
-.. code-block:: yaml
-
-   my_repo:
-     doc:
-       type: git
-       url: https://github.com/my_organization/my_repo.git
-       version: rolling
-     release:
-       tags:
-         release: release/{DISTRO}/{package}/{version}
-       url: https://github.com/ros2-gbp/my_repo-release.git
-       version: 0.0.1-1
-     source:
-       type: git
-       url: https://github.com/my_organization/my_repo.git
-       version: rolling
-     status: developed
-
-You should put the **https://** url of the RELEASE repository here, not the url of your upstream repository.
-
-.. note::
-
-   * put the full version which is the version of your package plus the release increment number separated by a hyphen. (eg. ``0.0.1-1``).
-     The release increment number is increased each time you release a package of the same version.
-     This can occur when adding patches to the release repository or when changing the release settings.
-   * Put your package into the list of packages in ALPHABETICAL order.
-
-.. note::
-
-   If your repository contains multiple packages, their names must be listed in the distro file, too.
-   For example if the repository contains two packages ``my_package_1`` and ``my_package_2`` they will be listed as below:
-
-   .. code-block:: yaml
-
-      my_repo:
-        doc:
-          type: git
-          url: https://github.com/my_organization/my_repo.git
-          version: rolling
-        release:
-          packages:
-          - my_package_1
-          - my_package_2
-          tags:
-            release: release/{DISTRO}/{package}/{version}
-          url: https://github.com/ros2-gbp/my_repo-release.git
-          version: 0.0.1-1
-        source:
-          type: git
-          url: https://github.com/my_organization/my_repo.git
-          version: rolling
-        status: developed
+Bloom will automatically create a pull request for you on `rosdistro <https://github.com/ros/rosdistro>`_.
 
 Next Steps
 ----------
 
-Once your pull request has been submitted, one of the ROS developers will merge your request (this usually happens fairly quickly).
-24-48 hours after that, your package should be built by the build farm and released into the building repository.
-Packages built are periodically synchronized over to the `shadow-fixed <https://wiki.ros.org/ShadowRepository>`_ and public repositories, so it might take as long as a month before your package is available on the public ROS debian repositories (i.e. available via ``apt-get``).
-To get updates on when the next synchronization (sync) is coming, check the `ROS discussion forums <https://discourse.ros.org/>`_.
-
-Individual build details are on the Jenkins build farm `build.ros2.org <http://build.ros2.org/>`__.
-Check `ROS {DISTRO} Default Package Status <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__ to see status of released packages.
+.. include:: _Next-Steps.rst
