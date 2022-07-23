@@ -1,5 +1,5 @@
-Successive Release
-==================
+Successive Releases
+===================
 
 This guide explains how to release a new version of a ROS package that has already been released.
 

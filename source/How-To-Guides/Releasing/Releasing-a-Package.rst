@@ -13,7 +13,7 @@ Releasing a Package
 
    Request-Access-to-Release-Repository
    First-Time-Release
-   Successive-Release
+   Successive-Releases
    Releasing-a-Third-Party-Package
    GitHub-Manual-Authorization
    Changelog-Guide
@@ -30,7 +30,7 @@ Second, **select one of the following**, according to the type of package you ar
 
    If you are ready to release a ROS package that you have developed for the first time, follow this guide.
 
-* :doc:`Successive Release <Successive-Release>`
+* :doc:`Successive Releases <Successive-Releases>`
 
    If you have already released a ROS package, you can release a new version of it with this guide.
 
