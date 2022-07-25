@@ -74,6 +74,8 @@ Install development tools and ROS tools
      pytest \
      setuptools
 
+.. _rhel-dev-get-ros2-code:
+
 Get ROS 2 code
 --------------
 
