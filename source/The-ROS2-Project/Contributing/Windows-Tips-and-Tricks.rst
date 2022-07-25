@@ -6,7 +6,7 @@ Windows Tips and Tricks
 =======================
 
 .. contents:: Table of Contents
-   :depth: 1
+   :depth: 2
    :local:
 
 ROS 2 supports Windows 10 as a Tier 1 platform, which means that all code that goes into the ROS 2 core must support Windows.
@@ -26,7 +26,9 @@ This has two practical consequences for ROS 2:
 **Note**: It is possible to change Windows to have much longer maximum path lengths.
 See `this article <https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later>`__ for more information.
 
-Exporting symbols
+.. _Windows_Symbol_Visibility:
+
+Symbol Visibility
 -----------------
 The Microsoft Visual C++ Compiler (MSVC) exposes symbols from a Dynamic Link Library (DLL) only if they are explicitly exported.
 The clang and gcc compilers have an option to do the same, but it is off by default.
@@ -48,7 +50,8 @@ Symbol Visibility also impacts binary loading.
 If you are finding that a composible node does not run or a Qt Visualizer isn't working, it may be that the hosting process can not find an expected symbol export from the binary.
 To diagnose this on Windows, the Windows developer tools includes a program called Gflags to enable various options.
 One of those options is called *Loader Snaps* which enables you to detect load failures while debugging.
-Please visit the Microsoft Documentation for more information on [Gflags](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-and-clearing-image-file-flags) and [Loaders snaps](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/show-loader-snaps).
+Please visit the Microsoft Documentation for more information on `Gflags <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-and-clearing-image-file-flags>`__ and `Loaders snaps <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/show-loader-snaps>`__.
+
 Two solutions to export symbols on Windows are Visibility Control Headers and the ``WINDOWS_EXPORT_ALL_SYMBOLS`` property.
 Microsoft recommends ROS developers use Visibility Control Headers to control the export of symbols from a binary.
 Visibility Control Headers provide more control over the symbol export macro and offer other benefits including smaller binary size and reduced link times.
@@ -58,7 +61,7 @@ Visibility Control Headers
 The purpose of Visibility Control Headers headers is to define a macro for each shared library which correctly declares symbols as dllimport or dllexport.
 This is decided based on whether the library is being consumed or being built itself.
 The logic in the macro also takes the compiler into account and includes logic to select the appropriate syntax.
-The following link includes step by step instructions for adding explicit symbol visibility to a library “yielding the highest quality code with the greatest reductions in binary size, load times and link times”: [The GCC visibility documentation](https://gcc.gnu.org/wiki/Visibility).
+The `GCC visibility documentation <https://gcc.gnu.org/wiki/Visibility>`__ includes step by step instructions for adding explicit symbol visibility to a library “yielding the highest quality code with the greatest reductions in binary size, load times and link times”.
 A header named ``visibility_control.h`` can be placed in the ``includes`` folder for each library as shown in the example below.
 The example below shows how a visibility control header would be added for a ``my_lib`` library with a class called ``example_class``.
 Add a visibility header to the include folder for the library.
@@ -90,7 +93,7 @@ In another library, ``MY_LIB`` would be replaced with the library name.
    #endif
    #endif  // MY_LIB__VISIBILITY_CONTROL_H_
 
-For a complete example of this header, see `rviz_rendering <https://github.com/ros2/rviz/blob/ros2/rviz_rendering/include/rviz_rendering/visibility_control.hpp>`__
+For a complete example of this header, see `rviz_rendering <https://github.com/ros2/rviz/blob/ros2/rviz_rendering/include/rviz_rendering/visibility_control.hpp>`__.
 
 To use the macro, add ``MY_LIB_PUBLIC`` before symbols which need to be visible to external libraries. For example:
 
@@ -110,9 +113,7 @@ In order to build your library with correctly exported symbols, you will need to
 
 WINDOWS_EXPORT_ALL_SYMBOLS Target Property
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-CMake implements a macro which will export all symbols on Windows.
-The ``WINDOWS_EXPORT_ALL_SYMBOLS`` property causes function symbols to be automatically exported on windows.
+CMake implements the ``WINDOWS_EXPORT_ALL_SYMBOLS`` property on Windows, which causes function symbols to be automatically exported.
 More detail of how it works can be found in the `WINDOWS_EXPORT_ALL_SYMBOLS CMake Documentation <https://cmake.org/cmake/help/latest/prop_tgt/WINDOWS_EXPORT_ALL_SYMBOLS.html>`__.
 The property can be implemented by adding the following to the CMakeLists file:
 
@@ -121,7 +122,8 @@ The property can be implemented by adding the following to the CMakeLists file:
    set_target_properties(${LIB_NAME} PROPERTIES WINDOWS_EXPORT_ALL_SYMBOLS TRUE)
 
 If there is more than one library in a CMakeLists file you will need to call ``set_target_properties`` on each of them separately.
-Note: A binary on Windows can only export 65,536 symbols.
+
+Note that a binary on Windows can only export 65,536 symbols.
 If a binary exports more than that, you will get an error and should use the visibility_control headers.
 There is an exception to this method in the case of global data symbols.
 For example, a global static data member like the one below.
@@ -139,7 +141,6 @@ This can be done using generate_export_header as described in the following arti
 
 Finally, it is important that the header file that exports the symbols be included into at least one of the ``.cpp`` files in the package so that the macros will get expanded and placed into the resulting binary.
 Otherwise the symbols will still not be callable.
-
 
 
 Debug builds
