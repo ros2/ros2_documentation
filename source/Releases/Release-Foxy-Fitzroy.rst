@@ -36,6 +36,59 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
+Changes in Patch Release 8 (2022-07-28)
+---------------------------------------
+
+Launch GroupAction scopes environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The ``SetEnvironmentVariable`` action is now scoped to any ``GroupAction`` it is returned from.
+
+For example, consider the following launch files,
+
+.. tabs::
+
+   .. group-tab:: Python
+
+      .. code-block:: python
+
+         import launch
+         from launch.actions import SetEnvironmentVariable
+         from launch.actions import GroupAction
+         from launch_ros.actions import Node
+
+
+         def generate_launch_description():
+             return launch.LaunchDescription([
+                 SetEnvironmentVariable(name='my_env_var', value='1'),
+                 Node(package='foo', executable='foo', output='screen'),
+                 GroupAction([
+                     SetEnvironmentVariable(name='my_env_var', value='2'),
+                 ], scoped=False),
+             ])
+
+   .. group-tab:: XML
+
+      .. code-block:: xml
+
+         <launch>
+           <set_env name="my_env_var" value="1"/>
+           <node pkg="foo" exec="foo" output="screen" />
+           <group>
+             <set_env name="my_env_var" value="2"/>
+           </group>
+         </launch>
+
+Before patch release 8, the node ``foo`` will start with ``my_env_var=2``, but now it will start with ``my_env_var=1``.
+
+To opt-out of the new behavior, you can set the argument ``scoped=True`` on the ``GroupAction``.
+
+Related tickets:
+
+
+* `ros2#1244 <https://github.com/ros2/ros2/issues/1244>`_
+* `launch#630 <https://github.com/ros2/launch/pull/630>`_
+
 Changes in Patch Release 7 (2022-02-08)
 ---------------------------------------
 
