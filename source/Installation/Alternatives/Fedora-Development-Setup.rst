@@ -47,5 +47,9 @@ The following system dependencies are required to build ROS 2 on Fedora. They ca
      wget
 
 
+<<<<<<< HEAD
 With this done, you can follow the rest of the :ref:`instructions <Galactic_linux-dev-get-ros2-code>` to fetch and build ROS 2.
+=======
+With this done, you can follow the rest of the :ref:`instructions <Rolling_rhel-dev-get-ros2-code>` to fetch and build ROS 2.
+>>>>>>> 0178b0a (Link to RHEL instructions at the end of Fedora source build page (#2897))
 
