@@ -30,6 +30,8 @@ It includes several sub-packages, but in this tutorial, you are going to use onl
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
 They are documented in the :doc:`../../Demos` page.
 
+Although we provide instructions for both Linux and Windows, we recommend the Linux option as it is easier to setup and run.
+
 Prerequisites
 -------------
 
