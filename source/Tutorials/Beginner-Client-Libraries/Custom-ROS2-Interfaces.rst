@@ -462,8 +462,8 @@ After making the above edits and saving all the changes, build the package:
     .. code-block:: console
 
       colcon build --merge-install --packages-select py_pubsub
-
-If you have a problem building packet like this :
+      
+If you have the following problem creating the package: :
 
 .. code-block:: console
 
