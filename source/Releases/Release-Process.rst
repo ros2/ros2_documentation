@@ -14,7 +14,7 @@ For the progress through this process for a specific release, see that release's
 .. list-table::
    :class: release-process
    :header-rows: 1
-   :widths: 10 30 60
+   :widths: 30 70
 
    * - Item
      - Notes
