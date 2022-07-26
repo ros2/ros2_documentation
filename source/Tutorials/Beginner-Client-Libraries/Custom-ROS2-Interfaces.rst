@@ -469,7 +469,11 @@ If you have the following problem creating the package: :
 
     /usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
 
-Use this command : ``pip install setuptools==58.2.0``
+Use this command  :
+
+.. code-block:: console
+
+    pip install setuptools==58.2.0``
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
 
