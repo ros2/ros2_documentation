@@ -463,7 +463,12 @@ After making the above edits and saving all the changes, build the package:
 
       colcon build --merge-install --packages-select py_pubsub
 
-If you have a problem building packet use this command : ``pip install setuptools==58.2.0``
+If you have a problem building packet like this :
+
+.. code-block:: console
+/usr/lib/python3/dist-packages/setuptools/command/install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+
+Use this command : ``pip install setuptools==58.2.0``
 
 Then open two new terminals, source ``dev_ws`` in each, and run:
 
