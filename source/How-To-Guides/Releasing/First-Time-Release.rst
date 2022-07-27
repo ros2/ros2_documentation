@@ -5,7 +5,7 @@ This guide explains how to release ROS 2 packages that you have not released bef
 Due to numerous options available when releasing ROS packages, this guide intends to cover the most common scenario and does not cover every corner-case.
 
 .. contents:: Table of Contents
-   :depth: 3
+   :depth: 1
    :local:
 
 Be part of a release team
