@@ -1,8 +1,8 @@
 First Time Release
 ==================
 
-This guide explains how to release a Catkin package.
-If you plan on releasing a ROS package that you developed, this is the guide to follow.
+This guide explains how to release a ROS 2 package.
+If you plan on releasing a ROS 2 package that you developed, this is the guide to follow.
 Due to the numerous options available when releasing a ROS package, this guide will not be able to cover every detail.
 It intends to cover the most common use case.
 
@@ -10,25 +10,35 @@ It intends to cover the most common use case.
    :depth: 3
    :local:
 
-Before you start
-----------------
+Be part of a release team
+-------------------------
 
-.. include:: _Before-you-Start.rst
+You must be part of a `release team <What is a release team?>`_.
+If you are not part of a release team yet, follow either:
 
-Install catkin_pkg
-------------------
+* `Join a release team <Join a release team>`_
+* `Start a new release team <Start a new release team>`_
 
-.. include:: _Install-Catkin-Package.rst
+Create a new release repository
+-------------------------------
 
-Install bloom
--------------
+You need a `release repository <What is a release repository?>`_ to release a package.
+Follow `Create a new release repository <Create a new release repository>`_.
 
-.. include:: _Install-Bloom.rst
+Install dependencies
+--------------------
+
+.. include:: _Install-Dependencies.rst
+
+Ensure repositories are up-to-date
+----------------------------------
+
+.. include:: _Ensure-Repositories-Are-Up-To-Date.rst
 
 Generate Changelog
 ------------------
 
-Generate a ``CHANGELOG.rst`` file per package in your repo with the following command:
+Generate a ``CHANGELOG.rst`` file per package in your repo using the following command:
 
 .. code-block:: bash
 

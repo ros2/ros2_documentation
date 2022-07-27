@@ -1,4 +1,4 @@
-Successive Releases
+Subsequent Releases
 ===================
 
 This guide explains how to release a new version of a ROS package that has already been released.
@@ -7,20 +7,20 @@ This guide explains how to release a new version of a ROS package that has alrea
    :depth: 3
    :local:
 
-Before you start
-----------------
+Be part of the release team
+---------------------------
 
-.. include:: _Before-you-Start.rst
+If you are not part of the release team for the repository, follow `Join a release team <Join-a-release-team>`_.
 
-Install catkin_pkg
-------------------
+Install dependencies
+--------------------
 
-.. include:: _Install-Catkin-Package.rst
+.. include:: _Install-Dependencies.rst
 
-Install bloom
--------------
+Ensure repositories are up-to-date
+----------------------------------
 
-.. include:: _Install-Bloom.rst
+.. include:: _Ensure-Repositories-Are-Up-To-Date.rst
 
 Updating Changelog
 ------------------

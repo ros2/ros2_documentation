@@ -1,5 +1,5 @@
 Open all ``CHANGELOG.rst`` files in an editor.
-``catkin_generate_changelog`` has auto-generated a forthcoming section with notes auto-generated from commit messages:
+You will see that ``catkin_generate_changelog`` has auto-generated a forthcoming section with notes auto-generated from commit messages:
 
 .. code-block:: rst
 

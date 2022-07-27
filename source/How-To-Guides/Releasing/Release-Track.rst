@@ -11,7 +11,7 @@ What is a Track?
 ----------------
 
 Bloom requires the user to enter configuration information when releasing packages for the first time.
-Such information is stored in the release repository to prevent having to manually enter the information again for successive releases.
+Such information is stored in the release repository to prevent having to manually enter the information again for subsequent releases.
 
 Having one set of configurations for your repository is not enough to release packages into multiple distributions because configurations will differ for each distribution.
 
