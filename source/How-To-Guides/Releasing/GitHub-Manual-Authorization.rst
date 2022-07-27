@@ -66,23 +66,3 @@ As suggested in `an answer from ROS Answers <http://answers.ros.org/question/234
      insteadOf = https://github.com/
 
 If you choose this option, be sure to `enable ssh connections with GitHub <https://help.github.com/articles/generating-an-ssh-key/>`_.
-
-Bash Script for setting up OAuth Token
---------------------------------------
-
-In case you use automatic setup scripts for your computer, you might find this script helpful:
-
-.. code-block:: bash
-
-   # Install Bloom GitHub oauth access token for releasing ROS packages
-   function installros_github_token() {
-   read -p "Your GitHub username: " userName
-   read -p "A GitHub oauth token for your account: " oAuthToken
-   rm -f $HOME/.config/bloom
-   cat <<EOF >> $HOME/.config/bloom
-   {
-      "github_user": "$userName",
-      "oauth_token": "$oAuthToken"
-   }
-   EOF
-   }
