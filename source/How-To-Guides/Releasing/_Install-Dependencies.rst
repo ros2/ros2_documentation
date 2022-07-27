@@ -1,6 +1,4 @@
-Install tools that help the process of making the releases.
-On debian-based systems such as Ubuntu, the recommended installation method is to use ``apt``.
-On non-debian systems, use ``pip3``:
+Install the tools that you will use in the upcoming steps with ``apt`` if you're on a debian-based systems such as Ubuntu, or with ``pip3`` if you're on a non-debian system:
 
 .. tabs::
 

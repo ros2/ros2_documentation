@@ -1,10 +1,8 @@
 First Time Release
 ==================
 
-This guide explains how to release a ROS 2 package.
-If you plan on releasing a ROS 2 package that you developed, this is the guide to follow.
-Due to the numerous options available when releasing a ROS package, this guide will not be able to cover every detail.
-It intends to cover the most common use case.
+This guide explains how to release a ROS 2 repository that you have not released before.
+Due to the numerous options available for releasing a ROS package, this guide intends to cover the most common use case, and will not cover every detail.
 
 .. contents:: Table of Contents
    :depth: 3

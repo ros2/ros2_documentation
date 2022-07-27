@@ -5,14 +5,15 @@ Release Team / Repository
    :depth: 3
    :local:
 
-This page explains the recommendation of becoming a part of a release team and hosting a release repository on `ros2-gbp <https://github.com/ros2-gbp>`_.
+This page explains the recommended method of hosting your release repositories on `ros2-gbp <https://github.com/ros2-gbp>`_.
 
 What is ROS 2 GBP?
 ------------------
 
-`ros2-gbp <https://github.com/ros2-gbp>`_ is a GitHub organization that hosts the release repositories for ROS packages, and lists release teams and their members that have access to modify the release repositories.
+`ros2-gbp <https://github.com/ros2-gbp>`_ is a GitHub organization that hosts the release repositories for ROS packages.
+They also maintain a list of release teams, the list of members per release team and the list of release repositories maintained by the release teams.
 Interactions with ros2-gbp are done through raising GitHub issues.
-It is recommended that you get this done early, as it may take some time for the ros2-gbp maintainers to respond to your requests.
+It is recommended that you request to join a release team and set up a release repository early as it can take some time for the ros2-gbp maintainers to respond to your requests.
 
 .. _what-is-a-release-team:
 
@@ -20,10 +21,10 @@ What is a release team?
 -----------------------
 
 A release team is a `GitHub team <https://docs.github.com/en/organizations/organizing-members-into-teams/about-teams>`_ that consists of a group of people who are responsible for the release process of one or more repositories.
-Release teams often consist of an organization, a working group, or even an individual, and are named after the team or group that they represent.
+Release teams are often made up of an organization, a working group, or even an individual, and are named after the team or group that they represent.
 The list of release teams and their associated release repositories are maintained at `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`_.
 
-**To make a release, you must be part of the team that manages the corresponding release repository.**
+**You must be a part of the release team that you are planning on releasing the project for.**
 If you intend to release the repository under an existing team, follow :ref:`Join a release team <join-a-release-team>`.
 If you intend to start a new team, follow :ref:`Start a new release team <start-a-new-release-team>`.
 
