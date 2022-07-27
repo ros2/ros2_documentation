@@ -10,7 +10,7 @@ This guide explains how to release a new version of a ROS package that has alrea
 Be part of the release team
 ---------------------------
 
-If you are not part of the release team for the repository, follow `Join a release team <Join-a-release-team>`_.
+If you are not part of the release team for the repository, follow :ref:`Join a release team <join-a-release-team>`.
 
 Install dependencies
 --------------------

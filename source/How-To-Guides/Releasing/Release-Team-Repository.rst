@@ -14,6 +14,8 @@ What is ROS 2 GBP?
 Interactions with ros2-gbp are done through raising GitHub issues.
 It is recommended that you get this done early, as it may take some time for the ros2-gbp maintainers to respond to your requests.
 
+.. _what-is-a-release-team:
+
 What is a release team?
 -----------------------
 
@@ -22,8 +24,10 @@ Release teams often consist of an organization, a working group, or even an indi
 The list of release teams and their associated release repositories are maintained at `ros2-gbp-github-org <https://github.com/ros2-gbp/ros2-gbp-github-org>`_.
 
 **To make a release, you must be part of the team that manages the corresponding release repository.**
-If you intend to release the repository under an existing team, follow `Join a release team`_.
-If you intend to start a new team, follow `Start a new release team`_.
+If you intend to release the repository under an existing team, follow :ref:`Join a release team <join-a-release-team>`.
+If you intend to start a new team, follow :ref:`Start a new release team <start-a-new-release-team>`.
+
+.. _join-a-release-team:
 
 Join a release team
 ^^^^^^^^^^^^^^^^^^^
@@ -31,21 +35,27 @@ Join a release team
 Fill the `Update Release Team Membership issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=update_release_team_membership.md&title=Update+release+team+membership>`_ issue template
 if a release team already exists for your project but you are not part of it.
 
+.. _start-a-new-release-team:
+
 Start a new release team
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Fill the `New Release Team issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_team.md&title=Add+release+team>`_ issue template
 if no release team exists for your project yet, request for a new release team to be created.
 
+.. _what-is-a-release-repository:
+
 What is a release repository?
 -----------------------------
 
-A release repository is a repository that both
+A release repository is a repository that
 
 * stores files generated from the release process, for the ROS buildfarm to use
 * caches configurations from the release process to simplify subsequent releases of the repository in the future
 
 Having a release repository separate from your source code repository is a requirement for making a release in ROS 2.
+
+.. _create-a-new-release-repository:
 
 Create a new release repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -13,17 +13,17 @@ It intends to cover the most common use case.
 Be part of a release team
 -------------------------
 
-You must be part of a `release team <What is a release team?>`_.
+You must be part of a :ref:`release team <what-is-a-release-team>`.
 If you are not part of a release team yet, follow either:
 
-* `Join a release team <Join a release team>`_
-* `Start a new release team <Start a new release team>`_
+* :ref:`Join a release team <join-a-release-team>`
+* :ref:`Start a new release team <start-a-new-release-team>`
 
 Create a new release repository
 -------------------------------
 
-You need a `release repository <What is a release repository?>`_ to release a package.
-Follow `Create a new release repository <Create a new release repository>`_.
+You need a :ref:`release repository <what-is-a-release-repository>` to release a package.
+Follow :ref:`Create a new release repository <create-a-new-release-repository>`.
 
 Install dependencies
 --------------------
@@ -63,13 +63,6 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 .. code-block:: bash
 
   bloom-release --new-track --rosdistro {DISTRO} --track {DISTRO} my_repo
-
-.. ``bloom-release`` will perform the following:
-
-.. * Generate a new :ref:`track <track>` and configure it
-.. * Generate platform specific release artifacts
-.. * Push them to the release repository
-.. * Open a Pull Request from your GitHub account to `rosdistro <https://github.com/ros/rosdistro>`_ with changes to add your repository to ``{DISTRO}/distribution.yaml``.
 
 .. tip::
 

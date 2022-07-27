@@ -52,7 +52,7 @@ Simply press Enter to accept the default of yes.
 .. _repository-name:
 
 Repository Name
----------------
+^^^^^^^^^^^^^^^
 
 The repository name is trivial, but it is recommended to set this to the name of your project.
 
@@ -70,7 +70,7 @@ Type the name of your project (eg. ``my_project``) and press Enter.
 .. _upstream-repository-uri:
 
 Upstream Repository URI
------------------------
+^^^^^^^^^^^^^^^^^^^^^^^
 
 The **upstream repository** is the repository where your source code is.
 This is most likely an https link to your project hosted on a git hosting service such as GitHub or GitLab.
@@ -89,7 +89,7 @@ Make sure you **use the https address** (eg. ``https://github.com/my_organizatio
 .. _upstream-vcs-type:
 
 Upstream VCS Type
------------------
+^^^^^^^^^^^^^^^^^
 
 This is the `Upstream Repository URI`_'s version control system (VCS) type.
 You must specify the type of vcs your repository is using, from  ``svn``, ``git``, ``hg`` or ``tar``.
@@ -112,7 +112,7 @@ Most repositories will be using git, but some legacy repositories might be using
 .. _version:
 
 Version
--------
+^^^^^^^
 
 This is the version of the package you are releasing.
 
@@ -138,7 +138,7 @@ Setting this to ``:{auto}`` will automatically determine the version from the de
 .. _release-tag:
 
 Release Tag
------------
+^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -168,7 +168,7 @@ This is useful if the upstream project has frequent tagged releases and you want
 .. _upstream-devel-branch:
 
 Upstream Devel Branch
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 The upstream devel branch is the name of the branch in your :ref:`upstream repository <upstream-repository-uri>` that you are releasing.
 If you use separate branches for each ROS distribution, this field would be different for each release track.
@@ -188,7 +188,7 @@ Leaving this as ``None`` would result in the version being determined from the d
 .. _ros-distro:
 
 ROS Distro
-----------
+^^^^^^^^^^
 
 This is the distribution you're planning on releasing the package into.
 
@@ -204,7 +204,7 @@ If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``.
 .. _patches-directory:
 
 Patches Directory
------------------
+^^^^^^^^^^^^^^^^^
 
 This is only relevant if you're releasing a third party package.
 
@@ -226,7 +226,7 @@ This is the directory where your patches are.
 .. _release-repository-push-url:
 
 Release Repository Push URL
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
