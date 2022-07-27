@@ -17,7 +17,7 @@ Releasing a Package
    Release-Track
    GitHub-Manual-Authorization
 
-**Releasing a package in ROS 2 means to make your package available on the public ROS 2 buildfarm.**
+**Releasing a package makes your package available on the public ROS 2 buildfarm.**
 After you've created a package, this is the next step towards getting your package into the publicly-available Debian packages so that others can install the package via ``apt``.
 
 Follow one of the guides below:
