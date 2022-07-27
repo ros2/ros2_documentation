@@ -2,7 +2,7 @@ Release Track
 =============
 
 .. contents:: Table of Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 .. _what-is-a-track:
