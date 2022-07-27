@@ -17,12 +17,12 @@ Releasing a Package
    Release-Track
    GitHub-Manual-Authorization
 
-Releasing a package in ROS 2 means to make your package available on the public ROS 2 buildfarm.
-After you've created a package, this is the next step towards getting your package in to the publicly-available Debian packages so that others can install the package via ``apt``.
+**Releasing a package in ROS 2 means to make your package available on the public ROS 2 buildfarm.**
+After you've created a package, this is the next step towards getting your package into the publicly-available Debian packages so that others can install the package via ``apt``.
 
 Follow one of the guides below:
 
-* :doc:`First Time Release <First-Time-Release>` - if this is the first release for the repositor
-* :doc:`Subsequent Releases <Subsequent-Releases>` - if you are making a new release for an already-released repository
+* :doc:`First Time Release <First-Time-Release>` - if this is the first release for the package
+* :doc:`Subsequent Releases <Subsequent-Releases>` - if you are releasing a new version of a package that has already been released
 
-After successfully following the instructions, your package will be released into the ROS ecosystem on the next synchronization!
+After successfully following the instructions, your package will be released into the ROS ecosystem on the next distro synchronization!

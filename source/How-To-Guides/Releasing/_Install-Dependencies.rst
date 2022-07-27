@@ -1,4 +1,4 @@
-Install the tools that you will use in the upcoming steps with ``apt`` if you're on a debian-based systems such as Ubuntu, or with ``pip3`` if you're on a non-debian system:
+Install tools that you will use in the upcoming steps with ``apt`` if you're on a debian-based systems such as Ubuntu or with ``pip3`` if you're on a non-debian system:
 
 .. tabs::
 

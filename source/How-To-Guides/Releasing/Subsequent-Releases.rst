@@ -1,7 +1,7 @@
 Subsequent Releases
 ===================
 
-This guide explains how to release a new version of a ROS package that has already been released.
+This guide explains how to release new versions of ROS packages that have already been released before.
 
 .. contents:: Table of Contents
    :depth: 3
@@ -10,7 +10,7 @@ This guide explains how to release a new version of a ROS package that has alrea
 Be part of the release team
 ---------------------------
 
-If you are not part of the release team for the repository, follow :ref:`Join a release team <join-a-release-team>`.
+If you are not part of the release team that has write access to the release repository, follow :ref:`Join a release team <join-a-release-team>`.
 
 Install dependencies
 --------------------
@@ -25,7 +25,7 @@ Ensure repositories are up-to-date
 Updating Changelog
 ------------------
 
-For your users and for the developers, it is important to keep the changelog up to date.
+For your users and for the developers, keep the changelog concise and up to date.
 
 .. code-block:: bash
 
@@ -45,7 +45,7 @@ Bloom Release
 
    If you have two factor authorization enabled on GitHub, follow :doc:`GitHub Manual Authorization <GitHub-Manual-Authorization>` first.
 
-Run the following command, replacing ``my_repo`` with the name of your repository:
+Run the following command, replacing ``my_repo`` with the name of your repository with the packages:
 
 .. code-block:: bash
 

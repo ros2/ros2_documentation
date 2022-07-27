@@ -1,8 +1,8 @@
 First Time Release
 ==================
 
-This guide explains how to release a ROS 2 repository that you have not released before.
-Due to the numerous options available for releasing a ROS package, this guide intends to cover the most common use case, and will not cover every detail.
+This guide explains how to release ROS 2 packages that you have not released before.
+Due to numerous options available when releasing ROS packages, this guide intends to cover the most common scenario and does not cover every cornercase.
 
 .. contents:: Table of Contents
    :depth: 3
@@ -72,7 +72,7 @@ Run the following command, replacing ``my_repo`` with the name of your repositor
 You will be prompted to enter information to configure a new track.
 In a common scenario such as:
 
-* You are releasing a repository called ``my_repo``
+* Your packages are in a repository called ``my_repo``
 * You are releasing a branch called ``main``
 * The repository is hosted on GitHub at ``https://github.com/my_organization/my_repo.git``
 * Your release repository is at ``https://github.com/ros2-gbp/my_repo-release.git``
@@ -110,13 +110,6 @@ You should respond to the prompts as following:
 
   An empty cell in the table indicates that the default value should be used.
   Simply respond to the prompt by pressing Enter.
-
-.. There are many command which come with bloom, even though you will most likely only need
-.. to run ``bloom-release``. Many of the bloom commands are prefixed with ``git-``, which indicates
-.. that they must be run inside a git repository. If you clone your release repository manually,
-.. then you can use ``git-`` prefixed commands to manually manipulate your release repository.
-.. One of these commands is called ``git-bloom-config`` and it lets you manage your tracks.
-.. Run ``git-bloom-config -h`` to get more information about how to manage your release tracks.
 
 Bloom will automatically create a pull request for you against `rosdistro <https://github.com/ros/rosdistro>`_.
 
