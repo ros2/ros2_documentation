@@ -129,9 +129,9 @@ This is the version of the package you are releasing. (eg. ``1.0.3``)
          It must be updated for each new upstream version.
       [':{auto}']:
 
-Setting this to ``:{ask}`` will bring up a prompt asking for the version every time you run a release with bloom.
+Setting this to ``:{auto}`` (the default, and recommended setup) will automatically determine the version from the devel branch's package.xml.
 
-Setting this to ``:{auto}`` will automatically determine the version from the devel branch's package.xml.
+Setting this to ``:{ask}`` will bring up a prompt asking for the version every time you run a release with bloom.
 
 .. _release-tag:
 
