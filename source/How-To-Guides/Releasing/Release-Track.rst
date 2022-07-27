@@ -11,14 +11,12 @@ What is a Track?
 ----------------
 
 Bloom requires the user to enter configuration information when releasing packages for the first time.
-Such information is stored in the release repository to prevent having to manually enter the information again for subsequent releases.
+It would be beneficial to store such configurations in the release repository so we don't have to manually enter configurations that won't change for subsequent releases.
 
-Having one set of configurations for your repository is not enough to release packages into multiple distributions because configurations will differ for each distribution.
-
-To facilitate this, bloom uses release tracks to maintain configurations for different release processes.
+Since some of the configurations will differ when releasing the package for different ROS distributions, bloom uses **release tracks to store the configurations for releasing** per distribution.
 By convention you should create tracks with the same name as the ROS distro you are releasing for.
 
-All release track configurations are stored in ``tracks.yaml`` on the master branch of the release repository.
+All release track configurations are stored in ``tracks.yaml`` on the master branch of your release repository.
 
 Track Configurations
 --------------------
@@ -84,7 +82,7 @@ This is most likely an https link to your project hosted on a git hosting servic
          where the :{version} token will be replaced with the version for this release.
       [None]:
 
-Make sure you **use the https address** (eg. ``https://github.com/my_organization/my_repo.git``) and not the ssh address (eg. ``git@github.com:my_organization/my_repo.git``)
+Make sure you **use the https address** (eg. ``https://github.com/my_organization/my_repo.git``) and not the ssh address.
 
 .. _upstream-vcs-type:
 
@@ -114,7 +112,7 @@ Most repositories will be using git, but some legacy repositories might be using
 Version
 ^^^^^^^
 
-This is the version of the package you are releasing.
+This is the version of the package you are releasing. (eg. ``1.0.3``)
 
 .. code-block:: bash
 
@@ -140,6 +138,8 @@ Setting this to ``:{auto}`` will automatically determine the version from the de
 Release Tag
 ^^^^^^^^^^^
 
+The Release Tag refers to which tag or branch you want to import the code from.
+
 .. code-block:: bash
 
    Release Tag:
@@ -159,18 +159,17 @@ Release Tag
          it is ignored.  For svn this means no revision number is used.
       [':{version}']:
 
-The Release Tag refers to which tag or branch you want to import the code from.
 If you always want to pull in the latest ``master`` branch at the time of release from the upstream project, enter ``master``.
 
 Alternatively, if you want to be prompted to enter a different tag every time you do a release, enter ``:{ask}``.
-This is useful if the upstream project has frequent tagged releases and you want to refer to the new tag every time you're releasing.
+``:{ask}`` is useful if the upstream project has frequent tagged releases and you want to refer to the new tag every time you're releasing.
 
 .. _upstream-devel-branch:
 
 Upstream Devel Branch
 ^^^^^^^^^^^^^^^^^^^^^
 
-The upstream devel branch is the name of the branch in your :ref:`upstream repository <upstream-repository-uri>` that you are releasing.
+The upstream devel branch is the name of the branch in your :ref:`upstream repository <upstream-repository-uri>`.
 If you use separate branches for each ROS distribution, this field would be different for each release track.
 It is used to determine the version of the package you are releasing when :ref:`Version` is set to ``:{auto}``.
 
@@ -206,7 +205,7 @@ If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``.
 Patches Directory
 ^^^^^^^^^^^^^^^^^
 
-This is only relevant if you're releasing a third party package.
+This is the directory where your patches are.
 
 .. code-block:: bash
 
@@ -221,7 +220,7 @@ This is only relevant if you're releasing a third party package.
          Use this if you want to disable overlaying of files.
       [None]:
 
-This is the directory where your patches are.
+This is only relevant if you're releasing a third party package.
 
 .. _release-repository-push-url:
 
