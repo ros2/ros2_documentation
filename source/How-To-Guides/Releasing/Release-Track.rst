@@ -184,7 +184,7 @@ It is used to determine the version of the package you are releasing when :ref:`
       [None]:
 
 To release from a branch called ``{DISTRO}``, enter ``{DISTRO}``.
-Leaving this as ``None`` would result in the version being determined from the default branch of your repository.
+Leaving this as ``None`` would result in the version being determined from the default branch of your repository (this is not recommended).
 
 .. _ros-distro:
 
