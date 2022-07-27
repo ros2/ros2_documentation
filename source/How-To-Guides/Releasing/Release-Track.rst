@@ -222,7 +222,8 @@ This is the directory where any additional patches to the releases are.
          Use this if you want to disable overlaying of files.
       [None]:
 
-This is only relevant if you're releasing a third party package.
+Adding additional patches to a release is a rarely used feature.
+For almost all packages, this should be left as the default ``None``.
 
 .. _release-repository-push-url:
 
