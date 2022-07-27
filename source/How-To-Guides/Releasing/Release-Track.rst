@@ -207,7 +207,7 @@ If you plan on releasing into ROS {DISTRO}, enter ``{DISTRO}``.
 Patches Directory
 ^^^^^^^^^^^^^^^^^
 
-This is the directory where your patches are.
+This is the directory where any additional patches to the releases are.
 
 .. code-block:: bash
 
