@@ -19,7 +19,8 @@ Token-based Authentication
 Create an access token
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Go to `Personal access tokens <https://github.com/settings/tokens>`_, log in if you haven't already.
+Log in to GitHub if you haven't already.
+Go to `Personal access tokens <https://github.com/settings/tokens>`_.
 
 #. Click the **Generate new token** button.
 #. Set **Note** to something like ``Bloom token``.
