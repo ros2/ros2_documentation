@@ -159,7 +159,9 @@ The Release Tag refers to which tag or branch you want to import the code from.
          it is ignored.  For svn this means no revision number is used.
       [':{version}']:
 
-If you always want to pull in the latest ``master`` branch at the time of release from the upstream project, enter ``master``.
+Setting this to ``:{version}`` (the default, and recommended setup) will make the release tag match the version tag.
+
+A less common setup is to set this to a branch name to always pull in that branch at the time of release from the upstream project.
 
 Alternatively, if you want to be prompted to enter a different tag every time you do a release, enter ``:{ask}``.
 ``:{ask}`` is useful if the upstream project has frequent tagged releases and you want to refer to the new tag every time you're releasing.
