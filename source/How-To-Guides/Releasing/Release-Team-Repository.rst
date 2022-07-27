@@ -11,7 +11,7 @@ What is ROS 2 GBP?
 ------------------
 
 `ros2-gbp <https://github.com/ros2-gbp>`_ is a GitHub organization that hosts the release repositories for ROS packages.
-They also maintain a list of release teams, the list of members per release team and the list of release repositories maintained by the release teams.
+It also maintains a list of release teams, the list of members per release team and the list of release repositories maintained by the release teams in https://github.com/ros2-gbp/ros2-gbp-github-org.
 Interactions with ros2-gbp-github-org are done through raising GitHub issues.
 It is recommended that you request to join a release team and set up a release repository early as it can take some time for the ros2-gbp maintainers to respond to your requests.
 
