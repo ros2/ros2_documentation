@@ -65,7 +65,7 @@ As suggested in `an answer from ROS Answers <http://answers.ros.org/question/234
    [url "git@github.com:"]
      insteadOf = https://github.com/
 
-If you choose this option, be sure not to forget `enable ssh connection with GitHub <https://help.github.com/articles/generating-an-ssh-key/>`_.
+If you choose this option, be sure to `enable ssh connections with GitHub <https://help.github.com/articles/generating-an-ssh-key/>`_.
 
 Bash Script for setting up OAuth Token
 --------------------------------------
