@@ -11,7 +11,7 @@ What is a Track?
 ----------------
 
 Bloom requires the user to enter configuration information when releasing packages for the first time.
-It would be beneficial to store such configurations in the release repository so we don't have to manually enter configurations that won't change for subsequent releases.
+It is beneficial to store such configurations in the release repository so we don't have to manually enter configurations that won't change for subsequent releases.
 
 Since some of the configurations will differ when releasing the package for different ROS distributions, bloom uses **release tracks to store the configurations for releasing** per distribution.
 By convention you should create tracks with the same name as the ROS distro you are releasing for.
