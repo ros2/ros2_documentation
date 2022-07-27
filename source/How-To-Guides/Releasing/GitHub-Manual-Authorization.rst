@@ -2,7 +2,7 @@ GitHub Manual Authorization
 ===========================
 
 .. contents:: Table of Contents
-   :depth: 3
+   :depth: 2
    :local:
 
 If you have two-factor authentication enabled for GitHub, bloom cannot log in with your GitHub password alone.
