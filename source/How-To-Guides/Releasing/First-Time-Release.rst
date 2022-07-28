@@ -28,6 +28,11 @@ Install dependencies
 
 .. include:: _Install-Dependencies.rst
 
+Set Up a Personal Access Token
+------------------------------
+
+.. include:: _Personal-Access-Token.rst
+
 Ensure repositories are up-to-date
 ----------------------------------
 
@@ -51,10 +56,6 @@ Bump the package version
 
 Bloom Release
 -------------
-
-.. note::
-
-   If you have two factor authorization enabled on GitHub, follow :doc:`GitHub Manual Authorization <GitHub-Manual-Authorization>` first.
 
 Run the following command, replacing ``my_repo`` with the name of your repository:
 

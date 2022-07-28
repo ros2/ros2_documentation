@@ -15,10 +15,9 @@ Releasing a Package
    Subsequent-Releases
    Release-Team-Repository
    Release-Track
-   GitHub-Manual-Authorization
 
 **Releasing a package makes your package available on the public ROS 2 buildfarm.**
-After you've created a package, this is the next step towards getting your package into the publicly available Debian packages!
+After you have created a package, this is the next step towards getting your package into the publicly available Debian packages!
 
 Releasing your package onto the buildfarm will make your package available to be installed via package managers (eg. ``apt`` on Ubuntu) for all supported Linux platforms in a ROS distribution as described in `REP 2000 <https://ros.org/reps/rep-2000.html>`_.
 
