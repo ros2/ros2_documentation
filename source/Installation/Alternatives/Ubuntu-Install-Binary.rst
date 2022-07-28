@@ -92,13 +92,15 @@ If you would like to use another DDS or RTPS vendor besides the default, you can
 Environment setup
 -----------------
 
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Source the setup script
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
 .. code-block:: bash
 
+   # Replace ".bash" with your shell if you're not using bash
+   # Possible values are: setup.bash, setup.sh, setup.zsh
   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
 
 Try some examples
