@@ -17,15 +17,12 @@ Releasing a Package
    Release-Track
 
 **Releasing a package makes your package available on the public ROS 2 buildfarm.**
-After you have created a package, this is the next step towards getting your package into the publicly available Debian packages!
+This will:
 
-Releasing your package onto the buildfarm will make your package available to be installed via package managers (eg. ``apt`` on Ubuntu) for all supported Linux platforms in a ROS distribution as described in `REP 2000 <https://ros.org/reps/rep-2000.html>`_.
-
-Additionally, releasing the package:
-
-#. Allows your package to have API documentation automatically generated.
-#. Makes your package part of the `ROS Index <https://index.ros.org>`_.
-#. (Optionally) Allows you to have automatic CI run for pull requests in your repository.
+* Make your package available to be installed via package managers (eg. ``apt`` on Ubuntu) for all supported Linux platforms in a ROS distribution as described in `REP 2000 <https://ros.org/reps/rep-2000.html>`_.
+* Allow your package to have API documentation automatically generated.
+* Make your package part of the `ROS Index <https://index.ros.org>`_.
+* (Optionally) Allow you to have automatic CI run for pull requests in your repository.
 
 **Follow one of the guides below to get your package released:**
 
