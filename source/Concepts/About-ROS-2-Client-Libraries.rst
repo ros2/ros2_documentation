@@ -34,7 +34,7 @@ The C++ client library (``rclcpp``) and the Python client library (``rclpy``) ar
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community have created additional client libraries:
 
-* `rclc for C <https://github.com/ros2/rclc>`__ . ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in the C programming language. It has been developed particularly for micro-ROS and therefore limits dynamic memory operations to the initialization phase. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials on programming with rclc. `API Documentation <http://docs.ros.org/en/humble/p/rclc/>`__
+* `C programming language <https://github.com/ros2/rclc>`__  developed for microcontrollers in `micro.ros.org <https://micro.ros.org/>`__
 * `JVM and Android <https://github.com/esteve/ros2_java>`__
 * `Objective C and iOS <https://github.com/esteve/ros2_objc>`__
 * `C# <https://github.com/firesurfer/rclcs>`__
