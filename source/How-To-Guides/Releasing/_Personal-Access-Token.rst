@@ -4,6 +4,7 @@
 
 During the release process, multiple HTTPS Git operations will be performed that require password authentication.
 To avoid being repeatedly asked for a password, a `Personal Access Token (PAT) <https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token>`_ will be set up.
+Note that if you have multi-factor authentication setup on your GitHub account, you **must** setup a Personal Access Token.
 
 Create a Personal Access Token by:
 
