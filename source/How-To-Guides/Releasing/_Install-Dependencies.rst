@@ -1,20 +1,20 @@
-Install tools that you will use in the upcoming steps with ``apt`` if you're on a debian-based systems such as Ubuntu or with ``pip3`` if you're on a non-debian system:
+Install tools that you will use in the upcoming steps according to your platform:
 
 .. tabs::
 
-   .. group-tab:: apt
+   .. group-tab:: Debian (eg. Ubuntu)
 
       .. code-block:: bash
 
          sudo apt install python3-bloom python3-catkin-pkg
 
-   .. group-tab:: rpm
-   
+   .. group-tab:: RPM (eg. RHEL)
+
       .. code-block:: bash
-      
+
           sudo dnf install python3-bloom python3-catkin_pkg
 
-   .. group-tab:: pip3
+   .. group-tab:: Other
 
       .. code-block:: bash
 
