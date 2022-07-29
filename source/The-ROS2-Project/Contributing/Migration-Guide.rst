@@ -321,7 +321,7 @@ Instead of returning false on failures, there are some ways to handle failure:
          // ...
          // return true;  // or false for failure
       }
-Throwing exceptions can cause that client hangs on waiting for response. So it needs to add a timeout on the client side.
+   Throwing exceptions can cause that client hangs on waiting for response. So it needs to add a timeout on the client side.
 
 * To add a success field in the response message
    .. code-block:: cpp
