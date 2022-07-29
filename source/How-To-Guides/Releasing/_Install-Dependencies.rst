@@ -8,6 +8,12 @@ Install tools that you will use in the upcoming steps with ``apt`` if you're on 
 
          sudo apt install python3-bloom python3-catkin-pkg
 
+   .. group-tab:: rpm
+   
+      .. code-block:: bash
+      
+          sudo dnf install python3-bloom python3-catkin_pkg
+
    .. group-tab:: pip3
 
       .. code-block:: bash
