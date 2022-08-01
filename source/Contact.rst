@@ -120,7 +120,7 @@ Content, links, and images unrelated to the topic are considered spam.
 * For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
 Minimize references to content behind pay walls.
-The content posted on `ROS Discourse <https://discourse.ros.org/>` and `ROS Answers <https://answers.ros.org/>` should "generally" be free and open to all users.
+The content posted on `ROS Discourse <https://discourse.ros.org/>`__ and `ROS Answers <https://answers.ros.org/>`__ should "generally" be free and open to all users.
 Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
 Where possible primary sources should be free and open with paid content playing a supporting role.
 
