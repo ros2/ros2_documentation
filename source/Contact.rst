@@ -98,7 +98,8 @@ Assuming 'good faith' when responding almost always works better even if the ori
 
 Please don't send your question more than once: The question was seen. 
 If you didn't get a response then likely nobody has had time to answer you. 
-Alternatively, it could be that nobody knows the answer. In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
+Alternatively, it could be that nobody knows the answer.
+In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
 This also applies to crossposting. 
 Try to pick the forum which you think matches best and ask there. 
 If you are referred to a new forum, provide a link to the old discussion.
