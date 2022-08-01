@@ -110,7 +110,8 @@ The more details that you include in your question the easier it is for others t
 
 It's considered bad form to list your personal deadlines; community members answering questions also have them.
 
-Do not beg for help. If there is someone willing and able to help with your problem, you usually get a response.
+Do not beg for help.
+If there is someone willing and able to help with your problem, you usually get a response.
 Asking for faster answers will mostly have a negative effect.
 
 Do not add unrelated content to posts.
