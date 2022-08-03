@@ -155,7 +155,7 @@ Now you can confirm that your interface creation worked by using the ``ros2 inte
 
 .. code-block:: console
 
-  ros2 msg show tutorial_interfaces/msg/Num
+  ros2 interface show tutorial_interfaces/msg/Num
 
 should return:
 
@@ -167,7 +167,7 @@ And
 
 .. code-block:: console
 
-  ros2 srv show tutorial_interfaces/srv/AddThreeInts
+  ros2 interface show tutorial_interfaces/srv/AddThreeInts
 
 should return:
 
