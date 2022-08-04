@@ -49,7 +49,7 @@ When filing an issue, please make sure to:
 
 * Include enough information for another person to understand the issue.
 
-Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong. 
+Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong.
 If following a tutorial or online instructions provide a link to the specific instructions. 
 * Use a descriptive headline or subject line. Bad: "rviz doesn't work". Good: "Rviz crashing looking for missing .so after latest apt update"
 * Include information about the exact platform, software, versions, and environment relevant to the problem.
