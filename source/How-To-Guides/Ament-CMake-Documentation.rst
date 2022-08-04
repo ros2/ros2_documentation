@@ -29,7 +29,7 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14)
    project(my_project)
 
    ament_package()
@@ -37,9 +37,8 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 The argument to ``project`` will be the package name and must be identical to the package name in the ``package.xml``.
 
 The project setup is done by ``ament_package()`` and this call must occur exactly once per package.
-``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs config (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
-Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in your ``CMakeLists.txt``.
-Although it is possible to follow calls to ``ament_package()`` by calls to ``install`` functions copying files and directories, it is simpler to just keep ``ament_package()`` the last call.
+``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs CMake files so that it can be found by other packages using ``find_package``.
+``ament_package()`` should be the last call in your ``CMakeLists.txt``.
 
 ``ament_package`` can be given additional arguments:
 
@@ -50,80 +49,41 @@ Although it is possible to follow calls to ``ament_package()`` by calls to ``ins
 - ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``, but the order in which the files are added differs.
   While ``CONFIG_EXTRAS`` files are included before the files generated for the ``ament_export_*`` calls the files from ``CONFIG_EXTRAS_POST`` are included afterwards.
 
-Instead of adding to ``ament_package``, you can also add to the variable ``${PROJECT_NAME}_CONFIG_EXTRAS`` and ``${PROJECT_NAME}_CONFIG_EXTRAS_POST`` with the same effect.
-The only difference is again the order in which the files are added with the following total order:
-
-- files added by ``CONFIG_EXTRAS``
-
-- files added by appending to ``${PROJECT_NAME}_CONFIG_EXTRAS``
-
-- files added by appending to ``${PROJECT_NAME}_CONFIG_EXTRAS_POST``
-
-- files added by ``CONFIG_EXTRAS_POST``
-
 Adding files and headers
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-There are two main targets to build: libraries and executables which are built by ``add_library`` and ``add_executable`` respectively.
+There are two main targets to build: libraries and executables.
+These are built by `add_library() <https://cmake.org/cmake/help/v3.14/command/add_library.html>`__ and `add_executable() <https://cmake.org/cmake/help/v3.14/command/add_executable.html>`__ respectively.
 
-With the separation of header files and implementation in C/C++, it is not always necessary to add both files as argument to ``add_library``/ ``add_executable``.
+It's recommended to put all headers which should be usable by clients into a subdirectory of the ``include`` folder (such as ``include/my_project/foo.hpp``, while all other files (``.c/.cpp`` and header files which should not be installed) should be inside a ``src`` folder.
 
-The following best practice is proposed:
-
-- if you are building a library, put all headers which should be usable by clients and therefore must be installed into a subdirectory of the ``include`` folder named like the package, while all other files (``.c/.cpp`` and header files which should not be exported) are inside the ``src`` folder.
-
-- only cpp files are explicitly referenced in the call to ``add_library`` or ``add_executable``
-
-- allow to find headers via
+Use `target_include_directories() <https://cmake.org/cmake/help/v3.14/command/target_include_directories.html>`__ to tell libraries and executables where the headers are.
 
 .. code-block:: cmake
 
     target_include_directories(my_target
       PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>)
-
-This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
-
-In principle, using generator expressions here is not necessary if both folders are called ``include`` and top-level with respect to ``${CMAKE_CURRENT_SOURCE_DIR}`` and ``${CMAKE_INSTALL_DIR}``, but it is very common.
+        $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
 
 Adding Dependencies
 ^^^^^^^^^^^^^^^^^^^
 
-There are two ways to link your packages against a new dependency.
-
-The first and recommended way is to use the ament macro ``ament_target_dependencies``.
-As an example, suppose we want to link ``my_target`` against the linear algebra library Eigen3.
+The recommended way is to use `target_link_libraries() <https://cmake.org/cmake/help/v3.14/command/target_link_libraries.html>`__ and modern CMake targets.
+Here's how to link the target ``my_target`` against the ROS C++ client library ``rclcpp``.
 
 .. code-block:: cmake
 
-    find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_target Eigen3)
+    find_package(rclcpp REQUIRED)
+    target_link_libraries(my_target PUBLIC rclcpp::rclcpp)
 
-It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
-It will also ensure that the include directories of all dependencies are ordered correctly when using overlay workspaces.
-
-The second way is to use ``target_link_libraries``.
-
-The recommended way in modern CMake is to only use targets, exporting and linking against them.
-CMake targets are namespaced, similar to C++.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
-
-At least until ``Crystal Clemmys`` target names are not supported in the ``ament_target_dependencies`` macro.
-Sometimes it will be necessary to call the ``target_link_libaries`` CMake function.
-In the example of Eigen3, the call should then look like
-
-.. code-block:: cmake
-
-    find_package(Eigen3 REQUIRED)
-    target_link_libraries(my_target Eigen3::Eigen)
-
-This will also include necessary headers, libraries and their dependencies, but in contrast to ``ament_target_dependencies`` it might not correctly order the dependencies when using overlay workspaces.
+That will make sure your target can include ``rclcpp``'s headers and link against its libraries.
 
 .. note::
 
-   It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
-   If that is the case, file a bug against the corresponding package.
+   It should never be necessary to ``find_package`` a package you do not directly use.
+   If you find that's the case, then one of your dependencies did not properly ``find_package`` it for you.
+   File a bug against the offending package.
 
 Building a Library
 ^^^^^^^^^^^^^^^^^^
@@ -137,7 +97,7 @@ When building a reusable library, some information needs to be exported for down
 
     install(
       DIRECTORY include/
-      DESTINATION include
+      DESTINATION include/${PROJECT_NAME}
     )
 
     install(
@@ -146,76 +106,49 @@ When building a reusable library, some information needs to be exported for down
       LIBRARY DESTINATION lib
       ARCHIVE DESTINATION lib
       RUNTIME DESTINATION bin
-      INCLUDES DESTINATION include
     )
 
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
-Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
 
-Here is what's happening in the snippet above:
+Here is what the above snippet does.
 
-- The ``ament_export_targets`` macro exports the targets for CMake.
-  This is necessary to allow your library's clients to use the ``target_link_libraries(client my_library::my_library)`` syntax.
-  ``ament_export_targets`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
-
+- The ``ament_export_targets`` makes sure packages that depend on yours can use your library with ``target_link_libraries(downstream_target my_package::my_library)``.
+  ``ament_export_targets`` takes a name for the export file. You can use any name as long as it matches the name you give to ``EXPORT`` in the the `install() <https://cmake.org/cmake/help/v3.14/command/install.html#installing-targets>`__ command.
+  The option ``HAS_LIBRARY_TARGET`` makes sure environment variables like ``LD_LIBRARY_PATH`` are set when a workspace containing your package is sourced.
 - The ``ament_export_dependencies`` exports dependencies to downstream packages.
-  This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
-
-- The first ``install`` commands installs the header files which should be available to clients.
 
 .. warning::
 
-   Calling ``ament_export_targets``, ``ament_export_dependencies``, or other ament commands from a CMake subdirectory will not work as expected.
-   This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
+   The macros ``ament_export_targets``, ``ament_export_dependencies`` must be called in the top level CMakeLists.txt, not a subdirectory.
+   This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
+
+- The first ``install`` commands installs the package's public header files.
 
 - The last large install command installs the library.
-  Archive and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
+  Archive and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder.
 
 .. note::
 
    Windows DLLs are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
-   It is therefore advised to not leave out the ``RUNTIME`` install even when developing libraries on Unix based systems.
+   It is therefore advised to not leave out the ``RUNTIME DESTINATION`` option even when developing libraries on Unix based systems.
 
-- Regarding the ``include directory``, the install command only adds information to CMake, it does not actually install the includes folder.
-  This is done by copying the headers via ``install(DIRECTORY <dir> DESTINATION <dest>)`` as described above.
+- The ``EXPORT`` notation installs an export file defined earlier by ``ament_export_targets``.
 
-- The ``EXPORT`` notation of the install call requires additional attention:
-  It installs the CMake files for the ``my_library`` target.
-  It is named exactly like the argument in ``ament_export_targets`` and could be named like the library.
-  However, this will then prohibit using the ``ament_target_dependencies`` way of including your library.
-  To allow for full flexibility, it is advised to prepend the export target with something like ``<target>Targets``.
-
-- All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament
-
-There are two additional functions which can be used but are superfluous for target based installs:
-
-.. code-block:: cmake
-
-    ament_export_include_directories(include)
-    ament_export_libraries(my_library)
-
-The first macro marks the directory of the exported include directories (this is achieved by ``INCLUDES DESTINATION`` in the target ``install`` call).
-The second macro marks the location of the installed library (this is done by the ``HAS_LIBRARY_TARGET`` argument in the call to ``ament_export_targets``).
-
-Some of the macros can take different types of arguments for non-target exports, but since the recommended way for modern Make is to use targets, we will not cover them here.
-Documentation of these options can be found in the source code itself.
+- All install paths are relative to `CMAKE_INSTALL_PREFIX <https://cmake.org/cmake/help/v3.14/variable/CMAKE_INSTALL_PREFIX.html>`__, which you do not need to set when using `colcon <https://colcon.readthedocs.io/en/released/>`__.
 
 Compiler and linker options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 targets compilers which comply with the C++14 and C99 standard until at least ``Crystal Clemmys``.
-Newer versions might be targeted in the future and are referenced `here <https://www.ros.org/reps/rep-2000.html>`__.
-Therefore it is customary to set the corresponding CMake flags:
+ROS 2 releases have minimum C and C++ standards, which cna be found in `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__.
+It's recommended to set them using `target_compile_features() <https://cmake.org/cmake/help/v3.14/command/target_compile_features.html>`__
 
 .. code-block:: cmake
 
-    if(NOT CMAKE_C_STANDARD)
-      set(CMAKE_C_STANDARD 99)
-    endif()
-    if(NOT CMAKE_CXX_STANDARD)
-      set(CMAKE_CXX_STANDARD 14)
-    endif()
+    # If using C
+    target_compile_features(my_library PUBLIC c_std_99)
+    # If using C++
+    target_compile_features(my_library PUBLIC cxx_std_17)
 
 To keep the code clean, compilers should throw warnings for questionable code and these warnings should be fixed.
 
@@ -225,23 +158,22 @@ It is recommended to at least cover the following warning levels:
 
 - For GCC and Clang: ``-Wall -Wextra -Wpedantic`` are required and ``-Wshadow -Werror`` are advisable (the latter makes warnings errors).
 
-Although modern CMake advises to add compiler flags on a target basis, i.e. call
+Modern CMake advises to add compiler flags on a target basis with `target_compile_options() <https://cmake.org/cmake/help/v3.14/command/target_compile_options.html>`__
 
 .. code-block:: cmake
 
     target_compile_options(my_target PRIVATE -Wall)
 
-it is at the moment recommended to use the directory level function ``add_compile_options(-Wall)`` to not clutter the code with target-based compile options for all executables and tests.
-
 Building libraries on Windows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Since Linux, Mac and Windows are all officially supported platforms, to have maximum impact any package should also build on Windows.
+Windows is an officially supported platform, so we recommend making sure your packages can build on it.
+
 The Windows library format enforces symbol visibility:
 Every symbol which should be used from a client has to be explicitly exported by the library (and data symbols need to be implicitly imported).
 
-To keep this compatible with Clang and GCC builds, it is advised to use the logic in `the GCC wiki <https://gcc.gnu.org/wiki/Visibility>`__.
-To use it for a package called ``my_library``:
+Use the logic in `the GCC wiki <https://gcc.gnu.org/wiki/Visibility>`__ to keep this compatible with Clang and GCC builds.
+Say your package creates a library named ``my_library``:
 
 - Copy the logic in the link into a header file called ``visibility_control.hpp``.
 
