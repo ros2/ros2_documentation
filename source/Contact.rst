@@ -40,7 +40,7 @@ You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://git
 
 Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 
-Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue. 
+Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue.
 
 If it has not been reported, feel free to open an issue in the appropriate repository tracker.
 If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
