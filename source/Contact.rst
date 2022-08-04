@@ -98,7 +98,7 @@ Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments 
 Assuming good faith gives the benefit of the doubt to those trying to help you, avoiding: insulting well meaning community members, and poisoning the mood. 
 Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
 
-Please don't send your question more than once: The question was seen. 
+Please don't send your question more than once: The question was seen.
 If you didn't get a response then likely nobody has had time to answer you. 
 Alternatively, it could be that nobody knows the answer.
 In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
