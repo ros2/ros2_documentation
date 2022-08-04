@@ -99,7 +99,7 @@ Assuming good faith gives the benefit of the doubt to those trying to help you, 
 Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
 
 Please don't send your question more than once: The question was seen.
-If you didn't get a response then likely nobody has had time to answer you. 
+If you didn't get a response then likely nobody has had time to answer you.
 Alternatively, it could be that nobody knows the answer.
 In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
 This also applies to crossposting. 
