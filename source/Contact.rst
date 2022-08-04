@@ -103,7 +103,7 @@ If you didn't get a response then likely nobody has had time to answer you.
 Alternatively, it could be that nobody knows the answer.
 In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
 This also applies to crossposting. 
-Try to pick the forum which you think matches best and ask there. 
+Try to pick the forum which you think matches best and ask there.
 If you are referred to a new forum, provide a link to the old discussion.
 
 On https://answers.ros.org you can edit your question to provide more details.
