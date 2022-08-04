@@ -94,7 +94,7 @@ We encourage all members of the ROS community to participate in these design dis
 Etiquette
 ----------
 
-Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments on the internet. 
+Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments on the internet.
 Assuming good faith gives the benefit of the doubt to those trying to help you, avoiding: insulting well meaning community members, and poisoning the mood. 
 Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
 
