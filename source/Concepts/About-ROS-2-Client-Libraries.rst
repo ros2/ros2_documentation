@@ -40,7 +40,7 @@ The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic in
 
 ``rclcpp`` makes use of all the features of C++ and C++17 to make the interface as easy to use as possible, but since it reuses the implementation in ``rcl`` it is able maintain a consistent behavior with the other client libraries that use the ``rcl`` |API|.
 
-The ``rclcpp`` repository is located on |GitHub|_ at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
+The ``rclcpp`` repository is located on GitHub at `ros2/rclcpp <https://github.com/ros2/rclcpp>`_ and contains the |package| ``rclcpp``.
 The generated |API| documentation is here:
 
 `api/rclcpp/index.html <http://docs.ros2.org/foxy/api/rclcpp/index.html>`_
@@ -57,7 +57,7 @@ Like C++ it generates custom Python code for each ROS message that the user inte
 All operations happen on the Python version of the messages until they need to be passed into the ``rcl`` layer, at which point they are converted into the plain C version of the message so it can be passed into the ``rcl`` C |API|.
 This is avoided if possible when communicating between publishers and subscribers in the same process to cut down on the conversion into and out of Python.
 
-The ``rclpy`` repository is located on |GitHub|_ at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
+The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
 The generated |API| documentation is here:
 
 
