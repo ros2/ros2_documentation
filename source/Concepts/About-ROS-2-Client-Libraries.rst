@@ -4,8 +4,6 @@
 
 .. _ROS-2-Client-Libraries:
 
-
-
 About ROS 2 client libraries
 ============================
 
