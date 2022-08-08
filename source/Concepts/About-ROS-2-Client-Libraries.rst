@@ -1,4 +1,10 @@
+.. redirect-from::
+
+   Concepts/About-Client-Interfaces
+
 .. _ROS-2-Client-Libraries:
+
+
 
 About ROS 2 client libraries
 ============================
@@ -59,7 +65,6 @@ This is avoided if possible when communicating between publishers and subscriber
 
 The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
 The generated |API| documentation is here:
-
 
 `api/rclpy/index.html <http://docs.ros2.org/foxy/api/rclpy/index.html>`_
 
