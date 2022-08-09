@@ -1,6 +1,8 @@
 .. redirect-from::
 
-   Concepts/About-Client-Interfaces
+   About-Client-Interfaces
+
+.. include:: ../../global_substitutions.txt
 
 .. _ROS-2-Client-Libraries:
 
