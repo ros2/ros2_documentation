@@ -51,16 +51,6 @@ Class :class:`vcstools.VcsClient` implements the :meth:`vcstools.VcsClient.check
 
 ------------
 
-Links to documentation pages:
-
-.. note::
-
-    Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
-
-Refer to :doc:`vcstools Developer's Guide document<developers_guide>`.
-
-------------
-
 Links to other pages in this documentation:
 
 .. note::
