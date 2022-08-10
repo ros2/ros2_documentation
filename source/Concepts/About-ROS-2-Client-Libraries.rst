@@ -1,6 +1,6 @@
 .. redirect-from::
 
-   About-Client-Interfaces
+   Concepts/About-Client-Interfaces
 
 .. include:: ../../global_substitutions.txt
 
