@@ -33,7 +33,7 @@ The Core Stack Developer Concepts are much more detailed conceptual articles int
   Concepts/About-Build-System
   Concepts/About-Internal-Interfaces
   Concepts/About-Middleware-Implementations
-  Concepts/About-Client-Interfaces
+  Concepts/About-ROS-2-Client-Libraries
 
 Quick overview of ROS 2 Concepts
 --------------------------------
