@@ -68,6 +68,10 @@ The generated |API| documentation is here:
 
 `api/rclpy/index.html <http://docs.ros2.org/foxy/api/rclpy/index.html>`_
 
+
+Community-maintained
+~~~~~~~~~~~~~~~~~~~~
+
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community maintain additional client libraries:
 
 * `Ada <https://github.com/ada-ros/ada4ros2>`__ Ada binding and tools for ROS 2 - workspace overlay.
