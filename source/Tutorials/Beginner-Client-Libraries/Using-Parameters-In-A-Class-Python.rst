@@ -37,10 +37,10 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-Navigate into ``dev_ws/src`` and create a new package:
+Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
@@ -66,7 +66,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/python_parameters/python_parameters`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
+Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create a new file called ``python_parameters_node.py`` and paste the following code within:
 
 .. code-block:: Python
 
@@ -220,7 +220,7 @@ Don’t forget to save.
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -238,7 +238,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package:
 
 .. tabs::
 
@@ -260,7 +260,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
       colcon build --merge-install --packages-select python_parameters
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
 .. tabs::
 
@@ -307,7 +307,7 @@ Make sure the node is running:
 
      ros2 run python_parameters param_talker
 
-Open another terminal, source the setup files from inside ``dev_ws`` again, and enter the following line:
+Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
 .. code-block:: console
 
@@ -329,7 +329,7 @@ Since the Python talker then set the parameter back to ``world``, further output
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also set parameters in a launch file, but first you will need to add a launch directory.
-Inside the ``dev_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
+Inside the ``ros2_ws/src/python_parameters/`` directory, create a new directory called ``launch``.
 In there, create a new file called ``python_parameters_launch.py``
 
 .. code-block:: Python
@@ -377,7 +377,7 @@ Add the ``import`` statements to the top of the file, and the other new statemen
         ]
       )
 
-Open a console and navigate to the root of your workspace, ``dev_ws``, and build your new package:
+Open a console and navigate to the root of your workspace, ``ros2_ws``, and build your new package:
 
 .. tabs::
 
