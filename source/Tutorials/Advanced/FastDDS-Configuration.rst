@@ -64,24 +64,24 @@ First, create a new package named ``sync_async_node_example_cpp`` on a new works
 
        .. code-block:: console
 
-         mkdir -p ~/fastdds_ws/src
-         cd ~/fastdds_ws/src
+         mkdir -p ~/ros2_ws/src
+         cd ~/ros2_ws/src
          ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: macOS
 
       .. code-block:: console
 
-        mkdir -p ~/fastdds_ws/src
-        cd ~/fastdds_ws/src
+        mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
     .. group-tab:: Windows
 
       .. code-block:: console
 
-        md \dev_ws\src
-        cd \dev_ws\src
+        md \ros2_ws\src
+        cd \ros2_ws\src
         ros2 pkg create --build-type ament_cmake --dependencies rclcpp std_msgs -- sync_async_node_example_cpp
 
 

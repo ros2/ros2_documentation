@@ -42,7 +42,7 @@ Tasks
 For this tutorial you will be creating custom ``.msg`` and ``.srv`` files in their own package, and then utilizing them in a separate package.
 Both packages should be in the same workspace.
 
-Since we will use the pub/sub and service/client packages created in earlier tutorials, make sure you are in the same workspace as those packages (``dev_ws/src``), and then run the following command to create a new package:
+Since we will use the pub/sub and service/client packages created in earlier tutorials, make sure you are in the same workspace as those packages (``ros2_ws/src``), and then run the following command to create a new package:
 
 .. code-block:: console
 
@@ -53,7 +53,7 @@ Note that it is a CMake package; there currently isn’t a way to generate a ``.
 You can create a custom interface in a CMake package, and then use it in a Python node, which will be covered in the last section.
 
 It is good practice to keep ``.msg`` and ``.srv`` files in their own directories within a package.
-Create the directories in ``dev_ws/src/tutorial_interfaces``:
+Create the directories in ``ros2_ws/src/tutorial_interfaces``:
 
 .. code-block:: console
 
@@ -142,7 +142,7 @@ Add the following lines to ``package.xml``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now that all the parts of your custom interfaces package are in place, you can build the package.
-In the root of your workspace (``~/dev_ws``), run the following command:
+In the root of your workspace (``~/ros2_ws``), run the following command:
 
 .. tabs::
 
@@ -169,7 +169,7 @@ Now the interfaces will be discoverable by other ROS 2 packages.
 6 Confirm msg and srv creation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In a new terminal, run the following command from within your workspace (``dev_ws``) to source it:
+In a new terminal, run the following command from within your workspace (``ros2_ws``) to source it:
 
 .. tabs::
 
@@ -492,7 +492,7 @@ After making the above edits and saving all the changes, build the package:
 
       colcon build --merge-install --packages-select py_pubsub
 
-Then open two new terminals, source ``dev_ws`` in each, and run:
+Then open two new terminals, source ``ros2_ws`` in each, and run:
 
 .. tabs::
 
@@ -790,7 +790,7 @@ After making the above edits and saving all the changes, build the package:
 
       colcon build --merge-install --packages-select py_srvcli
 
-Then open two new terminals, source ``dev_ws`` in each, and run:
+Then open two new terminals, source ``ros2_ws`` in each, and run:
 
 .. tabs::
 

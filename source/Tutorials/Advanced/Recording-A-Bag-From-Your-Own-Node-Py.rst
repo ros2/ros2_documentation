@@ -50,8 +50,9 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
-Navigate into the ``dev_ws/src`` directory and create a new package:
+Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
+
+Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
@@ -86,7 +87,7 @@ Also be sure to add this information to the ``setup.py`` file as well.
 2 Write the Python node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``simple_bag_recorder.py`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``simple_bag_recorder.py`` and paste the following code into it.
 
 .. code-block:: Python
 
@@ -228,7 +229,7 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package.
 
 .. tabs::
 
@@ -250,7 +251,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
       colcon build --merge-install --packages-select bag_recorder_nodes_py
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files.
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 
@@ -319,7 +320,7 @@ The second approach does not use a node; this is the approach you can use when y
 4.1 Write a Python node
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``data_generator_node.py`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``data_generator_node.py`` and paste the following code into it.
 
 .. code-block:: Python
 
@@ -427,7 +428,7 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 4.4 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your package.
 
 .. tabs::
 
@@ -449,7 +450,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
       colcon build --merge-install --packages-select bag_recorder_nodes_py
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files.
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 
@@ -503,7 +504,7 @@ The advantage of this approach is simpler code and rapid creation of a large qua
 5.1 Write a Python executable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Inside the ``dev_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``data_generator_executable.py`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory, create a new file called ``data_generator_executable.py`` and paste the following code into it.
 
 .. code-block:: Python
 
@@ -585,7 +586,7 @@ Open the ``setup.py`` file in the ``bag_recorder_nodes_py`` package and add an e
 5.4 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your package.
 
 .. tabs::
 
@@ -607,7 +608,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
       colcon build --merge-install --packages-select bag_recorder_nodes_py
 
-Open a terminal, navigate to ``dev_ws``, and source the setup files.
+Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 

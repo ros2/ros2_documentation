@@ -87,7 +87,7 @@ By default it will create the following directories as peers of the ``src`` dire
 Create a workspace
 ^^^^^^^^^^^^^^^^^^
 
-First, create a directory (``ros2_example_ws``) to contain our workspace:
+First, create a directory (``ros2_ws``) to contain our workspace:
 
 .. tabs::
 
@@ -95,22 +95,22 @@ First, create a directory (``ros2_example_ws``) to contain our workspace:
 
     .. code-block:: bash
 
-       mkdir -p ~/ros2_example_ws/src
-       cd ~/ros2_example_ws
+       mkdir -p ~/ros2_ws/src
+       cd ~/ros2_ws
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-       mkdir -p ~/ros2_example_ws/src
-       cd ~/ros2_example_ws
+       mkdir -p ~/ros2_ws/src
+       cd ~/ros2_ws
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-       md \dev\ros2_example_ws\src
-       cd \dev\ros2_example_ws
+       md \dev\ros2_ws\src
+       cd \dev\ros2_ws
 
 At this point the workspace contains a single empty directory ``src``:
 
@@ -152,7 +152,7 @@ It is important that we have sourced the environment for an existing ROS 2 insta
 This is achieved by sourcing the setup script provided by a binary installation or a source installation, ie. another colcon workspace (see :doc:`Installation <../../Installation>`).
 We call this environment an **underlay**.
 
-Our workspace, ``ros2_examples_ws``, will be an **overlay** on top of the existing ROS 2 installation.
+Our workspace, ``ros2_ws``, will be an **overlay** on top of the existing ROS 2 installation.
 In general, it is recommended to use an overlay when you plan to iterate on a small number of packages, rather than putting all of your packages into the same workspace.
 
 Build the workspace
