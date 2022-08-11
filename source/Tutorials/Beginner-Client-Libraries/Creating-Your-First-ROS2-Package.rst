@@ -116,7 +116,7 @@ Tasks
 
 First, :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
-Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``dev_ws``, for your new package.
+Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``ros2_ws``, for your new package.
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
@@ -126,19 +126,19 @@ Make sure you are in the ``src`` folder before running the package creation comm
 
       .. code-block:: console
 
-        cd ~/dev_ws/src
+        cd ~/ros2_ws/src
 
    .. group-tab:: macOS
 
      .. code-block:: console
 
-       cd ~/dev_ws/src
+       cd ~/ros2_ws/src
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       cd \dev_ws\src
+       cd \ros2_ws\src
 
 The command syntax for creating a new package in ROS 2 is:
 
@@ -186,7 +186,7 @@ After running the command, your terminal will return the message:
 
         going to create a new package
         package name: my_package
-        destination directory: /home/user/dev_ws/src
+        destination directory: /home/user/ros2_ws/src
         package format: 3
         version: 0.0.0
         description: TODO: Package description
@@ -209,7 +209,7 @@ After running the command, your terminal will return the message:
 
         going to create a new package
         package name: my_package
-        destination directory: /home/user/dev_ws/src
+        destination directory: /home/user/ros2_ws/src
         package format: 3
         version: 0.0.0
         description: TODO: Package description
@@ -249,19 +249,19 @@ Return to the root of your workspace:
 
       .. code-block:: console
 
-        cd ~/dev_ws
+        cd ~/ros2_ws
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        cd ~/dev_ws
+        cd ~/ros2_ws
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       cd \dev_ws
+       cd \ros2_ws
 
 Now you can build your packages:
 
@@ -287,7 +287,7 @@ Now you can build your packages:
 
     Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
-Recall from the last tutorial that you also have the ``ros_tutorials`` packages in your ``dev_ws``.
+Recall from the last tutorial that you also have the ``ros_tutorials`` packages in your ``ros2_ws``.
 You might’ve noticed that running ``colcon build`` also built the ``turtlesim`` package.
 That’s fine when you only have a few packages in your workspace, but when there are many packages, ``colcon build`` can take a long time.
 
@@ -302,7 +302,7 @@ To build only the ``my_package`` package next time, you can run:
 
 To use your new package and executable, first open a new terminal and source your main ROS 2 installation.
 
-Then, from inside the ``dev_ws`` directory, run the following command to source your workspace:
+Then, from inside the ``ros2_ws`` directory, run the following command to source your workspace:
 
 .. tabs::
 
@@ -354,7 +354,7 @@ Which will return a message to your terminal:
 5 Examine package contents
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside ``dev_ws/src/my_package``, you will see the files and folders that ``ros2 pkg create`` automatically generated:
+Inside ``ros2_ws/src/my_package``, you will see the files and folders that ``ros2 pkg create`` automatically generated:
 
 .. tabs::
 
@@ -383,7 +383,7 @@ You may have noticed in the return message after creating your package that the 
 That’s because the package description and license declaration are not automatically set, but are required if you ever want to release your package.
 The ``maintainer`` field may also need to be filled in.
 
-From ``dev_ws/src/my_package``, open ``package.xml`` using your preferred text editor:
+From ``ros2_ws/src/my_package``, open ``package.xml`` using your preferred text editor:
 
 .. tabs::
 

@@ -50,21 +50,21 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 
     .. code-block:: bash
 
-      cd ~/action_ws/src
+      cd ~/ros2_ws/src
       ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      cd ~/action_ws/src
+      cd ~/ros2_ws/src
       ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      cd \dev\action_ws\src
+      cd \dev\ros2_ws\src
       ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
 
 1.2 Adding in visibility control
@@ -232,7 +232,7 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin)
 
-And now we can compile the package.  Go to the top-level of the ``action_ws``, and run:
+And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and run:
 
 .. code-block:: bash
 
@@ -244,7 +244,7 @@ This should compile the entire workspace, including the ``fibonacci_action_serve
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now that we have the action server built, we can run it.
-Source the workspace we just built (``action_ws``), and try to run the action server:
+Source the workspace we just built (``ros2_ws``), and try to run the action server:
 
 .. code-block:: bash
 
@@ -360,7 +360,7 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin)
 
-And now we can compile the package.  Go to the top-level of the ``action_ws``, and run:
+And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and run:
 
 .. code-block:: bash
 
@@ -373,7 +373,7 @@ This should compile the entire workspace, including the ``fibonacci_action_clien
 
 Now that we have the action client built, we can run it.
 First make sure that an action server is running in a separate terminal.
-Now source the workspace we just built (``action_ws``), and try to run the action client:
+Now source the workspace we just built (``ros2_ws``), and try to run the action client:
 
 .. code-block:: bash
 

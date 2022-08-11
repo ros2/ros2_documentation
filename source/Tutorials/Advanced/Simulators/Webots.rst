@@ -51,7 +51,7 @@ Finally, you will need to install ``webots_ros2_driver`` from a terminal with th
       .. code-block:: console
 
         # Install webots_ros2_driver and dependencies
-        cd \dev_ws
+        cd \ros2_ws
         pip install rosinstall_generator
         rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
         vcs import src < deps.repos
@@ -74,7 +74,7 @@ Tasks
 
 Let's organize the code in a custom ROS 2 package.
 Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 workspace.
-Change the current directory of your terminal to ``dev_ws/src`` and run:
+Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
 .. code-block:: console
 
