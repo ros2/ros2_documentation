@@ -29,8 +29,7 @@ with the action server and action client you will write in the next tutorial.
 Prerequisites
 -------------
 
-You should have :doc:`ROS 2 (Dashing or later)<../../Installation>` and
-`colcon <https://colcon.readthedocs.org>`__ installed.
+You should have :doc:`ROS 2 <../../Installation>` and `colcon <https://colcon.readthedocs.org>`__ installed.
 
 Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
 

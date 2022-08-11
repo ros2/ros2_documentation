@@ -41,10 +41,10 @@ In this tutorial, you will create a new package to contain some sample code, wri
 
 First, open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a previous tutorial (or follow :ref:`these instructions <new-directory>` if you no longer have the directory and need to create it again).
+Follow :ref:`these instructions <new-directory>` to create a new workspace named ``ros2_ws``.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-So, navigate into ``dev_ws/src`` and then create a new package there:
+So, navigate into ``ros2_ws/src`` and then create a new package there:
 
 .. code-block:: console
 
@@ -69,7 +69,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/cpp_parameter_event_handler/src`` directory, create a new file called ``parameter_event_handler.cpp`` and paste the following code within:
+Inside the ``ros2_ws/src/cpp_parameter_event_handler/src`` directory, create a new file called ``parameter_event_handler.cpp`` and paste the following code within:
 
 .. code-block:: C++
 
@@ -178,7 +178,7 @@ To build this code, first open the ``CMakeLists.txt`` file and add the following
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -196,13 +196,13 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package:
 
 .. code-block:: console
 
     colcon build --packages-select cpp_parameter_event_handler
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
 .. tabs::
 
@@ -282,7 +282,7 @@ Then add another member variable, ``cb_handle2`` for the additional callback han
   };
 
 
-In a terminal, navigate back to the root of your workspace, ``dev_ws``, and build your updated package as before:
+In a terminal, navigate back to the root of your workspace, ``ros2_ws``, and build your updated package as before:
 
 .. code-block:: console
 
