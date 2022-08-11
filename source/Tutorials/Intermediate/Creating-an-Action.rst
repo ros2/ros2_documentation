@@ -29,8 +29,7 @@ with the action server and action client you will write in the next tutorial.
 Prerequisites
 -------------
 
-You should have :doc:`ROS 2 (Dashing or later)<../../Installation>` and
-`colcon <https://colcon.readthedocs.org>`__ installed.
+You should have :doc:`ROS 2 <../../Installation>` and `colcon <https://colcon.readthedocs.org>`__ installed.
 
 Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
 
@@ -42,24 +41,24 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
     .. code-block:: bash
 
-      mkdir -p action_ws/src
-      cd action_ws/src
+      mkdir -p ros2_ws/src #you can reuse existing workspace with this naming convention
+      cd ros2_ws/src
       ros2 pkg create action_tutorials_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      mkdir -p action_ws/src
-      cd action_ws/src
+      mkdir -p ros2_ws/src
+      cd ros2_ws/src
       ros2 pkg create action_tutorials_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      md action_ws\src
-      cd action_ws\src
+      md ros2_ws\src
+      cd ros2_ws\src
       ros2 pkg create action_tutorials_interfaces
 
 Tasks
@@ -157,7 +156,7 @@ We should now be able to build the package containing the ``Fibonacci`` action d
 .. code-block:: bash
 
     # Change to the root of the workspace
-    cd ~/action_ws
+    cd ~/ros2_ws
     # Build
     colcon build
 

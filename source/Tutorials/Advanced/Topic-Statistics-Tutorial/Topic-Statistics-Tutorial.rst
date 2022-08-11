@@ -44,7 +44,7 @@ Tasks
 1 Write the subscriber node with statistics enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Navigate into the ``dev_ws/src/cpp_pubsub/src`` folder, created in the :doc:`previous tutorial <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>`, and
+Navigate into the ``ros2_ws/src/cpp_pubsub/src`` folder, created in the :doc:`previous tutorial <../../Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber>`, and
 download the example talker code by entering the following command:
 
 .. tabs::
