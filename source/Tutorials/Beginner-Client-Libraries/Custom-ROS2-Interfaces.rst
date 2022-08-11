@@ -73,7 +73,16 @@ In the ``tutorial_interfaces/msg`` directory you just created, make a new file c
 
     int64 num
 
-This is your custom message that transfers a single 64-bit integer called ``num``.
+This is a custom message that transfers a single 64-bit integer called ``num``.
+
+Also in the ``tutorial_interfaces/msg`` directory you just created, make a new file called ``Sphere.msg`` with the following content:
+
+.. code-block:: console
+
+    geometry_msgs/Point center
+    float64 radius
+
+This custom message uses a message from another message package (``geometry_msgs/Point`` in this case).
 
 2.2 srv definition
 ~~~~~~~~~~~~~~~~~~
@@ -97,11 +106,14 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 
 .. code-block:: cmake
 
+  find_package(geometry_msgs REQUIRED)
   find_package(rosidl_default_generators REQUIRED)
 
   rosidl_generate_interfaces(${PROJECT_NAME}
     "msg/Num.msg"
+    "msg/Sphere.msg"
     "srv/AddThreeInts.srv"
+    DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
   )
 
 .. note::
@@ -117,6 +129,8 @@ The ``<exec_depend>`` tag is used to specify runtime or execution-stage dependen
 Add the following lines to ``package.xml``
 
 .. code-block:: xml
+
+  <depend>geometry_msgs</depend>
 
   <build_depend>rosidl_default_generators</build_depend>
 
@@ -188,6 +202,22 @@ should return:
 .. code-block:: console
 
     int64 num
+
+And
+
+.. code-block:: console
+
+  ros2 interface show tutorial_interfaces/msg/Sphere
+
+should return:
+
+.. code-block:: console
+
+    geometry_msgs/Point center
+            float64 x
+            float64 y
+            float64 z
+    float64 radius
 
 And
 
