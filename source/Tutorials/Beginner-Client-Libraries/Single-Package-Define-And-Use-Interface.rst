@@ -332,21 +332,21 @@ Return to the root of the workspace to build the package:
 
     .. code-block:: console
 
-      cd ~/dev_ws
+      cd ~/ros2_ws
       colcon build --packages-up-to more_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: console
 
-      cd ~/dev_ws
+      cd ~/ros2_ws
       colcon build --packages-up-to more_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: console
 
-      cd /dev_ws
+      cd /ros2_ws
       colcon build --merge-install --packages-up-to more_interfaces
 
 Then source the workspace and run the publisher:
