@@ -47,8 +47,8 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
-Navigate into the ``dev_ws/src`` directory and create a new package:
+Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Navigate into the ``ros2_ws/src`` directory and create a new package:
 
 .. code-block:: console
 
@@ -74,7 +74,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the C++ node
 ^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``simple_bag_recorder.cpp`` and paste the following code into it.
 
 .. code-block:: C++
 
@@ -321,7 +321,7 @@ Below the dependency ``find_package(rosbag2_cpp REQUIRED)`` add the following li
 3 Build and run
 ^^^^^^^^^^^^^^^
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package.
 
 .. tabs::
 
@@ -343,7 +343,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
       colcon build --merge-install --packages-select bag_recorder_nodes
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files.
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 
@@ -433,7 +433,7 @@ The second approach does not use a node; this is the approach you can use when y
 4.1 Write a C++ node
 ~~~~~~~~~~~~~~~~~~~~
 
-Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_node.cpp`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_node.cpp`` and paste the following code into it.
 
 .. code-block:: C++
 
@@ -573,7 +573,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 4.4 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your package.
 
 .. tabs::
 
@@ -595,7 +595,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
       colcon build --merge-install --packages-select bag_recorder_nodes
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files.
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 
@@ -672,7 +672,7 @@ The advantage of this approach is simpler code and rapid creation of a large qua
 5.1 Write a C++ executable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Inside the ``dev_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_executable.cpp`` and paste the following code into it.
+Inside the ``ros2_ws/src/bag_recorder_nodes/src`` directory, create a new file called ``data_generator_executable.cpp`` and paste the following code into it.
 
 .. code-block:: C++
 
@@ -786,7 +786,7 @@ Open the ``CMakeLists.txt`` file and add the following lines after the previousl
 5.4 Build and run
 ~~~~~~~~~~~~~~~~~
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your package.
+Navigate back to the root of your workspace, ``ros2_ws``, and build your package.
 
 .. tabs::
 
@@ -808,7 +808,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your package.
 
       colcon build --merge-install --packages-select bag_recorder_nodes
 
-Open a terminal, navigate to ``dev_ws``, and source the setup files.
+Open a terminal, navigate to ``ros2_ws``, and source the setup files.
 
 .. tabs::
 

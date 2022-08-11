@@ -39,10 +39,10 @@ Tasks
 
 Open a new terminal and :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` so that ``ros2`` commands will work.
 
-Navigate into the ``dev_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
+Navigate into the ``ros2_ws`` directory created in a :ref:`previous tutorial <new-directory>`.
 
 Recall that packages should be created in the ``src`` directory, not the root of the workspace.
-Navigate into ``dev_ws/src`` and create a new package:
+Navigate into ``ros2_ws/src`` and create a new package:
 
 .. code-block:: console
 
@@ -79,7 +79,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 2 Write the service node
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_server.cpp`` and paste the following code within:
+Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_server.cpp`` and paste the following code within:
 
 .. code-block:: C++
 
@@ -188,7 +188,7 @@ You could build your package now, source the local setup files, and run it, but 
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Inside the ``dev_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_client.cpp`` and paste the following code within:
+Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``add_two_ints_client.cpp`` and paste the following code within:
 
 
 .. code-block:: C++
@@ -312,7 +312,7 @@ After removing some unnecessary boilerplate from the automatically generated fil
 4 Build and run
 ^^^^^^^^^^^^^^^
 
-It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) to check for missing dependencies before building:
+It's good practice to run ``rosdep`` in the root of your workspace (``ros2_ws``) to check for missing dependencies before building:
 
 .. tabs::
 
@@ -331,7 +331,7 @@ It's good practice to run ``rosdep`` in the root of your workspace (``dev_ws``) 
       rosdep only runs on Linux, so you can skip ahead to next step.
 
 
-Navigate back to the root of your workspace, ``dev_ws``, and build your new package:
+Navigate back to the root of your workspace, ``ros2_ws``, and build your new package:
 
 .. tabs::
 
@@ -353,7 +353,7 @@ Navigate back to the root of your workspace, ``dev_ws``, and build your new pack
 
     colcon build --merge-install --packages-select cpp_srvcli
 
-Open a new terminal, navigate to ``dev_ws``, and source the setup files:
+Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
 .. tabs::
 
@@ -387,7 +387,7 @@ The terminal should return the following message, and then wait:
 
     [INFO] [rclcpp]: Ready to add two ints.
 
-Open another terminal, source the setup files from inside ``dev_ws`` again.
+Open another terminal, source the setup files from inside ``ros2_ws`` again.
 Start the client node, followed by any two integers separated by a space:
 
 .. code-block:: console
