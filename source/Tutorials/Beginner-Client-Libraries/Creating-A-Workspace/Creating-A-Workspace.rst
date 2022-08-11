@@ -83,7 +83,7 @@ Consult the :doc:`installation guide <../../../Installation>` you followed if th
 
 Best practice is to create a new directory for every new workspace.
 The name doesn’t matter, but it is helpful to have it indicate the purpose of the workspace.
-Let’s choose the directory name ``dev_ws``, for “development workspace”:
+Let’s choose the directory name ``ros2_ws``, for “development workspace”:
 
 .. tabs::
 
@@ -91,32 +91,32 @@ Let’s choose the directory name ``dev_ws``, for “development workspace”:
 
       .. code-block:: console
 
-        mkdir -p ~/dev_ws/src
-        cd ~/dev_ws/src
+        mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws/src
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        mkdir -p ~/dev_ws/src
-        cd ~/dev_ws/src
+        mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws/src
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       md \dev_ws\src
-       cd \dev_ws\src
+       md \ros2_ws\src
+       cd \ros2_ws\src
 
 
 Another best practice is to put any packages in your workspace into the ``src`` directory.
-The above code creates a ``src`` directory inside ``dev_ws`` and then navigates into it.
+The above code creates a ``src`` directory inside ``ros2_ws`` and then navigates into it.
 
 
 3 Clone a sample repo
 ^^^^^^^^^^^^^^^^^^^^^
 
-Ensure you’re still in the ``dev_ws/src`` directory before you clone.
+Ensure you’re still in the ``ros2_ws/src`` directory before you clone.
 
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
@@ -128,7 +128,7 @@ You can see the repo `on GitHub <https://github.com/ros/ros_tutorials/>`__.
 Notice the “Branch” drop down list to the left above the directories list.
 When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
 
-In the ``dev_ws/src`` directory, run the following command for the distro you're using:
+In the ``ros2_ws/src`` directory, run the following command for the distro you're using:
 
 .. code-block:: console
 
@@ -147,7 +147,7 @@ Before building the workspace, you need to resolve package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
 You wouldn’t want a build to fail after a long wait because of missing dependencies.
 
-From the root of your workspace (``dev_ws``), run the following command:
+From the root of your workspace (``ros2_ws``), run the following command:
 
 .. tabs::
 
@@ -183,7 +183,7 @@ You can learn more about ``rosdep`` in another tutorial (coming soon).
 5 Build the workspace with colcon
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-From the root of your workspace (``dev_ws``), you can now build your packages using the command:
+From the root of your workspace (``ros2_ws``), you can now build your packages using the command:
 
 .. tabs::
 
@@ -223,7 +223,7 @@ The console will return the following message:
     * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
     * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
 
-Once the build is finished, enter ``ls`` in the workspace root (``~/dev_ws``) and you will see that colcon has created new directories:
+Once the build is finished, enter ``ls`` in the workspace root (``~/ros2_ws``) and you will see that colcon has created new directories:
 
 .. code-block:: console
 
@@ -270,19 +270,19 @@ Go into the root of your workspace:
 
       .. code-block:: console
 
-        cd ~/dev_ws
+        cd ~/ros2_ws
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-        cd ~/dev_ws
+        cd ~/ros2_ws
 
    .. group-tab:: Windows
 
      .. code-block:: console
 
-       cd \dev_ws
+       cd \ros2_ws
 
 In the root, source your overlay:
 
@@ -311,8 +311,8 @@ In the root, source your overlay:
   Sourcing the ``local_setup`` of the overlay will only add the packages available in the overlay to your environment.
   ``setup`` sources the overlay as well as the underlay it was created in, allowing you to utilize both workspaces.
 
-  So, sourcing your main ROS 2 installation's ``setup`` and then the ``dev_ws`` overlay's ``local_setup``, like you just did,
-  is the same as just sourcing ``dev_ws``'s ``setup``, because that includes the environment of the underlay it was created in.
+  So, sourcing your main ROS 2 installation's ``setup`` and then the ``ros2_ws`` overlay's ``local_setup``, like you just did,
+  is the same as just sourcing ``ros2_ws``'s ``setup``, because that includes the environment of the underlay it was created in.
 
 Now you can run the ``turtlesim`` package from the overlay:
 
@@ -332,7 +332,7 @@ Let’s modify turtlesim in the overlay so you can see the effects:
 ^^^^^^^^^^^^^^^^^^^^
 
 You can modify ``turtlesim`` in your overlay by editing the title bar on the turtlesim window.
-To do this, locate the ``turtle_frame.cpp`` file in ``~/dev_ws/src/ros_tutorials/turtlesim/src``.
+To do this, locate the ``turtle_frame.cpp`` file in ``~/ros2_ws/src/ros_tutorials/turtlesim/src``.
 Open ``turtle_frame.cpp`` with your preferred text editor.
 
 On line 52 you will see the function ``setWindowTitle("TurtleSim");``.
@@ -350,7 +350,7 @@ You will see the title bar on the turtlesim window now says “MyTurtleSim”.
 
 .. image:: images/overlay.png
 
-Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ``dev_ws`` environment takes precedence over the contents of the underlay.
+Even though your main ROS 2 environment was sourced in this terminal earlier, the overlay of your ``ros2_ws`` environment takes precedence over the contents of the underlay.
 
 To see that your underlay is still intact, open a brand new terminal and source only your ROS 2 installation.
 Run turtlesim again:
