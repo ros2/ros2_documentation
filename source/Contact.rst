@@ -50,10 +50,10 @@ When filing an issue, please make sure to:
 * Include enough information for another person to understand the issue.
 
 Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong.
-If following a tutorial or online instructions provide a link to the specific instructions. 
+If following a tutorial or online instructions provide a link to the specific instructions.
 
 * Use a descriptive headline or subject line. Bad: "rviz doesn't work". Good: "Rviz crashing looking for missing .so after latest apt update"
-* Include information about the exact platform, software, versions, and environment relevant to the problem. This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).   
+* Include information about the exact platform, software, versions, and environment relevant to the problem. This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
 * Any warnings or errors. Cut and paste them directly from the terminal window to which they were printed. Please do not re-type or include a screenshot.
 * In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
 * When discussing any compiling/linking/installation issues, also provide the compiler version
@@ -100,8 +100,8 @@ Assuming 'good faith' when responding almost always works better even if the ori
 Please don't send your question more than once: The question was seen.
 If you didn't get a response then likely nobody has had time to answer you.
 Alternatively, it could be that nobody knows the answer.
-In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people. 
-This also applies to crossposting. 
+In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people.
+This also applies to crossposting.
 Try to pick the forum which you think matches best and ask there.
 If you are referred to a new forum, provide a link to the old discussion.
 
