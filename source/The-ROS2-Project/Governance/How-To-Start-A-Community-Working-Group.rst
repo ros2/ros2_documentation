@@ -55,7 +55,7 @@ So what are the steps to making a working group?
 #. Now that you have an e-mail group you can associate that group with the ROS
    events calendar. The calendar is where you will schedule your working group
    meetings. To join the calendar, send an e-mail request to Kat
-   (kat@openrobotics.org) or Tully (tully@openrobotics.org).
+   (kat@openrobotics.org) or Tully (tfoote@openrobotics.org).
 
 #. To formalize your group you need to create a working group charter and a git
    repository to keep your documents and code. We have a working group template
