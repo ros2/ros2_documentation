@@ -14,6 +14,13 @@ See the :doc:`ament_cmake user documentation <Ament-CMake-Documentation>` for mo
    To create an ``ament_python`` package, see :doc:`Creating your first ROS 2 package <../Tutorials/Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
    ``ament_cmake_python`` should only be used in cases where that is not possible, like when mixing C/C++ and Python code.
 
+
+.. warning::
+
+   Calling ``rosidl_generate_interfaces`` and ``ament_python_install_package`` in the same CMake project does not work.
+   See this `Github issue <https://github.com/ros2/rosidl_python/issues/141>`_ for more info. It is best practice to instead
+   separate out the message generation into a separate package.
+
 .. contents:: Table of Contents
    :depth: 2
    :local:
