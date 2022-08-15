@@ -145,3 +145,11 @@ and a ``setup.py`` file that looks like:
            ],
        },
    )
+
+
+Combined C++ and Python Packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When writing a package with both C++ and Python code, the
+``setup.py`` file and ``setup.cfg`` file are not used.
+Instead, use :doc:`ament_cmake_python <./Ament-CMake-Python-Documentation>`.
