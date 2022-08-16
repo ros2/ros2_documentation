@@ -15,16 +15,16 @@ This page describes planned work for ROS 2.
 The set of planned features and development efforts should provide insight into the overall direction of ROS 2.
 If you would like to see other features on the roadmap, please get in touch with us at info@openrobotics.org.
 
-Humble Roadmap
-----------------
+Iron Roadmap
+------------
 
-Humble Hawksbill is the ROS 2 release expected in May 2022.
-See :ref:`release <humble-release>` for a detailed timeline.
+Iron Irwini is the ROS 2 release expected in May 2023.
+See :ref:`release <iron-release>` for a detailed timeline.
 
 The items in the roadmap below are the major features being worked on by the ROS 2 community.
 The "Size" is an estimated size of the task, where *Small* means person-days to complete, *Medium* means person-weeks to complete, and *Large* means person-months to complete.
 
-If you are working on a feature for ROS 2 Humble and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
+If you are working on a feature for ROS 2 Iron and would like to have it listed, please open a pull request to `ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`__.
 If you'd like to take on one of these tasks, please :doc:`get in touch with us <../Contact>`.
 
 .. raw:: html
@@ -43,95 +43,54 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Size
      - Owner
      - Expected Completion
-   * - Identify if messages have changed over time
-     - Large
-     - Apex.AI
-     -
-   * - Rosbag2 playback controlled by /clock sim time
-     - Small
-     - AWS
-     - Q3 2021
-   * - Rosbag2 "Snapshot mode"
-     - Medium
-     - AWS
-     - Q3 2021
-   * - Multi-threaded Executor for rclc
-     - Medium
-     - Bosch
-     - 1st quarter 2022
-   * - Configurable Executor thread priorities for rclcpp
-     - Medium
-     - Bosch
-     - 1st quarter 2022
-   * - Various small improvements to Diagnostics
-     - Small
-     - Bosch
-     - 1st quarter 2022
-   * - Performance improvements: Implement events executor in rclcpp
-     - Large
-     - iRobot
-     - 4th quarter 2021
-   * - Performance improvements: Improve intra-process optimization and loaned message APIs
-     - Medium
-     - iRobot
-     - 4th quarter 2021
-   * - Developer experience: Better integration of ROS 2 repos with package managers and documentation for building/running ROS 2 applications.
-     - Large
-     - iRobot
-     - 2nd quarter 2022
-   * - Develop a system level QoS/network debugging tool
+   * - Improve rclcpp executor performance
      - Large
      - Open Robotics
-     -
-   * - Documentation: Add Python API support to rosdoc2
-     - Medium
+     - Q4 2022
+   * - DDS User Experience - Improve the out-of-the-box experience
+     - Large
      - Open Robotics
-     - 4th quarter 2021
-   * - Documentation: Support inter-package linking for rosdoc2 buildfarm jobs
+     - Q1 2023
+   * - DDS User Experience - Configuration of Initial Peers for Discovery
      - Small
      - Open Robotics
-     - 1st quarter 2022
-   * - Documentation: Upload C++ API documentation for core packages to docs site
+     - Q4 2022
+   * - DDS User Experience - Develop a configuration tool
      - Medium
      - Open Robotics
-     - 4th quarter 2021
-   * - Humble Release
-     - Large
-     - Open Robotics
-     - 2nd quarter 2022
-   * - Improve service and action reliability for frequencies greater than 10Hz
-     - Medium
-     - Open Robotics
-     - 1st quarter 2022
-   * - Improve RViz2 stability
-     - Medium
-     - Open Robotics
-     - 4th quarter 2021
-   * - Middleware: Default middleware selection
-     - Medium
-     - Open Robotics
-     - Complete
-   * - Middleware: Report on feasibility of using Zenoh as an RMW
-     - Medium
-     - Open Robotics
-     - Complete
-   * - Overlays work to override any package in a dependency tree
-     - Large
-     - Open Robotics
-     - 2nd quarter 2022
-   * - Revamp launch testing
-     - Large
-     - Open Robotics
-     - Complete
-   * - Filter topic messages by content in rclcpp
-     - Large
-     - Sony
-     - 1st quarter 2022
-   * - Wait for an acknowledgment from a reliable publisher in rclcpp and rclpy
+     - Q4 2022
+   * - Python per-package documentation generation
      - Small
-     - Sony
-     - Complete
-
+     - Open Robotics
+     - Q4 2022
+   * - rclpy performance with large messages
+     - Medium
+     - Open Robotics
+     - Q1 2023
+   * - ROS 1 to ROS 2 migration documentation and tools
+     - Medium
+     - Open Robotics
+     - Q2 2023
+   * - SDF integration
+     - Medium
+     - Open Robotics
+     - Q1 2023
+   * - Better error message for launch (stretch goal)
+     - Medium
+     - Open Robotics
+     - Q2 2023
+   * - Relaunch of individual nodes in a complex system (stretch goal)
+     - Small
+     - Open Robotics
+     - Q2 2023
+   * - Logging configuration and features (stretch goal)
+     - Medium
+     - Open Robotics
+     - Q2 2023
+   * - Iron release
+     - Large
+     - Open Robotics
+     - Q2 2023
 
 Additional project-specific roadmaps can be found in the links below:
 
