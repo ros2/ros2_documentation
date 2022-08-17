@@ -4,10 +4,10 @@
   Tutorials/Launch-Files/Launch-system
   Tutorials/Launch/Launch-system
 
-Launching and monitoring multiple nodes
-=======================================
+Integrating launch files into ROS 2 packages
+============================================
 
-**Goal:** Write a launch file to start multiple nodes.
+**Goal:** Add a launch file to a ROS 2 package
 
 **Tutorial level:** Intermediate
 
@@ -17,132 +17,231 @@ Launching and monitoring multiple nodes
    :depth: 2
    :local:
 
-ROS 2 launch system
--------------------
+Prerequisites
+-------------
 
-The launch system in ROS 2 is responsible for helping the user describe the configuration of their system and then execute it as described.
-The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS specific conventions which make it easy to reuse components throughout the system by giving them each different configurations.
-It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
+You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-Launch files written in Python can start and stop different nodes as well as trigger and act on various events.
-The package providing this framework is ``launch_ros``, which uses the non-ROS-specific ``launch`` framework underneath.
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
-The `design document <https://design.ros2.org/articles/roslaunch.html>`__ details the goal of the design of ROS 2's launch system (not all functionality is currently available).
+Background
+----------
 
-Writing a ROS 2 launch file
----------------------------
+In the :doc:`previous tutorial <Creating-Launch-Files>`, we saw how to write a standalone launch file.
+This tutorial will show how to add a launch file to an existing package, and the conventions typically used.
 
-If you haven't already, make sure you go through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
-One way to create launch files in ROS 2 is using a Python file, which are executed by the ROS 2 CLI tool, ``ros2 launch``.
-We start by creating a ROS 2 package using ``ros2 pkg create <pkg-name> --dependencies [deps]`` in our workspace and creating a new ``launch`` directory.
+Tasks
+-----
 
-Python Packages
-^^^^^^^^^^^^^^^
+1 Create a package
+^^^^^^^^^^^^^^^^^^
 
-For Python packages, your directory should look like this:
+Create a workspace for the package to live in:
 
-.. code-block:: shell
+.. tabs::
 
-    src/
-        my_package/
-            launch/
-            setup.py
-            setup.cfg
-            package.xml
+  .. group-tab:: Linux
 
-In order for colcon to find the launch files, we need to inform Python's setup tools of our launch files using the ``data_files`` parameter of ``setup``.
+    .. code-block:: bash
 
-Inside our ``setup.py`` file:
+      mkdir -p launch_ws/src
+      cd launch_ws/src
 
-.. code-block:: python
+  .. group-tab:: macOS
 
-    import os
-    from glob import glob
-    from setuptools import setup
+    .. code-block:: bash
 
-    package_name = 'my_package'
+      mkdir -p launch_ws/src
+      cd launch_ws/src
 
-    setup(
-        # Other parameters ...
-        data_files=[
-            # ... Other data files
-            # Include all launch files. This is the most important line here!
-            (os.path.join('share', package_name), glob('launch/*launch.py'))
-        ]
-    )
+  .. group-tab:: Windows
 
-C++ Packages
-^^^^^^^^^^^^
+    .. code-block:: bash
 
-If you are creating a C++ package, we will only be adjusting the ``CMakeLists.txt`` file by adding:
+      md launch_ws\src
+      cd launch_ws\src
 
-.. code-block:: cmake
+.. tabs::
 
-    # Install launch files.
-    install(DIRECTORY
-      launch
-      DESTINATION share/${PROJECT_NAME}/
-    )
+  .. group-tab:: Python package
 
-to the end of the file (but before ``ament_package()``).
+    .. code-block:: console
 
-Writing the launch file
-^^^^^^^^^^^^^^^^^^^^^^^
+      ros2 pkg create py_launch_example --build-type ament_python
 
-Inside your launch directory, create a new launch file called ``my_script_launch.py``.
-``_launch.py`` is recommended, but not required, as the file suffix for launch files.
+  .. group-tab:: C++ package
 
-Your launch file should define the ``generate_launch_description()`` which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
+    .. code-block:: console
 
-.. code-block:: python
+      ros2 pkg create cpp_launch_example --build-type ament_cmake
 
-    import platform
+2 Creating the structure to hold launch files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    import launch
-    import launch.actions
-    import launch.substitutions
-    import launch_ros.actions
+By convention, all launch files for a package are stored in the ``launch`` directory inside of the package.
+Make sure to create a ``launch`` directory at the top-level of the package you created above.
 
-    env_var_name = 'USER' if platform.system() != 'Windows' else 'USERNAME'
+.. tabs::
 
-    def generate_launch_description():
-        return launch.LaunchDescription([
-            launch.actions.DeclareLaunchArgument(
-                'node_prefix',
-                default_value=[launch.substitutions.EnvironmentVariable(env_var_name), '_'],
-                description='Prefix for node names'),
-            launch_ros.actions.Node(
-                package='demo_nodes_cpp', executable='talker', output='screen',
-                name=[launch.substitutions.LaunchConfiguration('node_prefix'), 'talker']),
+  .. group-tab:: Python package
+
+    For Python packages, the directory containing your package should look like this:
+
+    .. code-block:: console
+
+      src/
+        py_launch_example/
+          package.xml
+          py_launch_example/
+          resource/
+          setup.py
+          setup.cfg
+          test/
+
+    In order for colcon to find the launch files, we need to inform Python's setup tools of our launch files using the ``data_files`` parameter of ``setup``.
+
+    Inside our ``setup.py`` file:
+
+    .. code-block:: python
+
+      import os
+      from glob import glob
+      from setuptools import setup
+
+      package_name = 'py_launch_example'
+
+      setup(
+          # Other parameters ...
+          data_files=[
+              # ... Other data files
+              # Include all launch files.
+              (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*'))
+          ]
+      )
+
+  .. group-tab:: C++ package
+
+    For C++ packages, we will only be adjusting the ``CMakeLists.txt`` file by adding:
+
+    .. code-block:: cmake
+
+      # Install launch files.
+      install(DIRECTORY
+        launch
+        DESTINATION share/${PROJECT_NAME}/
+      )
+
+    to the end of the file (but before ``ament_package()``).
+
+
+3 Writing the launch file
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. tabs::
+
+  .. group-tab:: Python launch file
+
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
+    ``_launch.py`` is recommended, but not required, as the file suffix for Python launch files.
+
+    Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
+
+    .. code-block:: python
+
+      import launch
+      import launch_ros.actions
+
+      def generate_launch_description():
+          return launch.LaunchDescription([
+              launch_ros.actions.Node(
+                  package='demo_nodes_cpp',
+                  executable='talker',
+                  name='talker'),
         ])
 
-Usage
-^^^^^
+  .. group-tab:: XML launch file
 
-While launch files can be written as standalone scripts, the typical usage in ROS is to have launch files invoked by ROS 2 tools.
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
+    ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
 
-After running ``colcon build`` and sourcing your workspace, you should be able to launch the launch file as follows:
+    .. code-block:: xml
 
-.. code-block:: bash
+      <launch>
+        <node pkg="demo_nodes_cpp" exec="talker" name="talker"/>
+      </launch>
 
-   ros2 launch my_package my_script_launch.py
+  .. group-tab:: YAML launch file
 
-Or for a standalone launch file:
+    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.yaml``.
+    ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
 
-.. code-block:: bash
+    .. code-block:: yaml
 
-   ros2 launch my_script_launch.py
+      launch:
 
-Example of ROS 2 launch concepts
---------------------------------
+      - node:
+          pkg: "demo_nodes_cpp"
+          exec: "talker"
+          name: "talker"
 
-The launch file in `this example <https://github.com/ros2/launch_ros/blob/{REPOS_FILE_BRANCH}/launch_ros/examples/lifecycle_pub_sub_launch.py>`__
-launches two nodes, one of which is a node with a :doc:`managed lifecycle <../../Demos/Managed-Nodes>` (a "lifecycle node").
-Lifecycle nodes launched through ``launch_ros`` automatically emit *events* when they transition between states.
-The events can then be acted on through the launch framework.
-For example, by emitting other events (such as requesting another state transition, which lifecycle nodes launched through ``launch_ros`` automatically have event handlers for) or triggering other *actions* (e.g. starting another node).
 
-In the aforementioned example, various transition requests are requested of the ``talker`` lifecycle node, and its transition events are reacted to by, for example, launching a ``listener`` node when the lifecycle talker reaches the appropriate state.
+4 Building and running the launch file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Go to the top-level of the workspace, and build it:
+
+.. code-block:: console
+
+  colcon build
+
+After the ``colcon build`` has been successful and you've sourced the workspace, you should be able to run the launch file as follows:
+
+.. tabs::
+
+  .. group-tab:: Python package
+
+    .. tabs::
+
+      .. group-tab:: Python launch file
+
+        .. code-block:: console
+
+          ros2 launch py_launch_example my_script_launch.py
+
+      .. group-tab:: XML launch file
+
+        .. code-block:: console
+
+          ros2 launch py_launch_example my_script_launch.xml
+
+      .. group-tab:: YAML launch file
+
+        .. code-block:: console
+
+          ros2 launch py_launch_example my_script_launch.yaml
+
+  .. group-tab:: C++ package
+
+    .. tabs::
+
+      .. group-tab:: Python launch file
+
+        .. code-block:: console
+
+          ros2 launch cpp_launch_example my_script_launch.py
+
+      .. group-tab:: XML launch file
+
+        .. code-block:: console
+
+          ros2 launch cpp_launch_example my_script_launch.xml
+
+      .. group-tab:: YAML launch file
+
+        .. code-block:: console
+
+          ros2 launch cpp_launch_example my_script_launch.yaml
+
 
 Documentation
 -------------
@@ -150,4 +249,4 @@ Documentation
 `The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
 
 Additional documentation/examples of launch capabilities are forthcoming.
-See `the source code <https://github.com/ros2/launch>`__ in the meantime.
+See the source code (https://github.com/ros2/launch and https://github.com/ros2/launch_ros) in the meantime.
