@@ -30,16 +30,69 @@ Prerequisites
 -------------
 
 This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
-This tutorial also assumes you have :doc:`created a new package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
+This tutorial also assumes you are familiar with :doc:`creating packages <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+
+As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
 Using substitutions
 -------------------
 
-1 Parent launch file
+1 Create and setup the package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Create a new package of build_type ``ament_python`` called ``launch_tutorial``:
+
+.. code-block:: console
+
+  ros2 pkg create launch_tutorial --build-type ament_python
+
+Inside of that package, create a directory called ``launch``:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      mkdir launch_tutorial/launch
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      mkdir launch_tutorial/launch
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      md launch_tutorial/launch
+
+Finally, make sure to add in changes to the ``setup.py`` of the package so that the launch files will be installed:
+
+.. code-block:: python
+
+  import os
+  from glob import glob
+  from setuptools import setup
+
+  package_name = 'launch_tutorial'
+
+  setup(
+      # Other parameters ...
+      data_files=[
+          # ... Other data files
+          # Include all launch files.
+          (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*'))
+      ]
+  )
+
+
+2 Parent launch file
 ^^^^^^^^^^^^^^^^^^^^
 
-Firstly, we will create a launch file that will call and pass arguments to another launch file.
-To do this, create an ``example_main.launch.py`` file in the ``/launch`` folder of the ``launch_tutorial`` package.
+Let's create a launch file that will call and pass arguments to another launch file.
+To do this, create an ``example_main.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -61,7 +114,6 @@ To do this, create an ``example_main.launch.py`` file in the ``/launch`` folder 
                 PythonLaunchDescriptionSource([
                     PathJoinSubstitution([
                         FindPackageShare('launch_tutorial'),
-                        'launch',
                         'example_substitutions.launch.py'
                     ])
                 ]),
@@ -96,7 +148,7 @@ The ``TextSubstitution`` substitution is used to define the ``new_background_r``
         'new_background_r': TextSubstitution(text=str(colors['background_r']))
     }.items()
 
-2 Substitutions example launch file
+3 Substitutions example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create an ``example_substitutions.launch.py`` file in the same folder.
@@ -271,6 +323,17 @@ The evaluation inside the ``IfCondition`` is done using the ``PythonExpression``
         ]],
         shell=True
     )
+
+4 Build the package
+^^^^^^^^^^^^^^^^^^^
+
+Go to the root of the workspace, and build the package:
+
+.. code-block:: console
+
+  colcon build
+
+Also remember to source the workspace after building.
 
 Launching example
 -----------------
