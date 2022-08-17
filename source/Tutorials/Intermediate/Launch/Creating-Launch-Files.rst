@@ -29,7 +29,7 @@ Background
 ----------
 
 The launch system in ROS 2 is responsible for helping the user describe the configuration of their system and then execute it as described.
-The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS specific conventions which make it easy to reuse components throughout the system by giving them each different configurations.
+The configuration of the system includes what programs to run, where to run them, what arguments to pass them, and ROS-specific conventions which make it easy to reuse components throughout the system by giving them each a different configuration.
 It is also responsible for monitoring the state of the processes launched, and reporting and/or reacting to changes in the state of those processes.
 
 Launch files written in Python, XML, or YAML can start and stop different nodes as well as trigger and act on various events.
@@ -147,9 +147,9 @@ All of the launch files above are launching a system of three nodes, all from th
 The goal of the system is to launch two turtlesim windows, and have one turtle mimic the movements of the other.
 
 When launching the two turtlesim nodes, the only difference between them is their namespace values.
-Unique namespaces allow the system to start two nodes without node name nor topic name conflicts.
+Unique namespaces allow the system to start two nodes without node name or topic name conflicts.
 Both turtles in this system receive commands over the same topic and publish their pose over the same topic.
-Without unique namespaces, there would be no way to distinguish between messages meant for one turtle or the other.
+With unique namespaces, messages meant for different turtles can be distinguished.
 
 The final node is also from the ``turtlesim`` package, but a different executable: ``mimic``.
 This node has added configuration details in the form of remappings.
