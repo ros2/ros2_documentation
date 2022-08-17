@@ -41,7 +41,7 @@ Using event handlers
 1 Event handlers example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new file called ``example_event_handlers.launch.py`` file in the ``/launch`` folder of the ``launch_tutorial`` package.
+Create a new file called ``example_event_handlers.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -263,6 +263,17 @@ It logs the message with a reason for shutdown like the closure of turtlesim win
             )]
         )
     ),
+
+Build the package
+-----------------
+
+Go to the root of the workspace, and build the package:
+
+.. code-block:: console
+
+  colcon build
+
+Also remember to source the workspace after building.
 
 Launching example
 -----------------
