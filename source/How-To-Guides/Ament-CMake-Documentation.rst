@@ -8,7 +8,7 @@ ament_cmake user documentation
 
 ament_cmake is the build system for CMake based packages in ROS 2 (in particular, it will be used for most if not all C/C++ projects).
 It is a set of scripts enhancing CMake and adding convenience functionality for package authors.
-Knowing the basics of `CMake <https://cmake.org/cmake/help/v3.5/>`__ will be very helpful, an official tutorial can be found `here <https://cmake.org/cmake-tutorial/>`__.
+Knowing the basics of `CMake <https://cmake.org/cmake/help/v3.5/>`__ will be very helpful, an official tutorial can be found `here <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>`__.
 
 .. contents:: Table of Contents
    :depth: 2
