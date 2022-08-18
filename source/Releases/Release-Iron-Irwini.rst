@@ -93,3 +93,10 @@ Release Timeline
 
 .. [1] The ``ros_base`` variant is described in `REP 2001 (ros-base) <https://www.ros.org/reps/rep-2001.html#ros-base>`_.
 .. [2] The ``desktop`` variant is described in `REP 2001 (desktop-variants) <https://www.ros.org/reps/rep-2001.html#desktop-variants>`_.
+
+Development progress
+--------------------
+
+For progress on the development and release of Iron Irwini, see `the tracking GitHub issue <https://github.com/ros2/ros2/issues/1298>`__.
+
+For the broad process followed by Iron Irwini, see the :doc:`process description page <Releases/Release-Process.rst>`.
