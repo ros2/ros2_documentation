@@ -32,9 +32,6 @@ In this tutorial, you will learn how quaternions and conversion methods work in 
 Prerequisites
 -------------
 
-For this tutorial you may need to install the ``tf_transformations`` ROS 2 package to follow the Python code parts.
-You can find the source code of the ``tf_transformations`` package `here <https://github.com/DLu/tf_transformations>`_.
-
 However, this is not a hard requirement and you can stick to any other geometric transfromation library that suit you best.
 You can take a look at libraries like `transforms3d <https://github.com/matthew-brett/transforms3d>`_, `scipy.spatial.transform <https://github.com/scipy/scipy/tree/master/scipy/spatial/transform>`_, `pytransform3d <https://github.com/rock-learning/pytransform3d>`_, `numpy-quaternion <https://github.com/moble/quaternion>`_ or `blender.mathutils <https://docs.blender.org/api/master/mathutils.html>`_.
 
@@ -115,10 +112,7 @@ A suggestion is to calculate target rotations in terms of roll (about an X-axis)
 
 .. code-block:: python
 
-   import tf_transformations
-   ...
-
-   q = tf_transformations.quaternion_from_euler(1.5707, 0, -1.5707)
+   q = quaternion_from_euler(1.5707, 0, -1.5707)
    print(f'The quaternion representation is x: {q[0]} y: {q[1]} z: {q[2]} w: {q[3]}.')
 
 
@@ -147,13 +141,10 @@ Python
 
 .. code-block:: python
 
-   import tf_transformations
-   ...
-
-   q_orig = tf_transformations.quaternion_from_euler(0, 0, 0)
+   q_orig = quaternion_from_euler(0, 0, 0)
    # Rotate the previous pose by 180* about X
-   q_rot = tf_transformations.quaternion_from_euler(3.14159, 0, 0)
-   q_new = tf_transformations.quaternion_multiply(q_rot, q_orig)
+   q_rot = quaternion_from_euler(3.14159, 0, 0)
+   q_new = quaternion_multiply(q_rot, q_orig)
 
 
 3 Inverting a quaternion
@@ -186,17 +177,53 @@ Here's an example to get the relative rotation from the previous robot pose to t
 
 .. code-block:: python
 
-   q1_inv[0] = prev_pose.pose.orientation.x
-   q1_inv[1] = prev_pose.pose.orientation.y
-   q1_inv[2] = prev_pose.pose.orientation.z
-   q1_inv[3] = -prev_pose.pose.orientation.w # Negate for inverse
+  def quaternion_multiply(q0, q1):
+      """
+      Multiplies two quaternions.
 
-   q2[0] = current_pose.pose.orientation.x
-   q2[1] = current_pose.pose.orientation.y
-   q2[2] = current_pose.pose.orientation.z
-   q2[3] = current_pose.pose.orientation.w
+      Input
+      :param q0: A 4 element array containing the first quaternion (q01, q11, q21, q31)
+      :param q1: A 4 element array containing the second quaternion (q02, q12, q22, q32)
 
-   qr = tf_transformations.quaternion_multiply(q2, q1_inv)
+      Output
+      :return: A 4 element array containing the final quaternion (q03,q13,q23,q33)
+
+      """
+      # Extract the values from q0
+      w0 = q0[0]
+      x0 = q0[1]
+      y0 = q0[2]
+      z0 = q0[3]
+
+      # Extract the values from q1
+      w1 = q1[0]
+      x1 = q1[1]
+      y1 = q1[2]
+      z1 = q1[3]
+
+      # Computer the product of the two quaternions, term by term
+      q0q1_w = w0 * w1 - x0 * x1 - y0 * y1 - z0 * z1
+      q0q1_x = w0 * x1 + x0 * w1 + y0 * z1 - z0 * y1
+      q0q1_y = w0 * y1 - x0 * z1 + y0 * w1 + z0 * x1
+      q0q1_z = w0 * z1 + x0 * y1 - y0 * x1 + z0 * w1
+
+      # Create a 4 element array containing the final quaternion
+      final_quaternion = np.array([q0q1_w, q0q1_x, q0q1_y, q0q1_z])
+
+      # Return a 4 element array containing the final quaternion (q02,q12,q22,q32)
+      return final_quaternion
+
+  q1_inv[0] = prev_pose.pose.orientation.x
+  q1_inv[1] = prev_pose.pose.orientation.y
+  q1_inv[2] = prev_pose.pose.orientation.z
+  q1_inv[3] = -prev_pose.pose.orientation.w # Negate for inverse
+
+  q2[0] = current_pose.pose.orientation.x
+  q2[1] = current_pose.pose.orientation.y
+  q2[2] = current_pose.pose.orientation.z
+  q2[3] = current_pose.pose.orientation.w
+
+  qr = quaternion_multiply(q2, q1_inv)
 
 Summary
 -------
