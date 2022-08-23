@@ -30,6 +30,14 @@ The logging functionality currently supported is:
 
   * Launch-time configuration of the default logger level is supported; config files and external configuration at run-time is forthcoming.
 
+* Log statements
+
+  * ``ONCE``: All subsequent log calls except the first one are being ignored.
+  * ``SKIPFIRST``: The first log call is being ignored but all subsequent calls are being processed.
+  * ``THROTTLE``: Log calls are being ignored if the last logged message is not longer ago than the specified duration.
+
+  Note: There may be more statements available depends on client libraries, see usage below for details.
+
 Logger concepts
 ---------------
 
