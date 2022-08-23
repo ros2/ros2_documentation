@@ -145,11 +145,7 @@ We should also add the required dependencies to our ``package.xml``:
 
     <buildtool_depend>rosidl_default_generators</buildtool_depend>
 
-    <depend>action_msgs</depend>
-
     <member_of_group>rosidl_interface_packages</member_of_group>
-
-Note, we need to depend on ``action_msgs`` since action definitions include additional metadata (e.g. goal IDs).
 
 We should now be able to build the package containing the ``Fibonacci`` action definition:
 
