@@ -111,6 +111,7 @@ It's easy for us to think of rotations about axes, but hard to think in terms of
 A suggestion is to calculate target rotations in terms of roll (about an X-axis), pitch (about the Y-axis), and yaw (about the Z-axis), and then convert to a quaternion.
 
 .. code-block:: python
+
    # quaternion_from_euler method is available in turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py
    q = quaternion_from_euler(1.5707, 0, -1.5707)
    print(f'The quaternion representation is x: {q[0]} y: {q[1]} z: {q[2]} w: {q[3]}.')
