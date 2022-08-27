@@ -200,6 +200,31 @@ You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 
     There is another option you can add to the command, ``-a``, which records all the topics on your system.
 
+3.2 Recording Services
+~~~~~~~~~~~~~~~~~~~~~~
+
+    Note: this feature is avaliable only from in ``rolling ridley`` and ``iron irwini`` onwards.
+
+You can record services as well. 
+
+
+Run the following command:
+
+.. code-block:: console
+
+   ros2 bag record --services <service_name>
+
+
+``ros2 bag record --services`` is a layer of syntactic sugar for ``ros2 bag record`` and will record the service event messages published to ``<service_name>/_service_event``.
+Note that this will only work if service introspection is currently enabled for the services you are recording.
+
+Though one can play back and introspect the service event messages there is currently no support for replaying services i.e. mocking client requests via ``ros2 bag play``.
+
+For more information see REP2012_. 
+
+   .. _REP2012: https://github.com/ros-infrastructure/rep/pull/360
+
+
 4 ros2 bag info
 ^^^^^^^^^^^^^^^
 

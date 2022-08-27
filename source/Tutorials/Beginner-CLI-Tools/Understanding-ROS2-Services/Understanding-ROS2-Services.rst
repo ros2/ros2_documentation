@@ -256,6 +256,84 @@ Your turtlesim window will update with the newly spawned turtle right away:
 
 .. image:: images/spawn.png
 
+7 ros2 service echo
+^^^^^^^^^^^^^^^^^^^
+
+    Note: this feature is avaliable only from in ``rolling ridley`` and ``iron irwini`` onwards.
+
+To see the data communicated between a service client and a service server you can ``echo`` the service using
+
+.. code-block:: console
+   
+  ros2 service echo <service_name | service_type> <arguments>
+
+Since we know from the previous tutorials that turtlesim offers a ``/teleport_relative`` service for teleporting the turtle, let's use it to test out ``echo`` to introspect that service.
+
+
+With ``turtlesim`` running, run
+
+.. code-block:: console
+   
+  ros2 service echo /turtle1/teleport_relative
+
+Nothing will print at first, but that's just because the service hasn't been called yet.
+Next, in another terminal, make a service call with 
+
+.. code-block:: console
+
+   ros2 service call /turtle1/teleport_relative turtlesim/srv/TeleportRelative "{linear: 10.0, angular: 20.0}"
+
+You should now see the service events being printed to the console in the terminal where you ran ``ros2 service echo``.
+
+
+.. code-block:: console
+
+  info:
+    event_type: REQUEST_RECEIVED
+    stamp:
+      sec: 1661567531
+      nanosec: 182051385
+    client_id:
+      uuid: 6ad14b1e-a8b3-e7a4-a516-502f2f1c5de3
+    sequence_number: 1
+  request:
+    linear: 10.0
+    angular: 20.0
+
+  ---------------------------
+  info:
+    event_type: RESPONSE_SENT
+    stamp:
+      sec: 1661567531
+      nanosec: 182179116
+    client_id:
+      uuid: 6ad14b1e-a8b3-e7a4-a516-502f2f1c5de3
+    sequence_number: 1
+  response: {}
+
+  ---------------------------
+
+Breaking it down, ``ros2 service echo`` echoes information about the service call and response logged to a hidden ``<service_name>/_service_event`` topic.
+These service event messages contain a ``service_msgs/ServiceEventInfo`` message containing information about the event as well as the ``request`` and ``response``.
+Though there are a total of four different service event types; ``REQUEST_SENT``, ``REQUEST_RECEIVED``, ``RESPONSE_SENT``, and ``RESPONSE_RECEIVED``, we only see the ``REQUEST_RECEIVED`` and ``RESPONSE_SENT`` events being echoed here because only the turtlesim node had service introspection enabled.
+
+Since echoing service event messages to a hidden topic can incur a performance penalty, you can disable service introspection features during runtime by setting the following boolean parameters
+
+.. code-block:: yaml
+
+   /<node_name>:
+    publish_client_content
+    publish_client_events
+    publish_service_content
+    publish_service_events
+
+
+For more information see REP2012_. 
+
+   .. _REP2012: https://github.com/ros-infrastructure/rep/pull/360
+
+
+
 Summary
 -------
 

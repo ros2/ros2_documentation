@@ -102,7 +102,7 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
   class MinimalService(Node):
 
       def __init__(self):
-          super().__init__('minimal_service')
+          super().__init__('minimal_service', enable_service_introspection=True)
           self.srv = self.create_service(AddTwoInts, 'add_two_ints', self.add_two_ints_callback)
 
       def add_two_ints_callback(self, request, response):
@@ -138,7 +138,7 @@ The following ``import`` statement imports the ROS 2 Python client library, and 
   import rclpy
   from rclpy.node import Node
 
-The ``MinimalService`` class constructor initializes the node with the name ``minimal_service``.
+The ``MinimalService`` class constructor initializes the node with the name ``minimal_service`` with service introspection enabled.
 Then, it creates a service and defines the type, name, and callback.
 
 .. code-block:: python
@@ -187,7 +187,7 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
   class MinimalClientAsync(Node):
 
       def __init__(self):
-          super().__init__('minimal_client_async')
+          super().__init__('minimal_client_async', enable_service_introspection=True)
           self.cli = self.create_client(AddTwoInts, 'add_two_ints')
           while not self.cli.wait_for_service(timeout_sec=1.0):
               self.get_logger().info('service not available, waiting again...')

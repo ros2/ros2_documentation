@@ -101,7 +101,8 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
       {
         rclcpp::init(argc, argv);
 
-        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
+        std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server",
+          rclcpp::NodeOptions().enable_service_introspection(true));
 
         rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
           node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
@@ -138,11 +139,12 @@ The ``main`` function accomplishes the following, line by line:
 
     rclcpp::init(argc, argv);
 
-* Creates a node named ``add_two_ints_server``:
+* Creates a node named ``add_two_ints_server`` with service introspection enabled:
 
   .. code-block:: C++
 
-    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server");
+    std::shared_ptr<rclcpp::Node> node = rclcpp::Node::make_shared("add_two_ints_server",
+      rclcpp::NodeOptions().enable_service_introspection(true));
 
 * Creates a service named ``add_two_ints`` for that node and automatically advertises it over the networks with the ``&add`` method:
 
