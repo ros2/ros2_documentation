@@ -264,7 +264,7 @@ Your turtlesim window will update with the newly spawned turtle right away:
 To see the data communicated between a service client and a service server you can ``echo`` the service using
 
 .. code-block:: console
-   
+
   ros2 service echo <service_name | service_type> <arguments>
 
 Since we know from the previous tutorials that turtlesim offers a ``/teleport_relative`` service for teleporting the turtle, let's use it to test out ``echo`` to introspect that service.
@@ -273,11 +273,11 @@ Since we know from the previous tutorials that turtlesim offers a ``/teleport_re
 With ``turtlesim`` running, run
 
 .. code-block:: console
-   
+
   ros2 service echo /turtle1/teleport_relative
 
 Nothing will print at first, but that's just because the service hasn't been called yet.
-Next, in another terminal, make a service call with 
+Next, in another terminal, make a service call with:
 
 .. code-block:: console
 
@@ -328,7 +328,7 @@ Since echoing service event messages to a hidden topic can incur a performance p
     publish_service_events
 
 
-For more information see REP2012_. 
+For more information see REP2012_.
 
    .. _REP2012: https://github.com/ros-infrastructure/rep/pull/360
 

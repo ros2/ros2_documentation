@@ -205,7 +205,7 @@ You can move the turtle around and press ``Ctrl+C`` when you’re finished.
 
     Note: this feature is avaliable only from in ``rolling ridley`` and ``iron irwini`` onwards.
 
-You can record services as well. 
+You can record services as well.
 
 
 Run the following command:
@@ -220,7 +220,7 @@ Note that this will only work if service introspection is currently enabled for 
 
 Though one can play back and introspect the service event messages there is currently no support for replaying services i.e. mocking client requests via ``ros2 bag play``.
 
-For more information see REP2012_. 
+For more information see REP2012_.
 
    .. _REP2012: https://github.com/ros-infrastructure/rep/pull/360
 
