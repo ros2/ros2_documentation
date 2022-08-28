@@ -29,6 +29,7 @@ Rows in the table marked in green are the currently supported distributions.
    Releases/Release-Rolling-Ridley.rst
    Releases/Development.rst
    Releases/End-of-Life.rst
+   Releases/Release-Process.rst
 
 .. raw:: html
 
