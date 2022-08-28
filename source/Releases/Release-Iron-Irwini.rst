@@ -99,4 +99,4 @@ Development progress
 
 For progress on the development and release of Iron Irwini, see `the tracking GitHub issue <https://github.com/ros2/ros2/issues/1298>`__.
 
-For the broad process followed by Iron Irwini, see the :doc:`process description page <Releases/Release-Process.rst>`.
+For the broad process followed by Iron Irwini, see the :doc:`process description page <Release-Process>`.
