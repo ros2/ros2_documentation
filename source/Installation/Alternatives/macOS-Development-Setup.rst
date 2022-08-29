@@ -61,7 +61,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install cmake cppcheck eigen pcre poco tinyxml wget bullet
+       brew install bullet cmake cppcheck eigen pcre poco tinyxml
 
        brew install python@3.8
        brew unlink python
@@ -153,8 +153,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_{DISTRO}/src
    cd ~/ros2_{DISTRO}
-   wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
-   vcs import src < ros2.repos
+   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 Install additional DDS vendors (optional)
 -----------------------------------------
