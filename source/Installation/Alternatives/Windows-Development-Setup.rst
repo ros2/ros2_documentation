@@ -76,21 +76,7 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 
 .. code-block:: bash
 
-   # CMD
-   curl -sk https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
-
-   # PowerShell
-   curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
-
-Next you can use ``vcs`` to import the repositories listed in the ``ros2.repos`` file:
-
-.. code-block:: bash
-
-   # CMD
-   vcs import src < ros2.repos
-
-   # PowerShell
-   vcs import --input ros2.repos src
+   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
