@@ -83,8 +83,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_{DISTRO}/src
    cd ~/ros2_{DISTRO}
-   wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
-   vcs import src < ros2.repos
+   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 .. _linux-development-setup-install-dependencies-using-rosdep:
 
