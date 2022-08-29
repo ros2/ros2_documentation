@@ -35,14 +35,14 @@ Download RQt Repositories
 .. code-block:: bash
 
    cd ~/ros2_ws
-   wget https://raw.githubusercontent.com/PickNikRobotics/rqt2_setup/master/rqt2.repos
-   vcs import src --force < rqt2.repos
+   vcs import --force --input https://raw.githubusercontent.com/PickNikRobotics/rqt2_setup/master/rqt2.repos src
 
 As an alternative to the hosted ``.repos`` file you can use ``rosinstall_generator`` to generate a custom one:
 
 .. code-block:: bash
 
    rosinstall_generator --rosdistro crystal --upstream-development --repos python_qt_binding qt_gui_core rqt <more-repos-with-rqt-plugins> > rqt2.repos
+   vcs import --force src < rqt2.repos
 
 Install Dependencies
 ^^^^^^^^^^^^^^^^^^^^
