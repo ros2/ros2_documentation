@@ -58,8 +58,8 @@ Install development tools and ROS tools
      python3-pytest-rerunfailures \
      python3-rosdep \
      python3-setuptools \
-     python3-vcstool \
-     wget
+     python3-vcstool
+
    # install some pip packages needed for testing and
    # not available as RPMs
    python3 -m pip install -U --user \
@@ -84,8 +84,7 @@ Create a workspace and clone all repos:
 
    mkdir -p ~/ros2_{DISTRO}/src
    cd ~/ros2_{DISTRO}
-   wget https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos
-   vcs import src < ros2.repos
+   vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
 .. _rhel-development-setup-install-dependencies-using-rosdep:
 
