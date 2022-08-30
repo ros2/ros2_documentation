@@ -75,52 +75,11 @@ For more details, see :ref:`Windows Symbol Visibility in the Windows Tips and Tr
 
 Open up ``action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h``, and put the following code in:
 
-.. code-block:: c++
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h
+    :caption: `action_tutorials/action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h>`_
+    :language: c++
+    :lines: 15-
 
-  #ifndef ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
-  #define ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
-
-  #ifdef __cplusplus
-  extern "C"
-  {
-  #endif
-
-  // This logic was borrowed (then namespaced) from the examples on the gcc wiki:
-  //     https://gcc.gnu.org/wiki/Visibility
-
-  #if defined _WIN32 || defined __CYGWIN__
-    #ifdef __GNUC__
-      #define ACTION_TUTORIALS_CPP_EXPORT __attribute__ ((dllexport))
-      #define ACTION_TUTORIALS_CPP_IMPORT __attribute__ ((dllimport))
-    #else
-      #define ACTION_TUTORIALS_CPP_EXPORT __declspec(dllexport)
-      #define ACTION_TUTORIALS_CPP_IMPORT __declspec(dllimport)
-    #endif
-    #ifdef ACTION_TUTORIALS_CPP_BUILDING_DLL
-      #define ACTION_TUTORIALS_CPP_PUBLIC ACTION_TUTORIALS_CPP_EXPORT
-    #else
-      #define ACTION_TUTORIALS_CPP_PUBLIC ACTION_TUTORIALS_CPP_IMPORT
-    #endif
-    #define ACTION_TUTORIALS_CPP_PUBLIC_TYPE ACTION_TUTORIALS_CPP_PUBLIC
-    #define ACTION_TUTORIALS_CPP_LOCAL
-  #else
-    #define ACTION_TUTORIALS_CPP_EXPORT __attribute__ ((visibility("default")))
-    #define ACTION_TUTORIALS_CPP_IMPORT
-    #if __GNUC__ >= 4
-      #define ACTION_TUTORIALS_CPP_PUBLIC __attribute__ ((visibility("default")))
-      #define ACTION_TUTORIALS_CPP_LOCAL  __attribute__ ((visibility("hidden")))
-    #else
-      #define ACTION_TUTORIALS_CPP_PUBLIC
-      #define ACTION_TUTORIALS_CPP_LOCAL
-    #endif
-    #define ACTION_TUTORIALS_CPP_PUBLIC_TYPE
-  #endif
-
-  #ifdef __cplusplus
-  }
-  #endif
-
-  #endif  // ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
 
 2 Writing an action server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -132,28 +91,30 @@ Let's focus on writing an action server that computes the Fibonacci sequence usi
 
 Open up ``action_tutorials_cpp/src/fibonacci_action_server.cpp``, and put the following code in:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
+    :caption: `action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp>`_
     :language: c++
+    :lines: 15-
 
 The first few lines include all of the headers we need to compile.
 
 Next we create a class that is a derived class of ``rclcpp::Node``:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 14
+    :lines: 27
 
 The constructor for the ``FibonacciActionServer`` class initializes the node name as ``fibonacci_action_server``:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 21-22
+    :lines: 34-35
 
 The constructor also instantiates a new action server:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 26-31
+    :lines: 39-47
 
 An action server requires 6 things:
 
@@ -169,33 +130,33 @@ Note that all of the callbacks need to return quickly, otherwise we risk starvin
 
 We start with the callback for handling new goals:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 37-44
+    :lines: 54-59,66-67
 
 This implementation just accepts all goals.
 
 Next up is the callback for dealing with cancellation:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 46-52
+    :lines: 70-76
 
 This implementation just tells the client that it accepted the cancellation.
 
 The last of the callbacks accepts a new goal and starts processing it:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 54-59
+    :lines: 79-84
 
 Since the execution is a long-running operation, we spawn off a thread to do the actual work and return from ``handle_accepted`` quickly.
 
 All further processing and updates are done in the ``execute`` method in the new thread:
 
-.. literalinclude:: scripts/server.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_server.cpp
     :language: c++
-    :lines: 61-95
+    :lines: 87-121
 
 This work thread processes one sequence number of the Fibonacci sequence every second, publishing a feedback update for each step.
 When it has finished processing, it marks the ``goal_handle`` as succeeded, and quits.
@@ -258,28 +219,30 @@ Source the workspace we just built (``ros2_ws``), and try to run the action serv
 
 Open up ``action_tutorials_cpp/src/fibonacci_action_client.cpp``, and put the following code in:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
+    :caption: `action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp>`_
     :language: c++
+    :lines: 15-
 
 The first few lines include all of the headers we need to compile.
 
 Next we create a class that is a derived class of ``rclcpp::Node``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 15
+    :lines: 29
 
 The constructor for the ``FibonacciActionClient`` class initializes the node name as ``fibonacci_action_client``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 20-22
+    :lines: 36-37
 
 The constructor also instantiates a new action client:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 24-26
+    :lines: 39-44
 
 An action client requires 3 things:
 
@@ -289,15 +252,15 @@ An action client requires 3 things:
 
 We also instantiate a ROS timer that will kick off the one and only call to ``send_goal``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 27-30
+    :lines: 46-48
 
 When the timer expires, it will call ``send_goal``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 32-57
+    :lines: 52-77
 
 This function does the following:
 
@@ -310,23 +273,23 @@ This function does the following:
 When the server receives and accepts the goal, it will send a response to the client.
 That response is handled by ``goal_response_callback``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 62-71
+    :lines: 84-92
 
 Assuming the goal was accepted by the server, it will start processing.
 Any feedback to the client will be handled by the ``feedback_callback``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 72-83
+    :lines: 95-105
 
 When the server is finished processing, it will return a result to the client.
 The result is handled by the ``result_callback``:
 
-.. literalinclude:: scripts/client.cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/action_tutorials/action_tutorials_cpp/src/fibonacci_action_client.cpp
     :language: c++
-    :lines: 84-107
+    :lines: 108-130
 
 We now have a fully functioning action client.  Let's get it built and running.
 
