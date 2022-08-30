@@ -79,8 +79,6 @@ Open the file using your preferred text editor.
 
     from tf2_ros import TransformBroadcaster
 
-    import tf_transformations
-
     from turtlesim.msg import Pose
 
 
@@ -124,7 +122,7 @@ Open the file using your preferred text editor.
             # For the same reason, turtle can only rotate around one axis
             # and this why we set rotation in x and y to 0 and obtain
             # rotation in z axis from the message
-            q = tf_transformations.quaternion_from_euler(0, 0, msg.theta)
+            q = quaternion_from_euler(0, 0, msg.theta)
             t.transform.rotation.x = q[0]
             t.transform.rotation.y = q[1]
             t.transform.rotation.z = q[2]
@@ -199,7 +197,7 @@ Here we copy the information from the 3D turtle pose into the 3D transform.
     # For the same reason, turtle can only rotate around one axis
     # and this why we set rotation in x and y to 0 and obtain
     # rotation in z axis from the message
-    q = tf_transformations.quaternion_from_euler(0, 0, msg.theta)
+    q = quaternion_from_euler(0, 0, msg.theta)
     t.transform.rotation.x = q[0]
     t.transform.rotation.y = q[1]
     t.transform.rotation.z = q[2]
@@ -342,11 +340,11 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
    .. group-tab:: macOS
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
    .. group-tab:: Windows
 
-        rosdep only runs on Linux, so you will need to install ``geometry_msgs``, ``tf_transformations`` and ``turtlesim`` dependencies yourself
+        rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
 Build your updated package, and source the setup files.
 
