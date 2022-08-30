@@ -59,73 +59,10 @@ The content filtering subscription filters out the uninteresting temperature dat
 
 ContentFilteringPublisher:
 
-https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp
-
-.. code-block:: c++
-
-    #include <chrono>
-    #include <cstdio>
-    #include <memory>
-    #include <utility>
-
-    #include "rclcpp/rclcpp.hpp"
-    #include "rclcpp_components/register_node_macro.hpp"
-
-    #include "std_msgs/msg/float32.hpp"
-
-    #include "demo_nodes_cpp/visibility_control.h"
-
-    using namespace std::chrono_literals;
-
-    namespace demo_nodes_cpp
-    {
-    // The simulated temperature data starts from -100.0 and ends at 150.0 with a step size of 10.0
-    constexpr std::array<float, 3> TEMPERATURE_SETTING {-100.0f, 150.0f, 10.0f};
-
-    // Create a ContentFilteringPublisher class that subclasses the generic rclcpp::Node base class.
-    // The main function below will instantiate the class as a ROS node.
-    class ContentFilteringPublisher : public rclcpp::Node
-    {
-    public:
-      DEMO_NODES_CPP_PUBLIC
-      explicit ContentFilteringPublisher(const rclcpp::NodeOptions & options)
-      : Node("content_filtering_publisher", options)
-      {
-        // Create a function for when messages are to be sent.
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-        auto publish_message =
-          [this]() -> void
-          {
-            msg_ = std::make_unique<std_msgs::msg::Float32>();
-            msg_->data = temperature_;
-            temperature_ += TEMPERATURE_SETTING[2];
-            if (temperature_ > TEMPERATURE_SETTING[1]) {
-              temperature_ = TEMPERATURE_SETTING[0];
-            }
-            RCLCPP_INFO(this->get_logger(), "Publishing: '%f'", msg_->data);
-            // Put the message into a queue to be processed by the middleware.
-            // This call is non-blocking.
-            pub_->publish(std::move(msg_));
-          };
-        // Create a publisher with a custom Quality of Service profile.
-        // Uniform initialization is suggested so it can be trivially changed to
-        // rclcpp::KeepAll{} if the user wishes.
-        // (rclcpp::KeepLast(7) -> rclcpp::KeepAll() fails to compile)
-        rclcpp::QoS qos(rclcpp::KeepLast{7});
-        pub_ = this->create_publisher<std_msgs::msg::Float32>("temperature", qos);
-
-        // Use a timer to schedule periodic message publishing.
-        timer_ = this->create_wall_timer(1s, publish_message);
-      }
-
-    private:
-      float temperature_ = TEMPERATURE_SETTING[0];
-      std::unique_ptr<std_msgs::msg::Float32> msg_;
-      rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr pub_;
-      rclcpp::TimerBase::SharedPtr timer_;
-    };
-
-    }  // namespace demo_nodes_cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp
+    :caption: `demo_nodes_cpp/src/topics/content_filtering_publisher.cpp <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/demo_nodes_cpp/src/topics/content_filtering_publisher.cpp>`_
+    :language: c++
+    :lines: 15-
 
 The content filter is defined in the subscription side, publishers don't need to be configured in any special way to allow content filtering.
 The ``ContentFilteringPublisher`` node publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.
@@ -168,75 +105,10 @@ We can run the demo by running the ``ros2 run demo_nodes_cpp content_filtering_p
 
 ContentFilteringSubscriber:
 
-https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp
-
-.. code-block:: c++
-
-    #include "rclcpp/rclcpp.hpp"
-    #include "rclcpp_components/register_node_macro.hpp"
-    #include "rcpputils/join.hpp"
-
-    #include "std_msgs/msg/float32.hpp"
-
-    #include "demo_nodes_cpp/visibility_control.h"
-
-    namespace demo_nodes_cpp
-    {
-    // Emergency temperature data less than -30 or greater than 100
-    constexpr std::array<float, 2> EMERGENCY_TEMPERATURE {-30.0f, 100.0f};
-
-    // Create a ContentFilteringSubscriber class that subclasses the generic rclcpp::Node base class.
-    // The main function below will instantiate the class as a ROS node.
-    class ContentFilteringSubscriber : public rclcpp::Node
-    {
-    public:
-      DEMO_NODES_CPP_PUBLIC
-      explicit ContentFilteringSubscriber(const rclcpp::NodeOptions & options)
-      : Node("content_filtering_subscriber", options)
-      {
-        setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-        // Create a callback function for when messages are received.
-        auto callback =
-          [this](const std_msgs::msg::Float32 & msg) -> void
-          {
-            if (msg.data < EMERGENCY_TEMPERATURE[0] || msg.data > EMERGENCY_TEMPERATURE[1]) {
-              RCLCPP_INFO(
-                this->get_logger(),
-                "I receive an emergency temperature data: [%f]", msg.data);
-            } else {
-              RCLCPP_INFO(this->get_logger(), "I receive a temperature data: [%f]", msg.data);
-            }
-          };
-
-        // Initialize a subscription with a content filter to receive emergency temperature data that
-        // are less than -30 or greater than 100.
-        rclcpp::SubscriptionOptions sub_options;
-        sub_options.content_filter_options.filter_expression = "data < %0 OR data > %1";
-        sub_options.content_filter_options.expression_parameters = {
-          std::to_string(EMERGENCY_TEMPERATURE[0]),
-          std::to_string(EMERGENCY_TEMPERATURE[1])
-        };
-
-        sub_ = create_subscription<std_msgs::msg::Float32>("temperature", 10, callback, sub_options);
-
-        if (!sub_->is_cft_enabled()) {
-          RCLCPP_WARN(
-            this->get_logger(), "Content filter is not enabled since it's not supported");
-        } else {
-          RCLCPP_INFO(
-            this->get_logger(),
-            "subscribed to topic \"%s\" with content filter options \"%s, {%s}\"",
-            sub_->get_topic_name(),
-            sub_options.content_filter_options.filter_expression.c_str(),
-            rcpputils::join(sub_options.content_filter_options.expression_parameters, ", ").c_str());
-        }
-      }
-
-    private:
-      rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr sub_;
-    };
-
-    }  // namespace demo_nodes_cpp
+.. rli:: https://github.com/ros2/demos/raw/9c4ced3c5be392145312e0c0d3653140a2e29cc0/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp
+    :caption: `demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp <https://github.com/ros2/demos/blob/9c4ced3c5be392145312e0c0d3653140a2e29cc0/demo_nodes_cpp/src/topics/content_filtering_subscriber.cpp>`_
+    :language: c++
+    :lines: 15-
 
 To enable content filtering, applications can set the filtering expression and the expression parameters in ``SubscriptionOptions``.
 The application can also check if content filtering is enabled on the subscription.
