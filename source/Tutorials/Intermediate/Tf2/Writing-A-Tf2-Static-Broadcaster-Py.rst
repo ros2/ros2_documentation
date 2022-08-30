@@ -101,8 +101,6 @@ Open the file using your preferred text editor.
 
    from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
 
-   import tf_transformations
-
 
    class StaticFramePublisher(Node):
       """
@@ -129,7 +127,7 @@ Open the file using your preferred text editor.
          static_transformStamped.transform.translation.x = float(sys.argv[2])
          static_transformStamped.transform.translation.y = float(sys.argv[3])
          static_transformStamped.transform.translation.z = float(sys.argv[4])
-         quat = tf_transformations.quaternion_from_euler(
+         quat = quaternion_from_euler(
                float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]))
          static_transformStamped.transform.rotation.x = quat[0]
          static_transformStamped.transform.rotation.y = quat[1]
@@ -183,13 +181,10 @@ Afterward, ``rclpy`` is imported so its ``Node`` class can be used.
 
 The ``tf2_ros`` package provides a ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
 To use the ``StaticTransformBroadcaster``, we need to import it from the ``tf2_ros`` module.
-``tf_transformations`` provides functions for converting Euler angles to quaternions and vice versa.
 
 .. code-block:: python
 
    from tf2_ros.static_transform_broadcaster import StaticTransformBroadcaster
-
-   import tf_transformations
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
 Then, ``StaticTransformBroadcaster`` is created, which will send one static transformation upon the startup.
@@ -222,7 +217,7 @@ Here we populate the 6D pose (translation and rotation) of the turtle.
    static_transformStamped.transform.translation.x = float(sys.argv[2])
    static_transformStamped.transform.translation.y = float(sys.argv[3])
    static_transformStamped.transform.translation.z = float(sys.argv[4])
-   quat = tf_transformations.quaternion_from_euler(
+   quat = quaternion_from_euler(
       float(sys.argv[5]), float(sys.argv[6]), float(sys.argv[7]))
    static_transformStamped.transform.rotation.x = quat[0]
    static_transformStamped.transform.rotation.y = quat[1]
@@ -256,11 +251,10 @@ After the lines above, add the following dependencies corresponding to your node
 
    <exec_depend>geometry_msgs</exec_depend>
    <exec_depend>rclpy</exec_depend>
-   <exec_depend>tf_transformations</exec_depend>
    <exec_depend>tf2_ros</exec_depend>
    <exec_depend>turtlesim</exec_depend>
 
-This declares the required ``geometry_msgs``, ``tf_transformations``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
+This declares the required ``geometry_msgs``, ``rclpy``, ``tf2_ros``, and ``turtlesim`` dependencies when its code is executed.
 
 Make sure to save the file.
 
