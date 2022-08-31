@@ -23,7 +23,9 @@ To connect to your ROS 2 stack, click "Open connection", select the "Rosbridge (
 
 You could also drag-and-drop any local ROS 2 ``.db3`` files directly into the application to load them for playback.
 
-NOTE: In order to `load custom message definitions in your ROS 2 files <https://github.com/ros2/rosbag2/issues/782>`, try converting them to the `MCAP file format <https://mcap.dev>`.
+.. note::
+
+  In order to `load custom message definitions in your ROS 2 files <https://github.com/ros2/rosbag2/issues/782>`__, try converting them to the `MCAP file format <https://mcap.dev>`__.
 
 Check out the `Foxglove Studio docs <https://foxglove.dev/docs/studio/connection/native>`__ for more detailed instructions.
 
