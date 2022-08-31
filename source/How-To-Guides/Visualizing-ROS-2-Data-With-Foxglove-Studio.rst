@@ -19,10 +19,11 @@ Connect to a data source
 
 On opening Foxglove Studio, you will see a dialog with a list of `all possible data sources <https://foxglove.dev/docs/studio/connection/data-sources>`__.
 
-To connect to your ROS 2 stack, click "Open connection", select the ROS 2 tab, and configure your ``ROS_DOMAIN_ID``.
+To connect to your ROS 2 stack, click "Open connection", select the "Rosbridge (ROS 1 & 2)" tab, and configure your "WebSocket URL".
 
-You could also click "Open local file" to select any local ROS 2 ``.db3`` files to load into the application.
-Alternatively, you can drag-and-drop these files directly into Foxglove Studio.
+You could also drag-and-drop any local ROS 2 ``.db3`` files directly into the application to load them for playback.
+
+NOTE: In order to `load custom message definitions in your ROS 2 files <https://github.com/ros2/rosbag2/issues/782>`, try converting them to the `MCAP file format <https://mcap.dev>`.
 
 Check out the `Foxglove Studio docs <https://foxglove.dev/docs/studio/connection/native>`__ for more detailed instructions.
 
