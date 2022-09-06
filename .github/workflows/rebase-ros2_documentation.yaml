@@ -1,0 +1,50 @@
+name: rebase-ros2_documentation
+
+on:
+  schedule:
+  - cron: '0 0 * * *'
+  #scheduled every midnight
+  workflow_dispatch:
+  # manual run of the workflow job
+
+jobs:
+  rebase-branches:
+    name: Rebase HEAD with upstream current branch
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dest_branch: ['rolling', 'humble']
+
+    steps:
+      # Step 1: run a standard checkout action, provided by github (REQUIRED)
+    - name: Checkout target repo
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ matrix.dest_branch }}
+        fetch-depth: 0
+
+      # Step 2: Set git config and add remote (REQUIRED)
+    - name: Set git config and add remote
+      id: config
+      run: |
+        git config --local user.email "ricardogonzalez@eprosima.com"
+        git config --local user.name "richiprosima"
+        git remote add ros https://github.com/ros2/ros2_documentation.git
+      shell: bash
+
+      # Step 3: Rebase
+    - name: Rebase current branch to upstream changes
+      id: rebase
+      run: |
+        git fetch ros ${{ matrix.dest_branch }}
+        git rebase ros/${{ matrix.dest_branch }}
+      shell: bash
+
+      # Step 4: Push
+    - name: Force push if required
+      id: push
+      run: |
+        if [ "$(git status | grep ('diverged\|ahead')" ]; then
+          git push -f
+        fi;
+      shell: bash
