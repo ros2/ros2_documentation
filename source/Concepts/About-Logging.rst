@@ -52,10 +52,14 @@ Logging usage
 
   .. group-tab:: C++
 
-    * See the :doc:`logging demo <../Tutorials/Demos/Logging-and-logger-configuration>` for example usage.
-    * See the `rclcpp documentation <https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
+    * Example: ``RCLCPP_INFO(node.get_logger(), "Log this message at INFO level");``
+    * See the `rclcpp logging demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo/src> for some simple examples.
+    * See the :doc:`logging demo <../Tutorials/Demos/Logging-and-logger-configuration>` for examples of how to configure logging.
+    * See the `rclcpp documentation <https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of the available logging functions.
 
   .. group-tab:: Python
 
+    * Example: ``node.get_logger().info('Log this message at INFO level')``
     * See the `rclpy examples <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclpy/services/minimal_client/examples_rclpy_minimal_client/client.py>`__ for example usage of a node's logger.
     * See the `rclpy tests <https://github.com/ros2/rclpy/blob/{REPOS_FILE_BRANCH}/rclpy/test/test_logging.py>`__ for example usage of keyword arguments (e.g. ``skip_first``, ``once``).
+
