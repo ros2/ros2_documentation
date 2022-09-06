@@ -44,7 +44,7 @@ jobs:
     - name: Force push if required
       id: push
       run: |
-        if [ "$(git status | grep ('diverged\|ahead')" ]; then
+        if [ "$(git status | grep 'diverged\|ahead')" ]; then
           git push -f
         fi;
       shell: bash
