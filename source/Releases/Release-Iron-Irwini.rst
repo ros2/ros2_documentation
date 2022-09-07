@@ -41,7 +41,12 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-To come.
+ros2topic
+^^^^^^^^^
+
+`now` as keyword for `builtin_interfaces.msg.Time` and `auto` for `std_msgs.msg.Header`
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+`ros2 topic pub` now allows to set a `builtin_interfaces.msg.time` message to the current time via the `now` keyword. Similary, a `std_msg.msg.Header` message will be automatically generated when passed the keyword `auto`. This behavior matches that of ROS 1's `rostopic` (http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)
 
 Changes since the Humble release
 ----------------------------------
