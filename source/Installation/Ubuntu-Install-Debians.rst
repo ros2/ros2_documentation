@@ -114,7 +114,7 @@ Hooray!
 
 Next steps after installing
 ---------------------------
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Continue with the :doc:`tutorials and demos <../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Using the ROS 1 bridge
 ----------------------

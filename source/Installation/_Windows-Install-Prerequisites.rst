@@ -63,7 +63,7 @@ Make sure that the Visual C++ features are installed.
 
 An easy way to make sure they're installed is to select the ``Desktop development with C++`` workflow during the install.
 
-   .. image:: /Installation/images/windows-vs-studio-install.png
+   .. image:: ./images/windows-vs-studio-install.png
 
 Make sure that no C++ CMake tools are installed by unselecting them in the list of components to be installed.
 
