@@ -37,6 +37,12 @@ Let's start by installing the demo package and its dependencies.
          # Clone and build the geometry_tutorials repo using the branch that matches your installation
          git clone https://github.com/ros/geometry_tutorials.git -b ros2
 
+Additionally, install a ``transform3d`` Python package, which provides the quaternion and euler angle transformation functionality for the ``tf_transformations`` package.
+
+.. code-block:: console
+
+   pip3 install transforms3d
+
 Running the demo
 ----------------
 
