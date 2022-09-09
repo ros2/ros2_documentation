@@ -61,7 +61,9 @@ Having a release repository separate from your source code repository is a requi
 Create a new release repository
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fill the `Add New Release Repositories issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_ issue template
+If your repository is new to the ROS community, you should first open a pull request on `ros/rosdistro <https://github.com/ros/rosdistro>`_ adding a ``source`` entry for your repository.
+The review process for the rosdistro database will ensure your repository and packages conform to the `REP 144 package naming conventions <https://www.ros.org/reps/rep-0144.html>`_ and other requirements before release.
+Once your package name has been approved and merged, fill in the `Add New Release Repositories issue <https://github.com/ros2-gbp/ros2-gbp-github-org/issues/new?assignees=&labels=&template=new_release_repository.md&title=Add+new+release+repositories>`_ issue template
 if you don't have a release repo for your project yet.
 
 What if my existing release repo isn't on ros2-gbp?
