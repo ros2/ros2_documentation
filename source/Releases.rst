@@ -88,10 +88,6 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
-     - May 23rd, 2023
-     - TBD
-     - November 2024
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      - |humble|
