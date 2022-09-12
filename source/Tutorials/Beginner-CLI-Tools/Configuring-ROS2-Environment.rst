@@ -202,6 +202,52 @@ Once you have determined a unique integer for your group of ROS 2 agents, you ca
 
         setx ROS_DOMAIN_ID <your_domain_id>
 
+3.2 The ``ROS_LOCALHOST_ONLY`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+By default, ROS 2 communication is not limited to localhost.
+``ROS_LOCALHOST_ONLY`` environment variable allows you to limit ROS 2 communication to localhost only.
+
+You can set the environment variable with the following command:
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        export ROS_LOCALHOST_ONLY=1
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        export ROS_LOCALHOST_ONLY=1
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bash_profile
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        set ROS_LOCALHOST_ONLY=1
+
+      If you want to make this permanent between shell sessions, also run:
+
+      .. code-block:: console
+
+        setx ROS_LOCALHOST_ONLY 1
+
 
 Summary
 -------
