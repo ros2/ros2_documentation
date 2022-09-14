@@ -92,15 +92,12 @@ Open the file using your preferred text editor.
 
 .. code-block:: C++
 
-   #include <geometry_msgs/msg/transform_stamped.hpp>
-
-   #include <rclcpp/rclcpp.hpp>
-   #include <tf2/LinearMath/Quaternion.h>
-   #include <tf2_ros/static_transform_broadcaster.h>
-
    #include <memory>
 
-   using std::placeholders::_1;
+   #include "geometry_msgs/msg/transform_stamped.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "tf2/LinearMath/Quaternion.h"
+   #include "tf2_ros/static_transform_broadcaster.h"
 
    class StaticFramePublisher : public rclcpp::Node
    {
@@ -178,21 +175,21 @@ First we include ``geometry_msgs/msg/transform_stamped.hpp`` to access the ``Tra
 
 .. code-block:: C++
 
-   #include <geometry_msgs/msg/transform_stamped.hpp>
+   #include "geometry_msgs/msg/transform_stamped.hpp"
 
 Afterward, ``rclcpp`` is included so its ``rclcpp::Node`` class can be used.
 
 .. code-block:: C++
 
-   #include <rclcpp/rclcpp.hpp>
+   #include "rclcpp/rclcpp.hpp"
 
 ``tf2::Quaternion`` is a class for a quaternion that provides convenient functions for converting Euler angles to quaternions and vice versa.
 We also include ``tf2_ros/static_transform_broadcaster.h`` to use the ``StaticTransformBroadcaster`` to make the publishing of static transforms easy.
 
 .. code-block:: C++
 
-   #include <tf2/LinearMath/Quaternion.h>
-   #include <tf2_ros/static_transform_broadcaster.h>
+   #include "tf2/LinearMath/Quaternion.h"
+   #include "tf2_ros/static_transform_broadcaster.h"
 
 The ``StaticFramePublisher`` class constructor initializes the node with the name ``static_turtle_tf2_broadcaster``.
 Then, ``StaticTransformBroadcaster`` is created, which will send one static transformation upon the startup.
