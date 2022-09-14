@@ -72,17 +72,16 @@ Open the file using your preferred text editor.
 
 .. code-block:: C++
 
-   #include <geometry_msgs/msg/transform_stamped.hpp>
-
-   #include <rclcpp/rclcpp.hpp>
-   #include <tf2/LinearMath/Quaternion.h>
-   #include <tf2_ros/transform_broadcaster.h>
-   #include <turtlesim/msg/pose.hpp>
-
+   #include <functional>
    #include <memory>
+   #include <sstream>
    #include <string>
 
-   using std::placeholders::_1;
+   #include "geometry_msgs/msg/transform_stamped.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "tf2/LinearMath/Quaternion.h"
+   #include "tf2_ros/transform_broadcaster.h"
+   #include "turtlesim/msg/pose.hpp"
 
    class FramePublisher : public rclcpp::Node
    {
@@ -106,11 +105,11 @@ Open the file using your preferred text editor.
 
        subscription_ = this->create_subscription<turtlesim::msg::Pose>(
          topic_name, 10,
-         std::bind(&FramePublisher::handle_turtle_pose, this, _1));
+         std::bind(&FramePublisher::handle_turtle_pose, this, std::placeholders::_1));
      }
 
    private:
-     void handle_turtle_pose(const turtlesim::msg::Pose & msg)
+     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
      {
        rclcpp::Time now = this->get_clock()->now();
        geometry_msgs::msg::TransformStamped t;
@@ -123,15 +122,15 @@ Open the file using your preferred text editor.
 
        // Turtle only exists in 2D, thus we get x and y translation
        // coordinates from the message and set the z coordinate to 0
-       t.transform.translation.x = msg.x;
-       t.transform.translation.y = msg.y;
+       t.transform.translation.x = msg->x;
+       t.transform.translation.y = msg->y;
        t.transform.translation.z = 0.0;
 
        // For the same reason, turtle can only rotate around one axis
        // and this why we set rotation in x and y to 0 and obtain
        // rotation in z axis from the message
        tf2::Quaternion q;
-       q.setRPY(0, 0, msg.theta);
+       q.setRPY(0, 0, msg->theta);
        t.transform.rotation.x = q.x();
        t.transform.rotation.y = q.y();
        t.transform.rotation.z = q.z();
@@ -199,15 +198,15 @@ Here we copy the information from the 3D turtle pose into the 3D transform.
 
     // Turtle only exists in 2D, thus we get x and y translation
     // coordinates from the message and set the z coordinate to 0
-    t.transform.translation.x = msg.x;
-    t.transform.translation.y = msg.y;
+    t.transform.translation.x = msg->x;
+    t.transform.translation.y = msg->y;
     t.transform.translation.z = 0.0;
 
     // For the same reason, turtle can only rotate around one axis
     // and this why we set rotation in x and y to 0 and obtain
     // rotation in z axis from the message
     tf2::Quaternion q;
-    q.setRPY(0, 0, msg.theta);
+    q.setRPY(0, 0, msg->theta);
     t.transform.rotation.x = q.x();
     t.transform.rotation.y = q.y();
     t.transform.rotation.z = q.z();
