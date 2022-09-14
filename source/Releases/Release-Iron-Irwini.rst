@@ -44,11 +44,11 @@ New features in this ROS 2 release
 ros2topic
 ^^^^^^^^^
 
-`now` as keyword for `builtin_interfaces.msg.Time` and `auto` for `std_msgs.msg.Header`
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-`ros2 topic pub` now allows to set a `builtin_interfaces.msg.Time` message to the current time via the `now` keyword.
-Similarly, a `std_msg.msg.Header` message will be automatically generated when passed the keyword `auto`.
-This behavior matches that of ROS 1's `rostopic` (http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)
+``now`` as keyword for ``builtin_interfaces.msg.Time`` and ``auto`` for ``std_msgs.msg.Header``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+``ros2 topic pub`` now allows to set a ``builtin_interfaces.msg.Time`` message to the current time via the ``now`` keyword.
+Similarly, a ``std_msg.msg.Header`` message will be automatically generated when passed the keyword ``auto``.
+This behavior matches that of ROS 1's ``rostopic`` (http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)
 
 Related PR: `ros2/ros2cli#749 <https://github.com/ros2/ros2cli/pull/749>`_
 
