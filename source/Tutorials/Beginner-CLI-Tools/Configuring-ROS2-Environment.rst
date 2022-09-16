@@ -207,7 +207,8 @@ Once you have determined a unique integer for your group of ROS 2 agents, you ca
 
 By default, ROS 2 communication is not limited to localhost.
 ``ROS_LOCALHOST_ONLY`` environment variable allows you to limit ROS 2 communication to localhost only.
-
+This means your ROS 2 system, and its topics, services, and actions will not be visible to other computers on the local network.
+Using ``ROS_LOCALHOST_ONLY`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic causing strange behaviors.
 You can set the environment variable with the following command:
 
 .. tabs::
