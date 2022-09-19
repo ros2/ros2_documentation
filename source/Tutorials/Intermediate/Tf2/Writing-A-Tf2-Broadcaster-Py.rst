@@ -60,13 +60,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
+            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_broadcaster.py -o turtle_tf2_broadcaster.py
 
 Open the file using your preferred text editor.
 
@@ -116,12 +116,11 @@ Open the file using your preferred text editor.
             super().__init__('turtle_tf2_frame_publisher')
 
             # Declare and acquire `turtlename` parameter
-            self.declare_parameter('turtlename', 'turtle')
-            self.turtlename = self.get_parameter(
-                'turtlename').get_parameter_value().string_value
+            self.turtlename = self.declare_parameter(
+              'turtlename', 'turtle').get_parameter_value().string_value
 
             # Initialize the transform broadcaster
-            self.br = TransformBroadcaster(self)
+            self.tf_broadcaster = TransformBroadcaster(self)
 
             # Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose
             # callback function on each message
@@ -157,7 +156,7 @@ Open the file using your preferred text editor.
             t.transform.rotation.w = q[3]
 
             # Send the transformation
-            self.br.sendTransform(t)
+            self.tf_broadcaster.sendTransform(t)
 
 
     def main():
@@ -178,19 +177,18 @@ Firstly, we define and acquire a single parameter ``turtlename``, which specifie
 
 .. code-block:: python
 
-    self.declare_parameter('turtlename', 'turtle')
-    self.turtlename = self.get_parameter(
-        'turtlename').get_parameter_value().string_value
+    self.turtlename = self.declare_parameter(
+      'turtlename', 'turtle').get_parameter_value().string_value
 
 Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
 
 .. code-block:: python
 
-    self .subscription = self.create_subscription(
-        Pose,
-        f'/{self.turtlename}/pose',
-        self.handle_turtle_pose,
-        1)
+     self .subscription = self.create_subscription(
+         Pose,
+         f'/{self.turtlename}/pose',
+         self.handle_turtle_pose,
+         1)
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
@@ -236,7 +234,7 @@ Finally we take the transform that we constructed and pass it to the ``sendTrans
 .. code-block:: python
 
     # Send the transformation
-    self.br.sendTransform(t)
+    self.tf_broadcaster.sendTransform(t)
 
 .. note::
 
@@ -353,8 +351,8 @@ Also add the appropriate imports at the top of the file:
 
 You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
-3 Build and run
-^^^^^^^^^^^^^^^
+3 Build
+^^^^^^^
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
@@ -364,7 +362,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -374,7 +372,56 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-Build your updated package, and source the setup files.
+Still in the root of your workspace, build your package:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+        colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+        colcon build --merge-install --packages-select learning_tf2_py
+
+Open a new terminal, navigate to the root of your workspace, and source the setup files:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+        . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+        # CMD
+        call install\setup.bat
+
+        # Powershell
+        .\install\setup.ps1
+
+4 Run
+^^^^^
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 
