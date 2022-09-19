@@ -60,97 +60,96 @@ Inside the ``src`` directory download the example broadcaster code by entering t
 
         .. code-block:: console
 
-                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_broadcaster.cpp -o turtle_tf2_broadcaster.cpp
+            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_broadcaster.cpp -o turtle_tf2_broadcaster.cpp
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_broadcaster.cpp -o turtle_tf2_broadcaster.cpp
+            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_cpp/src/turtle_tf2_broadcaster.cpp -o turtle_tf2_broadcaster.cpp
 
 Open the file using your preferred text editor.
 
 .. code-block:: C++
 
-   #include <functional>
-   #include <memory>
-   #include <sstream>
-   #include <string>
+    #include <functional>
+    #include <memory>
+    #include <sstream>
+    #include <string>
 
-   #include "geometry_msgs/msg/transform_stamped.hpp"
-   #include "rclcpp/rclcpp.hpp"
-   #include "tf2/LinearMath/Quaternion.h"
-   #include "tf2_ros/transform_broadcaster.h"
-   #include "turtlesim/msg/pose.hpp"
+    #include "geometry_msgs/msg/transform_stamped.hpp"
+    #include "rclcpp/rclcpp.hpp"
+    #include "tf2/LinearMath/Quaternion.h"
+    #include "tf2_ros/transform_broadcaster.h"
+    #include "turtlesim/msg/pose.hpp"
 
-   class FramePublisher : public rclcpp::Node
-   {
-   public:
-     FramePublisher()
-     : Node("turtle_tf2_frame_publisher")
-     {
-       // Declare and acquire `turtlename` parameter
-       this->declare_parameter<std::string>("turtlename", "turtle");
-       this->get_parameter("turtlename", turtlename_);
+    class FramePublisher : public rclcpp::Node
+    {
+    public:
+      FramePublisher()
+      : Node("turtle_tf2_frame_publisher")
+      {
+        // Declare and acquire `turtlename` parameter
+        turtlename_ = this->declare_parameter<std::string>("turtlename", "turtle");
 
-       // Initialize the transform broadcaster
-       tf_broadcaster_ =
-         std::make_unique<tf2_ros::TransformBroadcaster>(*this);
+        // Initialize the transform broadcaster
+        tf_broadcaster_ =
+          std::make_unique<tf2_ros::TransformBroadcaster>(*this);
 
-       // Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose
-       // callback function on each message
-       std::ostringstream stream;
-       stream << "/" << turtlename_.c_str() << "/pose";
-       std::string topic_name = stream.str();
+        // Subscribe to a turtle{1}{2}/pose topic and call handle_turtle_pose
+        // callback function on each message
+        std::ostringstream stream;
+        stream << "/" << turtlename_.c_str() << "/pose";
+        std::string topic_name = stream.str();
 
-       subscription_ = this->create_subscription<turtlesim::msg::Pose>(
-         topic_name, 10,
-         std::bind(&FramePublisher::handle_turtle_pose, this, std::placeholders::_1));
-     }
+        subscription_ = this->create_subscription<turtlesim::msg::Pose>(
+          topic_name, 10,
+          std::bind(&FramePublisher::handle_turtle_pose, this, std::placeholders::_1));
+      }
 
-   private:
-     void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
-     {
-       rclcpp::Time now = this->get_clock()->now();
-       geometry_msgs::msg::TransformStamped t;
+    private:
+      void handle_turtle_pose(const std::shared_ptr<turtlesim::msg::Pose> msg)
+      {
+        geometry_msgs::msg::TransformStamped t;
 
-       // Read message content and assign it to
-       // corresponding tf variables
-       t.header.stamp = now;
-       t.header.frame_id = "world";
-       t.child_frame_id = turtlename_.c_str();
+        // Read message content and assign it to
+        // corresponding tf variables
+        t.header.stamp = this->get_clock()->now();
+        t.header.frame_id = "world";
+        t.child_frame_id = turtlename_.c_str();
 
-       // Turtle only exists in 2D, thus we get x and y translation
-       // coordinates from the message and set the z coordinate to 0
-       t.transform.translation.x = msg->x;
-       t.transform.translation.y = msg->y;
-       t.transform.translation.z = 0.0;
+        // Turtle only exists in 2D, thus we get x and y translation
+        // coordinates from the message and set the z coordinate to 0
+        t.transform.translation.x = msg->x;
+        t.transform.translation.y = msg->y;
+        t.transform.translation.z = 0.0;
 
-       // For the same reason, turtle can only rotate around one axis
-       // and this why we set rotation in x and y to 0 and obtain
-       // rotation in z axis from the message
-       tf2::Quaternion q;
-       q.setRPY(0, 0, msg->theta);
-       t.transform.rotation.x = q.x();
-       t.transform.rotation.y = q.y();
-       t.transform.rotation.z = q.z();
-       t.transform.rotation.w = q.w();
+        // For the same reason, turtle can only rotate around one axis
+        // and this why we set rotation in x and y to 0 and obtain
+        // rotation in z axis from the message
+        tf2::Quaternion q;
+        q.setRPY(0, 0, msg->theta);
+        t.transform.rotation.x = q.x();
+        t.transform.rotation.y = q.y();
+        t.transform.rotation.z = q.z();
+        t.transform.rotation.w = q.w();
 
-       // Send the transformation
-       tf_broadcaster_->sendTransform(t);
-     }
-     rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr subscription_;
-     std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-     std::string turtlename_;
-   };
+        // Send the transformation
+        tf_broadcaster_->sendTransform(t);
+      }
 
-   int main(int argc, char * argv[])
-   {
-     rclcpp::init(argc, argv);
-     rclcpp::spin(std::make_shared<FramePublisher>());
-     rclcpp::shutdown();
-     return 0;
-   }
+      rclcpp::Subscription<turtlesim::msg::Pose>::SharedPtr subscription_;
+      std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+      std::string turtlename_;
+    };
+
+    int main(int argc, char * argv[])
+    {
+      rclcpp::init(argc, argv);
+      rclcpp::spin(std::make_shared<FramePublisher>());
+      rclcpp::shutdown();
+      return 0;
+    }
 
 1.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
@@ -160,16 +159,15 @@ Firstly, we define and acquire a single parameter ``turtlename``, which specifie
 
 .. code-block:: C++
 
-    this->declare_parameter<std::string>("turtlename", "turtle");
-    this->get_parameter("turtlename", turtlename_);
+    turtlename_ = this->declare_parameter<std::string>("turtlename", "turtle");
 
 Afterward, the node subscribes to topic ``turtleX/pose`` and runs function ``handle_turtle_pose`` on every incoming message.
 
 .. code-block:: C++
 
     subscription_ = this->create_subscription<turtlesim::msg::Pose>(
-     topic_name, 10,
-     std::bind(&FramePublisher::handle_turtle_pose, this, _1));
+      topic_name, 10,
+      std::bind(&FramePublisher::handle_turtle_pose, this, _1));
 
 Now, we create a ``TransformStamped`` object and give it the appropriate metadata.
 
@@ -183,12 +181,11 @@ The handler function for the turtle pose message broadcasts this turtle's transl
 
 .. code-block:: C++
 
-    rclcpp::Time now = this->get_clock()->now();
     geometry_msgs::msg::TransformStamped t;
 
     // Read message content and assign it to
     // corresponding tf variables
-    t.header.stamp = now;
+    t.header.stamp = this->get_clock()->now();
     t.header.frame_id = "world";
     t.child_frame_id = turtlename_.c_str();
 
@@ -333,8 +330,8 @@ Reopen ``CMakeLists.txt`` and add the line so that the launch files from the ``l
 
 You can learn more about creating launch files in :doc:`this tutorial <../Launch/Creating-Launch-Files>`.
 
-3 Build and run
-^^^^^^^^^^^^^^^
+3 Build
+^^^^^^^
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
@@ -344,7 +341,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -354,7 +351,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-From the root of your workspace, build your updated package, and source the setup files.
+From the root of your workspace, build your updated package:
 
 .. tabs::
 
@@ -362,19 +359,48 @@ From the root of your workspace, build your updated package, and source the setu
 
       .. code-block:: console
 
-         colcon build --packages-select learning_tf2_cpp
+          colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: macOS
 
       .. code-block:: console
 
-         colcon build --packages-select learning_tf2_cpp
+          colcon build --packages-select learning_tf2_cpp
 
    .. group-tab:: Windows
 
       .. code-block:: console
 
-         colcon build --merge-install --packages-select learning_tf2_cpp
+          colcon build --merge-install --packages-select learning_tf2_cpp
+
+Open a new terminal, navigate to the root of your workspace, and source the setup files:
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+          . install/setup.bash
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+          . install/setup.bash
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+          # CMD
+          call install\setup.bat
+
+          # Powershell
+          .\install\setup.ps1
+
+4 Run
+^^^^^
 
 Now run the launch file that will start the turtlesim simulation node and ``turtle_tf2_broadcaster`` node:
 
