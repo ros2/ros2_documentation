@@ -59,13 +59,13 @@ Inside the ``src/learning_tf2_py/learning_tf2_py`` directory download the exampl
 
         .. code-block:: console
 
-                curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+            curl -sk https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
         Or in powershell:
 
         .. code-block:: console
 
-                curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
+            curl https://raw.githubusercontent.com/ros/geometry_tutorials/ros2/turtle_tf2_py/turtle_tf2_py/turtle_tf2_listener.py -o turtle_tf2_listener.py
 
 Open the file using your preferred text editor.
 
@@ -91,9 +91,8 @@ Open the file using your preferred text editor.
             super().__init__('turtle_tf2_frame_listener')
 
             # Declare and acquire `target_frame` parameter
-            self.declare_parameter('target_frame', 'turtle1')
-            self.target_frame = self.get_parameter(
-                'target_frame').get_parameter_value().string_value
+            self.target_frame = self.declare_parameter(
+              'target_frame', 'turtle1').get_parameter_value().string_value
 
             self.tf_buffer = Buffer()
             self.tf_listener = TransformListener(self.tf_buffer, self)
@@ -123,11 +122,10 @@ Open the file using your preferred text editor.
                     # Look up for the transformation between target_frame and turtle2 frames
                     # and send velocity commands for turtle2 to reach target_frame
                     try:
-                        now = rclpy.time.Time()
-                        trans = self.tf_buffer.lookup_transform(
+                        t = self.tf_buffer.lookup_transform(
                             to_frame_rel,
                             from_frame_rel,
-                            now)
+                            rclpy.time.Time())
                     except TransformException as ex:
                         self.get_logger().info(
                             f'Could not transform {to_frame_rel} to {from_frame_rel}: {ex}')
@@ -136,13 +134,13 @@ Open the file using your preferred text editor.
                     msg = Twist()
                     scale_rotation_rate = 1.0
                     msg.angular.z = scale_rotation_rate * math.atan2(
-                        trans.transform.translation.y,
-                        trans.transform.translation.x)
+                        t.transform.translation.y,
+                        t.transform.translation.x)
 
                     scale_forward_speed = 0.5
                     msg.linear.x = scale_forward_speed * math.sqrt(
-                        trans.transform.translation.x ** 2 +
-                        trans.transform.translation.y ** 2)
+                        t.transform.translation.x ** 2 +
+                        t.transform.translation.y ** 2)
 
                     self.publisher.publish(msg)
                 else:
@@ -210,19 +208,16 @@ All this is wrapped in a try-except block to handle possible exceptions.
 
 .. code-block:: python
 
-    now = rclpy.time.Time()
-    trans = self.tf_buffer.lookup_transform(
+    t = self.tf_buffer.lookup_transform(
         to_frame_rel,
         from_frame_rel,
-        now)
+        rclpy.time.Time())
 
 1.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
 To allow the ``ros2 run`` command to run your node, you must add the entry point
 to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
-
-Finally, add the following line between the ``'console_scripts':`` brackets:
 
 .. code-block:: python
 
@@ -231,8 +226,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-With your text editor, open the launch file called ``turtle_tf2_demo.launch.py``, and add the following lines after your first ``turtle1`` broadcaster node.
-Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfiguration`` in the beginning of the file:
+Open the launch file called ``turtle_tf2_demo.launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports. The resulting file should look like:
 
 .. code-block:: python
 
@@ -242,9 +236,22 @@ Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfi
 
     from launch_ros.actions import Node
 
+
     def generate_launch_description():
         return LaunchDescription([
-            ...,
+            Node(
+                package='turtlesim',
+                executable='turtlesim_node',
+                name='sim'
+            ),
+            Node(
+                package='learning_tf2_py',
+                executable='turtle_tf2_broadcaster',
+                name='broadcaster1',
+                parameters=[
+                    {'turtlename': 'turtle1'}
+                ]
+            ),
             DeclareLaunchArgument(
                 'target_frame', default_value='turtle1',
                 description='Target frame name.'
@@ -270,8 +277,8 @@ Additionally, include the imports of ``DeclareLaunchArgument`` and ``LaunchConfi
 This will declare a ``target_frame`` launch argument, start a broadcaster for second turtle that we will spawn and listener that will subscribe to those transformations.
 
 
-3 Build and run
-^^^^^^^^^^^^^^^
+3 Build
+^^^^^^^
 
 Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
@@ -281,7 +288,7 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
       .. code-block:: console
 
-        rosdep install -i --from-path src --rosdistro {DISTRO} -y
+          rosdep install -i --from-path src --rosdistro {DISTRO} -y
 
    .. group-tab:: macOS
 
@@ -291,10 +298,56 @@ Run ``rosdep`` in the root of your workspace to check for missing dependencies.
 
         rosdep only runs on Linux, so you will need to install ``geometry_msgs`` and ``turtlesim`` dependencies yourself
 
-Build your updated package, and source the setup files.
+Still in the root of your workspace, build your package:
 
-4 Checking the results
-^^^^^^^^^^^^^^^^^^^^^^
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+        colcon build --packages-select learning_tf2_py
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+        colcon build --merge-install --packages-select learning_tf2_py
+
+Open a new terminal, navigate to the root of your workspace, and source the setup files:
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+        . install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+        . install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+        # CMD
+        call install\setup.bat
+
+        # Powershell
+        .\install\setup.ps1
+
+4 Run
+^^^^^
 
 Now you're ready to start your full turtle demo:
 

@@ -42,7 +42,7 @@ It should look like shown below:
       from_frame_rel,
       now)
 
-Moreover, import additional exceptions that we will handle in the beggining of the file:
+Moreover, import additional exceptions that we will handle in the beginning of the file:
 
 .. code-block:: python
 
