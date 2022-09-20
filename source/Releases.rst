@@ -169,7 +169,7 @@ Rolling Distribution
 --------------------
 
 :doc:`ROS 2 Rolling Ridley <Releases/Release-Rolling-Ridley>` is the rolling development distribution of ROS 2.
-It was proposed in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_ and was first introduced in June 2020.
+It is described in `REP 2002 <https://www.ros.org/reps/rep-2002.html>`_ and was first introduced in June 2020.
 
 The Rolling distribution of ROS 2 serves two purposes:
 
