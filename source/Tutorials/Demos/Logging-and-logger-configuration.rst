@@ -3,10 +3,140 @@
     Logging-and-logger-configuration
     Tutorials/Logging-and-logger-configuration
 
-Configuring loggers
-===================
+Logging
+=======
+
+.. contents:: Table of Contents
+   :depth: 2
+   :local:
 
 See `the logging page <../../Concepts/About-Logging>` for details on available functionality.
+
+Using log statements in code
+----------------------------
+
+Basic logging
+^^^^^^^^^^^^^
+
+The following code will output a log message from a ROS 2 node at ``DEBUG`` severity:
+
+.. tabs::
+
+    .. group-tab:: C++
+
+        .. code-block:: C++
+
+            // printf style
+            RCLCPP_DEBUG(node->get_logger(), "My log message %d", 4);
+
+            // C++ stream style
+            RCLCPP_DEBUG_STREAM(node->get_logger(), "My log message " << 4);
+
+    .. group-tab:: Python
+
+        .. code-block:: python
+
+            node.get_logger().debug('My log message %d' % (4))
+
+Note that in both cases, no trailing newline is added, as the logging infrastructure will automatically add one.
+
+Logging only the first time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following code will output a log message from a ROS 2 node at ``INFO`` severity, but only the first time it is hit:
+
+.. tabs::
+
+    .. group-tab:: C++
+
+        .. code-block:: C++
+
+            // printf style
+            RCLCPP_INFO_ONCE(node->get_logger(), "My log message %d", 4);
+
+            // C++ stream style
+            RCLCPP_INFO_STREAM_ONCE(node->get_logger(), "My log message " << 4);
+
+    .. group-tab:: Python
+
+        .. code-block:: python
+
+            num = 4
+            node.get_logger().info(f'My log message {num}', once=True)
+
+Logging all but the first time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following code will output a log message from a ROS 2 node at ``WARN`` severity, but not the very first time it is hit:
+
+.. tabs::
+
+    .. group-tab:: C++
+
+        .. code-block:: C++
+
+            // printf style
+            RCLCPP_WARN_SKIPFIRST(node->get_logger(), "My log message %d", 4);
+
+            // C++ stream style
+            RCLCPP_WARN_STREAM_SKIPFIRST(node->get_logger(), "My log message " << 4);
+
+    .. group-tab:: Python
+
+        .. code-block:: python
+
+            num = 4
+            node.get_logger().warning('My log message {0}'.format(num), skip_first=True)
+
+Logging throttled
+^^^^^^^^^^^^^^^^^
+
+The following code will output a log message from a ROS 2 node at ``ERROR`` severity, but no more than once per second:
+
+.. tabs::
+
+    .. group-tab:: C++
+
+        .. code-block:: C++
+
+            // printf style
+            RCLCPP_ERROR_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "My log message %d", 4);
+
+            // C++ stream style
+            RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_lock(), 1000, "My log message " << 4);
+
+    .. group-tab:: Python
+
+        .. code-block:: python
+
+            num = 4
+            node.get_logger().error(f'My log message {num}', throttle_duration_sec=1)
+
+Logging throttled all but the first time
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The following code will output a log message from a ROS 2 node at ``DEBUG`` severity, no more than once per second, skipping the very first time it is hit:
+
+.. tabs::
+
+    .. group-tab:: C++
+
+        .. code-block:: C++
+
+            // printf style
+            RCLCPP_DEBUG_SKIPFIRST_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "My log message %d", 4);
+
+            RCLCPP_DEBUG_SKIPFIRST_THROTTLE(node->get_logger(), *node->get_clock(), 1000, "My log message " << 4);
+
+    .. group-tab:: Python
+
+        .. code-block:: python
+
+            num = 4
+            node.get_logger().debug(f'My log message {num}', skip_first=True, throttle_duration_sec=1.0)
+
+Logging demo
+------------
 
 In this demo, different types of log calls are shown and the severity level of different loggers is configured locally and externally.
 
