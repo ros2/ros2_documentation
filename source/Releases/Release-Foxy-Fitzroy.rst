@@ -36,7 +36,7 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
-Changes in Patch Release 8 (2022-07-28)
+Changes in Patch Release 8 (2022-09-27)
 ---------------------------------------
 
 Launch GroupAction scopes environment
@@ -64,7 +64,7 @@ For example, consider the following launch files,
                  Node(package='foo', executable='foo', output='screen'),
                  GroupAction([
                      SetEnvironmentVariable(name='my_env_var', value='2'),
-                 ], scoped=False),
+                 ]),
              ])
 
    .. group-tab:: XML
@@ -81,7 +81,7 @@ For example, consider the following launch files,
 
 Before patch release 8, the node ``foo`` will start with ``my_env_var=2``, but now it will start with ``my_env_var=1``.
 
-To opt-out of the new behavior, you can set the argument ``scoped=True`` on the ``GroupAction``.
+To opt-out of the new behavior, you can set the argument ``scoped=False`` on the ``GroupAction``.
 
 Related tickets:
 
