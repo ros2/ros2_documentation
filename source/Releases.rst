@@ -174,4 +174,4 @@ As the name implies, Rolling is continuously updated and **can have in-place upd
 We recommend that most people use the most recent stable distribution instead (see :ref:`list_of_distributions`).
 
 Packages released into the Rolling distribution will be automatically released into future stable distributions of ROS 2.
-:doc:`Releasing a ROS 2 package <../How-To-Guides/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
+:doc:`Releasing a ROS 2 package <./How-To-Guides/Releasing/Releasing-a-Package>` into the Rolling distribution follows the same procedures as all other ROS 2 distributions.
