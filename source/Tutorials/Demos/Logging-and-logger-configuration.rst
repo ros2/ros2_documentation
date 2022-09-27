@@ -138,7 +138,7 @@ The following code will output a log message from a ROS 2 node at ``DEBUG`` seve
 Logging demo
 ------------
 
-In this demo, different types of log calls are shown and the severity level of different loggers is configured locally and externally.
+In this `demo <https://github.com/ros2/demos/tree/master/logging_demo>`_, different types of log calls are shown and the severity level of different loggers is configured locally and externally.
 
 Start the demo with:
 
