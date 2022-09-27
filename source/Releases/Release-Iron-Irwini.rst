@@ -61,7 +61,7 @@ Changes since the Humble release
 Renamed classes which used ``Ros`` in the name to use ``ROS`` in line with PEP8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-The classes affected include:
+Classes that were changed:
 
 * ``launch.actions.RosTimer`` -> ``launch.actions.ROSTimer``
 * ``launch.actions.PushRosNamespace`` -> ``launch.actions.PushROSNamespace``
