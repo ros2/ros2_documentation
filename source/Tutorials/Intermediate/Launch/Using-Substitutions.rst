@@ -133,7 +133,6 @@ The ``PathJoinSubstitution`` substitution is then used to join the path to that 
 
     PathJoinSubstitution([
         FindPackageShare('launch_tutorial'),
-        'launch',
         'example_substitutions.launch.py'
     ])
 
