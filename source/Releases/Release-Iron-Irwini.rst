@@ -55,7 +55,18 @@ Related PR: `ros2/ros2cli#749 <https://github.com/ros2/ros2cli/pull/749>`_
 Changes since the Humble release
 ----------------------------------
 
-To come.
+``launch_ros``
+^^^^^^^^^^^^^^
+
+Renamed classes which used ``Ros`` in the name to use ``ROS`` in line with PEP8
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The classes affected include:
+
+* ``launch.actions.RosTimer`` -> ``launch.actions.ROSTimer``
+* ``launch.actions.PushRosNamespace`` -> ``launch.actions.PushROSNamespace``
+
+The old class names are still there, but will be deprecated.
 
 Known Issues
 ------------
