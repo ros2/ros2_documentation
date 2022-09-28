@@ -280,7 +280,7 @@ Unique namespaces allow the system to start two similar nodes without node name 
    namespace='turtlesim2',
 
 However, if the launch file contains a large number of nodes, defining namespaces for each of them can become tedious.
-To solve that issue, the ``PushRosNamespace`` action can be used to define the global namespace for each launch file description.
+To solve that issue, the ``PushROSNamespace`` action can be used to define the global namespace for each launch file description.
 Every nested node will inherit that namespace automatically.
 
 To do that, firstly, we need to remove the ``namespace='turtlesim2'`` line from the ``turtlesim_world_2.launch.py`` file.
@@ -289,7 +289,7 @@ Afterwards, we need to update the ``launch_turtlesim.launch.py`` to include the 
 .. code-block:: Python
 
    from launch.actions import GroupAction
-   from launch_ros.actions import PushRosNamespace
+   from launch_ros.actions import PushROSNamespace
 
       ...
       turtlesim_world_2 = IncludeLaunchDescription(
@@ -299,7 +299,7 @@ Afterwards, we need to update the ``launch_turtlesim.launch.py`` to include the 
          )
       turtlesim_world_2_with_namespace = GroupAction(
         actions=[
-            PushRosNamespace('turtlesim2'),
+            PushROSNamespace('turtlesim2'),
             turtlesim_world_2,
          ]
       )

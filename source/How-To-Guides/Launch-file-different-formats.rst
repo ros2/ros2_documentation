@@ -45,7 +45,7 @@ Each launch file performs the following actions:
         from launch.substitutions import LaunchConfiguration
         from launch.substitutions import TextSubstitution
         from launch_ros.actions import Node
-        from launch_ros.actions import PushRosNamespace
+        from launch_ros.actions import PushROSNamespace
 
 
         def generate_launch_description():
@@ -75,7 +75,7 @@ Each launch file performs the following actions:
             launch_include_with_namespace = GroupAction(
                 actions=[
                     # push_ros_namespace to set namespace of included nodes
-                    PushRosNamespace('chatter_ns'),
+                    PushROSNamespace('chatter_ns'),
                     IncludeLaunchDescription(
                         PythonLaunchDescriptionSource(
                             os.path.join(
