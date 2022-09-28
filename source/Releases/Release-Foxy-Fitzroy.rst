@@ -36,7 +36,7 @@ New features in this ROS 2 release
 
 During the development the `Foxy meta-ticket <https://github.com/ros2/ros2/issues/830>`__ on GitHub contains an up-to-date state of the ongoing high-level tasks as well as references specific tickets with more details.
 
-Changes in Patch Release 8 (2022-09-27)
+Changes in Patch Release 8 (2022-09-28)
 ---------------------------------------
 
 Launch GroupAction scopes environment
