@@ -238,7 +238,7 @@ Edge AI
 Embedded Systems
 ^^^^^^^^^^^^^^^^
 
-* Lead(s): Maria Merlan, Pablo Garrido
+* Lead(s): Lara Moreno, Pablo Garrido
 * Resources:
 
  * `2019-07-29 meeting notes <https://discourse.ros.org/uploads/short-url/z1caIm7m5IVP4cPJUwg3Chq36wO.pdf>`__
