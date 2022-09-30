@@ -18,7 +18,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
        * - Title
          - Links
-       * - SMACC2, an open-source, event-driven, asynchronous, behavioral state machine library for ROS2 applications written in C++
+       * - SMACC2
          - `video <https://vimeo.com/649655394/f9b25be7f9>`__
        * - rospy2: Convert a ROS1 node to ROS2 by changing only one line of code
          - `video <https://vimeo.com/649655340/127d801385>`__
@@ -46,7 +46,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
          - `video <https://vimeo.com/649654728/25bef7e247>`__
        * - ros2_control: The future of ros_control
          - `video <https://vimeo.com/649654948>`__
-       * - Let's Roll! How ROS 2 Rolling Ridley changes the ROS release process and what you can do with it.
+       * - ROS 2 Rolling Ridley
          - `video <https://vimeo.com/649650919>`__
        * - Hybrid Planning - Enabling Reactive Manipulation with MoveIt 2
          - `video <https://vimeo.com/649649286/17fb9b9f4d>`__
