@@ -11,6 +11,68 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
+  .. group-tab:: 2021
+
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - SMACC2, an open-source, event-driven, asynchronous, behavioral state machine library for ROS2 applications written in C++
+         - `video <https://vimeo.com/649655394/f9b25be7f9>`__
+       * - rospy2: Convert a ROS1 node to ROS2 by changing only one line of code
+         - `video <https://vimeo.com/649655340/127d801385>`__
+       * - Hello Robot: Democratizing Mobile Manipulation with ROS
+         - `video <https://vimeo.com/649649087/b1a3a67369>`__
+       * - Challenges for ROS2 in Autonomous Agricultural Applications
+         - `video <https://vimeo.com/649646777>`__
+       * - ESP32 microcontroller robot with Navigation 2 ROS 2 running in the Cloud
+         - `video <https://vimeo.com/649648283>`__
+       * - Middleware interconnecting ROS/ROS2 with the EtherCAT protocol
+         - `video <https://vimeo.com/649651918>`__
+       * - Build and Manage Cloud-enhanced ROS Robots with AWS IoT Greengrass 2.0
+         - `video <https://vimeo.com/649647971/0f36010e6e>`__
+       * - Driving Autonomy in Mobile Robotics with ROS2 and PX4
+         - `video <https://vimeo.com/649648867/c524ae57fd>`__
+       * - Integrating ROS 2 with existing DDS networks
+         - `video <https://vimeo.com/649649793/31032f6fba>`__
+       * - VIPER: Volatiles Investigating Polar Exploration Rover
+         - `video <https://vimeo.com/649657650/ce9245dc22>`__
+       * - Chronicles of Caching and Containerising CI for Nav2
+         - `video <https://vimeo.com/649647161/5b0c278e6c>`__
+       * - A New Way to Interact with PointCloud2 Messages
+         - `video <https://vimeo.com/649643457/7ba0e85107>`__
+       * - ROS 2 Grasp Library – Acceleration for 3D Object Pose Detection
+         - `video <https://vimeo.com/649654728/25bef7e247>`__
+       * - ros2_control: The future of ros_control
+         - `video <https://vimeo.com/649654948>`__
+       * - Let's Roll! How ROS 2 Rolling Ridley changes the ROS release process and what you can do with it.
+         - `video <https://vimeo.com/649650919>`__
+       * - Hybrid Planning - Enabling Reactive Manipulation with MoveIt 2
+         - `video <https://vimeo.com/649649286/17fb9b9f4d>`__
+       * - Apex.OS Cert: Taking ROS 2 from prototype into production
+         - `video <https://vimeo.com/649645295/67e0a6569f>`__
+       * - Making a robot ROS 2 powered - a case study using the UR manipulators
+         - `video <https://vimeo.com/649651707/46a3be27ed>`__
+       * - Online Trajectory Generation and Admittance Control in ROS2
+         - `video <https://vimeo.com/649652452/682bd92e95>`__
+       * - VSCode, Docker and ROS2
+         - `video <https://vimeo.com/649658020/9ef0b5ec32>`__
+       * - ROS 2 Content Filtered Topics
+         - `video <https://vimeo.com/649654533/c8104829db>`__
+       * - Rosbag2 for Power Users
+         - `video <https://vimeo.com/649655219/75630c8cff>`__
+       * - We Have Ignition: The Next Generation of Gazebo Simulation
+         - `video <https://vimeo.com/649658182>`__
+       * - Using NVIDIA Isaac Sim For Synthetic Data Generation & ROS Development
+         - `video <https://vimeo.com/649656932/3d8d5abb53>`__
+       * - Augmented Reality and Robotics
+         - `video <https://vimeo.com/649645502/9be46e9ff8>`__
+       * - Modeling sensors for simulation of ROS applications in Unity
+         - `video <https://vimeo.com/649652075/295c92d323>`__
+       * - Panel: Simulation Tools for ROS
+         - `video <https://vimeo.com/649653566/9d02eac6cb>`__
+
   .. group-tab:: 2020
 
     .. list-table::
