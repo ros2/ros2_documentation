@@ -83,6 +83,7 @@ If something else is printed, then something went wrong.
 Disabling tracing
 -----------------
 
+If the LTTng userspace tracer is installed and found when building ``tracetools``, tracing will be automatically enabled.
 Alternatively, to build and completely remove both the tracepoints and the tracing instrumentation from ROS 2, set the ``TRACETOOLS_DISABLED`` CMake option to ``ON``:
 
 .. code-block:: bash
