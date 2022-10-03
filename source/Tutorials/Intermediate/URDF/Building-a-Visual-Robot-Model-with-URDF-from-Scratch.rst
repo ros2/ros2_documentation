@@ -28,19 +28,6 @@ If not, please update your installation to include that package (use ``rosdep`` 
 
 All of the robot models mentioned in this tutorial (and the source files) can be found in the `urdf_tutorial <https://index.ros.org/p/urdf_tutorial>`_ package.
 
-To make sure the shapes defined in the urdf files are parsed correctly, the Linux environment variable ``LC_NUMERIC`` needs to be set to ``en_US.UTF-8``.
-This has to be done every time you open a terminal:
-
-.. code-block:: console
-
-    LC_NUMERIC="en_US.UTF-8"
-
-To permanently set this environment variable, execute the following command in a terminal:
-
-.. code-block:: console
-
-    echo 'export LC_NUMERIC="en_US.UTF-8"' >> ~/.bashrc
-
 One Shape
 ---------
 
