@@ -88,4 +88,4 @@ Alternatively, to build and completely remove both the tracepoints and the traci
 
 .. code-block:: bash
 
-   colcon build --cmake-args " -DTRACETOOLS_DISABLED=ON"
+   colcon build --cmake-args -DTRACETOOLS_DISABLED=ON --no-warn-unused-cli
