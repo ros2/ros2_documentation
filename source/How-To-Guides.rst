@@ -41,6 +41,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Visualizing-ROS-2-Data-With-Foxglove-Studio.rst
    How-To-Guides/Package-maintainer-guide
    How-To-Guides/Building-a-Custom-Debian-Package
+   How-To-Guides/Building-ROS-2-with-Tracing-Instrumentation
    How-To-Guides/Topics-Services-Actions
    How-To-Guides/Using-Variants
    How-To-Guides/Using-ros2-param
