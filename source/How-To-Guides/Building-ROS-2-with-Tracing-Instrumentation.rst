@@ -52,7 +52,7 @@ If you have already :doc:`built ROS 2 from source <../Installation/Alternatives/
 With binary installation
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you rely on the :ref:`ROS 2 binaries <binary-packages>`, you will need to clone the ``ros2_tracing`` repository into your workspace and build at least up to the ``tracetools`` package:
+If you rely on the ROS 2 binaries (:doc:`Debian packages <../Installation/Ubuntu-Install-Debians>` or :doc:`"fat" archive <../Installation/Alternatives/Ubuntu-Install-Binary>`), you will need to clone the ``ros2_tracing`` repository into your workspace and build at least up to the ``tracetools`` package:
 
 .. code-block:: bash
 
