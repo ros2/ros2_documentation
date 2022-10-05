@@ -46,9 +46,8 @@ Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` ca
 You can see that we specified a time equal to 0 by calling ``tf2::TimePointZero``.
 
 .. note::
-    
-    The ``tf2`` package has it's own time type ``tf2::TimePoint``.
-    This is different from ``rclcpp::Time``.
+
+    The ``tf2`` package has it's own time type ``tf2::TimePoint``, which is different from ``rclcpp::Time``.
     Many APIs in the package ``tf2_ros`` automatically convert between ``rclcpp::Time`` and ``tf2::TimePoint``.
 
     ``rclcpp::Time(0, 0, this->get_clock()->get_clock_type())`` could have been used here, but it would have been converted to ``tf2::TimePointZero`` anyways.
