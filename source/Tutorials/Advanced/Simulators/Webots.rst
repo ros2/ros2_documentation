@@ -41,7 +41,6 @@ This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#wi
 
 .. code-block:: console
 
-        # On Windows, execute these in the WSL environment
         sudo apt update
         sudo apt install ros-{DISTRO}-webots-ros2-driver
         source /opt/ros/{DISTRO}/setup.bash
