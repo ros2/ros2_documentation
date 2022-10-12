@@ -35,7 +35,7 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. On Windows, a WSL environment should be configured. These `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explain how to setup such installation. 
+Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
 
 .. tabs::
 
@@ -50,9 +50,17 @@ Finally, you will need to install ``webots_ros2_driver`` from a terminal with th
 
       .. code-block:: console
 
-        # Install webots_ros2_driver in WSL
-        sudo apt update
-        sudo apt install ros-{DISTRO}-webots-ros2-driver
+        # Install webots_ros2_driver and dependencies
+        cd \ros2_ws
+        pip install rosinstall_generator
+        rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
+        vcs import src < deps.repos
+
+        # Build the packages
+        colcon build
+
+        # Source this workspace
+        call install\local_setup.bat
 
 .. note::
 
