@@ -46,50 +46,7 @@ Add the ROS 2 apt repository
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Ubuntu Linux 20.04 only
-~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: bash
-
-   sudo apt update && sudo apt install -y \
-      build-essential \
-      cmake \
-      git \
-      libbullet-dev \
-      python3-colcon-common-extensions \
-      python3-flake8 \
-      python3-pip \
-      python3-pytest-cov \
-      python3-rosdep \
-      python3-setuptools \
-      python3-vcstool \
-      wget
-      # install some pip packages needed for testing
-      python3 -m pip install -U \
-      argcomplete \
-      flake8-blind-except \
-      flake8-builtins \
-      flake8-class-newline \
-      flake8-comprehensions \
-      flake8-deprecated \
-      flake8-docstrings \
-      flake8-import-order \
-      flake8-quotes \
-      pytest-repeat \
-      pytest-rerunfailures \
-      pytest
-   # install Fast-RTPS dependencies
-   sudo apt install --no-install-recommends -y \
-      libasio-dev \
-      libtinyxml2-dev
-   # install Cyclone DDS dependencies
-   sudo apt install --no-install-recommends -y \
-      libcunit1-dev
-
-
-
-Others
-~~~~~~
+Install common packages
 
 .. code-block:: bash
 
@@ -99,23 +56,50 @@ Others
      git \
      python3-colcon-common-extensions \
      python3-flake8 \
-     python3-flake8-blind-except \
-     python3-flake8-builtins \
-     python3-flake8-class-newline \
-     python3-flake8-comprehensions \
-     python3-flake8-deprecated \
      python3-flake8-docstrings \
-     python3-flake8-import-order \
-     python3-flake8-quotes \
      python3-pip \
      python3-pytest \
      python3-pytest-cov \
-     python3-pytest-repeat \
-     python3-pytest-rerunfailures \
      python3-rosdep \
      python3-setuptools \
      python3-vcstool \
      wget
+
+Install packages according to your Ubuntu version
+
+.. tabs::  
+
+   .. group-tab:: Ubuntu 22.04 LTS 
+  
+      .. code-block:: console 
+  
+         sudo apt install -y \
+            python3-flake8-blind-except
+            python3-flake8-builtins
+            python3-flake8-class-newline
+            python3-flake8-comprehensions
+            python3-flake8-deprecated
+            python3-flake8-import-order
+            python3-flake8-quotes
+            python3-pytest-repeat
+            python3-pytest-rerunfailures
+            
+   .. group-tab:: Ubuntu 20.04 LTS
+  
+      .. code-block:: bash 
+
+         python3 -m pip install -U \
+            argcomplete \
+            flake8-blind-except \
+            flake8-builtins \
+            flake8-class-newline \
+            flake8-comprehensions \
+            flake8-deprecated \
+            flake8-import-order \
+            flake8-quotes \
+            pytest-repeat \
+            pytest-rerunfailures
+  
 
 .. _linux-dev-get-ros2-code:
 
