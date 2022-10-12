@@ -35,24 +35,16 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. On Windows, a WSL environment should be configured. These `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explain how to setup such installation. 
+Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. 
+On Windows, a WSL environment should be configured and used to execute commands. 
+These `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explain how to setup such installation. 
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
+        # On Windows, execute these in the WSL environment
         sudo apt update
         sudo apt install ros-{DISTRO}-webots-ros2-driver
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-        
-        # Install webots_ros2_driver in WSL
-        sudo apt update
-        sudo apt install ros-{DISTRO}-webots-ros2-driver
+        source /opt/ros/{DISTRO}/setup.bash
 
 .. note::
 
@@ -238,22 +230,11 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
 From a terminal in your ROS2 workspace run:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
+        # On Windows, execute these in the WSL environment
         colcon build
         source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        colcon build
-        call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
 This will launch the simulation.
@@ -352,22 +333,11 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 
 As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
-.. tabs::
+.. code-block:: console
 
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
+        # On Windows, execute these in the WSL environment
         colcon build
         source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        colcon build
-        call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
