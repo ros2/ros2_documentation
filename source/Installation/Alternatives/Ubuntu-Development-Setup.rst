@@ -67,12 +67,12 @@ Install common packages
 
 Install packages according to your Ubuntu version
 
-.. tabs::  
+.. tabs::
 
    .. group-tab:: Ubuntu 22.04 LTS and later
-  
-      .. code-block:: console 
-  
+
+      .. code-block:: console
+
          sudo apt install -y \
             python3-flake8-blind-except
             python3-flake8-builtins
@@ -83,10 +83,10 @@ Install packages according to your Ubuntu version
             python3-flake8-quotes
             python3-pytest-repeat
             python3-pytest-rerunfailures
-            
+
    .. group-tab:: Ubuntu 20.04 LTS
-  
-      .. code-block:: bash 
+
+      .. code-block:: bash
 
          python3 -m pip install -U \
             flake8-blind-except \
@@ -98,7 +98,7 @@ Install packages according to your Ubuntu version
             flake8-quotes \
             pytest-repeat \
             pytest-rerunfailures
-  
+
 
 .. _linux-dev-get-ros2-code:
 
