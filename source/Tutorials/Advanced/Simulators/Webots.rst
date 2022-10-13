@@ -177,16 +177,36 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
 In the ``my_package/launch`` folder create a new text file named ``robot_launch.py`` with this code:
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
 
 The ``WebotsLauncher`` object is a custom action that allows you to start a Webots simulation instance.
 You have to specify in the constructor which world file the simulator will open.
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 14-16
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+            :dedent: 4
+            :lines: 14-16
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
+            :dedent: 4
+            :lines: 15-17
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
@@ -195,24 +215,57 @@ In your case, you need to run a single instance of this node, because you have a
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 18-25
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+            :dedent: 4
+            :lines: 18-25
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
+            :dedent: 4
+            :lines: 19-27
 
 After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 27-29
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+            :dedent: 4
+            :lines: 27-29
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
+            :dedent: 4
+            :lines: 29-31
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 8
-    :lines: 30-35
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+            :dedent: 8
+            :lines: 30-35
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
+            :dedent: 8
+            :lines: 32-37
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -322,9 +375,19 @@ This will add an entry point for the ``obstacle_avoider`` node.
 
 Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
 
-.. literalinclude:: Code/robot_launch_sensor.py
-    :language: python
-    :lines: 10-42
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_sensor_linux.py
+            :language: python
+            :lines: 10-42
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_sensor_windows.py
+            :language: python
+            :lines: 11-44
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
