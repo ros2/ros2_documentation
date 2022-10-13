@@ -204,9 +204,9 @@ You have to specify in the constructor which world file the simulator will open.
     :dedent: 4
     :lines: 14-16
 
-A supervisor Robot is always automatically added to the world file by the ``webots`` node.
-It allows to spawn the needed objects and create useful topics.
-The ``Ros2Supervisor`` node must be started, using the ``Ros2SupervisorLauncher``, to communicate with this Robot.
+A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
+This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
+This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
