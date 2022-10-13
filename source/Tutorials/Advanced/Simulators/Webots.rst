@@ -37,7 +37,7 @@ It is recommended to understand basic ROS principles covered in the beginner :do
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
 Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. 
 On Windows, a WSL environment should be configured and used to execute commands. 
-These `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explain how to setup such installation. 
+This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation. 
 
 .. code-block:: console
 
@@ -192,21 +192,10 @@ In the ``my_package/launch`` folder create a new text file named ``robot_launch.
 The ``WebotsLauncher`` object is a custom action that allows you to start a Webots simulation instance.
 You have to specify in the constructor which world file the simulator will open.
 
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. literalinclude:: Code/robot_launch_linux.py
-            :language: python
-            :dedent: 4
-            :lines: 14-16
-
-    .. group-tab:: Windows
-
-        .. literalinclude:: Code/robot_launch_windows.py
-            :language: python
-            :dedent: 4
-            :lines: 15-17
+.. literalinclude:: Code/robot_launch_linux.py
+    :language: python
+    :dedent: 4
+    :lines: 14-16
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
@@ -233,39 +222,17 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
 
 After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. literalinclude:: Code/robot_launch_linux.py
-            :language: python
-            :dedent: 4
-            :lines: 27-29
-
-    .. group-tab:: Windows
-
-        .. literalinclude:: Code/robot_launch_windows.py
-            :language: python
-            :dedent: 4
-            :lines: 29-31
+.. literalinclude:: Code/robot_launch_linux.py
+    :language: python
+    :dedent: 4
+    :lines: 27-29
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. literalinclude:: Code/robot_launch_linux.py
-            :language: python
-            :dedent: 8
-            :lines: 30-35
-
-    .. group-tab:: Windows
-
-        .. literalinclude:: Code/robot_launch_windows.py
-            :language: python
-            :dedent: 8
-            :lines: 32-37
+.. literalinclude:: Code/robot_launch_linux.py
+    :language: python
+    :dedent: 8
+    :lines: 30-35
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
