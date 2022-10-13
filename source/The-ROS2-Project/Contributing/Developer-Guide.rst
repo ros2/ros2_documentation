@@ -209,7 +209,7 @@ Examples:
 Testing
 ^^^^^^^
 
-All packages should have some level of system, integration, and/or unit tests.
+All packages should have some level of :ref:`system, integration, and/or unit tests.<TestingMain>`
 
 **Unit tests** should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
 Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...

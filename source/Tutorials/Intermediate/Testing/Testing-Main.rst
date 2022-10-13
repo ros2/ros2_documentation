@@ -3,11 +3,8 @@
 Testing
 =======
 
-Testing is fundamental. `See rationale from the ROS 1 wiki <http://wiki.ros.org/action/show/Quality/Tutorials/UnitTesting>`__
-
-.. contents:: Contents
-   :depth: 0
-   :local:
+Available Tutorials:
+--------------------
 
 .. toctree::
    :maxdepth: 1

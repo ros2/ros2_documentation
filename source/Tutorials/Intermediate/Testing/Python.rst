@@ -3,10 +3,10 @@
 Writing Basic Tests with Python
 ===============================
 
-Starting point: we'll assume you have a basic ``ament_python`` package set up already and you want to add some tests to it.
+Starting point: we'll assume you have a :ref:`basic ament_python package<CreatePkg>` set up already and you want to add some tests to it.
 
 Package Setup
-=============
+-------------
 
 setup.py
 ^^^^^^^^
@@ -43,7 +43,7 @@ Example package layout:
 
 
 Test Contents
-=============
+-------------
 
 You can now write tests to your heart's content. There are `plenty of resources on pytest <https://docs.pytest.org>`__, but in short, you can write functions with the ``test_`` prefix and include whatever assert statements you'd like.
 
@@ -54,7 +54,7 @@ You can now write tests to your heart's content. There are `plenty of resources 
       assert 2 + 2 == 5   # This should fail for most mathematical systems
 
 Special Commands
-================
+----------------
 
 Beyond the :doc:`standard colcon testing commands <CLI>` you can also specify arguments to the ``pytest`` framework from the command line with the ``--pytest-args`` flag.
 For example, you can specify the name of the function to run with
