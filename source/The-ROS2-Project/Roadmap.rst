@@ -67,6 +67,14 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Medium
      - Open Robotics
      - Q1 2023
+   * - ContentFiltering fallback in rcl
+     - Large
+     - Sony Group Corporation
+     - Q1 2023
+   * - on_pub/sub_matched callback support
+     - Medium
+     - Sony Group Corporation
+     - Q1 2023
    * - ROS 1 to ROS 2 migration documentation and tools
      - Medium
      - Open Robotics
@@ -86,6 +94,10 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
    * - Logging configuration and features (stretch goal)
      - Medium
      - Open Robotics
+     - Q2 2023
+   * - ROS 2 core ContentFiltering Enhancement
+     - Medium
+     - Sony Group Corporation
      - Q2 2023
    * - Iron release
      - Large
