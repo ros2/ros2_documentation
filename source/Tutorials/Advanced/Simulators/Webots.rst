@@ -197,11 +197,21 @@ You have to specify in the constructor which world file the simulator will open.
     :dedent: 4
     :lines: 14-16
 
+A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
+This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
+This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
+
+.. literalinclude:: Code/robot_launch.py
+    :language: python
+    :dedent: 4
+    :lines: 18
+
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
 The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
+``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
 .. tabs::
@@ -211,28 +221,28 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
         .. literalinclude:: Code/robot_launch_linux.py
             :language: python
             :dedent: 4
-            :lines: 18-25
+            :lines: 20-28
 
     .. group-tab:: Windows
 
         .. literalinclude:: Code/robot_launch_windows.py
             :language: python
             :dedent: 4
-            :lines: 19-27
+            :lines: 21-29
 
-After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
+After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
-    :lines: 27-29
+    :lines: 30-33
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 8
-    :lines: 30-35
+    :lines: 34-39
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -348,13 +358,13 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
         .. literalinclude:: Code/robot_launch_sensor_linux.py
             :language: python
-            :lines: 10-42
+            :lines: 10-46
 
     .. group-tab:: Windows
 
         .. literalinclude:: Code/robot_launch_sensor_windows.py
             :language: python
-            :lines: 11-44
+            :lines: 11-47
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
