@@ -69,7 +69,7 @@ Install packages according to your Ubuntu version
 
 .. tabs::  
 
-   .. group-tab:: Ubuntu 22.04 LTS 
+   .. group-tab:: Ubuntu 22.04 LTS and later
   
       .. code-block:: console 
   
@@ -89,7 +89,6 @@ Install packages according to your Ubuntu version
       .. code-block:: bash 
 
          python3 -m pip install -U \
-            argcomplete \
             flake8-blind-except \
             flake8-builtins \
             flake8-class-newline \
