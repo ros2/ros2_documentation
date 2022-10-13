@@ -206,7 +206,7 @@ This node allows to spawn URDF robots directly into the world, and it also publi
     :dedent: 4
     :lines: 18
 
-make htmlThen, the ROS node interacting with the simulated robot is created.
+Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
 The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
