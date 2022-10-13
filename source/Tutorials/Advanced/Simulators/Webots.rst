@@ -201,7 +201,7 @@ A supervisor Robot is always automatically added to the world file by ``WebotsLa
 This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
 This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
 
-.. literalinclude:: Code/robot_launch.py
+.. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
     :lines: 18
