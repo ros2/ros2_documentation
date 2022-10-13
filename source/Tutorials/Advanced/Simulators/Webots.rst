@@ -234,14 +234,14 @@ After that, the three nodes are set to be launched in the ``LaunchDescription`` 
 .. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
-    :lines: 27-29
+    :lines: 30-33
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 8
-    :lines: 30-35
+    :lines: 34-39
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
