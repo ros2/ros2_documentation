@@ -56,7 +56,8 @@ You can now write tests to your heart's content. There are `plenty of resources 
 Special Commands
 ================
 
-Beyond the :doc:`standard colcon testing commands <CLI>` you can also specify arguments to the ``pytest`` framework from the command line with the ``--pytest-args`` flag. For example, you can specify the name of the function to run with
+Beyond the :doc:`standard colcon testing commands <CLI>` you can also specify arguments to the ``pytest`` framework from the command line with the ``--pytest-args`` flag.
+For example, you can specify the name of the function to run with
 
 
 .. code-block:: console
