@@ -12,4 +12,5 @@ Intermediate
    Intermediate/Monitoring-For-Parameter-Changes-CPP
    Intermediate/Launch/Launch-Main
    Intermediate/Tf2/Tf2-Main
+   Intermediate/Testing/Testing-Main
    Intermediate/URDF/URDF-Main
