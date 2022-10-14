@@ -91,6 +91,18 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Large
      - Open Robotics
      - Q2 2023
+   * - `ContentFiltering fallback in rcl <https://github.com/ros2/design/pull/282>`__
+     - Large
+     - Sony Group Corporation
+     - Q1 2023
+   * - `on_pub/sub_matched callback support <https://github.com/ros2/rmw/issues/330>`__
+     - Medium
+     - Sony Group Corporation
+     - Q1 2023
+   * - ROS 2 core ContentFiltering Enhancement
+     - Medium
+     - Sony Group Corporation
+     - Q2 2023
 
 Additional project-specific roadmaps can be found in the links below:
 
