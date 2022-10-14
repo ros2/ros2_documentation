@@ -36,12 +36,11 @@ Prerequisites
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
 Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. 
-On Windows, a WSL environment should be configured and used to execute commands. 
+On Windows, a WSL environment must be configured and used to run all the console and ROS commands contained in this tutorial. 
 This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation. 
 
 .. code-block:: console
 
-        # On Windows, execute these in the WSL environment
         sudo apt update
         sudo apt install ros-{DISTRO}-webots-ros2-driver
         source /opt/ros/{DISTRO}/setup.bash
@@ -265,7 +264,6 @@ From a terminal in your ROS2 workspace run:
 
 .. code-block:: console
 
-        # On Windows, execute these in the WSL environment
         colcon build
         source install/local_setup.bash
         ros2 launch my_package robot_launch.py
@@ -378,7 +376,6 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
 .. code-block:: console
 
-        # On Windows, execute these in the WSL environment
         colcon build
         source install/local_setup.bash
         ros2 launch my_package robot_launch.py
