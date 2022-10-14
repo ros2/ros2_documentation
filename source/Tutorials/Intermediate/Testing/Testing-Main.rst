@@ -30,6 +30,7 @@ To get the benefits of testing, some investment is necessary.
 
 * You need to develop a test, which sometimes may be difficult or costly. Sometimes it might also be nontrivial, as the test should be automatic. Things get particularly hairy if your tests should involve special hardware (they should not: try to use simulation, mock the hardware, or narrow down the test to a smaller software problem) or require external environment, for instance human operators.
 * Regression tests and other automatic tests need to be maintained. When the design of the component changes, a lot of tests become invalidated (for instance they no longer compile, or throw runtime exceptions related to the API design). These tests fail not only because the redesign re-introduced bugs but also because they need to be updated to the new design. Occasionally, with bigger redesigns, old regression tests should be dropped.
+* Large bodies of tests can take a long time to run, which can increase Continuous Integration server costs.
 
 Available Tutorials:
 --------------------
