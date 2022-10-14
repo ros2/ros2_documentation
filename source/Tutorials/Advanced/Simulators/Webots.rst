@@ -212,7 +212,7 @@ The node will be able to communicate with the simulated robot by using a custom 
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 ``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
-On Windows, the communication between Webots and the controllers, running in WSL, is possibly via TCP connection.
+On Windows, the communication between Webots (running in Windows) and the controllers (running in WSL) goes through a TCP connection.
 The IP address is automatically retrieved by ``webots_ros2_driver``.
 The default Webots port number is 1234.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
