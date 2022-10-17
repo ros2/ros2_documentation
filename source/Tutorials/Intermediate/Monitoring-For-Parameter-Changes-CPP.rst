@@ -124,9 +124,13 @@ The first statement, ``#include <memory>`` is included so that the code can util
 The next, ``#include "rclcpp/rclcpp.hpp"`` is included to allow the code to reference the various functionality provided by the rclcpp interface, including the ParameterEventHandler class.
 
 After the class declaration, the code defines a class, ``SampleNodeWithParameters``.
-The constructor for the class, declares an integer parameter ``an_int_param``, with a default value of 0.
+The constructor for the class declares an integer parameter ``an_int_param``, with a default value of 0.
 Next, the code creates a ``ParameterEventHandler`` that will be used to monitor changes to parameters.
 Finally, the code creates a lambda function and sets it as the callback to invoke whenever ``an_int_param`` is updated.
+
+.. note::
+
+   It is very important to save the handle that is returned by ``add_parameter_callback``; otherwise, the callback will not be properly registered.
 
 .. code-block:: C++
 
@@ -154,7 +158,7 @@ Following the ``SampleNodeWithParameters`` is a typical ``main`` function which 
 
 .. code-block:: C++
 
-    int main(int argc, char** argv)
+    int main(int argc, char ** argv)
     {
       rclcpp::init(argc, argv);
       rclcpp::spin(std::make_shared<SampleNodeWithParameters>());
