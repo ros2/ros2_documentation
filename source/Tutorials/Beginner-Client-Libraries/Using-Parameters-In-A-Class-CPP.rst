@@ -70,37 +70,45 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
 
 .. code-block:: C++
 
-    #include <rclcpp/rclcpp.hpp>
     #include <chrono>
-    #include <string>
     #include <functional>
+    #include <string>
+
+    #include <rclcpp/rclcpp.hpp>
 
     using namespace std::chrono_literals;
 
-    class ParametersClass: public rclcpp::Node
+    class MinimalParam : public rclcpp::Node
     {
-      public:
-        ParametersClass()
-          : Node("minimal_param_node")
-        {
-          this->declare_parameter<std::string>("my_parameter", "world");
-          timer_ = this->create_wall_timer(
-          1000ms, std::bind(&ParametersClass::respond, this));
-        }
-        void respond()
-        {
-          this->get_parameter("my_parameter", parameter_string_);
-          RCLCPP_INFO(this->get_logger(), "Hello %s", parameter_string_.c_str());
-        }
-      private:
-        std::string parameter_string_;
-        rclcpp::TimerBase::SharedPtr timer_;
+    public:
+      MinimalParam()
+      : Node("minimal_param_node")
+      {
+        this->declare_parameter("my_parameter", "world");
+
+        timer_ = this->create_wall_timer(
+          1000ms, std::bind(&MinimalParam::timer_callback, this));
+      }
+
+      void timer_callback()
+      {
+        std::string my_param =
+          this->get_parameter("my_parameter").get_parameter_value().get<std::string>();
+
+        RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
+
+        std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+        this->set_parameters(all_new_parameters);
+      }
+
+    private:
+      rclcpp::TimerBase::SharedPtr timer_;
     };
 
-    int main(int argc, char** argv)
+    int main(int argc, char ** argv)
     {
       rclcpp::init(argc, argv);
-      rclcpp::spin(std::make_shared<ParametersClass>());
+      rclcpp::spin(std::make_shared<MinimalParam>());
       rclcpp::shutdown();
       return 0;
     }
@@ -110,51 +118,58 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
 The ``#include`` statements at the top are the package dependencies.
 
 The next piece of code creates the class and the constructor.
-The first line of this constructor creates our parameter.
-Our parameter has the name ``my_parameter`` and is assigned the default value ``world``.
-Next, ``timer_`` is initialized, which causes the ``respond`` function to be executed once a second.
+The first line of this constructor creates a parameter with the name ``my_parameter`` and a default value of ``world``.
+The parameter type is inferred from the default value, so in this case it would be set to a string type.
+Next the ``timer_`` is initialized with a period of 1000ms, which causes the ``timer_callback`` function to be executed once a second.
 
 .. code-block:: C++
 
-    class ParametersClass: public rclcpp::Node
+    class MinimalParam : public rclcpp::Node
     {
-      public:
-        ParametersClass()
-          : Node("minimal_param_node")
-        {
-          this->declare_parameter<std::string>("my_parameter", "world");
-          timer_ = this->create_wall_timer(
-          1000ms, std::bind(&ParametersClass::respond, this));
-        }
+    public:
+      MinimalParam()
+      : Node("minimal_param_node")
+      {
+        this->declare_parameter("my_parameter", "world");
 
-The first line of our ``respond`` function gets the parameter ``my_parameter`` from the node, and stores it in ``parameter_string_``.
-The ``RCLCPP_INFO`` function ensures the message is logged.
+        timer_ = this->create_wall_timer(
+          1000ms, std::bind(&MinimalParam::timer_callback, this));
+      }
+
+The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
+Next the ``RCLCPP_INFO`` function ensures the message is logged.
+The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
+In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
 
 .. code-block:: C++
 
-    void respond()
+    void timer_callback()
     {
-      this->get_parameter("my_parameter", parameter_string_);
-      RCLCPP_INFO(this->get_logger(), "Hello %s", parameter_string_.c_str());
+      std::string my_param =
+        this->get_parameter("my_parameter").get_parameter_value().get<std::string>();
+
+      RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
+
+      std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+      this->set_parameters(all_new_parameters);
     }
 
-Last is the declaration of ``timer_`` and ``parameter_string_``
+Last is the declaration of ``timer_``
 
 .. code-block:: C++
 
     private:
-      std::string parameter_string_;
       rclcpp::TimerBase::SharedPtr timer_;
 
-Following our ``ParametersClass`` is our ``main``.
-Here ROS 2 is initialized, and ``rclcpp::spin`` starts processing data from the node.
+Following our ``MinimalParam`` is our ``main``.
+Here ROS 2 is initialized, an instance of the ``MinimalParam`` class is constructed, and ``rclcpp::spin`` starts processing data from the node.
 
 .. code-block:: C++
 
-    int main(int argc, char** argv)
+    int main(int argc, char ** argv)
     {
       rclcpp::init(argc, argv);
-      rclcpp::spin(std::make_shared<ParametersClass>());
+      rclcpp::spin(std::make_shared<MinimalParam>());
       rclcpp::shutdown();
       return 0;
     }
@@ -169,19 +184,20 @@ For that to work, the code in the constructor has to be changed to:
 
     // ...
 
-    class ParametersClass: public rclcpp::Node
+    class MinimalParam : public rclcpp::Node
     {
-      public:
-        ParametersClass()
-          : Node("minimal_param_node")
-        {
-          auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
-          param_desc.description = "This parameter is mine!";
+    public:
+      MinimalParam()
+      : Node("minimal_param_node")
+      {
+        auto param_desc = rcl_interfaces::msg::ParameterDescriptor{};
+        param_desc.description = "This parameter is mine!";
 
-          this->declare_parameter<std::string>("my_parameter", "world", param_desc);
-          timer_ = this->create_wall_timer(
-          1000ms, std::bind(&ParametersClass::respond, this));
-        }
+        this->declare_parameter("my_parameter", "world", param_desc);
+
+        timer_ = this->create_wall_timer(
+          1000ms, std::bind(&MinimalParam::timer_callback, this));
+      }
 
 The rest of the code remains the same.
 Once you run the node, you can then run ``ros2 param describe /minimal_param_node my_parameter`` to see the type and description.
@@ -192,7 +208,7 @@ Once you run the node, you can then run ``ros2 param describe /minimal_param_nod
 
 Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp REQUIRED)`` add the following lines of code.
 
-.. code-block:: console
+.. code-block:: cmake
 
     add_executable(minimal_param_node src/cpp_parameters_node.cpp)
     ament_target_dependencies(minimal_param_node rclcpp)
@@ -278,7 +294,7 @@ The terminal should return the following message every second:
 
 .. code-block:: console
 
-    [INFO] [minimal_param_node]: Hello world
+    [INFO] [minimal_param_node]: Hello world!
 
 Now you can see the default value of your parameter, but you want to be able to set it yourself.
 There are two ways to accomplish this.
@@ -308,7 +324,7 @@ To change it simply run the following line in the console:
     ros2 param set /minimal_param_node my_parameter earth
 
 You know it went well if you get the output ``Set parameter successful``.
-If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth``
+If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -408,7 +424,7 @@ The terminal should return the following message every second:
 
 .. code-block:: console
 
-    [minimal_param_node-1] [INFO] [custom_minimal_param_node]: Hello earth
+    [INFO] [custom_minimal_param_node]: Hello earth!
 
 Summary
 -------
