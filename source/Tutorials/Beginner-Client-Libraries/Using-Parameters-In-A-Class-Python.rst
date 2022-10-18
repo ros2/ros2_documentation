@@ -7,7 +7,7 @@
 Using parameters in a class (Python)
 ====================================
 
-**Goal:** Create and run a class with ROS parameters using Python (rclpy).
+**Goal:** Create and run a class with ROS parameters using Python.
 
 **Tutorial level:** Beginner
 
@@ -76,10 +76,10 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
     class MinimalParam(rclpy.node.Node):
         def __init__(self):
             super().__init__('minimal_param_node')
-            timer_period = 2  # seconds
-            self.timer = self.create_timer(timer_period, self.timer_callback)
 
             self.declare_parameter('my_parameter', 'world')
+
+            self.timer = self.create_timer(1, self.timer_callback)
 
         def timer_callback(self):
             my_param = self.get_parameter('my_parameter').get_parameter_value().string_value
@@ -106,32 +106,25 @@ Inside the ``ros2_ws/src/python_parameters/python_parameters`` directory, create
 
 2.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
-Note: Declaring a parameter before getting or setting it is compulsory, or a ``ParameterNotDeclaredException`` exception will be raised.
-
-The ``import`` statements below are used to import the package dependencies.
-
-.. code-block:: Python
-
-    import rclpy
-    import rclpy.node
+The ``import`` statements at the top are used to import the package dependencies.
 
 The next piece of code creates the class and the constructor.
-``timer`` is initialized (with timer_period set as 2 seconds), which causes the ``timer_callback`` function to be executed once every two seconds.
 The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a parameter with the name ``my_parameter`` and a default value of ``world``.
 The parameter type is inferred from the default value, so in this case it would be set to a string type.
+Next the ``timer`` is initialized with a period of 1, which causes the ``timer_callback`` function to be executed once every second.
 
 .. code-block:: Python
 
     class MinimalParam(rclpy.node.Node):
         def __init__(self):
             super().__init__('minimal_param_node')
-            timer_period = 2  # seconds
-            self.timer = self.create_timer(timer_period, self.timer_callback)
 
             self.declare_parameter('my_parameter', 'world')
 
+            self.timer = self.create_timer(1, self.timer_callback)
+
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
-Next,the ``get_logger`` function ensures the message is logged.
+Next the ``get_logger`` function ensures the message is logged.
 The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
 In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
 
@@ -150,9 +143,8 @@ In the case that the user changed the parameter externally, this ensures it is a
           all_new_parameters = [my_new_param]
           self.set_parameters(all_new_parameters)
 
-Following the ``timer_callback`` is the ``main`` function where ROS 2 is initialized.
-Then an instance of the class ``MinimalParam`` named ``node`` is defined.
-Finally, ``rclpy.spin`` starts processing data from the node.
+Following the ``timer_callback`` is our ``main``.
+Here ROS 2 is initialized, an instance of the ``MinimalParam`` class is constructed, and ``rclpy.spin`` starts processing data from the node.
 
 .. code-block:: Python
 
@@ -178,8 +170,6 @@ For that to work, the ``__init__`` code has to be changed to:
     class MinimalParam(rclpy.node.Node):
         def __init__(self):
             super().__init__('minimal_param_node')
-            timer_period = 2  # seconds
-            self.timer = self.create_timer(timer_period, self.timer_callback)
 
             from rcl_interfaces.msg import ParameterDescriptor
             my_parameter_descriptor = ParameterDescriptor(description='This parameter is mine!')
@@ -187,6 +177,9 @@ For that to work, the ``__init__`` code has to be changed to:
             self.declare_parameter('my_parameter',
                                    'world',
                                    my_parameter_descriptor)
+
+            self.timer = self.create_timer(1, self.timer_callback)
+
 
 The rest of the code remains the same.
 Once you run the node, you can then run ``ros2 param describe /minimal_param_node my_parameter`` to see the type and description.
@@ -210,7 +203,7 @@ Add the following line within the ``console_scripts`` brackets of the ``entry_po
 
   entry_points={
       'console_scripts': [
-          'param_talker = python_parameters.python_parameters_node:main',
+          'minimal_param_node = python_parameters.python_parameters_node:main',
       ],
   },
 
@@ -286,7 +279,7 @@ Now run the node:
 
 .. code-block:: console
 
-     ros2 run python_parameters param_talker
+     ros2 run python_parameters minimal_param_node
 
 The terminal should return the following message every 2 seconds:
 
@@ -294,7 +287,8 @@ The terminal should return the following message every 2 seconds:
 
     [INFO] [parameter_node]: Hello world!
 
-There are two ways to change the parameter:
+Now you can see the default value of your parameter, but you want to be able to set it yourself.
+There are two ways to accomplish this.
 
 3.1 Change via the console
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -305,7 +299,7 @@ Make sure the node is running:
 
 .. code-block:: console
 
-     ros2 run python_parameters param_talker
+     ros2 run python_parameters minimal_param_node
 
 Open another terminal, source the setup files from inside ``ros2_ws`` again, and enter the following line:
 
@@ -323,7 +317,7 @@ To change it simply run the following line in the console:
 You know it went well if you get the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
 
-Since the Python talker then set the parameter back to ``world``, further outputs show  ``[INFO] [minimal_param_node]: Hello world!``
+Since the node then set the parameter back to ``world``, further outputs show  ``[INFO] [minimal_param_node]: Hello world!``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -341,8 +335,8 @@ In there, create a new file called ``python_parameters_launch.py``
       return LaunchDescription([
           Node(
               package='python_parameters',
-              executable='param_talker',
-              name='custom_parameter_node',
+              executable='minimal_param_node',
+              name='custom_minimal_param_node',
               output='screen',
               emulate_tty=True,
               parameters=[
@@ -374,7 +368,7 @@ Add the ``import`` statements to the top of the file, and the other new statemen
       # ...
       data_files=[
           # ...
-          (os.path.join('share', package_name), glob('launch/*_launch.py')),
+          (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*')),
         ]
       )
 
@@ -432,15 +426,14 @@ The terminal should return the following message:
 
 .. code-block:: console
 
-    [parameter_node-1] [INFO] [custom_parameter_node]: Hello earth!
+    [INFO] [custom_minimal_param_node]: Hello earth!
 
 
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from the launch file or the command line.
-You wrote the code of a parameter talker: a Python node that declares, and then loops getting and setting a string parameter.
-You added the entry point so that you could build and run it, and used ``ros2 param`` to interact with the parameter talker.
+You created a node with a custom parameter, that can be set either from a launch file or the command line.
+You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
 
 Next steps
 ----------
