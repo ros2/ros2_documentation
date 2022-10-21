@@ -327,7 +327,7 @@ The macros have additional parameters:
 
 - ``WORKING_DIRECTORY``: set the working directory for the test.
 
-The default working directory otherwise is the ``CMAKE_SOURCE_DIR``, which will be evaluated to the directory of the top-level ``CMakeLists.txt``.
+The default working directory otherwise is the ``CMAKE_CURRENT_BINARY_DIR``, which is described in the `CMake documentation <https://cmake.org/cmake/help/latest/variable/CMAKE_CURRENT_BINARY_DIR.html>`_.
 
 Similarly, there is a CMake macro to set up GTest including GMock:
 
