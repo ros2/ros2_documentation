@@ -35,36 +35,7 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        sudo apt update
-        sudo apt install ros-{DISTRO}-webots-ros2-driver
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        # Install webots_ros2_driver and dependencies
-        cd \ros2_ws
-        pip install rosinstall_generator
-        rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
-        vcs import src < deps.repos
-
-        # Build the packages
-        colcon build
-
-        # Source this workspace
-        call install\local_setup.bat
-
-.. note::
-
-    If you want to install the whole ``webots_ros2`` package, follow these `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Getting-Started>`_.
+Finally, you will need to install ``webots_ros2_driver`` from a package, follow these `instructions <https://github.com/cyberbotics/webots_ros2/wiki/Getting-Started>`_.
 
 Tasks
 -----
@@ -204,7 +175,7 @@ You have to specify in the constructor which world file the simulator will open.
     :dedent: 4
     :lines: 14-16
 
-A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
+A supervisor Robot is always automatically added to the world file by ``WebotsLauncher`` (While only for dev version).
 This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
 This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
 
