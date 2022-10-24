@@ -49,14 +49,14 @@ Desktop Install (Recommended): ROS, RViz, demos, tutorials.
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-desktop
+   sudo apt install ros-{DISTRO}-desktop python3-argcomplete
 
 ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
 No GUI tools.
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-ros-base
+   sudo apt install ros-{DISTRO}-ros-base python3-argcomplete
 
 Environment setup
 -----------------
