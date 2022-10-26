@@ -65,12 +65,17 @@ Get the ROS 2 code
 
 Now that we have the development tools we can get the ROS 2 source code.
 
-First setup a development folder, for example ``C:\dev\ros2_{DISTRO}``:
+First setup a development folder, for example ``C:\{DISTRO}``:
+
+.. note::
+
+   It is very important that the chosen path is short, due to the short default Windows path limits (260 characters).
+   To allow longer paths, see https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry.
 
 .. code-block:: bash
 
-   md \dev\ros2_{DISTRO}\src
-   cd \dev\ros2_{DISTRO}
+   md \{DISTRO}\src
+   cd \{DISTRO}
 
 Get the ``ros2.repos`` file which defines the repositories to clone from:
 
@@ -81,6 +86,8 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Fast DDS is bundled with the ROS 2 source and will always be built unless you put an ``COLCON_IGNORE`` file in the ``src\eProsima`` folder.
+
 If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
 
 Build the ROS 2 code
@@ -90,9 +97,7 @@ Build the ROS 2 code
 
 To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019") running as Administrator.
 
-Fast RTPS is bundled with the ROS 2 source and will always be built unless you put an ``AMENT_IGNORE`` file in the ``src\eProsima`` folder.
-
-To build the ``\dev\ros2_{DISTRO}`` folder tree:
+To build the ``\{DISTRO}`` folder tree:
 
 .. code-block:: bash
 
@@ -115,7 +120,7 @@ Start a command shell and source the ROS 2 setup file to set up the workspace:
 
 .. code-block:: bash
 
-   call C:\dev\ros2_{DISTRO}\install\local_setup.bat
+   call C:\{DISTRO}\install\local_setup.bat
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
