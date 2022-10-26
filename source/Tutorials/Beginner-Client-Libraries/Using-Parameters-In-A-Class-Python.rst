@@ -281,7 +281,7 @@ Now run the node:
 
      ros2 run python_parameters minimal_param_node
 
-The terminal should return the following message every 2 seconds:
+The terminal should return the following message every second:
 
 .. code-block:: console
 
@@ -422,7 +422,7 @@ Now run the node using the launch file we have just created:
 
      ros2 launch python_parameters python_parameters_launch.py
 
-The terminal should return the following message:
+The terminal should return the following message every second:
 
 .. code-block:: console
 
