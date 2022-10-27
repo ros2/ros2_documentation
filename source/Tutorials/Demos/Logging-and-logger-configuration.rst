@@ -105,6 +105,31 @@ The following code will output a log message from a ROS 2 node at ``ERROR`` seve
             // C++ stream style
             RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_lock(), 1000, "My log message " << 4);
 
+        .. note::
+          The time between messages is in milliseconds. 
+          
+          Due to limitations in the way ``rclcpp`` C++ logging macros 
+          currently use the underlying ``rcutils`` C macros, the data type of the interval parameter 
+          needs to be implicitly convertible to ``rcutils_duration_value_t``. 
+          
+          See the 
+          `discussion at rclcpp/issues/1929 <https://github.com/ros2/rclcpp/issues/1929>`_ for work to make these
+          macros accept a ``rclcpp::Duration``. 
+          
+          In the meantime, if you have a duration value ``message_interval`` that you'd like to use instead of an integer 
+          literal, you can use code like the following:
+        
+        .. code-block:: C++
+
+          // If you have a duration you'd like to use, probably coming from other code
+          rclcpp::Duration message_interval = rclcpp::Duration::from_seconds(1.2345);
+          
+          // Convert it with rclcpp::Duration::nanoseconds()
+          RCLCPP_ERROR_THROTTLE(node->get_logger(), 
+                                *node->get_clock(), 
+                                message_interval.nanoseconds()/(1'000'000), 
+                                "My log message %d", 4);
+
     .. group-tab:: Python
 
         .. code-block:: python
