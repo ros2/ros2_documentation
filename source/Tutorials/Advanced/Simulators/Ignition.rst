@@ -116,7 +116,7 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
         source /opt/ros/{DISTRO}/setup.bash
         ros2 run ros_ign_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
 
-For more details about the ``ros_ign_bridge`` please check this `README <https://github.com/ignitionrobotics/ros_ign/tree/ros2/ros_gz_bridge>`__ .
+For more details about the ``ros_ign_bridge`` please check this `README <https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge>`__ .
 
 Once the bridge is running the robot is able to follow your motor commands.
 There are two options:
