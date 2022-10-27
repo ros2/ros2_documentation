@@ -114,7 +114,7 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
       .. code-block:: console
 
         source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_ign_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist
+        ros2 run ros_ign_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
 
 For more details about the ``ros_ign_bridge`` please check this `README <https://github.com/ignitionrobotics/ros_ign/tree/ros2/ros_gz_bridge>`__ .
 
@@ -196,7 +196,7 @@ This topic will be available under the topic ``/lidar_scan``:
       .. code-block:: console
 
         source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_ign_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan@ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+        ros2 run ros_ign_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
 To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
