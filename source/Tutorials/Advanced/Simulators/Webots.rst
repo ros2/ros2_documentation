@@ -35,32 +35,15 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
+Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. 
+On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial. 
+This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation. 
 
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
+.. code-block:: console
 
         sudo apt update
         sudo apt install ros-{DISTRO}-webots-ros2-driver
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        # Install webots_ros2_driver and dependencies
-        cd \ros2_ws
-        pip install rosinstall_generator
-        rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
-        vcs import src < deps.repos
-
-        # Build the packages
-        colcon build
-
-        # Source this workspace
-        call install\local_setup.bat
+        source /opt/ros/{DISTRO}/setup.bash
 
 .. note::
 
@@ -193,13 +176,22 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
 In the ``my_package/launch`` folder create a new text file named ``robot_launch.py`` with this code:
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
 
 The ``WebotsLauncher`` object is a custom action that allows you to start a Webots simulation instance.
 You have to specify in the constructor which world file the simulator will open.
 
-.. literalinclude:: Code/robot_launch.py
+.. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
     :lines: 14-16
@@ -208,7 +200,7 @@ A supervisor Robot is always automatically added to the world file by ``WebotsLa
 This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
 This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
 
-.. literalinclude:: Code/robot_launch.py
+.. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
     :lines: 18
@@ -219,23 +211,37 @@ The node will be able to communicate with the simulated robot by using a custom 
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 ``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
+On Windows, the communication between Webots (running in Windows) and the controllers (running in WSL) goes through a TCP connection.
+The IP address is automatically retrieved by ``webots_ros2_driver``.
+The default Webots port number is 1234.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 20-28
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_linux.py
+            :language: python
+            :dedent: 4
+            :lines: 20-28
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_windows.py
+            :language: python
+            :dedent: 4
+            :lines: 21-29
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
-.. literalinclude:: Code/robot_launch.py
+.. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 4
     :lines: 30-33
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
-.. literalinclude:: Code/robot_launch.py
+.. literalinclude:: Code/robot_launch_linux.py
     :language: python
     :dedent: 8
     :lines: 34-39
@@ -256,22 +262,10 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
 From a terminal in your ROS2 workspace run:
 
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
+.. code-block:: console
 
         colcon build
         source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        colcon build
-        call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
 This will launch the simulation.
@@ -359,9 +353,19 @@ This will add an entry point for the ``obstacle_avoider`` node.
 
 Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
 
-.. literalinclude:: Code/robot_launch_sensor.py
-    :language: python
-    :lines: 10-46
+.. tabs::
+
+    .. group-tab:: Linux
+
+        .. literalinclude:: Code/robot_launch_sensor_linux.py
+            :language: python
+            :lines: 10-46
+
+    .. group-tab:: Windows
+
+        .. literalinclude:: Code/robot_launch_sensor_windows.py
+            :language: python
+            :lines: 11-47
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
@@ -370,22 +374,10 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 
 As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
+.. code-block:: console
 
         colcon build
         source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        colcon build
-        call install\local_setup.bat
         ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
