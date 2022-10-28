@@ -52,7 +52,7 @@ Since we will use the pub/sub and service/client packages created in earlier tut
 Note that it is a CMake package; there currently isn’t a way to generate a ``.msg`` or ``.srv`` file in a pure Python package.
 You can create a custom interface in a CMake package, and then use it in a Python node, which will be covered in the last section.
 
-It is good practice to keep ``.msg`` and ``.srv`` files in their own directories within a package.
+The ``.msg`` and ``.srv`` files are required to be placed in in directories called `msg` and `srv` respectively (see https://github.com/ros2/tutorials/issues/29).
 Create the directories in ``ros2_ws/src/tutorial_interfaces``:
 
 .. code-block:: console
