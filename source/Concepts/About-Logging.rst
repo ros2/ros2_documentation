@@ -53,15 +53,15 @@ These are the APIs that end users of the ROS 2 logging infrastructure should use
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_EXPRESSION`` - output the given printf-style message only if the given expression is true
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_FUNCTION`` - output the given printf-style message only if the given function returns true
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_SKIPFIRST`` - output the given printf-style message all but the first time this line is hit
-    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_THROTTLE`` - output the given printf-style message no more than the given rate
-    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_SKIPFIRST_THROTTLE`` - output the given printf-style message no more than the given rate, but skip the first
+    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_THROTTLE`` - output the given printf-style message no more than the given rate in integral milliseconds
+    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_SKIPFIRST_THROTTLE`` - output the given printf-style message no more than the given rate in integral milliseconds, but skip the first
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM`` - output the given C++ stream-style message every time this line is hit
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_ONCE`` - output the given C++ stream-style message only the first time this line is hit
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_EXPRESSION`` - output the given C++ stream-style message only if the given expression is true
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_FUNCTION`` - output the given C++ stream-style message only if the given function returns true
     * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_SKIPFIRST`` - output the given C++ stream-style message all but the first time this line is hit
-    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_THROTTLE`` - output the given C++ stream-style message no more than the given rate
-    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_SKIPFIRST_THROTTLE`` - output the given C++ stream-style message no more than the given rate, but skip the first
+    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_THROTTLE`` - output the given C++ stream-style message no more than the given rate in integral milliseconds
+    * ``RCLCPP_{DEBUG,INFO,WARN,ERROR,FATAL}_STREAM_SKIPFIRST_THROTTLE`` - output the given C++ stream-style message no more than the given rate in integral milliseconds, but skip the first
 
     Each of the above APIs takes an ``rclcpp::Logger`` object as the first argument.
     This can be pulled from the node API by calling ``node->get_logger()`` (recommended), or by constructing a stand-alone ``rclcpp::Logger`` object.
