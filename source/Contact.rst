@@ -59,6 +59,7 @@ If following a tutorial or online instructions provide a link to the specific in
 * When discussing any compiling/linking/installation issues, also provide the compiler version
 
 As appropriate, also include your:
+
 * ROS environment variables (env | grep ROS)
 * Backtraces
 * Relevant config files
