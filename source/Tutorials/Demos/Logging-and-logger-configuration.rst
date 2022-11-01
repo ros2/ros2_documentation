@@ -91,7 +91,7 @@ The following code will output a log message from a ROS 2 node at ``WARN`` sever
 Logging throttled
 ^^^^^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``ERROR`` severity, but no more than once per second. 
+The following code will output a log message from a ROS 2 node at ``ERROR`` severity, but no more than once per second.
 
 The interval parameter specifying milliseconds between messages should have an integer data type so it can be converted to a ``rcutils_duration_value_t`` (an ``int64_t``):
 
@@ -107,7 +107,7 @@ The interval parameter specifying milliseconds between messages should have an i
             // C++ stream style
             RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_lock(), 1000, "My log message " << 4);
 
-            // For now, use the nanoseconds() method to use an existing rclcpp::Duration value, see https://github.com/ros2/rclcpp/issues/1929 
+            // For now, use the nanoseconds() method to use an existing rclcpp::Duration value, see https://github.com/ros2/rclcpp/issues/1929
             RCLCPP_ERROR_STREAM_THROTTLE(node->get_logger(), *node->get_clock(), msg_interval.nanoseconds()/1000000, "My log message " << 4);
 
     .. group-tab:: Python
