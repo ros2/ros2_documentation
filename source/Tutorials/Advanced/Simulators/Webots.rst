@@ -223,14 +223,14 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
         .. literalinclude:: Code/robot_launch_linux.py
             :language: python
             :dedent: 4
-            :lines: 18-25
+            :lines: 20-28
 
     .. group-tab:: Windows
 
         .. literalinclude:: Code/robot_launch_windows.py
             :language: python
             :dedent: 4
-            :lines: 19-27
+            :lines: 21-29
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
@@ -359,13 +359,13 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
         .. literalinclude:: Code/robot_launch_sensor_linux.py
             :language: python
-            :lines: 10-42
+            :lines: 10-46
 
     .. group-tab:: Windows
 
         .. literalinclude:: Code/robot_launch_sensor_windows.py
             :language: python
-            :lines: 11-44
+            :lines: 11-47
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
