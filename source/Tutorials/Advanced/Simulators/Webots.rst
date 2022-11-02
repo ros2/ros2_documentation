@@ -35,9 +35,9 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands. 
-On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial. 
-This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation. 
+Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands.
+On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial.
+This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation.
 
 .. code-block:: console
 
