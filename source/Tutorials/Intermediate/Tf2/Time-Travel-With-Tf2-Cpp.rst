@@ -39,7 +39,7 @@ Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
 .. code-block:: C++
 
     rclcpp::Time when = this->get_clock()->now() - rclcpp::Duration(5, 0);
-    transformStamped = tf_buffer_->lookupTransform(
+    t = tf_buffer_->lookupTransform(
         toFrameRel,
         fromFrameRel,
         when,
@@ -71,7 +71,7 @@ Your code now would look like this:
 
     rclcpp::Time now = this->get_clock()->now();
     rclcpp::Time when = now - rclcpp::Duration(5, 0);
-    transformStamped = tf_buffer_->lookupTransform(
+    t = tf_buffer_->lookupTransform(
         toFrameRel,
         now,
         fromFrameRel,

@@ -234,7 +234,7 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
-.. literalinclude:: Code/robot_launch_linux.py
+.. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
     :lines: 30-33
