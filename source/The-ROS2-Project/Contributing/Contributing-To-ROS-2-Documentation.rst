@@ -33,22 +33,48 @@ The root directory contains configuration and files required to locally build th
 Building the site locally
 -------------------------
 
-Firstly, install requirements located in the ``requirements.txt`` file.
+Start by installing requirements located in the ``requirements.txt`` file:
 
-.. code-block:: console
+.. tabs::
 
-   pip3 install --user --upgrade -r requirements.txt
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+       pip3 install --user --upgrade -r requirements.txt
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+       pip3 install --user --upgrade -r requirements.txt
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      python -m pip install --user --upgrade -r requirements.txt
 
 In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
 
-On Debian/Ubuntu, the ``graphviz`` package provides this:
+.. tabs::
 
-.. code-block:: console
+  .. group-tab:: Linux
 
-   sudo apt install graphviz
+    .. code-block:: console
 
-On Windows download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
-Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
+       sudo apt update ; sudo apt install graphviz
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      brew install graphviz
+
+  .. group-tab:: Windows
+
+      Download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
+      Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
 
 Building the site for one branch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
