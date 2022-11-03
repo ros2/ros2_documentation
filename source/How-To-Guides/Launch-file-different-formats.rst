@@ -31,7 +31,7 @@ Each launch file performs the following actions:
 
       .. code-block:: python
 
-        # example.launch.py
+        # example_launch.py
 
         import os
 
@@ -69,7 +69,7 @@ Each launch file performs the following actions:
                 PythonLaunchDescriptionSource(
                     os.path.join(
                         get_package_share_directory('demo_nodes_cpp'),
-                        'launch/topics/talker_listener.launch.py'))
+                        'launch/topics/talker_listener_launch.py'))
             )
             # include another launch file in the chatter_ns namespace
             launch_include_with_namespace = GroupAction(
@@ -80,7 +80,7 @@ Each launch file performs the following actions:
                         PythonLaunchDescriptionSource(
                             os.path.join(
                                 get_package_share_directory('demo_nodes_cpp'),
-                                'launch/topics/talker_listener.launch.py'))
+                                'launch/topics/talker_listener_launch.py'))
                     ),
                 ]
             )
@@ -134,7 +134,7 @@ Each launch file performs the following actions:
 
       .. code-block:: xml
 
-        <!-- example.launch.xml -->
+        <!-- example_launch.xml -->
 
         <launch>
 
@@ -145,12 +145,12 @@ Each launch file performs the following actions:
           <arg name="chatter_ns" default="my/chatter/ns"/>
 
           <!-- include another launch file -->
-          <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
+          <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"/>
           <!-- include another launch file in the chatter_ns namespace-->
           <group>
             <!-- push_ros_namespace to set namespace of included nodes -->
             <push_ros_namespace namespace="$(var chatter_ns)"/>
-            <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"/>
+            <include file="$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"/>
           </group>
 
           <!-- start a turtlesim_node in the turtlesim1 namespace -->
@@ -173,7 +173,7 @@ Each launch file performs the following actions:
 
       .. code-block:: yaml
 
-        # example.launch.yaml
+        # example_launch.yaml
 
         launch:
 
@@ -194,14 +194,14 @@ Each launch file performs the following actions:
 
         # include another launch file
         - include:
-            file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
+            file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"
 
         # include another launch file in the chatter_ns namespace
         - group:
             - push_ros_namespace:
                 namespace: "$(var chatter_ns)"
             - include:
-                file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener.launch.py"
+                file: "$(find-pkg-share demo_nodes_cpp)/launch/topics/talker_listener_launch.py"
 
         # start a turtlesim_node in the turtlesim1 namespace
         - node:
