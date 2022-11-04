@@ -38,7 +38,7 @@ In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-
 Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands.
 On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial.
 On macOS, the Linux and ROS commands contained in this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
-This `page <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide>`_ explains how to setup such installation.
+This `page <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide>`_ explains how to setup such installations.
 
 .. code-block:: console
 
