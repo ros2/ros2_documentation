@@ -143,6 +143,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
     Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
     ``_launch.py`` is recommended, but not required, as the file suffix for Python launch files.
+    However, the launch file name needs to end with ``launch.py`` to be recognized and autocompleted by ``ros2 launch``.
 
     Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
 
