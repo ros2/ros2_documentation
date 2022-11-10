@@ -75,12 +75,14 @@ Set your rosdistro according to the release you downloaded.
    | If you want to use the ROS 1<->2 bridge, then you must also install ROS 1. \
    | Follow the normal install instructions: http://wiki.ros.org/noetic/Installation/Ubuntu
 
-Installing the python3 libraries
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
 
 .. code-block:: bash
 
-   sudo apt install -y libpython3-dev python3-pip
+       sudo apt install ros-dev-tools
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
