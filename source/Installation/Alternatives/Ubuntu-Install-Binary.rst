@@ -84,6 +84,15 @@ Installing the python3 libraries
    sudo apt install -y libpython3-dev python3-pip
    pip3 install -U argcomplete
 
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: bash
+
+       sudo apt install ros-dev-tools
+
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

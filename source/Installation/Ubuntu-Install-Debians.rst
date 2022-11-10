@@ -58,6 +58,12 @@ No GUI tools.
 
    sudo apt install ros-{DISTRO}-ros-base python3-argcomplete
 
+Development tools: Compilers and other tools to build ROS packages
+
+.. code-block:: bash
+
+   sudo apt install ros-dev-tools
+
 Environment setup
 -----------------
 
