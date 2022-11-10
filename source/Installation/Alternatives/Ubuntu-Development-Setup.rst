@@ -25,7 +25,7 @@ The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 Other Linux platforms with varying support levels include:
 
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
-- Fedora Linux, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora Linux, see :doc:`alternate instructions <Fedora-Development-Setup>`
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
@@ -46,26 +46,17 @@ Add the ROS 2 apt repository
 Install development tools and ROS tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Install common packages
+Install common packages.
 
 .. code-block:: bash
 
    sudo apt update && sudo apt install -y \
-     build-essential \
-     cmake \
-     git \
-     python3-colcon-common-extensions \
-     python3-flake8 \
      python3-flake8-docstrings \
      python3-pip \
-     python3-pytest \
      python3-pytest-cov \
-     python3-rosdep \
-     python3-setuptools \
-     python3-vcstool \
-     wget
+     ros-dev-tools
 
-Install packages according to your Ubuntu version
+Install packages according to your Ubuntu version.
 
 .. tabs::
 
@@ -74,14 +65,14 @@ Install packages according to your Ubuntu version
       .. code-block:: console
 
          sudo apt install -y \
-            python3-flake8-blind-except
-            python3-flake8-builtins
-            python3-flake8-class-newline
-            python3-flake8-comprehensions
-            python3-flake8-deprecated
-            python3-flake8-import-order
-            python3-flake8-quotes
-            python3-pytest-repeat
+            python3-flake8-blind-except \
+            python3-flake8-builtins \
+            python3-flake8-class-newline \
+            python3-flake8-comprehensions \
+            python3-flake8-deprecated \
+            python3-flake8-import-order \
+            python3-flake8-quotes \
+            python3-pytest-repeat \
             python3-pytest-rerunfailures
 
    .. group-tab:: Ubuntu 20.04 LTS
