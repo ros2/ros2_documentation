@@ -22,7 +22,7 @@ The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 Other Linux platforms with varying support levels include:
 
 - Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
-- Fedora Linux, see `alternate instructions <Fedora-Development-Setup>`
+- Fedora Linux, see :doc:`alternate instructions <Fedora-Development-Setup>`
 - OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 System setup
@@ -44,18 +44,11 @@ Install development tools and ROS tools
 .. code-block:: bash
 
    sudo apt update && sudo apt install -y \
-     build-essential \
-     cmake \
-     git \
      libbullet-dev \
-     python3-colcon-common-extensions \
-     python3-flake8 \
      python3-pip \
      python3-pytest-cov \
-     python3-rosdep \
-     python3-setuptools \
-     python3-vcstool \
-     wget
+     ros-dev-tools
+
    # install some pip packages needed for testing
    python3 -m pip install -U \
      argcomplete \
