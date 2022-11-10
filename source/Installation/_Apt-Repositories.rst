@@ -1,26 +1,13 @@
 You will need to add the ROS 2 apt repository to your system.
-First, make sure that the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled by checking the output of this command.
 
-.. code-block:: bash
-
-   apt-cache policy | grep universe
-
-This should output a line like the one below:
-
-.. code-block:: bash
-
-    500 http://us.archive.ubuntu.com/ubuntu focal/universe amd64 Packages
-        release v=20.04,o=Ubuntu,a=focal,n=focal,l=Ubuntu,c=universe,b=amd64
-
-If you don't see an output line like the one above, then enable the Universe repository with these instructions.
+First ensure that the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled.
 
 .. code-block:: bash
 
    sudo apt install software-properties-common
    sudo add-apt-repository universe
 
-Now add the ROS 2 apt repository to your system.
-First authorize our GPG key with apt.
+Now add the ROS 2 GPG key with apt.
 
 .. code-block:: bash
 
