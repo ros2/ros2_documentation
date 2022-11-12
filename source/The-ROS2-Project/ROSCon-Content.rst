@@ -11,6 +11,68 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
 
 .. tabs::
 
+  .. group-tab:: 2022
+
+    .. list-table::
+       :header-rows: 1
+
+       * - Title
+         - Links
+       * - Panel: The ROS 2 Developer Experience
+         - `video <https://vimeo.com/showcase/9954564/video/767155188>`__
+       * - Wearable ROS: Development of wearable robot system using ROS 2
+         - `video <https://vimeo.com/showcase/9954564/video/767140298>`__
+       * - Building ROS 2 enabled Android apps with C++
+         - `video <https://vimeo.com/showcase/9954564/video/767161955>`__
+       * - Distributed Robotics Simulator with Unreal Engine
+         - `video <https://vimeo.com/showcase/9954564/video/767139975>`__
+       * - Tools and processes for improving the certifiability of ROS 2
+         - `video <https://vimeo.com/showcase/9954564/video/767150613>`__
+       * - Failover ROS Framework : Consensus-based node redundancy
+         - `video <https://vimeo.com/showcase/9954564/video/767156308>`__
+       * - ROS 2 and Gazebo Integration Best Practices
+         - `video <https://vimeo.com/showcase/9954564/video/767127300>`__
+       * - Chain-Aware ROS Evaluation Tool (CARET)
+         - `video <https://vimeo.com/showcase/9954564/video/767150288>`__
+       * - ROS 2 network monitoring
+         - `video <https://vimeo.com/showcase/9954564/video/767140681>`__
+       * - How custom tasks are defined, assigned, and executed in Open-RMF
+         - `video <https://vimeo.com/showcase/9954564/video/767157210>`__
+       * - A practitioner's guide to ros2_control
+         - `video <https://vimeo.com/showcase/9954564/video/767139648>`__
+       * - Zenoh: How to Make ROS 2 Work at any Scale and Integrate with Anything
+         - `video <https://vimeo.com/769972405>`__
+       * - A case study in optics manufacturing with MoveIt2 and ros2_control
+         - `video <https://vimeo.com/showcase/9954564/video/767140351>`__
+       * - 20/20 Robot Vision - How to setup cameras in ROS 1 & ROS 2 using camera_aravis
+         - `video <https://vimeo.com/showcase/9954564/video/767140329>`__
+       * - Filter your ROS 2 content
+         - `video <https://vimeo.com/767165876>`__
+       * - Evolving Message Types, and Other Interfaces, Over Time
+         - `video <https://vimeo.com/showcase/9954564/video/767140015>`__
+       * - Migrating from ROS1 to ROS 2 - choosing the right bridge
+         - `video <https://vimeo.com/showcase/9954564/video/767140113>`__
+       * - On Use of Nav2 Smac Planners
+         - `video <https://vimeo.com/showcase/9954564/video/767157646>`__
+       * - Bazel and ROS 2 – building large scale safety applications
+         - `video <https://vimeo.com/showcase/9954564/video/767139879>`__
+       * - Native Rust components for ROS 2
+         - `video <https://vimeo.com/showcase/9954564/video/767140150>`__
+       * - The ROS build farm and you: How ROS packages you release become binary packages.
+         - `video <https://vimeo.com/showcase/9954564/video/767169376>`__
+       * - mROS 2: yet another runtime environment onto embedded devices
+         - `video <https://vimeo.com/showcase/9954564/video/767150435>`__
+       * - ROS 2 & Edge Impulse: Embedded AI in robotics applications
+         - `video <https://vimeo.com/showcase/9954564/video/767140724>`__
+       * - micro-ROS goes Automotive: supporting AUTOSAR-based microcontrollers
+         - `video <https://vimeo.com/769963507>`__
+       * - An open architecture for Hardware Acceleration in ROS 2
+         - `video <https://vimeo.com/769967795>`__
+       * - ROS 2 and the Crazyflie: Aerial swarms and Autonomy with a tiny flying robot
+         - `video <https://vimeo.com/showcase/9954564/video/767140197>`__
+       * - A Raspberry Pi image with ROS 2 + RT and a customizable image builder
+         - `video <https://vimeo.com/showcase/9954564/video/767139709>`__
+
   .. group-tab:: 2021
 
     .. list-table::
