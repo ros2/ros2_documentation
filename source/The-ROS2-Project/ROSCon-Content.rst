@@ -47,7 +47,7 @@ The following `ROSCon <https://roscon.ros.org>`__ talks have been given on ROS 2
        * - 20/20 Robot Vision - How to setup cameras in ROS 1 & ROS 2 using camera_aravis
          - `video <https://vimeo.com/showcase/9954564/video/767140329>`__
        * - Filter your ROS 2 content
-         - `video <https://vimeo.com/767165876>`__
+         - `video <https://vimeo.com/767166447>`__
        * - Evolving Message Types, and Other Interfaces, Over Time
          - `video <https://vimeo.com/showcase/9954564/video/767140015>`__
        * - Migrating from ROS1 to ROS 2 - choosing the right bridge
