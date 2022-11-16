@@ -128,30 +128,34 @@ The TSC shall include a number of individuals who represent the broader ROS comm
 
 #. Community representative elections shall be held in the following manner:
 
-   * Elections shall be held in conjunction with the annual global ROSCon.
+   * On the first Tuesday of September a ROS Discourse post will be made asking for TSC member nominations.
 
-   * The election process shall begin four weeks prior to the first day of ROSCon.
+   * The nomination period will last two weeks until the third Tuesday in September.
 
-   * Self-nominations are taken from the beginning of the election process for a period of one week.
+   * Prospective TSC member nominees must self nominate, but the community is encouraged to use the nomination Discourse thread to encourage other community members to run.  
 
-   * Nominees shall provide a biography and a written statement to be placed on an election website.
-     The written statement shall state why the candidate believes themselves suitable and what they intend to accomplish as a community representative.
+   * To self-nominate prospective TSC members must submit a candindate packet that includes a written biography, headshot, a written statement, and optionally a short video introduction.
+
+   * The written statement shall state why the candidate believes themselves suitable and what they intend to accomplish as a community representative.
+
+   * Between the third Tuesday in September and the first Tuesday in October the ROS 2 TSC will review the candidates for any objections or conflicts of interest. The TSC chair will prepare a ROS Discourse post that includes all of the candidate packets.
+
+   * On the first Tuesday of October the candidate packets will be posted to ROS Discourse along with with the online balloting form.
 
    * The period between the start of the election process and the close of voting may be used for campaigning by candidates.
 
-   * Balloting shall be opened from the opening session of ROSCon.
-
-   * Balloting shall be conducted using an online method.
-
    * The eligibility criteria for voters shall be determined by the TSC prior to commencing an election and clearly stated in the election information from the start of nominations until the close of voting.
+
+   * Balloting will be open from the first Tuesday in October until the end of the first full day of ROSCon.
 
    * Balloting shall be conducted using the Condorcet method.
 
-   * The results of the election shall be announced during the closing session of ROSCon.
+   * Candidates are encouraged, but not required, to attend ROSCon.
 
-   * Nominees shall not be required to attend ROSCon in person, unless required by the TSC chairperson.
+   * The results of the election shall be announced during the closing session of ROSCon along with an announcement post on ROS Discourse.
 
-   * In the event that ROSCon is not held during a given calendar year for any reason, then the foregoing election process shall still be followed, with procedural modifications as necessary, at a time of the TSC’s choosing, but with the results being announced no later than the 30th of November.
+   * In the event that ROSCon is not held during a given calendar year for any reason, then the foregoing election process shall still be followed, with procedural modifications as necessary, at a time of the TSC’s choosing, but with the results being announced no later than the 15th of December.
+
 
 
 Meetings
