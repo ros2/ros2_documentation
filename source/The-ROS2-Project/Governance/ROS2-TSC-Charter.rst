@@ -132,7 +132,7 @@ The TSC shall include a number of individuals who represent the broader ROS comm
 
    * The nomination period will last two weeks until the third Tuesday in September.
 
-   * Prospective TSC member nominees must self nominate, but the community is encouraged to use the nomination Discourse thread to encourage other community members to run.  
+   * Prospective TSC member nominees must self nominate, but the community is encouraged to use the nomination Discourse thread to encourage other community members to run.
 
    * To self-nominate prospective TSC members must submit a candindate packet that includes a written biography, headshot, a written statement, and optionally a short video introduction.
 
