@@ -39,9 +39,17 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
   .. group-tab:: Linux
 
+    Either do a user-specific install (recommended, requires ``~/.local/bin/`` to be added to ``$PATH``):
+
     .. code-block:: console
 
        pip3 install --user --upgrade -r requirements.txt
+
+    Or a system install (requires superuser access):
+
+    .. code-block:: console
+
+       pip3 install --upgrade -r requirements.txt
 
   .. group-tab:: macOS
 
