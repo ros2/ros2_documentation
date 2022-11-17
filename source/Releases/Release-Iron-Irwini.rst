@@ -79,6 +79,7 @@ We tested the change and did not find that the CPU overhead was significant, eve
 However, if this change is causing you problems you can get the old behavior by setting the ``RCL_LOGGING_SPDLOG_EXPERIMENTAL_OLD_FLUSHING_BEHAVIOR=1`` environment variable.
 
 Later we would like to have support for a full configuration file, giving you more flexibility in how the logging is done, but that is work that is only planned right now.
+Therefore, this environment variable should be considered experimental and subject to removal without deprecation in the future, when we add config file support for the ``rcl_logging_spdlog`` logging backend.
 
 See this issue for more details: https://github.com/ros2/rcl_logging/pull/95
 
