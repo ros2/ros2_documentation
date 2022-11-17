@@ -138,7 +138,8 @@ The TSC shall include a number of individuals who represent the broader ROS comm
 
    * The written statement shall state why the candidate believes themselves suitable and what they intend to accomplish as a community representative.
 
-   * Between the third Tuesday in September and the first Tuesday in October the ROS 2 TSC will review the candidates for any objections or conflicts of interest. The TSC chair will prepare a ROS Discourse post that includes all of the candidate packets.
+   * Between the third Tuesday in September and the first Tuesday in October the ROS 2 TSC will review the candidates for any objections or conflicts of interest.
+     The TSC chair will prepare a ROS Discourse post that includes all of the candidate packets.
 
    * On the first Tuesday of October the candidate packets will be posted to ROS Discourse along with with the online balloting form.
 
