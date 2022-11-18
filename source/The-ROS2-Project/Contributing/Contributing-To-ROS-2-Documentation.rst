@@ -45,12 +45,6 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
        pip3 install --user --upgrade -r requirements.txt
 
-    Or a system install (requires superuser access):
-
-    .. code-block:: console
-
-       pip3 install --upgrade -r requirements.txt
-
   .. group-tab:: macOS
 
     .. code-block:: console
