@@ -35,10 +35,25 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands.
-On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial.
-On macOS, the Linux and ROS commands contained in this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
-This `page <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide>`_ explains how to setup such installations.
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        The Linux and ROS commands of this tutorial can be run in a standard Linux terminal.
+        See the `Webots ROS 2 Linux installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#linux>`_.
+
+    .. group-tab:: Windows
+
+        The Linux and ROS commands of this tutorial must be run in a WSL (Windows Subsystem for Linux) environment.
+        See the `Webots ROS 2 Windows installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#windows>`_.
+
+    .. group-tab:: macOS
+
+        The Linux and ROS commands of this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
+        See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#macos>`_.
+
+To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
 
 .. code-block:: console
 
