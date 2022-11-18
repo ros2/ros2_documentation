@@ -102,7 +102,7 @@ First of all we need to create a Docker network that our containers can use to c
 
    docker network create ros
 
-We can launch noVNC in a Docker container using the Docker image ``theasp/novnc:latest``. Download the image:
+Thanks to `this project <https://github.com/theasp/docker-novnc>`_, we can launch noVNC in a Docker container using the Docker image ``theasp/novnc:latest``. Download the image:
 
 .. code-block:: bash
 
@@ -119,12 +119,12 @@ Then run this image in a new container:
 
 Here's an explanation of what all those options mean:
 
--d                    Detach. I.E. run the container in background rather than hogging the terminal
---rm                  Automatically remove the container when it exits
---net                 Connect the container to the Docker network that we created above
+-d                    Detach. I.E. run the container in background rather than hogging the terminal.
+--rm                  Automatically remove the container when it exits.
+--net                 Connect the container to the Docker network that we created above.
 --env                 Set environment properties in the container to control the display size and prevent an example terminal appearing.
---name                Give this container a name so that other containers can connect their displays to it
---p                   Publish the container's port 8080 (the value after the colon) onto the host's port 8080 (the value before the colon)
+--name                Give this container a name so that other containers can connect their displays to it.
+--p                   Publish the container's port 8080 (the value after the colon) onto the host's port 8080 (the value before the colon).
 
 noVNC should now be running as a web application inside the container and listening on port 8080. Since we have mapped that port to 8080 on the host, we should be able to see the noVNC interface at *http://<host name>:8080/vnc.html* . For example, if the host is our local machine then that will be `http://localhost:8080/vnc.html <http://localhost:8080/vnc.html>`_ . Open this in a modern web browser (not IE) and click the *Connect* button. You should see see a blank desktop.
 
@@ -139,9 +139,9 @@ We can then launch containers that run GUI programs and direct them via the noVN
 
 Here's an explanation of what those options mean:
 
--d                    Detach. I.E. run the container in background rather than hogging the terminal
---rm                  Automatically remove the container when it exits
---net                 Connect the container to the Docker network that we created above
+-d                    Detach. I.E. run the container in background rather than hogging the terminal.
+--rm                  Automatically remove the container when it exits.
+--net                 Connect the container to the Docker network that we created above.
 --env                 Set an environment property in the container to direct the display to the first display and screen on our container ``novnc``.
 
 The ``turtlesim_node`` UI should appear in the browser.
@@ -157,9 +157,9 @@ Just for completeness, let's run the ``turtle_teleop_key`` program and drive the
 
 Here's an explanation of what those options mean:
 
--it                   Run the container interactively (-i) and allocate a terminal (-t) to this interaction
---rm                  Automatically remove the container when it exits
---net                 Connect the container to the Docker network that we created above
+-it                   Run the container interactively (-i) and allocate a terminal (-t) to this interaction.
+--rm                  Automatically remove the container when it exits.
+--net                 Connect the container to the Docker network that we created above.
 
 Since we kept the container connected to our terminal, you should be able to use the keyboard to drive the turtle around in the GUI window that you see in the browser.
 
