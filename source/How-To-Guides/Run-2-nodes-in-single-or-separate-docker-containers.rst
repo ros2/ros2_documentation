@@ -135,7 +135,7 @@ We can then launch containers that run GUI programs and direct them via the noVN
 
 .. code-block:: bash
 
-   docker run -d --rm --net=ros --env="DISPLAY=novnc:0.0" osrf/ros:rolling-desktop ros2 run turtlesim turtlesim_node
+   docker run -d --rm --net=ros --env="DISPLAY=novnc:0.0" osrf/ros:{DISTRO}-desktop ros2 run turtlesim turtlesim_node
 
 Here's an explanation of what those options mean:
 
@@ -153,7 +153,7 @@ Just for completeness, let's run the ``turtle_teleop_key`` program and drive the
 
 .. code-block:: bash
 
-   docker run -it --rm --net=ros osrf/ros:rolling-desktop ros2 run turtlesim turtle_teleop_key
+   docker run -it --rm --net=ros osrf/ros:{DISTRO}-desktop ros2 run turtlesim turtle_teleop_key
 
 Here's an explanation of what those options mean:
 
