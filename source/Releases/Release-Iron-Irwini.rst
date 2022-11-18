@@ -79,10 +79,11 @@ Previously, ``spdlog`` was used without configuring anything other than creating
 We tested the change and did not find that the CPU overhead was significant, even on machines with slow disks (e.g. sd cards).
 However, if this change is causing you problems, you can get the old behavior by setting the ``RCL_LOGGING_SPDLOG_EXPERIMENTAL_OLD_FLUSHING_BEHAVIOR=1`` environment variable.
 
-Later we would like to have support for a full configuration file, giving you more flexibility in how the logging is done, but that is work that is only planned right now.
-Therefore, this environment variable should be considered experimental and subject to removal without deprecation in the future, when we add config file support for the ``rcl_logging_spdlog`` logging backend.
+Later we would like to have support for a full configuration file (see: https://github.com/ros2/rcl_logging/issues/92), giving you more flexibility in how the logging is done, but that is work that is only planned right now.
 
-See this issue for more details: https://github.com/ros2/rcl_logging/pull/95
+  Therefore, **this environment variable should be considered experimental and subject to removal without deprecation in the future**, when we add config file support for the ``rcl_logging_spdlog`` logging backend.
+
+See this pull request for more details about the change: https://github.com/ros2/rcl_logging/pull/95
 
 Known Issues
 ------------
