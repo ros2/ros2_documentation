@@ -39,7 +39,7 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
   .. group-tab:: Linux
 
-    Either do a user-specific install (recommended, requires ``~/.local/bin/`` to be added to ``$PATH``):
+    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
 
     .. code-block:: console
 
