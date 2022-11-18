@@ -134,7 +134,7 @@ The TSC shall include a number of individuals who represent the broader ROS comm
 
    * Prospective TSC member nominees must self nominate, but the community is encouraged to use the nomination Discourse thread to encourage other community members to run.
 
-   * To self-nominate prospective TSC members must submit a candindate packet that includes a written biography, headshot, a written statement, and optionally a short video introduction.
+   * To self-nominate prospective TSC members must submit a candidate packet that includes a written biography, headshot, a written statement, and optionally a short video introduction.
 
    * The written statement shall state why the candidate believes themselves suitable and what they intend to accomplish as a community representative.
 
