@@ -214,12 +214,25 @@ This node allows to spawn URDF robots directly into the world, and it also publi
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
-On Linux, the node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
-On Windows and macOS, the communication between Webots and the controllers goes through a TCP connection.
+.. tabs::
+
+    .. group-tab:: Linux
+
+        The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
+
+    .. group-tab:: Windows
+
+        The node (in WSL) will be able to communicate with the simulated robot (in Webots on Windows) through a TCP connection.
+
+    .. group-tab:: macOS
+
+        The node (in the docker container) will be able to communicate with the simulated robot (in Webots on macOS) through a TCP connection.
+
+
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 ``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
-The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your OS.
+The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your platform.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
 .. literalinclude:: Code/robot_launch.py
