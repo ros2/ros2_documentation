@@ -41,17 +41,17 @@ In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-
     .. group-tab:: Linux
 
         The Linux and ROS commands of this tutorial can be run in a standard Linux terminal.
-        See the `Webots ROS 2 Linux installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#linux>`_.
+        See the `Webots ROS 2 Linux installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Linux-Installation-Guide>`_.
 
     .. group-tab:: Windows
 
         The Linux and ROS commands of this tutorial must be run in a WSL (Windows Subsystem for Linux) environment.
-        See the `Webots ROS 2 Windows installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#windows>`_.
+        See the `Webots ROS 2 Windows installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Windows-Installation-Guide>`_.
 
     .. group-tab:: macOS
 
         The Linux and ROS commands of this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
-        See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Complete-Installation-Guide#macos>`_.
+        See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/macOS-Installation-Guide>`_.
 
 To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
 
