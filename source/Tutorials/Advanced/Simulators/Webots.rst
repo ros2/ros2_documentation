@@ -214,6 +214,7 @@ This node allows to spawn URDF robots directly into the world, and it also publi
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
+
 .. tabs::
 
     .. group-tab:: Linux
