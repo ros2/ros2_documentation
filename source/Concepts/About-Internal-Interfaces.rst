@@ -1,3 +1,5 @@
+.. _concepts_about_internal_ros2_interfaces:
+
 About internal ROS 2 interfaces
 ===============================
 
