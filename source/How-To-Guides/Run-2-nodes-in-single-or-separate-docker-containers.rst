@@ -104,7 +104,8 @@ Let's create a Docker network called ``ros``:
 
    docker network create ros
 
-Thanks to `this project <https://github.com/theasp/docker-novnc>`_, we can launch noVNC in a Docker container using the Docker image ``theasp/novnc:latest``. Download the image:
+Thanks to `this project <https://github.com/theasp/docker-novnc>`_, we can launch noVNC in a Docker container using the Docker image ``theasp/novnc:latest``.
+Download the image:
 
 .. code-block:: bash
 
@@ -128,12 +129,21 @@ Here's an explanation of what all those options mean:
 --name                Give this container a name so that other containers can connect their displays to it.
 --p                   Publish the container's port 8080 (the value after the colon) onto the host's port 8080 (the value before the colon).
 
-noVNC should now be running as a web application inside the container and listening on port 8080. Since we have mapped that port to 8080 on the host, we should be able to see the noVNC interface at *http://<host name>:8080/vnc.html* . For example, if the host is our local machine then that will be `http://localhost:8080/vnc.html <http://localhost:8080/vnc.html>`_ . Open this in a modern web browser (not IE) and click the *Connect* button. You should see see a blank desktop.
+noVNC should now be running as a web application inside the container and listening on port 8080.
+Since we have mapped that port to 8080 on the host, we should be able to see the noVNC interface at *http://<host name>:8080/vnc.html* .
+For example, if the host is our local machine then that will be `http://localhost:8080/vnc.html <http://localhost:8080/vnc.html>`_ .
+Open this in a modern web browser and click the *Connect* button.
+You should see see a blank desktop.
+
+Note that there are known compatibility issues with Internet Explorer.
+
 
 Launch a GUI application and direct its display to noVNC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We can then launch containers that run GUI programs and direct them via the noVNC server to our browser. To do this we need to include the parameters ``--net=ros --env="DISPLAY=novnc:0.0"``. For example to run the ``turtlesim_node`` program:
+We can then launch containers that run GUI programs and direct them via the noVNC server to our browser.
+To do this we need to include the parameters ``--net=ros --env="DISPLAY=novnc:0.0"``.
+For example to run the ``turtlesim_node`` program:
 
 .. code-block:: bash
 
