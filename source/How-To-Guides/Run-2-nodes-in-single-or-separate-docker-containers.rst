@@ -96,7 +96,9 @@ We can use `noVNC <https://novnc.com/info.html>`_, a remote-desktop web client, 
 Set up noVNC
 ^^^^^^^^^^^^
 
-First of all we need to create a Docker network that our containers can use to communicate. This is not required for ROS 2 itself but other inter-container communication, such as remote-desktop data, will require it. Let's create a Docker network called ``ros``:
+First of all we need to create a Docker network that our containers can use to communicate.
+This is not required for ROS 2 itself but other inter-container communication, such as remote-desktop data, will require it.
+Let's create a Docker network called ``ros``:
 
 .. code-block:: bash
 
