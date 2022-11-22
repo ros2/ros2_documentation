@@ -190,7 +190,7 @@ Always Use Braces
 Open Versus Cuddled Braces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Use open braces for ``function``, ``class``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
+* Use open braces for ``function``, ``class``, ``enum``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
 
   * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 
