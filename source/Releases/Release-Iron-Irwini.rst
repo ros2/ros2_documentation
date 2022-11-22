@@ -72,7 +72,7 @@ Change to the default console logging file flushing behavior
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This specifically applies to the default ``spdlog`` based logging backend in ROS 2, implemented in ``rcl_logging_spdlog``.
-Log file flushing was changed to flush every time an "error" log message is used, e.g. each `RCLCPP_ERROR()` call, and also periodically every five seconds.
+Log file flushing was changed to flush every time an "error" log message is used, e.g. each ``RCLCPP_ERROR()`` call, and also periodically every five seconds.
 
 Previously, ``spdlog`` was used without configuring anything other than creating the sink for logging to a file.
 
