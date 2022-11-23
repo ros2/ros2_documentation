@@ -450,7 +450,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
             export WEBOTS_HOME=/Applications/Webots.app
             python3 local_simulation_server.py
 
-        Note that the server keeps running once the ROS2 nodes are ended. 
+        Note that the server keeps running once the ROS2 nodes are ended.
         You don't need to restart it every time you want to launch a new simulation.
         From the terminal of the Docker container, build and launch your custom package with:
 
