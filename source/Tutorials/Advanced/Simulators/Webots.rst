@@ -35,9 +35,25 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with the following commands.
-On Windows, a WSL (Windows Subsystem for Linux) environment must be configured and used to run all the Linux and ROS commands contained in this tutorial.
-This `page <https://github.com/cyberbotics/webots_ros2/wiki/Build-and-Install#windows>`_ explains how to setup such installation.
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        The Linux and ROS commands of this tutorial can be run in a standard Linux terminal.
+        See the `Webots ROS 2 Linux installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Linux-Installation-Guide>`_.
+
+    .. group-tab:: Windows
+
+        The Linux and ROS commands of this tutorial must be run in a WSL (Windows Subsystem for Linux) environment.
+        See the `Webots ROS 2 Windows installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Windows-Installation-Guide>`_.
+
+    .. group-tab:: macOS
+
+        The Linux and ROS commands of this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
+        See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/macOS-Installation-Guide>`_.
+
+To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
 
 .. code-block:: console
 
@@ -176,75 +192,68 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
 In the ``my_package/launch`` folder create a new text file named ``robot_launch.py`` with this code:
 
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. literalinclude:: Code/robot_launch_linux.py
-            :language: python
-
-    .. group-tab:: Windows
-
-        .. literalinclude:: Code/robot_launch_windows.py
-            :language: python
+.. literalinclude:: Code/robot_launch.py
+    :language: python
 
 The ``WebotsLauncher`` object is a custom action that allows you to start a Webots simulation instance.
 You have to specify in the constructor which world file the simulator will open.
 
-.. literalinclude:: Code/robot_launch_linux.py
+.. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 14-16
+    :lines: 15-17
 
 A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
 This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
 This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
 
-.. literalinclude:: Code/robot_launch_linux.py
+.. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 18
+    :lines: 19
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
-The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
-In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
-But if you had more robots in the simulation, you would have to run one instance of this node per robot.
-``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
-On Windows, the communication between Webots (running in Windows) and the controllers (running in WSL) goes through a TCP connection.
-The IP address is automatically retrieved by ``webots_ros2_driver``.
-The default Webots port number is 1234.
-The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
 .. tabs::
 
     .. group-tab:: Linux
 
-        .. literalinclude:: Code/robot_launch_linux.py
-            :language: python
-            :dedent: 4
-            :lines: 20-28
+        The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
 
     .. group-tab:: Windows
 
-        .. literalinclude:: Code/robot_launch_windows.py
-            :language: python
-            :dedent: 4
-            :lines: 21-29
+        The node (in WSL) will be able to communicate with the simulated robot (in Webots on Windows) through a TCP connection.
+
+    .. group-tab:: macOS
+
+        The node (in the docker container) will be able to communicate with the simulated robot (in Webots on macOS) through a TCP connection.
+
+
+In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
+But if you had more robots in the simulation, you would have to run one instance of this node per robot.
+``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
+The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your platform.
+The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
+
+.. literalinclude:: Code/robot_launch.py
+    :language: python
+    :dedent: 4
+    :lines: 21-29
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
-.. literalinclude:: Code/robot_launch_linux.py
+.. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 30-33
+    :lines: 31-34
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
-.. literalinclude:: Code/robot_launch_linux.py
+.. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 8
-    :lines: 34-39
+    :lines: 35-40
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -260,16 +269,59 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 7 Test the code
 ^^^^^^^^^^^^^^^
 
-From a terminal in your ROS2 workspace run:
 
-.. code-block:: console
+.. tabs::
 
-        colcon build
-        source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
+    .. group-tab:: Linux
 
-This will launch the simulation.
-Webots will be automatically installed on the first run in case it was not already installed.
+        From a terminal in your ROS2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
+        This will launch the simulation.
+        Webots will be automatically installed on the first run in case it was not already installed.
+
+    .. group-tab:: Windows
+
+        From a terminal in your WSL ROS2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+        
+        Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
+
+        This will launch the simulation.
+        Webots will be automatically installed on the first run in case it was not already installed.
+
+    .. group-tab:: macOS
+
+        On macOS, a local server must be started on the host to start Webots from the Docker container.
+        The local server can be downloaded `on the webots-server repository <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_.
+
+        In a terminal of the host machine (not in the container), specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+
+        .. code-block:: console
+
+            export WEBOTS_HOME=/Applications/Webots.app
+            python3 local_simulation_server.py
+
+        From the terminal of the Docker container, build and launch your custom package with:
+        
+        .. code-block:: console
+
+            cd ~/ros2_ws
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
 
 .. note::
 
@@ -353,19 +405,9 @@ This will add an entry point for the ``obstacle_avoider`` node.
 
 Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
 
-.. tabs::
-
-    .. group-tab:: Linux
-
-        .. literalinclude:: Code/robot_launch_sensor_linux.py
-            :language: python
-            :lines: 10-46
-
-    .. group-tab:: Windows
-
-        .. literalinclude:: Code/robot_launch_sensor_windows.py
-            :language: python
-            :lines: 11-47
+.. literalinclude:: Code/robot_launch_sensor.py
+    :language: python
+    :lines: 11-47
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
@@ -374,11 +416,50 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 
 As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
-.. code-block:: console
+.. tabs::
 
-        colcon build
-        source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
+    .. group-tab:: Linux
+
+        From a terminal in your ROS2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
+    .. group-tab:: Windows
+
+        From a terminal in your WSL ROS2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+        
+        Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
+
+    .. group-tab:: macOS
+
+        In a terminal of the host machine (not in the container), if not done already, specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+
+        .. code-block:: console
+
+            export WEBOTS_HOME=/Applications/Webots.app
+            python3 local_simulation_server.py
+
+        Note that the server keeps running once the ROS2 nodes are ended. 
+        You don't need to restart it every time you want to launch a new simulation.
+        From the terminal of the Docker container, build and launch your custom package with:
+        
+        .. code-block:: console
+
+            cd ~/ros2_ws
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
 You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.
