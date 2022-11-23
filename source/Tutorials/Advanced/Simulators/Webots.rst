@@ -295,7 +295,7 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
             export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
-        
+
         Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
 
         This will launch the simulation.
@@ -314,7 +314,7 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
             python3 local_simulation_server.py
 
         From the terminal of the Docker container, build and launch your custom package with:
-        
+
         .. code-block:: console
 
             cd ~/ros2_ws
@@ -438,7 +438,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
             export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
-        
+
         Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
 
     .. group-tab:: macOS
@@ -453,7 +453,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
         Note that the server keeps running once the ROS2 nodes are ended. 
         You don't need to restart it every time you want to launch a new simulation.
         From the terminal of the Docker container, build and launch your custom package with:
-        
+
         .. code-block:: console
 
             cd ~/ros2_ws
