@@ -20,7 +20,7 @@ Setting up a robot simulation (Webots)
 Background
 ----------
 
-Several robot simulators can be used with ROS 2, such as Gazebo, Ignition, Webots, etc.
+Several robot simulators can be used with ROS 2, such as Gazebo, Webots, etc.
 Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
 Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
 In this tutorial, you are going to use the Webots robot simulator to set-up and run a very simple ROS 2 simulation scenario.
