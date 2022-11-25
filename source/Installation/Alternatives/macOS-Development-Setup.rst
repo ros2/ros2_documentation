@@ -73,6 +73,9 @@ You need the following things installed to build ROS 2:
 
        # install dependencies for Cyclone DDS
        brew install bison cunit
+       
+       # install dependencies for KDL
+       brew install orocos-kdl
 
 #.
    Install rviz dependencies
