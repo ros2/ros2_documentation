@@ -420,7 +420,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
     .. group-tab:: Linux
 
-        From a terminal in your ROS2 workspace run:
+        From a terminal in your ROS 2 workspace run:
 
         .. code-block:: console
 
