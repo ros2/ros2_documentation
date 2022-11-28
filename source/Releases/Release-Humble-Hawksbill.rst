@@ -51,7 +51,7 @@ New features in this ROS 2 release
 ----------------------------------
 
 
-Changes in Patch Release 1 (YYYY-MM-DD)
+Changes in Patch Release 1 (2022-11-23)
 ---------------------------------------
 
 ros2topic
