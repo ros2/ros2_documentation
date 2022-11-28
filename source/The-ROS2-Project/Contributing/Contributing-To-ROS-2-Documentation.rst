@@ -39,6 +39,8 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
   .. group-tab:: Linux
 
+    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
+
     .. code-block:: console
 
        pip3 install --user --upgrade -r requirements.txt
