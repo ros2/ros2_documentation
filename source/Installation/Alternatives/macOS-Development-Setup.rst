@@ -53,48 +53,22 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install bullet cmake cppcheck eigen pcre poco python tinyxml
-
-       # install dependencies for Fast-RTPS if you are using it
-       brew install asio tinyxml2
-
-       brew install opencv
-
-       # install console_bridge for rosbag2
-       brew install console_bridge
-
-       # install OpenSSL for DDS-Security
-       brew install openssl
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
-       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
-
-       # install dependencies for rcl_logging
-       brew install spdlog
-
-       # install dependencies for Cyclone DDS
-       brew install bison cunit
-       
-       # install dependencies for KDL
-       brew install orocos-kdl
+       brew install asio assimp bison bullet cmake console_bridge cppcheck \
+         cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
+         pyqt5 python qt@5 sip spdlog tinyxml tinyxml2
 
 #.
-   Install rviz dependencies
+   Setup some environment variables:
 
    .. code-block:: bash
 
-       # install dependencies for Rviz
-       brew install qt@5 freetype assimp
+       # Add the openssl dir for DDS-Security
+       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
        # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
        export PATH=$PATH:/usr/local/opt/qt@5/bin
-
-#.
-   Install rqt dependencies
-
-   .. code-block:: bash
-
-       brew install graphviz pyqt5 sip
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
