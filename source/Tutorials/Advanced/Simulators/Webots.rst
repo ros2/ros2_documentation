@@ -274,7 +274,7 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
     .. group-tab:: Linux
 
-        From a terminal in your ROS2 workspace run:
+        From a terminal in your ROS 2 workspace run:
 
         .. code-block:: console
 
