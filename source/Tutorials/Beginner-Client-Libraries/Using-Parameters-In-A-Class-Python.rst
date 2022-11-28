@@ -138,7 +138,7 @@ In the case that the user changed the parameter externally, this ensures it is a
           my_new_param = rclpy.parameter.Parameter(
               'my_parameter',
               rclpy.Parameter.Type.STRING,
-              'world'
+              my_param
           )
           all_new_parameters = [my_new_param]
           self.set_parameters(all_new_parameters)
