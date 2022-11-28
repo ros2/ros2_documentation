@@ -287,7 +287,7 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
     .. group-tab:: Windows
 
-        From a terminal in your WSL ROS2 workspace run:
+        From a terminal in your WSL ROS 2 workspace run:
 
         .. code-block:: console
 
