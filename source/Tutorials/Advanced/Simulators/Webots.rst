@@ -430,7 +430,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
     .. group-tab:: Windows
 
-        From a terminal in your WSL ROS2 workspace run:
+        From a terminal in your WSL ROS 2 workspace run:
 
         .. code-block:: console
 
