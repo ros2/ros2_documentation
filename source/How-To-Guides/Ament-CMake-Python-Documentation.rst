@@ -84,20 +84,18 @@ The package must declare a test dependency on ``ament_cmake_pytest`` in its ``pa
 
    <test_depend>ament_cmake_pytest</test_depend>
 
-Say the package have a file structure looks like below, with tests in the ``tests`` folder.
+Say the package has a file structure looks like below, with tests in the ``tests`` folder.
 
 .. code-block::
 
-   awesome_ros_package/
-      awesome_ros_package/
-         __init__.py
-         a.py
-         b.py
-      package.xml
-      CMakeLists.txt
-      tests/
-         test_a.py
-         test_b.py
+   .
+   ├── CMakeLists.txt
+   ├── my_project
+   │   └── my_script.py
+   ├── package.xml
+   └── tests
+       ├── test_a.py
+       └── test_b.py
 
 The ``CMakeLists.txt`` should contain:
 
