@@ -39,7 +39,7 @@ In the simplest case, the main thread is used for processing the incoming messag
       return 0;
    }
 
-The call to ``spin(node)`` basically expands to an instatiation and invokation of the Single-Threaded Executor, which is the simplest Executor:
+The call to ``spin(node)`` basically expands to an instatiation and invocation of the Single-Threaded Executor, which is the simplest Executor:
 
 .. code-block:: cpp
 
