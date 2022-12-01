@@ -84,7 +84,7 @@ The package must declare a test dependency on ``ament_cmake_pytest`` in its ``pa
 
    <test_depend>ament_cmake_pytest</test_depend>
 
-Say the package has a file structure looks like below, with tests in the ``tests`` folder.
+Say the package has a file structure like below, with tests in the ``tests`` folder.
 
 .. code-block::
 
