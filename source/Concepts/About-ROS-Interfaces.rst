@@ -49,6 +49,8 @@ For example:
    int32 my_int
    string my_string
 
+.. _message_descriptions_field_types:
+
 2.1.1 Field types
 ~~~~~~~~~~~~~~~~~
 
