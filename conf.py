@@ -128,7 +128,7 @@ smv_branch_whitelist = r'^(rolling|galactic|foxy|eloquent|dashing|crystal)$'
 smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(humble|galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
 smv_latest_version = 'humble'
-smv_eol_versions = ['crystal', 'dashing', 'eloquent']
+smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'galactic']
 
 distro_full_names = {
     'crystal': 'Crystal Clemmys',
