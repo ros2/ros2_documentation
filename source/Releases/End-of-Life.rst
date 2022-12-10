@@ -6,6 +6,7 @@ Below is a list of historic ROS 2 distributions that are no longer supported.
 .. toctree::
    :maxdepth: 1
 
+   Release-Galactic-Geochelone.rst
    Release-Eloquent-Elusor.rst
    Release-Dashing-Diademata.rst
    Release-Crystal-Clemmys.rst
