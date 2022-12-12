@@ -48,7 +48,6 @@ Rows in the table marked in green are the currently supported distributions.
    -->
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
-     .rst-content tr:nth-child(2) {background-color: #33cc66;}
      .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
    </style>
 
@@ -95,7 +94,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Galactic Geochelone <Releases/Release-Galactic-Geochelone>`
      - May 23rd, 2021
      - |galactic|
-     - November 2022
+     - December 9th, 2022
    * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - June 5th, 2020
      - |foxy|

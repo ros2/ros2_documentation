@@ -6,7 +6,7 @@ pull_request_rules:
     actions:
       backport:
         branches:
-          - galactic
+          - humble
           - foxy
 
   - name: backport at reviewers discretion
@@ -16,17 +16,17 @@ pull_request_rules:
     actions:
       backport:
         branches:
-          - galactic
+          - humble
           - foxy
 
-  - name: backport to galactic at reviewers discretion
+  - name: backport to humble at reviewers discretion
     conditions:
       - base=rolling
-      - "label=backport-galactic"
+      - "label=backport-humble"
     actions:
       backport:
         branches:
-          - galactic
+          - humble
 
   - name: backport to foxy at reviewers discretion
     conditions:
