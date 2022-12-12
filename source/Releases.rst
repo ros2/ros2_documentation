@@ -24,7 +24,6 @@ Rows in the table marked in green are the currently supported distributions.
    :hidden:
 
    Releases/Release-Humble-Hawksbill.rst
-   Releases/Release-Galactic-Geochelone.rst
    Releases/Release-Foxy-Fitzroy.rst
    Releases/Release-Rolling-Ridley.rst
    Releases/Development.rst
