@@ -61,7 +61,7 @@ default_role = 'any'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = 'es'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -87,13 +87,13 @@ extensions = [
 # Intersphinx mapping
 
 intersphinx_mapping = {
-    'catkin_pkg':    ('http://docs.ros.org/en/independent/api/catkin_pkg/html', None),
-    'jenkins_tools': ('http://docs.ros.org/en/independent/api/jenkins_tools/html', None),
-    'rosdep':        ('http://docs.ros.org/en/independent/api/rosdep/html', None),
-    'rosdistro':     ('http://docs.ros.org/en/independent/api/rosdistro/html', None),
-    'rosinstall':    ('http://docs.ros.org/en/independent/api/rosinstall/html', None),
-    'rospkg':        ('http://docs.ros.org/en/independent/api/rospkg/html', None),
-    'vcstools':      ('http://docs.ros.org/en/independent/api/vcstools/html', None)
+    'catkin_pkg':    ('http://docs.ros.org/es/independent/api/catkin_pkg/html', None),
+    'jenkins_tools': ('http://docs.ros.org/es/independent/api/jenkins_tools/html', None),
+    'rosdep':        ('http://docs.ros.org/es/independent/api/rosdep/html', None),
+    'rosdistro':     ('http://docs.ros.org/es/independent/api/rosdistro/html', None),
+    'rosinstall':    ('http://docs.ros.org/es/independent/api/rosinstall/html', None),
+    'rospkg':        ('http://docs.ros.org/es/independent/api/rospkg/html', None),
+    'vcstools':      ('http://docs.ros.org/es/independent/api/vcstools/html', None)
 }
 
 # -- Options for HTML output ----------------------------------------------
@@ -163,7 +163,7 @@ html_sourcelink_suffix = ''
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
-html_baseurl = 'https://docs.ros.org/en'
+html_baseurl = 'https://docs.ros.org/es'
 
 class RedirectFrom(Directive):
 
