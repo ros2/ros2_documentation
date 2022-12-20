@@ -1,16 +1,16 @@
 [![Sync Rolling](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml)
 [![Sync Humble](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml)
 
-# ROS 2 Documentation
+# Documnetación de ROS 2
 
-This repository contains the sources for the ROS 2 documentation that is hosted at [https://docs.ros.org/en](https://docs.ros.org/en).
-The sources from this repository are built and uploaded to the site nightly by a [Jenkins job](https://build.ros.org/job/doc_ros2doc).
+Este repositorio contiene las fuentes de la documentación de ROS 2 que está alojada en [https://docs.ros.org/es](https://docs.ros.org/es).
+Las fuentes de este repositorio son compiladas y cargadas en el sitio todas las noches por un [Jenkins job](https://build.ros.org/job/doc_ros2doc).
 
-## Contributing to the documentation
+## Contribuyendo a la documentación.
 
-Contributions to this site are most welcome.
-Please see the [Contributing to ROS 2 Documentation](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) page to learn more.
+Las contribuciones a este sitio son bienvenidas.
+Consulte la página [Contribuyendo a la documentación de ROS 2](https://docs.ros.org/es/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) para obtener más información.
 
-## Contributing to ROS 2
+## Contribuyendo a ROS 2
 
-To contribute to the ROS 2 source code project please refer to the [ROS 2 contributing guidelines](https://docs.ros.org/en/rolling/The-ROS2-Project/Contributing.html).
+Para contribuir al proyecto de código fuente de ROS 2, consulte las [directrices de contribución de ROS 2](https://docs.ros.org/es/rolling/The-ROS2-Project/Contributing.html).
