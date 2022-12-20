@@ -1,3 +1,6 @@
+[![Sync Rolling](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_rolling.yml)
+[![Sync Humble](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml/badge.svg)](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/actions/workflows/sync_humble.yml)
+
 # ROS 2 Documentation
 
 This repository contains the sources for the ROS 2 documentation that is hosted at [https://docs.ros.org/en](https://docs.ros.org/en).
