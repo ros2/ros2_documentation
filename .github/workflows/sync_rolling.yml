@@ -15,7 +15,7 @@ on:
       - cron: '0 0 * * *'
   push:
     branches:
-      - master
+      - rolling
 jobs:
   sync:
     runs-on: ubuntu-22.04
