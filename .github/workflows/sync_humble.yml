@@ -1,4 +1,4 @@
-name: Sync Rolling
+name: Sync Humble
 
 env:
   UPSTREAM_URL: "https://github.com/ros2/ros2_documentation.git"
