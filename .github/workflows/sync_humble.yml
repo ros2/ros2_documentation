@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Sync and merge Official PlanSys2 documentation
-        uses: fmrico/sync-docs@v0.1.1
+        uses: fmrico/sync-docs@v0.1.2
         with:
           upstream_repo: ${{ env.UPSTREAM_URL }}
           upstream_branch: ${{ env.UPSTREAM_BRANCH }}
