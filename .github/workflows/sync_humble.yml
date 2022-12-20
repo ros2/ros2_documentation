@@ -3,8 +3,8 @@ name: Sync Rolling
 env:
   UPSTREAM_URL: "https://github.com/ros2/ros2_documentation.git"
   WORKFLOW_TOKEN: ${{ secrets.WORKFLOW_TOKEN }}
-  UPSTREAM_BRANCH: "rolling"
-  DOWNSTREAM_BRANCH: "rolling"
+  UPSTREAM_BRANCH: "humble"
+  DOWNSTREAM_BRANCH: "humble"
   FETCH_ARGS: ""
   MERGE_ARGS: ""
   PUSH_ARGS: ""
