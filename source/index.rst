@@ -1,9 +1,9 @@
 .. redirect-from::
 
   Docs-Guide
-
-ROS 2 Documentation
-===================
+ 
+Documentación de ROS2
+=====================
 
 .. toctree::
    :titlesonly:
@@ -21,131 +21,131 @@ ROS 2 Documentation
    Glossary
    Citations
 
-**The Robot Operating System (ROS) is a set of software libraries and tools for building robot applications.**
-From drivers and state-of-the-art algorithms to powerful developer tools, ROS has the open source tools you need for your next robotics project.
+**Robot Operating System (ROS) es un conjunto de bibliotecas de software y herramientas para crear aplicaciones para robots.**
+Desde controladores y algoritmos de última generación hasta potentes herramientas para desarrolladores, ROS tiene las herramientas de código abierto que necesita para su próximo proyecto de robótica.
 
-Since ROS was started in 2007, a lot has changed in the robotics and ROS community.
-The goal of the ROS 2 project is to adapt to these changes, leveraging what is great about ROS 1 and improving what isn’t.
+Desde que se inició ROS en 2007, muchas cosas han cambiado en la comunidad de robótica y ROS.
+El objetivo del proyecto ROS 2 es adaptarse a estos cambios, aprovechando lo bueno de ROS 1 y mejorando lo que no lo es.
 
-This site contains the documentation for ROS 2.
-If you are looking for ROS 1 documentation, check out the `ROS wiki <https://wiki.ros.org>`__.
+Este sitio contiene la documentación para ROS 2.
+Si estás buscando documentación de ROS 1, consulta `ROS wiki <https://wiki.ros.org>`__.
 
-If you use ROS 2 in your work, please see :doc:`Citations <Citations>` to cite ROS 2.
+Si usas ROS 2 en tu trabajo, consulte :doc:`Citations <Citations>` para citar ROS 2.
 
-Getting started
----------------
+Empezando
+---------
 
-* :doc:`Installation <Installation>`
+* :doc:`Instalación <Installation>`
 
-  - Instructions to set up ROS 2 for the first time
+  - Instrucciones para configurar ROS 2 por primera vez
 
-* :doc:`Tutorials <Tutorials>`
+* :doc:`Tutoriales <Tutorials>`
 
-  - The best place to start for new users!
-  - Hands-on sample projects that help you build a progression of necessary skills
+  - ¡El mejor lugar para comenzar para los nuevos usuarios!
+  - Proyectos de muestra prácticos que lo ayudan a desarrollar una progresión de las habilidades necesarias
 
-* :doc:`How-To-Guides`
+* :doc:`Guías prácticas <How-To-Guides>`
 
-  - Quick answers to your "How do I...?" questions without working through the :doc:`Tutorials <Tutorials>`
+  - Respuestas rápidas a su "¿Cómo puedo...?" preguntas sin ir a los :doc:`Tutoriales <Tutorials>`
 
-* :doc:`Concepts <Concepts>`
+* :doc:`Conceptos <Concepts>`
 
-  - High-level explanations of core ROS 2 concepts covered in the :doc:`Tutorials <Tutorials>`
+  - Explicaciones de alto nivel de los conceptos centrales de ROS 2 cubiertos en los :doc:`Tutoriales <Tutorials>`
 
-* :doc:`Contact <Contact>`
+* :doc:`Contacto <Contact>`
 
-  - Answers to your questions or a forum to start a discussion
+  - Respuestas a tus preguntas o un foro para iniciar una discusión.
 
 
-The ROS 2 project
+El proyecto ROS 2
 -----------------
 
-If you're interested in the advancement of the ROS 2 project:
+Si estás interesado en el avance del proyecto ROS 2:
 
-* :doc:`Contributing <The-ROS2-Project/Contributing>`
+* :doc:`Contribuyendo <The-ROS2-Project/Contributing>`
 
-  - Best practices and methodology for contributing to ROS 2, as well as instructions for migrating existing ROS 1 content to ROS 2
+   - Mejores prácticas y metodología para contribuir a ROS 2, así como instrucciones para migrar contenido existente de ROS 1 a ROS 2
 
-* :doc:`Distributions <Releases>`
+* :doc:`Distribuciones <Releases>`
 
-  - Past, present and future ROS 2 distributions
+   - Distribuciones pasadas, presentes y futuras de ROS 2
 
-* :doc:`Features Status <The-ROS2-Project/Features>`
+* :doc:`Estado de las funciones <The-ROS2-Project/Features>`
 
-  - Features in the current release
+   - Funciones en la versión actual
 
-* :doc:`Feature Ideas <The-ROS2-Project/Feature-Ideas>`
+* :doc:`Ideas destacadas <The-ROS2-Project/Feature-Ideas>`
 
-  - Ideas for nice-to-have features that are not under active development
+   - Ideas para características deseadas que no están en desarrollo activo
 
-* :doc:`Roadmap <The-ROS2-Project/Roadmap>`
+* :doc:`Hoja de ruta <The-ROS2-Project/Roadmap>`
 
-  - Planned work for ROS 2 development
+   - Trabajo planificado para el desarrollo de ROS 2
 
 * :doc:`ROSCon Talks <The-ROS2-Project/ROSCon-Content>`
 
-  - Presentations by the community on ROS 2
+   - Presentaciones de la comunidad sobre ROS 2
 
-* :doc:`Project Governance <The-ROS2-Project/Governance>`
+* :doc:`Gobernanza de Proyecto <The-ROS2-Project/Governance>`
 
-  - Information about the ROS Technical Steering Committee, Working Groups, and upcoming events
+   - Información sobre el Comité Directivo Técnico de ROS, los Grupos de Trabajo y los próximos eventos
 
 * :doc:`Marketing <The-ROS2-Project/Marketing>`
 
-  - Downloadable marketing materials
+   - Materiales de marketing descargables
 
-Other ROS resources
--------------------
+Otros recursos de ROS
+---------------------
 
-* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
+* `Respuestas de ROS <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
 
-  - Q&A community website, similar to `Stack Exchange <https://stackexchange.com/>`_
-  - See :ref:`Contact Page <Using ROS Answers>` for more information
+   - Sitio web de la comunidad de preguntas y respuestas, similar a `Stack Exchange <https://stackexchange.com/>`_
+   - Consulta :ref:`Página de contacto <Using ROS Answers>` para obtener más información
 
-* `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
+* `Propuestas de mejora de ROS (REP) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
 
-  - Proposals for new designs and conventions
+   - Propuestas de nuevos diseños y convenciones
 
 * `ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)
 
-  - Forum for general discussions and announcements for the ROS community
-  - See the :ref:`Contact Page <Using ROS Discourse>` for more information
+   - Foro de debates generales y anuncios para la comunidad ROS
+   - Consulta la :ref:`Página de contacto <Using ROS Discourse>` para obtener más información
 
-* `ROS Index <https://index.ros.org/>`__ (ROS 1, ROS 2)
+* `Índice ROS <https://index.ros.org/>`__ (ROS 1, ROS 2)
 
-  - Indexed list of all packages (i.e. `Python Package Index (PyPI) <https://pypi.org/>`_ for ROS packages)
-  - See which ROS distributions a package supports
-  - Link to a package's repository, API documentation, or website
-  - Inspect a package's license, build type, maintainers, status, and dependencies
-  - Get more info for a package on `ROS Answers <https://answers.ros.org/questions/>`__
+   - Lista indexada de todos los paquetes (es decir, `Python Package Index (PyPI) <https://pypi.org/>`_ para paquetes ROS)
+   - Ver qué distribuciones de ROS admite un paquete
+   - Enlace al repositorio de un paquete, documentación API o sitio web
+   - Inspeccione la licencia, el tipo de compilación, los mantenedores, el estado y las dependencias de un paquete
+   - Obtén más información sobre un paquete en `ROS Answers <https://answers.ros.org/questions/>`__
 
-* `ROS Prerelease <http://prerelease.ros.org/>`__ (ROS 1)
+* `Prelanzamiento de ROS <http://prerelease.ros.org/>`__ (ROS 1)
 
-  - Generates commands to emulate the `ROS Buildfarm <https://build.ros.org/>`_ on your local machine
-  - Currently only shows ROS 1 distributions
+   - Genera comandos para emular `ROS Buildfarm <https://build.ros.org/>`_ en su máquina local
+   - Actualmente solo muestra distribuciones ROS 1
 
-* `ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)
+* `Robots ROS <https://robots.ros.org/>`__ (ROS 1, ROS 2)
 
-  - Showcases robots proects from the community
-  - Instructions on how to contribute a robot
+   - Muestra proyectos de robots de la comunidad.
+   - Instrucciones sobre cómo contribuir con un robot
 
 * `ROS Wiki <http://wiki.ros.org/>`__ (ROS 1)
 
-  - ROS 1 documentation and user modifiable content
-  - Active until at least the last ROS 1 distribution is EOL
+   - Documentación de ROS 1 y contenido modificable por el usuario
+   - Activo hasta que al menos la última distribución de ROS 1 sea EOL
 
 * `ROS.org <https://www.ros.org/>`__ (ROS 1, ROS 2)
 
-  - ROS 1 and ROS 2 product landing page, with high-level description of ROS and links to other ROS sites
+   - Página de inicio de productos ROS 1 y ROS 2, con descripción de alto nivel de ROS y enlaces a otros sitios de ROS
 
-Deprecated
-^^^^^^^^^^
+Obsoleto
+^^^^^^^^
 
-* `ROS 2 Docs <https://docs.ros2.org>`_
+* `Documentos de ROS 2 <https://docs.ros2.org>`_
 
-  - API documentation up to and including Galactic
+   - Documentación API hasta e incluyendo Galactic
 
-* `ROS 2 Design <http://design.ros2.org/>`__
+* `Diseño ROS 2 <http://design.ros2.org/>`__
 
-  - Early design decisions behind ROS 2 development
-  - New design proposals should be submitted via `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__
+   - Decisiones de diseño iniciales detrás del desarrollo de ROS 2
+   - Las nuevas propuestas de diseño deben enviarse a través de `Propuestas de mejora de ROS (REP) <https://ros.org/reps/rep-0000.html>`__
