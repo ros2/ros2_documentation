@@ -31,8 +31,8 @@ Establecer configuración regional
 
 .. _linux-install-debians-setup-sources:
 
-Setup Sources
--------------
+Configurar las fuentes
+----------------------
 
 .. include:: _Apt-Repositories.rst
 

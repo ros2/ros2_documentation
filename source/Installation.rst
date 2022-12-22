@@ -29,12 +29,12 @@ Proporcionamos paquetes binarios de ROS 2 para las siguientes plataformas:
 
 * Ubuntu Linux - Jammy Jellyfish (22.04)
 
-  * :doc:`Paquetes Debian <Installation/Ubuntu-Install-Debians>` (recomendedado)
+  * :doc:`Paquetes Debian <Installation/Ubuntu-Install-Debians>` (recomendado)
   * :doc:`Archivo "fat" <Installation/Alternatives/Ubuntu-Install-Binary>`
 
 * RHEL 8
 
-  * :doc:`Paquetes RPM <Installation/RHEL-Install-RPMs>` (recomendedado)
+  * :doc:`Paquetes RPM <Installation/RHEL-Install-RPMs>` (recomendado)
   * :doc:`Archivo "fat" <Installation/Alternatives/RHEL-Install-Binary>`
 
 * :doc:`Windows (VS 2019) <Installation/Windows-Install-Binary>`
@@ -42,8 +42,8 @@ Proporcionamos paquetes binarios de ROS 2 para las siguientes plataformas:
 
 .. _building-from-source:
 
-Construyendo desde la fuente
-----------------------------
+Construyendo desde fuentes
+--------------------------
 
 Apoyamos la creación de ROS 2 desde fuentes en las siguientes plataformas:
 
@@ -61,7 +61,7 @@ La instalación desde paquetes binarios o desde fuentes dará como resultado una
 Las diferencias entre las opciones dependen de lo que planee hacer con ROS 2.
 
 **Los paquetes binarios** son para uso general y proporcionan una instalación ya compilada de ROS 2.
-Esto es excelente para las personas que desean sumergirse y comenzar a usar ROS 2 tal como está, de inmediato.
+Esto es genial para las personas que desean sumergirse y comenzar a usar ROS 2 tal como está, de inmediato.
 
 Los usuarios de Linux tienen dos opciones para instalar paquetes binarios:
 
@@ -72,8 +72,8 @@ La instalación desde paquetes Debian es el método recomendado.
 Es más conveniente porque instala automáticamente las dependencias necesarias.
 También se actualiza junto con las actualizaciones periódicas del sistema.
 
-Sin embargo, necesita acceso de root para instalar los paquetes de Debian.
-Si no tiene acceso de root, el archivo "fat" es la siguiente mejor opción.
+Sin embargo, necesitas acceso de root para instalar los paquetes de Debian.
+Si no tienes acceso de root, el archivo "fat" es la siguiente mejor opción.
 
 Los usuarios de macOS y Windows que eligen instalar desde paquetes binarios solo tienen la opción de archivo "fat"
 (Los paquetes de Debian son exclusivos de Ubuntu/Debian).
