@@ -20,8 +20,8 @@ Recursos
 * Página de estado:
 
   * ROS 2 {DISTRO_TITLE} (Ubuntu Jammy): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_default.html>`__\ , `arm64 <http://repo.ros2.org/status_page/ros_{DISTRO}_ujv8.html>`__
-* `Instacia de Jenkins <http://build.ros2.org/>`__
-* `Repositorios <http://repo.ros2.org>`__
+  * `Instancia de Jenkins <http://build.ros2.org/>`__
+  * `Repositorios <http://repo.ros2.org>`__
 
 
 Establecer configuración regional
