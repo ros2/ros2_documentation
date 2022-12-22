@@ -5,7 +5,7 @@
 Ubuntu (Debian)
 ===============
 
-.. contents:: Tabla de contenido
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
@@ -78,10 +78,10 @@ Herramientas de desarrollo: Compiladores y otras herramientas para construir paq
 Configuración del entorno
 -------------------------
 
-Obtener el script de configuración
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Ejecutar ``source`` con el script de configuración
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Configura tu entorno llamando a ``source`` con el siguiente archivo.
+Configura tu entorno ejecutando ``source`` con el siguiente archivo.
 
 .. code-block:: bash
 
@@ -111,13 +111,12 @@ En otra fuente de terminal, llama a ``source`` con el archivo de setup y luego e
    source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_py listener
 
-Deberías ver al ``talker`` diciendo que está ``Publishing`` mensajes y al ``listener`` diciendo ``I heard`` esos mensajes.
+Deberías ver al ``talker`` diciendo que está publicando (``Publishing``) mensajes y al ``listener`` diciendo que oye (``I heard``) esos mensajes.
 Esto verifica que las API de C++ y Python funcionan correctamente.
 ¡Hurra!
 
 Siguientes pasos después de la instalación
 ------------------------------------------
-
 Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para configurar su entorno, crear tu propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
 Usando el bridge ROS 1

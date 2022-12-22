@@ -8,7 +8,7 @@
 macOS (fuentes)
 ===============
 
-.. contents:: Tabla de contenido
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
@@ -169,7 +169,7 @@ En otra terminal, llama a ``source``con el archivo de setup y luego ejecuta un `
 
    ros2 run demo_nodes_py listener
 
-Deberías ver al ``talker`` diciendo que está ``Publishing`` mensajes y al ``listener`` diciendo ``I heard`` esos mensajes.
+Deberías ver al ``talker`` diciendo que está publicando (``Publishing``) mensajes y al ``listener`` diciendo que oye (``I heard``) esos mensajes.
 Esto verifica que las API de C++ y Python funcionan correctamente.
 ¡Hurra!
 
