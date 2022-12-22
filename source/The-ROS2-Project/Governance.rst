@@ -315,14 +315,14 @@ Security
  * Discourse tag: `wg-security <https://discourse.ros.org/tag/wg-security>`_
  * Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-security:matrix.org>`_
 
-Tooling
-^^^^^^^
+Rosbag2 and Tooling
+^^^^^^^^^^^^^^^^^^^
 
-* Lead(s): Emerson Knapp
+* Lead(s): Michael Orlov
 * Resources:
 
  * `Charter <https://github.com/ros-tooling/community>`__
- * `Meeting Notes <https://docs.google.com/document/d/1UXWaEkT6ji0Z0uTtJJSni5Y6fiopM9qOOzv4ldeNaAM/edit>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1Dsg_9XZQPhihpKQGQWMYTz2doGH4P2cAaNqr60cuNgw/edit>`__
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tag/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
