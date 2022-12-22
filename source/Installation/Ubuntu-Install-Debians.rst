@@ -5,7 +5,7 @@
 Ubuntu (Debian)
 ===============
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenido
    :depth: 2
    :local:
 

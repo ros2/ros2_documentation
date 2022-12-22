@@ -5,32 +5,32 @@
 
 .. _macOS-latest:
 
-macOS (source)
-==============
+macOS (fuentes)
+===============
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenido
    :depth: 2
    :local:
 
-System requirements
--------------------
+Requisitos del sistema
+----------------------
 
-We currently support macOS Mojave (10.14).
-The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
-Most people will want to use a stable ROS distribution.
+Actualmente damos soporte a macOS Mojave (10.14).
+La distribución de Rolling Ridley cambiará las plataformas de destino de vez en cuando a medida que haya nuevas plataformas disponibles.
+La mayoría de la gente querrá usar una distribución ROS estable.
 
-Install prerequisites
----------------------
+Instalar requisitos previos
+---------------------------
 
-You need the following things installed to build ROS 2:
+Necesitas las siguientes cosas instaladas para compilar ROS 2:
 
 
 #.
    **Xcode**
 
-   * If you don't already have it installed, install Xcode.
-   * Note: Versions of Xcode later than 11.3.1 can no longer be installed on macOS Mojave, so you will need to install an older version manually, see: https://stackoverflow.com/a/61046761
-   * Also, if you don't already have it installed, install the Command Line Tools:
+   * Si aún no lo tienes instalado, instala Xcode.
+   * Nota: Las versiones de Xcode posteriores a la 11.3.1 ya no se pueden instalar en macOS Mojave, por lo que debes instalar una versión anterior manualmente, consulta: https://stackoverflow.com/a/61046761
+   * Además, si aún no lo tienes instalado, instala las herramientas de línea de comandos:
 
      .. code-block:: bash
 
@@ -42,10 +42,10 @@ You need the following things installed to build ROS 2:
         # To accept the Xcode.app license
 
 #.
-   **brew** *(needed to install more stuff; you probably already have this)*:
+   **brew** *(se necesita para instalar más cosas; probablemente ya tengas esto)*:
 
 
-   * Follow installation instructions at http://brew.sh/
+   * Sigue las instrucciones de instalación en http://brew.sh/
    *
      *Optional*: Check that ``brew`` is happy with your system configuration by running:
 
@@ -53,10 +53,10 @@ You need the following things installed to build ROS 2:
 
         brew doctor
 
-     Fix any problems that it identifies.
+     Soluciona cualquier problema que identifique.
 
 #.
-   Use ``brew`` to install more stuff:
+   Usa ``brew`` para instalar más cosas:
 
    .. code-block:: bash
 
@@ -65,20 +65,20 @@ You need the following things installed to build ROS 2:
          pyqt5 python qt@5 sip spdlog tinyxml tinyxml2
 
 #.
-   Setup some environment variables:
+   Configura algunas variables de entorno:
 
    .. code-block:: bash
 
-       # Add the openssl dir for DDS-Security
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+       # Agrega el directorio openssl para DDS-Security
+       # si estás usando ZSH, reemplace '.bashrc' por '.zshrc'
        echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
-       # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
+       # Agrega el directorio Qt a PATH y CMAKE_PREFIX_PATH
        export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
        export PATH=$PATH:/usr/local/opt/qt@5/bin
 
 #.
-   Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
+   Usa ``python3 -m pip`` (solo ``pip`` puede instalar Python3 o Python2) para instalar más cosas:
 
    .. code-block:: bash
 
@@ -91,15 +91,15 @@ You need the following things installed to build ROS 2:
         nose pep8 psutil pydocstyle pydot pygraphviz pyparsing==2.4.7 \
         pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
 
-   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
+   Asegúrate que la variable de entorno ``$PATH`` contenga la ubicación de instalación de los binarios (predeterminado: ``$HOME/Library/Python/<version>/bin``)
 
 #.
-   *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
+   *Opcional*: si deseas construir el bridge ROS 1<->2, también debes instalar ROS 1:
 
 
-   * Start with the normal install instructions: http://wiki.ros.org/kinetic/Installation/OSX/Homebrew/Source
+   * Comienza con las instrucciones de instalación normales:
    *
-     When you get to the step where you call ``rosinstall_generator`` to get the source code, here's an alternate invocation that brings in just the minimum required to produce a useful bridge:
+     Cuando llega al paso en el que llama a ``rosinstall_generator`` para obtener el código fuente, aquí hay una invocación alternativa que trae solo el mínimo requerido para producir un bridge útil:
 
      .. code-block:: bash
 
@@ -107,18 +107,18 @@ You need the following things installed to build ROS 2:
           wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
 
 
-     Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
+     De lo contrario, simplemente sigue las instrucciones normales, luego ejecuta ``source`` con el ``install_isolated/setup.bash`` resultante antes de proceder a compilar ROS 2.
 
-Disable System Integrity Protection (SIP)
------------------------------------------
+Deshabilitar la protección de integridad del sistema (SIP)
+----------------------------------------------------------
 
-macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
-So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
+Las versiones de macOS/OS X >=10.11 tienen la Protección de integridad del sistema habilitada de manera predeterminada.
+Para que SIP no impida que los procesos hereden variables de entorno del enlazador dinámico, como ``DYLD_LIBRARY_PATH``, debes desactivarlo `siguiendo estas instrucciones <https://developer.apple.com/library/content/documentation /Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
-Get the ROS 2 code
-------------------
+Obtener el código ROS 2
+-----------------------
 
-Create a workspace and clone all repos:
+Crea un espacio de trabajo y clona todos los repositorios:
 
 .. code-block:: bash
 
@@ -126,84 +126,86 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS vendors (optional)
------------------------------------------
+Instalar proveedores de DDS adicionales (opcional)
+--------------------------------------------------
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+Si deseas utilizar otro proveedor de DDS o RTPS además del predeterminado, puede encontrar instrucciones :doc:`aquí <../DDS-Implementations>`.
 
-Build the ROS 2 code
---------------------
+Construir el código ROS 2
+-------------------------
 
-Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
-
+Ejecuta la herramienta ``colcon`` para compilar todo (más información sobre el uso de ``colcon`` en :doc:`este tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
 .. code-block:: bash
 
    cd ~/ros2_{DISTRO}/
    colcon build --symlink-install --packages-skip-by-dep python_qt_binding
 
-Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
-This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
+Nota: debido a un problema no resuelto con SIP, Qt@5 y PyQt5, debemos deshabilitar ``python_qt_binding`` para que la compilación tenga éxito.
+Esto se eliminará cuando se resuelva el problema, consulte: https://github.com/ros-visualization/python_qt_binding/issues/103
 
-Environment setup
------------------
+Configuración del entorno
+-------------------------
 
-Source the ROS 2 setup file:
+Ejecuta ``source`` con el archivo de setup de ROS 2:
 
 .. code-block:: bash
 
    . ~/ros2_{DISTRO}/install/setup.bash
 
-This will automatically set up the environment for any DDS vendors that support was built for.
+Esto configurará automáticamente el entorno para cualquier proveedor de DDS para el que se haya compilado soporte.
 
-Try some examples
------------------
+Prueba algunos ejemplos
+-----------------------
 
-In one terminal, set up the ROS 2 environment as described above and then run a C++ ``talker``:
+En una terminal, configura el entorno ROS 2 como se describe arriba y luego ejecuta un ``talker`` de C++:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a Python ``listener``:
+En otra terminal, llama a ``source``con el archivo de setup y luego ejecuta un ``listener`` en Python:
 
 .. code-block:: bash
 
    ros2 run demo_nodes_py listener
 
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-This verifies both the C++ and Python APIs are working properly.
-Hooray!
+Deberías ver al ``talker`` diciendo que está ``Publishing`` mensajes y al ``listener`` diciendo ``I heard`` esos mensajes.
+Esto verifica que las API de C++ y Python funcionan correctamente.
+¡Hurra!
 
-Next steps after installing
----------------------------
-Continue with the `tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Siguientes pasos después de la instalación
+------------------------------------------
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+Continúa con los `tutoriales y demostraciones <../../Tutorials>` para configurar su entorno, crear su propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+Usando el bridge de ROS 1
+-------------------------
 
-Stay up to date
----------------
+El puente de ROS 1 puede conectar topics de ROS 1 a ROS 2 y viceversa. Consulta la `documentación <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ específica sobre cómo construir y usar el bridge de ROS 1.
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+Implementaciones adicionales de RMW (opcional)
+----------------------------------------------
 
-Troubleshooting
----------------
+El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (RMW) se puede reemplazar en tiempo de ejecución.
+Consulta la :doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
-Troubleshooting techniques can be found :ref:`here <macOS-troubleshooting>`.
+Estar al día
+------------
 
-Uninstall
----------
+Consulta :doc:`../Maintaining-a-Source-Checkout` para actualizar periódicamente la instalación de fuentes.
 
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
+Solución de problemas
+---------------------
 
-2. If you're also trying to free up space, you can delete the entire workspace directory with:
+Las técnicas de resolución de problemas se pueden encontrar :ref:`aquí <macOS-troubleshooting>`.
+
+Desinstalar
+-----------
+
+1. Si instalaste tu espacio de trabajo con colcon como se indicó anteriormente, la "desinstalación" podría ser simplemente una cuestión de abrir una nueva terminal y no ejecutar ``source```  con el archivo ``setup`` del espacio de trabajo.
+    De esta manera, su entorno se comportará como si no hubiera una instalación de {DISTRO_TITLE} en su sistema.
+
+2. Si también estás intentando liberar espacio, puede eliminar todo el directorio del espacio de trabajo con:
 
    .. code-block:: bash
 
