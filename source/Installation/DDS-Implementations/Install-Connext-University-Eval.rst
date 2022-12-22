@@ -16,7 +16,7 @@ La solicitud de licencia universitaria se puede encontrar `aquí <https://www.rt
 
 
 Evaluación de RTI Connext DDS
---------------------------
+-----------------------------
 
 Para instalar RTI Connext DDS **versión 6.0.1** Evaluación:
   * Visite el sitio `RTI Free Trial (6.0.1) <https://www.rti.com/free-trial>`__.
