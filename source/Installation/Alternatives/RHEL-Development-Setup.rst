@@ -5,7 +5,7 @@
 .. _rhel-latest:
 
 RHEL (fuentes)
-=============
+==============
 
 .. contents:: Tabla de contenidos
    :depth: 2
@@ -164,15 +164,15 @@ Esto verifica que las API de C++ y Python funcionan correctamente.
 ¡Hurra!
 
 Siguientes pasos después de la instalación
-----------------------------------------
+------------------------------------------
 Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para configurar tu entorno, crear tu propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
 Implementaciones adicionales de RMW (opcional)
------------------------------------------
+----------------------------------------------
 El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (RMW) se puede reemplazar en tiempo de ejecución.
 Consulte la :doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
-compiladores alternativos
+Compiladores alternativos
 -------------------------
 
 Usar un compilador diferente además de gcc para compilar ROS 2 es fácil. Si establece las variables de entorno ``CC`` y ``CXX`` a ejecutables de un compilador de C y C++ en funcionamiento, respectivamente, y vuelve a activar la configuración de CMake (usando ``--force-cmake-config`` o eliminando los paquetes que deseas que se vean afectados), CMake reconfigurará y usará el compilador diferente.
