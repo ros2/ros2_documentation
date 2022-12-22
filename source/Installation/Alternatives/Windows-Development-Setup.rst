@@ -181,8 +181,8 @@ El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (
 Consultea la :doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
 
-Cosas extra para el modo de depuración
---------------------------------------
+Cosas adicionales para el modo de depuración
+--------------------------------------------
 
 Si deseas poder ejecutar todas las pruebas en modo de depuración, deberás instalar algunas cosas más:
 
@@ -263,8 +263,8 @@ Si deseas poder ejecutar todas las pruebas en modo de depuración, deberás inst
 
 * ¡Hurra, ya terminaste!
 
-Stay up to date
----------------
+Estar al día
+------------
 
 Consulta :doc:`../Maintaining-a-Source-Checkout` para actualizar periódicamente la instalación de fuentes.
 
