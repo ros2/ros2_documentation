@@ -5,23 +5,30 @@
 GurumNetworks GurumDDS
 ======================
 
-rmw_gurumdds is a implementation of the ROS middleware interface using GurumNetworks GurumDDS.
-More information about GurumDDS is available on our website: https://gurum.cc/index_eng
+rmw_gurumdds es una implementación de la interfaz de middleware de ROS que utiliza GurumNetworks GurumDDS.
+Más información sobre GurumDDS está disponible en nuestro sitio web: https://gurum.cc/index_eng
 
+
+Prerequisitos
+-------------
+
+La siguiente descripción asume que ha completado el proceso de 'Configuración del entorno'
+desde :doc:`Instalación de ROS 2 a través de paquetes Debian <../Ubuntu-Install-Debians>` o
+del :doc:`Building ROS 2 on Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`.
 
 Prerequisites
 -------------
 
 The following description assumes that you have completed the 'Environment setup' process
 from the :doc:`Installing ROS 2 via Debian Packages <../Ubuntu-Install-Debians>` or
-from the :doc:`Building ROS 2 on Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`.
+from the :doc:`Compilando ROS 2 en Ubuntu Linux <../Alternatives/Ubuntu-Development-Setup>`.
 
-rmw_gurumdds requires version of GurumDDS-2.7.x.
-Debian packages of GurumDDS is provided in the ROS 2 apt repositories on linux.
-Windows binary installer of GurumDDS will be supported soon.
+rmw_gurumdds requiere la versión de GurumDDS-2.7.x.
+Los paquetes Debian de GurumDDS se proporcionan en los repositorios apt de ROS 2 en Linux.
+El instalador binario de Windows de GurumDDS estára compatible pronto.
 
-GurumDDS requires a license. See the next page: https://gurum.cc/free_trial_eng.html
-After getting a license, move it to the following location.
+GurumDDS requiere una licencia. Consulte la página siguiente: https://gurum.cc/free_trial_eng.html
+Después de obtener una licencia, muévala a la siguiente ubicación.
 
 =============  ================
  DDS Version   License Location
@@ -31,22 +38,22 @@ After getting a license, move it to the following location.
 =============  ================
 
 
-Install packages
-----------------
+Instalar paquetes
+-----------------
 
-The easiest way is to install from ROS 2 apt repository.
-When ros-{DISTRO}-rmw-gurumdds-cpp is installed, gurumdds-2.7 is also installed.
+La forma más fácil es instalar desde el repositorio apt de ROS 2.
+Cuando se instala ros-{DISTRO}-rmw-gurumdds-cpp, también se instala gutumdds-2.7.
 
 .. code-block:: bash
 
    sudo apt install ros-{DISTRO}-rmw-gurumdds-cpp
 
-Build from source code
-----------------------
+Compilar a partir del código fuente
+-----------------------------------
 
-Building from source code is also another way to install.
+Compilar a partir del código fuente también es otra forma de instalar.
 
-First, clone rosidl_typesupport_gurumdds and rmw_gurumdds in the ROS 2 workspace source directory.
+Primero, clona rosidl_typesupport_gurumdds y rmw_gurumdds en el directorio src del espacio de trabajo de ROS 2.
 
 .. code-block:: bash
 
@@ -54,35 +61,34 @@ First, clone rosidl_typesupport_gurumdds and rmw_gurumdds in the ROS 2 workspace
    git clone https://github.com/ros2/rmw_gurumdds ros2/rmw_gurumdds
    git clone https://github.com/ros2/rosidl_typesupport_gurumdds ros2/rosidl_typesupport_gurumdds
 
-Then, install necessary packages for GurumDDS.
+Luego, instale los paquetes necesarios para GurumDDS.
 
 .. code-block:: bash
 
    cd ..
    rosdep install --from src -i --rosdistro {DISTRO}
 
-Finally, run colcon build.
+Finalmente, ejecuta colcon build.
 
 .. code-block:: bash
 
    colcon build --symlink-install
 
-Switch to rmw_gurumdds
-------------------------
+Cambiar a rmw_gurumdds
+----------------------
 
-Switch from other rmw to rmw_gurumdds by specifying the environment variable.
+Cambie de otro rmw a rmw_gurumdds especificando la variable de entorno.
 
 .. code-block:: bash
 
    export RMW_IMPLEMENTATION=rmw_gurumdds_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+Consulta también: :doc:`Trabajar con varias implementaciones de RMW <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
-Run the talker and listener
----------------------------
+Ejecuta el talker y el listener
+-------------------------------
 
-Now run ``talker`` and ``listener`` to test GurumDDS.
-Don't forget to set up environment by setup script.
+Ahora ejecuta ``talker`` y ``listener`` para probar GurumDDS.
 
 .. code-block:: bash
 

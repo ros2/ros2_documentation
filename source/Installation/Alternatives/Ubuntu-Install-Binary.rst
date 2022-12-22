@@ -2,8 +2,8 @@
 
    Installation/Linux-Install-Binary
 
-Ubuntu (bincarios)
-==================
+Ubuntu (binarios)
+=================
 
 .. contents:: Tabla de contenidos
    :depth: 2

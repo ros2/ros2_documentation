@@ -1,30 +1,29 @@
 eProsima Fast DDS
 =================
 
-eProsima Fast DDS is a complete open-source DDS implementation for real time embedded architectures and operating systems.
-See also: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
+eProsima Fast DDS es una implementación completa de DDS de código abierto para sistemas operativos y arquitecturas embebidas en tiempo real.
+Ver también: https://www.eprosima.com/index.php/products-all/eprosima-fast-dds
 
-
-Prerequisites
+Prerequisitos
 -------------
 
-Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
+Tener `rosdep instalado <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 
-Install packages
-----------------
+Instalar paquetes
+-----------------
 
-The easiest way is to install from ROS 2 apt repository.
+La forma más fácil es instalar desde el repositorio apt de ROS 2.
 
 .. code-block:: bash
 
    sudo apt install ros-{DISTRO}-rmw-fastrtps-cpp
 
-Build from source code
-----------------------
+Compilar a partir del código fuente
+-----------------------------------
 
-Building from source code is also another way to install.
+Compilar a partir del código fuente también es otra forma de instalar.
 
-First, clone Fast DDS and rmw_fastrtps in the ROS 2 workspace source directory.
+Primero, clona Fast DDS y rmw_fastrtps en el directorio src del espacio de trabajo de ROS 2.
 
 .. code-block:: bash
 
@@ -32,34 +31,34 @@ First, clone Fast DDS and rmw_fastrtps in the ROS 2 workspace source directory.
    git clone https://github.com/ros2/rmw_fastrtps ros2/rmw_fastrtps
    git clone https://github.com/eProsima/Fast-DDS eProsima/fastrtps
 
-Then, install necessary packages for Fast DDS.
+Luego, instala los paquetes necesarios para Fast DDS.
 
 .. code-block:: bash
 
    cd ..
    rosdep install --from src -i
 
-Finally, run colcon build.
+Finalmente, ejecuta colcon build.
 
 .. code-block:: bash
 
    colcon build --symlink-install
 
-Switch to rmw_fastrtps
+Cambiar a rmw_fastrtps
 ----------------------
 
-The eProsima Fast DDS RMW can be selected by specifying the environment variable:
+eProsima Fast DDS RMW se puede seleccionar especificando la variable de entorno:
 
 .. code-block:: bash
 
    export RMW_IMPLEMENTATION=rmw_fastrtps_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+Consulta también: :doc:`Trabajar con varias implementaciones de RMW <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
-Run the talker and listener
----------------------------
+Ejecuta el talker y el listener
+-------------------------------
 
-Now run ``talker`` and ``listener`` to test Fast DDS.
+Ahora ejecuta ``talker`` y ``listener`` para probar Fast DDS.
 
 .. code-block:: bash
 

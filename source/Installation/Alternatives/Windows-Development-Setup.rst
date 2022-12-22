@@ -4,100 +4,100 @@
 
 .. _windows-latest:
 
-Windows (source)
-================
+Windows (fuentes)
+=================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenidos
    :depth: 2
    :local:
 
-This guide is about how to setup a development environment for ROS 2 on Windows.
+Esta guía trata sobre cómo configurar un entorno de desarrollo para ROS 2 en Windows.
 
-System requirements
--------------------
+Requisitos del sistema
+----------------------
 
-Only Windows 10 is supported.
+Sólo Windows 10 está soportado.
 
-Language support
-^^^^^^^^^^^^^^^^
+Soporte de idioma support
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Make sure you have a locale which supports ``UTF-8``.
-For example, for a Chinese-language Windows 10 installation, you may need to install an `English language pack <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
+Asegúrate de tener una configuración regional que admita ``UTF-8``.
+Por ejemplo, para una instalación de Windows 10 en idioma chino, es posible que debas instalar un `paquete de idioma de inglés <https://support.microsoft.com/en-us/windows/language-packs-for-windows-a5094319-a92d-18de-5b53-1cfc697cfca8>`_.
 
 .. include:: ../_Windows-Install-Prerequisites.rst
 
-Additional prerequisites
-------------------------
+Prerequisitos adicionales
+-------------------------
 
-When building from source you'll need a few additional prerequisites installed.
+Al compilar desde el código fuente, necesitarás algunos prerequisitos adicionales instalados.
 
-Install additional prerequisites from Chocolatey
+Instalar prerequisitos adicionales de Chocolatey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
    choco install -y cppcheck curl git winflexbison3
 
-You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
-In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
+Deberás agregar la carpeta Git cmd ``C:\Program Files\Git\cmd`` al PATH (puedes hacerlo haciendo clic en el ícono de Windows, escribiendo "Variables de entorno" y luego haciendo clic en "Editar el entorno del sistema variables".
+En el cuadro de diálogo resultante, haz clic en "Variables de entorno", haz clic en "Path" en el panel inferior, luego haz clic en "Editar" y agrega la ruta).
 
 
-Install Python prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instalar prerequisitos de Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Installing additional Python dependencies:
+Instalación de dependencias adicionales de Python:
 
 .. code-block:: bash
 
    pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.931 pep8 pydocstyle pytest pytest-mock vcstool
 
-Install miscellaneous prerequisites
+Instalar otros varios prerequisitos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Next install xmllint:
+A continuación instala xmllint:
 
-* Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
-* Unpack all archives into e.g. ``C:\xmllint``
-* Add ``C:\xmllint\bin`` to the ``PATH``.
+* Descarga los `archivos binarios de 64 bits <https://www.zlatkovic.com/pub/libxml/64bit/>`__ de ``libxml2`` (y sus dependencias ``iconv`` y ``zlib``) de https://www.zlatkovic.com/projects/libxml/
+* Descomprime todos los archivos en, por ejemplo, ``C:\xmllint``
+* Agrega ``C:\xmllint\bin`` al ``PATH``.
 
-Get the ROS 2 code
-------------------
+Obtener el código ROS 2
+-----------------------
 
-Now that we have the development tools we can get the ROS 2 source code.
+Ahora que tenemos las herramientas de desarrollo podemos obtener el código fuente de ROS 2.
 
-First setup a development folder, for example ``C:\{DISTRO}``:
+Primero configura una carpeta de desarrollo, por ejemplo ``C:\{DISTRO}``:
 
 .. note::
 
-   It is very important that the chosen path is short, due to the short default Windows path limits (260 characters).
-   To allow longer paths, see https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry.
+   Es muy importante que la ruta elegida sea corta, debido a los cortos límites predeterminados de ruta de Windows (260 caracteres).
+   Para permitir rutas más largas, consulta https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry.
 
 .. code-block:: bash
 
    md \{DISTRO}\src
    cd \{DISTRO}
 
-Get the ``ros2.repos`` file which defines the repositories to clone from:
+Obtén el archivo ``ros2.repos`` que define los repositorios desde los que clonar:
 
 .. code-block:: bash
 
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instalar implementaciones de DDS adicionales (opcional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fast DDS is bundled with the ROS 2 source and will always be built unless you put an ``COLCON_IGNORE`` file in the ``src\eProsima`` folder.
+Fast DDS se incluye con las fuentes de ROS 2 y siempre se compilará a menos que coloque un archivo ``COLCON_IGNORE`` en la carpeta ``src\eProsima``.
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+Si deseas utilizar otro proveedor de DDS o RTPS además del predeterminado, puedes encontrar instrucciones :doc:`aquí <../DDS-Implementations>`.
 
-Build the ROS 2 code
---------------------
+Compila el código ROS 2
+-------------------------
 
 .. _windows-dev-build-ros2:
 
-To build ROS 2 you will need a Visual Studio Command Prompt ("x64 Native Tools Command Prompt for VS 2019") running as Administrator.
+Para compilar ROS 2, necesitarás un símbolo del sistema de Visual Studio ("x64 Native Tools Command Prompt for VS 2019") ejecutándose como administrador.
 
-To build the ``\{DISTRO}`` folder tree:
+Para compilar el árbol de la carpeta ``\{DISTRO}``:
 
 .. code-block:: bash
 
@@ -105,33 +105,33 @@ To build the ``\{DISTRO}`` folder tree:
 
 .. note::
 
-   We're using ``--merge-install`` here to avoid a ``PATH`` variable that is too long at the end of the build.
-   If you're adapting these instructions to build a smaller workspace then you might be able to use the default behavior which is isolated install, i.e. where each package is installed to a different folder.
+   Estamos usando ``--merge-install`` aquí para evitar una variable ``PATH`` que sea demasiado larga al final de la compilación.
+   Si estás adaptando estas instrucciones para crear un espacio de trabajo más pequeño, es posible que pueda usar el comportamiento predeterminado que es una instalación aislada, es decir, donde cada paquete se instala en una carpeta diferente.
 
 .. note::
 
-   If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
-   See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
+   Si estás haciendo una compilación de depuración, usa ``python_d path\to\colcon_executable`` ``colcon``.
+   Consulta `Cosas adicionales para el modo de depuración`_ para obtener más información sobre cómo ejecutar el código de Python en compilaciones de depuración en Windows.
 
-Environment setup
------------------
+Configuración del entorno
+-------------------------
 
-Start a command shell and source the ROS 2 setup file to set up the workspace:
+Inicia una shell de comandos y obtén el archivo de configuración de ROS 2 para configurar el espacio de trabajo:
 
 .. code-block:: bash
 
    call C:\{DISTRO}\install\local_setup.bat
 
-This will automatically set up the environment for any DDS vendors that support was built for.
+Esto configurará automáticamente el entorno para cualquier proveedor de DDS para el soporte se haya compilado.
 
-It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
+Es normal que el comando anterior, si nada más salió mal, muestre "El sistema no puede encontrar la ruta especificada." exactamente una vez.
 
-Test and run
-------------
+Probar y ejecutar
+-----------------
 
-Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
+Tenga en cuenta que la primera vez que ejecutes cualquier ejecutable, deberás permitir el acceso a la red a través de una ventana emergente del Firewall de Windows.
 
-You can run the tests using this command:
+Puedes ejecutar las pruebas usando este comando:
 
 .. code-block:: bash
 
@@ -139,75 +139,74 @@ You can run the tests using this command:
 
 .. note::
 
-   ``--merge-install`` should only be used if it was also used in the build step.
+   ``--merge-install`` solo debe usarse si también se usó en el paso de compilación.
 
-Afterwards you can get a summary of the tests using this command:
+Luego puedes obtener un resumen de las pruebas usando este comando:
 
 .. code-block:: bash
 
    colcon test-result
 
-To run the examples, first open a clean new ``cmd.exe`` and set up the workspace by sourcing the ``local_setup.bat`` file.
-Then, run a C++ ``talker``\ :
+Para ejecutar los ejemplos, primero abre un archivo ``cmd.exe`` nuevo y limpio y configura el espacio de trabajo ejecutando el archivo ``local_setup.bat``.
+Luego, ejecuta un C++ ``talker``\ :
 
 .. code-block:: bash
 
    call install\local_setup.bat
    ros2 run demo_nodes_cpp talker
 
-In a separate shell you can do the same, but instead run a Python ``listener``\ :
+En un shell separado, puedes hacer lo mismo, pero en su lugar ejecute Python ``listener``\ :
 
 .. code-block:: bash
 
    call install\local_setup.bat
    ros2 run demo_nodes_py listener
 
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-This verifies both the C++ and Python APIs are working properly.
-Hooray!
+Deberías ver al ``talker`` diciendo que está publicando (``Publishing``) mensajes y al ``listener`` diciendo que oye (``I heard``) esos mensajes.
+Esto verifica que las API de C++ y Python funcionan correctamente.
+¡Hurra!
 
 
 .. note::
 
-   It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
+   No se recomienda compilar en el mismo cmd prompt en el que ejecutó ``local_setup.bat``.
 
-Next steps after installing
----------------------------
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Siguientes pasos después de la instalación
+------------------------------------------
+Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para configurar tu entorno, crear tu propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
-
-Extra stuff for Debug mode
---------------------------
-
-If you want to be able to run all the tests in Debug mode, you'll need to install a few more things:
+Implementaciones adicionales de RMW (opcional)
+----------------------------------------------
+El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (RMW) se puede reemplazar en tiempo de ejecución.
+Consultea la :doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
 
-* To be able to extract the Python source tarball, you can use PeaZip:
+Cosas extra para el modo de depuración
+--------------------------------------
+
+Si deseas poder ejecutar todas las pruebas en modo de depuración, deberás instalar algunas cosas más:
+
+
+* Para poder extraer el tarball fuente de Python, puedes usar PeaZip:
 
 .. code-block:: bash
 
    choco install -y peazip
 
 
-* You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
+* También necesitarás SVN, ya que algunas de las dependencias de compilación de fuentes de Python se verifican a través de SVN:
 
 .. code-block:: bash
 
    choco install -y svn hg
 
-
-* You'll need to quit and restart the command prompt after installing the above.
-* Get and extract the Python 3.8.3 source from the ``tgz``:
+* Deberás salir y reiniciar el símbolo del sistema después de instalar lo anterior.
+* Obtén y extráe las fuentes de Python 3.8.3 del ``tgz``:
 
   * https://www.python.org/ftp/python/3.8.3/Python-3.8.3.tgz
-  * To keep these instructions concise, please extract it to ``C:\dev\Python-3.8.3``
+  * Para mantener estas instrucciones concisas, extráelas a ``C:\dev\Python-3.8.3``
 
-* Now, build the Python source in debug mode from a Visual Studio command prompt:
+* Ahora, copila lo fuentes de Python en modo de depuración desde un símbolo del sistema de Visual Studio:
 
 .. code-block:: bash
 
@@ -216,7 +215,7 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    build.bat -p x64 -d
 
 
-* Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
+* Finalmente, copia los productos de compilación en los directorios de instalación de Python38, junto al ejecutable de Python en modo release y las DLL's:
 
 .. code-block:: bash
 
@@ -230,57 +229,57 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
 
 
-* Now, from a fresh command prompt, make sure that ``python_d`` works:
+* Ahora, desde un nuevo símbolo del sistema, asegúrate de que ``python_d`` funciona:
 
 .. code-block:: bash
 
    python_d -c "import _ctypes ; import coverage"
 
-* Once you have verified the operation of ``python_d``, it is necessary to reinstall a few dependencies with the debug-enabled libraries:
+* Una vez que hayas verificado el funcionamiento de ``python_d``, es necesario reinstalar algunas dependencias con las bibliotecas habilitadas para depuración:
 
 .. code-block:: bash
 
    python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/numpy-archives/numpy-1.18.4-cp38-cp38d-win_amd64.whl
    python_d -m pip install --force-reinstall https://github.com/ros2/ros2/releases/download/lxml-archives/lxml-4.5.1-cp38-cp38d-win_amd64.whl
 
-* To verify the installation of these dependencies:
+* Para verificar la instalación de estas dependencias:
 
 .. code-block:: bash
 
    python_d -c "from lxml import etree ; import numpy"
 
-* When you wish to return to building release binaries, it is necessary to uninstall the debug variants and use the release variants:
+* Cuando desees volver a compilar los binarios de "release", es necesario desinstalar las variantes de depuración y utilizar la de versión "release":
 
 .. code-block:: bash
 
    python -m pip uninstall numpy lxml
    python -m pip install numpy lxml
 
-* To create executables python scripts(.exe), python_d should be used to invoke colcon
+* Para crear scripts ejecutables de python (.exe), se debe usar python_d para invocar a colcon
 
 .. code-block:: bash
 
    python_d path\to\colcon_executable build
 
-* Hooray, you're done!
+* ¡Hurra, ya terminaste!
 
 Stay up to date
 ---------------
 
-See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
+Consulta :doc:`../Maintaining-a-Source-Checkout` para actualizar periódicamente la instalación de fuentes.
 
-Troubleshooting
----------------
+Solución de problemas
+---------------------
 
-Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
+Las técnicas de solución de problemas se pueden encontrar :ref:`aquí <windows-troubleshooting>`.
 
 Uninstall
 ---------
 
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
+1. Si instalaste tu espacio de trabajo con colcon como se indicó anteriormente, la "desinstalación" podría ser simplemente una cuestión de abrir una nueva terminal y no ejecutar el archivo de ``setup`` del espacio de trabajo.
+   De esta manera, tu entorno se comportará como si no hubiera una instalación de {DISTRO_TITLE} en su sistema.
 
-2. If you're also trying to free up space, you can delete the entire workspace directory with:
+2. Si también estás intentando liberar espacio, puedes eliminar todo el directorio del espacio de trabajo con:
 
    .. code-block:: bash
 
