@@ -19,7 +19,7 @@ Opciones para instalar ROS 2 {DISTRO_TITLE_FULL}:
    Installation/DDS-Implementations
 
 Paquetes binarios
----------------
+-----------------
 
 Los archivos binarios solo se crean para los sistemas operativos Tier 1 enumerados en `REP-2000 <https://www.ros.org/reps/rep-2000.html#rolling-ridley-june-2020-ongoing>`__.
 Dada la naturaleza de Rolling, esta lista podrá ser actualizada en cualquier momento.
@@ -43,7 +43,7 @@ Proporcionamos paquetes binarios de ROS 2 para las siguientes plataformas:
 .. _building-from-source:
 
 Construyendo desde la fuente
---------------------
+----------------------------
 
 Apoyamos la creación de ROS 2 desde fuentes en las siguientes plataformas:
 
@@ -84,4 +84,4 @@ Construir desde fuentes también le da la opción de instalar la última versió
 
 ¿Contribuyendo al núcleo de ROS 2?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Si planeas contribuir directamente a los paquetes principales de ROS 2, puedes instalar el :doc:`último desarrollo de fuentes <Instalación/Alternativas/Latest-Development-Setup>` que comparte las instrucciones de instalación con la :ref:`Distribución Rolling <rolling_distribution>`.
+Si planeas contribuir directamente a los paquetes principales de ROS 2, puedes instalar el :doc:`último desarrollo de fuentes <Installation/Alternatives/Latest-Development-Setup>` que comparte las instrucciones de instalación con la :ref:`Distribución Rolling <rolling_distribution>`.
