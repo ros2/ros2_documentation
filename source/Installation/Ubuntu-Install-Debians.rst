@@ -95,16 +95,16 @@ Prueba algunos ejemplos
 Talker-listener
 ^^^^^^^^^^^^^^^
 
-Si instaló anteriormente ``ros-{DISTRO}-desktop``, puedes probar algunos ejemplos.
+Si instalaste anteriormente ``ros-{DISTRO}-desktop``, puedes probar algunos ejemplos.
 
-En una terminal, llama a ``source`` con el archivo de setup y luego ejecute un ``talker`` de C++\:
+En una terminal, llama a ``source`` con el archivo de setup y luego ejecuta un ``talker`` de C++\:
 
 .. code-block:: bash
 
    source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
-En otra fuente de terminal, llama a ``source`` con el archivo de setup y luego ejecute un ``listener`` en Python\:
+En otra fuente de terminal, llama a ``source`` con el archivo de setup y luego ejecuta un ``listener`` en Python\:
 
 .. code-block:: bash
 
@@ -122,7 +122,7 @@ Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para conf
 
 Usando el bridge ROS 1
 ----------------------
-El bridge ROS 1 puede conectar topics de ROS 1 a ROS 2 y viceversa. Consulte la `documentación <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ específica sobre cómo construir y usar el puente ROS 1.
+El bridge ROS 1 puede conectar topics de ROS 1 a ROS 2 y viceversa. Consulta la `documentación <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ específica sobre cómo construir y usar el puente ROS 1.
 
 Implementaciones adicionales de RMW (opcional)
 ----------------------------------------------
@@ -137,7 +137,7 @@ Las técnicas de resolución de problemas se pueden encontrar :doc:`aquí <../Ho
 Desinstalar
 -----------
 
-Si necesita desinstalar ROS 2 o cambiar a una instalación basada en fuentes una vez que
+Si necesitas desinstalar ROS 2 o cambiar a una instalación basada en fuentes una vez que
 ya has instalado desde binarios, ejecuta el siguiente comando:
 
 .. code-block:: bash
