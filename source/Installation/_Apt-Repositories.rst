@@ -1,20 +1,20 @@
-You will need to add the ROS 2 apt repository to your system.
+Debes agregar el repositorio apt de ROS 2 a tu sistema.
 
-First ensure that the `Ubuntu Universe repository <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ is enabled.
+Primero asegúrate que el repositorio `Ubuntu Universe <https://help.ubuntu.com/community/Repositories/Ubuntu>`_ esté habilitado.
 
 .. code-block:: bash
 
    sudo apt install software-properties-common
    sudo add-apt-repository universe
 
-Now add the ROS 2 GPG key with apt.
+Ahora agrega la clave GPG de ROS 2 con apt.
 
 .. code-block:: bash
 
    sudo apt update && sudo apt install curl
    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
-Then add the repository to your sources list.
+Luego añade el repositorio a tu lista de fuentes.
 
 .. code-block:: bash
 

@@ -1,1 +1,1 @@
-**Note**: If you're using a distribution that is based on Ubuntu (like Linux Mint) but does not identify itself as such, you'll get an error message like ``Unsupported OS [mint]``. In this case append ``--os=ubuntu:jammy`` to the above command.
+**Nota**: si estás utilizando una distribución basada en Ubuntu (como Linux Mint) pero no se identifica como tal, recibirás un mensaje de error como ``Sistema operativo no compatible [mint]``. En este caso, agrega ``--os=ubuntu:jammy`` al comando anterior.

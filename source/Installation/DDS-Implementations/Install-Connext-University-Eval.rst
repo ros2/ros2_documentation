@@ -1,26 +1,26 @@
-RTI Connext DDS
-===============
+RTI Connex DDS
+==============
 
-A libraries-only version of RTI Connext DDS 6.0.1 may be installed per the :doc:`installation instructions <../../Installation>` for
-Debian/Ubuntu Linux (amd64) platforms only, under a `non-commercial license <https://www.rti.com/ncl>`__.
+Se puede instalar una versión solo para bibliotecas de RTI Connext DDS 6.0.1 según las :doc:`instrucciones de instalación <../../Installation>` sólo para
+plataformas Debian/Ubuntu Linux (amd64), bajo una `licencia no comercial <https://www.rti.com/ncl>`__.
 
-A full-suite installation of RTI Connext DDS is available for many additional platforms, for universities, evaluation, or purchase.
-This installation includes diagnostic tools, layered services, and security.  See below for installation details.
+Se encuentra disponible una instalación completa de RTI Connext DDS para muchas plataformas adicionales, para universidades, evaluación o compra.
+Esta instalación incluye herramientas de diagnóstico, servicios en capas y seguridad. Consulta a continuación los detalles de instalación.
 
-RTI University Program
-----------------------
-
-University researchers and classroom users may be eligible for a free academic license through the `RTI University Program <https://www.rti.com/free-trial/university-program>`__.
-This includes a one-year (renewable) license to the unabridged version of Connext DDS Secure, which includes diagnostic tools and layered services.
-The university license application can be found `here <https://www.rti.com/free-trial/university-program>`__.
-
-
-RTI Connext DDS Evaluation
+Programa Universitario RTI
 --------------------------
 
-To install RTI Connext DDS **version 6.0.1** Evalution:
- * Visit the `RTI Free Trial (6.0.1) site <https://www.rti.com/free-trial>`__.
- * Download the version(s) to match your environment.
- * Contact license@rti.com for an evaluation license.
- * Install RTI Connext 6.0.1 by running the installation program.  When finished, it will run the RTI Launcher.
- * Use the RTI Launcher to install the license file (rti_license.dat) if needed.  The launcher may also be used to launch the diagnostic tools and services.
+Los investigadores universitarios y los usuarios de las aulas pueden ser elegibles para una licencia académica gratuita a través del `Programa Universitario RTI <https://www.rti.com/free-trial/university-program>`__.
+Esto incluye una licencia de un año (renovable) para la versión completa de Connext DDS Secure, que incluye herramientas de diagnóstico y servicios en capas.
+La solicitud de licencia universitaria se puede encontrar `aquí <https://www.rti.com/free-trial/university-program>`__.
+
+
+Evaluación de RTI Connext DDS
+-----------------------------
+
+Para instalar RTI Connext DDS **versión 6.0.1** Evaluación:
+  * Visite el sitio `RTI Free Trial (6.0.1) <https://www.rti.com/free-trial>`__.
+  * Descarga la(s) versión(es) para que coincidan con tu entorno.
+  * Comunícate con license@rti.com para obtener una licencia de evaluación.
+  * Instala RTI Connext 6.0.1 ejecutando el programa de instalación. Cuando termines, ejecuta el RTI Launcher.
+  * Usa RTI Launcher para instalar el archivo de licencia (rti_license.dat) si es necesario. El iniciador también se puede utilizar para iniciar las herramientas y servicios de diagnóstico.
