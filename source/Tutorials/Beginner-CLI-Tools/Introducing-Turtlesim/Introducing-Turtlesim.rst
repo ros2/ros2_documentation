@@ -4,8 +4,8 @@
 
 .. _Turtlesim:
 
-Using ``turtlesim`` and ``rqt``
-===============================
+Utilizar ``turtlesim`` y ``rqt``
+================================
 
 **Objetivo:** Instalar y utilizar el paquete turtlesim y la herramienta rqt, para prepararse para los próximos tutoriales.
 
@@ -13,7 +13,7 @@ Using ``turtlesim`` and ``rqt``
 
 **Tiempo:** 15 minutos
 
-.. contents:: Contents
+.. contents:: Contenido
    :depth: 2
    :local:
 
@@ -259,10 +259,9 @@ Resumen
 
 Utilizar turtlesim y rqt es una excelente manera de aprender los conceptos básicos de ROS 2.
 
-Next steps
-----------
+Pasos siguientes
+----------------
 
-Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, 
 Ahora que tiene turtlesim y rqt en funcionamiento, y una idea de cómo funcionan, profundicemos en el primer concepto básico de ROS 2 con el siguiente tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
 
 Contenido Relacionado
