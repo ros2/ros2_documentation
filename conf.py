@@ -87,13 +87,13 @@ extensions = [
 # Intersphinx mapping
 
 intersphinx_mapping = {
-    'catkin_pkg':    ('http://docs.ros.org/es/independent/api/catkin_pkg/html', None),
-    'jenkins_tools': ('http://docs.ros.org/es/independent/api/jenkins_tools/html', None),
-    'rosdep':        ('http://docs.ros.org/es/independent/api/rosdep/html', None),
-    'rosdistro':     ('http://docs.ros.org/es/independent/api/rosdistro/html', None),
-    'rosinstall':    ('http://docs.ros.org/es/independent/api/rosinstall/html', None),
-    'rospkg':        ('http://docs.ros.org/es/independent/api/rospkg/html', None),
-    'vcstools':      ('http://docs.ros.org/es/independent/api/vcstools/html', None)
+    'catkin_pkg':    ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/catkin_pkg/html', None),
+    'jenkins_tools': ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/jenkins_tools/html', None),
+    'rosdep':        ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/rosdep/html', None),
+    'rosdistro':     ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/rosdistro/html', None),
+    'rosinstall':    ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/rosinstall/html', None),
+    'rospkg':        ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/rospkg/html', None),
+    'vcstools':      ('https://ros-spanish-users-group.github.io/ros2_documentation/independent/api/vcstools/html', None)
 }
 
 # -- Options for HTML output ----------------------------------------------
@@ -163,7 +163,7 @@ html_sourcelink_suffix = ''
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ros2_docsdoc'
 
-html_baseurl = 'https://docs.ros.org/es'
+html_baseurl = 'https://ros-spanish-users-group.github.io/ros2_documentation'
 
 class RedirectFrom(Directive):
 
