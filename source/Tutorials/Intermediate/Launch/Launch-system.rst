@@ -92,7 +92,7 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
       src/
         py_launch_example/
           package.xml
-          py_launch_example/
+          launch/
           resource/
           setup.py
           setup.cfg
