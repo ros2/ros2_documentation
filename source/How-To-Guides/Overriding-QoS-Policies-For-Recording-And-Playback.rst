@@ -58,7 +58,7 @@ All values are replicated below for reference.
     lifespan:
       sec: int
       nsec: int
-    liveliness: [system_default, automatic, manual_by_node, manual_by_topic, unknown]
+    liveliness: [system_default, automatic, manual_by_topic, unknown]
     liveliness_lease_duration:
       sec: int
       nsec: int
