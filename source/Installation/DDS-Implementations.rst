@@ -21,7 +21,7 @@ En Rolling, el proveedor de DDS predeterminado es Fast DDS de eProsima.
 Si deseas utilizar uno de los otros proveedores, debes instalar su software por separado antes de compilar.
 La compilación de ROS 2 creará soporte automáticamente para los proveedores que se hayan instalado y activado correctamente.
 
-Una vez que hayas instalado un nuevo proveedor de DDS, puedes cambiar el proveedor utilizado en el tiempo de ejecución: :doc:`Trabajar con múltiples implementaciones de RMW <../How-To-Guides/Trabajar-con-varias-implementaciones-RMW>`.
+Una vez que hayas instalado un nuevo proveedor de DDS, puedes cambiar el proveedor utilizado en el tiempo de ejecución: :doc:`Trabajar con múltiples implementaciones de RMW <../How-To-Guides/Working-with-multiple-RMW-implementations>`.
 
 A continuación se proporcionan instrucciones detalladas para instalar otros proveedores de DDS.
 
@@ -45,13 +45,13 @@ Deberás aceptar una licencia de RTI.
 
    sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
 
-Ejecuta `source` sobre el fichero de configuraciónpara establecer la variable de entorno ``NDDSHOME``.
+Ejecuta ``source`` sobre el fichero de configuraciónpara establecer la variable de entorno ``NDDSHOME``.
 
 .. code-block:: bash
 
    cd /opt/rti.com/rti_connext_dds-6.0.1/resource/scripts && source ./rtisetenv_x64Linux4gcc7.3.0.bash; cd -
 
-Nota: al usar ``zsh``, debe estar en el directorio del script al ejecutar `source` para que funcione correctamente.
+Nota: al usar ``zsh``, debe estar en el directorio del script al ejecutar ``source`` para que funcione correctamente.
 
 Ahora puedes compilar con normalidad y también se compilará soporte para RTI.
 
@@ -73,7 +73,7 @@ Agrega la siguiente línea a su archivo ``.bashrc`` apuntando a tu copia de la l
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
-Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME``.
+Ejecuta ``source`` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME``.
 
 .. code-block:: bash
 
@@ -105,7 +105,7 @@ Agrega la siguiente línea a su archivo ``.bashrc`` apuntando a tu copia de la l
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
-Todas las opciones necesitan que ejecutes `source` son el archivo de configuración para establecer la variable de entorno ``NDDSHOME``:
+Todas las opciones necesitan que ejecutes ``source`` son el archivo de configuración para establecer la variable de entorno ``NDDSHOME``:
 
 .. code-block:: bash
 
@@ -127,7 +127,7 @@ También necesitas un entorno de ejecución Java instalado para ejecutar el gene
 
 Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
 
-Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
+Ejecuta ``source`` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
 
 .. code-block:: bash
 
@@ -148,7 +148,7 @@ Para usar RTI Connext DDS hay opciones disponibles para :doc:`universidad, compr
 
 Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
 
-Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
+Ejecuta ``source`` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
 
 .. code-block:: bash
 
