@@ -1,16 +1,16 @@
-DDS implementations
-===================
+implementaciones de DDS
+=======================
 
-By default, ROS 2 uses DDS as its `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
-It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
-There is currently support for eProsima's Fast DDS, RTI's Connext DDS, Eclipse Cyclone DDS, and GurumNetworks GurumDDS.
-See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
+De forma predeterminada, ROS 2 usa DDS como `middleware <https://design.ros2.org/articles/ros_on_dds.html>`__.
+Es compatible con varios proveedores de DDS o RTPS (el protocolo de conexión DDS).
+Actualmente hay soporte para Fast DDS de eProsima, Connext DDS de RTI, Eclipse Cyclone DDS y GurumNetworks GurumDDS.
+Consulta https://ros.org/reps/rep-2000.html para conocer los proveedores de DDS soportados por distribución.
 
-In Rolling, the default DDS vendor is eProsima's Fast DDS.
+En Rolling, el proveedor de DDS predeterminado es Fast DDS de eProsima.
 
-* :doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
-* :doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
-* :doc:`Working with GurumNetworks GurumDDS <DDS-Implementations/Working-with-GurumNetworks-GurumDDS>` explains how to utilize GurumDDS.
+* :doc:`Trabajando con Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explica cómo utilizar Cyclone DDS.
+* :doc:`Trabajando con eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explica cómo utilizar Fast DDS.
+* :doc:`Trabajando con GurumNetworks GurumDDS <DDS-Implementations/Working-with-GurumNetworks-GurumDDS>` explica cómo utilizar GurumDDS.
 
 .. toctree::
    :hidden:
@@ -18,145 +18,145 @@ In Rolling, the default DDS vendor is eProsima's Fast DDS.
 
    DDS-Implementations/*
 
-If you would like to use one of the other vendors you will need to install their software separately before building.
-The ROS 2 build will automatically build support for vendors that have been installed and sourced correctly.
+Si deseas utilizar uno de los otros proveedores, debes instalar su software por separado antes de compilar.
+La compilación de ROS 2 creará soporte automáticamente para los proveedores que se hayan instalado y activado correctamente.
 
-Once you've installed a new DDS vendor, you can change the vendor used at runtime: :doc:`Working with Multiple RMW Implementations <../How-To-Guides/Working-with-multiple-RMW-implementations>`.
+Una vez que hayas instalado un nuevo proveedor de DDS, puedes cambiar el proveedor utilizado en el tiempo de ejecución: :doc:`Trabajar con múltiples implementaciones de RMW <../How-To-Guides/Trabajar-con-varias-implementaciones-RMW>`.
 
-Detailed instructions for installing other DDS vendors are provided below.
+A continuación se proporcionan instrucciones detalladas para instalar otros proveedores de DDS.
 
 .. contents:: Platforms / Installation types
    :depth: 1
    :local:
 
-Ubuntu Linux source install
----------------------------
+Instalación de Ubuntu Linux de fuentes
+--------------------------------------
 
-RTI Connext (version 6.0.1, amd64 only)
+RTI Connext (versión 6.0.1, solo amd64)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Debian packages provided in the ROS 2 apt repositories
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Paquetes Debian provistos en los repositorios apt de ROS 2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install a Debian package of RTI Connext available on the ROS 2 apt repositories.
-You will need to accept a license from RTI.
+Puedes instalar un paquete Debian de RTI Connext disponible en los repositorios apt de ROS 2.
+Deberás aceptar una licencia de RTI.
 
 .. code-block:: bash
 
    sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
 
-Source the setup file to set the ``NDDSHOME`` environment variable.
+Ejecuta `source` sobre el fichero de configuraciónpara establecer la variable de entorno ``NDDSHOME``.
 
 .. code-block:: bash
 
    cd /opt/rti.com/rti_connext_dds-6.0.1/resource/scripts && source ./rtisetenv_x64Linux4gcc7.3.0.bash; cd -
 
-Note: when using ``zsh`` you need to be in the directory of the script when sourcing it to have it work properly
+Nota: al usar ``zsh``, debe estar en el directorio del script al ejecutar `source` para que funcione correctamente.
 
-Now you can build as normal and support for RTI will be built as well.
+Ahora puedes compilar con normalidad y también se compilará soporte para RTI.
 
-Official binary packages from RTI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Paquetes binarios oficiales de RTI
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You can install the Connext 6.0.1 package for Linux provided by RTI, via options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+Puedes instalar el paquete Connext 6.0.1 para Linux provisto por RTI, a través de las opciones disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
 
-After downloading, use ``chmod +x`` on the ``.run`` executable and then execute it.
-Note that if you're installing to a system directory use ``sudo`` as well.
+Después de descargar, usa ``chmod +x`` en el ejecutable ``.run`` y luego ejecútalo.
+Ten en cuenta que si está instalando en un directorio del sistema, usa además ``sudo``.
 
-The default location is ``~/rti_connext_dds-6.0.1``
+La ubicación predeterminada es ``~/rti_connext_dds-6.0.1``
 
-After installation, run RTI launcher and point it to your license file (obtained from RTI).
+Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia (obtenido de RTI).
 
-Add the following line to your ``.bashrc`` file pointing to your copy of the license.
+Agrega la siguiente línea a su archivo ``.bashrc`` apuntando a tu copia de la licencia.
 
 .. code-block:: bash
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
-Source the setup file to set the ``NDDSHOME`` environment variable.
+Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME``.
 
 .. code-block:: bash
 
    cd ~/rti_connext_dds-6.0.1/resource/scripts && source ./rtisetenv_x64Linux4gcc7.3.0.bash; cd -
 
-Now you can build as normal and support for RTI will be built as well.
+Ahora puedes compilar con normalidad y también se compilará soporte para RTI.
 
-Ubuntu Linux binary install
----------------------------
+Instalación de binarios en Ubuntu Linux
+---------------------------------------
 
-RTI Connext (version 6.0.1, amd64 only)
+RTI Connext (versión 6.0.1, solo amd64)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To use RTI Connext DDS there are full-suite install options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
-or you can install a libraries-only Debian package of RTI Connext 6.0.1, available from the OSRF Apt repository
-under a `non-commercial license <https://www.rti.com/ncl>`__.
+Para usar RTI Connext DDS, hay opciones de instalación de conjunto completo disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
+o puedes instalar un paquete Debian con únicamente las bibliotecas de RTI Connext 6.0.1, disponible en el repositorio OSRF Apt
+bajo una `licencia no comercial <https://www.rti.com/ncl>`__.
 
-To install the libs-only Debian package:
+Para instalar el paquete Debian únicamente con bibliotecas:
 
 .. code-block:: bash
 
    sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
 
-You will need to accept a license agreement from RTI, and will find an 'rti_license.dat file in the installation.
+Deberás aceptar un acuerdo de licencia de RTI y encontrar un archivo 'rti_license.dat' en la instalación.
 
-Add the following line to your ``.bashrc`` file pointing to your copy of the license (and source it).
+Agrega la siguiente línea a su archivo ``.bashrc`` apuntando a tu copia de la licencia (y ejecyta `source`).
 
 .. code-block:: bash
 
    export RTI_LICENSE_FILE=path/to/rti_license.dat
 
-All options need you to source the setup file to set the ``NDDSHOME`` environment variable:
+Todas las opciones necesitan que ejecutes `source` son el archivo de configuración para establecer la variable de entorno ``NDDSHOME``:
 
 .. code-block:: bash
 
    cd /opt/rti.com/rti_connext_dds-6.0.1/resource/scripts && source ./rtisetenv_x64Linux4gcc7.3.0.bash; cd -
 
-Note: the above may need modification to match your RTI installation location
+Nota: lo anterior puede necesitar modificaciones para que coincida con su ubicación de instalación de RTI
 
-If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+Si deseas instalar los complementos de Connext DDS-Security, consulta :doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
-OSX source install
-------------------
+Instación de fuentes en OSX
+---------------------------
 
 RTI Connext (6.0.1)
 ^^^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+Si deseas compilar también con RTI Connext DDS, hay opciones disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
 
-You also need a Java runtime installed to run the RTI code generator, which you can get `here <https://support.apple.com/kb/DL1572?locale=en_US>`__.
+También necesitas un entorno de ejecución Java instalado para ejecutar el generador de código RTI, que puedes obtener `aquí <https://support.apple.com/kb/DL1572?locale=en_US>`__.
 
-After installing, run RTI launcher and point it to your license file.
+Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
 
-Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
-
-.. code-block:: bash
-
-   source /Applications/rti_connext_dds-6.0.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
-
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510
-
-If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
-
-OSX binary install
-------------------
-
-
-Enable Connext support
-^^^^^^^^^^^^^^^^^^^^^^
-
-To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
-
-After installing, run RTI launcher and point it to your license file.
-
-Source the setup file to set the ``NDDSHOME`` environment variable before building your workspace.
+Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
 
 .. code-block:: bash
 
    source /Applications/rti_connext_dds-6.0.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
 
-You may need to increase shared memory resources following https://community.rti.com/kb/osx510.
+Es posible que debas aumentar los recursos de memoria compartida siguiendo https://community.rti.com/kb/osx510
 
-If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+Si deseas instalar los complementos de Connext DDS-Security, consulta :doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`.
+
+Instalación con binarios en OSX
+-------------------------------
+
+
+Habilitar el soporte de Connext
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Para usar RTI Connext DDS hay opciones disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
+
+Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
+
+Ejecuta `source` con el archivo de configuración para configurar la variable de entorno ``NDDSHOME`` antes de compilar tu workspace.
+
+.. code-block:: bash
+
+   source /Applications/rti_connext_dds-6.0.1/resource/scripts/rtisetenv_x64Darwin17clang9.0.bash
+
+Es posible que debas aumentar los recursos de memoria compartida siguiendo https://community.rti.com/kb/osx510
+
+Si deseas instalar los complementos de Connext DDS-Security, consulta :doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
 Windows source install
 ----------------------
@@ -164,36 +164,36 @@ Windows source install
 RTI Connext 6.0.1
 ^^^^^^^^^^^^^^^^^
 
-If you would like to also build against RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+Si deseas compilar también con RTI Connext DDS, hay opciones disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
 
-After installing, use the RTI Launcher to load your license file.
+Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
 
-Then before building ROS 2, set up the Connext environment:
+Luego, antes de compilar ROS 2, configura el entorno Connext:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-6.0.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-Note that this path might need to be slightly altered depending on where you selected to install RTI Connext DDS, and which version of Visual Studio was selected.
-The path above is the current default path as of version 6.0.1, but will change as the version numbers increment in the future.
+Tenga en cuenta que es posible que esta ruta deba modificarse ligeramente en función de dónde seleccionaste instalar RTI Connext DDS y qué versión de Visual Studio se seleccionó.
+La ruta anterior es la ruta predeterminada actual a partir de la versión 6.0.1, pero cambiará a medida que aumenten los números de versión en el futuro.
 
-If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+Si deseas instalar los complementos de Connext DDS-Security, consultea :doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`.
 
-Windows binary install
-----------------------
+Instalción de binarios en Windows
+---------------------------------
 
 
 RTI Connext
 ^^^^^^^^^^^
 
-To use RTI Connext DDS there are options available for :doc:`university, purchase or evaluation <DDS-Implementations/Install-Connext-University-Eval>`
+Para usar RTI Connext DDS hay opciones disponibles para :doc:`universidad, compra o evaluación <DDS-Implementations/Install-Connext-University-Eval>`
 
-After installing, run RTI launcher and point it to your license file.
+Después de la instalación, ejecuta el launcher de RTI y diríjelo a tu archivo de licencia.
 
-Then before using ROS 2, set up the Connext environment:
+Luego, antes de usar ROS 2, configura el entorno Connext:
 
 .. code-block:: bash
 
    call "C:\Program Files\rti_connext_dds-6.0.1\resource\scripts\rtisetenv_x64Win64VS2017.bat"
 
-If you want to install the Connext DDS-Security plugins please refer to :doc:`this page <DDS-Implementations/Install-Connext-Security-Plugins>`.
+Si deseas instalar los complementos de Connext DDS-Security, consultea :doc:`esta página <DDS-Implementations/Install-Connext-Security-Plugins>`.

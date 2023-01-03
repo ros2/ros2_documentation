@@ -97,14 +97,14 @@ Talker-listener
 
 Si instalaste anteriormente ``ros-{DISTRO}-desktop``, puedes probar algunos ejemplos.
 
-En una terminal, llama a ``source`` con el archivo de setup y luego ejecuta un ``talker`` de C++\:
+En una terminal, ejecuta ``source`` con el archivo de setup y luego ejecuta un ``talker`` de C++\:
 
 .. code-block:: bash
 
    source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
-En otra fuente de terminal, llama a ``source`` con el archivo de setup y luego ejecuta un ``listener`` en Python\:
+En otra fuente de terminal, ejecuta ``source`` con el archivo de setup y luego ejecuta un ``listener`` en Python\:
 
 .. code-block:: bash
 

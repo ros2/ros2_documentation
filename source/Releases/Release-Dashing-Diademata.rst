@@ -806,4 +806,4 @@ A few milestones leading up to the release:
 
     Wed. May 29th
         Freeze rosdistro.
-        No PRs for Dashing on the `rosdistro` repo will be merged (reopens after the release announcement).
+        No PRs for Dashing on the ``rosdistro`` repo will be merged (reopens after the release announcement).
