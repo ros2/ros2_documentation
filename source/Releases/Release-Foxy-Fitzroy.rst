@@ -471,7 +471,7 @@ A few milestones leading up to the release:
 
     Wed. June 3rd, 2020
         Freeze rosdistro.
-        No PRs for Foxy on the `rosdistro` repo will be merged (reopens after the release announcement).
+        No PRs for Foxy on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
 .. [1] The ``ros_core`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
 .. [2] The ``desktop`` variant described in the `variants <https://github.com/ros2/variants>`_ repository.
