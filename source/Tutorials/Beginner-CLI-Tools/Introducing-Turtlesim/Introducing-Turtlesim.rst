@@ -265,7 +265,7 @@ Pasos siguientes
 Ahora que tiene turtlesim y rqt en funcionamiento, y una idea de cómo funcionan, profundicemos en el primer concepto básico de ROS 2 con el siguiente tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
 
 Contenido Relacionado
----------------
+---------------------
 
 El paquete turtlesim se puede encontrar en el `repositorio ros_tutorials <https://github.com/ros/ros_tutorials/tree/humble/turtlesim>`_.
 Asegúrese de seleccionar la rama correspondiente a su distribución ROS 2 instalada.
