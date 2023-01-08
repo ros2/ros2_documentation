@@ -4,7 +4,7 @@
 
 .. _ROS2Topics:
 
-Comprender los Nodos
+Comprender los Topics
 ====================
 
 **Objetivo:** Utilizar rqt_graph y las herramientas de línea de comandos para inspeccionar los topics de ROS 2.
@@ -45,9 +45,9 @@ Tareas
 1 Configuración
 ^^^^^^^^^^^^^^^
 
-A estas alturas ya debería estar cómodo iniciando Turtlesim.
+A estas alturas ya deberías estar cómodo iniciando Turtlesim.
 
-Abre una nueva terminal y ejecute:
+Abre una nueva terminal y ejecuta:
 
 .. code-block:: console
 
@@ -68,33 +68,33 @@ A lo largo de este tutorial, utilizaremos ``rqt_graph`` para visualizar los nodo
 
 El tutorial :doc:`turtlesim <../Introducing-Turtlesim/Introducing-Turtlesim>` indica cómo instalar rqt y todos sus complementos, incluido ``rqt_graph``.
 
-Para ejecutar rqt_graph, abra una nueva terminal e ingresa el comando:
+Para ejecutar rqt_graph, abre una nueva terminal e ingrese el comando:
 
 .. code-block:: console
 
     rqt_graph
 
-También puede abrir rqt_graph abriendo ``rqt`` y seleccionando **Plugins** > **Introspection** > **Node Graph**.
+También puedes abrir rqt_graph abriendo ``rqt`` y seleccionando **Plugins** > **Introspection** > **Node Graph**.
 
 .. image:: images/rqt_graph.png
 
-Debería ver los nodos (elipses) y los topic (rectángulo) como en la imágen anterior.
+Deberías ver los nodos (elipses) y los topic (rectángulo) como en la imágen anterior.
 También se pueden observar dos acciones alrededor de la periferia del gráfico (ignorémoslas por ahora).
-Si pasa el mouse sobre el topic en el centro, verá el color resaltado como en la imagen de arriba.
+Si pasas el mouse sobre el topic en el centro, verá el color resaltado como en la imagen de arriba.
 
 El gráfico muestra cómo el nodo ``/turtlesim`` y el nodo ``/teleop_turtle`` se comunican entre sí mediante un topic.
 El nodo ``/teleop_turtle`` está publicando datos (las pulsaciones de teclas que ingresa para mover la tortuga) en el topic ``/turtle1/cmd_vel``, y el nodo ``/turtlesim`` está suscrito a ese topic para recibir los datos.
 
 La característica de resaltado de rqt_graph es muy útil cuando se examinan sistemas más complejos con muchos nodos y topics conectados de muchas maneras diferentes.
 
-rqt_graph es una herramienta gráfica de inspección.
+Como vimos recién, rqt_graph es una herramienta gráfica de inspección.
 Ahora veremos algunas herramientas de línea de comandos para la inspección de topics.
 
 
 3 ros2 topic list
 ^^^^^^^^^^^^^^^^^
 
-Ejecutar el comando ``ros2 topic list`` en una nueva terminal para obtener una lista de todos los topics actualmente activos en el sistema:
+Ejecuta el comando ``ros2 topic list`` en una nueva terminal para obtener una lista de todos los topics actualmente activos en el sistema:
 
 .. code-block:: console
 
@@ -116,16 +116,16 @@ Ejecutar el comando ``ros2 topic list`` en una nueva terminal para obtener una l
 
 Estos atributos, particularmente el tipo, son la forma en que los nodos saben que están hablando de la misma información a medida que se mueve sobre los topics.
 
-Si se preguntas dónde están todos estos topics en rqt_graph, puedes desmarcar todas las casillas debajo de **Hide**:
+Si te preguntas dónde están todos estos topics en rqt_graph, puedes desmarcar todas las casillas debajo de **Hide**:
 
 .. image:: images/unhide.png
 
-Por ahora, deje esas opciones marcadas para evitar confusiones.
+Por ahora, deja esas opciones marcadas para evitar confusiones.
 
 4 ros2 topic echo
 ^^^^^^^^^^^^^^^^^
 
-Para ver los datos que se publican sobre un topic, utilice:
+Para ver los datos que se publican sobre un topic, utiliza:
 
 .. code-block:: console
 
@@ -140,8 +140,8 @@ Como sabemos que ``/teleop_turtle`` publica datos en ``/turtlesim`` sobre el top
 Al principio, este comando no devolverá ningún dato.
 Eso es porque está esperando que ``/teleop_turtle`` publique algo.
 
-Regrese a la terminal donde se está ejecutando ``turtle_teleop_key`` y use las flechas para mover la tortuga.
-Mire la terminal donde se ejecuta el comando ``echo`` al mismo tiempo, y verá que se publican los datos de posición para cada movimiento que realice:
+Regresa a la terminal donde se está ejecutando ``turtle_teleop_key`` y usa las flechas para mover la tortuga.
+Si observas la terminal donde se ejecuta el comando ``echo``, verás que se publican los datos de posición para cada movimiento que realice:
 
 .. code-block:: console
 
@@ -155,12 +155,12 @@ Mire la terminal donde se ejecuta el comando ``echo`` al mismo tiempo, y verá q
     z: 0.0
     ---
 
-Ahora regrese a rqt_graph y desmarque la casilla **Debug**.
+Ahora regresa a rqt_graph y desmarque la casilla **Debug**.
 
 .. image:: images/debug.png
 
 ``/_ros2cli_26646`` es el nodo creado por el ``echo`` que acabamos de ejecutar (el número puede ser diferente).
-Ahora puede ver que el editor está publicando datos sobre el topic ``cmd_vel`` y que hay dos suscriptores suscritos.
+Ahora puedes ver que el editor está publicando datos sobre el topic ``cmd_vel`` y que hay dos suscriptores suscritos.
 
 5 ros2 topic info
 ^^^^^^^^^^^^^^^^^
@@ -185,10 +185,10 @@ Que regresará:
 ^^^^^^^^^^^^^^^^^^^^^
 
 Los nodos envían datos sobre topics mediante mensajes.
-Los Publucadores y Suscriptores deben enviar y recibir el mismo tipo de mensaje para comunicarse.
+Los Publicadores y Suscriptores deben enviar y recibir el mismo tipo de mensaje para comunicarse.
 
 Los tipos de topics que vimos antes, después de ejecutar ``ros2 topic list -t`` nos permiten saber qué tipo de mensaje se usa en cada topic.
-Recuerde que el topic ``cmd_vel`` tiene el tipo:
+Recuerda que el topic ``cmd_vel`` tiene el tipo:
 
 .. code-block:: console
 
@@ -196,7 +196,7 @@ Recuerde que el topic ``cmd_vel`` tiene el tipo:
 
 Esto significa que en el paquete ``geometric_msgs`` hay un ``mensaje`` llamado ``Twist``.
 
-Ahora podemos ejecutar ``ros2 interface show <msg type>`` en este tipo para conocer sus detalles, específicamente, qué estructura de datos espera el mensaje.
+Ahora podemos ejecutar ``ros2 interface show <msg type>`` con el tipo de mensaje anterio para conocer sus detalles, específicamente, qué estructura de datos espera el mensaje.
 
 .. code-block:: console
 
@@ -217,8 +217,8 @@ Para el tipo de mensaje de arriba, produce:
               float64 y
               float64 z
 
-Esto le dice que el nodo ``/turtlesim`` está esperando un mensaje con dos vectores, ``linear`` y ``angular``, de tres elementos cada uno.
-Si recuerda los datos que vimos ``/teleop_turtle`` pasando a ``/turtlesim`` con el comando ``echo``, están en la misma estructura:
+Esto indica que el nodo ``/turtlesim`` está esperando un mensaje con dos vectores, ``linear`` y ``angular``, de tres elementos cada uno.
+Si recuerdas los datos que vimos pasar de ``/teleop_turtle`` a ``/turtlesim`` con el comando ``echo``, utilizan la misma estructura:
 
 .. code-block:: console
 
@@ -235,13 +235,13 @@ Si recuerda los datos que vimos ``/teleop_turtle`` pasando a ``/turtlesim`` con 
 7 ros2 topic pub
 ^^^^^^^^^^^^^^^^
 
-Ahora que tiene la estructura del mensaje, puede publicar datos en un topic directamente desde la línea de comando usando:
+Ahora que tienes la estructura del mensaje, puedes publicar datos en un topic directamente desde la línea de comando usando:
 
 .. code-block:: console
 
     ros2 topic pub <topic_name> <msg_type> '<args>'
 
-El argumento ``'<args>'`` son los datos reales que pasará al topic, en la estructura que acaba de utilizar en la sección anterior.
+El argumento ``'<args>'`` son los datos que pasarán al topic, en la estructura que acabas de utilizar en la sección anterior.
 
 Es importante tener en cuenta que este argumento debe ingresarse utilizando la sintaxis YAML.
 Ingrese el comando completo así:
@@ -274,8 +274,8 @@ La diferencia aquí es la eliminación de la opción ``--once`` y la adición de
 
 .. image:: images/pub_stream.png
 
-Puede actualizar rqt_graph para ver lo que sucede gráficamente.
-Verá que el nodo ``ros 2 topic pub ...`` (``/_ros2cli_30358``) se está publicando sobre el topic ``/turtle1/cmd_vel``, y lo está recibiendo tanto el nodo ``ros2 topic echo ...`` (``/_ros2cli_26646``) como el nodo ``/turtlesim``.
+Puedes actualizar rqt_graph para ver lo que sucede gráficamente.
+Verás que el nodo ``ros 2 topic pub ...`` (``/_ros2cli_30358``) se está publicando sobre el topic ``/turtle1/cmd_vel``, y lo está recibiendo tanto el nodo ``ros2 topic echo ...`` (``/_ros2cli_26646``) como el nodo ``/turtlesim``.
 
 .. image:: images/rqt_graph2.png
 
@@ -287,7 +287,7 @@ Finalmente, puedes ejecutar ``echo`` en el topic de ``pose`` y volver a verifica
 
 .. image:: images/rqt_graph3.png
 
-Puede ver que el nodo ``/turtlesim`` también está publicando en el topic de ``pose``, al que está suscrito el nuevo nodo de ``echo``.
+Puedes ver que el nodo ``/turtlesim`` también está publicando en el topic de ``pose``, al que está suscrito el nuevo nodo de ``echo``.
 
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
