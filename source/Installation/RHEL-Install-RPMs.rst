@@ -1,53 +1,53 @@
 RHEL (RPM)
 ==========
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
-RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
-Most people will want to use a stable ROS distribution.
+Los paquetes RPM para ROS 2 {DISTRO_TITLE_FULL} están actualmente disponibles para RHEL 8.
+La distribución de Rolling Ridley cambiará las plataformas de destino de vez en cuando a medida que se seleccionen nuevas plataformas para el desarrollo.
+Las plataformas de destino se definen en `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
+La mayoría de la gente querrá usar una distribución ROS estable.
 
-Resources
----------
+Recursos
+--------
 
-* Status Page:
+* Página de estado:
 
   * ROS 2 {DISTRO_TITLE} (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
 
-Set locale
-----------
+Establecer configuración regional
+---------------------------------
 
 .. include:: _RHEL-Set-Locale.rst
 
 .. _rhel-install-rpms-setup-sources:
 
-Setup Sources
--------------
+Configurar las fuentes
+----------------------
 
-You will need to enable the EPEL repositories and the PowerTools repository:
+Deberás habilitar los repositorios de EPEL y el repositorio de PowerTools:
 
 .. code-block:: bash
 
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
    sudo dnf config-manager --set-enabled powertools
 
-.. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
+.. note:: Este paso puede ser ligeramente diferente según la distribución que esté utilizando. Consulta la documentación de EPEL: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
-Next, download the ROS 2 .repo file:
+A continuación, descarga el archivo ROS 2 .repo:
 
 .. code-block:: bash
 
    sudo dnf install curl
    sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
 
-Then, update your metadata cache.
-DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
+Luego, actualice su caché de metadatos.
+DNF puede solicitarte que verifiques la clave GPG, que debe coincidir con la ubicación ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
 
 .. code-block:: bash
 
@@ -55,80 +55,80 @@ DNF may prompt you to verify the GPG key, which should match the location ``http
 
 .. _rhel-install-rpms-install-ros-2-packages:
 
-Install ROS 2 packages
-----------------------
+Instalar paquetes ROS 2
+-----------------------
 
 .. include:: _Dnf-Update-Admonition.rst
 
-Desktop Install (Recommended): ROS, RViz, demos, tutorials.
+Instalación de escritorio (recomendada): ROS, RViz, demostraciones, tutoriales.
 
 .. code-block:: bash
 
    sudo dnf install ros-{DISTRO}-desktop
 
-ROS-Base Install (Bare Bones): Communication libraries, message packages, command line tools.
-No GUI tools.
+ROS-Base Install (Bare Bones): bibliotecas de comunicación, paquetes de mensajes, herramientas de línea de comandos.
+Sin herramientas GUI.
 
 .. code-block:: bash
 
    sudo dnf install ros-{DISTRO}-ros-base
 
-Environment setup
------------------
+Configuración del entorno
+-------------------------
 
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Ejecutar ``source`` con el script de configuración
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set up your environment by sourcing the following file.
+Configura tu entorno ejecutando ``source`` con el siguiente archivo.
 
 .. code-block:: bash
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
+   # Reemplaza ".bash" en tu shell si no está usando bash
+   # Los valores posibles son: setup.bash, setup.sh, setup.zsh
    source /opt/ros/{DISTRO}/setup.bash
 
-Try some examples
------------------
+Prueba algunos ejemplos
+-----------------------
 
-If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
+Si instalaste ``ros-{DISTRO}-desktop`` anteriormente, puede probar algunos ejemplos.
 
-In one terminal, source the setup file and then run a C++ ``talker``\ :
+En una terminal, ejecuta ``source`` con el archivo de setup y luego ejecuta un ``talker`` de C++\:
 
 .. code-block:: bash
 
    source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a Python ``listener``\ :
+En otra fuente de terminal, ejecuta ``source`` con el archivo de setup y luego ejecuta un ``listener`` en Python\:
 
 .. code-block:: bash
 
    source /opt/ros/{DISTRO}/setup.bash
    ros2 run demo_nodes_py listener
 
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-This verifies both the C++ and Python APIs are working properly.
-Hooray!
+Deberías ver al ``talker`` diciendo que está publicando (``Publishing``) mensajes y al ``listener`` diciendo que oye (``I heard``) esos mensajes.
+Esto verifica que las API de C++ y Python funcionan correctamente.
+¡Hurra!
 
-Next steps after installing
----------------------------
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Siguientes pasos después de la instalación
+------------------------------------------
+Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para configurar su entorno, crear tu propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+Implementaciones adicionales de RMW (opcional)
+----------------------------------------------
+El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (RMW) se puede reemplazar en tiempo de ejecución.
+Consulta la :doc:`guía <../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
-Troubleshooting
----------------
+Solución de problemas
+---------------------
 
-Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
+Las técnicas de resolución de problemas se pueden encontrar :doc:`aquí <../How-To-Guides/Installation-Troubleshooting>`.
 
-Uninstall
----------
+Desinstalar
+-----------
 
-If you need to uninstall ROS 2 or switch to a source-based install once you
-have already installed from binaries, run the following command:
+Si necesitas desinstalar ROS 2 o cambiar a una instalación basada en fuentes una vez que
+ya has instalado desde binarios, ejecuta el siguiente comando:
 
 .. code-block:: bash
 

@@ -1,50 +1,42 @@
-Connext security plugins
-========================
+Complementos de seguridad de Connext
+====================================
 
-The Connext DDS Libraries are included with ROS 2 under a `non-commercial
-license <https://www.rti.com/ncl>`__ and do not include the security
-plug-in libraries. These libraries are available in the commercial,
-university and research license versions of RTI Connext DDS Pro, which
-is bundled with tools for system debugging, monitoring, record/replay,
-etc.
+Las bibliotecas Connext DDS se incluyen con ROS 2 bajo una `licencia no comercial <https://www.rti.com/ncl>`__
+y no incluyen las bibliotecas de complementos de seguridad. Estas bibliotecas están disponibles en las
+versiones de licencia comercial, universitaria y de investigación de RTI Connext DDS Pro, que incluye
+herramientas para la depuración, supervisión, grabación/reproducción, etc.
 
-The Connext DDS Evaluation Version (6.0.1) includes the security plugins, and can be downloaded via options available for :doc:`university, purchase or evaluation <Install-Connext-University-Eval>`.
+Se incluye un recorrido en video de esta instalación (herramientas y complementos de seguridad). disponible
+`aquí <https://www.rti.com/gettingstarted/installwindows_secure>`__ en el sitio web de RTI. Los pasos son:
 
-A video walk-thru of this installation (tools and security plug-ins) is
-available
-`here <https://www.rti.com/gettingstarted/installwindows_secure>`__ at
-the RTI website. The steps are:
+**Instalar Connext DDS Pro (Host)**
+Esta es una aplicación de instalación específica del host (para Windows, Linux, MacOS) para instalar un paquete 'Host' que incluye el Iniciador, las herramientas y otros servicios de software.
+Al final de la instalación, se iniciará el programa RTI 'Launcher'.
+El Lanzador se utiliza para instalar bibliotecas de destino, complementos de seguridad y otros servicios en capas.
 
-**Install Connext DDS Pro (Host)**
-This is a host-specific installer application (for Windows, Linux, MacOS) to install a 'Host' bundle which includes the Launcher, tools, and other software services.
-At the end of the installation, the RTI 'Launcher' program will be started.
-The Launcher is used to install target libraries, security plugins, and other layered services.
-
-**Use the Package Installer in Launcher**
+**Utilizar el instalador de paquetes en Launcher**
 
 .. figure:: https://cdn2.hubspot.net/hub/1754418/file-3649043118-png/blog-files/launchermacos.png
-   :alt: Launcher Image
+   :alt: Imagen del lanzador
 
-   Launcher Image
+   Imagen del lanzador
 
-The 'RTI Package Installer' is used to install '.rtipkg' files -- target
-libraries, security plug-ins, etc. Open the Package Installer and select
-all of the .rtipkg files that were included in the Connext DDS Secure
-bundle for installation:
+El 'Instalador de paquetes RTI' se usa para instalar archivos '.rtipkg':
+bibliotecas de destino, complementos de seguridad, etc. Abre el Instalador de paquetes y selecciona
+todos los archivos .rtipkg que se incluyeron en el paquete Connext DDS Secure para la instalación:
 
- * Target Libraries - such as: rti\_connext\_dds-[version]-pro-target-[toolchain].rtipkg
- * Security Plugin Host - such as: rti\_security\_plugins-[version]-host-[toolchain].rtipkg
- * Security Plugin Target - such as: rti\_security\_plugins-[version]-target-[toolchain].rtipkg
- * OpenSSL Host - such as: openssl-1.0.2x-[version]-host-[toolchain].rtipkg
 
-**Extract and Install OpenSSL**
-This is included as an archive (.zip or
-otherwise) and can be simply extracted and copied to a convenient
-location on your host computer. As a suggestion, this could also be
-installed into the 'rti\_connext\_dds-[version]' directory in your home
-directory space (this was created during installation of the RTI host
-tools). Note: this directory location may need to be placed in your PATH
-environment variable.
-See the `RTI Security Plugins Getting Started Guide <https://community.rti.com/static/documentation/connext-dds/6.0.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ for more information.
+ * Bibliotecas de destino - como: rti\_connext\_dds-[version]-pro-target-[toolchain].rtipkg
+ * Security Plugin Host - como: rti\_security\_plugins-[version]-host-[toolchain].rtipkg
+ * Security Plugin Target - como: rti\_security\_plugins-[version]-target-[toolchain].rtipkg
+ * OpenSSL Host - como: openssl-1.0.2x-[version]-host-[toolchain].rtipkg
 
-Installation complete.
+**Extraer e instalar OpenSSL**
+Esto se incluye como un archivo (.zip o de otro modo) y puede extraerse
+y copiarse fácilmente en una ubicación conveniente en su computadora host.
+Como sugerencia, esto también podría instalarse en el directorio 'rti\_connext\_dds-[version]'
+en su espacio de directorio de inicio (esto se creó durante la instalación de las herramientas de
+host RTI). Nota: es posible que debas colocar esta ubicación de directorio en su variable de entorno PATH.
+Consulte la `Guía de introducción a los complementos de seguridad de RTI <https://community.rti.com/static/documentation/connext-dds/6.0.1/doc/manuals/connext_dds/dds_security/RTI_SecurityPlugins_GettingStarted.pdf>`__ para obtener más información.
+
+Instalación completa.

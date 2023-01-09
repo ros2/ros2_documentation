@@ -1,32 +1,32 @@
 .. _MaintainingSource:
 
-Maintain source checkout
-========================
+Mantener los fuentes obtenidos
+==============================
 
 .. ifconfig:: smv_current_version != '' and smv_current_version != 'rolling'
 
   .. note::
 
-     For instructions on maintaining a source checkout of the **latest development version** of ROS 2, refer to
-     `Maintaining a source checkout of ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
+     Para obtener instrucciones sobre cómo mantener el código fuente obtenido de la **última versión de desarrollo** de ROS 2, consulta
+     `Manteniendo el código fuente obtenido de ROS 2 Rolling <../../rolling/Installation/Maintaining-a-Source-Checkout.html>`__
 
 .. contents::
    :depth: 2
    :local:
 
-If you have installed ROS 2 from source, there may have been changes made to the source code since the time that you checked it out.
-To keep your source checkout up to date, you will have to periodically update your ``ros2.repos`` file, download the latest sources, and rebuild your workspace.
+Si instalaste ROS 2 de fuentes, es posible que se hayan realizado cambios en el código fuente desde el momento en que lo obtuviste.
+Para mantener actualizada los fuentes obtenidos, deberá actualizar periódicamente su archivo ``ros2.repos``, descargar las fuentes más recientes y recompilar su espacio de trabajo.
 
-Update your repository list
----------------------------
+Actualiza tu lista de repositorios
+----------------------------------
 
-Each ROS 2 release includes a ``ros2.repos`` file that contains the list of repositories and their version for that release.
+Cada versión de ROS 2 incluye un archivo ``ros2.repos`` que contiene la lista de repositorios y su versión para esa versión.
 
 
-Latest ROS 2 {DISTRO_TITLE} branches
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Ramas más recientes de ROS 2 {DISTRO_TITLE}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get the relevant repository list by running:
+Si deseas obtener el código más reciente para ROS 2 {DISTRO_TITLE}, puedes obtener la lista de repositorios correspondiente ejecutando:
 
 .. tabs::
 
@@ -59,21 +59,21 @@ If you wish to checkout the latest code for ROS 2 {DISTRO_TITLE}, you can get th
        curl https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos -o ros2.repos
 
 
-Update your repositories
-------------------------
+Actualiza tus repositorios
+--------------------------
 
-You will notice that in the `ros2.repos <https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos>`__ file, each repository has a ``version`` associated with it that points to a particular commit hash, tag, or branch name.
-It is possible that these versions refer to new tags/branches that your local copy of the repositories will not recognize as they are out-of-date.
-Because of this, you should update the repositories that you have already checked out with the following command:
+Notará que en el archivo `ros2.repos <https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos>`__, cada repositorio tiene una ``versión`` asociada que apunta a un hash de commit, etiqueta o nombre de rama en particular.
+Es posible que estas versiones se refieran a nuevas etiquetas/ramas que tu copia local de los repositorios no reconocerá porque están desactualizadas.
+Debido a esto, debes actualizar los repositorios que ya has obtenido con el siguiente comando:
 
 .. code-block:: bash
 
    vcs custom --args remote update
 
-Download the new source code
-----------------------------
+Descarga el nuevo código fuente
+-------------------------------
 
-You should now be able to download the sources associated with the new repository list with:
+Ahora deberías poder descargar las fuentes asociadas con la nueva lista de repositorios con:
 
 .. tabs::
 
@@ -103,20 +103,20 @@ You should now be able to download the sources associated with the new repositor
        vcs import --input ros2.repos src
        vcs pull src
 
-Rebuild your workspace
+Reocmpila tu worskpace
 ----------------------
 
-Now that the workspace is up to date with the latest sources, remove your previous install and rebuild your workspace with, for example:
+Ahora que el workspace está actualizado con las fuentes más recientes, elimina tu instalación anterior y recompila tu espacio de trabajo con, por ejemplo:
 
 .. code-block:: bash
 
    colcon build --symlink-install
 
-Inspect your source checkout
-----------------------------
+Inspecciona tus fuentes obtenidas
+---------------------------------
 
-During your development you may have deviated from the original state of your workspace from when you imported the repository list.
-If you wish to know the versions of the set of repositories in your workspace, you can export the information using the following command:
+Durante tu desarrollo, es posible que se haya desviado del estado original de tu workspacec cuando importaste la lista de repositorios.
+Si deseas conocer las versiones del conjunto de repositorios en tu workspace, puedes exportar la información mediante el siguiente comando:
 
 .. tabs::
 
@@ -141,4 +141,4 @@ If you wish to know the versions of the set of repositories in your workspace, y
        cd \dev\ros2_{DISTRO}
        vcs export src > my_ros2.repos
 
-This ``my_ros2.repos`` file can then be shared with others so that they can reproduce the state of the repositories in your workspace.
+Este archivo ``my_ros2.repos`` se puede compartir con otros para que puedan reproducir el estado de los repositorios en tu worskpace.
