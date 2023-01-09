@@ -12,7 +12,7 @@ Proyectos principales
 
 El código de los proyectos son publicados gradualmente en el repositorio https://github.com/intel/
 
-* `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: Paquete de ROS 2 para Intel® Visual, que contiene una serie de herramientas enfocadas al desarrollo multiplataforma de soluciones basadas en vision por computadora. 
+* `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: Paquete de ROS 2 para Intel® Visual, que contiene una serie de herramientas enfocadas al desarrollo multiplataforma de soluciones basadas en vision por computadora.
 * `ROS2 RealSense Camera <https://github.com/intel/ros2_intel_realsense>`__: Paquete de ROS 2 para las cámaras Intel® RealSense™ D400
 * `ROS2 Movidius NCS <https://github.com/intel/ros2_intel_movidius_ncs>`__: Paquete de ROS 2 para detección de objetos con Intel® Movidius™ Neural Computing Stick (NCS).
 * `ROS2 Object Messages <https://github.com/intel/ros2_object_msgs>`__: Paquete de ROS 2 con mensajes para la detección de objetos.

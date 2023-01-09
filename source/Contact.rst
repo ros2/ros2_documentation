@@ -97,7 +97,7 @@ Asume que 'buena fe': Es fácil de malinterpretar en el significado o en el tono
 Asumir que la buena fe otorga el beneficio de la duda a quienes intentan ayudarlo, evitando: insultar a los miembros de la comunidad bien intencionados y envenenar el estado de ánimo.
 Asumir 'buena fe' al responder casi siempre funciona, incluso si la respuesta original no fue de hecho de buena fe.
 
-Por favor, no envíe su pregunta más de una vez: La pregunta fue vista. 
+Por favor, no envíe su pregunta más de una vez: La pregunta fue vista.
 Si no recibiste una respuesta, es probable que nadie haya tenido tiempo de responderte.
 Alternativamente, podría ser que nadie sepa la respuesta.
 En cualquier caso, enviarlo de nuevo es una mala practica y es comparable a gritar.
