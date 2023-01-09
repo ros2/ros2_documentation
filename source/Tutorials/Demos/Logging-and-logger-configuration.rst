@@ -1,24 +1,24 @@
-.. redirect-from::
+l. redirect-from::
 
     Logging-and-logger-configuration
     Tutorials/Logging-and-logger-configuration
 
-Logging
+Registro de mensajes
 =======
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
-See `the logging page <../../Concepts/About-Logging>` for details on available functionality.
+Consulta `la página de registro <../../Concepts/About-Logging>`para obtener detalles sobre la funcionalidad disponible.
 
-Using log statements in code
+Uso de sentencias de registro en el código
 ----------------------------
 
-Basic logging
+Regstro básico
 ^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``DEBUG`` severity:
+El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``DEBUG``:
 
 .. tabs::
 
@@ -38,12 +38,12 @@ The following code will output a log message from a ROS 2 node at ``DEBUG`` seve
 
             node.get_logger().debug('My log message %d' % (4))
 
-Note that in both cases, no trailing newline is added, as the logging infrastructure will automatically add one.
+Ten en cuenta que, en ambos casos, no se agrega una nueva línea final, ya que la infraestructura de registro agregará una automáticamente.
 
-Logging only the first time
+Registro de mensajes solo la primera vez
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``INFO`` severity, but only the first time it is hit:
+El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``INFO``, pero solo la primera vez que se activa:
 
 .. tabs::
 
@@ -64,10 +64,10 @@ The following code will output a log message from a ROS 2 node at ``INFO`` sever
             num = 4
             node.get_logger().info(f'My log message {num}', once=True)
 
-Logging all but the first time
+Registro de todos los mensajes excepto el primero
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``WARN`` severity, but not the very first time it is hit:
+El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``ADVERTIR``, pero no la primera vez que se activa:
 
 .. tabs::
 
@@ -88,12 +88,12 @@ The following code will output a log message from a ROS 2 node at ``WARN`` sever
             num = 4
             node.get_logger().warning('My log message {0}'.format(num), skip_first=True)
 
-Logging throttled
+Registro de menasjes acelerado
 ^^^^^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``ERROR`` severity, but no more than once per second.
+El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``ERROR``, pero no más de una vez por segundo.
 
-The interval parameter specifying milliseconds between messages should have an integer data type so it can be converted to a ``rcutils_duration_value_t`` (an ``int64_t``):
+El parámetro de intervalo que especifica milisegundos entre mensajes debe tener un tipo de datos entero para que pueda convertirse en ``rcutils_duration_value_t`` (un ``int64_t``):
 
 .. tabs::
 
@@ -117,10 +117,10 @@ The interval parameter specifying milliseconds between messages should have an i
             num = 4
             node.get_logger().error(f'My log message {num}', throttle_duration_sec=1)
 
-Logging throttled all but the first time
+Registro acelerado de todos los mensajes menos el primero
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The following code will output a log message from a ROS 2 node at ``DEBUG`` severity, no more than once per second, skipping the very first time it is hit:
+El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``DEBUG``, no más de una vez por segundo, omitiendo la primera vez que se llama:
 
 .. tabs::
 
@@ -140,31 +140,31 @@ The following code will output a log message from a ROS 2 node at ``DEBUG`` seve
             num = 4
             node.get_logger().debug(f'My log message {num}', skip_first=True, throttle_duration_sec=1.0)
 
-Logging demo
+Demo registro de mensajes
 ------------
 
-In this `demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo>`_, different types of log calls are shown and the severity level of different loggers is configured locally and externally.
+En esta `demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo>`_, se muestran diferentes tipos de llamadas de registro y el nivel de gravedad de diferentes registradores se configura local y externamente.
 
-Start the demo with:
+Como iniciar la demo:
 
 .. code-block:: bash
 
    ros2 run logging_demo logging_demo_main
 
-Over time you will see output from various log calls with different properties.
-To start with you will only see output from log calls with severity ``INFO`` and above (``WARN``, ``ERROR``, ``FATAL``).
-Note that the first message will only be logged once, though the line is reached on each iteration, as that is a property of the log call used for that message.
+Con el tiempo, verás el resultado de varias llamadas de registro con diferentes propiedades.
+Para empezar, solo verás el resultado de las llamadas de registro con gravedad ``INFO`` y superior (``WARN``, ``ERROR``, ``FATAL``).
+Ten en cuenta que el primer mensaje solo se registrará una vez, aunque se alcanza la línea en cada iteración, ya que esa es una propiedad de la llamada de registro utilizada para ese mensaje.
 
-Logging directory configuration
+Configuración del directorio de registro de mensajes
 -------------------------------
 
-The logging directory can be configured through two environment variables: ``ROS_LOG_DIR`` and ``ROS_HOME``.
-The logic is as follows:
+El directorio de registro de mensajes se puede configurar a través de dos variables de entorno: ``ROS_LOG_DIR`` y ``ROS_HOME``.
+La logica es la siguiente:
 
-* Use ``$ROS_LOG_DIR`` if ``ROS_LOG_DIR`` is set and not empty.
-* Otherwise, use ``$ROS_HOME/log``, using ``~/.ros`` for ``ROS_HOME`` if not set or if empty.
+* Usa ``$ROS_LOG_DIR`` si ``ROS_LOG_DIR`` está establecido y no está vacío.
+* De lo contrario, usa ``$ROS_HOME/log``, usando ``~/.ros`` para ``ROS_HOME`` si no está configurado o si está vacío.
 
-For example, to set the logging directory to ``~/my_logs``:
+Por ejemplo, para establecer el directorio de registro en ``~/my_logs``:
 
 .. tabs::
 
@@ -189,12 +189,12 @@ For example, to set the logging directory to ``~/my_logs``:
       set "ROS_LOG_DIR=~/my_logs"
       ros2 run logging_demo logging_demo_main
 
-You will then find the logs under ``~/my_logs/``.
+Luego encontrarás los registros en ``~/my_logs/``.
 
-Alternatively, you can set ``ROS_HOME`` and the logging directory will be relative to it (``$ROS_HOME/log``).
-``ROS_HOME`` is intended to be used by anything that needs a base directory.
-Note that ``ROS_LOG_DIR`` has to be either unset or empty.
-For example, with ``ROS_HOME`` set to ``~/my_ros_home``:
+Alternativamente, puedes configurar ``ROS_HOME`` y el directorio de registro será relativo a él (``$ROS_HOME/log``).
+``ROS_HOME`` está destinado a ser utilizado por cualquier cosa que necesite un directorio base.
+Ten en cuenta que ``ROS_LOG_DIR`` tiene que estar sin configurar o vacío.
+Por ejemplo, con ``ROS_HOME`` establecido en ``~/my_ros_home``:
 
 .. tabs::
 
@@ -219,106 +219,106 @@ For example, with ``ROS_HOME`` set to ``~/my_ros_home``:
       set "ROS_HOME=~/my_ros_home"
       ros2 run logging_demo logging_demo_main
 
-You will then find the logs under ``~/my_ros_home/log/``.
+Luego encontrarás los registros en ``~/my_ros_home/log/``.
 
-Logger level configuration: programmatically
+Configuración de nivel de registros: programáticamente
 --------------------------------------------
 
-After 10 iterations the level of the logger will be set to ``DEBUG``, which will cause additional messages to be logged.
+Después de 10 iteraciones, el nivel de registro se establecerá en ``DEBUG``, lo que hará que se registren mensajes adicionales.
 
-Some of these debug messages cause additional functions/expressions to be evaluated, which were previously skipped as ``DEBUG`` log calls were not enabled.
-See `the source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/logging_demo/src/logger_usage_component.cpp>`__ of the demo for further explanation of the calls used, and see the rclcpp logging documentation for a full list of supported logging calls.
+Algunos de estos mensajes de depuración hacen que se evalúen funciones/expresiones adicionales, que anteriormente se omitieron porque las llamadas de registro ``DEBUG`` no estaban habilitadas.
+Consulta `el código fuente <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/logging_demo/src/logger_usage_component.cpp>`__ de la demo para obtener una explicación más detallada de las llamadas utilizadas y consulte el registro de rclcpp documentación para obtener una lista completa de las llamadas de registro admitidas.
 
-Logger level configuration: externally
+Configuración de nivel del registro: externamente
 --------------------------------------
 
-In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
-**This concept is not yet officially supported in ROS 2.**
-In the meantime, this demo provides an **example** service that can be called externally to request configuration of logger levels for known names of loggers in the process.
+En el futuro, habrá un enfoque generalizado para la configuración externa de registros en tiempo de ejecución (similar a cómo `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ en ROS 1 permite la configuración de registros a través de llamadas de procedimiento remotas).
+**Este concepto aún no se admite oficialmente en ROS 2.**
+Mientras tanto, esta demo proporciona un servicio de **ejemplo** al que se puede llamar externamente para solicitar la configuración de los niveles de registro para los nombres conocidos de los registros en el proceso.
 
-The demo previously started is already running this example service.
-To set the level of the demo's logger back to ``INFO``\ , call the service with:
+La demo iniciada anteriormente ya está ejecutando este servicio de ejemplo.
+Para volver a establecer el nivel del registrador de la demostración en ``INFO``\ , llama al servicio con:
 
 .. code-block:: bash
 
    ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
 
-This service call will work on any logger that is running in the process provided that you know its name.
-This includes the loggers in the ROS 2 core, such as ``rcl`` (the common client library package).
-To enable debug logging for ``rcl``, call:
+Esta llamada de servicio funcionará en cualquier registro que se esté ejecutando en el proceso, siempre que sepa su nombre.
+Esto incluye los registradores en el núcleo de ROS 2, como ``rcl`` (el paquete de biblioteca de cliente común).
+Para habilitar el registro de depuración para ``rcl``, llama a:
 
 .. code-block:: bash
 
    ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
 
-You should see debug output from ``rcl`` start to show.
+Deberías ver como la salida de depuración de ``rcl`` comienza a mostrarse.
 
-Using the logger config component
+Usando el componente de configuración del registro
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The server that responds to the logger configuration requests has been developed as a component so that it may be added to an existing composition-based system.
-For example, if you are using `a container to run your nodes <../Intermediate/Composition>`, to be able to configure your loggers you only need to request that it additionally load the ``logging_demo::LoggerConfig`` component into the container.
+El servidor que responde a las solicitudes de configuración del registro se ha desarrollado como un componente para que pueda agregarse a un sistema basado en composición existente.
+Por ejemplo, si estás utilizando `un contenedor para ejecutar sus nodos <../Intermediate/Composition>`, para poder configurar los registros solo necesitas solicitar que cargue adicionalmente el componente ``logging_demo::LoggerConfig`` en el contenedor.
 
-As an example, if you want to debug the ``composition::Talker`` demo, you can start the talker as normal with:
+Como ejemplo, si deseas depurar la demostración de ``composition::Talker``, puedes iniciar el hablante normalmente con:
 
-Shell 1:
+Terminal 1:
 
 .. code-block:: bash
 
    ros2 run rclcpp_components component_container
 
-Shell 2:
+Terminal 2:
 
 .. code-block:: bash
 
    ros2 component load /ComponentManager composition composition::Talker
 
-And then when you want to enable debug logging, load the ``LoggerConfig`` component with:
+Y luego, cuando desees habilitar el registro de depuración, carga el componente ``LoggerConfig`` con:
 
-Shell 2
+Terminal 2
 
 .. code-block:: bash
 
    ros2 component load /ComponentManager logging_demo logging_demo::LoggerConfig
 
-And finally, configure all unset loggers to the debug severity by addressing the empty-named logger.
-Note that loggers that have been specifically configured to use a particular severity will not be affected by this call.
+Por último, configura todos los registros no establecidos con la gravedad de depuración dirigiéndose al registro con nombre vacío.
+Ten en cuenta que los registros que se configuraron específicamente para usar una gravedad particular no se verán afectados por esta llamada.
 
-Shell 2:
+Terminal 2:
 
 .. code-block:: bash
 
    ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: '', level: DEBUG}"
 
-You should see debug output from any previously unset loggers in the process start to appear, including from the ROS 2 core.
+Deberías ver la salida de depuración de cualquier registrador no configurado previamente en el proceso que comienza a aparecer, incluso desde el núcleo de ROS 2.
 
-Logger level configuration: command line
+Configuración de nivel de registro: línea de comando
 ----------------------------------------
 
-As of the Bouncy ROS 2 release, the severity level for loggers that have not had their severity set explicitly can be configured from the command line.
-Restart the demo including the following command line argument:
+A partir del lanzamiento de Bouncy ROS 2, el nivel de severidad para los registros que no han tenido su severidad configurada explícitamente se puede configurar desde la línea de comandos.
+Reinicia la demo incluyendo el siguiente argumento de línea de comando:
 
 
 .. code-block:: bash
 
    ros2 run logging_demo logging_demo_main --ros-args --log-level debug
 
-This configures the default severity for any unset logger to the debug severity level.
-You should see debug output from loggers from the demo itself and from the ROS 2 core.
+Esto configura la gravedad predeterminada para cualquier registro no configurado en el nivel de gravedad de depuración.
+Deberías ver la salida de depuración de los registradores de la demostración y del núcleo de ROS 2.
 
-The severity level for individual loggers can be configured from the command-line.
-Restart the demo including the following command line arguments:
+El nivel de gravedad de los registradores individuales se puede configurar desde la línea de comandos.
+Reinicia la demo incluyendo los siguientes argumentos de línea de comando:
 
 .. code-block:: bash
 
    ros2 run logging_demo logging_demo_main --ros-args --log-level logger_usage_demo:=debug
 
 
-Console output formatting
+Formato de salida de la consola
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like more or less verbose formatting, you can use RCUTILS_CONSOLE_OUTPUT_FORMAT environment variable.
-For example, to additionally get the timestamp and location of the log calls, stop the demo and restart it with the environment variable set:
+Si deseas un formato más o menos detallado, puedes usar la variable de entorno RCUTILS_CONSOLE_OUTPUT_FORMAT.
+Por ejemplo, para obtener adicionalmente la marca de tiempo y la ubicación de las llamadas de registro, deten la demo y reiníciala con la variable de entorno configurada:
 
 .. tabs::
 
@@ -341,15 +341,15 @@ For example, to additionally get the timestamp and location of the log calls, st
        # set "RCUTILS_CONSOLE_OUTPUT_FORMAT=[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
        ros2 run logging_demo logging_demo_main
 
-You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
-*The ``time`` option is only supported as of the ROS 2 Bouncy release.*
+Deberías ver la marca de tiempo en segundos y el nombre de la función, el nombre del archivo y el número de línea impresos adicionalmente con cada mensaje.
+*La opción ``time`` solo se admite a partir de la versión ROS 2 Bouncy.*
 
-Console output colorizing
+Colorización de la salida de la consola
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, the output is colorized when it's targeting a terminal.
-If you would like to force enabling or disabling it, you can use the ``RCUTILS_COLORIZED_OUTPUT`` environment variable.
-For example:
+De forma predeterminada, la salida se colorea cuando se dirige a un terminal.
+Si deseas forzar su activación o desactivación, puede utilizar la variable de entorno ``RCUTILS_COLORIZED_OUTPUT``.
+Por ejemplo:
 
 .. tabs::
 
@@ -372,20 +372,20 @@ For example:
        # set "RCUTILS_COLORIZED_OUTPUT=0"
        ros2 run logging_demo logging_demo_main
 
-You should see that debug, warn, error and fatal logs aren't colorized now.
+Deberías ver que los registros de depuración, advertencia, error y fatales no están coloreados ahora.
 
 .. note::
 
-   In Linux and MacOS forcing colorized output means that if you redirect the output to a file, the ansi escape color codes will appear on it.
-   In windows the colorization method relies on console APIs.
-   If it is forced you will get a new warning saying that colorization failed.
-   The default behavior already checks if the output is a console or not, so forcing colorization is not recommended.
+   En Linux y MacOS, forzar la salida coloreada significa que si redirige la salida a un archivo, aparecerán los códigos de color de escape ansi.
+   En Windows, el método de colorización se basa en las API de la consola.
+   Si es forzado, recibirás una nueva advertencia que indica que la coloración falló.
+   El comportamiento predeterminado ya verifica si la salida es una consola o no, por lo que no se recomienda forzar la coloración.
 
-Default stream for console output
+Transmisión predeterminada para la salida de la consola
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In Foxy and later, the output from all debug levels goes to stderr by default.  It is possible to force all output to go to stdout by setting the ``RCUTILS_LOGGING_USE_STDOUT`` environment variable to ``1``.
-For example:
+En Foxy y versiones posteriores, la salida de todos los niveles de depuración va a stderr de forma predeterminada. Es posible forzar que toda la salida vaya a la salida estándar configurando la variable de entorno ``RCUTILS_LOGGING_USE_STDOUT`` en ``1``.
+Por ejemplo:
 
 .. tabs::
 
@@ -408,13 +408,12 @@ For example:
       set "RCUTILS_LOGGING_USE_STDOUT=1"
 
 
-Line buffered console output
+Salida de consola con búfer de línea
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
-By default, all logging output is unbuffered.
-You can force it to be buffered by setting the ``RCUTILS_LOGGING_BUFFERED_STREAM`` environment variable to 1.
-For example:
+De forma predeterminada, todos los resultados de registro no están almacenados en búfer.
+Puedes forzar que se almacene en búfer configurando la variable de entorno ``RCUTILS_LOGGING_BUFFERED_STREAM`` en 1.
+Por ejemplo:
 
 .. tabs::
 
@@ -436,7 +435,7 @@ For example:
 
       set "RCUTILS_LOGGING_BUFFERED_STREAM=1"
 
-Then run:
+Entonces usa:
 
 .. code-block:: bash
 
