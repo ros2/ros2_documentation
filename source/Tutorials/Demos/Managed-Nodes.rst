@@ -3,8 +3,8 @@
     Managed-Nodes
     Tutorials/Managed-Nodes
 
-Managing nodes with managed lifecycles
+Gestión de lifecycle nodes
 ======================================
 
-This page lives now directly side-by-side with the `code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/lifecycle/README.rst>`__.
-For more information about the ``lifecycle`` package, refer to `rosindex <https://index.ros.org/p/lifecycle/github-ros2-demos/>`__.
+Esta página se encuentra en este `código <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/lifecycle/README.rst>`__.
+Para obtener más información sobre el paquete ``lifecycle``, consulta `rosindex <https://index.ros.org/p/lifecycle/github-ros2-demos/>`__.
