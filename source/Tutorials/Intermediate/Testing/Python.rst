@@ -56,6 +56,15 @@ You can now write tests to your heart's content. There are `plenty of resources 
   def test_math():
       assert 2 + 2 == 5   # This should fail for most mathematical systems
 
+Running Tests
+-------------
+
+You can now run your tests and view the results:
+
+.. code-block:: console
+
+  colcon test --event-handlers console_cohesion+
+
 Special Commands
 ----------------
 
