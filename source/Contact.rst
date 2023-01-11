@@ -1,137 +1,133 @@
 .. _Help:
 
-Contact
-=======
+Contacto
+=========
 
 .. _Using ROS Answers:
 
-Support
--------
+Soporte
+--------
 
-Different types of questions or discussions correspond to different avenues of communication;
-check the descriptions below to ensure you choose the right method.
+Diferentes tipos de preguntas o discusiones corresponden a diferentes vias de comunicación;
+asegúrate de revisar las descripciones a continuación para asegurarte de escoger la correcta.
 
-Need help troubleshooting your system?
-First, search `ROS Answers <https://answers.ros.org>`__ to see if others have had similar issues, and if their solution works for you.
+¿Necesitas ayuda solucionando los problemas de tu sistema?
+Primero, busca si en `ROS Answers <https://answers.ros.org>`__ existen problemas similares al tuyo y comprueba si las soluciones planteadas funcionan en tu caso.
 
-If not, ask a new question on `ROS Answers <https://answers.ros.org>`__.
-Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``humble``.
-If your question is related to the documentation here, add a tag like ``docs``, or more specifically, ``tutorials``.
+De lo contrario, crea una nueva pregunta en `ROS Answers <https://answers.ros.org>`__.
+Asegúrate de añadir las etiquetas correspondientes, o al menos la etiqueta de ``ros2`` y su distribución correspondiente, por ejemplo ``humble``.
+Si tu pregunta esta relacionada con la documentación, añade la etiqueta ``docs``, o mas específicamente, ``tutorials``.
 
-Contributing support
-^^^^^^^^^^^^^^^^^^^^
+Contribuyendo a soporte
+^^^^^^^^^^^^^^^^^^^^^^^^
+Los usuarios de ROS 2 provienen de una amplia gama de antecedentes técnicos, usan una variedad de sistemas operativos diferentes y no necesariamente tienen experiencia previa con ROS (1 o 2).
+Por lo tanto, es importante que los usuarios con cierta cantidad de experiencia aporten soporte.
 
-ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don’t necessarily have any prior experience with ROS (1 or 2).
-So, it's important for users with any amount of experience to contribute support.
-
-If you see an issue on `ROS Answers <https://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
-Don’t worry if you aren't sure if your response is correct.
-Simply say so, and other community members will jump in if necessary.
+Si ves un problema en `ROS Answers <https://answers.ros.org/questions/tags:ros2/>`__ y es similiar a algo en lo que has tenido experiencia, porfavor considera brindar algunos consejos que te fueron útiles en tu situación.
+No te preocupes si no estas seguro de que tu respuesta es correcta.
+Simplemente comparte tu solución, y los miembros de la comunidad intervendrán si es necesario.
 
 Issues
-------
+-------
 
-If you identify bugs, have suggestions for improvements, or a question specific to one package, you can open an issue on GitHub.
+Si identificas bugs, tienes sugerencias de mejora, o tienes una pregunta especifica a un paquete en concreto, puedes abrir un issue en GitHub.
 
-For example, if you are following the :doc:`tutorials here <Tutorials>` and come across an instruction that doesn't work on your system,
-you can open an issue in the `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ repo.
+Por ejemplo, si estas siguiendo los :doc:`Tutoriales aca <Tutorials>` Y te encuentras con una instruccion que no funciona en tu sistema,
+puedes abrir un issue en el siguiente repositorio: `ros2_documentation <https://github.com/ros2/ros2_documentation>`__ .
 
-You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://github.com/ros2>`__.
+Puedes buscar por repositorios individuales de ROS2 en el siguiente enlace de `GitHub <https://github.com/ros2>`__.
 
-Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
+Antes de abrir un issue, asegúrate que otros usuarios no hayan reportado un problema similar, lo puedes comprobar buscando las organizaciones encargadas de los repositorios: `ejemplo <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 
-Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue.
+A continuación, revisa si en `ROS Answers <https://answers.ros.org/>`__ alguien ha preguntado o reportado un problema similar.
 
-If it has not been reported, feel free to open an issue in the appropriate repository tracker.
-If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
+Si no ha sido reportado, siéntete libre de abrir un issue en el repositorio correcto.
+Si no esta claro en donde debes iniciar el issue, hazlo en el siguiente repo `siguiente repo <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
 
-When filing an issue, please make sure to:
+Cuando creas un issue. por favor asegúrate de:
 
-* Include enough information for another person to understand the issue.
+* Incluir information suficiente para que otra persona pueda entender el problema.
 
-Describe exactly what you were doing or are trying to do, and exactly what, if anything, went wrong.
-If following a tutorial or online instructions provide a link to the specific instructions.
+Describe exactamente lo que estabas haciendo o tratando de hacer, y exactamente que fue lo que falló.
+Si estabas siguiendo un tutorial en linea, suministra el enlace.
 
-* Use a descriptive headline or subject line. Bad: "rviz doesn't work". Good: "Rviz crashing looking for missing .so after latest apt update"
-* Include information about the exact platform, software, versions, and environment relevant to the problem. This includes how you installed the software (from binaries or from source) and which ROS middleware/DDS vendor you are using (if you know it).
-* Any warnings or errors. Cut and paste them directly from the terminal window to which they were printed. Please do not re-type or include a screenshot.
-* In case of a bug consider providing a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
-* When discussing any compiling/linking/installation issues, also provide the compiler version
+* Usa títulos descriptivos. Mal: "rviz no funciona". Bien: "Rviz dejo de funcionar luego de la ultima actualización del sistema"
+* Incluye información exacta sobre la plataforma, version, software, y entorno de desarrollo relevante al problema. Esto incluye como instalaste los paquetes (a partir de binaries or desde la fuente). Ademas que proveedor de DDS estas (si lo sabes).
+* Para cualquier advertencia o error. Copia y pega los mensajes directamente desde la terminal. Por favor no re-escribas los mensajes, ni incluyas capturas de pantalla.
+* En caso de que sea un error, considera proporcionar un `ejemplo corto SSCCE <http://sscce.org/>`__.
+* Cuando estés discutiendo algún problema de compilación o instalación, Por favor suministra la version del compilador.
 
-As appropriate, also include your:
+También es adecuado incluir tus:
 
-* ROS environment variables (env | grep ROS)
+* Variables de entorno de ROS (env | grep ROS)
 * Backtraces
-* Relevant config files
-* Graphics card model and driver version
-* Ogre.log for rviz, if possible (run with rviz -l)
-* Bag files and code samples that can reproduce the problem
-* Gifs or movies to demonstrate the problem
+* Archivos de configuración
+* Modelo de tarjeta gráfica y versiones del driver
+* Ogre.log para rviz, si es posible (ejecuta rviz con rviz -l)
+* Archivos bag files y códigos de ejemplo que reproduzcan el problema
+* Gifs o videos que demuestren el problema
 
 
 Pull requests
--------------
+--------------
 
-When you feel comfortable enough to suggest a specific change directly to the code, you can submit a pull request.
-Pull requests are welcome for any of `the ros2 repositories <https://github.com/ros2>`__.
-See the :doc:`Contributing <The-ROS2-Project/Contributing>` page for more details and etiquette on how to contribute.
+Cuando te sientas lo suficientemente cómodo para sugerir un cambio especifico en el código, puedes solicitar directamente un pull request.
+Los pull requests son bienvenidos en cualquier `repositorio de ros2 <https://github.com/ros2>`__.
+Consulta la pagina de :doc:`Contribución <The-ROS2-Project/Contributing>` para mas detalles sobre como contribuir en el código.
 
 .. _Using ROS Discourse:
 
-Discussion
+Discusión
 ----------
 
-To start a discussion with other ROS 2 community members, visit the official `ROS Discourse <https://discourse.ros.org/>`__.
-Content on the Discourse should be high-level;
-it's not a place to get *questions* about code answered, but it would be suitable to start a conversation about best practices or improving standards.
+Para iniciar una discusion con otro miembro de la comunidad de ROS2, visita el foro oficial `ROS Discourse <https://discourse.ros.org/>`__.
+EL contenido de la discusion debe ser de alto nivel;
+este no es el lugar para realizar preguntas sobre codigo. Sin embargo, si es apropiado para iniciar una discusion sobre las mejores practicas o mejora de los estandares.
 
-Discussions about ROS 2 development and plans are happening on the `“Next Generation ROS” Discourse category <https://discourse.ros.org/c/ng-ros>`__.
-Participating in these discussions is an important way to have a say on how different features of ROS 2 will work and be implemented.
+Discusiones sobre el desarrollo de ROS 2 ocurren en la sesion de `“Generacion futura de ROS” Discourse category <https://discourse.ros.org/c/ng-ros>`__.
+Participar en estas discusiones es una forma importante de opinar sobre cómo funcionarán e implementarán las diferentes funciones de ROS 2.
 
-The diverse community behind the ROS ecosystem is one of its greatest assets.
-We encourage all members of the ROS community to participate in these design discussions so that we can leverage the experience of community members, and keep the varied use cases of ROS in mind.
+La comunidad diversa detrás del ecosistema ROS es uno de sus mayores fuertes.
+Alentamos a todos los miembros de la comunidad de ROS a participar en estas discusiones de diseño para que podamos aprovechar la experiencia de los miembros de la comunidad y tener en cuenta los variados casos de uso de ROS.
 
-Etiquette
+Etiqueta
 ----------
 
-Assume 'good faith': It's easy to mis-interpret the meaning or tone of comments on the internet.
-Assuming good faith gives the benefit of the doubt to those trying to help you, avoiding: insulting well meaning community members, and poisoning the mood.
-Assuming 'good faith' when responding almost always works better even if the original response was not in fact in good faith.
+Asume que 'buena fe': Es fácil de malinterpretar en el significado o en el tono de los comentarios en internet.
+Asumir que la buena fe otorga el beneficio de la duda a quienes intentan ayudarlo, evitando: insultar a los miembros de la comunidad bien intencionados y envenenar el estado de ánimo.
+Asumir 'buena fe' al responder casi siempre funciona, incluso si la respuesta original no fue de hecho de buena fe.
 
-Please don't send your question more than once: The question was seen.
-If you didn't get a response then likely nobody has had time to answer you.
-Alternatively, it could be that nobody knows the answer.
-In any case, sending it again is poor form and akin to shouting and is likely to aggravate a large number of people.
-This also applies to crossposting.
-Try to pick the forum which you think matches best and ask there.
-If you are referred to a new forum, provide a link to the old discussion.
+Por favor, no envíe su pregunta más de una vez: La pregunta fue vista.
+Si no recibiste una respuesta, es probable que nadie haya tenido tiempo de responderte.
+Alternativamente, podría ser que nadie sepa la respuesta.
+En cualquier caso, enviarlo de nuevo es una mala practica y es comparable a gritar.
+Intenta elegir el foro que creas que encaja mejor y pregunta allí. Si se te remiten a un nuevo foro, proporciona un enlace a la discusión anterior.
 
-On https://answers.ros.org you can edit your question to provide more details.
-The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
+En https://answers.ros.org puedes editar tu pregunta para proporcionar más detalles.
+Cuantos más detalles incluyas en tu pregunta, más fácil será para otros ayudarte a encontrar su solución.
 
-It's considered bad form to list your personal deadlines; community members answering questions also have them.
+Se considera de mala educación enumerar sus fechas límite personales; los miembros de la comunidad que responden preguntas también las tienen.
 
-Do not beg for help.
-If there is someone willing and able to help with your problem, you usually get a response.
-Asking for faster answers will mostly have a negative effect.
+No ruegues por ayuda.
+Si hay alguien dispuesto y capaz de ayudarte con tu problema, generalmente obtendrás una respuesta.
+Pedir respuestas más rápidas en la mayoría de casos tendrá un efecto negativo.
 
-Do not add unrelated content to posts.
-The content of posts should be focused on the topic at hand and not include unrelated content.
-Content, links, and images unrelated to the topic are considered spam.
+No agregue contenido no relacionado a las publicaciones.
+El contenido de las publicaciones debe centrarse en el tema en cuestión y no incluir contenido no relacionado.
+El contenido,enlaces y las imágenes no relacionadas con el tema se consideran spam.
 
-For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
+Para publicar contenido comercial, te puede interesar `esta discusión <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
-Minimize references to content behind pay walls.
-The content posted on `ROS Discourse <https://discourse.ros.org/>`__ and `ROS Answers <https://answers.ros.org/>`__ should "generally" be free and open to all users.
-Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
-Where possible primary sources should be free and open with paid content playing a supporting role.
+Minimice referencias a contenido con muros de pago detrás.
+El contenido publicado en `ROS Discourse <https://discourse.ros.org/>`__ y `ROS Answers <https://answers.ros.org/>`__ se aconseja que sea gratis y abierto a todos los usuarios.
+Siempre que sea posible, las fuentes primarias deben ser gratuitas y abiertas, y el contenido de pago debe desempeñar un papel de apoyo.
 
-Single link posts are to be avoided.
-Generally speaking, posting a single link answer is less helpful and can be easily confused with spam.
-Moreover, links may degrade over time or be replaced.
-Paraphrasing a link's content along with some contextual information and attribution is often much more helpful.
+Se deben evitar las publicaciones de un solo enlace.
+En términos generales, publicar una respuesta de un solo enlace es menos útil y puede confundirse fácilmente con spam.
+Además, los enlaces pueden dañarse con el tiempo o ser reemplazados.
+Parafrasear el contenido de un enlace junto con cierta información contextual y atribución suele ser mucho más útil.
 
-Private contact
----------------
+Contacto privado
+-----------------
 
-If you'd like to contact us privately (e.g., if your question contains information sensitive to your organization or project, or if it's regarding a security issue), you can email us directly at ``ros@osrfoundation.org``.
+Si deseas comunicarte con nosotros de forma privada (por ejemplo, si tu pregunta contiene información confidencial para tu organización o proyecto, o si se trata de un problema de seguridad), puedes enviarnos un correo electrónico directamente a ros@osrfoundation.org.
