@@ -2,7 +2,7 @@
 
     Working-with-Eclipse-CycloneDDS
 
-Eclipse ciclón DDS
+Eclipse Cyclone DDS
 ==================
 
 Eclipse Cyclone DDS es una implementación de DDS de código abierto robusta y de gran rendimiento.
