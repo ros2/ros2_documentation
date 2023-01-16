@@ -22,3 +22,9 @@ To see the results, simply run the `test-result <https://colcon.readthedocs.io/e
 .. code-block:: console
 
   colcon test-result --all
+  
+To see the exact test cases which fail, use the ``--verbose`` flag:
+
+.. code-block:: console
+
+  colcon test-result --all --verbose
