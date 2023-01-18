@@ -4,204 +4,198 @@
 
 .. _CodeStyle:
 
-Code style and language versions
-================================
+Estilo de código y versiones de lenguaje
+========================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenido
    :depth: 2
    :local:
 
-In order to achieve a consistent looking product we will all follow externally (if possible) defined style guidelines for each language.
-For other things like package layout or documentation layout we will need to come up with our own guidelines, drawing on current, popular styles in use now.
+Para lograr un producto de apariencia consistente, todos seguiremos para cada lenguaje de programación guías de estilo (de ser posible) que ya estén definidas externamente.
+Para otras cosas, como el diseño de paquetes o el diseño de la documentación, necesitaremos crear nuestras propias pautas, basándonos en los estilos actuales y populares que se usan ahora.
 
-Additionally, wherever possible, developers should use integrated tools to allow them to check that these guidelines are followed in their editors.
-For example, everyone should have a PEP8 checker built into their editor to cut down on review iterations related to style.
+Además, siempre que sea posible, los desarrolladores deben usar herramientas integradas que les permitan verificar que se sigan estas pautas en sus editores.
+Por ejemplo, todos deberían tener un verificador PEP8 integrado en su editor para reducir las iteraciones de revisión relacionadas con el estilo.
 
-Also where possible, packages should check style as part of their unit tests to help with the automated detection of style issues (see `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`__).
+Además, cuando sea posible, los paquetes deben verificar el estilo como parte de sus pruebas unitarias para ayudar con la detección automática de problemas de estilo (ver `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`__).
+
 
 C
 -
 
-Standard
+Estándar
 ^^^^^^^^
 
-We will target C99.
+Se apunta a C99.
 
-Style
-^^^^^
+Estilo
+^^^^^^
 
-We will use `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ for our C style guide, with some modifications and additions:
+Usaremos `Python's PEP7 <https://www.python.org/dev/peps/pep-0007/>`__ para nuestra guía de estilo C, con algunas modificaciones y adiciones:
 
-* We will target C99, as we do not need to support C89 (as PEP7 recommends)
+* Apuntamos a C99, ya que no necesitamos admitir C89 (como recomienda PEP7)
 
-  * rationale: among other things it allows us to use both ``//`` and ``/* */`` style comments
-  * rationale: C99 is pretty much ubiquitous now
+  * justificación: entre otras cosas, nos permite usar comentarios de estilo ``//`` y ``/* */``
+  * justificación: C99 es bastante omnipresente ahora
 
-* C++ style ``//`` comments are allowed
-* (optional) Always place literals on the left-hand side of comparison operators, e.g. ``0 == ret`` instead of ``ret == 0``
+* Se permiten comentarios estilo C++ ``//``
+* (opcional) Coloque siempre los literales en el lado izquierdo de los operadores de comparación, por ejemplo, ``0 == ret`` en lugar de ``ret == 0``
 
-  * rationale: ``ret == 0`` too easily turns into ``ret = 0`` by accident
-  * optional because when using ``-Wall`` (or equivalent) modern compilers will warn you when this happens
+  * justificación: ``ret == 0`` puede convertirse en fácilmente ``ret = 0`` por accidente
+  * opcional porque al usar ``-Wall`` (o equivalente) los compiladores modernos le avisarán cuando esto suceda
 
-All of the following modifications only apply if we are not writing Python modules:
+Todas las siguientes modificaciones solo se aplican si no se esta escribiendo módulos de Python:
 
-* Do not use ``Py_`` as a prefix for everything
+* No use ``Py_`` como prefijo para todo
 
-  * instead use a CamelCase version of the package name or other appropriate prefix
+  * en su lugar, use una versión CamelCase del nombre del paquete u otro prefijo apropiado
 
-* The stuff about documentation strings doesn't apply
+* las cosas sobre documentación de strings no se aplica
 
-We can use the `pep7 <https://github.com/mike-perdide/pep7>`__ python module for style checking. The editor integration seems slim, we may need to look into automated checking for C in more detail.
+Podemos usar el módulo de python `pep7 <https://github.com/mike-perdide/pep7>`__  para verificación de estilo. La integración del editor parece escasa, es posible que debamos analizar la verificación automática de C con más detalle.
 
 C++
 ---
 
-Standard
+Estándar
 ^^^^^^^^
 
-{DISTRO_TITLE} targets C++17.
+{DISTRO_TITLE} toma como referencia a C++17.
 
-Style
-^^^^^
+Estilo
+^^^^^^
 
 
-We will use the `Google C++ Style Guide <https://google.github.io/styleguide/cppguide.html>`__, with some modifications:
+Usaremos la Guía de estilo de `Google C++ Style Guide <https://google.github.io/styleguide/cppguide.html>`__, con algunas modificaciones:
 
-Line Length
-~~~~~~~~~~~
+Longitud de la línea
+~~~~~~~~~~~~~~~~~~~~
 
-* Our maximum line length is 100 characters.
+* Nuestra longitud máxima de línea es de 100 caracteres.
 
-File Extensions
-~~~~~~~~~~~~~~~
-
-* Header files should use the .hpp extension.
-
-  * rationale: Allow tools to determine content of files, C++ or C.
-
-* Implementation files should use the .cpp extension.
-
-  * rationale: Allow tools to determine content of files, C++ or C.
-
-Variable Naming
-~~~~~~~~~~~~~~~
-
-* For global variables use lowercase with underscores prefixed with ``g_``
-
-  * rationale: keep variable naming case consistent across the project
-  * rationale: easy to tell the scope of a variable at a glance
-  * consistency across languages
-
-Function and Method Naming
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Google style guide says ``CamelCase``, but the C++ std library's style of ``snake_case`` is also allowed
-
-  * rationale: ROS 2 core packages currently use ``snake_case``
-
-    * reason: either an historical oversight or a personal preference that didn't get checked by the linter
-    * reason for not changing: retroactively changing would be too disruptive
-  * other considerations:
-
-    * ``cpplint.py`` does not check this case (hard to enforce other than with review)
-    * ``snake_case`` can result in more consistency across languages
-  * specific guidance:
-
-    * for existing projects, prefer the existing style
-    * for new projects, either is acceptable, but a preference for matching related existing projects is advised
-    * final decision is always developer discretion
-
-      * special cases like function pointers, callable types, etc. may require bending the rules
-    * Note that classes should still use ``CamelCase`` by default
-
-Access Control
-~~~~~~~~~~~~~~
-
-* Drop requirement for all class members to be private and therefore require accessors
-
-  * rationale: this is overly constraining for user API design
-  * we should prefer private members, only making them public when they are needed
-  * we should consider using accessors before choosing to allow direct member access
-  * we should have a good reason for allowing direct member access, other than because it is convenient for us
-
-Exceptions
-~~~~~~~~~~
-
-* Exceptions are allowed
-
-  * rationale: this is a new code base, so the legacy argument doesn't apply to us
-  * rationale: for user-facing API's it is more idiomatic C++ to have exceptions
-  * Exceptions in destructors should be explicitly avoided
-
-* We should consider avoiding Exceptions if we intend to wrap the resulting API in C
-
-  * rationale: it will make it easier to wrap in C
-  * rationale: most of our dependencies in code we intend to wrap in C do not use exceptions anyways
-
-Function-like Objects
-~~~~~~~~~~~~~~~~~~~~~
-
-* No restrictions on Lambda's or ``std::function`` or ``std::bind``
-
-Boost
-~~~~~
-
-* Boost should be avoided unless absolutely required.
-
-Comments and Doc Comments
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Use ``///`` and ``/** */`` comments for *documentation* purposes and ``//`` style comments for notes and general comments
-
-  * Class and Function comments should use ``///`` and ``/** */`` style comments
-  * rationale: these are recommended for Doxygen and Sphinx in C/C++
-  * rationale: mixing ``/* */`` and ``//`` is convenient for block commenting out code which contains comments
-  * Descriptions of how the code works or notes within classes and functions should use ``//`` style comments
-
-Pointer Syntax Alignment
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-* Use ``char * c;`` instead of ``char* c;`` or ``char *c;`` because of this scenario ``char* c, *d, *e;``
-
-Class Privacy Keywords
+Extensiones de archivo
 ~~~~~~~~~~~~~~~~~~~~~~
 
-* Do not put 1 space before ``public:``, ``private:``, or ``protected:``, it is more consistent for all indentions to be a multiple of 2
+* Los archivos de encabezado deben usar la extensión .hpp.
 
-  * rationale: most editors don't like indentions which are not a multiple of the (soft) tab size
-  * Use zero spaces before ``public:``, ``private:``, or ``protected:``, or 2 spaces
-  * If you use 2 spaces before, indent other class statements by 2 additional spaces
-  * Prefer zero spaces, i.e. ``public:``, ``private:``, or ``protected:`` in the same column as the class
+  * justificación: permitir que las herramientas determinen el contenido de los archivos, C++ o C.
 
-Nested Templates
-~~~~~~~~~~~~~~~~
+* Los archivos de implementación deben usar la extensión .cpp.
 
-* Never add whitespace to nested templates
+  * justificación: permitir que las herramientas determinen el contenido de los archivos, C++ o C.
 
-  * Prefer ``set<list<string>>`` (C++11 feature) to ``set<list<string> >`` or ``set< list<string> >``
+Nomenclatura de variables
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Always Use Braces
+* Para variables globales, use minúsculas con guiones bajos con el prefijo ``g_``
+
+  * justificación: mantener la coherencia entre mayúsculas y minúsculas en todo el proyecto
+  * justificación: es fácil saber el alcance de una variable de un vistazo
+  * coherencia entre lenguajes
+
+Denominación de funciones y métodos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* La guía de estilo de Google dice ``CamelCase``, pero también se permite el estilo ``snake_case`` de la biblioteca estándar de C++
+
+  * justificación: los paquetes principales de ROS 2 actualmente usan ``snake_case``
+
+    * razón: ya sea un descuido histórico o una preferencia personal que no fue verificada por el linter
+    * razón para no cambiar: cambiar retroactivamente sería demasiado disruptivo
+  * Otras Consideraciones:
+
+    * ``cpplint.py`` no verifica este caso (difícil de hacer cumplir excepto con revisión)
+    * ``snake_case`` puede dar como resultado una mayor coherencia entre lenguajes
+  * orientación específica:
+
+    * para proyectos existentes, se prefiere el estilo existente
+    * para nuevos proyectos, cualquiera de los dos es aceptable, pero se recomienda una preferencia por la coincidencia de proyectos existentes relacionados
+    * la decisión final es siempre discreción del desarrollador
+
+      * casos especiales como punteros de función, tipos invocables, etc. pueden requerir doblar las reglas
+    * Tenga en cuenta que las clases aún deben usar ``CamelCase`` por defecto
+
+Control de acceso
 ~~~~~~~~~~~~~~~~~
 
-* Always use braces following ``if``, ``else``, ``do``, ``while``, and ``for``, even when the body is a single line.
+* Elimine el requisito de que todos los miembros de la clase sean privados y, por lo tanto, requieran accessors
 
-  * rationale: less opportunity for visual ambiguity and for complications due to use of macros in the body
+  * justificación: esto es demasiado restrictivo para el diseño de API de usuario
+  * debemos preferir miembros privados, solo haciéndolos públicos cuando sean necesarios
+  * debemos considerar el uso de accessors antes de elegir permitir el acceso directo a los miembros
+  * debemos tener una buena razón para permitir el acceso directo de los miembros, que sea conveniente para nosotros no es razón suficiente.
 
-Open Versus Cuddled Braces
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Excepciones
+~~~~~~~~~~~
 
-* Use open braces for ``function``, ``class``, ``enum``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
+* Se permiten excepciones
 
-  * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
+  * justificación: esta es una nueva base de código, por lo que el argumento heredado no se aplica a nosotros
+  * justificación: para las API orientadas al usuario, es más idiomático C++ tener excepciones
+  * Las excepciones en los destructores deben evitarse explícitamente
 
-* When a function call cannot fit on one line, wrap at the open parenthesis (not in between arguments) and start them on the next line with a 2-space indent.  Continue with the 2-space indent on subsequent lines for more arguments.  (Note that the `Google style guide <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ is internally contradictory on this point.)
+* Debemos considerar evitar Excepciones si tenemos la intención de envolver la API resultante en C
 
-  * Same goes for ``if`` (and ``while``, etc.) conditions that are too long to fit on one line.
+  * justificación: hará que sea más fácil envolver en C
+  * justificación: la mayoría de nuestras dependencias en el código que pretendemos envolver en C no usan excepciones de todos modos
 
-Examples
+Objetos similares a funciones
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Sin restricciones en Lambda's o ``std::function`` o ``std::bind``
+
+Boost
 ~~~~~~~~
 
-This is OK:
+* Boost debe evitarse a menos que sea absolutamente necesario.
+
+Comentarios y comentarios del documento
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Utilice los comentarios ``///`` y ``/** */`` para propósitos de *documentación* y comentarios de estilo ``//`` para notas y comentarios generales
+
+  * Los comentarios de clase y función deben usar comentarios de estilo ``///`` y ``/** */``
+  * justificación: se recomiendan para Doxygen y Sphinx en C/C++
+  * justificación: mezclar ``/* */`` y ``//`` es conveniente para comentar bloques de código que contengan comentarios
+  * Las descripciones de cómo funciona el código o las notas dentro de las clases y funciones deben usar comentarios de estilo ``//``
+
+Alineación de sintaxis de puntero
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Use ``char * c;`` en lugar de ``char* c;`` o ``char *c;`` debido a este escenario ``char* c, *d, *e;``
+
+Palabras clave de privacidad de clase
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* No coloque 1 espacio antes de ``public:``, ``private:`` o ``protected:``, es más consistente que todas las sangrías sean múltiplos de 2
+
+  * justificación: a la mayoría de los editores no les gustan las sangrías que no son un múltiplo del tamaño de la pestaña (suave)
+  * Usa cero espacios antes de ``public:``, ``private:``, o ``protected:``, o 2 espacios
+  * Si usa 2 espacios antes, indenta otras declaraciones de clase con 2 espacios adicionales
+  * Se prefiere cero espacios, es decir, ``public:``, ``private:`` o ``protected:`` en la misma columna que la clase
+
+Plantillas anidadas
+~~~~~~~~~~~~~~~~~~~
+
+* Nunca agregue espacios en blanco a las plantillas anidadas
+
+  * Se prefiere ``set<list<string>>`` (característica de C++11 ) a ``set<list<string> >`` o ``set< list<string> >``
+
+Paréntesis abiertos Versus Cuddled
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Usa paréntesis en una nueva linea para ``function``, ``class``, ``enum``, y ``struct``, pero paréntesis en la misma linea para ``if``, ``else``, ``while``, ``for``, etc...
+
+  * Excepción: cuando un ``if`` (o ``while``, etc.)  es lo suficiente largo que no quepa en linea, entonces usar nueva linea (i.e., don't cuddle).
+
+* Cuando una llamada a una función no quepa en una linea, rompe la linea (no entre argumentos) y empieza en la proxima linea con indentación de 2 espacios.  Si se tienen más argumentos continua con la indentación de 2 espacios en las lineas siguientes .  (Nota que la  `Guía de estilos de Google <https://google.github.io/styleguide/cppguide.html#Function_Calls>`__ se autocontradice en este punto.)
+
+  * Lo mismo se aplica a ``if`` (y ``while``, etc.) si son demasiado largas para caber en una linea.
+
+Ejemplos
+~~~~~~~~
+
+Esto esta OK:
 
 .. code-block:: c++
 
@@ -239,7 +233,7 @@ This is OK:
      fooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo,
      bar, bat);
 
-This is **not** OK:
+Esto **no** esta bien:
 
 .. code-block:: c++
 
@@ -254,9 +248,9 @@ This is **not** OK:
    }
 
 
-Use open braces rather than excessive indention, e.g. for distinguishing constructor code from constructor initializer lists
+Usa corchetes abierto en lugar de usar sangria de manera excesiva, p.ej. para distinguir el código del constructor de las listas de inicializadores del constructor
 
-This is OK:
+Esto esta OK:
 
 .. code-block:: c++
 
@@ -278,7 +272,7 @@ This is OK:
      ...
    }
 
-This is **not** OK, even weird (the google way?):
+Esto **no** está bien, incluso es extraño (¿a la manera de Google?):
 
 .. code-block:: c++
 
@@ -301,46 +295,46 @@ This is **not** OK, even weird (the google way?):
 Linters
 ~~~~~~~
 
-We check these styles with a combination of Google's `cpplint.py <https://github.com/google/styleguide>`__ and `uncrustify <https://github.com/uncrustify/uncrustify>`__.
+El estilo fue verificado con una combinación de `cpplint.py <https://github.com/google/styleguide>`__  de Google y `uncrustify <https://github.com/uncrustify/uncrustify>`__.
 
-We provide command line tools with custom configurations:
+Proporcionamos herramientas de linea de comandos con las configuraciones personalizada:
 
 * `ament_clang_format <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_clang_format/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_clang_format/ament_clang_format/configuration/.clang-format>`__
 * `ament_cpplint <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cpplint/doc/index.rst>`__
 * `ament_uncrustify <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_uncrustify/doc/index.rst>`__: `configuration <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_uncrustify/ament_uncrustify/configuration/ament_code_style.cfg>`__
 
-Some formatters such as ament_uncrustify and ament_clang_format support ``--reformat`` options to apply changes in place.
+Algunos correctores de estilo como ament_uncrustify y ament_clang_format tienen la opción ``--reformat`` para aplicar los cambios.
 
-We also run other tools to detect and eliminate as many warnings as possible.
-Here's a non-exhaustive list of additional things we try to do on all of our packages:
+También ejecutamos otras herramientas para detectar y eliminar tantas advertencias como sea posible.
+Aquí hay una lista no exhaustiva de cosas adicionales que tratamos de hacer en todos nuestros paquetes:
 
-* use compiler flags like ``-Wall -Wextra -Wpedantic``
-* run static code analysis like ``cppcheck``, which we have integrated in `ament_cppcheck <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cppcheck/doc/index.rst>`__.
+* usar banderas del compilador como ``-Wall -Wextra -Wpedantic``
+* ejecutar análisis de código estático como ``cppcheck``, que hemos integrado en `ament_cppcheck <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_cppcheck/doc/index.rst>`__.
 
 Python
 ------
 
-Version
+Versión
 ^^^^^^^
 
-We will target Python 3 for our development.
+Apuntaremos a Python 3 para nuestro desarrollo.
 
-Style
-^^^^^
+Estilo
+^^^^^^
 
-We will use the `PEP8 guidelines <https://www.python.org/dev/peps/pep-0008/>`_ for code format.
+Usaremos las `directrices de PEP8 <https://www.python.org/dev/peps/pep-0008/>`__ para el formato del código.
 
-We chose the following more precise rule where PEP 8 leaves some freedom:
+Elegimos la siguiente regla más precisa donde PEP 8 deja cierta libertad:
 
-* `We allow up to 100 characters per line (fifth paragraph) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`_.
-* `We pick single quotes over double quotes as long as no escaping is necessary <https://www.python.org/dev/peps/pep-0008/#string-quotes>`_.
-* `We prefer hanging indents for continuation lines <https://www.python.org/dev/peps/pep-0008/#indentation>`_.
+* `Permitimos hasta 100 caracteres por línea (quinto párrafo) <https://www.python.org/dev/peps/pep-0008/#maximum-line-length>`__.
+* `Elegimos comillas simples sobre comillas dobles siempre que no sea necesario escapar <https://www.python.org/dev/peps/pep-0008/#string-quotes>`__.
+* `Preferimos sangrías colgantes para las líneas de continuación <https://www.python.org/dev/peps/pep-0008/#indentation>`__.
 
-Tools like the ``(ament_)pycodestyle`` Python package should be used in unit-test and/or editor integration for checking Python code style.
+Las herramientas como el paquete de Python ``(ament_)pycodestyle`` deben usarse en la integración de pruebas unitarias y/o editores para comprobar el estilo del código de Python.
 
-The pycodestyle configuration used in the linter is `here <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__.
+La configuración de pycodestyle utilizada en el linter está `aquí <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_pycodestyle/ament_pycodestyle/configuration/ament_pycodestyle.ini>`__.
 
-Integration with editors:
+Integración con editores:
 
 * atom: https://atom.io/packages/linter-pycodestyle
 * emacs: https://www.emacswiki.org/emacs/PythonProgrammingInEmacs
@@ -350,63 +344,63 @@ Integration with editors:
 CMake
 -----
 
-Version
+Versión
 ^^^^^^^
 
-We will target CMake 3.8.
+Apuntaremos a CMake 3.8.
 
-Style
-^^^^^
+Estilo
+^^^^^^
 
-Since there is not an existing CMake style guide we will define our own:
+Dado que no existe una guía de estilo de CMake, definiremos la nuestra:
 
-* Use lowercase command names (``find_package``, not ``FIND_PACKAGE``).
-* Use ``snake_case`` identifiers (variables, functions, macros).
-* Use empty ``else()`` and ``end...()`` commands.
-* No whitespace before ``(``\ 's.
-* Use two spaces of indention, do not use tabs.
-* Do not use aligned indentation for parameters of multi-line macro invocations. Use two spaces only.
-* Prefer functions with ``set(PARENT_SCOPE)`` to macros.
-* When using macros prefix local variables with ``_`` or a reasonable prefix.
+* Usa nombres de comando en minúsculas (``find_package``, no ``FIND_PACKAGE``).
+* Usa identificadores ``snake_case`` (variables, funciones, macros).
+* Utiliza los comandos vacíos ``else()`` y ``end...()``.
+* Sin espacios en blanco antes de ``(``\ 's.
+* Usa dos espacios de sangría, no use tabulaciones.
+* No uses sangría alineada para parámetros de invocaciones de macros de varias líneas. Use dos espacios solamente.
+* Se Preferiré funciones con ``set(PARENT_SCOPE)`` a macros.
+* Al usar macros prefija las variables locales con ``_`` o un prefijo razonable.
 
 Markdown / reStructured Text / docblocks
 ----------------------------------------
 
-Style
-^^^^^
+Estilo
+^^^^^^
 
-The following rules to format text is intended to increase readability as well as versioning.
+Las siguientes reglas para dar formato al texto están destinadas a aumentar la legibilidad, así como el control de versiones.
 
-* *[.md, .rst only]* Each section title should be preceded by one empty line and succeeded by one empty line.
+* *[.md, .rst solamente]* Cada título de sección debe estar precedido por una línea vacía y seguido por una línea vacía.
 
-  * Rationale: It expedites to get an overview about the structure when screening the document.
+   * Justificación: Es rápido obtener una visión general de la estructura al examinar el documento.
 
-* *[.rst only]* In reStructured Text the headings should follow the hierarchy described in the `Sphinx style guide <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
+* *[Solo .rst]* En el texto reStructured, los encabezados deben seguir la jerarquía descrita en la `guía de estilo de Sphinx <https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html#headings>`__:
 
-  * ``#`` with overline (only once, used for the document title)
-  * ``*`` with overline
-  * ``=``
-  * ``-``
-  * ``^``
-  * ``"``
-  * Rationale: A consistent hierarchy expedites getting an idea about the nesting level when screening the document.
+   * ``#`` con línea superior (solo una vez, se usa para el título del documento)
+   * ``*`` con sobrelínea
+   * ``=``
+   * ``-``
+   * ``^``
+   * ``"``
+   * Justificación: una jerarquía coherente acelera la obtención de una idea sobre el nivel de anidamiento al examinar el documento.
 
-* *[.md only]* In Markdown the headings should follow the ATX-style described in the `Markdown syntax documentation <https://daringfireball.net/projects/markdown/syntax#header>`__
+* *[Solo .md]* En Markdown, los encabezados deben seguir el estilo ATX descrito en la `documentación de sintaxis de Markdown <https://daringfireball.net/projects/markdown/syntax#header>`__
 
-  * ATX-style headers use 1-6 hash characters (``#``) at the start of the line to denote header levels 1-6.
-  * A space between the hashes and the header title should be used (such as ``# Heading 1``) to make it easier to visually separate them.
-  * Justification for the ATX-style preference comes from the `Google Markdown style guide <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
-  * Rationale: ATX-style headers are easier to search and maintain, and make the first two header levels consistent with the other levels.
+   * Los encabezados de estilo ATX usan de 1 a 6 caracteres hash (``#``) al comienzo de la línea para indicar los niveles de encabezado 1-6.
+   * Se debe usar un espacio entre los hash y el título del encabezado (como ``# Heading 1``) para que sea más fácil separarlos visualmente.
+   * La justificación de la preferencia del estilo ATX proviene de la `guía de estilo de Google Markdown <https://github.com/google/styleguide/blob/gh-pages/docguide/style.md#atx-style-headings>`__
+   * Justificación: los encabezados de estilo ATX son más fáciles de buscar y mantener, y hacen que los dos primeros niveles de encabezado sean coherentes con los otros niveles.
 
-* *[any]* Each sentence must start on a new line.
+* *[cualquiera]* Cada oración debe comenzar en una nueva línea.
 
-  * Rationale: For longer paragraphs a single change in the beginning makes the diff unreadable since it carries forward through the whole paragraph.
+   * Justificación: para párrafos más largos, un solo cambio al principio hace que la diferencia sea ilegible, ya que continúa a lo largo de todo el párrafo.
 
-* *[any]* Each sentence can optionally be wrapped to keep each line short.
-* *[any]* The lines should not have any trailing white spaces.
-* *[.md, .rst only]* A code block must be preceded and succeeded by an empty line.
+* *[cualquiera]* Opcionalmente, cada oración se puede envolver para que cada línea sea corta.
+* *[cualquiera]* Las líneas no deben tener ningún espacio en blanco al final.
+* *[.md, .rst solamente]* Un bloque de código debe estar precedido y seguido por una línea vacía.
 
-  * Rationale: Whitespace is significant only directly before and directly after fenced code blocks.
-    Following these instructions will ensure that highlighting works properly and consistently.
+   * Justificación: los espacios en blanco son significativos solo directamente antes y después de los bloques de código delimitados.
+     Seguir estas instrucciones asegurará que el resaltado funcione de manera adecuada y consistente.
 
-* *[.md, .rst only]* A code block should specify a syntax (e.g. ``bash``).
+* *[.md, .rst solamente]* Un bloque de código debe especificar una sintaxis (por ejemplo, ``bash``).
