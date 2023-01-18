@@ -89,9 +89,9 @@ Esta es la forma recomendada de probar los cambios locales.
    make html
 
 El proceso de compilación puede llevar algún tiempo.
-Para ver el resultado, abra ``build/html/index.html`` en su navegador.
+Para ver el resultado, abre ``build/html/index.html`` en su navegador.
 
-También puede ejecutar las pruebas de documentación localmente (usando `doc8 <https://github.com/PyCQA/doc8>`_) con el siguiente comando:
+También puedes ejecutar las pruebas de documentación localmente (usando `doc8 <https://github.com/PyCQA/doc8>`_) con el siguiente comando:
 
 .. code-block:: console
 
@@ -100,7 +100,7 @@ También puede ejecutar las pruebas de documentación localmente (usando `doc8 <
 Construir el sitio para todas las ramas.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para construir el sitio para todas las ramas, escriba ``make multiversion`` desde la rama ``rolling``.
+Para construir el sitio para todas las ramas, escribe ``make multiversion`` desde la rama ``rolling``.
 Esto tiene dos inconvenientes:
 
 #. El complemento multiversión no entiende cómo hacer compilaciones incrementales, por lo que siempre reconstruye todo.
@@ -115,7 +115,7 @@ Luego debes editar el archivo `conf.py <https://github.com/ros2/ros2_documentati
 Comprobación de enlaces rotos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para verificar si hay enlaces rotos en el sitio, ejecute:
+Para verificar si hay enlaces rotos en el sitio, ejecuta:
 
 .. code-block:: console
 

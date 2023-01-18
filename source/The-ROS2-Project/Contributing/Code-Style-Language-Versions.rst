@@ -118,7 +118,7 @@ Denominación de funciones y métodos
 Control de acceso
 ~~~~~~~~~~~~~~~~~
 
-* Elimine el requisito de que todos los miembros de la clase sean privados y, por lo tanto, requieran accessors
+* Elimina el requisito de que todos los miembros de la clase sean privados y, por lo tanto, requieran accessors
 
   * justificación: esto es demasiado restrictivo para el diseño de API de usuario
   * debemos preferir miembros privados, solo haciéndolos públicos cuando sean necesarios
