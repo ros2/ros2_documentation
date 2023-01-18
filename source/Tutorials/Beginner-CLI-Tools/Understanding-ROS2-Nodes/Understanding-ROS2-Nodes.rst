@@ -23,7 +23,7 @@ Historial
 1 El grafo ROS 2
 ^^^^^^^^^^^^^^^^^
 
-En los próximos tutoriales, aprenderá sobre una serie de conceptos básicos de ROS 2 que componen lo que se conoce como el 'grafo de ROS (2)'.
+En los próximos tutoriales, aprenderás sobre una serie de conceptos básicos de ROS 2 que componen lo que se conoce como el 'grafo de ROS (2)'.
 
 El grafo ROS es una red de elementos de ROS 2, que procesan datos al mismo tiempo.
 Abarca todos los ejecutables y las conexiones entre ellos, como si tuviera que mapearlos y visualizarlos.
@@ -44,7 +44,7 @@ Requisitos previos
 
 El :doc:`tutorial previo<../Introducing-Turtlesim/Introducing-Turtlesim>` mustra como instalar el paquete ``turtlesim`` utilizado a continuación.
 
-Como siempre, no olvide de hacer un source ROS 2 en :doc:`cada terminal nueva<../Configuring-ROS2-Environment>`.
+Como siempre, no olvides hacer un source ROS 2 en :doc:`cada terminal nueva<../Configuring-ROS2-Environment>`.
 
 Tareas
 ------
@@ -58,7 +58,7 @@ El comando ``ros2 run`` lanza un ejecutable desde un paquete.
 
     ros2 run <package_name> <executable_name>
 
-Para ejecutar Turtlesim, abra una nueva terminal e ingrese el siguiente comando:
+Para ejecutar Turtlesim, abre una nueva terminal e ingresa el siguiente comando:
 
 .. code-block:: console
 
@@ -69,15 +69,15 @@ Se abrirá la ventana de turtlesim, como se vió en el :doc:`tutorial previo<../
 Aquí, el nombre del paquete es ``turtlesim`` y el nombre del ejecutable es ``turtlesim_node``.
 
 Sin embargo, todavía no sabemos el nombre del nodo.
-Puede encontrar nombres de nodos usando el comando ``ros2 node list``.
+Puedes encontrar nombres de nodos usando el comando ``ros2 node list``.
 
 2 ros2 node list
 ^^^^^^^^^^^^^^^^
 
-``ros2 node list`` le mostrará los nombres de todos los nodos que están actualmente en ejecución.
-Esto es especialmente útil cuando desea interactuar con un nodo o cuando tiene un sistema que ejecuta muchos nodos y necesita realizar un seguimiento de ellos.
+``ros2 node list`` te mostrará los nombres de todos los nodos que están actualmente en ejecución.
+Esto es especialmente útil cuando desea interactuar con un nodo o cuando tiene un sistema que ejecuta muchos nodos y necesitas realizar un seguimiento de ellos.
 
-Abra una nueva terminal mientras turtlesim aún se está ejecutando en la otra, e ingrese el siguiente comando:
+Abre una nueva terminal mientras turtlesim aún se está ejecutando en la otra, e ingrese el siguiente comando:
 
 .. code-block:: console
 
@@ -89,16 +89,16 @@ El terminal devolverá el nombre del nodo:
 
   /turtlesim
 
-Abra otra terminal nueva e inicie el nodo teleop con el comando:
+Abre otra terminal nueva e inicia el nodo teleop con el comando:
 
 .. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
-Aquí, estamos buscando de nuevo en el paquete turtlesim, esta vez el ejecutable llamado ``turtle_teleop_key``.
+Aquí estamos buscando de nuevo en el paquete turtlesim, esta vez el ejecutable llamado ``turtle_teleop_key``.
 
-Regrese a la terminal donde ejecutó ``ros2 node list`` y ejecútela nuevamente.
-Ahora verá los nombres de dos nodos activos:
+Regresa a la terminal donde se ejecutó ``ros2 node list`` y vuelve a ejecutarlo.
+Ahora verás los nombres de dos nodos activos:
 
 .. code-block:: console
 
@@ -108,8 +108,8 @@ Ahora verá los nombres de dos nodos activos:
 2.1 Reasignación
 ~~~~~~~~~~~~~~~~
 
-La reasignación le permite cambiar propiedades predeterminadas de los nodos, como su nombre, nombre del topic, nombres de servicios, etc., a valores personalizados.
-En el último tutorial, utilizó la reasignación en ``turtle_teleop_key`` para cambiar la tortuga que se controla.
+La reasignación te permite cambiar propiedades predeterminadas de los nodos, como su nombre, nombre del topic, nombres de servicios, etc., a valores personalizados.
+En el último tutorial, utilizaste la reasignación en ``turtle_teleop_key`` para cambiar la tortuga que se controla.
 
 Ahora, vamos a reasignar el nombre de nuestro nodo ``/turtlesim``.
 En una nueva terminal, ejecuta el siguiente comando:
@@ -118,8 +118,8 @@ En una nueva terminal, ejecuta el siguiente comando:
 
   ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
-Ya que está llamando a ``ros2 run`` para que se ejecute en turtlesim nuevamente, se abrirá otra ventana de turtlesim.
-Sin embargo, ahora, si regresa a la terminal donde ejecutó la lista de nodos ros2 y la vuelve a ejecutar, verá tres nombres de nodos:
+Ya que estás llamando a ``ros2 run`` para que se ejecute en turtlesim nuevamente, se abrirá otra ventana de turtlesim.
+Sin embargo, ahora, si regresas a la terminal donde ejecutó la lista de nodos ros2 y lo vuelves a ejecutar, verás tres nombres de nodos:
 
 .. code-block:: console
 
@@ -130,13 +130,13 @@ Sin embargo, ahora, si regresa a la terminal donde ejecutó la lista de nodos ro
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
 
-Ahora que conoce los nombres de sus nodos, puede acceder a más información sobre ellos con:
+Ahora que conoces los nombres de tus nodos, puedes acceder a más información sobre ellos con:
 
 .. code-block:: console
 
     ros2 node info <node_name>
 
-Para obtener información del nodo ``my_turtle``, ejecute el siguiente comando:
+Para obtener información del nodo ``my_turtle``, ejecuta el siguiente comando:
 
 .. code-block:: console
 
@@ -176,24 +176,24 @@ La salida debería verse así:
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
     Action Clients:
 
-Ahora intente ejecutar el mismo comando en el nodo ``/teleop_turtle`` y vea cómo sus conexiones difieren de ``my_turtle``.
+Ahora intenta ejecutar el mismo comando en el nodo ``/teleop_turtle`` y vea cómo las conexiones difieren de ``my_turtle``.
 
-Aprenderá más sobre los conceptos de conexión de gráficos de ROS, incluidos los tipos de mensajes, en los próximos tutoriales.
+Aprenderás más sobre los conceptos de conexión de gráficos de ROS, incluidos los tipos de mensajes, en los próximos tutoriales.
 
 Resumen
 -------
 
 Un nodo es un elemento fundamental de ROS 2, que es modular y tiene un único propósito en un sistema de robótica.
 
-En este tutorial, utilizó nodos creados a partir del paquete ``turtlesim`` ejecutando ``turtlesim_node`` y ``turtle_teleop_key``.
+En este tutorial, utilizaste nodos creados a partir del paquete ``turtlesim`` ejecutando ``turtlesim_node`` y ``turtle_teleop_key``.
 
-Aprendió a usar el comando ``ros2 node list`` para descubrir nombres de nodos activos y el comando ``ros2 node info`` para obtener información de un nodo en particular.
+Aprendiste a usar el comando ``ros2 node list`` para descubrir nombres de nodos activos y el comando ``ros2 node info`` para obtener información de un nodo en particular.
 Estas herramientas son vitales para comprender el flujo de datos en un sistema robótico complejo del mundo real.
 
 Pasos siguientes
 ----------------
 
-Ahora que comprende los nodos en ROS 2, puede continuar con el tutorial :doc:`de topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+Ahora que comprendes los nodos en ROS 2, puedes continuar con el tutorial :doc:`de topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 Los topics son uno de los tipos de comunicación que conecta los nodos.
 
 Contenido Relacionado
