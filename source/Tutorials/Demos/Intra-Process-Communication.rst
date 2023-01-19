@@ -124,9 +124,9 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
      return 0;
    }
 
-Como puede ver al observar la función ``main``, tenemos un nodo productor y otro consumidor, los agregamos a un único ejecutor de subprocesos y luego llamamos a spin.
+Como puedes ver al observar la función ``main``, tenemos un nodo productor y otro consumidor, los agregamos a un único ejecutor de subprocesos y luego llamamos a spin.
 
-Si observa la implementación del nodo "productor" en la estructura ``Producer``, puede ver que hemos creado un publicador que publica sobre el topic "number" y un temporizador que periódicamente crea un nuevo mensaje, imprime su dirección en la memoria y el valor de su contenido y luego lo publica.
+Si observas la implementación del nodo "productor" en la estructura ``Producer``, puedes ver que hemos creado un publicador que publica sobre el topic "number" y un temporizador que periódicamente crea un nuevo mensaje, imprime su dirección en la memoria y el valor de su contenido y luego lo publica.
 
 El nodo "consumidor" es un poco más simple, puedes ver su implementación en la estructura ``Consumer``, ya que solo se suscribe al topic "number" e imprime la dirección y el valor del mensaje que recibe.
 
@@ -154,21 +154,21 @@ Ejecutemos la demostración ejecutando ``ros2 run intra_process_demo two_node_pi
 Una cosa que notará es que los mensajes avanzan aproximadamente uno por segundo.
 Esto se debe a que le dijimos al temporizador que dispare aproximadamente una vez por segundo.
 
-También puede haber notado que el primer mensaje (con valor ``0``) no tiene una línea correspondiente de "Mensaje recibido...".
+También puedes haber notado que el primer mensaje (con valor ``0``) no tiene una línea correspondiente de "Mensaje recibido...".
 Esto se debe a que publicar/suscribir en "best effort" y no tenemos habilitado ningún comportamiento similar al "latching".
 Esto significa que si el publicador publica un mensaje antes de que se haya establecido la suscripción, la suscripción no recibirá ese mensaje.
 Esta condición de carrera puede provocar la pérdida de los primeros mensajes.
 En este caso, como solo llegan una vez por segundo, normalmente solo se pierde el primer mensaje.
 
-Finalmente, puede ver que las líneas "Published message.." y "Received message ..." con el mismo valor también tienen la misma dirección.
+Finalmente, puedes ver que las líneas "Published message.." y "Received message ..." con el mismo valor también tienen la misma dirección.
 Esto demuestra que la dirección del mensaje que se recibe es la misma que la que se publicó y que no es una copia.
 Esto se debe a que estamos publicando y suscribiéndonos con ``std::unique_ptr``\ s que permiten que la propiedad de un mensaje se mueva por el sistema de forma segura.
-También puede publicar y suscribirse con ``const &`` y ``std::shared_ptr``, pero en ese caso no se producirá copia cero.
+También puedes publicar y suscribirse con ``const &`` y ``std::shared_ptr``, pero en ese caso no se producirá copia cero.
 
 La demostración de comunicación cíclica
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Esta demostración es similar a la anterior, pero en lugar de que el productor cree un nuevo mensaje para cada iteración, esta demostración solo usa una instancia de mensaje.
+Esta demo es similar a la anterior, pero en lugar de que el productor cree un nuevo mensaje para cada iteración, esta demo solo usa una instancia de mensaje.
 Esto se logra mediante la creación de un ciclo en el gráfico y el "kicking off" de la comunicación al hacer que uno de los nodos publique externamente antes de hacer girar el ejecutor:
 
 https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp
@@ -253,7 +253,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
      return 0;
    }
 
-A diferencia de la demo anterior, esta demostración usa solo un Nodo, instanciado dos veces con diferentes nombres y configuraciones.
+A diferencia de la demo anterior, esta demo usa solo un Nodo, instanciado dos veces con diferentes nombres y configuraciones.
 El gráfico termina siendo ``pipe1`` -> ``pipe2`` -> ``pipe3`` ... en un bucle.
 
 La línea ``pipe1->pub->publish(msg);`` inicia el proceso, pero a partir de ese momento, los mensajes se pasan de un lado a otro entre los nodos y cada uno llama a la publicación dentro de su propio callback de suscripción.
@@ -291,7 +291,7 @@ Para probar esas expectativas, ejecútelo:
      sleeping for 1 second...
    [...]
 
-Debería ver números cada vez mayores en cada iteración, comenzando con 42... porque 42, y todo el tiempo reutiliza el mismo mensaje, como lo demuestran las direcciones de puntero que no cambian, lo que evita copias innecesarias.
+Deberías ver números cada vez mayores en cada iteración, comenzando con 42... porque 42, y todo el tiempo reutiliza el mismo mensaje, como lo demuestran las direcciones de puntero que no cambian, lo que evita copias innecesarias.
 
 La demo de comunicación de imágenes
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -332,16 +332,16 @@ Ejecutemos la demostración ejecutando el siguiente ejecutable:
 
    ros2 run intra_process_demo image_pipeline_all_in_one
 
-Debería ver algo como esto:
+Deberías ver algo como esto:
 
 
 .. image:: images/intra-process-demo-pipeline-single-window.png
 
 
-Puede pausar la representación de la imagen presionando la barra espaciadora y puede reanudarla presionando la barra espaciadora nuevamente.
+Puedes pausar la representación de la imagen presionando la barra espaciadora y puedes reanudarla presionando la barra espaciadora nuevamente.
 También puede presionar ``q`` o ``ESC`` para salir.
 
-Si pausa el visor de imágenes, debería poder comparar las direcciones escritas en la imagen y ver que son iguales.
+Si pausas el visor de imágenes, debería poder comparar las direcciones escritas en la imagen y ver que son iguales.
 
 Comunicación con dos visualizadores de imágenes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -360,7 +360,7 @@ Vamos a ejecutarlo con el comando:
 
 Al igual que en el último ejemplo, puede pausar el renderizado con la barra espaciadora y continuar presionando la barra espaciadora por segunda vez. Puede detener la actualización para inspeccionar los punteros escritos en la pantalla.
 
-Como puede ver en la imagen de ejemplo anterior, tenemos una imagen con todos los punteros iguales y luego otra imagen con los mismos punteros que la primera imagen para las dos primeras entradas, pero el último puntero en la segunda imagen es diferente. Para entender por qué sucede esto, considere la topología del gráfico:
+Como puedes ver en la imagen de ejemplo anterior, tenemos una imagen con todos los punteros iguales y luego otra imagen con los mismos punteros que la primera imagen para las dos primeras entradas, pero el último puntero en la segunda imagen es diferente. Para entender por qué sucede esto, considere la topología del gráfico:
 
 .. code-block:: bash
 
@@ -369,7 +369,7 @@ Como puede ver en la imagen de ejemplo anterior, tenemos una imagen con todos lo
 
 El enlace entre ``camera_node`` y ``watermark_node`` puede usar el mismo puntero sin copiar porque solo hay una suscripción dentro del proceso a la que se debe entregar el mensaje. Pero para el enlace entre ``watermark_node`` y los dos nodos de visualización de imagen, la relación es de uno a muchos, por lo que si los nodos de vista de imagen estuvieran usando callbacks ``unique_ptr``, entonces sería imposible entregar la propiedad del mismo puntero a ambos. Puede ser, sin embargo, entregado a uno de ellos. No se define cuál obtendría el puntero original, sino que es simplemente el último en ser entregado.
 
-Tenga en cuenta que los nodos de visualización de imagen no están suscritos con callbacks ``unique_ptr``. En su lugar, están suscritos con ``const shared_ptr``\ s. Esto significa que el sistema entrega el mismo ``shared_ptr`` a ambos callbacks. Cuando se maneja la primera suscripción dentro del proceso, el ``unique_ptr`` almacenado internamente se promociona a ``shared_ptr``. Cada uno de los callbacks recibirá la propiedad compartida del mismo mensaje.
+Ten en cuenta que los nodos de visualización de imagen no están suscritos con callbacks ``unique_ptr``. En su lugar, están suscritos con ``const shared_ptr``\ s. Esto significa que el sistema entrega el mismo ``shared_ptr`` a ambos callbacks. Cuando se maneja la primera suscripción dentro del proceso, el ``unique_ptr`` almacenado internamente se promociona a ``shared_ptr``. Cada uno de los callbacks recibirá la propiedad compartida del mismo mensaje.
 
 Comunicacion con visualización entre procesos
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -380,4 +380,4 @@ Otra cosa importante para hacerlo bien es evitar la interrupción del comportami
 .. image:: images/intra-process-demo-pipeline-inter-process.png
 
 
-Es difícil pausar ambas imágenes al mismo tiempo, por lo que es posible que las imágenes no se alineen, pero lo importante a tener en cuenta es que la vista de imagen ``image_pipeline_all_in_one`` muestra la misma dirección para cada paso. Esto significa que la copia cero dentro del proceso se conserva incluso cuando también se suscribe una vista externa. También puede ver que la vista de imagen entre procesos tiene ID de proceso diferentes para las dos primeras líneas de texto y la ID de proceso del visor de imágenes independiente en la tercera línea de texto.
+Es difícil pausar ambas imágenes al mismo tiempo, por lo que es posible que las imágenes no se alineen, pero lo importante a tener en cuenta es que la vista de imagen ``image_pipeline_all_in_one`` muestra la misma dirección para cada paso. Esto significa que la copia cero dentro del proceso se conserva incluso cuando también se suscribe una vista externa. También puedes ver que la vista de imagen entre procesos tiene ID de proceso diferentes para las dos primeras líneas de texto y la ID de proceso del visor de imágenes independiente en la tercera línea de texto.
