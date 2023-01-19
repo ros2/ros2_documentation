@@ -3,24 +3,24 @@
     dummy-robot-demo
     Tutorials/dummy-robot-demo
 
-Experimenting with a dummy robot
+Experimentando con un robot ficticio
 ================================
 
-In this demo, we present a simple demo robot with all components from publishing joint states over publishing fake laser data until visualizing the robot model on a map in RViz.
+En esta demo, presentamos un robot de demostración simple con todos los componentes, desde la publicación de estados conjuntos hasta la publicación de datos láser falsos hasta la visualización del modelo de robot en un mapa en RViz.
 
-Launching the demo
+Lanzamiento de la demo
 ------------------
 
-We assume your ROS 2 installation dir as ``~/ros2_ws``. Please change the directories according to your platform.
+Asumimos que tu directorio de instalación de ROS 2 es ``~/ros2_ws``. Cambia los directorios según su plataforma.
 
-To start the demo, we execute the demo bringup launch file, which we are going to explain in more details in the next section.
+Para iniciar la demo, ejecutamos el archivo de inicio de la demo, que explicaremos con más detalle en la siguiente sección.
 
 .. code-block:: bash
 
    source ~/ros2_ws/install/setup.bash
    ros2 launch dummy_robot_bringup dummy_robot_bringup.launch.py
 
-You should see some prints inside your terminal along the lines of the following:
+Deberías ver algunas impresiones dentro de su terminal a lo largo de las siguientes líneas:
 
 .. code-block:: bash
 
@@ -50,23 +50,23 @@ You should see some prints inside your terminal along the lines of the following
    Adding fixed segment from single_rrbot_link3 to single_rrbot_camera_link
    Adding fixed segment from single_rrbot_link3 to single_rrbot_hokuyo_link
 
-If you now open in a next terminal your RViz, you'll see your robot. 🎉
+Si ahora abres en una terminal tu RViz, verás tu robot. 🎉
 
 .. code-block:: bash
 
    $ source <ROS2_INSTALL_FOLDER>/setup.bash
    $ rviz2
 
-This opens RViz2. Assuming you have your dummy_robot_bringup still launched, you can now add the TF display plugin and configure your global frame to ``world``. Once you did that, you should see a similar picture:
+Esto abre RViz2. Suponiendo que todavía tienes su dummy_robot_bringup lanzado, ahora puedes agregar el complemento de pantalla TF y configurar su marco global para ``world``. Una vez que hayas hecho eso, deberías ver una imagen similar:
 
 
 .. image:: images/rviz-dummy-robot.png
 
 
-What's happening?
+¿Qué esta pasando?
 ^^^^^^^^^^^^^^^^^
 
-If you have a closer look at the launch file, we start a couple of nodes at the same time.
+Si observas más de cerca el archivo de inicio, iniciamos un par de nodos al mismo tiempo.
 
 
 * dummy_map_server
@@ -74,10 +74,10 @@ If you have a closer look at the launch file, we start a couple of nodes at the 
 * dummy_joint_states
 * robot_state_publisher
 
-The first two packages are relatively simple. The ``dummy_map_server`` constantly publishes an empty map with a periodic update. The ``dummy_laser`` does basically the same; publishing dummy fake laser scans.
+Los primeros dos paquetes son relativamente simples. El ``dummy_map_server`` publica constantemente un mapa vacío con una actualización periódica. El ``dummy_laser`` hace básicamente lo mismo; publicación de escaneos láser falsos ficticios.
 
-The ``dummy_joint_states`` node is publishing fake joint state data. As we are publishing a simple RRbot with only two joints, this node publishes joint states values for these two joints.
+El nodo ``dummy_joint_states`` está publicando datos de joint states falsos. Como estamos publicando un RRbot simple con solo dos articulaciones, este nodo publica valores de joint states para estas dos articulaciones.
 
-The ``robot_state_publisher`` is doing the actual interesting work. It parses the given URDF file, extracts the robot model and listens to the incoming joint states. With this information, it publishes TF values for our robot which we visualize in RViz.
+El ``robot_state_publisher`` está haciendo un trabajo realmente interesante. Analiza el archivo URDF dado, extrae el modelo de robot y escucha los estados de unión entrantes. Con esta información publica valores de TF para nuestro robot que visualizamos en RViz.
 
-Hooray!
+¡Hurra!
