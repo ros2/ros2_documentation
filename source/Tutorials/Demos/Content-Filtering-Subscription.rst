@@ -41,15 +41,15 @@ Los suscriptores de filtrado de contenido requieren compatibilidad con la implem
      - no soportado
 
 Actualmente, todas las implementaciones de RMW que admiten suscripciones de filtrado de contenido están basadas en `DDS <https://www.omg.org/omg-dds-portal/>`__.
-Eso significa que las expresiones y parámetros de filtrado compatibles también dependen de `DDS <https://www.omg.org/omg-dds-portal/>`__, puede consultar la especificación `DDS <https://www. omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` para obtener detalles.
+Eso significa que las expresiones y parámetros de filtrado compatibles también dependen de `DDS <https://www.omg.org/omg-dds-portal/>`__, puedes consultar la especificación `DDS <https://www. omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` para obtener detalles.
 
 Instalación de la demo
 -------------------
 
-Consulte las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
+Consulta las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
 
-Si ha instalado ROS 2 desde paquetes, asegúrese de tener ``ros-{DISTRO}-demo-nodes-cpp`` instalado.
-Si descargó el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
+Si ha instalado ROS 2 desde paquetes, asegúrate de tener ``ros-{DISTRO}-demo-nodes-cpp`` instalado.
+Si descargaste el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
 
 Demostración de filtrado de temperatura
 --------------------------
@@ -272,7 +272,7 @@ Para probar la suscripción de filtrado de contenido, ejecutémoslo:
     [INFO] [1651094625.823266469] [content_filtering_subscriber]: I receive an emergency temperature data: [-50.000000]
     [INFO] [1651094626.823284093] [content_filtering_subscriber]: I receive an emergency temperature data: [-40.000000]
 
-Debería ver un mensaje que muestre las opciones de filtrado de contenido utilizadas y los registros de cada mensaje recibido solo si el valor de la temperatura es inferior a -30,0 o superior a 100,0.
+Deberías ver un mensaje que muestre las opciones de filtrado de contenido utilizadas y los registros de cada mensaje recibido solo si el valor de la temperatura es inferior a -30,0 o superior a 100,0.
 
 Si la implementación de RMW no admite el filtrado de contenido, la suscripción aún se creará sin el filtrado de contenido habilitado.
 Podemos intentarlo ejecutando ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher``.
@@ -299,7 +299,7 @@ Podemos intentarlo ejecutando ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run d
     [INFO] [1651096656.245833975] [content_filtering_subscriber]: I receive a temperature data: [50.000000]
     [INFO] [1651096657.245971483] [content_filtering_subscriber]: I receive a temperature data: [60.000000]
 
-Puede ver el mensaje ``Content filter is not enabled`` porque la implementación de RMW subyacente no es compatible con la función, pero la demostración aún crea correctamente la suscripción normal para recibir todos los datos de temperatura.
+Puedes ver el mensaje ``Content filter is not enabled`` porque la implementación de RMW subyacente no es compatible con la función, pero la demostración aún crea correctamente la suscripción normal para recibir todos los datos de temperatura.
 
 Contenido relacionado
 ---------------
