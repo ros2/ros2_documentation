@@ -2,54 +2,54 @@
 
     Contributing/Contributing-To-ROS-2-Documentation
 
-Contributing to ROS 2 Documentation
-===================================
+Contribuir a la Documentación de  ROS 2
+=======================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenido
    :depth: 2
    :local:
 
-Contributions to this site are most welcome.
-This page explains how to contribute to ROS 2 Documentation.
-Please be sure to read the below sections carefully before contributing.
+Las contribuciones a este sitio son bienvenidas.
+Esta página explica cómo contribuir a la documentación de ROS 2.
+Asegúrate de leer detenidamente las siguientes secciones antes de contribuir.
 
-The site is built using `Sphinx <https://www.sphinx-doc.org/en/master/>`_, and more particularly using `Sphinx multiversion <https://holzhaus.github.io/sphinx-multiversion/master/index.html>`_.
+El sitio está construido usando  `Sphinx <https://www.sphinx-doc.org/en/master/>`__, especificamente `Sphinx multiversion <https://holzhaus.github.io/sphinx-multiversion/master/index.html>`__.
 
-Branch structure
-----------------
+Estructura de la rama
+---------------------
 
-The source code of documentation is located in the `ROS 2 Documentation GitHub repository <https://github.com/ros2/ros2_documentation>`_.
-This repository is set up with one branch per ROS 2 distribution to handle differences between the distributions.
-If a change is common to all ROS 2 distributions, it should be made to the ``rolling`` branch (and then will be backported as appropriate).
-If a change is specific to a particular ROS 2 distribution, it should be made to the respective branch.
+El código fuente de la documentación se encuentra en `el repositorio de Github de ROS 2 Documentation <https://github.com/ros2/ros2_documentation>`_.
+Este repositorio está configurado asignando una rama a cada distribución de ROS 2 para manejar las diferencias entre las distribuciones.
+Si un cambio es común a todas las distribuciones de ROS 2, debe realizarse en la rama ``rolling`` (y luego se actualizará según corresponda).
+Si un cambio es específico a una distribución particular de ROS 2, debe realizarse en la respectiva rama.
 
-Source structure
-----------------
+Estructura del código fuente
+----------------------------
 
-The source files for the site are all located under the ``source`` subdirectory.
-Templates for various sphinx plugins are located under ``source/_templates``.
-The root directory contains configuration and files required to locally build the site for testing.
+Los archivos fuente del sitio están todos ubicados en la carpeta ``source``.
+Las plantillas para varios complementos de sphinx se encuentran en ``source/_templates``.
+El directorio raíz del repositorio contiene la configuración y los archivos necesarios para construir localmente el sitio para hacer pruebas.
 
-Building the site locally
--------------------------
+Construir el sitio localmente
+-----------------------------
 
-Start by installing requirements located in the ``requirements.txt`` file:
+Comience instalando los requisitos ubicados en el archivo ``requirements.txt``:
 
 .. tabs::
 
   .. group-tab:: Linux
 
-    The next command does a user-specific install, which requires ``~/.local/bin/`` to be added to ``$PATH``:
+     El siguiente comando realiza una instalación de tipo usuario actual, este requiere que se agregue ``~/.local/bin/`` a ``$PATH``:
 
-    .. code-block:: console
+   .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+         pip3 install --user --upgrade -r requirements.txt
 
   .. group-tab:: macOS
 
-    .. code-block:: console
+   .. code-block:: console
 
-       pip3 install --user --upgrade -r requirements.txt
+         pip3 install --user --upgrade -r requirements.txt
 
   .. group-tab:: Windows
 
@@ -57,7 +57,7 @@ Start by installing requirements located in the ``requirements.txt`` file:
 
       python -m pip install --user --upgrade -r requirements.txt
 
-In order for Sphinx to be able to generate diagrams, the ``dot`` command must be available.
+Para que Sphinx pueda generar diagramas, el comando ``dot`` debe estar disponible.
 
 .. tabs::
 
@@ -75,142 +75,142 @@ In order for Sphinx to be able to generate diagrams, the ``dot`` command must be
 
   .. group-tab:: Windows
 
-      Download an installer from `the Graphviz Download page <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install it.
-      Make sure to allow the installer to add it to the Windows ``%PATH%``, otherwise Sphinx will not be able to find it.
+      Descarga un instalador  de `la pagina de descargas de Graphviz <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ e instálalo.
+      Asegurate de permitir que el instalador añada a Graphviz al ``%PATH%``de Windows de lo contrario Sphinx no lo encontrara.
 
-Building the site for one branch
+Construir el sitio para una rama
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build the site for just this branch, type ``make html`` at the top-level of the repository.
-This is the recommended way to test out local changes.
+Para construir el sitio unicamente para la rama actual, escribe ``make html`` en la carpeta raíz del repositorio.
+Esta es la forma recomendada de probar los cambios locales.
 
 .. code-block:: console
 
    make html
 
-The build process can take some time.
-To see the output, open ``build/html/index.html`` in your browser.
+El proceso de compilación puede llevar algún tiempo.
+Para ver el resultado, abre ``build/html/index.html`` en su navegador.
 
-You can also run the documentation tests locally (using `doc8 <https://github.com/PyCQA/doc8>`_) with the following command:
+También puedes ejecutar las pruebas de documentación localmente (usando `doc8 <https://github.com/PyCQA/doc8>`_) con el siguiente comando:
 
 .. code-block:: console
 
    make test
 
-Building the site for all branches
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Construir el sitio para todas las ramas.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To build the site for all branches, type ``make multiversion`` from the ``rolling`` branch.
-This has two drawbacks:
+Para construir el sitio para todas las ramas, escribe ``make multiversion`` desde la rama ``rolling``.
+Esto tiene dos inconvenientes:
 
-#. The multiversion plugin doesn't understand how to do incremental builds, so it always rebuilds everything.
-   This can be slow.
+#. El complemento multiversión no entiende cómo hacer compilaciones incrementales, por lo que siempre reconstruye todo.
+   Esto puede ser lento.
 
-#. When typing ``make multiversion``, it will always check out exactly the branches listed in the ``conf.py`` file.
-   That means that local changes will not be shown.
+#. Al escribir ``make multiversion``, siempre verificará exactamente las ramas enumeradas en el archivo ``conf.py``.
+   Eso significa que no se mostrarán los cambios locales.
 
-To show local changes in the multiversion output, you must first commit the changes to a local branch.
-Then you must edit the `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ file and change the ``smv_branch_whitelist`` variable to point to your branch.
+Para mostrar los cambios locales en la salida de varias versiones, primero debes realizar un commit con los cambios en una rama local.
+Luego debes editar el archivo `conf.py <https://github.com/ros2/ros2_documentation/blob/rolling/conf.py>`_ y cambiar la variable ``smv_branch_whitelist`` para que apunte a tu rama.
 
-Checking for broken links
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Comprobación de enlaces rotos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To check for broken links on the site, run:
+Para verificar si hay enlaces rotos en el sitio, ejecuta:
 
 .. code-block:: console
 
    make linkcheck
 
-This will check the entire site for broken links, and output the results to the screen and ``build/linkcheck``.
+Esto comprobará todo el sitio en busca de enlaces rotos y mostrará los resultados en la pantalla y en ``build/linkcheck``.
 
-Writing pages
--------------
+Escribir paginas
+----------------
 
-The ROS 2 documentation website uses the ``reStructuredText`` format, which is the default plaintext markup language used by Sphinx.
-This section is a brief introduction to ``reStructuredText`` concepts, syntax, and best practices.
+El sitio web de documentación de ROS 2 utiliza el formato ``reStructuredText``, que es el lenguaje de markup de texto plano que Sphinx utiliza de manera predeterminada.
+Esta sección es una breve introducción a los conceptos, la sintaxis y las mejores prácticas de ``reStructuredText``.
 
-You can refer to `reStructuredText User Documentation <https://docutils.sourceforge.io/rst.html>`_ for a detailed technical specification.
+Puede consultar la `Documentación de reStructuredText  <https://docutils.sourceforge.io/rst.html>`_ para obtener una especificación técnica detallada.
 
-Table of Contents
-^^^^^^^^^^^^^^^^^
+Tabla de Contenido
+^^^^^^^^^^^^^^^^^^
 
-There are two types of directives used for the generation of a table of contents, ``.. toctree::`` and ``.. contents::``.
-The ``.. toctree::`` is used in top-level pages like ``Tutorials.rst`` to set ordering and visibility of its child pages.
-This directive creates both left navigation panel and in-page navigation links to the child pages listed.
-It helps readers to understand the structure of separate documentation sections and navigate between pages.
+Hay dos tipos de directivas utilizadas para la generación de una tabla de contenido, ``.. toctree::`` y ``.. content::``.
+El ``.. toctree::`` se usa en páginas de nivel superior como ``Tutorials.rst`` para establecer el orden y la visibilidad de sus páginas secundarias.
+Esta directiva crea tanto el panel de navegación izquierdo como los enlaces de navegación en la página a las páginas secundarias enumeradas.
+Ayuda a los lectores a comprender la estructura de diferentes secciones de la documentación y la navegación entre ellos.
 
 .. code-block:: rst
 
    .. toctree::
       :maxdepth: 1
 
-The ``.. contents::`` directive is used for the generation of a table of contents for that particular page.
-It parses all present headings in a page and builds an in-page nested table of contents.
-It helps readers to see an overview of the content and navigate inside a page.
+La directiva ``..contents::`` se usa para generar una tabla de contenido para esa página en particular.
+Analiza todos los encabezados presentes en una página y crea una tabla de contenido dentro de la página.
+Ayuda a los lectores a ver una descripción general del contenido y navegar dentro de una página.
 
-The ``.. contents::`` directive supports the definition of maximum depth of nested sections.
-Using ``:depth: 2`` will only show Sections and Subsections in the table of contents.
+La directiva ``..contents::`` soporta la definición de profundidad máxima de secciones anidadas.
+Al usar ``: depth: 2`` solo mostrará Secciones y Subsecciones en la tabla de contenido.
 
 .. code-block:: rst
 
-   .. contents:: Table of Contents
+   .. contents:: Tabla de Contenido
       :depth: 2
       :local:
 
-Headings
-^^^^^^^^
+Encabezados
+^^^^^^^^^^^
 
-There are four main Heading types used in the documentation.
-Note that the number of symbols has to match the length of the title.
-
-.. code-block:: rst
-
-   Page Title Header
-   =================
-
-   Section Header
-   --------------
-
-   2 Subsection Header
-   ^^^^^^^^^^^^^^^^^^^
-
-   2.4 Subsubsection Header
-   ~~~~~~~~~~~~~~~~~~~~~~~~
-
-We usually use one digit for numbering subsections and two digits (dot separated) for numbering subsubsections in Tutorials and How-To-Guides.
-
-Lists
-^^^^^
-
-Stars ``*`` are used for listing unordered items with bullet points and number sign ``#.``  is used for listing numbered items.
-Both of them support nested definitions and will render accordingly.
+Hay cuatro tipos principales de encabezados utilizados en la documentación.
+Ten en cuenta que el número de símbolos tiene que coincidir con la longitud del título.
 
 .. code-block:: rst
 
-   * bullet point
+   Encabezado titulo de pagina
+   ==========================
 
-     * bullet point nested
-     * bullet point nested
+   Encabezado de Sección
+   ---------------------
 
-   * bullet point
+   2 Encabezado de Subsección
+   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+   2.4 Encabezado de Subsubsección
+   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Por lo general, usamos un dígito para numerar las subsecciones y dos dígitos (separados por puntos) para numerar las subsubsecciones en los tutoriales y las How-To-Guides.
+
+Listas
+^^^^^^
+
+Las estrellas ``*`` se usan para listar con viñetas elementos desordenados  y el signo de número ``#.`` se usa para listar elementos numerados.
+Ambos admiten definiciones anidadas y se muestran de manera acorde.
 
 .. code-block:: rst
 
-  #. first listed item
-  #. second lited item
+   * viñeta
 
-Code Formatting
-^^^^^^^^^^^^^^^
+     * viñeta anidada
+     * viñeta anidada
 
-In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
+   * viñeta
 
 .. code-block:: rst
 
-   In-text code can be formatted using ``backticks`` for showing ``highlighted`` code.
+  #. Pirmer elemento
+  #. Segundo elemento
 
-Code blocks inside a page need to be captured using ``.. code-block::`` directive.
-``.. code-block::`` supports code highlighting for syntaxes like ``C++``, ``YAML``, ``console``, ``bash``, and more.
-Code inside the directive needs to be indented.
+Formato de código
+^^^^^^^^^^^^^^^^^
+Las ``comillas invertidas`` pueden ser usadas para ``resaltar`` código en el texto.
+
+
+.. code-block:: rst
+
+   Las ``comillas invertidas`` pueden ser usadas para ``resaltar`` código en el texto.
+
+Los bloques de código dentro de una página necesitan ser encerrados usando la directiva ``.. code-block::``.
+``.. code-block::`` admite el resaltado de código para sintaxis como ``C++``, ``YAML``, ``console``, ``bash`` y más.
+El código dentro de la directiva debe estar indentado.
 
 .. code-block:: rst
 
@@ -224,78 +224,78 @@ Code inside the directive needs to be indented.
          return 0;
       }
 
-Images
-^^^^^^
+Imágenes
+^^^^^^^^
 
-Images can be inserted using the ``.. image::`` directive.
+Las imágenes se pueden insertar usando la directiva ``.. image::``.
 
 .. code-block:: rst
 
    .. image:: images/turtlesim_follow1.png
 
-References and Links
-^^^^^^^^^^^^^^^^^^^^
+Referencias y enlaces
+^^^^^^^^^^^^^^^^^^^^^
 
-External links
-~~~~~~~~~~~~~~
+Enlaces externos
+~~~~~~~~~~~~~~~~
 
-The syntax of creating links to external web pages is shown below.
-
-.. code-block:: rst
-
-   `ROS Docs <https://docs.ros.org>`_
-
-The above link will appear as `ROS Docs <https://docs.ros.org>`_.
-Note the underscore after the final single quote.
-
-Internal links
-~~~~~~~~~~~~~~
-
-The ``:doc:`` directive is used to create in-text links to other pages.
+La sintaxis para crear enlaces a páginas web externas se muestra a continuación.
 
 .. code-block:: rst
 
-   :doc:`Quality of Service <../Tutorials/Quality-of-Service>`
+    `Documentos de ROS <https://docs.ros.org>`_
 
-Note that the relative path to the file is used.
+El enlace anterior aparecerá como `Documentos de ROS <https://docs.ros.org>`_.
+Tenga en cuenta el guión bajo después de la comilla simple final.
 
-The ``ref`` directive is used to make links to specific parts of a page.
-These could be headings, images or code sections inside the current or different page.
+Enlaces internos
+~~~~~~~~~~~~~~~~
 
-Definition of explicit target right before the desired object is required.
-In the example below, the target is defined as ``_talker-listener`` one line before the heading ``Try some examples``.
+La directiva ``:doc:`` se usa para crear enlaces en el texto a otras páginas.
+
+.. code-block:: rst
+
+    :doc:`Calidad de Servicio <../Tutorials/Quality-of-Service>`
+
+Tenga en cuenta que se utiliza la ruta relativa al archivo.
+
+La directiva ``ref`` se usa para hacer enlaces a partes específicas de una página.
+Estos pueden ser encabezados, imágenes o secciones de código dentro de la página actual u otra.
+
+Se necesita definir explícitamente una referencia justo antes del elemento deseado.
+En el siguiente ejemplo, la referencia se define como ``_talker-listener`` una línea antes del título ``Prueba algunos ejemplos``.
 
 .. code-block:: rst
 
    .. _talker-listener:
 
-   Try some examples
-   -----------------
+    Prueba algunos ejemplos
+    -----------------
 
-Now the link from any page in the documentation to that header can be created.
+Ahora se puede crear el enlace desde cualquier página de la documentación a ese encabezado.
 
 .. code-block:: rst
 
-   :ref:`talker-listener demo <talker-listener>`
+   :ref:` demo talker-listener <talker-listener>`
 
-This link will navigate a reader to the target page with an HTML anchor link ``#talker-listener``.
+Este enlace llevará al lector a la página de destino con un enlace de anclaje HTML ``#talker-listener``.
 
 Macros
 ~~~~~~
 
-Macros can be used to simplify writing documentation that targets multiple distributions.
+Las macros se pueden usar para simplificar la escritura de documentación dirigida a múltiples distribuciones.
 
-Use a macro by including the macro name in curly braces.
-For example, when generating the docs for Rolling on the ``rolling`` branch:
+Use una macro incluyendo el nombre de la macro entre llaves.
+Por ejemplo, al generar los documentos para Rolling en la rama ``rolling``:
 
 
-=====================  =====================  ==================================
-Use                    Becomes (for Rolling)  Example
-=====================  =====================  ==================================
-\{DISTRO\}             rolling                ros-\{DISTRO\}-pkg
-\{DISTRO_TITLE\}       Rolling                ROS 2 \{DISTRO_TITLE\}
-\{DISTRO_TITLE_FULL\}  Rolling Ridley         ROS 2 \{DISTRO_TITLE_FULL\}
-\{REPOS_FILE_BRANCH\}  rolling                git checkout \{REPOS_FILE_BRANCH\}
-=====================  =====================  ==================================
+=====================  =========================  ==================================
+Usando                 Resultado (para Rolling)   Ejemplo
+=====================  =========================  ==================================
+\{DISTRO\}             rolling                    ros-\{DISTRO\}-pkg
+\{DISTRO_TITLE\}       Rolling                    ROS 2 \{DISTRO_TITLE\}
+\{DISTRO_TITLE_FULL\}  Rolling Ridley             ROS 2 \{DISTRO_TITLE_FULL\}
+\{REPOS_FILE_BRANCH\}  rolling                    git checkout \{REPOS_FILE_BRANCH\}
+=====================  =========================  ==================================
 
-The same file can be used on multiple branches (i.e., for multiple distros) and the generated content will be distro-specific.
+El mismo archivo se puede usar en varias sucursales (es decir, para varias distribuciones) y el contenido generado será específico de la distribución.
