@@ -5,31 +5,31 @@
 Eclipse Cyclone DDS
 ===================
 
-Eclipse Cyclone DDS is a very performant and robust open-source DDS implementation.
-Cyclone DDS is developed completely in the open as an Eclipse IoT project.
-See also: https://projects.eclipse.org/projects/iot.cyclonedds
+Eclipse Cyclone DDS es una implementación de DDS de código abierto robusta y de gran rendimiento.
+Cyclone DDS se desarrolla completamente abierto como un proyecto Eclipse IoT.
+Consulta también: https://projects.eclipse.org/projects/iot.cyclonedds
 
 
-Prerequisites
--------------
+requisitos previos
+------------------
 
-Have `rosdep installed  <https://wiki.ros.org/rosdep#Installing_rosdep>`__
+Tener `rosdep instalado <https://wiki.ros.org/rosdep#Installing_rosdep>`__
 
-Install packages
-----------------
+Instalar paquetes
+-----------------
 
-The easiest way is to install from ROS 2 apt repository.
+La forma más fácil es instalar desde el repositorio apt de ROS 2.
 
 .. code-block:: bash
 
    sudo apt install ros-{DISTRO}-rmw-cyclonedds-cpp
 
-Build from source code
-----------------------
+Compilar a partir del código fuente
+-----------------------------------
 
-Building from source code is also another way to install.
+Compilar a partir del código fuente también es otra forma de instalar.
 
-First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source directory.
+Primero, clona Cyclone DDS y rmw_cyclonedds en el directorio src del espacio de trabajo de ROS 2.
 
 .. code-block:: bash
 
@@ -37,34 +37,34 @@ First, clone Cyclone DDS and rmw_cyclonedds in the ROS 2 workspace source direct
    git clone https://github.com/ros2/rmw_cyclonedds ros2/rmw_cyclonedds -b {REPOS_FILE_BRANCH}
    git clone https://github.com/eclipse-cyclonedds/cyclonedds eclipse-cyclonedds/cyclonedds
 
-Then, install necessary packages for Cyclone DDS.
+Luego, instala los paquetes necesarios para Cyclone DDS.
 
 .. code-block:: bash
 
    cd ..
    rosdep install --from src -i
 
-Finally, run colcon build.
+Finalmente, ejecute colcon build.
 
 .. code-block:: bash
 
    colcon build --symlink-install
 
-Switch to rmw_cyclonedds
+Cambiar a rmw_cyclonedds
 ------------------------
 
-Switch from other rmw to rmw_cyclonedds by specifying the environment variable.
+Cambie de otro rmw a rmw_cyclonedds especificando la variable de entorno.
 
 .. code-block:: bash
 
    export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
-See also: :doc:`Working with multiple RMW implementations <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
+Consulta también: :doc:`Trabajar con varias implementaciones de RMW <../../How-To-Guides/Working-with-multiple-RMW-implementations>`
 
-Run the talker and listener
----------------------------
+Ejecuta el talker y el listener
+-------------------------------
 
-Now run ``talker`` and ``listener`` to test Cyclone DDS.
+Ahora ejecuta ``talker`` y ``listener`` para probar Cyclone DDS.
 
 .. code-block:: bash
 

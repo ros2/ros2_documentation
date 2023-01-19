@@ -1,31 +1,31 @@
 .. redirect-from::
 
-  Intel-ROS2-Projects
+  Proyectos-Intel-ROS2
 
-Intel ROS 2 Projects
-====================
+Proyectos de Intel en ROS 2
+============================
 
-Intel® Robotics Open Source Project (Intel® ROS Project) to enable object detection/location/tracking, people detection, vehicle detection, industry robot arm grasp point analysis with kinds of Intel technologies and platforms, including CPU, GPU, `Intel® Movidius™ NCS <https://www.intel.com/content/www/us/en/developer/tools/neural-compute-stick/overview.html>`__ optimized deep learning backend, FPGA, `Intel® RealSense™ <https://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html>`__ camera, etc.
+Intel® Robotics Open Source Project (Intel® ROS Project) constituyen  detección/localización/tracking de objetos, detección de personas, detección de vehículos, manipulación robótica con tecnología Intel, incluyendo CPUs, GPUs, `Intel® Movidius™ NCS <https://www.intel.com/content/www/us/en/developer/tools/neural-compute-stick/overview.html>`__ optimización de backend para deep learning, FPGAs, `Intel® RealSense™ <https://www.intel.com/content/www/us/en/architecture-and-technology/realsense-overview.html>`__ cámaras, etc.
 
-Key Projects
+Proyectos principales
+---------------------
+
+El código de los proyectos son publicados gradualmente en el repositorio https://github.com/intel/
+
+* `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: Paquete de ROS 2 para Intel® Visual, que contiene una serie de herramientas enfocadas al desarrollo multiplataforma de soluciones basadas en vision por computadora.
+* `ROS2 RealSense Camera <https://github.com/intel/ros2_intel_realsense>`__: Paquete de ROS 2 para las cámaras Intel® RealSense™ D400
+* `ROS2 Movidius NCS <https://github.com/intel/ros2_intel_movidius_ncs>`__: Paquete de ROS 2 para detección de objetos con Intel® Movidius™ Neural Computing Stick (NCS).
+* `ROS2 Object Messages <https://github.com/intel/ros2_object_msgs>`__: Paquete de ROS 2 con mensajes para la detección de objetos.
+* `ROS2 Object Analytics <https://github.com/intel/ros2_object_analytics>`__: Paquete de ROS 2 para la detección de objetos, seguimiento y localización 2D/3D.
+* `ROS2 Message Filters <https://github.com/ros2/message_filters>`__: Paquete de ROS 2 for sincronizar mensajes con su estampa de tiempo.
+* `ROS2 CV Bridge <https://github.com/ros-perception/vision_opencv/tree/ros2/cv_bridge>`__: Paquete de ROS 2 para usar openCV junto con los mensajes estándar.
+* `ROS2 Object Map <https://github.com/intel/ros2_object_map>`__: Paquete de ROS 2 que crea una etiqueta de los objetos detectados cuando se usan métodos de SLAM.
+* `ROS2 Moving Object <https://github.com/intel/ros2_moving_object>`__: Paquete de ROS 2 que provee información de movimiento.
+* `ROS2 Grasp Library <https://github.com/intel/ros2_grasp_library>`__: Paquete de ROS 2 para análisis de manipulación de objetos `MoveIt <https://github.com/ros-planning/moveit2.git>`__ .
+* `ROS2 Navigation <https://github.com/ros-planning/navigation2>`__: Paquete de ROS 2 para navegación.
+* `Intel Robot DevKit (SDK) <https://github.com/intel/robot_devkit>`__: Proyecto de código abierto que permite a los desarrolladores generar de código de manera fácil y eficiente.
+
+Referencias
 ------------
 
-We are working on below ROS 2 projects and publish source code through https://github.com/intel/ or ROS 2 GitHub repo gradually.
-
-* `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: ROS 2 package for Intel® Visual Inference and Neural Network Optimization Toolkit to develop multiplatform computer vision solutions.
-* `ROS2 RealSense Camera <https://github.com/intel/ros2_intel_realsense>`__: ROS 2 package for Intel® RealSense™ D400 serial cameras
-* `ROS2 Movidius NCS <https://github.com/intel/ros2_intel_movidius_ncs>`__: ROS 2 package for object detection with Intel® Movidius™ Neural Computing Stick (NCS).
-* `ROS2 Object Messages <https://github.com/intel/ros2_object_msgs>`__: ROS 2 messages for object.
-* `ROS2 Object Analytics <https://github.com/intel/ros2_object_analytics>`__: ROS 2 package for object detection, tracking and 2D/3D localization.
-* `ROS2 Message Filters <https://github.com/ros2/message_filters>`__: ROS 2 package for message synchronization with time stamp.
-* `ROS2 CV Bridge <https://github.com/ros-perception/vision_opencv/tree/ros2/cv_bridge>`__: ROS 2 package to bridge with openCV.
-* `ROS2 Object Map <https://github.com/intel/ros2_object_map>`__: ROS 2 package to mark tag of objects on map when SLAM based on information provided by ROS 2 object analytics.
-* `ROS2 Moving Object <https://github.com/intel/ros2_moving_object>`__: ROS 2 package to provide object motion information (like object velocity on x, y, z axis) based on information provided by ROS 2 object analytics.
-* `ROS2 Grasp Library <https://github.com/intel/ros2_grasp_library>`__: ROS 2 package for grasp position analysis, and compatible with `MoveIt <https://github.com/ros-planning/moveit2.git>`__ grasp interfaces.
-* `ROS2 Navigation <https://github.com/ros-planning/navigation2>`__: ROS 2 package for robot navigation, it's already integrated to ROS 2 Crystal release.
-* `Intel Robot DevKit (SDK) <https://github.com/intel/robot_devkit>`__: An open source project which enables developers to easily and efficiently create, customize, optimize, and deploy a robot software stack to an Autonomous Mobile Robot (AMR) platform based on the Robot Operating System 2 (ROS 2) framework.
-
-Reference
----------
-
-ROS components at: https://wiki.ros.org/IntelROSProject shows the relationship among those packages, which also applies to ROS 2.
+Componentes de ROS en: https://wiki.ros.org/IntelROSProject muestra la relación de los proyectos. También aplica para ROS2

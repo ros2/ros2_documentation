@@ -1,6 +1,6 @@
-Make sure you have a locale which supports ``UTF-8``.
-If you are in a minimal environment (such as a docker container), the locale may be something minimal like ``POSIX``.
-We test with the following settings. However, it should be fine if you're using a different UTF-8 supported locale.
+Asegúrate de tener una configuración regional que admita ``UTF-8``.
+Si te encuentra en un entorno mínimo (como un contenedor docker), la configuración regional puede ser algo mínimo como ``POSIX``.
+Hemos probado con los siguientes ajustes. Sin embargo, debería también ser correcto utilizar una configuración regional compatible con UTF-8 diferente.
 
 .. code-block:: bash
 

@@ -2,47 +2,47 @@
 
    Installation/Linux-Install-Binary
 
-Ubuntu (binary)
-===============
+Ubuntu (binarios)
+=================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
-This page explains how to install ROS 2 on Ubuntu Linux from a pre-built binary package.
+Esta página explica cómo instalar ROS 2 en Ubuntu Linux desde un paquete binario precompilado.
 
 .. note::
 
-    The pre-built binary does not include all ROS 2 packages.
-    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
+    El binario precompilado no incluye todos los paquetes ROS 2.
+    Se incluyen todos los paquetes de la `variante base de ROS <https://ros.org/reps/rep-2001.html#ros-base>`_ y solo un subconjunto de paquetes de la `variante de escritorio ROS <https:/ /ros.org/reps/rep-2001.html#desktop-variants>`_ están incluidos.
+    La lista exacta de paquetes se describe en los repositorios enumerados en `este archivo ros2.repos <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
-There are also :doc:`Debian packages <../Ubuntu-Install-Debians>` available.
+También hay :doc:`paquetes Debian <../Ubuntu-Install-Debians>` disponibles.
 
-System Requirements
--------------------
+Requisitos del sistema
+----------------------
 
-We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-Most people will want to use a stable ROS distribution.
+Actualmente soportamos Ubuntu Linux Jammy (22.04) x86 de 64 bits y ARM de 64 bits.
+La distribución de Rolling Ridley cambiará las plataformas de destino de vez en cuando a medida que se seleccionen nuevas plataformas para el desarrollo.
+La mayoría de la gente querrá usar una distribución ROS estable.
 
-Add the ROS 2 apt repository
-----------------------------
+Añadir el repositorio apt de ROS 2
+----------------------------------
 
 .. include:: ../_Apt-Repositories.rst
 
-Downloading ROS 2
------------------
+Descargar ROS 2
+---------------
 
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+No se proporcionan versiones binarias de Rolling Ridley.
+En su lugar, puede descargar :ref:`prerelease binarios <Prerelease_binaries>` de todas las noches.
 
-* Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
+* Descarga el paquete más reciente para Ubuntu; asumamos que termina en ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
-  * Note: there may be more than one binary download option which might cause the file name to differ.
+  * Nota: puede haber más de una opción de descarga binaria que podría causar que el nombre del archivo sea diferente.
 
 *
-  Unpack it:
+  Descomprímelo:
 
   .. code-block:: bash
 
@@ -50,8 +50,8 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
        cd ~/ros2_{DISTRO}
        tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
-Installing and initializing rosdep
-----------------------------------
+Instalar e inicializar rosdep
+-----------------------------
 
 .. code-block:: bash
 
@@ -62,12 +62,12 @@ Installing and initializing rosdep
 
 .. _linux-install-binary-install-missing-dependencies:
 
-Installing the missing dependencies
------------------------------------
+Instalar las dependencias que faltan
+------------------------------------
 
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
-Set your rosdistro according to the release you downloaded.
+Configura tu rosdistro de acuerdo con la versión que descargaste.
 
 .. code-block:: bash
 
@@ -75,80 +75,81 @@ Set your rosdistro according to the release you downloaded.
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
-Install development tools (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instalar herramientas de desarrollo (opcional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+Si vas a crear paquetes ROS o desarrollar de otro modo, también puedes instalar las herramientas de desarrollo:
 
 .. code-block:: bash
 
        sudo apt install ros-dev-tools
 
-Install additional DDS implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Instalar implementaciones de DDS adicionales (opcional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+Si deseas utilizar otro proveedor de DDS o RTPS además del predeterminado, puedes encontrar instrucciones :doc:`aquí <../DDS-Implementations>`.
 
-Environment setup
------------------
+Configuración del entorno
+-------------------------
 
-Source the setup script
-^^^^^^^^^^^^^^^^^^^^^^^
+Ejecutar ``source`` con el script de configuración
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Set up your environment by sourcing the following file.
+Configura tu entorno ejecutando ``source`` con el siguiente archivo.
 
 .. code-block:: bash
 
-   # Replace ".bash" with your shell if you're not using bash
-   # Possible values are: setup.bash, setup.sh, setup.zsh
-  . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   # Reemplaza ".bash" en tu shell si no está usando bash
+   # Los valores posibles son: setup.bash, setup.sh, setup.zsh
+   source /opt/ros/{DISTRO}/setup.bash
 
-Try some examples
------------------
+Prueba algunos ejemplos
+-----------------------
 
-In one terminal, source the setup file and then run a C++ ``talker``:
+En una terminal, ejecuta el archivo de setup y luego ejecuta un ``talker`` de C++:
 
 .. code-block:: bash
 
    . ~/ros2_{DISTRO}/ros2-linux/setup.bash
    ros2 run demo_nodes_cpp talker
 
-In another terminal source the setup file and then run a Python ``listener``:
+En otra fuente de terminal, ejecuta el archivo de setup y luego ejecuta un ``listener`` en Python:
+
 
 .. code-block:: bash
 
    . ~/ros2_{DISTRO}/ros2-linux/setup.bash
    ros2 run demo_nodes_py listener
 
-You should see the ``talker`` saying that it's ``Publishing`` messages and the ``listener`` saying ``I heard`` those messages.
-This verifies both the C++ and Python APIs are working properly.
-Hooray!
+Deberías ver al ``talker`` diciendo que está publicando (``Publishing``) mensajes y al ``listener`` diciendo que oye (``I heard``) esos mensajes.
+Esto verifica que las API de C++ y Python funcionan correctamente.
+¡Hurra!
 
-Next steps after installing
----------------------------
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Siguientes pasos después de la instalación
+------------------------------------------
+Continúa con los :doc:`tutoriales y demostraciones <../../Tutorials>` para configurar su entorno, crear tu propio espacio de trabajo y paquetes, y aprender los conceptos básicos de ROS 2.
 
-Using the ROS 1 bridge
+Usando el bridge ROS 1
 ----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+El bridge ROS 1 puede conectar topics de ROS 1 a ROS 2 y viceversa. Consulta la `documentación <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ específica sobre cómo construir y usar el puente ROS 1.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+Implementaciones adicionales de RMW (opcional)
+----------------------------------------------
+El middleware predeterminado que usa ROS 2 es ``Fast DDS``, pero el middleware (RMW) se puede reemplazar en tiempo de ejecución.
+Consulta la :doc:`guía <../../How-To-Guides/Working-with-multiple-RMW-implementations>` sobre cómo trabajar con múltiples RMW.
 
-Troubleshooting
----------------
+Solución de problemas
+---------------------
 
-Troubleshooting techniques can be found :doc:`here <../../How-To-Guides/Installation-Troubleshooting>`.
+Las técnicas de resolución de problemas se pueden encontrar :doc:`aquí <../../How-To-Guides/Installation-Troubleshooting>`.
 
-Uninstall
----------
+Desinstalar
+-----------
 
-1. If you installed your workspace with colcon as instructed above, "uninstalling" could be just a matter of opening a new terminal and not sourcing the workspace's ``setup`` file.
-   This way, your environment will behave as though there is no {DISTRO_TITLE} install on your system.
+1. Si instalaste tu espacio de trabajo con colcon como se indicó anteriormente, la "desinstalación" podría ser simplemente una cuestión de abrir una nueva terminal y no ejecutar el archivo ``setup`` del espacio de trabajo.
+    De esta manera, su entorno se comportará como si no hubiera una instalación de {DISTRO_TITLE} en su sistema.
 
-2. If you're also trying to free up space, you can delete the entire workspace directory with:
+2. Si también está intentando liberar espacio, puede eliminar todo el directorio del espacio de trabajo con:
 
    .. code-block:: bash
 
