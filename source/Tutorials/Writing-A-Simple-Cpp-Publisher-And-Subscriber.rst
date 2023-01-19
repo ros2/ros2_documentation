@@ -534,7 +534,13 @@ Summary
 You created two nodes to publish and subscribe to data over a topic.
 Before compiling and running them, you added their dependencies and executables to the package configuration files.
 
+Video Lecture
+-------------
 
+For more examples and in depth explaination you can look `here <https://youtu.be/cjckvOHo8B4>`__.
+.. image:: https://img.youtube.com/vi/cjckvOHo8B4/maxresdefault.jpg
+    :alt: ROS2 CPP Nodes Development
+    :target: https://youtu.be/cjckvOHo8B4
 
 Next steps
 ----------
