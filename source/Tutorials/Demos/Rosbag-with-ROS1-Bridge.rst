@@ -3,64 +3,64 @@
     Rosbag-with-ROS1-Bridge
     Tutorials/Rosbag-with-ROS1-Bridge
 
-Recording and playing back data with ``rosbag`` using the ROS 1 bridge
+Grabación y reproducción de datos con ``rosbag`` utilizando ROS 1 bridge
 ======================================================================
 
-This tutorial is a follow up to the *Bridge communication between ROS 1 and ROS 2* demo as can be found `here <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md>`__, and in the following it is assumed you have completed that tutorial already.
+Este tutorial es una continuación de la demostración de *Comunicación puente entre ROS 1 y ROS 2* que se puede encontrar `aquí <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md>`__ , y en lo siguiente se supone que ya ha completado ese tutorial.
 
-The ros1_bridge can either be installed from `binary packages <../../Installation>` or `built from source <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md#building-the-bridge-from-source>`__; both work for these examples.
+El ros1_bridge puede instalarse desde `paquetes binarios <../../Installation>` o `construido desde la fuente <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md#building- el-puente-desde-la-fuente>`__; ambos funcionan para estos ejemplos.
 
-What follows is a series of additional examples, like that ones that come at the end of the aforementioned *Bridge communication between ROS 1 and ROS 2* demo.
+Lo que sigue es una serie de ejemplos adicionales, como los que vienen al final de la demo antes mencionada *Puente de comunicación entre ROS 1 y ROS 2*.
 
-Recording topic data with rosbag and ROS 1 Bridge
+Grabación de datos de topics con rosbag y ROS 1 Bridge
 -------------------------------------------------
 
-In this example, we'll be using the ``cam2image`` demo program that comes with ROS 2 and a Python script to emulate a simple turtlebot-like robot's sensor data so that we can bridge it to ROS 1 and use rosbag to record it.
+En este ejemplo, usaremos el programa de demostración ``cam2image`` que viene con ROS 2 y un script de Python para emular los datos del sensor de un robot similar a un robot tortuga simple para que podamos conectarlo a ROS 1 y usar rosbag para grabar eso.
 
-First we'll run a ROS 1 ``roscore`` in a new shell:
+Primero ejecutaremos un ROS 1 ``roscore`` en una nueva shell:
 
 .. code-block:: bash
 
    # Shell A:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    roscore
 
-Then we'll run the ROS 1 <=> ROS 2 ``dynamic_bridge`` with the ``--bridge-all-topics`` option (so we can do ``rostopic list`` and see them) in another shell:
+Luego ejecutaremos ROS 1 <=> ROS 2 ``dynamic_bridge`` con la opción ``--bridge-all-topics`` (para que podamos hacer ``rostopic list`` y verlos) en otra shell :
 
 .. code-block:: bash
 
    # Shell B:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS 2 from source:
+   # O, si compila ROS 2 desde fuentes:
    # . <workspace-with-bridge>/install/setup.bash
    export ROS_MASTER_URI=http://localhost:11311
    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
-Remember to replace ``<workspace-with-bridge>`` with the path to where you either extracted the ROS 2 binary or where you built ROS 2 from source.
+Recuerda reemplazar ``<workspace-with-bridge>`` con la ruta a donde extrajo el binario ROS 2 o donde creó ROS 2 desde fuentes.
 
 ----
 
-Now we can start up the ROS 2 programs that will emulate our turtlebot-like robot.
-First we'll run the ``cam2image`` program with the ``-b`` option so it doesn't require a camera to work:
+Ahora podemos iniciar los programas ROS 2 que emularán nuestro robot tipo tortuga.
+Primero ejecutaremos el programa ``cam2image`` con la opción ``-b`` para que no requiera una cámara para funcionar:
 
 .. code-block:: bash
 
    # Shell C:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS 2 from source:
+   # O, si compila ROS 2 desde fuentes:
    # . <workspace-with-bridge>/install/setup.bash
    ros2 run image_tools cam2image -- -b
 
-TODO: use namespaced topic names
+TODO: usar nombres de topics con espacios de nombres
 
-Then we'll run a simple Python script to emulate the ``odom`` and ``imu_data`` topics from a Kobuki base.
-I would use the more accurate ``~sensors/imu_data`` topic name for the imu data, but we don't have namespace support just yet in ROS 2 (it's coming!).
-Place this script in a file called ``emulate_kobuki_node.py``:
+Luego, ejecutaremos un script de Python simple para emular los topics ``odom`` e ``imu_data`` desde una base de Kobuki.
+Usaría el nombre de tema ``~sensors/imu_data`` más preciso para los datos de imu, pero todavía no tenemos soporte de espacio de nombres en ROS 2 (¡ya viene!).
+Coloca este script en un archivo llamado ``emulate_kobuki_node.py``:
 
 .. code-block:: python
 
@@ -103,29 +103,29 @@ Place this script in a file called ``emulate_kobuki_node.py``:
    if __name__ == '__main__':
        sys.exit(main())
 
-You can run this python script in a new ROS 2 shell:
+Puedes ejecutar este script de python en una nueva shell de ROS 2:
 
 .. code-block:: bash
 
    # Shell D:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS 2 from source:
+   # O, si compila ROS 2 desde fuentes:
    # . <workspace-with-bridge>/install/setup.bash
    python3 emulate_kobuki_node.py
 
 ----
 
-Now that all the data sources and the dynamic bridge are running, we can look at the available topics in a new ROS 1 shell:
+Ahora que todas las fuentes de datos y el puente dinámico se están ejecutando, podemos ver los topics disponibles en un nuevo shell de ROS 1:
 
 .. code-block:: bash
 
    # Shell E:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    rostopic list
-
-You should see something like this:
+   
+Deberías ver algo como esto:
 
 ::
 
@@ -136,14 +136,14 @@ You should see something like this:
    /rosout
    /rosout_agg
 
-We can now record this data with ``rosbag record`` in the same shell:
+Ahora podemos registrar estos datos con ``rosbag record`` en el mismo shell:
 
 .. code-block:: bash
 
    # Shell E:
    rosbag record /image /imu_data /odom
 
-After a few seconds you can ``Ctrl-c`` the ``rosbag`` command and do an ``ls -lh`` to see how big the file is, you might see something like this:
+Después de unos segundos, puedes ``Ctrl-c`` el comando ``rosbag`` y hacer ``ls -lh`` para ver qué tan grande es el archivo, es posible que veas algo como esto:
 
 .. code-block:: bash
 
@@ -151,66 +151,66 @@ After a few seconds you can ``Ctrl-c`` the ``rosbag`` command and do an ``ls -lh
    total 0
    -rw-rw-r-- 1 william william  12M Feb 23 16:59 2017-02-23-16-59-47.bag
 
-Though the file name will be different for your bag (since it is derived from the date and time).
+Aunque el nombre del archivo será diferente para su bolso (ya que se deriva de la fecha y la hora).
 
-Playing back topic data with rosbag and ROS 1 Bridge
+Reproducción de datos de topics con rosbag y ROS 1 Bridge
 ----------------------------------------------------
 
-Now that we have a bag file you can use any of the ROS 1 tools to introspect the bag file, like ``rosbag info <bag file>``, ``rostopic list -b <bag file>``, or ``rqt_bag <bag file>``.
-However, we can also playback bag data into ROS 2 using ``rosbag play`` and the ROS 1 <=> ROS 2 ``dynamic_bridge``.
+Ahora que tenemos un archivo bag, puede usar cualquiera de las herramientas de ROS 1 para introspeccionar el archivo bag, como ``rosbag info <archivo bag>``, ``rostopic list -b <archivo bag>``, o `` rqt_bag <archivo de bolsa>``.
+Sin embargo, también podemos reproducir datos de bolsa en ROS 2 usando ``rosbag play`` y ROS 1 <=> ROS 2 ``dynamic_bridge``.
 
-First close out all the shells you opened for the previous tutorial, stopping any running programs.
+Primero cierra todos los shells que abrió para el tutorial anterior, deteniendo cualquier programa en ejecución.
 
-Then in a new shell start the ``roscore``:
+Luego, en una nueva shell, inicia ``roscore``:
 
 .. code-block:: bash
 
    # Shell P:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    roscore
 
-Then run the ``dynamic_bridge`` in another shell:
+Luego ejecuta ``dynamic_bridge`` en otro shell:
 
 .. code-block:: bash
 
    # Shell Q:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS 2 from source:
+   # O, si compila ROS 2 desde fuentes:
    # . <workspace-with-bridge>/install/setup.bash
    export ROS_MASTER_URI=http://localhost:11311
    ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
-Then play the bag data back with ``rosbag play`` in another new shell, using the ``--loop`` option so that we don't have to keep restarting it for short bags:
+Luego reproduzca los datos de la bolsa con ``rosbag play`` en otro shell nuevo, usando la opción ``--loop`` para que no tengamos que reiniciarlo continuamente para bolsas cortas:
 
 .. code-block:: bash
 
    # Shell R:
    . /opt/ros/kinetic/setup.bash
-   # Or, on OSX, something like:
+   # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    rosbag play --loop path/to/bag_file
 
-Make sure to replace ``path/to/bag_file`` with the path to the bag file you want to playback.
+Asegúrate de reemplazar ``path/to/bag_file`` con la ruta al archivo de bolsa que desea reproducir.
 
 ----
 
-Now that the data is being played back and the bridge is running we can see the data coming across in ROS 2.
+Ahora que los datos se están reproduciendo y el puente se está ejecutando, podemos ver los datos que se encuentran en ROS 2.
 
 .. code-block:: bash
 
    # Shell S:
    . /opt/ros/ardent/setup.bash
-   # Or, if building ROS 2 from source:
+   # O, si compila ROS 2 desde fuentes:
    # . <workspace-with-bridge>/install/setup.bash
    ros2 topic list
    ros2 topic echo /odom
 
-You should see something like:
+Deberías ver algo como:
 
 ::
 
@@ -221,7 +221,7 @@ You should see something like:
    /odom
    /parameter_events
 
-You can also see the image being played from the bag by using the ``showimage`` tool:
+También puedes ver la imagen que se está reproduciendo desde la bolsa utilizando la herramienta ``showimage``:
 
 .. code-block:: bash
 
