@@ -3,7 +3,7 @@
     Tutorials/Content-Filtering-Subscription
 
 Creación de un suscriptor de filtrado de contenido
-=========================================
+==================================================
 
 **Objetivo:** Crear un suscriptor de filtrado de contenido.
 
@@ -16,7 +16,7 @@ Creación de un suscriptor de filtrado de contenido
    :local:
 
 Descripción
---------
+-----------
 
 Las aplicaciones de ROS 2 generalmente consisten en topics para transmitir datos de los publicadores a las suscriptores.
 Básicamente, los suscriptores reciben todos los datos publicados de los publicadores por el topic.
@@ -44,7 +44,7 @@ Actualmente, todas las implementaciones de RMW que admiten suscripciones de filt
 Eso significa que las expresiones y parámetros de filtrado compatibles también dependen de `DDS <https://www.omg.org/omg-dds-portal/>`__, puedes consultar la especificación `DDS <https://www. omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` para obtener detalles.
 
 Instalación de la demo
--------------------
+----------------------
 
 Consulta las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
 
@@ -52,7 +52,7 @@ Si ha instalado ROS 2 desde paquetes, asegúrate de tener ``ros-{DISTRO}-demo-no
 Si descargaste el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
 
 Demostración de filtrado de temperatura
---------------------------
+---------------------------------------
 
 Esta demostración muestra cómo se puede usar un suscriptor de filtrado de contenido para recibir solo valores de temperatura que están fuera del rango de temperatura aceptable, detectando emergencias.
 El suscriptor de filtrado de contenido filtra los datos de temperatura poco interesantes, de modo que no se emite el callback del suscriptor
@@ -302,7 +302,7 @@ Podemos intentarlo ejecutando ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run d
 Puedes ver el mensaje ``Content filter is not enabled`` porque la implementación de RMW subyacente no es compatible con la función, pero la demostración aún crea correctamente la suscripción normal para recibir todos los datos de temperatura.
 
 Contenido relacionado
----------------
+---------------------
 
 - `ejemplos de filtrado de contenido <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__  que cubren todas las interfaces para la suscripción de filtrado de contenido.
 
