@@ -4,14 +4,14 @@
     Tutorials/Intra-Process-Communication
 
 Establecer una comunicación intraproceso eficiente
-================================================
+==================================================
 
 .. contents:: Table of Contents
    :depth: 1
    :local:
 
 Historial
-----------
+---------
 
 Las aplicaciones de ROS generalmente consisten en una composición de "nodos" individuales que realizan tareas específicas y están desacoplados de otras partes del sistema.
 Esto promueve el aislamiento de fallas, un desarrollo más rápido, la modularidad y la reutilización de código, pero a menudo tiene un costo de rendimiento.
@@ -21,7 +21,7 @@ En ROS 2, nuestro objetivo es mejorar el diseño de Nodelets al abordar algunos 
 En esta demo, destacaremos cómo los nodos se pueden componer manualmente, definiéndolos por separado pero combinándolos en diferentes diseños de procesos sin cambiar el código del nodo ni limitar sus capacidades.
 
 Instalación de la demo
---------------------
+----------------------
 
 Consulte las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
 
@@ -29,12 +29,12 @@ Si ha instalado ROS 2 desde paquetes, asegúrese de tener ``ros-{DISTRO}-intra-p
 Si descargó el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
 
 Ejecución y comprensión de las demos
------------------------------------
+------------------------------------
 
 Hay diferentes demos: algunas son pequeños problemas diseñados para resaltar características de la funcionalidad de comunicaciones dentro del proceso y algunas son ejemplos complicados que usan OpenCV y demuestran la capacidad de recombinar nodos en diferentes configuraciones.
 
 Demo de comunicación entre dos nodos
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Esta demo está diseñada para mostrar que la conexión de publicación/suscripción dentro del proceso puede generar un transporte de mensajes sin copia cuando se publica y se suscribe con ``std::unique_ptr``\.
 
@@ -166,7 +166,7 @@ Esto se debe a que estamos publicando y suscribiéndonos con ``std::unique_ptr``
 También puedes publicar y suscribirse con ``const &`` y ``std::shared_ptr``, pero en ese caso no se producirá copia cero.
 
 La demostración de comunicación cíclica
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Esta demo es similar a la anterior, pero en lugar de que el productor cree un nuevo mensaje para cada iteración, esta demo solo usa una instancia de mensaje.
 Esto se logra mediante la creación de un ciclo en el gráfico y el "kicking off" de la comunicación al hacer que uno de los nodos publique externamente antes de hacer girar el ejecutor:
@@ -294,7 +294,7 @@ Para probar esas expectativas, ejecútelo:
 Deberías ver números cada vez mayores en cada iteración, comenzando con 42... porque 42, y todo el tiempo reutiliza el mismo mensaje, como lo demuestran las direcciones de puntero que no cambian, lo que evita copias innecesarias.
 
 La demo de comunicación de imágenes
-^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En esta demo, usaremos OpenCV para capturar, anotar y luego ver imágenes.
 
@@ -310,7 +310,7 @@ En esta demo, usaremos OpenCV para capturar, anotar y luego ver imágenes.
   Estos cambios no persistirán después de un reinicio.
 
 Comunicación simple
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 Primero tendremos una comunicación de tres nodos, dispuestos de la siguiente manera: ``camera_node`` -> ``watermark_node`` -> ``image_view_node``
 
@@ -344,7 +344,7 @@ También puede presionar ``q`` o ``ESC`` para salir.
 Si pausas el visor de imágenes, debería poder comparar las direcciones escritas en la imagen y ver que son iguales.
 
 Comunicación con dos visualizadores de imágenes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ahora veamos un ejemplo como el de arriba, excepto que tiene dos nodos de visualización de imagen.
 Todos los nodos todavía están en el mismo proceso, pero ahora deberían aparecer dos ventanas de visualización de imágenes. (Nota para los usuarios de macOS: las ventanas de visualización de imágenes pueden estar una encima de la otra).
@@ -372,7 +372,7 @@ El enlace entre ``camera_node`` y ``watermark_node`` puede usar el mismo puntero
 Ten en cuenta que los nodos de visualización de imagen no están suscritos con callbacks ``unique_ptr``. En su lugar, están suscritos con ``const shared_ptr``\ s. Esto significa que el sistema entrega el mismo ``shared_ptr`` a ambos callbacks. Cuando se maneja la primera suscripción dentro del proceso, el ``unique_ptr`` almacenado internamente se promociona a ``shared_ptr``. Cada uno de los callbacks recibirá la propiedad compartida del mismo mensaje.
 
 Comunicacion con visualización entre procesos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Otra cosa importante para hacerlo bien es evitar la interrupción del comportamiento de copia cero dentro del proceso cuando se realizan suscripciones entre procesos. Para probar esto, podemos ejecutar la demostración de canalización de la primera imagen, ``image_pipeline_all_in_one``, y luego ejecutar una instancia del independiente ``image_view_node`` (no olvide ponerles el prefijo ``ros2 run intra_process_demo`` en el Terminal). Esto se verá algo como esto:
 
