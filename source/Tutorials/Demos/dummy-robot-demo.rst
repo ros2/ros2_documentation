@@ -4,12 +4,12 @@
     Tutorials/dummy-robot-demo
 
 Experimentando con un robot ficticio
-================================
+====================================
 
 En esta demo, presentamos un robot de demostración simple con todos los componentes, desde la publicación de estados conjuntos hasta la publicación de datos láser falsos hasta la visualización del modelo de robot en un mapa en RViz.
 
 Lanzamiento de la demo
-------------------
+----------------------
 
 Asumimos que tu directorio de instalación de ROS 2 es ``~/ros2_ws``. Cambia los directorios según su plataforma.
 
