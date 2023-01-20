@@ -11,7 +11,7 @@ Understanding real-time programming
    :local:
 
 Historial
-----------
+---------
 
 La computación en tiempo real es una característica clave de muchos sistemas robóticos, en particular aplicaciones de misión crítica y seguridad, como vehículos autónomos, naves espaciales y fabricación industrial.
 Se está diseñando y creando prototipos de ROS 2 teniendo en cuenta las limitaciones de rendimiento en tiempo real, ya que este es un requisito que no se consideró en las primeras etapas de ROS 1 y ahora es intratable refactorizar ROS 1 para que sea amigable en tiempo real.
@@ -29,7 +29,7 @@ Pero si el controlador se actualiza de manera confiable a una velocidad más rá
 Ahora que sabe todo acerca de la computación en tiempo real, ¡probemos una demo!
 
 Instala y ejecuta la demo
-------------------------
+-------------------------
 
 La demostración en tiempo real se escribió pensando en los sistemas operativos Linux, ya que muchos miembros de la comunidad ROS que realizan computación en tiempo real usan Xenomai o RT_PREEMPT como sus soluciones en tiempo real.
 Dado que muchas de las operaciones realizadas en la demostración se realizan para optimizar el rendimiento o son específicas del sistema operativo, la demostración solo compila y se ejecuta en sistemas Linux.
@@ -40,7 +40,7 @@ Además, esto debe construirse desde la fuente utilizando una API DDS estática.
 Primero, sigue las instrucciones para compilar ROS 2 :doc:`from source <../../Installation/Alternatives/Ubuntu-Development-Setup>` utilizando Connext DDS como middleware.
 
 Ejecuta los test
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^
 
 **Antes de ejecutar, asegúrate de tener al menos 8 Gb de RAM libres. Con el bloqueo de la memoria, el intercambio ya no funcionará.**
 
@@ -79,7 +79,7 @@ En la parte inferior del archivo output.txt generado por la demo, verás la cant
 Si queremos que esos fallos de página desaparezcan, tendremos que...
 
 Ajustar permisos para bloqueo de memoria
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Agregue a ``/etc/security/limits.conf`` (como sudo):
 
@@ -98,7 +98,7 @@ Si esto sucediera, no tenía suficiente memoria libre disponible para bloquear l
 ¡Tendrás que instalar más RAM en su ordenador para ver cero fallas de página!
 
 Resumen de salida
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 Para ver más resultados, tenemos que ejecutar el nodo ``pendulum_logger``.
 
@@ -139,7 +139,7 @@ El nodo registrador imprime periódicamente el estado del péndulo y las estadí
 Después de que finalice ``pendulum_demo``, tendrás que pulsar CTRL-C para salir del nodo del registrador.
 
 Latencia
-^^^^^^^
+^^^^^^^^
 
 En la ejecución de ``pendulum_demo``, verás las estadísticas finales recopiladas para la demostración:
 
@@ -174,7 +174,7 @@ Si esta operación falla, verás un mensaje de error: "No se pudo establecer la 
 Puedes obtener un rendimiento ligeramente mejor siguiendo las instrucciones de la siguiente sección:
 
 Configuración de permisos para el programador
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Agrega a ``/etc/security/limits.conf`` (como sudo):
 
@@ -187,7 +187,7 @@ Sin embargo, NO establezcas el límite en 99 porque tus procesos podrían interf
 Esta demo intentará ejecutar el lazo de control con prioridad 98.
 
 Resultados gráficos
-^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^
 
 Puedes graficar las estadísticas de latencia y fallo de página que se recopilan en esta demostración después de que se ejecuta la demostración.
 
