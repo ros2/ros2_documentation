@@ -4,14 +4,14 @@
     Tutorials/Quality-of-Service
 
 Uso de configuraciones de calidad de servicio para redes con pérdidas
-====================================================
+=====================================================================
 
 .. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
 Historial
-----------
+---------
 
 Lee la página de documentación `sobre la configuración de QoS <../../Concepts/About-Quality-of-Service-Settings>` para obtener información general sobre el soporte disponible en ROS 2.
 
@@ -20,7 +20,7 @@ Luego simularemos una conexión de red con pérdida entre ellos y mostraremos c�
 
 
 Requisitos precios
--------------
+------------------
 
 Este tutorial asume que tienes una :doc:`instalación de ROS 2 <../../Installation>` y OpenCV.
 Consulta la documentación de `OpenCV <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ para conocer las instrucciones de instalación.
@@ -43,7 +43,7 @@ También necesitarás el paquete ROS ``image_tools``.
 
 
 Ejecución de la demo
-------------
+--------------------
 
 Antes de ejecutar la demostración, asegurate de tener una cámara web en funcionamiento conectada a su computadora.
 
@@ -132,7 +132,7 @@ En la primera ventana, verás el resultado del suscriptor:
       net.inet.udp.maxdgram=65500
 
 Opciones de la línea de comandos
-^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En uno de tus terminales, agrega un indicador -h al comando original:
 
@@ -144,7 +144,7 @@ En uno de tus terminales, agrega un indicador -h al comando original:
 
 
 Agregar tráfico de red
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
   
