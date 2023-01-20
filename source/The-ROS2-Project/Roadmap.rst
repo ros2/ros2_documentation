@@ -43,6 +43,18 @@ If you'd like to take on one of these tasks, please :doc:`get in touch with us <
      - Size
      - Owner
      - Expected Completion
+   * - Various improvements and port of further functionality for Diagnostics
+     - Medium
+     - Bosch
+     - Q1 2023
+   * - License linter and copyright file generator for binary packages
+     - Medium
+     - Bosch
+     - Q2 2023
+   * - rclc Dispatcher Executor for non-POSIX OS
+     - Medium
+     - Bosch
+     - Q1 2023
    * - Improve rclcpp executor performance
      - Large
      - Open Robotics
