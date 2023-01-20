@@ -116,14 +116,14 @@ En la primera ventana, verás el resultado del suscriptor:
    ...
 
 .. note::
-   
+
    Usuarios de macOS: si estos ejemplos no funcionan o si recibes un error como ``ddsi_conn_write fail -1``, deberás aumentar el tamaño del paquete UDP en todo el sistema:
 
    .. code-block:: bash
 
       $ sudo sysctl -w net.inet.udp.recvspace=209715
       $ sudo sysctl -w net.inet.udp.maxdgram=65500
-   
+
    Estos cambios no persistirán al reiniciar. Si deseas que los cambios persistan, agrega estas líneas a ``/etc/sysctl.conf`` (crea el archivo si aún no existe):
 
    .. code-block:: bash
@@ -147,7 +147,7 @@ Agregar tráfico de red
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
-  
+
   Esta sección de la demo no funcionará en Connext DDS de RTI.
   Cuando se ejecutan varios nodos en el mismo host, la implementación de RTI Connext DDS usa memoria compartida junto con la interfaz de bucle invertido.
   La degradación del rendimiento de la interfaz de bucle invertido no afectará la memoria compartida, por lo que el tráfico entre los dos nodos no se verá afectado.
