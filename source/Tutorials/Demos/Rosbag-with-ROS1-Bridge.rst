@@ -4,7 +4,7 @@
     Tutorials/Rosbag-with-ROS1-Bridge
 
 Grabación y reproducción de datos con ``rosbag`` utilizando ROS 1 bridge
-======================================================================
+========================================================================
 
 Este tutorial es una continuación de la demostración de *Comunicación puente entre ROS 1 y ROS 2* que se puede encontrar `aquí <https://github.com/ros2/ros1_bridge/blob/{REPOS_FILE_BRANCH}/README.md>`__ , y en lo siguiente se supone que ya ha completado ese tutorial.
 
@@ -13,7 +13,7 @@ El ros1_bridge puede instalarse desde `paquetes binarios <../../Installation>` o
 Lo que sigue es una serie de ejemplos adicionales, como los que vienen al final de la demo antes mencionada *Puente de comunicación entre ROS 1 y ROS 2*.
 
 Grabación de datos de topics con rosbag y ROS 1 Bridge
--------------------------------------------------
+------------------------------------------------------
 
 En este ejemplo, usaremos el programa de demostración ``cam2image`` que viene con ROS 2 y un script de Python para emular los datos del sensor de un robot similar a un robot tortuga simple para que podamos conectarlo a ROS 1 y usar rosbag para grabar eso.
 
@@ -154,7 +154,7 @@ Después de unos segundos, puedes ``Ctrl-c`` el comando ``rosbag`` y hacer ``ls 
 Aunque el nombre del archivo será diferente para su bolso (ya que se deriva de la fecha y la hora).
 
 Reproducción de datos de topics con rosbag y ROS 1 Bridge
-----------------------------------------------------
+---------------------------------------------------------
 
 Ahora que tenemos un archivo bag, puede usar cualquiera de las herramientas de ROS 1 para introspeccionar el archivo bag, como ``rosbag info <archivo bag>``, ``rostopic list -b <archivo bag>``, o `` rqt_bag <archivo de bolsa>``.
 Sin embargo, también podemos reproducir datos de bolsa en ROS 2 usando ``rosbag play`` y ROS 1 <=> ROS 2 ``dynamic_bridge``.
