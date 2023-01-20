@@ -4,7 +4,7 @@ l. redirect-from::
     Tutorials/Logging-and-logger-configuration
 
 Registro de mensajes
-=======
+====================
 
 .. contents:: Tabla de contenidos
    :depth: 2
@@ -13,10 +13,10 @@ Registro de mensajes
 Consulta `la página de registro <../../Concepts/About-Logging>`para obtener detalles sobre la funcionalidad disponible.
 
 Uso de sentencias de registro en el código
-----------------------------
+------------------------------------------
 
 Regstro básico
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``DEBUG``:
 
@@ -41,7 +41,7 @@ El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la
 Ten en cuenta que, en ambos casos, no se agrega una nueva línea final, ya que la infraestructura de registro agregará una automáticamente.
 
 Registro de mensajes solo la primera vez
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``INFO``, pero solo la primera vez que se activa:
 
@@ -65,7 +65,7 @@ El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la
             node.get_logger().info(f'My log message {num}', once=True)
 
 Registro de todos los mensajes excepto el primero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``ADVERTIR``, pero no la primera vez que se activa:
 
@@ -89,7 +89,7 @@ El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la
             node.get_logger().warning('My log message {0}'.format(num), skip_first=True)
 
 Registro de menasjes acelerado
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``ERROR``, pero no más de una vez por segundo.
 
@@ -118,7 +118,7 @@ El parámetro de intervalo que especifica milisegundos entre mensajes debe tener
             node.get_logger().error(f'My log message {num}', throttle_duration_sec=1)
 
 Registro acelerado de todos los mensajes menos el primero
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la gravedad ``DEBUG``, no más de una vez por segundo, omitiendo la primera vez que se llama:
 
@@ -141,7 +141,7 @@ El siguiente código generará un mensaje de registro desde un nodo ROS 2 con la
             node.get_logger().debug(f'My log message {num}', skip_first=True, throttle_duration_sec=1.0)
 
 Demo registro de mensajes
-------------
+-------------------------
 
 En esta `demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo>`_, se muestran diferentes tipos de llamadas de registro y el nivel de gravedad de diferentes registradores se configura local y externamente.
 
@@ -156,7 +156,7 @@ Para empezar, solo verás el resultado de las llamadas de registro con gravedad 
 Ten en cuenta que el primer mensaje solo se registrará una vez, aunque se alcanza la línea en cada iteración, ya que esa es una propiedad de la llamada de registro utilizada para ese mensaje.
 
 Configuración del directorio de registro de mensajes
--------------------------------
+----------------------------------------------------
 
 El directorio de registro de mensajes se puede configurar a través de dos variables de entorno: ``ROS_LOG_DIR`` y ``ROS_HOME``.
 La logica es la siguiente:
@@ -222,7 +222,7 @@ Por ejemplo, con ``ROS_HOME`` establecido en ``~/my_ros_home``:
 Luego encontrarás los registros en ``~/my_ros_home/log/``.
 
 Configuración de nivel de registros: programáticamente
---------------------------------------------
+------------------------------------------------------
 
 Después de 10 iteraciones, el nivel de registro se establecerá en ``DEBUG``, lo que hará que se registren mensajes adicionales.
 
@@ -230,7 +230,7 @@ Algunos de estos mensajes de depuración hacen que se evalúen funciones/expresi
 Consulta `el código fuente <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/logging_demo/src/logger_usage_component.cpp>`__ de la demo para obtener una explicación más detallada de las llamadas utilizadas y consulte el registro de rclcpp documentación para obtener una lista completa de las llamadas de registro admitidas.
 
 Configuración de nivel del registro: externamente
---------------------------------------
+-------------------------------------------------
 
 En el futuro, habrá un enfoque generalizado para la configuración externa de registros en tiempo de ejecución (similar a cómo `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ en ROS 1 permite la configuración de registros a través de llamadas de procedimiento remotas).
 **Este concepto aún no se admite oficialmente en ROS 2.**
@@ -254,7 +254,7 @@ Para habilitar el registro de depuración para ``rcl``, llama a:
 Deberías ver como la salida de depuración de ``rcl`` comienza a mostrarse.
 
 Usando el componente de configuración del registro
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 El servidor que responde a las solicitudes de configuración del registro se ha desarrollado como un componente para que pueda agregarse a un sistema basado en composición existente.
 Por ejemplo, si estás utilizando `un contenedor para ejecutar sus nodos <../Intermediate/Composition>`, para poder configurar los registros solo necesitas solicitar que cargue adicionalmente el componente ``logging_demo::LoggerConfig`` en el contenedor.
@@ -293,7 +293,7 @@ Terminal 2:
 Deberías ver la salida de depuración de cualquier registrador no configurado previamente en el proceso que comienza a aparecer, incluso desde el núcleo de ROS 2.
 
 Configuración de nivel de registro: línea de comando
-----------------------------------------
+----------------------------------------------------
 
 A partir del lanzamiento de Bouncy ROS 2, el nivel de severidad para los registros que no han tenido su severidad configurada explícitamente se puede configurar desde la línea de comandos.
 Reinicia la demo incluyendo el siguiente argumento de línea de comando:
@@ -315,7 +315,7 @@ Reinicia la demo incluyendo los siguientes argumentos de línea de comando:
 
 
 Formato de salida de la consola
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Si deseas un formato más o menos detallado, puedes usar la variable de entorno RCUTILS_CONSOLE_OUTPUT_FORMAT.
 Por ejemplo, para obtener adicionalmente la marca de tiempo y la ubicación de las llamadas de registro, deten la demo y reiníciala con la variable de entorno configurada:
@@ -345,7 +345,7 @@ Deberías ver la marca de tiempo en segundos y el nombre de la función, el nomb
 *La opción ``time`` solo se admite a partir de la versión ROS 2 Bouncy.*
 
 Colorización de la salida de la consola
-^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 De forma predeterminada, la salida se colorea cuando se dirige a un terminal.
 Si deseas forzar su activación o desactivación, puede utilizar la variable de entorno ``RCUTILS_COLORIZED_OUTPUT``.
@@ -382,7 +382,7 @@ Deberías ver que los registros de depuración, advertencia, error y fatales no 
    El comportamiento predeterminado ya verifica si la salida es una consola o no, por lo que no se recomienda forzar la coloración.
 
 Transmisión predeterminada para la salida de la consola
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 En Foxy y versiones posteriores, la salida de todos los niveles de depuración va a stderr de forma predeterminada. Es posible forzar que toda la salida vaya a la salida estándar configurando la variable de entorno ``RCUTILS_LOGGING_USE_STDOUT`` en ``1``.
 Por ejemplo:
@@ -409,7 +409,7 @@ Por ejemplo:
 
 
 Salida de consola con búfer de línea
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 De forma predeterminada, todos los resultados de registro no están almacenados en búfer.
 Puedes forzar que se almacene en búfer configurando la variable de entorno ``RCUTILS_LOGGING_BUFFERED_STREAM`` en 1.
