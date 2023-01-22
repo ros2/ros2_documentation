@@ -4,39 +4,39 @@
   Tutorials/Launch-Files/Launch-system
   Tutorials/Launch/Launch-system
 
-Integrating launch files into ROS 2 packages
-============================================
+Integrar ficheros de launch a paquetes de ROS 2
+===============================================
 
-**Goal:** Add a launch file to a ROS 2 package
+**Objetivo:** Añadir un fichero de launch a un paquete de ROS 2
 
-**Tutorial level:** Intermediate
+**Nivel del tutorial:** Intermedio
 
-**Time:** 10 minutes
+**Tiempo:** 10 minutos
 
-.. contents:: Contents
+.. contents:: Contenidos
    :depth: 2
    :local:
 
-Prerequisites
+Prerequisitos
 -------------
 
-You should have gone through the tutorial on how to :doc:`create a ROS 2 package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
+Deberías de haber repasado el tutorial sobre como :doc:`Crear un paquete de ROS 2<../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
+Como siempre, no te olvides de sincronizar las fuentes de ROS 2 en :doc:`cada terminal que abra <../../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
-Background
-----------
+Antecedentes
+------------
 
-In the :doc:`previous tutorial <Creating-Launch-Files>`, we saw how to write a standalone launch file.
-This tutorial will show how to add a launch file to an existing package, and the conventions typically used.
+En el :doc:`tutorial anterior <Creating-Launch-Files>`, vimos como escribir un fichero de launch independiente.
+Este tutorial mostrará como añadir un fichero de launch a un paquete existente, y las convenciones que se suelen utilizar.
 
-Tasks
------
+Tareas
+------
 
-1 Create a package
+1 Crear un paquete
 ^^^^^^^^^^^^^^^^^^
 
-Create a workspace for the package to live in:
+Crea un workspace donde vivirá el paquete:
 
 .. tabs::
 
@@ -75,17 +75,17 @@ Create a workspace for the package to live in:
 
       ros2 pkg create cpp_launch_example --build-type ament_cmake
 
-2 Creating the structure to hold launch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2 Crear la estructura para mantener ficheros de launch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-By convention, all launch files for a package are stored in the ``launch`` directory inside of the package.
-Make sure to create a ``launch`` directory at the top-level of the package you created above.
+Por convención, todos los ficheros de launch para un paquete son almacenados en la carpeta ``launch`` dentro del paquete.
+Asegúrate de crear la carpeta ``launch`` en el nivel mas alto del paquete que creaste arriba.
 
 .. tabs::
 
   .. group-tab:: Python package
 
-    For Python packages, the directory containing your package should look like this:
+    Para los paquetes de Python, la carpeta que contiene tu paquete debe verse como esto:
 
     .. code-block:: console
 
@@ -99,9 +99,9 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           setup.py
           test/
 
-    In order for colcon to find the launch files, we need to inform Python's setup tools of our launch files using the ``data_files`` parameter of ``setup``.
+    Para que colcon pueda encontrar los ficheros de launch, necesitamos informar a las herramientas de setup de Pyton acerca de nuestros ficheros de launch usando el parámetro ``data_files`` de ``setup``.
 
-    Inside our ``setup.py`` file:
+    Dentro de nuestro fichero ``setup.py``:
 
     .. code-block:: python
 
@@ -114,15 +114,15 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
       setup(
           # Other parameters ...
           data_files=[
-              # ... Other data files
-              # Include all launch files.
+              # ... Otros ficheros de datos
+              # Incluye todos los ficheros de launch.
               (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*'))
           ]
       )
 
   .. group-tab:: C++ package
 
-    For C++ packages, we will only be adjusting the ``CMakeLists.txt`` file by adding:
+    Para los paquetes de C++, solo ajustaremos el fichero de ``CMakeLists.txt`` añadiendo:
 
     .. code-block:: cmake
 
@@ -132,21 +132,21 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
         DESTINATION share/${PROJECT_NAME}/
       )
 
-    to the end of the file (but before ``ament_package()``).
+    al final del fichero (pero antes de ``ament_package()``).
 
 
-3 Writing the launch file
-^^^^^^^^^^^^^^^^^^^^^^^^^
+3 Escribir el fichero de launch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
   .. group-tab:: Python launch file
 
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.py``.
-    ``_launch.py`` is recommended, but not required, as the file suffix for Python launch files.
-    However, the launch file name needs to end with ``launch.py`` to be recognized and autocompleted by ``ros2 launch``.
+    Dentro de tu carpeta ``launch``, crea un nuevo fichero de launch llamado ``my_script_launch.py``.
+    Se recomienda``_launch.py``, aunque no es obligatorio, como sufijo para ficheros de launch de Python.
+    Sin embargo, el nombre del fichero de launch necesita terminar con ``launch.py`` para ser reconocido y autocompletado por ``ros2 launch``.
 
-    Your launch file should define the ``generate_launch_description()`` function which returns a ``launch.LaunchDescription()`` to be used by the ``ros2 launch`` verb.
+    Tu fichero de launch debe definir la función ``generate_launch_description()``, la cual regresa un ``launch.LaunchDescription()`` que es usado por el verbo ``ros2 launch``.
 
     .. code-block:: python
 
@@ -163,8 +163,8 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
   .. group-tab:: XML launch file
 
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.xml``.
-    ``_launch.xml`` is recommended, but not required, as the file suffix for XML launch files.
+    Dentro de tu carpeta ``launch``, crea un nuevo fichero de launch llamado ``my_script_launch.xml``.
+    Se recomienda``_launch.xml``, aunque no es obligatorio, como sufijo para ficheros de launch de XML.
 
     .. code-block:: xml
 
@@ -174,8 +174,8 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
 
   .. group-tab:: YAML launch file
 
-    Inside your ``launch`` directory, create a new launch file called ``my_script_launch.yaml``.
-    ``_launch.yaml`` is recommended, but not required, as the file suffix for YAML launch files.
+    Dentro de tu carpeta ``launch``, crea un nuevo fichero de launch llamado ``my_script_launch.yaml``.
+    Se recomienda``_launch.xml``, aunque no es obligatorio, como sufijo para ficheros de launch de YAML.
 
     .. code-block:: yaml
 
@@ -187,16 +187,16 @@ Make sure to create a ``launch`` directory at the top-level of the package you c
           name: "talker"
 
 
-4 Building and running the launch file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4 Compilar y ejecutar el fichero de launch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Go to the top-level of the workspace, and build it:
+Ve al nivel mas alto del workspace, y compílalo:
 
 .. code-block:: console
 
   colcon build
 
-After the ``colcon build`` has been successful and you've sourced the workspace, you should be able to run the launch file as follows:
+Después de que ``colcon build`` haya sido exitoso y que hayas ejecutado source en el workspace, deberías de ser capas de ejecutar el fichero de launch como sigue:
 
 .. tabs::
 
@@ -245,10 +245,11 @@ After the ``colcon build`` has been successful and you've sourced the workspace,
           ros2 launch cpp_launch_example my_script_launch.yaml
 
 
-Documentation
+Documentación
 -------------
 
 `The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__ provides more details on concepts that are also used in ``launch_ros``.
+`La documentación de launch <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`__ provee mas destalles sobre los conceptos que también son usados en ``launch_ros``.
 
-Additional documentation/examples of launch capabilities are forthcoming.
-See the source code (https://github.com/ros2/launch and https://github.com/ros2/launch_ros) in the meantime.
+Documentación y ejemplos adicionales sobre las capacidades de launch están por venir.
+De momento ve el código fuente (https://github.com/ros2/launch y https://github.com/ros2/launch_ros).
