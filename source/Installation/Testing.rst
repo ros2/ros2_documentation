@@ -23,7 +23,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
 1. Make sure you have a working ROS 2 installation from Debian packages (see :doc:`../Installation`).
 
-2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2-latest.list`` and change ``ros2`` with ``ros2-testing``.
+2. Edit (with sudo) the file ``/etc/apt/sources.list.d/ros2.list`` and change ``ros2`` with ``ros2-testing``.
    For example, on Ubuntu Jammy the contents should look like the following:
 
    .. code-block:: sh
@@ -49,7 +49,7 @@ For Debian-based operating systems, you can install binary packages from the **r
 
       sudo apt dist-upgrade
 
-6. Once you are finished testing, you can switch back to the normal repository by changing back the contents of ``/etc/apt/sources.list.d/ros2-latest.list``:
+6. Once you are finished testing, you can switch back to the normal repository by changing back the contents of ``/etc/apt/sources.list.d/ros2.list``:
 
    .. code-block:: sh
 
