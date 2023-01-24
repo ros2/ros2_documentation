@@ -119,6 +119,12 @@ Use the arrow keys to move the turtle around, and you will see data being publis
 3 ros2 bag record
 ^^^^^^^^^^^^^^^^^
 
+By default, ``ros2 bag record`` will record data files using the `MCAP file format <https://mcap.dev>`_ (``.mcap``). To record files using the `SQLite3 file format <https://www.sqlite.org/index.html>`_ (`.db3`), simply add the ``--storage sqlite3`` flag (or ``-s sqlite3``) to your ``ros2 bag record`` commands.
+
+For more information on `ROS 2 storage plugin options <https://github.com/ros2/rosbag2/tree/rolling/#storage-format-plugin-architecture>`_, check out the following resources:
+* `MCAP <https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_mcap/README.md#writer-configuration>`_
+* `SQLite3 <https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_sqlite3/README.md#storage-configuration-file>`_
+
 To record the data published to a topic use the command syntax:
 
 .. code-block:: console
