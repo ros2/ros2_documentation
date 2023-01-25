@@ -124,7 +124,7 @@ To record files using the `SQLite3 file format <https://www.sqlite.org/index.htm
 
 For more information on `ROS 2 storage plugin options <https://github.com/ros2/rosbag2/tree/<DISTRO>/#storage-format-plugin-architecture>`_, check out the following resources:
 * `MCAP <https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_mcap/README.md#writer-configuration>`_
-* `SQLite3 <https://github.com/ros2/rosbag2/blob/rolling/rosbag2_storage_sqlite3/README.md#storage-configuration-file>`_
+* `SQLite3 <https://github.com/ros2/rosbag2/blob/<DISTRO>/rosbag2_storage_sqlite3/README.md#storage-configuration-file>`_
 
 To record the data published to a topic use the command syntax:
 
