@@ -64,7 +64,7 @@ Esto abre RViz2. Suponiendo que todavía tienes su dummy_robot_bringup lanzado, 
 
 
 ¿Qué esta pasando?
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Si observas más de cerca el archivo de inicio, iniciamos un par de nodos al mismo tiempo.
 
