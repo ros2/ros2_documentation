@@ -124,7 +124,7 @@ Ahora que todas las fuentes de datos y el puente dinámico se están ejecutando,
    # O, en OSX, algo como:
    # . ~/ros_catkin_ws/install_isolated/setup.bash
    rostopic list
-   
+
 Deberías ver algo como esto:
 
 ::
