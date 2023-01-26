@@ -126,6 +126,22 @@ Use the arrow keys to move the turtle around, and you will see data being publis
 3 ros2 bag record
 ^^^^^^^^^^^^^^^^^
 
+3.1 Recording formats
+~~~~~~~~~~~~~~~~~~~~~
+
+By default, ``ros2 bag record`` will record data files using the `MCAP file format <https://mcap.dev>`_ (``.mcap``).
+
+To record files using the `SQLite3 file format <https://www.sqlite.org/index.html>`_ (``.db3``), add the ``--storage sqlite3`` flag (or ``-s sqlite3``) to your ``ros2 bag record`` commands.
+
+For more information on `ROS 2 storage plugin options <https://github.com/ros2/rosbag2/tree/{DISTRO}/#storage-format-plugin-architecture>`_, check out the following resources:
+
+* `MCAP <https://github.com/ros2/rosbag2/blob/{DISTRO}/rosbag2_storage_mcap/README.md#writer-configuration>`_
+* `SQLite3 <https://github.com/ros2/rosbag2/blob/{DISTRO}/rosbag2_storage_sqlite3/README.md#storage-configuration-file>`_
+
+
+3.2 Record a single topic
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 To record the data published to a topic use the command syntax:
 
 .. code-block:: console
@@ -159,7 +175,7 @@ Press ``Ctrl+C`` to stop recording.
 
 The data will be accumulated in a bag file with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``
 
-3.1 Record multiple topics
+3.3 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 You can also record multiple topics, as well as change the name of the file ``ros2 bag`` saves to.
@@ -208,9 +224,9 @@ Running this command on the ``subset`` bag file will return a list of informatio
 
 .. code-block:: console
 
-  Files:             subset.db3
+  Files:             subset.mcap
   Bag size:          228.5 KiB
-  Storage id:        sqlite3
+  Storage id:        mcap
   Duration:          48.47s
   Start:             Oct 11 2019 06:09:09.12 (1570799349.12)
   End                Oct 11 2019 06:09:57.60 (1570799397.60)
