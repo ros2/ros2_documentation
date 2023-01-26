@@ -299,7 +299,7 @@ La demo de comunicación de imágenes
 En esta demo, usaremos OpenCV para capturar, anotar y luego ver imágenes.
 
 .. note::
-  
+
   Si está en macOS y estos ejemplos no funcionan o recibe un error como ``ddsi_conn_write fail -1``, entonces deberá aumentar el tamaño del paquete UDP en todo el sistema:
 
   .. code-block:: bash
@@ -322,7 +322,7 @@ En cada nodo se escribe en la imagen la dirección del mensaje que se está envi
 Los nodos de marca de agua y vista de imagen están diseñados para modificar la imagen sin copiarla, por lo que las direcciones impresas en la imagen deben ser todas iguales siempre que los nodos estén en el mismo proceso y el gráfico permanezca organizado en una canalización como se muestra arriba.
 
 .. note::
-   
+
    En algunos sistemas (lo hemos visto en Linux), es posible que la dirección impresa en la pantalla no cambie.
    Esto se debe a que se está reutilizando el mismo puntero único. En esta situación, la canalización aún se está ejecutando.
 
