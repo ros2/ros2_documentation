@@ -164,7 +164,7 @@ Vamos a utilizar la utilidad de control de tráfico de red de Linux, ``tc`` (htt
 
    sudo tc qdisc add dev lo root netem loss 5%
 
-Este conjuro mágico simulará una pérdida de paquetes del 5% en el dispositivo de bucle invertido local.
+Este conjuro mágico simulará una pérdida de paquetes del ``5%` ` en el dispositivo de bucle invertido local.
 Si usas una resolución más alta de las imágenes (por ejemplo, ``--ros-args -p width:=640 -p height:=480``), es posible que desees probar una tasa de pérdida de paquetes más baja (por ejemplo, ``1%` `).
 
 A continuación, iniciamos ``cam2image`` y ``showimage``, y pronto notaremos que ambos programas parecen haber disminuido la velocidad a la que se transmiten las imágenes.
