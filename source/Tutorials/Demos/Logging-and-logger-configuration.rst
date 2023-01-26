@@ -10,7 +10,7 @@ Registro de mensajes
    :depth: 2
    :local:
 
-Consulta `la página de registro <../../Concepts/About-Logging>`__para obtener detalles sobre la funcionalidad disponible.
+Consulta `la página de registro <../../Concepts/About-Logging>` para obtener detalles sobre la funcionalidad disponible.
 
 Uso de sentencias de registro en el código
 ------------------------------------------
