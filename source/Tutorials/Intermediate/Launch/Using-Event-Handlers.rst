@@ -3,45 +3,45 @@
     Tutorials/Launch-Files/Using-Event-Handlers
     Tutorials/Launch/Using-Event-Handlers
 
-Using event handlers
-====================
+Utilizar controladores de eventos
+=================================
 
-**Goal:** Learn about event handlers in ROS 2 launch files
+**Objetivo:** Aprender acerca de los controladores de eventos en ficheros de launch de ROS 2
 
-**Tutorial level:** Intermediate
+**Nivel del tutorial:** Intermedio
 
-**Time:** 15 minutes
+**Tiempo:** 15 minutos
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenido
    :depth: 2
    :local:
 
-Background
-----------
+Antecedentes
+------------
 
-Launch in ROS 2 is a system that executes and manages user-defined processes.
-It is responsible for monitoring the state of processes it launched, as well as reporting and reacting to changes in the state of those processes.
-These changes are called events and can be handled by registering an event handler with the launch system.
-Event handlers can be registered for specific events and can be useful for monitoring the state of processes.
-Additionally, they can be used to define a complex set of rules which can be used to dynamically modify the launch file.
+Launch en ROS 2 es un sistema que ejecuta y maneja procesos definidos por un usuario.
+Es responsable de monitorizar el estado de los procesos launched, así como de reportar y reaccionar a los cambios en el estado de esos procesos.
+Estos cambios son llamados eventos y pueden ser controlados al registrar un controlador de eventos con el sistema de launch.
+Controladores de eventos pueden ser registrados para eventos específicos y puede ser útiles para monitorizar el estado de procesos.
+Adicionalmente, ellos puede ser usados para definir un conjunto complejo de reglas, las cuales pueden ser usadas para modificar dinámicamente el fichero de launch.
 
-This tutorial shows usage examples of event handlers in ROS 2 launch files.
+Este tutorial muestra ejemplos de uso de controladores de eventos en ficheros de launch de ROS 2.
 
-Prerequisites
+Prerequisitos
 -------------
 
-This tutorial uses the :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>` package.
-This tutorial also assumes you have :doc:`created a new package <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` of build type ``ament_python`` called ``launch_tutorial``.
+Este tutorial usa el paquete de :doc:`turtlesim <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`.
+Este tutorial también asume que tu has :doc:`creado un nuevo paquete <../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package>` de tipo de compilación ``ament_python`` llamado ``launch_tutorial``.
 
-This tutorial extends the code shown in the :doc:`Using substitutions in launch files <./Using-Substitutions>` tutorial.
+Este tutorial extiende el código mostrado en el tutorial :doc:`Utilizar substituciones en ficheros de launch <./Using-Substitutions>`.
 
-Using event handlers
---------------------
+Utilizar controladores de eventos
+---------------------------------
 
-1 Event handlers example launch file
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 Ejemplo de fichero de launch con controladores de evento
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new file called ``example_event_handlers.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
+Crea un nuevo fichero llamado ``example_event_handlers.launch.py`` en la carpeta ``launch`` del paquete ``launch_tutorial``.
 
 .. code-block:: python
 
@@ -180,10 +180,10 @@ Create a new file called ``example_event_handlers.launch.py`` file in the ``laun
             ),
         ])
 
-``RegisterEventHandler`` actions for the ``OnProcessStart``, ``OnProcessIO``, ``OnExecutionComplete``, ``OnProcessExit``, and ``OnShutdown`` events were defined in the launch description.
+Las acciones ``RegisterEventHandler`` para los eventos ``OnProcessStart``, ``OnProcessIO``, ``OnExecutionComplete``, ``OnProcessExit`` y ``OnShutdown`` fueron definidas en la descripción del launch.
 
-The ``OnProcessStart`` event handler is used to register a callback function that is executed when the turtlesim node starts.
-It logs a message to the console and executes the ``spawn_turtle`` action when the turtlesim node starts.
+El controlador de evento ``OnProcessStart`` es usado para registrar una función callback que es ejecutada cuando el nodo turtlesim empieza.
+Registra un mensaje en la consola y ejecuta la acción ``spawn_turtle`` cuando el nodo turtlesim empieza.
 
 .. code-block:: python
 
@@ -197,8 +197,8 @@ It logs a message to the console and executes the ``spawn_turtle`` action when t
         )
     ),
 
-The ``OnProcessIO`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action writes to its standard output.
-It logs the result of the spawn request.
+El controlador de evento ``OnProcessIO`` es usado para registrar una función callback que es ejecutada cuando la acción ``spawn_turtle`` escribe su salida estándar.
+Registra el resultado de la solicitud de despliegue.
 
 .. code-block:: python
 
@@ -212,8 +212,8 @@ It logs the result of the spawn request.
         )
     ),
 
-The ``OnExecutionComplete`` event handler is used to register a callback function that is executed when the ``spawn_turtle`` action completes.
-It logs a message to the console and executes the ``change_background_r`` and ``change_background_r_conditioned`` actions when the spawn action completes.
+El controlador de evento ``OnExecutionComplete`` es usado para registrar una función callback que se ejecuta cuando la acción ``spawn_turtle`` es completada.
+Registra un mensaje en la consola y ejecuta las acciones ``change_background_r`` y ``change_background_r_conditioned`` cuando la acción de despliegue es completada.
 
 .. code-block:: python
 
@@ -231,9 +231,9 @@ It logs a message to the console and executes the ``change_background_r`` and ``
         )
     ),
 
-The ``OnProcessExit`` event handler is used to register a callback function that is executed when the turtlesim node exits.
-It logs a message to the console and executes the ``EmitEvent`` action to emit a ``Shutdown`` event when the turtlesim node exits.
-It means that the launch process will shutdown when the turtlesim window is closed.
+El controlador de evento ``OnProcessExit`` es usado para registrar una función callback que se ejecuta cuando el nodo turtlesim termina.
+Registra un mensaje en la consola y ejecuta la acción ``EmitEvent`` para emitir un evento ``Shutdown`` cuando el nodo turtlesim termina.
+Esto significa que el proceso launch terminará cuando la ventana de turtlesim se cierre.
 
 .. code-block:: python
 
@@ -249,9 +249,9 @@ It means that the launch process will shutdown when the turtlesim window is clos
         )
     ),
 
-Finally, the ``OnShutdown`` event handler is used to register a callback function that is executed when the launch file is asked to shutdown.
-It logs a message to the console why the launch file is asked to shutdown.
-It logs the message with a reason for shutdown like the closure of turtlesim window or ``ctrl-c`` signal made by the user.
+Finalmente, el controlador de evento ``OnShutdown`` es usado para registrar una función callback que se ejecuta cuando se solicita la terminación del fichero de launch.
+Registra un mensaje en la consola sobre el porque se solicitó la terminación del fichero de launch.
+Registra el mensaje con una razón para la terminación como el cierre de la ventana de turtlesim o la señal ``ctrl-c`` hecha por el usuario.
 
 .. code-block:: python
 
@@ -264,50 +264,51 @@ It logs the message with a reason for shutdown like the closure of turtlesim win
         )
     ),
 
-Build the package
------------------
+Compila el paquete
+------------------
 
-Go to the root of the workspace, and build the package:
+Ve a la raíz del workspace, y compila el paquete.
 
 .. code-block:: console
 
   colcon build
 
-Also remember to source the workspace after building.
+También recuerda ejecutar source al workspace después de compilar.
 
-Launching example
------------------
+Ejemplo de launching
+--------------------
 
-Now you can launch the ``example_event_handlers.launch.py`` file using the ``ros2 launch`` command.
+Ahora puedes hacer launch al fichero ``example_event_handlers.launch.py`` usando el comando ``ros2 launch``.
 
 .. code-block:: console
 
     ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
-This will do the following:
+Esto hará lo siguiente:
 
-#. Start a turtlesim node with a blue background
-#. Spawn the second turtle
+#. Empieza un nodo turtlesim con el fondo azul
+#. Despliega la segunda tortuga
 #. Change the color to purple
-#. Change the color to pink after two seconds if the provided ``background_r`` argument is ``200`` and ``use_provided_red`` argument is ``True``
-#. Shutdown the launch file when the turtlesim window is closed
+#. Cambia el color a morado.
+#. Cambia el color a rosa después de dos segundos si el argumento ``background_r`` es ``200`` y el argumento ``use_provided_red`` es ``True``
+#. Termina el fichero de launch cuando la ventana de turtlesim se cierra
 
-Additionally, it will log messages to the console when:
+Adicionalmente, registrará mensajes en la consola cuando:
 
-#. The turtlesim node starts
-#. The spawn action is executed
-#. The ``change_background_r`` action is executed
-#. The ``change_background_r_conditioned`` action is executed
-#. The turtlesim node exits
-#. The launch process is asked to shutdown.
+#. El nodo turtlesim empieza
+#. La acción de despliegue se ejecuta
+#. La acción ``change_background_r`` se ejecuta
+#. La acción ``change_background_r_conditioned`` se ejecuta
+#. El nodo turtlesim termina
+#. Se solicita el terminado al proceso de launch
 
-Documentation
+Documentación
 -------------
 
-`The launch documentation <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_ provides detailed information about available event handlers.
+`La documentación de launch <https://github.com/ros2/launch/blob/{REPOS_FILE_BRANCH}/launch/doc/source/architecture.rst>`_ provee información detallada acerca de los controladores de eventos disponibles.
 
-Summary
+Resumen
 -------
 
-In this tutorial, you learned about using event handlers in launch files.
-You learned about their syntax and usage examples to define a complex set of rules to dynamically modify launch files.
+En este tutorial, aprendiste acerca de la utilización de controladores de eventos en los ficheros de launch.
+Aprendiste acerca de su sintaxis y ejemplos de uso para definir un conjunto complejo de reglas que modifican dinámicamente ficheros de launch.
