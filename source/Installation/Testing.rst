@@ -22,7 +22,7 @@ Aproximadamente cada dos semanas, el administrador de versiones de rosdistro sin
 Para los sistemas operativos basados en Debian, puedes instalar paquetes binarios desde el repositorio **ros-testing**.
 
 1. Asegúrese de tener una instalación de ROS 2 en funcionamiento desde paquetes de Debian (consulte :doc:`../Installation`).
-2. Edita (con sudo) el archivo ``/etc/apt/sources.list.d/ros2-latest.list`` y cambia ``ros2`` por ``ros2-testing``.
+2. Edita (con sudo) el archivo ``/etc/apt/sources.list.d/ros2.list`` y cambia ``ros2`` por ``ros2-testing``.
    Por ejemplo, en Ubuntu Jammy, el contenido debería tener el siguiente aspecto:
 
    .. code-block:: sh
@@ -48,7 +48,11 @@ Para los sistemas operativos basados en Debian, puedes instalar paquetes binario
 
       sudo apt dist-upgrade
 
+<<<<<<< HEAD
 6. Una vez que hayas terminado de probar, puedes volver al repositorio normal cambiando el contenido de ``/etc/apt/sources.list.d/ros2-latest.list``:
+=======
+6. Once you are finished testing, you can switch back to the normal repository by changing back the contents of ``/etc/apt/sources.list.d/ros2.list``:
+>>>>>>> upstream/rolling
 
    .. code-block:: sh
 

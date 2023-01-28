@@ -38,7 +38,7 @@ The error will be:
   E: Unable to correct problems, you have held broken packages.
 
 To correct this, remove packages.ros.org from your ``sources.list``.
-If you were following the ROS 2 installation guide, simply remove ``/etc/apt/sources.list.d/ros-2-latest.list``
+If you were following the ROS 2 installation guide, simply remove ``/etc/apt/sources.list.d/ros2.list``
 
 For now, to support ``ros1_bridge``, follow the instructions below for building ROS 2 from source.
 
