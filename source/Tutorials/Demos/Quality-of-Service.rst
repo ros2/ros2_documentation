@@ -149,8 +149,8 @@ Agregar tráfico de red
 .. warning::
 
   Esta sección de la demo no funcionará en Connext DDS de RTI.
-  Cuando se ejecutan varios nodos en el mismo host, la implementación de RTI Connext DDS usa memoria compartida junto con la interfaz de bucle invertido.
-  La degradación del rendimiento de la interfaz de bucle invertido no afectará la memoria compartida, por lo que el tráfico entre los dos nodos no se verá afectado.
+  Cuando se ejecutan varios nodos en el mismo host, la implementación de RTI Connext DDS usa memoria compartida junto con la interfaz de loopback.
+  La degradación del rendimiento de la interfaz de loopback no afectará la memoria compartida, por lo que el tráfico entre los dos nodos no se verá afectado.
 
 .. note::
 
@@ -164,8 +164,8 @@ Vamos a utilizar la utilidad de control de tráfico de red de Linux, ``tc`` (htt
 
    sudo tc qdisc add dev lo root netem loss 5%
 
-Este conjuro mágico simulará una pérdida de paquetes del ``5%` ` en el dispositivo de bucle invertido local.
-Si usas una resolución más alta de las imágenes (por ejemplo, ``--ros-args -p width:=640 -p height:=480``), es posible que desees probar una tasa de pérdida de paquetes más baja (por ejemplo, ``1%` `).
+Este conjuro mágico simulará una pérdida de paquetes del 5% en el dispositivo de loopback local.
+Si usas una resolución más alta de las imágenes (por ejemplo, ``--ros-args -p width:=640 -p height:=480``), es posible que desees probar una tasa de pérdida de paques más baja (por ejemplo, 1%).
 
 A continuación, iniciamos ``cam2image`` y ``showimage``, y pronto notaremos que ambos programas parecen haber disminuido la velocidad a la que se transmiten las imágenes.
 Esto se debe al comportamiento de la configuración de QoS predeterminada.
