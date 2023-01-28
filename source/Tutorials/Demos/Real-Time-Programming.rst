@@ -6,220 +6,220 @@
 Understanding real-time programming
 ===================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
-Background
-----------
+Historial
+---------
 
-Real-time computing is a key feature of many robotics systems, particularly safety- and mission-critical applications such as autonomous vehicles, spacecrafts, and industrial manufacturing.
-We are designing and prototyping ROS 2 with real-time performance constraints in mind, since this is a requirement that was not considered in the early stages of ROS 1 and it is now intractable to refactor ROS 1 to be real-time friendly.
+La computación en tiempo real es una característica clave de muchos sistemas robóticos, en particular aplicaciones de misión crítica y seguridad, como vehículos autónomos, naves espaciales y fabricación industrial.
+Se está diseñando y creando prototipos de ROS 2 teniendo en cuenta las limitaciones de rendimiento en tiempo real, ya que este es un requisito que no se consideró en las primeras etapas de ROS 1 y ahora es intratable refactorizar ROS 1 para que sea amigable en tiempo real.
 
-`This document <https://design.ros2.org/articles/realtime_background.html>`__ outlines the requirements of real-time computing and best practices for software engineers.  In short:
+`Este documento <https://design.ros2.org/articles/realtime_background.html>`__ describe los requisitos de la computación en tiempo real y las mejores prácticas para los ingenieros de software. En resumen:
 
-To make a real-time computer system, our real-time loop must update periodically to meet deadlines.
-We can only tolerate a small margin of error on these deadlines (our maximum allowable jitter).
-To do this, we must avoid nondeterministic operations in the execution path, things like: pagefault events, dynamic memory allocation/deallocation, and synchronization primitives that block indefinitely.
+Para hacer un sistema informático en tiempo real, nuestro bucle en tiempo real debe actualizarse periódicamente para cumplir con los plazos.
+Solo podemos tolerar un pequeño margen de error en estos plazos (nuestra fluctuación máxima permitida).
+Para hacer esto, debemos evitar operaciones no deterministas en la ruta de ejecución, cosas como: eventos de fallo de página, asignación/desasignación de memoria dinámica y primitivas de sincronización que se bloquean indefinidamente.
 
-A classic example of a controls problem commonly solved by real-time computing is balancing an `inverted pendulum <https://en.wikipedia.org/wiki/Inverted_pendulum>`__.
-If the controller blocked for an unexpectedly long amount of time, the pendulum would fall down or go unstable.
-But if the controller reliably updates at a rate faster than the motor controlling the pendulum can operate, the pendulum will successfully adapt react to sensor data to balance the pendulum.
+Un ejemplo clásico de un problema de controles comúnmente resuelto por computación en tiempo real es equilibrar un péndulo invertido <https://en.wikipedia.org/wiki/Inverted_pendulum>`__.
+Si el controlador se bloqueara durante un período de tiempo inesperadamente largo, el péndulo se caería o se volvería inestable.
+Pero si el controlador se actualiza de manera confiable a una velocidad más rápida que la que puede operar el motor que controla el péndulo, el péndulo se adaptará con éxito y reaccionará a los datos del sensor para equilibrar el péndulo.
 
-Now that you know everything about real-time computing, let's try a demo!
+Ahora que sabe todo acerca de la computación en tiempo real, ¡probemos una demo!
 
-Install and run the demo
-------------------------
+Instala y ejecuta la demo
+-------------------------
 
-The real-time demo was written with Linux operating systems in mind, since many members of the ROS community doing real-time computing use Xenomai or RT_PREEMPT as their real-time solutions.
-Since many of the operations done in the demo to optimize performance or OS-specific, the demo only builds and runs on Linux systems.
-**So, if you are an OSX or Windows user, don't try this part!**
+La demostración en tiempo real se escribió pensando en los sistemas operativos Linux, ya que muchos miembros de la comunidad ROS que realizan computación en tiempo real usan Xenomai o RT_PREEMPT como sus soluciones en tiempo real.
+Dado que muchas de las operaciones realizadas en la demostración se realizan para optimizar el rendimiento o son específicas del sistema operativo, la demostración solo compila y se ejecuta en sistemas Linux.
+**Entonces, si eres un usuario de OSX o Windows, ¡no intentes esta parte!**
 
-Also this must be built from source using a the static DDS API. **Currently the only supported implementation is Connext**.
+Además, esto debe construirse desde la fuente utilizando una API DDS estática. **Actualmente, la única implementación admitida es Connext**.
 
-First, follow the instructions to build ROS 2 :doc:`from source <../../Installation/Alternatives/Ubuntu-Development-Setup>` using Connext DDS as the middleware.
+Primero, sigue las instrucciones para compilar ROS 2 :doc:`from source <../../Installation/Alternatives/Ubuntu-Development-Setup>` utilizando Connext DDS como middleware.
 
-Run the tests
-^^^^^^^^^^^^^
+Ejecuta los test
+^^^^^^^^^^^^^^^^
 
-**Before you run make sure you have at least 8Gb of RAM free. With the memory locking, swap will not work anymore.**
+**Antes de ejecutar, asegúrate de tener al menos 8 Gb de RAM libres. Con el bloqueo de la memoria, el intercambio ya no funcionará.**
 
-Source your ROS 2 setup.bash.
+Ejecuta ``source`` con el archivo de setup.
 
-Run the demo binary, and redirect the output. You may want to use ``sudo`` in case you get permission error:
+Ejecuta el binario de la demo y redirija la salida. Es posible que quieras usar ``sudo`` en caso de que obtengas un error de permiso:
 
 .. code-block:: bash
 
    pendulum_demo > output.txt
 
-What the heck just happened?
+¿Qué diablos acaba de pasar?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-First, even though you redirected stdout, you will see some output to the console (from stderr):
+Primero, aunque redirigió stdout, verás algunos resultados en la consola (desde stderr):
 
 ::
 
-   mlockall failed: Cannot allocate memory
-   Couldn't lock all cached virtual memory.
-   Pagefaults from reading pages not yet mapped into RAM will be recorded.
+   mlockall falló: no se puede asignar memoria
+   No se pudo bloquear toda la memoria virtual almacenada en caché.
+   Se registrarán los fallos de página de la lectura de páginas que aún no se han asignado a la RAM.
 
-After the initialization stage of the demo program, it will attempt to lock all cached memory into RAM and prevent future dynamic memory allocations using ``mlockall``.
-This is to prevent pagefaults from loading lots of new memory into RAM.
-(See `the realtime design article <https://design.ros2.org/articles/realtime_background.html#memory-management>`__ for more information.)
+Después de la etapa de inicialización del programa demo, intentará bloquear toda la memoria caché en la RAM y evitar futuras asignaciones de memoria dinámica utilizando ``mlockall``.
+Esto es para evitar que los fallos de página carguen mucha memoria nueva en la RAM.
+(Consulte `el artículo de diseño en tiempo real <https://design.ros2.org/articles/realtime_background.html#memory-management>`__ para obtener más información).
 
-The demo will continue on as usual when this occurs.
-At the bottom of the output.txt file generated by the demo, you'll see the number of pagefaults encountered during execution:
-
-::
-
-   rttest statistics:
-     - Minor pagefaults: 20
-     - Major pagefaults: 0
-
-If we want those pagefaults to go away, we'll have to...
-
-Adjust permissions for memory locking
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Add to ``/etc/security/limits.conf`` (as sudo):
+La demo continuará como de costumbre cuando esto ocurra.
+En la parte inferior del archivo output.txt generado por la demo, verás la cantidad de fallas de página encontradas durante la ejecución:
 
 ::
 
-   <your username>    -   memlock   <limit in kB>
+   Estadísticas de prueba:
+      - Faltas de página menores: 20
+      - Principales fallos de página: 0
 
-A limit of ``-1`` is unlimited.
-If you choose this, you may need to accompany it with ``ulimit -l unlimited`` after editing the file.
+Si queremos que esos fallos de página desaparezcan, tendremos que...
 
-After saving the file, log out and log back in.
-Then rerun the ``pendulum_demo`` invocation.
+Ajustar permisos para bloqueo de memoria
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You'll either see zero pagefaults in your output file, or an error saying that a bad_alloc exception was caught.
-If this happened, you didn't have enough free memory available to lock the memory allocated for the process into RAM.
-You'll need to install more RAM in your computer to see zero pagefaults!
+Agregue a ``/etc/security/limits.conf`` (como sudo):
 
-Output overview
-^^^^^^^^^^^^^^^
+::
 
-To see more output, we have to run the ``pendulum_logger`` node.
+   <tu usuario>    -   memlock   <limite en kB>
 
-In one shell with your ``install/setup.bash`` sourced, invoke:
+Un límite de ``-1`` es ilimitado.
+Si eliges esto, es posible que debas acompañarlo con ``ulimit -l unlimited`` después de editar el archivo.
+
+Después de guardar el archivo, cierra la sesión y vuelveiniciarla.
+Luego vuelve a ejecutar la invocación ``pendulum_demo``.
+
+Verás cero errores de página en tu archivo de salida o un error que indica que se detectó una excepción bad_alloc.
+Si esto sucediera, no tenía suficiente memoria libre disponible para bloquear la memoria asignada para el proceso en la RAM.
+¡Tendrás que instalar más RAM en su ordenador para ver cero fallas de página!
+
+Resumen de salida
+^^^^^^^^^^^^^^^^^
+
+Para ver más resultados, tenemos que ejecutar el nodo ``pendulum_logger``.
+
+En un shell con su fuente ``install/setup.bash``, ejecuta:
 
 .. code-block:: bash
 
    pendulum_logger
 
 
-You should see the output message:
+Deberías ver el mensaje de salida:
 
 ::
 
-   Logger node initialized.
+   Nodo registrador inicializado.
 
-In another shell with setup.bash sourced, invoke ``pendulum_demo`` again.
+En otro shell con setup.bash de origen, ejecuta ``pendulum_demo`` de nuevo.
 
-As soon as this executable starts, you should see the other shell constantly printing output:
-
-::
-
-   Commanded motor angle: 1.570796
-   Actual motor angle: 1.570796
-   Mean latency: 210144.000000 ns
-   Min latency: 4805 ns
-   Max latency: 578137 ns
-   Minor pagefaults during execution: 0
-   Major pagefaults during execution: 0
-
-The demo is controlling a very simple inverted pendulum simulation.
-The pendulum simulation calculates its position in its own thread.
-A ROS node simulates a motor encoder sensor for the pendulum and publishes its position.
-Another ROS node acts as a simple PID controller and calculates the next command message.
-
-The logger node periodically prints out the pendulum's state and the runtime performance statistics of the demo during its execution phase.
-
-After the ``pendulum_demo`` is finished, you'll have to CTRL-C out of the logger node to exit.
-
-Latency
-^^^^^^^
-
-At the ``pendulum_demo`` execution, you'll see the final statistics collected for the demo:
+Tan pronto como se inicie este ejecutable, deberías ver el otro shell imprimiendo constantemente la salida:
 
 ::
 
-   rttest statistics:
-     - Minor pagefaults: 0
-     - Major pagefaults: 0
-     Latency (time after deadline was missed):
-       - Min: 3354 ns
-       - Max: 2752187 ns
-       - Mean: 19871.8 ns
-       - Standard deviation: 1.35819e+08
+   Ángulo motor comandado: 1.570796
+   Ángulo real del motor: 1.570796
+   Latencia media: 210144.000000 ns
+   Latencia mínima: 4805 ns
+   Latencia máxima: 578137 ns
+   Errores de página menores durante la ejecución: 0
+   Principales fallas de página durante la ejecución: 0
 
-   PendulumMotor received 985 messages
-   PendulumController received 987 messages
+La demostración controla una simulación de péndulo invertido muy simple.
+La simulación del péndulo calcula su posición en su propio hilo.
+Un nodo ROS simula un sensor codificador de motor para el péndulo y publica su posición.
+Otro nodo ROS actúa como un controlador PID simple y calcula el siguiente mensaje de comando.
 
-The latency fields show you the minimum, maximum, and average latency of the update loop in nanoseconds.
-Here, latency means the amount of time after the update was expected to occur.
+El nodo registrador imprime periódicamente el estado del péndulo y las estadísticas de rendimiento del tiempo de ejecución de la demostración durante su fase de ejecución.
 
-The requirements of a real-time system depend on the application, but let's say in this demo we have a 1kHz (1 millisecond) update loop, and we're aiming for a maximum allowable latency of 5% of our update period.
+Después de que finalice ``pendulum_demo``, tendrás que pulsar CTRL-C para salir del nodo del registrador.
 
-So, our average latency was really good in this run, but the maximum latency was unacceptable because it actually exceeded our update loop! What happened?
+Latencia
+^^^^^^^^
 
-We may be suffering from a non-deterministic scheduler.
-If you're running a vanilla Linux system and you don't have the RT_PREEMPT kernel installed, you probably won't be able to meet the real-time goal we set for ourselves, because the Linux scheduler won't allow you to arbitrarily pre-empt threads at the user level.
-
-See the `realtime design article <https://design.ros2.org/articles/realtime_background.html#multithreaded-programming-and-synchronization>`__ for more information.
-
-The demo attempts to set the scheduler and thread priority of the demo to be suitable for real-time performance.
-If this operation failed, you'll see an error message: "Couldn't set scheduling priority and policy: Operation not permitted".
-You can get slightly better performance by following the instructions in the next section:
-
-Setting permissions for the scheduler
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Add to ``/etc/security/limits.conf`` (as sudo):
+En la ejecución de ``pendulum_demo``, verás las estadísticas finales recopiladas para la demostración:
 
 ::
 
-   <your username>    -   rtprio   98
+   Estadísticas de prueba:
+      - Faltas de página menores: 0
+      - Principales fallos de página: 0
+      Latencia (tiempo después de que se perdió la fecha límite):
+        - Min: 3354 ns
+        - Máx: 2752187 ns
+        - Media: 19871.8 ns
+        - Desviación estándar: 1.35819e+08
 
-The range of the rtprio (real-time priority) field is 0-99.
-However, do NOT set the limit to 99 because then your processes could interfere with important system processes that run at the top priority (e.g. watchdog).
-This demo will attempt to run the control loop at priority 98.
+    PendulumMotor recibió 985 mensajes
+    PendulumController recibió 987 mensajes
 
-Plotting results
-^^^^^^^^^^^^^^^^
+Los campos de latencia te muestran la latencia mínima, máxima y promedio del bucle de actualización en nanosegundos.
+Aquí, latencia significa la cantidad de tiempo después de que se esperaba que ocurriera la actualización.
 
-You can plot the latency and pagefault statistics that are collected in this demo after the demo runs.
+Los requisitos de un sistema en tiempo real dependen de la aplicación, pero supongamos que en esta demostración tenemos un ciclo de actualización de 1 kHz (1 milisegundo) y nuestro objetivo es una latencia máxima permitida del 5 % de nuestro período de actualización.
 
-Because the code has been instrumented with `rttest <https://github.com/ros2/rttest>`__, there are useful command line arguments available:
+Entonces, nuestra latencia promedio fue realmente buena en esta ejecución, pero la latencia máxima fue inaceptable porque en realidad excedió nuestro ciclo de actualización. ¿Qué sucedió?
 
-+---------+---------------------------------------------------------------------+---------------+
-| Command | Description                                                         | Default value |
-+---------+---------------------------------------------------------------------+---------------+
-| -i      | Specify how many iterations to run the real-time loop               | 1000          |
-+---------+---------------------------------------------------------------------+---------------+
-| -u      | Specify the update period with the default unit being microseconds. | 1ms           |
-|         |                                                                     |               |
-|         | Use the suffix "s" for seconds, "ms" for milliseconds,              |               |
-|         |                                                                     |               |
-|         | "us" for microseconds, and "ns" for nanoseconds.                    |               |
-+---------+---------------------------------------------------------------------+---------------+
-| -f      | Specify the name of the file for writing the collected data.        |               |
-+---------+---------------------------------------------------------------------+---------------+
+Es posible que suframos de un planificador no determinista.
+Si estás ejecutando un sistema Vanilla Linux y no tienes instalado el kernel RT_PREEMPT, probablemente no podrás cumplir con el objetivo en tiempo real que nos fijamos, porque el programador de Linux no te permitirá arbitrariamente adelantarse a los subprocesos a nivel de usuario.
 
-Run the demo again with a filename to save results:
+Consulta el `artículo de diseño en tiempo real <https://design.ros2.org/articles/realtime_background.html#multithreaded-programming-and-synchronization>`__ para obtener más información.
+
+La demostración intenta establecer la prioridad del programador y del subproceso de la demostración para que sea adecuada para el rendimiento en tiempo real.
+Si esta operación falla, verás un mensaje de error: "No se pudo establecer la política y la prioridad de programación: operación no permitida".
+Puedes obtener un rendimiento ligeramente mejor siguiendo las instrucciones de la siguiente sección:
+
+Configuración de permisos para el programador
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Agrega a ``/etc/security/limits.conf`` (como sudo):
+
+::
+
+   <tu usuario>    -   rtprio   98
+
+El rango del campo rtprio (prioridad en tiempo real) es 0-99.
+Sin embargo, NO establezcas el límite en 99 porque tus procesos podrían interferir con procesos importantes del sistema que se ejecutan con máxima prioridad (por ejemplo, vigilancia).
+Esta demo intentará ejecutar el lazo de control con prioridad 98.
+
+Resultados gráficos
+^^^^^^^^^^^^^^^^^^^
+
+Puedes graficar las estadísticas de latencia y fallo de página que se recopilan en esta demostración después de que se ejecuta la demostración.
+
+Debido a que el código ha sido instrumentado con `rttest <https://github.com/ros2/rttest>`__, hay argumentos de línea de comando útiles disponibles:
+
++---------+---------------------------------------------------------------------------------------+-------------------+
+| Comando | Descripción                                                                           | Valor por defecto |
++---------+---------------------------------------------------------------------------------------+-------------------+
+| -i      | Especifica cuántas iteraciones ejecutar el ciclo en tiempo real                       | 1000              |
++---------+---------------------------------------------------------------------------------------+-------------------+
+| -u      | Especifica el período de actualización con la unidad predeterminada en microsegundos. | 1ms               |
+|         |                                                                                       |                   |
+|         | Usa el sufijo "s" para segundos, "ms" para milisegundos,                              |                   |
+|         |                                                                                       |                   |
+|         | "us" para microsegundos, y "ns" para nanosegundos.                                    |                   |
++---------+---------------------------------------------------------------------------------------+-------------------+
+| -f      | Especifica el nombre del archivo para escribir los datos recopilados.                 |                   |
++---------+---------------------------------------------------------------------------------------+-------------------+
+
+Vuelve a ejecutar la demo con un nombre de archivo para guardar los resultados:
 
 .. code-block:: bash
 
    pendulum_demo -f pendulum_demo_results
 
-Then run the ``rttest_plot`` script on the resulting file:
+Luego ejecuta el script ``rttest_plot`` en el archivo resultante:
 
 .. code-block:: bash
 
    rttest_plot pendulum_demo_results
 
-This script will produce three files:
+Este script producirá tres archivos:
 
 ::
 
@@ -227,4 +227,4 @@ This script will produce three files:
    pendulum_demo_results_plot_majflts.svg
    pendulum_demo_results_plot_minflts.svg
 
-You can view these plots in an image viewer of your choice.
+Puedes ver estos gráficos en un visor de imágenes de su elección.

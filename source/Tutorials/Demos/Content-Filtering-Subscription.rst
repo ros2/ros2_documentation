@@ -2,60 +2,60 @@
 
     Tutorials/Content-Filtering-Subscription
 
-Creating a content filtering subscription
-=========================================
+Creación de un suscriptor de filtrado de contenido
+==================================================
 
-**Goal:** Create a content filtering subscription.
+**Objetivo:** Crear un suscriptor de filtrado de contenido.
 
-**Tutorial level:** Advanced
+**Nivel del Tutorial:** Avanzado
 
-**Time:** 15 minutes
+**Tiempo:** 15 minutos
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 1
    :local:
 
-Overview
---------
-
-ROS 2 applications typically consist of topics to transmit data from publishers to subscriptions.
-Basically, subscriptions receive all published data from publishers on the topic.
-But sometimes, a subscription might be interested in only a subset of the data which is being sent by publishers.
-A content filtering subscription allows to receive only the data of interest for the application.
-
-In this demo, we'll be highlighting how to create a content filtering subscription and how they work.
-
-RMW Support
+Descripción
 -----------
 
-Content filtering subscriptions require RMW implementation support.
+Las aplicaciones de ROS 2 generalmente consisten en topics para transmitir datos de los publicadores a las suscriptores.
+Básicamente, los suscriptores reciben todos los datos publicados de los publicadores por el topic.
+A veces, una suscripción puede estar interesada solo en un subconjunto de los datos que envían los publicadores.
+Un suscriptor de filtrado de contenido permite recibir solo los datos de interés para la aplicación.
 
-.. list-table::  Content-Filtering-Subscription Support Status
+En esta demo, destacaremos cómo crear un suscriptor que filtra contenido y cómo funcionan.
+
+Soporte RMW
+-----------
+
+Los suscriptores de filtrado de contenido requieren compatibilidad con la implementación de RMW.
+
+.. list-table::  Estado de soporte de suscriptor de filtrado de contenido
    :widths: 25 25
 
    * - rmw_fastrtps
-     - supported
+     - soportado
    * - rmw_connextdds
-     - supported
+     - soportado
    * - rmw_cyclonedds
-     - not supported
+     - no soportado
 
-Currently all RMW implementations that support content filtering subscriptions are `DDS <https://www.omg.org/omg-dds-portal/>`__ based.
-That means that the supported filtering expressions and parameters are also dependent on `DDS <https://www.omg.org/omg-dds-portal/>`__, you can refer to `DDS specification <https://www.omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` for details.
+Actualmente, todas las implementaciones de RMW que admiten suscripciones de filtrado de contenido están basadas en `DDS <https://www.omg.org/omg-dds-portal/>`__.
+Eso significa que las expresiones y parámetros de filtrado compatibles también dependen de `DDS <https://www.omg.org/omg-dds-portal/>`__, puedes consultar la especificación `DDS <https://www. omg.org/spec/DDS/1.4/PDF>`__ ``Annex B - Syntax for Queries and Filters`` para obtener detalles.
 
-Installing the demo
--------------------
+Instalación de la demo
+----------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+Consulta las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
 
-If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-demo-nodes-cpp`` installed.
-If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.
+Si ha instalado ROS 2 desde paquetes, asegúrate de tener ``ros-{DISTRO}-demo-nodes-cpp`` instalado.
+Si descargaste el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
 
-Temperature filtering demo
---------------------------
+Demostración de filtrado de temperatura
+---------------------------------------
 
-This demo shows how a content filtering subscription can be used to only receive temperature values that are out of the acceptable temperature range, detecting emergencies.
-The content filtering subscription filters out the uninteresting temperature data, so that the subscription callback is not issued.
+Esta demostración muestra cómo se puede usar un suscriptor de filtrado de contenido para recibir solo valores de temperatura que están fuera del rango de temperatura aceptable, detectando emergencias.
+El suscriptor de filtrado de contenido filtra los datos de temperatura poco interesantes, de modo que no se emite el callback del suscriptor
 
 ContentFilteringPublisher:
 
@@ -79,11 +79,11 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     namespace demo_nodes_cpp
     {
-    // The simulated temperature data starts from -100.0 and ends at 150.0 with a step size of 10.0
+    // Los datos de temperatura simulados comienzan desde -100,0 y terminan en 150,0 con un tamaño de paso de 10,0
     constexpr std::array<float, 3> TEMPERATURE_SETTING {-100.0f, 150.0f, 10.0f};
 
-    // Create a ContentFilteringPublisher class that subclasses the generic rclcpp::Node base class.
-    // The main function below will instantiate the class as a ROS node.
+    // Cree una clase ContentFilteringPublisher que cree subclases de la clase base genérica rclcpp::Node.
+    // La función principal a continuación creará una instancia de la clase como un nodo ROS.
     class ContentFilteringPublisher : public rclcpp::Node
     {
     public:
@@ -91,7 +91,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       explicit ContentFilteringPublisher(const rclcpp::NodeOptions & options)
       : Node("content_filtering_publisher", options)
       {
-        // Create a function for when messages are to be sent.
+        // Cree una función para cuándo se deben enviar los mensajes.
         setvbuf(stdout, NULL, _IONBF, BUFSIZ);
         auto publish_message =
           [this]() -> void
@@ -103,18 +103,18 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
               temperature_ = TEMPERATURE_SETTING[0];
             }
             RCLCPP_INFO(this->get_logger(), "Publishing: '%f'", msg_->data);
-            // Put the message into a queue to be processed by the middleware.
-            // This call is non-blocking.
+            // Poner el mensaje en una cola para que lo procese el middleware.
+            // Esta llamada es no bloqueante.
             pub_->publish(std::move(msg_));
           };
-        // Create a publisher with a custom Quality of Service profile.
-        // Uniform initialization is suggested so it can be trivially changed to
-        // rclcpp::KeepAll{} if the user wishes.
-        // (rclcpp::KeepLast(7) -> rclcpp::KeepAll() fails to compile)
+        // Cree un publicador con un perfil de calidad de servicio personalizado.
+        // Se sugiere una inicialización uniforme para que pueda cambiarse trivialmente a
+        // rclcpp::KeepAll{} si el usuario lo desea.
+        // (rclcpp::KeepLast(7) -> rclcpp::KeepAll() falla al compilar)
         rclcpp::QoS qos(rclcpp::KeepLast{7});
         pub_ = this->create_publisher<std_msgs::msg::Float32>("temperature", qos);
 
-        // Use a timer to schedule periodic message publishing.
+        // Use un temporizador para programar la publicación periódica de mensajes.
         timer_ = this->create_wall_timer(1s, publish_message);
       }
 
@@ -127,10 +127,10 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     }  // namespace demo_nodes_cpp
 
-The content filter is defined in the subscription side, publishers don't need to be configured in any special way to allow content filtering.
-The ``ContentFilteringPublisher`` node publishes simulated temperature data starting from -100.0 and ending at 150.0 with a step size of 10.0 every second.
+El filtro de contenido se define en el lado de la suscripción, los publicadores no necesitan configurarse de ninguna manera especial para permitir el filtrado de contenido.
+El nodo ``ContentFilteringPublisher`` publica datos de temperatura simulados desde -100,0 hasta 150,0 con un tamaño de paso de 10,0 cada segundo.
 
-We can run the demo by running the ``ros2 run demo_nodes_cpp content_filtering_publisher`` executable (don't forget to source the setup file first):
+Podemos ejecutar la demo ejecutando ``ros2 run demo_nodes_cpp content_filtering_publisher`` (no olvide hacer source del install.bash del paquete):
 
 .. code-block:: bash
 
@@ -182,11 +182,11 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     namespace demo_nodes_cpp
     {
-    // Emergency temperature data less than -30 or greater than 100
+    // Datos de temperatura de emergencia inferiores a -30 o superiores a 100
     constexpr std::array<float, 2> EMERGENCY_TEMPERATURE {-30.0f, 100.0f};
 
-    // Create a ContentFilteringSubscriber class that subclasses the generic rclcpp::Node base class.
-    // The main function below will instantiate the class as a ROS node.
+    // Cree una clase ContentFilteringSubscriber que cree subclases de la clase base genérica rclcpp::Node.
+    // La función principal a continuación creará una instancia de la clase como un nodo ROS.
     class ContentFilteringSubscriber : public rclcpp::Node
     {
     public:
@@ -195,7 +195,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
       : Node("content_filtering_subscriber", options)
       {
         setvbuf(stdout, NULL, _IONBF, BUFSIZ);
-        // Create a callback function for when messages are received.
+        // Crear una función callback para cuando se reciban mensajes.
         auto callback =
           [this](const std_msgs::msg::Float32 & msg) -> void
           {
@@ -208,8 +208,8 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
             }
           };
 
-        // Initialize a subscription with a content filter to receive emergency temperature data that
-        // are less than -30 or greater than 100.
+        // Inicialice una suscripción con un filtro de contenido para recibir datos de temperatura de emergencia que
+        // son menores que -30 o mayores que 100.
         rclcpp::SubscriptionOptions sub_options;
         sub_options.content_filter_options.filter_expression = "data < %0 OR data > %1";
         sub_options.content_filter_options.expression_parameters = {
@@ -238,15 +238,15 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/topics
 
     }  // namespace demo_nodes_cpp
 
-To enable content filtering, applications can set the filtering expression and the expression parameters in ``SubscriptionOptions``.
-The application can also check if content filtering is enabled on the subscription.
+Para habilitar el filtrado de contenido, las aplicaciones pueden configurar la expresión de filtrado y los parámetros de expresión en ``SubscriptionOptions``.
+La aplicación también puede verificar si el filtrado de contenido está habilitado en la suscripción.
 
-In this demo, the ``ContentFilteringSubscriber`` node creates a content filtering subscription that receives a message only if the temperature value is less than -30.0 or greater than 100.0.
+En esta demo, el nodo ``ContentFilteringSubscriber`` crea una suscripción de filtrado de contenido que recibe un mensaje solo si el valor de la temperatura es inferior a -30,0 o superior a 100,0.
 
-As commented before, content filtering subscription support depends on the RMW implementation.
-Applications can use the ``is_cft_enabled`` method to check if content filtering is actually enabled on the subscription.
+Como se comentó anteriormente, el soporte de suscripción de filtrado de contenido depende de la implementación de RMW.
+Las aplicaciones pueden usar el método ``is_cft_enabled`` para verificar si el filtrado de contenido está realmente habilitado en la suscripción.
 
-To test content filtering subscription, let's run it:
+Para probar la suscripción de filtrado de contenido, ejecutémoslo:
 
 .. code-block:: bash
 
@@ -272,10 +272,10 @@ To test content filtering subscription, let's run it:
     [INFO] [1651094625.823266469] [content_filtering_subscriber]: I receive an emergency temperature data: [-50.000000]
     [INFO] [1651094626.823284093] [content_filtering_subscriber]: I receive an emergency temperature data: [-40.000000]
 
-You should see a message showing the content filtering options used and logs for each message received only if the temperature value is less than -30.0 or greater than 100.0.
+Deberías ver un mensaje que muestre las opciones de filtrado de contenido utilizadas y los registros de cada mensaje recibido solo si el valor de la temperatura es inferior a -30,0 o superior a 100,0.
 
-If content filtering is not supported by the RMW implementation, the subscription will still be created without content filtering enabled.
-We can try that by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher``.
+Si la implementación de RMW no admite el filtrado de contenido, la suscripción aún se creará sin el filtrado de contenido habilitado.
+Podemos intentarlo ejecutando ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run demo_nodes_cpp content_filtering_publisher``.
 
 .. code-block:: bash
 
@@ -299,10 +299,11 @@ We can try that by executing ``RMW_IMPLEMENTATION=rmw_cyclonedds_cpp ros2 run de
     [INFO] [1651096656.245833975] [content_filtering_subscriber]: I receive a temperature data: [50.000000]
     [INFO] [1651096657.245971483] [content_filtering_subscriber]: I receive a temperature data: [60.000000]
 
-You can see the message ``Content filter is not enabled`` because underlying RMW implementation does not support the feature, but the demo still successfully creates the normal subscription to receive all temperature data.
+Puedes ver el mensaje ``Content filter is not enabled`` porque la implementación de RMW subyacente no es compatible con la función, pero la demostración aún crea correctamente la suscripción normal para recibir todos los datos de temperatura.
 
-Related content
----------------
+Contenido relacionado
+---------------------
 
-- `content filtering examples <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__ that covers all interfaces for content filtering subscription.
-- `content filtering design PR <https://github.com/ros2/design/pull/282>`__
+- `ejemplos de filtrado de contenido <https://github.com/ros2/examples/blob/{REPOS_FILE_BRANCH}/rclcpp/topics/minimal_subscriber/content_filtering.cpp>`__  que cubren todas las interfaces para la suscripción de filtrado de contenido.
+
+- `diseño de filtrado de contenido PR <https://github.com/ros2/design/pull/282>`__

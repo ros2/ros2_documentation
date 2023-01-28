@@ -3,42 +3,42 @@
     Intra-Process-Communication
     Tutorials/Intra-Process-Communication
 
-Setting up efficient intra-process communication
-================================================
+Establecer una comunicación intraproceso eficiente
+==================================================
 
 .. contents:: Table of Contents
    :depth: 1
    :local:
 
-Background
-----------
+Historial
+---------
 
-ROS applications typically consist of a composition of individual "nodes" which perform narrow tasks and are decoupled from other parts of the system.
-This promotes fault isolation, faster development, modularity, and code reuse, but it often comes at the cost of performance.
-After ROS 1 was initially developed, the need for efficient composition of nodes became obvious and Nodelets were developed.
-In ROS 2 we aim to improve on the design of Nodelets by addressing some fundamental problems that required restructuring of nodes.
+Las aplicaciones de ROS generalmente consisten en una composición de "nodos" individuales que realizan tareas específicas y están desacoplados de otras partes del sistema.
+Esto promueve el aislamiento de fallas, un desarrollo más rápido, la modularidad y la reutilización de código, pero a menudo tiene un costo de rendimiento.
+Después de que ROS 1 se desarrollara, la necesidad de una composición eficiente de los nodos se hizo evidente y se desarrollaron los Nodelets.
+En ROS 2, nuestro objetivo es mejorar el diseño de Nodelets al abordar algunos problemas fundamentales que requirieron la reestructuración de los nodos.
 
-In this demo we'll be highlighting how nodes can be composed manually, by defining the nodes separately but combining them in different process layouts without changing the node's code or limiting its abilities.
+En esta demo, destacaremos cómo los nodos se pueden componer manualmente, definiéndolos por separado pero combinándolos en diferentes diseños de procesos sin cambiar el código del nodo ni limitar sus capacidades.
 
-Installing the demos
---------------------
+Instalación de la demo
+----------------------
 
-See the :doc:`installation instructions <../../Installation>` for details on installing ROS 2.
+Consulte las :doc:`installation instructions <../../Installation>` para obtener detalles sobre la instalación de ROS 2.
 
-If you've installed ROS 2 from packages, ensure that you have ``ros-{DISTRO}-intra-process-demo`` installed.
-If you downloaded the archive or built ROS 2 from source, it will already be part of the installation.
+Si ha instalado ROS 2 desde paquetes, asegúrese de tener ``ros-{DISTRO}-intra-process-demo`` instalado.
+Si descargó el archivo o creó ROS 2 desde fuentes, ya será parte de la instalación.
 
-Running and understanding the demos
------------------------------------
+Ejecución y comprensión de las demos
+------------------------------------
 
-There are a few different demos: some are toy problems designed to highlight features of the intra process communications functionality and some are end to end examples which use OpenCV and demonstrate the ability to recombine nodes into different configurations.
+Hay diferentes demos: algunas son pequeños problemas diseñados para resaltar características de la funcionalidad de comunicaciones dentro del proceso y algunas son ejemplos complicados que usan OpenCV y demuestran la capacidad de recombinar nodos en diferentes configuraciones.
 
-The two node pipeline demo
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Demo de comunicación entre dos nodos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demo is designed to show that the intra process publish/subscribe connection can result in zero-copy transport of messages when publishing and subscribing with ``std::unique_ptr``\ s.
+Esta demo está diseñada para mostrar que la conexión de publicación/suscripción dentro del proceso puede generar un transporte de mensajes sin copia cuando se publica y se suscribe con ``std::unique_ptr``\.
 
-First let's take a look at the source:
+Primero echemos un vistazo al código:
 
 https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/two_node_pipeline/two_node_pipeline.cpp
 
@@ -56,16 +56,16 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
 
    using namespace std::chrono_literals;
 
-   // Node that produces messages.
+   // Nodo que publica mensajes.
    struct Producer : public rclcpp::Node
    {
      Producer(const std::string & name, const std::string & output)
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
-       // Create a publisher on the output topic.
+       // Crea un publicador sobre el topic de salida.
        pub_ = this->create_publisher<std_msgs::msg::Int32>(output, 10);
        std::weak_ptr<std::remove_pointer<decltype(pub_.get())>::type> captured_pub = pub_;
-       // Create a timer which publishes on the output topic at ~1Hz.
+       // Crea un temporizador que publique en el tema de salida a ~ 1 Hz.
        auto callback = [captured_pub]() -> void {
            auto pub_ptr = captured_pub.lock();
            if (!pub_ptr) {
@@ -86,13 +86,13 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
      rclcpp::TimerBase::SharedPtr timer_;
    };
 
-   // Node that consumes messages.
+   // Nodo que recibe mensajes.
    struct Consumer : public rclcpp::Node
    {
      Consumer(const std::string & name, const std::string & input)
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
-       // Create a subscription on the input topic which prints on receipt of new messages.
+       // Crea una suscripción en el topic de entrada que se imprime al recibir nuevos mensajes.
        sub_ = this->create_subscription<std_msgs::msg::Int32>(
          input,
          10,
@@ -124,16 +124,16 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/tw
      return 0;
    }
 
-As you can see by looking at the ``main`` function, we have a producer and a consumer node, we add them to a single threaded executor, and then call spin.
+Como puedes ver al observar la función ``main``, tenemos un nodo productor y otro consumidor, los agregamos a un único ejecutor de subprocesos y luego llamamos a spin.
 
-If you look at the "producer" node's implementation in the ``Producer`` struct, you can see that we have created a publisher which publishes on the "number" topic and a timer which periodically creates a new message, prints out its address in memory and its content's value and then publishes it.
+Si observas la implementación del nodo "productor" en la estructura ``Producer``, puedes ver que hemos creado un publicador que publica sobre el topic "number" y un temporizador que periódicamente crea un nuevo mensaje, imprime su dirección en la memoria y el valor de su contenido y luego lo publica.
 
-The "consumer" node is a bit simpler, you can see its implementation in the ``Consumer`` struct, as it only subscribes to the "number" topic and prints the address and value of the message it receives.
+El nodo "consumidor" es un poco más simple, puedes ver su implementación en la estructura ``Consumer``, ya que solo se suscribe al topic "number" e imprime la dirección y el valor del mensaje que recibe.
 
-The expectation is that the producer will print out an address and value and the consumer will print out a matching address and value.
-This demonstrates that intra process communication is indeed working and unnecessary copies are avoided, at least for simple graphs.
+La expectativa es que el productor imprimirá una dirección y un valor y el consumidor imprimirá una dirección y un valor coincidentes.
+Esto demuestra que la comunicación dentro del proceso funciona y se evitan copias innecesarias, al menos para gráficos simples.
 
-Let's run the demo by executing ``ros2 run intra_process_demo two_node_pipeline`` executable (don't forget to source the setup file first):
+Ejecutemos la demostración ejecutando ``ros2 run intra_process_demo two_node_pipeline`` (no olvide hacer source del install.bash del paquete):
 
 .. code-block:: bash
 
@@ -151,25 +151,25 @@ Let's run the demo by executing ``ros2 run intra_process_demo two_node_pipeline`
     Received message with value: 5, and address: 0x7fb02303cea0
    [...]
 
-One thing you'll notice is that the messages tick along at about one per second.
-This is because we told the timer to fire at about once per second.
+Una cosa que notará es que los mensajes avanzan aproximadamente uno por segundo.
+Esto se debe a que le dijimos al temporizador que dispare aproximadamente una vez por segundo.
 
-Also you may have noticed that the first message (with value ``0``) does not have a corresponding "Received message ..." line.
-This is because publish/subscribe is "best effort" and we do not have any "latching" like behavior enabled.
-This means that if the publisher publishes a message before the subscription has been established, the subscription will not receive that message.
-This race condition can result in the first few messages being lost.
-In this case, since they only come once per second, usually only the first message is lost.
+También puedes haber notado que el primer mensaje (con valor ``0``) no tiene una línea correspondiente de "Mensaje recibido...".
+Esto se debe a que publicar/suscribir en "best effort" y no tenemos habilitado ningún comportamiento similar al "latching".
+Esto significa que si el publicador publica un mensaje antes de que se haya establecido la suscripción, la suscripción no recibirá ese mensaje.
+Esta condición de carrera puede provocar la pérdida de los primeros mensajes.
+En este caso, como solo llegan una vez por segundo, normalmente solo se pierde el primer mensaje.
 
-Finally, you can see that "Published message..." and "Received message ..." lines with the same value also have the same address.
-This shows that the address of the message being received is the same as the one that was published and that it is not a copy.
-This is because we're publishing and subscribing with ``std::unique_ptr``\ s which allow ownership of a message to be moved around the system safely.
-You can also publish and subscribe with ``const &`` and ``std::shared_ptr``, but zero-copy will not occur in that case.
+Finalmente, puedes ver que las líneas "Published message.." y "Received message ..." con el mismo valor también tienen la misma dirección.
+Esto demuestra que la dirección del mensaje que se recibe es la misma que la que se publicó y que no es una copia.
+Esto se debe a que estamos publicando y suscribiéndonos con ``std::unique_ptr``\ s que permiten que la propiedad de un mensaje se mueva por el sistema de forma segura.
+También puedes publicar y suscribirse con ``const &`` y ``std::shared_ptr``, pero en ese caso no se producirá copia cero.
 
-The cyclic pipeline demo
-^^^^^^^^^^^^^^^^^^^^^^^^
+La demostración de comunicación cíclica
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This demo is similar to the previous one, but instead of the producer creating a new message for each iteration, this demo only ever uses one message instance.
-This is achieved by creating a cycle in the graph and "kicking off" communication by externally making one of the nodes publish before spinning the executor:
+Esta demo es similar a la anterior, pero en lugar de que el productor cree un nuevo mensaje para cada iteración, esta demo solo usa una instancia de mensaje.
+Esto se logra mediante la creación de un ciclo en el gráfico y el "kicking off" de la comunicación al hacer que uno de los nodos publique externamente antes de hacer girar el ejecutor:
 
 https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cyclic_pipeline/cyclic_pipeline.cpp
 
@@ -187,16 +187,16 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
 
    using namespace std::chrono_literals;
 
-   // This node receives an Int32, waits 1 second, then increments and sends it.
+   // Este nodo recibe un Int32, espera 1 segundo, luego lo incrementa y lo envía.
    struct IncrementerPipe : public rclcpp::Node
    {
      IncrementerPipe(const std::string & name, const std::string & in, const std::string & out)
      : Node(name, rclcpp::NodeOptions().use_intra_process_comms(true))
      {
-       // Create a publisher on the output topic.
+       // Crear un publicador sobre el topic de salida.
        pub = this->create_publisher<std_msgs::msg::Int32>(out, 10);
        std::weak_ptr<std::remove_pointer<decltype(pub.get())>::type> captured_pub = pub;
-       // Create a subscription on the input topic.
+       // Crear una suscripción en el tema de entrada.
        sub = this->create_subscription<std_msgs::msg::Int32>(
          in,
          10,
@@ -210,14 +210,14 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
              reinterpret_cast<std::uintptr_t>(msg.get()));
            printf("  sleeping for 1 second...\n");
            if (!rclcpp::sleep_for(1s)) {
-             return;    // Return if the sleep failed (e.g. on ctrl-c).
+             return;    // Regresa si la suspensión falló (por ejemplo, en ctrl-c).
            }
            printf("  done.\n");
-           msg->data++;    // Increment the message's data.
+           msg->data++;    // Incrementar los datos del mensaje.
            printf(
              "Incrementing and sending with value: %d, and address: 0x%" PRIXPTR "\n", msg->data,
              reinterpret_cast<std::uintptr_t>(msg.get()));
-           pub_ptr->publish(std::move(msg));    // Send the message along to the output topic.
+           pub_ptr->publish(std::move(msg));    // Envía el mensaje junto con el tema de salida.
          });
      }
 
@@ -231,12 +231,12 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
      rclcpp::init(argc, argv);
      rclcpp::executors::SingleThreadedExecutor executor;
 
-     // Create a simple loop by connecting the in and out topics of two IncrementerPipe's.
-     // The expectation is that the address of the message being passed between them never changes.
+     // Cree un bucle simple conectando los temas de entrada y salida de dos IncrementerPipe's.
+     // La expectativa es que la dirección del mensaje que se pasa entre ellos nunca cambie.
      auto pipe1 = std::make_shared<IncrementerPipe>("pipe1", "topic1", "topic2");
      auto pipe2 = std::make_shared<IncrementerPipe>("pipe2", "topic2", "topic1");
-     rclcpp::sleep_for(1s);  // Wait for subscriptions to be established to avoid race conditions.
-     // Publish the first message (kicking off the cycle).
+     rclcpp::sleep_for(1s);  // Espere a que se establezcan las suscripciones para evitar condiciones de carrera.
+     // Publicar el primer mensaje (dando inicio al ciclo).
      std::unique_ptr<std_msgs::msg::Int32> msg(new std_msgs::msg::Int32());
      msg->data = 42;
      printf(
@@ -253,15 +253,15 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
      return 0;
    }
 
-Unlike the previous demo, this demo uses only one Node, instantiated twice with different names and configurations.
-The graph ends up being ``pipe1`` -> ``pipe2`` -> ``pipe1`` ... in a loop.
+A diferencia de la demo anterior, esta demo usa solo un Nodo, instanciado dos veces con diferentes nombres y configuraciones.
+El gráfico termina siendo ``pipe1`` -> ``pipe2`` -> ``pipe3`` ... en un bucle.
 
-The line ``pipe1->pub->publish(msg);`` kicks the process off, but from then on the messages are passed back and forth between the nodes by each one calling publish within its own subscription callback.
+La línea ``pipe1->pub->publish(msg);`` inicia el proceso, pero a partir de ese momento, los mensajes se pasan de un lado a otro entre los nodos y cada uno llama a la publicación dentro de su propio callback de suscripción.
 
-The expectation here is that the nodes pass the message back and forth, once a second, incrementing the value of the message each time.
-Because the message is being published and subscribed to as a ``unique_ptr`` the same message created at the beginning is continuously used.
+La expectativa aquí es que los nodos pasen el mensaje de un lado a otro, una vez por segundo, incrementando el valor del mensaje cada vez.
+Debido a que el mensaje se publica y se suscribe como ``unique_ptr``, se usa continuamente el mismo mensaje creado al principio.
 
-To test those expectations, let's run it:
+Para probar esas expectativas, ejecútelo:
 
 .. code-block:: bash
 
@@ -291,64 +291,64 @@ To test those expectations, let's run it:
      sleeping for 1 second...
    [...]
 
-You should see ever increasing numbers on each iteration, starting with 42... because 42, and the whole time it reuses the same message, as demonstrated by the pointer addresses which do not change, which avoids unnecessary copies.
+Deberías ver números cada vez mayores en cada iteración, comenzando con 42... porque 42, y todo el tiempo reutiliza el mismo mensaje, como lo demuestran las direcciones de puntero que no cambian, lo que evita copias innecesarias.
 
-The image pipeline demo
-^^^^^^^^^^^^^^^^^^^^^^^
+La demo de comunicación de imágenes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In this demo we'll use OpenCV to capture, annotate, and then view images.
+En esta demo, usaremos OpenCV para capturar, anotar y luego ver imágenes.
 
 .. note::
 
-  If you are on macOS and these examples do not work or you receive an error like ``ddsi_conn_write failed -1``, then you'll need to increase your system wide UDP packet size:
+  Si está en macOS y estos ejemplos no funcionan o recibe un error como ``ddsi_conn_write fail -1``, entonces deberá aumentar el tamaño del paquete UDP en todo el sistema:
 
   .. code-block:: bash
 
     $ sudo sysctl -w net.inet.udp.recvspace=209715
     $ sudo sysctl -w net.inet.udp.maxdgram=65500
 
-  These changes will not persist after a reboot.
+  Estos cambios no persistirán después de un reinicio.
 
-Simple pipeline
-~~~~~~~~~~~~~~~
+Comunicación simple
+~~~~~~~~~~~~~~~~~~~
 
-First we'll have a pipeline of three nodes, arranged as such: ``camera_node`` -> ``watermark_node`` -> ``image_view_node``
+Primero tendremos una comunicación de tres nodos, dispuestos de la siguiente manera: ``camera_node`` -> ``watermark_node`` -> ``image_view_node``
 
-The ``camera_node`` reads from camera device ``0`` on your computer, writes some information on the image and publishes it.
-The ``watermark_node`` subscribes to the output of the ``camera_node`` and adds more text before publishing it too.
-Finally, the ``image_view_node`` subscribes to the output of the ``watermark_node``, writes more text to the image and then visualizes it with ``cv::imshow``.
+El ``camera_node`` lee desde el dispositivo de cámara ``0`` en su computadora, escribe alguna información en la imagen y la publica.
+``watermark_node`` se suscribe a la salida de ``camera_node`` y agrega más texto antes de publicarlo también.
+Finalmente, ``image_view_node`` se suscribe a la salida de ``watermark_node``, escribe más texto en la imagen y luego la visualiza con ``cv::imshow``.
 
-In each node the address of the message which is being sent, or which has been received, or both, is written to the image.
-The watermark and image view nodes are designed to modify the image without copying it and so the addresses imprinted on the image should all be the same as long as the nodes are in the same process and the graph remains organized in a pipeline as sketched above.
+En cada nodo se escribe en la imagen la dirección del mensaje que se está enviando, o el que se ha recibido, o ambos.
+Los nodos de marca de agua y vista de imagen están diseñados para modificar la imagen sin copiarla, por lo que las direcciones impresas en la imagen deben ser todas iguales siempre que los nodos estén en el mismo proceso y el gráfico permanezca organizado en una canalización como se muestra arriba.
 
 .. note::
 
-   On some systems (we've seen it happen on Linux), the address printed to the screen might not change.
-   This is because the same unique pointer is being reused. In this situation, the pipeline is still running.
+   En algunos sistemas (lo hemos visto en Linux), es posible que la dirección impresa en la pantalla no cambie.
+   Esto se debe a que se está reutilizando el mismo puntero único. En esta situación, la canalización aún se está ejecutando.
 
-Let's run the demo by executing the following executable:
+Ejecutemos la demostración ejecutando el siguiente ejecutable:
 
 .. code-block:: bash
 
    ros2 run intra_process_demo image_pipeline_all_in_one
 
-You should see something like this:
+Deberías ver algo como esto:
 
 
 .. image:: images/intra-process-demo-pipeline-single-window.png
 
 
-You can pause the rendering of the image by pressing the spacebar and you can resume by pressing the spacebar again.
-You can also press ``q`` or ``ESC`` to exit.
+Puedes pausar la representación de la imagen presionando la barra espaciadora y puedes reanudarla presionando la barra espaciadora nuevamente.
+También puede presionar ``q`` o ``ESC`` para salir.
 
-If you pause the image viewer, you should be able to compare the addresses written on the image and see that they are the same.
+Si pausas el visor de imágenes, debería poder comparar las direcciones escritas en la imagen y ver que son iguales.
 
-Pipeline with two image viewers
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comunicación con dos visualizadores de imágenes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now let's look at an example just like the one above, except it has two image view nodes.
-All the nodes are still in the same process, but now two image view windows should show up. (Note for macOS users: your image view windows might be on top of each other).
-Let's run it with the command:
+Ahora veamos un ejemplo como el de arriba, excepto que tiene dos nodos de visualización de imagen.
+Todos los nodos todavía están en el mismo proceso, pero ahora deberían aparecer dos ventanas de visualización de imágenes. (Nota para los usuarios de macOS: las ventanas de visualización de imágenes pueden estar una encima de la otra).
+Vamos a ejecutarlo con el comando:
 
 .. code-block:: bash
 
@@ -358,26 +358,26 @@ Let's run it with the command:
 .. image:: images/intra-process-demo-pipeline-two-windows-copy.png
 
 
-Just like the last example, you can pause the rendering with the spacebar and continue by pressing the spacebar a second time. You can stop the updating to inspect the pointers written to the screen.
+Al igual que en el último ejemplo, puede pausar el renderizado con la barra espaciadora y continuar presionando la barra espaciadora por segunda vez. Puede detener la actualización para inspeccionar los punteros escritos en la pantalla.
 
-As you can see in the example image above, we have one image with all of the pointers the same and then another image with the same pointers as the first image for the first two entries, but the last pointer on the second image is different. To understand why this is happening consider the graph's topology:
+Como puedes ver en la imagen de ejemplo anterior, tenemos una imagen con todos los punteros iguales y luego otra imagen con los mismos punteros que la primera imagen para las dos primeras entradas, pero el último puntero en la segunda imagen es diferente. Para entender por qué sucede esto, considere la topología del gráfico:
 
 .. code-block:: bash
 
    camera_node -> watermark_node -> image_view_node
                                  -> image_view_node2
 
-The link between the ``camera_node`` and the ``watermark_node`` can use the same pointer without copying because there is only one intra process subscription to which the message should be delivered. But for the link between the ``watermark_node`` and the two image view nodes the relationship is one to many, so if the image view nodes were using ``unique_ptr`` callbacks then it would be impossible to deliver the ownership of the same pointer to both. It can be, however, delivered to one of them. Which one would get the original pointer is not defined, but instead is simply the last to be delivered.
+El enlace entre ``camera_node`` y ``watermark_node`` puede usar el mismo puntero sin copiar porque solo hay una suscripción dentro del proceso a la que se debe entregar el mensaje. Pero para el enlace entre ``watermark_node`` y los dos nodos de visualización de imagen, la relación es de uno a muchos, por lo que si los nodos de vista de imagen estuvieran usando callbacks ``unique_ptr``, entonces sería imposible entregar la propiedad del mismo puntero a ambos. Puede ser, sin embargo, entregado a uno de ellos. No se define cuál obtendría el puntero original, sino que es simplemente el último en ser entregado.
 
-Note that the image view nodes are not subscribed with ``unique_ptr`` callbacks. Instead they are subscribed with ``const shared_ptr``\ s. This means the system deliveres the same ``shared_ptr`` to both callbacks. When the first intraprocess subscription is handled, the internally stored ``unique_ptr`` is promoted to a ``shared_ptr``. Each of the callbacks will receive shared ownership of the same message.
+Ten en cuenta que los nodos de visualización de imagen no están suscritos con callbacks ``unique_ptr``. En su lugar, están suscritos con ``const shared_ptr``\ s. Esto significa que el sistema entrega el mismo ``shared_ptr`` a ambos callbacks. Cuando se maneja la primera suscripción dentro del proceso, el ``unique_ptr`` almacenado internamente se promociona a ``shared_ptr``. Cada uno de los callbacks recibirá la propiedad compartida del mismo mensaje.
 
-Pipeline with interprocess viewer
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Comunicacion con visualización entre procesos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-One other important thing to get right is to avoid interruption of the intra process zero-copy behavior when interprocess subscriptions are made. To test this we can run the first image pipeline demo, ``image_pipeline_all_in_one``, and then run an instance of the stand alone ``image_view_node`` (don't forget to prefix them with ``ros2 run intra_process_demo`` in the terminal). This will look something like this:
+Otra cosa importante para hacerlo bien es evitar la interrupción del comportamiento de copia cero dentro del proceso cuando se realizan suscripciones entre procesos. Para probar esto, podemos ejecutar la demostración de canalización de la primera imagen, ``image_pipeline_all_in_one``, y luego ejecutar una instancia del independiente ``image_view_node`` (no olvide ponerles el prefijo ``ros2 run intra_process_demo`` en el Terminal). Esto se verá algo como esto:
 
 
 .. image:: images/intra-process-demo-pipeline-inter-process.png
 
 
-It's hard to pause both images at the same time so the images may not line up, but the important thing to notice is that the ``image_pipeline_all_in_one`` image view shows the same address for each step. This means that the intra process zero-copy is preserved even when an external view is subscribed as well. You can also see that the interprocess image view has different process IDs for the first two lines of text and the process ID of the standalone image viewer in the third line of text.
+Es difícil pausar ambas imágenes al mismo tiempo, por lo que es posible que las imágenes no se alineen, pero lo importante a tener en cuenta es que la vista de imagen ``image_pipeline_all_in_one`` muestra la misma dirección para cada paso. Esto significa que la copia cero dentro del proceso se conserva incluso cuando también se suscribe una vista externa. También puedes ver que la vista de imagen entre procesos tiene ID de proceso diferentes para las dos primeras líneas de texto y la ID de proceso del visor de imágenes independiente en la tercera línea de texto.

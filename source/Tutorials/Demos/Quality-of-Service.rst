@@ -3,27 +3,28 @@
     Quality-of-Service
     Tutorials/Quality-of-Service
 
-Using quality-of-service settings for lossy networks
-====================================================
+Uso de configuraciones de calidad de servicio para redes con pérdidas
+=====================================================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenidos
    :depth: 2
    :local:
 
-Background
-----------
+Historial
+---------
 
-Please read the documentation page `about QoS settings <../../Concepts/About-Quality-of-Service-Settings>` for background information on available support in ROS 2.
+Lee la página de documentación `sobre la configuración de QoS <../../Concepts/About-Quality-of-Service-Settings>` para obtener información general sobre el soporte disponible en ROS 2.
 
-In this demo, we will spawn a node that publishes a camera image and another that subscribes to the image and shows it on the screen.
-We will then simulate a lossy network connection between them and show how different quality of service settings handle the bad link.
+En esta demostración, generaremos un nodo que publica una imagen de cámara y otro que se suscribe a la imagen y la muestra en la pantalla.
+Luego simularemos una conexión de red con pérdida entre ellos y mostraremos cómo las diferentes configuraciones de calidad de servicio manejan el enlace defectuoso.
 
 
-Prerequisites
--------------
-This tutorial assumes you have a :doc:`working ROS 2 installation <../../Installation>` and OpenCV.
-See the `OpenCV documentation <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ for its installation instructions.
-You will also need the ROS package ``image_tools``.
+Requisitos precios
+------------------
+
+Este tutorial asume que tienes una :doc:`instalación de ROS 2 <../../Installation>` y OpenCV.
+Consulta la documentación de `OpenCV <http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction>`__ para conocer las instrucciones de instalación.
+También necesitarás el paquete ROS ``image_tools``.
 
 .. tabs::
 
@@ -37,16 +38,16 @@ You will also need the ROS package ``image_tools``.
 
       .. code-block:: bash
 
-        # Clone and build the demos repo using the branch that matches your installation
+        # Clona y compila el repositorio de demos usando la rama que coincida con tu instalación
         git clone https://github.com/ros2/demos.git -b {REPOS_FILE_BRANCH}
 
 
-Run the demo
-------------
+Ejecución de la demo
+--------------------
 
-Before running the demo, make sure you have a working webcam connected to your computer.
+Antes de ejecutar la demostración, asegurate de tener una cámara web en funcionamiento conectada a su computadora.
 
-Once you've installed ROS 2, source your setup file:
+Una vez que hayas instalado ROS 2, obtén tu archivo de instalación:
 
 .. tabs::
 
@@ -68,26 +69,26 @@ Once you've installed ROS 2, source your setup file:
 
        call <path to ROS 2 install space>/local_setup.bat
 
-Then run:
+Entonces ejecuta:
 
 .. code-block:: bash
 
    ros2 run image_tools showimage
 
-Nothing will happen yet.
-``showimage`` is a subscriber node that is waiting for a publisher on the ``image`` topic.
+No pasará nada todavía.
+``showimage`` es un nodo suscriptor que está esperando un editor en el tema ``image``.
 
-Note: you have to close the ``showimage`` process with ``Ctrl-C`` later.
-You can't just close the window.
+Nota: tienes que cerrar el proceso ``showimage`` con ``Ctrl-C`` más tarde.
+No puedes simplemente cerrar la ventana.
 
-In a separate terminal, source the install file and run the publisher node:
+En una terminal separada, obtén el archivo de instalación y ejecuta el nodo publicador:
 
 .. code-block:: bash
 
    ros2 run image_tools cam2image
 
-This will publish an image from your webcam.
-In case you don't have a camera attached to your computer, there is a commandline option which publishes predefined images.
+Esto publicará una imagen de su cámara web.
+En caso de que no tengas una cámara conectada a su ordenador, hay una opción de línea de comandos que publica imágenes predefinidas.
 
 
 .. code-block:: bash
@@ -95,7 +96,7 @@ In case you don't have a camera attached to your computer, there is a commandlin
    ros2 run image_tools cam2image --ros-args -p burger_mode:=True
 
 
-In this window, you'll see terminal output:
+En esta ventana, verás la salida del terminal:
 
 .. code-block:: bash
 
@@ -104,8 +105,8 @@ In this window, you'll see terminal output:
    Publishing image #3
    ...
 
-A window will pop up with the title "view" showing your camera feed.
-In the first window, you'll see output from the subscriber:
+Aparecerá una ventana con el título "vista" que muestra la transmisión de su cámara.
+En la primera ventana, verás el resultado del suscriptor:
 
 .. code-block:: bash
 
@@ -116,24 +117,24 @@ In the first window, you'll see output from the subscriber:
 
 .. note::
 
-   macOS users: If these examples do not work or you receive an error like ``ddsi_conn_write failed -1`` then you'll need to increase your system wide UDP packet size:
+   Usuarios de macOS: si estos ejemplos no funcionan o si recibes un error como ``ddsi_conn_write fail -1``, deberás aumentar el tamaño del paquete UDP en todo el sistema:
 
    .. code-block:: bash
 
       $ sudo sysctl -w net.inet.udp.recvspace=209715
       $ sudo sysctl -w net.inet.udp.maxdgram=65500
 
-   These changes will not persist a reboot. If you want the changes to persist, add these lines to ``/etc/sysctl.conf`` (create the file if it doesn't exist already):
+   Estos cambios no persistirán al reiniciar. Si deseas que los cambios persistan, agrega estas líneas a ``/etc/sysctl.conf`` (crea el archivo si aún no existe):
 
    .. code-block:: bash
 
       net.inet.udp.recvspace=209715
       net.inet.udp.maxdgram=65500
 
-Command line options
-^^^^^^^^^^^^^^^^^^^^
+Opciones de la línea de comandos
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-In one of your terminals, add a -h flag to the original command:
+En uno de tus terminales, agrega un indicador -h al comando original:
 
 
 .. code-block:: bash
@@ -142,38 +143,38 @@ In one of your terminals, add a -h flag to the original command:
 
 
 
-Add network traffic
-^^^^^^^^^^^^^^^^^^^
+Agregar tráfico de red
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. warning::
 
-  This section of the demo won't work on RTI's Connext DDS.
-  When running multiple nodes in the same host, the RTI Connext DDS implementation uses shared memory along with the loopback interface.
-  Degrading the loopback interface throughput won't affect shared memory, thus traffic between the two nodes won't be affected.
+  Esta sección de la demo no funcionará en Connext DDS de RTI.
+  Cuando se ejecutan varios nodos en el mismo host, la implementación de RTI Connext DDS usa memoria compartida junto con la interfaz de bucle invertido.
+  La degradación del rendimiento de la interfaz de bucle invertido no afectará la memoria compartida, por lo que el tráfico entre los dos nodos no se verá afectado.
 
 .. note::
 
-   This next section is Linux-specific.
+   La siguiente sección es específica de Linux.
 
-   However, for macOS and Windows you can achieve a similar effect with the utilities "Network Link Conditioner" (part of the xcode tool suite) and "Clumsy" (http://jagt.github.io/clumsy/index.html), respectively, but they will not be covered in this tutorial.
+   Sin embargo, para macOS y Windows puedes lograr un efecto similar con las utilidades "Network Link Conditioner" (parte del conjunto de herramientas xcode) y "Clumsy" (http://jagt.github.io/clumsy/index.html), respectivamente, pero no se tratarán en este tutorial.
 
-We are going to use the Linux network traffic control utility, ``tc`` (http://linux.die.net/man/8/tc).
+Vamos a utilizar la utilidad de control de tráfico de red de Linux, ``tc`` (http://linux.die.net/man/8/tc).
 
 .. code-block:: bash
 
    sudo tc qdisc add dev lo root netem loss 5%
 
-This magical incantation will simulate 5% packet loss over the local loopback device.
-If you use a higher resolution of the images (e.g. ``--ros-args -p width:=640 -p height:=480``) you might want to try a lower packet loss rate (e.g. ``1%``).
+Este conjuro mágico simulará una pérdida de paquetes del ``5%` ` en el dispositivo de bucle invertido local.
+Si usas una resolución más alta de las imágenes (por ejemplo, ``--ros-args -p width:=640 -p height:=480``), es posible que desees probar una tasa de pérdida de paquetes más baja (por ejemplo, ``1%` `).
 
-Next we start the ``cam2image`` and ``showimage``, and we'll soon notice that both programs seem to have slowed down the rate at which images are transmitted.
-This is caused by the behavior of the default QoS settings.
-Enforcing reliability on a lossy channel means that the publisher (in this case, ``cam2image``) will resend the network packets until it receives acknowledgement from the consumer (i.e. ``showimage``).
+A continuación, iniciamos ``cam2image`` y ``showimage``, y pronto notaremos que ambos programas parecen haber disminuido la velocidad a la que se transmiten las imágenes.
+Esto se debe al comportamiento de la configuración de QoS predeterminada.
+Hacer cumplir la confiabilidad en un canal con pérdida significa que el editor (en este caso, ``cam2image``) reenviará los paquetes de red hasta que reciba el reconocimiento del consumidor (es decir, ``showimage``).
 
-Let's now try running both programs, but with more suitable settings.
-First of all, we'll use the ``-p reliability:=best_effort`` option to enable best effort communication.
-The publisher will now just attempt to deliver the network packets, and don't expect acknowledgement from the consumer.
-We see now that some of the frames on the ``showimage`` side were dropped, so the frame numbers in the shell running ``showimage`` won't be consecutive anymore:
+Intentaremos ahora ejecutar ambos programas, pero con configuraciones más adecuadas.
+En primer lugar, usaremos la opción ``-p reliability:=best_effort`` para habilitar la comunicación de best effort.
+El editor ahora solo intentará entregar los paquetes de red y no esperará el reconocimiento del consumidor.
+Vemos ahora que algunos de los cuadros en el lado de ``showimage`` se eliminaron, por lo que los números de cuadro en el shell que ejecuta ``showimage`` ya no serán consecutivos:
 
 
 .. image:: https://raw.githubusercontent.com/ros2/demos/{REPOS_FILE_BRANCH}/image_tools/doc/qos-best-effort.png
@@ -181,7 +182,7 @@ We see now that some of the frames on the ``showimage`` side were dropped, so th
    :alt: Best effort image transfer
 
 
-When you're done, remember to delete the queueing discipline:
+Cuando hayas terminado, recuerda eliminar la disciplina de cola:
 
 .. code-block:: bash
 
