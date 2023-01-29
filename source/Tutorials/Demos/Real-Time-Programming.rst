@@ -32,7 +32,7 @@ Install and run the demo
 ------------------------
 
 The real-time demo was written with Linux operating systems in mind, since many members of the ROS community doing real-time computing use Xenomai or RT_PREEMPT as their real-time solutions.
-Since many of the operations done in the demo to optimize performance or OS-specific, the demo only builds and runs on Linux systems.
+Since many of the operations done in the demo to optimize performance are OS-specific, the demo only builds and runs on Linux systems.
 **So, if you are an OSX or Windows user, don't try this part!**
 
 Also this must be built from source using a the static DDS API. **Currently the only supported implementation is Connext**.
