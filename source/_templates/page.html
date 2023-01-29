@@ -6,10 +6,10 @@
     <table id="topnav-table">
       <tr>
         <td valign="middle">
-          ROS Resources:
-            <a href="http://discourse.ros.org/">Discussion Forum</a>
+          Recursos de ROS :
+            <a href="http://discourse.ros.org/">Foro de Discusiones </a>
             |
-            <a href="http://status.ros.org/">Service Status</a>
+            <a href="http://status.ros.org/">Status de Servicio </a>
             |
             <a href="http://answers.ros.org/">Q&A answers.ros.org</a>
 
@@ -24,14 +24,14 @@
 <p>
   <strong>
     {% if current_version.name|string() in eol_versions %}
-    You're reading the documentation for a version of ROS 2 that has reached its EOL (end-of-life), and is no longer officially supported.
-    If you want up-to-date information, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+    Estas leyendo la documentación para una versión de ROS 2 que a llegado a su EOL (fin-de-vida), y oficialmente ya no cuenta con soporte.
+    Si deseas información actualizada, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% elif current_version.is_released %}
-    You're reading the documentation for an older, but still supported, version of ROS 2.
-    For information on the latest version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+    Estas leyendo la documentación para una versión de ROS2 anterior, pero que aun cuenta con soporte. 
+    Para información respecto a la ultima versión, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% else %}
-    You're reading the documentation for a development version.
-    For the latest released version, please have a look at <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+    Estas leyendo la documentación para una versión de desarrollo.
+    Para la ultima versión publicada, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% endif %}
   </strong>
 </p>
