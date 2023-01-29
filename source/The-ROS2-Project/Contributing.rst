@@ -30,7 +30,7 @@ Principios
      Si implementas una función y envías un pull request sin discutirlo primero con la comunidad, corres el riesgo de que sea rechazado o puede que se te pida que reconsideres gran parte de tu diseño.
    * Por lo general, es preferible abrir issues o usar Discourse para socializar una idea antes de comenzar la implementación.
 
-* Adoptar las mejores prácticas de la comunidad siempre que sea posible en lugar de procesos extrabagantes (ad-hoc)
+* Adoptar las mejores prácticas de la comunidad siempre que sea posible en lugar de procesos extravagantes (ad-hoc)
 
    Piensa en la experiencia del usuario final al momento desarrollar y contribuir.
    Evita el uso de herramientas o bibliotecas no estándar que pueden no ser accesibles para todos.
@@ -89,7 +89,7 @@ Si tu propuesta implica cambios en la API, se recomienda encarecidamente que dis
 Presentando tus cambios al código
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Las contribuciones de código deben realizarse a través de pull rquest a `los repositorios ros2 apropiados <https://github.com/ros2>`__.
+Las contribuciones de código deben realizarse a través de pull request a `los repositorios ros2 apropiados <https://github.com/ros2>`__.
 
 Pedimos a todos los colaboradores que sigan las prácticas explicadas en :doc:`la guía para desarrolladores <Contributing/Developer-Guide>`.
 
