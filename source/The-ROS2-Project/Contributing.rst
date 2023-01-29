@@ -4,61 +4,61 @@
 
 .. _Contributing:
 
-Contributing
-============
+contribuyendo
+=============
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenido
    :depth: 1
    :local:
 
-A few things to remember before you start contributing to the ROS 2 project.
+Algunas cosas para recordar antes de comenzar a contribuir al proyecto de ROS 2.
 
-Tenets
-------
+Principios
+----------
 
-* Respect what came before
+* Respeta lo que vino antes
 
-  ROS has been around for more than a decade and is used by developers and across the world.
-  Keep a humble attitude and an open mindset while contributing.
+  ROS existe desde hace más de una década y es utilizado por desarrolladores de todo el mundo.
+  Mantén una actitud humilde y una mentalidad abierta mientras contribuyes.
 
-* Engage Open Robotics as early as possible
+* Involucrar a Open Robotics lo antes posible
 
-  * Open Robotics acts as a gate-keeper and advocate for the ROS community.
-    Rely on their expertise and technical judgement from the design phase.
-  * Start discussions with Open Robotics and the community early.
-    Long time ROS contributors may have a clearer vision of the bigger picture.
-    If you implement a feature and send a pull request without discussing with the community first, you are taking the risk of it being rejected, or you may be asked to largely rethink your design.
-  * Opening issues or using Discourse to socialize an idea before starting the implementation is generally preferable.
+   * Open Robotics actúa como guardián y defensor de la comunidad de ROS.
+     Apóyate en su experiencia y criterio técnico desde la fase de diseño.
+   * Inicia conversaciones con Open Robotics y la comunidad desde el principio.
+     Los contribuidores de ROS pueden tener una visión más clara del panorama general.
+     Si implementas una función y envías un pull request sin discutirlo primero con la comunidad, corres el riesgo de que sea rechazado o puede que se te pida que reconsideres gran parte de tu diseño.
+   * Por lo general, es preferible abrir issues o usar Discourse para socializar una idea antes de comenzar la implementación.
 
-* Adopt community best-practices whenever possible instead of ad-hoc processes
+* Adoptar las mejores prácticas de la comunidad siempre que sea posible en lugar de procesos extrabagantes (ad-hoc)
 
-  Think about your end-user's experience when developing and contributing.
-  Avoid using non-standard tools or libraries that may not be accessible to everyone.
+   Piensa en la experiencia del usuario final al momento desarrollar y contribuir.
+   Evita el uso de herramientas o bibliotecas no estándar que pueden no ser accesibles para todos.
 
-* Think about the community as a whole
+* Piensa en la comunidad como un todo
 
-  Think about the bigger picture.
-  There are developers building different robots with different constraints.
-  ROS needs to accommodate requirements of the whole community.
+   Piense en el panorama general.
+   Hay desarrolladores que construyen diferentes robots con diferentes restricciones.
+   ROS necesita adaptarse a los requisitos de toda la comunidad.
 
-There are a number of ways you can contribute to the ROS 2 project.
+Hay varias formas de contribuir al proyecto ROS 2.
 
-Discussions and support
------------------------
+Discusiones y soporte
+---------------------
 
-Some of the easiest ways to contribute to ROS 2 involve engaging in community discussions and support.
-You can find more information on how to pitch in on the :doc:`Contact <../../Contact>` page.
+Algunas de las formas más fáciles de contribuir a ROS 2 implican participar en debates y apoyo de la comunidad.
+Puede encontrar más información sobre cómo comenzar en la página :doc:`Contacto <../../Contact>`.
 
-Contributing code
------------------
+Contribuir al Código 
+--------------------
 
-Setting up your development environment
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Configuración de tu entorno de desarrollo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To get started, you'll want to install from source; follow :ref:`the source installation instructions <building-from-source>` for your platform.
+Para comenzar, debes instalar a partir del código  fuente; siga :ref:`las instrucciones de instalación a partir de código fuente <building-from-source>` para su plataforma.
 
-Development Guides
-^^^^^^^^^^^^^^^^^^
+Guías de desarrollo
+^^^^^^^^^^^^^^^^^^^
 
 .. toctree::
    :titlesonly:
@@ -72,46 +72,46 @@ Development Guides
    Contributing/Windows-Tips-and-Tricks
    Contributing/Contributing-To-ROS-2-Documentation
 
-What to work on
+En que trabajar
 ^^^^^^^^^^^^^^^
 
-We have identified a number of tasks that could be worked on by community members: they can be listed by `searching across the ROS 2 repositories for issues labeled as "help wanted" <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A"help+wanted"&type=Issues>`__.
-If you see something on that list that you would like to work on, please comment on the item to let others know that you are looking into it.
+Hemos identificado una serie de tareas en las que los miembros de la comunidad podrían trabajar: se pueden enumerar `buscando en los repositorios de ROS 2 problemas etiquetados como "help wanted" <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A"help+wanted"&type=Issues>`__.
+Si ve algo en esa lista en lo que le gustaría trabajar, comente el elemento para que otros sepan que lo esta trabajando.
 
-We also have a label for issues that we think should be more accessible for first-time contributors, `labeled “good first issue” <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__.
-If you are interested in contributing to the ROS 2 project, we encourage you to take a look at those issues first.
-If you’d like to cast a wider net, we welcome contributions on any open issue (or others that you might propose), particularly tasks that have a milestone signifying they’re targeted for the next ROS 2 release (the milestone will be the next release's e.g. 'crystal').
+También tenemos una etiqueta para los issues que creemos que deberían ser más accesibles para quienes contribuyen por primera vez, `etiquetados como “good first issue” <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__.
+Si estas interesado en contribuir al proyecto ROS 2, te animamos a que primero eches un vistazo a estos issues.
+Si deseas tener en cuenta un rango más amplio, agradecemos las contribuciones a cualquier issue abierto (u otros que puedas proponer), en particular las tareas que tienen un hito (milestone) lo cual significa que se espera incorporarlo en la próxima versión de ROS 2 (el hito será el próxima versión, por ejemplo, 'crystal').
 
-If you have some code to contribute that fixes a bug or improves documentation, please submit it as a pull request to the relevant repository.
-For larger changes, it is a good idea to discuss the proposal `on the ROS 2 forum <https://discourse.ros.org/c/ng-ros>`__ before you start to work on it so that you can identify if someone else is already working on something similar.
-If your proposal involves changes to the APIs, it is especially recommended that you discuss the approach before starting work.
+Si tienes alguna contribución de código que solucione un error o mejore la documentación, envíalo como un pull request al repositorio correspondiente.
+Para cambios más grandes, es una buena idea discutir la propuesta `en el foro de ROS 2 <https://discourse.ros.org/c/ng-ros>`__ antes de comenzar a trabajar en ella para que puedas identificar si alguien más ya está trabajando en algo similar.
+Si tu propuesta implica cambios en la API, se recomienda encarecidamente que discutas el enfoque antes de comenzar a trabajar.
 
-Submitting your code changes
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Presentando tus cambios al código
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code contributions should be made via pull requests to `the appropriate ros2 repositories <https://github.com/ros2>`__.
+Las contribuciones de código deben realizarse a través de pull rquest a `los repositorios ros2 apropiados <https://github.com/ros2>`__.
 
-We ask all contributors to follow the practices explained in :doc:`the developer guide <Contributing/Developer-Guide>`.
+Pedimos a todos los colaboradores que sigan las prácticas explicadas en :doc:`la guía para desarrolladores <Contributing/Developer-Guide>`.
 
-Please be sure to :ref:`run tests <colcon-run-the-tests>` for your code changes because most packages have tests that check that the code complies with our style guidelines.
+Asegúrate de :ref:`ejecutar pruebas <colcon-run-the-tests>` a el código que tiene tus cambios porque la mayoría de los paquetes tienen pruebas que verifican que el código cumple con nuestras pautas de estilo.
 
-Becoming a core maintainer
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Convertirse en un core maintainer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The ROS 2 maintainers ensure that the project is generally making progress.
-The responsibilities of the maintainers include:
+Los maintainer de ROS 2 aseguran que el proyecto se mantenga progresando.
+Las responsabilidades de los mantenedores incluyen:
 
-* Reviewing incoming code contributions for style, quality, and overall fit into the goals of the repository/ROS 2.
-* Ensuring that CI continues to stay green.
-* Merging pull requests that meet the quality and CI standards above.
-* Addressing issues opened up by users.
+* Revisar las contribuciones del código entrante en cuanto a estilo, calidad y en general alineamiento respecto a los objetivos del repositorio/ROS 2.
+* Asegurar que CI continúe siendo exitoso.
+* Incorporar los pull request que cumplan con los estándares de calidad y CI anteriores.
+* Abordar problemas abiertos por los usuarios.
 
-Each repository in the `ros2 <https://github.com/ros2>`__ and `ament <https://github.com/ament>`__ organizations has a separate set of maintainers.
-Becoming a maintainer of one or more of those repositories is an invitation-only process, and generally involves the following steps:
+Cada repositorio en las organizaciones `ros2 <https://github.com/ros2>`__ y `ament <https://github.com/ament>`__ tiene un conjunto independiente de maintainers.
+Convertirse en un maintainer de uno o más de esos repositorios es un proceso solo por invitación y generalmente implica los siguientes pasos:
 
-* Within the last year, have a substantial number of code contributions to the repository.
-* Within the last year, do a substantial number of reviews on incoming pull requests to the repository.
+* En el último año, tener un número sustancial de contribuciones al repositorio.
+* En el último año, realice una cantidad considerable de revisiones a las pull request entrantes al repositorio.
 
-Approximately every 3 months, the ROS 2 team will review the contributions in all of the repositories and send out invitations to new maintainers.
-Once the invitation is accepted, the new maintainer will be asked to go through a short training process on the mechanisms and policies of the ROS 2 repositories.
-After that training process is completed, the new maintainer will be given write access to the appropriate repositories.
+Aproximadamente cada 3 meses, el equipo de ROS 2 revisará las contribuciones en todos los repositorios y enviará invitaciones a nuevos mantenedores.
+Una vez que se acepta la invitación, se le pedirá al nuevo mantenedor que realice un breve proceso de capacitación sobre los mecanismos y políticas de los repositorios de ROS 2.
+Después de que se complete ese proceso de capacitación, el nuevo mantenedor tendrá acceso de escritura a los repositorios apropiados.
