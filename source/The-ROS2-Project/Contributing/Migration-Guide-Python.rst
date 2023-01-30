@@ -36,8 +36,8 @@ In ROS 1:
    port = rospy.get_param('port', '/dev/ttyUSB0')
    assert isinstance(port, str), 'port parameter must be a str'
 
-   buadrate = rospy.get_param('baudrate', 115200)
-   assert isinstance(port, int), 'port parameter must be an integer'
+   baudrate = rospy.get_param('baudrate', 115200)
+   assert isinstance(baudrate, int), 'baudrate parameter must be an integer'
 
   rospy.logwarn('port: ' + port)
 
@@ -49,7 +49,7 @@ In ROS 2:
    assert isinstance(port, str), 'port parameter must be a str'
 
    baudrate = node.declare_parameter('baudrate', 115200).value
-   assert isinstance(port, int), 'port parameter must be an integer'
+   assert isinstance(baudrate, int), 'baudrate parameter must be an integer'
 
    node.get_logger().warn('port: ' + port)
 
