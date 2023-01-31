@@ -230,7 +230,7 @@ Create a file with name ``SyncAsync.xml`` and the following content:
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
         </publisher>
 
-        <!-- subscriber profile for topic sync_topic -->
+        <!-- default subscriber profile -->
         <subscriber profile_name="default_subscriber" is_default_profile="true">
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
         </subscriber>
@@ -257,7 +257,7 @@ Create a file with name ``SyncAsync.xml`` and the following content:
 
      </profiles>
 
-Note that several publisher profiles are defined.
+Note that several profiles for publisher and subscriber are defined.
 A default profile which is defined setting the ``is_default_profile`` to ``true``, and two profiles with names that coincide with those of the previously defined topics: ``sync_topic`` and another one for ``async_topic``.
 These last two profiles set the publication mode to ``SYNCHRONOUS`` or ``ASYNCHRONOUS`` accordingly.
 Note also that all profiles specify a ``historyMemoryPolicy`` value, which is needed for the example to work, and the reason will be explained later on this tutorial.
