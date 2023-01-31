@@ -39,7 +39,7 @@ It has the following CMakeLists.txt:
     target_link_libraries(foobar_node foobar)
 
     install(DIRECTORY include/${PROJECT_NAME}/
-    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
     )
 
     install(TARGETS foobar
@@ -195,12 +195,16 @@ After porting, the ``CMakeLists.txt`` should look like this:
 
     ament_package()
 
+TODO cmake version and rep 2000
+TODO compiler specific warnings and supported platforms
+TODO roscpp -> rclcpp and equivalent packages
 TODO catkin_package() -> ament_package() at end
+TODO CATKIN_DEPENDS and DEPENDS to ament_export_dependency()
 TODO find_package(catkin REQUIRED COMPONENTS) -> find_package
+TODO modern CMake targets instead of catkin_* variables
 TODO headers installed to unique DIRECTORY
 TODO CATKIN_ENABLE_TESTING to BUILD_TESTING
-TODO CATKIN_DEPENDS and DEPENDS to ament_export_dependency()
-
+TODO catkin_add_gtest to ament_add_gtest
 TODO library and binary install directory
 
 TODO ament_uncrustify --reformat src/foobar/
