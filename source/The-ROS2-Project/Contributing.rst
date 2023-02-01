@@ -49,7 +49,7 @@ Discusiones y soporte
 Algunas de las formas más fáciles de contribuir a ROS 2 implican participar en debates y apoyo de la comunidad.
 Puede encontrar más información sobre cómo comenzar en la página :doc:`Contacto <../../Contact>`.
 
-Contribuir al Código 
+Contribuir al Código
 --------------------
 
 Configuración de tu entorno de desarrollo

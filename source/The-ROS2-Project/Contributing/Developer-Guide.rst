@@ -3,814 +3,814 @@
     Developer-Guide
     Contributing/Developer-Guide
 
-ROS 2 developer guide
-=====================
+Guía para desarrolladores de ROS 2
+==================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de contenido
    :depth: 2
    :local:
 
-This page defines the practices and policies we employ when developing ROS 2.
+Esta página define las prácticas y políticas que empleamos al desarrollar ROS 2.
 
-General Principles
-------------------
+Principios generales
+--------------------
 
-Some principles are common to all ROS 2 development:
+Algunos principios son comunes a todo el desarrollo de ROS 2:
 
 
-* **Shared ownership**:
-  Everybody working on ROS 2 should feel ownership over all parts of the system.
-  The original author of a chunk of code does not have any special permission or obligation to control or maintain that chunk of code.
-  Everyone is free to propose changes anywhere, to handle any type of ticket, and to review any pull request.
-* **Be willing to work on anything**:
-  As a corollary to shared ownership, everybody should be willing to take on any available task and contribute to any aspect of the system.
-* **Ask for help**:
-  If you run into trouble on something, ask your fellow developers for help, via tickets, comments, or email, as appropriate.
+* **Propiedad compartida**:
+  Todos los que trabajan en ROS 2 deben sentirse dueños de todas las partes del sistema.
+  El autor original de un fragmento de código no tiene ningún permiso u obligación especial para controlar o mantener ese fragmento de código.
+  Todos son libres de proponer cambios en cualquier lugar, manejar cualquier tipo de ticket y revisar cualquier pull request.
+* **Estar dispuesto a trabajar en cualquier cosa**:
+  Como corolario de la propiedad compartida, todos deben estar dispuestos a asumir cualquier tarea disponible y contribuir a cualquier aspecto del sistema.
+* **Pedir ayuda**:
+  Si tienes problemas con algo, solicita ayuda a tus compañeros desarrolladores, a través de tickets, comentarios o correo electrónico, según corresponda.
 
-Quality Practices
------------------
+Prácticas de Calidad
+--------------------
 
-Packages can ascribe to different levels of quality based on the development practices they adhere to, as per the guidelines in `REP 2004: Package Quality Categories <https://www.ros.org/reps/rep-2004.html>`_.
-The categories are differentiated by their policies on versioning, testing, documentation, and more.
+Los paquetes pueden categorizarse en diferentes niveles de calidad basado en las prácticas de desarrollo a las que se adhieran, según las directrices de `REP 2004: Package Quality Categories <https://www.ros.org/reps/rep-2004.html>`_ .
+Las categorías se diferencian por sus políticas sobre versiones, pruebas, documentación y más.
 
-The following sections are the specific development rules we follow to ensure core packages are of the highest quality ('Level 1').
-We recommend all ROS developers strive to adhere to the following policies to ensure quality across the ROS ecosystem.
+Las siguientes secciones son las reglas de desarrollo específicas que seguimos para garantizar que los paquetes principales sean de la más alta calidad ('Nivel 1').
+Recomendamos a todos los desarrolladores de ROS que se esfuercen por cumplir con las siguientes políticas para garantizar la calidad en todo el ecosistema de ROS.
 
 .. _semver:
 
-Versioning
+Versionado
 ^^^^^^^^^^
 
-We will use the `Semantic Versioning guidelines <http://semver.org/>`__ (``semver``) for versioning.
+Usaremos las `directrices de control de versiones semánticas <https://semver.org/lang/es/>`__ (``semver``) para el control de versiones.
 
-We will also adhere to some ROS-specific rules built on top of ``semver's`` full meaning:
+También nos adherimos a algunas reglas específicas de ROS adicionales encima de lo definido en ``semver``:
 
-* Major version increments (i.e. breaking changes) should not be made within a released ROS distribution.
+* Los incrementos de versiones Mayores (es decir, cambios incompatibles) no deben realizarse dentro de una distribución de ROS publicada.
 
-  * Patch (interface-preserving) and minor (non-breaking) version increments do not break compatibility, so these sorts of changes *are* allowed within a release.
+  * Los parches (con preservación de la interfaz) y los incrementos de versión menores (sin interrupciones) no rompen la compatibilidad, por lo que este tipo de cambios *están* permitidos dentro de una versión.
 
-  * Major ROS releases are the best time to release breaking changes.
-    If a core package needs multiple breaking changes, they should be merged into their integration branch (e.g. rolling) to allow catching problems in CI quickly, but released together to reduce the number of major releases for ROS users.
+  * Los lanzamientos Mayores de ROS son el mejor momento para lanzar cambios incompatibles (breaking change).
+    Si un paquete principal necesita varios cambios incompatibles, deben fusionarse en su rama de integración (por ejemplo, rolling) para permitir detectar problemas en CI rápidamente, pero deben publicarse juntos para reducir la cantidad de versiones Major para los usuarios de ROS.
 
-  * Though major increments require a new distribution, a new distribution does not necessarily require a major bump (if development and release can happen without breaking API).
+  * Aunque los incrementos importantes requieren una nueva distribución, una nueva distribución no necesariamente requiere un aumento importante (si el desarrollo y el lanzamiento pueden ocurrir sin interrumpir la API).
 
-* For compiled code, the ABI is considered part of the public interface.
-  Any change that requires recompiling dependent code is considered major (breaking).
+* Para el código compilado, la ABI (Interfaz binaria de aplicaciones) se considera parte de la interfaz pública.
+   Cualquier cambio que requiera volver a compilar el código dependiente se considera cambio incompatible.
 
-  * ABI breaking changes *can* be made in a minor version bump *before* a distribution release (getting added to the rolling release).
+  * Los cambios incompatibles de ABI *pueden* realizarse en una actualización de versión Menor *antes* de un lanzamiento de distribución  (agregándola a la distribución rolling).
 
-* We enforce API stability for core packages in Dashing and Eloquent even though their major version components are ``0``, despite `SemVer's specification <https://semver.org/#spec-item-4>`_ regarding initial development.
+* Imponemos la estabilidad de la API para los paquetes principales en Dashing y Eloquent aunque sus componentes principales de la versión sean ``0``, a pesar de la ` especificación de SemVer <https://semver.org/lang/es/#spec-item-4>`_ con respecto al desarrollo inicial.
 
-  * Subsequently, packages should strive to reach a mature state and increase to version ``1.0.0`` so to match ``semver's`` specifications.
+  * Posteriormente, los paquetes deben esforzarse por alcanzar un estado maduro y aumentar a la versión ``1.0.0`` para que coincidan con las especificaciones de ``semver``.
 
-Caveats
-~~~~~~~
+Advertencias
+~~~~~~~~~~~~
 
-These rules are *best-effort*.
-In unlikely, extreme cases, it may be necessary to break API within a major version/distribution.
-Whether an unplanned break increments the major or minor version will be assessed on a case-by-case basis.
+Estas reglas son *mejor esfuerzo*.
+En casos extremos e improbables, puede ser necesario romper la API dentro de una versión/distribución principal.
+Para un caso de cambio no planificado que rompa compatibilidad se evaluará si es considerado un incremento Mayor o Menor.
 
-For example, consider a situation involving released X-turtle, corresponding to major version ``1.0.0``, and released Y-turtle, corresponding to major version ``2.0.0``.
+Por ejemplo, considere una situación que involucre el lanzamiento de X-turtle, correspondiente a la versión Mayor ``1.0.0``, y Y-turtle lanzado, correspondiente a la versión Mayor `` 2.0.0``.
 
-If an API-breaking fix is identified to be absolutely necessary in X-turtle, bumping to ``2.0.0`` is obviously not an option because ``2.0.0`` already exists.
+Si se identifica que un arreglo con ruptura de la API es absolutamente necesaria en X-turtle, saltar a ``2.0.0`` obviamente no es una opción porque ``2.0.0`` ya existe.
 
-The solutions for handling X-turtle's version in such a case, both non-ideal, are:
+Las soluciones para manejar la versión de X-turtle en tal caso, ambas no ideales, son:
 
-1. Bumping X-turtle's minor version: non-ideal because it violates SemVer's principle that breaking changes must bump the major version.
+1. Actualizar X-turtle con una versión Menor: no es ideal porque viola el principio de SemVer de que los cambios incompatibles deben incrementar la versión Mayor.
 
-2. Bumping X-turtle's major version past Y-turtle (to ``3.0.0``): non-ideal because the older distro's version would become higher than the already-available version of a newer distro, which would invalidate/break version-specific conditional code.
+2. Actualizar la versión Mayor de X-turtle más allá de Y-turtle (a `` 3.0.0``): no es ideal porque la versión de la distribución anterior se volvería más alta que la versión ya disponible de una distribución más nueva, lo que invalidaría/rompería código condicional específico de la versión.
 
-The developer will have to decide which solution to use, or more importantly, which principle they are willing to break.
-We cannot suggest one or the other, but in either case we do require that explicit measures be taken to communicate the disruption and its explanation to users manually (beyond just the version increment).
+El desarrollador tendrá que decidir qué solución usar o, lo que es más importante, qué principio está dispuesto a romper.
+No podemos sugerir uno u otro, pero en cualquier caso sí requerimos que se tomen medidas explícitas para comunicar la interrupción y su explicación a los usuarios de forma manual (más allá del incremento de versión).
 
-If there were no Y-turtle, even though the fix would technically just be a patch, X-turtle would have to bump to ``2.0.0``.
-This case adheres to SemVer, but breaks from our own rule that major increments should not be introduced in a released distribution.
+Si no hubiera Y-turtle, aunque técnicamente la solución sería solo un parche, X-turtle tendría que pasar a ``2.0.0``.
+Este caso se adhiere a SemVer, pero rompe con nuestra propia regla de que no se deben introducir incrementos importantes en una distribución publicada.
 
-This is why we consider the versioning rules *best-effort*.
-As unlikely as the examples above are, it is important to accurately define our versioning system.
+Es por eso que consideramos las reglas de control de versiones *mejor esfuerzo*.
+Tan improbable como el ejemplo que se muestra arriba, es importante definir con precisión nuestro sistema de control de versiones.
 
-Public API declaration
-~~~~~~~~~~~~~~~~~~~~~~
+Declaración de API pública
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-According to ``semver``, every package must clearly declare a public API.
-We will use the "Public API Declaration" section of the quality declaration of a package to declare what symbols are part of the public API.
+Según ``semver``, cada paquete debe declarar claramente una API pública.
+Usaremos la sección "Declaración de API pública" de la declaración de calidad de un paquete para declarar qué símbolos forman parte de la API pública.
 
-For most C and C++ packages the declaration is any header that it installs.
-However, it is acceptable to define a set of symbols which are considered private.
-Avoiding private symbols in headers can help with ABI stability, but is not required.
+Para la mayoría de los paquetes C y C++, la declaración es cualquier encabezado que instale.
+Sin embargo, es aceptable definir un conjunto de símbolos que se consideran privados.
+Evitar los símbolos privados en los encabezados puede ayudar con la estabilidad de ABI, pero no es obligatorio.
 
-For other languages like Python, a public API must be explicitly defined, so that it is clear what symbols can be relied on with respect to the versioning guidelines.
-The public API can also be extended to build artifacts like configuration variables, CMake config files, etc. as well as executables and command-line options and output.
-Any elements of the public API should be clearly stated in the package's documentation.
-If something you are using is not explicitly listed as part of the public API in the package's documentation, then you cannot depend on it not changing between minor or patch versions.
+Para otros lenguajes como Python, se debe definir explícitamente una API pública, de modo que quede claro en qué símbolos se puede confiar con respecto a las pautas de control de versiones.
+La API pública también se puede ampliar para crear artefactos como variables de configuración, archivos de configuración de CMake, etc., así como ejecutables y opciones y resultados de la línea de comandos.
+Todos los elementos de la API pública deben indicarse claramente en la documentación del paquete.
+Si algo que estas utilizando no aparece explícitamente como parte de la API pública en la documentación del paquete, entonces no puedes asumir en que no cambie entre versiones Menores o parches.
 
-Deprecation strategy
-~~~~~~~~~~~~~~~~~~~~
+Estrategia de Obsolescencia
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Where possible, we will also use the tick-tock deprecation and migration strategy for major version increments.
-New deprecations will come in a new distribution release, accompanied by compiler warnings expressing that the functionality is being deprecated.
-In the next release, the functionality will be completely removed (no warnings).
+Siempre que sea posible, también utilizaremos la estrategia de migración y obsolescencia tick-tock para los incrementos de versiones Mayores.
+Las nuevas obsolescencias vendrán en una nueva versión de distribución, acompañadas de advertencias del compilador que expresan que la funcionalidad está obsoleta.
+En la próxima versión, la funcionalidad se eliminará por completo (sin advertencias).
 
-Example of function ``foo`` deprecated and replaced by function ``bar``:
+Ejemplo de la función ``foo`` obsoleta y reemplazada por la función ``bar``:
 
 =========  ========================================================
- Version    API
+  Versión   API
 =========  ========================================================
 X-turtle   void foo();
 Y-turtle   [[deprecated("use bar()")]] void foo(); <br> void bar();
 Z-turtle   void bar();
 =========  ========================================================
 
-We must not add deprecations after a distribution is released.
-Deprecations do not necessarily require a major version bump, though.
-A deprecation can be introduced in a minor version bump if the bump happens before the distro is released (similar to ABI breaking changes).
+No debemos agregar obsolescencias después de lanzar una distribución.
+Sin embargo, las obsolescencias no requieren necesariamente un cambio de versión Mayor.
+Se puede introducir una obsolescencia en un aumento de versión Menor si el aumento ocurre antes de que se lance la distribución (similar a los cambios incompatibles de ABI).
 
-For example, if X-turtle begins development as ``2.0.0``, a deprecation can be added in ``2.1.0`` before X-turtle is released.
+Por ejemplo, si X-turtle comienza a desarrollarse como ``2.0.0``, se puede agregar una obsolescencia en ``2.1.0`` antes de lanzar X-turtle.
 
-We will attempt to maintain compatibility across distros as much as possible.
-However, like the caveats associated with SemVer, tick-tock or even deprecation in general may be impossible to completely adhere to in certain cases.
+Intentaremos mantener la compatibilidad entre distribuciones tanto como sea posible.
+Sin embargo, al igual que las advertencias asociadas con SemVer, el tic-tac o incluso la desaprobación en general puede ser imposible de cumplir por completo en ciertos casos.
 
-Change control process
-^^^^^^^^^^^^^^^^^^^^^^
+Proceso de control de cambios
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* All changes must go through a pull request.
+* Todos los cambios deben pasar por un pull request.
 
-* We will enforce the `Developer Certificate of Origin (DCO) <https://developercertificate.org/>`_ on pull requests in ROSCore repositories.
+* Haremos cumplir el `Certificado de origen del desarrollador (DCO) <https://developercertificate.org/>`_ en los pull request a los repositorios de ROSCore.
 
-  * It requires all commit messages to contain the ``Signed-off-by`` line with an email address that matches the commit author.
+  * Requiere que todos los mensajes de confirmación contengan la línea ``Firmado por`` con una dirección de correo electrónico que coincida con el autor de la confirmación.
 
-  * You can pass ``-s`` / ``--signoff`` to the ``git commit`` invocation or write the expected message manually (e.g. ``Signed-off-by: Your Name Developer <your.name@example.com>``).
+  * Puede pasar ``-s`` / ``--signoff`` a la invocación ``git commit`` o escribir el mensaje esperado manualmente (por ejemplo, ``Firmado por: Su nombre Desarrollador <su.nombre @ejemplo.com>``).
 
-  * DCO is *not* required for pull requests that only address whitespace removal, typo correction, and other `trivial changes <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_.
+  * DCO *no* se requiere para los pull request que solo abordan la eliminación de espacios en blanco, la corrección de errores tipográficos y otros `cambios triviales <http://cr.openjdk.java.net/~jrose/draft/trivial-fixes.html>`_ .
 
-* Always run CI jobs for all `tier 1 platforms <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ for every pull request and include links to jobs in the pull request.
-  (If you don't have access to the Jenkins jobs someone will trigger the jobs for you.)
+* Ejecute siempre trabajos de CI para todas las `plataformas de nivel 1 <https://www.ros.org/reps/rep-2000.html#support-tiers>`_ para cada pull request e incluya enlaces a trabajos en el pull request.
+   (Si no tiene acceso a los trabajos de Jenkins, alguien activará los trabajos por usted).
 
-* A minimum of 1 approval from a fellow developer who did not author the pull request is required to consider it approved.
-  Approval is required before merging.
+* Se requiere un mínimo de 1 aprobación de un compañero desarrollador que no haya creado el pull request para considerarlo aprobado.
+  Se requiere aprobación antes de realizar la fusión.
 
-  * Packages may choose to increase this number.
+  * Los paquetes pueden optar por aumentar este número.
 
-* Any required changes to documentation (API documentation, feature documentation, release notes, etc.) must be proposed before merging related changes.
+* Cualquier cambio requerido en la documentación (documentación de la API, documentación de funciones, notas de la versión, etc.) debe proponerse antes de fusionar los cambios relacionados.
 
-Guidelines for backporting PRs
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Directrices para aplicar los PR a versiones anteriores
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-When changing an older version of ROS:
+Al cambiar una versión anterior (backporting) de ROS:
 
-* Make sure the features or fixes are accepted and merged in the rolling branch before opening a PR to backport the changes to older versions.
-* When backporting to older versions, also consider backporting to any other :doc:`still supported versions <../../Releases>`, even non-LTS versions.
-* If you are backporting a single PR in its entirety, title the backport PR "[Distro] <name of original PR>".
-  If backporting a subset of changes from one or multiple PRs, the title should be "[Distro] <description of changes>".
-* Link to all PRs whose changes you're backporting from the description of your backport PR.
-  In a Dashing backport of a Foxy change, you do not need to link to the Eloquent backport of the same change.
+* Asegúrese de que las funciones o las correcciones se acepten y fusionen en la rama rolling antes de abrir una PR para aplicar los cambios a versiones anteriores.
+* Al realizar una adaptación a versiones anteriores, también considere la posibilidad de realizar una adaptación a cualquier otra :doc:`versión aún compatible <../../Releases>`, incluso versiones que no sean LTS.
+* Si está realizando backport de un solo PR en su totalidad, titule el PR de retroceso "[Distro] <nombre del PR original>".
+  Si se hace un backport un subconjunto de cambios de uno o varios PR, el título debe ser "[Distro] <descripción de los cambios>".
+* Vincula a todos los PR cuyos cambios estés realizando su backport desde la descripción del backport PR.
+  En un backport de Foxy a Dashing no es necesario enlazar el backport a Eloquent en el mismo cambio.
 
-Documentation
+Documentación
 ^^^^^^^^^^^^^
 
-All packages should have these documentation elements present in their README or linked to from their README:
+Todos los paquetes deben tener estos elementos de documentación presentes en su README o vinculados desde su README:
 
-* Description and purpose
-* Definition and description of the public API
-* Examples
-* How to build and install (should reference external tools/workflows)
-* How to build and run tests
-* How to build documentation
-* How to develop (useful for describing things like ``python setup.py develop``)
-* License and copyright statements
+* Descripción y propósito
+* Definición y descripción de la API pública
+* Ejemplos
+* Cómo compilar e instalar (debe hacer referencia a herramientas/flujos de trabajo externos)
+* Cómo construir y ejecutar pruebas
+* Cómo construir la documentación
+* Cómo desarrollar (útil para describir cosas como ``python setup.py Develop``)
+* Declaraciones de licencia y derechos de autor
 
-Each source file must have a license and copyright statement, checked with an automated linter.
+Cada archivo fuente debe tener una licencia y una declaración de derechos de autor, verificada con un linter automático.
 
-Each package must have a LICENSE file, typically the Apache 2.0 license, unless the package has an existing permissive license (e.g. rviz uses three-clause BSD).
+Cada paquete debe tener un archivo de LICENCIA, generalmente la licencia de Apache 2.0, a menos que el paquete tenga una licencia permisiva existente (por ejemplo, rviz usa BSD de tres cláusulas).
 
-Each package should describe itself and its purpose assuming, as much as possible, that the reader has stumbled onto it without previous knowledge of ROS or other related projects.
+Cada paquete debe describirse a sí mismo y su propósito suponiendo, en la medida de lo posible, que el lector se ha topado con él sin conocimiento previo de ROS u otros proyectos relacionados.
 
-Each package should define and describe its public API so that there is a reasonable expectation for users about what is covered by the semantic versioning policy.
-Even in C and C++, where the public API can be enforced by API and ABI checking, it is a good opportunity to describe the layout of the code and the function of each part of the code.
+Cada paquete debe definir y describir su API pública para que haya una expectativa razonable para los usuarios sobre lo que cubre la política de versiones semánticas.
+Incluso en C y C++, donde la API pública se puede aplicar mediante la verificación de API y ABI, es una buena oportunidad para describir el diseño del código y la función de cada parte del código.
 
-It should be easy to take any package and from that package's documentation understand how to build, run, build and run tests, and build the documentation.
-Obviously we should avoid repeating ourselves for common workflows, like building a package in a workspace, but the basic workflows should be either described or referenced.
+Debe ser fácil tomar cualquier paquete y, a partir de la documentación de ese paquete, comprender cómo compilar, ejecutar, compilar y ejecutar pruebas, y compilar la documentación.
+Obviamente, debemos evitar repetirnos para flujos de trabajo comunes, como crear un paquete en un espacio de trabajo, pero los flujos de trabajo básicos deben describirse o referenciarse.
 
-Finally, it should include any documentation for developers.
-This might include workflows for testing the code using something like ``python setup.py develop``, or it might mean describing how to make use of extension points provided by your package.
+Finalmente, debe incluir cualquier documentación para desarrolladores.
+Esto podría incluir flujos de trabajo para probar el código usando algo como ``python setup.py Develop``, o podría significar describir cómo hacer uso de los puntos de extensión proporcionados por su paquete.
 
-Examples:
+Ejemplos:
 
-* capabilities: https://docs.ros.org/hydro/api/capabilities/html/
+* capacidades: https://docs.ros.org/hydro/api/capabilities/html/
 
-  * This one gives an example of docs which describe the public API
+   * Este da un ejemplo de documentos que describen la API pública
 
 * catkin_tools: https://catkin-tools.readthedocs.org/en/latest/development/extending_the_catkin_command.html
 
-  * This is an example of describing an extension point for a package
+   * Este es un ejemplo de descripción de un punto de extensión para un paquete
 
-*(API docs are not yet being automatically generated)*
+*(Los documentos API aún no se generan automáticamente)*
 
-Testing
+Pruebas
 ^^^^^^^
 
-All packages should have some level of :ref:`system, integration, and/or unit tests.<TestingMain>`
+Todos los paquetes deben tener algún nivel de :ref:`sistema, integración y/o pruebas unitarias.<TestingMain>`
 
-**Unit tests** should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
-Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
+**Las pruebas unitarias** siempre deben estar en el paquete que se está probando y deben usar herramientas como ``Mock`` para probar y verificar partes especificas de la base de código en escenarios construidos.
+Las pruebas unitarias no deben incluir dependencias de prueba que no sean herramientas de prueba, p. gtest, nosetest, pytest, simulacro, etc...
 
-**Integration tests** can test interactions between parts of the code or between parts of the code and the system.
-They often test software interfaces in ways that we expect the user to use them.
-Like Unit tests, Integration tests should be in the package which is being tested and should not bring in non-tool test dependencies unless absolutely necessary, i.e. all non-tool dependencies should only be allowed under extreme scrutiny so they should be avoided if possible.
+**Las pruebas de integración** pueden probar interacciones entre partes del código o entre partes del código y el sistema.
+A menudo prueban las interfaces de software de la forma en que esperamos que el usuario las use.
+Al igual que las pruebas unitarias, las pruebas de integración deben estar en el paquete que se está probando y no deben incluir dependencias de prueba que no sean de herramientas a menos que sea absolutamente necesario, es decir, todas las dependencias que no sean de herramientas solo deben permitirse bajo un escrutinio extremo, por lo que deben evitarse si es posible.
 
-**System tests** are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
+**Las pruebas del sistema** están diseñadas para probar situaciones de un extremo a otro entre paquetes y deben estar en sus propios paquetes para evitar la sobrecarga o el acoplamiento de paquetes y para evitar dependencias circulares.
 
-In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
+En general, se debe evitar minimizar las dependencias de prueba de paquetes cruzados o externos para evitar dependencias circulares y paquetes de prueba estrechamente acoplados.
 
-All packages should have some unit tests and possibly integration tests, but the degree to which they should have them is based on the package's quality category.
-The following subsections apply to 'Level 1' packages:
+Todos los paquetes deben tener algunas pruebas unitarias y posiblemente pruebas de integración, pero el grado en que deben tenerlas se basa en la categoría de calidad del paquete.
+Las siguientes subsecciones se aplican a los paquetes de 'Nivel 1':
 
-Code coverage
-~~~~~~~~~~~~~
+Cobertura de código
+~~~~~~~~~~~~~~~~~~~
 
-We will provide line coverage, and achieve line coverage above 95%.
-If a lower percentage target is justifiable, it must be prominently documented.
-We may provide branch coverage, or exclude code from coverage (test code, debug code, etc.).
-We require that coverage increase or stay the same before merging a change, but it may be acceptable to make a change that decreases code coverage with proper justification (e.g. deleting code that was previously covered can cause the percentage to drop).
+Proporcionaremos cobertura de línea y lograremos una cobertura de línea superior al 95%.
+Si se justifica un objetivo de porcentaje más bajo, debe documentarse de forma explicita.
+Podemos proporcionar cobertura de rama o excluir código de la cobertura (código de prueba, código de depuración, etc.).
+Requerimos que la cobertura aumente o permanezca igual antes de fusionar un cambio, pero puede ser aceptable hacer un cambio que reduzca la cobertura del código con la justificación adecuada (p. ej., eliminar el código que se cubrió anteriormente puede hacer que el porcentaje baje).
 
-Performance
+Rendimiento
 ~~~~~~~~~~~
 
-We strongly recommend performance tests, but recognize they don't make sense for some packages.
-If there are performance tests, we will choose to either check each change or before each release or both.
-We will also require justification for merging a change or making a release that lowers performance.
+Recomendamos fuertemente las pruebas de rendimiento, pero reconocemos que no tienen sentido para algunos paquetes.
+Si hay pruebas de rendimiento, elegiremos verificar cada cambio o antes de cada lanzamiento o ambos.
+También necesitaremos una justificación para fusionar un cambio o hacer una versión que reduzca el rendimiento.
 
-Linters and static analysis
+Linters y análisis estático
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We will use :doc:`ROS code style <Code-Style-Language-Versions>` and enforce it with linters from `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc/index.rst>`_.
-All linters/static analysis that are part of ``ament_lint_common`` must be used.
+Usaremos :doc:`estilo de código ROS <Code-Style-Language-Versions>` y lo aplicaremos con linters de `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc /index.rst>`_.
+Se deben usar todos los análisis estáticos/linters que forman parte de ``ament_lint_common``.
 
-The `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_ documentation provides information on running ``ament_lint_common``.
+La documentación de `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_ proporciona información sobre cómo ejecutar ``ament_lint_common``.
 
-General Practices
------------------
+Prácticas Generales
+-------------------
 
-Some practices are common to all ROS 2 development.
+Algunas prácticas son comunes a todo el desarrollo de ROS 2.
 
-These practices don't affect package quality level as described in `REP 2004 <https://www.ros.org/reps/rep-2004.html>`_, but are still highly recommended for the development process.
+Estas prácticas no afectan el nivel de calidad del paquete como se describe en `REP 2004 <https://www.ros.org/reps/rep-2004.html>`_, pero siguen siendo muy recomendables para el proceso de desarrollo.
 
 Issues
 ^^^^^^
 
-When filing an issue please make sure to:
+Al presentar un issue, asegúrese de:
 
-- Include enough information for another person to understand the issue.
-  In ROS 2, the following points are needed for narrowing down the cause of an issue.
-  Testing with as many alternatives in each category as feasible will be especially helpful.
+- Incluir suficiente información para que otra persona entienda el problema.
+  En ROS 2, los siguientes puntos pueden utilizarse para reducir el motivo de un problema.
+  Realizar pruebas con tantas alternativas en cada categoría como sea posible será de especial ayuda.
 
-  - **The operating system and version.**
-    Reasoning: ROS 2 supports multiple platforms, and some bugs are specific to particular versions of operating systems/compilers.
-  - **The installation method.**
-    Reasoning: Some issues only manifest if ROS 2 has been installed from "fat archives" or from Debians.
-    This can help us determine if the issue is with the packaging process.
-  - **The specific version of ROS 2.**
-    Reasoning: Some bugs may be present in a particular ROS 2 release and later fixed.
-    It is important to know if your installation includes these fixes.
-  - **The DDS/RMW implementation being used** (see `this page <../../Concepts/About-Different-Middleware-Vendors>` for how to determine which one).
-    Reasoning: Communication issues may be specific to the underlying ROS middleware being used.
-  - **The ROS 2 client library being used.**
-    Reasoning: This helps us narrow down the layer in the stack at which the issue might be.
+  - **El sistema operativo y la versión.**
+    Razonamiento: ROS 2 es compatible con múltiples plataformas y algunos errores son específicos de versiones particulares de sistemas operativos/compiladores.
+  - **El método de instalación.**
+    Razonamiento: algunos problemas solo se manifiestan si ROS 2 se ha instalado desde "archivos fat" o desde Debians.
+    Esto puede ayudarnos a determinar si el problema está relacionado con el proceso de empaquetado.
+  - **La versión específica de ROS 2.**
+    Razonamiento: algunos errores pueden estar presentes en una versión particular de ROS 2 y luego se corrigieron.
+    Es importante saber si su instalación incluye estas correcciones.
+  - **La implementación de DDS/RMW que se está utilizando** (consulte `esta página <../../Concepts/About-Different-Middleware-Vendors>` para saber cómo determinar cuál).
+    Razonamiento: los problemas de comunicación pueden ser específicos del middleware de ROS subyacente que se utiliza.
+  - **La biblioteca cliente ROS 2 en uso.**
+    Razonamiento: esto nos ayuda a reducir la capa en la pila en la que podría estar el problema.
 
-- Include a list of steps to reproduce the issue.
-- In case of a bug consider to provide a `short, self contained, correct (compilable), example <http://sscce.org/>`__.
-  Issues are much more likely to be resolved if others can reproduce them easily.
+- Incluir una lista de pasos para reproducir el problema.
+- En caso de un error, considera proporcionar un `ejemplo breve, autónomo, correcto (compilable) <http://sscce.org/>`__.
+   Es mucho más probable que los problemas se resuelvan si otros pueden reproducirlos fácilmente.
 
-- Mention troubleshooting steps that have been tried already, including:
+- Menciona los pasos de solución de problemas que ya se han intentado, incluidos:
 
-  - Upgrading to the latest version of the code, which may include bug fixes that have not been released yet.
-    See `this section <building-from-source>` and follow the instructions to get the "rolling" branches.
-  - Trying with a different RMW implementation.
-    See `this page <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to do that.
+   - Actualización a la última versión del código, que puede incluir correcciones de errores que aún no se han publicado.
+     Consulta `esta sección <building-from-source>` y siga las instrucciones para obtener las ramas "rolling".
+   - Probar con una implementación diferente de RMW.
+     Consulte `esta página <../../How-To-Guides/Working-with-multiple-RMW-implementations>` para saber cómo hacerlo.
 
-Branches
-^^^^^^^^
-
-.. note::
-    These are just guidelines.
-    It is up to the package maintainer to choose branch names that match their own workflow.
-
-It is good practice to have **separate branches** in a package's source repository for each ROS distribution it is targeting.
-These branches are typically named after the distribution they target.
-For example, a ``humble`` branch for development targeted specifically at the Humble distribution.
-
-Releases are also made from these branches, targeting the appropriate distribution.
-Development targeted at a specific ROS distribution can happen on the appropriate branch.
-For example: Development commits targeting ``foxy`` are made to the ``foxy`` branch, and package releases for ``foxy`` are made from that same branch.
+Ramas
+^^^^^
 
 .. note::
-    This requires the package maintainers to perform backports or forwardports as appropriate to keep all branches up to date with features.
-    The maintainers must also perform general maintenance (bug fixes, etc.) on all branches from which package releases are still made.
+     Estas son solo pautas.
+     Depende del mantenedor del paquete elegir los nombres de las ramas que coincidan con su propio flujo de trabajo.
 
-    For example, if a feature is merged into the Rolling-specific branch (e.g. ``rolling`` or ``main``), and that feature is also appropriate
-    to the Humble distribution (does not break API, etc.), then it is good practice to backport the feature to the Humble-specific branch.
+En el repositorio código fuente es una buena práctica tener **ramas separadas** para cada una de las distribuciones de ROS a la que se dirige el paquete.
+Estas ramas suelen tener el nombre de la distribución a la que se dirigen.
+Por ejemplo, una rama ``humble`` para el desarrollo dirigida específicamente a la distribución Humble.
 
-    The maintainers may make releases for those older distributions if there are new features or bug fixes available.
+Desde estas ramas también se realizan lanzamiento, enfocándose en la distribución correspondiente.
+El desarrollo dirigido a una distribución de ROS específica puede ocurrir en la rama apropiada.
+Por ejemplo: las confirmaciones de desarrollo dirigidas a ``foxy`` se realizan en la rama ``foxy``, y los lanzamientos de paquetes para ``foxy`` se realizan desde esa misma rama.
 
-**What about** ``main`` **and** ``rolling`` **?**
+.. note::
+    Esto requiere que los mantenedores del paquete realicen backports o forwardports según corresponda para mantener todas las ramas actualizadas con las características.
+    Los mantenedores también deben realizar el mantenimiento general (corrección de errores, etc.) en todas las ramas desde las que aún se realizan lanzamientos de paquetes.
 
-``main`` typically targets :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (and so, the next unreleased ROS distribution), though the maintainers may decide to develop and release from a ``rolling`` branch instead.
+    Por ejemplo, si una función se fusiona con la rama específica de Rolling (por ejemplo, ``rolling`` o ``main``), y esa función también es apropiada
+    a la distribución de Humble (no rompe la API, etc.), entonces es una buena práctica transferir la función a la rama específica de Humble.
+
+    Los mantenedores pueden hacer lanzamientos para esas distribuciones más antiguas si hay nuevas funciones o correcciones de errores disponibles.
+
+**¿Qué pasa con** ``main`` **y** ``rolling`` **?**
+
+``main`` generalmente apunta a :doc:`Rolling <../../Releases/Release-Rolling-Ridley>` (y por lo tanto, la próxima distribución de ROS inédita), aunque los mantenedores pueden decidir desarrollar y lanzar desde una rama ``rolling`` en su lugar.
 
 Pull requests
 ^^^^^^^^^^^^^
 
-* A pull request should only focus on one change.
-  Separate changes should go into separate pull requests.
-  See `GitHub's guide to writing the perfect pull request <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
+* Un pull request solo debe centrarse en un cambio.
+   Los cambios separados deben ir en pull request separados.
+   Consulte `Guía de GitHub para escribir el pull request perfecta <https://github.com/blog/1943-how-to-write-the-perfect-pull-request>`__.
 
-* A patch should be minimal in size and avoid any kind of unnecessary changes.
+* Un parche debe tener un tamaño mínimo y evitar cualquier tipo de cambios innecesarios.
 
-* A pull request must contain minimum number of meaningful commits.
+* Una pull request debe contener una cantidad mínima de commits significativos.
 
-  * You can create new commits while the pull request is under review.
+   * Puede crear nuevos commits mientras se revisa el pull request.
 
-* Before merging a pull request all changes should be squashed into a small number of semantic commits to keep the history clear.
+* Antes de fusionar un pull request, todos los cambios deben agruparse (squash) en una pequeña cantidad de commits semánticos para mantener el historial claro.
 
-  * But avoid squashing commits while a pull request is under review.
-    Your reviewers might not notice that you made the change, thereby introducing potential for confusion.
-    Plus, you're going to squash before merging anyway; there's no benefit to doing it early.
+   * Pero evita realizar un commit squash mientras se revisa el pull request.
+     Es posible que sus revisores no se den cuenta de que realizó el cambio, lo que podría generar confusión.
+     Además, de todos modos vas a agrupar antes de fusionar; no hay ningún beneficio en hacerlo antes.
 
-* Any developer is welcome to review and approve a pull request (see `General Principles`_).
+* Cualquier desarrollador puede revisar y aprobar una pull request (consulte `Principios generales`_).
 
-* When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
+* Cuando comience a revisar un pull request, comente el pull request para que otros desarrolladores sepan que lo está revisando.
 
-* Pull-request review is not read-only, with the reviewer making comments and then waiting for the author to address them.
-  As a reviewer, feel free to make minor improvements (typos, style issues, etc.) in-place.
-  As the opener of a pull-request, if you are working in a fork, checking the box to `allow edits from upstream contributors <https://github.com/blog/2247-improving-collaboration-with-forks>`__ will assist with the aforementioned.
-  As a reviewer, also feel free to make more substantial improvements, but consider putting them in a separate branch (either mention the new branch in a comment, or open another pull request from the new branch to the original branch).
+* La revisión de pull request no es de solo lectura, ya que el revisor hace comentarios y luego espera a que el autor los aborde.
+   Como revisor, no dude en realizar mejoras menores (errores tipográficos, problemas de estilo, etc.) en el lugar.
+   Como autor de un pull request, si está trabajando en una fork, marque la casilla para `permitir ediciones de colaboradores upstream <https://github.com/blog/2247-improveing-collaboration-with-forks>`__ ayudará con lo antes mencionado.
+   Como revisor, siéntase libre de realizar mejoras más sustanciales, pero considere colocarlas en una rama separada (mencione la nueva rama en un comentario o abra otra pull request de la nueva rama a la rama original).
 
-* Any developer (the author, the reviewer, or somebody else) can merge any approved pull request.
+* Cualquier desarrollador (el autor, el revisor u otra persona) puede fusionar cualquier pull request aprobado.
 
-Library versioning
-^^^^^^^^^^^^^^^^^^
+Versionado de biblioteca
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-We will version all libraries within a package together.
-This means that libraries inherit their version from the package.
-This keeps library and package versions from diverging and shares reasoning with the policy of releasing packages which share a repository together.
-If you need libraries to have different versions then consider splitting them into different packages.
+Versionaremos todas las bibliotecas dentro de un paquete juntas.
+Esto significa que las bibliotecas heredan su versión del paquete.
+Esto evita que las versiones de la biblioteca y del paquete diverjan y comparte el razonamiento con la política de lanzar paquetes que comparten un repositorio juntos.
+Si necesita que las bibliotecas tengan diferentes versiones, considere dividirlas en diferentes paquetes.
 
-Development process
-^^^^^^^^^^^^^^^^^^^
+Proceso de desarrollo
+^^^^^^^^^^^^^^^^^^^^^
 
-* The default branch (in most cases the rolling branch) must always build, pass all tests and compile without warnings.
-  If at any time there is a regression it is the top priority to restore at least the previous state.
-* Always build with tests enabled.
-* Always run tests locally after changes and before proposing them in a pull request.
-  Besides using automated tests, also run the modified code path manually to ensure that the patch works as intended.
-* Always run CI jobs for all platforms for every pull request and include links to the jobs in the pull request.
+* La rama predeterminada (en la mayoría de los casos, la rama rolling) siempre debe compilarse, pasar todas las pruebas y compilarse sin advertencias.
+   Si en algún momento hay una regresión, la máxima prioridad es restaurar al menos el estado anterior.
+* Compile siempre con las pruebas habilitadas.
+* Ejecute siempre las pruebas localmente después de los cambios y antes de proponerlos en una pull request.
+   Además de usar pruebas automatizadas, también ejecute la ruta del código modificado manualmente para asegurarse de que el parche funcione según lo previsto.
+* Siempre ejecute trabajos de CI para todas las plataformas para cada pull request e incluya enlaces a los trabajos en el pull request.
 
-For more details on recommended software development workflow, see `Software Development Lifecycle`_ section.
+Para obtener más detalles sobre el flujo de trabajo de desarrollo de software recomendado, consulte la sección `Ciclo de vida de desarrollo de software`_.
 
-Changes to RMW API
-^^^^^^^^^^^^^^^^^^
+Cambios en la API de RMW
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-When updating `RMW API <https://github.com/ros2/rmw>`__, it is required that RMW implementations for the Tier 1 middleware libraries are updated as well.
-For example, a new function ``rmw_foo()`` introduced to the RMW API must be implemented in the following packages (as of ROS Galactic):
+Al actualizar `RMW API <https://github.com/ros2/rmw>`__, es necesario que también se actualicen las implementaciones de RMW para las bibliotecas de middleware de nivel 1.
+Por ejemplo, una nueva función ``rmw_foo()`` introducida en la API de RMW debe implementarse en los siguientes paquetes (a partir de ROS Galactic):
 
 * `rmw_connextdds <https://github.com/ros2/rmw_connextdds>`__
 * `rmw_cyclonedds <https://github.com/ros2/rmw_cyclonedds>`__
 * `rmw_fastrtps <https://github.com/ros2/rmw_fastrtps>`__
 
-Updates for non-Tier 1 middleware libraries should also be considered if feasible (e.g. depending on the size of the change).
-See `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ for the list of middleware libraries and their tiers.
+Las actualizaciones para bibliotecas de middleware que no sean de nivel 1 también deben considerarse si es factible (por ejemplo, dependiendo del tamaño del cambio).
+Consulte `REP-2000 <https://www.ros.org/reps/rep-2000.html>`__ para ver la lista de bibliotecas de middleware y sus niveles.
 
-Tracking tasks
-^^^^^^^^^^^^^^
+Seguimiento de tareas
+^^^^^^^^^^^^^^^^^^^^^
 
-To help organize work on ROS 2, the core ROS 2 development team uses kanban-style `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
+Para ayudar a organizar el trabajo en ROS 2, el equipo central de desarrollo de ROS 2 utiliza tableros de proyecto `GitHub de estilo kanban <https://github.com/orgs/ros2/projects>`_.
 
-Not all issues and pull requests are tracked on the project boards, however.
-A board usually represents an upcoming release or specific project.
-Tickets can be browsed on a per-repo basis by browsing the `ROS 2 repositories' <https://github.com/ros2>`_ individual issue pages.
+Sin embargo, no todas las propuestas y pull request se rastrean en los tableros de proyecto.
+Un tablero generalmente representa un lanzamiento próximo o un proyecto específico.
+Los tickets se pueden buscar por repositorio navegando en las páginas de issues individuales de los `repositorios de ROS 2' <https://github.com/ros2>`_.
 
-The names and purposes of columns in any given ROS 2 project board vary, but typically follow the same general structure:
+Los nombres y propósitos de las columnas en cualquier tablero de proyecto de ROS 2 varían, pero normalmente siguen la misma estructura general:
 
-* **To do**:
-  Issues that are relevant to the project, ready to be assigned
-* **In progress**:
-  Active pull requests on which work is currently in progress
-* **In review**:
-  Pull requests where work is complete and ready for review, and for those currently under active review
-* **Done**:
-  Pull requests and related issues are merged/closed (for informational purposes)
+* **Hacer**:
+   Problemas que son relevantes para el proyecto, listos para ser asignados
+* **En progreso**:
+   pull request activas en las que se está trabajando actualmente
+* **En revisión**:
+   pull request donde el trabajo está completo y listo para revisión, y para aquellos que actualmente se encuentran en revisión activa
+* **Hecho**:
+   Las pull request y los problemas relacionados se fusionan/cierran (con fines informativos)
 
-To request permission to make changes, simply comment on the tickets you're interested in.
-Depending on the complexity, it might be useful to describe how you plan to address it.
-We will update the status (if you don't have the permission) and you can start working on a pull request.
-If you contribute regularly we will likely just grant you permission to manage the labels etc. yourself.
+Para solicitar permiso para realizar cambios, simplemente comenta los issues que te interesan.
+Dependiendo de la complejidad, puede ser útil describir cómo piensas abordarlo.
+Actualizaremos el estado (si no tienes el permiso) y podrás comenzar a trabajar en una pull request.
+Si contribuyes regularmente, es probable que solo te concedamos permiso para administrar por ti mismo las etiquetas, etc. .
 
-Programming conventions
-^^^^^^^^^^^^^^^^^^^^^^^
+Convenciones de programación
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Defensive programming: ensure that assumptions are held as early as possible.
-  E.g. check every return code and make sure to at least throw an exception until the case is handled more gracefully.
-* All error messages must be directed to ``stderr``.
-* Declare variables in the narrowest scope possible.
-* Keep group of items (dependencies, imports, includes, etc.) ordered alphabetically.
+* Programación defensiva: asegúrese de que los supuestos se lleven a cabo lo antes posible.
+   P.ej. verifica cada código de retorno y asegúrate de lanzar al menos una excepción hasta que el caso se maneje con más gracia.
+* Todos los mensajes de error deben dirigirse a ``stderr``.
+* Declarar variables en el ámbito más reducido posible.
+* Mantener grupos de elementos (dependencias, importaciones, inclusiones, etc.) ordenados alfabéticamente.
 
-C++ specific
-~~~~~~~~~~~~
-
-* Avoid using direct streaming (``<<``) to ``stdout`` / ``stderr`` to prevent interleaving between multiple threads.
-* Avoid using references for ``std::shared_ptr`` since that subverts the reference counting.
-  If the original instance goes out of scope and the reference is being used it accesses freed memory.
-
-Filesystem layout
-^^^^^^^^^^^^^^^^^
-
-The filesystem layout of packages and repositories should follow the same conventions in order to provide a consistent experience for users browsing our source code.
-
-Package layout
-~~~~~~~~~~~~~~
-
-* ``src``: contains all C and C++ code
-
-  * Also contains C/C++ headers which are not installed
-
-* ``include``: contains all C and C++ headers which are installed
-
-  * ``<package name>``: for all C and C++ installed headers they should be folder namespaced by the package name
-
-* ``<package_name>``: contains all Python code
-* ``test``: contains all automated tests and test data
-* ``config``: contains configuration files, e.g. YAML parameters files and RViz config files
-* ``doc``: contains all the documentation
-* ``launch``: contains all launch files
-* ``package.xml``: as defined by `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (may be updated for prototyping)
-* ``CMakeLists.txt``: only ROS packages which use CMake
-* ``setup.py``: only ROS packages which use Python code only
-* ``README``: can be rendered on GitHub as a landing page for the project
-
-  * This can be as short or detailed as is convenient, but it should at least link to project documentation
-  * Consider putting a CI or code coverage tag in this README
-  * It can also be ``.rst`` or anything else that GitHub supports
-
-* ``CONTRIBUTING``: describes the contribution guidelines
-
-  * This might include license implication, e.g. when using the Apache 2 License.
-
-* ``LICENSE``: a copy of the license or licenses for this package
-* ``CHANGELOG.rst``: `REP-0132 <https://www.ros.org/reps/rep-0132.html>`_ compliant changelog
-
-Repository layout
+específico de C++
 ~~~~~~~~~~~~~~~~~
 
-Each package should be in a subfolder which has the same name as the package.
-If a repository contains only a single package it can optionally be in the root of the repository.
+* Evita el uso de transmisión directa (``<<``) a ``stdout`` / ``stderr`` para evitar la intercalación entre varios subprocesos.
+* Evita usar referencias para ``std::shared_ptr`` ya que eso subvierte el conteo de referencias.
+   Si la instancia original queda fuera del alcance y se está utilizando la referencia, accede a la memoria liberada.
 
-Developer Workflow
-------------------
-
-We track open tickets and active PRs related to upcoming releases and larger projects using `GitHub project boards <https://github.com/orgs/ros2/projects>`_.
-
-The usual workflow is:
-
-* Discuss design (GitHub ticket on the appropriate repository, and a design PR to https://github.com/ros2/design if needed)
-* Write implementation on a feature branch on a fork
-
-  * Please check out the `developer guide <Developer-Guide>` for guidelines and best practices
-
-* Write tests
-* Enable and run linters
-* Run tests locally using ``colcon test`` (see the :doc:`colcon tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
-* Once everything builds locally without warnings and all tests are passing, run CI on your feature branch:
-
-  * Go to ci.ros2.org
-  * Log in (top right corner)
-  * Click on the ``ci_launcher`` job
-  * Click "Build with Parameters" (left column)
-  * In the first box "CI_BRANCH_TO_TEST" enter your feature branch name
-  * Hit the ``build`` button
-
-  (if you are not a ROS 2 committer, you don't have access to the CI farm. In that case, ping the reviewer of your PR to run CI for you)
-
-* If your use case requires running code coverage:
-
-  * Go to ci.ros2.org
-  * Log in (top right corner)
-  * Click on the ``ci_linux_coverage`` job
-  * Click "Build with Parameters" (left column)
-  * Be sure of leaving "CI_BUILD_ARGS" and "CI_TEST_ARGS" with the default values
-  * Hit the ``build`` button
-  * At the end of the document there are instructions on how to :ref:`interpret the result of the report <read-coverage-report>` and :ref:`calculate the coverage rate <calculate-coverage-rate>`
-
-* If the CI job built without warnings, errors and test failures, post the links of your jobs on your PR or high-level ticket aggregating all your PRs (see example `here <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
-
-  * Note that the markdown for these badges is in the console output of the ``ci_launcher`` job
-
-* When the PR has been approved:
-
-  * the person who submitted the PR merges it using "Squash and Merge" option so that we keep a clean history
-
-    * If the commits deserve to keep separated: squash all the nitpick/linters/typo ones together and merge the remaining set
-
-      * Note: each PR should target a specific feature so Squash and Merge should make sense 99% of the time
-
-* Delete the branch once merged
-
-Architectural Development Practices
------------------------------------
-
-This section describes the ideal lifecycle that should be employed when making large architectural changes to ROS 2.
-
-Software Development Lifecycle
+Diseño del sistema de archivos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-This section describes step-by-step how to plan, design, and implement a new feature:
+El diseño del sistema de archivos de los paquetes y repositorios debe seguir las mismas convenciones para proporcionar una experiencia consistente para los usuarios que navegan nuestro código fuente.
 
-1. Task Creation
-2. Creating the Design Document
-3. Design Review
-4. Implementation
-5. Code Review
+Diseño del paquete
+~~~~~~~~~~~~~~~~~~
 
-Task creation
-~~~~~~~~~~~~~
+* ``src``: contiene todo el código C y C++
 
-Tasks requiring changes to critical parts of ROS 2 should have design reviews during early stages of the release cycle.
-If a design review is happening in the later stages, the changes will be part of a future release.
+  * También contiene encabezados C/C++ que no están instalados
 
-* An issue should be created in the appropriate `ros2 repository <https://github.com/ros2/>`__, clearly describing the task being worked on.
+* ``include``: contiene todos los encabezados C y C++ que están instalados
 
-  * It should have a clear success criteria and highlight the concrete improvements expected from it.
-  * If the feature is targeting a ROS release, ensure this is tracked in the ROS release ticket (`example <https://github.com/ros2/ros2/issues/607>`__).
+  * ``<nombre del paquete>``: para todos los encabezados instalados de C y C++, deben tener un espacio de carpeta con el nombre del paquete
 
-Writing the design document
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* ``<package_name>``: contiene todo el código de Python
+* ``test``: contiene todas las pruebas automatizadas y datos de prueba
+* ``config``: contiene archivos de configuración, p. Archivos de parámetros YAML y archivos de configuración RViz
+* ``doc``: contiene toda la documentación
+* ``launch``: contiene todos los archivos de lanzamiento
+* ``package.xml``: como se define en `REP-0140 <https://www.ros.org/reps/rep-0140.html>`_ (puede actualizarse para la creación de prototipos)
+* ``CMakeLists.txt``: solo paquetes ROS que usan CMake
+* ``setup.py``: solo paquetes ROS que usan solo código Python
+* ``README``: se puede representar en GitHub como una página de destino para el proyecto
 
-Design docs must never include confidential information.
-Whether or not a design document is required for your change depends on how big the task is.
+   * Esto puede ser tan breve o detallado como sea conveniente, pero al menos debe vincularse a la documentación del proyecto
+   * Considere colocar una etiqueta de cobertura de código o CI en este README
+   * También puede ser ``.rst`` o cualquier otra cosa compatible con GitHub
 
-1. You are making a small change or fixing a bug:
+* ``CONTRIBUTING```: describe las pautas de contribución
 
-  * A design document is not required, but an issue should be opened in the appropriate repository to track the work and avoid duplication of efforts.
+   * Esto podría incluir implicaciones de licencia, p. cuando se utiliza la licencia Apache 2.
 
-2. You are implementing a new feature or would like to contribute to OSRF-owned infrastructure (like Jenkins CI):
+* ``LICENSE``: una copia de la licencia o licencias para este paquete
+* ``CHANGELOG.rst``: `REP-0132 <https://www.ros.org/reps/rep-0132.html>`_ registro de cambios compatible
 
-  * Design doc is required and should be contributed to `ros2/design <https://github.com/ros2/design/>`__ to be made accessible on https://design.ros2.org/.
-  * You should fork the repository and submit a pull request detailing the design.
-
-  Mention the related ros2 issue (for example, ``Design doc for task ros2/ros2#<issue id>``) in the pull request or the commit message.
-  Detailed instructions are on the `ROS 2 Contribute <https://design.ros2.org/contribute.html>`__ page.
-  Design comments will be made directly on the pull request.
-
-If the task is planned to be released with a specific version of ROS, this information should be included in the pull request.
-
-Design document review
+Diseño del repositorio
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Once the design is ready for review, a pull request should be opened and appropriate reviewers should be assigned.
-It is recommended to include project owner(s) -
-maintainers of all impacted packages (as defined by ``package.xml`` maintainer field, see `REP-140 <https://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - as reviewers.
+Cada paquete debe estar en una subcarpeta que tenga el mismo nombre que el paquete.
+Si un repositorio contiene un solo paquete, opcionalmente puede estar en la raíz del repositorio.
 
-* If the design doc is complex or reviewers have conflicting schedules, an optional design review meeting can be set up.
-  In this case,
+Flujo de trabajo del desarrollador
+----------------------------------
 
-  **Before the meeting**
+Realizamos un seguimiento de los tickets abiertos y las pull request activos relacionados con los próximos lanzamientos y proyectos más grandes mediante `tableros de proyectos de GitHub <https://github.com/orgs/ros2/projects>`_.
 
-  * Send a meeting invite at least one week in advance
-  * Meeting duration of one hour is recommended
-  * Meeting invite should list all decisions to be made during the review (decisions requiring package maintainer approval)
-  * Meeting required attendees: design pull request reviewers
-      Meeting optional attendees: all OSRF engineers, if applicable
+El flujo de trabajo habitual es:
 
-  **During the meeting**
+* Discutir el diseño (ticket de GitHub en el repositorio apropiado y un diseño PR a https://github.com/ros2/design si es necesario)
+* Escribir la implementación en una rama feature en un fork
 
-  * The task owner drives the meeting, presents their ideas and manages discussions to ensure an agreement is reached on time
+   * Consulte la `guía para desarrolladores <Developer-Guide>` para conocer las pautas y las mejores prácticas
 
-  **After the meeting**
+* Escribir pruebas
+* Habilitar y ejecutar linters
+* Ejecutar pruebas localmente usando ``colcon test`` (consulte el :doc:`tutorial de colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
+* Una vez que todo se compila localmente sin advertencias y todas las pruebas pasan, ejecute CI en su rama de características:
 
-  * The task owner should send back meeting notes to all attendees
-  * If minor issues have been raised about the design:
+   * Ir a ci.ros2.org
+   * Iniciar sesión (esquina superior derecha)
+   * Haga clic en el trabajo ``ci_launcher``
+   * Haga clic en "Construir con parámetros" (columna izquierda)
+   * En el primer cuadro "CI_BRANCH_TO_TEST" ingrese el nombre de su sucursal de características
+   * Presiona el botón ``construir``
 
-    * The task owner should update the design doc pull request based on the feedback
-    * Additional review is not required
+   (si no es un confirmador de ROS 2, no tiene acceso a la granja de CI. En ese caso, haga ping al revisor de su PR para ejecutar CI por usted)
 
-  * If major issues have been raised about the design:
+* Si su caso de uso requiere una cobertura de código en ejecución:
 
-    * It is acceptable to remove sections for which there is no clear agreement
-    * The debatable parts of the design can be resubmitted as a separate task in the future
-    * If removing the debatable parts is not an option, work directly with package owners to reach an agreement
+   * Ir a ci.ros2.org
+   * Iniciar sesión (esquina superior derecha)
+   * Haga clic en el trabajo ``ci_linux_coverage``
+   * Haga clic en "Construir con parámetros" (columna izquierda)
+   * Asegúrese de dejar "CI_BUILD_ARGS" y "CI_TEST_ARGS" con los valores predeterminados
+   * Presiona el botón ``construir``
+   * Al final del documento hay instrucciones sobre cómo :ref:`interpretar el resultado del informe <read-coverage-report>` y :ref:`calcular la tasa de cobertura <calculate-coverage-rate>`
 
-* Once consensus is reached:
+* Si el trabajo de CI se generó sin advertencias, errores y fallas de prueba, publique los enlaces de sus trabajos en su PR o ticket de alto nivel agregando todos sus PR (consulte el ejemplo `aquí <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
-  * Ensure the `ros2/design <https://github.com/ros2/design/>`__ pull request has been merged, if applicable
-  * Update and close the GitHub issue associated with this design task
+   * Tenga en cuenta que el markdown para estas insignias está en la salida de la consola del trabajo ``ci_launcher``
 
-Implementation
+* Cuando el PR ha sido aprobado:
+
+   * la persona que envió el PR lo fusiona usando la opción "Squash and Merge" para que mantengamos un historial limpio
+
+     * Si las confirmaciones merecen mantenerse separadas: aplaste todas las quisquillosas/linters/errores tipográficos y fusione el conjunto restante
+
+       * Nota: cada RP debe apuntar a una función específica, por lo que Squash y Merge deberían tener sentido el 99% del tiempo
+
+* Eliminar la rama una vez fusionada
+
+Prácticas de desarrollo arquitectónico
+--------------------------------------
+
+Esta sección describe el ciclo de vida ideal que debe emplearse al realizar grandes cambios en la arquitectura de ROS 2.
+
+Ciclo de vida de desarrollo de software
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Esta sección describe paso a paso cómo planificar, diseñar e implementar una nueva función:
+
+1. Creación de tareas
+2. Creando el Documento de Diseño
+3. Revisión del diseño
+4. Implementación
+5. Revisión de código
+
+Creación de tareas
+~~~~~~~~~~~~~~~~~~
+
+Las tareas que requieren cambios en partes críticas de ROS 2 deben tener revisiones de diseño durante las primeras etapas del ciclo de lanzamiento.
+Si se está realizando una revisión del diseño en las etapas posteriores, los cambios serán parte de una versión futura.
+
+* Se debe crear un issue en el repositorio `ros2 apropiado <https://github.com/ros2/>`__, que describa claramente la tarea en la que se está trabajando.
+
+   * Debe tener un criterio de éxito claro y resaltar las mejoras concretas que se esperante de él.
+   * Si la característica tiene como objetivo una versión de ROS, asegúrese de que se realice un seguimiento en el ticket de la versión de ROS (`example <https://github.com/ros2/ros2/issues/607>`__).
+
+Redacción del documento de diseño.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los documentos de diseño nunca deben incluir información confidencial.
+El hecho de que se requiera o no un documento de diseño para su cambio depende de qué tan grande sea la tarea.
+
+1. Estás haciendo un pequeño cambio o corrigiendo un error:
+
+   * No se requiere un documento de diseño, pero se debe abrir un issue en el repositorio adecuado para realizar un seguimiento del trabajo y evitar la duplicación de esfuerzos.
+
+2. Está implementando una nueva función o le gustaría contribuir a la infraestructura propiedad de OSRF (como Jenkins CI):
+
+   * El documento de diseño es obligatorio y debe contribuirse a `ros2/design <https://github.com/ros2/design/>`__ para que esté accesible en https://design.ros2.org/.
+   * Debe realizar un fork al repositorio y enviar una pull request que detalle el diseño.
+
+   Mencione el problema de ros2 relacionado (por ejemplo, ``Documento de diseño para la tarea ros2/ros2#<Id. de problema>``) en el pull request o en el mensaje de confirmación.
+   Las instrucciones detalladas se encuentran en la página de `ROS 2 Contribute <https://design.ros2.org/contribute.html>`__.
+   Los comentarios de diseño se realizarán directamente en el pull request.
+
+Si se planea lanzar la tarea con una versión específica de ROS, esta información debe incluirse en el pull request.
+
+Revisión del documento de diseño
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Una vez que el diseño está listo para su revisión, se debe abrir una pull request y se deben asignar los revisores apropiados.
+Se recomienda incluir a los propietarios del proyecto:
+mantenedores de todos los paquetes afectados (como se define en el campo de mantenedor ``package.xml``, consulte `REP-140 <https://www.ros.org/reps/rep-0140.html#maintainer-multiple-but-at-least-one>`__) - como revisores.
+
+* Si el documento de diseño es complejo o los revisores tienen horarios conflictivos, se puede programar una reunión de revisión de diseño opcional.
+   En este caso,
+
+   **Antes de la reunión**
+
+   * Envía una invitación a una reunión con al menos una semana de anticipación
+   * Se recomienda una duración de la reunión de una hora
+   * La invitación a la reunión debe enumerar todas las decisiones que se tomarán durante la revisión (decisiones que requieren la aprobación del mantenedor del paquete)
+   * Asistentes requeridos en la reunión: revisores de pull request de diseño
+       Asistentes opcionales: todos los ingenieros de OSRF, si corresponde
+
+   **Durante la reunión**
+
+   * El responsable de la tarea dirige la reunión, presenta sus ideas y gestiona los debates para garantizar que se llegue a un acuerdo a tiempo
+
+   **Después de la reunión**
+
+   * El propietario de la tarea debe enviar las notas de la reunión a todos los asistentes
+   * Si se han planteado cuestiones menores sobre el diseño:
+
+     * El propietario de la tarea debe actualizar el pull request del documento de diseño en función de los comentarios.
+     * No se requiere revisión adicional
+
+   * Si se han planteado cuestiones importantes sobre el diseño:
+
+     * Es aceptable eliminar secciones para las que no hay un acuerdo claro
+     * Las partes discutibles del diseño se pueden volver a enviar como una tarea separada en el futuro
+     * Si eliminar las partes discutibles no es una opción, trabaje directamente con los propietarios del paquete para llegar a un acuerdo
+
+* Una vez alcanzado el consenso:
+
+   * Asegúrese de que el pull request `ros2/design <https://github.com/ros2/design/>`__ se haya fusionado, si corresponde
+   * Actualice y cierre el problema de GitHub asociado con esta tarea de diseño
+
+Implementación
 ~~~~~~~~~~~~~~
 
-Before starting, go through the `Pull requests`_ section for best practices.
+Antes de comenzar, revise la sección `Pull requests`_ para conocer las mejores prácticas.
 
-* For each repo to be modified:
+* Para cada repo a modificar:
 
-  * Modify the code, go to the next step if finished or at regular intervals to backup your work.
-  * `Self-review <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ your changes using ``git add -i``.
-  * Create a new signed commit using ``git commit -s``.
+   * Modifique el código, vaya al siguiente paso si terminó o en intervalos regulares para hacer una copia de seguridad de su trabajo.
+   * `Auto-revise <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ sus cambios usando ``git add -i``.
+   * Cree un nuevo commit firmada usando ``git commit -s``.
 
-    * A pull request should contain minimal semantically meaningful commits (for instance, a large number of 1-line commits is not acceptable).
-      Create new fixup commits while iterating on feedback, or optionally, amend existing commits using ``git commit --amend`` if you don't want to create a new commit every time.
-    * Each commit must have a properly written, meaningful, commit message.
-      More instructions `here <https://chris.beams.io/posts/git-commit/>`__.
-    * Moving files must be done in a separate commit, otherwise git may fail to accurately track the file history.
-    * Either the pull request description or the commit message must contain a reference to the related ros2 issue, so it gets automatically closed when the pull request is merged.
-      See this `doc <https://help.github.com/articles/closing-issues-using-keywords/>`__ for more details.
-    * Push the new commits.
+     * Una pull request debe contener confirmaciones mínimas semánticamente significativas (por ejemplo, no es aceptable una gran cantidad de commits de 1 línea).
+       Cree nuevas confirmaciones de corrección mientras itera en los comentarios u, opcionalmente, modifique las confirmaciones existentes usando ``git commit --amend`` si no desea crear una nueva confirmación cada vez.
+     * Cada confirmación debe tener un mensaje de confirmación correctamente escrito y significativo.
+       Más instrucciones `aquí <https://chris.beams.io/posts/git-commit/>`__.
+     * El movimiento de archivos debe realizarse en una confirmación separada; de lo contrario, es posible que git no realice un seguimiento preciso del historial del archivo.
+     * La descripción del pull request o el mensaje de confirmación deben contener una referencia al problema de ros2 relacionado, por lo que se cierra automáticamente cuando se fusiona el pull request.
+       Consulte este `doc <https://help.github.com/articles/closing-issues-using-keywords/>`__ para obtener más detalles.
+     * Empuje los nuevos commits.
 
-Code review
-~~~~~~~~~~~
+Revisión de código
+~~~~~~~~~~~~~~~~~~
 
-Once the change is ready for code review:
+Una vez que el cambio esté listo para la revisión del código:
 
-* Open a pull request for each modified repository.
+* Abre un pull request para cada repositorio modificado.
 
-  * Remember to follow `Pull requests`_ best practices.
-  * `GitHub <https://hub.github.com/>`__ can be used to create pull requests from the command-line.
-  * If the task is planned to be released with a specific version of ROS, this information should be included in each pull request.
+   * Recuerda seguir las mejores prácticas de `Pull requests`_.
+   * `GitHub <https://hub.github.com/>`__ se puede usar para crear pull request desde la línea de comandos.
+   * Si se planea lanzar la tarea con una versión específica de ROS, esta información debe incluirse en cada pull request.
 
-* Package owners who reviewed the design document should be mentioned in the pull request.
-* Code review SLO: although reviewing pull requests is best-effort,
-  it is helpful to have reviewers comment on pull requests within a week and
-  code authors to reply back to comments within a week, so there is no loss of context.
-* Iterate on feedback as usual, amend and update the development branch as needed.
-* Once the PR is approved, package maintainers will merge the changes in.
+* Los propietarios del paquete que revisaron el documento de diseño deben mencionarse en el pull request.
+* SLO de revisión de código: aunque revisar las solicitudes de incorporación de cambios es el mejor esfuerzo,
+   es útil que los revisores comenten sobre los pull request dentro de una semana y que
+   los autores respondan a los comentarios dentro de una semana, para que no haya pérdida de contexto.
+* Como siempre itera sobre los comentarios, modifica y actualiza la rama de desarrollo según sea necesario.
+* Una vez que se apruebe el PR, los mantenedores del paquete fusionarán los cambios.
 
 
-Build Farm Introduction
------------------------
+Introducción a la construcción de una granja
+--------------------------------------------
 
-The build farm is located at `ci.ros2.org <https://ci.ros2.org/>`__.
+La granja de compilación se encuentra en `ci.ros2.org <https://ci.ros2.org/>`__.
 
-Every night we run nightly jobs which build and run all the tests in various scenarios on various platforms.
-Additionally, we test all pull requests against these platforms before merging.
+Todas las noches ejecutamos trabajos nocturnos que compilan y ejecutan todas las pruebas en varios escenarios en varias plataformas.
+Además, probamos todas los pull request en estas plataformas antes de fusionarlos.
 
-This is the current set of target platforms and architectures, though it evolves overtime:
+Este es el conjunto actual de plataformas y arquitecturas de destino, aunque evoluciona con el tiempo:
 
 
 * Ubuntu 22.04 Jammy
 
-  * amd64
-  * aarch64
+   * amd64
+   * aarch64
 
 * Windows 10
 
-  * amd64
+   * amd64
 
-There are several categories of jobs on the buildfarm:
-
-
-* manual jobs (triggered manually by developers):
-
-  * ci_linux: build + test the code on Ubuntu Xenial
-  * ci_linux-aarch64: build + test the code on Ubuntu Xenial on an ARM 64-bit machine (aarch64)
-  * ci_linux_coverage: build + test + generation of test coverage
-  * ci_windows: build + test the code on Windows 10
-  * ci_launcher: trigger all the jobs listed above
-
-* nightly (run every night):
-
-  * Debug: build + test the code with CMAKE_BUILD_TYPE=Debug
-
-    * nightly_linux_debug
-    * nightly_linux-aarch64_debug
-    * nightly_win_deb
-
-  * Release: build + test the code with CMAKE_BUILD_TYPE=Release
-
-    * nightly_linux_release
-    * nightly_linux-aarch64_release
-    * nightly_win_rel
-
-  * Repeated: build then run each test up to 20 times or until failed (aka flakiness hunter)
-
-    * nightly_linux_repeated
-    * nightly_linux-aarch64_repeated
-    * nightly_win_rep
-
-  * Coverage:
-
-    * nightly_linux_coverage: build + test the code + analyses coverage for c/c++ and python
-
-      * results are exported as a cobertura report
+Hay varias categorías de trabajos en buildfarm:
 
 
-* packaging (run every night; result is bundled into an archive):
+* trabajos manuales (activados manualmente por los desarrolladores):
 
-  * packaging_linux
-  * packaging_windows
+   * ci_linux: construir + probar el código en Ubuntu Xenial
+   * ci_linux-aarch64: compilar + probar el código en Ubuntu Xenial en una máquina ARM de 64 bits (aarch64)
+   * ci_linux_coverage: compilación + prueba + generación de cobertura de prueba
+   * ci_windows: construye + prueba el código en Windows 10
+   * ci_launcher: activa todos los trabajos enumerados anteriormente
 
-Two additional build farms support the ROS / ROS 2 ecosystem by providing building of source and
-binary packages, continuous integration, testing, and analysis.
+* nocturno (ejecutar todas las noches):
 
-For details, frequently asked questions, and troubleshooting see :doc:`build farms <Build-Farms>`.
+   * Depurar: construir + probar el código con CMAKE_BUILD_TYPE=Depurar
 
-Note on Coverage runs
-^^^^^^^^^^^^^^^^^^^^^
+     * nightly_linux_debug
+     * nightly_linux-aarch64_debug
+     * nightly_win_deb
 
-ROS 2 packages are organized in a way that the testing code for a given package is not only contained within the package, but could also be present in a different package.
-In other words: packages can exercise code belonging to other packages during the testing phase.
+   * Lanzamiento: construye + prueba el código con CMAKE_BUILD_TYPE=Release
 
-To achieve the coverage rate reached by all code available in the ROS 2 core packages it is recommended to run builds using a fixed set of proposed repositories.
-That set is defined in the default parameters of coverage jobs in Jenkins.
+     * nightly_linux_release
+     * nightly_linux-aarch64_release
+     * nightly_win_rel
+
+   * Repetido: construye y luego ejecute cada prueba hasta 20 veces o hasta que falle (también conocido como cazador de fragilidad)
+
+     * nightly_linux_repeated
+     * nightly_linux-aarch64_repeated
+     * nightly_win_rep
+
+   * Cobertura:
+
+     * nightly_linux_coverage: construye + prueba el código + analiza la cobertura para c/c++ y python
+
+       * los resultados se exportan como informe de cobertura
+
+
+* empaquetado (ejecutar todas las noches; el resultado se agrupa en un archivo):
+
+   * packaging_linux
+   * packaging_windows
+
+Dos granjas de compilación adicionales respaldan el ecosistema ROS / ROS 2 al proporcionar la creación de fuente y
+paquetes binarios, integración continua, pruebas y análisis.
+
+Para obtener detalles, preguntas frecuentes y resolución de problemas, consulte :doc:`build farms <Build-Farms>`.
+
+Nota sobre la ejecución de cobertura
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Los paquetes de ROS 2 están organizados de manera que el código de prueba para un paquete dado no solo está contenido dentro del paquete, sino que también podría estar presente en un paquete diferente.
+En otras palabras: los paquetes pueden ejercer código perteneciente a otros paquetes durante la fase de prueba.
+
+Para lograr la tasa de cobertura alcanzada por todo el código disponible en los paquetes principales de ROS 2, se recomienda ejecutar compilaciones utilizando un conjunto fijo de repositorios propuestos.
+Ese conjunto se define en los parámetros predeterminados de trabajos de cobertura en Jenkins.
 
 
 .. _read-coverage-report:
 
-How to read the coverage rate from the buildfarm report
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cómo leer la tasa de cobertura del informe buildfarm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^
 
-To see the coverage report for a given package:
+Para ver el informe de cobertura de un paquete determinado:
 
-* When the ``ci_linux_coverage`` build finishes, click on ``Coverage Report``
-* Scroll down to the ``Coverage Breakdown by Package`` table
-* In the table, look at the first column called "Name"
+* Cuando finalice la compilación ``ci_linux_coverage``, haga clic en ``Coverage Report``
+* Desplácese hacia abajo hasta la tabla ``overage Breakdown by Package``
+* En la tabla, mire la primera columna llamada "Name"
 
-The coverage reports in the buildfarm include all the packages that were used in the ROS workspace.
-The coverage report includes different paths corresponding to the same package:
+Los informes de cobertura en buildfarm incluyen todos los paquetes que se usaron en el espacio de trabajo de ROS.
+El informe de cobertura incluye diferentes rutas correspondientes a un mismo paquete:
 
-* Name entries with the form: ``src.*.<repository_name>.<package_name>.*``
-  These correspond to the unit test runs available in a package against its own source code
-* Name entries with the form: ``build.<repository_name>.<package_name>.*``
-  These correspond to the unit test runs available in a package against its files generated at building or configuring time
-* Name entries with the form: ``install.<package_name>.*``
-  These correspond to the system/integration tests coming from testing runs of other packages
+* Nombre entradas con la forma: ``src.*.<repository_name>.<package_name>.*``
+   Estos corresponden a las ejecuciones de pruebas unitarias disponibles en un paquete contra su propio código fuente
+* Nombre entradas con la forma: ``build.<repository_name>.<package_name>.*``
+   Estos corresponden a las ejecuciones de prueba unitarias disponibles en un paquete contra sus archivos generados en el momento de la construcción o configuración.
+* Nombre entradas con la forma: ``install.<package_name>.*``
+   Estos corresponden a las pruebas de sistema/integración provenientes de las ejecuciones de prueba de otros paquetes.
 
 .. _calculate-coverage-rate:
 
-How to calculate the coverage rate from the buildfarm report
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cómo calcular la tasa de cobertura del informe buildfarm
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^
 
-Get the combined unit coverage rate using the automatic script:
+Obtén la tasa de cobertura de unidad combinada utilizando el script automático:
 
- * From the ci_linux_coverage Jenkins build copy the URL of the build
- * Download the `get_coverage_ros2_pkg <https://raw.githubusercontent.com/ros2/ci/master/tools/get_coverage_ros2_pkg.py>`__ script
- * Execute the script: ``./get_coverage_ros2_pkg.py <jenkins_build_url> <ros2_package_name>`` (`README <https://github.com/ros2/ci/blob/master/tools/README.md>`__)
- * Grab the results from the "Combined unit testing" final line in the output of the script
+  * Desde la compilación ci_linux_coverage Jenkins, copie la URL de la compilación
+  * Descargue el script `get_coverage_ros2_pkg <https://raw.githubusercontent.com/ros2/ci/master/tools/get_coverage_ros2_pkg.py>`__
+  * Ejecute el script: ``./get_coverage_ros2_pkg.py <jenkins_build_url> <ros2_package_name>`` (`README <https://github.com/ros2/ci/blob/master/tools/README.md>`__)
+  * Tome los resultados de la línea final "Prueba de unidad combinada" en la salida del script
 
-Alternative: get the combined unit coverage rate from coverage report (require manual calculation):
+Alternativa: obtenga la tasa de cobertura unitaria combinada del informe de cobertura (requiere cálculo manual):
 
-* When the ci_linux_coverage build finishes, click on ``Cobertura Coverage Report``
-* Scroll down to the ``Coverage Breakdown by Package`` table
-* In the table, under the first column "Name", look for (where <package_name> is your package under testing):
+* Cuando finalice la compilación de ci_linux_coverage, haga clic en ``Informe de cobertura de Cobertura``
+* Desplácese hacia abajo hasta la tabla ``Desglose de cobertura por paquete``
+* En la tabla, debajo de la primera columna "Name", busque (donde <package_name> es su paquete bajo prueba):
 
-  * all the directories under the pattern ``src.*.<repository_name>.<package_name>.*`` grab the two absolute values in the column "Lines".
-  * all the directories under the pattern ``build/.<repository_name>.*`` grab the two absolute values in the column "Lines".
+   * todos los directorios bajo el patrón ``src.*.<repository_name>.<package_name>.*`` toma los dos valores absolutos en la columna "Lines".
+   * todos los directorios bajo el patrón ``build/.<repository_name>.*`` toma los dos valores absolutos en la columna "Lines".
 
-* With the previous selection: for each cell, the first value is the lines tested and the second is the total lines of code.
-  Aggregate all rows for getting the total of the lines tested and the total of lines of code under test.
-  Divide to get the coverage rate.
+* Con la selección anterior: para cada celda, el primer valor son las líneas probadas y el segundo el total de líneas de código.
+   Agregue todas las filas para obtener el total de líneas probadas y el total de líneas de código bajo prueba.
+   Divida para obtener la tasa de cobertura.
 
-.. _measure-coverage-locally:
+.. _medir-cobertura-localmente:
 
-How to measure coverage locally using lcov (Ubuntu)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Cómo medir la cobertura localmente usando lcov (Ubuntu)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To measure coverage on your own machine, install ``lcov``.
+Para medir la cobertura en su propia máquina, instale ``lcov``.
 
-.. code-block:: bash
+ .. code-block:: bash
 
      sudo apt install -y lcov
 
-The rest of this section assumes you are working from your colcon workspace.
-Compile in debug with coverage flags.
-Feel free to use colcon flags to target specific packages.
+El resto de esta sección asume que está trabajando desde su espacio de trabajo colcon.
+Compile en depuración con banderas de cobertura.
+Siéntase libre de usar banderas colcon para apuntar a paquetes específicos.
 
 .. code-block:: bash
 
      colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} --coverage"
 
-``lcov`` requires an initial baseline, which you can produce with the following command.
-Update the output file location for your needs.
+``lcov`` requiere una línea de base inicial, que puede producir con el siguiente comando.
+Actualice la ubicación del archivo de salida según sus necesidades.
 
 .. code-block:: bash
 
      lcov --no-external --capture --initial --directory . --output-file ~/ros2_base.info
 
-Run tests for the packages that matter for your coverage measurements.
-For example, if measuring ``rclcpp`` also with ``test_rclcpp``
+Ejecuta pruebas para los paquetes que son importantes para sus medidas de cobertura.
+Por ejemplo, si se mide ``rclcpp`` también con ``test_rclcpp``
 
 .. code-block:: bash
 
      colcon test --packages-select rclcpp test_rclcpp
 
-Capture the lcov results with a similar command this time dropping the ``--initial`` flag.
+Captura los resultados de lcov con un comando similar esta vez dejando caer el indicador ``--initial``.
 
-.. code-block:: bash
+.. bloque de código:: bash
 
-     lcov --no-external --capture --directory . --output-file ~/ros2.info
+      lcov --no-externo --capturar --directorio . --archivo de salida ~/ros2.info
 
-Combine the trace .info files:
+Combina los archivos de rastreo .info:
 
 .. code-block:: bash
 
      lcov --add-tracefile ~/ros2_base.info --add-tracefile ~/ros2.info --output-file ~/ros2_coverage.info
 
-Generate html for easy visualization and annotation of covered lines.
+Genera html para facilitar la visualización y la anotación de las líneas cubiertas.
 
 .. code-block:: bash
 
