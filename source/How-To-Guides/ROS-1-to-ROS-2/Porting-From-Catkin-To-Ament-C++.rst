@@ -164,7 +164,7 @@ This is because ROS 2 generally targets both more platforms, and newer platforms
 
 You can see which platforms a release targets by reading `REP 2000 <https://www.ros.org/reps/rep-2000.html#iron-irwini-may-2023-november-2024>`__
 Note that there's a table showing required and recommended versions of dependencies, including CMake.
-Only use CMake features present in the minimum version you'll target, and set your ``cmake_minimum_required()` version accordingly.
+Only use CMake features present in the minimum version you'll target, and set your ``cmake_minimum_required()`` version accordingly.
 
 Note that ROS 2 supports Windows.
 This means compiler specific options, like ``-Wall`` and ``-Werror`` should be guarded to only take effect on platforms that support them.
@@ -173,7 +173,7 @@ You'll also notice the ``-std=c++14`` option is no longer used.
 This is a compiler specific flag, and CMake has better tools for choosing a C++ standard.
 This example uses `target_compile_features() <https://cmake.org/cmake/help/v3.14/command/target_compile_features.html>`__.
 Note that many packages use `CMAKE_CXX_STANDARD <https://cmake.org/cmake/help/v3.14/variable/CMAKE_CXX_STANDARD.html>`__ instead.
-There are advantages to each option..
+There are advantages to each option.
 
 .. tabs::
 
@@ -204,10 +204,104 @@ An advantage of this method is the C++ standard is set in only one place.
 A disadvantage is it's not propogated to downstream targets.
 If you use C++ 17 in one of your headers, and someone uses that header downstream then their target will fail to build unless they also declare their target requires the C++ standard your target requires.
 
-TODO roscpp -> rclcpp and equivalent packages
-TODO catkin_package() -> ament_package() at end
+Packages replaced in ROS 2
+--------------------------
+
+The next thing to notice is some of the dependencies have changed.
+In this example ``ament_cmake_ros`` is used instead of ``catkin``, and ``rclcpp`` is used instead of roscpp.
+You can find a list of packages that have been replaced at `this page <./ROS-1-Package-Equivalents>`__.
+
+Finding the packages you need
+-----------------------------
+
+The recommended way of finding packages has changed from ROS 1 to ROS 2.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake
+
+      find_package(catkin REQUIRED COMPONENTS
+          roscpp
+          tf2
+          std_msgs
+      )
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake
+
+      find_package(ament_cmake_ros REQUIRED)
+      find_package(rclcpp REQUIRED)
+      find_package(tf2 REQUIRED)
+      find_package(std_msgs REQUIRED)
+
+In ROS 1, it is recommended list all the packages you want to find as ``COMPONENTS`` of the ``catkin`` package.
+In ROS 2, you instead find all of your packages directly.
+
+Placement of ament_package vs catkin_package
+--------------------------------------------
+
+The ``catkin_package()`` function is replaced by several functions in ``ament_cmake``.
+In ROS 1 the call to ``catkin_package()`` is placed near the top of the file, and given lots of arguments that have different effects.
+In ROS 2 there are instead several ``ament_*()`` function calls, the last of which is ``ament_package()``.
+It is very important that the ``ament_package()`` call is the last one in your ``CMakeLists.txt``.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake 
+
+      # ... Placed near the top of the file
+      catkin_package(
+          LIBRARIES foobar
+          INCLUDE_DIRS
+              include
+          CATKIN_DEPENDS
+              roscpp
+              tf2
+              std_msgs
+      )
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake
+
+      # ... Placed at the bottom of the file
+      ament_package()
+
+Let's look closer at how each of the arguments to the ``catkin_package()`` call were replaced.
+
+catkin_package(LIBRARIES)
++++++++++++++++++++++++++
+
+In ROS 1 the ``LIBRARIES`` argument adds libraries to the standard CMake variable ``your_package_LIBRARIES`` set when downstream packages ``find_package()`` your package.
+In ROS 2 this should be replaced with exporting modern CMake targets.
+This is done by associating your target with ``install(TARGETS ... EXPORT export-name)`` followed by ``ament_export_targets(export-name)``
+
+.. code-block:: CMake
+
+  # Assosiates the library target `foobar` with the export name `foobar-export`
+  install(TARGETS foobar EXPORT foobar-export
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin)
+
+  # ...
+
+  # Installs the export named `foobar-export``
+  ament_export_targets(foobar-export HAS_LIBRARY_TARGET)
+
+The argument ``HAS_LIBRARY_TARGET`` means the export-name includes a shared library.
+This causes ``ament_cmake`` to create a file that update paths like ``LD_LIBRARY_PATH`` (depending on the platform) when your workspace is sourced.
+
+Note, there is ``ament_export_libraries()`` which does set the old style standard CMake variable; however, this shouldn't be used for new code.
+
+catkin_package(CATKIN_DEPENDS and DEPENDS)
+++++++++++++++++++++++++++++++++++++++++++
 TODO CATKIN_DEPENDS and DEPENDS to ament_export_dependency()
-TODO find_package(catkin REQUIRED COMPONENTS) -> find_package
 TODO modern CMake targets instead of catkin_* variables
 TODO headers installed to unique DIRECTORY
 TODO CATKIN_ENABLE_TESTING to BUILD_TESTING
