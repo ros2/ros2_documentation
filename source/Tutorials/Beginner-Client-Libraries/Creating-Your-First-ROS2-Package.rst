@@ -474,14 +474,14 @@ This is where your ``package.xml`` would list its dependencies on other packages
 
       .. code-block:: python
 
-       from setuptools import setup
+       from setuptools import find_packages, setup
 
        package_name = 'my_py_pkg'
 
        setup(
         name=package_name,
         version='0.0.0',
-        packages=[package_name],
+        packages=find_packages(exclude=['test']),
         data_files=[
             ('share/ament_index/resource_index/packages',
                     ['resource/' + package_name]),
