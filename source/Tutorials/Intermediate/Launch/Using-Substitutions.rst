@@ -74,7 +74,7 @@ Finally, make sure to add in changes to the ``setup.py`` of the package so that 
 
   import os
   from glob import glob
-  from setuptools import setup
+  from setuptools import find_packages, setup
 
   package_name = 'launch_tutorial'
 
