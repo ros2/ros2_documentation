@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import find_packages, setup
 
 package_name = 'my_package'
 data_files = []
@@ -11,7 +11,7 @@ data_files.append(('share/' + package_name, ['package.xml']))
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(exclude=['test']),
     data_files=data_files,
     install_requires=['setuptools'],
     zip_safe=True,

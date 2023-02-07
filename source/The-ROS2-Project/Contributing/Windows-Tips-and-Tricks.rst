@@ -47,7 +47,7 @@ Below are examples of common error messages which can be caused by symbols not b
       couldn't be found
 
 Symbol Visibility also impacts binary loading.
-If you are finding that a composible node does not run or a Qt Visualizer isn't working, it may be that the hosting process can not find an expected symbol export from the binary.
+If you are finding that a composable node does not run or a Qt Visualizer isn't working, it may be that the hosting process can not find an expected symbol export from the binary.
 To diagnose this on Windows, the Windows developer tools includes a program called Gflags to enable various options.
 One of those options is called *Loader Snaps* which enables you to detect load failures while debugging.
 Please visit the Microsoft Documentation for more information on `Gflags <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/setting-and-clearing-image-file-flags>`__ and `Loaders snaps <https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/show-loader-snaps>`__.

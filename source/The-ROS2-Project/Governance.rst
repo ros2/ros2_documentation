@@ -26,7 +26,6 @@ Meeting notes can be found on `ROS Discourse <https://discourse.ros.org/tag/tsc>
 
 The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 
-.. |adlink| image:: Governance/images/adlink.png
 .. |amazon| image:: Governance/images/amazon.svg
 .. |apex| image:: Governance/images/apex.png
 .. |bosch| image:: Governance/images/bosch_75h.jpg
@@ -46,7 +45,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 .. |tri| image:: Governance/images/tri_logo_landscape-web.svg
 .. |windriver| image:: Governance/images/windriver.png
 .. |foxglove| image:: Governance/images/foxglove.png
-
+.. |zettascale| image:: Governance/images/zettascale.png
 .. raw:: html
 
     <!--
@@ -97,10 +96,6 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
     </style>
     <table class="tscclass">
       <tbody>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.adlinktech.com"><img alt="ADLINK Technology logo" src="../_images/adlink.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>ADLINK Technology: Angelo Corsaro</p></td>
-        </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="../_images/amazon.svg" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>Amazon: Camilo Buscaron</p></td>
@@ -174,6 +169,10 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
           <td class="tscclass" align="center"><p>Foxglove:  Adrian Macneil</p></td>
         </tr>
         <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.zettascale.tech/"><img alt="Zetta Scale logo" src="../_images/zettascale.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Zetta Scale: Angelo Corsaro</p></td>
+        </tr>
+        <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
           <td class="tscclass" align="center"><p>Community Representative: <a href="https://github.com/omichel"> Oliver Michel </a> </p></td>
         </tr>
@@ -183,7 +182,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><img alt="ROS 2 logo" src="../_images/ros2_logo.png" style="height: 60px;" /></p></td>
-          <td class="tscclass" align="center"><p>Community Representative:  <a href="https://www.linkedin.com/in/brett-aldrich-42915b97/">Brett Aldrich </a></p></td>
+          <td class="tscclass" align="center"><p>Community Representative:  <a href="https://github.com/fmrico"> Francisco Martin Rico </a></p></td>
         </tr>
       </tbody>
     </table>
@@ -315,14 +314,14 @@ Security
  * Discourse tag: `wg-security <https://discourse.ros.org/tag/wg-security>`_
  * Matrix chat `+rosorg-security:matrix.org <https://matrix.to/#/+rosorg-security:matrix.org>`_
 
-Tooling
-^^^^^^^
+Rosbag2 and Tooling
+^^^^^^^^^^^^^^^^^^^
 
-* Lead(s): Emerson Knapp
+* Lead(s): Michael Orlov
 * Resources:
 
  * `Charter <https://github.com/ros-tooling/community>`__
- * `Meeting Notes <https://docs.google.com/document/d/1UXWaEkT6ji0Z0uTtJJSni5Y6fiopM9qOOzv4ldeNaAM/edit>`__
+ * `Meeting Notes <https://docs.google.com/document/d/1Dsg_9XZQPhihpKQGQWMYTz2doGH4P2cAaNqr60cuNgw/edit>`__
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tag/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
