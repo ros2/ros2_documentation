@@ -216,13 +216,13 @@ The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/
 
 .. code-block:: bash
 
-   allocator_example
+   ros2 run demo_nodes_cpp allocator_tutorial
 
 or, to run the example with the intra-process pipeline on:
 
 .. code-block:: bash
 
-   allocator_example intra-process
+   ros2 run demo_nodes_cpp allocator_tutorial intra
 
 You should get numbers like:
 
