@@ -36,7 +36,7 @@ publish:
 
 
 test:
-	doc8 --ignore D004 --ignore D001 --ignore-path build
+	doc8 --ignore D001 --ignore-path build
 
 linkcheck:
 	$(BUILD) -b linkcheck $(OPTS) $(SOURCE) $(LINKCHECKDIR)
