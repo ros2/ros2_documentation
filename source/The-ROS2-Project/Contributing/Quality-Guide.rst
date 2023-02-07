@@ -118,6 +118,7 @@ The Thread Safety Analysis documentation states
 We have decided that we want ROS 2 developers to be able to use ``std::`` threading primitives directly for their development. We do not want to provide our own wrapped types as is suggested above.
 
 There are three C++ standard libraries to be aware of
+
 * The GNU standard library ``libstdc++`` - default on Linux, explicitly via the compiler option ``-stdlib=libstdc++``
 * The LLVM standard library ``libc++`` (also called ``libcxx`` ) - default on macOS,  explicitly set by the compiler option ``-stdlib=libc++``
 * The Windows C++ Standard Library - not relevant to this use case
