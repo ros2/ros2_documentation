@@ -4,8 +4,8 @@
 
 .. _Contributing:
 
-contribuyendo
-=============
+Contribuir
+==========
 
 .. contents:: Tabla de Contenido
    :depth: 1
@@ -37,7 +37,7 @@ Principios
 
 * Piensa en la comunidad como un todo
 
-   Piense en el panorama general.
+   Piensa en el panorama general.
    Hay desarrolladores que construyen diferentes robots con diferentes restricciones.
    ROS necesita adaptarse a los requisitos de toda la comunidad.
 
@@ -47,7 +47,7 @@ Discusiones y soporte
 ---------------------
 
 Algunas de las formas más fáciles de contribuir a ROS 2 implican participar en debates y apoyo de la comunidad.
-Puede encontrar más información sobre cómo comenzar en la página :doc:`Contacto <../../Contact>`.
+Puedes encontrar más información sobre cómo comenzar en la página :doc:`Contacto <../../Contact>`.
 
 Contribuir al Código
 --------------------
@@ -55,7 +55,7 @@ Contribuir al Código
 Configuración de tu entorno de desarrollo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para comenzar, debes instalar a partir del código  fuente; siga :ref:`las instrucciones de instalación a partir de código fuente <building-from-source>` para su plataforma.
+Para comenzar, debes instalar a partir del código  fuente; sigue :ref:`las instrucciones de instalación a partir de código fuente <building-from-source>` para tu plataforma.
 
 Guías de desarrollo
 ^^^^^^^^^^^^^^^^^^^
@@ -76,11 +76,11 @@ En que trabajar
 ^^^^^^^^^^^^^^^
 
 Hemos identificado una serie de tareas en las que los miembros de la comunidad podrían trabajar: se pueden enumerar `buscando en los repositorios de ROS 2 problemas etiquetados como "help wanted" <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A"help+wanted"&type=Issues>`__.
-Si ve algo en esa lista en lo que le gustaría trabajar, comente el elemento para que otros sepan que lo esta trabajando.
+Si ves algo en esa lista en lo que te gustaría trabajar, comenta el elemento para que otros sepan que lo estas trabajando.
 
 También tenemos una etiqueta para los issues que creemos que deberían ser más accesibles para quienes contribuyen por primera vez, `etiquetados como “good first issue” <https://github.com/search?q=user%3Aament+user%3Aros2+is%3Aopen+label%3A%22good+first+issue%22&type=Issues>`__.
 Si estas interesado en contribuir al proyecto ROS 2, te animamos a que primero eches un vistazo a estos issues.
-Si deseas tener en cuenta un rango más amplio, agradecemos las contribuciones a cualquier issue abierto (u otros que puedas proponer), en particular las tareas que tienen un hito (milestone) lo cual significa que se espera incorporarlo en la próxima versión de ROS 2 (el hito será el próxima versión, por ejemplo, 'crystal').
+Si deseas tener en cuenta un rango más amplio, agradecemos las contribuciones a cualquier issue abierto (u otros que puedas proponer), en particular las tareas que tienen un hito (milestone) lo cual significa que se espera incorporarlo en la próxima versión de ROS 2 (el hito será la próxima versión, por ejemplo, 'crystal').
 
 Si tienes alguna contribución de código que solucione un error o mejore la documentación, envíalo como un pull request al repositorio correspondiente.
 Para cambios más grandes, es una buena idea discutir la propuesta `en el foro de ROS 2 <https://discourse.ros.org/c/ng-ros>`__ antes de comenzar a trabajar en ella para que puedas identificar si alguien más ya está trabajando en algo similar.
@@ -93,7 +93,7 @@ Las contribuciones de código deben realizarse a través de pull request a `los 
 
 Pedimos a todos los colaboradores que sigan las prácticas explicadas en :doc:`la guía para desarrolladores <Contributing/Developer-Guide>`.
 
-Asegúrate de :ref:`ejecutar pruebas <colcon-run-the-tests>` a el código que tiene tus cambios porque la mayoría de los paquetes tienen pruebas que verifican que el código cumple con nuestras pautas de estilo.
+Asegúrate de :ref:`ejecutar pruebas <colcon-run-the-tests>` al código que tiene tus cambios porque la mayoría de los paquetes tienen pruebas que verifican que el código cumple con nuestras pautas de estilo.
 
 Convertirse en un core maintainer
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -110,7 +110,7 @@ Cada repositorio en las organizaciones `ros2 <https://github.com/ros2>`__ y `ame
 Convertirse en un maintainer de uno o más de esos repositorios es un proceso solo por invitación y generalmente implica los siguientes pasos:
 
 * En el último año, tener un número sustancial de contribuciones al repositorio.
-* En el último año, realice una cantidad considerable de revisiones a las pull request entrantes al repositorio.
+* En el último año, realizar una cantidad considerable de revisiones a las pull request entrantes al repositorio.
 
 Aproximadamente cada 3 meses, el equipo de ROS 2 revisará las contribuciones en todos los repositorios y enviará invitaciones a nuevos mantenedores.
 Una vez que se acepta la invitación, se le pedirá al nuevo mantenedor que realice un breve proceso de capacitación sobre los mecanismos y políticas de los repositorios de ROS 2.

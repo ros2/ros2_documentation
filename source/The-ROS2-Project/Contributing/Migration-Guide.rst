@@ -21,7 +21,7 @@ Este artículo se centra en el caso anterior y describe los pasos de alto nivel 
 No pretende ser una instrucción de migración paso a paso y no se considera la "solución" *final*.
 Las versiones futuras tendrán como objetivo hacer que la migración sea más fluida y con menos esfuerzo hasta el punto de mantener un solo paquete desde la misma rama para ROS 1 y ROS 2.
 
-requisitos previos
+Requisitos previos
 ------------------
 
 Antes de poder migrar un paquete de ROS 1 a ROS 2, todas sus dependencias deben estar disponibles en ROS 2.
@@ -65,7 +65,7 @@ En tu ``package..xml``:
 
 * Agregar ``<buildtool_depend>rosidl_default_generators</buildtool_depend>``.
 * Agregar ``<exec_depend>rosidl_default_runtime</exec_depend>``.
-* Para cada paquete de mensajes dependiente, agregue ``<depend>message_package</depend>``.
+* Para cada paquete de mensajes dependiente, agrega ``<depend>message_package</depend>``.
 
 En tu ``CMakeLists.txt``:
 
@@ -77,11 +77,11 @@ En tu ``CMakeLists.txt``:
 
 
 * Añadir ``find_package(rosidl_default_generators REQUIRED)``
-* Para cada paquete de mensajes dependiente, agregue ``find_package(message_package REQUIRED)`` y Remplaza la llamada de función CMake a ``generate_messages`` con ``rosidl_generate_interfaces``.
+* Para cada paquete de mensajes dependiente, agrega ``find_package(message_package REQUIRED)`` y remplaza la llamada de función CMake a ``generate_messages`` con ``rosidl_generate_interfaces``.
 
 Esto reemplazará la lista ``add_message_files`` y ``add_service_files`` de todos los archivos de mensajes y servicios, que se pueden eliminar.
 
-sistema de construcción
+Sistema de construcción
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 El sistema de construcción en ROS 2 se llama `ament <https://design.ros2.org/articles/ament.html>`__
@@ -100,7 +100,7 @@ Si el paquete ROS 1 usa CMake solo para invocar el archivo ``setup.py`` y no con
 
 
 *
-   Actualice o agregue el tipo de compilación en el archivo ``package.xml``:
+   Actualiza o agrega el tipo de compilación en el archivo ``package.xml``:
 
    .. code-block:: xml
 
@@ -120,11 +120,11 @@ Si bien cada paquete puede optar por admitir también Python 2, debe invocar eje
 Actualiza el *CMakeLists.txt* para usar *ament_cmake*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Aplique los siguientes cambios para usar ``ament_cmake`` en lugar de ``catkin``:
+Aplica los siguientes cambios para usar ``ament_cmake`` en lugar de ``catkin``:
 
 
 *
-   Configure el tipo de compilación en la sección de exportación del archivo ``package.xml``:
+   Configura el tipo de compilación en la sección de exportación del archivo ``package.xml``:
 
   .. code-block:: xml
 
@@ -154,7 +154,7 @@ Aplique los siguientes cambios para usar ``ament_cmake`` en lugar de ``catkin``:
      Todos los demás argumentos están cubiertos por funciones separadas que deben invocarse *antes* de ``ament_package``:
 
      * En lugar de pasar ``CATKIN_DEPENDS ...`` llamar ``ament_export_dependencies(...)`` antes.
-     * En lugar de pasar ``INCLUDE_DIRS ...`` llame a ``ament_export_include_directories(...)`` antes.
+     * En lugar de pasar ``INCLUDE_DIRS ...`` llamar  ``ament_export_include_directories(...)`` antes.
      * En lugar de pasar ``BIBLIOTECAS ...`` llamar ``ament_export_libraries(...)`` antes.
 
    *
@@ -172,7 +172,7 @@ Aplique los siguientes cambios para usar ``ament_cmake`` en lugar de ``catkin``:
      Seguido de la lista de nombres de archivos de mensajes, relativos a la raíz del paquete.
 
 
-     * Si va a utilizar la lista de nombres de archivos varias veces, se recomienda redactar una lista de archivos de mensajes y pasar la lista a la función para mayor claridad.
+     * Si vas a utilizar la lista de nombres de archivos varias veces, se recomienda redactar una lista de archivos de mensajes y pasar la lista a la función para mayor claridad.
 
    *
      El último argumento de palabra clave de múltiples valores para ``generar_mensajes`` es ``DEPENDENCIAS``, que requiere la lista de paquetes de mensajes dependientes.
@@ -185,7 +185,7 @@ Aplique los siguientes cambios para usar ``ament_cmake`` en lugar de ``catkin``:
        )
 
 *
-   Elimine cualquier aparición del *espacio de desarrollo*.
+   Elimina cualquier aparición del *espacio de desarrollo*.
    Las variables de CMake relacionadas como ``CATKIN_DEVEL_PREFIX`` ya no existen.
 
 
@@ -229,7 +229,7 @@ Remplaza ``catkin_add_gtest`` con ``ament_add_gtest``.
    +       ${PROJECT_NAME}_some_dependency)
    +   endif()
 
-Agregue ``<test_depend>ament_cmake_gtest</test_depend>`` a tu ``package.xml``.
+Agrega ``<test_depend>ament_cmake_gtest</test_depend>`` a tu ``package.xml``.
 
 .. code-block:: diff
 
@@ -240,9 +240,9 @@ Linters
 ~~~~~~~
 
 En ROS 2 estamos trabajando para mantener un código limpio usando linters.
-Los estilos para diferentes idiomas se definen en nuestra `Guía para desarrolladores <<Developer-Guide>`.
+Los estilos para diferentes idiomas se definen en nuestra `Guía para desarrolladores <Developer-Guide>`.
 
-Si está comenzando un proyecto desde cero, se recomienda seguir la guía de estilo y activar las pruebas automáticas de unidades de linter agregando estas líneas justo debajo de ``if(BUILD_TESTING)`` (hasta la versión alfa 5, esto era ``AMENT_ENABLE_TESTING``).
+Si estás comenzando un proyecto desde cero, se recomienda seguir la guía de estilo y activar las pruebas automáticas de unidades de linter agregando estas líneas justo debajo de ``if(BUILD_TESTING)`` (hasta la versión alfa 5, esto era ``AMENT_ENABLE_TESTING``).
 
 .. code-block:: cmake
 
@@ -366,7 +366,7 @@ Para cambiar los punteros compartidos de boost a C++ estándar, Remplaza las ins
 * ``#incluye <boost/shared_ptr.hpp>`` con ``#include <memory>```
 * ``boost::shared_ptr`` con ``std::shared_ptr``
 
-También puede haber variantes como ``weak_ptr`` que también desee convertir.
+También puede haber variantes como ``weak_ptr`` que también desees convertir.
 
 También se recomienda como práctica usar ``using`` en lugar de ``typedef``.
 ``using`` tiene la capacidad de funcionar mejor en lógica con plantilla.
@@ -443,7 +443,7 @@ Aquí está el diseño del directorio de nuestro espacio de trabajo catkin:
 
 Aquí está el contenido de esos tres archivos:
 
-`src/talker/package.xml``:
+``src/talker/package.xml``:
 
 .. code-block:: xml
 
@@ -561,7 +561,7 @@ sean razonablemente fáciles de hacer.
 Encabezados incluidos
 ~~~~~~~~~~~~~~~~~~~~~
 
-En lugar de ``ros/ros.h``, que nos dio acceso a la API de la biblioteca ``roscpp``,
+En lugar de ``ros/ros.h``, que nos daba acceso a la API de la biblioteca ``roscpp``,
 necesitamos incluir ``rclcpp/rclcpp.hpp``, que nos da acceso a ``rclcpp``
 API de la biblioteca:
 
@@ -610,7 +610,7 @@ Para obtener más detalles, Consulta el
 `documento de diseño <https://design.ros2.org/articles/qos.html>`__
 y `descripción general del concepto <../../Concepts/About-Quality-of-Service-Settings>`.
 
-La creación del mensaje saliente es diferente en el espacio de nombres:
+La creación del mensaje saliente es diferente en el ename space:
 
 .. code-block:: cpp
 
@@ -869,8 +869,8 @@ Maneja automáticamente tanto los directorios de inclusión definidos en
      rclcpp
      std_msgs)
 
-Para venlazar con paquetes que no son paquetes de ament, como dependencias del sistema
-como ``Boost``, o una biblioteca construida en el mismo ``CMakeLists.txt``, use
+Para enlazar con paquetes que no son paquetes de ament, como dependencias del sistema
+como ``Boost``, o una biblioteca construida en el mismo ``CMakeLists.txt``, usa
 ``target_link_libraries()```:
 
 .. code-block:: cmake

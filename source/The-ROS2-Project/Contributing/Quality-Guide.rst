@@ -31,18 +31,18 @@ Análisis de código estático como parte de la compilación del paquete ament
 * El análisis de código estático a nivel de biblioteca no se ejecuta como parte del procedimiento de creación del paquete.
 * El análisis de código estático a nivel de biblioteca debe ejecutarse manualmente.
 * Riesgo de olvidarse de ejecutar el análisis de código estático a nivel de biblioteca antes de construir
-   una nueva versión del paquete.
+  una nueva versión del paquete.
 
 **Solución**:
 
 
 * Usa las capacidades de integración de ``ament`` para ejecutar análisis de código estático como
-   parte del procedimiento de construcción del paquete.
+  parte del procedimiento de construcción del paquete.
 
 **Implementación**:
 
 
-* Insertar en los paquetes el archivo ``CMakeLists.txt``.
+* Inserta en los paquetes el archivo ``CMakeLists.txt``.
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ Análisis de código estático como parte de la compilación del paquete ament
    ...
 
 
-* Inserte las dependencias de prueba ``ament_lint`` en el archivo ``package.xml`` de los paquetes.
+* Inserta las dependencias de prueba ``ament_lint`` en el archivo ``package.xml`` de los paquetes.
 
 .. code-block:: bash
 
@@ -93,7 +93,7 @@ Análisis estático de seguridad de hilos a través de la anotación de código
 
 
 * Estás desarrollando/depurando tu código de producción C++ multihilo
-* Accede a datos de múltiples hilos en código C++
+* Accedes a datos de múltiples hilos en código C++
 
 **Problema:**
 
@@ -113,11 +113,12 @@ Para habilitar el Análisis de Seguridad de hilos, se debe anotar el código par
 Estas macros se pueden encontrar en `rcpputils/thread_safety_annotations.hpp <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
 
 La documentación del análisis de seguridad de hilos establece
-   El análisis de seguridad de hilos se puede usar con cualquier biblioteca de hilos, pero requiere que la API de hilos se incluya en clases y métodos que tengan las anotaciones adecuadas.
+  El análisis de seguridad de hilos se puede usar con cualquier biblioteca de hilos, pero requiere que la API de hilos se incluya en clases y métodos que tengan las anotaciones adecuadas.
 
 Hemos decidido que queremos que los desarrolladores de ROS 2 puedan usar primitivas de subprocesamiento ``std::`` directamente para su desarrollo. No queremos proporcionar nuestros propios tipos envueltos como se sugiere anteriormente.
 
-Hay tres bibliotecas estándar de C++ a tener en cuenta
+Hay tres bibliotecas estándar de C++ a tener en cuenta 
+
 * La biblioteca estándar GNU ``libstdc++``: predeterminada en Linux, explícitamente a través de la opción del compilador ``-stdlib=libstdc++``
 * La biblioteca estándar LLVM ``libc++`` (también llamada ``libcxx``) - predeterminada en macOS, establecida explícitamente por la opción del compilador ``-stdlib=libc++``
 * La biblioteca estándar de Windows C++: no es relevante para este caso de uso
@@ -148,7 +149,7 @@ Las sugerencias de migración de código aquí de ninguna manera están completa
    * Paso 1 - Anotar miembros de datos
 
      * Encuentre en cualquier lugar que ``std::mutex`` se use para proteger algunos datos de miembros
-     * Agregue la anotación ``RCPPUTILS_TSA_GUARDED_BY(mutex_name)`` a los datos que están protegidos por el mutex
+     * Agrega la anotación ``RCPPUTILS_TSA_GUARDED_BY(mutex_name)`` a los datos que están protegidos por el mutex
 
     .. code-block:: cpp
 
@@ -186,7 +187,7 @@ Las sugerencias de migración de código aquí de ninguna manera están completa
      Hacer que sus bloqueos sean privados puede requerir repensar las interfaces de sus datos. Este es un gran ejercicio - aquí hay algunas cosas a considerar
 
      * Es posible que desees proporcionar interfaces especializadas para realizar análisis que requieran una lógica de bloqueo compleja, p. contar miembros en un conjunto filtrado de una estructura de mapa protegida por mutex, en lugar de devolver la estructura subyacente a los consumidores
-     * Considere la posibilidad de copiar para evitar el bloqueo, donde la cantidad de datos es pequeña. Esto puede permitir que otros hilos sigan accediendo a los datos compartidos, lo que potencialmente puede conducir a un mejor rendimiento general.
+     * Considera la posibilidad de copiar para evitar el bloqueo, donde la cantidad de datos es pequeña. Esto puede permitir que otros hilos sigan accediendo a los datos compartidos, lo que potencialmente puede conducir a un mejor rendimiento general.
 
    * Paso 4 - (Opcional) Habilitar análisis de capacidad negativa
 

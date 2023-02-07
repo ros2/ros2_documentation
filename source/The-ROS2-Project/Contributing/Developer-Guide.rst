@@ -47,7 +47,7 @@ También nos adherimos a algunas reglas específicas de ROS adicionales encima d
 
 * Los incrementos de versiones Mayores (es decir, cambios incompatibles) no deben realizarse dentro de una distribución de ROS publicada.
 
-  * Los parches (con preservación de la interfaz) y los incrementos de versión menores (sin interrupciones) no rompen la compatibilidad, por lo que este tipo de cambios *están* permitidos dentro de una versión.
+  * Los parches (con preservación de la interfaz) y los incrementos de versión Menores (sin interrupciones) no rompen la compatibilidad, por lo que este tipo de cambios *están* permitidos dentro de una versión.
 
   * Los lanzamientos Mayores de ROS son el mejor momento para lanzar cambios incompatibles (breaking change).
     Si un paquete principal necesita varios cambios incompatibles, deben fusionarse en su rama de integración (por ejemplo, rolling) para permitir detectar problemas en CI rápidamente, pero deben publicarse juntos para reducir la cantidad de versiones Major para los usuarios de ROS.
@@ -59,18 +59,18 @@ También nos adherimos a algunas reglas específicas de ROS adicionales encima d
 
   * Los cambios incompatibles de ABI *pueden* realizarse en una actualización de versión Menor *antes* de un lanzamiento de distribución  (agregándola a la distribución rolling).
 
-* Imponemos la estabilidad de la API para los paquetes principales en Dashing y Eloquent aunque sus componentes principales de la versión sean ``0``, a pesar de la ` especificación de SemVer <https://semver.org/lang/es/#spec-item-4>`_ con respecto al desarrollo inicial.
+* Imponemos la estabilidad de la API para los paquetes principales en Dashing y Eloquent aunque sus componentes principales de la versión sean ``0``, a pesar de la `especificación de SemVer <https://semver.org/lang/es/#spec-item-4>`_ con respecto al desarrollo inicial.
 
   * Posteriormente, los paquetes deben esforzarse por alcanzar un estado maduro y aumentar a la versión ``1.0.0`` para que coincidan con las especificaciones de ``semver``.
 
 Advertencias
 ~~~~~~~~~~~~
 
-Estas reglas son *mejor esfuerzo*.
+Estas reglas son de *mejor esfuerzo*.
 En casos extremos e improbables, puede ser necesario romper la API dentro de una versión/distribución principal.
 Para un caso de cambio no planificado que rompa compatibilidad se evaluará si es considerado un incremento Mayor o Menor.
 
-Por ejemplo, considere una situación que involucre el lanzamiento de X-turtle, correspondiente a la versión Mayor ``1.0.0``, y Y-turtle lanzado, correspondiente a la versión Mayor `` 2.0.0``.
+Por ejemplo, considere una situación que involucre el lanzamiento de X-turtle, correspondiente a la versión Mayor ``1.0.0``, y Y-turtle lanzado, correspondiente a la versión Mayor ``2.0.0``.
 
 Si se identifica que un arreglo con ruptura de la API es absolutamente necesaria en X-turtle, saltar a ``2.0.0`` obviamente no es una opción porque ``2.0.0`` ya existe.
 
@@ -78,7 +78,7 @@ Las soluciones para manejar la versión de X-turtle en tal caso, ambas no ideale
 
 1. Actualizar X-turtle con una versión Menor: no es ideal porque viola el principio de SemVer de que los cambios incompatibles deben incrementar la versión Mayor.
 
-2. Actualizar la versión Mayor de X-turtle más allá de Y-turtle (a `` 3.0.0``): no es ideal porque la versión de la distribución anterior se volvería más alta que la versión ya disponible de una distribución más nueva, lo que invalidaría/rompería código condicional específico de la versión.
+2. Actualizar la versión Mayor de X-turtle más allá de Y-turtle (a ``3.0.0``): no es ideal porque la versión de la distribución anterior se volvería más alta que la versión ya disponible de una distribución más nueva, lo que invalidaría/rompería código condicional específico de la versión.
 
 El desarrollador tendrá que decidir qué solución usar o, lo que es más importante, qué principio está dispuesto a romper.
 No podemos sugerir uno u otro, pero en cualquier caso sí requerimos que se tomen medidas explícitas para comunicar la interrupción y su explicación a los usuarios de forma manual (más allá del incremento de versión).
@@ -128,7 +128,7 @@ Se puede introducir una obsolescencia en un aumento de versión Menor si el aume
 Por ejemplo, si X-turtle comienza a desarrollarse como ``2.0.0``, se puede agregar una obsolescencia en ``2.1.0`` antes de lanzar X-turtle.
 
 Intentaremos mantener la compatibilidad entre distribuciones tanto como sea posible.
-Sin embargo, al igual que las advertencias asociadas con SemVer, el tic-tac o incluso la desaprobación en general puede ser imposible de cumplir por completo en ciertos casos.
+Sin embargo, al igual que las advertencias asociadas con SemVer, el tic-tac o incluso la obsolescencia en general puede ser imposible de cumplir por completo en ciertos casos.
 
 Proceso de control de cambios
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -158,10 +158,10 @@ Directrices para aplicar los PR a versiones anteriores
 
 Al cambiar una versión anterior (backporting) de ROS:
 
-* Asegúrese de que las funciones o las correcciones se acepten y fusionen en la rama rolling antes de abrir una PR para aplicar los cambios a versiones anteriores.
+* Asegúrate de que las funciones o las correcciones se acepten y fusionen en la rama rolling antes de abrir una PR para aplicar los cambios a versiones anteriores.
 * Al realizar una adaptación a versiones anteriores, también considere la posibilidad de realizar una adaptación a cualquier otra :doc:`versión aún compatible <../../Releases>`, incluso versiones que no sean LTS.
 * Si está realizando backport de un solo PR en su totalidad, titule el PR de retroceso "[Distro] <nombre del PR original>".
-  Si se hace un backport un subconjunto de cambios de uno o varios PR, el título debe ser "[Distro] <descripción de los cambios>".
+  Si se hace un backport un de subconjunto de cambios provenientes de uno o varios PR, el título debe ser "[Distro] <descripción de los cambios>".
 * Vincula a todos los PR cuyos cambios estés realizando su backport desde la descripción del backport PR.
   En un backport de Foxy a Dashing no es necesario enlazar el backport a Eloquent en el mismo cambio.
 
@@ -188,7 +188,7 @@ Cada paquete debe describirse a sí mismo y su propósito suponiendo, en la medi
 Cada paquete debe definir y describir su API pública para que haya una expectativa razonable para los usuarios sobre lo que cubre la política de versiones semánticas.
 Incluso en C y C++, donde la API pública se puede aplicar mediante la verificación de API y ABI, es una buena oportunidad para describir el diseño del código y la función de cada parte del código.
 
-Debe ser fácil tomar cualquier paquete y, a partir de la documentación de ese paquete, comprender cómo compilar, ejecutar, compilar y ejecutar pruebas, y compilar la documentación.
+Debe ser fácil tomar cualquier paquete y, a partir de la documentación de ese paquete, comprender cómo construir, ejecutar, construir y ejecutar pruebas, y como construir la documentación.
 Obviamente, debemos evitar repetirnos para flujos de trabajo comunes, como crear un paquete en un espacio de trabajo, pero los flujos de trabajo básicos deben describirse o referenciarse.
 
 Finalmente, debe incluir cualquier documentación para desarrolladores.
@@ -243,7 +243,7 @@ También necesitaremos una justificación para fusionar un cambio o hacer una ve
 Linters y análisis estático
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Usaremos :doc:`estilo de código ROS <Code-Style-Language-Versions>` y lo aplicaremos con linters de `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc /index.rst>`_.
+Usaremos el :doc:`estilo de código ROS <Code-Style-Language-Versions>` y lo aplicaremos con linters de `ament_lint_common <https://github.com/ament/ament_lint/tree/{REPOS_FILE_BRANCH}/ament_lint_common/doc /index.rst>`_.
 Se deben usar todos los análisis estáticos/linters que forman parte de ``ament_lint_common``.
 
 La documentación de `ament_lint_auto <https://github.com/ament/ament_lint/blob/{REPOS_FILE_BRANCH}/ament_lint_auto/doc/index.rst>`_ proporciona información sobre cómo ejecutar ``ament_lint_common``.
@@ -258,7 +258,7 @@ Estas prácticas no afectan el nivel de calidad del paquete como se describe en 
 Issues
 ^^^^^^
 
-Al presentar un issue, asegúrese de:
+Al presentar un issue, Asegúrate de:
 
 - Incluir suficiente información para que otra persona entienda el problema.
   En ROS 2, los siguientes puntos pueden utilizarse para reducir el motivo de un problema.
@@ -327,22 +327,22 @@ Pull requests
 
 * Una pull request debe contener una cantidad mínima de commits significativos.
 
-   * Puede crear nuevos commits mientras se revisa el pull request.
+   * Puedes crear nuevos commits mientras se revisa el pull request.
 
 * Antes de fusionar un pull request, todos los cambios deben agruparse (squash) en una pequeña cantidad de commits semánticos para mantener el historial claro.
 
    * Pero evita realizar un commit squash mientras se revisa el pull request.
-     Es posible que sus revisores no se den cuenta de que realizó el cambio, lo que podría generar confusión.
+     Es posible que tus revisores no se den cuenta de que realizaste el cambio, lo que podría generar confusión.
      Además, de todos modos vas a agrupar antes de fusionar; no hay ningún beneficio en hacerlo antes.
 
-* Cualquier desarrollador puede revisar y aprobar una pull request (consulte `Principios generales`_).
+* Cualquier desarrollador puede revisar y aprobar una pull request (consulta `Principios generales`_).
 
-* Cuando comience a revisar un pull request, comente el pull request para que otros desarrolladores sepan que lo está revisando.
+* Cuando comiences a revisar un pull request, comenta el pull request para que otros desarrolladores sepan que lo estás revisando.
 
 * La revisión de pull request no es de solo lectura, ya que el revisor hace comentarios y luego espera a que el autor los aborde.
-   Como revisor, no dude en realizar mejoras menores (errores tipográficos, problemas de estilo, etc.) en el lugar.
+   Como revisor, no dudes en realizar mejoras menores (errores tipográficos, problemas de estilo, etc.) en el lugar.
    Como autor de un pull request, si está trabajando en una fork, marque la casilla para `permitir ediciones de colaboradores upstream <https://github.com/blog/2247-improveing-collaboration-with-forks>`__ ayudará con lo antes mencionado.
-   Como revisor, siéntase libre de realizar mejoras más sustanciales, pero considere colocarlas en una rama separada (mencione la nueva rama en un comentario o abra otra pull request de la nueva rama a la rama original).
+   Como revisor, siéntete libre de realizar mejoras más sustanciales, pero considere colocarlas en una rama separada (mencione la nueva rama en un comentario o abra otra pull request de la nueva rama a la rama original).
 
 * Cualquier desarrollador (el autor, el revisor u otra persona) puede fusionar cualquier pull request aprobado.
 
@@ -359,12 +359,12 @@ Proceso de desarrollo
 
 * La rama predeterminada (en la mayoría de los casos, la rama rolling) siempre debe compilarse, pasar todas las pruebas y compilarse sin advertencias.
    Si en algún momento hay una regresión, la máxima prioridad es restaurar al menos el estado anterior.
-* Compile siempre con las pruebas habilitadas.
-* Ejecute siempre las pruebas localmente después de los cambios y antes de proponerlos en una pull request.
-   Además de usar pruebas automatizadas, también ejecute la ruta del código modificado manualmente para asegurarse de que el parche funcione según lo previsto.
-* Siempre ejecute trabajos de CI para todas las plataformas para cada pull request e incluya enlaces a los trabajos en el pull request.
+* Compila siempre con las pruebas habilitadas.
+* Ejecuta siempre las pruebas localmente después de los cambios y antes de proponerlos en una pull request.
+   Además de usar pruebas automatizadas, también ejecuta la ruta del código modificado manualmente para asegurarse de que el parche funcione según lo previsto.
+* Siempre ejecuta trabajos de CI para todas las plataformas para cada pull request e incluye enlaces a los trabajos en el pull request.
 
-Para obtener más detalles sobre el flujo de trabajo de desarrollo de software recomendado, consulte la sección `Ciclo de vida de desarrollo de software`_.
+Para obtener más detalles sobre el flujo de trabajo de desarrollo de software recomendado, consulta la sección `Ciclo de vida de desarrollo de software`_.
 
 Cambios en la API de RMW
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -393,21 +393,21 @@ Los nombres y propósitos de las columnas en cualquier tablero de proyecto de RO
 * **Hacer**:
    Problemas que son relevantes para el proyecto, listos para ser asignados
 * **En progreso**:
-   pull request activas en las que se está trabajando actualmente
+   pull request activos en los que se está trabajando actualmente
 * **En revisión**:
    pull request donde el trabajo está completo y listo para revisión, y para aquellos que actualmente se encuentran en revisión activa
 * **Hecho**:
-   Las pull request y los problemas relacionados se fusionan/cierran (con fines informativos)
+   Los pull request y los problemas relacionados se fusionan/cierran (con fines informativos)
 
 Para solicitar permiso para realizar cambios, simplemente comenta los issues que te interesan.
 Dependiendo de la complejidad, puede ser útil describir cómo piensas abordarlo.
-Actualizaremos el estado (si no tienes el permiso) y podrás comenzar a trabajar en una pull request.
-Si contribuyes regularmente, es probable que solo te concedamos permiso para administrar por ti mismo las etiquetas, etc. .
+Actualizaremos el estado (si no tienes el permiso) y podrás comenzar a trabajar en un pull request.
+Si contribuyes regularmente, es probable que simplemente te concedamos permiso para que puedas administrar por ti mismo las etiquetas, etc. .
 
 Convenciones de programación
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Programación defensiva: asegúrese de que los supuestos se lleven a cabo lo antes posible.
+* Programación defensiva: asegúrate de que los supuestos se lleven a cabo lo antes posible.
    P.ej. verifica cada código de retorno y asegúrate de lanzar al menos una excepción hasta que el caso se maneje con más gracia.
 * Todos los mensajes de error deben dirigirse a ``stderr``.
 * Declarar variables en el ámbito más reducido posible.
@@ -450,7 +450,7 @@ Diseño del paquete
    * Considere colocar una etiqueta de cobertura de código o CI en este README
    * También puede ser ``.rst`` o cualquier otra cosa compatible con GitHub
 
-* ``CONTRIBUTING```: describe las pautas de contribución
+* ``CONTRIBUTING``: describe las pautas de contribución
 
    * Esto podría incluir implicaciones de licencia, p. cuando se utiliza la licencia Apache 2.
 
@@ -466,40 +466,40 @@ Si un repositorio contiene un solo paquete, opcionalmente puede estar en la raí
 Flujo de trabajo del desarrollador
 ----------------------------------
 
-Realizamos un seguimiento de los tickets abiertos y las pull request activos relacionados con los próximos lanzamientos y proyectos más grandes mediante `tableros de proyectos de GitHub <https://github.com/orgs/ros2/projects>`_.
+Realizamos un seguimiento de los tickets abiertos y los pull request activos relacionados con los próximos lanzamientos y proyectos más grandes mediante `tableros de proyectos de GitHub <https://github.com/orgs/ros2/projects>`_.
 
 El flujo de trabajo habitual es:
 
 * Discutir el diseño (ticket de GitHub en el repositorio apropiado y un diseño PR a https://github.com/ros2/design si es necesario)
 * Escribir la implementación en una rama feature en un fork
 
-   * Consulte la `guía para desarrolladores <Developer-Guide>` para conocer las pautas y las mejores prácticas
+   * Consulta la `guía para desarrolladores <Developer-Guide>` para conocer las pautas y las mejores prácticas
 
 * Escribir pruebas
 * Habilitar y ejecutar linters
-* Ejecutar pruebas localmente usando ``colcon test`` (consulte el :doc:`tutorial de colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
+* Ejecutar pruebas localmente usando ``colcon test`` (consulta el :doc:`tutorial de colcon <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`)
 * Una vez que todo se compila localmente sin advertencias y todas las pruebas pasan, ejecute CI en su rama de características:
 
    * Ir a ci.ros2.org
    * Iniciar sesión (esquina superior derecha)
    * Haga clic en el trabajo ``ci_launcher``
    * Haga clic en "Construir con parámetros" (columna izquierda)
-   * En el primer cuadro "CI_BRANCH_TO_TEST" ingrese el nombre de su sucursal de características
+   * En el primer cuadro "CI_BRANCH_TO_TEST" ingresa el nombre de su sucursal de características
    * Presiona el botón ``construir``
 
-   (si no es un confirmador de ROS 2, no tiene acceso a la granja de CI. En ese caso, haga ping al revisor de su PR para ejecutar CI por usted)
+   (si no es un confirmador de ROS 2, no tiene acceso a la granja de CI. En ese caso, haga ping al revisor de su PR para que ejecute el CI por ti)
 
-* Si su caso de uso requiere una cobertura de código en ejecución:
+* Si tu caso de uso requiere una cobertura de código en ejecución:
 
    * Ir a ci.ros2.org
    * Iniciar sesión (esquina superior derecha)
    * Haga clic en el trabajo ``ci_linux_coverage``
    * Haga clic en "Construir con parámetros" (columna izquierda)
-   * Asegúrese de dejar "CI_BUILD_ARGS" y "CI_TEST_ARGS" con los valores predeterminados
+   * Asegúrate de dejar "CI_BUILD_ARGS" y "CI_TEST_ARGS" con los valores predeterminados
    * Presiona el botón ``construir``
    * Al final del documento hay instrucciones sobre cómo :ref:`interpretar el resultado del informe <read-coverage-report>` y :ref:`calcular la tasa de cobertura <calculate-coverage-rate>`
 
-* Si el trabajo de CI se generó sin advertencias, errores y fallas de prueba, publique los enlaces de sus trabajos en su PR o ticket de alto nivel agregando todos sus PR (consulte el ejemplo `aquí <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
+* Si el trabajo de CI se generó sin advertencias, errores y fallas de prueba, publica los enlaces de sus trabajos en tu PR o ticket de alto nivel agregando todos tus PR (consulte el ejemplo `aquí <https://github.com/ros2/rcl/pull/106#issuecomment-271119200>`__)
 
    * Tenga en cuenta que el markdown para estas insignias está en la salida de la consola del trabajo ``ci_launcher``
 
@@ -509,7 +509,7 @@ El flujo de trabajo habitual es:
 
      * Si las confirmaciones merecen mantenerse separadas: aplaste todas las quisquillosas/linters/errores tipográficos y fusione el conjunto restante
 
-       * Nota: cada RP debe apuntar a una función específica, por lo que Squash y Merge deberían tener sentido el 99% del tiempo
+       * Nota: cada PR debe apuntar a una función específica, por lo que Squash y Merge deberían tener sentido el 99% del tiempo
 
 * Eliminar la rama una vez fusionada
 
@@ -537,8 +537,8 @@ Si se está realizando una revisión del diseño en las etapas posteriores, los 
 
 * Se debe crear un issue en el repositorio `ros2 apropiado <https://github.com/ros2/>`__, que describa claramente la tarea en la que se está trabajando.
 
-   * Debe tener un criterio de éxito claro y resaltar las mejoras concretas que se esperante de él.
-   * Si la característica tiene como objetivo una versión de ROS, asegúrese de que se realice un seguimiento en el ticket de la versión de ROS (`example <https://github.com/ros2/ros2/issues/607>`__).
+   * Debe tener un criterio de éxito claro y resaltar las mejoras concretas que se esperan de él.
+   * Si la característica tiene como objetivo una versión de ROS, asegúrate de que se realice un seguimiento en el ticket de la versión de ROS (`example <https://github.com/ros2/ros2/issues/607>`__).
 
 Redacción del documento de diseño.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -550,12 +550,12 @@ El hecho de que se requiera o no un documento de diseño para su cambio depende 
 
    * No se requiere un documento de diseño, pero se debe abrir un issue en el repositorio adecuado para realizar un seguimiento del trabajo y evitar la duplicación de esfuerzos.
 
-2. Está implementando una nueva función o le gustaría contribuir a la infraestructura propiedad de OSRF (como Jenkins CI):
+2. Estás implementando una nueva función o te gustaría contribuir a la infraestructura propiedad de OSRF (como Jenkins CI):
 
-   * El documento de diseño es obligatorio y debe contribuirse a `ros2/design <https://github.com/ros2/design/>`__ para que esté accesible en https://design.ros2.org/.
-   * Debe realizar un fork al repositorio y enviar una pull request que detalle el diseño.
+   * El documento de diseño es obligatorio y debe contribuirse a `ros2/design <https://github.com/ros2/design/>`__ para que sea accesible en https://design.ros2.org/.
+   * Debes realizar un fork al repositorio y enviar una pull request que detalle el diseño.
 
-   Mencione el problema de ros2 relacionado (por ejemplo, ``Documento de diseño para la tarea ros2/ros2#<Id. de problema>``) en el pull request o en el mensaje de confirmación.
+   Menciona el problema de ros2 relacionado (por ejemplo, ``Documento de diseño para la tarea ros2/ros2#<Id. de problema>``) en el pull request o en el mensaje de confirmación.
    Las instrucciones detalladas se encuentran en la página de `ROS 2 Contribute <https://design.ros2.org/contribute.html>`__.
    Los comentarios de diseño se realizarán directamente en el pull request.
 
@@ -581,7 +581,7 @@ mantenedores de todos los paquetes afectados (como se define en el campo de mant
 
    **Durante la reunión**
 
-   * El responsable de la tarea dirige la reunión, presenta sus ideas y gestiona los debates para garantizar que se llegue a un acuerdo a tiempo
+   * El responsable de la tarea dirige la reunión, presenta tus ideas y gestiona los debates para garantizar que se llegue a un acuerdo a tiempo
 
    **Después de la reunión**
 
@@ -595,12 +595,12 @@ mantenedores de todos los paquetes afectados (como se define en el campo de mant
 
      * Es aceptable eliminar secciones para las que no hay un acuerdo claro
      * Las partes discutibles del diseño se pueden volver a enviar como una tarea separada en el futuro
-     * Si eliminar las partes discutibles no es una opción, trabaje directamente con los propietarios del paquete para llegar a un acuerdo
+     * Si eliminar las partes discutibles no es una opción, trabaja directamente con los propietarios del paquete para llegar a un acuerdo
 
 * Una vez alcanzado el consenso:
 
-   * Asegúrese de que el pull request `ros2/design <https://github.com/ros2/design/>`__ se haya fusionado, si corresponde
-   * Actualice y cierre el problema de GitHub asociado con esta tarea de diseño
+   * Asegúrate de que el pull request `ros2/design <https://github.com/ros2/design/>`__ se haya fusionado, si corresponde
+   * Actualiza y cierra el problema de GitHub asociado con esta tarea de diseño
 
 Implementación
 ~~~~~~~~~~~~~~
@@ -609,18 +609,18 @@ Antes de comenzar, revise la sección `Pull requests`_ para conocer las mejores 
 
 * Para cada repo a modificar:
 
-   * Modifique el código, vaya al siguiente paso si terminó o en intervalos regulares para hacer una copia de seguridad de su trabajo.
-   * `Auto-revise <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ sus cambios usando ``git add -i``.
-   * Cree un nuevo commit firmada usando ``git commit -s``.
+   * Modifica el código, vaya al siguiente paso si terminaste o en intervalos regulares para hacer una copia de seguridad de su trabajo.
+   * `Auto-revise <https://git-scm.com/book/en/v2/Git-Tools-Interactive-Staging>`__ tus cambios usando ``git add -i``.
+   * Crea un nuevo commit firmada usando ``git commit -s``.
 
      * Una pull request debe contener confirmaciones mínimas semánticamente significativas (por ejemplo, no es aceptable una gran cantidad de commits de 1 línea).
-       Cree nuevas confirmaciones de corrección mientras itera en los comentarios u, opcionalmente, modifique las confirmaciones existentes usando ``git commit --amend`` si no desea crear una nueva confirmación cada vez.
-     * Cada confirmación debe tener un mensaje de confirmación correctamente escrito y significativo.
+       Crea nuevos commit de corrección mientras iteras según la retroalimentación u, opcionalmente, modifica los commits existentes usando ``git commit --amend`` si no desea crear un nuevo commit cada vez.
+     * Cada commit debe tener un mensaje de commit correctamente escrito y significativo.
        Más instrucciones `aquí <https://chris.beams.io/posts/git-commit/>`__.
      * El movimiento de archivos debe realizarse en una confirmación separada; de lo contrario, es posible que git no realice un seguimiento preciso del historial del archivo.
      * La descripción del pull request o el mensaje de confirmación deben contener una referencia al problema de ros2 relacionado, por lo que se cierra automáticamente cuando se fusiona el pull request.
        Consulte este `doc <https://help.github.com/articles/closing-issues-using-keywords/>`__ para obtener más detalles.
-     * Empuje los nuevos commits.
+     * Haga push de  los nuevos commits.
 
 Revisión de código
 ~~~~~~~~~~~~~~~~~~
@@ -630,7 +630,7 @@ Una vez que el cambio esté listo para la revisión del código:
 * Abre un pull request para cada repositorio modificado.
 
    * Recuerda seguir las mejores prácticas de `Pull requests`_.
-   * `GitHub <https://hub.github.com/>`__ se puede usar para crear pull request desde la línea de comandos.
+   * Se puede usar `GitHub <https://hub.github.com/>`__  para crear pull request desde la línea de comandos.
    * Si se planea lanzar la tarea con una versión específica de ROS, esta información debe incluirse en cada pull request.
 
 * Los propietarios del paquete que revisaron el documento de diseño deben mencionarse en el pull request.
@@ -647,7 +647,7 @@ Introducción a la construcción de una granja
 La granja de compilación se encuentra en `ci.ros2.org <https://ci.ros2.org/>`__.
 
 Todas las noches ejecutamos trabajos nocturnos que compilan y ejecutan todas las pruebas en varios escenarios en varias plataformas.
-Además, probamos todas los pull request en estas plataformas antes de fusionarlos.
+Además, probamos todos los pull request en estas plataformas antes de fusionarlos.
 
 Este es el conjunto actual de plataformas y arquitecturas de destino, aunque evoluciona con el tiempo:
 
@@ -707,7 +707,7 @@ Hay varias categorías de trabajos en buildfarm:
 Dos granjas de compilación adicionales respaldan el ecosistema ROS / ROS 2 al proporcionar la creación de fuente y
 paquetes binarios, integración continua, pruebas y análisis.
 
-Para obtener detalles, preguntas frecuentes y resolución de problemas, consulte :doc:`build farms <Build-Farms>`.
+Para obtener detalles, preguntas frecuentes y resolución de problemas, consulta :doc:`build farms <Build-Farms>`.
 
 Nota sobre la ejecución de cobertura
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -722,13 +722,13 @@ Ese conjunto se define en los parámetros predeterminados de trabajos de cobertu
 .. _read-coverage-report:
 
 Cómo leer la tasa de cobertura del informe buildfarm
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Para ver el informe de cobertura de un paquete determinado:
 
 * Cuando finalice la compilación ``ci_linux_coverage``, haga clic en ``Coverage Report``
-* Desplácese hacia abajo hasta la tabla ``overage Breakdown by Package``
-* En la tabla, mire la primera columna llamada "Name"
+* Desplázate hacia abajo hasta la tabla ``overage Breakdown by Package``
+* En la tabla, mira la primera columna llamada "Name"
 
 Los informes de cobertura en buildfarm incluyen todos los paquetes que se usaron en el espacio de trabajo de ROS.
 El informe de cobertura incluye diferentes rutas correspondientes a un mismo paquete:
@@ -743,49 +743,49 @@ El informe de cobertura incluye diferentes rutas correspondientes a un mismo paq
 .. _calculate-coverage-rate:
 
 Cómo calcular la tasa de cobertura del informe buildfarm
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Obtén la tasa de cobertura de unidad combinada utilizando el script automático:
 
-  * Desde la compilación ci_linux_coverage Jenkins, copie la URL de la compilación
-  * Descargue el script `get_coverage_ros2_pkg <https://raw.githubusercontent.com/ros2/ci/master/tools/get_coverage_ros2_pkg.py>`__
-  * Ejecute el script: ``./get_coverage_ros2_pkg.py <jenkins_build_url> <ros2_package_name>`` (`README <https://github.com/ros2/ci/blob/master/tools/README.md>`__)
-  * Tome los resultados de la línea final "Prueba de unidad combinada" en la salida del script
+  * Desde la compilación ci_linux_coverage Jenkins, copia la URL de la compilación
+  * Descarga el script `get_coverage_ros2_pkg <https://raw.githubusercontent.com/ros2/ci/master/tools/get_coverage_ros2_pkg.py>`__
+  * Ejecuta el script: ``./get_coverage_ros2_pkg.py <jenkins_build_url> <ros2_package_name>`` (`README <https://github.com/ros2/ci/blob/master/tools/README.md>`__)
+  * Toma los resultados de la línea final "Prueba de unidad combinada" en la salida del script
 
-Alternativa: obtenga la tasa de cobertura unitaria combinada del informe de cobertura (requiere cálculo manual):
+Alternativa: obten la tasa de cobertura unitaria combinada del informe de cobertura (requiere cálculo manual):
 
-* Cuando finalice la compilación de ci_linux_coverage, haga clic en ``Informe de cobertura de Cobertura``
-* Desplácese hacia abajo hasta la tabla ``Desglose de cobertura por paquete``
+* Cuando finalices la compilación de ci_linux_coverage, haz clic en ``Informe de cobertura de Cobertura``
+* Desplázate hacia abajo hasta la tabla ``Desglose de cobertura por paquete``
 * En la tabla, debajo de la primera columna "Name", busque (donde <package_name> es su paquete bajo prueba):
 
    * todos los directorios bajo el patrón ``src.*.<repository_name>.<package_name>.*`` toma los dos valores absolutos en la columna "Lines".
    * todos los directorios bajo el patrón ``build/.<repository_name>.*`` toma los dos valores absolutos en la columna "Lines".
 
 * Con la selección anterior: para cada celda, el primer valor son las líneas probadas y el segundo el total de líneas de código.
-   Agregue todas las filas para obtener el total de líneas probadas y el total de líneas de código bajo prueba.
-   Divida para obtener la tasa de cobertura.
+   Agrega todas las filas para obtener el total de líneas probadas y el total de líneas de código bajo prueba.
+   Divide para obtener la tasa de cobertura.
 
 .. _medir-cobertura-localmente:
 
 Cómo medir la cobertura localmente usando lcov (Ubuntu)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Para medir la cobertura en su propia máquina, instale ``lcov``.
+Para medir la cobertura en su propia máquina, instala ``lcov``.
 
  .. code-block:: bash
 
      sudo apt install -y lcov
 
-El resto de esta sección asume que está trabajando desde su espacio de trabajo colcon.
-Compile en depuración con banderas de cobertura.
-Siéntase libre de usar banderas colcon para apuntar a paquetes específicos.
+El resto de esta sección asume que estás trabajando desde tu espacio de trabajo colcon.
+Compila en depuración con banderas de cobertura.
+Siéntete libre de usar banderas colcon para apuntar a paquetes específicos.
 
 .. code-block:: bash
 
      colcon build --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} --coverage" -DCMAKE_C_FLAGS="${CMAKE_C_FLAGS} --coverage"
 
 ``lcov`` requiere una línea de base inicial, que puede producir con el siguiente comando.
-Actualice la ubicación del archivo de salida según sus necesidades.
+Actualiza la ubicación del archivo de salida según sus necesidades.
 
 .. code-block:: bash
 
