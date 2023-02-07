@@ -164,7 +164,7 @@ Add the executable and name it ``listener_with_topic_statistics`` so you can run
 
 .. code-block:: console
 
-    add_executable(listener_with_topic_statistics member_function_with_topic_statistics.cpp)
+    add_executable(listener_with_topic_statistics src/member_function_with_topic_statistics.cpp)
     ament_target_dependencies(listener_with_topic_statistics rclcpp std_msgs)
 
     install(TARGETS
