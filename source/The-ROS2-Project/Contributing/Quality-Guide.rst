@@ -117,7 +117,8 @@ La documentación del análisis de seguridad de hilos establece
 
 Hemos decidido que queremos que los desarrolladores de ROS 2 puedan usar primitivas de subprocesamiento ``std::`` directamente para su desarrollo. No queremos proporcionar nuestros propios tipos envueltos como se sugiere anteriormente.
 
-Hay tres bibliotecas estándar de C++ a tener en cuenta 
+Hay tres bibliotecas estándar de C++ a tener en cuenta
+
 
 * La biblioteca estándar GNU ``libstdc++``: predeterminada en Linux, explícitamente a través de la opción del compilador ``-stdlib=libstdc++``
 * La biblioteca estándar LLVM ``libc++`` (también llamada ``libcxx``) - predeterminada en macOS, establecida explícitamente por la opción del compilador ``-stdlib=libc++``
