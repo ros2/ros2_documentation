@@ -469,13 +469,3 @@ Taking inspiration from these previous tutorials could be a starting point:
 * :doc:`../Recording-A-Bag-From-Your-Own-Node-Py`.
 
 * :doc:`../../Intermediate/Tf2/Tf2-Main`.
-
-
-A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
-This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
-This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
-
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 19
