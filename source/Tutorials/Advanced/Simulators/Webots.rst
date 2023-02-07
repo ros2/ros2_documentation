@@ -50,7 +50,7 @@ In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-
 
     .. group-tab:: macOS
 
-        The Linux and ROS commands of this tutorial must be run in a custom Docker container configured with the ``webots_ros2_driver`` package.
+        The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine.
         See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/macOS-Installation-Guide>`_.
 
 To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
@@ -203,15 +203,6 @@ You have to specify in the constructor which world file the simulator will open.
     :dedent: 4
     :lines: 15-17
 
-A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
-This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
-This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
-
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 19
-
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
 
@@ -223,11 +214,11 @@ This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
 
     .. group-tab:: Windows
 
-        The node (in WSL) will be able to communicate with the simulated robot (in Webots on Windows) through a TCP connection.
+        The node (in WSL) will be able to communicate with the simulated robot (in Webots on native Windows) through a TCP connection.
 
     .. group-tab:: macOS
 
-        The node (in the docker container) will be able to communicate with the simulated robot (in Webots on macOS) through a TCP connection.
+        The node (in the docker container) will be able to communicate with the simulated robot (in Webots on native macOS) through a TCP connection.
 
 
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
@@ -239,21 +230,21 @@ The ``robot_description`` parameter holds the contents of the URDF file which re
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 21-29
+    :lines: 19-27
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 31-34
+    :lines: 29-31
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 8
-    :lines: 35-40
+    :lines: 32-37
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -268,7 +259,6 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
 7 Test the code
 ^^^^^^^^^^^^^^^
-
 
 .. tabs::
 
@@ -306,18 +296,17 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
         On macOS, a local server must be started on the host to start Webots from the Docker container.
         The local server can be downloaded `on the webots-server repository <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_.
 
-        In a terminal of the host machine (not in the container), specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+        In a terminal of the host machine (not in the VM), specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
 
         .. code-block:: console
 
             export WEBOTS_HOME=/Applications/Webots.app
             python3 local_simulation_server.py
 
-        From the terminal of the Docker container, build and launch your custom package with:
+        From a terminal in the Linux VM in your ROS 2 workspace, build and launch your custom package with:
 
         .. code-block:: console
 
-            cd ~/ros2_ws
             colcon build
             source install/local_setup.bash
             ros2 launch my_package robot_launch.py
@@ -407,7 +396,7 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
-    :lines: 11-47
+    :lines: 11-44
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
@@ -443,7 +432,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
     .. group-tab:: macOS
 
-        In a terminal of the host machine (not in the container), if not done already, specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+        In a terminal of the host machine (not in the VM), if not done already, specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
 
         .. code-block:: console
 
@@ -452,7 +441,7 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
         Note that the server keeps running once the ROS 2 nodes are ended.
         You don't need to restart it every time you want to launch a new simulation.
-        From the terminal of the Docker container, build and launch your custom package with:
+        From a terminal in the Linux VM in your ROS 2 workspace, build and launch your custom package with:
 
         .. code-block:: console
 
@@ -480,3 +469,13 @@ Taking inspiration from these previous tutorials could be a starting point:
 * :doc:`../Recording-A-Bag-From-Your-Own-Node-Py`.
 
 * :doc:`../../Intermediate/Tf2/Tf2-Main`.
+
+
+A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
+This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
+This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
+
+.. literalinclude:: Code/robot_launch.py
+    :language: python
+    :dedent: 4
+    :lines: 19

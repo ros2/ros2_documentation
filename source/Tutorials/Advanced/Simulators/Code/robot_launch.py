@@ -16,8 +16,6 @@ def generate_launch_description():
         world=os.path.join(package_dir, 'worlds', 'my_world.wbt')
     )
 
-    ros2_supervisor = Ros2SupervisorLauncher()
-
     my_robot_driver = Node(
         package='webots_ros2_driver',
         executable='driver',
@@ -31,7 +29,6 @@ def generate_launch_description():
     return LaunchDescription([
         webots,
         my_robot_driver,
-        ros2_supervisor,
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
                 target_action=webots,
