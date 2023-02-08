@@ -230,6 +230,11 @@ Create a file with name ``SyncAsync.xml`` and the following content:
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
         </publisher>
 
+        <!-- Default subscriber profile -->
+        <subscriber profile_name="default_subscriber" is_default_profile="true">
+            <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
+        </subscriber>
+
         <!-- publisher profile for topic sync_topic -->
         <publisher profile_name="/sync_topic">
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
