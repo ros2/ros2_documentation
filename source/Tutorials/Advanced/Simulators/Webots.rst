@@ -50,7 +50,7 @@ In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-
 
     .. group-tab:: macOS
 
-        The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine.
+        The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine (VM).
         See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/macOS-Installation-Guide>`_.
 
 To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
