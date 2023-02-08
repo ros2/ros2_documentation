@@ -109,7 +109,7 @@ Let's look at the changes made ``foobar``'s ``CMakeLists.txt``.
           RUNTIME DESTINATION bin)
 
       install(TARGETS foobar_node
-          RUNTIME DESTINATION bin)
+          DESTINATION lib/${PROJECT_NAME})
 
       if(BUILD_TESTING)
           find_package(ament_lint_auto REQUIRED)
@@ -170,10 +170,10 @@ Note that ROS 2 supports Windows.
 This means compiler specific options, like ``-Wall`` and ``-Werror`` should be guarded to only take effect on platforms that support them.
 
 You'll also notice the ``-std=c++14`` option is no longer used.
-This is a compiler specific flag, and CMake has better tools for choosing a C++ standard.
+Modern CMake has better tools for choosing a C++ standard.
 This example uses `target_compile_features() <https://cmake.org/cmake/help/v3.14/command/target_compile_features.html>`__.
 Note that many packages use `CMAKE_CXX_STANDARD <https://cmake.org/cmake/help/v3.14/variable/CMAKE_CXX_STANDARD.html>`__ instead.
-There are advantages to each option.
+There are advantages to each.
 
 .. tabs::
 
@@ -205,14 +205,14 @@ A disadvantage is it's not propogated to downstream targets.
 If you use C++ 17 in one of your headers, and someone uses that header downstream then their target will fail to build unless they also declare their target requires the C++ standard your target requires.
 
 Packages replaced in ROS 2
---------------------------
+++++++++++++++++++++++++++
 
 The next thing to notice is some of the dependencies have changed.
 In this example ``ament_cmake_ros`` is used instead of ``catkin``, and ``rclcpp`` is used instead of roscpp.
 You can find a list of packages that have been replaced at `this page <./ROS-1-Package-Equivalents>`__.
 
 Finding the packages you need
------------------------------
++++++++++++++++++++++++++++++
 
 The recommended way of finding packages has changed from ROS 1 to ROS 2.
 
@@ -241,7 +241,7 @@ In ROS 1, it is recommended list all the packages you want to find as ``COMPONEN
 In ROS 2, you instead find all of your packages directly.
 
 Placement of ament_package vs catkin_package
---------------------------------------------
+++++++++++++++++++++++++++++++++++++++++++++
 
 The ``catkin_package()`` function is replaced by several functions in ``ament_cmake``.
 In ROS 1 the call to ``catkin_package()`` is placed near the top of the file, and given lots of arguments that have different effects.
@@ -274,14 +274,24 @@ It is very important that the ``ament_package()`` call is the last one in your `
 
 Let's look closer at how each of the arguments to the ``catkin_package()`` call were replaced.
 
-catkin_package(LIBRARIES)
-+++++++++++++++++++++++++
+catkin_package(LIBRARIES ... INCLUDE_DIRS)
+==========================================
 
-In ROS 1 the ``LIBRARIES`` argument adds libraries to the standard CMake variable ``your_package_LIBRARIES`` set when downstream packages ``find_package()`` your package.
+In ROS 1 the ``LIBRARIES`` and ``INCLUDE_DIRS`` arguments setup standard CMake variables set when downstream packages ``find_package()`` your package.
 In ROS 2 this should be replaced with exporting modern CMake targets.
-This is done by associating your target with ``install(TARGETS ... EXPORT export-name)`` followed by ``ament_export_targets(export-name)``
+First associate include directories and libraries with your target using ``target_include_directories()`` and ``target_link_libraries()``.
+Next associate your target with ``install(TARGETS ... EXPORT export-name)`` followed by ``ament_export_targets(export-name)``.
 
 .. code-block:: CMake
+
+  # Set target specific include directories and libraries
+  target_include_directories(foobar PUBLIC
+      "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+      "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+  target_link_libraries(foobar PUBLIC
+      rclcpp::rclcpp
+      tf2::tf2
+      ${std_msgs_TARGETS})
 
   # Assosiates the library target `foobar` with the export name `foobar-export`
   install(TARGETS foobar EXPORT foobar-export
@@ -295,20 +305,112 @@ This is done by associating your target with ``install(TARGETS ... EXPORT export
   ament_export_targets(foobar-export HAS_LIBRARY_TARGET)
 
 The argument ``HAS_LIBRARY_TARGET`` means the export-name includes a shared library.
-This causes ``ament_cmake`` to create a file that update paths like ``LD_LIBRARY_PATH`` (depending on the platform) when your workspace is sourced.
+This causes ``ament_cmake`` to create a file that update paths like ``LD_LIBRARY_PATH`` (depending on the platform) when your workspace setup scripts are sourced.
 
-Note, there is ``ament_export_libraries()`` which does set the old style standard CMake variable; however, this shouldn't be used for new code.
+Note, there are still functions for old style standard CMake variables, ``ament_export_include_directories()`` and ``ament_export_libraries()``, but these should not be used for new code.
 
 catkin_package(CATKIN_DEPENDS and DEPENDS)
-++++++++++++++++++++++++++++++++++++++++++
-TODO CATKIN_DEPENDS and DEPENDS to ament_export_dependency()
-TODO modern CMake targets instead of catkin_* variables
-TODO headers installed to unique DIRECTORY
-TODO CATKIN_ENABLE_TESTING to BUILD_TESTING
-TODO catkin_add_gtest to ament_add_gtest
-TODO library and binary install directory
+==========================================
 
-TODO ament_uncrustify --reformat src/foobar/
+The ``CATKIN_DEPENDS`` and ``DEPENDS`` arguments to ``catkin_package()`` are both replaced with ``ament_export_dependencies()``.
+There is no destinction between types of packages depended upon.
+This function makes sure downstream packages transitively ``find_package()`` your package's dependencies.
+
+.. code-block:: CMake
+
+      ament_export_dependencies(rclcpp)
+      ament_export_dependencies(tf2)
+      ament_export_dependencies(std_msgs)
+
+Installing header files
++++++++++++++++++++++++
+
+In ROS 1 it was common to install all headers to ``${CATKIN_PACKAGE_INCLUDE_DESTINATION}``.
+In ROS 2 it is `strongly recommended to install headers to a unique directory with the same name as your package <https://colcon.readthedocs.io/en/released/user/overriding-packages.html#install-headers-to-a-unique-include-directory>`__.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake 
+
+      catkin_package(
+          # ...
+          INCLUDE_DIRS
+              include
+          # ...
+      )
+      # ...
+      install(DIRECTORY include/${PROJECT_NAME}/
+          DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+      )
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake 
+
+      # Target specific include directories
+      target_include_directories(foobar PUBLIC
+        # Says where to get headers when building this package
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+        # Says where to get headers after installing this package (used by downstream packages)
+        "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+
+      # ...
+
+      install(DIRECTORY include/
+          DESTINATION include/${PROJECT_NAME})
+
+BUILD_TESTING instead of CATKIN_ENABLE_TESTING
+++++++++++++++++++++++++++++++++++++++++++++++
+
+Use the variable ``BUILD_TESTING`` instead of ``CATKIN_ENABLE_TESTING`` to control when to build tests.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake 
+
+      if(CATKIN_ENABLE_TESTING)
+          # ...
+      endif()
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake 
+
+      if(BUILD_TESTING)
+          # ...
+      endif()
+
+Macros to add tests
++++++++++++++++++++
+
+The names of macros to add and create tests have changed.
+For example, for ``googletest`` based tests use ``ament_add_gtest`` instead of ``catkin_add_gtest``.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake 
+
+      catkin_add_gtest(test_baz
+          test/test_baz.cpp
+      )
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake 
+
+      ament_add_gtest(test_baz
+          test/test_baz.cpp)
+
+Where to install libraries and binaries
++++++++++++++++++++++++++++++++++++++++
+
+TODO library and binary install directory
 
 
 Changing the package.xml
