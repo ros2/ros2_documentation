@@ -218,7 +218,7 @@ Like Unit tests, Integration tests should be in the package which is being teste
 
 **System tests** are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
 
-In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
+In general external or cross package test dependencies should be minimized to prevent circular dependencies and tightly coupled test packages.
 
 All packages should have some unit tests and possibly integration tests, but the degree to which they should have them is based on the package's quality category.
 The following subsections apply to 'Level 1' packages:
