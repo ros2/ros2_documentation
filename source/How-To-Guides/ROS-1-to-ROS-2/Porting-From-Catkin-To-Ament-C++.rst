@@ -103,13 +103,7 @@ Let's look at the changes made ``foobar``'s ``CMakeLists.txt``.
       install(DIRECTORY include/
           DESTINATION include/${PROJECT_NAME})
 
-      install(TARGETS foobar EXPORT foobar-export
-          ARCHIVE DESTINATION lib
-          LIBRARY DESTINATION lib
-          RUNTIME DESTINATION bin)
 
-      install(TARGETS foobar_node
-          DESTINATION lib/${PROJECT_NAME})
 
       if(BUILD_TESTING)
           find_package(ament_lint_auto REQUIRED)
@@ -410,7 +404,34 @@ For example, for ``googletest`` based tests use ``ament_add_gtest`` instead of `
 Where to install libraries and binaries
 +++++++++++++++++++++++++++++++++++++++
 
-TODO library and binary install directory
+There are no longer ``${CATKIN_PACKAGE_*}`` variables to use when installing libraries and binaries.
+Use the following destinations instead.
+
+.. tabs::
+
+  .. group-tab:: ROS 1
+
+    .. code-block:: CMake 
+
+      install(TARGETS foobar
+      ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+      LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+      RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+      install(TARGETS foobar_node
+      RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+
+  .. group-tab:: ROS 2
+
+    .. code-block:: CMake 
+
+      install(TARGETS foobar EXPORT foobar-export
+          ARCHIVE DESTINATION lib
+          LIBRARY DESTINATION lib
+          RUNTIME DESTINATION bin)
+
+      install(TARGETS foobar_node
+          DESTINATION lib/${PROJECT_NAME})
 
 
 Changing the package.xml
