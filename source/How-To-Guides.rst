@@ -29,6 +29,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Launching-composable-nodes
    How-To-Guides/Parameters-YAML-files-migration-guide
    How-To-Guides/Node-arguments
+   How-To-Guides/Interface-In-Callbacks
    How-To-Guides/Sync-Vs-Async
    How-To-Guides/DDS-tuning
    How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback
