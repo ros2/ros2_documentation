@@ -1,11 +1,5 @@
-.. redirect-from::
-
-    Tutorials/Security/Deployment-Guidelines
-
-.. _Deployment-Guidelines:
-
 Deployment Guidelines
-======================
+=====================
 
 **Goal:** Understand the best practices when deploying security artifacts into production systems.
 
@@ -27,7 +21,7 @@ Special attention should be payed when deploying security enabled applications, 
 Complying with the `DDS Security standard <https://www.omg.org/spec/DDS-SECURITY/1.1/About-DDS-SECURITY/>`_,
 the ``sros2`` package provides a collection of utilities for managing security under ROS 2 environments in a highly modular and flexible fashion.
 
-Basic core guidelines on how to organize the different certificates, keys and directories remains to be a critical factor to avoid compromising the security of the system.
+Basic core guidelines on how to organize the different certificates, keys and directories remains a critical factor to avoid compromising the security of the system.
 This includes protection-awareness and criteria for selecting the minimum set of necessary files to be deployed upon remote production systems for minimizing security exposure.
 
 Prerequisites
@@ -35,7 +29,11 @@ Prerequisites
 
 * A docker installation available. Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_.
 * (Recommended) A basic understanding on `ROS2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
-* (Recommended) Previous security tutorials completion.
+* (Recommended) Previous security tutorials completion. In particular:
+
+    * :doc:`Introducing-ros2-security`
+    * :doc:`The-Keystore`
+    * :doc:`Access-Controls`
 
 General Guidelines
 ------------------
@@ -56,18 +54,18 @@ Those CA artifacts are stored inside ``private/`` and ``public/`` sub-directorie
   └── public
       └── ...
 
-A good practice for the creation and usage of a certain Certificate Authority on a typical deployment over a production system, is to:
+A good practice for the creation and usage of a certain Certificate Authority on a typical deployment for a production system, is to:
 
-  (1) Create it within the organization system intended for internal use only.
-  (2) Generate/modify desired enclaves bearing in mind that:
+#. Create it within the organization system intended for internal use only.
+#. Generate/modify desired enclaves bearing in mind that:
 
-    * Not all the generated enclaves should be embarked into all target devices.
-    * A reasonable way to proceed would be having one enclave per application, allowing for a separation of concerns.
+    A. Not all the generated enclaves should be embarked into all target devices.
+    #. A reasonable way to proceed would be having one enclave per application, allowing for a separation of concerns.
 
-  (3) Ship ``public/`` alongside with corresponding ``enclaves/`` into the different remote production devices during setup.
-  (4) Keep and protect ``private/`` keys and/or certification requests in the organization.
+#. Ship ``public/`` alongside with corresponding ``enclaves/`` into the different remote production devices during setup.
+#. Keep and protect ``private/`` keys and/or certification requests in the organization.
 
-It is important to note that if ``private/`` files are lost, it won't be possible to change access permissions, adding or modifying security profiles anymore.
+It is important to note that if ``private/`` files are lost, it won't be possible to change access permissions, add or modify security profiles anymore.
 
 In addition, further practices may be taken into consideration:
 
@@ -90,7 +88,7 @@ The following table depicts a summary of the previous statements relating the Ke
 Building a deployment scenario
 ------------------------------
 
-To illustrate a simple deployment scenario, a docker image will be built intented to be the remote production target device actor.
+To illustrate a simple deployment scenario, a docker image will be built which is intented to be the remote production target device actor.
 In this example, localhost will serve as the organization's system.
 To test security capabilities, a secure listener will be launched on the remote system, whereas a secure talker will be launched on the local host.
 Let us start by creating a workspace tree with the following sub-folders:
@@ -101,7 +99,7 @@ Let us start by creating a workspace tree with the following sub-folders:
   mkdir ~/deploy_gd_tutorial/keystore
 
 Generating a Keystore and necessary Enclaves
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Similarly to previous tutorials, intialize a new keystore tree directory.
 This will create *enclaves/* *public/* and *private/* directories, which are explained in more detail in `ROS2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
@@ -122,8 +120,8 @@ Next, create an enclave for the local talker node within the */keystore* directo
 
 At this point, step into the remote_system workspace, create the corresponding enclave and copy just the *public/* and *enclaves/* directories to the current one.
 Those security artifacts will be needed by the remote system to enable listener's security.
-For the sake of simplicity, the same CA is used within this enclave for both, identity and permissions.
-Note that *private/* folder is not moved but left in local host (organization).
+For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
+Note that *private/* folder is not moved but left in localhost (organization).
 
 .. code-block:: bash
 
@@ -155,7 +153,7 @@ At the end of these steps, the structure of */enclaves* sub-directory within *~/
           ├── permissions.p7s
           └── permissions.xml
 
-Now, create and populate the */keystore* directory that will be embarked onto the remote system with necessary files only.
+Now, create and populate the */keystore* directory that will be copied onto the remote system with only the necessary files.
 
 .. code-block:: bash
 
@@ -168,7 +166,7 @@ Now, create and populate the */keystore* directory that will be embarked onto th
   cp -R ../keystore/enclaves/governance.* keystore/enclaves
   cp -R ../keystore/enclaves/talker_listener/listener keystore/enclaves/talker_listener
 
-Introducing the former commands, the current ``~/deploy_gd_tutorial/remote_system`` directory should be:
+After the former commands, the current ``~/deploy_gd_tutorial/remote_system`` directory should be:
 
 .. code-block:: text
 
@@ -193,8 +191,8 @@ Introducing the former commands, the current ``~/deploy_gd_tutorial/remote_syste
 
 
 Creating remote's system docker image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To get started, head into remotes's workspace path with:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+To get started, change into the remotes's workspace path with:
 
 .. code-block:: bash
 
@@ -263,35 +261,29 @@ Running the example
 
 Launch the following commands in two different terminals:
 
-.. tabs::
+Open a new terminal and run:
 
-    .. tab:: TERMINAL 1
+.. code-block:: bash
 
-        .. code-block:: bash
+    # Start remote system container
+    docker run -it ros2_security/deployment_tutorial
 
-            # Start remote system container
-            docker run -it ros2_security/deployment_tutorial
+Then, open a second terminal and run the following commands:
 
-    .. tab:: TERMINAL 2
+.. code-block:: bash
 
-        .. code-block:: bash
+    # Export ROS security environment variables
+    export ROS_SECURITY_KEYSTORE=~/deploy_gd_tutorial/keystore
+    export ROS_SECURITY_ENABLE=true
+    export ROS_SECURITY_STRATEGY=Enforce
 
-            # Export ROS security environment variables
-            export ROS_SECURITY_KEYSTORE=~/deploy_gd_tutorial/keystore
-            export ROS_SECURITY_ENABLE=true
-            export ROS_SECURITY_STRATEGY=Enforce
+    # Source ROS installation and run the talker
+    source /opt/ros/${ROS_DISTRO}/setup.bash
+    ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
-            # Source ROS installation and run the talker
-            source /opt/ros/${ROS_DISTRO}/setup.bash
-            ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+With the realization of above steps, subsequent output is obtained:
 
-With the realization of above steps, the subsequent output is obtained:
-
-.. raw:: html
-
-    <video width=100% height=auto autoplay loop controls muted>
-        <source src="../../../_static/security_deployment_tutorial.mp4">
-        Your browser does not support the video tag.
-    </video>
+* On host's talker node: ``Publishing: 'Hello World: <number>'``
+* While on the remote system side: ``I heard: [Hello World: <number>]``
 
 
