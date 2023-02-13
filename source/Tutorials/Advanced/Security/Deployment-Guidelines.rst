@@ -15,7 +15,7 @@ Deployment Guidelines
 Background
 ----------
 
-Typical deployment scenarios oftenly involve shipping containerized applications, or packages, into remote systems.
+Typical deployment scenarios often involve shipping containerized applications, or packages, into remote systems.
 Special attention should be payed when deploying security enabled applications, requiring users to reason about the sensitivity of packaged files.
 
 Complying with the `DDS Security standard <https://www.omg.org/spec/DDS-SECURITY/1.1/About-DDS-SECURITY/>`_,
@@ -28,7 +28,7 @@ Prerequisites
 -------------
 
 * A docker installation available. Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_.
-* (Recommended) A basic understanding on `ROS2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
+* (Recommended) A basic understanding on `ROS 2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
 * (Recommended) Previous security tutorials completion. In particular:
 
     * :doc:`Introducing-ros2-security`
@@ -59,8 +59,8 @@ A good practice for the creation and usage of a certain Certificate Authority on
 #. Create it within the organization system intended for internal use only.
 #. Generate/modify desired enclaves bearing in mind that:
 
-    A. Not all the generated enclaves should be embarked into all target devices.
-    #. A reasonable way to proceed would be having one enclave per application, allowing for a separation of concerns.
+    * Not all the generated enclaves should be deployed to all target devices.
+    * A reasonable way to proceed would be having one enclave per application, allowing for a separation of concerns.
 
 #. Ship ``public/`` alongside with corresponding ``enclaves/`` into the different remote production devices during setup.
 #. Keep and protect ``private/`` keys and/or certification requests in the organization.
@@ -102,7 +102,7 @@ Generating a Keystore and necessary Enclaves
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Similarly to previous tutorials, intialize a new keystore tree directory.
-This will create *enclaves/* *public/* and *private/* directories, which are explained in more detail in `ROS2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
+This will create *enclaves/* *public/* and *private/* directories, which are explained in more detail in `ROS 2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
 
 .. code-block:: bash
 
@@ -166,7 +166,7 @@ Now, create and populate the */keystore* directory that will be copied onto the 
   cp -R ../keystore/enclaves/governance.* keystore/enclaves
   cp -R ../keystore/enclaves/talker_listener/listener keystore/enclaves/talker_listener
 
-After the former commands, the current ``~/deploy_gd_tutorial/remote_system`` directory should be:
+After the previous commands, the current ``~/deploy_gd_tutorial/remote_system`` directory should be:
 
 .. code-block:: text
 
@@ -281,9 +281,7 @@ Then, open a second terminal and run the following commands:
     source /opt/ros/${ROS_DISTRO}/setup.bash
     ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
 
-With the realization of above steps, subsequent output is obtained:
+This should result in the following output:
 
 * On host's talker node: ``Publishing: 'Hello World: <number>'``
 * While on the remote system side: ``I heard: [Hello World: <number>]``
-
-
