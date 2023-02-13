@@ -24,7 +24,7 @@ Run the following command to install utilities needed for the build:
 
 .. code:: bash
 
-  $ sudo apt install python3-bloom python3-rosdep fakeroot
+  $ sudo apt install python3-bloom python3-rosdep fakeroot debhelper dh-python
 
 Initialize rosdep
 -----------------
