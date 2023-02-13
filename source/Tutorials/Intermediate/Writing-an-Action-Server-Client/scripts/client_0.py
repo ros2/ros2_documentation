@@ -27,7 +27,7 @@ def main(args=None):
 
     future = action_client.send_goal(10)
 
-    rclpy.spin_until_future_complete(action_client, future)
+    rclpy.spin_until_complete(action_client, future)
 
 
 if __name__ == '__main__':
