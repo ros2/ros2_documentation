@@ -679,7 +679,7 @@ Create the client in a file named ``src/ping_client.cpp`` with the following con
         auto result = client->async_send_request(request);
 
         // Wait for the result and log it to the console
-        if (rclcpp::spin_until_future_complete(node, result) ==
+        if (rclcpp::spin_until_complete(node, result) ==
             rclcpp::FutureReturnCode::SUCCESS)
         {
             RCLCPP_INFO(rclcpp::get_logger("ping_client"), "Response received");
