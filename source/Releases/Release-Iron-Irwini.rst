@@ -41,13 +41,6 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-Rename ``spin_until_future_complete`` to ``spin_until_complete``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-`PR 1874 <https://github.com/ros2/rclcpp/pull/1874>`_ renames ``spin_until_future_complete`` to ``spin_until_complete`` to represent the semantics of being able to spin on values that are not exclusively futures.
-The API can now spin until arbitrary conditions.
-A deprecation warning will appear for migration.
-
 ros2topic
 ^^^^^^^^^
 
