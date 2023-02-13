@@ -121,4 +121,4 @@ In ROS 2:
    while not add_two_ints.wait_for_service(timeout_sec=1.0):
        node.get_logger().info('service not available, waiting again...')
    resp = add_two_ints.call_async(req)
-   rclpy.spin_until_complete(node, resp)
+   rclpy.spin_until_future_complete(node, resp)
