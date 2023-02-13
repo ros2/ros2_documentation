@@ -229,7 +229,7 @@ Inside the ``ros2_ws/src/cpp_srvcli/src`` directory, create a new file called ``
 
     auto result = client->async_send_request(request);
     // Wait for the result.
-    if (rclcpp::spin_until_future_complete(node, result) ==
+    if (rclcpp::spin_until_complete(node, result) ==
       rclcpp::FutureReturnCode::SUCCESS)
     {
       RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
