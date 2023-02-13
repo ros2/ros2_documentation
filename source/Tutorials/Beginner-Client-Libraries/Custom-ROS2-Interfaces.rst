@@ -656,6 +656,25 @@ Client:
             rclcpp::shutdown();
             return 0;
           }
+<<<<<<< HEAD
+=======
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+        }
+
+        auto result = client->async_send_request(request);
+        // Wait for the result.
+        if (rclcpp::spin_until_future_complete(node, result) ==
+          rclcpp::FutureReturnCode::SUCCESS)
+        {
+          RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Sum: %ld", result.get()->sum);
+        } else {
+          RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_three_ints");    // CHANGE
+        }
+
+        rclcpp::shutdown();
+        return 0;
+      }
+>>>>>>> e0ec7a7 (Revert "adding API change for spin_until_complete (#3328)" (#3333))
 
   .. group-tab:: Python
 
