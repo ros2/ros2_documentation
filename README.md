@@ -8,7 +8,8 @@ Las fuentes de este repositorio son compiladas y cargadas en el sitio todas las 
 
 ## Contribuyendo a la documentación.
 
-Las contribuciones a este sitio son bienvenidas.
+Las contribuciones a este sitio son bienvenidas.  
+Puedes consultar en la wiki las [directrices específicas](https://github.com/ROS-Spanish-Users-Group/ros2_documentation/wiki) de la trqaducción.
 Consulte la página [Contribuyendo a la documentación de ROS 2](https://docs.ros.org/es/rolling/The-ROS2-Project/Contributing/Contributing-To-ROS-2-Documentation.html) para obtener más información.
 
 ## Contribuyendo a ROS 2
