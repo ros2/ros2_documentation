@@ -88,8 +88,8 @@ The following table depicts a summary of the previous statements relating the Ke
 Building a deployment scenario
 ------------------------------
 
-To illustrate a simple deployment scenario, a docker image will be built which is intented to be the remote production target device actor.
-In this example, localhost will serve as the organization's system.
+To illustrate a simple deployment scenario, a docker image will be built which is intended to be the remote production target device actor.
+In this example, the local host will serve as the organization's system.
 To test security capabilities, a secure listener will be launched on the remote system, whereas a secure talker will be launched on the local host.
 Let us start by creating a workspace tree with the following sub-folders:
 
@@ -101,7 +101,7 @@ Let us start by creating a workspace tree with the following sub-folders:
 Generating a Keystore and necessary Enclaves
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similarly to previous tutorials, intialize a new keystore tree directory.
+Similarly to previous tutorials, initialize a new keystore tree directory.
 This will create *enclaves/* *public/* and *private/* directories, which are explained in more detail in `ROS 2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
 
 .. code-block:: bash
@@ -121,7 +121,7 @@ Next, create an enclave for the local talker node within the */keystore* directo
 At this point, step into the remote_system workspace, create the corresponding enclave and copy just the *public/* and *enclaves/* directories to the current one.
 Those security artifacts will be needed by the remote system to enable listener's security.
 For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
-Note that *private/* folder is not moved but left in localhost (organization).
+Note that *private/* folder is not moved but left in the local host (organization).
 
 .. code-block:: bash
 
