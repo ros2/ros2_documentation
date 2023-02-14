@@ -288,7 +288,7 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 ROS 2 Introspection
 -------------------
 
-ROS 2 Command Line Interface (CLI) implements several introspection tools to analyze the behaviour of a ROS 2 network.
+`ROS 2 Command Line Interface <https://github.com/ros2/ros2cli>`__ supports several introspection tools to analyze the behavior of a ROS 2 network.
 These tools (i.e. ``ros2 bag record``, ``ros2 topic list``, etc.) are very helpful to understand a ROS 2 working network.
 
 Most of these tools use DDS simple discovery to exchange topic information with every existing participant (using simple discovery, every participant in the network is connected with each other).
@@ -317,10 +317,6 @@ configured as **Super Client**.
 Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Super Client**.
 This will allow the Daemon to discover the entire Node graph, and to receive every topic and endpoint information.
 To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
-
-.. warning::
-    Although it is possible to run the ROS 2 Daemon as a **Server**, this is not recommended since the daemon will stop
-    after two hours of inactivity, taking the **Server** down with it.
 
 Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
 This file will configure every new participant using it, as a **Super Client**.
