@@ -9,7 +9,7 @@
           Recursos de ROS :
             <a href="http://discourse.ros.org/">Foro de Discusiones </a>
             |
-            <a href="http://status.ros.org/">Status de Servicio </a>
+            <a href="http://status.ros.org/">Estado del Servicio </a>
             |
             <a href="http://answers.ros.org/">Q&A answers.ros.org</a>
 
@@ -24,13 +24,13 @@
 <p>
   <strong>
     {% if current_version.name|string() in eol_versions %}
-    Estas leyendo la documentación para una versión de ROS 2 que a llegado a su EOL (fin-de-vida), y oficialmente ya no cuenta con soporte.
+    Estás leyendo la documentación para una versión de ROS 2 que ha llegado a su EOL (fin-de-vida), y oficialmente ya no cuenta con soporte.
     Si deseas información actualizada, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% elif current_version.is_released %}
-    Estas leyendo la documentación para una versión de ROS2 anterior, pero que aun cuenta con soporte. 
-    Para información respecto a la ultima versión, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
+    Estás leyendo la documentación para una versión de ROS2 anterior, pero que aún cuenta con soporte. 
+    Para información respecto a la última versión, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% else %}
-    Estas leyendo la documentación para una versión de desarrollo.
+    Estás leyendo la documentación para una versión de desarrollo.
     Para la ultima versión publicada, por favor revisa <a href="{{ vpathto(latest_version.name) }}">{{latest_version.name | title }}</a>.
     {% endif %}
   </strong>
