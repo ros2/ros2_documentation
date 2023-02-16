@@ -10,7 +10,7 @@ Quality guide: ensuring code quality
    :depth: 2
    :local:
 
-This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the `Developer Guide <Developer-Guide>`.
+This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the :doc:`Developer Guide <Developer-Guide>`.
 
 The sections below intend to address ROS 2 core, application and ecosystem packages and the core client libraries, C++ and Python.
 The solutions presented are motivated by design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements.
@@ -21,12 +21,10 @@ Static code analysis as part of the ament package build
 
 **Context**:
 
-
 * You have developed your C++ production code.
 * You have created a ROS 2 package with build support with ``ament``.
 
 **Problem**:
-
 
 * Library level static code analysis is not run as part of the package build procedure.
 * Library level static code analysis needs to be executed manually.
@@ -35,12 +33,10 @@ Static code analysis as part of the ament package build
 
 **Solution**:
 
-
 * Use the integration capabilities of ``ament`` to execute static code analysis as
   part of the package build procedure.
 
 **Implementation**:
-
 
 * Insert into the packages ``CMakeLists.txt`` file.
 
@@ -53,7 +49,6 @@ Static code analysis as part of the ament package build
      ...
    endif()
    ...
-
 
 * Insert the ``ament_lint`` test dependencies into the packages ``package.xml`` file.
 
@@ -69,7 +64,6 @@ Static code analysis as part of the ament package build
 
 **Examples**:
 
-
 * ``rclcpp``:
 
   * `rclcpp/rclcpp/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/CMakeLists.txt>`__
@@ -82,7 +76,6 @@ Static code analysis as part of the ament package build
 
 **Resulting context**:
 
-
 * The static code analysis tools supported by ``ament`` are run as part of the package build.
 * Static code analysis tools not supported by ``ament`` need to be executed separately.
 
@@ -91,33 +84,34 @@ Static Thread Safety Analysis via Code Annotation
 
 **Context:**
 
-
 * You are developing/debugging your multithreaded C++ production code
 * You access data from multiple threads in C++ code
 
 **Problem:**
 
-
 * Data races and deadlocks can lead to critical bugs.
 
 **Solution:**
-
 
 * Utilize Clang's static `Thread Safety Analysis <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html>`__ by annotating threaded code
 
 **Context For Implementation:**
 
 
-To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the semantics of the code. These annotations are Clang-specific attributes - e.g. ``__attribute__(capability()))``. Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
+To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the semantics of the code.
+These annotations are Clang-specific attributes - e.g. ``__attribute__(capability()))``.
+Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
 
 These macros can be found in `rcpputils/thread_safety_annotations.hpp <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
 
 The Thread Safety Analysis documentation states
   Thread safety analysis can be used with any threading library, but it does require that the threading API be wrapped in classes and methods which have the appropriate annotations
 
-We have decided that we want ROS 2 developers to be able to use ``std::`` threading primitives directly for their development. We do not want to provide our own wrapped types as is suggested above.
+We have decided that we want ROS 2 developers to be able to use ``std::`` threading primitives directly for their development.
+We do not want to provide our own wrapped types as is suggested above.
 
 There are three C++ standard libraries to be aware of
+
 * The GNU standard library ``libstdc++`` - default on Linux, explicitly via the compiler option ``-stdlib=libstdc++``
 * The LLVM standard library ``libc++`` (also called ``libcxx`` ) - default on macOS,  explicitly set by the compiler option ``-stdlib=libc++``
 * The Windows C++ Standard Library - not relevant to this use case
@@ -126,11 +120,10 @@ There are three C++ standard libraries to be aware of
 
 *Therefore, to use Thread Safety Analysis directly with* ``std::`` *types, we must use* ``libcxx``
 
-
 **Implementation:**
 
-
-The code migration suggestions here are by no means complete - when writing (or annotating existing) threaded code, you are encouraged to utilize as many of the annotations as is logical for your use case. However, this step-by-step is a great place to start!
+The code migration suggestions here are by no means complete - when writing (or annotating existing) threaded code, you are encouraged to utilize as many of the annotations as is logical for your use case.
+However, this step-by-step is a great place to start!
 
 * Enabling Analysis for Package/Target
 
@@ -197,30 +190,27 @@ The code migration suggestions here are by no means complete - when writing (or 
     * Where you specified ``-Wthread-safety``, add the additional flag ``-Wthread-safety-negative``
     * On any function that acquires a lock, use the ``RCPPUTILS_TSA_REQUIRES(!mutex)`` pattern
 
-
-
 * How to run the analysis
 
   * The ROS CI build farm runs a nightly job with ``libcxx``, which will surface any issues in the ROS 2 core stack by being marked "Unstable" when Thread Safety Analysis raises warnings
   * For local runs, you have the following options, all equivalent
 
-    * Use the colcon `clang-libcxx mixin <https://github.com/colcon/colcon-mixin-repository/blob/master/clang-libcxx.mixin>`__
+    * Use the colcon `clang-libcxx mixin <https://github.com/colcon/colcon-mixin-repository/blob/master/clang-libcxx.mixin>`__ (see the `documentation <https://github.com/colcon/colcon-mixin-repository/blob/master/README.md>`__ for configuring mixins)
+      ::
 
-      * ``colcon build --mixin clang-libcxx``
-      * You may only use this if you have `configured mixins for your colcon installation <https://github.com/colcon/colcon-mixin-repository/blob/master/README.md>`__
+          colcon build --mixin clang-libcxx
 
     * Passing compiler to CMake
+      ::
 
-      * ``colcon build --cmake-args -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli``
+          colcon build --cmake-args -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli
 
     * Overriding system compiler
+      ::
 
-      * ``CC=clang CXX=clang++ colcon build --cmake-args -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli``
-
-
+          CC=clang CXX=clang++ colcon build --cmake-args -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli
 
 **Resulting Context:**
-
 
 * Potential deadlocks and race conditions will be surfaced at compile time, when using Clang and ``libcxx``
 
@@ -230,7 +220,6 @@ Dynamic analysis (data races & deadlocks)
 
 **Context:**
 
-
 * You are developing/debugging your multithreaded C++ production code.
 * You use pthreads or C++11 threading + llvm libc++ (in case of ThreadSanitizer).
 * You do not use Libc/libstdc++ static linking (in case of ThreadSanitizer).
@@ -238,18 +227,15 @@ Dynamic analysis (data races & deadlocks)
 
 **Problem:**
 
-
 * Data races and deadlocks can lead to critical bugs.
 * Data races and deadlocks cannot be detected using static analysis (reason: limitation of static analysis).
 * Data races and deadlocks must not show up during development debugging / testing (reason: usually not all possible control paths through production code exercised).
 
 **Solution:**
 
-
 * Use a dynamic analysis tool which focuses on finding data races and deadlocks (here clang ThreadSanitizer).
 
 **Implementation:**
-
 
 * Compile and link the production code with clang using the option ``-fsanitize=thread`` (this instruments the production code).
 * In case different production code shall be executed during analysis consider conditional compilation e.g. `ThreadSanitizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
@@ -257,7 +243,6 @@ Dynamic analysis (data races & deadlocks)
 * In case some files shall not be instrumented consider file or function-level exclusion `ThreadSanitizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__, more specific: `ThreadSanitizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanitizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__ and use the option ``--fsanitize-blacklist``.
 
 **Resulting context:**
-
 
 * Higher chance to find data races and deadlocks in production code before deploying it.
 * Analysis result may lack reliability, tool in beta phase stage (in case of ThreadSanitizer).

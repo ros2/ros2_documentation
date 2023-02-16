@@ -107,7 +107,7 @@ Asegúrate de crear la carpeta ``launch`` en el nivel mas alto del paquete que c
 
       import os
       from glob import glob
-      from setuptools import setup
+      from setuptools import find_packages, setup
 
       package_name = 'py_launch_example'
 

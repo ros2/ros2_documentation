@@ -103,7 +103,7 @@ and a ``setup.py`` file that looks like:
 
    import os
    from glob import glob
-   from setuptools import setup
+   from setuptools import find_packages, setup
 
    package_name = 'my_package'
 
@@ -111,7 +111,7 @@ and a ``setup.py`` file that looks like:
        name=package_name,
        version='0.0.0',
        # Packages to export
-       packages=[package_name],
+       packages=find_packages(exclude=['test']),
        # Files we want to install, specifically launch files
        data_files=[
            # Install marker file in the package index
