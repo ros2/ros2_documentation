@@ -6,6 +6,9 @@
 Building a real-time Linux kernel [community-contributed]
 =========================================================
 
+TODO: integrate tutorial from ros-realtime
+
+
 This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
 
 Check https://wiki.linuxfoundation.org/realtime/start for the latest stable version, at the time of writing this is "Latest Stable Version 5.4-rt".

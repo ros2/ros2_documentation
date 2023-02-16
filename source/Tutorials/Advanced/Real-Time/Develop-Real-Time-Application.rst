@@ -1,14 +1,87 @@
-.. redirect-from::
+.. _RealTimeTutorial:
 
-    Real-Time-Programming
-    Tutorials/Real-Time-Programming
-
-Understanding real-time programming
-===================================
+How to develop a Real-Time Application
+======================================
 
 .. contents:: Table of Contents
-   :depth: 2
    :local:
+
+
+TODO:
+* create outline of the Tutorial
+* fill each section 
+* update/review pendulum demo application 
+* possibly add the source code to  github.com/ros2/examples 
+
+Overview
+--------
+
+TODO
+
+What is real-time?
+------------------
+* soft real-time, hard real-time
+* given bound on latency ...
+
+
+Real-Time configuration options by ROS 2
+----------------------------------------
+TODO
+* multi-threaded Executors (just high-level), reference Executor document
+
+Real-Time configuration options by operating system
+---------------------------------------------------
+
+* pthreads (POSIX OS)
+* intention using multiple cores for parallelism
+* real-time Linux scheduler (FIFO)
+* real-time priorities (not nice-levels)
+
+Putting it together
+----------------------------------
+
+* using multi-threaded executor
+* 2 threads with low,high priority
+* pendulum demo (updated)
+* drawback: can only add one node to an Executor (all callbacks of the node are treated the same)
+
+Advanced: ROS 2 callback groups + real-time
+-------------------------------------
+* flexibility: group multiple callbacks from multiple nodes together
+* using multi-threaded executor
+* 2 threads with low, high priority
+* application with 2 nodes with 2 callbacks each => how to use callback groups 
+* pendulum demo
+
+Further information
+-------------------
+* Links to ros-realtime further documentation
+
+
+Code examples
+--------------
+
+.. code-block:: cpp
+
+   int main(int argc, char* argv[])
+   {
+      // Some example code
+      rclcpp::init(argc, argv);
+      ...
+
+      // Instantiate a node.
+      rclcpp::Node::SharedPtr node = ...
+
+      // Run the executor.
+      rclcpp::spin(node);
+
+      // Shutdown and exit.
+      ...
+      return 0;
+   }
+
+
+Below is a complete copy of Demos/Real-Time-Programming.rst
 
 Background
 ----------
