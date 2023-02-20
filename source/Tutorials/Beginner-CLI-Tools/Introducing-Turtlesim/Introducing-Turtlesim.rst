@@ -172,7 +172,7 @@ Para ejecutar rqt:
   rqt
 
 5 Utilizar rqt
-^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Después de ejecutar rqt por primera vez, la ventana estará en blanco.
 No te precoupes; simplemente selecciona **Plugins** > **Services** > **Service Caller** en la barra de menú de la parte superior.
@@ -249,7 +249,7 @@ Ahora puedes mover la segunda tortuga mientras esta terminal está activa, y la 
 .. image:: images/remap.png
 
 7 Cerrar turtlesim
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
 Para detener la simulación puedes introducir ``Ctrl + C`` en la terminal ``turtlesim_node``, y ``q`` en la terminal que ejecuta ``turtle_teleop_key``.
 
