@@ -83,7 +83,7 @@ También se pueden observar dos acciones alrededor de la periferia del gráfico 
 Si pasas el mouse sobre el topic en el centro, verá el color resaltado como en la imagen de arriba.
 
 El gráfico muestra cómo el nodo ``/turtlesim`` y el nodo ``/teleop_turtle`` se comunican entre sí mediante un topic.
-El nodo ``/teleop_turtle`` está publicando datos (las pulsaciones de teclas que ingresa para mover la tortuga) en el topic ``/turtle1/cmd_vel``, y el nodo ``/turtlesim`` está suscrito a ese topic para recibir los datos.
+El nodo ``/teleop_turtle`` está publicando datos (las pulsaciones de teclas que introduce para mover la tortuga) en el topic ``/turtle1/cmd_vel``, y el nodo ``/turtlesim`` está suscrito a ese topic para recibir los datos.
 
 La característica de resaltado de rqt_graph es muy útil cuando se examinan sistemas más complejos con muchos nodos y topics conectados de muchas maneras diferentes.
 
@@ -243,7 +243,7 @@ Ahora que tienes la estructura del mensaje, puedes publicar datos en un topic di
 
 El argumento ``'<args>'`` son los datos que pasarán al topic, en la estructura que acabas de utilizar en la sección anterior.
 
-Es importante tener en cuenta que este argumento debe ingresarse utilizando la sintaxis YAML.
+Es importante tener en cuenta que este argumento se debe introducir utilizando la sintaxis YAML.
 Ingrese el comando completo así:
 
 .. code-block:: console
@@ -316,7 +316,7 @@ Si ejecutas el comando anterior con ``turtle1/cmd_vel`` en lugar de ``turtle1/po
 ^^^^^^^^^^
 
 En este punto, tendrás muchos nodos en ejecución.
-No olvides detenerlos ingresando ``Ctrl+C`` en cada terminal.
+No olvides detenerlos introduciendo ``Ctrl+C`` en cada terminal.
 
 Resumen
 -------
