@@ -22,7 +22,7 @@ Prerequisites
 First of all you should install ROS 2 and Gazebo.
 You have two options:
 
- - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_ign>`__.
+ - Install from deb packages. To check which versions are available from deb packages please check this `table <https://github.com/gazebosim/ros_gz>`__.
  - Compile from sources:
 
    - :doc:`ROS 2 install instructions <../../../../Installation>`
@@ -46,11 +46,11 @@ To run this example you should execute the following command in a terminal:
 
       .. code-block:: console
 
-        ign gazebo -v 4 -r visualize_lidar.sdf
+        gz sim -v 4 -r visualize_lidar.sdf
 
 .. image:: Image/gazebo_diff_drive.png
 
-When the simulation is running you can check the topics provided by Gazebo with the ``ign`` command line tool:
+When the simulation is running you can check the topics provided by Gazebo with the ``gz`` command line tool:
 
 .. tabs::
 
@@ -58,7 +58,7 @@ When the simulation is running you can check the topics provided by Gazebo with 
 
       .. code-block:: console
 
-        ign topic -l
+        gz topic -l
 
       Which should show:
 
@@ -110,7 +110,7 @@ You can install this package by typing:
 
       .. code-block:: console
 
-        sudo apt-get install ros-{DISTRO}-ros-ign-bridge
+        sudo apt-get install ros-{DISTRO}-ros-gz-bridge
 
 At this point you are ready to launch a bridge from ROS to Gazebo.
 In particular you are going to create a bridge for the topic ``/model/vehicle_blue/cmd_vel``:
@@ -122,7 +122,7 @@ In particular you are going to create a bridge for the topic ``/model/vehicle_bl
       .. code-block:: console
 
         source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]ignition.msgs.Twist
+        ros2 run ros_gz_bridge parameter_bridge /model/vehicle_blue/cmd_vel@geometry_msgs/msg/Twist]gz.msgs.Twist
 
 For more details about the ``ros_gz_bridge`` please check this `README <https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge>`__ .
 
@@ -207,7 +207,7 @@ This topic will be available under the topic ``/lidar_scan``:
       .. code-block:: console
 
         source /opt/ros/{DISTRO}/setup.bash
-        ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
+        ros2 run ros_gz_bridge parameter_bridge /lidar2@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan --ros-args -r /lidar2:=/laser_scan
 
 To visualize the data from the lidar in ROS 2 you can use Rviz2:
 
