@@ -80,7 +80,7 @@ El comando anterior debería devolver una lista de los ejecutables de turtlesim:
 2 Iniciar turtlesim
 ^^^^^^^^^^^^^^^^^^^
 
-Para iniciar turtlesim, ingresa el siguiente comando en la terminal:
+Para iniciar turtlesim, introduce el siguiente comando en la terminal:
 
 .. code-block:: console
 
@@ -135,7 +135,7 @@ Aprenderás más sobre estos conceptos en los próximos tutoriales.
 Dado que el objetivo de este tutorial es solo obtener una descripción general de turtlesim, utilizaremos rqt (una interfaz gráfica de usuario para ROS 2) la cual nos permite ver los servicios más de cerca.
 
 4 Instalar rqt
-^^^^^^^^^^^^^
+^^^^^^^^^^^^^^
 
 Abre una nueva terminal para instalar ``rqt`` y sus complementos:
 
@@ -180,7 +180,7 @@ No te precoupes; simplemente selecciona **Plugins** > **Services** > **Service C
 .. note::
 
   Es posible que rqt tarde un tiempo en localizar todos los complementos.
-  Si hace clic en **Plugins**, pero no ve **Services** ni ninguna otra opción, debe cerrar rqt e ingresar el comando ``rqt --force-discover`` en su terminal.
+  Si hace clic en **Plugins**, pero no ve **Services** ni ninguna otra opción, debe cerrar rqt e introducir el comando ``rqt --force-discover`` en su terminal.
 
 .. image:: images/rqt.png
 
@@ -251,7 +251,7 @@ Ahora puedes mover la segunda tortuga mientras esta terminal está activa, y la 
 7 Cerrar turtlesim
 ^^^^^^^^^^^^^^^^^
 
-Para detener la simulación puedes ingresar ``Ctrl + C`` en la terminal ``turtlesim_node``, y ``q`` en la terminal que ejecuta ``turtle_teleop_key``.
+Para detener la simulación puedes introducir ``Ctrl + C`` en la terminal ``turtlesim_node``, y ``q`` en la terminal que ejecuta ``turtle_teleop_key``.
 
 Resumen
 -------
