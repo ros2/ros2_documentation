@@ -57,7 +57,7 @@ Abre otra terminal y ejecuta:
 2 ros2 param list
 ^^^^^^^^^^^^^^^^^
 
-Para ver los parámetros que pertenecen a sus nodos, abre una nueva terminal e ingresa el comando:
+Para ver los parámetros que pertenecen a sus nodos, abre una nueva terminal e introduce el comando:
 
 .. code-block:: console
 
@@ -157,7 +157,7 @@ Puedes ver todos los parámetros y sus valores actuales de un nodo usando el com
   ros2 param dump <node_name>
 
 El comando se imprime en la salida estándar (stdout) de forma predeterminada, pero también puede redirigir los valores de los parámetros a un archivo para guardarlos más adelante.
-Para guardar la configuración actual de los parámetros de ``/turtlesim`` en el archivo ``turtlesim.yaml``, ingresa el comando:
+Para guardar la configuración actual de los parámetros de ``/turtlesim`` en el archivo ``turtlesim.yaml``, introduce el comando:
 
 .. code-block:: console
 
@@ -193,7 +193,7 @@ Puedes cargar parámetros desde un archivo a un nodo actualmente en ejecución u
 
   ros2 param load <node_name> <parameter_file>
 
-Para cargar el archivo ``turtlesim.yaml`` generado con ``ros2 param dump`` en los parámetros del nodo ``/turtlesim``, ingresa el comando:
+Para cargar el archivo ``turtlesim.yaml`` generado con ``ros2 param dump`` en los parámetros del nodo ``/turtlesim``, introduce el comando:
 
 .. code-block:: console
 

@@ -58,7 +58,7 @@ El comando ``ros2 run`` lanza un ejecutable desde un paquete.
 
     ros2 run <package_name> <executable_name>
 
-Para ejecutar Turtlesim, abre una nueva terminal e ingresa el siguiente comando:
+Para ejecutar Turtlesim, abre una nueva terminal e introduce el siguiente comando:
 
 .. code-block:: console
 
