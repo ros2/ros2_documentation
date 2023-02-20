@@ -5,7 +5,7 @@
 .. _ROS2Topics:
 
 Comprender los Topics
-====================
+=====================
 
 **Objetivo:** Utilizar rqt_graph y las herramientas de línea de comandos para inspeccionar los topics de ROS 2.
 
