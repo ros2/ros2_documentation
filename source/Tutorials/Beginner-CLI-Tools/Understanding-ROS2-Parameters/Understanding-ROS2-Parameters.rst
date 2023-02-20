@@ -31,7 +31,7 @@ Requisitos previos
 
 Este tutorial utiliza el paquete :doc:`turtlesim <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-Como siempre, no olvide ejecutar `source` con el archivo de setup :doc:`en cada nueva terminal que abra<../Configuring-ROS2-Environment>`.
+Como siempre, no olvides ejecutar `source` con el archivo de setup :doc:`en cada nueva terminal que abra<../Configuring-ROS2-Environment>`.
 
 Tareas
 ------

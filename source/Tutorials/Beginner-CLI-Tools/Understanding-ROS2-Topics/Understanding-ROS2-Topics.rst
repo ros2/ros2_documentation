@@ -173,7 +173,7 @@ Otra forma de ver esto es ejecutando:
 
     ros2 topic info /turtle1/cmd_vel
 
-Que regresará:
+Que devolverá:
 
 .. code-block:: console
 
