@@ -1,0 +1,50 @@
+services:
+
+  # Creates the keystore in the shared volume
+  keystore-creator:
+    image: ros2_security/deployment_tutorial:latest
+    volumes:
+      - ./keystore:/keystore
+    command: 
+      - /bin/bash
+      - -c
+      - |
+        ros2 security create_keystore /keystore
+        ros2 security create_enclave /keystore /talker_listener/talker
+        ros2 security create_enclave /keystore /talker_listener/listener
+
+  # Starts a secure listener simulating a remote device
+  listener:
+    image: ros2_security/deployment_tutorial:latest
+    environment:
+      - ROS_SECURITY_KEYSTORE=/keystore
+      - ROS_SECURITY_ENABLE=true
+      - ROS_SECURITY_STRATEGY=Enforce
+    volumes:
+      - ./keystore/enclaves/governance.p7s:/keystore/enclaves/governance.p7s
+      - ./keystore/enclaves/governance.xml:/keystore/enclaves/governance.xml
+      - ./keystore/enclaves/talker_listener/listener:/keystore/enclaves/talker_listener/listener
+      - ./keystore/public:/keystore/public
+    command: ros2 run demo_nodes_py listener --ros-args --enclave /talker_listener/listener
+    depends_on:
+      keystore-creator:
+        condition: service_completed_successfully
+
+  # Starts a secure talker simulating another remote device 
+  talker:
+    image: ros2_security/deployment_tutorial:latest
+    environment:
+      - ROS_SECURITY_KEYSTORE=/keystore
+      - ROS_SECURITY_ENABLE=true
+      - ROS_SECURITY_STRATEGY=Enforce
+    volumes:
+      - ./keystore/enclaves/governance.p7s:/keystore/enclaves/governance.p7s
+      - ./keystore/enclaves/governance.xml:/keystore/enclaves/governance.xml
+      - ./keystore/enclaves/talker_listener/talker:/keystore/enclaves/talker_listener/talker
+      - ./keystore/public:/keystore/public
+    command: ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+    depends_on:
+      keystore-creator:
+        condition: service_completed_successfully
+
+  

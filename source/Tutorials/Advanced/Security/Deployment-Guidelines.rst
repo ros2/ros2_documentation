@@ -27,7 +27,7 @@ This includes protection-awareness and criteria for selecting the minimum set of
 Prerequisites
 -------------
 
-* A docker installation available. Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_.
+* A docker installation with the compose plugin. Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_ and `Compose Plugin <https://docs.docker.com/compose/install>`_.
 * (Recommended) A basic understanding on `ROS 2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
 * (Recommended) Previous security tutorials completion. In particular:
 
@@ -88,200 +88,140 @@ The following table depicts a summary of the previous statements relating the Ke
 Building a deployment scenario
 ------------------------------
 
-To illustrate a simple deployment scenario, a docker image will be built which is intended to be the remote production target device actor.
-In this example, the local host will serve as the organization's system.
-To test security capabilities, a secure listener will be launched on the remote system, whereas a secure talker will be launched on the local host.
-Let us start by creating a workspace tree with the following sub-folders:
+To illustrate a simple deployment scenario, a new docker image will be built on top of the one provided by ``ros:<DISTRO>``.
+Starting from the image, three containers will be created with the aim of:
+
+* Initializing the keystore in a local host's shared volume.
+* Simulating two deployed remote devices that interact with each other in a secure way.
+
+In this example, the local host serves as the organization's system.
+Let us start by creating a workspace folder:
 
 .. code-block:: bash
 
-  mkdir -p ~/deploy_gd_tutorial/remote_system
-  mkdir ~/deploy_gd_tutorial/keystore
+  mkdir ~/security_gd_tutorial
+  cd ~/security_gd_tutorial
 
-Generating a Keystore and necessary Enclaves
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Generating the Docker Image
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Similarly to previous tutorials, initialize a new keystore tree directory.
-This will create *enclaves/* *public/* and *private/* directories, which are explained in more detail in `ROS 2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
-
-.. code-block:: bash
-
-  # Source ROS installation
-  source /opt/ros/${ROS_DISTRO}/setup.bash
-  # Initialize a new keystore directory
-  ros2 security create_keystore ~/deploy_gd_tutorial/keystore
-
-Next, create an enclave for the local talker node within the */keystore* directory.
+In order to build a new docker image, a Dockerfile is required.
+The one proposed for this tutorial can be retrieved with the following command:
 
 .. code-block:: bash
 
-  # Create secure talker's enclave
-  ros2 security create_enclave ~/deploy_gd_tutorial/keystore /talker_listener/talker
+  # Download the Dockerfile
+  wget https://raw.githubusercontent.com/ros2/ros2_documentation/rolling/source/Tutorials/Advanced/Security/resources/deployment_gd/Dockerfile
 
-At this point, step into the remote_system workspace, create the corresponding enclave and copy just the *public/* and *enclaves/* directories to the current one.
-Those security artifacts will be needed by the remote system to enable listener's security.
-For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
-Note that *private/* folder is not moved but left in the local host (organization).
+Now, build the docker image with the command:
 
 .. code-block:: bash
 
-  # Create an enclave for the secure listener's enclave
-  ros2 security create_enclave ~/deploy_gd_tutorial/keystore /talker_listener/listener
-
-At the end of these steps, the structure of */enclaves* sub-directory within *~/deploy_gd_tutorial/keystore* should look like the following:
-
-.. code-block:: text
-
-  enclaves
-  ├── governance.p7s
-  ├── governance.xml
-  └── talker_listener
-      ├── listener
-      │   ├── cert.pem
-      │   ├── governance.p7s
-      │   ├── identity_ca.cert.pem
-      │   ├── key.pem
-      │   ├── permissions_ca.cert.pem
-      │   ├── permissions.p7s
-      │   └── permissions.xml
-      └── talker
-          ├── cert.pem
-          ├── governance.p7s
-          ├── identity_ca.cert.pem
-          ├── key.pem
-          ├── permissions_ca.cert.pem
-          ├── permissions.p7s
-          └── permissions.xml
-
-Now, create and populate the */keystore* directory that will be copied onto the remote system with only the necessary files.
-
-.. code-block:: bash
-
-  # Move to remote system path
-  cd ~/deploy_gd_tutorial/remote_system
-  # Ship governance files, listener enclave and public/ directories only
-  # minimizing security threat
-  mkdir -p keystore/enclaves/talker_listener
-  cp -R ../keystore/public keystore
-  cp -R ../keystore/enclaves/governance.* keystore/enclaves
-  cp -R ../keystore/enclaves/talker_listener/listener keystore/enclaves/talker_listener
-
-After the previous commands, the current ``~/deploy_gd_tutorial/remote_system`` directory should be:
-
-.. code-block:: text
-
-  remote_system
-  └── keystore
-      ├── enclaves
-      │   ├── governance.p7s
-      │   ├── governance.xml
-      │   └── talker_listener
-      │       └── listener
-      │           ├── cert.pem
-      │           ├── governance.p7s
-      │           ├── identity_ca.cert.pem
-      │           ├── key.pem
-      │           ├── permissions_ca.cert.pem
-      │           ├── permissions.p7s
-      │           └── permissions.xml
-      └── public
-          ├── ca.cert.pem
-          ├── identity_ca.cert.pem
-          └── permissions_ca.cert.pem
-
-
-Creating remote's system docker image
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-To get started, change into the remotes's workspace path with:
-
-.. code-block:: bash
-
-  cd ~/deploy_gd_tutorial/remote_system
-
-For the purpose of running a secure listener at the docker image startup, a new ``entrypoint.sh`` file is required, in the current directory, with the following content:
-
-.. code-block:: bash
-
-  #!/bin/bash
-  source /opt/ros/${ROS_DISTRO}/setup.bash
-  ros2 run demo_nodes_cpp listener --ros-args --enclave /talker_listener/listener $@
-
-In order to build a new docker image, a Dockerfile is also needed.
-Create a new file ``Dockerfile`` in the same directory with preferred text editor.
-
-.. code-block:: bash
-
-  ARG ROS_DISTRO=humble
-  FROM ros:${ROS_DISTRO}-ros-base
-
-  RUN apt-get update && apt-get install -y \
-        ros-${ROS_DISTRO}-demo-nodes-cpp \
-        ros-${ROS_DISTRO}-demo-nodes-py && \
-      rm -rf /var/lib/apt/lists/*
-
-  ARG KEYSTORE_DIR=/keystore
-
-  RUN mkdir -p ${KEYSTORE_DIR}/enclaves \
-    mkdir ${KEYSTORE_DIR}/public
-
-  COPY keystore ${KEYSTORE_DIR}
-
-  ENV ROS_SECURITY_KEYSTORE=${KEYSTORE_DIR}
-  ENV ROS_SECURITY_ENABLE=true
-  ENV ROS_SECURITY_STRATEGY=Enforce
-
-  COPY entrypoint.sh /entrypoint.sh
-  RUN chmod +x /entrypoint.sh
-
-  ENTRYPOINT ["/entrypoint.sh"]
-
-The resultant directory structure should be the one depicted below:
-
-.. code-block:: text
-
-  remote_system
-    ├── Dockerfile
-    ├── entrypoint.sh
-    └── keystore
-        ├── enclaves
-        │   ├── ...
-        └── public
-            ├── ...
-
-Build the docker image with the command:
-
-.. code-block:: bash
-
-  # Build remote's system image
+  # Build the base image
   docker build -t ros2_security/deployment_tutorial .
 
+
+Understanding the compose file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+A compose configration file takes an image to create containers as services.
+In this tutorial, three services are defined within the configuration:
+
+* *keystore-creator*: That, similarly to previous tutorials, it internally initializes a new keystore tree directory.
+  This will create *enclaves/* *public/* and *private/*, which are explained in more detail in `ROS 2 Security enclaves <https://design.ros2.org/articles/ros2_security_enclaves.html>`_.
+  The ``keystore`` directory is configured to be a shared volume across containers.
+
+* *listener* and *talker*: Act as the remote device actors in this tutorial.
+  Required ``Security`` environment variables are sourced as well as the necessary keystore files from the shared volume.
+
+The compose configuration yaml file can be downloaded with:
+
+.. code-block:: bash
+
+  # Download the compose file
+  wget https://raw.githubusercontent.com/ros2/ros2_documentation/rolling/source/Tutorials/Advanced/Security/resources/deployment_gd/compose.deployment.yaml
 
 Running the example
 -------------------
 
-Launch the following commands in two different terminals:
-
-Open a new terminal and run:
+In the same working directory ``~/security_gd_tutorial``, run:
 
 .. code-block:: bash
 
-    # Start remote system container
-    docker run -it ros2_security/deployment_tutorial
-
-Then, open a second terminal and run the following commands:
-
-.. code-block:: bash
-
-    # Export ROS security environment variables
-    export ROS_SECURITY_KEYSTORE=~/deploy_gd_tutorial/keystore
-    export ROS_SECURITY_ENABLE=true
-    export ROS_SECURITY_STRATEGY=Enforce
-
-    # Source ROS installation and run the talker
-    source /opt/ros/${ROS_DISTRO}/setup.bash
-    ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
+  # Start the example
+  docker compose -f compose.deployment.yaml up
 
 This should result in the following output:
 
-* On host's talker node: ``Publishing: 'Hello World: <number>'``
-* While on the remote system side: ``I heard: [Hello World: <number>]``
+- *tutorial-listener-1*: ``Found security directory: /keystore/enclaves/talker_listener/listener``
+- *tutorial-talker-1*: ``Found security directory: /keystore/enclaves/talker_listener/talker``
+- *tutorial-listener-1*: ``Publishing: 'Hello World: <number>'``
+- *tutorial-talker-1*: ``I heard: [Hello World: <number>]``
+
+Examining the containers
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+While having the containers running that simulate the two remote devices for this tutorial, attach to each of them by opening two different terminals and enter:
+
+.. code-block:: bash
+
+  #Terminal 1
+  docker exec -it tutorial-listener-1 bash
+  cd keystore
+  tree
+
+  #Terminal 2
+  docker exec -it tutorial-talker-1 bash
+  cd keystore
+  tree
+
+A similar output to the one depicted below should be obtained:
+
+.. code-block:: bash
+
+  #Terminal 1
+  keystore
+   ├── enclaves
+   │   ├── governance.p7s
+   │   ├── governance.xml
+   │   └── talker_listener
+   │       └── listener
+   │           ├── cert.pem
+   │           ├── governance.p7s
+   │           ├── identity_ca.cert.pem
+   │           ├── key.pem
+   │           ├── permissions_ca.cert.pem
+   │           ├── permissions.p7s
+   │           └── permissions.xml
+   └── public
+       ├── ca.cert.pem
+       ├── identity_ca.cert.pem
+       └── permissions_ca.cert.pem
+
+  #Terminal 2
+  keystore
+   ├── enclaves
+   │   ├── governance.p7s
+   │   ├── governance.xml
+   │   └── talker_listener
+   │       └── talker
+   │           ├── cert.pem
+   │           ├── governance.p7s
+   │           ├── identity_ca.cert.pem
+   │           ├── key.pem
+   │           ├── permissions_ca.cert.pem
+   │           ├── permissions.p7s
+   │           └── permissions.xml
+   └── public
+       ├── ca.cert.pem
+       ├── identity_ca.cert.pem
+       └── permissions_ca.cert.pem
+
+Note that:
+
+* *private/* folder is not moved but left in the local host (organization).
+* Each one of the deployed devices contain its own minimum enclave required for its application.
+
+.. note::
+
+  For the sake of simplicity, the same CA is used within this enclave for both identity and permissions.
