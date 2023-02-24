@@ -351,7 +351,7 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-    colcon build --merge-install --packages-select cpp_srvcli
+      colcon build --merge-install --packages-select cpp_srvcli
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
