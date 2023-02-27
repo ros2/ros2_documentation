@@ -12,7 +12,7 @@ Install VS Code and Docker
 
 
 Using Visual Studio Code and Docker Containers will enable you to run your favorite ROS 2 Distribution without the necessity to change your operating system or use a virtual machine.
-With this tutorial you can set up a docker container, which can be used for your future ROS 2 projects. 
+With this tutorial you can set up a docker container, which can be used for your future ROS 2 projects.
 
 
 Install Docker
@@ -83,8 +83,8 @@ Add a workspace in order to build and open them in a container, e.g.:
     cd ws_[project]
     mkdir src
 
-Now create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder. 
-Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS 2 distros. 
+Now create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder.
+Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS 2 distros.
 The workspace structure should look like this:
 
 ::
@@ -162,17 +162,17 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
 Use ``Ctrl+F`` to open the search and replace menu.
 Search for ``USERNAME`` and replace it with your ``Linux username``.
 If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
-Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy". 
+Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy".
 
 
 
 Edit Dockerfile
 ^^^^^^^^^^^^^^^
 
-Open the Dockerfile and add the following contents: 
+Open the Dockerfile and add the following contents:
 
 
-.. code-block:: DOCKERFILE
+.. code-block:: bash
 
     FROM ros:ROS_DISTRO
     ARG USERNAME=USERNAME
@@ -200,14 +200,14 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ROS_DISTRO with the ROS 2 distribution you wish to use and added to the cache previously. 
+Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ROS_DISTRO with the ROS 2 distribution you wish to use and added to the cache previously.
 
 
 Open and Build Development Container
 ------------------------------------
 
 Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
-Search for the command ``Dev Containers: (Re-)build and Reopen in Container`` and execute it. 
+Search for the command ``Dev Containers: (Re-)build and Reopen in Container`` and execute it.
 This will build your development docker container for your. It will take a while - sit back or go for a coffee.
 
 
@@ -217,9 +217,9 @@ Test Container
 To test if everything worked correctly, open a terminal in the container using ``Terminal->New Terminal`` in VS Code.
 Inside the terminal do the following:
 
-.. code-block:: console 
+.. code-block:: console
 
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
 
-.. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.   
+.. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.
