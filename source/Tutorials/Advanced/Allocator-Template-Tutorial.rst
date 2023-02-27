@@ -115,16 +115,24 @@ Once you have written a valid C++ allocator, you must pass it as a shared pointe
 .. code-block:: c++
 
      auto alloc = std::make_shared<MyAllocator<void>>();
-     auto publisher = node->create_publisher<std_msgs::msg::UInt32>("allocator_example", 10, alloc);
-     auto msg_mem_strat =
-       std::make_shared<rclcpp::message_memory_strategy::MessageMemoryStrategy<std_msgs::msg::UInt32,
-       MyAllocator<>>>(alloc);
+     rclcpp::PublisherOptionsWithAllocator<MyAllocator<void>> publisher_options;
+     publisher_options.allocator = alloc;
+     auto publisher = node->create_publisher<std_msgs::msg::UInt32>(
+       "allocator_tutorial", 10, publisher_options);
+
+     rclcpp::SubscriptionOptionsWithAllocator<MyAllocator<void>> subscription_options;
+     subscription_options.allocator = alloc;
+     auto msg_mem_strat = std::make_shared<
+       rclcpp::message_memory_strategy::MessageMemoryStrategy<
+         std_msgs::msg::UInt32, MyAllocator<void>>>(alloc);
      auto subscriber = node->create_subscription<std_msgs::msg::UInt32>(
-       "allocator_example", 10, callback, nullptr, false, msg_mem_strat, alloc);
+       "allocator_tutorial", 10, callback, subscription_options, msg_mem_strat);
 
      std::shared_ptr<rclcpp::memory_strategy::MemoryStrategy> memory_strategy =
-       std::make_shared<AllocatorMemoryStrategy<MyAllocator<>>>(alloc);
-     rclcpp::executors::SingleThreadedExecutor executor(memory_strategy);
+       std::make_shared<AllocatorMemoryStrategy<MyAllocator<void>>>(alloc);
+     rclcpp::ExecutorOptions options;
+     options.memory_strategy = memory_strategy;
+     rclcpp::executors::SingleThreadedExecutor executor(options);
 
 You will also need to use your allocator to allocate any messages that you pass along the execution codepath.
 
@@ -141,7 +149,7 @@ Once you've instantiated the node and added the executor to the node, it's time 
        msg->data = i;
        i++;
        publisher->publish(msg);
-       rclcpp::utilities::sleep_for(std::chrono::milliseconds(1));
+       rclcpp::sleep_for(std::chrono::milliseconds(1));
        executor.spin_some();
      }
 
@@ -154,12 +162,11 @@ The IntraProcessManager is a class that is usually hidden from the user, but in 
 
 .. code-block:: c++
 
-     auto context = rclcpp::contexts::default_context::get_global_default_context();
-     auto ipm_state =
-       std::make_shared<rclcpp::intra_process_manager::IntraProcessManagerState<MyAllocator<>>>();
-     // Constructs the intra-process manager with a custom allocator.
-     context->get_sub_context<rclcpp::intra_process_manager::IntraProcessManager>(ipm_state);
-     auto node = rclcpp::Node::make_shared("allocator_example", true);
+    auto context = rclcpp::contexts::get_global_default_context();
+    auto options = rclcpp::NodeOptions()
+      .context(context)
+      .use_intra_process_comms(true);
+    auto node = rclcpp::Node::make_shared("allocator_example", options);
 
 Make sure to instantiate publishers and subscribers AFTER constructing the node in this way.
 
@@ -216,13 +223,13 @@ The `example executable <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/
 
 .. code-block:: bash
 
-   allocator_example
+   ros2 run demo_nodes_cpp allocator_tutorial
 
 or, to run the example with the intra-process pipeline on:
 
 .. code-block:: bash
 
-   allocator_example intra-process
+   ros2 run demo_nodes_cpp allocator_tutorial intra
 
 You should get numbers like:
 
