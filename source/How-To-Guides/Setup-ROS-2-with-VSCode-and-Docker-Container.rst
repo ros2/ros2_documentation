@@ -66,9 +66,6 @@ Install Remote Development Extension
 
 Within VS Code search in Extensions (CTRL+SHIFT+X) for the "Remote Development" Extension and install it.
 
- .. Note:: Now you are all setup and you can add your workspace 
-
-
 
 Configure workspace in Docker and VS Code
 -----------------------------------------
@@ -85,10 +82,6 @@ Add a workspace in order to build and open them in a container, e.g.:
     mkdir ws_[project]
     cd ws_[project]
     mkdir src
-
-
-.. Note:: After your workspace is setup, we are ready to open the development environment
-
 
 Now create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder. 
 Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS 2 distros. 
@@ -230,7 +223,3 @@ Inside the terminal do the following:
     rviz2
 
 .. Note:: There might be a problem with displaying RVIZ. If no window pops up, then check the value of ``echo $DISPLAY`` - if the output is 1, you can fix this problem with ``echo "export DISPLAY=unix:1" >> /etc/bash.bashrc`` and then test it again. You can also change the DISPLAY value in the devcontainer.json and rebuild it.   
-
-
-
-
