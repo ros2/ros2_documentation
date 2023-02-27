@@ -14,6 +14,5 @@ You can find the API Documentation for the Client Libraries in the {DISTRO_TITLE
 * `rclcpp_lifecycle - C++ lifecycle library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_lifecycle/generated/index.html>`_
 * `rclcpp_components - C++ components library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_components/generated/index.html>`_
 * `rclcpp_action - C++ actions library <http://docs.ros.org/en/{DISTRO}/p/rclcpp_action/generated/index.html>`_
-* `rclpy - Python3 client library <http://docs.ros.org/en/{DISTRO}/p/rclpy/generated/index.html>`_
 
 A raw list of {DISTRO_TITLE} package documentation `may be found here <https://docs.ros.org/en/{DISTRO}/p/>`_.
