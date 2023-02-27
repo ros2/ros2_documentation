@@ -5,7 +5,7 @@ services:
     image: ros2_security/deployment_tutorial:latest
     volumes:
       - ./keystore:/keystore
-    command: 
+    command:
       - /bin/bash
       - -c
       - |
@@ -16,6 +16,7 @@ services:
   # Starts a secure listener simulating a remote device
   listener:
     image: ros2_security/deployment_tutorial:latest
+    container_name: tutorial-listener-1
     environment:
       - ROS_SECURITY_KEYSTORE=/keystore
       - ROS_SECURITY_ENABLE=true
@@ -30,9 +31,10 @@ services:
       keystore-creator:
         condition: service_completed_successfully
 
-  # Starts a secure talker simulating another remote device 
+  # Starts a secure talker simulating another remote device
   talker:
     image: ros2_security/deployment_tutorial:latest
+    container_name: tutorial-talker-1
     environment:
       - ROS_SECURITY_KEYSTORE=/keystore
       - ROS_SECURITY_ENABLE=true
@@ -47,4 +49,4 @@ services:
       keystore-creator:
         condition: service_completed_successfully
 
-  
+
