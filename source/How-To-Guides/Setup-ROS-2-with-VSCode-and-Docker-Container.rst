@@ -1,5 +1,5 @@
-Setup ROS 2 with VSCode and Docker Container
-============================================
+Setup ROS 2 with VSCode and Docker [community-contributed]
+==========================================================
 
 
 .. contents:: Contents
@@ -11,11 +11,12 @@ Install VS Code and Docker
 --------------------------
 
 
-Using Visual Studio Code and Docker Containers will enable you to run your favorite ROS2 Distribution without the necessity to change your operating system or
-use a virtual machine, just within your Visual Studio Code. With this tutorial you can set up a docker container, which can be used for your future ROS2 projects. 
+Using Visual Studio Code and Docker Containers will enable you to run your favorite ROS 2 Distribution without the necessity to change your operating system or use a virtual machine.
+With this tutorial you can set up a docker container, which can be used for your future ROS 2 projects. 
 
 
-**Install Docker**
+Install Docker
+^^^^^^^^^^^^^^
 
 
 To install docker and set the correct user rights please use the following commands.
@@ -42,7 +43,8 @@ You might need to start the Docker Daemon first, if you cannot run hello-world o
 
     sudo systemctl start docker
 
-**Install VS Code**
+Install VS Code
+^^^^^^^^^^^^^^^
 
 To install VS Code please use the following commands:
 
@@ -58,7 +60,8 @@ To install VS Code please use the following commands:
 You can run VS Code by typing ``code`` in a terminal.
 
 
-**Install Remote Development Extension**
+Install Remote Development Extension
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Within VS Code search in Extensions (CTRL+SHIFT+X) for the "Remote Development" Extension and install it.
@@ -68,9 +71,10 @@ Within VS Code search in Extensions (CTRL+SHIFT+X) for the "Remote Development" 
 
 
 Configure workspace in Docker and VS Code
-------------------------------------
+-----------------------------------------
 
-**Add your ROS2 workspace**
+Add your ROS 2 workspace
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 Add a workspace in order to build and open them in a container, e.g.:
@@ -80,15 +84,15 @@ Add a workspace in order to build and open them in a container, e.g.:
     cd ~/
     mkdir ws_[project]
     cd ws_[project]
-    mkdir build install log src
+    mkdir src
 
 
 .. Note:: After your workspace is setup, we are ready to open the development environment
 
 
-Firstly, create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder. 
-Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS2 distros. 
-The workspace structure should look like this 
+Now create a .devcontainer folder in the root of your workspace and add a devcontainer.json and Dockerfile to this .devcontainer folder. 
+Additionally, you need to create a cache folder in which you can cache the build and install folders for different ROS 2 distros. 
+The workspace structure should look like this:
 
 ::
 
@@ -110,14 +114,16 @@ The workspace structure should look like this
 
 Open the ``src`` folder of your workspace in VS Code.
 
-**Edit devcontainer.json for your environment**
+Edit devcontainer.json for your environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-For the Dev Container to function properly, we have to build it with the correct user. Therefore open ``.devcontainer/devcontainer.json``
+For the Dev Container to function properly, we have to build it with the correct user.
+Therefore add the following to ``.devcontainer/devcontainer.json``:
 
 .. code-block:: json
 
     {
-        "name": "ROS2 Development Container",
+        "name": "ROS 2 Development Container",
         "privileged": true,
         "remoteUser": "USERNAME",
         "build": {
@@ -160,12 +166,15 @@ For the Dev Container to function properly, we have to build it with the correct
 
 
 
-Use ``Ctrl+F`` to open the search and replace menu. Search for ``USERNAME`` and replace it with your ``Linux username``. If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
-Also replace ``ROS_DISTRO``, with the Ros2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy". 
+Use ``Ctrl+F`` to open the search and replace menu.
+Search for ``USERNAME`` and replace it with your ``Linux username``.
+If you do not know your username, you can find it by running ``echo $USERNAME`` in the terminal.
+Also replace ``ROS_DISTRO``, with the ROS 2 distribution that you want to use and added to the cache previously, for example, "humble" or "foxy". 
 
 
 
-**Edit Dockerfile**
+Edit Dockerfile
+^^^^^^^^^^^^^^^
 
 Open the Dockerfile and add the following contents: 
 
@@ -198,19 +207,22 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ROS_DISTRO with the ros distribution you wish to use and added to the cache previously. 
+Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ROS_DISTRO with the ROS 2 distribution you wish to use and added to the cache previously. 
 
 
 Open and Build Development Container
----------------------------
+------------------------------------
 
-Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette. Search for the command ``Dev Containers: (Re-)build and Reopen in Container`` and execute it. 
+Use ``View->Command Palette...`` or ``Ctrl+Shift+P`` to open the command palette.
+Search for the command ``Dev Containers: (Re-)build and Reopen in Container`` and execute it. 
 This will build your development docker container for your. It will take a while - sit back or go for a coffee.
 
 
-**Test Container**
+Test Container
+^^^^^^^^^^^^^^
 
-To test if everything works correctly, open a terminal in the container using ``Terminal->New Terminal`` in VS Code. Inside the terminal do the following:
+To test if everything worked correctly, open a terminal in the container using ``Terminal->New Terminal`` in VS Code.
+Inside the terminal do the following:
 
 .. code-block:: console 
 
