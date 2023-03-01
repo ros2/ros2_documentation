@@ -110,7 +110,7 @@ The one proposed for this tutorial can be retrieved with the following command:
 
 .. code-block:: bash
 
-  # Download the Dockerfile from a particular {DISTRO}
+  # Download the Dockerfile
   wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/Dockerfile
 
 Now, build the docker image with the command:
@@ -118,11 +118,7 @@ Now, build the docker image with the command:
 .. code-block:: bash
 
   # Build the base image
-  docker build -t ros2_security/deployment_tutorial .
-
-.. note::
-
-  By default, the ROS Distribution used for the Docker image is set to ``humble``, but user can optionally specify a particular one  by adding  ``--build-arg ROS_DISTRO=distro`` to the previous command i.e ``docker build -t ros2_security/deployment_tutorial --build=arg ROS_DISTRO=foxy .``
+  docker build -t ros2_security/deployment_tutorial --build-arg ROS_DISTRO={DISTRO} .
 
 Understanding the compose file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -141,7 +137,7 @@ The compose configuration yaml file can be downloaded with:
 
 .. code-block:: bash
 
-  # Download the compose file from a particular {DISTRO}
+  # Download the compose file
   wget https://raw.githubusercontent.com/ros2/ros2_documentation/{DISTRO}/source/Tutorials/Advanced/Security/resources/deployment_gd/compose.deployment.yaml
 
 Running the example
