@@ -48,5 +48,3 @@ services:
     depends_on:
       keystore-creator:
         condition: service_completed_successfully
-
-

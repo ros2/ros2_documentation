@@ -27,7 +27,8 @@ This includes protection-awareness and criteria for selecting the minimum set of
 Prerequisites
 -------------
 
-* A docker installation with the compose plugin. Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_ and `Compose Plugin <https://docs.docker.com/compose/install>`_.
+* A docker installation with the compose plugin.
+  Please refer to the installation steps detailed in `Docker installation <https://docs.docker.com/engine/install/>`_ and `Compose Plugin <https://docs.docker.com/compose/install>`_.
 * (Recommended) A basic understanding on `ROS 2 Security design <https://design.ros2.org/articles/ros2_dds_security.html>`_.
 * (Recommended) Previous security tutorials completion. In particular:
 
@@ -164,12 +165,12 @@ While having the containers running that simulate the two remote devices for thi
 
 .. code-block:: bash
 
-  #Terminal 1
+  # Terminal 1
   docker exec -it tutorial-listener-1 bash
   cd keystore
   tree
 
-  #Terminal 2
+  # Terminal 2
   docker exec -it tutorial-talker-1 bash
   cd keystore
   tree
@@ -178,7 +179,7 @@ A similar output to the one depicted below should be obtained:
 
 .. code-block:: bash
 
-  #Terminal 1
+  # Terminal 1
   keystore
    ├── enclaves
    │   ├── governance.p7s
@@ -197,7 +198,7 @@ A similar output to the one depicted below should be obtained:
        ├── identity_ca.cert.pem
        └── permissions_ca.cert.pem
 
-  #Terminal 2
+  # Terminal 2
   keystore
    ├── enclaves
    │   ├── governance.p7s
