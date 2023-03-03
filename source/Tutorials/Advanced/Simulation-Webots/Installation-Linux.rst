@@ -26,11 +26,11 @@ Prerequisites
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
-The Webots software should be installed in order to use the ``webots_ros2`` interface. 
+The Webots software should be installed in order to use the ``webots_ros2`` interface.
 You can follow the `installation procedure <https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it from sources <https://github.com/cyberbotics/webots/wiki/Linux-installation/>`_.
 
-Alternatively, you can also let ``webots_ros2`` download and install Webots automatically. 
-This option appears when you launch an example of the package and no Webots installation is found. 
+Alternatively, you can also let ``webots_ros2`` download and install Webots automatically.
+This option appears when you launch an example of the package and no Webots installation is found.
 
 Multiple Installations of Webots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -74,7 +74,7 @@ You can either install the official released package, or install it from the las
             source /opt/ros/{DISTRO}/setup.bash
 
         Retrieve the sources from Github.
-        
+
         .. code-block:: console
 
             cd ~/ros2_ws

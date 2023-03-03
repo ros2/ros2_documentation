@@ -15,7 +15,7 @@ Background
 ----------
 
 The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
-It includes several sub-packages, including ``webots_ros2_driver``, which allows ROS nodes to communicate with Webots. 
+It includes several sub-packages, including ``webots_ros2_driver``, which allows ROS nodes to communicate with Webots.
 Other sub-packages are mainly examples that show multiple possible implementations using the interface.
 In this tutorial, you are going to install the package and learn how to run one of these examples.
 
@@ -25,11 +25,11 @@ Prerequisites
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
-Webots is a prerequisite to use the ``webots_ros2`` package. 
+Webots is a prerequisite to use the ``webots_ros2`` package.
 You can follow the `installation procedure <https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it from sources <https://github.com/cyberbotics/webots/wiki/Windows-installation/>`_.
 
-Alternatively, you can also let ``webots_ros2`` download Webots automatically. 
-This option appears when you launch an example of the package and no Webots installation is found. 
+Alternatively, you can also let ``webots_ros2`` download Webots automatically.
+This option appears when you launch an example of the package and no Webots installation is found.
 
 Multiple Installations of Webots
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -47,7 +47,7 @@ Tasks
 1 Install WSL2
 ^^^^^^^^^^^^^^^
 
-On Windows, WSL (Windows Subsystem for Linux) allows to improve the user experience with ROS 2 compared to native Windows installation, as it runs on a Linux platform. 
+On Windows, WSL (Windows Subsystem for Linux) allows to improve the user experience with ROS 2 compared to native Windows installation, as it runs on a Linux platform.
 Install WSL with an Ubuntu version which is compatible with your ROS distribution and upgrade to WSL2 following the `official Microsoft tutorial <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
 
 2 Install ROS 2 in WSL
@@ -86,7 +86,7 @@ The following commands must be run inside the WSL environment.
             source /opt/ros/{DISTRO}/setup.bash
 
         Retrieve the sources from Github.
-        
+
         .. code-block:: console
 
             cd ~/ros2_ws
@@ -185,13 +185,13 @@ With older WSL versions, RViz2 may not work directly, as no display is available
         3. You can save the configuration for future launches.
         4. Click on ``Finish``, you will see that the X11 server is running in the icon tray.
         5. In your WSL environment, export the ``DISPLAY`` variable.
-            
+
             .. code-block:: console
 
                 export DISPLAY=$(ip route list default | awk '{print }'):0
-        
+
             You can add this to your ``.bashrc``, so that it is set for every future WSL environment.
-            
+
             .. code-block:: console
 
                 echo "export DISPLAY=$(ip route list default | awk '{print }'):0" >> ~/.bashrc

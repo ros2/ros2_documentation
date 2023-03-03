@@ -15,7 +15,7 @@ Background
 ----------
 
 The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
-It includes several sub-packages, including ``webots_ros2_driver``, which allows to start Webots and communicate with it. 
+It includes several sub-packages, including ``webots_ros2_driver``, which allows to start Webots and communicate with it.
 Other sub-packages are mainly examples that show multiple possible implementations using the interface.
 In this tutorial, you are going to install the package and learn how to run one of these examples.
 
@@ -31,22 +31,22 @@ You can follow the `installation procedure <https://cyberbotics.com/doc/guide/in
 Tasks
 -----
 
-On macOS, a solution based on UTM virtual machines allows to improve the user experience with ROS 2 compared to native macOS installation, as it allows to run ROS in a Linux environment. 
+On macOS, a solution based on UTM virtual machines allows to improve the user experience with ROS 2 compared to native macOS installation, as it allows to run ROS in a Linux environment.
 However, Webots should be installed natively on macOS and it will be able to communicate with the ROS nodes running in the Virtual Machine (VM).
 This solution allows for native 3D hardware acceleration for Webots.
-The VM is responsible to run all the ROS part (including RViz) and connects to the host machine through TCP connection to start Webots. 
+The VM is responsible to run all the ROS part (including RViz) and connects to the host machine through TCP connection to start Webots.
 A shared folder allows the script to transfer the world and other resource files from the VM to macOS where Webots is running.
 
-The following steps explain how to create the VM image with the installation of the ``webots_ros2`` released package. It is also possible to install it from sources. 
+The following steps explain how to create the VM image with the installation of the ``webots_ros2`` released package. It is also possible to install it from sources.
 In the :ref:`Preconfigured Images` section, you can find already configured images for every release of Webots (starting from R2023a) to download.
 
 1 Create the VM image
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Install UTM on your macOS machine. 
+Install UTM on your macOS machine.
 The link can be found on the `official UTM website <https://mac.getutm.app/>`_.
 
-Download the .iso image of `Ubuntu 22.04 <https://cdimage.ubuntu.com/jammy/daily-live/current/>`_ for Humble and Rolling or `Ubuntu 20.04 <https://cdimage.ubuntu.com/focal/daily-live/pending/>`_ for Foxy. 
+Download the .iso image of `Ubuntu 22.04 <https://cdimage.ubuntu.com/jammy/daily-live/current/>`_ for Humble and Rolling or `Ubuntu 20.04 <https://cdimage.ubuntu.com/focal/daily-live/pending/>`_ for Foxy.
 Be sure to download the image corresponding to your CPU architecture.
 
 In the UTM software:
@@ -54,43 +54,43 @@ In the UTM software:
 * Create a new image and choose ``Virtualize`` option.
 * Select the ISO image you have downloaded in the ``Boot ISO Image`` field.
 * Leave all hardware settings at default (including hardware acceleration disabled).
-* In the ``Shared Directory`` window, select a folder that will be used by ``webots_ros2`` to transfer all the Webots assets to the host. 
+* In the ``Shared Directory`` window, select a folder that will be used by ``webots_ros2`` to transfer all the Webots assets to the host.
   In this example, the selected folder is ``/Users/username/shared``.
 * Leave all the remaining parameters as default.
-* Start the VM. 
+* Start the VM.
   Note that you can select another shared folder each time you start the VM.
 * During the first launch of the VM, install Ubuntu and choose a username for your account. In this example, the username is ``ubuntu``.
 * Once Ubuntu is installed, close the VM, remove the iso image from the CD/DVD field and restart the VM.
 
 2 Configure the VM
 ^^^^^^^^^^^^^^^^^^
-In this section, ROS 2 is installed in the VM and the shared folder is configured. 
+In this section, ROS 2 is installed in the VM and the shared folder is configured.
 The following instruction and command are all run inside the VM.
 
 * Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../Installation/Ubuntu-Install-Debians`:
-* Create a folder in the VM to use as shared folder. 
+* Create a folder in the VM to use as shared folder.
   In this example, the shared folder in the VM is ``/home/ubuntu/shared``.
 
   .. code-block:: console
-      
+
       mkdir /home/ubuntu/shared
 
-* To mount this folder to the host, execute the following command. 
+* To mount this folder to the host, execute the following command.
   Don't forget to modify the path to the shared folder, if it is different in your case.
 
   .. code-block:: console
-      
+
       sudo mount -t 9p -o trans=virtio share /home/ubuntu/shared -oversion=9p2000.L
 
-* To automatically mount this folder to the host when starting the VM, add the following line to ``/etc/fstab``. 
+* To automatically mount this folder to the host when starting the VM, add the following line to ``/etc/fstab``.
   Don't forget to modify the path to the shared folder, if it is different in your case.
-  
+
   .. code-block:: console
-      
+
       share	/home/ubuntu/shared	9p	trans=virtio,version=9p2000.L,rw,_netdev,nofail	0	0
 
-* The environment variable ``WEBOTS_SHARED_FOLDER`` must always be set in order for the package to work properly in the VM. 
-  This variable specifies the location of the shared folder that is used to exchange data between the host machine and the virtual machine (VM) to the ``webots_ros2`` package. 
+* The environment variable ``WEBOTS_SHARED_FOLDER`` must always be set in order for the package to work properly in the VM.
+  This variable specifies the location of the shared folder that is used to exchange data between the host machine and the virtual machine (VM) to the ``webots_ros2`` package.
   The value to use for this variable should be in the format of ``<host shared folder>:<VM shared folder>``, where ``<host shared folder>`` is the path to the shared folder on the host machine and ``<VM shared folder>`` is the path to the same shared folder on the VM.
 
   In this example:
@@ -137,7 +137,7 @@ You can then either install ``webots_ros2`` from the official released package, 
             source /opt/ros/{DISTRO}/setup.bash
 
         Retrieve the sources from Github.
-        
+
         .. code-block:: console
 
             cd ~/ros2_ws
@@ -166,10 +166,10 @@ You can then either install ``webots_ros2`` from the official released package, 
 4 Launch the ``webots_ros2_universal_robot`` example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned in previous sections, the package uses the shared folder to communicate with Webots from the VM to the host. 
+As mentioned in previous sections, the package uses the shared folder to communicate with Webots from the VM to the host.
 In order for Webots to be started on the host from the VM's ROS package, a local TCP simulation server must be run.
 
-The server can be downloaded here: `local_simulation_server.py <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_. 
+The server can be downloaded here: `local_simulation_server.py <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_.
 Specify the Webots installation folder in ``WEBOTS_HOME`` environment variable (e.g. ``/Applications/Webots.app``) and run the server using the following commands in a new terminal on the host (not in the VM):
 
 .. code-block:: console
@@ -212,18 +212,18 @@ If Webots is closed or the ROS 2 process is interrupted, the local server will a
 Pre-configured Images
 -----------------------
 
-If you don't want to setup the VM from scratch, the following links provide you with pre-configured UTM images for each version of Webots. 
-The ``webots_ros2`` version is installed from the official repository (not from sources) and is typically the first one that is compatible with the corresponding Webots version. 
+If you don't want to setup the VM from scratch, the following links provide you with pre-configured UTM images for each version of Webots.
+The ``webots_ros2`` version is installed from the official repository (not from sources) and is typically the first one that is compatible with the corresponding Webots version.
 You are welcome to download an image and upgrade the package, or install it from sources if necessary.
 
 * `Version 2023.0.2 for Webots R2023a <https://cyberbotics.com/files/ros2/webots_ros2_2023_0_2.utm.zip>`_ [6.6 GB]
 
 When adding the downloaded image to the UTM software, you should also choose the path to the host shared folder before starting the VM in the drop-down menu (e.g. ``/Users/username/shared``).
-Once the VM is started, the ``WEBOTS_SHARED_FOLDER`` environment variable must always be set for the package to work properly in the virtual machine (VM). 
-This variable specifies to the ``webots_ros2`` package the location of the shared folder that is used to exchange data between the host machine and the VM. 
+Once the VM is started, the ``WEBOTS_SHARED_FOLDER`` environment variable must always be set for the package to work properly in the virtual machine (VM).
+This variable specifies to the ``webots_ros2`` package the location of the shared folder that is used to exchange data between the host machine and the VM.
 The value for this variable should be in the format of ``<host shared folder>:<VM shared folder>``, where ``<host shared folder>`` is the path to the shared folder on the host machine and ``<VM shared folder>`` is the path to the same shared folder on the VM.
 
-In the pre-configured images, ``WEBOTS_SHARED_FOLDER`` is already set in ``~/.bashrc``. 
+In the pre-configured images, ``WEBOTS_SHARED_FOLDER`` is already set in ``~/.bashrc``.
 You will need to update it to use the correct path for the host folder:
 
 .. code-block:: console
