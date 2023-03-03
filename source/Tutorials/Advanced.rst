@@ -10,5 +10,6 @@ Advanced
    Advanced/FastDDS-Configuration
    Advanced/Recording-A-Bag-From-Your-Own-Node-CPP
    Advanced/Recording-A-Bag-From-Your-Own-Node-Py
-   Advanced/Simulators/Simulation-Main
+   Advanced/Simulation-Gazebo/Simulation-Gazebo
+   Advanced/Simulation-Webots/Simulation-Webots
    Advanced/Security/Security-Main
