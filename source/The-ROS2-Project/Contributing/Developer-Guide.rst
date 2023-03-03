@@ -337,6 +337,13 @@ Pull requests
 
 * Any developer is welcome to review and approve a pull request (see `General Principles`_).
 
+* When you are working on a change that is not ready for review or to be merged, use a draft pull request.
+  When that change is ready for review, move the pull request out of the draft state.
+  Note that if you want early feedback from specific people on a draft pull request, you can @ mention them in the pull request's description or in a comment on the pull request.
+
+* If your pull request depends on other pull requests, link to those pull requests in the pull request's description.
+  Doing so helps reviewers understand the context of the pull request.
+
 * When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
 
 * Pull-request review is not read-only, with the reviewer making comments and then waiting for the author to address them.
