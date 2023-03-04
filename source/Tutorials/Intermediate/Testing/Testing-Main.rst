@@ -39,4 +39,5 @@ Available Tutorials:
    :maxdepth: 1
 
    CLI
+   Cpp
    Python
