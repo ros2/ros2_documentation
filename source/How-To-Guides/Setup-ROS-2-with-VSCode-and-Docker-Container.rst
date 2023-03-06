@@ -219,6 +219,7 @@ To test if everything worked correctly, open a terminal in the container using `
 Inside the terminal do the following:
 
 .. code-block:: console
+
     sudo apt install ros-$ROS_DISTRO-rviz2 -y
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
