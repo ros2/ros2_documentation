@@ -105,7 +105,7 @@ The workspace structure should look like this:
         └── package2
 
 
-Open the ``src`` folder of your workspace in VS Code.
+With ``File->Open Folder...`` or ``Ctrl+K Ctrl+O``, open the ``src`` folder of your workspace in VS Code.
 
 Edit devcontainer.json for your environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -120,7 +120,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         "privileged": true,
         "remoteUser": "USERNAME",
         "build": {
-            "dockerfile": "DOCKERFILE",
+            "dockerfile": "Dockerfile",
             "args": {
                 "USERNAME": "USERNAME"
             }
@@ -145,7 +145,8 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
             "ROS_DOMAIN_ID": "42"
         },
         "runArgs": [
-            "--net=host"
+            "--net=host",
+            "-e", "DISPLAY=${env:DISPLAY}"
         ],
         "mounts": [
            "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
@@ -200,7 +201,7 @@ Open the Dockerfile and add the following contents:
     USER $USERNAME
     CMD ["/bin/bash"]
 
-Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ROS_DISTRO with the ROS 2 distribution you wish to use and added to the cache previously.
+Search here also for the ``USERNAME`` and replace it with your ``Linux username`` and the ``ROS_DISTRO`` with the ROS 2 distribution you wish to use and added to the cache previously.
 
 
 Open and Build Development Container
@@ -214,11 +215,12 @@ This will build your development docker container for your. It will take a while
 Test Container
 ^^^^^^^^^^^^^^
 
-To test if everything worked correctly, open a terminal in the container using ``Terminal->New Terminal`` in VS Code.
+To test if everything worked correctly, open a terminal in the container using ``View->Terminal`` or ``Ctrl+Shift+``` and ``New Terminal`` in VS Code.
 Inside the terminal do the following:
 
 .. code-block:: console
-
+    
+    sudo apt install ros-$ROS_DISTRO-rviz2 -y
     source /opt/ros/$ROS_DISTRO/setup.bash
     rviz2
 
