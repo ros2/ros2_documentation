@@ -341,7 +341,7 @@ Pull requests
   When that change is ready for review, move the pull request out of the draft state.
   Note that if you want early feedback from specific people on a draft pull request, you can @ mention them in the pull request's description or in a comment on the pull request.
 
-* If your pull request depends on other pull requests, link to each depended on pull requests by adding "Depends on <link>" at the top of your pull request's description.
+* If your pull request depends on other pull requests, link to each depended on pull request by adding ``- Depends on <link>`` at the top of your pull request's description.
   Doing so helps reviewers understand the context of the pull request.
 
 * When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
