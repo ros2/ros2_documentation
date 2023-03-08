@@ -33,6 +33,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 .. |eprosima| image:: Governance/images/eprosima.svg
 .. |gvsc| image:: Governance/images/gvsc.png
 .. |intel| image:: Governance/images/intel.svg
+.. |intrinsic| image:: Governance/images/intrinsic.png
 .. |irobot| image:: Governance/images/irobot.png
 .. |microsoft| image:: Governance/images/microsoft.svg
 .. |openrobotics| image:: Governance/images/openrobotics-logo-stacked.png
@@ -125,6 +126,10 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
           <td class="tscclass" align="center"><p>Intel: Harold Yang</p></td>
         </tr>
         <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://intrinsic.ai/"><img alt="Intrinsic logo" src="../_images/intrinsic.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Intrinsic: Chris Lalancette</p></td>
+        </tr>
+        <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="../_images/irobot.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
@@ -133,8 +138,8 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
           <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="OSRF logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>OSRF: Geoff Biggs</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="../_images/picknik.png" style="height: 35px;" /></a></p></td>
