@@ -208,6 +208,7 @@ Client Libraries
 ^^^^^^^^^^^^^^^^
 
 * Lead(s): Geoffrey Biggs, Alberto Soragna
+* Note: **This working group is currently on hiatus. Meetings will resume at some point in the future TBD.**
 * Resources:
 
  * Meeting invite group: `ros-client-libraries-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-client-libraries-working-group-invites>`_
@@ -224,15 +225,6 @@ Control
  * Webite link: https://control.ros.org
  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
-
-Edge AI
-^^^^^^^
-
-* Lead(s): TBD
-* Resources:
-
- * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
- * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
 
 Embedded Systems
 ^^^^^^^^^^^^^^^^
@@ -269,7 +261,7 @@ Navigation
 Manipulation
 ^^^^^^^^^^^^
 
-* Lead(s): Dave Coleman, Mark Moll
+* Lead(s): Henning Kayser
 * Resources:
 
  * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
@@ -289,19 +281,6 @@ Real-time
  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tag/wg-real-time>`_
  * Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-realtime:matrix.org>`_
-
-Safety
-^^^^^^
-
-* Lead(s): Geoffrey Biggs
-* Resources:
-
- * `Working group website <https://github.com/ros-safety/safety_working_group>`__
- * `Working group Community <https://github.com/ros-safety/safety_working_group>`__
- * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
- * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tag/wg-safety-critical>`_
-
-.. _Security Working Group:
 
 Security
 ^^^^^^^^
@@ -325,45 +304,6 @@ Rosbag2 and Tooling
  * Meeting invite group `ros-tooling-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-tooling-working-group-invites>`_
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tag/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
-
-WebTools
-^^^^^^^^
-
-* Lead(s): Emerson Knapp
-* Resources:
-
- * `Charter <https://github.com/RobotWebTools/community>`__
- * `Meeting Notes <https://docs.google.com/document/d/1esrRj2x80TSCEHOwuh-cT_bQvAqqvloQAQr8mPMzcTc/edit>`__
- * `Video Recordings <https://www.youtube.com/playlist?list=PLpUh4ScdBhSMb98_C0q_zIT8GNMehYBd>`__
- * `Google Group <https://groups.google.com/g/ros-webtools-working-group>`__
- * Discourse tag: `wg-webtools <https://discourse.ros.org/tag/wg-webtools>`__
-
-Community Working Groups
-------------------------
-
-The ROS 2 TSC is interested in encouraging and promoting working groups outside its direct purview.
-To provide extra visibility the TSC maintains a list of the community driven working groups here as well as working with the community to provide them with the same infrastructure.
-
-Hardware Acceleration
-^^^^^^^^^^^^^^^^^^^^^
-
-* Lead(s): Víctor Mayoral Vilches
-* Resources:
-
- * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
- * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
- * Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
-
-Rust
-^^^^
-
-* Lead(s): Esteve Fernandez, Jacob Hassold
-* Resources:
-
- * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
- * Meeting invite group `ros-rust-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-rust-working-group-invites>`_
- * Discourse tag: `wg-rust <https://discourse.ros.org/tag/wg-rust>`_
- * Matrix chat `+rosorg-rust:matrix.org <https://matrix.to/#/+rosorg-rust:matrix.org>`_
 
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
