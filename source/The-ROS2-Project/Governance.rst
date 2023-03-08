@@ -282,6 +282,8 @@ Real-time
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tag/wg-real-time>`_
  * Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-realtime:matrix.org>`_
 
+.. _Security Working Group:
+
 Security
 ^^^^^^^^
 
@@ -311,6 +313,7 @@ If you'd like to create a new WG, please inquire via info@openrobotics.org.
 
 
 Working Group Policies
+----------------------
 
  * Meetings should be posted to the Google calendar as well as announced on Discourse.
  * Meetings should have notes and be posted to Discourse using appropriate working group tag.
