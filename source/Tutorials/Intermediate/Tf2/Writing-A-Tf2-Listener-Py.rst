@@ -226,7 +226,7 @@ to ``setup.py`` (located in the ``src/learning_tf2_py`` directory).
 2 Update the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open the launch file called ``turtle_tf2_demo.launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports. The resulting file should look like:
+Open the launch file called ``turtle_tf2_demo_launch.py`` with your text editor, add two new nodes to the launch description, add a launch argument, and add the imports. The resulting file should look like:
 
 .. code-block:: python
 
@@ -353,7 +353,7 @@ Now you're ready to start your full turtle demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+    ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 You should see the turtle sim with two turtles.
 In the second terminal window type the following command:

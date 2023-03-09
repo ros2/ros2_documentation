@@ -61,7 +61,7 @@ If you now try to run the launch file, you will notice that it is failing:
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+   ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 2 Fix the listener node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -88,7 +88,7 @@ You can now run the launch file.
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+   ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 You should notice that ``lookup_transform()`` will actually block until the transform between the two turtles becomes available (this will usually take a few milli-seconds).
 Once the timeout has been reached (one second in this case), an exception will be raised only if the transform is still not available.

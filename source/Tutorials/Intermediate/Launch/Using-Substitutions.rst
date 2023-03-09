@@ -92,7 +92,7 @@ Finally, make sure to add in changes to the ``setup.py`` of the package so that 
 ^^^^^^^^^^^^^^^^^^^^
 
 Let's create a launch file that will call and pass arguments to another launch file.
-To do this, create an ``example_main.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
+To do this, create an ``example_main_launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -114,7 +114,7 @@ To do this, create an ``example_main.launch.py`` file in the ``launch`` folder o
                 PythonLaunchDescriptionSource([
                     PathJoinSubstitution([
                         FindPackageShare('launch_tutorial'),
-                        'example_substitutions.launch.py'
+                        'example_substitutions_launch.py'
                     ])
                 ]),
                 launch_arguments={
@@ -126,14 +126,14 @@ To do this, create an ``example_main.launch.py`` file in the ``launch`` folder o
         ])
 
 
-In the ``example_main.launch.py`` file, the ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
-The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions.launch.py`` file name.
+In the ``example_main_launch.py`` file, the ``FindPackageShare`` substitution is used to find the path to the ``launch_tutorial`` package.
+The ``PathJoinSubstitution`` substitution is then used to join the path to that package path with the ``example_substitutions_launch.py`` file name.
 
 .. code-block:: python
 
     PathJoinSubstitution([
         FindPackageShare('launch_tutorial'),
-        'example_substitutions.launch.py'
+        'example_substitutions_launch.py'
     ])
 
 The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
@@ -150,7 +150,7 @@ The ``TextSubstitution`` substitution is used to define the ``new_background_r``
 3 Substitutions example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now create an ``example_substitutions.launch.py`` file in the same folder.
+Now create an ``example_substitutions_launch.py`` file in the same folder.
 
 .. code-block:: python
 
@@ -236,7 +236,7 @@ Now create an ``example_substitutions.launch.py`` file in the same folder.
             )
         ])
 
-In the ``example_substitutions.launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
+In the ``example_substitutions_launch.py`` file, ``turtlesim_ns``, ``use_provided_red``, and ``new_background_r`` launch configurations are defined.
 They are used to store values of launch arguments in the above variables and to pass them to required actions.
 These ``LaunchConfiguration`` substitutions allow us to acquire the value of the launch argument in any part of the launch description.
 
@@ -337,11 +337,11 @@ Also remember to source the workspace after building.
 Launching example
 -----------------
 
-Now you can launch the ``example_main.launch.py`` file using the ``ros2 launch`` command.
+Now you can launch the ``example_main_launch.py`` file using the ``ros2 launch`` command.
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_main.launch.py
+    ros2 launch launch_tutorial example_main_launch.py
 
 This will do the following:
 
@@ -353,12 +353,12 @@ This will do the following:
 Modifying launch arguments
 --------------------------
 
-If you want to change the provided launch arguments, you can either update them in ``launch_arguments`` dictionary in the ``example_main.launch.py`` or launch the ``example_substitutions.launch.py`` with preferred arguments.
+If you want to change the provided launch arguments, you can either update them in ``launch_arguments`` dictionary in the ``example_main_launch.py`` or launch the ``example_substitutions_launch.py`` with preferred arguments.
 To see arguments that may be given to the launch file, run the following command:
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_substitutions.launch.py --show-args
+    ros2 launch launch_tutorial example_substitutions_launch.py --show-args
 
 This will show the arguments that may be given to the launch file and their default values.
 
@@ -382,7 +382,7 @@ Now you can pass the desired arguments to the launch file as follows:
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_substitutions.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+    ros2 launch launch_tutorial example_substitutions_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 
 Documentation
