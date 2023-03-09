@@ -41,7 +41,7 @@ Using event handlers
 1 Event handlers example launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new file called ``example_event_handlers.launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
+Create a new file called ``example_event_handlers_launch.py`` file in the ``launch`` folder of the ``launch_tutorial`` package.
 
 .. code-block:: python
 
@@ -278,11 +278,11 @@ Also remember to source the workspace after building.
 Launching example
 -----------------
 
-Now you can launch the ``example_event_handlers.launch.py`` file using the ``ros2 launch`` command.
+Now you can launch the ``example_event_handlers_launch.py`` file using the ``ros2 launch`` command.
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+    ros2 launch launch_tutorial example_event_handlers_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 This will do the following:
 
