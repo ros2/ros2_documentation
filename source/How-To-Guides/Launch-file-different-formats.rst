@@ -35,8 +35,9 @@ Each launch file performs the following actions:
 
         import os
 
-        from launch import LaunchDescription
         from ament_index_python import get_package_share_directory
+
+        from launch import LaunchDescription
         from launch.actions import DeclareLaunchArgument
         from launch.actions import GroupAction
         from launch.actions import IncludeLaunchDescription
