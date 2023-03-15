@@ -288,15 +288,15 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 ROS 2 Introspection
 -------------------
 
-`ROS 2 Command Line Interface <https://github.com/ros2/ros2cli>`__ supports several introspection tools to analyze the behavior of a ROS 2 network.
+The `ROS 2 Command Line Interface <https://github.com/ros2/ros2cli>`__ supports several introspection tools to analyze the behavior of a ROS 2 network.
 These tools (i.e. ``ros2 bag record``, ``ros2 topic list``, etc.) are very helpful to understand a ROS 2 working network.
 
 Most of these tools use DDS simple discovery to exchange topic information with every existing participant (using simple discovery, every participant in the network is connected with each other).
 However, the new Discovery Server v2 implements a network traffic reduction scheme that limits the discovery data between participants that do not share a topic.
-This means that not every node will receive every topic's discovery data unless it has a reader for that topic.
-As most ROS 2 CLIs need a node in the network (some of them rely on a running ROS 2 daemon, and some create their own nodes), using the Discovery Server v2 these nodes will not have all the network information, and thus their functionalities are limited.
+This means that nodes will only receive topic's discovery data if it has a writer or a reader for that topic.
+As most ROS 2 CLIs need a node in the network (some of them rely on a running ROS 2 daemon, and some create their own nodes), using the Discovery Server v2 these nodes will not have all the network information, and thus their functionality will be limited.
 
-The Discovery Server v2 functionality allows every Participant running as a **SUPER_CLIENT**, a kind of **Client** that connects to a **SERVER**, from which it receives all the available discovery information (instead of just what it needs).
+The Discovery Server v2 functionality allows every Participant to run as a **Super Client**, a kind of **Client** that connects to a **Server**, from which it receives all the available discovery information (instead of just what it needs).
 In this sense, ROS 2 introspection tools can be configured as **Super Client**, thus being able to discover every entity that is using the Discovery Server protocol within the network.
 
 .. note::
@@ -315,7 +315,7 @@ It creates its own Participant to add a ROS 2 Node to the network graph, in orde
 In order for the ROS 2 CLI to work when using Discovery Server mechanism, the ROS 2 Daemon needs to be
 configured as **Super Client**.
 Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Super Client**.
-This will allow the Daemon to discover the entire Node graph, and to receive every topic and endpoint information.
+This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
 To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
 
 Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
