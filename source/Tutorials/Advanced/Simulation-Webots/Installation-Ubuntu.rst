@@ -1,7 +1,7 @@
-Installation (Linux)
+Installation (Ubuntu)
 ======================================
 
-**Goal:** Install the ``webots_ros2`` package and run simulation examples on Linux.
+**Goal:** Install the ``webots_ros2`` package and run simulation examples on Ubuntu.
 
 **Tutorial level:** Advanced
 

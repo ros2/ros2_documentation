@@ -22,7 +22,7 @@ This set of tutorials will teach you how to configure the Webots simulator with 
 .. toctree::
    :maxdepth: 1
 
-   Installation-Linux
+   Installation-Ubuntu
    Installation-Windows
    Installation-MacOS
    Setting-Up-Simulation-Webots
