@@ -32,7 +32,7 @@ Instala y ejecuta la demo
 -------------------------
 
 La demostración en tiempo real se escribió pensando en los sistemas operativos Linux, ya que muchos miembros de la comunidad ROS que realizan computación en tiempo real usan Xenomai o RT_PREEMPT como sus soluciones en tiempo real.
-Dado que muchas de las operaciones realizadas en la demostración se realizan para optimizar el rendimiento o son específicas del sistema operativo, la demostración solo compila y se ejecuta en sistemas Linux.
+Dado que muchas de las operaciones realizadas en la demostración para optimizar el rendimiento son específicas del sistema operativo, la demostración solo se compila y ejecuta en sistemas Linux.
 **Entonces, si eres un usuario de OSX o Windows, ¡no intentes esta parte!**
 
 Además, esto debe construirse desde la fuente utilizando una API DDS estática. **Actualmente, la única implementación admitida es Connext**.

@@ -56,6 +56,11 @@ You can now write tests to your heart's content. There are `plenty of resources 
   def test_math():
       assert 2 + 2 == 5   # This should fail for most mathematical systems
 
+Running Tests
+-------------
+
+See the :doc:`tutorial on how to run tests from the command line <CLI>` for more information on running the tests and inspecting the test results.
+
 Special Commands
 ----------------
 
@@ -66,3 +71,9 @@ For example, you can specify the name of the function to run with
 .. code-block:: console
 
   colcon test --packages-select <name-of-pkg> --pytest-args -k name_of_the_test_function
+
+To see the pytest output while running the tests, use these flags:
+
+.. code-block:: console
+
+  colcon test --event-handlers console_cohesion+
