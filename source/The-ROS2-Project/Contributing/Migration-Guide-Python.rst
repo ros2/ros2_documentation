@@ -2,13 +2,13 @@
 
     Migration-Guide-Python
 
-Python migration guide from ROS 1
-=================================
+Guía de Python sobre migración desde ROS1
+=========================================
 
-Node Initialization
--------------------
+Initialización de Nodo
+----------------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
@@ -16,7 +16,7 @@ In ROS 1:
 
    rospy.loginfo('Created node')
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 
@@ -26,10 +26,10 @@ In ROS 2:
    node.get_logger().info('Created node')
 
 
-ROS Parameters
---------------
+Parametros de ROS
+-----------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
@@ -41,7 +41,7 @@ In ROS 1:
 
   rospy.logwarn('port: ' + port)
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 
@@ -54,58 +54,58 @@ In ROS 2:
    node.get_logger().warn('port: ' + port)
 
 
-Creating a Publisher
---------------------
+Crear un Publicador
+-------------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
    pub = rospy.Publisher('chatter', String)
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 
    pub = node.create_publisher(String, 'chatter')
 
 
-Creating a Subscriber
----------------------
+Crear un Subscriptor
+--------------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
    sub = rospy.Subscriber('chatter', String, callback)
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 
    sub = node.create_subscription(String, 'chatter', callback)
 
 
-Creating a Service
-------------------
+Crear un Servicio
+-----------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
    srv = rospy.Service('add_two_ints', AddTwoInts, add_two_ints_callback)
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 
    srv = node.create_service(AddTwoInts, 'add_two_ints', add_two_ints_callback)
 
 
-Creating a Service Client
--------------------------
+Crear un Cliente para un Servicio
+---------------------------------
 
-In ROS 1:
+En ROS 1:
 
 .. code-block:: python
 
@@ -113,7 +113,7 @@ In ROS 1:
    add_two_ints = rospy.ServiceProxy('add_two_ints', AddTwoInts)
    resp = add_two_ints(req)
 
-In ROS 2:
+En ROS 2:
 
 .. code-block:: python
 

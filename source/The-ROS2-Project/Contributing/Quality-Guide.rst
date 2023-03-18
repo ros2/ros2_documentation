@@ -3,40 +3,40 @@
     Quality-Guide
     Contributing/Quality-Guide
 
-Quality guide: ensuring code quality
-====================================
+Guía de calidad: garantizar la calidad del código
+=================================================
 
-.. contents:: Table of Contents
+.. contents:: Tabla de Contenido
    :depth: 2
    :local:
 
 This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the :doc:`Developer Guide <Developer-Guide>`.
 
-The sections below intend to address ROS 2 core, application and ecosystem packages and the core client libraries, C++ and Python.
-The solutions presented are motivated by design and implementation considerations to improve quality attributes like "Reliability", "Security", "Maintainability", "Determinism", etc. which relate to non-functional requirements.
+Las siguientes secciones pretenden abordar los paquetes básicos, de aplicaciones y de ecosistemas de ROS 2 y las bibliotecas principales de clientes, C++ y Python.
+Las soluciones presentadas están motivadas por consideraciones de diseño e implementación para mejorar atributos de calidad como "Confiabilidad", "Seguridad", "Mantenibilidad", "Determinismo", etc. que se relacionan con requisitos no funcionales.
 
 
-Static code analysis as part of the ament package build
--------------------------------------------------------
+Análisis de código estático como parte de la compilación del paquete ament
+--------------------------------------------------------------------------
 
-**Context**:
+**Contexto**:
 
-* You have developed your C++ production code.
-* You have created a ROS 2 package with build support with ``ament``.
+* Has desarrollado tu código de producción C++.
+* Has creado un paquete ROS 2 con soporte de compilación con ``ament``.
 
-**Problem**:
+**Problema**:
 
-* Library level static code analysis is not run as part of the package build procedure.
-* Library level static code analysis needs to be executed manually.
-* Risk of forgetting to execute library level static code analysis before building
-  a new package version.
+* El análisis de código estático a nivel de biblioteca no se ejecuta como parte del procedimiento de creación del paquete.
+* El análisis de código estático a nivel de biblioteca debe ejecutarse manualmente.
+* Riesgo de olvidarse de ejecutar el análisis de código estático a nivel de biblioteca antes de construir
+  una nueva versión del paquete.
 
-**Solution**:
+**Solución**:
 
-* Use the integration capabilities of ``ament`` to execute static code analysis as
-  part of the package build procedure.
+* Usa las capacidades de integración de ``ament`` para ejecutar análisis de código estático como
+  parte del procedimiento de construcción del paquete.
 
-**Implementation**:
+**Implementación**:
 
 * Insert into the packages ``CMakeLists.txt`` file.
 
@@ -50,7 +50,7 @@ Static code analysis as part of the ament package build
    endif()
    ...
 
-* Insert the ``ament_lint`` test dependencies into the packages ``package.xml`` file.
+* Inserta las dependencias de prueba ``ament_lint`` en el archivo ``package.xml`` de los paquetes.
 
 .. code-block:: bash
 
@@ -62,7 +62,7 @@ Static code analysis as part of the ament package build
      ...
    </package>
 
-**Examples**:
+**Ejemplos**:
 
 * ``rclcpp``:
 
@@ -74,60 +74,59 @@ Static code analysis as part of the ament package build
   * `rclcpp/rclcpp_lifecycle/CMakeLists.txt <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_lifecycle/CMakeLists.txt>`__
   * `rclcpp/rclcpp_lifecycle/package.xml <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_lifecycle/package.xml>`__
 
-**Resulting context**:
-
-* The static code analysis tools supported by ``ament`` are run as part of the package build.
-* Static code analysis tools not supported by ``ament`` need to be executed separately.
-
-Static Thread Safety Analysis via Code Annotation
--------------------------------------------------
-
-**Context:**
-
-* You are developing/debugging your multithreaded C++ production code
-* You access data from multiple threads in C++ code
-
-**Problem:**
-
-* Data races and deadlocks can lead to critical bugs.
-
-**Solution:**
-
-* Utilize Clang's static `Thread Safety Analysis <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html>`__ by annotating threaded code
-
-**Context For Implementation:**
+**Contexto resultante**:
 
 
-To enable Thread Safety Analysis, code must be annotated to let the compiler know more about the semantics of the code.
-These annotations are Clang-specific attributes - e.g. ``__attribute__(capability()))``.
-Instead of using those attributes directly, ROS 2 provides preprocessor macros that are erased when using other compilers.
+* Las herramientas de análisis de código estático soportadas por ``ament`` se ejecutan como parte de la construcción del paquete.
+* Las herramientas de análisis de código estático que no son compatibles con ``ament`` deben ejecutarse por separado.
 
-These macros can be found in `rcpputils/thread_safety_annotations.hpp <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
+Análisis estático de seguridad de hilos a través de la anotación de código
+--------------------------------------------------------------------------------
 
-The Thread Safety Analysis documentation states
-  Thread safety analysis can be used with any threading library, but it does require that the threading API be wrapped in classes and methods which have the appropriate annotations
+**Contexto:**
 
-We have decided that we want ROS 2 developers to be able to use ``std::`` threading primitives directly for their development.
-We do not want to provide our own wrapped types as is suggested above.
 
-There are three C++ standard libraries to be aware of
+* Estás desarrollando/depurando tu código de producción C++ multihilo
+* Accedes a datos de múltiples hilos en código C++
 
-* The GNU standard library ``libstdc++`` - default on Linux, explicitly via the compiler option ``-stdlib=libstdc++``
-* The LLVM standard library ``libc++`` (also called ``libcxx`` ) - default on macOS,  explicitly set by the compiler option ``-stdlib=libc++``
-* The Windows C++ Standard Library - not relevant to this use case
+**Problema:**
 
-``libcxx`` annotates its ``std::mutex`` and ``std::lock_guard`` implementations for Thread Safety Analysis. When using GNU ``libstdc++`` , those annotations are not present, so Thread Safety Analysis cannot be used on non-wrapped ``std::`` types.
+* Las carreras de datos y los interbloqueos pueden provocar errores críticos.
 
-*Therefore, to use Thread Safety Analysis directly with* ``std::`` *types, we must use* ``libcxx``
+**Solución:**
 
-**Implementation:**
 
-The code migration suggestions here are by no means complete - when writing (or annotating existing) threaded code, you are encouraged to utilize as many of the annotations as is logical for your use case.
-However, this step-by-step is a great place to start!
+* Utiliza el `Análisis de seguridad de hilos estático de Clang <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html>`__ al anotar el código de subproceso
 
-* Enabling Analysis for Package/Target
+**Contexto para la implementación:**
 
-  When the C++ compiler is Clang, enable the ``-Wthread-safety`` flag. Example below for CMake-based projects
+Para habilitar el Análisis de Seguridad de hilos, se debe anotar el código para que el compilador sepa más sobre la semántica del código. Estas anotaciones son atributos específicos de Clang, p. ``__atributo__(capacidad()))``. En lugar de usar esos atributos directamente, ROS 2 proporciona macros de preprocesador que se borran cuando se usan otros compiladores.
+
+Estas macros se pueden encontrar en `rcpputils/thread_safety_annotations.hpp <https://github.com/ros2/rcpputils/blob/{REPOS_FILE_BRANCH}/include/rcpputils/thread_safety_annotations.hpp>`__
+
+La documentación del análisis de seguridad de hilos establece
+  El análisis de seguridad de hilos se puede usar con cualquier biblioteca de hilos, pero requiere que la API de hilos se incluya en clases y métodos que tengan las anotaciones adecuadas.
+
+Hemos decidido que queremos que los desarrolladores de ROS 2 puedan usar primitivas de subprocesamiento ``std::`` directamente para su desarrollo. No queremos proporcionar nuestros propios tipos envueltos como se sugiere anteriormente.
+
+Hay tres bibliotecas estándar de C++ a tener en cuenta
+
+* La biblioteca estándar GNU ``libstdc++``: predeterminada en Linux, explícitamente a través de la opción del compilador ``-stdlib=libstdc++``
+* La biblioteca estándar LLVM ``libc++`` (también llamada ``libcxx``) - predeterminada en macOS, establecida explícitamente por la opción del compilador ``-stdlib=libc++``
+* La biblioteca estándar de Windows C++: no es relevante para este caso de uso
+
+``libcxx`` anota sus implementaciones ``std::mutex`` y ``std::lock_guard`` para el análisis de seguridad de hilos. Cuando se usa GNU ``libstdc++`` , esas anotaciones no están presentes, por lo que el análisis de seguridad de hilos no se puede usar en tipos ``std::`` no encapsulados.
+
+*Por lo tanto, para usar Thread Safety Analysis directamente con tipos* ``std::`` *, debemos usar* ``libcxx``
+
+
+**Implementación:**
+
+Las sugerencias de migración de código aquí de ninguna manera están completas - al escribir (o anotar las existentes) código multihilo, se te recomienda a utilizar tantas anotaciones como sea lógico para tu caso de uso. Sin embargo, ¡este paso a paso es un gran lugar para comenzar!
+
+* Habilitación de análisis para paquete/objetivo
+
+   Cuando el compilador de C++ es Clang, habilite el indicador ``-Wthread-safety``. Ejemplo a continuación para proyectos basados en CMake
 
   .. code-block:: cmake
 
@@ -136,12 +135,12 @@ However, this step-by-step is a great place to start!
        target_compile_options(${MY_TARGET} PUBLIC -Wthread-safety)  # for a single library or executable
      endif()
 
-* Annotating Code
+* Código de anotación
 
-  * Step 1 - Annotate data members
+   * Paso 1 - Anotar miembros de datos
 
-    * Find anywhere that ``std::mutex`` is used to protect some member data
-    * Add the ``RCPPUTILS_TSA_GUARDED_BY(mutex_name)`` annotation to the data that is protected by the mutex
+     * Encuentre en cualquier lugar que ``std::mutex`` se use para proteger algunos datos de miembros
+     * Agrega la anotación ``RCPPUTILS_TSA_GUARDED_BY(mutex_name)`` a los datos que están protegidos por el mutex
 
     .. code-block:: cpp
 
@@ -161,9 +160,9 @@ However, this step-by-step is a great place to start!
         int bar RCPPUTILS_TSA_GUARDED_BY(mutex_) = 0;
       };
 
-  * Step 2 - Fix Warnings
+   * Paso 2: corregir advertencias
 
-    * In the above example - ``Foo::get`` will produce a compiler warning! To fix it, lock before returning bar
+     * En el ejemplo anterior, ``Foo::get`` producirá una advertencia del compilador. Para solucionarlo, bloquear antes de volver a la bar
 
     .. code-block:: cpp
 
@@ -172,80 +171,79 @@ However, this step-by-step is a great place to start!
         return bar;
       }
 
-  * Step 3 - (Optional but Recommended) Refactor Existing Code to Private-Mutex Pattern
+   * Paso 3 - (Opcional pero recomendado) Refactorizar el código existente a un patrón privado-Mutex
 
-    A recommended pattern in threaded C++ code is to always keep your ``mutex`` as a ``private:`` member of the data structure. This makes data safety the concern of the containing structure, offloading that responsibility from users of the structure and minimizing the surface area of affected code.
+     Un patrón recomendado en código C++ multihilo es mantener siempre su ``mutex`` como miembro ``privado:`` de la estructura de datos. Esto hace que la seguridad de los datos sea la preocupación de la estructura contenedora, descargando esa responsabilidad de los usuarios de la estructura y minimizando el área superficial del código afectado.
 
-    Making your locks private may require rethinking the interfaces to your data. This is a great exercise - here are a few things to consider
+     Hacer que sus bloqueos sean privados puede requerir repensar las interfaces de sus datos. Este es un gran ejercicio - aquí hay algunas cosas a considerar
 
-    * You may want to provide specialized interfaces for performing analysis that requires complex locking logic, e.g. counting members in a filtered set of a mutex-guarded map structure, instead of actually returning the underlying structure to consumers
-    * Consider copying to avoid blocking, where the amount of data is small. This can let other threads get on with accessing the shared data, which can potentially lead to better overall performance.
+     * Es posible que desees proporcionar interfaces especializadas para realizar análisis que requieran una lógica de bloqueo compleja, p. contar miembros en un conjunto filtrado de una estructura de mapa protegida por mutex, en lugar de devolver la estructura subyacente a los consumidores
+     * Considera la posibilidad de copiar para evitar el bloqueo, donde la cantidad de datos es pequeña. Esto puede permitir que otros hilos sigan accediendo a los datos compartidos, lo que potencialmente puede conducir a un mejor rendimiento general.
 
-  * Step 4 - (Optional) Enable Negative Capability Analysis
+   * Paso 4 - (Opcional) Habilitar análisis de capacidad negativa
 
-    https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities
+     https://clang.llvm.org/docs/ThreadSafetyAnalysis.html#negative-capabilities
 
-    Negative Capability Analysis lets you specify “this lock must not be held when calling this function”. It can reveal potential deadlock cases that other annotations cannot.
+     El análisis de capacidad negativa te permite especificar "este bloqueo no debe mantenerse al llamar a esta función". Puede revelar posibles casos de punto muerto que otras anotaciones no pueden.
 
-    * Where you specified ``-Wthread-safety``, add the additional flag ``-Wthread-safety-negative``
-    * On any function that acquires a lock, use the ``RCPPUTILS_TSA_REQUIRES(!mutex)`` pattern
+     * Donde especificas ``-Wthread-safety``, agrega el indicador adicional ``-Wthread-safety-negative``
+     * En cualquier función que adquiera un bloqueo, a el patrón ``RCPPUTILS_TSA_REQUIRES(!mutex)``
 
-* How to run the analysis
+* Cómo ejecutar el análisis
 
-  * The ROS CI build farm runs a nightly job with ``libcxx``, which will surface any issues in the ROS 2 core stack by being marked "Unstable" when Thread Safety Analysis raises warnings
-  * For local runs, you have the following options, all equivalent
+   * La granja de compilación ROS CI ejecuta un trabajo nocturno con ``libcxx``, que hará surgir cualquier problema en la pila principal de ROS 2 al marcarse como "Inestable" cuando Thread Safety Analysis genere advertencias
+   * Para ejecuciones locales, tienes las siguientes opciones, todas equivalentes
 
-    * Use the colcon `clang-libcxx mixin <https://github.com/colcon/colcon-mixin-repository/blob/master/clang-libcxx.mixin>`__ (see the `documentation <https://github.com/colcon/colcon-mixin-repository/blob/master/README.md>`__ for configuring mixins)
-      ::
+     * Utiliza el mixin colcon `clang-libcxx <https://github.com/colcon/colcon-mixin-repository/blob/master/clang-libcxx.mixin>`__
 
-          colcon build --mixin clang-libcxx
+       * ``construcción colcon --mixin clang-libcxx``
+       * Solo puedes usar esto si tiene `mixins configurados para su instalación de colcon <https://github.com/colcon/colcon-mixin-repository/blob/master/README.md>`__
 
-    * Passing compiler to CMake
-      ::
+     * Pasar el compilador a CMake
 
-          colcon build --cmake-args -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli
+       * ``colcon build --cmake-args -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli``
 
-    * Overriding system compiler
-      ::
+     * Anulación del compilador del sistema
 
-          CC=clang CXX=clang++ colcon build --cmake-args -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli
-
-**Resulting Context:**
-
-* Potential deadlocks and race conditions will be surfaced at compile time, when using Clang and ``libcxx``
+       * ``CC=clang CXX=clang++ colcon build --cmake-args -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli``
 
 
-Dynamic analysis (data races & deadlocks)
------------------------------------------
+**Contexto resultante:**
 
-**Context:**
+* Los interbloqueos potenciales y las condiciones de ejecución aparecerán en el momento de la compilación, al usar Clang y ``libcxx``
 
-* You are developing/debugging your multithreaded C++ production code.
-* You use pthreads or C++11 threading + llvm libc++ (in case of ThreadSanitizer).
-* You do not use Libc/libstdc++ static linking (in case of ThreadSanitizer).
-* You do not build non-position-independent executables (in case of ThreadSanitizer).
 
-**Problem:**
+Análisis dinámico (ejecución de datos y puntos muertos)
+-------------------------------------------------------
 
-* Data races and deadlocks can lead to critical bugs.
-* Data races and deadlocks cannot be detected using static analysis (reason: limitation of static analysis).
-* Data races and deadlocks must not show up during development debugging / testing (reason: usually not all possible control paths through production code exercised).
+**Contexto:**
 
-**Solution:**
+* Estas desarrollando/depurando tu código de producción C++ multiproceso.
+* Usas pthreads o C++11 threading + llvm libc++ (en el caso de ThreadSanitizer).
+* No utilizas enlaces estáticos Libc/libstdc++ (en el caso de ThreadSanitizer).
+* No creas ejecutables que no sean independientes de la posición (en el caso de ThreadSanitizer).
 
-* Use a dynamic analysis tool which focuses on finding data races and deadlocks (here clang ThreadSanitizer).
+**Problema:**
 
-**Implementation:**
+* Las condiciones de carrera y los interbloqueos pueden provocar errores críticos.
+* Las condiciones de carrerq y los interbloqueos no se pueden detectar mediante el análisis estático (motivo: limitación del análisis estático).
+* Las condiciones de carrera y los interbloqueos no deben aparecer durante la depuración/prueba del desarrollo (razón: por lo general, no se ejercen todas las rutas de control posibles a través del código de producción).
 
-* Compile and link the production code with clang using the option ``-fsanitize=thread`` (this instruments the production code).
-* In case different production code shall be executed during analysis consider conditional compilation e.g. `ThreadSanitizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
-* In case some code shall not be instrumented consider `ThreadSanitizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no-sanitize-thread>`__.
-* In case some files shall not be instrumented consider file or function-level exclusion `ThreadSanitizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__, more specific: `ThreadSanitizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ or with `ThreadSanitizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__ and use the option ``--fsanitize-blacklist``.
+**Solución:**
 
-**Resulting context:**
+* Utilizar una herramienta de análisis dinámico que se centre en la búsqueda de condiciones de carrera y puntos muertos (aquí clang ThreadSanitizer).
 
-* Higher chance to find data races and deadlocks in production code before deploying it.
-* Analysis result may lack reliability, tool in beta phase stage (in case of ThreadSanitizer).
-* Overhead due to production code instrumentation (maintenance of separate branches for instrumented/not instrumented production code, etc.).
-* Instrumented code needs more memory per thread (in case of ThreadSanitizer).
-* Instrumented code maps a lot virtual address space (in case of ThreadSanitizer).
+**Implementación:**
+
+* Compila y vincula el código de producción con clang usando la opción ``-fsanitize=thread`` (esto instrumenta el código de producción).
+* En caso de que se ejecute un código de producción diferente durante el análisis, considere la compilación condicional, p. `ThreadSanitizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
+* En caso de que no se instrumente algún código, considere `ThreadSanitizers _/*attribute*/_((no_sanitize("thread"))) <https://clang.llvm.org/docs/ThreadSanitizer.html#attribute-no- higienizar-hilo>`__.
+* En caso de que algunos archivos no se instrumenten, considera la exclusión a nivel de archivo o función `ThreadSanitizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__, más específicamente: `ThreadSanitizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ o con `ThreadSanitizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__ y usa la opción ``--fsanitize-blacklist``.
+
+**Contexto resultante:**
+
+* Mayor probabilidad de encontrar carreras de datos y puntos muertos en el código de producción antes de implementarlo.
+* El resultado del análisis puede carecer de fiabilidad, herramienta en fase beta (en el caso de ThreadSanitizer).
+* Overhead por instrumentación de código de producción (mantenimiento de ramas separadas para código de producción instrumentado/no instrumentado, etc.).
+* El código instrumentado necesita más memoria por subproceso (en el caso de ThreadSanitizer).
+* El código instrumentado asigna mucho espacio de direcciones virtuales (en el caso de ThreadSanitizer).
