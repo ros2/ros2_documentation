@@ -10,7 +10,7 @@ To compile and run the tests, simply run the `test <https://colcon.readthedocs.i
 
 .. code-block:: console
 
-  colcon test --cmake-args tests [package_selection_args]
+  colcon test --ctest-args tests [package_selection_args]
 
 (where ``package_selection_args`` are optional package selection arguments for ``colcon`` to limit which packages are built and run)
 

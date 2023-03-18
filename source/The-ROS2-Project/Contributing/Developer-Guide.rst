@@ -337,6 +337,15 @@ Pull requests
 
 * Cualquier desarrollador puede revisar y aprobar una pull request (consulta `Principios generales`_).
 
+* Cuando estés trabajando en un cambio que no está listo para revisar o fusionar, use un borrador de pull request.
+   Cuando ese cambio esté listo para su revisión, mueve el pull request fuera del estado de borrador. Ten en cuenta
+   que si desea comentarios tempranos de personas específicas sobre un borrador de solicitud de extracción, puede @mencionarlos
+   en la descripción del pull request o en un comentario sobre el pull request.
+
+* Si tu pull request depende de otro pull request, enlaza a cada solicitud de pull request dependiente agregando - Depende
+   de <enlace> en la parte superior de la descripción de tu pull request. Hacerlo ayuda a los revisores a comprender el
+   contexto del pull request.
+
 * Cuando comiences a revisar un pull request, comenta el pull request para que otros desarrolladores sepan que lo estás revisando.
 
 * La revisión de pull request no es de solo lectura, ya que el revisor hace comentarios y luego espera a que el autor los aborde.

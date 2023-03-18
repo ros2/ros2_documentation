@@ -86,6 +86,7 @@ Instala paquetes según tu versión de Ubuntu.
             flake8-deprecated \
             flake8-import-order \
             flake8-quotes \
+            "pytest>=5.3" \
             pytest-repeat \
             pytest-rerunfailures
 

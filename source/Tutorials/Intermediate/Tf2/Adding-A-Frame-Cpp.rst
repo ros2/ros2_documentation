@@ -185,7 +185,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Now let's create a launch file for this example.
-With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.launch.py``, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo_launch.py``, and add the following lines:
 
 .. code-block:: python
 
@@ -204,7 +204,7 @@ With your text editor, create a new file called ``turtle_tf2_fixed_frame_demo.la
         demo_nodes = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(
                 get_package_share_directory('learning_tf2_cpp'), 'launch'),
-                '/turtle_tf2_demo.launch.py']),
+                '/turtle_tf2_demo_launch.py']),
             )
 
         return LaunchDescription([
@@ -305,7 +305,7 @@ Now you can start the turtle broadcaster demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 You should notice that the new ``carrot1`` frame appeared in the transformation tree.
 
@@ -320,10 +320,10 @@ One way is to pass the ``target_frame`` argument to the launch file directly fro
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py target_frame:=carrot1
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py target_frame:=carrot1
 
 The second way is to update the launch file.
-To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
+To do so, open the ``turtle_tf2_fixed_frame_demo_launch.py`` file, and add the ``'target_frame': 'carrot1'`` parameter via ``launch_arguments`` argument.
 
 .. code-block:: python
 
@@ -333,7 +333,7 @@ To do so, open the ``turtle_tf2_fixed_frame_demo.launch.py`` file, and add the `
             launch_arguments={'target_frame': 'carrot1'}.items(),
             )
 
-Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo.launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
+Now rebuild the package, restart the ``turtle_tf2_fixed_frame_demo_launch.py``, and you'll see the second turtle following the carrot instead of the first turtle!
 
 .. image:: images/carrot_static.png
 
@@ -473,7 +473,7 @@ Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your e
 2.3 Write the launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.launch.py`` and paste the following code:
+To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo_launch.py`` and paste the following code:
 
 .. code-block:: python
 
@@ -492,7 +492,7 @@ To test this code, create a new launch file ``turtle_tf2_dynamic_frame_demo.laun
         demo_nodes = IncludeLaunchDescription(
             PythonLaunchDescriptionSource([os.path.join(
                 get_package_share_directory('learning_tf2_cpp'), 'launch'),
-                '/turtle_tf2_demo.launch.py']),
+                '/turtle_tf2_demo_launch.py']),
             launch_arguments={'target_frame': 'carrot1'}.items(),
             )
 
@@ -581,7 +581,7 @@ Now you can start the dynamic frame demo:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_dynamic_frame_demo_launch.py
 
 You should see that the second turtle is following the carrot's position that is constantly changing.
 

@@ -18,7 +18,7 @@ Para iniciar la demo, ejecutamos el archivo de inicio de la demo, que explicarem
 .. code-block:: bash
 
    source ~/ros2_ws/install/setup.bash
-   ros2 launch dummy_robot_bringup dummy_robot_bringup.launch.py
+   ros2 launch dummy_robot_bringup dummy_robot_bringup_launch.py
 
 Deberías ver algunas impresiones dentro de su terminal a lo largo de las siguientes líneas:
 

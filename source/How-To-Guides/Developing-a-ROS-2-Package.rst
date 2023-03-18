@@ -119,7 +119,7 @@ and a ``setup.py`` file that looks like:
            # Include our package.xml file
            (os.path.join('share', package_name), ['package.xml']),
            # Include all launch files.
-           (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*.launch.py'))),
+           (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
        ],
        # This is important as well
        install_requires=['setuptools'],

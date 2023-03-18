@@ -41,7 +41,7 @@ Utilizar controladores de eventos
 1 Ejemplo de fichero de launch con controladores de evento
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Crea un nuevo fichero llamado ``example_event_handlers.launch.py`` en la carpeta ``launch`` del paquete ``launch_tutorial``.
+Crea un nuevo fichero llamado ``example_event_handlers_launch.py`` en la carpeta ``launch`` del paquete ``launch_tutorial``.
 
 .. code-block:: python
 
@@ -278,11 +278,11 @@ También recuerda ejecutar source al workspace después de compilar.
 Ejemplo de launching
 --------------------
 
-Ahora puedes hacer launch al fichero ``example_event_handlers.launch.py`` usando el comando ``ros2 launch``.
+Ahora puedes hacer launch al fichero ``example_event_handlers_launch.py`` usando el comando ``ros2 launch``.
 
 .. code-block:: console
 
-    ros2 launch launch_tutorial example_event_handlers.launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
+    ros2 launch launch_tutorial example_event_handlers_launch.py turtlesim_ns:='turtlesim3' use_provided_red:='True' new_background_r:=200
 
 Esto hará lo siguiente:
 

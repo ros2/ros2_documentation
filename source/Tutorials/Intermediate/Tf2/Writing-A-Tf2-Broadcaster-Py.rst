@@ -258,7 +258,7 @@ Finally, add the following line between the ``'console_scripts':`` brackets:
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 Now create a launch file for this demo.
-With your text editor, create a new file called ``turtle_tf2_demo.launch.py`` in the ``launch`` folder, and add the following lines:
+With your text editor, create a new file called ``turtle_tf2_demo_launch.py`` in the ``launch`` folder, and add the following lines:
 
 .. code-block:: python
 
@@ -427,7 +427,7 @@ Now run the launch file that will start the turtlesim simulation node and ``turt
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_py turtle_tf2_demo.launch.py
+    ros2 launch learning_tf2_py turtle_tf2_demo_launch.py
 
 In the second terminal window type the following command:
 

@@ -165,7 +165,7 @@ Fire up your favorite editor and paste the following code into ``~/second_ros2_w
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Create a new ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch`` folder.
-Open your editor and paste the following code, saving it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo.launch.py``
+Open your editor and paste the following code, saving it as ``~/second_ros2_ws/src/urdf_tutorial_r2d2/launch/demo_launch.py``
 
 .. code-block:: python
 
@@ -259,7 +259,7 @@ Launch the package
 
 .. code-block:: console
 
-  ros2 launch urdf_tutorial_r2d2 demo.launch.py
+  ros2 launch urdf_tutorial_r2d2 demo_launch.py
 
 Open a new terminal, the run Rviz using
 
