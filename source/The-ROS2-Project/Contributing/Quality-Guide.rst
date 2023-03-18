@@ -10,7 +10,7 @@ Guía de calidad: garantizar la calidad del código
    :depth: 2
    :local:
 
-Esta página brinda orientación sobre cómo mejorar la calidad del software de los paquetes ROS 2, centrándose en áreas más específicas que la sección Prácticas de calidad de la `Guía para desarrolladores <Developer-Guide>`.
+This page gives guidance about how to improve the software quality of ROS 2 packages, focusing on more specific areas than the Quality Practices section of the :doc:`Developer Guide <Developer-Guide>`.
 
 Las siguientes secciones pretenden abordar los paquetes básicos, de aplicaciones y de ecosistemas de ROS 2 y las bibliotecas principales de clientes, C++ y Python.
 Las soluciones presentadas están motivadas por consideraciones de diseño e implementación para mejorar atributos de calidad como "Confiabilidad", "Seguridad", "Mantenibilidad", "Determinismo", etc. que se relacionan con requisitos no funcionales.
@@ -21,12 +21,10 @@ Análisis de código estático como parte de la compilación del paquete ament
 
 **Contexto**:
 
-
 * Has desarrollado tu código de producción C++.
 * Has creado un paquete ROS 2 con soporte de compilación con ``ament``.
 
 **Problema**:
-
 
 * El análisis de código estático a nivel de biblioteca no se ejecuta como parte del procedimiento de creación del paquete.
 * El análisis de código estático a nivel de biblioteca debe ejecutarse manualmente.
@@ -35,14 +33,12 @@ Análisis de código estático como parte de la compilación del paquete ament
 
 **Solución**:
 
-
 * Usa las capacidades de integración de ``ament`` para ejecutar análisis de código estático como
   parte del procedimiento de construcción del paquete.
 
 **Implementación**:
 
-
-* Inserta en los paquetes el archivo ``CMakeLists.txt``.
+* Insert into the packages ``CMakeLists.txt`` file.
 
 .. code-block:: bash
 
@@ -53,7 +49,6 @@ Análisis de código estático como parte de la compilación del paquete ament
      ...
    endif()
    ...
-
 
 * Inserta las dependencias de prueba ``ament_lint`` en el archivo ``package.xml`` de los paquetes.
 
@@ -68,7 +63,6 @@ Análisis de código estático como parte de la compilación del paquete ament
    </package>
 
 **Ejemplos**:
-
 
 * ``rclcpp``:
 
@@ -97,7 +91,6 @@ Análisis estático de seguridad de hilos a través de la anotación de código
 
 **Problema:**
 
-
 * Las carreras de datos y los interbloqueos pueden provocar errores críticos.
 
 **Solución:**
@@ -106,7 +99,6 @@ Análisis estático de seguridad de hilos a través de la anotación de código
 * Utiliza el `Análisis de seguridad de hilos estático de Clang <https://clang.llvm.org/docs/ThreadSafetyAnalysis.html>`__ al anotar el código de subproceso
 
 **Contexto para la implementación:**
-
 
 Para habilitar el Análisis de Seguridad de hilos, se debe anotar el código para que el compilador sepa más sobre la semántica del código. Estas anotaciones son atributos específicos de Clang, p. ``__atributo__(capacidad()))``. En lugar de usar esos atributos directamente, ROS 2 proporciona macros de preprocesador que se borran cuando se usan otros compiladores.
 
@@ -119,7 +111,6 @@ Hemos decidido que queremos que los desarrolladores de ROS 2 puedan usar primiti
 
 Hay tres bibliotecas estándar de C++ a tener en cuenta
 
-
 * La biblioteca estándar GNU ``libstdc++``: predeterminada en Linux, explícitamente a través de la opción del compilador ``-stdlib=libstdc++``
 * La biblioteca estándar LLVM ``libc++`` (también llamada ``libcxx``) - predeterminada en macOS, establecida explícitamente por la opción del compilador ``-stdlib=libc++``
 * La biblioteca estándar de Windows C++: no es relevante para este caso de uso
@@ -130,7 +121,6 @@ Hay tres bibliotecas estándar de C++ a tener en cuenta
 
 
 **Implementación:**
-
 
 Las sugerencias de migración de código aquí de ninguna manera están completas - al escribir (o anotar las existentes) código multihilo, se te recomienda a utilizar tantas anotaciones como sea lógico para tu caso de uso. Sin embargo, ¡este paso a paso es un gran lugar para comenzar!
 
@@ -199,8 +189,6 @@ Las sugerencias de migración de código aquí de ninguna manera están completa
      * Donde especificas ``-Wthread-safety``, agrega el indicador adicional ``-Wthread-safety-negative``
      * En cualquier función que adquiera un bloqueo, a el patrón ``RCPPUTILS_TSA_REQUIRES(!mutex)``
 
-
-
 * Cómo ejecutar el análisis
 
    * La granja de compilación ROS CI ejecuta un trabajo nocturno con ``libcxx``, que hará surgir cualquier problema en la pila principal de ROS 2 al marcarse como "Inestable" cuando Thread Safety Analysis genere advertencias
@@ -220,9 +208,7 @@ Las sugerencias de migración de código aquí de ninguna manera están completa
        * ``CC=clang CXX=clang++ colcon build --cmake-args -DCMAKE_CXX_FLAGS='-stdlib=libc++ -D_LIBCPP_ENABLE_THREAD_SAFETY_ANNOTATIONS' -DFORCE_BUILD_VENDOR_PKG=ON --no-warn-unused-cli``
 
 
-
 **Contexto resultante:**
-
 
 * Los interbloqueos potenciales y las condiciones de ejecución aparecerán en el momento de la compilación, al usar Clang y ``libcxx``
 
@@ -232,7 +218,6 @@ Análisis dinámico (ejecución de datos y puntos muertos)
 
 **Contexto:**
 
-
 * Estas desarrollando/depurando tu código de producción C++ multiproceso.
 * Usas pthreads o C++11 threading + llvm libc++ (en el caso de ThreadSanitizer).
 * No utilizas enlaces estáticos Libc/libstdc++ (en el caso de ThreadSanitizer).
@@ -240,18 +225,15 @@ Análisis dinámico (ejecución de datos y puntos muertos)
 
 **Problema:**
 
-
-* Las carreras de datos y los interbloqueos pueden provocar errores críticos.
-* Las carreras de datos y los interbloqueos no se pueden detectar mediante el análisis estático (motivo: limitación del análisis estático).
-* Las carreras de datos y los interbloqueos no deben aparecer durante la depuración/prueba del desarrollo (razón: por lo general, no se ejercen todas las rutas de control posibles a través del código de producción).
+* Las condiciones de carrera y los interbloqueos pueden provocar errores críticos.
+* Las condiciones de carrerq y los interbloqueos no se pueden detectar mediante el análisis estático (motivo: limitación del análisis estático).
+* Las condiciones de carrera y los interbloqueos no deben aparecer durante la depuración/prueba del desarrollo (razón: por lo general, no se ejercen todas las rutas de control posibles a través del código de producción).
 
 **Solución:**
 
-
-* Utilizar una herramienta de análisis dinámico que se centre en la búsqueda de carreras de datos y puntos muertos (aquí clang ThreadSanitizer).
+* Utilizar una herramienta de análisis dinámico que se centre en la búsqueda de condiciones de carrera y puntos muertos (aquí clang ThreadSanitizer).
 
 **Implementación:**
-
 
 * Compila y vincula el código de producción con clang usando la opción ``-fsanitize=thread`` (esto instrumenta el código de producción).
 * En caso de que se ejecute un código de producción diferente durante el análisis, considere la compilación condicional, p. `ThreadSanitizers _has_feature(thread_sanitizer) <https://clang.llvm.org/docs/ThreadSanitizer.html#has-feature-thread-sanitizer>`__.
@@ -259,7 +241,6 @@ Análisis dinámico (ejecución de datos y puntos muertos)
 * En caso de que algunos archivos no se instrumenten, considera la exclusión a nivel de archivo o función `ThreadSanitizers blacklisting <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__, más específicamente: `ThreadSanitizers Sanitizer Special Case List <https://clang.llvm.org/docs/SanitizerSpecialCaseList.html>`__ o con `ThreadSanitizers no_sanitize("thread") <https://clang.llvm.org/docs/ThreadSanitizer.html#ignorelist>`__ y usa la opción ``--fsanitize-blacklist``.
 
 **Contexto resultante:**
-
 
 * Mayor probabilidad de encontrar carreras de datos y puntos muertos en el código de producción antes de implementarlo.
 * El resultado del análisis puede carecer de fiabilidad, herramienta en fase beta (en el caso de ThreadSanitizer).

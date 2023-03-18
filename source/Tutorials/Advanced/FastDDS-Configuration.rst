@@ -230,6 +230,11 @@ Create a file with name ``SyncAsync.xml`` and the following content:
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
         </publisher>
 
+        <!-- default subscriber profile -->
+        <subscriber profile_name="default_subscriber" is_default_profile="true">
+            <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
+        </subscriber>
+
         <!-- publisher profile for topic sync_topic -->
         <publisher profile_name="/sync_topic">
             <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
@@ -252,8 +257,8 @@ Create a file with name ``SyncAsync.xml`` and the following content:
 
      </profiles>
 
-Note that several publisher profiles are defined.
-A default profile which is defined setting the ``is_default_profile`` to ``true``, and two profiles with names that coincide with those of the previously defined topics: ``sync_topic`` and another one for ``async_topic``.
+Note that several profiles for publisher and subscriber are defined.
+Two default profiles which are defined setting the ``is_default_profile`` to ``true``, and two profiles with names that coincide with those of the previously defined topics: ``sync_topic`` and another one for ``async_topic``.
 These last two profiles set the publication mode to ``SYNCHRONOUS`` or ``ASYNCHRONOUS`` accordingly.
 Note also that all profiles specify a ``historyMemoryPolicy`` value, which is needed for the example to work, and the reason will be explained later on this tutorial.
 
@@ -379,22 +384,6 @@ Open the ``CMakeLists.txt`` file and add a new executable and name it ``SyncAsyn
     install(TARGETS
         SyncAsyncReader
         DESTINATION lib/${PROJECT_NAME})
-
-
-Add the subscriber profiles to the the XML
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Configuration profiles for the subscribers can be added in the same XML file ``SyncAsync.xml``.
-For the moment, only the default profile will be set.
-The subscriber profiles will be extended later on.
-Open the ``SyncAsync.xml`` file and add the following profiles inside the ``<profiles>`` tag:
-
-.. code-block:: XML
-
-    <!-- subscriber profile for topic sync_topic -->
-    <subscriber profile_name="default_subscriber" is_default_profile="true">
-        <historyMemoryPolicy>DYNAMIC</historyMemoryPolicy>
-    </subscriber>
 
 
 Execute the subscriber node
@@ -576,7 +565,6 @@ Their profiles should now look like this:
         </qos>
     </subscriber>
 
-Also be sure to remove the "default_subscriber" subscriber profile.
 Open two terminals.
 Do not forget to source the setup files and to set the required environment variables.
 On the first terminal run the publisher node, and the subscriber node on the other one.

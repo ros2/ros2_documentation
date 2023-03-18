@@ -4,50 +4,50 @@
 
 .. _ROS2Params:
 
-Understanding parameters
-========================
+Comprender los Parámetros
+=========================
 
-**Goal:** Learn how to get, set, save and reload parameters in ROS 2.
+**Objetivo:** Aprenda a obtener, configurar, guardar y recargar parámetros en ROS 2.
 
-**Tutorial level:** Beginner
+**Nivel del Tutorial:** Principiant
 
-**Time:** 5 minutes
+**Tiempo:** 5 minutos
 
-.. contents:: Contents
+.. contents:: Contenido
    :depth: 2
    :local:
 
-Background
-----------
+Historial
+---------
 
-A parameter is a configuration value of a node.
-You can think of parameters as node settings.
-A node can store parameters as integers, floats, booleans, strings, and lists.
-In ROS 2, each node maintains its own parameters.
-For more background on parameters, please see :doc:`the concept document <../../../Concepts/About-ROS-2-Parameters>`.
+Un parámetro es un valor de configuración de un nodo.
+Puedes pensar en los parámetros como configuraciones de nodo.
+Un nodo puede almacenar parámetros como enteros, flotantes, booleanos, cadenas y listas.
+En ROS 2, cada nodo mantiene sus propios parámetros.
+Para obtener más información sobre los parámetros, puedes consultar :doc:`el documento de conceptos<../../../Concepts/About-ROS-2-Parameters>`.
 
-Prerequisites
--------------
+Requisitos previos
+------------------
 
-This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+Este tutorial utiliza el paquete :doc:`turtlesim <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+Como siempre, no olvides ejecutar `source` con el archivo de setup :doc:`en cada nueva terminal que abra<../Configuring-ROS2-Environment>`.
 
-Tasks
------
+Tareas
+------
 
-1 Setup
-^^^^^^^
+1 Configuración
+^^^^^^^^^^^^^^^
 
-Start up the two turtlesim nodes, ``/turtlesim`` and ``/teleop_turtle``.
+Inicia los dos nodos de turtlesim, ``/turtlesim`` y ``/teleop_turtle``.
 
-Open a new terminal and run:
+Abra una nueva terminal y ejecute:
 
 .. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
-Open another terminal and run:
+Abre otra terminal y ejecuta:
 
 .. code-block:: console
 
@@ -57,13 +57,13 @@ Open another terminal and run:
 2 ros2 param list
 ^^^^^^^^^^^^^^^^^
 
-To see the parameters belonging to your nodes, open a new terminal and enter the command:
+Para ver los parámetros que pertenecen a sus nodos, abre una nueva terminal e introduce el comando:
 
 .. code-block:: console
 
     ros2 param list
 
-You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
+Verás los espacios de nombres de los nodos, ``/teleop_turtle`` y ``/turtlesim``, seguidos de los parámetros de cada nodo:
 
 .. code-block:: console
 
@@ -85,29 +85,29 @@ You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followe
     qos_overrides./parameter_events.publisher.reliability
     use_sim_time
 
-Every node has the parameter ``use_sim_time``; it’s not unique to turtlesim.
+Cada nodo tiene el parámetro ``use_sim_time``; no es exclusivo de turtlesim.
 
-Based on their names, it looks like ``/turtlesim``'s parameters determine the background color of the turtlesim window using RGB color values.
+Según sus nombres, parece que los parámetros de ``/turtlesim`` determinan el color de fondo de la ventana de turtlesim usando valores de color RGB.
 
-To determine a parameter's type, you can use ``ros2 param get``.
+Para determinar el tipo de un parámetro, puede usar ``ros2 param get``.
 
 
 3 ros2 param get
 ^^^^^^^^^^^^^^^^
 
-To display the type and current value of a parameter, use the command:
+Para mostrar el tipo y el valor actual de un parámetro, use el comando:
 
 .. code-block:: console
 
     ros2 param get <node_name> <parameter_name>
 
-Let’s find out the current value of ``/turtlesim``’s parameter ``background_g``:
+Por ejemplo, para ver el valor actual del parámetro ``background_g`` de ``/turtlesim``, ejecuta:
 
 .. code-block:: console
 
     ros2 param get /turtlesim background_g
 
-Which will return the value:
+Lo que devolverá el valor:
 
 .. code-block:: console
 
@@ -115,54 +115,56 @@ Which will return the value:
 
 Now you know ``background_g`` holds an integer value.
 
-If you run the same command on ``background_r`` and ``background_b``, you will get the values ``69`` and ``255``, respectively.
+Ahora sabes que ``background_g`` tiene un valor entero.
+
+Si ejecutas el mismo comando en ``background_r`` y ``background_b``, obtendrás los valores 69 y 255, respectivamente.
 
 4 ros2 param set
 ^^^^^^^^^^^^^^^^
 
-To change a parameter's value at runtime, use the command:
+Para cambiar el valor de un parámetro en tiempo de ejecución, usa el comando:
 
 .. code-block:: console
 
     ros2 param set <node_name> <parameter_name> <value>
 
-Let’s change ``/turtlesim``’s background color:
+Cambiemos el color de fondo de ``/turtlesim``:
 
 .. code-block:: console
 
     ros2 param set /turtlesim background_r 150
 
-Your terminal should return the message:
+La terminal debería devolver el mensaje:
 
 .. code-block:: console
 
   Set parameter successful
 
-And the background of your turtlesim window should change colors:
+Y el fondo de la ventana de turtlesim debería cambiar de color:
 
 .. image:: images/set.png
 
-Setting parameters with the ``set`` command will only change them in your current session, not permanently.
-However, you can save your settings and reload them the next time you start a node.
+Establecer parámetros con el comando ``set`` solo los cambiará en su sesión actual, no de forma permanente.
+Sin embargo, puedes guardar tu configuración y volver a cargarla la próxima vez que inicie un nodo.
 
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can view all of a node’s current parameter values by using the command:
+Puedes ver todos los parámetros y sus valores actuales de un nodo usando el comando:
 
 .. code-block:: console
 
   ros2 param dump <node_name>
 
-The command prints to the standard output (stdout) by default but you can also redirect the parameter values into a file to save them for later.
-To save your current configuration of ``/turtlesim``’s parameters into the file ``turtlesim.yaml``, enter the command:
+El comando se imprime en la salida estándar (stdout) de forma predeterminada, pero también puede redirigir los valores de los parámetros a un archivo para guardarlos más adelante.
+Para guardar la configuración actual de los parámetros de ``/turtlesim`` en el archivo ``turtlesim.yaml``, introduce el comando:
 
 .. code-block:: console
 
   ros2 param dump /turtlesim > turtlesim.yaml
 
-You will find a new file in the working directory your shell is running in.
-If you open this file, you’ll see the following content:
+Encontrarás un nuevo archivo en el directorio de trabajo en el que se está ejecutando tu terminal.
+Si abres este archivo, verá el siguiente contenido:
 
 .. code-block:: YAML
 
@@ -180,24 +182,24 @@ If you open this file, you’ll see the following content:
             reliability: reliable
       use_sim_time: false
 
-Dumping parameters comes in handy if you want to reload the node with the same parameters in the future.
+Guardar los parámetros resulta útil si deseas volver a cargar el nodo con los mismos parámetros en el futuro.
 
 6 ros2 param load
 ^^^^^^^^^^^^^^^^^
 
-You can load parameters from a file to a currently running node using the command:
+Puedes cargar parámetros desde un archivo a un nodo actualmente en ejecución usando el comando:
 
 .. code-block:: console
 
   ros2 param load <node_name> <parameter_file>
 
-To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+Para cargar el archivo ``turtlesim.yaml`` generado con ``ros2 param dump`` en los parámetros del nodo ``/turtlesim``, introduce el comando:
 
 .. code-block:: console
 
   ros2 param load /turtlesim turtlesim.yaml
 
-Your terminal will return the message:
+La terminal devolverá el mensaje:
 
 .. code-block:: console
 
@@ -212,39 +214,40 @@ Your terminal will return the message:
 
 .. note::
 
-  Read-only parameters can only be modified at startup and not afterwards, that is why there are some warnings for the "qos_overrides" parameters.
+  Los parámetros de solo lectura solo se pueden modificar al inicio y no después, por eso hay algunas advertencias para los parámetros 'qos_overrides'.
 
-7 Load parameter file on node startup
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+7 Cargar archivo de parámetros al iniciar el nodo
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To start the same node using your saved parameter values, use:
+Para iniciar el mismo nodo usando los valores de parámetros guardados, ejecuta:
 
 .. code-block:: console
 
   ros2 run <package_name> <executable_name> --ros-args --params-file <file_name>
 
-This is the same command you always use to start turtlesim, with the added flags ``--ros-args`` and ``--params-file``, followed by the file you want to load.
-
 Stop your running turtlesim node so you can try reloading it with your saved parameters, using:
+Este es el mismo comando que utilizas para iniciar turtlesim, con las banderas añadidas ``--ros-args`` y ``--params-file``, seguidas del archivo que desea cargar.
+
+Intentá detener el nodo turtlesim en ejecución, para volver a cargarlo con sus parámetros guardados usando:
 
 .. code-block:: console
 
   ros2 run turtlesim turtlesim_node --ros-args --params-file turtlesim.yaml
 
-The turtlesim window should appear as usual, but with the purple background you set earlier.
+La ventana de turtlesim debería aparecer como de costumbre, pero con el fondo morado que configuraste anteriormente.
 
 .. note::
 
-  In this case, parameters are being modified at startup so the specified read-only parameters will also take effect.
+  En este caso, los parámetros se modifican al inicio, por lo que los parámetros de solo lectura especificados también tendrán efecto.
 
-Summary
+Resumen
 -------
 
-Nodes have parameters to define their default configuration values.
-You can ``get`` and ``set`` parameter values from the command line.
-You can also save the parameter settings to a file to reload them in a future session.
+Los nodos tienen parámetros para definir sus valores de configuración predeterminados.
+Puedes obtener y establecer valores de parámetros desde la línea de comandos.
+También puedes guardar la configuración de los parámetros en un archivo para volver a cargarlos en una sesión futura.
 
-Next steps
-----------
+Pasos siguientes
+----------------
 
-Jumping back to ROS 2 communication methods, in the next tutorial you'll learn about :doc:`actions <../Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.
+Volviendo a los métodos de comunicación de ROS 2, en el próximo tutorial aprenderás sobre :doc:`acciones <../Understanding-ROS2-Actions/Understanding-ROS2-Actions>`.

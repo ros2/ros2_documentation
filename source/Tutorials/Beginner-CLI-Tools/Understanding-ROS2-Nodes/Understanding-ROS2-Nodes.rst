@@ -4,122 +4,122 @@
 
 .. _ROS2Nodes:
 
-Understanding nodes
-===================
+Comprender los Nodos
+====================
 
-**Goal:** Learn about the function of nodes in ROS 2, and the tools to interact with them.
+**Objetivo:** Aprender sobre la función de los nodos en ROS 2 y las herramientas para interactuar con ellos.
 
-**Tutorial level:** Beginner
+**Nivel del Tutorial:** Principiante
 
-**Time:** 10 minutes
+**Tiempo:** 10 minutos
 
-.. contents:: Contents
+.. contents:: Contenido
    :depth: 2
    :local:
 
-Background
-----------
+Historial
+---------
 
-1 The ROS 2 graph
+1 El grafo ROS 2
 ^^^^^^^^^^^^^^^^^
 
-Over the next few tutorials, you will learn about a series of core ROS 2 concepts that make up what is referred to as the “ROS (2) graph”.
+En los próximos tutoriales, aprenderás sobre una serie de conceptos básicos de ROS 2 que componen lo que se conoce como el 'grafo de ROS (2)'.
 
-The ROS graph is a network of ROS 2 elements processing data together at one time.
-It encompasses all executables and the connections between them if you were to map them all out and visualize them.
+El grafo ROS es una red de elementos de ROS 2, que procesan datos al mismo tiempo.
+Abarca todos los ejecutables y las conexiones entre ellos, como si tuviera que mapearlos y visualizarlos.
 
-2 Nodes in ROS 2
+2 Nodos in ROS 2
 ^^^^^^^^^^^^^^^^
 
-Each node in ROS should be responsible for a single, module purpose (e.g. one node for controlling wheel motors, one node for controlling a laser range-finder, etc).
-Each node can send and receive data to other nodes via topics, services, actions, or parameters.
+Cada nodo en ROS debe ser responsable de un solo propósito, en forma modular (por ejemplo, un nodo para controlar los motores de las ruedas, un nodo para controlar un telémetro láser, etc.).
+Cada nodo puede enviar y recibir datos a otros nodos a través de topics, servicios, acciones o parámetros.
 
 .. image:: images/Nodes-TopicandService.gif
 
-A full robotic system is comprised of many nodes working in concert.
-In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.
+Un sistema robótico completo se compone de muchos nodos que trabajan en conjunto.
+En ROS 2, un único ejecutable (programa C++, programa Python, etc.) puede contener uno o más nodos.
 
-Prerequisites
--------------
+Requisitos previos
+------------------
 
-The :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>` shows you how to install the ``turtlesim`` package used here.
+El :doc:`tutorial previo<../Introducing-Turtlesim/Introducing-Turtlesim>` mustra como instalar el paquete ``turtlesim`` utilizado a continuación.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+Como siempre, no olvides hacer un source ROS 2 en :doc:`cada terminal nueva<../Configuring-ROS2-Environment>`.
 
-Tasks
------
+Tareas
+------
 
 1 ros2 run
 ^^^^^^^^^^
 
-The command ``ros2 run`` launches an executable from a package.
+El comando ``ros2 run`` lanza un ejecutable desde un paquete.
 
 .. code-block:: console
 
     ros2 run <package_name> <executable_name>
 
-To run turtlesim, open a new terminal, and enter the following command:
+Para ejecutar Turtlesim, abre una nueva terminal e introduce el siguiente comando:
 
 .. code-block:: console
 
     ros2 run turtlesim turtlesim_node
 
-The turtlesim window will open, as you saw in the :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>`.
+Se abrirá la ventana de turtlesim, como se vió en el :doc:`tutorial previo<../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-Here, the package name is ``turtlesim`` and the executable name is ``turtlesim_node``.
+Aquí, el nombre del paquete es ``turtlesim`` y el nombre del ejecutable es ``turtlesim_node``.
 
-We still don’t know the node name, however.
-You can find node names by using ``ros2 node list``
+Sin embargo, todavía no sabemos el nombre del nodo.
+Puedes encontrar nombres de nodos usando el comando ``ros2 node list``.
 
 2 ros2 node list
 ^^^^^^^^^^^^^^^^
 
-``ros2 node list`` will show you the names of all running nodes.
-This is especially useful when you want to interact with a node, or when you have a system running many nodes and need to keep track of them.
+``ros2 node list`` te mostrará los nombres de todos los nodos que están actualmente en ejecución.
+Esto es especialmente útil cuando desea interactuar con un nodo o cuando tiene un sistema que ejecuta muchos nodos y necesitas realizar un seguimiento de ellos.
 
-Open a new terminal while turtlesim is still running in the other one, and enter the following command:
+Abre una nueva terminal mientras turtlesim aún se está ejecutando en la otra, e ingrese el siguiente comando:
 
 .. code-block:: console
 
     ros2 node list
 
-The terminal will return the node name:
+El terminal devolverá el nombre del nodo:
 
 .. code-block:: console
 
   /turtlesim
 
-Open another new terminal and start the teleop node with the command:
+Abre otra terminal nueva e inicia el nodo teleop con el comando:
 
 .. code-block:: console
 
     ros2 run turtlesim turtle_teleop_key
 
-Here, we are searching the ``turtlesim`` package again, this time for the executable named ``turtle_teleop_key``.
+Aquí estamos buscando de nuevo en el paquete turtlesim, esta vez el ejecutable llamado ``turtle_teleop_key``.
 
-Return to the terminal where you ran ``ros2 node list`` and run it again.
-You will now see the names of two active nodes:
+Regresa a la terminal donde se ejecutó ``ros2 node list`` y vuelve a ejecutarlo.
+Ahora verás los nombres de dos nodos activos:
 
 .. code-block:: console
 
   /turtlesim
   /teleop_turtle
 
-2.1 Remapping
-~~~~~~~~~~~~~
+2.1 Reasignación
+~~~~~~~~~~~~~~~~
 
-`Remapping <https://design.ros2.org/articles/ros_command_line_arguments.html#name-remapping-rules>`__ allows you to reassign default node properties, like node name, topic names, service names, etc., to custom values.
-In the last tutorial, you used remapping on ``turtle_teleop_key`` to change the default turtle being controlled.
+La reasignación te permite cambiar propiedades predeterminadas de los nodos, como su nombre, nombre del topic, nombres de servicios, etc., a valores personalizados.
+En el último tutorial, utilizaste la reasignación en ``turtle_teleop_key`` para cambiar la tortuga que se controla.
 
-Now, lets reassign the name of our ``/turtlesim`` node.
-In a new terminal, run the following command:
+Ahora, vamos a reasignar el nombre de nuestro nodo ``/turtlesim``.
+En una nueva terminal, ejecuta el siguiente comando:
 
 .. code-block:: console
 
   ros2 run turtlesim turtlesim_node --ros-args --remap __node:=my_turtle
 
-Since you’re calling ``ros2 run`` on turtlesim again, another turtlesim window will open.
-However, now if you return to the terminal where you ran ``ros2 node list``, and run it again, you will see three node names:
+Ya que estás llamando a ``ros2 run`` para que se ejecute en turtlesim nuevamente, se abrirá otra ventana de turtlesim.
+Sin embargo, ahora, si regresas a la terminal donde ejecutó la lista de nodos ros2 y lo vuelves a ejecutar, verás tres nombres de nodos:
 
 .. code-block:: console
 
@@ -130,20 +130,20 @@ However, now if you return to the terminal where you ran ``ros2 node list``, and
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
 
-Now that you know the names of your nodes, you can access more information about them with:
+Ahora que conoces los nombres de tus nodos, puedes acceder a más información sobre ellos con:
 
 .. code-block:: console
 
     ros2 node info <node_name>
 
-To examine your latest node, ``my_turtle``, run the following command:
+Para obtener información del nodo ``my_turtle``, ejecuta el siguiente comando:
 
 .. code-block:: console
 
     ros2 node info /my_turtle
 
-``ros2 node info`` returns a list of subscribers, publishers, services, and actions (the ROS graph connections) that interact with that node.
-The output should look like this:
+``ros2 node info`` devuelve una lista de suscriptores, publicadores, servicios y acciones (las conexiones del grafo de ROS) que interactúan con ese nodo.
+La salida debería verse así:
 
 .. code-block:: console
 
@@ -176,27 +176,27 @@ The output should look like this:
       /turtle1/rotate_absolute: turtlesim/action/RotateAbsolute
     Action Clients:
 
-Now try running the same command on the ``/teleop_turtle`` node, and see how its connections differ from ``my_turtle``.
+Ahora intenta ejecutar el mismo comando en el nodo ``/teleop_turtle`` y vea cómo las conexiones difieren de ``my_turtle``.
 
-You will learn more about the ROS graph connection concepts including the message types in the upcoming tutorials.
+Aprenderás más sobre los conceptos de conexión de gráficos de ROS, incluidos los tipos de mensajes, en los próximos tutoriales.
 
-Summary
+Resumen
 -------
 
-A node is a fundamental ROS 2 element that serves a single, modular purpose in a robotics system.
+Un nodo es un elemento fundamental de ROS 2, que es modular y tiene un único propósito en un sistema de robótica.
 
-In this tutorial, you utilized nodes created from the ``turtlesim`` package by running the executables ``turtlesim_node`` and ``turtle_teleop_key``.
+En este tutorial, utilizaste nodos creados a partir del paquete ``turtlesim`` ejecutando ``turtlesim_node`` y ``turtle_teleop_key``.
 
-You learned how to use ``ros2 node list`` to discover active node names and ``ros2 node info`` to introspect on a single node.
-These tools are vital to understanding the flow of data in a complex, real-world robot system.
+Aprendiste a usar el comando ``ros2 node list`` para descubrir nombres de nodos activos y el comando ``ros2 node info`` para obtener información de un nodo en particular.
+Estas herramientas son vitales para comprender el flujo de datos en un sistema robótico complejo del mundo real.
 
-Next steps
-----------
+Pasos siguientes
+----------------
 
-Now that you understand nodes in ROS 2, you can move on to the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-Topics are one of the communication types that connects nodes.
+Ahora que comprendes los nodos en ROS 2, puedes continuar con el tutorial :doc:`de topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
+Los topics son uno de los tipos de comunicación que conecta los nodos.
 
-Related content
----------------
+Contenido Relacionado
+---------------------
 
-The :doc:`../../../Concepts` page adds some more detail to the concept of nodes.
+La página :doc:`../../../Concepts` agrega más detalles al concepto de nodos.
