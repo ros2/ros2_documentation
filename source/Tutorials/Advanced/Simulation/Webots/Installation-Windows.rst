@@ -22,8 +22,8 @@ In this tutorial, you are going to install the package and learn how to run one 
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
-In particular, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
+It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
+In particular, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
 Webots is a prerequisite to use the ``webots_ros2`` package.
 You can follow the `installation procedure <https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it from sources <https://github.com/cyberbotics/webots/wiki/Windows-installation/>`_.
@@ -53,7 +53,7 @@ Install WSL with an Ubuntu version which is compatible with your ROS distributio
 2 Install ROS 2 in WSL
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Install ROS 2 inside Ubuntu WSL, following :doc:`../../../Installation/Ubuntu-Install-Debians`.
+Install ROS 2 inside Ubuntu WSL, following :doc:`../../../../Installation/Ubuntu-Install-Debians`.
 
 3 Install ``webots_ros2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^

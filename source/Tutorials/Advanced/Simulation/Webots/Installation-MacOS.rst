@@ -22,8 +22,8 @@ In this tutorial, you are going to install the package and learn how to run one 
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
-In particular, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
+It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
+In particular, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace` and :doc:`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` are useful prerequisites.
 
 It is necessary to install Webots natively on the mac in order to use the ``webots_ros2`` package in the virtual machine as explained below.
 You can follow the `installation procedure <https://cyberbotics.com/doc/guide/installation-procedure>`_ or `build it from sources <https://github.com/cyberbotics/webots/wiki/macOS-installation/>`_.
@@ -67,7 +67,7 @@ In the UTM software:
 In this section, ROS 2 is installed in the VM and the shared folder is configured.
 The following instruction and command are all run inside the VM.
 
-* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../Installation/Ubuntu-Install-Debians`:
+* Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../../Installation/Ubuntu-Install-Debians`:
 * Create a folder in the VM to use as shared folder.
   In this example, the shared folder in the VM is ``/home/ubuntu/shared``.
 

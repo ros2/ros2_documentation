@@ -26,13 +26,13 @@ In this tutorial, you are going to use the Webots robot simulator to set-up and 
 The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
 It includes several sub-packages, but in this tutorial, you are going to use only the ``webots_ros2_driver`` sub-package to implement a Python plugin controlling a simulated robot.
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
-They are documented in the :doc:`../../Demos` page.
+They are documented in the :doc:`../../../Demos` page.
 
 Prerequisites
 -------------
 
-It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
-In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
+It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../../Tutorials`.
+In particular, :doc:`../../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
 
 .. tabs::
 
@@ -182,7 +182,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 .. note::
 
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
-    However, URDF files usually contain much more information as explained in the :doc:`../../Intermediate/URDF/URDF-Main`.
+    However, URDF files usually contain much more information as explained in the :doc:`../../../Intermediate/URDF/URDF-Main`.
 
 5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -464,6 +464,6 @@ Next steps
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
 Taking inspiration from these previous tutorials could be a starting point:
 
-* :doc:`../Recording-A-Bag-From-Your-Own-Node-Py`.
+* :doc:`../../Recording-A-Bag-From-Your-Own-Node-Py`.
 
-* :doc:`../../Intermediate/Tf2/Tf2-Main`.
+* :doc:`../../../Intermediate/Tf2/Tf2-Main`.
