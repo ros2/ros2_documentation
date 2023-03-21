@@ -5,7 +5,7 @@
 
 .. _Simulators:
 
-Setting up a robot simulation (Webots)
+Setting up a robot simulation
 ======================================
 
 **Goal:** Setup a robot simulation and control it from ROS 2.
