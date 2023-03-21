@@ -165,6 +165,13 @@ htmlhelp_basename = 'ros2_docsdoc'
 
 html_baseurl = 'https://docs.ros.org/en'
 
+# The sitemap_url_scheme is used by the sitemap generator to figure out how
+# to generate links.  Essentially, the sitemap generator uses the following:
+#
+# url = html_baseurl + '/' + sitemap_url_scheme
+
+sitemap_url_scheme = '{version}/{link}'
+
 class RedirectFrom(Directive):
 
     has_content = True
