@@ -420,7 +420,7 @@ A warning is now printed when QoS of KEEP_LAST is specified with a depth of 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical arrangement, since the entity wouldn't be able to send or receive any data.
-``rclpy`` will now print a warning if this combination is specified, but will still continue on and let the underlying middleware choose a sane value (generally a depth of 1).
+``rclcpp`` will now print a warning if this combination is specified, but will still continue on and let the underlying middleware choose a sane value (generally a depth of 1).
 
 See https://github.com/ros2/rclcpp/pull/2048 for more information.
 
