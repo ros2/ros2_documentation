@@ -2,8 +2,6 @@
 
 .. _iron-release:
 
-.. move this directive when next release page is created
-
 ROS 2 Iron Irwini (codename 'iron'; May, 2023)
 ==============================================
 
@@ -21,15 +19,17 @@ Iron Irwini is primarily supported on the following platforms:
 
 Tier 1 platforms:
 
-TBD
+* Ubuntu 22.04 (Jammy): ``amd64`` and ``arm64``
+* Windows 10 (Visual Studio 2019): ``amd64``
 
 Tier 2 platforms:
 
-TBD
+* RHEL 9: ``amd64``
 
 Tier 3 platforms:
 
-TBD
+* macOS: ``amd64``
+* Debian Bullseye: ``amd64``
 
 For more information about RMW implementations, compiler / interpreter versions, and system dependency versions see `REP 2000 <https://www.ros.org/reps/rep-2000.html>`__.
 
@@ -41,32 +41,219 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
-ros2topic
+Service introspection
+^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to enable service introspection on a per-service basis.
+When enabled, this allows users to see the metadata associated with the client requesting a service, the server accepting the request, the server sending the response, and the client accepting the response.
+Optionally, the contents of the client/server requests/responses can also be introspected.
+All of the information is published on a hidden topic generated from the name of the service.
+So if the service is called ``/myservice``, then the information will be published on ``/myservice/_service_event``.
+
+Note that this functionality is disabled by default; to enable it, users must call ``configure_introspection`` after creating a server client or server.
+There are examples showing how to do this in https://github.com/ros2/demos/tree/{DISTRO}/demo_nodes_cpp/src/services (C++) and https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_py/demo_nodes_py/services/introspection.py (Python).
+
+See `REP 2012 <https://github.com/ros-infrastructure/rep/pull/360>`__ and the tracking bug at https://github.com/ros2/ros2/issues/1285 for more information.
+
+Pre and post set parameter callback support
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+For many releases now, users could register a callback to be called when parameters on a node were changed by an external entity (like ``ros2 param set``).
+This callback could examine the changed parameter types and values, and reject the whole lot if one of them didn't meet certain criteria.
+However, it could not modify the parameter list, nor should it have modified state (since there might be other callbacks after the set one that would reject the parameters).
+
+This release adds in a pre and post callback.
+The callbacks are called in this order:
+
+* The "pre" set parameter callback, which can modify the list of parameters based on arbitrary criteria.
+* The "set" parameter callback, which cannot modify the list and should only accept or reject the parameters based on their type and value (this is the existing callback).
+* The "post" set parameter callback, which can make state changes based on parameters and is only called if the previous two callbacks are successful.
+
+There are examples of this in action in https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp (C++) and https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_py/demo_nodes_py/parameters/set_parameters_callback.py (Python).
+
+See https://github.com/ros2/rclcpp/pull/1947, https://github.com/ros2/rclpy/pull/966, and https://github.com/ros2/demos/pull/565 for more information.
+
+``launch``
+^^^^^^^^^^
+
+``PythonExpression`` now supports importing modules
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to have a launch ``PythonExpression`` import modules before performing the evaluation.
+This can be useful for pulling in additional functionality to be used when evaluating an expression.
+
+See https://github.com/ros2/launch/pull/655 for more information.
+
+``ReadyToTest`` can be called from an event handler
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to register an event handler that uses ``ReadyToTest`` in its output.
+This can be useful for doing things like downloading an asset before allowing a test to run.
+
+See https://github.com/ros2/launch/pull/665 for more information.
+
+Addition of ``AnySubstitution`` and ``AllSubstitution``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to specify a substitution to happen when any of the input arguments are true (``AnySubstitution``), or when all of the input arguments are true (``AllSubstitution``).
+
+See https://github.com/ros2/launch/pull/649 for more details.
+
+Addition of a new substitution to get the launch logging directory
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to use a substitution called ``LaunchLogDir`` to get the current logging directory for launch.
+
+See https://github.com/ros2/launch/pull/652 for more details.
+
+``launch_ros``
+^^^^^^^^^^^^^^
+
+Add a ``LifecycleTransition`` action
+""""""""""""""""""""""""""""""""""""
+
+It is now possible to send a transition signal to a lifecycle node via the new ``LifeCycleTransition`` action.
+
+See https://github.com/ros2/launch_ros/pull/317 for more information.
+
+Add a ``SetROSLogDir`` action
+"""""""""""""""""""""""""""""
+
+It is now possible to configure the directory used for logging via the ``SetROSLogDir`` action.
+
+See https://github.com/ros2/launch_ros/pull/325 for more information.
+
+Ability to specify a condition to a ``ComposableNode``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to specify a condition that must be satisfied in order for a ``ComposableNode`` to be inserted into its container.
+
+See https://github.com/ros2/launch_ros/pull/311 for more information.
+
+``launch_testing``
+^^^^^^^^^^^^^^^^^^
+
+Timeout for process startup is now configurable
+"""""""""""""""""""""""""""""""""""""""""""""""
+
+Prior to this release, the ``ReadyToTest`` action would wait exactly 15 seconds for processes to start up.
+If the processes took longer than that, they would fail.
+There is now a new decorator called ``ready_to_test_action_timeout`` that allows the user to configure the amount of time to wait for the processes to start.
+
+See https://github.com/ros2/launch/pull/625 for more information.
+
+``rclcpp``
+^^^^^^^^^^
+
+Addition of a new paradigm for handling ``Node`` and ``LifecycleNode``
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``Node`` and ``LifecycleNode`` classes are related in that they both provide the same base set of methods (though ``LifecycleNode`` provides additional methods as well).
+Due to various implementation considerations, they are not derived from a common base class.
+
+This has led to some trouble for downstream code that wants to accept either a ``Node`` or a ``LifecycleNode``.
+One solution is to have two method signatures, one that accepts a ``Node`` and one that accepts a ``LifecycleNode``.
+The other, recommended solution is to have a method that accepts the "node interfaces" pointers that can be accessed from both classes, e.g.
+
+.. code-block:: C++
+
+   void do_thing(rclcpp::node_interfaces::NodeGraphInterface graph)
+   {
+     fprintf(stderr, "Doing a thing\n");
+   }
+
+   void do_thing(rclcpp::Node::SharedPtr node)
+   {
+     do_thing(node->get_node_graph_interface());
+   }
+
+   void do_thing(rclcpp::LifecycleNode::SharedPtr node)
+   {
+     do_thing(node->get_node_graph_interface());
+   }
+
+This works, but can get a bit unwieldy when many node interfaces are needed.
+To make this a bit better, there is now a new ``NodeInterfaces`` class that can be constructed to contain the interfaces, and then be used by other code.
+
+There are examples on how to use this in https://github.com/ros2/rclcpp/pull/2041.
+
+``rclpy``
 ^^^^^^^^^
+
+Ability to wait for another node to join the graph
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to wait for another node to join the network graph with code like the following:
+
+.. code-block:: Python
+
+  node.wait_for_node('/fully_qualified_node_name')
+
+See https://github.com/ros2/rclpy/pull/930 for more information.
+
+Implementation of ``AsyncParameterClient``
+""""""""""""""""""""""""""""""""""""""""""
+
+``rclpy`` now has an ``AsyncParameterClient`` class, bringing it to feature parity with ``rclcpp``.
+This class is used to perform parameter actions on a remote node without blocking the calling node.
+
+See https://github.com/ros2/rclpy/pull/959 for more information and examples.
+
+Subscription callbacks can now optionally get the message info
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to register for a subscription callback with a function signature that takes both the message, and the message info, like:
+
+.. code-block:: Python
+
+  def msg_info_cb(msg, msg_info):
+      print('Message info:', msg_info)
+
+  node.create_subscription(msg_type=std_msgs.msg.String, topic='/chatter', qos_profile=10, callback=msg_info_cb)
+
+The message info structure contains various pieces of information like the sequence number of the message, the source and received timestamps, and the GID of the publisher.
+
+See https://github.com/ros2/rclpy/pull/922 for more information.
+
+``ros2param``
+^^^^^^^^^^^^^
+
+Option to timeout when waiting for a node with ``ros2 param``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to have the various ``ros2 param`` commands timeout by passing ``--timeout`` to the command.
+
+See https://github.com/ros2/ros2cli/pull/802 for more information.
+
+``ros2topic``
+^^^^^^^^^^^^^
 
 ``now`` as keyword for ``builtin_interfaces.msg.Time`` and ``auto`` for ``std_msgs.msg.Header``
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 ``ros2 topic pub`` now allows to set a ``builtin_interfaces.msg.Time`` message to the current time via the ``now`` keyword.
 Similarly, a ``std_msg.msg.Header`` message will be automatically generated when passed the keyword ``auto``.
 This behavior matches that of ROS 1's ``rostopic`` (http://wiki.ros.org/ROS/YAMLCommandLine#Headers.2Ftimestamps)
 
 Related PR: `ros2/ros2cli#749 <https://github.com/ros2/ros2cli/pull/749>`_
 
+``ros2 topic pub`` can be configured to wait a maximum amount of time
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The command ``ros2 topic pub -w 1`` will wait for at least that number of subscribers before publishing a message.
+This release adds in a ``--max-wait-time`` option so that the command will only wait a maximum amount of time before quitting if no subscribers are seen.
+
+See https://github.com/ros2/ros2cli/pull/800 for more information.
+
+``ros2 topic echo`` can be configured to wait a maximum amount of time
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The command ``ros2 topic echo`` now accepts a ``--timeout`` option, which controls the maximum amount of time that the command will wait for a publication to happen.
+
+See https://github.com/ros2/ros2cli/pull/792 for more information.
+
 Changes since the Humble release
-----------------------------------
-
-``launch_ros``
-^^^^^^^^^^^^^^
-
-Renamed classes which used ``Ros`` in the name to use ``ROS`` in line with PEP8
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Classes that were changed:
-
-* ``launch.actions.RosTimer`` -> ``launch.actions.ROSTimer``
-* ``launch.actions.PushRosNamespace`` -> ``launch.actions.PushROSNamespace``
-
-The old class names are still there, but will be deprecated.
+--------------------------------
 
 Change to the default console logging file flushing behavior
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -84,6 +271,266 @@ Later we would like to have support for a full configuration file (see: https://
   Therefore, **this environment variable should be considered experimental and subject to removal without deprecation in the future**, when we add config file support for the ``rcl_logging_spdlog`` logging backend.
 
 See this pull request for more details about the change: https://github.com/ros2/rcl_logging/pull/95
+
+``ament_cmake_auto``
+^^^^^^^^^^^^^^^^^^^^
+
+Include dependencies are now marked as SYSTEM
+"""""""""""""""""""""""""""""""""""""""""""""
+
+When using ``ament_auto_add_executable`` or ``ament_auto_add_library``, dependencies are now automatically added as ``SYSTEM``.
+This means that warnings in the header files of the dependencies will not be reported.
+
+See https://github.com/ament/ament_cmake/pull/385 for more details.
+
+``ament_cmake_nose``
+^^^^^^^^^^^^^^^^^^^^
+
+Package has been deprecated and removed
+"""""""""""""""""""""""""""""""""""""""
+
+The Python ``nose`` package has long been deprecated.
+Since none of the open-source packages currently released into Humble or Rolling currently depend on it, this release deprecates and removes the ament wrapper around it.
+
+See https://github.com/ament/ament_cmake/pull/415 for more information.
+
+``ament_lint``
+^^^^^^^^^^^^^^
+
+Files can be excluded from linter checks
+""""""""""""""""""""""""""""""""""""""""
+
+Certain files can now be excluded from linter checks by setting the ``AMENT_LINT_AUTO_FILE_EXCLUDE`` CMake variable before calling ``ament_lint_auto_find_test_dependencies``.
+
+See https://github.com/ament/ament_lint/pull/386 for more information.
+
+``camera_info_manager``
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Lifecycle node support
+""""""""""""""""""""""
+
+``camera_info_manager`` now supports lifecycle nodes in additional to regular ROS 2 nodes.
+
+See https://github.com/ros-perception/image_common/pull/190 for more information.
+
+``launch``
+^^^^^^^^^^
+
+``LaunchConfigurationEquals`` and ``LaunchConfigurationNotEquals`` are deprecated
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ``LaunchConfigurationEquals`` and ``LaunchConfigurationNotEquals`` conditions are deprecated, and will be removed in a future release.
+Instead, the more universal ``Equals`` and ``NotEquals`` substitutions should be used instead.
+
+See https://github.com/ros2/launch/pull/649 for more details.
+
+``launch_ros``
+^^^^^^^^^^^^^^
+
+Renamed classes which used ``Ros`` in the name to use ``ROS`` in line with PEP8
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Classes that were changed:
+
+* ``launch_ros.actions.RosTimer`` -> ``launch_ros.actions.ROSTimer``
+* ``launch_ros.actions.PushRosNamespace`` -> ``launch.actions.PushROSNamespace``
+
+The old class names are still there, but will be deprecated.
+
+See https://github.com/ros2/launch_ros/pull/326 for more information.
+
+``launch_xml``
+^^^^^^^^^^^^^^
+
+Expose ``emulate_tty`` to XML frontend
+""""""""""""""""""""""""""""""""""""""
+
+It has been possible for several releases to have the ``launch`` Python code use pseudo-terminals to emulate a TTY (and hence do things like print colors).
+That functionality is now available in the XML frontend by passing the ``emulate_tty`` argument to an executable command.
+
+See https://github.com/ros2/launch/pull/669 for more information.
+
+Expose ``sigterm_timeout`` and ``sigkill_timeout`` to XML frontend
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It has been possible for several releases to configure the maximum timeout value for the SIGTERM and SIGKILL signals in the ``launch`` Python code.
+That functionality is now available in the XML frontend by passing the ``sigterm_timeout`` or ``sigkill_timeout`` argument to an executable command.
+
+See https://github.com/ros2/launch/pull/667 for more information.
+
+``launch_yaml``
+^^^^^^^^^^^^^^^
+
+Expose ``emulate_tty`` to YAML frontend
+"""""""""""""""""""""""""""""""""""""""
+
+It has been possible for several releases to have the ``launch`` Python code use pseudo-terminals to emulate a TTY (and hence do things like print colors).
+That functionality is now available in the YAML frontend by passing the ``emulate_tty`` argument to an executable command.
+
+See https://github.com/ros2/launch/pull/669 for more information.
+
+Expose ``sigterm_timeout`` and ``sigkill_timeout`` to YAML frontend
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It has been possible for several releases to configure the maximum timeout value for the SIGTERM and SIGKILL signals in the ``launch`` Python code.
+That functionality is now available in the YAML frontend by passing the ``sigterm_timeout`` or ``sigkill_timeout`` argument to an executable command.
+
+See https://github.com/ros2/launch/pull/667 for more information.
+
+``message_filters``
+^^^^^^^^^^^^^^^^^^^
+
+New approximate time policy
+"""""""""""""""""""""""""""
+
+Add in a simpler approximate time policy called ``ApproximateEpsilonTime``.
+This time policy works like ``ExactTime``, but allows timestamps being within a epsilon tolerance.
+See https://github.com/ros2/message_filters/pull/84 for more information.
+
+New upsampling time policy
+""""""""""""""""""""""""""
+
+Adds in a new time policy called ``LatestTime``.
+It can synchronize up to 9 messages by their rates with upsampling via zero-order-hold.
+See https://github.com/ros2/message_filters/pull/73 for more information.
+
+``rcl_yaml_param_parser``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Support for YAML ``!!str`` syntax in parameter files
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+It is now possible to force the ROS parameter file parser to interpret a field as a string using the YAML ``!!str`` syntax.
+See https://github.com/ros2/rcl/pull/999 for more information.
+
+``rclcpp``
+^^^^^^^^^^
+
+Default number of threads for multi-threaded executor has been changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+If the user doesn't specify otherwise, the default number of threads for the multi-threaded executor will be set to the number of CPUs on the machine.
+If the underlying OS doesn't support getting this information, it will be set to 2.
+
+See https://github.com/ros2/rclcpp/pull/2032 for more information.
+
+A warning is now printed when QoS of KEEP_LAST is specified with a depth of 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical arrangement, since the entity wouldn't be able to send or receive any data.
+``rclcpp`` will now print a warning if this combination is specified, but will still continue on and let the underlying middleware choose a sane value (generally a depth of 1).
+
+See https://github.com/ros2/rclcpp/pull/2048 for more information.
+
+``rclpy``
+^^^^^^^^^
+
+Default number of threads for multi-threaded executor has been changed
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+If the user doesn't specify otherwise, the default number of threads for the multi-threaded executor will be set to the number of CPUs on the machine.
+If the underlying OS doesn't support getting this information, it will be set to 2.
+
+See https://github.com/ros2/rclpy/pull/1031 for more information.
+
+A warning is now printed when QoS of KEEP_LAST is specified with a depth of 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical arrangement, since the entity wouldn't be able to send or receive any data.
+``rclpy`` will now print a warning if this combination is specified, but will still continue on and let the underlying middleware choose a sane value (generally a depth of 1).
+
+See https://github.com/ros2/rclpy/pull/1048 for more information.
+
+``rcutils``
+^^^^^^^^^^^
+
+Improve the performance of message logging
+""""""""""""""""""""""""""""""""""""""""""
+
+The code used to output a log message when ``RCUTILS_LOG_*`` or ``RCLCPP_*`` was optimized to reduce overhead.
+These log messages should now be more efficient, though they should still not be called at high rates.
+See https://github.com/ros2/rcutils/pull/381, https://github.com/ros2/rcutils/pull/372, https://github.com/ros2/rcutils/pull/369, and https://github.com/ros2/rcutils/pull/367 for more information.
+
+``rmw``
+^^^^^^^
+
+Change the GID storage to 16 bytes
+""""""""""""""""""""""""""""""""""
+
+The GID in the RMW layer is meant to be a globally unique identifier for writers in the ROS graph.
+Previously, this was erroneously set to 24 bytes based on a bug in an old RMW implementation.
+But the ``rmw`` package should define this, and all of the implementations should conform to that.
+Thus, this release defines it as 16 bytes (the DDS standard), and changes all implementations to use that definition.
+
+See https://github.com/ros2/rmw/pull/345 and the (closed, but relevant) https://github.com/ros2/rmw/pull/328 for more information.
+
+``rmw_dds_common``
+^^^^^^^^^^^^^^^^^^
+
+Change the GID storage to 16 bytes
+""""""""""""""""""""""""""""""""""
+
+Along with the change in the ``rmw`` layer, change the message that sends out GID information to 16 bytes.
+
+See https://github.com/ros2/rmw_dds_common/pull/68 for more information.
+
+``ros2topic``
+^^^^^^^^^^^^^
+
+``ros2 topic hz/bw/pub`` now respect ``use_sim_time``
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+When running under simulation, the ROS 2 ecosystem generally gets its time from a ``/clock`` topic published by the simulator (rather than using the system clock).
+ROS 2 nodes are typically informed of this change by setting the ``use_sim_time`` parameter on the node.
+The node created by the ``ros2 topic`` commands ``hz``, ``bw``, and ``pub`` now respect that parameter and will use simulation time as appropriate.
+
+See https://github.com/ros2/ros2cli/pull/754 for more information.
+
+``rosbag2``
+^^^^^^^^^^^
+
+Change default bag file type to ``mcap``
+""""""""""""""""""""""""""""""""""""""""
+
+Prior to this release, by default rosbag2 would record data into sqlite3 databases.
+During testing, it was found that in many cases this was not performant enough and lacked certain features desirable for offline processing.
+
+To meet these needs, a new bag format (influenced by the original ROS 1 bag file format) called ``mcap`` was developed.
+This bag file format has many of the missing features from the sqlite3 file format, and should also be more performant.
+
+This release switches to using ``mcap`` as the default file format for writing new bags.
+The old ``sqlite3`` file format is still available and can be selected by the user for writing if desired.
+This release also allows playing back data from either the ``sqlite3`` file format or the ``mcap`` file format.
+
+See https://github.com/ros2/rosbag2/pull/1160 for more information.
+
+``rviz``
+^^^^^^^^
+
+Map display can now be shown as binary
+""""""""""""""""""""""""""""""""""""""
+
+The RViz map display can now display the map as binary, with a settable threshold.
+This is useful in some cases to inspect maps or in combination with planners that have a settable threshold.
+
+See https://github.com/ros2/rviz/pull/846 for more information.
+
+Camera display plugin respects the ROI in the CameraInfo message
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The CameraDisplay plugin now honors the region-of-interest (ROI) settings in the CameraInfo message, if it is provided.
+This accounts for the fact that an image was cropped by the camera driver to reduce the bandwidth.
+
+See https://github.com/ros2/rviz/pull/864 for more information.
+
+Binary STL files from SOLIDWORKS work without error
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+A change was made to the STL loader such that it accepts binary STL files from SOLIDWORKS that have the word "solid" in them.
+This technically violates the STL specification, but is common enough that a special case is added to handle these files.
+
+See https://github.com/ros2/rviz/pull/917 for more information.
 
 Known Issues
 ------------
