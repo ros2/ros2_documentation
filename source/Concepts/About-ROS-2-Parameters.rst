@@ -68,7 +68,38 @@ The main purpose of this callback is to give the user the ability to inspect the
    If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
    To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
 
-The second type of callback is known as an "on parameter event" callback, and can be installed by calling ``on_parameter_event``.
+The second type of callback is known as an "on parameter event" callback.
+First, create an ``AsyncParametersClient`` to listen to the events.
+Next, set up the parameter event callback using your client by calling ``on_parameter_event``.
+
+.. code-block:: cpp
+
+  #include "rclcpp/rclcpp.hpp"
+  #include "rcl_interfaces/msg/parameter_event.hpp"
+
+
+  // In the node initialization
+  auto asynchronous_client = std::make_shared<rclcpp::AsyncParametersClient>(this);
+  auto event_sub = asynchronous_client->on_parameter_event(on_parameter_event_callback);
+
+  // The callback, which just prints the changes for now, but can do other things
+  void MyNode::on_parameter_event_callback(
+    std::shared_ptr<const rcl_interfaces::msg::ParameterEvent> event)
+  {
+    RCLCPP_INFO_STREAM(this->get_logger(), "new parameters:" << std::endl);
+    for (const auto & new_parameter : event->new_parameters) {
+      RCLCPP_INFO_STREAM(this->get_logger(), << "\t" << new_parameter.name << std::endl;
+    }
+    RCLCPP_INFO_STREAM(this->get_logger(), "changed parameters:" << std::endl);
+    for (const auto & changed_parameter : event->changed_parameters) {
+      RCLCPP_INFO_STREAM(this->get_logger(), << "\t" << changed_parameter.name << std::endl;
+    }
+    RCLCPP_INFO_STREAM(this->get_logger(), "deleted parameters:" << std::endl);
+    for (const auto & deleted_parameter : event->deleted_parameters) {
+      RCLCPP_INFO_STREAM(this->get_logger(), << "\t" << deleted_parameter.name << std::endl;
+    }
+  }
+
 The callback should accept an ``rcl_interfaces/msg/ParameterEvent`` object, and return nothing.
 This callback will be called after all parameters have been declared, changed, or deleted.
 The main purpose of this callback is to give the user the ability to react to changes from parameters that have successfully been accepted.
