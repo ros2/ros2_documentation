@@ -65,7 +65,7 @@ Nodes can publish or subscribe to Topics.
 Nodes can also provide or use Services and Actions.
 There are configurable Parameters associated with a node.
 Connections between nodes are established through a distributed discovery process.
-Nodes may be located in the same process, in different processes, or on different machines.
+Nodes may be located in the same process, in different processes, and on different machines.
 These concepts will be described in more detail in the sections that follow.
 
 Client Libraries

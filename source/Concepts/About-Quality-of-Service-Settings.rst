@@ -13,7 +13,7 @@ ROS 2 offers a rich variety of Quality of Service (QoS) policies that allow you 
 With the right set of Quality of Service policies, ROS 2 can be as reliable as TCP or as best-effort as UDP, with many, many possible states in between.
 Unlike ROS 1, which primarily only supported TCP, ROS 2 benefits from the flexibility of the underlying DDS transport in environments with lossy wireless networks where a “best effort” policy would be more suitable, or in real-time computing systems where the right Quality of Service profile is needed to meet deadlines.
 
-A set of QoS “policies” combine to form a QoS “profile”.
+A set of QoS “policies” are combined to form a QoS “profile”.
 Given the complexity of choosing the correct QoS policies for a given scenario, ROS 2 provides a set of predefined QoS profiles for common use cases (e.g. sensor data).
 At the same time, developers are given the flexibility to control specific policies of the QoS profiles.
 

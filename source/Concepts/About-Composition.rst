@@ -17,7 +17,7 @@ ROS 2 - Unified API
 
 In ROS 2 the recommended way of writing your code is similar to a nodelet - we call it a ``Component``.
 This makes it easy to add common concepts to existing code, like a `life cycle <https://design.ros2.org/articles/node_lifecycle.html>`__.
-The biggest drawback of different APIs is avoided in ROS 2 since both approaches use the same API in ROS 2.
+The biggest drawback, having different APIs, is avoided in ROS 2 since both approaches use the same API in ROS 2.
 
 .. note::
 
@@ -36,11 +36,11 @@ Additionally ``ros2 launch`` can be used to automate these actions through speci
 Writing a Component
 -------------------
 
-Since a component is only built into a shared library it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/talker_component.cpp>`__).
+Since a component is only built into a shared library, it doesn't have a ``main`` function (see `Talker source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/talker_component.cpp>`__).
 A component is commonly a subclass of ``rclcpp::Node``.
-Since it is not in control of the thread it shouldn't perform any long running or blocking tasks in its constructor.
-Instead it can use timers to get periodic notification.
-Additionally it can create publishers, subscribers, servers, and clients.
+Since it is not in control of the thread, it shouldn't perform any long running or blocking tasks in its constructor.
+Instead, it can use timers to get periodic notifications.
+Additionally, it can create publishers, subscriptions, servers, and clients.
 
 An important aspect of making such a class a component is that the class registers itself using macros from the package ``rclcpp_components`` (see the last line in the source code).
 This makes the component discoverable when its library is being loaded into a running process - it acts as kind of an entry point.
@@ -49,8 +49,7 @@ Additionally, once a component is created, it must be registered with the index 
 
 .. code-block:: cmake
 
-   add_library(talker_component SHARED
-      src/talker_component.cpp)
+   add_library(talker_component SHARED src/talker_component.cpp)
    rclcpp_components_register_nodes(talker_component "composition::Talker")
    # To register multiple components in the same shared library, use multiple calls
    # rclcpp_components_register_nodes(talker_component "composition::Talker2")
