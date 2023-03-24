@@ -76,7 +76,7 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 
       }
 
-The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing of multiple messages or events in parallel.
+The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
 The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc.
 It performs this scan only once when the node is added, while the other two executors regularly scan for such changes.
 Therefore, the Static Single-Threaded Executor should be used only with nodes that create all subscriptions, timers, etc. during initialization.

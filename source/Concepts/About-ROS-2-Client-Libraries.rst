@@ -56,7 +56,8 @@ The ``rclpy`` Package
 
 The ROS Client Library for Python (``rclpy``) is the Python counterpart to the C++ client library.
 Like the C++ client library, ``rclpy`` also builds on top of the ``rcl`` C API for its implementation.
-The interface provides an idiomatic Python experience that uses native Python types and patterns, like lists and context objects, but by using the ``rcl`` |API| in the implementation, it stays consistent with the other client libraries in terms of feature parity and behavior.
+The interface provides an idiomatic Python experience that uses native Python types and patterns like lists and context objects.
+By using the ``rcl`` |API| in the implementation, it stays consistent with the other client libraries in terms of feature parity and behavior.
 In addition to providing Python idiomatic bindings around the ``rcl`` |API| and Python classes for each message, the Python client library takes care of the execution model, using ``threading.Thread`` or similar to run the functions in the ``rcl`` |API|.
 
 Like C++ it generates custom Python code for each ROS message that the user interacts with, but unlike C++ it eventually converts the native Python message object into the C version of the message.

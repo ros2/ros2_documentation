@@ -123,7 +123,7 @@ The ``rcl`` |API| is located in the `ros2/rcl <https://github.com/ros2/rcl>`_ re
 The ``rcl`` C implementation is provided by the ``rcl`` |package| in the same repository.
 This implementation avoids direct contact with the middleware by instead using the ``rmw`` and ``rosidl`` |APIs|.
 
-For a complete definition of the ``rcl`` |API|, see `the rcl docs <http://docs.ros2.org/foxy/api/rcl/index.html>`_.
+For a complete definition of the ``rcl`` |API|, see `the rcl docs <http://docs.ros.org/en/{DISTRO}/p/rcl/>`_.
 
 The ``rmw`` Repository
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -135,7 +135,7 @@ Currently all of the middleware implementations are for different DDS vendors.
 The ``rmw`` |API| is located in the `ros2/rmw <https://github.com/ros2/rmw>`_ repository.
 The ``rmw`` |package| contains the C headers which define the interface, the implementation of which is provided by the various |packages| of rmw implementations for different DDS vendors.
 
-For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros2.org/foxy/api/rmw/index.html>`_.
+For a definition of the ``rmw`` |API|, see `the rmw docs <http://docs.ros.org/en/{DISTRO}/p/rmw/>`_.
 
 
 The ``rosidl`` Repository
@@ -187,4 +187,4 @@ These are mainly used for error handling, commandline argument parsing, and logg
 
 The ``rcutils`` |API| and implementation are located in the `ros2/rcutils <https://github.com/ros2/rcutils>`_ repository on |GitHub|_ which contains the interface as C headers.
 
-For a complete definition of the ``rcutils`` |API|, see `the rcutils docs <http://docs.ros2.org/foxy/api/rcutils/index.html>`_.
+For a complete definition of the ``rcutils`` |API|, see `the rcutils docs <https://docs.ros.org/en/{DISTRO}/p/rcutils/>`_.
