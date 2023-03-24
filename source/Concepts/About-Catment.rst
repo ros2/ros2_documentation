@@ -19,13 +19,13 @@ Then came a thing called ``catkin``, which largely replaced ``rosbuild``.
 Recently introduced is a thing called ``ament``, which may one day replace ``catkin``.
 
 All three tools can be considered "meta-build systems".
-They sit atop other build systems (e.g., CMake, Python setuptools) and provide extra functionality that's intended to make those build systems easier to use, especially when managing dependencies across multiple packages and when building multiple packages in a single workspace.
+They sit atop other build systems (e.g. CMake, Python setuptools) and provide extra functionality that's intended to make those build systems easier to use, especially when managing dependencies across multiple packages and when building multiple packages in a single workspace.
 
 Each of these meta-build systems does two things:
 
 
 #.
-   Adds an API to the underlying build system (e.g., CMake) that can be used to simplify common tasks (e.g., supplying all the flags exported by depended-upon packages when building an executable).
+   Adds an API to the underlying build system (e.g. CMake) that can be used to simplify common tasks (e.g. supplying all the flags exported by depended-upon packages when building an executable).
    There are usually hooks to allow injection of extra APIs by packages outside of the core meta-build system.
 
 
@@ -59,12 +59,12 @@ Postulates
 
 
    #. Corollary: **Migration to a new meta-build system should not be required without a very good reason.**
-      If a developer doesn't want the functionality offered by the new system, then they shouldn't be coerced into migrating from the old system unless there's something irrevocably broken about the old system (e.g., ``rosbuild``\ 's in-source build pattern and lack of an "install" step).
+      If a developer doesn't want the functionality offered by the new system, then they shouldn't be coerced into migrating from the old system unless there's something irrevocably broken about the old system (e.g. ``rosbuild``\ 's in-source build pattern and lack of an "install" step).
 
 #.
    **Interoperability is a good thing.**
    Whenever possible (not all combinations will be practical), developers should be able to mix and match meta-build systems, including mixing their different aspects (i.e., use the building tool from one system and the API from another).
-   Such mixing and matching is especially important when developers want to combine a large existing codebase using one meta-build system (e.g., ROS with ``catkin``) with new libraries and tools offered by a codebase using another meta-build system (e.g., ROS 2 with ``ament``).
+   Such mixing and matching is especially important when developers want to combine a large existing codebase using one meta-build system (e.g. ROS with ``catkin``) with new libraries and tools offered by a codebase using another meta-build system (e.g. ROS 2 with ``ament``).
    Ideally, that kind of combination can be done without requiring changes to the API used by either codebase and without telling the developer which builder tool to use.
 
 
@@ -87,7 +87,7 @@ Let's say that you want to add some existing ROS packages to your ROS 2 workspac
   Adds support for format 1 package manifests, instead of requiring format 2.
   This change isn't strictly related to ``catkin`` vs. ``ament``, because format 2 has been around for a while and ``catkin`` supports it, so developers could already update their manifests to format 2.
   But there's a ton of ROS code out there that uses format 1, so we should support it.
-  This implementation could be improved, e.g., by reasoning over the various flavors of depend tags and how they differ between formats 1 and 2.
+  This implementation could be improved, e.g. by reasoning over the various flavors of depend tags and how they differ between formats 1 and 2.
 * `ament_tools <https://github.com/ament/ament_tools/compare/catkin?expand=1>`__:
   Adds a new ``catkin`` build type to ``ament``.
   This implementation just treats ``catkin`` packages the same as plain ``cmake`` packages, which seems to work fine.
@@ -98,7 +98,7 @@ Example usage:
 
 #. Get the ROS 2 code as usual, using the branches mentioned above.
 #. Add to your workspace some ``catkin`` ROS packages, ensuring that all of their dependencies are satisfied (either present in the workspace or installed elsewhere with appropriate setup shell files sourced).
-#. Build as usual (e.g., ``./src/ament/ament_tools/scripts/ament.py build``).
+#. Build as usual (e.g. ``colcon build``).
 
 Voila: your existing code isn't suddenly broken just because there's a new build tool in use.
 
@@ -245,7 +245,7 @@ Voila: you've built ROS 2 using the tools that you're familiar with.
 
 * **Caveat**: we're ignoring the ``eProsima`` packages in the workspace because they lack ``package.xml`` files, which means that ``catkin`` can't see them.
   ``ament`` has some heuristics for handling such packages.
-  Options: backport those heuristics to ``catkin``; switch to installing non-``package.xml``-containing packages outside of the workspace; or just add a ``package.xml`` to each of those packages (e.g., in our own fork).
+  Options: backport those heuristics to ``catkin``; switch to installing non-``package.xml``-containing packages outside of the workspace; or just add a ``package.xml`` to each of those packages (e.g. in our own fork).
 
 Combining all of ROS and ROS 2 in one workspace and building it (TODO)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -257,7 +257,7 @@ This step will require sorting out some things, including at least:
   Either the functionality needs to be merged into one package that can support both systems, or the new versions need different names.
 * Message generation.
   ROS and ROS 2 have different message generation steps, the output of which might or might not conflict.
-  Something sort of sophisticated needs to be done to allow generation of all the right artifacts from a single message package (or, as indicated above, the new message packages need different names).
+  Something sophisticated needs to be done to allow generation of all the right artifacts from a single message package (or, as indicated above, the new message packages need different names).
 
 Using ``bloom`` to release ``ament`` packages (TODO)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
