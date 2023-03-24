@@ -28,7 +28,6 @@ Tier 2 platforms:
 
 Tier 3 platforms:
 
-* Ubuntu 20.04 (Focal): ``amd64``
 * macOS: ``amd64``
 * Debian Bullseye: ``amd64``
 
