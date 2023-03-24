@@ -301,3 +301,25 @@ Developers may subscribe to the following QoS events that are associated with a 
 * Requested incompatible QoS
 
   The subscription has encountered a publisher on the same topic that is offering a QoS profile that does not satisfy the requested QoS profile, resulting in no connection between the subscription and that publisher.
+
+
+Other events
+------------
+
+Except above QoS event, there are below events which developers can subscribe.
+
+* Inconsistent topic
+
+  Another topic exists with the same name but different characteristics
+
+* matched
+
+  Developers can subscribe this event with a publisher or a subscription.
+
+  * Publisher: this event happens while it finds a subscription which matches topic and has compatible QoS or a connected subscription is ceased.
+  * subscription: this event happens while it finds a publisher which  matches topic and has compatible QoS or a connected publisher is ceased.
+
+  There are demo code on how to use event.
+
+  * rclcpp: `demo code <https://github.com/ros2/demos/tree/rolling/demo_nodes_cpp/src/events/matched_event_detect.cpp>`
+  * rclpy: `demo code <https://github.com/ros2/demos/tree/rolling/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`
