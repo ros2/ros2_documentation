@@ -423,6 +423,12 @@ Specifying a QoS of KEEP_LAST with a depth of 0 is a nonsensical arrangement, si
 
 See https://github.com/ros2/rclcpp/pull/2048 for more information.
 
+Deprecated ``RCLCPP_SCOPE_EXIT`` macro was removed
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+In Humble, the macro ``RCLCPP_SCOPE_EXIT`` was deprecated in favor of ``RCPPUTILS_SCOPE_EXIT``.
+In Iron, the ``RCLCPP_SCOPE_EXIT`` macro has been completely removed.
+
 ``rclpy``
 ^^^^^^^^^
 
