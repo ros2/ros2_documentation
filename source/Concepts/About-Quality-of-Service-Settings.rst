@@ -306,11 +306,8 @@ Developers may subscribe to the following QoS events that are associated with a 
 Other events
 ------------
 
-Except above QoS event, there are below events which developers can subscribe.
-
-* Inconsistent topic
-
-  Another topic exists with the same name but different characteristics
+In addition to QoS events, matched events can be generated when any publisher and subscription establishes or drops the connection between them.
+Developers may provide each publisher and subscription with callback functions that are triggered by matched events and handle them in a way they see fit, similar to how messages received on a topic are handled.
 
 * matched
 
