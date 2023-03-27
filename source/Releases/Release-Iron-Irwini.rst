@@ -458,6 +458,12 @@ The code used to output a log message when ``RCUTILS_LOG_*`` or ``RCLCPP_*`` was
 These log messages should now be more efficient, though they should still not be called at high rates.
 See https://github.com/ros2/rcutils/pull/381, https://github.com/ros2/rcutils/pull/372, https://github.com/ros2/rcutils/pull/369, and https://github.com/ros2/rcutils/pull/367 for more information.
 
+Deprecated ``rcutils/get_env.h`` header was removed
+"""""""""""""""""""""""""""""""""""""""""""""""""""
+
+In Humble, the header ``rcutils/get_env.h`` was deprecated in favor of ``rcutils/env.h``.
+In Iron, the ``rcutils/get_env.h`` header been completely removed.
+
 ``rmw``
 ^^^^^^^
 
