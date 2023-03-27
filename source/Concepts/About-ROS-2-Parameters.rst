@@ -57,7 +57,7 @@ The reason that there are two types of callbacks is to have a chance to interven
 A node can register for both, either, or none of the callback types.
 Both types are described below.
 
-The first type is known as a "set parameter" callback, and can be installed by calling ``add_on_set_parameters_callback``.
+The first type is known as a "set parameter" callback, and can be set by calling ``add_on_set_parameters_callback`` from the node API.
 The callback should accept a list of ``Parameter`` objects, and return an ``rcl_interfaces/msg/SetParametersResult``.
 This callback will be called before a parameter is declared or changed on a node.
 The main purpose of this callback is to give the user the ability to inspect the upcoming change to the parameter and explicitly reject the change.
@@ -68,9 +68,9 @@ The main purpose of this callback is to give the user the ability to inspect the
    If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
    To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
 
-The second type of callback is known as an "on parameter event" callback, and can be installed by calling ``on_parameter_event``.
+The second type of callback is known as an "on parameter event" callback, and can be set by calling ``on_parameter_event`` from one of the parameter client APIs.
 The callback should accept an ``rcl_interfaces/msg/ParameterEvent`` object, and return nothing.
-This callback will be called after a parameter has been declared, changed, or deleted.
+This callback will be called after all parameters in the input event have been declared, changed, or deleted.
 The main purpose of this callback is to give the user the ability to react to changes from parameters that have successfully been accepted.
 
 Interacting with parameters
