@@ -33,7 +33,7 @@ Declaring parameters
 ^^^^^^^^^^^^^^^^^^^^
 
 By default, a node needs to *declare* all of the parameters that it will accept during its lifetime.
-This is so that the type and the name of the parameter are well-defined at node startup time, which reduces the chances of misconfiguration later on.
+This is so that the type and name of the parameters are well-defined at node startup time, which reduces the chances of misconfiguration later on.
 See :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-CPP` or :doc:`../Tutorials/Beginner-Client-Libraries/Using-Parameters-In-A-Class-Python` for tutorials on declaring and using parameters from a node.
 
 For some types of nodes, not all of the parameters will be known ahead of time.
@@ -57,7 +57,7 @@ The reason that there are two types of callbacks is to have a chance to interven
 A node can register for both, either, or none of the callback types.
 Both types are described below.
 
-The first type is known as a "set parameter" callback, and can be installed by calling ``add_on_set_parameters_callback``.
+The first type is known as a "set parameter" callback, and can be set by calling ``add_on_set_parameters_callback`` from the node API.
 The callback should accept a list of ``Parameter`` objects, and return an ``rcl_interfaces/msg/SetParametersResult``.
 This callback will be called before a parameter is declared or changed on a node.
 The main purpose of this callback is to give the user the ability to inspect the upcoming change to the parameter and explicitly reject the change.
@@ -68,9 +68,9 @@ The main purpose of this callback is to give the user the ability to inspect the
    If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
    To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
 
-The second type of callback is known as an "on parameter event" callback, and can be installed by calling ``on_parameter_event``.
+The second type of callback is known as an "on parameter event" callback, and can be set by calling ``on_parameter_event`` from one of the parameter client APIs.
 The callback should accept an ``rcl_interfaces/msg/ParameterEvent`` object, and return nothing.
-This callback will be called after all parameters have been declared, changed, or deleted.
+This callback will be called after all parameters in the input event have been declared, changed, or deleted.
 The main purpose of this callback is to give the user the ability to react to changes from parameters that have successfully been accepted.
 
 Interacting with parameters
@@ -110,7 +110,7 @@ Manipulating parameter values at runtime
 
 The ``ros2 param`` command is the general way to interact with parameters for nodes that are already running.
 ``ros2 param`` uses the parameter service API as described above to perform the various operations.
-See :doc:`the how-to guide <../How-To-Guides/Using-ros2-param>` for details on how to use ``ros2 param``.
+See :doc:`this how-to guide <../How-To-Guides/Using-ros2-param>` for details on how to use ``ros2 param``.
 
 Migrating from ROS 1
 --------------------
@@ -123,7 +123,7 @@ In ROS 1, the ``roscore`` acted like a global parameter blackboard where all nod
 Since there is no central ``roscore`` in ROS 2, that functionality no longer exists.
 The recommended approach in ROS 2 is to use per-node parameters that are closely tied to the nodes that use them.
 If a global blackboard is still needed, it is possible to create a dedicated node for this purpose.
-ROS 2 ships with one in in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``parameter_blackboard``; it can be run with:
+ROS 2 ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``parameter_blackboard``; it can be run with:
 
 .. code-block:: console
 

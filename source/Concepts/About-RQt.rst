@@ -77,15 +77,15 @@ Compared to building your own GUIs from scratch:
 From system architecture's perspective:
 
 * Support multi-platform (basically wherever `QT <http://qt-project.org/>`__ and ROS run) and multi-language (``Python``, ``C++``).
-* Manageable lifecycle: RQt plugins using common API makes maintainance & reuse easier.
+* Manageable lifecycle: RQt plugins using a common API makes maintainance & reuse easier.
 
 
 Further Reading
 ---------------
 
-* ROS 2 Discourse `announcment of porting to ROS 2 <https://discourse.ros.org/t/rqt-in-ros2/6428>`__).
-* `RQt for ROS 1 documentation <https://wiki.ros.org/rqt>`__.
-* Brief overview of RQt (from `a Willow Garage intern blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`__).
+* ROS 2 Discourse `announcement of porting to ROS 2 <https://discourse.ros.org/t/rqt-in-ros2/6428>`__)
+* `RQt for ROS 1 documentation <https://wiki.ros.org/rqt>`__
+* Brief overview of RQt (from `a Willow Garage intern blog post <http://web.archive.org/web/20130518142837/http://www.willowgarage.com/blog/2012/10/21/ros-gui>`__)
 
   .. raw:: html
 
