@@ -13,7 +13,7 @@ About topic statistics
 Overview
 --------
 
-ROS 2 provides the integrated measurement of statistics for messages received by any
+ROS 2 provides integrated measurement of statistics for messages received by any
 subscription.
 Allowing a user to collect subscription statistics enables them to characterize
 the performance of their system or aid in diagnosis of any present issues.
@@ -33,7 +33,7 @@ When a new message is received by a subscription, this is a new sample for calcu
 the current measurement window.
 The average calculated is simply a
 `moving average <https://en.wikipedia.org/wiki/Moving_average>`__.
-The maximum, minimum,and sample count are updated upon receipt of each new sample, whereas the
+The maximum, minimum, and sample count are updated upon receipt of each new sample, whereas the
 standard deviation is calculated using `Welford's online algorithm
 <https://en.wikipedia.org/wiki/Algorithms_for_calculating_variance#Welford's_online_algorithm>`__.
 
@@ -48,7 +48,7 @@ Types of statistics calculated
 * Received message age
 
   * Units: milliseconds
-  * Requires a message to have a timestamp populated in the header field in order to calculate the age of the message as sent from a publisher.
+  * Requires a message to have a timestamp populated in the header field in order to calculate the age of the message as sent from a publisher
 
 Behavior
 --------
