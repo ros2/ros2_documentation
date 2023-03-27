@@ -53,11 +53,11 @@ Publish messages in one terminal with:
 
 .. code-block:: bash
 
-   $ ros2 topic pub /chatter example_interfaces/msg/String "data: Hello world"
+   $ ros2 topic pub /chatter std_msgs/msg/String "data: Hello world"
    publisher: beginning loop
-   publishing #1: example_interfaces.msg.String(data='Hello world')
+   publishing #1: std_msgs.msg.String(data='Hello world')
 
-   publishing #2: example_interfaces.msg.String(data='Hello world')
+   publishing #2: std_msgs.msg.String(data='Hello world')
 
 Echo messages received in another terminal with:
 
