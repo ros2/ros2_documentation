@@ -129,7 +129,7 @@ Exceptions
 
 * Exceptions are allowed
 
-  * rationale: this is a new code base, so the legacy argument doesn't apply to us
+  * rationale: this is a new codebase, so the legacy argument doesn't apply to us
   * rationale: for user-facing API's it is more idiomatic C++ to have exceptions
   * Exceptions in destructors should be explicitly avoided
 
