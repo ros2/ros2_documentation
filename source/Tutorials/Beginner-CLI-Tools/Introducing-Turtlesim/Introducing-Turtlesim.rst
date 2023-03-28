@@ -198,7 +198,7 @@ Click on the **Service** dropdown list to see turtlesim's services, and select t
 Let's use rqt to call the ``/spawn`` service.
 You can guess from its name that ``/spawn`` will create another turtle in the turtlesim window.
 
-Give the new turtle a unique name, like **turtle2**, by double-clicking between the empty single quotes in the **Expression** column.
+Give the new turtle a unique name, like ``turtle2``, by double-clicking between the empty single quotes in the **Expression** column.
 You can see that this expression corresponds to the value of **name** and is of type **string**.
 
 Next enter some valid coordinates at which to spawn the new turtle, like ``x = 1.0`` and ``y = 1.0``.
@@ -207,13 +207,13 @@ Next enter some valid coordinates at which to spawn the new turtle, like ``x = 1
 
 .. note::
 
-  If you try to spawn a new turtle with the same name as an existing turtle, like the default **turtle1**, you will get an error message in the terminal running ``turtlesim_node``:
+  If you try to spawn a new turtle with the same name as an existing turtle, like the default ``turtle1``, you will get an error message in the terminal running ``turtlesim_node``:
 
   .. code-block:: console
 
     [ERROR] [turtlesim]: A turtle named [turtle1] already exists
 
-To spawn **turtle2**, you then need to call the service by clicking the **Call** button on the upper right side of the rqt window.
+To spawn ``turtle2``, you then need to call the service by clicking the **Call** button on the upper right side of the rqt window.
 
 If the service call was successful, you should see a new turtle (again with a random design) spawn at the coordinates you input for **x** and **y**.
 
@@ -222,27 +222,27 @@ If you refresh the service list in rqt, you will also see that now there are ser
 5.2 Try the set_pen service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now let's give **turtle1** a unique pen using the ``/set_pen`` service:
+Now let's give ``turtle1`` a unique pen using the ``/set_pen`` service:
 
 .. image:: images/set_pen.png
 
-The values for **r**, **g** and **b**, which are between 0 and 255, set the color of the pen **turtle1** draws with, and **width** sets the thickness of the line.
+The values for **r**, **g** and **b**, which are between 0 and 255, set the color of the pen ``turtle1`` draws with, and **width** sets the thickness of the line.
 
-To have **turtle1** draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
+To have ``turtle1`` draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
 Don't forget to call the service after updating the values.
 
-If you return to the terminal where ``turtle_teleop_key`` is running and press the arrow keys, you will see **turtle1**'s pen has changed.
+If you return to the terminal where ``turtle_teleop_key`` is running and press the arrow keys, you will see ``turtle1``'s pen has changed.
 
 .. image:: images/new_pen.png
 
-You've probably also noticed that there's no way to move **turtle2**.
-That's because there is no teleop node for **turtle2**.
+You've probably also noticed that there's no way to move ``turtle2``.
+That's because there is no teleop node for ``turtle2``.
 
 6 Remapping
 ^^^^^^^^^^^
 
-You need a second teleop node in order to control **turtle2**.
-However, if you try to run the same command as before, you will notice that this one also controls **turtle1**.
+You need a second teleop node in order to control ``turtle2``.
+However, if you try to run the same command as before, you will notice that this one also controls ``turtle1``.
 The way to change this behavior is by remapping the ``cmd_vel`` topic.
 
 In a new terminal, source ROS 2, and run:
@@ -252,7 +252,7 @@ In a new terminal, source ROS 2, and run:
   ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 
 
-Now, you can move **turtle2** when this terminal is active, and **turtle1** when the other terminal running ``turtle_teleop_key`` is active.
+Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.
 
 .. image:: images/remap.png
 
