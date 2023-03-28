@@ -185,7 +185,7 @@ Which will return:
 ^^^^^^^^^^^^^^^^^^^^^
 
 Nodes send data over topics using messages.
-Publishers and subscribers must send and receive the same type of messages to communicate.
+Publishers and subscribers must send and receive the same type of message to communicate.
 
 The topic types we saw earlier after running ``ros2 topic list -t`` let us know what message type is used on each topic.
 Recall that the ``cmd_vel`` topic has the type:

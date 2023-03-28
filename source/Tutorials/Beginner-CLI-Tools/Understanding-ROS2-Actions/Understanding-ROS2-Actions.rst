@@ -114,7 +114,7 @@ Don't assume every action server will choose to abort the current goal when it g
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
 
-To see the ``/turtlesim`` node's actions, open a new terminal and run the command:
+To see the list of actions a node provides, ``/turtlesim`` in this case, open a new terminal and run the command:
 
 .. code-block:: console
 
@@ -156,7 +156,8 @@ Which will return a list of ``/turtlesim``'s subscribers, publishers, services, 
 Notice that the ``/turtle1/rotate_absolute`` action for ``/turtlesim`` is under ``Action Servers``.
 This means ``/turtlesim`` responds to and provides feedback for the ``/turtle1/rotate_absolute`` action.
 
-The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients`` meaning that it sends goals for that action name. To see that, run:
+The ``/teleop_turtle`` node has the name ``/turtle1/rotate_absolute`` under ``Action Clients`` meaning that it sends goals for that action name.
+To see that, run:
 
 .. code-block:: console
 
@@ -273,7 +274,7 @@ Which will return:
   # The remaining rotation in radians
   float32 remaining
 
-The first section of this message, above the first ``---``, is the structure (data type and name) of the goal request.
+The section of this message above the first ``---`` is the structure (data type and name) of the goal request.
 The next section is the structure of the result.
 The last section is the structure of the feedback.
 

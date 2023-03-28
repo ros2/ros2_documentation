@@ -274,7 +274,6 @@ Now that you have turtlesim and rqt up and running, and an idea of how they work
 Related content
 ---------------
 
-The turtlesim package can be found in the `ros_tutorials <https://github.com/ros/ros_tutorials/tree/humble/turtlesim>`_ repo.
-Make sure to switch branches and select the one that corresponds to your installed ROS 2 distro in order to view the right version of turtlesim.
+The turtlesim package can be found in the `ros_tutorials <https://github.com/ros/ros_tutorials/tree/{REPOS_FILE_BRANCH}/turtlesim>`_ repo.
 
 `This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the items covered in this tutorial.
