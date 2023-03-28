@@ -130,7 +130,7 @@ However, now if you return to the terminal where you ran ``ros2 node list``, and
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
 
-Now that you know the name of your nodes, you can access more information about them with:
+Now that you know the names of your nodes, you can access more information about them with:
 
 .. code-block:: console
 

@@ -67,7 +67,7 @@ Install the turtlesim package for your ROS 2 distro:
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
-Check that the package is found:
+Check that the package is installed:
 
 .. code-block:: console
 
