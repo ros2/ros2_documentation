@@ -4,8 +4,8 @@
 
 .. _Turtlesim:
 
-Using ``turtlesim`` and ``rqt``
-===============================
+Using ``turtlesim``, ``ros2``, and ``rqt``
+==========================================
 
 **Goal:** Install and use the turtlesim package and rqt tools to prepare for upcoming tutorials.
 
@@ -21,12 +21,17 @@ Background
 ----------
 
 Turtlesim is a lightweight simulator for learning ROS 2.
-It illustrates what ROS 2 does at the most basic level, to give you an idea of what you will do with a real robot or robot simulation later on.
+It illustrates what ROS 2 does at the most basic level to give you an idea of what you will do with a real robot or a robot simulation later on.
 
-rqt is a GUI tool for ROS 2.
-Everything done in rqt can be done on the command line, but it provides an easier, more user-friendly way to manipulate ROS 2 elements.
+The ros2 tool is how the user manages, introspects, and interacts with a ROS system.
+It supports multiple commands that target different aspects of the system and its operation.
+One might use it to start a node, set a parameter, listen to a topic, and many more.
+The ros2 tool is part of the core ROS 2 installation.
 
-This tutorial touches on core ROS 2 concepts, like the separation of nodes, topics, and services.
+rqt is a graphical user interface (GUI) tool for ROS 2.
+Everything done in rqt can be done on the command line, but rqt provides a more user-friendly way to manipulate ROS 2 elements.
+
+This tutorial touches upon core ROS 2 concepts, like nodes, topics, and services.
 All of these concepts will be elaborated on in later tutorials; for now, you will simply set up the tools and get a feel for them.
 
 Prerequisites
@@ -62,7 +67,7 @@ Install the turtlesim package for your ROS 2 distro:
 
       As long as the archive you installed ROS 2 from contains the ``ros_tutorials`` repository, you should already have turtlesim installed.
 
-Check that the package installed:
+Check that the package is installed:
 
 .. code-block:: console
 
@@ -90,15 +95,14 @@ The simulator window should appear, with a random turtle in the center.
 
 .. image:: images/turtlesim.png
 
-In the terminal under the command, you will see messages from the node:
+In the terminal, under the command, you will see messages from the node:
 
 .. code-block:: console
 
   [INFO] [turtlesim]: Starting turtlesim with node name /turtlesim
-
   [INFO] [turtlesim]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
 
-Here you can see your default turtle’s name is ``turtle1``, and the default coordinates where it spawns.
+There you can see the default turtle's name and the coordinates where it spawns.
 
 3 Use turtlesim
 ^^^^^^^^^^^^^^^
@@ -120,9 +124,9 @@ It will move around the screen, using its attached "pen" to draw the path it fol
 .. note::
 
   Pressing an arrow key will only cause the turtle to move a short distance and then stop.
-  This is because, realistically, you wouldn’t want a robot to continue carrying on an instruction if, for example, the operator lost the connection to the robot.
+  This is because, realistically, you wouldn't want a robot to continue carrying on an instruction if, for example, the operator lost the connection to the robot.
 
-You can see the nodes and their associated services, topics, and actions using the ``list`` command:
+You can see the nodes, and their associated topics, services, and actions, using the ``list`` subcommands of the respective commands:
 
 .. code-block:: console
 
@@ -132,7 +136,7 @@ You can see the nodes and their associated services, topics, and actions using t
   ros2 action list
 
 You will learn more about these concepts in the coming tutorials.
-Since the goal of this tutorial is only to get a general overview of turtlesim, we will use rqt (a graphical user interface for ROS 2) to look at services a little closer.
+Since the goal of this tutorial is only to get a general overview of turtlesim, you will use rqt to call some of the turtlesim services and interact with ``turtlesim_node``.
 
 4 Install rqt
 ^^^^^^^^^^^^^
@@ -174,13 +178,13 @@ To run rqt:
 5 Use rqt
 ^^^^^^^^^
 
-After running rqt the first time, the window will be blank.
+When running rqt for the first time, the window will be blank.
 No worries; just select **Plugins** > **Services** > **Service Caller** from the menu bar at the top.
 
 .. note::
 
-  It may take some time for rqt to locate all the plugins itself.
-  If you click on **Plugins**, but don’t see **Services** or any other options, you should close rqt, enter the command ``rqt --force-discover`` in your terminal.
+  It may take some time for rqt to locate all the plugins.
+  If you click on **Plugins** but don't see **Services** or any other options, you should close rqt and enter the command ``rqt --force-discover`` in your terminal.
 
 .. image:: images/rqt.png
 
@@ -191,51 +195,55 @@ Click on the **Service** dropdown list to see turtlesim's services, and select t
 5.1 Try the spawn service
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Let’s use rqt to call the ``/spawn`` service.
+Let's use rqt to call the ``/spawn`` service.
 You can guess from its name that ``/spawn`` will create another turtle in the turtlesim window.
 
-Give the new turtle a unique name, like ``turtle2`` by double-clicking between the empty single quotes in the **Expression** column.
-You can see that this expression corresponds to the **name** value, and is of type **string**.
+Give the new turtle a unique name, like ``turtle2``, by double-clicking between the empty single quotes in the **Expression** column.
+You can see that this expression corresponds to the value of **name** and is of type **string**.
 
-Enter new coordinates for the turtle to spawn at, like ``x = 1.0`` and ``y = 1.0``.
+Next enter some valid coordinates at which to spawn the new turtle, like ``x = 1.0`` and ``y = 1.0``.
 
 .. image:: images/spawn.png
 
 .. note::
 
-  If you try to spawn a new turtle with the same name as an existing turtle, like your default ``turtle1``, you will get an error message in the terminal running ``turtlesim_node``:
+  If you try to spawn a new turtle with the same name as an existing turtle, like the default ``turtle1``, you will get an error message in the terminal running ``turtlesim_node``:
 
   .. code-block:: console
 
     [ERROR] [turtlesim]: A turtle named [turtle1] already exists
 
-To spawn turtle2, you have to call the service by clicking the **Call** button on the upper right side of the rqt window.
+To spawn ``turtle2``, you then need to call the service by clicking the **Call** button on the upper right side of the rqt window.
 
-You will see a new turtle (again with a random design) spawn at the coordinates you input for **x** and **y**.
+If the service call was successful, you should see a new turtle (again with a random design) spawn at the coordinates you input for **x** and **y**.
 
-If you refresh the service list in rqt, you will also see that now there are services related to the new turtle, ``/turtle2/…``, in addition to ``/turtle1/…``.
+If you refresh the service list in rqt, you will also see that now there are services related to the new turtle, ``/turtle2/...``, in addition to ``/turtle1/...``.
 
 5.2 Try the set_pen service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Now let's give turtle1 a unique pen using the ``/set_pen`` service:
+Now let's give ``turtle1`` a unique pen using the ``/set_pen`` service:
 
 .. image:: images/set_pen.png
 
-The values for **r**, **g** and **b**, between 0 and 255, will set the color of the pen turtle1 draws with, and **width** sets the thickness of the line.
+The values for **r**, **g** and **b**, which are between 0 and 255, set the color of the pen ``turtle1`` draws with, and **width** sets the thickness of the line.
 
-To have turtle1 draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
+To have ``turtle1`` draw with a distinct red line, change the value of **r** to 255, and the value of **width** to 5.
 Don't forget to call the service after updating the values.
 
-If you return to the terminal where ``turtle_teleop_key`` is running and press the arrow keys, you will see turtle1’s pen has changed.
+If you return to the terminal where ``turtle_teleop_key`` is running and press the arrow keys, you will see ``turtle1``'s pen has changed.
 
 .. image:: images/new_pen.png
 
-You've probably noticed that there's no way to move turtle2.
-You can accomplish this by remapping turtle1's ``cmd_vel`` topic onto turtle2.
+You've probably also noticed that there's no way to move ``turtle2``.
+That's because there is no teleop node for ``turtle2``.
 
 6 Remapping
 ^^^^^^^^^^^
+
+You need a second teleop node in order to control ``turtle2``.
+However, if you try to run the same command as before, you will notice that this one also controls ``turtle1``.
+The way to change this behavior is by remapping the ``cmd_vel`` topic.
 
 In a new terminal, source ROS 2, and run:
 
@@ -243,14 +251,15 @@ In a new terminal, source ROS 2, and run:
 
   ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel
 
-Now you can move turtle2 when this terminal is active, and turtle1 when the other terminal running the ``turtle_teleop_key`` is active.
+
+Now, you can move ``turtle2`` when this terminal is active, and ``turtle1`` when the other terminal running ``turtle_teleop_key`` is active.
 
 .. image:: images/remap.png
 
 7 Close turtlesim
 ^^^^^^^^^^^^^^^^^
 
-To stop the simulation, you can enter ``Ctrl + C`` in the ``turtlesim_node`` terminal, and ``q`` in the teleop terminal.
+To stop the simulation, you can enter ``Ctrl + C`` in the ``turtlesim_node`` terminal, and ``q`` in the ``turtle_teleop_key`` terminals.
 
 Summary
 -------
@@ -260,11 +269,11 @@ Using turtlesim and rqt is a great way to learn the core concepts of ROS 2.
 Next steps
 ----------
 
-Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive in to the first core ROS 2 concept with the next tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
+Now that you have turtlesim and rqt up and running, and an idea of how they work, let's dive into the first core ROS 2 concept with the next tutorial, :doc:`../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes`.
 
 Related content
 ---------------
 
-The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_.
+The turtlesim package can be found in the `ros_tutorials repo <https://github.com/ros/ros_tutorials/tree/foxy-devel/turtlesim>`_ repo.
 
 `This community contributed video <https://youtu.be/xwT7XWflMdc>`_ demonstrates many of the items covered in this tutorial.

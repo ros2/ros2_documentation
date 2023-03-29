@@ -21,7 +21,7 @@ Background
 ----------
 
 Services are another method of communication for nodes in the ROS graph.
-Services are based on a call-and-response model, versus topics’ publisher-subscriber model.
+Services are based on a call-and-response model versus the publisher-subscriber model of topics.
 While topics allow nodes to subscribe to data streams and get continual updates, services only provide data when they are specifically called by a client.
 
 .. image:: images/Service-SingleServiceClient.gif
@@ -35,7 +35,7 @@ Some concepts mentioned in this tutorial, like :doc:`Nodes <../Understanding-ROS
 
 You will need the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -86,10 +86,10 @@ Running the ``ros2 service list`` command in a new terminal will return a list o
 You will see that both nodes have the same six services with ``parameters`` in their names.
 Nearly every node in ROS 2 has these infrastructure services that parameters are built off of.
 There will be more about parameters in the next tutorial.
-In this tutorial, the parameter services will be omitted from discussion.
+In this tutorial, the parameter services will be omitted from the discussion.
 
-For now, let’s focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
-You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
+For now, let's focus on the turtlesim-specific services, ``/clear``, ``/kill``, ``/reset``, ``/spawn``, ``/turtle1/set_pen``, ``/turtle1/teleport_absolute``, and ``/turtle1/teleport_relative``.
+You may recall interacting with some of these services using rqt in the :doc:`Use turtlesim, ros2, and rqt <../Introducing-Turtlesim/Introducing-Turtlesim>` tutorial.
 
 
 3 ros2 service type
@@ -104,7 +104,7 @@ To find out the type of a service, use the command:
 
   ros2 service type <service_name>
 
-Let’s take a look at turtlesim’s ``/clear`` service.
+Let's take a look at turtlesim's ``/clear`` service.
 In a new terminal, enter the command:
 
 .. code-block:: console
@@ -173,7 +173,7 @@ You can call services from the command line, but first you need to know the stru
 
   ros2 interface show <type_name>.srv
 
-To run this command on the ``/clear`` service’s type, ``Empty``:
+Try this on the ``/clear`` service's type, ``Empty``:
 
 .. code-block:: console
 
@@ -186,13 +186,13 @@ Which will return:
   ---
 
 The ``---`` separates the request structure (above) from the response structure (below).
-But, as you learned earlier, the ``Empty`` type doesn’t send or receive any data.
+But, as you learned earlier, the ``Empty`` type doesn't send or receive any data.
 So, naturally, its structure is blank.
 
-Let’s introspect a service with a type that sends and receives data, like ``/spawn``.
-From the results of ``ros2 service list -t``, we know ``/spawn``’s type is ``turtlesim/srv/Spawn``.
+Let's introspect a service with a type that sends and receives data, like ``/spawn``.
+From the results of ``ros2 service list -t``, we know ``/spawn``'s type is ``turtlesim/srv/Spawn``.
 
-To see the arguments in a ``/spawn`` call-and-request, run the command:
+To see the request and response arguments of the ``/spawn`` service, run the command:
 
 .. code-block:: console
 
@@ -210,21 +210,21 @@ Which will return:
   string name
 
 The information above the ``---`` line tells us the arguments needed to call ``/spawn``.
-``x``, ``y`` and ``theta`` determine the location of the spawned turtle, and ``name`` is clearly optional.
+``x``, ``y`` and ``theta`` determine the 2D pose of the spawned turtle, and ``name`` is clearly optional.
 
-The information below the line isn’t something you need to know in this case, but it can help you understand the data type of the response you get from the call.
+The information below the line isn't something you need to know in this case, but it can help you understand the data type of the response you get from the call.
 
 6 ros2 service call
 ^^^^^^^^^^^^^^^^^^^
 
-Now that you know what a service type is, how to find a service’s type, and how to find the structure of that type’s arguments, you can call a service using:
+Now that you know what a service type is, how to find a service's type, and how to find the structure of that type's arguments, you can call a service using:
 
 .. code-block:: console
 
   ros2 service call <service_name> <service_type> <arguments>
 
 The ``<arguments>`` part is optional.
-For example, you know that ``Empty`` typed services don’t have any arguments:
+For example, you know that ``Empty`` typed services don't have any arguments:
 
 .. code-block:: console
 
@@ -234,7 +234,7 @@ This command will clear the turtlesim window of any lines your turtle has drawn.
 
 .. image:: images/clear.png
 
-Now let’s spawn a new turtle by calling ``/spawn`` and inputting arguments.
+Now let's spawn a new turtle by calling ``/spawn`` and setting arguments.
 Input ``<arguments>`` in a service call from the command-line need to be in YAML syntax.
 
 Enter the command:
@@ -243,7 +243,7 @@ Enter the command:
 
   ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
 
-You will get this method-style view of what’s happening, and then the service response:
+You will get this method-style view of what's happening, and then the service response:
 
 .. code-block:: console
 
@@ -262,9 +262,9 @@ Summary
 Nodes can communicate using services in ROS 2.
 Unlike a topic - a one way communication pattern where a node publishes information that can be consumed by one or more subscribers - a service is a request/response pattern where a client makes a request to a node providing the service and the service processes the request and generates a response.
 
-You generally don’t want to use a service for continuous calls; topics or even actions would be better suited.
+You generally don't want to use a service for continuous calls; topics or even actions would be better suited.
 
-In this tutorial you used command line tools to identify, elaborate on, and call services.
+In this tutorial you used command line tools to identify, introspect, and call services.
 
 Next steps
 ----------

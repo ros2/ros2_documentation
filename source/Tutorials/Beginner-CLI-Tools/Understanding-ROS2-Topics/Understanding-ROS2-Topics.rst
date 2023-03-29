@@ -37,7 +37,7 @@ Prerequisites
 
 The :doc:`previous tutorial <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` provides some useful background information on nodes that is built upon here.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -88,7 +88,7 @@ The ``/teleop_turtle`` node is publishing data (the keystrokes you enter to move
 The highlighting feature of rqt_graph is very helpful when examining more complex systems with many nodes and topics connected in many different ways.
 
 rqt_graph is a graphical introspection tool.
-Now we’ll look at some command line tools for introspecting topics.
+Now we'll look at some command line tools for introspecting topics.
 
 
 3 ros2 topic list
@@ -114,9 +114,9 @@ Running the ``ros2 topic list`` command in a new terminal will return a list of 
   /turtle1/color_sensor [turtlesim/msg/Color]
   /turtle1/pose [turtlesim/msg/Pose]
 
-These attributes, particularly the type, are how nodes know they’re talking about the same information as it moves over topics.
+These attributes, particularly the type, are how nodes know they're talking about the same information as it moves over topics.
 
-If you’re wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
+If you're wondering where all these topics are in rqt_graph, you can uncheck all the boxes under **Hide:**
 
 .. image:: images/unhide.png
 
@@ -131,17 +131,17 @@ To see the data being published on a topic, use:
 
     ros2 topic echo <topic_name>
 
-Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect on that topic:
+Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect that topic:
 
 .. code-block:: console
 
     ros2 topic echo /turtle1/cmd_vel
 
-At first, this command won’t return any data.
-That’s because it’s waiting for ``/teleop_turtle`` to publish something.
+At first, this command won't return any data.
+That's because it's waiting for ``/teleop_turtle`` to publish something.
 
 Return to the terminal where ``turtle_teleop_key`` is running and use the arrows to move the turtle around.
-Watch the terminal where your ``echo`` is running at the same time, and you’ll see position data being published for every movement you make:
+Watch the terminal where your ``echo`` is running at the same time, and you'll see position data being published for every movement you make:
 
 .. code-block:: console
 
@@ -159,13 +159,13 @@ Now return to rqt_graph and uncheck the **Debug** box.
 
 .. image:: images/debug.png
 
-``/_ros2cli_26646`` is the node created by the ``echo`` we just ran (the number might be different).
-Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed.
+``/_ros2cli_26646`` is the node created by the ``echo`` command we just ran (the number might be different).
+Now you can see that the publisher is publishing data over the ``cmd_vel`` topic, and two subscribers are subscribed to it.
 
 5 ros2 topic info
 ^^^^^^^^^^^^^^^^^
 
-Topics don’t have to only be point-to-point communication; it can be one-to-many, many-to-one, or many-to-many.
+Topics don't have to only be one-to-one communication; they can be one-to-many, many-to-one, or many-to-many.
 
 Another way to look at this is running:
 
@@ -196,7 +196,8 @@ Recall that the ``cmd_vel`` topic has the type:
 
 This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twist``.
 
-Now we can run ``ros2 interface show <msg type>`` on this type to learn its details, specifically, what structure of data the message expects.
+Now we can run ``ros2 interface show <msg type>`` on this type to learn its details.
+Specifically, what structure of data the message expects.
 
 .. code-block:: console
 
@@ -212,7 +213,7 @@ For the message type from above it yields:
       Vector3  angular
 
 This tells you that the ``/turtlesim`` node is expecting a message with two vectors, ``linear`` and ``angular``, of three elements each.
-If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it’s in the same structure:
+If you recall the data we saw ``/teleop_turtle`` passing to ``/turtlesim`` with the ``echo`` command, it's in the same structure:
 
 .. code-block:: console
 
@@ -235,9 +236,9 @@ Now that you have the message structure, you can publish data onto a topic direc
 
     ros2 topic pub <topic_name> <msg_type> '<args>'
 
-The ``'<args>'`` argument is the actual data you’ll pass to the topic, in the structure you just discovered in the previous section.
+The ``'<args>'`` argument is the actual data you'll pass to the topic, in the structure you just discovered in the previous section.
 
-It’s important to note that this argument needs to be input in YAML syntax.
+It's important to note that this argument needs to be input in YAML syntax.
 Input the full command like so:
 
 .. code-block:: console
@@ -246,7 +247,7 @@ Input the full command like so:
 
 ``--once`` is an optional argument meaning “publish one message then exit”.
 
-You will receive the following message in the terminal:
+You will see the following output in the terminal:
 
 .. code-block:: console
 
@@ -268,8 +269,8 @@ The difference here is the removal of the ``--once`` option and the addition of 
 
 .. image:: images/pub_stream.png
 
-You can refresh rqt_graph to see what’s happening graphically.
-You will see the ``ros 2 topic pub ...`` node (``/_ros2cli_30358``) is publishing over the ``/turtle1/cmd_vel`` topic, and is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_26646``) and the ``/turtlesim`` node now.
+You can refresh rqt_graph to see what's happening graphically.
+You will see that the ``ros2 topic pub ...`` node (``/_ros2cli_30358``) is publishing over the ``/turtle1/cmd_vel`` topic, which is being received by both the ``ros2 topic echo ...`` node (``/_ros2cli_26646``) and the ``/turtlesim`` node now.
 
 .. image:: images/rqt_graph2.png
 
@@ -281,7 +282,7 @@ Finally, you can run ``echo`` on the ``pose`` topic and recheck rqt_graph:
 
 .. image:: images/rqt_graph3.png
 
-You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node is subscribed to.
+You can see that the ``/turtlesim`` node is also publishing to the ``pose`` topic, which the new ``echo`` node has subscribed to.
 
 8 ros2 topic hz
 ^^^^^^^^^^^^^^^
@@ -310,7 +311,7 @@ If you run the above command with ``turtle1/cmd_vel`` instead of ``turtle1/pose`
 ^^^^^^^^^^
 
 At this point you'll have a lot of nodes running.
-Don’t forget to stop them by entering ``Ctrl+C`` in each terminal.
+Don't forget to stop them by entering ``Ctrl+C`` in each terminal.
 
 Summary
 -------
@@ -322,4 +323,4 @@ You should now have a good idea of how data moves around a ROS 2 system.
 Next steps
 ----------
 
-Next you'll learn about another communication type in the ROS graph with the tutorial :doc:`../Understanding-ROS2-Services/Understanding-ROS2-Services`
+Next you'll learn about another communication type in the ROS graph with the tutorial :doc:`../Understanding-ROS2-Services/Understanding-ROS2-Services`.
