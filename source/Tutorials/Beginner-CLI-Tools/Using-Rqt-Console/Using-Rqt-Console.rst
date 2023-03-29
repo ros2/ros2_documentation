@@ -32,7 +32,7 @@ Prerequisites
 
 You will need :doc:`rqt_console and turtlesim <../Introducing-Turtlesim/Introducing-Turtlesim>` installed.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -68,7 +68,7 @@ Now start ``turtlesim`` in a new terminal with the following command:
 2 Messages on rqt_console
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To produce log messages for ``rqt_console`` to display, let’s have the turtle run into the wall.
+To produce log messages for ``rqt_console`` to display, let's have the turtle run into the wall.
 In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in the :doc:`topics tutorial <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`) below:
 
 .. code-block:: console
@@ -85,7 +85,7 @@ Press ``Ctrl+C`` in the terminal where you ran the ``ros2 topic pub`` command to
 3 Logger levels
 ^^^^^^^^^^^^^^^
 
-ROS 2’s logger levels are ordered by severity:
+ROS 2's logger levels are ordered by severity:
 
 .. code-block:: console
 
@@ -95,7 +95,7 @@ ROS 2’s logger levels are ordered by severity:
     Info
     Debug
 
-There is no exact standard for what each level indicates, but it’s safe to assume that:
+There is no exact standard for what each level indicates, but it's safe to assume that:
 
 * ``Fatal`` messages indicate the system is going to terminate to try to protect itself from detriment.
 * ``Error`` messages indicate significant issues that won't necessarily damage the system, but are preventing it from functioning properly.
@@ -106,7 +106,7 @@ There is no exact standard for what each level indicates, but it’s safe to ass
 The default level is ``Info``.
 You will only see messages of the default severity level and more-severe levels.
 
-Normally, only ``Debug`` messages are hidden because they’re the only level less severe than ``Info``.
+Normally, only ``Debug`` messages are hidden because they're the only level less severe than ``Info``.
 For example, if you set the default level to ``Warn``, you would only see messages of severity ``Warn``, ``Error``, and ``Fatal``.
 
 3.1 Set the default logger level
@@ -119,8 +119,8 @@ Enter the following command in your terminal:
 
     ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
 
-Now you won’t see the initial ``Info`` level warnings that came up in the console last time you started ``turtlesim``.
-That’s because ``Info`` messages are lower priority than the new default severity, ``Warn``.
+Now you won't see the initial ``Info`` level messages that came up in the console last time you started ``turtlesim``.
+That's because ``Info`` messages are lower priority than the new default severity, ``Warn``.
 
 Summary
 -------
