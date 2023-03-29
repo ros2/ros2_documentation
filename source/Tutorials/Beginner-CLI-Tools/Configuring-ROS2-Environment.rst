@@ -30,8 +30,8 @@ Combining workspaces makes developing against different versions of ROS 2, or ag
 It also allows the installation of several ROS 2 distributions (or “distros”, e.g. Dashing and Eloquent) on the same computer and switching between them.
 
 This is accomplished by sourcing setup files every time you open a new shell, or by adding the source command to your shell startup script once.
-Without sourcing the setup files, you won’t be able to access ROS 2 commands, or find or use ROS 2 packages.
-In other words, you won’t be able to use ROS 2.
+Without sourcing the setup files, you won't be able to access ROS 2 commands, or find or use ROS 2 packages.
+In other words, you won't be able to use ROS 2.
 
 Prerequisites
 -------------
@@ -81,7 +81,7 @@ You will need to run this command on every new shell you open to have access to 
 2 Add sourcing to your shell startup script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you don’t want to have to source the setup file every time you open a new shell (skipping task 1), then you can add the command to your shell startup script:
+If you don't want to have to source the setup file every time you open a new shell (skipping task 1), then you can add the command to your shell startup script:
 
 .. tabs::
 
@@ -91,7 +91,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
         echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-     To undo this, locate your system’s shell startup script and remove the appended source command.
+     To undo this, locate your system's shell startup script and remove the appended source command.
 
    .. group-tab:: macOS
 
@@ -99,7 +99,7 @@ If you don’t want to have to source the setup file every time you open a new s
 
         echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
-      To undo this, locate your system’s shell startup script and remove the appended source command.
+      To undo this, locate your system's shell startup script and remove the appended source command.
 
    .. group-tab:: Windows
 
@@ -124,7 +124,7 @@ If you don’t want to have to source the setup file every time you open a new s
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Sourcing ROS 2 setup files will set several environment variables necessary for operating ROS 2.
-If you ever have problems finding or using your ROS 2 packages, make sure that your environment is properly setup using the following command:
+If you ever have problems finding or using your ROS 2 packages, make sure that your environment is properly set up using the following command:
 
 .. tabs::
 
@@ -162,7 +162,7 @@ If you need more specific help (because environment setup files can come from di
 
 See the `domain ID <../../Concepts/About-Domain-ID>` article for details on ROS domain IDs.
 
-Once you have determined a unique integer for your group of ROS 2 agents, you can set the environment variable with the following command:
+Once you have determined a unique integer for your group of ROS 2 nodes, you can set the environment variable with the following command:
 
 .. tabs::
 
