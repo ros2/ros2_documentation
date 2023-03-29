@@ -31,7 +31,7 @@ Prerequisites
 
 This tutorial uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 Tasks
 -----
@@ -63,7 +63,7 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
     ros2 param list
 
-You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node’s parameters:
+You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters:
 
 .. code-block:: console
 
@@ -77,7 +77,7 @@ You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followe
     background_r
     use_sim_time
 
-Every node has the parameter ``use_sim_time``; it’s not unique to turtlesim.
+Every node has the parameter ``use_sim_time``; it's not unique to turtlesim.
 
 Based on their names, it looks like ``/turtlesim``'s parameters determine the background color of the turtlesim window using RGB color values.
 
@@ -93,7 +93,7 @@ To display the type and current value of a parameter, use the command:
 
     ros2 param get <node_name> <parameter_name>
 
-Let’s find out the current value of ``/turtlesim``’s parameter ``background_g``:
+Let's find out the current value of ``/turtlesim``'s parameter ``background_g``:
 
 .. code-block:: console
 
@@ -118,7 +118,7 @@ To change a parameter's value at runtime, use the command:
 
     ros2 param set <node_name> <parameter_name> <value>
 
-Let’s change ``/turtlesim``’s background color:
+Let's change ``/turtlesim``'s background color:
 
 .. code-block:: console
 
@@ -140,13 +140,13 @@ However, you can save your settings and reload them the next time you start a no
 5 ros2 param dump
 ^^^^^^^^^^^^^^^^^
 
-You can “dump” all of a node’s current parameter values into a file to save them for later by using the command:
+You can save all of a node’s current parameter values into a file to save them for later by using the command:
 
 .. code-block:: console
 
   ros2 param dump <node_name>
 
-To save your current configuration of ``/turtlesim``’s parameters, enter the command:
+To save your current configuration of ``/turtlesim``'s parameters, enter the command:
 
 .. code-block:: console
 
@@ -158,8 +158,8 @@ Your terminal will return the message:
 
   Saving to:  ./turtlesim.yaml
 
-You will find a new file in the directory your workspace is running in.
-If you open this file, you’ll see the following contents:
+You will find a new file in the current working directory your shell is running in.
+If you open this file, you'll see the following content:
 
 .. code-block:: YAML
 
@@ -181,7 +181,7 @@ You can load parameters from a file to a currently running node using the comman
 
   ros2 param load <node_name> <parameter_file>
 
-To load the ./turtlesim.yaml file generated with ``ros2 param dump`` into ``/turtlesim`` node’s parameters, enter the command:
+To load the ``turtlesim.yaml`` file generated with ``ros2 param dump`` into ``/turtlesim`` node's parameters, enter the command:
 
 .. code-block:: console
 
@@ -207,14 +207,13 @@ To start the same node using your saved parameter values, use:
 
 This is the same command you always use to start turtlesim, with the added flags ``--ros-args`` and ``--params-file``, followed by the file you want to load.
 
-Stop your running turtlesim node so you can try reloading it with your saved parameters, using:
+Stop your running turtlesim node, and try reloading it with your saved parameters, using:
 
 .. code-block:: console
 
   ros2 run turtlesim turtlesim_node --ros-args --params-file ./turtlesim.yaml
 
 The turtlesim window should appear as usual, but with the purple background you set earlier.
-
 
 Summary
 -------
