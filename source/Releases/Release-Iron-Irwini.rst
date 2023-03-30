@@ -451,7 +451,9 @@ See https://github.com/ros2/rclpy/pull/1048 for more information.
 Time and Duration no longer raise exception when compared to another type
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-It is now possible to compare ``rclpy.time.Time`` and ``rclpy.duration.Duration`` to other types without getting exceptions. If the types are not comparable, the comparison returns ``False``.
+It is now possible to compare ``rclpy.time.Time`` and ``rclpy.duration.Duration`` to other types without getting exceptions.
+If the types are not comparable, the comparison returns ``False``.
+Note that this is a behavior change from previous releases.
 
 .. code-block:: Python
 
