@@ -110,26 +110,26 @@ Here's an example of how to do that, by doing a minimal installation of ``ament`
 
 .. code-block:: bash
 
-   mkdir -p ~/ament_ws/src
-   cd ~/ament_ws/src
-   git clone https://github.com/osrf/osrf_pycommon.git
-   git clone https://github.com/ament/ament_package.git
-   cd ament_package
-   git checkout catkin
-   cd ..
-   git clone https://github.com/ament/ament_tools.git
-   cd ament_tools
-   git checkout catkin
-   cd ../..
-    ./src/ament_tools/scripts/ament.py build
+  mkdir -p ~/ament_ws/src
+  cd ~/ament_ws/src
+  git clone https://github.com/osrf/osrf_pycommon.git
+  git clone https://github.com/ament/ament_package.git
+  cd ament_package
+  git checkout catkin
+  cd ..
+  git clone https://github.com/ament/ament_tools.git
+  cd ament_tools
+  git checkout catkin
+  cd ../..
+  ./src/ament_tools/scripts/ament.py build
 
 Now build the ROS packages:
 
 .. code-block:: bash
 
-   . $HOME/ament_ws/install/setup.bash
-   cd ~/ros_catkin_ws
-   ament build
+  . $HOME/ament_ws/install/setup.bash
+  cd ~/ros_catkin_ws
+  ament build
 
 Voila: you used the ``ament`` build tool to build your ``catkin`` packages, without having to migrate them.
 
@@ -143,19 +143,19 @@ Here's an example of doing that, installing to ``$HOME/catkin``:
 
 .. code-block:: bash
 
-   # install catkin_pkg
-   git clone https://github.com/ros-infrastructure/catkin_pkg.git
-   cd catkin_pkg
-   git checkout ament
-   python3 setup.py install --prefix $HOME/catkin --single-version-externally-managed --record foo --install-layout deb
-   # install catkin
-   git clone https://github.com/ros/catkin.git
-   cd catkin
-   git checkout ament
-   mkdir build
-   cd build
-   PYTHONPATH=$HOME/catkin/lib/python3/dist-packages/ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/catkin -DPYTHON_EXECUTABLE=/usr/bin/python3
-   make install
+  # install catkin_pkg
+  git clone https://github.com/ros-infrastructure/catkin_pkg.git
+  cd catkin_pkg
+  git checkout ament
+  python3 setup.py install --prefix $HOME/catkin --single-version-externally-managed --record foo --install-layout deb
+  # install catkin
+  git clone https://github.com/ros/catkin.git
+  cd catkin
+  git checkout ament
+  mkdir build
+  cd build
+  PYTHONPATH=$HOME/catkin/lib/python3/dist-packages/ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/catkin -DPYTHON_EXECUTABLE=/usr/bin/python3
+  make install
 
 To use that version of catkin, you just need to source the ``$HOME/catkin/setup.bash`` file.
 
@@ -166,9 +166,9 @@ To build it:
 
 .. code-block:: bash
 
-   cd ~/ros2_ws
-   . $HOME/catkin/setup.bash
-   ./src/ament/ament_tools/scripts/ament.py build
+  cd ~/ros2_ws
+  . $HOME/catkin/setup.bash
+  ./src/ament/ament_tools/scripts/ament.py build
 
 Voila: when adding new packages atop ROS 2, you're free to choose which CMake API you prefer inside your package.
 
@@ -199,46 +199,46 @@ Because we're going to call out to ``ament build``, we will also need a minimal 
 
 .. code-block:: bash
 
-   mkdir -p ~/ament_ws/src
-   cd ~/ament_ws/src
-   git clone https://github.com/osrf/osrf_pycommon.git
-   git clone https://github.com/ament/ament_package.git
-   cd ament_package
-   git checkout catkin
-   cd ..
-   git clone https://github.com/ament/ament_tools.git
-   cd ament_tools
-   git checkout catkin
-   cd ../..
-    ./src/ament_tools/scripts/ament.py build
+  mkdir -p ~/ament_ws/src
+  cd ~/ament_ws/src
+  git clone https://github.com/osrf/osrf_pycommon.git
+  git clone https://github.com/ament/ament_package.git
+  cd ament_package
+  git checkout catkin
+  cd ..
+  git clone https://github.com/ament/ament_tools.git
+  cd ament_tools
+  git checkout catkin
+  cd ../..
+  ./src/ament_tools/scripts/ament.py build
 
 Then we need to install the modified version of catkin somewhere:
 
 .. code-block:: bash
 
-   # install catkin_pkg
-   git clone https://github.com/ros-infrastructure/catkin_pkg.git
-   cd catkin_pkg
-   git checkout ament
-   python3 setup.py install --prefix $HOME/catkin --single-version-externally-managed --record foo --install-layout deb
-   # install catkin
-   git clone https://github.com/ros/catkin.git
-   cd catkin
-   git checkout ament
-   mkdir build
-   cd build
-   PYTHONPATH=$HOME/catkin/lib/python3/dist-packages/ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/catkin -DPYTHON_EXECUTABLE=/usr/bin/python3
-   make install
+  # install catkin_pkg
+  git clone https://github.com/ros-infrastructure/catkin_pkg.git
+  cd catkin_pkg
+  git checkout ament
+  python3 setup.py install --prefix $HOME/catkin --single-version-externally-managed --record foo --install-layout deb
+  # install catkin
+  git clone https://github.com/ros/catkin.git
+  cd catkin
+  git checkout ament
+  mkdir build
+  cd build
+  PYTHONPATH=$HOME/catkin/lib/python3/dist-packages/ cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/catkin -DPYTHON_EXECUTABLE=/usr/bin/python3
+  make install
 
 Now build the ROS 2 packages:
 
 .. code-block:: bash
 
-   . $HOME/catkin/setup.bash
-   . $HOME/ament_ws/install/setup.bash
-   cd ~/ros2_ws
-   touch src/eProsima/AMENT_IGNORE
-   PYTHONPATH=$PYTHONPATH:/home/gerkey/ros2_ws_catkin/install_isolated/lib/python3.5/site-packages catkin_make_isolated --install
+  . $HOME/catkin/setup.bash
+  . $HOME/ament_ws/install/setup.bash
+  cd ~/ros2_ws
+  touch src/eProsima/AMENT_IGNORE
+  PYTHONPATH=$PYTHONPATH:/home/gerkey/ros2_ws_catkin/install_isolated/lib/python3.5/site-packages catkin_make_isolated --install
 
 Voila: you've built ROS 2 using the tools that you're familiar with.
 

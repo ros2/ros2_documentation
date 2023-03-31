@@ -21,7 +21,7 @@ To see all available sub-commands run:
 
 .. code-block:: bash
 
-   ros2 --help
+  ros2 --help
 
 Examples of sub-commands that are available include:
 
@@ -53,20 +53,20 @@ Publish messages in one terminal with:
 
 .. code-block:: bash
 
-   $ ros2 topic pub /chatter std_msgs/msg/String "data: Hello world"
-   publisher: beginning loop
-   publishing #1: std_msgs.msg.String(data='Hello world')
+  $ ros2 topic pub /chatter std_msgs/msg/String "data: Hello world"
+  publisher: beginning loop
+  publishing #1: std_msgs.msg.String(data='Hello world')
 
-   publishing #2: std_msgs.msg.String(data='Hello world')
+  publishing #2: std_msgs.msg.String(data='Hello world')
 
 Echo messages received in another terminal with:
 
 .. code-block:: bash
 
-   $ ros2 topic echo /chatter
-   data: Hello world
+  $ ros2 topic echo /chatter
+  data: Hello world
 
-   data: Hello world
+  data: Hello world
 
 Behind the scenes
 -----------------

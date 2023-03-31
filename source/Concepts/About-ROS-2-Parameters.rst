@@ -63,10 +63,11 @@ This callback will be called before a parameter is declared or changed on a node
 The main purpose of this callback is to give the user the ability to inspect the upcoming change to the parameter and explicitly reject the change.
 
 .. note::
-   It is important that "set parameter" callbacks have no side-effects.
-   Since multiple "set parameter" callbacks can be chained, there is no way for an individual callback to know if a later callback will reject the update.
-   If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
-   To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
+
+  It is important that "set parameter" callbacks have no side-effects.
+  Since multiple "set parameter" callbacks can be chained, there is no way for an individual callback to know if a later callback will reject the update.
+  If the individual callback were to make changes to the class it is in, for instance, it may get out-of-sync with the actual parameter.
+  To get a callback *after* a parameter has been successfully changed, see the next type of callback below.
 
 The second type of callback is known as an "on parameter event" callback, and can be set by calling ``on_parameter_event`` from one of the parameter client APIs.
 The callback should accept an ``rcl_interfaces/msg/ParameterEvent`` object, and return nothing.
@@ -127,6 +128,6 @@ ROS 2 ships with one in the ``ros-{DISTRO}-demo-nodes-cpp`` package called ``par
 
 .. code-block:: console
 
-   ros2 run demo_nodes_cpp parameter_blackboard
+  ros2 run demo_nodes_cpp parameter_blackboard
 
 The code for the ``parameter_blackboard`` is `here <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/parameters/parameter_blackboard.cpp>`__.

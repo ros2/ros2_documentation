@@ -56,13 +56,13 @@ The command ``ros2 run`` launches an executable from a package.
 
 .. code-block:: console
 
-    ros2 run <package_name> <executable_name>
+  ros2 run <package_name> <executable_name>
 
 To run turtlesim, open a new terminal, and enter the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 The turtlesim window will open, as you saw in the :doc:`previous tutorial <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
@@ -81,7 +81,7 @@ Open a new terminal while turtlesim is still running in the other one, and enter
 
 .. code-block:: console
 
-    ros2 node list
+  ros2 node list
 
 The terminal will return the node name:
 
@@ -93,7 +93,7 @@ Open another new terminal and start the teleop node with the command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 Here, we are referring to the ``turtlesim`` package again, but this time we target the executable named ``turtle_teleop_key``.
 
@@ -123,9 +123,9 @@ However, now if you return to the terminal where you ran ``ros2 node list``, and
 
 .. code-block:: console
 
-    /my_turtle
-    /turtlesim
-    /teleop_turtle
+  /my_turtle
+  /turtlesim
+  /teleop_turtle
 
 3 ros2 node info
 ^^^^^^^^^^^^^^^^
@@ -134,13 +134,13 @@ Now that you know the names of your nodes, you can access more information about
 
 .. code-block:: console
 
-    ros2 node info <node_name>
+  ros2 node info <node_name>
 
 To examine your latest node, ``my_turtle``, run the following command:
 
 .. code-block:: console
 
-    ros2 node info /my_turtle
+  ros2 node info /my_turtle
 
 ``ros2 node info`` returns a list of subscribers, publishers, services, and actions. i.e. the ROS graph connections that interact with that node.
 The output should look like this:

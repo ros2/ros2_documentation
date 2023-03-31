@@ -45,13 +45,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 
 2 ros2 param list
@@ -61,7 +61,7 @@ To see the parameters belonging to your nodes, open a new terminal and enter the
 
 .. code-block:: console
 
-    ros2 param list
+  ros2 param list
 
 You will see the node namespaces, ``/teleop_turtle`` and ``/turtlesim``, followed by each node's parameters:
 
@@ -99,19 +99,19 @@ To display the type and current value of a parameter, use the command:
 
 .. code-block:: console
 
-    ros2 param get <node_name> <parameter_name>
+  ros2 param get <node_name> <parameter_name>
 
 Let's find out the current value of ``/turtlesim``'s parameter ``background_g``:
 
 .. code-block:: console
 
-    ros2 param get /turtlesim background_g
+  ros2 param get /turtlesim background_g
 
 Which will return the value:
 
 .. code-block:: console
 
-    Integer value is: 86
+  Integer value is: 86
 
 Now you know ``background_g`` holds an integer value.
 
@@ -124,13 +124,13 @@ To change a parameter's value at runtime, use the command:
 
 .. code-block:: console
 
-    ros2 param set <node_name> <parameter_name> <value>
+  ros2 param set <node_name> <parameter_name> <value>
 
 Let's change ``/turtlesim``'s background color:
 
 .. code-block:: console
 
-    ros2 param set /turtlesim background_r 150
+  ros2 param set /turtlesim background_r 150
 
 Your terminal should return the message:
 

@@ -54,25 +54,25 @@ You will need to run this command on every new shell you open to have access to 
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: bash
+    .. code-block:: bash
 
-        # Replace ".bash" with your shell if you're not using bash
-        # Possible values are: setup.bash, setup.sh, setup.zsh
-        source /opt/ros/{DISTRO}/setup.bash
+      # Replace ".bash" with your shell if you're not using bash
+      # Possible values are: setup.bash, setup.sh, setup.zsh
+      source /opt/ros/{DISTRO}/setup.bash
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-        . ~/ros2_install/ros2-osx/setup.bash
+      . ~/ros2_install/ros2-osx/setup.bash
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      .. code-block:: console
+    .. code-block:: console
 
-        call C:\dev\ros2\local_setup.bat
+      call C:\dev\ros2\local_setup.bat
 
 .. note::
     The exact command depends on where you installed ROS 2.
@@ -85,40 +85,40 @@ If you don't want to have to source the setup file every time you open a new she
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
+      echo "source /opt/ros/{DISTRO}/setup.bash" >> ~/.bashrc
 
-     To undo this, locate your system's shell startup script and remove the appended source command.
+    To undo this, locate your system's shell startup script and remove the appended source command.
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
+      echo "source ~/ros2_install/ros2-osx/setup.bash" >> ~/.bash_profile
 
-      To undo this, locate your system's shell startup script and remove the appended source command.
+    To undo this, locate your system's shell startup script and remove the appended source command.
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      Only for PowerShell users, create a folder in 'My Documents' called 'WindowsPowerShell'.
-      Within 'WindowsPowerShell', create file 'Microsoft.PowerShell_profile.ps1'.
-      Inside the file, paste:
+    Only for PowerShell users, create a folder in 'My Documents' called 'WindowsPowerShell'.
+    Within 'WindowsPowerShell', create file 'Microsoft.PowerShell_profile.ps1'.
+    Inside the file, paste:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        C:\dev\ros2_{DISTRO}\local_setup.ps1
+      C:\dev\ros2_{DISTRO}\local_setup.ps1
 
-      PowerShell will request permission to run this script everytime a new shell is opened.
-      To avoid that issue you can run:
+    PowerShell will request permission to run this script everytime a new shell is opened.
+    To avoid that issue you can run:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
+      Unblock-File C:\dev\ros2_{DISTRO}\local_setup.ps1
 
-      To undo this, remove the new 'Microsoft.PowerShell_profile.ps1' file.
+    To undo this, remove the new 'Microsoft.PowerShell_profile.ps1' file.
 
 3 Check environment variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,23 +128,23 @@ If you ever have problems finding or using your ROS 2 packages, make sure that y
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: console
+    .. code-block:: console
 
-        printenv | grep -i ROS
+      printenv | grep -i ROS
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-        printenv | grep -i ROS
+      printenv | grep -i ROS
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      .. code-block:: console
+    .. code-block:: console
 
-        set | findstr -i ROS
+      set | findstr -i ROS
 
 Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
 
@@ -166,41 +166,41 @@ Once you have determined a unique integer for your group of ROS 2 nodes, you can
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: console
+    .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+      export ROS_DOMAIN_ID=<your_domain_id>
 
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+    To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
+      echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bashrc
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-        export ROS_DOMAIN_ID=<your_domain_id>
+      export ROS_DOMAIN_ID=<your_domain_id>
 
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+    To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
+      echo "export ROS_DOMAIN_ID=<your_domain_id>" >> ~/.bash_profile
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      .. code-block:: console
+    .. code-block:: console
 
-        set ROS_DOMAIN_ID=<your_domain_id>
+      set ROS_DOMAIN_ID=<your_domain_id>
 
-      If you want to make this permanent between shell sessions, also run:
+    If you want to make this permanent between shell sessions, also run:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        setx ROS_DOMAIN_ID <your_domain_id>
+      setx ROS_DOMAIN_ID <your_domain_id>
 
 3.2 The ``ROS_LOCALHOST_ONLY`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,41 +213,41 @@ You can set the environment variable with the following command:
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-      .. code-block:: console
+    .. code-block:: console
 
-        export ROS_LOCALHOST_ONLY=1
+      export ROS_LOCALHOST_ONLY=1
 
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+    To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
+      echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-      .. code-block:: console
+    .. code-block:: console
 
-        export ROS_LOCALHOST_ONLY=1
+      export ROS_LOCALHOST_ONLY=1
 
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+    To maintain this setting between shell sessions, you can add the command to your shell startup script:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bash_profile
+      echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bash_profile
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-      .. code-block:: console
+    .. code-block:: console
 
-        set ROS_LOCALHOST_ONLY=1
+      set ROS_LOCALHOST_ONLY=1
 
-      If you want to make this permanent between shell sessions, also run:
+    If you want to make this permanent between shell sessions, also run:
 
-      .. code-block:: console
+    .. code-block:: console
 
-        setx ROS_LOCALHOST_ONLY 1
+      setx ROS_LOCALHOST_ONLY 1
 
 
 Summary

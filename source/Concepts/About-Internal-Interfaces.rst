@@ -177,7 +177,7 @@ For more information on what exactly is in the ``rosidl`` |API| (static and gene
 
 .. warning::
 
-    TODO: link to definition of ``rosidl`` |APIs|
+  TODO: link to definition of ``rosidl`` |APIs|
 
 The ``rcutils`` Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

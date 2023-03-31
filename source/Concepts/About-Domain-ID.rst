@@ -38,26 +38,26 @@ Here are some platform-specific notes about ephemeral ports.
 
 .. tabs::
 
-   .. group-tab:: Linux
+  .. group-tab:: Linux
 
-     By default, the Linux kernel uses ports 32768-60999 for ephemeral ports.
-     This means that domain IDs 0-101 and 215-232 can be safely used without colliding with ephemeral ports.
-     The ephemeral port range is configurable in Linux by setting custom values in ``/proc/sys/net/ipv4/ip_local_port_range``.
-     If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
+    By default, the Linux kernel uses ports 32768-60999 for ephemeral ports.
+    This means that domain IDs 0-101 and 215-232 can be safely used without colliding with ephemeral ports.
+    The ephemeral port range is configurable in Linux by setting custom values in ``/proc/sys/net/ipv4/ip_local_port_range``.
+    If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
 
-   .. group-tab:: macOS
+  .. group-tab:: macOS
 
-     By default, the ephemeral port range on macOS is 49152-65535.
-     This means that domain IDs 0-166 can be safely used without colliding with ephemeral ports.
-     The ephemeral port range is configurable in macOS by setting custom sysctl values for ``net.inet.ip.portrange.first`` and ``net.inet.ip.portrange.last``.
-     If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
+    By default, the ephemeral port range on macOS is 49152-65535.
+    This means that domain IDs 0-166 can be safely used without colliding with ephemeral ports.
+    The ephemeral port range is configurable in macOS by setting custom sysctl values for ``net.inet.ip.portrange.first`` and ``net.inet.ip.portrange.last``.
+    If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
 
-   .. group-tab:: Windows
+  .. group-tab:: Windows
 
-     By default, the ephemeral port range on Windows is 49152-65535.
-     This means that domain IDs 0-166 can be safely used without colliding with ephemeral ports.
-     The ephemeral port range is configurable in Windows by `using netsh <https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/default-dynamic-port-range-tcpip-chang>`__.
-     If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
+    By default, the ephemeral port range on Windows is 49152-65535.
+    This means that domain IDs 0-166 can be safely used without colliding with ephemeral ports.
+    The ephemeral port range is configurable in Windows by `using netsh <https://docs.microsoft.com/en-us/troubleshoot/windows-server/networking/default-dynamic-port-range-tcpip-chang>`__.
+    If a custom ephemeral port range is used, the above numbers may have to be adjusted accordingly.
 
 Participant constraints
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -95,63 +95,63 @@ Domain ID to UDP Port Calculator
 
 .. raw:: html
 
-    <table>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>Domain ID:</label></td>
-        <td><input type="number" min="0" max="232" size="3" class="display" value="0" id="domainID" onChange="calculate(this.value)"/></td>
-      </tr>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>Participant ID:</label></td>
-        <td><input type="number" min="0" size="3" class="display" value="0" id="participantID" onChange="calculate(this.value)"/></td>
-      </tr>
-    </table>
-    <hr/>
-    <table>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>Discovery Multicast Port:</label></td>
-        <td><input type="text" size="5" class="discoveryMulticastPort" disabled/></td>
-      </tr>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>User Multicast Port:</label></td>
-        <td><input type="text" size="5" class="userMulticastPort" disabled/></td>
-      </tr>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>Discovery Unicast Port:</label></td>
-        <td><input type="text" size="5" class="discoveryUnicastPort" disabled/></td>
-      </tr>
-      <tr>
-        <td style="text-align: right; vertical-align: middle;"><label>User Unicast Port:</label></td>
-        <td><input type="text" size="5" class="userUnicastPort" disabled/></td>
-      </tr>
-    </table>
-    <br/>
-    <br/>
+  <table>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>Domain ID:</label></td>
+      <td><input type="number" min="0" max="232" size="3" class="display" value="0" id="domainID" onChange="calculate(this.value)"/></td>
+    </tr>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>Participant ID:</label></td>
+      <td><input type="number" min="0" size="3" class="display" value="0" id="participantID" onChange="calculate(this.value)"/></td>
+    </tr>
+  </table>
+  <hr/>
+  <table>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>Discovery Multicast Port:</label></td>
+      <td><input type="text" size="5" class="discoveryMulticastPort" disabled/></td>
+    </tr>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>User Multicast Port:</label></td>
+      <td><input type="text" size="5" class="userMulticastPort" disabled/></td>
+    </tr>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>Discovery Unicast Port:</label></td>
+      <td><input type="text" size="5" class="discoveryUnicastPort" disabled/></td>
+    </tr>
+    <tr>
+      <td style="text-align: right; vertical-align: middle;"><label>User Unicast Port:</label></td>
+      <td><input type="text" size="5" class="userUnicastPort" disabled/></td>
+    </tr>
+  </table>
+  <br/>
+  <br/>
 
-    <script type="text/javascript">
-      window.addEventListener('load', (event) => {
-         calculate(event);
-      });
-      const discoveryMcastPort = document.querySelector('.discoveryMulticastPort');
-      const userMcastPort = document.querySelector('.userMulticastPort');
-      const discoveryUnicastPort = document.querySelector('.discoveryUnicastPort');
-      const userUnicastPort = document.querySelector('.userUnicastPort');
+  <script type="text/javascript">
+    window.addEventListener('load', (event) => {
+        calculate(event);
+    });
+    const discoveryMcastPort = document.querySelector('.discoveryMulticastPort');
+    const userMcastPort = document.querySelector('.userMulticastPort');
+    const discoveryUnicastPort = document.querySelector('.discoveryUnicastPort');
+    const userUnicastPort = document.querySelector('.userUnicastPort');
 
-      const domainID = document.getElementById('domainID');
-      const participantID = document.getElementById('participantID');
+    const domainID = document.getElementById('domainID');
+    const participantID = document.getElementById('participantID');
 
-      // calculate function
-      function calculate(event) {
-        const d0 = 0;
-        const d2 = 1;
-        const d1 = 10;
-        const d3 = 11;
-        const PB = 7400;
-        const DG = 250;
-        const PG = 2;
+    // calculate function
+    function calculate(event) {
+      const d0 = 0;
+      const d2 = 1;
+      const d1 = 10;
+      const d3 = 11;
+      const PB = 7400;
+      const DG = 250;
+      const PG = 2;
 
-        discoveryMcastPort.value = PB + (DG * domainID.value) + d0;
-        userMcastPort.value = PB + (DG * domainID.value) + d2;
-        discoveryUnicastPort.value = PB + (DG * domainID.value) + d1 + (PG * participantID.value);
-        userUnicastPort.value = PB + (DG * domainID.value) + d3 + (PG * participantID.value);
-      }
-    </script>
+      discoveryMcastPort.value = PB + (DG * domainID.value) + d0;
+      userMcastPort.value = PB + (DG * domainID.value) + d2;
+      discoveryUnicastPort.value = PB + (DG * domainID.value) + d1 + (PG * participantID.value);
+      userUnicastPort.value = PB + (DG * domainID.value) + d3 + (PG * participantID.value);
+    }
+  </script>

@@ -21,7 +21,7 @@ Having different APIs, which was the biggest drawback in ROS 1, is avoided in RO
 
 .. note::
 
-   It is still possible to use the node-like style of "writing your own main" but for the common case it is not recommended.
+  It is still possible to use the node-like style of "writing your own main" but for the common case it is not recommended.
 
 
 By making the process layout a deploy-time decision the user can choose between:
@@ -49,14 +49,14 @@ Additionally, once a component is created, it must be registered with the index 
 
 .. code-block:: cmake
 
-   add_library(talker_component SHARED src/talker_component.cpp)
-   rclcpp_components_register_nodes(talker_component "composition::Talker")
-   # To register multiple components in the same shared library, use multiple calls
-   # rclcpp_components_register_nodes(talker_component "composition::Talker2")
+  add_library(talker_component SHARED src/talker_component.cpp)
+  rclcpp_components_register_nodes(talker_component "composition::Talker")
+  # To register multiple components in the same shared library, use multiple calls
+  # rclcpp_components_register_nodes(talker_component "composition::Talker2")
 
 .. note::
 
-   In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
+  In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
 
 .. _composition-using-components:
 

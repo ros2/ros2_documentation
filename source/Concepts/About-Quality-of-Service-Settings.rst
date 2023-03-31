@@ -137,123 +137,123 @@ The following tables show the compatibility of the different policy settings and
 *Compatibility of reliability QoS policies:*
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Publisher
-     - Subscription
-     - Compatible
-   * - Best effort
-     - Best effort
-     - Yes
-   * - Best effort
-     - Reliable
-     - No
-   * - Reliable
-     - Best effort
-     - Yes
-   * - Reliable
-     - Reliable
-     - Yes
+  * - Publisher
+    - Subscription
+    - Compatible
+  * - Best effort
+    - Best effort
+    - Yes
+  * - Best effort
+    - Reliable
+    - No
+  * - Reliable
+    - Best effort
+    - Yes
+  * - Reliable
+    - Reliable
+    - Yes
 
 *Compatibility of durability QoS policies:*
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Publisher
-     - Subscription
-     - Compatible
-   * - Volatile
-     - Volatile
-     - Yes
-   * - Volatile
-     - Transient local
-     - No
-   * - Transient local
-     - Volatile
-     - Yes
-   * - Transient local
-     - Transient local
-     - Yes
+  * - Publisher
+    - Subscription
+    - Compatible
+  * - Volatile
+    - Volatile
+    - Yes
+  * - Volatile
+    - Transient local
+    - No
+  * - Transient local
+    - Volatile
+    - Yes
+  * - Transient local
+    - Transient local
+    - Yes
 
 *Compatibility of deadline QoS policies:*
 
   Assume *x* and *y* are arbitrary valid duration values.
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Publisher
-     - Subscription
-     - Compatible
-   * - Default
-     - Default
-     - Yes
-   * - Default
-     - *x*
-     - No
-   * - *x*
-     - Default
-     - Yes
-   * - *x*
-     - *x*
-     - Yes
-   * - *x*
-     - *y* (where *y* > *x*)
-     - Yes
-   * - *x*
-     - *y* (where *y* < *x*)
-     - No
+  * - Publisher
+    - Subscription
+    - Compatible
+  * - Default
+    - Default
+    - Yes
+  * - Default
+    - *x*
+    - No
+  * - *x*
+    - Default
+    - Yes
+  * - *x*
+    - *x*
+    - Yes
+  * - *x*
+    - *y* (where *y* > *x*)
+    - Yes
+  * - *x*
+    - *y* (where *y* < *x*)
+    - No
 
 *Compatibility of liveliness QoS policies:*
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Publisher
-     - Subscription
-     - Compatible
-   * - Automatic
-     - Automatic
-     - Yes
-   * - Automatic
-     - Manual by topic
-     - No
-   * - Manual by topic
-     - Automatic
-     - Yes
-   * - Manual by topic
-     - Manual by topic
-     - Yes
+  * - Publisher
+    - Subscription
+    - Compatible
+  * - Automatic
+    - Automatic
+    - Yes
+  * - Automatic
+    - Manual by topic
+    - No
+  * - Manual by topic
+    - Automatic
+    - Yes
+  * - Manual by topic
+    - Manual by topic
+    - Yes
 
 *Compatibility of lease duration QoS policies:*
 
   Assume *x* and *y* are arbitrary valid duration values.
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Publisher
-     - Subscription
-     - Compatible
-   * - Default
-     - Default
-     - Yes
-   * - Default
-     - *x*
-     - No
-   * - *x*
-     - Default
-     - Yes
-   * - *x*
-     - *x*
-     - Yes
-   * - *x*
-     - *y* (where *y* > *x*)
-     - Yes
-   * - *x*
-     - *y* (where *y* < *x*)
-     - No
+  * - Publisher
+    - Subscription
+    - Compatible
+  * - Default
+    - Default
+    - Yes
+  * - Default
+    - *x*
+    - No
+  * - *x*
+    - Default
+    - Yes
+  * - *x*
+    - *x*
+    - Yes
+  * - *x*
+    - *y* (where *y* > *x*)
+    - Yes
+  * - *x*
+    - *y* (where *y* < *x*)
+    - No
 
 In order for a connection to be made, all of the policies that affect compatibility must be compatible.
 For example, even if a requested and offered QoS profile pair has compatible reliability QoS policies, but they have incompatible durability QoS policies, a connection will still not be made.

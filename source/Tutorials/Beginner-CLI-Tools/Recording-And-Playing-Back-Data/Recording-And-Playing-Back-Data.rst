@@ -55,13 +55,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 Let's also make a new directory to store our saved recordings, just as good practice:
 
@@ -115,7 +115,6 @@ Use the arrow keys to move the turtle around, and you will see data being publis
     ---
 
 
-
 3 ros2 bag record
 ^^^^^^^^^^^^^^^^^
 
@@ -139,7 +138,7 @@ To record the data published to a topic use the command syntax:
 
 .. code-block:: console
 
-    ros2 bag record <topic_name>
+  ros2 bag record <topic_name>
 
 Before running this command on your chosen topic, open a new terminal and move into the ``bag_files`` directory you created earlier, because the rosbag file will save in the directory where you run it.
 
@@ -147,16 +146,16 @@ Run the command:
 
 .. code-block:: console
 
-    ros2 bag record /turtle1/cmd_vel
+  ros2 bag record /turtle1/cmd_vel
 
 You will see the following messages in the terminal (the date and time will be different):
 
 .. code-block:: console
 
-    [INFO] [rosbag2_storage]: Opened database 'rosbag2_2019_10_11-05_18_45'.
-    [INFO] [rosbag2_transport]: Listening for topics...
-    [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
-    [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
+  [INFO] [rosbag2_storage]: Opened database 'rosbag2_2019_10_11-05_18_45'.
+  [INFO] [rosbag2_transport]: Listening for topics...
+  [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/cmd_vel'
+  [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
 Now ``ros2 bag`` is recording the data published on the ``/turtle1/cmd_vel`` topic.
 Return to the teleop terminal and move the turtle around again.
@@ -198,7 +197,7 @@ You can move the turtle around and press ``Ctrl+C`` when you're finished.
 
 .. note::
 
-    There is another option you can add to the command, ``-a``, which records all the topics on your system.
+  There is another option you can add to the command, ``-a``, which records all the topics on your system.
 
 4 ros2 bag info
 ^^^^^^^^^^^^^^^
@@ -207,13 +206,13 @@ You can see details about your recording by running:
 
 .. code-block:: console
 
-    ros2 bag info <bag_file_name>
+  ros2 bag info <bag_file_name>
 
 Running this command on the ``subset`` bag file will return a list of information on the file:
 
 .. code-block:: console
 
-    ros2 bag info subset
+  ros2 bag info subset
 
 .. code-block:: console
 
@@ -239,13 +238,13 @@ Enter the command:
 
 .. code-block:: console
 
-    ros2 bag play subset
+  ros2 bag play subset
 
 The terminal will return the message:
 
 .. code-block:: console
 
-    [INFO] [rosbag2_storage]: Opened database 'subset'.
+  [INFO] [rosbag2_storage]: Opened database 'subset'.
 
 Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system's timing).
 
@@ -262,7 +261,7 @@ To get an idea of how often position data is published, you can run the command:
 
 .. code-block:: console
 
-    ros2 topic hz /turtle1/pose
+  ros2 topic hz /turtle1/pose
 
 Summary
 -------

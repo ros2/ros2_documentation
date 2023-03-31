@@ -45,7 +45,7 @@ Start ``rqt_console`` in a new terminal with the following command:
 
 .. code-block:: console
 
-    ros2 run rqt_console rqt_console
+  ros2 run rqt_console rqt_console
 
 The ``rqt_console`` window will open:
 
@@ -63,7 +63,7 @@ Now start ``turtlesim`` in a new terminal with the following command:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 2 Messages on rqt_console
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -73,7 +73,7 @@ In a new terminal, enter the ``ros2 topic pub`` command (discussed in detail in 
 
 .. code-block:: console
 
-    ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}"
+  ros2 topic pub -r 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}"
 
 Since the above command is publishing the topic at a steady rate, the turtle is continuously running into the wall.
 In ``rqt_console`` you will see the same message with the ``Warn`` severity level displayed over and over, like so:
@@ -89,11 +89,11 @@ ROS 2's logger levels are ordered by severity:
 
 .. code-block:: console
 
-    Fatal
-    Error
-    Warn
-    Info
-    Debug
+  Fatal
+  Error
+  Warn
+  Info
+  Debug
 
 There is no exact standard for what each level indicates, but it's safe to assume that:
 
@@ -117,7 +117,7 @@ Enter the following command in your terminal:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
+  ros2 run turtlesim turtlesim_node --ros-args --log-level WARN
 
 Now you won't see the initial ``Info`` level messages that came up in the console last time you started ``turtlesim``.
 That's because ``Info`` messages are lower priority than the new default severity, ``Warn``.

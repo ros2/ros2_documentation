@@ -38,16 +38,16 @@ Each field consists of a type and a name, separated by a space, i.e:
 
 .. code-block:: bash
 
-   fieldtype1 fieldname1
-   fieldtype2 fieldname2
-   fieldtype3 fieldname3
+  fieldtype1 fieldname1
+  fieldtype2 fieldname2
+  fieldtype3 fieldname3
 
 For example:
 
 .. code-block:: bash
 
-   int32 my_int
-   string my_string
+  int32 my_int
+  string my_string
 
 2.1.1 Field types
 ~~~~~~~~~~~~~~~~~
@@ -61,99 +61,99 @@ Field types can be:
 *Built-in-types currently supported:*
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Type name
-     - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
-     - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
-     - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
-   * - bool
-     - bool
-     - builtins.bool
-     - boolean
-   * - byte
-     - uint8_t
-     - builtins.bytes*
-     - octet
-   * - char
-     - char
-     - builtins.str*
-     - char
-   * - float32
-     - float
-     - builtins.float*
-     - float
-   * - float64
-     - double
-     - builtins.float*
-     - double
-   * - int8
-     - int8_t
-     - builtins.int*
-     - octet
-   * - uint8
-     - uint8_t
-     - builtins.int*
-     - octet
-   * - int16
-     - int16_t
-     - builtins.int*
-     - short
-   * - uint16
-     - uint16_t
-     - builtins.int*
-     - unsigned short
-   * - int32
-     - int32_t
-     - builtins.int*
-     - long
-   * - uint32
-     - uint32_t
-     - builtins.int*
-     - unsigned long
-   * - int64
-     - int64_t
-     - builtins.int*
-     - long long
-   * - uint64
-     - uint64_t
-     - builtins.int*
-     - unsigned long long
-   * - string
-     - std::string
-     - builtins.str
-     - string
-   * - wstring
-     - std::u16string
-     - builtins.str
-     - wstring
+  * - Type name
+    - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
+    - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
+    - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
+  * - bool
+    - bool
+    - builtins.bool
+    - boolean
+  * - byte
+    - uint8_t
+    - builtins.bytes*
+    - octet
+  * - char
+    - char
+    - builtins.str*
+    - char
+  * - float32
+    - float
+    - builtins.float*
+    - float
+  * - float64
+    - double
+    - builtins.float*
+    - double
+  * - int8
+    - int8_t
+    - builtins.int*
+    - octet
+  * - uint8
+    - uint8_t
+    - builtins.int*
+    - octet
+  * - int16
+    - int16_t
+    - builtins.int*
+    - short
+  * - uint16
+    - uint16_t
+    - builtins.int*
+    - unsigned short
+  * - int32
+    - int32_t
+    - builtins.int*
+    - long
+  * - uint32
+    - uint32_t
+    - builtins.int*
+    - unsigned long
+  * - int64
+    - int64_t
+    - builtins.int*
+    - long long
+  * - uint64
+    - uint64_t
+    - builtins.int*
+    - unsigned long long
+  * - string
+    - std::string
+    - builtins.str
+    - string
+  * - wstring
+    - std::u16string
+    - builtins.str
+    - wstring
 
 
 *Every built-in-type can be used to define arrays:*
 
 .. list-table::
-   :header-rows: 1
+  :header-rows: 1
 
-   * - Type name
-     - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
-     - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
-     - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
-   * - static array
-     - std::array<T, N>
-     - builtins.list*
-     - T[N]
-   * - unbounded dynamic array
-     - std::vector
-     - builtins.list
-     - sequence
-   * - bounded dynamic array
-     - custom_class<T, N>
-     - builtins.list*
-     - sequence<T, N>
-   * - bounded string
-     - std::string
-     - builtins.str*
-     - string
+  * - Type name
+    - `C++ <https://design.ros2.org/articles/generated_interfaces_cpp.html>`__
+    - `Python <https://design.ros2.org/articles/generated_interfaces_python.html>`__
+    - `DDS type <https://design.ros2.org/articles/mapping_dds_types.html>`__
+  * - static array
+    - std::array<T, N>
+    - builtins.list*
+    - T[N]
+  * - unbounded dynamic array
+    - std::vector
+    - builtins.list
+    - sequence
+  * - bounded dynamic array
+    - custom_class<T, N>
+    - builtins.list*
+    - sequence<T, N>
+  * - bounded string
+    - std::string
+    - builtins.str*
+    - string
 
 
 All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software
@@ -162,16 +162,16 @@ All types that are more permissive than their ROS definition enforce the ROS con
 
 .. code-block:: bash
 
-   int32[] unbounded_integer_array
-   int32[5] five_integers_array
-   int32[<=5] up_to_five_integers_array
+  int32[] unbounded_integer_array
+  int32[5] five_integers_array
+  int32[<=5] up_to_five_integers_array
 
-   string string_of_unbounded_size
-   string<=10 up_to_ten_characters_string
+  string string_of_unbounded_size
+  string<=10 up_to_ten_characters_string
 
-   string[<=5] up_to_five_unbounded_strings
-   string<=10[] unbounded_array_of_strings_up_to_ten_characters_each
-   string<=10[<=5] up_to_five_strings_up_to_ten_characters_each
+  string[<=5] up_to_five_unbounded_strings
+  string<=10[] unbounded_array_of_strings_up_to_ten_characters_each
+  string<=10[<=5] up_to_five_strings_up_to_ten_characters_each
 
 2.1.2 Field names
 ~~~~~~~~~~~~~~~~~
@@ -189,16 +189,16 @@ Defining a default value is done by adding a third element to the field definiti
 
 .. code-block:: bash
 
-   fieldtype fieldname fielddefaultvalue
+  fieldtype fieldname fielddefaultvalue
 
 For example:
 
 .. code-block:: bash
 
-   uint8 x 42
-   int16 y -2000
-   string full_name "John Doe"
-   int32[] samples [-200, -100, 0, 100, 200]
+  uint8 x 42
+  int16 y -2000
+  string full_name "John Doe"
+  int32[] samples [-200, -100, 0, 100, 200]
 
 Note:
 
@@ -213,20 +213,20 @@ Each constant definition is like a field description with a default value, excep
 
 .. code-block:: bash
 
-   constanttype CONSTANTNAME=constantvalue
+  constanttype CONSTANTNAME=constantvalue
 
 For example:
 
 .. code-block:: bash
 
-   int32 X=123
-   int32 Y=-123
-   string FOO="foo"
-   string EXAMPLE='bar'
+  int32 X=123
+  int32 Y=-123
+  string FOO="foo"
+  string EXAMPLE='bar'
 
 .. note::
 
-   Constants names have to be UPPERCASE
+  Constants names have to be UPPERCASE
 
 3. Service description specification
 ------------------------------------
@@ -240,27 +240,27 @@ Here is a very simple example of a service that takes in a string and returns a 
 
 .. code-block:: bash
 
-   string str
-   ---
-   string str
+  string str
+  ---
+  string str
 
 We can of course get much more complicated (if you want to refer to a message from the same package you must not mention the package name):
 
 .. code-block:: bash
 
-   #request constants
-   int8 FOO=1
-   int8 BAR=2
-   #request fields
-   int8 foobar
-   another_pkg/AnotherMessage msg
-   ---
-   #response constants
-   uint32 SECRET=123456
-   #response fields
-   another_pkg/YetAnotherMessage val
-   CustomMessageDefinedInThisPackage value
-   uint32 an_integer
+  #request constants
+  int8 FOO=1
+  int8 BAR=2
+  #request fields
+  int8 foobar
+  another_pkg/AnotherMessage msg
+  ---
+  #response constants
+  uint32 SECRET=123456
+  #response fields
+  another_pkg/YetAnotherMessage val
+  CustomMessageDefinedInThisPackage value
+  uint32 an_integer
 
 You cannot embed another service inside of a service.
 

@@ -22,30 +22,30 @@ In the simplest case, the main thread is used for processing the incoming messag
 
 .. code-block:: cpp
 
-   int main(int argc, char* argv[])
-   {
-      // Some initialization.
-      rclcpp::init(argc, argv);
-      ...
+  int main(int argc, char* argv[])
+  {
+    // Some initialization.
+    rclcpp::init(argc, argv);
+    ...
 
-      // Instantiate a node.
-      rclcpp::Node::SharedPtr node = ...
+    // Instantiate a node.
+    rclcpp::Node::SharedPtr node = ...
 
-      // Run the executor.
-      rclcpp::spin(node);
+    // Run the executor.
+    rclcpp::spin(node);
 
-      // Shutdown and exit.
-      ...
-      return 0;
-   }
+    // Shutdown and exit.
+    ...
+    return 0;
+  }
 
 The call to ``spin(node)`` basically expands to an instantiation and invocation of the Single-Threaded Executor, which is the simplest Executor:
 
 .. code-block:: cpp
 
-   rclcpp::executors::SingleThreadedExecutor executor;
-   executor.add_node(node);
-   executor.spin();
+  rclcpp::executors::SingleThreadedExecutor executor;
+  executor.add_node(node);
+  executor.spin();
 
 By invoking ``spin()`` of the Executor instance, the current thread starts querying the rcl and middleware layers for incoming messages and other events and calls the corresponding callback functions until the node shuts down.
 In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function.
@@ -64,17 +64,17 @@ Currently, rclcpp provides three Executor types, derived from a shared parent cl
 
 .. graphviz::
 
-   digraph Flatland {
+  digraph Flatland {
 
-      Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
-      Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
-      Executor -> StaticSingleThreadedExecutor [dir = back, arrowtail = empty];
-      Executor  [shape=polygon,sides=4];
-      SingleThreadedExecutor  [shape=polygon,sides=4];
-      MultiThreadedExecutor  [shape=polygon,sides=4];
-      StaticSingleThreadedExecutor  [shape=polygon,sides=4];
+    Executor -> SingleThreadedExecutor [dir = back, arrowtail = empty];
+    Executor -> MultiThreadedExecutor [dir = back, arrowtail = empty];
+    Executor -> StaticSingleThreadedExecutor [dir = back, arrowtail = empty];
+    Executor  [shape=polygon,sides=4];
+    SingleThreadedExecutor  [shape=polygon,sides=4];
+    MultiThreadedExecutor  [shape=polygon,sides=4];
+    StaticSingleThreadedExecutor  [shape=polygon,sides=4];
 
-      }
+    }
 
 The *Multi-Threaded Executor* creates a configurable number of threads to allow for processing multiple messages or events in parallel.
 The *Static Single-Threaded Executor* optimizes the runtime costs for scanning the structure of a node in terms of subscriptions, timers, service servers, action servers, etc.
@@ -85,15 +85,15 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
 
 .. code-block:: cpp
 
-   rclcpp::Node::SharedPtr node1 = ...
-   rclcpp::Node::SharedPtr node2 = ...
-   rclcpp::Node::SharedPtr node3 = ...
+  rclcpp::Node::SharedPtr node1 = ...
+  rclcpp::Node::SharedPtr node2 = ...
+  rclcpp::Node::SharedPtr node3 = ...
 
-   rclcpp::executors::StaticSingleThreadedExecutor executor;
-   executor.add_node(node1);
-   executor.add_node(node2);
-   executor.add_node(node2);
-   executor.spin();
+  rclcpp::executors::StaticSingleThreadedExecutor executor;
+  executor.add_node(node1);
+  executor.add_node(node2);
+  executor.add_node(node2);
+  executor.spin();
 
 In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
 In case of a Multi-Threaded Executor, the actual parallelism depends on the callback groups.
@@ -109,24 +109,24 @@ Then, this callback group can be specified when creating a subscription, timer, 
 
 .. tabs::
 
-   .. group-tab:: C++
+  .. group-tab:: C++
 
-      .. code-block:: cpp
+    .. code-block:: cpp
 
-        my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
+      my_callback_group = create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive);
 
-        rclcpp::SubscriptionOptions options;
-        options.callback_group = my_callback_group;
+      rclcpp::SubscriptionOptions options;
+      options.callback_group = my_callback_group;
 
-        my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(),
-                                                     callback, options);
-   .. group-tab:: Python
+      my_subscription = create_subscription<Int32>("/topic", rclcpp::SensorDataQoS(),
+                                                    callback, options);
+  .. group-tab:: Python
 
-      .. code-block:: python
+    .. code-block:: python
 
-        my_callback_group = MutuallyExclusiveCallbackGroup()
-        my_subscription = self.create_subscription(Int32, "/topic", self.callback, qos_profile=1,
-                                                   callback_group=my_callback_group)
+      my_callback_group = MutuallyExclusiveCallbackGroup()
+      my_subscription = self.create_subscription(Int32, "/topic", self.callback, qos_profile=1,
+                                                  callback_group=my_callback_group)
 
 All subscriptions, timers, etc. that are created without the indication of a callback group are assigned to the *default callback group*.
 The default callback group can be queried via ``NodeBaseInterface::get_default_callback_group()`` in rclcpp

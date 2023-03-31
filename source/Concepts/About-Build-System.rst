@@ -30,16 +30,16 @@ Parsing of the :term:`package.xml` files is provided by ``catkin_pkg`` (as in RO
 
 .. glossary::
 
-   package.xml
-       Package manifest file which marks the root of a :term:`package` and contains meta information about the :term:`package` including its name, version, description, maintainer, license, dependencies, and more.
-       The contents of the manifest are in machine readable XML format and the contents are described in the |REPs| `127 <http://www.ros.org/reps/rep-0127.html>`_ and `140 <http://www.ros.org/reps/rep-0140.html>`_, with the possibility of further modifications in future |REPs|.
+  package.xml
+      Package manifest file which marks the root of a :term:`package` and contains meta information about the :term:`package` including its name, version, description, maintainer, license, dependencies, and more.
+      The contents of the manifest are in machine readable XML format and the contents are described in the |REPs| `127 <http://www.ros.org/reps/rep-0127.html>`_ and `140 <http://www.ros.org/reps/rep-0140.html>`_, with the possibility of further modifications in future |REPs|.
 
 So anytime some |package| is referred to as an :term:`ament package`, it means that it is a single unit of software (source code, build files, tests, documentation, and other resources) which is described using a :term:`package.xml` manifest file.
 
 .. glossary::
 
-   ament package
-       Any |package| which contains a :term:`package.xml` and follows the packaging guidelines of ``ament``, regardless of the underlying build system.
+  ament package
+      Any |package| which contains a :term:`package.xml` and follows the packaging guidelines of ``ament``, regardless of the underlying build system.
 
 Since the term :term:`ament package` is build system agnostic, there can be different kinds of |ament packages|, e.g. :term:`ament CMake package`, :term:`ament Python package`, etc.
 
@@ -47,17 +47,17 @@ Here is a list of common package types that you might run into in this software 
 
 .. glossary::
 
-    CMake package
-        Any |package| containing a plain CMake project and a :term:`package.xml` manifest file.
+  CMake package
+      Any |package| containing a plain CMake project and a :term:`package.xml` manifest file.
 
-    ament CMake package
-        A :term:`CMake package` that also follows the ``ament`` packaging guidelines.
+  ament CMake package
+      A :term:`CMake package` that also follows the ``ament`` packaging guidelines.
 
-    Python package
-        Any |package| containing a `setuptools <https://pypi.org/project/setuptools/>`_ based Python project and a :term:`package.xml` manifest file.
+  Python package
+      Any |package| containing a `setuptools <https://pypi.org/project/setuptools/>`_ based Python project and a :term:`package.xml` manifest file.
 
-    ament Python package
-        A :term:`Python package` that also follows the ``ament`` packaging guidelines.
+  ament Python package
+      A :term:`Python package` that also follows the ``ament`` packaging guidelines.
 
 The ``ament_cmake`` Repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,36 +73,36 @@ Here a list of the |packages| in the repository along with a short description:
 
 -  ``ament_cmake``
 
-   - aggregates all other |packages| in this repository, users need only to depend on this
+  - aggregates all other |packages| in this repository, users need only to depend on this
 
 -  ``ament_cmake_auto``
 
-   - provides convenience CMake functions which automatically handle a lot of the tedious parts of writing a |package|'s ``CMakeLists.txt`` file
+  - provides convenience CMake functions which automatically handle a lot of the tedious parts of writing a |package|'s ``CMakeLists.txt`` file
 
 -  ``ament_cmake_core``
 
-   - provides all built-in core concepts for ``ament``, e.g. environment hooks, resource indexing, symbolic linking install and others
+  - provides all built-in core concepts for ``ament``, e.g. environment hooks, resource indexing, symbolic linking install and others
 
 -  ``ament_cmake_gmock``
 
-   - adds convenience functions for making gmock based unit tests
+  - adds convenience functions for making gmock based unit tests
 
 -  ``ament_cmake_gtest``
 
-   - adds convenience functions for making gtest based automated tests
+  - adds convenience functions for making gtest based automated tests
 
 -  ``ament_cmake_nose``
 
-   - adds convenience functions for making nosetests based python automated tests
+  - adds convenience functions for making nosetests based python automated tests
 
 -  ``ament_cmake_python``
 
-   - provides CMake functions for |packages| that contain Python code
-   - see the :doc:`ament_cmake_python user documentation <../How-To-Guides/Ament-CMake-Python-Documentation>`
+  - provides CMake functions for |packages| that contain Python code
+  - see the :doc:`ament_cmake_python user documentation <../How-To-Guides/Ament-CMake-Python-Documentation>`
 
 -  ``ament_cmake_test``
 
-   - aggregates different kinds of tests, e.g. gtest and nosetests, under a single target using `CTest <https://cmake.org/Wiki/CMake/Testing_With_CTest>`_
+  - aggregates different kinds of tests, e.g. gtest and nosetests, under a single target using `CTest <https://cmake.org/Wiki/CMake/Testing_With_CTest>`_
 
 The ``ament_cmake_core`` |package| contains a lot of the CMake infrastructure that makes it possible to cleanly pass information between |packages| using conventional interfaces.
 This makes the |packages| have more decoupled build interfaces with other |packages|, promoting their reuse and encouraging conventions in the build systems of different |packages|.

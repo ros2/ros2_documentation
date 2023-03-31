@@ -51,13 +51,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 Recall from the :doc:`previous tutorial <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that the names of these nodes are ``/turtlesim`` and ``/teleop_turtle`` by default.
 
@@ -73,7 +73,7 @@ To run rqt_graph, open a new terminal and enter the command:
 
 .. code-block:: console
 
-    rqt_graph
+  rqt_graph
 
 You can also open rqt_graph by opening ``rqt`` and selecting **Plugins** > **Introspection** > **Node Graph**.
 
@@ -129,13 +129,13 @@ To see the data being published on a topic, use:
 
 .. code-block:: console
 
-    ros2 topic echo <topic_name>
+  ros2 topic echo <topic_name>
 
 Since we know that ``/teleop_turtle`` publishes data to ``/turtlesim`` over the ``/turtle1/cmd_vel`` topic, let's use ``echo`` to introspect that topic:
 
 .. code-block:: console
 
-    ros2 topic echo /turtle1/cmd_vel
+  ros2 topic echo /turtle1/cmd_vel
 
 At first, this command won't return any data.
 That's because it's waiting for ``/teleop_turtle`` to publish something.
@@ -171,7 +171,7 @@ Another way to look at this is running:
 
 .. code-block:: console
 
-    ros2 topic info /turtle1/cmd_vel
+  ros2 topic info /turtle1/cmd_vel
 
 Which will return:
 
@@ -192,7 +192,7 @@ Recall that the ``cmd_vel`` topic has the type:
 
 .. code-block:: console
 
-    geometry_msgs/msg/Twist
+  geometry_msgs/msg/Twist
 
 This means that in the package ``geometry_msgs`` there is a ``msg`` called ``Twist``.
 
@@ -201,7 +201,7 @@ Specifically, what structure of data the message expects.
 
 .. code-block:: console
 
-    ros2 interface show geometry_msgs/msg/Twist
+  ros2 interface show geometry_msgs/msg/Twist
 
 For the message type from above it yields:
 
@@ -240,7 +240,7 @@ Now that you have the message structure, you can publish data onto a topic direc
 
 .. code-block:: console
 
-    ros2 topic pub <topic_name> <msg_type> '<args>'
+  ros2 topic pub <topic_name> <msg_type> '<args>'
 
 The ``'<args>'`` argument is the actual data you'll pass to the topic, in the structure you just discovered in the previous section.
 
@@ -297,7 +297,7 @@ For one last introspection on this process, you can view the rate at which data 
 
 .. code-block:: console
 
-    ros2 topic hz /turtle1/pose
+  ros2 topic hz /turtle1/pose
 
 It will return data on the rate at which the ``/turtlesim`` node is publishing data to the ``pose`` topic.
 

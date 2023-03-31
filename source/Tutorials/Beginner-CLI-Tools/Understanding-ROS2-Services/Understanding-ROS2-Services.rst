@@ -48,13 +48,13 @@ Open a new terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtlesim_node
+  ros2 run turtlesim turtlesim_node
 
 Open another terminal and run:
 
 .. code-block:: console
 
-    ros2 run turtlesim turtle_teleop_key
+  ros2 run turtlesim turtle_teleop_key
 
 2 ros2 service list
 ^^^^^^^^^^^^^^^^^^^

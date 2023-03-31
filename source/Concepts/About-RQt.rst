@@ -23,7 +23,7 @@ You can run any RQt tools/plugins easily by:
 
 .. code-block:: bash
 
-   rqt
+  rqt
 
 This GUI allows you to choose any available plugins on your system.
 You can also run plugins in standalone windows.
@@ -31,14 +31,14 @@ For example, RQt Python Console:
 
 .. code-block:: bash
 
-   ros2 run rqt_py_console rqt_py_console
+  ros2 run rqt_py_console rqt_py_console
 
 Users can create their own plugins for RQt with either ``Python`` or ``C++``.
 To see what RQt plugins are available for your system, run:
 
 .. code-block:: bash
 
-   ros2 pkg list
+  ros2 pkg list
 
 And then look for packages that start with ``rqt_``.
 
@@ -50,7 +50,7 @@ Installing From Debian
 
 .. code-block:: bash
 
-   sudo apt install ros-{DISTRO}-rqt*
+  sudo apt install ros-{DISTRO}-rqt*
 
 
 Building From Source
@@ -91,4 +91,4 @@ Further Reading
 
   .. raw:: html
 
-     <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CyP9wHu2PpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/CyP9wHu2PpY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
