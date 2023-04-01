@@ -75,7 +75,7 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       python3 -m pip install -U \
+       LDFLAGS=-L$(brew --prefix graphviz)/lib CPPFLAGS=-I$(brew --prefix graphviz)/include python3 -m pip install -U \
         argcomplete catkin_pkg colcon-common-extensions coverage \
         cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
         flake8-class-newline flake8-comprehensions flake8-deprecated \
