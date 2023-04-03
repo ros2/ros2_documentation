@@ -557,6 +557,22 @@ This technically violates the STL specification, but is common enough that a spe
 
 See https://github.com/ros2/rviz/pull/917 for more information.
 
+``tracetools``
+^^^^^^^^^^^^^^
+
+Tracing instrumentation is now included by default on Linux
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+The ROS 2 core has had tracing instrumentation for a while now.
+However, it was compiled out by default.
+To get the instrumentation, the LTTng tracer had to be manually installed before rebuilding ROS 2 from source.
+In Iron, the tracing instrumentation and tracepoints are included by default; the LTTng tracer is therefore now a ROS 2 dependency.
+
+Note that this only applies to Linux.
+
+See https://github.com/ros2/ros2_tracing/pull/31 and https://github.com/ros2/ros2/issues/1177 for more information.
+See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../How-To-Guides/Building-ROS-2-with-Tracing-Instrumentation>`.
+
 Known Issues
 ------------
 
