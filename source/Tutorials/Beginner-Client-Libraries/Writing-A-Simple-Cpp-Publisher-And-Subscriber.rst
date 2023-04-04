@@ -22,7 +22,7 @@ Background
 
 :doc:`Nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` are executable processes that communicate over the ROS graph.
 In this tutorial, the nodes will pass information in the form of string messages to each other over a :doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-The example used here is a simple “talker” and “listener” system; one node publishes data and the other subscribes to the topic so it can receive that data.
+The example used here is a simple "talker" and "listener" system; one node publishes data and the other subscribes to the topic so it can receive that data.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/topics>`__.
 
@@ -144,9 +144,6 @@ The top of the code includes the standard C++ headers you will be using.
 After the standard C++ headers is the ``rclcpp/rclcpp.hpp`` include which allows you to use the most common pieces of the ROS 2 system.
 Last is ``std_msgs/msg/string.hpp``, which includes the built-in message type you will use to publish data.
 
-These lines represent the node’s dependencies.
-Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.txt``, which you’ll do in the next section.
-
 .. code-block:: C++
 
     #include <chrono>
@@ -158,6 +155,9 @@ Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.tx
     #include "std_msgs/msg/string.hpp"
 
     using namespace std::chrono_literals;
+
+These lines represent the node's dependencies.
+Recall that dependencies have to be added to ``package.xml`` and ``CMakeLists.txt``, which you'll do in the next section.
 
 The next line creates the node class ``MinimalPublisher`` by inheriting from ``rclcpp::Node``.
 Every ``this`` in the code is referring to the node.
@@ -231,14 +231,14 @@ As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>
       <maintainer email="you@email.com">Your Name</maintainer>
       <license>Apache License 2.0</license>
 
-Add a new line after the ``ament_cmake`` buildtool dependency and paste the following dependencies corresponding to your node’s include statements:
+Add a new line after the ``ament_cmake`` buildtool dependency and paste the following dependencies corresponding to your node's include statements:
 
 .. code-block:: xml
 
     <depend>rclcpp</depend>
     <depend>std_msgs</depend>
 
-This declares the package needs ``rclcpp`` and ``std_msgs`` when its code is executed.
+This declares the package needs ``rclcpp`` and ``std_msgs`` when its code is built and executed.
 
 Make sure to save the file.
 
@@ -260,7 +260,7 @@ After that, add the executable and name it ``talker`` so you can run your node u
     add_executable(talker src/publisher_member_function.cpp)
     ament_target_dependencies(talker rclcpp std_msgs)
 
-Finally, add the ``install(TARGETS…)`` section so ``ros2 run`` can find your executable:
+Finally, add the ``install(TARGETS...)`` section so ``ros2 run`` can find your executable:
 
 .. code-block:: console
 
@@ -297,7 +297,7 @@ You can clean up your ``CMakeLists.txt`` by removing some unnecessary sections a
 
   ament_package()
 
-You could build your package now, source the local setup files, and run it, but let’s create the subscriber node first so you can see the full system at work.
+You could build your package now, source the local setup files, and run it, but let's create the subscriber node first so you can see the full system at work.
 
 3 Write the subscriber node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -378,8 +378,8 @@ Open the ``subscriber_member_function.cpp`` with your text editor.
 3.1 Examine the code
 ~~~~~~~~~~~~~~~~~~~~
 
-The subscriber node’s code is nearly identical to the publisher’s.
-Now the node is named ``minimal_subscriber``, and the constructor uses the node’s ``create_subscription`` class to execute the callback.
+The subscriber node's code is nearly identical to the publisher's.
+Now the node is named ``minimal_subscriber``, and the constructor uses the node's ``create_subscription`` class to execute the callback.
 
 There is no timer because the subscriber simply responds whenever data is published to the ``topic`` topic.
 
@@ -411,12 +411,12 @@ The only field declaration in this class is the subscription.
 The ``main`` function is exactly the same, except now it spins the ``MinimalSubscriber`` node.
 For the publisher node, spinning meant starting the timer, but for the subscriber it simply means preparing to receive messages whenever they come.
 
-Since this node has the same dependencies as the publisher node, there’s nothing new to add to ``package.xml``.
+Since this node has the same dependencies as the publisher node, there's nothing new to add to ``package.xml``.
 
 3.2 CMakeLists.txt
 ~~~~~~~~~~~~~~~~~~
 
-Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber node below the publisher’s entries.
+Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber node below the publisher's entries.
 
 .. code-block:: cmake
 
@@ -428,7 +428,7 @@ Reopen ``CMakeLists.txt`` and add the executable and target for the subscriber n
     listener
     DESTINATION lib/${PROJECT_NAME})
 
-Make sure to save the file, and then your pub/sub system should be ready for use.
+Make sure to save the file, and then your pub/sub system should be ready.
 
 .. _cpppubsub-build-and-run:
 
@@ -537,8 +537,6 @@ Summary
 
 You created two nodes to publish and subscribe to data over a topic.
 Before compiling and running them, you added their dependencies and executables to the package configuration files.
-
-
 
 Next steps
 ----------
