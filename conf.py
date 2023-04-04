@@ -88,9 +88,6 @@ intersphinx_mapping = {
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-<<<<<<< HEAD
-#html_theme = 'alabaster'
-=======
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
     'analytics_id': 'G-EVD5Z6G6NH',
@@ -105,7 +102,6 @@ html_context = {
     'github_repo': 'ros2_documentation',
     'github_version': 'rolling/source/',  # Will be overridden when building multiversion
 }
->>>>>>> ac56356 (Switch to use new GA4 analytics tag (#3421))
 
 templates_path = [
     "source/_templates",
