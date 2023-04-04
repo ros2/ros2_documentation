@@ -1,3 +1,6 @@
 pip
 Sphinx
 sphinx-tabs
+sphinx-multiversion
+sphinx-rtd-theme
+sphinx-tabs
