@@ -5,7 +5,7 @@
 Creating and using plugins (C++)
 ================================
 
-**Goal:** Learn to create and load a simple plugin using pluginlib
+**Goal:** Learn to create and load a simple plugin using pluginlib.
 
 **Tutorial level:** Beginner
 
@@ -20,7 +20,10 @@ Background
 
 This tutorial is derived from `<http://wiki.ros.org/pluginlib>`_ and `Writing and Using a Simple Plugin Tutorial <http://wiki.ros.org/pluginlib/Tutorials/Writing%20and%20Using%20a%20Simple%20Plugin>`_.
 
-pluginlib is a C++ library for loading and unloading plugins from within a ROS package. Plugins are dynamically loadable classes that are loaded from a runtime library (i.e. shared object, dynamically linked library). With pluginlib, one does not have to explicitly link their application against the library containing the classes -- instead pluginlib can open a library containing exported classes at any point without the application having any prior awareness of the library or the header file containing the class definition. Plugins are useful for extending/modifying application behavior without needing the application source code.
+pluginlib is a C++ library for loading and unloading plugins from within a ROS package.
+Plugins are dynamically loadable classes that are loaded from a runtime library (i.e. shared object, dynamically linked library).
+With pluginlib, one does not have to explicitly link their application against the library containing the classes -- instead pluginlib can open a library containing exported classes at any point without the application having any prior awareness of the library or the header file containing the class definition.
+Plugins are useful for extending/modifying application behavior without needing the application source code.
 
 Prerequisites
 -------------
@@ -35,13 +38,13 @@ This tutorial assumes basic C++ knowledge and that you have ``pluginlib`` instal
 Tasks
 -----
 
-In this tutorial, you will create a two new packages, one that defines the base class, and the other that provides the plugins. The base class will define a generic polygon class, and then our plugins will define specific shapes.
-
+In this tutorial, you will create two new packages, one that defines the base class, and another that provides the plugins.
+The base class will define a generic polygon class, and then our plugins will define specific shapes.
 
 1 Create the Base Class Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Create a new empty package in your ``ros2_ws/src`` folder with the following terminal command.
+Create a new empty package in your ``ros2_ws/src`` folder with the following command:
 
 .. code-block:: console
 
@@ -71,9 +74,12 @@ Open your favorite editor, edit ``ros2_ws/src/polygon_base/include/polygon_base/
 
     #endif  // POLYGON_BASE_REGULAR_POLYGON_HPP
 
-This code above should be pretty self explanatory... we're creating an abstract class called ``RegularPolygon``. One thing to notice is the presence of the initialize method. With ``pluginlib``, a constructor without parameters is required for classes so, if any parameters are required, we use the initialize method to initialize the object.
+This code above should be pretty self-explanatory... we're creating an abstract class called ``RegularPolygon``.
+One thing to notice is the presence of the initialize method.
+With ``pluginlib``, a constructor without parameters is required, so if any parameters to the class are needed, we use the initialize method to pass them to the object.
 
-We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing. Add the following lines after the ``ament_target_dependencies`` command.
+We need to make this header available to other classes, so open ``ros2_ws/src/polygon_base/CMakeLists.txt`` for editing.
+Add the following lines after the ``ament_target_dependencies`` command:
 
 .. code-block:: cmake
 
@@ -82,7 +88,7 @@ We need to make this header available to other classes, so open ``ros2_ws/src/po
       DESTINATION include
     )
 
-And add this command before the ``ament_package`` command
+And add this command before the ``ament_package`` command:
 
 .. code-block:: cmake
 
@@ -94,7 +100,9 @@ We will return to this package later to write our test node.
 
 2 Create the Plugin Package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Now we're going to write two non-virtual implementations of our abstract class. Create a second empty package in your ``ros2_ws/src`` folder with the following terminal command.
+
+Now we're going to write two non-virtual implementations of our abstract class.
+Create a second empty package in your ``ros2_ws/src`` folder with the following command:
 
 .. code-block:: console
 
@@ -157,14 +165,18 @@ Open ``ros2_ws/src/polygon_plugins/src/polygon_plugins.cpp`` for editing, and pa
     PLUGINLIB_EXPORT_CLASS(polygon_plugins::Square, polygon_base::RegularPolygon)
     PLUGINLIB_EXPORT_CLASS(polygon_plugins::Triangle, polygon_base::RegularPolygon)
 
-The implementation of the Square and Triangle classes should be fairly straightforward: save the side length, and use it to calculate the area. The only piece that is pluginlib specific is the last three lines, which invokes some magical macros that register the classes as actual plugins. Let's go through the arguments to the ``PLUGINLIB_EXPORT_CLASS`` macro:
+The implementation of the Square and Triangle classes should be fairly straightforward: save the side length, and use it to calculate the area.
+The only piece that is pluginlib specific is the last three lines, which invokes some magical macros that register the classes as actual plugins.
+Let's go through the arguments to the ``PLUGINLIB_EXPORT_CLASS`` macro:
 
 1. The fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
 2. The fully-qualified type of the base class, in this case, ``polygon_base::RegularPolygon``.
 
 2.2 Plugin Declaration XML
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-The steps above make it so that instances of our plugins can be created once the library they exist in is loaded, but the plugin loader still needs a way to find that library and to know what to reference within that library. To this end, we'll also create an XML file that, along with a special export line in the package manifest, makes all the necessary information about our plugins available to the ROS toolchain.
+
+The steps above make it so that instances of our plugins can be created once the library they exist in is loaded, but the plugin loader still needs a way to find that library and to know what to reference within that library.
+To this end, we'll also create an XML file that, along with a special export line in the package manifest, makes all the necessary information about our plugins available to the ROS toolchain.
 
 Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
 
@@ -181,8 +193,10 @@ Create ``ros2_ws/src/polygon_plugins/plugins.xml`` with the following code:
 
 A couple things to note:
 
-1. The ``library`` tag gives the relative path to a library that contains the plugins that we want to export. In ROS 2, that is just the name of the library. In ROS 1 it contained the prefix ``lib`` or sometimes ``lib/lib`` (i.e. ``lib/libpolygon_plugins``) but here it is simpler.
-2. The ``class`` tag declares a plugin that we want to export from our library. Let's go through its parameters:
+1. The ``library`` tag gives the relative path to a library that contains the plugins that we want to export.
+   In ROS 2, that is just the name of the library. In ROS 1, it contained the prefix ``lib`` or sometimes ``lib/lib`` (i.e. ``lib/libpolygon_plugins``), but here it is simpler.
+2. The ``class`` tag declares a plugin that we want to export from our library.
+   Let's go through its parameters:
 
   * ``type``: The fully qualified type of the plugin. For us, that's ``polygon_plugins::Square``.
   * ``base_class``: The fully qualified base class type for the plugin. For us, that's ``polygon_base::RegularPolygon``.
@@ -191,7 +205,10 @@ A couple things to note:
 
 2.3 CMake Plugin Declaration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-The last step is to export your plugins via ``CMakeLists.txt``. This is a change from ROS 1, where the exporting was done via ``package.xml``. Add the following block to your ``ros2_ws/src/polygon_plugins/CMakeLists.txt`` after the line reading ``find_package(pluginlib REQUIRED)``
+
+The last step is to export your plugins via ``CMakeLists.txt``.
+This is a change from ROS 1, where the exporting was done via ``package.xml``.
+Add the following block to your ``ros2_ws/src/polygon_plugins/CMakeLists.txt`` after the line reading ``find_package(pluginlib REQUIRED)``:
 
 .. code-block:: cmake
 
@@ -215,27 +232,28 @@ The last step is to export your plugins via ``CMakeLists.txt``. This is a change
       RUNTIME DESTINATION bin
     )
 
-And before the ``ament_package`` command, add
+The arguments to the ``pluginlib_export_plugin_description_file`` command are:
+
+1. The package with the base class, i.e. ``polygon_base``.
+2. The relative path to the Plugin Declaration xml, i.e. ``plugins.xml``.
+
+Lastly, before the ``ament_package`` command, add:
 
 .. code-block:: cmake
 
-    ament_export_libraries(
-      polygon_plugins
-    )
-    ament_export_targets(
-      export_${PROJECT_NAME}
-    )
-
-
-The arguments to this CMake command are
-
-1. The package for the base class, i.e. ``polygon_base``
-2. The relative path to the Plugin Declaration xml, i.e. ``plugins.xml``
-
+  ament_export_libraries(
+    polygon_plugins
+  )
+  ament_export_targets(
+    export_${PROJECT_NAME}
+  )
 
 3 Use the Plugins
 ^^^^^^^^^^^^^^^^^
-Now its time to use the plugins. This can be done in any package, but here we're going to do it in the base package. Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
+
+Now it's time to use the plugins.
+This can be done in any package, but here we're going to do it in the base package.
+Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
 .. code-block:: C++
 
@@ -269,15 +287,19 @@ Now its time to use the plugins. This can be done in any package, but here we're
       return 0;
     }
 
-The ``ClassLoader`` is the key class to understand, defined in the ``class_loader.hpp`` `header <https://github.com/ros/pluginlib/blob/ros2/pluginlib/include/pluginlib/class_loader.hpp>`_.
+The ``ClassLoader`` is the key class to understand, defined in the ``class_loader.hpp`` `header file <https://github.com/ros/pluginlib/blob/ros2/pluginlib/include/pluginlib/class_loader.hpp>`_:
 
- * It is templated with the base class, i.e. ``polygon_base::RegularPolygon``
- * The first argument is a string for the package name of the base class, i.e. ``polygon_base``
- * The second argument is a string with the fully qualified base class type for the plugin, i.e. ``polygon_base::RegularPolygon``
+ * It is templated with the base class, i.e. ``polygon_base::RegularPolygon``.
+ * The first argument is a string for the package name of the base class, i.e. ``polygon_base``.
+ * The second argument is a string with the fully qualified base class type for the plugin, i.e. ``polygon_base::RegularPolygon``.
 
-There are a number of ways to instantiate an instance of the class. In this example, we're using shared pointers. We just need to call ``createSharedInstance`` with the fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
+There are a number of ways to instantiate an instance of the class.
+In this example, we're using shared pointers.
+We just need to call ``createSharedInstance`` with the fully-qualified type of the plugin class, in this case, ``polygon_plugins::Square``.
 
-Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class. The plugins will be loaded dynamically without any dependency needing to be declared. Furthermore, we're instantiating the classes with hardcoded plugin names, but you can also do so dynamically with parameters, etc.
+Important note: the ``polygon_base`` package in which this node is defined does NOT depend on the ``polygon_plugins`` class.
+The plugins will be loaded dynamically without any dependency needing to be declared.
+Furthermore, we're instantiating the classes with hardcoded plugin names, but you can also do so dynamically with parameters, etc.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
@@ -296,7 +318,7 @@ From ``ros2_ws``, be sure to source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -316,14 +338,12 @@ Now run the node:
 
      ros2 run polygon_base area_node
 
-It should print
+It should print:
 
 .. code-block:: console
 
     Triangle area: 43.30
     Square area: 100.00
-
-
 
 Summary
 -------

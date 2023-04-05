@@ -24,7 +24,7 @@ Background
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 A package can be considered a container for your ROS 2 code.
-If you want to be able to install your code or share it with others, then you’ll need it organized in a package.
+If you want to be able to install your code or share it with others, then you'll need it organized in a package.
 With packages, you can release your ROS 2 work and allow others to build and use it easily.
 
 Package creation in ROS 2 uses ament as its build system and colcon as its build tool.
@@ -116,7 +116,7 @@ Tasks
 
 First, :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>`.
 
-Let’s use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``ros2_ws``, for your new package.
+Let's use the workspace you created in the :ref:`previous tutorial <new-directory>`, ``ros2_ws``, for your new package.
 
 Make sure you are in the ``src`` folder before running the package creation command.
 
@@ -174,7 +174,7 @@ Enter the following command in your terminal:
 
         ros2 pkg create --build-type ament_python --node-name my_node my_package
 
-You will now have a new folder within your workspace’s ``src`` directory called ``my_package``.
+You will now have a new folder within your workspace's ``src`` directory called ``my_package``.
 
 After running the command, your terminal will return the message:
 
@@ -285,11 +285,11 @@ Now you can build your packages:
 
       colcon build --merge-install
 
-    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 Recall from the last tutorial that you also have the ``ros_tutorials`` packages in your ``ros2_ws``.
-You might’ve noticed that running ``colcon build`` also built the ``turtlesim`` package.
-That’s fine when you only have a few packages in your workspace, but when there are many packages, ``colcon build`` can take a long time.
+You might have noticed that running ``colcon build`` also built the ``turtlesim`` package.
+That's fine when you only have a few packages in your workspace, but when there are many packages, ``colcon build`` can take a long time.
 
 To build only the ``my_package`` package next time, you can run:
 
@@ -310,7 +310,7 @@ Then, from inside the ``ros2_ws`` directory, run the following command to source
 
     .. code-block:: console
 
-      . install/local_setup.bash
+      source install/local_setup.bash
 
   .. group-tab:: macOS
 
@@ -324,7 +324,7 @@ Then, from inside the ``ros2_ws`` directory, run the following command to source
 
       call install/local_setup.bat
 
-Now that your workspace has been added to your path, you will be able to use your new package’s executables.
+Now that your workspace has been added to your path, you will be able to use your new package's executables.
 
 4 Use the package
 ^^^^^^^^^^^^^^^^^
@@ -380,7 +380,7 @@ Inside ``ros2_ws/src/my_package``, you will see the files and folders that ``ros
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 You may have noticed in the return message after creating your package that the fields ``description`` and ``license`` contain ``TODO`` notes.
-That’s because the package description and license declaration are not automatically set, but are required if you ever want to release your package.
+That's because the package description and license declaration are not automatically set, but are required if you ever want to release your package.
 The ``maintainer`` field may also need to be filled in.
 
 From ``ros2_ws/src/my_package``, open ``package.xml`` using your preferred text editor:
@@ -444,25 +444,26 @@ Then, edit the ``description`` line to summarize the package:
 
   <description>Beginner client libraries tutorials practice package</description>
 
-Then update the ``license`` line.
+Then, update the ``license`` line.
 You can read more about open source licenses `here <https://opensource.org/licenses/alphabetical>`__.
-Since this package is only for practice, it’s safe to use any license. We use ``Apache License 2.0``:
+Since this package is only for practice, it's safe to use any license.
+We'll use ``Apache License 2.0``:
 
 .. code-block:: xml
 
   <license>Apache License 2.0</license>
 
-Don’t forget to save once you’re done editing.
+Don't forget to save once you're done editing.
 
 Below the license tag, you will see some tag names ending with ``_depend``.
 This is where your ``package.xml`` would list its dependencies on other packages, for colcon to search for.
-``my_package`` is simple and doesn’t have any dependencies, but you will see this space being utilized in upcoming tutorials.
+``my_package`` is simple and doesn't have any dependencies, but you will see this space being utilized in upcoming tutorials.
 
 .. tabs::
 
    .. group-tab:: CMake
 
-      You’re all done for now!
+      You're all done for now!
 
    .. group-tab:: Python
 
@@ -503,13 +504,13 @@ This is where your ``package.xml`` would list its dependencies on other packages
 
       Edit the ``maintainer``, ``maintainer_email``, and ``description`` lines to match ``package.xml``.
 
-      Don’t forget to save the file.
+      Don't forget to save the file.
 
 
 Summary
 -------
 
-You’ve created a package to organize your code and make it easy to use for others.
+You've created a package to organize your code and make it easy to use for others.
 
 Your package was automatically populated with the necessary files, and then you used colcon to build it so you can use its executables in your local environment.
 

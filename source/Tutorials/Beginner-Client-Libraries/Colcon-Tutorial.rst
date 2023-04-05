@@ -164,7 +164,7 @@ Build the workspace
 
 In the root of the workspace, run ``colcon build``.
 Since build types such as ``ament_cmake`` do not support the concept of the ``devel`` space and require the package to be installed, colcon supports the option ``--symlink-install``.
-This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other not compiled resourced) for faster iteration.
+This allows the installed files to be changed by changing the files in the ``source`` space (e.g. Python files or other non-compiled resources) for faster iteration.
 
 .. tabs::
 
@@ -186,7 +186,7 @@ This allows the installed files to be changed by changing the files in the ``sou
 
       colcon build --symlink-install --merge-install
 
-    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 After the build is finished, we should see the ``build``, ``install``, and ``log`` directories:
 
@@ -236,7 +236,7 @@ Source the environment
 
 When colcon has completed building successfully, the output will be in the ``install`` directory.
 Before you can use any of the installed executables or libraries, you will need to add them to your path and library paths.
-colcon will have generated bash/bat files in the ``install`` directory to help setup the environment.
+colcon will have generated bash/bat files in the ``install`` directory to help set up the environment.
 These files will add all of the required elements to your path and library paths as well as provide any bash or shell commands exported by packages.
 
 .. tabs::
@@ -245,7 +245,7 @@ These files will add all of the required elements to your path and library paths
 
     .. code-block:: bash
 
-       . install/setup.bash
+       source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -268,7 +268,7 @@ These files will add all of the required elements to your path and library paths
 Try a demo
 ^^^^^^^^^^
 
-With the environment sourced we can run executables built by colcon.
+With the environment sourced, we can run executables built by colcon.
 Let's run a subscriber node from the examples:
 
 .. code-block:: bash
@@ -304,7 +304,7 @@ Setup ``colcon_cd``
 -------------------
 
 The command ``colcon_cd`` allows you to quickly change the current working directory of your shell to the directory of a package.
-As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_install/src/some_ros_package``.
+As an example ``colcon_cd some_ros_package`` would quickly bring you to the directory ``~/ros2_ws/src/some_ros_package``.
 
 .. tabs::
 
@@ -326,8 +326,8 @@ As an example ``colcon_cd some_ros_package`` would quickly bring you to the dire
 
       Not yet available
 
-Depending to the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
-To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source and export commands.
+Depending on the way you installed ``colcon_cd`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html#quick-directory-changes>`__ for more details.
+To undo this in Linux and macOS, locate your system's shell startup script and remove the appended source and export commands.
 
 Setup ``colcon`` tab completion
 -------------------------------
@@ -352,8 +352,8 @@ The command ``colcon`` `supports command completion <https://colcon.readthedocs.
 
       Not yet available
 
-Depending to the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html>`__ for more details.
-To undo this in Linux and macOS, locate your system’s shell startup script and remove the appended source command.
+Depending on the way you installed ``colcon`` and where your workspace is, the instructions above may vary, please refer to `the documentation <https://colcon.readthedocs.io/en/released/user/installation.html>`__ for more details.
+To undo this in Linux and macOS, locate your system's shell startup script and remove the appended source command.
 
 Tips
 ----
