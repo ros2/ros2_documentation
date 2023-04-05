@@ -90,7 +90,9 @@ Open ``package.xml`` and add the following lines:
 .. code-block:: xml
 
      <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
      <exec_depend>rosidl_default_runtime</exec_depend>
+
      <member_of_group>rosidl_interface_packages</member_of_group>
 
 Note that at build time, we need ``rosidl_default_generators``, while at runtime, we only need ``rosidl_default_runtime``.
@@ -306,7 +308,7 @@ In order to use the messages generated in the same package we need to use the fo
   rosidl_get_typesupport_target(cpp_typesupport_target
     ${PROJECT_NAME} rosidl_typesupport_cpp)
 
-  target_link_libraries(publish_address_book ${cpp_typesupport_target})
+  target_link_libraries(publish_address_book "${cpp_typesupport_target}")
 
 This finds the relevant generated C++ code from ``AddressBook.msg`` and allows your target to link against it.
 
@@ -430,6 +432,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
   .. code-block:: xml
 
        <build_depend>rosidl_tutorials_msgs</build_depend>
+
        <exec_depend>rosidl_tutorials_msgs</exec_depend>
 
   And in ``CMakeLists.txt``:

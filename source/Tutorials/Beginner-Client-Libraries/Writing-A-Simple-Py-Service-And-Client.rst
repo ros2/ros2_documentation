@@ -108,13 +108,17 @@ Inside the ``ros2_ws/src/py_srvcli/py_srvcli`` directory, create a new file call
       def add_two_ints_callback(self, request, response):
           response.sum = request.a + request.b
           self.get_logger().info('Incoming request\na: %d b: %d' % (request.a, request.b))
+
           return response
 
 
   def main():
       rclpy.init()
+
       minimal_service = MinimalService()
+
       rclpy.spin(minimal_service)
+
       rclpy.shutdown()
 
 

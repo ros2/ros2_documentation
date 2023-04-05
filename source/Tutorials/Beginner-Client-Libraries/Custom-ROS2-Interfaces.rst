@@ -49,7 +49,7 @@ Since we will use the pub/sub and service/client packages created in earlier tut
   ros2 pkg create --build-type ament_cmake tutorial_interfaces
 
 ``tutorial_interfaces`` is the name of the new package.
-Note that it is a CMake package but this doesn't restrict in which type of packages you can use your messages and services.
+Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your messages and services.
 You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node, which will be covered in the last section.
 
 The ``.msg`` and ``.srv`` files are required to be placed in directories called ``msg`` and ``srv`` respectively.
@@ -823,7 +823,7 @@ Summary
 
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
 
-There is more to defining custom interfaces.
+This tutorial only scratches the surface about defining custom interfaces.
 You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/About-ROS-Interfaces>`.
 
 Next steps

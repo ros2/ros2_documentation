@@ -251,7 +251,8 @@ Lastly, before the ``ament_package`` command, add:
 3 Use the Plugins
 ^^^^^^^^^^^^^^^^^
 
-Now its time to use the plugins. This can be done in any package, but here we're going to do it in the base package.
+Now it's time to use the plugins.
+This can be done in any package, but here we're going to do it in the base package.
 Edit ``ros2_ws/src/polygon_base/src/area_node.cpp`` to contain the following:
 
 .. code-block:: C++

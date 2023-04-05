@@ -446,7 +446,8 @@ Then, edit the ``description`` line to summarize the package:
 
 Then, update the ``license`` line.
 You can read more about open source licenses `here <https://opensource.org/licenses/alphabetical>`__.
-Since this package is only for practice, it's safe to use any license. We'll use ``Apache License 2.0``:
+Since this package is only for practice, it's safe to use any license.
+We'll use ``Apache License 2.0``:
 
 .. code-block:: xml
 
