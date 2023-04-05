@@ -8,7 +8,7 @@
 Implementing custom interfaces
 ==============================
 
-**Goal:** Learn more ways to implement custom interfaces in ROS 2
+**Goal:** Learn more ways to implement custom interfaces in ROS 2.
 
 **Tutorial level:** Beginner
 
@@ -38,7 +38,7 @@ We assume you've reviewed the basics in the :doc:`./Custom-ROS2-Interfaces` tuto
 
 You should have :doc:`ROS 2 installed <../../Installation>`, a :doc:`workspace <./Creating-A-Workspace/Creating-A-Workspace>`, and an understanding of :doc:`creating packages <./Creating-Your-First-ROS2-Package>`.
 
-As always, don’t forget to :doc:`source ROS 2 <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal you open.
+As always, don't forget to :doc:`source ROS 2 <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` in every new terminal you open.
 
 Tasks
 -----
@@ -46,7 +46,7 @@ Tasks
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
-In your workspace ``src`` directory, create a package ``more_interfaces`` and make a folder within it for msg files:
+In your workspace ``src`` directory, create a package ``more_interfaces`` and make a directory within it for msg files:
 
 .. code-block:: console
 
@@ -56,9 +56,7 @@ In your workspace ``src`` directory, create a package ``more_interfaces`` and ma
 2 Create a msg file
 ^^^^^^^^^^^^^^^^^^^
 
-Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``
-
-Paste the following code to create a message meant to carry information about an individual:
+Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``, and paste the following code to create a message meant to carry information about an individual:
 
 ::
 
@@ -79,7 +77,7 @@ This message is composed of 5 fields:
 * age: of type uint8
 * address: of type string
 
-Notice that it's possible to set default values for fields within the message definition.
+Note that it's possible to set default values for fields within a message definition.
 See :doc:`../../Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
 
 Next, we need to make sure that the msg file is turned into source code for C++, Python, and other languages.
@@ -87,7 +85,7 @@ Next, we need to make sure that the msg file is turned into source code for C++,
 2.1 Build a msg file
 ~~~~~~~~~~~~~~~~~~~~
 
-Open ``package.xml``, and add the following lines:
+Open ``package.xml`` and add the following lines:
 
 .. code-block:: xml
 
@@ -132,14 +130,14 @@ Also make sure you export the message runtime dependency:
    ament_export_dependencies(rosidl_default_runtime)
 
 Now you're ready to generate source files from your msg definition.
-We'll skip the compile step for now as we do it all together below in step 4.
+We'll skip the compile step for now as we'll do it all together below in step 4.
 
 2.2 (Extra) Set multiple interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
-  You can use ``set`` to neatly list all of your interfaces:
+  You can use ``set`` in ``CMakeLists.txt`` to neatly list all of your interfaces:
 
   .. code-block:: cmake
 
@@ -226,11 +224,13 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
 3.1 The code explained
 ~~~~~~~~~~~~~~~~~~~~~~
 
+Include the header of our newly created ``AddressBook.msg``.
+
 .. code-block:: c++
 
    #include "more_interfaces/msg/address_book.hpp"
 
-Include the header of our newly created ``AddressBook.msg``.
+Create a node and an ``AddressBook`` publisher.
 
 .. code-block:: c++
 
@@ -245,19 +245,19 @@ Include the header of our newly created ``AddressBook.msg``.
        address_book_publisher_ =
          this->create_publisher<more_interfaces::msg::AddressBook>("address_book");
 
-Create a node and an ``AddressBook`` publisher.
+Create a callback to publish the messages periodically.
 
 .. code-block:: c++
 
     auto publish_msg = [this]() -> void {
 
-Create a callback to publish the messages periodically.
+Create an ``AddressBook`` message instance that we will later publish.
 
 .. code-block:: c++
 
     auto message = more_interfaces::msg::AddressBook();
 
-Create an ``AddressBook`` message instance that we will later publish.
+Populate ``AddressBook`` fields.
 
 .. code-block:: c++
 
@@ -267,7 +267,7 @@ Create an ``AddressBook`` message instance that we will later publish.
     message.gender = message.MALE;
     message.address = "unknown";
 
-Populate ``AddressBook`` fields.
+Finally send the message periodically.
 
 .. code-block:: c++
 
@@ -276,13 +276,11 @@ Populate ``AddressBook`` fields.
 
     this->address_book_publisher_->publish(message);
 
-Finally send the message periodically.
+Create a 1 second timer to call our ``publish_msg`` function every second.
 
 .. code-block:: c++
 
        timer_ = this->create_wall_timer(1s, publish_msg);
-
-Create a 1 second timer to call our ``publish_msg`` function every second.
 
 3.2 Build the publisher
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -293,16 +291,12 @@ We need to create a new target for this node in the ``CMakeLists.txt``:
 
    find_package(rclcpp REQUIRED)
 
-   add_executable(publish_address_book
-     src/publish_address_book.cpp
-   )
+   add_executable(publish_address_book src/publish_address_book.cpp)
+   ament_target_dependencies(publish_address_book rclcpp)
 
-   ament_target_dependencies(publish_address_book
-     "rclcpp"
-   )
-
-   install(TARGETS publish_address_book
-    DESTINATION lib/${PROJECT_NAME})
+   install(TARGETS
+       publish_address_book
+     DESTINATION lib/${PROJECT_NAME})
 
 3.3 Link against the interface
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -316,8 +310,8 @@ In order to use the messages generated in the same package we need to use the fo
 
 This finds the relevant generated C++ code from ``AddressBook.msg`` and allows your target to link against it.
 
-You may have noticed that this step was not necessary when the interfaces being used were from a package that was built separately.
-This CMake code is only required when you want to use interfaces in the same package as the one in which they are used.
+You may have noticed that this step was not necessary when the interfaces being used were from a different package that was built independently.
+This CMake code is only required when you want to use interfaces in the same package as the one in which they are defined.
 
 4 Try it out
 ^^^^^^^^^^^^
@@ -355,7 +349,7 @@ Then source the workspace and run the publisher:
 
     .. code-block:: console
 
-      . install/local_setup.bash
+      source install/local_setup.bash
       ros2 run more_interfaces publish_address_book
 
   .. group-tab:: macOS
@@ -389,7 +383,7 @@ To confirm the message is being published on the ``address_book`` topic, open an
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
       ros2 topic echo /address_book
 
   .. group-tab:: macOS
@@ -456,7 +450,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
 
      #include "rosidl_tutorials_msgs/msg/contact.hpp"
 
-  You could change the call back to something like this:
+  You could change the callback to something like this:
 
   .. code-block:: c++
 

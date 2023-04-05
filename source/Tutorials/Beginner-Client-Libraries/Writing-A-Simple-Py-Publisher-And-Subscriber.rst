@@ -7,7 +7,7 @@
 Writing a simple publisher and subscriber (Python)
 ==================================================
 
-**Goal:** Create and run a publisher and subscriber node using Python
+**Goal:** Create and run a publisher and subscriber node using Python.
 
 **Tutorial level:** Beginner
 
@@ -21,7 +21,7 @@ Background
 ----------
 
 In this tutorial, you will create :doc:`nodes <../Beginner-CLI-Tools/Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` that pass information in the form of string messages to each other over a :doc:`topic <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
-The example used here is a simple “talker” and “listener” system;
+The example used here is a simple "talker" and "listener" system;
 one node publishes data and the other subscribes to the topic so it can receive that data.
 
 The code used in these examples can be found `here <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclpy/topics>`__.
@@ -151,8 +151,8 @@ The next statement imports the built-in string message type that the node uses t
 
   from std_msgs.msg import String
 
-These lines represent the node’s dependencies.
-Recall that dependencies have to be added to ``package.xml``, which you’ll do in the next section.
+These lines represent the node's dependencies.
+Recall that dependencies have to be added to ``package.xml``, which you'll do in the next section.
 
 Next, the ``MinimalPublisher`` class is created, which inherits from (or is a subclass of) ``Node``.
 
@@ -160,10 +160,10 @@ Next, the ``MinimalPublisher`` class is created, which inherits from (or is a su
 
   class MinimalPublisher(Node):
 
-Following is the definition of the class’s constructor.
-``super().__init__`` calls the ``Node`` class’s constructor and gives it your node name, in this case ``minimal_publisher``.
+Following is the definition of the class's constructor.
+``super().__init__`` calls the ``Node`` class's constructor and gives it your node name, in this case ``minimal_publisher``.
 
-``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the “queue size" is 10.
+``create_publisher`` declares that the node publishes messages of type ``String`` (imported from the ``std_msgs.msg`` module), over a topic named ``topic``, and that the "queue size" is 10.
 Queue size is a required QoS (quality of service) setting that limits the amount of queued messages if a subscriber is not receiving them fast enough.
 
 Next, a timer is created with a callback to execute every 0.5 seconds.
@@ -206,7 +206,7 @@ Lastly, the main function is defined.
       minimal_publisher.destroy_node()
       rclpy.shutdown()
 
-First the ``rclpy`` library is initialized, then the node is created, and then it “spins” the node so its callbacks are called.
+First the ``rclpy`` library is initialized, then the node is created, and then it "spins" the node so its callbacks are called.
 
 2.2 Add dependencies
 ~~~~~~~~~~~~~~~~~~~~
@@ -223,7 +223,7 @@ As mentioned in the :doc:`previous tutorial <./Creating-Your-First-ROS2-Package>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-After the lines above, add the following dependencies corresponding to your node’s import statements:
+After the lines above, add the following dependencies corresponding to your node's import statements:
 
 .. code-block:: xml
 
@@ -257,7 +257,7 @@ Add the following line within the ``console_scripts`` brackets of the ``entry_po
           ],
   },
 
-Don’t forget to save.
+Don't forget to save.
 
 2.4 Check setup.cfg
 ~~~~~~~~~~~~~~~~~~~
@@ -273,7 +273,7 @@ The contents of the ``setup.cfg`` file should be correctly populated automatical
 
 This is simply telling setuptools to put your executables in ``lib``, because ``ros2 run`` will look for them there.
 
-You could build your package now, source the local setup files, and run it, but let’s create the subscriber node first so you can see the full system at work.
+You could build your package now, source the local setup files, and run it, but let's create the subscriber node first so you can see the full system at work.
 
 3 Write the subscriber node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -360,7 +360,7 @@ Open the ``subscriber_member_function.py`` with your text editor.
   if __name__ == '__main__':
       main()
 
-The subscriber node’s code is nearly identical to the publisher’s.
+The subscriber node's code is nearly identical to the publisher's.
 The constructor creates a subscriber with the same arguments as the publisher.
 Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>` that the topic name and message type used by the publisher and subscriber must match to allow them to communicate.
 
@@ -372,7 +372,7 @@ Recall from the :doc:`topics tutorial <../Beginner-CLI-Tools/Understanding-ROS2-
       self.listener_callback,
       10)
 
-The subscriber’s constructor and callback don’t include any timer definition, because it doesn't need one.
+The subscriber's constructor and callback don't include any timer definition, because it doesn't need one.
 Its callback gets called as soon as it receives a message.
 
 The callback definition simply prints an info message to the console, along with the data it received.
@@ -391,14 +391,14 @@ The ``main`` definition is almost exactly the same, replacing the creation and s
 
   rclpy.spin(minimal_subscriber)
 
-Since this node has the same dependencies as the publisher, there’s nothing new to add to ``package.xml``.
+Since this node has the same dependencies as the publisher, there's nothing new to add to ``package.xml``.
 The ``setup.cfg`` file can also remain untouched.
 
 
 3.2 Add an entry point
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Reopen ``setup.py`` and add the entry point for the subscriber node below the publisher’s entry point.
+Reopen ``setup.py`` and add the entry point for the subscriber node below the publisher's entry point.
 The ``entry_points`` field should now look like this:
 
 .. code-block:: python
@@ -410,7 +410,7 @@ The ``entry_points`` field should now look like this:
           ],
   },
 
-Make sure to save the file, and then your pub/sub system should be ready for use.
+Make sure to save the file, and then your pub/sub system should be ready.
 
 4 Build and run
 ^^^^^^^^^^^^^^^
@@ -464,7 +464,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -512,7 +512,6 @@ The listener will start printing messages to the console, starting at whatever m
   [INFO] [minimal_subscriber]: I heard: "Hello World: 14"
 
 Enter ``Ctrl+C`` in each terminal to stop the nodes from spinning.
-
 
 Summary
 -------
