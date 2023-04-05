@@ -64,7 +64,7 @@ The first two lines are the parameters of the request, and below the dashes is t
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.
 
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
@@ -231,7 +231,7 @@ The ``while`` loop in the constructor checks if a service matching the type and 
 
 Below the constructor is the request definition, followed by ``main``.
 
-The only significant difference in the client’s ``main`` is the ``while`` loop.
+The only significant difference in the client's ``main`` is the ``while`` loop.
 The loop checks the ``future`` to see if there is a response from the service, as long as the system is running.
 If the service has sent a response, the result will be written in a log message.
 
@@ -304,7 +304,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -324,7 +324,7 @@ Now run the service node:
 
   ros2 run py_srvcli service
 
-The node will wait for the client’s request.
+The node will wait for the client's request.
 
 Open another terminal and source the setup files from inside ``ros2_ws`` again.
 Start the client node, followed by any two integers separated by a space:
