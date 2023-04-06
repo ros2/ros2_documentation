@@ -16,7 +16,7 @@ System requirements
 -------------------
 The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 2: RHEL 8 64-bit
+- Tier 2: RHEL 9 64-bit
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
 
@@ -37,7 +37,7 @@ They can be enabled by running:
 .. code-block:: bash
 
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
+   sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
@@ -54,6 +54,12 @@ Install development tools and ROS tools
      make \
      patch \
      python3-colcon-common-extensions \
+     python3-flake8-builtins \
+     python3-flake8-comprehensions \
+     python3-flake8-docstrings \
+     python3-flake8-import-order \
+     python3-flake8-quotes \
+     python3-mypy \
      python3-pip \
      python3-pydocstyle \
      python3-pytest \
@@ -61,20 +67,15 @@ Install development tools and ROS tools
      python3-pytest-rerunfailures \
      python3-rosdep \
      python3-setuptools \
-     python3-vcstool
+     python3-vcstool \
+     wget
 
    # install some pip packages needed for testing and
    # not available as RPMs
    python3 -m pip install -U --user \
      flake8-blind-except==0.1.1 \
-     flake8-builtins \
      flake8-class-newline \
-     flake8-comprehensions \
-     flake8-deprecated \
-     flake8-docstrings \
-     flake8-import-order \
-     flake8-quotes \
-     mypy==0.931
+     flake8-deprecated
 
 .. _Rolling_rhel-dev-get-ros2-code:
 
@@ -100,7 +101,7 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "assimp fastcdr ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 -------------------------------------------------
@@ -120,7 +121,7 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: bash
 
    cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON --no-warn-unused-cli
+   colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
