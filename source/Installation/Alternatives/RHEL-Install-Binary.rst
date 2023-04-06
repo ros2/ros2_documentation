@@ -18,7 +18,7 @@ There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available.
 System Requirements
 -------------------
 
-We currently support RHEL 8 64-bit.
+We currently support RHEL 9 64-bit.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
@@ -31,7 +31,7 @@ They can be enabled by running:
 .. code-block:: bash
 
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
+   sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
@@ -82,7 +82,7 @@ Set your rosdistro according to the release you downloaded.
 
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
+       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "assimp cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

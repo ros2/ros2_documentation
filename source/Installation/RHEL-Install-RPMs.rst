@@ -5,7 +5,7 @@ RHEL (RPM)
    :depth: 2
    :local:
 
-RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 8.
+RPM packages for ROS 2 {DISTRO_TITLE_FULL} are currently available for RHEL 9.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 The target platforms are defined in `REP 2000 <https://github.com/ros-infrastructure/rep/blob/master/rep-2000.rst>`__
 Most people will want to use a stable ROS distribution.
@@ -15,7 +15,7 @@ Resources
 
 * Status Page:
 
-  * ROS 2 {DISTRO_TITLE} (RHEL 8): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
+  * ROS 2 {DISTRO_TITLE} (RHEL 9): `amd64 <http://repo.ros2.org/status_page/ros_{DISTRO}_rhel.html>`__
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
@@ -35,7 +35,7 @@ You will need to enable the EPEL repositories and the PowerTools repository:
 .. code-block:: bash
 
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
+   sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
