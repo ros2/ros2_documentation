@@ -19,16 +19,16 @@ Resources
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
+System setup
+------------
 
 Set locale
-----------
+^^^^^^^^^^
 
 .. include:: _RHEL-Set-Locale.rst
 
-.. _rhel-install-rpms-setup-sources:
-
-Setup Sources
--------------
+Enable required repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You will need to enable the EPEL repositories and the PowerTools repository:
 
@@ -53,7 +53,42 @@ DNF may prompt you to verify the GPG key, which should match the location ``http
 
    sudo dnf makecache
 
-.. _rhel-install-rpms-install-ros-2-packages:
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: bash
+
+   sudo dnf install -y \
+     cmake \
+     gcc-c++ \
+     git \
+     make \
+     patch \
+     python3-colcon-common-extensions \
+     python3-flake8-builtins \
+     python3-flake8-comprehensions \
+     python3-flake8-docstrings \
+     python3-flake8-import-order \
+     python3-flake8-quotes \
+     python3-mypy \
+     python3-pip \
+     python3-pydocstyle \
+     python3-pytest \
+     python3-pytest-repeat \
+     python3-pytest-rerunfailures \
+     python3-rosdep \
+     python3-setuptools \
+     python3-vcstool \
+     wget
+
+   # install some pip packages needed for testing and
+   # not available as RPMs
+   python3 -m pip install -U --user \
+     flake8-blind-except==0.1.1 \
+     flake8-class-newline \
+     flake8-deprecated
 
 Install ROS 2 packages
 ----------------------
@@ -73,11 +108,14 @@ No GUI tools.
 
    sudo dnf install ros-{DISTRO}-ros-base
 
-Environment setup
------------------
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+
+Setup environment
+-----------------
 
 Set up your environment by sourcing the following file.
 
@@ -110,17 +148,13 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
 
@@ -132,4 +166,4 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo dnf remove ros-{DISTRO}-*
+   sudo dnf remove ros-{DISTRO}-*

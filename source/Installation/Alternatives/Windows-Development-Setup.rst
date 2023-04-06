@@ -2,8 +2,6 @@
 
    Installation/Windows-Development-Setup
 
-.. _windows-latest:
-
 Windows (source)
 ================
 
@@ -45,7 +43,7 @@ In the resulting dialog, click "Environment Variables", the click "Path" on the 
 Install Python prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Installing additional Python dependencies:
+Install additional Python dependencies:
 
 .. code-block:: bash
 
@@ -86,9 +84,8 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 Install additional DDS implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fast DDS is bundled with the ROS 2 source and will always be built unless you put an ``COLCON_IGNORE`` file in the ``src\eProsima`` folder.
-
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the ROS 2 code
 --------------------
@@ -113,7 +110,7 @@ To build the ``\{DISTRO}`` folder tree:
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
-Environment setup
+Setup environment
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
@@ -166,17 +163,18 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-
 .. note::
 
    It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Additional RMW implementations (optional)
 -----------------------------------------
+
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
@@ -186,20 +184,17 @@ Extra stuff for Debug mode
 
 If you want to be able to run all the tests in Debug mode, you'll need to install a few more things:
 
-
 * To be able to extract the Python source tarball, you can use PeaZip:
 
 .. code-block:: bash
 
    choco install -y peazip
 
-
 * You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
 
 .. code-block:: bash
 
    choco install -y svn hg
-
 
 * You'll need to quit and restart the command prompt after installing the above.
 * Get and extract the Python 3.8.3 source from the ``tgz``:
@@ -215,7 +210,6 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    get_externals.bat
    build.bat -p x64 -d
 
-
 * Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
@@ -228,7 +222,6 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    copy python3_d.lib C:\Python38\libs /Y
    copy sqlite3_d.dll C:\Python38\DLLs /Y
    for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
-
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
 
@@ -269,8 +262,8 @@ Stay up to date
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 

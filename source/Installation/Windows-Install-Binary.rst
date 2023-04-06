@@ -22,8 +22,8 @@ Only Windows 10 is supported.
 
 .. include:: _Windows-Install-Prerequisites.rst
 
-Downloading ROS 2
------------------
+Download ROS 2
+--------------
 
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
@@ -32,16 +32,16 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 
 .. note::
 
-    There may be more than one binary download option which might cause the file name to differ.
+   There may be more than one binary download option which might cause the file name to differ.
 
 .. note::
 
-    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
-    Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
+   To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+   Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
-Environment setup
+Setup environment
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
@@ -72,17 +72,19 @@ This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Additional RMW implementations (optional)
------------------------------------------
+Install additional RMW implementations (optional)
+-------------------------------------------------
+
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 
@@ -96,7 +98,7 @@ Uninstall
 
    .. code-block:: bash
 
-    rmdir /s /q \ros2_{DISTRO}
+      rmdir /s /q \ros2_{DISTRO}
 
 Extra Stuff for Debug
 ---------------------
@@ -145,8 +147,8 @@ In an administrative command prompt, run the following commands.
    choco source add -n=ros-win -s="https://aka.ms/ros/public" --priority=1
    choco upgrade ros-foxy-desktop -y --execution-timeout=0
 
-Environment setup
-^^^^^^^^^^^^^^^^^^
+Setup environment
+^^^^^^^^^^^^^^^^^
 
 Start an administrative command prompt and source the ROS 2 setup file to set up the workspace:
 

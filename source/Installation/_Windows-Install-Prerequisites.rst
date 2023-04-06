@@ -1,5 +1,5 @@
-Installing prerequisites
-------------------------
+Install prerequisites
+---------------------
 
 Install Chocolatey
 ^^^^^^^^^^^^^^^^^^

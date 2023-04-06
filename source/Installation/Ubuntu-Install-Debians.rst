@@ -23,20 +23,29 @@ Resources
 * `Jenkins Instance <http://build.ros2.org/>`__
 * `Repositories <http://repo.ros2.org>`__
 
+System setup
+------------
 
 Set locale
-----------
+^^^^^^^^^^
 
 .. include:: _Ubuntu-Set-Locale.rst
 
-.. _linux-install-debians-setup-sources:
-
-Setup Sources
--------------
+Enable required repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: _Apt-Repositories.rst
 
 .. _linux-install-debians-install-ros-2-packages:
+
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: bash
+
+   sudo apt install ros-dev-tools
 
 Install ROS 2 packages
 ----------------------
@@ -69,17 +78,14 @@ No GUI tools.
 
    sudo apt install ros-{DISTRO}-ros-base
 
-Development tools: Compilers and other tools to build ROS packages
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: bash
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-   sudo apt install ros-dev-tools
-
-Environment setup
+Setup environment
 -----------------
-
-Sourcing the setup script
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -91,9 +97,6 @@ Set up your environment by sourcing the following file.
 
 Try some examples
 -----------------
-
-Talker-listener
-^^^^^^^^^^^^^^^
 
 If you installed ``ros-{DISTRO}-desktop`` above you can try some examples.
 
@@ -115,21 +118,18 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Using the ROS 1 bridge
-----------------------
+Use the ROS 1 bridge (optional)
+-------------------------------
+
 The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :doc:`here <../How-To-Guides/Installation-Troubleshooting>`.
 
@@ -141,14 +141,14 @@ have already installed from binaries, run the following command:
 
 .. code-block:: bash
 
-  sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
+   sudo apt remove ~nros-{DISTRO}-* && sudo apt autoremove
 
 You may also want to remove the repository:
 
 .. code-block:: bash
 
-  sudo rm /etc/apt/sources.list.d/ros2.list
-  sudo apt update
-  sudo apt autoremove
-  # Consider upgrading for packages previously shadowed.
-  sudo apt upgrade
+   sudo rm /etc/apt/sources.list.d/ros2.list
+   sudo apt update
+   sudo apt autoremove
+   # Consider upgrading for packages previously shadowed.
+   sudo apt upgrade

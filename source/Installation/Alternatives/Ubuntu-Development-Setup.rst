@@ -1,5 +1,3 @@
-.. _linux-latest:
-
 .. redirect-from::
 
    Installation/Linux-Development-Setup
@@ -18,15 +16,7 @@ System requirements
 The current Debian-based target platforms for {DISTRO_TITLE_FULL} are:
 
 - Tier 1: Ubuntu Linux - Jammy (22.04) 64-bit
-- Tier 3: Ubuntu Linux - Focal (20.04) 64-bit
 - Tier 3: Debian Linux - Bullseye (11) 64-bit
-
-
-Other Linux platforms with varying support levels include:
-
-- Arch Linux, see `alternate instructions <https://wiki.archlinux.org/index.php/ROS#ROS_2>`__
-- Fedora Linux, see :doc:`alternate instructions <Fedora-Development-Setup>`
-- OpenEmbedded / webOS OSE, see `alternate instructions <https://github.com/ros/meta-ros/wiki/OpenEmbedded-Build-Instructions>`__
 
 As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
@@ -38,15 +28,13 @@ Set locale
 
 .. include:: ../_Ubuntu-Set-Locale.rst
 
-Add the ROS 2 apt repository
+Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../_Apt-Repositories.rst
 
-Install development tools and ROS tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Install common packages.
+Install development tools
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -54,48 +42,22 @@ Install common packages.
      python3-flake8-docstrings \
      python3-pip \
      python3-pytest-cov \
+     python3-flake8-blind-except \
+     python3-flake8-builtins \
+     python3-flake8-class-newline \
+     python3-flake8-comprehensions \
+     python3-flake8-deprecated \
+     python3-flake8-import-order \
+     python3-flake8-quotes \
+     python3-pytest-repeat \
+     python3-pytest-rerunfailures \
      ros-dev-tools
 
-Install packages according to your Ubuntu version.
-
-.. tabs::
-
-   .. group-tab:: Ubuntu 22.04 LTS and later
-
-      .. code-block:: console
-
-         sudo apt install -y \
-            python3-flake8-blind-except \
-            python3-flake8-builtins \
-            python3-flake8-class-newline \
-            python3-flake8-comprehensions \
-            python3-flake8-deprecated \
-            python3-flake8-import-order \
-            python3-flake8-quotes \
-            python3-pytest-repeat \
-            python3-pytest-rerunfailures
-
-   .. group-tab:: Ubuntu 20.04 LTS
-
-      .. code-block:: bash
-
-         python3 -m pip install -U \
-            flake8-blind-except \
-            flake8-builtins \
-            flake8-class-newline \
-            flake8-comprehensions \
-            flake8-deprecated \
-            flake8-import-order \
-            flake8-quotes \
-            "pytest>=5.3" \
-            pytest-repeat \
-            pytest-rerunfailures
-
-
-.. _Rolling_linux-dev-get-ros2-code:
+Build ROS 2
+-----------
 
 Get ROS 2 code
---------------
+^^^^^^^^^^^^^^
 
 Create a workspace and clone all repos:
 
@@ -108,7 +70,7 @@ Create a workspace and clone all repos:
 .. _linux-development-setup-install-dependencies-using-rosdep:
 
 Install dependencies using rosdep
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../_Apt-Upgrade-Admonition.rst
 
@@ -120,13 +82,14 @@ Install dependencies using rosdep
 
 .. include:: ../_rosdep_Linux_Mint.rst
 
-Install additional DDS implementations (optional)
--------------------------------------------------
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have already installed ROS 2 another way (either via Debians or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
@@ -144,11 +107,8 @@ Note: if you are having trouble compiling all examples and this is preventing yo
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-Environment setup
+Setup environment
 -----------------
-
-Source the setup script
-^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -181,18 +141,15 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+Use the ROS 1 bridge (optional)
+-------------------------------
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
 Alternate compilers
 -------------------
@@ -216,8 +173,8 @@ Stay up to date
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <linux-troubleshooting>`.
 
@@ -231,4 +188,4 @@ Uninstall
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_{DISTRO}
+      rm -rf ~/ros2_{DISTRO}

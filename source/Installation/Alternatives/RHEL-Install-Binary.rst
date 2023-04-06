@@ -9,21 +9,29 @@ This page explains how to install ROS 2 on RHEL from a pre-built binary package.
 
 .. note::
 
-    The pre-built binary does not include all ROS 2 packages.
-    All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
-    The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
+   The pre-built binary does not include all ROS 2 packages.
+   All packages in the `ROS base variant <https://ros.org/reps/rep-2001.html#ros-base>`_ are included, and only a subset of packages in the `ROS desktop variant <https://ros.org/reps/rep-2001.html#desktop-variants>`_ are included.
+   The exact list of packages are described by the repositories listed in `this ros2.repos file <https://github.com/ros2/ros2/blob/{REPOS_FILE_BRANCH}/ros2.repos>`_.
 
 There are also :doc:`RPM packages <../RHEL-Install-RPMs>` available.
 
-System Requirements
+System requirements
 -------------------
 
 We currently support RHEL 9 64-bit.
 The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
 Most people will want to use a stable ROS distribution.
 
+System setup
+------------
+
+Set locale
+^^^^^^^^^^
+
+.. include:: ../_RHEL-Set-Locale.rst
+
 Enable required repositories
-----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The rosdep database contains packages from the EPEL and PowerTools repositories, which are not enabled by default.
 They can be enabled by running:
@@ -35,8 +43,8 @@ They can be enabled by running:
 
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
-Installing prerequisites
-------------------------
+Install prerequisites
+^^^^^^^^^^^^^^^^^^^^^
 
 There are a few packages that must be installed in order to get and unpack the binary release.
 
@@ -44,8 +52,48 @@ There are a few packages that must be installed in order to get and unpack the b
 
    sudo dnf install tar bzip2 wget -y
 
-Downloading ROS 2
------------------
+Install development tools (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you are going to build ROS packages or otherwise do development, you can also install the development tools:
+
+.. code-block:: bash
+
+   sudo dnf install -y \
+     cmake \
+     gcc-c++ \
+     git \
+     make \
+     patch \
+     python3-colcon-common-extensions \
+     python3-flake8-builtins \
+     python3-flake8-comprehensions \
+     python3-flake8-docstrings \
+     python3-flake8-import-order \
+     python3-flake8-quotes \
+     python3-mypy \
+     python3-pip \
+     python3-pydocstyle \
+     python3-pytest \
+     python3-pytest-repeat \
+     python3-pytest-rerunfailures \
+     python3-rosdep \
+     python3-setuptools \
+     python3-vcstool \
+     wget
+
+   # install some pip packages needed for testing and
+   # not available as RPMs
+   python3 -m pip install -U --user \
+     flake8-blind-except==0.1.1 \
+     flake8-class-newline \
+     flake8-deprecated
+
+Install ROS 2
+-------------
+
+Download ROS 2
+^^^^^^^^^^^^^^
 
 Binary releases of Rolling Ridley are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
@@ -58,42 +106,27 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_{DISTRO}
-       cd ~/ros2_{DISTRO}
-       tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+     mkdir -p ~/ros2_{DISTRO}
+     cd ~/ros2_{DISTRO}
+     tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
-Installing and initializing rosdep
-----------------------------------
-
-.. code-block:: bash
-
-       sudo dnf install -y python3-rosdep
-       sudo rosdep init
-       rosdep update
-
-.. _rhel-install-binary-install-missing-dependencies:
-
-Installing the missing dependencies
------------------------------------
+Install dependencies using rosdep
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../_Dnf-Update-Admonition.rst
 
-Set your rosdistro according to the release you downloaded.
-
 .. code-block:: bash
 
-       rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "assimp cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths ~/ros2_{DISTRO}/ros2-linux/share --ignore-src -y --skip-keys "assimp cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
-Install additional DDS implementations (optional)
+Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-Environment setup
+Setup environment
 -----------------
-
-Source the setup script
-^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -101,7 +134,7 @@ Set up your environment by sourcing the following file.
 
    # Replace ".bash" with your shell if you're not using bash
    # Possible values are: setup.bash, setup.sh, setup.zsh
-  . ~/ros2_{DISTRO}/ros2-linux/setup.bash
+   . ~/ros2_{DISTRO}/ros2-linux/setup.bash
 
 Try some examples
 -----------------
@@ -124,17 +157,13 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :doc:`here <../../How-To-Guides/Installation-Troubleshooting>`.
 
@@ -148,4 +177,4 @@ Uninstall
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_{DISTRO}
+      rm -rf ~/ros2_{DISTRO}

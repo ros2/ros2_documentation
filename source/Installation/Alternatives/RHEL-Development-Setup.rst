@@ -2,8 +2,6 @@
 
   Installation/RHEL-Development-Setup
 
-.. _rhel-latest:
-
 RHEL (source)
 =============
 
@@ -18,7 +16,7 @@ The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
 - Tier 2: RHEL 9 64-bit
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
 System setup
 ------------
@@ -42,8 +40,8 @@ They can be enabled by running:
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
 
-Install development tools and ROS tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install development tools
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -79,8 +77,11 @@ Install development tools and ROS tools
 
 .. _Rolling_rhel-dev-get-ros2-code:
 
+Build ROS 2
+-----------
+
 Get ROS 2 code
---------------
+^^^^^^^^^^^^^^
 
 Create a workspace and clone all repos:
 
@@ -90,10 +91,8 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-.. _rhel-development-setup-install-dependencies-using-rosdep:
-
 Install dependencies using rosdep
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../_Dnf-Update-Admonition.rst
 
@@ -104,12 +103,13 @@ Install dependencies using rosdep
    rosdep install --from-paths src --ignore-src -y --skip-keys "assimp fastcdr ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
 Install additional DDS implementations (optional)
--------------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have already installed ROS 2 another way (either via RPMs or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
@@ -127,11 +127,8 @@ Note: if you are having trouble compiling all examples and this is preventing yo
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-Environment setup
+Setup environment
 -----------------
-
-Source the setup script
-^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -140,8 +137,6 @@ Set up your environment by sourcing the following file.
    # Replace ".bash" with your shell if you're not using bash
    # Possible values are: setup.bash, setup.sh, setup.zsh
    . ~/ros2_{DISTRO}/install/local_setup.bash
-
-.. _rhel_talker-listener:
 
 Try some examples
 -----------------
@@ -164,12 +159,14 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Additional RMW implementations (optional)
 -----------------------------------------
+
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
@@ -195,8 +192,8 @@ Stay up to date
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <linux-troubleshooting>`.
 
