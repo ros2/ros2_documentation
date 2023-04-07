@@ -215,6 +215,32 @@ The message info structure contains various pieces of information like the seque
 
 See https://github.com/ros2/rclpy/pull/922 for more information.
 
+Optional argument that hides assertions for messages class
+""""""""""""""""""""""""""""""""""""""""""
+All message classes now include a new optional argument that allows the hiding of assertions for each field type from the message. By default, assertions are hidden, which 
+provides a performance improvement during runtime. In order to enable the assertions for development/debugging purposes,
+you are given two choices:
+
+1. Define the environment variable ``ROS_PYTHON_CHECK_FIELDS`` to ``'1'`` (this would affect all the messages in your project):
+
+.. code-block:: Python
+
+  import os
+  from std_msgs.msg import String
+
+  os.environ['ROS_PYTHON_CHECK_FIELDS'] = '1'
+  new_message=String()
+
+2. Select the specific behavior for a single message by explicitly defining the new argument in the constructor:
+
+.. code-block:: Python
+
+  from std_msgs.msg import String
+
+  new_message=String(check_fields=True)
+
+See https://github.com/ros2/rosidl_python/pull/194 for more information.
+
 ``ros2param``
 ^^^^^^^^^^^^^
 
