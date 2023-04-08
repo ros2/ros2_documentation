@@ -564,7 +564,7 @@ Modification of content of ``__slots__`` attribute
 
 So far, the attribute ``__slots__`` from the python message classes, have been used as the member that contains the field names of the message.
 In Iron, this attribute no longer contains only the field names from the message structure, but the field names for all the class members.
-Therefore, users shouldn't rely on this attribute to retrieve the field names information, instead, users should retrieve it using the method ``get_field_and_field_types()``.   
+Therefore, users shouldn't rely on this attribute to retrieve the field names information, instead, users should retrieve it using the method ``get_field_and_field_types()``.
 
 See https://github.com/ros2/rosidl_python/pull/194 for more information.
 
