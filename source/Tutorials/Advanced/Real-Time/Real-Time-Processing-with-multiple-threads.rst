@@ -142,8 +142,7 @@ function `pthread_setschedparam` to assign the scheduler and scheduling priority
       }
    }
 
-Finally, the main function will wait until the threads will finish (in this case never);
-:
+Finally, the main function will wait until the threads will finish (in this case never).
 
 .. code-block:: cpp
    default_thread.join();
