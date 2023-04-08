@@ -72,6 +72,7 @@ ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial --sched SCHED_
 In the main function, these parameters are read using a library function (`SchedOptionReader`).
 
 .. code-block:: cpp
+
    int main(int argc, char * argv[])
    {
    // Force flush of the stdout buffer.
@@ -87,6 +88,7 @@ In the main function, these parameters are read using a library function (`Sched
 Then, the Publisher and Subscribers are defined. Here, the Publisher publishes two messages, `topic` and `topic_rt`.
 
 .. code-block:: cpp
+
    rclcpp::init(argc, argv);
 
    auto node_pub = std::make_shared<MinimalPublisher>();
@@ -97,7 +99,9 @@ To configure the execution of the nodes, a default Executor and a real-time Exec
 Here, we are using the StaticSingleThreadedExecutor, however, you could also use the MultiThreadedExecutor. 
 Then the Publisher and the non real-time Subscriber is added to the `default_executor`. The real-time 
 Subscription is added to the `realtime_executor`:
+
 .. code-block:: cpp
+
    rclcpp::executors::StaticSingleThreadedExecutor default_executor;
    rclcpp::executors::StaticSingleThreadedExecutor realtime_executor;
 
@@ -112,7 +116,9 @@ Subscription is added to the `realtime_executor`:
 The operating system provides multi-threading by means of creating different threads. These threads can be
 configured in terms of their scheduling policy. Therefore we can now, create one thread that will spin the
 default executor; and one thread that will spin the realtime executor:
+
 .. code-block:: cpp
+
    // spin non real-time tasks in a separate thread
    auto default_thread = std::thread(
       [&]() {
@@ -132,6 +138,7 @@ In this example, we are using a function to set the scheduling parameters. It ca
 function `pthread_setschedparam` to assign the scheduler and scheduling priority to a thread:
 
 .. code-block:: cpp
+
    void set_thread_scheduling(std::thread::native_handle_type thread, int policy, int sched_priority)
    {
       struct sched_param param;
@@ -145,6 +152,7 @@ function `pthread_setschedparam` to assign the scheduler and scheduling priority
 Finally, the main function will wait until the threads will finish (in this case never).
 
 .. code-block:: cpp
+   
    default_thread.join();
    realtime_thread.join();
 
