@@ -1,0 +1,155 @@
+.. _RealTimeTutorial:
+
+Real-Time processing with multiple threads
+======================================
+
+.. contents:: Table of Contents
+   :local:
+
+
+
+Introduction
+------------
+
+You will learn in this tutorial to design a ROS 2 application, in which some callbacks 
+are exeuted with real-time priority and some are executed with default scheduling priority.
+
+
+Setup
+-----
+
+The setup is to publish two topics and to receive these two topics by two subscriptions.
+One subscription callback will be processed with real-time priority and the other with default
+priority.
+
+The source file of this tutorial is found here https://github.com/ros-realtime/ros2-realtime-examples/tree/rolling/minimal_scheduling/minimal_scheduling_real_time_tutorial.cpp
+
+
+Subscriber configuration
+------------------------
+
+First, a subscriber is defined:
+
+.. code-block:: cpp
+
+   class MinimalSubscriber : public rclcpp::Node
+   {
+   public:
+   MinimalSubscriber(const std::string & node_name, const std::string & topic_name)
+   : Node(node_name), context_switches_counter_(RUSAGE_THREAD)
+   {
+      subscription1_ = this->create_subscription<std_msgs::msg::String>(
+         topic_name,
+         10,
+         [this](std_msgs::msg::String::UniquePtr) {
+         auto context_switches = context_switches_counter_.get();
+         if (context_switches > 0L) {
+            RCLCPP_WARN(
+               this->get_logger(), "[sub]    Involuntary context switches: '%lu'",
+               context_switches);
+         } else {
+            RCLCPP_INFO(
+               this->get_logger(), "[sub]    Involuntary context switches: '%lu'",
+               context_switches);
+         }
+         burn_cpu_cycles(200ms);
+         });
+   }
+
+   private:
+   rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription1_;
+   ContextSwitchesCounter context_switches_counter_;
+   };
+
+To test the real-time setup, the number of preemptions is used as a metric
+(`context_switches_counter_.get`). 
+
+To assign the real-time priority of the thread, the parameters of the scheduler and scheduling priority 
+are passed as option, when executing the ROS 2 program: 
+.. code-block:: bash
+ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial --sched SCHED_FIFO --priority 80
+
+In the main function, these parameters are read using a library function (`SchedOptionReader`).
+
+.. code-block:: cpp
+   int main(int argc, char * argv[])
+   {
+   // Force flush of the stdout buffer.
+   setvbuf(stdout, NULL, _IONBF, BUFSIZ);
+
+   auto options_reader = SchedOptionsReader();
+   if (!options_reader.read_options(argc, argv)) {
+      options_reader.print_usage();
+      return 0;
+   }
+   auto options = options_reader.get_options();
+
+Then, the Publisher and Subscribers are defined. Here, the Publisher publishes two messages, `topic` and `topic_rt`.
+
+.. code-block:: cpp
+   rclcpp::init(argc, argv);
+
+   auto node_pub = std::make_shared<MinimalPublisher>();
+   auto node_sub = std::make_shared<MinimalSubscriber>("minimal_sub1", "topic");
+   auto node_sub_rt = std::make_shared<MinimalSubscriber>("minimal_sub2", "topic_rt");
+
+To configure the execution of the nodes, a default Executor and a real-time Executor are defined. 
+Here, we are using the StaticSingleThreadedExecutor, however, you could also use the MultiThreadedExecutor. 
+Then the Publisher and the non real-time Subscriber is added to the `default_executor`. The real-time 
+Subscription is added to the `realtime_executor`:
+.. code-block:: cpp
+   rclcpp::executors::StaticSingleThreadedExecutor default_executor;
+   rclcpp::executors::StaticSingleThreadedExecutor realtime_executor;
+
+   // the publisher and non real-time subscriber are processed by default_executor
+   default_executor.add_node(node_pub);
+   default_executor.add_node(node_sub);
+
+   // real-time subscriber is processed by realtime_executor.
+   realtime_executor.add_node(node_sub_rt);
+
+
+The operating system provides multi-threading by means of creating different threads. These threads can be
+configured in terms of their scheduling policy. Therefore we can now, create one thread that will spin the
+default executor; and one thread that will spin the realtime executor:
+.. code-block:: cpp
+   // spin non real-time tasks in a separate thread
+   auto default_thread = std::thread(
+      [&]() {
+         default_executor.spin();
+      });
+
+   // spin real-time tasks in a separate thread
+   auto realtime_thread = std::thread(
+      [&]() {
+         realtime_executor.spin();
+      });
+
+   set_thread_scheduling(realtime_thread.native_handle(), options.policy, options.priority);
+
+
+In this example, we are using a function to set the scheduling parameters. It calls the POSIX
+function `pthread_setschedparam` to assign the scheduler and scheduling priority to a thread:
+
+.. code-block:: cpp
+   void set_thread_scheduling(std::thread::native_handle_type thread, int policy, int sched_priority)
+   {
+      struct sched_param param;
+      param.sched_priority = sched_priority;
+      auto ret = pthread_setschedparam(thread, policy, &param);
+      if (ret > 0) {
+         throw std::runtime_error("Couldn't set scheduling priority and policy. Error code: " + std::string(strerror(errno)));
+      }
+   }
+
+Finally, the main function will wait until the threads will finish (in this case never);
+:
+
+.. code-block:: cpp
+   default_thread.join();
+   realtime_thread.join();
+
+   rclcpp::shutdown();
+   return 0;
+   }
+

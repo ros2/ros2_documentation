@@ -3,10 +3,13 @@
     Building-Realtime-rt_preempt-kernel-for-ROS-2
     Tutorials/Building-Realtime-rt_preempt-kernel-for-ROS-2
 
-Building a real-time Linux kernel [community-contributed]
-=========================================================
+Operating System Setup with RT Linux Kernel
+===========================================
 
-TODO: integrate tutorial from ros-realtime
+TODO: 
+* integrate tutorial from ros-realtime
+* update/correct links above
+
 
 
 This tutorial begins with a clean Ubuntu 20.04.1 install on Intel x86_64. Actual kernel is 5.4.0-54-generic, but we will install the Latest Stable RT_PREEMPT Version. To build the kernel you need at least 30GB free disk space.
