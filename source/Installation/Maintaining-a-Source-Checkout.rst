@@ -23,6 +23,7 @@ Actualiza tu lista de repositorios
 Cada versión de ROS 2 incluye un archivo ``ros2.repos`` que contiene la lista de repositorios y su versión para esa versión.
 
 
+
 Ramas más recientes de ROS 2 {DISTRO_TITLE}
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
