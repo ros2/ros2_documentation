@@ -215,6 +215,32 @@ The message info structure contains various pieces of information like the seque
 
 See https://github.com/ros2/rclpy/pull/922 for more information.
 
+Optional argument that hides assertions for messages class
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+All message classes now include a new optional argument that allows the hiding of assertions for each field type from the message.
+By default, assertions are hidden, which provides a performance improvement during runtime.
+In order to enable the assertions for development/debugging purposes, you are given two choices:
+
+1. Define the environment variable ``ROS_PYTHON_CHECK_FIELDS`` to ``'1'`` (this would affect all the messages in your project):
+
+.. code-block:: Python
+
+  import os
+  from std_msgs.msg import String
+
+  os.environ['ROS_PYTHON_CHECK_FIELDS'] = '1'
+  new_message=String()
+
+2. Select the specific behavior for a single message by explicitly defining the new argument in the constructor:
+
+.. code-block:: Python
+
+  from std_msgs.msg import String
+
+  new_message=String(check_fields=True)
+
+See https://github.com/ros2/rosidl_python/pull/194 for more information.
+
 ``ros2param``
 ^^^^^^^^^^^^^
 
@@ -529,6 +555,18 @@ The old ``sqlite3`` file format is still available and can be selected by the us
 This release also allows playing back data from either the ``sqlite3`` file format or the ``mcap`` file format.
 
 See https://github.com/ros2/rosbag2/pull/1160 for more information.
+
+``rosidl_python``
+^^^^^^^^^^^^^^^^^
+
+Modification of content of ``__slots__`` attribute
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+So far, the attribute ``__slots__`` from the python message classes, have been used as the member that contains the field names of the message.
+In Iron, this attribute no longer contains only the field names from the message structure, but the field names for all the class members.
+Therefore, users shouldn't rely on this attribute to retrieve the field names information, instead, users should retrieve it using the method ``get_field_and_field_types()``.
+
+See https://github.com/ros2/rosidl_python/pull/194 for more information.
 
 ``rviz``
 ^^^^^^^^
