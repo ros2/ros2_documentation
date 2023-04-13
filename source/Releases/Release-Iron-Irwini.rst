@@ -73,6 +73,17 @@ There are examples of this in action in https://github.com/ros2/demos/blob/{DIST
 
 See https://github.com/ros2/rclcpp/pull/1947, https://github.com/ros2/rclpy/pull/966, and https://github.com/ros2/demos/pull/565 for more information.
 
+Matched events
+^^^^^^^^^^^^^^
+
+In addition to QoS events, matched events can be generated when any publisher and subscription establishes or drops the connection between them.
+Users can provide each publisher and subscription with callback functions that are triggered by matched events and handle them in a way they see fit, similar to how messages received on a topic are handled.
+
+* publisher: this event happens when it finds a subscription which matches the topic and has compatible QoS or a connected subscription is disconnected.
+* subscription: this event happens when it finds a publisher which matches the topic and has compatible QoS or a connected publisher is disconnected.
+
+See the tracking issue at https://github.com/ros2/rmw/issues/330 for more information.
+
 ``launch``
 ^^^^^^^^^^
 
