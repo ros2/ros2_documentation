@@ -90,8 +90,8 @@ If you are going to build ROS packages or otherwise do development, you can also
      flake8-class-newline \
      flake8-deprecated
 
-Install ROS 2 packages
-----------------------
+Install ROS 2
+-------------
 
 .. include:: _Dnf-Update-Admonition.rst
 

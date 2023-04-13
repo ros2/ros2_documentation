@@ -24,11 +24,6 @@ For example, for a Chinese-language Windows 10 installation, you may need to ins
 
 .. include:: ../_Windows-Install-Prerequisites.rst
 
-Additional prerequisites
-------------------------
-
-When building from source you'll need a few additional prerequisites installed.
-
 Install additional prerequisites from Chocolatey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -38,7 +33,6 @@ Install additional prerequisites from Chocolatey
 
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
-
 
 Install Python prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -58,8 +52,11 @@ Next install xmllint:
 * Unpack all archives into e.g. ``C:\xmllint``
 * Add ``C:\xmllint\bin`` to the ``PATH``.
 
-Get the ROS 2 code
-------------------
+Build ROS 2
+-----------
+
+Get ROS 2 code
+^^^^^^^^^^^^^^
 
 Now that we have the development tools we can get the ROS 2 source code.
 
@@ -81,14 +78,14 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS implementations (optional)
+Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-Build the ROS 2 code
---------------------
+Build the code in the workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _windows-dev-build-ros2:
 
@@ -123,8 +120,8 @@ This will automatically set up the environment for any DDS vendors that support 
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
-Test and run
-------------
+Try some examples
+-----------------
 
 Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
 
@@ -171,13 +168,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Additional RMW implementations (optional)
------------------------------------------
-
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
 
 Extra stuff for Debug mode
 --------------------------

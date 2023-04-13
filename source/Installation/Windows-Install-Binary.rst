@@ -22,8 +22,8 @@ Only Windows 10 is supported.
 
 .. include:: _Windows-Install-Prerequisites.rst
 
-Download ROS 2
---------------
+Install ROS 2
+-------------
 
 Binary releases of {DISTRO_TITLE_FULL} are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
@@ -40,6 +40,13 @@ Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>
    Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
+
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
+See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+
 
 Setup environment
 -----------------
@@ -76,12 +83,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Install additional RMW implementations (optional)
--------------------------------------------------
-
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Troubleshoot
 ------------

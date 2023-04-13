@@ -102,7 +102,7 @@ Install dependencies using rosdep
    rosdep update
    rosdep install --from-paths src --ignore-src -y --skip-keys "assimp fastcdr ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
-Install additional DDS implementations (optional)
+Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
@@ -163,12 +163,6 @@ Next steps
 ----------
 
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Additional RMW implementations (optional)
------------------------------------------
-
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Alternate compilers
 -------------------

@@ -92,9 +92,6 @@ If you are going to build ROS packages or otherwise do development, you can also
 Install ROS 2
 -------------
 
-Download ROS 2
-^^^^^^^^^^^^^^
-
 Binary releases of Rolling Ridley are not provided.
 Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 

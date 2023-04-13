@@ -17,8 +17,11 @@ We currently support macOS Mojave (10.14).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
 Most people will want to use a stable ROS distribution.
 
+System setup
+------------
+
 Install prerequisites
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 You need the following things installed to build ROS 2:
 
@@ -108,13 +111,16 @@ You need the following things installed to build ROS 2:
      Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
 
 Disable System Integrity Protection (SIP)
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
-Get the ROS 2 code
-------------------
+Build ROS 2
+-----------
+
+Get ROS 2 code
+^^^^^^^^^^^^^^
 
 Create a workspace and clone all repos:
 
@@ -124,14 +130,14 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS implementations (optional)
--------------------------------------------------
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-Build the ROS 2 code
---------------------
+Build the code in the workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
 
@@ -178,16 +184,11 @@ Next steps
 
 Continue with the `tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Using the ROS 1 bridge
-----------------------
+Use the ROS 1 bridge (optional)
+-------------------------------
 
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
-
-Additional RMW implementations (optional)
------------------------------------------
-
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
+See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
 Stay up to date
 ---------------
