@@ -309,14 +309,12 @@ Matched events
 In addition to QoS events, matched events can be generated when any publisher and subscription establishes or drops the connection between them.
 Developers may provide each publisher and subscription with callback functions that are triggered by matched events and handle them in a way they see fit, similar to how messages received on a topic are handled.
 
-* matched
+Developers can subscribe to this event with a publisher or a subscription.
 
-  Developers can subscribe to this event with a publisher or a subscription.
+* publisher: this event happens when it finds a subscription which matches the topic and has compatible QoS or a connected subscription is disconnected
+* subscription: this event happens when it finds a publisher which matches the topic and has compatible QoS or a connected publisher is disconnected
 
-  * publisher: this event happens when it finds a subscription which matches the topic and has compatible QoS or a connected subscription is disconnected
-  * subscription: this event happens when it finds a publisher which matches the topic and has compatible QoS or a connected publisher is disconnected
+There are demos showing how to use the event:
 
-  There are demo code on how to use event.
-
-  * rclcpp: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`
-  * rclpy: `demo code <https://github.com/ros2/demos/tree/rolling/{REPOS_FILE_BRANCH}/demo_nodes_py/events/matched_event_detect.py>`
+* rclcpp: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/events/matched_event_detect.cpp>`__
+* rclpy: `demo code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py>`__
