@@ -21,10 +21,10 @@ Background
 ----------
 
 A workspace is a directory containing ROS 2 packages.
-Before using ROS 2, it’s necessary to source your ROS 2 installation workspace in the terminal you plan to work in.
-This makes ROS 2’s packages available for you to use in that terminal.
+Before using ROS 2, it's necessary to source your ROS 2 installation workspace in the terminal you plan to work in.
+This makes ROS 2's packages available for you to use in that terminal.
 
-You also have the option of sourcing an “overlay” – a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you're extending, or “underlay”.
+You also have the option of sourcing an "overlay" - a secondary workspace where you can add new packages without interfering with the existing ROS 2 workspace that you're extending, or "underlay".
 Your underlay must contain the dependencies of all the packages in your overlay.
 Packages in your overlay will override packages in the underlay.
 It's also possible to have several layers of underlays and overlays, with each successive overlay using the packages of its parent underlays.
@@ -38,7 +38,7 @@ Prerequisites
 * `git installation <https://git-scm.com/book/en/v2/Getting-Started-Installing-Git>`__
 * :doc:`turtlesim installation <../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim>`
 * Have :doc:`rosdep installed <../../Intermediate/Rosdep>`
-* Understanding of basic terminal commands (`here’s a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
+* Understanding of basic terminal commands (`here's a guide for Linux <http://www.ee.surrey.ac.uk/Teaching/Unix/>`__)
 * Text editor of your choice
 
 Tasks
@@ -50,7 +50,7 @@ Tasks
 Your main ROS 2 installation will be your underlay for this tutorial.
 (Keep in mind that an underlay does not necessarily have to be the main ROS 2 installation.)
 
-Depending on how you installed ROS 2 (from source or binaries), and which platform you’re on, your exact source command will vary:
+Depending on how you installed ROS 2 (from source or binaries), and which platform you're on, your exact source command will vary:
 
 .. tabs::
 
@@ -74,7 +74,7 @@ Depending on how you installed ROS 2 (from source or binaries), and which platfo
 
         call C:\dev\ros2\local_setup.bat
 
-Consult the :doc:`installation guide <../../../Installation>` you followed if these commands don’t work for you.
+Consult the :doc:`installation guide <../../../Installation>` you followed if these commands don't work for you.
 
 .. _new-directory:
 
@@ -82,8 +82,8 @@ Consult the :doc:`installation guide <../../../Installation>` you followed if th
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
 Best practice is to create a new directory for every new workspace.
-The name doesn’t matter, but it is helpful to have it indicate the purpose of the workspace.
-Let’s choose the directory name ``ros2_ws``, for “development workspace”:
+The name doesn't matter, but it is helpful to have it indicate the purpose of the workspace.
+Let's choose the directory name ``ros2_ws``, for "development workspace":
 
 .. tabs::
 
@@ -116,19 +116,17 @@ The above code creates a ``src`` directory inside ``ros2_ws`` and then navigates
 3 Clone a sample repo
 ^^^^^^^^^^^^^^^^^^^^^
 
-Ensure you’re still in the ``ros2_ws/src`` directory before you clone.
+Ensure you're still in the ``ros2_ws/src`` directory before you clone.
 
 In the rest of the beginner developer tutorials, you will create your own packages, but for now you will practice putting a workspace together using existing packages.
 
-The existing packages you will use are from the ``ros_tutorials`` repository (repo).
-If you went through the "Beginner: CLI Tools" tutorials, you'll be familiar with ``turtlesim``, one of the packages in this repo.
+If you went through the :doc:`Beginner: CLI Tools <../../Beginner-CLI-Tools>` tutorials, you'll be familiar with ``turtlesim``, one of the packages in `ros_tutorials <https://github.com/ros/ros_tutorials/>`__.
 
-You can see the repo `on GitHub <https://github.com/ros/ros_tutorials/>`__.
+A repo can have multiple branches.
+You need to check out the one that targets your installed ROS 2 distro.
+When you clone this repo, add the ``-b`` argument followed by that branch.
 
-Notice the “Branch” drop down list to the left above the directories list.
-When you clone this repo, add the ``-b`` argument followed by the branch that corresponds with your ROS 2 distro.
-
-In the ``ros2_ws/src`` directory, run the following command for the distro you're using:
+In the ``ros2_ws/src`` directory, run the following command:
 
 .. code-block:: console
 
@@ -136,16 +134,16 @@ In the ``ros2_ws/src`` directory, run the following command for the distro you'r
 
 Now ``ros_tutorials`` is cloned in your workspace.  The ``ros_tutorials`` repository contains the ``turtlesim`` package, which we'll use in the rest of this tutorial.  The other packages in this repository are not built because they contain a ``COLCON_IGNORE`` file.
 
-Now you have populated your workspace with a sample package, but it isn’t a fully-functional workspace yet.
-You need to resolve dependencies and build the workspace first.
+So far you have populated your workspace with a sample package, but it isn't a fully-functional workspace yet.
+You need to resolve the dependencies first and then build the workspace.
 
 
 4 Resolve dependencies
 ^^^^^^^^^^^^^^^^^^^^^^
 
-Before building the workspace, you need to resolve package dependencies.
+Before building the workspace, you need to resolve the package dependencies.
 You may have all the dependencies already, but best practice is to check for dependencies every time you clone.
-You wouldn’t want a build to fail after a long wait because of missing dependencies.
+You wouldn't want a build to fail after a long wait only to realize that you have missing dependencies.
 
 From the root of your workspace (``ros2_ws``), run the following command:
 
@@ -205,7 +203,7 @@ From the root of your workspace (``ros2_ws``), you can now build your packages u
 
       colcon build --merge-install
 
-    Windows doesn’t allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
+    Windows doesn't allow long paths, so ``merge-install`` will combine all the paths into the ``install`` directory.
 
 The console will return the following message:
 
@@ -217,11 +215,12 @@ The console will return the following message:
   Summary: 1 package finished [5.58s]
 
 .. note::
-    Other useful arguments for ``colcon build``:
 
-    * ``--packages-up-to`` builds the package you want, plus all its dependencies, but not the whole workspace (saves time)
-    * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
-    * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
+  Other useful arguments for ``colcon build``:
+
+  * ``--packages-up-to`` builds the package you want, plus all its dependencies, but not the whole workspace (saves time)
+  * ``--symlink-install`` saves you from having to rebuild every time you tweak python scripts
+  * ``--event-handlers console_direct+`` shows console output while building (can otherwise be found in the ``log`` directory)
 
 Once the build is finished, enter ``ls`` in the workspace root (``~/ros2_ws``) and you will see that colcon has created new directories:
 
@@ -229,7 +228,7 @@ Once the build is finished, enter ``ls`` in the workspace root (``~/ros2_ws``) a
 
   build  install  log  src
 
-The ``install`` directory is where your workspace’s setup files are, which you can use to source your overlay.
+The ``install`` directory is where your workspace's setup files are, which you can use to source your overlay.
 
 
 6 Source the overlay
@@ -238,7 +237,7 @@ The ``install`` directory is where your workspace’s setup files are, which you
 Before sourcing the overlay, it is very important that you open a new terminal, separate from the one where you built the workspace.
 Sourcing an overlay in the same terminal where you built, or likewise building where an overlay is sourced, may create complex issues.
 
-In the new terminal, source your main ROS 2 environment as the “underlay”, so you can build the overlay “on top of” it:
+In the new terminal, source your main ROS 2 environment as the "underlay", so you can build the overlay "on top of" it:
 
 .. tabs::
 
@@ -292,7 +291,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      . install/local_setup.bash
+      source install/local_setup.bash
 
   .. group-tab:: macOS
 
@@ -304,7 +303,7 @@ In the root, source your overlay:
 
     .. code-block:: console
 
-      call install/setup.bat
+      call install\setup.bat
 
 .. note::
 
@@ -312,7 +311,7 @@ In the root, source your overlay:
   ``setup`` sources the overlay as well as the underlay it was created in, allowing you to utilize both workspaces.
 
   So, sourcing your main ROS 2 installation's ``setup`` and then the ``ros2_ws`` overlay's ``local_setup``, like you just did,
-  is the same as just sourcing ``ros2_ws``'s ``setup``, because that includes the environment of the underlay it was created in.
+  is the same as just sourcing ``ros2_ws``'s ``setup``, because that includes the environment of its underlay.
 
 Now you can run the ``turtlesim`` package from the overlay:
 
@@ -322,7 +321,7 @@ Now you can run the ``turtlesim`` package from the overlay:
 
 But how can you tell that this is the overlay turtlesim running, and not your main installation's turtlesim?
 
-Let’s modify turtlesim in the overlay so you can see the effects:
+Let's modify turtlesim in the overlay so you can see the effects:
 
 * You can modify and rebuild packages in the overlay separately from the underlay.
 * The overlay takes precedence over the underlay.
@@ -336,9 +335,9 @@ To do this, locate the ``turtle_frame.cpp`` file in ``~/ros2_ws/src/ros_tutorial
 Open ``turtle_frame.cpp`` with your preferred text editor.
 
 On line 52 you will see the function ``setWindowTitle("TurtleSim");``.
-Change the value ``”TurtleSim”`` to ``”MyTurtleSim”``, and save the file.
+Change the value ``"TurtleSim"`` to ``"MyTurtleSim"``, and save the file.
 
-Return to first terminal where you ran ``colcon build`` earlier and run it again.
+Return to the first terminal where you ran ``colcon build`` earlier and run it again.
 
 Return to the second terminal (where the overlay is sourced) and run turtlesim again:
 
@@ -346,7 +345,7 @@ Return to the second terminal (where the overlay is sourced) and run turtlesim a
 
   ros2 run turtlesim turtlesim_node
 
-You will see the title bar on the turtlesim window now says “MyTurtleSim”.
+You will see the title bar on the turtlesim window now says "MyTurtleSim".
 
 .. image:: images/overlay.png
 
@@ -369,7 +368,7 @@ Summary
 In this tutorial, you sourced your main ROS 2 distro install as your underlay, and created an overlay by cloning and building packages in a new workspace.
 The overlay gets prepended to the path, and takes precedence over the underlay, as you saw with your modified turtlesim.
 
-Using overlays is recommended for working on a small number of packages, so you don’t have to put everything in the same workspace and rebuild a huge workspace on every iteration.
+Using overlays is recommended for working on a small number of packages, so you don't have to put everything in the same workspace and rebuild a huge workspace on every iteration.
 
 Next steps
 ----------

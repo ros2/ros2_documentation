@@ -17,4 +17,4 @@ This set of tutorials will teach you how to configure different simulators with 
    :maxdepth: 1
 
    Webots
-   Ignition
+   Gazebo

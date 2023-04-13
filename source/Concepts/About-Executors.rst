@@ -39,7 +39,7 @@ In the simplest case, the main thread is used for processing the incoming messag
       return 0;
    }
 
-The call to ``spin(node)`` basically expands to an instatiation and invokation of the Single-Threaded Executor, which is the simplest Executor:
+The call to ``spin(node)`` basically expands to an instantiation and invocation of the Single-Threaded Executor, which is the simplest Executor:
 
 .. code-block:: cpp
 
@@ -51,6 +51,7 @@ By invoking ``spin()`` of the Executor instance, the current thread starts query
 In order not to counteract the QoS settings of the middleware, an incoming message is not stored in a queue on the Client Library layer but kept in the middleware until it is taken for processing by a callback function.
 (This is a crucial difference to ROS 1.)
 A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
+The *wait set* is also used to detect when timers expire.
 
 .. image:: images/executors_basic_principle.png
 
@@ -153,17 +154,18 @@ However, if the processing time of some callbacks is longer, messages and events
 The wait set mechanism reports only very little information about these queues to the Executor.
 In detail, it only reports whether there are any messages for a certain topic or not.
 The Executor uses this information to process the messages (including services and actions) in a round-robin fashion - but not in FIFO order.
-In addition, it prioritizes all timer events over the messages.
 The following flow diagram visualizes this scheduling semantics.
 
 .. image:: images/executors_scheduling_semantics.png
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
+(Note: The paper also explains that timer events are prioritized over all other messages. `This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
+
 
 Outlook
 -------
 
-While the three Executors of rclcpp work well for most applications there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
+While the three Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
 Here is a summary of some of these issues:
 
 1. Complex and mixed scheduling semantics.
@@ -174,14 +176,14 @@ Here is a summary of some of these issues:
 4. No built-in control over triggering for specific topics.
 
 Additionally, the executor overhead in terms of CPU and memory usage is considerable.
-The Static Single-Threaded Executor reduces this overhead greatly but it might be not enough for some applications.
+The Static Single-Threaded Executor reduces this overhead greatly but it might not be enough for some applications.
 
 These issues have been partially addressed by the following developments:
 
 * `rclcpp WaitSet <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/wait_set.hpp>`_: The ``WaitSet`` class of rclcpp allows waiting directly on subscriptions, timers, service servers, action servers, etc. instead of using an Executor.
   It can be used to implement deterministic, user-defined processing sequences, possibly processing multiple messages from different subscriptions together.
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
-* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc* developed for micro-ROS gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
+* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc*, developed for micro-ROS, gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
 
 Further information

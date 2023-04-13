@@ -211,7 +211,7 @@ Testing
 
 All packages should have some level of :ref:`system, integration, and/or unit tests.<TestingMain>`
 
-**Unit tests** should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the code base in constructed scenarios.
+**Unit tests** should always be in the package which is being tested and should make use of tools like ``Mock`` to try and test narrow parts of the codebase in constructed scenarios.
 Unit tests should not bring in test dependencies that are not testing tools, e.g. gtest, nosetest, pytest, mock, etc...
 
 **Integration tests** can test interactions between parts of the code or between parts of the code and the system.
@@ -220,7 +220,7 @@ Like Unit tests, Integration tests should be in the package which is being teste
 
 **System tests** are designed to test end-to-end situations between packages and should be in their own packages to avoid bloating or coupling packages and to avoid circular dependencies.
 
-In general minimizing external or cross package test dependencies should be avoided to prevent circular dependencies and tightly coupled test packages.
+In general external or cross package test dependencies should be minimized to prevent circular dependencies and tightly coupled test packages.
 
 All packages should have some unit tests and possibly integration tests, but the degree to which they should have them is based on the package's quality category.
 The following subsections apply to 'Level 1' packages:
@@ -336,6 +336,13 @@ Pull requests
     Plus, you're going to squash before merging anyway; there's no benefit to doing it early.
 
 * Any developer is welcome to review and approve a pull request (see `General Principles`_).
+
+* When you are working on a change that is not ready for review or to be merged, use a draft pull request.
+  When that change is ready for review, move the pull request out of the draft state.
+  Note that if you want early feedback from specific people on a draft pull request, you can @ mention them in the pull request's description or in a comment on the pull request.
+
+* If your pull request depends on other pull requests, link to each depended on pull request by adding ``- Depends on <link>`` at the top of your pull request's description.
+  Doing so helps reviewers understand the context of the pull request.
 
 * When you start reviewing a pull request, comment on the pull request so that other developers know that you're reviewing it.
 

@@ -65,7 +65,7 @@ The first two lines are the parameters of the request, and below the dashes is t
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
 
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
@@ -151,7 +151,7 @@ The ``main`` function accomplishes the following, line by line:
     rclcpp::Service<example_interfaces::srv::AddTwoInts>::SharedPtr service =
     node->create_service<example_interfaces::srv::AddTwoInts>("add_two_ints", &add);
 
-* Prints a log message when it’s ready:
+* Prints a log message when it's ready:
 
   .. code-block:: C++
 
@@ -172,18 +172,17 @@ Add the following code block to ``CMakeLists.txt`` to create an executable named
 .. code-block:: console
 
     add_executable(server src/add_two_ints_server.cpp)
-    ament_target_dependencies(server
-    rclcpp example_interfaces)
+    ament_target_dependencies(server rclcpp example_interfaces)
 
 So ``ros2 run`` can find the executable, add the following lines to the end of the file, right before ``ament_package()``:
 
 .. code-block:: console
 
     install(TARGETS
-      server
+        server
       DESTINATION lib/${PROJECT_NAME})
 
-You could build your package now, source the local setup files, and run it, but let’s create the client node first so you can see the full system at work.
+You could build your package now, source the local setup files, and run it, but let's create the client node first so you can see the full system at work.
 
 3 Write the client node
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -262,7 +261,7 @@ Its structure is defined by the ``.srv`` file mentioned earlier.
   request->b = atoll(argv[2]);
 
 The ``while`` loop gives the client 1 second to search for service nodes in the network.
-If it can’t find any, it will continue waiting.
+If it can't find any, it will continue waiting.
 
 .. code-block:: C++
 
@@ -273,7 +272,6 @@ If the client is canceled (e.g. by you entering ``Ctrl+C`` into the terminal), i
 .. code-block:: C++
 
   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-    return 0;
 
 Then the client sends its request, and the node spins until it receives its response, or fails.
 
@@ -293,12 +291,10 @@ After removing some unnecessary boilerplate from the automatically generated fil
   find_package(example_interfaces REQUIRED)
 
   add_executable(server src/add_two_ints_server.cpp)
-  ament_target_dependencies(server
-    rclcpp example_interfaces)
+  ament_target_dependencies(server rclcpp example_interfaces)
 
   add_executable(client src/add_two_ints_client.cpp)
-  ament_target_dependencies(client
-    rclcpp example_interfaces)
+  ament_target_dependencies(client rclcpp example_interfaces)
 
   install(TARGETS
     server
@@ -350,7 +346,7 @@ Navigate back to the root of your workspace, ``ros2_ws``, and build your new pac
 
     .. code-block:: console
 
-    colcon build --merge-install --packages-select cpp_srvcli
+      colcon build --merge-install --packages-select cpp_srvcli
 
 Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
@@ -360,7 +356,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -410,13 +406,11 @@ You will see that it published log messages when it received the request and the
 
 Enter ``Ctrl+C`` in the server terminal to stop the node from spinning.
 
-
 Summary
 -------
 
 You created two nodes to request and respond to data over a service.
-You added their dependencies and executables to the package configuration files so that you could build and run them, and see a service/client system at work
-
+You added their dependencies and executables to the package configuration files so that you could build and run them, and see a service/client system at work.
 
 Next steps
 ----------

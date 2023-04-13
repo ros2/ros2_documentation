@@ -17,6 +17,7 @@ ROS 2 Documentation
    Concepts
    Contact
    The-ROS2-Project
+   API-Docs
    Related-Projects
    Glossary
    Citations
@@ -126,7 +127,7 @@ Other ROS resources
 
 * `ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)
 
-  - Showcases robots proects from the community
+  - Showcases robots projects from the community
   - Instructions on how to contribute a robot
 
 * `ROS Wiki <http://wiki.ros.org/>`__ (ROS 1)

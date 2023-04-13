@@ -10,7 +10,7 @@ To compile and run the tests, simply run the `test <https://colcon.readthedocs.i
 
 .. code-block:: console
 
-  colcon test --cmake-args tests [package_selection_args]
+  colcon test --ctest-args tests [package_selection_args]
 
 (where ``package_selection_args`` are optional package selection arguments for ``colcon`` to limit which packages are built and run)
 
@@ -22,3 +22,9 @@ To see the results, simply run the `test-result <https://colcon.readthedocs.io/e
 .. code-block:: console
 
   colcon test-result --all
+
+To see the exact test cases which fail, use the ``--verbose`` flag:
+
+.. code-block:: console
+
+  colcon test-result --all --verbose

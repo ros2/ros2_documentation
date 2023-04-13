@@ -20,7 +20,7 @@ Setting up a robot simulation (Webots)
 Background
 ----------
 
-Several robot simulators can be used with ROS 2, such as Gazebo, Ignition, Webots, etc.
+Several robot simulators can be used with ROS 2, such as Gazebo, Webots, etc.
 Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
 Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
 In this tutorial, you are going to use the Webots robot simulator to set-up and run a very simple ROS 2 simulation scenario.
@@ -35,32 +35,31 @@ Prerequisites
 
 It is recommended to understand basic ROS principles covered in the beginner :doc:`../../../Tutorials`.
 In particular, :doc:`../../Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim`, :doc:`../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics`, :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`, :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` and :doc:`../../Intermediate/Launch/Creating-Launch-Files` are useful prerequisites.
-Finally, you will need to install ``webots_ros2_driver`` from a terminal with this command:
 
 .. tabs::
 
-   .. group-tab:: Linux
+    .. group-tab:: Linux
 
-      .. code-block:: console
+        The Linux and ROS commands of this tutorial can be run in a standard Linux terminal.
+        See the `Webots ROS 2 Linux installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Linux-Installation-Guide>`_.
+
+    .. group-tab:: Windows
+
+        The Linux and ROS commands of this tutorial must be run in a WSL (Windows Subsystem for Linux) environment.
+        See the `Webots ROS 2 Windows installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/Windows-Installation-Guide>`_.
+
+    .. group-tab:: macOS
+
+        The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine (VM).
+        See the `Webots ROS 2 macOS installation instructions <https://github.com/cyberbotics/webots_ros2/wiki/macOS-Installation-Guide>`_.
+
+To install ``webots_ros2_driver`` from a terminal, proceed with the following commands.
+
+.. code-block:: console
 
         sudo apt update
         sudo apt install ros-{DISTRO}-webots-ros2-driver
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        # Install webots_ros2_driver and dependencies
-        cd \ros2_ws
-        pip install rosinstall_generator
-        rosinstall_generator webots_ros2_driver --deps --exclude-path=C:\dev\ros2_{DISTRO} > deps.repos
-        vcs import src < deps.repos
-
-        # Build the packages
-        colcon build
-
-        # Source this workspace
-        call install\local_setup.bat
+        source /opt/ros/{DISTRO}/setup.bash
 
 .. note::
 
@@ -202,43 +201,50 @@ You have to specify in the constructor which world file the simulator will open.
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 14-16
-
-A supervisor Robot is always automatically added to the world file by ``WebotsLauncher``.
-This robot is controlled by the custom node ``Ros2Supervisor``, which must also be started using the ``Ros2SupervisorLauncher``.
-This node allows to spawn URDF robots directly into the world, and it also publishes useful topics like ``/clock``.
-
-.. literalinclude:: Code/robot_launch.py
-    :language: python
-    :dedent: 4
-    :lines: 18
+    :lines: 15-17
 
 Then, the ROS node interacting with the simulated robot is created.
 This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
-The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
+
+.. tabs::
+
+    .. group-tab:: Linux
+
+        The node will be able to communicate with the simulated robot by using a custom protocol based on IPC and shared memory.
+
+    .. group-tab:: Windows
+
+        The node (in WSL) will be able to communicate with the simulated robot (in Webots on native Windows) through a TCP connection.
+
+    .. group-tab:: macOS
+
+        The node (in the docker container) will be able to communicate with the simulated robot (in Webots on native macOS) through a TCP connection.
+
+
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 ``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
+The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your platform.
 The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 20-28
+    :lines: 19-27
 
 After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 30-33
+    :lines: 29-31
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 8
-    :lines: 34-39
+    :lines: 32-37
 
 6 Modify the setup.py file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -254,28 +260,57 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 7 Test the code
 ^^^^^^^^^^^^^^^
 
-From a terminal in your ROS2 workspace run:
-
 .. tabs::
 
-   .. group-tab:: Linux
+    .. group-tab:: Linux
 
-      .. code-block:: console
+        From a terminal in your ROS 2 workspace run:
 
-        colcon build
-        source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
+        .. code-block:: console
 
-   .. group-tab:: Windows
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
 
-      .. code-block:: console
+        This will launch the simulation.
+        Webots will be automatically installed on the first run in case it was not already installed.
 
-        colcon build
-        call install\local_setup.bat
-        ros2 launch my_package robot_launch.py
+    .. group-tab:: Windows
 
-This will launch the simulation.
-Webots will be automatically installed on the first run in case it was not already installed.
+        From a terminal in your WSL ROS 2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
+        Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
+
+        This will launch the simulation.
+        Webots will be automatically installed on the first run in case it was not already installed.
+
+    .. group-tab:: macOS
+
+        On macOS, a local server must be started on the host to start Webots from the Docker container.
+        The local server can be downloaded `on the webots-server repository <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_.
+
+        In a terminal of the host machine (not in the VM), specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+
+        .. code-block:: console
+
+            export WEBOTS_HOME=/Applications/Webots.app
+            python3 local_simulation_server.py
+
+        From a terminal in the Linux VM in your ROS 2 workspace, build and launch your custom package with:
+
+        .. code-block:: console
+
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
 
 .. note::
 
@@ -361,7 +396,7 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
-    :lines: 10-46
+    :lines: 11-44
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
@@ -372,21 +407,48 @@ As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
 
 .. tabs::
 
-   .. group-tab:: Linux
+    .. group-tab:: Linux
 
-      .. code-block:: console
+        From a terminal in your ROS 2 workspace run:
 
-        colcon build
-        source install/local_setup.bash
-        ros2 launch my_package robot_launch.py
+        .. code-block:: console
 
-   .. group-tab:: Windows
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
 
-      .. code-block:: console
+    .. group-tab:: Windows
 
-        colcon build
-        call install\local_setup.bat
-        ros2 launch my_package robot_launch.py
+        From a terminal in your WSL ROS 2 workspace run:
+
+        .. code-block:: console
+
+            colcon build
+            export WEBOTS_HOME=/mnt/c/Program\ Files/Webots
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
+
+        Be sure to use the ``/mnt`` prefix in front of your path to the Webots installation folder to access the Windows file system from WSL.
+
+    .. group-tab:: macOS
+
+        In a terminal of the host machine (not in the VM), if not done already, specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
+
+        .. code-block:: console
+
+            export WEBOTS_HOME=/Applications/Webots.app
+            python3 local_simulation_server.py
+
+        Note that the server keeps running once the ROS 2 nodes are ended.
+        You don't need to restart it every time you want to launch a new simulation.
+        From a terminal in the Linux VM in your ROS 2 workspace, build and launch your custom package with:
+
+        .. code-block:: console
+
+            cd ~/ros2_ws
+            colcon build
+            source install/local_setup.bash
+            ros2 launch my_package robot_launch.py
 
 Your robot should go forward and before hitting the wall it should turn clockwise.
 You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rendering`` and ``Show DistanceSensor Rays`` to display the range of the distance sensors of the robot.

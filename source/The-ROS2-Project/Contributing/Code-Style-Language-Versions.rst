@@ -129,7 +129,7 @@ Exceptions
 
 * Exceptions are allowed
 
-  * rationale: this is a new code base, so the legacy argument doesn't apply to us
+  * rationale: this is a new codebase, so the legacy argument doesn't apply to us
   * rationale: for user-facing API's it is more idiomatic C++ to have exceptions
   * Exceptions in destructors should be explicitly avoided
 
@@ -190,7 +190,7 @@ Always Use Braces
 Open Versus Cuddled Braces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* Use open braces for ``function``, ``class``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
+* Use open braces for ``function``, ``class``, ``enum``, and ``struct`` definitions, but cuddle braces on ``if``, ``else``, ``while``, ``for``, etc...
 
   * Exception: when an ``if`` (or ``while``, etc.) condition is long enough to require line-wrapping, then use an open brace (i.e., don't cuddle).
 

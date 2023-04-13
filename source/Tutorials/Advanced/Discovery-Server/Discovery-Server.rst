@@ -51,7 +51,7 @@ The following figure shows the decrease in discovery messages:
     :align: center
 
 This architecture reduces the number of messages sent between the server and clients dramatically.
-In the following graph, the reduction in network traffic over the discovery phase for the `RMF Clinic demonstration <https://github.com/osrf/rmf_demos>`__ is shown:
+In the following graph, the reduction in network traffic over the discovery phase for the `RMF Clinic demonstration <https://github.com/open-rmf/rmf_demos#Clinic-World>`__ is shown:
 
 .. image:: figures/discovery_server_v2_performance.svg
     :align: center
@@ -285,10 +285,155 @@ We should see how ``Listener 1`` is receiving messages from both talker nodes, w
 
 
 
+ROS 2 Introspection
+-------------------
+
+The `ROS 2 Command Line Interface <https://github.com/ros2/ros2cli>`__ supports several introspection tools to analyze the behavior of a ROS 2 network.
+These tools (i.e. ``ros2 bag record``, ``ros2 topic list``, etc.) are very helpful to understand a ROS 2 working network.
+
+Most of these tools use DDS simple discovery to exchange topic information with every existing participant (using simple discovery, every participant in the network is connected with each other).
+However, the new Discovery Server v2 implements a network traffic reduction scheme that limits the discovery data between participants that do not share a topic.
+This means that nodes will only receive topic's discovery data if it has a writer or a reader for that topic.
+As most ROS 2 CLIs need a node in the network (some of them rely on a running ROS 2 daemon, and some create their own nodes), using the Discovery Server v2 these nodes will not have all the network information, and thus their functionality will be limited.
+
+The Discovery Server v2 functionality allows every Participant to run as a **Super Client**, a kind of **Client** that connects to a **Server**, from which it receives all the available discovery information (instead of just what it needs).
+In this sense, ROS 2 introspection tools can be configured as **Super Client**, thus being able to discover every entity that is using the Discovery Server protocol within the network.
+
+.. note::
+
+    In this section we use the term *Participant* as a DDS entity. Each DDS *Participant* corresponds with a ROS 2 *Context*, a ROS 2 abstraction over DDS.
+    `Nodes <ROS2Nodes>` are ROS 2 entities that rely on DDS communication interfaces: ``DataWriter`` and ``DataReader``.
+    Each *Participant* can hold multiple ROS 2 Nodes.
+    For further details about these concepts, please visit the `Node to Participant mapping design document <http://design.ros2.org/articles/Node_to_Participant_mapping.html>`__
+
+
+Daemon's related tools
+^^^^^^^^^^^^^^^^^^^^^^
+
+The ROS 2 Daemon is used in several ROS 2 CLI introspection tools.
+It creates its own Participant to add a ROS 2 Node to the network graph, in order to receive all the data sent.
+In order for the ROS 2 CLI to work when using Discovery Server mechanism, the ROS 2 Daemon needs to be
+configured as **Super Client**.
+Therefore, this section is devoted to explain how to use ROS 2 CLI with ROS 2 Daemon running as a **Super Client**.
+This will allow the Daemon to discover the entire Node graph, and to receive all topic and endpoint information.
+To do so, a Fast DDS XML configuration file is used to configure the ROS 2 Daemon and CLI tools.
+
+Below you can find a XML configuration profile, which for this tutorial should be saved in the working directory as ```super_client_configuration_file.xml``` file.
+This file will configure every new participant using it, as a **Super Client**.
+
+.. code-block:: xml
+
+   <?xml version="1.0" encoding="UTF-8" ?>
+    <dds>
+        <profiles xmlns="http://www.eprosima.com/XMLSchemas/fastRTPS_Profiles">
+            <participant profile_name="super_client_profile" is_default_profile="true">
+                <rtps>
+                    <builtin>
+                        <discovery_config>
+                            <discoveryProtocol>SUPER_CLIENT</discoveryProtocol>
+                            <discoveryServersList>
+                                <RemoteServer prefix="44.53.00.5f.45.50.52.4f.53.49.4d.41">
+                                    <metatrafficUnicastLocatorList>
+                                        <locator>
+                                            <udpv4>
+                                                <address>127.0.0.1</address>
+                                                <port>11811</port>
+                                            </udpv4>
+                                        </locator>
+                                    </metatrafficUnicastLocatorList>
+                                </RemoteServer>
+                            </discoveryServersList>
+                        </discovery_config>
+                    </builtin>
+                </rtps>
+            </participant>
+        </profiles>
+    </dds>
+
+
+.. note::
+
+    Under the *RemoteServer* tag, the *prefix* attribute value should be updated according to the server ID passed on the CLI (see `Fast DDS CLI <https://fast-dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`__).
+    The value specified in the shown XML snippet corresponds to an ID of value 0.
+
+First of all, instantiate a Discovery Server using `Fast DDS CLI <https://fast-dds.docs.eprosima.com/en/latest/fastddscli/cli/cli.html#discovery>`__ specifying an ID of value 0.
+
+.. code-block:: console
+
+    fastdds discovery -i 0 -l 127.0.0.1 -p 11811
+
+Run a talker and a listener that will discover each other through the Server (notice that ``ROS_DISCOVERY_SERVER`` configuration is the same as the one in ``super_client_configuration_file.xml``).
+
+.. code-block:: console
+
+    export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+
+.. code-block:: console
+
+    export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+
+Then, instantiate a ROS 2 Daemon using the **Super Client** configuration (remember to source ROS 2 installation in every new terminal).
+
+.. code-block:: console
+
+    export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+    ros2 daemon stop
+    ros2 daemon start
+    ros2 topic list
+    ros2 node info /talker
+    ros2 topic info /chatter
+    ros2 topic echo /chatter
+
+We can also see the Node's Graph using the ROS 2 tool ``rqt_graph`` as follows (you may need to press the refresh button):
+
+.. code-block:: console
+
+    export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+    rqt_graph
+
+
+No Daemon tools
+^^^^^^^^^^^^^^^
+
+Some ROS 2 CLI tools do not use the ROS 2 Daemon.
+In order for these tools to connect with a Discovery Server and receive all the topics information they need to be instantiated as a **Super Client** that connects to the **Server**.
+
+Following the previous configuration, build a simple system with a talker and a listener.
+First, run a **Server**:
+
+.. code-block:: console
+
+    fastdds discovery -i 0 -l 127.0.0.1 -p 11811
+
+Then, run the talker and listener in separate terminals:
+
+.. code-block:: console
+
+    export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+    ros2 run demo_nodes_cpp listener --ros-args --remap __node:=listener
+
+.. code-block:: console
+
+    export ROS_DISCOVERY_SERVER="127.0.0.1:11811"
+    ros2 run demo_nodes_cpp talker --ros-args --remap __node:=talker
+
+Continue using the ROS 2 CLI with ``--no-daemon`` option with the new configuration.
+New nodes will connect with the existing Server and will know every topic.
+Exporting ``ROS_DISCOVERY_SERVER`` is not needed as the ROS 2 tools will be configured through the ``FASTRTPS_DEFAULT_PROFILES_FILE``.
+
+.. code-block:: console
+
+    export FASTRTPS_DEFAULT_PROFILES_FILE=super_client_configuration_file.xml
+    ros2 topic list --no-daemon
+    ros2 node info /talker --no-daemon --spin-time 2
+
+
 Compare Fast DDS Discovery Server with Simple Discovery Protocol
 ----------------------------------------------------------------
 
-In order to compare executing nodes using the Simple Discovery Protocol (the default DDS mechanism for distributed discovery) or the discovery server, two scripts that execute a talker and many listeners and analyze the network traffic during this time are provided.
+In order to compare executing nodes using the *Simple Discovery* Protocol (the default DDS mechanism for distributed discovery) or the *Discovery Server*, two scripts that execute a talker and many listeners and analyze the network traffic during this time are provided.
 For this experiment, ``tshark`` is required to be installed on your system.
 The configuration file is mandatory in order to avoid using intraprocess mode.
 
