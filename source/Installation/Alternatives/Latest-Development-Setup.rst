@@ -9,8 +9,8 @@ Testing binaries
 
 See :doc:`Testing <../Testing>`.
 
-Building from source
---------------------
+Build from source
+-----------------
 
 .. note::
 
@@ -20,7 +20,8 @@ Building from source
 Follow the links below for the latest setup instructions for your platform:
 
 * :doc:`Ubuntu Linux <Ubuntu-Development-Setup>`
-* :doc:`macOS <macOS-Development-Setup>`
 * :doc:`Windows <Windows-Development-Setup>`
+* :doc:`RHEL <RHEL-Development-Setup>`
+* :doc:`macOS <macOS-Development-Setup>`
 
 For keeping your source code up-to-date, see :doc:`Maintain a source checkout <../Maintaining-a-Source-Checkout>`.
