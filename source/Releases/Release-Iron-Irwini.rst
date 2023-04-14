@@ -614,7 +614,7 @@ See :doc:`this how-to guide to remove the instrumentation (or add the instrument
 New tracepoints for intra-process are added
 """""""""""""""""""""""""""""""""""""""""""
 
-The current tracetools do not support intra-process communication.
+New tracepoints have been added to support intra-process communication.
 This allows the evaluation of the time between the message publishing and the callback start in intra-process communication.
 
 See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rclcpp/pull/2091 for more information.
