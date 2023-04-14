@@ -262,6 +262,13 @@ It is now possible to have the various ``ros2 param`` commands timeout by passin
 
 See https://github.com/ros2/ros2cli/pull/802 for more information.
 
+Deprecated options were removed
+""""""""""""""""""""""""""""""""
+
+``--output-dir`` and ``--print`` options with ``dump`` command have been removed.
+
+See https://github.com/ros2/ros2cli/pull/824 for more information.
+
 ``ros2topic``
 ^^^^^^^^^^^^^
 
@@ -288,6 +295,13 @@ See https://github.com/ros2/ros2cli/pull/800 for more information.
 The command ``ros2 topic echo`` now accepts a ``--timeout`` option, which controls the maximum amount of time that the command will wait for a publication to happen.
 
 See https://github.com/ros2/ros2cli/pull/792 for more information.
+
+Deprecated option was removed
+"""""""""""""""""""""""""""""
+
+``--lost-messages`` option with ``echo`` command has been removed.
+
+See https://github.com/ros2/ros2cli/pull/824 for more information.
 
 Changes since the Humble release
 --------------------------------
