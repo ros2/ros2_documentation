@@ -87,8 +87,8 @@ Now you can build your workspace and run your python node that depends on packag
 
 .. code-block:: console
 
-    # Source Foxy and build
-    source /opt/ros/foxy/setup.bash
+    # Source Humble and build
+    source /opt/ros/humble/setup.bash
     colcon build
 
 .. note::
