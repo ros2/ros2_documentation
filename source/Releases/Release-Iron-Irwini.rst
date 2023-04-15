@@ -622,6 +622,14 @@ Note that this only applies to Linux.
 See https://github.com/ros2/ros2_tracing/pull/31 and https://github.com/ros2/ros2/issues/1177 for more information.
 See :doc:`this how-to guide to remove the instrumentation (or add the instrumentation with Humble and older) <../How-To-Guides/Building-ROS-2-with-Tracing>`.
 
+New tracepoints for ``rclcpp`` intra-process are added
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+New tracepoints have been added to support ``rclcpp`` intra-process communication.
+This allows the evaluation of the time between the message publishing and the callback start in intra-process communication.
+
+See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rclcpp/pull/2091 for more information.
+
 Known Issues
 ------------
 
