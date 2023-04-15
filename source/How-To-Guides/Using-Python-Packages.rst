@@ -87,8 +87,8 @@ Now you can build your workspace and run your python node that depends on packag
 
 .. code-block:: console
 
-    # Source Humble and build
-    source /opt/ros/humble/setup.bash
+    # Source {DISTRO_TITLE} and build
+    source /opt/ros/{DISTRO}/setup.bash
     colcon build
 
 .. note::
