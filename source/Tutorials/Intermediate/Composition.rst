@@ -351,3 +351,62 @@ If you want to export a composable node as a shared library from a package and u
 Then install the generated file and export the generated file.
 
 A practical example can be seen here: `ROS Discourse - Ament best practice for sharing libraries <https://discourse.ros.org/t/ament-best-practice-for-sharing-libraries/3602>`__
+
+Composing Non-Node Derived Components
+-------------------------------------
+
+In ROS 2, components allow for more efficient use of system resources and provide a powerful feature that enables you to create reusable functionality that is not tied to a specific node.
+
+One advantage of using components is that they allow you to create non-node derived functionality as standalone executables or shared libraries that can be loaded into the ROS system as needed.
+
+To create a component that is not derived from a node, follow these guidelines:
+
+1. Implement a constructor that takes const ``rclcpp::NodeOptions&`` as its argument.
+2. Implement the ``get_node_base_interface()`` method, which should return a ``NodeBaseInterface::SharedPtr``. You can use the ``get_node_base_interface()`` method of a node that you create in your constructor to provide this interface.
+
+Here's an example of a component that is not derived from a node, which listens to a ROS topic. (For another example, You can also refer to `node_like_listener_component <https://github.com/ros2/demos/blob/humble/composition/src/node_like_listener_component.cpp>`__):
+
+.. code-block:: c++
+
+    #include <memory>
+
+    #include "rclcpp/rclcpp.hpp"
+    #include "std_msgs/msg/string.hpp"
+
+    class MyListener {
+      public:
+        MyListener(const rclcpp::NodeOptions& options)
+        : node_(std::make_shared<rclcpp::Node>("my_listener", options))
+        {
+          // Create a callback function for when messages are received.
+          auto callback = [this](const std_msgs::msg::String::SharedPtr msg) {
+           RCLCPP_INFO(node_->get_logger(), "I heard: [%s]", msg->data.c_str());
+        };
+
+         // Create a subscription to the "chatter" topic.
+         sub_ = node_->create_subscription<std_msgs::msg::String>(
+              "chatter", 10, callback);
+        }
+
+        rclcpp::node_interfaces::NodeBaseInterface::SharedPtr get_node_base_interface() const {
+        return node_->get_node_base_interface();
+        }
+
+      private:
+        std::shared_ptr<rclcpp::Node> node_;
+        rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sub_;
+   };
+
+Note that this component does not inherit from ``rclcpp::Node``. Instead, it provides a ``get_node_base_interface()`` method that returns the underlying node interface.
+
+To register the component, you need to use the RCLCPP_COMPONENTS_REGISTER_NODE macro:
+
+.. code-block:: c++
+
+    #include "rclcpp_components/register_node_macro.hpp"
+
+    RCLCPP_COMPONENTS_REGISTER_NODE(MyListener)
+
+This macro generates the necessary code to make your component discoverable by the ``ClassLoader``.
+
+For more information on this topic, you can refer to this `discussion <https://github.com/ros2/rclcpp/issues/2110#issuecomment-1454228192>`__
