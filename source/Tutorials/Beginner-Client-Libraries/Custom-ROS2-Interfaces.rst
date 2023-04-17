@@ -125,7 +125,7 @@ Because the interfaces rely on ``rosidl_default_generators`` for generating lang
 ``rosidl_default_runtime`` is a runtime or execution-stage dependency, needed to be able to use the interfaces later.
 The ``rosidl_interface_packages`` is the name of the dependency group that your package, ``tutorial_interfaces``, should be associated with, declared using the ``<member_of_group>`` tag.
 
-Add the following lines to ``package.xml``:
+Add the following lines within the ``<package>`` element of ``package.xml``:
 
 .. code-block:: xml
 
