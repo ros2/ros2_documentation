@@ -8,7 +8,7 @@
 Using Python Packages with ROS 2
 ================================
 
-**Goal:** Explain how to interoperate with other Python packages from the ROS2 ecosystem.
+**Goal:** Explain how to interoperate with other Python packages from the ROS 2 ecosystem.
 
 .. contents:: Contents
     :depth: 2
@@ -16,7 +16,9 @@ Using Python Packages with ROS 2
 
 .. note::
 
-    A cautionary note, if you intended to use pre-packaged binaries (either ``deb`` files, or the “fat” binary distributions), the Python interpreter must match what was used to build the original binaries. If you intend to use something like ``virtualenv`` or ``pipenv``\, make sure to use the system interpreter.  If you use something like ``conda``, it is very likely that the interpreter will not match the system interpreter and will be incompatible with ROS2 binaries.
+    A cautionary note, if you intended to use pre-packaged binaries (either ``deb`` files, or the “fat” binary distributions), the Python interpreter must match what was used to build the original binaries.
+    If you intend to use something like ``virtualenv`` or ``pipenv``\, make sure to use the system interpreter.
+    If you use something like ``conda``, it is very likely that the interpreter will not match the system interpreter and will be incompatible with ROS 2 binaries.
 
 Installing via ``rosdep``
 -------------------------
@@ -26,7 +28,8 @@ The fastest way to include third-party python packages is to use their correspon
 * https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml
 * https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml
 
-These ``rosdep`` keys can be added to your ``package.xml`` file, which indicates to the build system that your package (and dependent packages) depend on those keys. In a new workspace, you can also quickly install all rosdep keys with:
+These ``rosdep`` keys can be added to your ``package.xml`` file, which indicates to the build system that your package (and dependent packages) depend on those keys.
+In a new workspace, you can also quickly install all rosdep keys with:
 
 .. code-block:: console
 
