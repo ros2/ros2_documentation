@@ -41,6 +41,14 @@ To come.
 New features in this ROS 2 release
 ----------------------------------
 
+API documentation generation for Python packages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+ROS 2 has had automatic API documentation for C++ packages for several releases, e.g. https://docs.ros.org/en/rolling/p/rclcpp/generated/index.html.
+Iron adds automatic API documentation for Python packages as well, e.g. https://docs.ros.org/en/rolling/p/rclpy/rclpy.html.
+
+See https://github.com/ros-infrastructure/rosdoc2/pull/28, https://github.com/ros-infrastructure/rosdoc2/pull/49, https://github.com/ros-infrastructure/rosdoc2/pull/51, and https://github.com/ros-infrastructure/rosdoc2/pull/52 for more details.
+
 Service introspection
 ^^^^^^^^^^^^^^^^^^^^^
 
