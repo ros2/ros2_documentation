@@ -361,9 +361,9 @@ One advantage of using components is that they allow you to create non-node deri
 
 To create a component that is not derived from a node, follow these guidelines:
 
-1. Implement a constructor that takes const ``rclcpp::NodeOptions&`` as its argument.
+1. Implement a constructor that takes ``const rclcpp::NodeOptions&`` as its argument.
 2. Implement the ``get_node_base_interface()`` method, which should return a ``NodeBaseInterface::SharedPtr``. You can use the ``get_node_base_interface()`` method of a node that you create in your constructor to provide this interface.
 
-Here's an example of a component that is not derived from a node, which listens to a ROS topic. (see `node_like_listener_component <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/node_like_listener_component.cpp>`__):
+Here's an example of a component that is not derived from a node, which listens to a ROS topic: `node_like_listener_component <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/src/node_like_listener_component.cpp>`__.
 
-For more information on this topic, you can refer to this `discussion <https://github.com/ros2/rclcpp/issues/2110#issuecomment-1454228192>`__
+For more information on this topic, you can refer to this `discussion <https://github.com/ros2/rclcpp/issues/2110#issuecomment-1454228192>`__.
