@@ -32,7 +32,7 @@ We provide ROS 2 binary packages for the following platforms:
   * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* RHEL 8
+* RHEL 9
 
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/RHEL-Install-Binary>`

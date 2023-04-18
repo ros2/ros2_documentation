@@ -103,7 +103,7 @@ intersphinx_mapping = {
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'analytics_id': 'UA-17821189-2',
+    'analytics_id': 'G-EVD5Z6G6NH',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,
@@ -164,6 +164,13 @@ html_sourcelink_suffix = ''
 htmlhelp_basename = 'ros2_docsdoc'
 
 html_baseurl = 'https://docs.ros.org/en'
+
+# The sitemap_url_scheme is used by the sitemap generator to figure out how
+# to generate links.  Essentially, the sitemap generator uses the following:
+#
+# url = html_baseurl + '/' + sitemap_url_scheme
+
+sitemap_url_scheme = '{version}/{link}'
 
 class RedirectFrom(Directive):
 

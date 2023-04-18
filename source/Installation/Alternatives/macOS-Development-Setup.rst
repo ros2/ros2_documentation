@@ -3,8 +3,6 @@
   Installation/Rolling/OSX-Development-Setup
   Installation/macOS-Development-Setup
 
-.. _macOS-latest:
-
 macOS (source)
 ==============
 
@@ -19,8 +17,11 @@ We currently support macOS Mojave (10.14).
 The Rolling Ridley distribution will change target platforms from time to time as new platforms become available.
 Most people will want to use a stable ROS distribution.
 
+System setup
+------------
+
 Install prerequisites
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 
 You need the following things installed to build ROS 2:
 
@@ -60,34 +61,34 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       brew install asio assimp bison bullet cmake console_bridge cppcheck \
-         cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
-         pyqt5 python qt@5 sip spdlog tinyxml tinyxml2
+      brew install asio assimp bison bullet cmake console_bridge cppcheck \
+        cunit eigen freetype graphviz opencv openssl orocos-kdl pcre poco \
+        pyqt5 python qt@5 sip spdlog tinyxml tinyxml2
 
 #.
    Setup some environment variables:
 
    .. code-block:: bash
 
-       # Add the openssl dir for DDS-Security
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
-       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
+      # Add the openssl dir for DDS-Security
+      # if you are using ZSH, then replace '.bashrc' with '.zshrc'
+      echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
 
-       # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-       export PATH=$PATH:/usr/local/opt/qt@5/bin
+      # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
+      export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
+      export PATH=$PATH:/usr/local/opt/qt@5/bin
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
 
    .. code-block:: bash
 
-       python3 -m pip install -U \
+      python3 -m pip install -U \
         argcomplete catkin_pkg colcon-common-extensions coverage \
         cryptography empy flake8 flake8-blind-except==0.1.1 flake8-builtins \
         flake8-class-newline flake8-comprehensions flake8-deprecated \
         flake8-docstrings flake8-import-order flake8-quotes \
-        importlib-metadata lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
+        importlib-metadata jsonschema lark==1.1.1 lxml matplotlib mock mypy==0.931 netifaces \
         nose pep8 psutil pydocstyle pydot pygraphviz pyparsing==2.4.7 \
         pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
 
@@ -103,20 +104,23 @@ You need the following things installed to build ROS 2:
 
      .. code-block:: bash
 
-          rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
-          wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
+        rosinstall_generator catkin common_msgs roscpp rosmsg --rosdistro kinetic --deps --wet-only --tar > kinetic-ros2-bridge-deps.rosinstall
+        wstool init -j8 src kinetic-ros2-bridge-deps.rosinstall
 
 
      Otherwise, just follow the normal instructions, then source the resulting ``install_isolated/setup.bash`` before proceeding here to build ROS 2.
 
 Disable System Integrity Protection (SIP)
------------------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 macOS/OS X versions >=10.11 have System Integrity Protection enabled by default.
 So that SIP doesn't prevent processes from inheriting dynamic linker environment variables, such as ``DYLD_LIBRARY_PATH``, you'll need to disable it `following these instructions <https://developer.apple.com/library/content/documentation/Security/Conceptual/System_Integrity_Protection_Guide/ConfiguringSystemIntegrityProtection/ConfiguringSystemIntegrityProtection.html>`__.
 
-Get the ROS 2 code
-------------------
+Build ROS 2
+-----------
+
+Get ROS 2 code
+^^^^^^^^^^^^^^
 
 Create a workspace and clone all repos:
 
@@ -126,13 +130,14 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS vendors (optional)
------------------------------------------
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-Build the ROS 2 code
---------------------
+Build the code in the workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`this tutorial <../../Tutorials/Beginner-Client-Libraries/Colcon-Tutorial>`):
 
@@ -144,7 +149,7 @@ Run the ``colcon`` tool to build everything (more on using ``colcon`` in :doc:`t
 Note: due to an unresolved issue with SIP, Qt@5, and PyQt5, we need to disable ``python_qt_binding`` to have the build succeed.
 This will be removed when the issue is resolved, see: https://github.com/ros-visualization/python_qt_binding/issues/103
 
-Environment setup
+Setup environment
 -----------------
 
 Source the ROS 2 setup file:
@@ -174,26 +179,24 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the `tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
-Using the ROS 1 bridge
-----------------------
-The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+Use the ROS 1 bridge (optional)
+-------------------------------
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
+See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
 Stay up to date
 ---------------
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <macOS-troubleshooting>`.
 
@@ -207,4 +210,4 @@ Uninstall
 
    .. code-block:: bash
 
-    rm -rf ~/ros2_{DISTRO}
+      rm -rf ~/ros2_{DISTRO}

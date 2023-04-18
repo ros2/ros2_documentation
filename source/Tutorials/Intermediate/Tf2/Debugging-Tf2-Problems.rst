@@ -72,7 +72,7 @@ to
    } catch (tf2::TransformException & ex) {
 
 And save changes to the file.
-In order to run this demo, we need to create a launch file ``start_tf2_debug_demo.launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
+In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
 
 .. code-block:: python
 
@@ -126,7 +126,7 @@ Now let's run it to see what happens:
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp start_tf2_debug_demo.launch.py
+   ros2 launch learning_tf2_cpp start_tf2_debug_demo_launch.py
 
 You will now see that the turtlesim came up.
 At the same time, if you run the ``turtle_teleop_key`` in another terminal window, you can use the arrow keys to drive the ``turtle1`` around.

@@ -33,6 +33,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 .. |eprosima| image:: Governance/images/eprosima.svg
 .. |gvsc| image:: Governance/images/gvsc.png
 .. |intel| image:: Governance/images/intel.svg
+.. |intrinsic| image:: Governance/images/intrinsic.png
 .. |irobot| image:: Governance/images/irobot.png
 .. |microsoft| image:: Governance/images/microsoft.svg
 .. |openrobotics| image:: Governance/images/openrobotics-logo-stacked.png
@@ -98,7 +99,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
       <tbody>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.amazon.com"><img alt="Amazon logo" src="../_images/amazon.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Amazon: Camilo Buscaron</p></td>
+          <td class="tscclass" align="center"><p>Amazon: Aaron Blasdel</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.apex.ai"><img alt="Apex.AI logo" src="../_images/apex.png" style="height: 35px;" /></a></p></td>
@@ -125,6 +126,10 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
           <td class="tscclass" align="center"><p>Intel: Harold Yang</p></td>
         </tr>
         <tr class="tscclass">
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://intrinsic.ai/"><img alt="Intrinsic logo" src="../_images/intrinsic.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>Intrinsic: Chris Lalancette</p></td>
+        </tr>
+        <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.irobot.com"><img alt="iRobot logo" src="../_images/irobot.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>iRobot: Alberto Soragna</p></td>
         </tr>
@@ -133,8 +138,8 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
           <td class="tscclass" align="center"><p>Microsoft: Lou Amadio</p></td>
         </tr>
         <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="Open Robotics logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Open Robotics: Chris Lalancette</p></td>
+          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.openrobotics.org"><img alt="OSRF logo" src="../_images/openrobotics-logo-stacked.png" style="height: 35px;" /></a></p></td>
+          <td class="tscclass" align="center"><p>OSRF: Geoff Biggs</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://picknik.ai"><img alt="PickNik logo" src="../_images/picknik.png" style="height: 35px;" /></a></p></td>
@@ -150,7 +155,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="../_images/samsung.svg" style="height: 25px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Samsung: Steven Macenski</p></td>
+          <td class="tscclass" align="center"><p>Samsung: TBD</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="../_images/sony.png" style="height: 60px;" /></a></p></td>
@@ -208,6 +213,7 @@ Client Libraries
 ^^^^^^^^^^^^^^^^
 
 * Lead(s): Geoffrey Biggs, Alberto Soragna
+* Note: **This working group is currently on hiatus. Meetings will resume at some point in the future TBD.**
 * Resources:
 
  * Meeting invite group: `ros-client-libraries-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-client-libraries-working-group-invites>`_
@@ -224,15 +230,6 @@ Control
  * Webite link: https://control.ros.org
  * Meeting invite group `ros-control-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-control-working-group-invites>`_
  * Discourse tag: `wg-ros2-control <https://discourse.ros.org/tags/wg-ros2-control>`_
-
-Edge AI
-^^^^^^^
-
-* Lead(s): TBD
-* Resources:
-
- * Meeting invite group `ros-edge-ai-working-group-invites <https://groups.google.com/forum/#!forum/ros-edge-ai-working-group-invites>`_
- * Discourse tag: `wg-edgeai <https://discourse.ros.org/tag/wg-edgeai>`_
 
 Embedded Systems
 ^^^^^^^^^^^^^^^^
@@ -269,7 +266,7 @@ Navigation
 Manipulation
 ^^^^^^^^^^^^
 
-* Lead(s): Dave Coleman, Mark Moll
+* Lead(s): Henning Kayser
 * Resources:
 
  * `About our working group meetings <https://discourse.ros.org/t/moveit-maintainer-meeting-all-invited-july-25th/9899>`__
@@ -289,17 +286,6 @@ Real-time
  * Meeting invite group `ros-real-time-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-real-time-working-group-invites>`_
  * Discourse tag: `wg-real-time <https://discourse.ros.org/tag/wg-real-time>`_
  * Matrix chat `+ros-realtime:matrix.org <https://matrix.to/#/+ros-realtime:matrix.org>`_
-
-Safety
-^^^^^^
-
-* Lead(s): Geoffrey Biggs
-* Resources:
-
- * `Working group website <https://github.com/ros-safety/safety_working_group>`__
- * `Working group Community <https://github.com/ros-safety/safety_working_group>`__
- * Meeting invite group `ros-safety-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-safety-working-group-invites>`_
- * Discourse tag: `wg-safety-critical <https://discourse.ros.org/tag/wg-safety-critical>`_
 
 .. _Security Working Group:
 
@@ -326,51 +312,13 @@ Rosbag2 and Tooling
  * Discourse tag: `wg-tooling <https://discourse.ros.org/tag/wg-tooling>`_
  * Matrix chat `+ros-tooling:matrix.org <https://matrix.to/#/+ros-tooling:matrix.org>`_
 
-WebTools
-^^^^^^^^
-
-* Lead(s): Emerson Knapp
-* Resources:
-
- * `Charter <https://github.com/RobotWebTools/community>`__
- * `Meeting Notes <https://docs.google.com/document/d/1esrRj2x80TSCEHOwuh-cT_bQvAqqvloQAQr8mPMzcTc/edit>`__
- * `Video Recordings <https://www.youtube.com/playlist?list=PLpUh4ScdBhSMb98_C0q_zIT8GNMehYBd>`__
- * `Google Group <https://groups.google.com/g/ros-webtools-working-group>`__
- * Discourse tag: `wg-webtools <https://discourse.ros.org/tag/wg-webtools>`__
-
-Community Working Groups
-------------------------
-
-The ROS 2 TSC is interested in encouraging and promoting working groups outside its direct purview.
-To provide extra visibility the TSC maintains a list of the community driven working groups here as well as working with the community to provide them with the same infrastructure.
-
-Hardware Acceleration
-^^^^^^^^^^^^^^^^^^^^^
-
-* Lead(s): Víctor Mayoral Vilches
-* Resources:
-
- * Meeting invite group `ROS 2 Hardware Acceleration WG Google Group <https://groups.google.com/g/ros-2-hardware-acceleration-wg>`_
- * Discourse tag: `wg-acceleration <https://discourse.ros.org/tag/wg-acceleration>`_
- * Github organization: `ros-acceleration <https://github.com/ros-acceleration>`_
-
-Rust
-^^^^
-
-* Lead(s): Esteve Fernandez, Jacob Hassold
-* Resources:
-
- * `Working group Community <https://github.com/ros2-rust/rust-wg>`__
- * Meeting invite group `ros-rust-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-rust-working-group-invites>`_
- * Discourse tag: `wg-rust <https://discourse.ros.org/tag/wg-rust>`_
- * Matrix chat `+rosorg-rust:matrix.org <https://matrix.to/#/+rosorg-rust:matrix.org>`_
-
 
 If you'd like to join an existing ROS 2 WG, please contact the appropriate group lead(s) directly.
 If you'd like to create a new WG, please inquire via info@openrobotics.org.
 
 
 Working Group Policies
+----------------------
 
  * Meetings should be posted to the Google calendar as well as announced on Discourse.
  * Meetings should have notes and be posted to Discourse using appropriate working group tag.

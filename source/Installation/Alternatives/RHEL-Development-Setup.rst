@@ -2,8 +2,6 @@
 
   Installation/RHEL-Development-Setup
 
-.. _rhel-latest:
-
 RHEL (source)
 =============
 
@@ -16,9 +14,9 @@ System requirements
 -------------------
 The current target Red Hat platforms for {DISTRO_TITLE_FULL} are:
 
-- Tier 2: RHEL 8 64-bit
+- Tier 2: RHEL 9 64-bit
 
-As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_
+As defined in `REP 2000 <https://www.ros.org/reps/rep-2000.html>`_.
 
 System setup
 ------------
@@ -37,13 +35,13 @@ They can be enabled by running:
 .. code-block:: bash
 
    sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled powertools
+   sudo dnf config-manager --set-enabled crb
 
 .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
 
 
-Install development tools and ROS tools
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Install development tools
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: bash
 
@@ -54,6 +52,12 @@ Install development tools and ROS tools
      make \
      patch \
      python3-colcon-common-extensions \
+     python3-flake8-builtins \
+     python3-flake8-comprehensions \
+     python3-flake8-docstrings \
+     python3-flake8-import-order \
+     python3-flake8-quotes \
+     python3-mypy \
      python3-pip \
      python3-pydocstyle \
      python3-pytest \
@@ -61,25 +65,23 @@ Install development tools and ROS tools
      python3-pytest-rerunfailures \
      python3-rosdep \
      python3-setuptools \
-     python3-vcstool
+     python3-vcstool \
+     wget
 
    # install some pip packages needed for testing and
    # not available as RPMs
    python3 -m pip install -U --user \
      flake8-blind-except==0.1.1 \
-     flake8-builtins \
      flake8-class-newline \
-     flake8-comprehensions \
-     flake8-deprecated \
-     flake8-docstrings \
-     flake8-import-order \
-     flake8-quotes \
-     mypy==0.931
+     flake8-deprecated
 
 .. _Rolling_rhel-dev-get-ros2-code:
 
+Build ROS 2
+-----------
+
 Get ROS 2 code
---------------
+^^^^^^^^^^^^^^
 
 Create a workspace and clone all repos:
 
@@ -89,10 +91,8 @@ Create a workspace and clone all repos:
    cd ~/ros2_{DISTRO}
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-.. _rhel-development-setup-install-dependencies-using-rosdep:
-
 Install dependencies using rosdep
----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. include:: ../_Dnf-Update-Admonition.rst
 
@@ -100,15 +100,16 @@ Install dependencies using rosdep
 
    sudo rosdep init
    rosdep update
-   rosdep install --from-paths src --ignore-src -y --skip-keys "asio cyclonedds fastcdr fastrtps ignition-cmake2 ignition-math6 python3-babeltrace python3-mypy rti-connext-dds-6.0.1 urdfdom_headers"
+   rosdep install --from-paths src --ignore-src -y --skip-keys "assimp fastcdr ignition-cmake2 ignition-math6 python3-matplotlib python3-pygraphviz rti-connext-dds-6.0.1 urdfdom_headers"
 
-Install additional DDS implementations (optional)
--------------------------------------------------
+Install additional RMW implementations (optional)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
 Build the code in the workspace
--------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you have already installed ROS 2 another way (either via RPMs or the binary distribution), make sure that you run the below commands in a fresh environment that does not have those other installations sourced.
 Also ensure that you do not have ``source /opt/ros/${ROS_DISTRO}/setup.bash`` in your ``.bashrc``.
@@ -120,17 +121,14 @@ More info on working with a ROS workspace can be found in :doc:`this tutorial <.
 .. code-block:: bash
 
    cd ~/ros2_{DISTRO}/
-   colcon build --symlink-install --cmake-args -DTHIRDPARTY_Asio=ON --no-warn-unused-cli
+   colcon build --symlink-install
 
 Note: if you are having trouble compiling all examples and this is preventing you from completing a successful build, you can use ``COLCON_IGNORE`` in the same manner as `CATKIN_IGNORE <https://github.com/ros-infrastructure/rep/blob/master/rep-0128.rst>`__ to ignore the subtree or remove the folder from the workspace.
 Take for instance: you would like to avoid installing the large OpenCV library.
 Well then simply run ``touch COLCON_IGNORE`` in the ``cam2image`` demo directory to leave it out of the build process.
 
-Environment setup
+Setup environment
 -----------------
-
-Source the setup script
-^^^^^^^^^^^^^^^^^^^^^^^
 
 Set up your environment by sourcing the following file.
 
@@ -139,8 +137,6 @@ Set up your environment by sourcing the following file.
    # Replace ".bash" with your shell if you're not using bash
    # Possible values are: setup.bash, setup.sh, setup.zsh
    . ~/ros2_{DISTRO}/install/local_setup.bash
-
-.. _rhel_talker-listener:
 
 Try some examples
 -----------------
@@ -163,14 +159,10 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-Next steps after installing
----------------------------
-Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
+Next steps
+----------
 
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
 
 Alternate compilers
 -------------------
@@ -194,8 +186,8 @@ Stay up to date
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <linux-troubleshooting>`.
 

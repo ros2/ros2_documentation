@@ -31,7 +31,7 @@ Prerequisites
 
 You should have ``ros2 bag`` installed as a part of your regular ROS 2 setup.
 
-If you've installed from Debians on Linux and your system doesn’t recognize the command, install it like so:
+If you installed ROS from Debian packages on Linux and your system doesn't recognize the command, install it like so:
 
 .. code-block:: console
 
@@ -41,7 +41,7 @@ If you've installed from Debians on Linux and your system doesn’t recognize th
 This tutorial talks about concepts covered in previous tutorials, like :doc:`nodes <../Understanding-ROS2-Nodes/Understanding-ROS2-Nodes>` and :doc:`topics <../Understanding-ROS2-Topics/Understanding-ROS2-Topics>`.
 It also uses the :doc:`turtlesim package <../Introducing-Turtlesim/Introducing-Turtlesim>`.
 
-As always, don’t forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
+As always, don't forget to source ROS 2 in :doc:`every new terminal you open <../Configuring-ROS2-Environment>`.
 
 
 Tasks
@@ -63,7 +63,7 @@ Open another terminal and run:
 
     ros2 run turtlesim turtle_teleop_key
 
-Let’s also make a new directory to store our saved recordings, just as good practice:
+Let's also make a new directory to store our saved recordings, just as good practice:
 
 .. code-block:: console
 
@@ -73,8 +73,8 @@ Let’s also make a new directory to store our saved recordings, just as good pr
 2 Choose a topic
 ^^^^^^^^^^^^^^^^
 
-``ros2 bag`` can only record data from topics that are published on.
-To see a list of your system's topics, open a new terminal and run the command:
+``ros2 bag`` can only record data from published messages in topics.
+To see the list of your system's topics, open a new terminal and run the command:
 
 .. code-block:: console
 
@@ -160,7 +160,7 @@ You will see the following messages in the terminal (the date and time will be d
 
 Now ``ros2 bag`` is recording the data published on the ``/turtle1/cmd_vel`` topic.
 Return to the teleop terminal and move the turtle around again.
-The movements don’t matter, but try to make a recognizable pattern to see when you replay the data later.
+The movements don't matter, but try to make a recognizable pattern to see when you replay the data later.
 
 .. image:: images/record.png
 
@@ -194,7 +194,7 @@ You will see the following message, confirming that both topics are being record
   [INFO] [rosbag2_transport]: Subscribed to topic '/turtle1/pose'
   [INFO] [rosbag2_transport]: All requested topics are subscribed. Stopping discovery...
 
-You can move the turtle around and press ``Ctrl+C`` when you’re finished.
+You can move the turtle around and press ``Ctrl+C`` when you're finished.
 
 .. note::
 
@@ -247,14 +247,14 @@ The terminal will return the message:
 
     [INFO] [rosbag2_storage]: Opened database 'subset'.
 
-Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system’s timing).
+Your turtle will follow the same path you entered while recording (though not 100% exactly; turtlesim is sensitive to small changes in the system's timing).
 
 .. image:: images/playback.png
 
-Because the ``subset`` file recorded the ``/turtle1/pose`` topic, the ``ros2 bag play`` command won’t quit for as long as you had turtlesim running, even if you weren’t moving.
+Because the ``subset`` file recorded the ``/turtle1/pose`` topic, the ``ros2 bag play`` command won't quit for as long as you had turtlesim running, even if you weren't moving.
 
 This is because as long as the ``/turtlesim`` node is active, it publishes data on the  ``/turtle1/pose`` topic at regular intervals.
-You may have noticed in the ``ros2 bag info`` example result above that the  ``/turtle1/cmd_vel`` topic’s ``Count`` information was only 9; that’s how many times we pressed the arrow keys while recording.
+You may have noticed in the ``ros2 bag info`` example result above that the  ``/turtle1/cmd_vel`` topic's ``Count`` information was only 9; that's how many times we pressed the arrow keys while recording.
 
 Notice that ``/turtle1/pose`` has a ``Count`` value of over 3000; while we were recording, data was published on that topic 3000 times.
 
@@ -268,12 +268,12 @@ Summary
 -------
 
 You can record data passed on topics in your ROS 2 system using the ``ros2 bag`` command.
-Whether you’re sharing your work with others or introspecting on your own experiments, it’s a great tool to know about.
+Whether you're sharing your work with others or introspecting your own experiments, it's a great tool to know about.
 
 Next steps
 ----------
 
-You’ve completed the "Beginner: CLI Tools" tutorials!
+You've completed the "Beginner: CLI Tools" tutorials!
 The next step is tackling the "Beginner: Client Libraries" tutorials, starting with :doc:`../../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace`.
 
 Related content

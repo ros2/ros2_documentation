@@ -17,7 +17,7 @@ ROS applications typically communicate through interfaces of one of three types:
 ROS 2 uses a simplified description language, the interface definition language (IDL), to describe these interfaces.
 This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
 
-In this document we will describe the supported types.
+In this document we will describe the supported types:
 
 * msg: ``.msg`` files are simple text files that describe the fields of a ROS message. They are used to generate source code for messages in different languages.
 * srv: ``.srv`` files describe a service. They are composed of two parts: a request and a response. The request and response are message declarations.
@@ -170,19 +170,20 @@ All types that are more permissive than their ROS definition enforce the ROS con
    string<=10 up_to_ten_characters_string
 
    string[<=5] up_to_five_unbounded_strings
-   string<=10[] unbounded_array_of_string_up_to_ten_characters_each
+   string<=10[] unbounded_array_of_strings_up_to_ten_characters_each
    string<=10[<=5] up_to_five_strings_up_to_ten_characters_each
 
 2.1.2 Field names
 ~~~~~~~~~~~~~~~~~
 
-Field names must be lowercase alphanumeric characters with underscores for separating words. They must start with an alphabetic character, they must not end with an underscore and never have two consecutive underscores.
+Field names must be lowercase alphanumeric characters with underscores for separating words.
+They must start with an alphabetic character, and they must not end with an underscore or have two consecutive underscores.
 
 2.1.3 Field default value
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default values can be set to any field in the message type.
-Currently default values are not supported for string arrays and complex types (i.e. types not present in the built-in-types table above, that applies to all nested messages)
+Currently default values are not supported for string arrays and complex types (i.e. types not present in the built-in-types table above; that applies to all nested messages).
 
 Defining a default value is done by adding a third element to the field definition line, i.e:
 
@@ -202,7 +203,7 @@ For example:
 Note:
 
 
-* string values must be defined in single ``'`` or double quotes ``"``
+* string values must be defined in single ``'`` or double ``"`` quotes
 * currently string values are not escaped
 
 2.2 Constants
@@ -232,7 +233,8 @@ For example:
 
 Services are described and defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
 
-A service description file consists of a request and a response msg type, separated by '---'. Any two ``.msg`` files concatenated with a '---' are a legal service description.
+A service description file consists of a request and a response msg type, separated by ``---``.
+Any two ``.msg`` files concatenated with a ``---`` are a legal service description.
 
 Here is a very simple example of a service that takes in a string and returns a string:
 
