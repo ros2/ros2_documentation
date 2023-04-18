@@ -232,26 +232,74 @@ See `the source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/log
 Logger level configuration: externally
 --------------------------------------
 
-In the future there will be a generalized approach to external configuration of loggers at runtime (similar to how `rqt_logger_level <https://wiki.ros.org/rqt_logger_level>`__ in ROS 1 allows logger configuration via remote procedural calls).
-**This concept is not yet officially supported in ROS 2.**
-In the meantime, this demo provides an **example** service that can be called externally to request configuration of logger levels for known names of loggers in the process.
+You can use logger service to implement external configuration of loggers at runtime.
 
-The demo previously started is already running this example service.
-To set the level of the demo's logger back to ``INFO``\ , call the service with:
+The following code shows how to enable logger service while creating node.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: C++
+
+        // Create a node with logger service enabled
+        auto node = std::make_shared<rclcpp::Node>("NodeWithLoggerService", rclcpp::NodeOptions().enable_logger_service(true))
+
+  .. group-tab:: Python
+
+    .. code-block:: python
+
+        # Create a node with logger service enabled
+        node = Node('NodeWithLoggerService', enable_logger_service=True)
+
+You will find 2 services under node `node_with_logger_service` by running `ros2 service list`
 
 .. code-block:: bash
 
-   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'logger_usage_demo', level: INFO}"
+    $ ros2 service list
+    ...
+    /NodeWithLoggerService/get_logger_levels
+    /NodeWithLoggerService/set_logger_levels
+    ...
 
-This service call will work on any logger that is running in the process provided that you know its name.
-This includes the loggers in the ROS 2 core, such as ``rcl`` (the common client library package).
-To enable debug logging for ``rcl``, call:
+* get_logger_levels
 
-.. code-block:: bash
+    Use this service to get logger levels by specified logger names.
 
-   ros2 service call /config_logger logging_demo/srv/ConfigLogger "{logger_name: 'rcl', level: DEBUG}"
+    Run `ros2 srvice call` to get logger levels for `NodeWithLoggerService` and `rcl`.
+    .. code-block:: bash
 
-You should see debug output from ``rcl`` start to show.
+        ros2 service call /NodeWithLoggerService/get_logger_levels rcl_interfaces/srv/GetLoggerLevels '{names: ["NodeWithLoggerService", "rcl"]}'
+
+        requester: making request: rcl_interfaces.srv.GetLoggerLevels_Request(names=['NodeWithLoggerService', 'rcl'])
+
+        response:
+        rcl_interfaces.srv.GetLoggerLevels_Response(levels=[rcl_interfaces.msg.LoggerLevel(name='NodeWithLoggerService', level=0), rcl_interfaces.msg.LoggerLevel(name='rcl', level=0)])
+
+* set_logger_levels
+
+    Use this service to set logger levels by specified logger names.
+
+    Run `ros2 service call` to set logger levels for `NodeWithLoggerService` and `rcl`.
+    .. code-block:: bash
+
+        $ ros2 service call /NodeWithLoggerService/set_logger_levels rcl_interfaces/srv/SetLoggerLevels '{levels: [{name: "NodeWithLoggerService", level: 20}, {name: "rcl", level: 10}]}'
+
+        requester: making request: rcl_interfaces.srv.SetLoggerLevels_Request(levels=[rcl_interfaces.msg.LoggerLevel(name='NodeWithLoggerService', level=20), rcl_interfaces.msg.LoggerLevel(name='rcl', level=10)])
+
+        response:
+        rcl_interfaces.srv.SetLoggerLevels_Response(results=[rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason=''), rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason='')])
+
+
+There are demo code on how to set/get logger level via logger service.
+
+  * rclcpp: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/logging/use_logger_service.cpp>`
+  * rclpy: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/logging/use_logger_service.py>`
+
+.. warning::
+
+    Currently, there is a limitation that `get_logger_levels` and `set_logger_levels` services are not thread-safe. This means that you need to ensure that only one thread is calling the services at a time.
+    This limitation will be removed.
 
 Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
