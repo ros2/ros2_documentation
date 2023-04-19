@@ -59,7 +59,7 @@ All of the information is published on a hidden topic generated from the name of
 So if the service is called ``/myservice``, then the information will be published on ``/myservice/_service_event``.
 
 Note that this functionality is disabled by default; to enable it, users must call ``configure_introspection`` after creating a server client or server.
-There are examples showing how to do this in https://github.com/ros2/demos/tree/{DISTRO}/demo_nodes_cpp/src/services (C++) and https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_py/demo_nodes_py/services/introspection.py (Python).
+There are examples showing how to do this in https://github.com/ros2/demos/tree/iron/demo_nodes_cpp/src/services (C++) and https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/services/introspection.py (Python).
 
 See `REP 2012 <https://github.com/ros-infrastructure/rep/pull/360>`__ and the tracking bug at https://github.com/ros2/ros2/issues/1285 for more information.
 
@@ -77,7 +77,7 @@ The callbacks are called in this order:
 * The "set" parameter callback, which cannot modify the list and should only accept or reject the parameters based on their type and value (this is the existing callback).
 * The "post" set parameter callback, which can make state changes based on parameters and is only called if the previous two callbacks are successful.
 
-There are examples of this in action in https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp (C++) and https://github.com/ros2/demos/blob/{DISTRO}/demo_nodes_py/demo_nodes_py/parameters/set_parameters_callback.py (Python).
+There are examples of this in action in https://github.com/ros2/demos/blob/iron/demo_nodes_cpp/src/parameters/set_parameters_callback.cpp (C++) and https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/parameters/set_parameters_callback.py (Python).
 
 See https://github.com/ros2/rclcpp/pull/1947, https://github.com/ros2/rclpy/pull/966, and https://github.com/ros2/demos/pull/565 for more information.
 
