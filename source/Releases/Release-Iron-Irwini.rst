@@ -92,6 +92,16 @@ Users can provide each publisher and subscription with callback functions that a
 
 See the tracking issue at https://github.com/ros2/rmw/issues/330 for more information.
 
+External configuration services of loggers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to configure node logger levels remotely via a service.
+When the ``enable_logger_service`` option is enabled during node creation, the ``set_logger_levels`` and ``get_logger_levels`` services will be available.
+
+Be advised that the ``enable_logger_service`` option is disabled by default, so the user needs to enable this option on node creation.
+
+See https://github.com/ros2/ros2/issues/1355 for more information.
+
 ``launch``
 ^^^^^^^^^^
 
