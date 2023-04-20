@@ -252,7 +252,7 @@ The following code shows how to enable logger service while creating node.
         # Create a node with logger service enabled
         node = Node('NodeWithLoggerService', enable_logger_service=True)
 
-You will find 2 services under node `node_with_logger_service` by running `ros2 service list`
+You will find 2 services under node `NodeWithLoggerService` by running `ros2 service list`
 
 .. code-block:: bash
 
@@ -298,8 +298,9 @@ There are demo code on how to set/get logger level via logger service.
 
 .. warning::
 
-    Currently, there is a limitation that `get_logger_levels` and `set_logger_levels` services are not thread-safe. This means that you need to ensure that only one thread is calling the services at a time.
-    This limitation will be removed.
+    Currently, there is a limitation that `get_logger_levels` and `set_logger_levels` services are not thread-safe.
+    This means that you need to ensure that only one thread is calling the services at a time.
+    Please see details to https://github.com/ros2/rcutils/issues/397
 
 Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
