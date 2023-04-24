@@ -26,7 +26,7 @@ In this tutorial, you are going to use the Webots robot simulator to set-up and 
 The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
 It includes several sub-packages, but in this tutorial, you are going to use only the ``webots_ros2_driver`` sub-package to implement a Python plugin controlling a simulated robot.
 Some other sub-packages contain demos with different robots such as the TurtleBot3.
-They are documented in the :doc:`../../../Demos` page.
+They are documented in the `Webots ROS 2 examples <https://github.com/cyberbotics/webots_ros2/wiki/Examples>`_ page.
 
 Prerequisites
 -------------
@@ -73,40 +73,89 @@ Let's organize the code in a custom ROS 2 package.
 Create a new package named ``my_package`` from the ``src`` folder of your ROS 2 workspace.
 Change the current directory of your terminal to ``ros2_ws/src`` and run:
 
-.. code-block:: console
+.. tabs::
 
-        ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
+    .. group-tab:: Python
 
-The ``--node-name my_robot_driver`` option will create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
-The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option specifies the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
-Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
+        .. code-block:: console
 
-.. code-block:: console
+            ros2 pkg create --build-type ament_python --node-name my_robot_driver my_package --dependencies rclpy geometry_msgs webots_ros2_driver
 
-        cd my_package
-        mkdir launch
-        mkdir worlds
+        The ``--node-name my_robot_driver`` option will create a ``my_robot_driver.py`` template Python plugin in the ``my_package`` subfolder that you will modify later.
+        The ``--dependencies rclpy geometry_msgs webots_ros2_driver`` option specifies the packages needed by the ``my_robot_driver.py`` plugin in the ``package.xml`` file.
 
-You should end up with the following folder structure:
+        Let's add a ``launch`` and a ``worlds`` folder inside the ``my_package`` folder.
 
-.. code-block:: console
+        .. code-block:: console
 
-          src/
-          └── my_package/
-              ├── launch/
-              ├── my_package/
-              │   ├── __init__.py
-              │   └── my_robot_driver.py
-              ├── resource/
-              │   └── my_package
-              ├── test/
-              │   ├── test_copyright.py
-              │   ├── test_flake8.py
-              │   └── test_pep257.py
-              ├── worlds/
-              ├── package.xml
-              ├── setup.cfg
-              └── setup.py
+                cd my_package
+                mkdir launch
+                mkdir worlds
+
+        You should end up with the following folder structure:
+
+        .. code-block:: console
+
+            src/
+            └── my_package/
+                ├── launch/
+                ├── my_package/
+                │   ├── __init__.py
+                │   └── my_robot_driver.py
+                ├── resource/
+                │   └── my_package
+                ├── test/
+                │   ├── test_copyright.py
+                │   ├── test_flake8.py
+                │   └── test_pep257.py
+                ├── worlds/
+                ├── package.xml
+                ├── setup.cfg
+                └── setup.py
+
+    .. group-tab:: C++
+
+        .. code-block:: console
+
+            ros2 pkg create --build-type ament_cmake --node-name MyRobotDriver my_package --dependencies rclcpp geometry_msgs webots_ros2_driver pluginlib
+
+        The ``--node-name MyRobotDriver`` option will create a ``MyRobotDriver.cpp`` template C++ plugin in the ``my_package/src`` subfolder that you will modify later.
+        The ``--dependencies rclcpp geometry_msgs webots_ros2_driver pluginlib`` option specifies the packages needed by the ``MyRobotDriver`` plugin in the ``package.xml`` file.
+
+
+        Let's add a ``launch``, a ``worlds`` and a ``resource`` folder inside the ``my_package`` folder.
+
+        .. code-block:: console
+
+            cd my_package
+            mkdir launch
+            mkdir worlds
+            mkdir resource
+
+        Two additional files must be created: the header file for ``MyRobotDriver`` and the ``my_robot_driver.xml`` pluginlib description file.
+
+        .. code-block:: console
+
+            touch my_robot_driver.xml
+            touch include/my_package/MyRobotDriver.hpp
+
+        You should end up with the following folder structure:
+
+        .. code-block:: console
+
+            src/
+            └── my_package/
+                ├── include/
+                │   └── my_package/
+                │       └── MyRobotDriver.hpp
+                ├── launch/
+                ├── resource/
+                ├── src/
+                │   └── MyRobotDriver.cpp
+                ├── worlds/
+                ├── CMakeList.txt
+                ├── my_robot_driver.xml
+                └── package.xml
 
 2 Setup the simulation world
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -119,70 +168,180 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 
 .. note::
 
-    In case you want to learn how to create your own robot model in Webots, you can check this `tutorial <https://github.com/cyberbotics/webots_ros2/wiki/Tutorial-Create-Webots-Robot>`_.
+    In case you want to learn how to create your own robot model in Webots, you can check this `tutorial <https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot>`_.
 
-3 Change the my_robot_driver.py file
+3 Edit the my_robot_driver plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 interface for most sensors.
-In this task, you will extend this interface by changing the ``my_robot_driver.py`` file.
+More details on existing device interfaces and how to configure them is given in :ref:`Updating my_robot.urdf`.
+In this task, you will extend this interface by creating your own custom plugin.
+This custom plugin is a ROS node equivalent to a robot controller.
+You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_ and create your own topics and services to control your robot.
 
 .. note::
 
     The purpose of this tutorial is to show a basic example with a minimum number of dependencies.
-    However, you could avoid the use of this Python plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control``, introducing a new dependency.
+    However, you could avoid the use of this plugin by using another ``webots_ros2`` sub-package named ``webots_ros2_control``, introducing a new dependency.
     This other sub-package creates an interface with the ``ros2_control`` package that facilitates the control of a differential wheeled robot.
 
-Open ``my_package/my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
 
-.. literalinclude:: Code/my_robot_driver.py
-    :language: python
+.. tabs::
 
-As you can see, the ``MyRobotDriver`` class implements three methods.
+    .. group-tab:: Python
 
-The first method, named ``init(self, ...)``, is actually the ROS node counterpart of the Python ``__init__(self, ...)`` constructor.
-It first gets the robot instance from the simulation (which can be used to access the `Webots robot API <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_).
-Then, it gets the two motor instances and initializes them with a target position and a target velocity.
-Finally a ROS node is created and a callback method is registered for a ROS topic named ``/cmd_vel`` that will handle ``Twist`` messages.
+        Open ``my_package/my_package/my_robot_driver.py`` in your favorite editor and replace its contents with the following:
 
-.. literalinclude:: Code/my_robot_driver.py
-    :language: python
-    :dedent: 4
-    :lines: 8-24
+        .. literalinclude:: Code/my_robot_driver.py
+            :language: python
 
-Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` member variable.
+        As you can see, the ``MyRobotDriver`` class implements three methods.
 
-.. literalinclude:: Code/my_robot_driver.py
-    :language: python
-    :dedent: 4
-    :lines: 26-27
+        The first method, named ``init(self, ...)``, is actually the ROS node counterpart of the Python ``__init__(self, ...)`` constructor.
+        The ``init`` method always takes two arguments:
 
-Finally, the ``step(self)`` method is called at every time step of the simulation.
-The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
-At each time step, the method will retrieve the desired ``forward_speed`` and ``angular_speed`` from ``self.__target_twist``.
-As the motors are controlled with angular velocities, the method will then convert the ``forward_speed`` and ``angular_speed`` into individual commands for each wheel.
-This conversion depends on the structure of the robot, more specifically on the radius of the wheel and the distance between them.
+        - The ``webots_node`` argument contains a reference on the Webots instance.
+        - The ``properties`` argument is a dictionary created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows you to pass parameters to the controller.
 
-.. literalinclude:: Code/my_robot_driver.py
-    :language: python
-    :dedent: 4
-    :lines: 29-39
+        The robot instance from the simulation ``self.__robot`` can be used to access the `Webots robot API <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_.
+        Then, it gets the two motor instances and initializes them with a target position and a target velocity.
+        Finally a ROS node is created and a callback method is registered for a ROS topic named ``/cmd_vel`` that will handle ``Twist`` messages.
+
+        .. literalinclude:: Code/my_robot_driver.py
+            :language: python
+            :dedent: 4
+            :lines: 8-24
+
+        Then comes the implementation of the ``__cmd_vel_callback(self, twist)`` callback private method that will be called for each ``Twist`` message received on the ``/cmd_vel`` topic and will save it in the ``self.__target_twist`` member variable.
+
+        .. literalinclude:: Code/my_robot_driver.py
+            :language: python
+            :dedent: 4
+            :lines: 26-27
+
+        Finally, the ``step(self)`` method is called at every time step of the simulation.
+        The call to ``rclpy.spin_once()`` is needed to keep the ROS node running smoothly.
+        At each time step, the method will retrieve the desired ``forward_speed`` and ``angular_speed`` from ``self.__target_twist``.
+        As the motors are controlled with angular velocities, the method will then convert the ``forward_speed`` and ``angular_speed`` into individual commands for each wheel.
+        This conversion depends on the structure of the robot, more specifically on the radius of the wheel and the distance between them.
+
+        .. literalinclude:: Code/my_robot_driver.py
+            :language: python
+            :dedent: 4
+            :lines: 29-39
+
+    .. group-tab:: C++
+
+        Open ``my_package/src/MyRobotDriver.hpp`` in your favorite editor and replace its contents with the following:
+
+        .. literalinclude:: Code/MyRobotDriver.hpp
+            :language: cpp
+
+        The class ``MyRobotDriver`` is defined, which inherits from the ``webots_ros2_driver::PluginInterface`` class.
+        The plugin has to override ``step(...)`` and ``init(...)`` functions.
+        More details are given in the ``MyRobotDriver.cpp`` file.
+        Several helper methods, callbacks and member variables that will be used internally by the plugin are declared privately.
+
+        Then, open ``my_package/src/MyRobotDriver.cpp`` in your favorite editor and replace its contents with the following:
+
+        .. literalinclude:: Code/MyRobotDriver.cpp
+            :language: cpp
+
+        The ``MyRobotDriver::init`` method is executed once the plugin is loaded by the ``webots_ros2_driver`` package.
+        It takes two arguments:
+
+        * A pointer to the ``WebotsNode`` defined by ``webots_ros2_driver``, which allows to access the ROS 2 node functions.
+        * The ``parameters`` argument is an unordered map of strings, created from the XML tags given in the URDF files (:ref:`4 Create the my_robot.urdf file`) and allows to pass parameters to the controller. It is not used in this example.
+
+        It initializes the plugin by setting up the robot motors, setting their positions and velocities, and subscribing to the ``/cmd_vel`` topic.
+
+        .. literalinclude:: Code/MyRobotDriver.cpp
+            :language: cpp
+            :lines: 13-29
+
+        Then comes the implementation of the ``cmdVelCallback()`` callback function that will be called for each Twist message received on the ``/cmd_vel`` topic and will save it in the ``cmd_vel_msg`` member variable.
+
+        .. literalinclude:: Code/MyRobotDriver.cpp
+            :language: cpp
+            :lines: 31-35
+
+        The ``step()`` method is called at every time step of the simulation.
+        At each time step, the method will retrieve the desired ``forward_speed`` and ``angular_speed`` from ``cmd_vel_msg``.
+        As the motors are controlled with angular velocities, the method will then convert the ``forward_speed`` and ``angular_speed`` into individual commands for each wheel.
+        This conversion depends on the structure of the robot, more specifically on the radius of the wheel and the distance between them.
+
+        .. literalinclude:: Code/MyRobotDriver.cpp
+            :language: cpp
+            :lines: 37-50
+
+        The final lines of the file define the end of the ``my_robot_driver`` namespace and include a macro to export the ``MyRobotDriver`` class as a plugin using the ``PLUGINLIB_EXPORT_CLASS`` macro.
+        This allows the plugin to be loaded by the Webots ROS2 driver at runtime.
+
+        .. literalinclude:: Code/MyRobotDriver.cpp
+            :language: cpp
+            :lines: 53-55
+
+        .. note::
+
+            While the plugin is implemented in C++, the C API must be used to interact with the Webots controller library.
+
+.. _4 Create the my_robot.urdf file:
 
 4 Create the my_robot.urdf file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You now have to create a URDF file to declare the ``my_robot_driver.py`` Python plugin.
-This will allow the ``webots_ros2_driver`` ROS node to launch the plugin.
+You now have to create a URDF file to declare the ``MyRobotDriver`` plugin.
+This will allow the ``webots_ros2_driver`` ROS node to launch the plugin and connect it to the target robot.
 
-In the ``my_package/resource`` folder create a text file named ``my_robot.urdf`` with this contents:
+In the ``my_package/resource`` folder create a text file named ``my_robot.urdf`` with this content:
 
-.. literalinclude:: Code/my_robot.urdf
-    :language: xml
+.. tabs::
+
+    .. group-tab:: Python
+
+        .. literalinclude:: Code/my_robot_python.urdf
+            :language: xml
+
+        The ``type`` attribute specifies the path to the class given by the hierarchical structure of files.
+        ``webots_ros2_driver`` is responsible for loading the class based on the specified package and modules.
+
+    .. group-tab:: C++
+
+        .. literalinclude:: Code/my_robot_cpp.urdf
+            :language: xml
+
+        The ``type`` attribute specifies the namespace and class name to load.
+        ``pluginlib`` is responsible for loading the class based on the specified information.
 
 .. note::
 
     This simple URDF file doesn't contain any link or joint information about the robot as it is not needed in this tutorial.
-    However, URDF files usually contain much more information as explained in the :doc:`../../../Intermediate/URDF/URDF-Main`.
+    However, URDF files usually contain much more information as explained in the :doc:`../../../Intermediate/URDF/URDF-Main` tutorial.
+
+.. note::
+
+    Here the plugin does not take any input parameter, but this can be achieved with a tag containing the parameter name.
+
+    .. tabs::
+
+        .. group-tab:: Python
+
+            .. code-block:: xml
+
+                <plugin type="my_package.my_robot_driver.MyRobotDriver">
+                    <parameterName>someValue</parameterName>
+                </plugin>
+
+        .. group-tab:: C++
+
+            .. code-block:: xml
+
+                <plugin type="my_robot_driver::MyRobotDriver">
+                    <parameterName>someValue</parameterName>
+                </plugin>
+
+
+    This is namely used to pass parameters to existing Webots device plugins (see :ref:`Updating my_robot.urdf`).
 
 5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -223,14 +382,15 @@ In your case, you need to run a single instance of this node, because you have a
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
 ``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
 The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your platform.
-The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``my_robot_driver.py`` Python plugin.
+The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``MyRobotDriver`` plugin.
+You can see the ``driver`` node as the interface that connects your controller plugin to the target robot.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
     :lines: 19-27
 
-After that, the three nodes are set to be launched in the ``LaunchDescription`` constructor:
+After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
@@ -244,16 +404,50 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
     :dedent: 8
     :lines: 32-37
 
-6 Modify the setup.py file
+.. note::
+
+    More details on ``webots_ros2_driver`` and ``WebotsLauncher`` arguments can be found `on the nodes reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Nodes>`_.
+
+6 Edit additional files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Finally, before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
-Open ``my_package/setup.py`` and replace its contents with:
+.. tabs::
 
-.. literalinclude:: Code/setup.py
-    :language: python
+    .. group-tab:: Python
 
-This sets-up the package and adds in the ``data_files`` variable the newly added files: ``my_world.wbt``, ``my_robot.urdf`` and ``robot_launch.py``.
+        Finally, before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
+        Open ``my_package/setup.py`` and replace its contents with:
+
+        .. literalinclude:: Code/setup.py
+            :language: python
+
+        This sets-up the package and adds in the ``data_files`` variable the newly added files: ``my_world.wbt``, ``my_robot.urdf`` and ``robot_launch.py``.
+
+    .. group-tab:: C++
+
+        Finally, before you can start the launch file, you have to modify ``CMakeLists.txt`` and ``my_robot_driver.xml`` files:
+
+        * ``CMakeLists.txt`` defines the compilation rules of your plugin.
+        * ``my_robot_driver.xml`` is necessary for the pluginlib to find your Webots ROS 2 plugin.
+
+        Open ``my_package/my_robot_driver.xml`` and replace its contents with:
+
+        .. literalinclude:: Code/my_robot_driver.xml
+            :language: xml
+
+        Finally, open ``my_package/CMakeLists.txt`` and replace its contents with:
+
+        .. literalinclude:: Code/CMakeLists.txt
+            :language: cmake
+
+        It exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()`` command.
+
+        Next, it defines a shared library of your C++ plugin ``src/MyRobotDriver.cpp``.
+        It sets the ``include`` directories to include and specifies the library dependencies using ``ament_target_dependencies()``.
+
+        The file then installs the library, the directories ``launch``, ``resource``, and ``worlds`` to the ``share/my_package`` directory.
+        Finally, it exports the include directories and libraries using ``ament_export_include_directories()`` and ``ament_export_libraries()``, respectively, and declares the package using ``ament_package()``.
+
 
 7 Test the code
 ^^^^^^^^^^^^^^^
@@ -291,7 +485,7 @@ This sets-up the package and adds in the ``data_files`` variable the newly added
 
     .. group-tab:: macOS
 
-        On macOS, a local server must be started on the host to start Webots from the Docker container.
+        On macOS, a local server must be started on the host to start Webots from the VM.
         The local server can be downloaded `on the webots-server repository <https://github.com/cyberbotics/webots-server/blob/main/local_simulation_server.py>`_.
 
         In a terminal of the host machine (not in the VM), specify the Webots installation folder (e.g. ``/Applications/Webots.app``) and start the server using the following commands:
@@ -334,61 +528,128 @@ To prevent this, let's use the sensors of the robot to detect the obstacles and 
 Close the Webots window, this should also shutdown your ROS nodes started from the launcher.
 Close also the topic command with ``Ctrl+C`` in the second terminal.
 
+.. _Updating my_robot.urdf:
+
 8 Updating my_robot.urdf
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-You have to modify the URDF file in order to enable the sensors.
+As mentioned in previous sections, ``webots_ros2_driver`` contains plugins to interface most of Webots devices with ROS 2 directly.
+These plugins can be loaded using the ``<device>`` tag in the URDF file of the robot.
+The ``reference`` attribute should match the Webots device ``name`` parameter.
+The list of all existing interfaces and the corresponding parameters can be found `on the devices reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Devices>`_.
+For available devices that are not configured in the URDF file, the interface will be automatically created and default values will be used for ROS parameters (e.g. ``update rate``, ``topic name``, and ``frame name``).
+
 In ``my_robot.urdf`` replace the whole contents with:
 
-.. literalinclude:: Code/my_robot_with_sensors.urdf
-    :language: xml
+.. tabs::
 
-The ROS 2 interface will parse the ``<device>`` tags referring to the **DistanceSensor** nodes and use the standard parameters in the ``<ros>`` tags to enable the sensors and name their topics.
+    .. group-tab:: Python
+
+        .. literalinclude:: Code/my_robot_with_sensors_python.urdf
+            :language: xml
+
+    .. group-tab:: C++
+
+        .. literalinclude:: Code/my_robot_with_sensors_cpp.urdf
+            :language: xml
+
+
+In addition to your custom plugin, the ``webots_ros2_driver`` will parse the ``<device>`` tags referring to the **DistanceSensor** nodes and use the standard parameters in the ``<ros>`` tags to enable the sensors and name their topics.
 
 9 Creating a ROS node to avoid obstacles
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The robot will use a standard ROS node to detect the wall and send motor commands to avoid it.
-In the ``my_package/my_package/`` folder, create a file named ``obstacle_avoider.py`` with this code:
+.. tabs::
 
-.. literalinclude:: Code/obstacle_avoider.py
-    :language: python
+    .. group-tab:: Python
 
-This node will create a publisher for the command and subscribe to the sensors topics here:
+        The robot will use a standard ROS node to detect the wall and send motor commands to avoid it.
+        In the ``my_package/my_package/`` folder, create a file named ``obstacle_avoider.py`` with this code:
 
-.. literalinclude:: Code/obstacle_avoider.py
-    :language: python
-    :dedent: 8
-    :lines: 14-17
+        .. literalinclude:: Code/obstacle_avoider.py
+            :language: python
 
-When a measurement is received from the left sensor it will be copied to a member field:
+        This node will create a publisher for the command and subscribe to the sensors topics here:
 
-.. literalinclude:: Code/obstacle_avoider.py
-    :language: python
-    :dedent: 4
-    :lines: 19-20
+        .. literalinclude:: Code/obstacle_avoider.py
+            :language: python
+            :dedent: 8
+            :lines: 14-17
 
-Finally, a message will be sent to the ``/cmd_vel`` topic when a measurement from the right sensor is received.
-The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
-If any of the two sensors detect an obstacle, ``command_message`` will also register a rotational speed in ``angular.z`` in order to make the robot turn right.
+        When a measurement is received from the left sensor it will be copied to a member field:
 
-.. literalinclude:: Code/obstacle_avoider.py
-    :language: python
-    :dedent: 4
-    :lines: 22-32
+        .. literalinclude:: Code/obstacle_avoider.py
+            :language: python
+            :dedent: 4
+            :lines: 19-20
 
-10 Updating setup.py and robot_launch.py
+        Finally, a message will be sent to the ``/cmd_vel`` topic when a measurement from the right sensor is received.
+        The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
+        If any of the two sensors detect an obstacle, ``command_message`` will also register a rotational speed in ``angular.z`` in order to make the robot turn right.
+
+        .. literalinclude:: Code/obstacle_avoider.py
+            :language: python
+            :dedent: 4
+            :lines: 22-32
+
+    .. group-tab:: C++
+
+        The robot will use a standard ROS node to detect the wall and send motor commands to avoid it.
+        In the ``my_package/include/my_package`` folder, create a header file named ``ObstacleAvoider.hpp`` with this code:
+
+        .. literalinclude:: Code/ObstacleAvoider.hpp
+            :language: cpp
+
+        In the ``my_package/src`` folder, create a source file named ``ObstacleAvoider.cpp`` with this code:
+
+        .. literalinclude:: Code/ObstacleAvoider.cpp
+            :language: cpp
+
+        This node will create a publisher for the command and subscribe to the sensors topics here:
+
+        .. literalinclude:: Code/ObstacleAvoider.cpp
+            :language: cpp
+            :lines: 6-16
+
+        When a measurement is received from the left sensor it will be copied to a member field:
+
+        .. literalinclude:: Code/ObstacleAvoider.cpp
+            :language: cpp
+            :lines: 19-22
+
+        Finally, a message will be sent to the ``/cmd_vel`` topic when a measurement from the right sensor is received.
+        The ``command_message`` will register at least a forward speed in ``linear.x`` in order to make the robot move when no obstacle is detected.
+        If any of the two sensors detect an obstacle, ``command_message`` will also register a rotational speed in ``angular.z`` in order to make the robot turn right.
+
+        .. literalinclude:: Code/ObstacleAvoider.cpp
+            :language: cpp
+            :lines: 24-38
+
+
+10 Updating additional files
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify these two other files to launch your new node.
-Edit ``setup.py`` and replace ``'console_scripts'`` with:
 
-.. literalinclude:: Code/setup_sensor.py
-    :language: python
-    :dedent: 8
-    :lines: 24-27
+.. tabs::
 
-This will add an entry point for the ``obstacle_avoider`` node.
+    .. group-tab:: Python
+        Edit ``setup.py`` and replace ``'console_scripts'`` with:
+
+        .. literalinclude:: Code/setup_sensor.py
+            :language: python
+            :dedent: 8
+            :lines: 24-27
+
+        This will add an entry point for the ``obstacle_avoider`` node.
+
+    .. group-tab:: C++
+
+        Edit ``CMakeLists.txt`` and add the compilation and installation of the ``obstacle_avoider``:
+
+        .. literalinclude:: Code/CMakeLists_sensor.txt
+            :language: cmake
+
 
 Go to the file ``robot_launch.py`` and replace ``def generate_launch_description():`` with:
 
@@ -456,7 +717,7 @@ You can press ``Ctrl+F10`` in Webots or go to the ``View`` menu, ``Optional Rend
 Summary
 -------
 
-In this tutorial, you set-up a realistic robot simulation with Webots, implemented a Python plugin to control the motors of the robot, and implemented a ROS node using the sensors to avoid the obstacles.
+In this tutorial, you set-up a realistic robot simulation with Webots, implemented a custom plugin to control the motors of the robot, and implemented a ROS node using the sensors to avoid the obstacles.
 
 Next steps
 ----------
