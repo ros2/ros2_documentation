@@ -6,6 +6,7 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - iron
           - humble
           - foxy
 
@@ -16,8 +17,18 @@ pull_request_rules:
     actions:
       backport:
         branches:
+          - iron
           - humble
           - foxy
+
+  - name: backport to iron at reviewers discretion
+    conditions:
+      - base=rolling
+      - "label=backport-iron"
+    actions:
+      backport:
+        branches:
+          - iron
 
   - name: backport to humble at reviewers discretion
     conditions:
