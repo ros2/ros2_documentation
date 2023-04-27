@@ -50,7 +50,7 @@ We support building ROS 2 from source on the following platforms:
 
 * :doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`
 * :doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`
-* :doc:`RHEL <Installation/Alternatives/RHEL-Development-Setup>`
+* :doc:`RHEL/Fedora <Installation/Alternatives/RHEL-Development-Setup>`
 * :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
 
 
