@@ -112,7 +112,7 @@ Usage:
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_echo [reference_frame] [target_frame]
+   ros2 run tf2_ros tf2_echo [source_frame] [target_frame]
 
 Let's look at the transform of the ``turtle1`` frame with respect to ``turtle2`` frame which is equivalent to:
 
