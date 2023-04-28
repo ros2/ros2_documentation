@@ -1,5 +1,7 @@
 .. redirect-from::
 
+  Installation/Alternatives/Fedora-Development-Setup
+  Installation/Fedora-Development-Setup
   Installation/RHEL-Development-Setup
 
 RHEL (source)
@@ -29,15 +31,23 @@ Set locale
 Enable required repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The rosdep database contains packages from the EPEL and PowerTools repositories, which are not enabled by default.
-They can be enabled by running:
+.. tabs::
 
-.. code-block:: bash
+  .. group-tab:: RHEL
 
-   sudo dnf install 'dnf-command(config-manager)' epel-release -y
-   sudo dnf config-manager --set-enabled crb
+    The rosdep database contains packages from the EPEL and PowerTools repositories, which are not enabled by default.
+    They can be enabled by running:
 
-.. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
+    .. code-block:: bash
+
+      sudo dnf install 'dnf-command(config-manager)' epel-release -y
+      sudo dnf config-manager --set-enabled crb
+
+    .. note:: This step may be slightly different depending on the distribution you are using. Check the EPEL documentation: https://docs.fedoraproject.org/en-US/epel/#_quickstart
+
+  .. group-tab:: Fedora
+
+    No additional setup required.
 
 
 Install development tools
@@ -74,8 +84,6 @@ Install development tools
      flake8-blind-except==0.1.1 \
      flake8-class-newline \
      flake8-deprecated
-
-.. _Rolling_rhel-dev-get-ros2-code:
 
 Build ROS 2
 -----------
