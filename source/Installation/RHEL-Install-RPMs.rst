@@ -44,7 +44,7 @@ Next, download the ROS 2 .repo file:
 .. code-block:: bash
 
    sudo dnf install curl
-   sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2/rhel/ros2.repo
+   sudo curl --output /etc/yum.repos.d/ros2.repo http://packages.ros.org/ros2-testing/rhel/ros2.repo
 
 Then, update your metadata cache.
 DNF may prompt you to verify the GPG key, which should match the location ``https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc``.
