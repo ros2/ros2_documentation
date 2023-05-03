@@ -189,10 +189,15 @@ Using the ROS 1 bridge
 ----------------------
 The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa. See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
 
+<<<<<<< HEAD
 Additional RMW implementations (optional)
 -----------------------------------------
 The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
 See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
+=======
+The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
+See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
+>>>>>>> 103a331 (Update the link to the ros1_bridge. (#3501))
 
 Alternate compilers
 -------------------
