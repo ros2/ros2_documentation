@@ -45,7 +45,7 @@ If you are going to build ROS packages or otherwise do development, you can also
 
 .. code-block:: bash
 
-   sudo apt install ros-dev-tools
+   sudo apt update && sudo apt install ros-dev-tools
 
 Install ROS 2
 -------------
