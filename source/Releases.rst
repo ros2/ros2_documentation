@@ -53,6 +53,9 @@ Rows in the table marked in green are the currently supported distributions.
 .. |rolling| image:: Releases/rolling-small.png
    :alt: Rolling logo
 
+.. |iron| image:: Releases/iron-small.png
+   :alt: Iron logo
+
 .. |humble| image:: Releases/humble-small.png
    :alt: Humble logo
 
@@ -145,13 +148,15 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
 .. list-table::
    :class: future-distros
    :header-rows: 1
-   :widths: 30 40 30
+   :widths: 35 30 20 15
 
    * - Distro
      - Release date
-     - Supported until
+     - Logo
+     - EOL date
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
      - May 2023
+     - |iron|
      - November 2024
 
 
