@@ -150,7 +150,7 @@ Use the ROS 1 bridge (optional)
 -------------------------------
 
 The ROS 1 bridge can connect topics from ROS 1 to ROS 2 and vice-versa.
-See the dedicated `documentation <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__ on how to build and use the ROS 1 bridge.
+See the dedicated :doc:`document <../../How-To-Guides/Using-ros1_bridge-Jammy-upstream>` on how to build and use the ROS 1 bridge.
 
 Alternate compilers
 -------------------
