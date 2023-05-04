@@ -83,7 +83,7 @@ Finally, make sure to add in changes to the ``setup.py`` of the package so that 
       data_files=[
           # ... Other data files
           # Include all launch files.
-          (os.path.join('share', package_name), glob('launch/*launch.[pxy][yma]*'))
+          (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))
       ]
   )
 
@@ -114,6 +114,7 @@ To do this, create an ``example_main.launch.py`` file in the ``launch`` folder o
                 PythonLaunchDescriptionSource([
                     PathJoinSubstitution([
                         FindPackageShare('launch_tutorial'),
+                        'launch',
                         'example_substitutions.launch.py'
                     ])
                 ]),
@@ -133,6 +134,7 @@ The ``PathJoinSubstitution`` substitution is then used to join the path to that 
 
     PathJoinSubstitution([
         FindPackageShare('launch_tutorial'),
+        'launch',
         'example_substitutions.launch.py'
     ])
 
