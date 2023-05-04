@@ -114,6 +114,7 @@ To do this, create an ``example_main_launch.py`` file in the ``launch`` folder o
                 PythonLaunchDescriptionSource([
                     PathJoinSubstitution([
                         FindPackageShare('launch_tutorial'),
+                        'launch',
                         'example_substitutions_launch.py'
                     ])
                 ]),
@@ -133,8 +134,14 @@ The ``PathJoinSubstitution`` substitution is then used to join the path to that 
 
     PathJoinSubstitution([
         FindPackageShare('launch_tutorial'),
+        'launch',
         'example_substitutions_launch.py'
     ])
+
+.. note::
+
+   | There is no difference between using ``FindPackageShare()`` and ``get_package_share_directory()`` from ``ament_index_python.packages``.
+   | The same applies to ``PathJoinSubstitution()`` and ``os.path.join()``.
 
 The ``launch_arguments`` dictionary with ``turtlesim_ns`` and ``use_provided_red`` arguments is passed to the ``IncludeLaunchDescription`` action.
 The ``TextSubstitution`` substitution is used to define the ``new_background_r`` argument with the value of the ``background_r`` key in the ``colors`` dictionary.
