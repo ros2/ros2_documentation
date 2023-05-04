@@ -43,7 +43,7 @@ You will need to accept a license from RTI.
 
 .. code-block:: bash
 
-   sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1
+   sudo apt update && sudo apt install -q -y rti-connext-dds-6.0.1 ros-{DISTRO}-rmw-connextdds
 
 Source the setup file to set the ``NDDSHOME`` environment variable.
 
