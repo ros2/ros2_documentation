@@ -59,14 +59,14 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
   ros2 pkg create --build-type ament_python bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
-The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.txt``.
+The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
 In this case, the package will use the ``rosbag2_py`` package as well as the ``rclpy`` package.
 A dependency on the ``example_interfaces`` package is also required for message definitions.
 
 1.1 Update ``package.xml`` and ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
 .. code-block:: xml
@@ -146,8 +146,8 @@ The ``import`` statements at the top are the package dependencies.
 Note the importation of the ``rosbag2_py`` package for the functions and structures necessary to work with bag files.
 
 In the class constructor, we begin by creating the writer object that we will use to write to the bag.
-We are creating a ``SequentialWriter``, which writes messages into the bag in the order received.
-Other writers with different behaviours may be available in the `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
+We are creating a ``SequentialWriter``, which writes messages into the bag in the order they are received.
+Other writers with different behaviours may be available in `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
 
 .. code-block:: Python
 
@@ -190,7 +190,7 @@ We will write data to the bag in the callback.
    self.subscription
 
 The callback receives the message in unserialized form (as is standard for the ``rclpy`` API) and passes the message to the writer, specifying the topic that the data is for and the timestamp to record with the message.
-However, the writer requires serialised message to store in the bag.
+However, the writer requires serialised messages to store in the bag.
 This means that we need to serialise the data before passing it to the writer.
 For this reason, we call ``serialize_message()`` and pass the result of that to the writer, rather than passing in the message directly.
 
