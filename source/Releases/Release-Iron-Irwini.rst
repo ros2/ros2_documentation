@@ -87,7 +87,7 @@ Improved discovery options
 Previous ROS 2 versions offered limited discovery options.
 The default behavior for DDS based RMW implementations was to discover any node reachable via multicast.
 It could be limited to the same machine by setting the environment variable `ROS_LOCALHOST_ONLY`, but any additional configuration required configuring the middleware directly, usually via middleware specific XML files and environment variables.
-ROS Iron retains the same default discovery behavior, but replaces `ROS_LOCALHOST_ONLY` with more granular options.
+ROS Iron retains the same default discovery behavior, but deprecates `ROS_LOCALHOST_ONLY` in favor of more granular options.
 
 * `ROS_AUTOMATIC_DISCOVERY_RANGE`
 * `ROS_STATIC_PEERS`
