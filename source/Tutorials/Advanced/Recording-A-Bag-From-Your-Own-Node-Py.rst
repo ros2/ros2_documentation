@@ -59,14 +59,14 @@ Navigate into the ``ros2_ws/src`` directory and create a new package:
   ros2 pkg create --build-type ament_python bag_recorder_nodes_py --dependencies rclpy rosbag2_py example_interfaces std_msgs
 
 Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes_py`` and all its necessary files and folders.
-The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml``.txt``.
+The ``--dependencies`` argument will automatically add the necessary dependency lines to the ``package.xml``.
 In this case, the package will use the ``rosbag2_py`` package as well as the ``rclpy`` package.
 A dependency on the ``example_interfaces`` package is also required for message definitions.
 
 1.1 Update ``package.xml`` and ``setup.py``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml``.
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
 .. code-block:: xml
@@ -105,7 +105,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
            storage_options = rosbag2_py._storage.StorageOptions(
                uri='my_bag',
-               storage_id='sqlite3')
+               storage_id='mcap')
            converter_options = rosbag2_py._storage.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
@@ -146,22 +146,22 @@ The ``import`` statements at the top are the package dependencies.
 Note the importation of the ``rosbag2_py`` package for the functions and structures necessary to work with bag files.
 
 In the class constructor, we begin by creating the writer object that we will use to write to the bag.
-We are creating a ``SequentialWriter``, which writes messages into the bag in the order received.
-Other writers with different behaviours may be available in the `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
+We are creating a ``SequentialWriter``, which writes messages into the bag in the order they are received.
+Other writers with different behaviours may be available in `rosbag2 <https://github.com/ros2/rosbag2/tree/{REPOS_FILE_BRANCH}/rosbag2_cpp/include/rosbag2_cpp/writers>`__.
 
 .. code-block:: Python
 
    self.writer = rosbag2_py.SequentialWriter()
 
 Now that we have a writer object, we can open the bag using it.
-We specify the URI of the bag to create and the format (``sqlite3``), leaving other options at their defaults.
+We specify the URI of the bag to create and the format (``mcap``), leaving other options at their defaults.
 The default conversion options are used, which will perform no conversion and store the messages in the serialization format they are received in.
 
 .. code-block:: Python
 
    storage_options = rosbag2_py._storage.StorageOptions(
        uri='my_bag',
-       storage_id='sqlite3')
+       storage_id='mcap')
    converter_options = rosbag2_py._storage.ConverterOptions('', '')
    self.writer.open(storage_options, converter_options)
 
@@ -190,7 +190,7 @@ We will write data to the bag in the callback.
    self.subscription
 
 The callback receives the message in unserialized form (as is standard for the ``rclpy`` API) and passes the message to the writer, specifying the topic that the data is for and the timestamp to record with the message.
-However, the writer requires serialised message to store in the bag.
+However, the writer requires serialised messages to store in the bag.
 This means that we need to serialise the data before passing it to the writer.
 For this reason, we call ``serialize_message()`` and pass the result of that to the writer, rather than passing in the message directly.
 
@@ -340,7 +340,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
            storage_options = rosbag2_py._storage.StorageOptions(
                uri='timed_synthetic_bag',
-               storage_id='sqlite3')
+               storage_id='mcap')
            converter_options = rosbag2_py._storage.ConverterOptions('', '')
            self.writer.open(storage_options, converter_options)
 
@@ -382,7 +382,7 @@ First, the name of the bag is changed.
 
    storage_options = rosbag2_py._storage.StorageOptions(
        uri='timed_synthetic_bag',
-       storage_id='sqlite3')
+       storage_id='mcap')
 
 The name of the topic is also changed, as is the data type stored.
 
@@ -521,7 +521,7 @@ Inside the ``ros2_ws/src/bag_recorder_nodes_py/bag_recorder_nodes_py`` directory
 
        storage_options = rosbag2_py._storage.StorageOptions(
            uri='big_synthetic_bag',
-           storage_id='sqlite3')
+           storage_id='mcap')
        converter_options = rosbag2_py._storage.ConverterOptions('', '')
        writer.open(storage_options, converter_options)
 
