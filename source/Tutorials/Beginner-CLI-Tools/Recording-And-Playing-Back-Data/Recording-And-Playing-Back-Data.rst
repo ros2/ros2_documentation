@@ -150,7 +150,8 @@ The movements don't matter, but try to make a recognizable pattern to see when y
 
 Press ``Ctrl+C`` to stop recording.
 
-The data will be accumulated in a bag file with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``
+The data will be accumulated in a new bag directory with a name in the pattern of ``rosbag2_year_month_day-hour_minute_second``.
+This directory will contain a `metadata.yaml` along with the bag file in the recorded format.
 
 3.1 Record multiple topics
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
