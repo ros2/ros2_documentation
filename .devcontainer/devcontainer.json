@@ -1,0 +1,32 @@
+{
+    "name": "ROS 2 Documentation Repository Container",
+    "build": {
+        "dockerfile": "../docker/image/Dockerfile",
+        "args": {
+            "user": "rosindex",
+            "uid": "1000"
+        }
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/tmp/doc_repository,type=bind",
+    "workspaceFolder": "/tmp/doc_repository",
+    "customizations": {
+        // Configure properties specific to VS Code.
+        "vscode": {
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "bash"
+            },
+            "extensions":[
+                "ms-python.python",
+                "lextudio.restructuredtext",
+                "trond-snekvik.simple-rst",
+                "eamodio.gitlens"
+            ]
+        }
+    },
+    "remoteUser": "rosindex",
+    "containerUser": "rosindex",
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    },
+    "postCreateCommand": "pip install esbonio && pip3 install --no-warn-script-location --user --upgrade -r requirements.txt"
+}
