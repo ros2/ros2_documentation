@@ -419,11 +419,13 @@ Now run the node using the launch file we have just created:
 
      ros2 launch cpp_parameters cpp_parameters_launch.py
 
-The terminal should return the following message every second:
+The terminal should return the following message the first time:
 
 .. code-block:: console
 
     [INFO] [custom_minimal_param_node]: Hello earth!
+
+Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
 
 Summary
 -------
