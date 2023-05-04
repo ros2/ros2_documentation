@@ -94,7 +94,7 @@ ROS Iron retains the same default discovery behavior, but deprecates `ROS_LOCALH
 
 `ROS_AUTOMATIC_DISCOVERY_RANGE` controls how far ROS nodes will try to discover each other.
 Valid options are `SUBNET`, `LOCALHOST`, `OFF`, and `SYSTEM_DEFAULT`.
-`SUBNET` is the default, and for DDS based middlewares it means it will discovery any node reachable via multicast.
+`SUBNET` is the default, and for DDS based middlewares it means it will discover any node reachable via multicast.
 `LOCALHOST` means a node will only try to discover other nodes on the same machine.
 `OFF` means the node won't discover any other nodes, even on the same machine.
 Lastly, `SYSTEM_DEFAULT` means "don't change any discovery settings".
