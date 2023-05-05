@@ -134,6 +134,30 @@ Add the following lines within the ``<package>`` element of ``package.xml``:
   <exec_depend>rosidl_default_runtime</exec_depend>
   <member_of_group>rosidl_interface_packages</member_of_group>
 
+Your package.xml file should now look like this:
+
+.. code-block:: xml
+
+    <?xml version="1.0"?>
+    <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+    <package format="3">
+      <name>tutorial_interfaces</name>
+      <version>0.0.0</version>
+      <description>TODO: Package description</description>
+      <maintainer email="your_email@gmail.com">your_name</maintainer>
+      <license>TODO: License declaration</license>
+
+      <depend>geometry_msgs</depend>
+      <buildtool_depend>rosidl_default_generators</buildtool_depend>
+      <exec_depend>rosidl_default_runtime</exec_depend>
+      <member_of_group>rosidl_interface_packages</member_of_group>
+
+      <export>
+        <build_type>ament_cmake</build_type>
+      </export>
+    </package>
+
+
 5 Build the ``tutorial_interfaces`` package
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
