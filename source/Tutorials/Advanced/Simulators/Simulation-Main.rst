@@ -1,11 +1,10 @@
 .. redirect-from::
 
     Tutorials/Simulators/Simulation-Main
-    Tutorials/Advanced/Simulators/Simulation-Main
 
 .. _SimulationMain:
 
-Simulation
+Simulators
 ==========
 
 Several advanced robot simulators can be used with ROS 2, such as Gazebo, Webots, etc.
