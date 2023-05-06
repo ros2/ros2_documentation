@@ -134,7 +134,7 @@ In the class constructor we begin by creating the writer object we will use to w
 
 Now that we have a writer object, we can open the bag using it.
 We specify just the URI of the bag to create, leaving other options at their defaults.
-The default storage options are used, which means that an ``sqlite3``-format bag will be created.
+The default storage options are used, which means that an ``mcap``-format bag will be created.
 The default conversion options are used, too, which will perform no conversion, instead storing messages in the serialisation format they are received in.
 
 .. code-block:: C++
