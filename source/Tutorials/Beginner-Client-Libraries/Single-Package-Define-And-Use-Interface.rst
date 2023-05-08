@@ -69,7 +69,7 @@ Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``, and paste
    string phone_number
    uint8 phone_type
 
-This message is composed of 5 fields:
+This message is composed of these fields:
 
 * first_name: of type string
 * last_name: of type string
