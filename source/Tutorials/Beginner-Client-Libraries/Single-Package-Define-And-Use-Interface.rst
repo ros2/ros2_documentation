@@ -261,9 +261,8 @@ Populate ``AddressBook`` fields.
 
     message.first_name = "John";
     message.last_name = "Doe";
-    message.age = 30;
-    message.gender = message.MALE;
-    message.address = "unknown";
+    message.phone_number = 1234567890;
+    message.phone_type = message.PHONE_TYPE_MOBILE;
 
 Finally send the message periodically.
 
