@@ -460,7 +460,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "John";
          contact.last_name = "Doe";
-         contact.phone_number = 2068675309;
+         contact.phone_number = 1234567890;
          contact.phone_type = message.PHONE_TYPE_MOBILE;
          msg->address_book.push_back(contact);
        }
