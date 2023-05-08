@@ -194,7 +194,7 @@ Composition using launch actions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 While the command line tools are useful for debugging and diagnosing component configurations, it is frequently more convenient to start a set of components at the same time.
-To automate this action, we can use the functionality in ``ros2 launch``.
+To automate this action, we can use a `launch file <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/composition/launch/composition_demo_launch.py>`__:
 
 .. code-block:: bash
 
