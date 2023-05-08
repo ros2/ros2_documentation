@@ -39,15 +39,18 @@ ROS 2 Python and CMake packages each have their own minimum required contents:
 
    .. group-tab:: CMake
 
-      * ``package.xml`` file containing meta information about the package
       * ``CMakeLists.txt`` file that describes how to build the code within the package
+      * ``include/<package_name>`` directory containing the public headers for the package
+      * ``package.xml`` file containing meta information about the package
+      * ``src`` directory containing the source code for the package
 
    .. group-tab:: Python
 
       * ``package.xml`` file containing meta information about the package
-      * ``setup.py`` containing instructions for how to install the package
+      * ``resource/<package_name>`` marker file for the package
       * ``setup.cfg`` is required when a package has executables, so ``ros2 run`` can find them
-      * ``/<package_name>`` - a directory with the same name as your package, used by ROS 2 tools to find your package, contains ``__init__.py``
+      * ``setup.py`` containing instructions for how to install the package
+      * ``<package_name>`` - a directory with the same name as your package, used by ROS 2 tools to find your package, contains ``__init__.py``
 
 The simplest possible package may have a file structure that looks like:
 
@@ -59,16 +62,20 @@ The simplest possible package may have a file structure that looks like:
 
         my_package/
              CMakeLists.txt
+             include/my_package/
              package.xml
+             src/
 
    .. group-tab:: Python
 
       .. code-block:: console
 
         my_package/
-              setup.py
               package.xml
               resource/my_package
+              setup.cfg
+              setup.py
+              my_package/
 
 
 3 Packages in a workspace
@@ -87,18 +94,24 @@ A trivial workspace might look like:
 
   workspace_folder/
       src/
-        package_1/
+        cpp_package_1/
             CMakeLists.txt
+            include/cpp_package_1/
             package.xml
+            src/
 
-        package_2/
+        py_package_1/
+            package.xml
+            resource/py_package_1
+            setup.cfg
             setup.py
-            package.xml
-            resource/package_2
+            py_package_1/
         ...
-        package_n/
+        cpp_package_n/
             CMakeLists.txt
+            include/cpp_package_n/
             package.xml
+            src/
 
 
 Prerequisites
