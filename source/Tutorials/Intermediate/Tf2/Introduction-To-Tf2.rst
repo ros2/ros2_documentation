@@ -124,12 +124,26 @@ You will see the transform displayed as the ``tf2_echo`` listener receives the f
 
 .. code-block:: console
 
-   At time 1622031731.625364060
-   - Translation: [2.796, 1.039, 0.000]
-   - Rotation: in Quaternion [0.000, 0.000, 0.202, 0.979]
-   At time 1622031732.614745114
-   - Translation: [1.608, 0.250, 0.000]
-   - Rotation: in Quaternion [0.000, 0.000, 0.032, 0.999]
+   At time 1683385337.850619099
+   - Translation: [2.157, 0.901, 0.000]
+   - Rotation: in Quaternion [0.000, 0.000, 0.172, 0.985]
+   - Rotation: in RPY (radian) [0.000, -0.000, 0.345]
+   - Rotation: in RPY (degree) [0.000, -0.000, 19.760]
+   - Matrix:
+     0.941 -0.338  0.000  2.157
+     0.338  0.941  0.000  0.901
+     0.000  0.000  1.000  0.000
+     0.000  0.000  0.000  1.000
+   At time 1683385338.841997774
+   - Translation: [1.256, 0.216, 0.000]
+   - Rotation: in Quaternion [0.000, 0.000, -0.016, 1.000]
+   - Rotation: in RPY (radian) [0.000, 0.000, -0.032]
+   - Rotation: in RPY (degree) [0.000, 0.000, -1.839]
+   - Matrix:
+     0.999  0.032  0.000  1.256
+    -0.032  0.999 -0.000  0.216
+    -0.000  0.000  1.000  0.000
+     0.000  0.000  0.000  1.000
 
 As you drive your turtle around you will see the transform change as the two turtles move relative to each other.
 
