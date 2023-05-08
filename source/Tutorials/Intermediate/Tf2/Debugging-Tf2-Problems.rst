@@ -37,7 +37,7 @@ First, let's create the source file.
 Go to the ``learning_tf2_cpp`` package we created in :doc:`tf2 tutorials <./Tf2-Main>`.
 Inside the ``src`` directory make a copy of the source file ``turtle_tf2_listener.cpp`` and rename it to ``turtle_tf2_listener_debug.cpp``.
 
-Open the file using your preferred text editor, and change line 67 from
+Open the file using your preferred text editor, and change line 65 from
 
 .. code-block:: C++
 
@@ -49,27 +49,25 @@ to
 
    std::string toFrameRel = "turtle3";
 
-and change ``lookupTransform()`` call in lines 75-79 from
+and change ``lookupTransform()`` call in lines 73-77 from
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         tf2::TimePointZero);
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 to
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         this->now());
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 And save changes to the file.
 In order to run this demo, we need to create a launch file ``start_tf2_debug_demo_launch.py`` in the ``launch`` subdirectory of package ``learning_tf2_cpp``:
@@ -151,22 +149,21 @@ You should notice the following message:
 
 Firstly, we need to find out what exactly we are asking tf2 to do.
 Therefore, we go into the part of the code that is using tf2.
-Open the ``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 67:
+Open the ``src/turtle_tf2_listener_debug.cpp`` file, and take a look at line 65:
 
 .. code-block:: C++
 
    std::string to_frame_rel = "turtle3";
 
-and lines 75-79:
+and lines 73-77:
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         this->now());
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 Here we do the actual request to tf2.
 The three arguments tell us directly what we are asking tf2: transform from frame ``turtle3`` to frame ``turtle1`` at time ``now``.
@@ -202,7 +199,7 @@ Open the generated ``frames.pdf`` file to see the following output:
 .. image:: images/turtlesim_frames.png
 
 So obviously the problem is that we are requesting transform from frame ``turtle3``, which does not exist.
-To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 67.
+To fix this bug, just replace ``turtle3`` with ``turtle2`` in line 65.
 
 And now stop the running demo, build it, and run it again:
 
@@ -248,16 +245,15 @@ The key part here is the delay for the chain from ``turtle2`` to ``turtle1``.
 The output shows there is an average delay of about 3 milliseconds.
 This means that tf2 can only transform between the turtles after 3 milliseconds are passed.
 So, if we would be asking tf2 for the transformation between the turtles 3 milliseconds ago instead of ``now``, tf2 would be able to give us an answer sometimes.
-Let's test this quickly by changing lines 75-79 to:
+Let's test this quickly by changing lines 73-77 to:
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         this->now() - rclcpp::Duration::from_seconds(0.1));
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 In the new code we are asking for the transform between the turtles 100 milliseconds ago.
 It is usual to use a longer periods, just to make sure that the transform will arrive.
@@ -276,35 +272,32 @@ The real fix would look like this:
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         tf2::TimePointZero);
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 Or like this:
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         tf2::TimePoint());
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 You can learn more about timeouts in the :doc:`Using time <./Learning-About-Tf2-And-Time-Cpp>` tutorial, and use them as below:
 
 .. code-block:: C++
 
-   try {
-      transformStamped = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
+    try {
+      t = tf_buffer_->lookupTransform(
+        toFrameRel, fromFrameRel,
         this->now(),
         rclcpp::Duration::from_seconds(0.05));
-   } catch (tf2::TransformException & ex) {
+    } catch (const tf2::TransformException & ex) {
 
 Summary
 -------
