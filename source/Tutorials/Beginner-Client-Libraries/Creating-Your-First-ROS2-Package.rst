@@ -157,7 +157,7 @@ The command syntax for creating a new package in ROS 2 is:
         ros2 pkg create --build-type ament_python <package_name>
 
 For this tutorial, you will use the optional arguments ``--node-name`` and ``--license``.
-``--node-name`` option creates a simple Hello World type executable in the package, and ``--license`` declares the licence information for the package.
+``--node-name`` option creates a simple Hello World type executable in the package, and ``--license`` declares the license information for the package.
 
 Enter the following command in your terminal:
 
