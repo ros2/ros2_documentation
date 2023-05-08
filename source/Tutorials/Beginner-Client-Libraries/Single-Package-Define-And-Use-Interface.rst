@@ -193,7 +193,7 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
 
           message.first_name = "John";
           message.last_name = "Doe";
-          message.phone_number = 2068675309;
+          message.phone_number = 1234567890;
           message.phone_type = message.PHONE_TYPE_MOBILE;
 
           std::cout << "Publishing Contact\nFirst:" << message.first_name <<
