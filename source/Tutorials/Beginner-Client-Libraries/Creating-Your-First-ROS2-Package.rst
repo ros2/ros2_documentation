@@ -156,7 +156,8 @@ The command syntax for creating a new package in ROS 2 is:
 
         ros2 pkg create --build-type ament_python <package_name>
 
-For this tutorial, you will use the optional argument ``--node-name`` which creates a simple Hello World type executable in the package.
+For this tutorial, you will use the optional arguments ``--node-name`` and ``--license``.
+``--node-name`` option creates a simple Hello World type executable in the package, and ``--license`` declares the licence information for the package.
 
 Enter the following command in your terminal:
 
@@ -166,13 +167,13 @@ Enter the following command in your terminal:
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_cmake --node-name my_node my_package
+        ros2 pkg create --build-type ament_cmake --node-name my_node my_package --license Apache-2.0
 
    .. group-tab:: Python
 
       .. code-block:: console
 
-        ros2 pkg create --build-type ament_python --node-name my_node my_package
+        ros2 pkg create --build-type ament_python --node-name my_node my_package --license Apache-2.0
 
 You will now have a new folder within your workspace's ``src`` directory called ``my_package``.
 
@@ -191,7 +192,7 @@ After running the command, your terminal will return the message:
         version: 0.0.0
         description: TODO: Package description
         maintainer: ['<name> <email>']
-        licenses: ['TODO: License declaration']
+        licenses: ['Apache-2.0']
         build type: ament_cmake
         dependencies: []
         node_name: my_node
@@ -202,18 +203,6 @@ After running the command, your terminal will return the message:
         creating folder ./my_package/include/my_package
         creating ./my_package/CMakeLists.txt
         creating ./my_package/src/my_node.cpp
-
-        [WARNING]: Unknown license 'TODO: License declaration'.  This has been set in the package.xml, but no LICENSE file has been created.
-        It is recommended to use one of the ament license identifiers:
-        Apache-2.0
-        BSL-1.0
-        BSD-2.0
-        BSD-2-Clause
-        BSD-3-Clause
-        GPL-3.0-only
-        LGPL-3.0-only
-        MIT
-        MIT-0
 
    .. group-tab:: Python
 
@@ -226,7 +215,7 @@ After running the command, your terminal will return the message:
         version: 0.0.0
         description: TODO: Package description
         maintainer: ['<name> <email>']
-        licenses: ['TODO: License declaration']
+        licenses: ['Apache-2.0']
         build type: ament_python
         dependencies: []
         node_name: my_node
@@ -244,18 +233,6 @@ After running the command, your terminal will return the message:
         creating ./my_package/test/test_flake8.py
         creating ./my_package/test/test_pep257.py
         creating ./my_package/my_package/my_node.py
-
-        [WARNING]: Unknown license 'TODO: License declaration'.  This has been set in the package.xml, but no LICENSE file has been created.
-        It is recommended to use one of the ament license identifiers:
-        Apache-2.0
-        BSL-1.0
-        BSD-2.0
-        BSD-2-Clause
-        BSD-3-Clause
-        GPL-3.0-only
-        LGPL-3.0-only
-        MIT
-        MIT-0
 
 You can see the automatically generated files for the new package.
 
