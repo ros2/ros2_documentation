@@ -66,14 +66,14 @@ Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``, and paste
 
    string first_name
    string last_name
-   uint32 phone_number
+   uint64 phone_number
    uint8 phone_type
 
 This message is composed of these fields:
 
 * first_name: of type string
 * last_name: of type string
-* phone_number: of type uint32
+* phone_number: of type uint64
 * phone_type: of type uint8, with several named constant values defined
 
 Note that it's possible to set default values for fields within a message definition.
