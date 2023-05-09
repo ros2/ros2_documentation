@@ -126,6 +126,15 @@ Now install some additional python dependencies:
 
    python -m pip install -U catkin_pkg cryptography empy importlib-metadata jsonschema lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
 
+Install miscellaneous prerequisites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next install xmllint:
+
+* Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
+* Unpack all archives into e.g. ``C:\xmllint``
+* Add ``C:\xmllint\bin`` to the ``PATH``.
+
 Install Qt5
 ^^^^^^^^^^^
 
