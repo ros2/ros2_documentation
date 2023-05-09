@@ -180,8 +180,6 @@ This is why we pass in the topic name and the topic type.
 The class contains two member variables.
 
 1. The subscription object.
-   Note that the template parameter is the type of the callback, not the type of the topic.
-   In this case the callback receives a ``rclcpp::SerializedMessage`` shared pointer, so this is what the template parameter must be.
 2. A managed pointer to the writer object used to write to the bag.
    Note the type of writer used here is the ``rosbag2_cpp::Writer``, the generic writer interface.
    Other writers may be available with different behaviours.
