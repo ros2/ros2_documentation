@@ -60,22 +60,21 @@ Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``, and paste
 
 ::
 
-   bool FEMALE=true
-   bool MALE=false
+   uint8 PHONE_TYPE_HOME=0
+   uint8 PHONE_TYPE_WORK=1
+   uint8 PHONE_TYPE_MOBILE=2
 
    string first_name
    string last_name
-   bool gender
-   uint8 age
-   string address
+   string phone_number
+   uint8 phone_type
 
-This message is composed of 5 fields:
+This message is composed of these fields:
 
 * first_name: of type string
 * last_name: of type string
-* gender: of type bool, that can be either MALE or FEMALE
-* age: of type uint8
-* address: of type string
+* phone_number: of type string
+* phone_type: of type uint8, with several named constant values defined
 
 Note that it's possible to set default values for fields within a message definition.
 See :doc:`../../Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
@@ -194,9 +193,8 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
 
           message.first_name = "John";
           message.last_name = "Doe";
-          message.age = 30;
-          message.gender = message.MALE;
-          message.address = "unknown";
+          message.phone_number = "1234567890";
+          message.phone_type = message.PHONE_TYPE_MOBILE;
 
           std::cout << "Publishing Contact\nFirst:" << message.first_name <<
             "  Last:" << message.last_name << std::endl;
@@ -263,9 +261,8 @@ Populate ``AddressBook`` fields.
 
     message.first_name = "John";
     message.last_name = "Doe";
-    message.age = 30;
-    message.gender = message.MALE;
-    message.address = "unknown";
+    message.phone_number = "1234567890";
+    message.phone_type = message.PHONE_TYPE_MOBILE;
 
 Finally send the message periodically.
 
@@ -462,18 +459,16 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "John";
          contact.last_name = "Doe";
-         contact.age = 30;
-         contact.gender = contact.MALE;
-         contact.address = "unknown";
+         contact.phone_number = "1234567890";
+         contact.phone_type = message.PHONE_TYPE_MOBILE;
          msg->address_book.push_back(contact);
        }
        {
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "Jane";
          contact.last_name = "Doe";
-         contact.age = 20;
-         contact.gender = contact.FEMALE;
-         contact.address = "unknown";
+         contact.phone_number = "4254242424";
+         contact.phone_type = message.PHONE_TYPE_HOME;
          msg->address_book.push_back(contact);
        }
 
