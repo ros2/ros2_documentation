@@ -68,9 +68,9 @@ Adding RMW implementations to your workspace
 Suppose that you have built your ROS 2 workspace with only Fast DDS installed and therefore only the Fast DDS RMW implementation built.
 The last time your workspace was built, any other RMW implementation packages, ``rmw_connextdds`` for example, were probably unable to find installations of the relevant DDS implementations.
 If you then install an additional DDS implementation, Connext for example, you will need to re-trigger the check for a Connext installation that occurs when the Connext RMW implementation is being built.
-You can do this by specifying the ``--cmake-clean-cache --cmake-force-configure`` flag on your next workspace build, and you should see that the RMW implementation package then gets built for the newly installed DDS implementation.
+You can do this by specifying the ``--cmake-clean-cache`` flag on your next workspace build, and you should see that the RMW implementation package then gets built for the newly installed DDS implementation.
 
-It is possible to run into a problem when "rebuilding" the workspace with an additional RMW implementation using the ``--cmake-clean-cache --cmake-force-configure`` option where the build complains about the default RMW implementation changing.
+It is possible to run into a problem when "rebuilding" the workspace with an additional RMW implementation using the ``--cmake-clean-cache`` option where the build complains about the default RMW implementation changing.
 To resolve this, you can either set the default implementation to what is was before with the ``RMW_IMPLEMENTATION`` CMake argument or you can delete the build folder for packages that complain and continue the build with ``--packages-start <package name>``.
 
 Troubleshooting
