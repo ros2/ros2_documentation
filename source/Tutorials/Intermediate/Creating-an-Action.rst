@@ -31,9 +31,15 @@ Prerequisites
 
 You should have :doc:`ROS 2 <../../Installation>` and `colcon <https://colcon.readthedocs.org>`__ installed.
 
-Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create a package named ``action_tutorials_interfaces``:
+You should know how to set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace>` and create packages.
 
-(Remember to :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` first.)
+Remember to :doc:`source your ROS 2 installation <../Beginner-CLI-Tools/Configuring-ROS2-Environment>` first.
+
+Tasks
+-----
+
+1 Creating an interface package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
@@ -41,9 +47,9 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
     .. code-block:: bash
 
-      mkdir -p ros2_ws/src #you can reuse existing workspace with this naming convention
+      mkdir -p ros2_ws/src # you can reuse an existing workspace with this naming convention
       cd ros2_ws/src
-      ros2 pkg create action_tutorials_interfaces
+      ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: macOS
 
@@ -51,7 +57,7 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
       mkdir -p ros2_ws/src
       cd ros2_ws/src
-      ros2 pkg create action_tutorials_interfaces
+      ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: Windows
 
@@ -59,12 +65,10 @@ Set up a :doc:`workspace <../Beginner-Client-Libraries/Creating-A-Workspace/Crea
 
       md ros2_ws\src
       cd ros2_ws\src
-      ros2 pkg create action_tutorials_interfaces
+      ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
-Tasks
------
 
-1 Defining an action
+2 Defining an action
 ^^^^^^^^^^^^^^^^^^^^
 
 Actions are defined in ``.action`` files of the form:
@@ -87,7 +91,7 @@ An instance of an action is typically referred to as a *goal*.
 
 Say we want to define a new action "Fibonacci" for computing the `Fibonacci sequence <https://en.wikipedia.org/wiki/Fibonacci_number>`__.
 
-Create an ``action`` directory in our ROS 2 package ``action_tutorials_interfaces``:
+Create an ``action`` directory in our ROS 2 package ``custom_action_interfaces``:
 
 .. tabs::
 
@@ -95,21 +99,21 @@ Create an ``action`` directory in our ROS 2 package ``action_tutorials_interface
 
     .. code-block:: bash
 
-      cd action_tutorials_interfaces
+      cd custom_action_interfaces
       mkdir action
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      cd action_tutorials_interfaces
+      cd custom_action_interfaces
       mkdir action
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      cd action_tutorials_interfaces
+      cd custom_action_interfaces
       md action
 
 Within the ``action`` directory, create a file called ``Fibonacci.action`` with the following contents:
@@ -124,12 +128,12 @@ Within the ``action`` directory, create a file called ``Fibonacci.action`` with 
 
 The goal request is the ``order`` of the Fibonacci sequence we want to compute, the result is the final ``sequence``, and the feedback is the ``partial_sequence`` computed so far.
 
-2 Building an action
+3 Building an action
 ^^^^^^^^^^^^^^^^^^^^
 
 Before we can use the new Fibonacci action type in our code, we must pass the definition to the rosidl code generation pipeline.
 
-This is accomplished by adding the following lines to our ``CMakeLists.txt`` before the ``ament_package()`` line, in the ``action_tutorials_interfaces``:
+This is accomplished by adding the following lines to our ``CMakeLists.txt`` before the ``ament_package()`` line, in the ``custom_action_interfaces``:
 
 .. code-block:: cmake
 
@@ -152,26 +156,43 @@ We should now be able to build the package containing the ``Fibonacci`` action d
 .. code-block:: bash
 
     # Change to the root of the workspace
-    cd ~/ros2_ws
+    cd ../..
     # Build
     colcon build
 
 We're done!
 
 By convention, action types will be prefixed by their package name and the word ``action``.
-So when we want to refer to our new action, it will have the full name ``action_tutorials_interfaces/action/Fibonacci``.
+So when we want to refer to our new action, it will have the full name ``custom_action_interfaces/action/Fibonacci``.
 
-We can check that our action built successfully with the command line tool:
+We can check that our action built successfully with the command line tool.
+First source our workspace:
 
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: bash
+
+      source install/local_setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: bash
+
+      source install/local_setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: bash
+
+      call install\local_setup.bat
+
+Now check that our action definition exists:
 
 .. code-block:: bash
 
-   # Source our workspace
-   # On Windows: call install/setup.bat
-   . install/setup.bash
-   # Check that our action definition exists
-   ros2 interface show action_tutorials_interfaces/action/Fibonacci
-
+   ros2 interface show custom_action_interfaces/action/Fibonacci
 
 You should see the Fibonacci action definition printed to the screen.
 
