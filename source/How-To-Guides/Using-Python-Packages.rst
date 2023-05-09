@@ -96,7 +96,7 @@ Now you can build your workspace and run your python node that depends on packag
 
 .. note::
 
-    If you want release your package on Bloom, you should to add the packages you require to ``rosdep``, see the `rosdep key contribution guide`_.
+    If you want to release your package on Bloom, you should add the packages you require to ``rosdep``, see the `rosdep key contribution guide`_.
 
 .. _rosdep key contribution guide: http://docs.ros.org/en/independent/api/rosdep/html/contributing_rules.html
 
