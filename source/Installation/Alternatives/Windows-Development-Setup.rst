@@ -43,15 +43,6 @@ Install additional Python dependencies:
 
    pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.931 pep8 pydocstyle pytest pytest-mock vcstool
 
-Install miscellaneous prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Next install xmllint:
-
-* Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
-* Unpack all archives into e.g. ``C:\xmllint``
-* Add ``C:\xmllint\bin`` to the ``PATH``.
-
 Build ROS 2
 -----------
 
