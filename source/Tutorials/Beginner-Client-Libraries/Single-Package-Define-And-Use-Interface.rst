@@ -66,14 +66,14 @@ Inside ``more_interfaces/msg``, create a new file ``AddressBook.msg``, and paste
 
    string first_name
    string last_name
-   uint64 phone_number
+   string phone_number
    uint8 phone_type
 
 This message is composed of these fields:
 
 * first_name: of type string
 * last_name: of type string
-* phone_number: of type uint64
+* phone_number: of type string
 * phone_type: of type uint8, with several named constant values defined
 
 Note that it's possible to set default values for fields within a message definition.
@@ -193,7 +193,7 @@ In ``more_interfaces/src`` create a file called ``publish_address_book.cpp`` and
 
           message.first_name = "John";
           message.last_name = "Doe";
-          message.phone_number = 1234567890;
+          message.phone_number = "1234567890";
           message.phone_type = message.PHONE_TYPE_MOBILE;
 
           std::cout << "Publishing Contact\nFirst:" << message.first_name <<
@@ -261,7 +261,7 @@ Populate ``AddressBook`` fields.
 
     message.first_name = "John";
     message.last_name = "Doe";
-    message.phone_number = 1234567890;
+    message.phone_number = "1234567890";
     message.phone_type = message.PHONE_TYPE_MOBILE;
 
 Finally send the message periodically.
@@ -459,7 +459,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "John";
          contact.last_name = "Doe";
-         contact.phone_number = 1234567890;
+         contact.phone_number = "1234567890";
          contact.phone_type = message.PHONE_TYPE_MOBILE;
          msg->address_book.push_back(contact);
        }
@@ -467,7 +467,7 @@ We won't create a subscriber in this tutorial, but you can try to write one your
          rosidl_tutorials_msgs::msg::Contact contact;
          contact.first_name = "Jane";
          contact.last_name = "Doe";
-         contact.phone_number = 4254242424;
+         contact.phone_number = "4254242424";
          contact.phone_type = message.PHONE_TYPE_HOME;
          msg->address_book.push_back(contact);
        }
