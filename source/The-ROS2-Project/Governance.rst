@@ -262,6 +262,7 @@ Navigation
  * Meeting invite group `ros-navigation-working-group-invites@googlegroups.com <https://groups.google.com/forum/#!forum/ros-navigation-working-group-invites>`_
  * Discourse tag: `wg-navigation <https://discourse.ros.org/tag/wg-navigation>`_
  * Discourse Channel: `Navigation Stack <https://discourse.ros.org/c/navigation/44>`_
+ * Slack Group: `Nav2 Slack <https://join.slack.com/t/navigation2/shared_invite/zt-uj428p0x-jKx8U7OzK1IOWp5TnDS2rA>`_
 
 Manipulation
 ^^^^^^^^^^^^
