@@ -130,7 +130,7 @@ depending on whether the individual callbacks should be able to overlap themselv
 * Register them to a Reentrant Callback Group (overlap of the individual callbacks)
 
 An example case of running different callbacks in parallel is a Node that has 
-a synchronous service client and a timer calling this service. See the :ref:`detailed example<Examples>` below.
+a synchronous service client and a timer calling this service.
 
 Avoiding deadlocks
 ------------------
