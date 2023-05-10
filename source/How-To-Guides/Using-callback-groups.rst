@@ -108,27 +108,26 @@ Controlling execution
 In order to control execution with callback groups, one can consider the
 following guidelines.
 
-* Register callbacks that should never be executed in parallel to the same
-  Mutually Exclusive Callback Group.
-  An example case might be that the callbacks are accessing shared
-  critical and non-thread-safe resources.
-* If you have a callback whose execution instances need to be able to overlap
-  with each other, register it to a Reentrant Callback Group.
-  An example case could be an action server that needs to be able to process
-  several action calls in parallel to each other.
-* If you have different callbacks that require to be potentially executed
-  in parallel to one another, register them to
+For the the interaction of an individual callback with itself:
 
-  * a Reentrant Callback Group, or
-  * different Mutually Exclusive Callback Groups (this option is good if you
-    want the callbacks to not overlap themselves or also need thread
-    safety with respect to some other callbacks)
-    or different callback groups of any type (choose the types according
-    to other criteria).
+* Register it to a Reentrant Callback Group if should be executed in parallel to itself.
+  An example case could be an action/service server that needs to be able to process several action calls in parallel to each other e.g. Buffer server
 
-Note that the option in the list is a valid way of allowing parallel
-execution for different callbacks, and can even be more desirable than simply
-registering everything into one Reentrant Callback Group.
+* Register it to a Mutually Exclusive Callback Group if it should **never** be executed in parallel to itself.
+  An example case could be a timer callback that runs a control loop that publishes control commands.
+
+For the interaction of different callbacks with each other:
+
+* Register them to the same Mutually Exclusive Callback Group if they should **never** be executed in parallel.
+  An example case might be that the callbacks are accessing shared critical and non-thread-safe resources.
+
+If they should be executed in parallel, you have two options, depending on whether the individual callbacks should be able to overlap themselves or not:
+
+* Register them to different Mutually Exclusive Callback Groups (no overlap of the individual callbacks)
+
+* Register them to a Reentrant Callback Group (overlap of the individual callbacks)
+
+An example case of running different callbacks in parallel is a Node that has a synchronous service client and a timer calling this service. See the :ref:`detailed example<Examples>` below.
 
 Avoiding deadlocks
 ------------------
