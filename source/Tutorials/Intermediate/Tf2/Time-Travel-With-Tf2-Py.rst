@@ -46,7 +46,6 @@ Edit the ``lookup_transform()`` call in ``turtle_tf2_listener.py`` file to
             when,
             timeout=rclpy.duration.Duration(seconds=0.05))
     except TransformException as ex:
-        ...
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
 But what happens after these 5 seconds? Build the package as usual then let's just give it a try:
@@ -82,7 +81,6 @@ Your code now would look like this:
             fixed_frame='world',
             timeout=rclpy.duration.Duration(seconds=0.05))
     except TransformException as ex:
-        ...
 
 
 The advanced API for ``lookup_transform_full()`` takes six arguments:
