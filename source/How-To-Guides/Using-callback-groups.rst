@@ -110,7 +110,7 @@ following guidelines.
 
 For the interaction of an individual callback with itself:
 
-* Register it to a Reentrant Callback Group if should be executed in parallel to itself.
+* Register it to a Reentrant Callback Group if it should be executed in parallel to itself.
   An example case could be an action/service server that needs to be able to
   process several action calls in parallel to each other.
 
@@ -120,7 +120,7 @@ For the interaction of an individual callback with itself:
 For the interaction of different callbacks with each other:
 
 * Register them to the same Mutually Exclusive Callback Group if they should **never** be executed in parallel.
-  An example case might be that the callbacks are accessing shared critical and non-thread-safe resources.
+  An example case could be that the callbacks are accessing shared critical and non-thread-safe resources.
 
 If they should be executed in parallel, you have two options,
 depending on whether the individual callbacks should be able to overlap themselves or not:
