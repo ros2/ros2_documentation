@@ -86,4 +86,4 @@ As an alternative to the command line invocation, you can create a ``docker-comp
        depends_on:
          - talker
 
-To run the containers call ``docker-compose up`` in the same directory. You can close the containers with ``Ctrl+C``.
+To run the containers call ``docker compose up`` in the same directory. You can close the containers with ``Ctrl+C``.
