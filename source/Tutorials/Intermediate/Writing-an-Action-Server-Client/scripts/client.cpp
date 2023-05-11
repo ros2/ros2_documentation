@@ -4,18 +4,18 @@
 #include <string>
 #include <sstream>
 
-#include "action_tutorials_interfaces/action/fibonacci.hpp"
+#include "custom_action_interfaces/action/fibonacci.hpp"
 
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
 
-namespace action_tutorials_cpp
+namespace custom_action_cpp
 {
 class FibonacciActionClient : public rclcpp::Node
 {
 public:
-  using Fibonacci = action_tutorials_interfaces::action::Fibonacci;
+  using Fibonacci = custom_action_interfaces::action::Fibonacci;
   using GoalHandleFibonacci = rclcpp_action::ClientGoalHandle<Fibonacci>;
 
   explicit FibonacciActionClient(const rclcpp::NodeOptions & options)
@@ -106,6 +106,6 @@ private:
   }
 };  // class FibonacciActionClient
 
-}  // namespace action_tutorials_cpp
+}  // namespace custom_action_cpp
 
-RCLCPP_COMPONENTS_REGISTER_NODE(action_tutorials_cpp::FibonacciActionClient)
+RCLCPP_COMPONENTS_REGISTER_NODE(custom_action_cpp::FibonacciActionClient)
