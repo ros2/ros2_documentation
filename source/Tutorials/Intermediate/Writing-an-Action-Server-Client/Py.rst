@@ -27,7 +27,7 @@ Actions are a form of asynchronous communication in ROS 2.
 Prerequisites
 -------------
 
-You will need the ``action_tutorials_interfaces`` package and the ``Fibonacci.action``
+You will need the ``custom_action_interfaces`` package and the ``Fibonacci.action``
 interface defined in the previous tutorial, :doc:`../Creating-an-Action`.
 
 Tasks
@@ -105,7 +105,7 @@ In another terminal, we can use the command line interface to send a goal:
 
 .. code-block:: bash
 
-    ros2 action send_goal fibonacci action_tutorials_interfaces/action/Fibonacci "{order: 5}"
+    ros2 action send_goal fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
 
 In the terminal that is running the action server, you should see a logged message "Executing goal..." followed by a warning that the goal state was not set.
 By default, if the goal handle state is not set in the execute callback it assumes the *aborted* state.
@@ -148,7 +148,7 @@ After restarting the action server, we can confirm that feedback is now publishe
 
 .. code-block:: bash
 
-    ros2 action send_goal --feedback fibonacci action_tutorials_interfaces/action/Fibonacci "{order: 5}"
+    ros2 action send_goal --feedback fibonacci custom_action_interfaces/action/Fibonacci "{order: 5}"
 
 2 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
