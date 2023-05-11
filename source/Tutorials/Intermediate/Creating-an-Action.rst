@@ -47,24 +47,24 @@ Tasks
 
     .. code-block:: bash
 
-      mkdir -p ros2_ws/src # you can reuse an existing workspace with this naming convention
-      cd ros2_ws/src
+      mkdir -p ~/ros2_ws/src # you can reuse an existing workspace with this naming convention
+      cd ~/ros2_ws/src
       ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
-      mkdir -p ros2_ws/src
-      cd ros2_ws/src
+      mkdir -p ~/ros2_ws/src
+      cd ~/ros2_ws/src
       ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      md ros2_ws\src
-      cd ros2_ws\src
+      md \ros2_ws\src
+      cd \ros2_ws\src
       ros2 pkg create --license Apache-2.0 custom_action_interfaces
 
 
@@ -156,7 +156,7 @@ We should now be able to build the package containing the ``Fibonacci`` action d
 .. code-block:: bash
 
     # Change to the root of the workspace
-    cd ../..
+    cd ~/ros2_ws
     # Build
     colcon build
 

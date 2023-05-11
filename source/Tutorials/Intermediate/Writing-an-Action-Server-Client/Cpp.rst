@@ -64,7 +64,7 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 
     .. code-block:: bash
 
-      cd \dev\ros2_ws\src
+      cd \ros2_ws\src
       ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
 1.2 Adding in visibility control
