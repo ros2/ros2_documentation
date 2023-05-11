@@ -108,11 +108,11 @@ Controlling execution
 In order to control execution with callback groups, one can consider the
 following guidelines.
 
-For the the interaction of an individual callback with itself:
+For the interaction of an individual callback with itself:
 
 * Register it to a Reentrant Callback Group if should be executed in parallel to itself.
   An example case could be an action/service server that needs to be able to 
-  process several action calls in parallel to each other e.g. Buffer server
+  process several action calls in parallel to each other.
 
 * Register it to a Mutually Exclusive Callback Group if it should **never** be executed in parallel to itself.
   An example case could be a timer callback that runs a control loop that publishes control commands.
