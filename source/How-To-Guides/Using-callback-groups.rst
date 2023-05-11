@@ -111,7 +111,7 @@ following guidelines.
 For the interaction of an individual callback with itself:
 
 * Register it to a Reentrant Callback Group if should be executed in parallel to itself.
-  An example case could be an action/service server that needs to be able to 
+  An example case could be an action/service server that needs to be able to
   process several action calls in parallel to each other.
 
 * Register it to a Mutually Exclusive Callback Group if it should **never** be executed in parallel to itself.
@@ -129,7 +129,7 @@ depending on whether the individual callbacks should be able to overlap themselv
 
 * Register them to a Reentrant Callback Group (overlap of the individual callbacks)
 
-An example case of running different callbacks in parallel is a Node that has 
+An example case of running different callbacks in parallel is a Node that has
 a synchronous service client and a timer calling this service. See the detailed example below.
 
 Avoiding deadlocks
