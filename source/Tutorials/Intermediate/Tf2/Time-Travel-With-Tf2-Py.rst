@@ -82,7 +82,6 @@ Your code now would look like this:
             timeout=rclpy.duration.Duration(seconds=0.05))
     except TransformException as ex:
 
-
 The advanced API for ``lookup_transform_full()`` takes six arguments:
 
 #. Target frame
