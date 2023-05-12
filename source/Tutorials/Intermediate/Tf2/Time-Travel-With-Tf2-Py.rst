@@ -39,14 +39,16 @@ Edit the ``lookup_transform()`` call in ``turtle_tf2_listener.py`` file to
 .. code-block:: python
 
     when = self.get_clock().now() - rclpy.time.Duration(seconds=5.0)
-    trans = self.tf_buffer.lookup_transform(
-        to_frame_rel,
-        from_frame_rel,
-        when,
-        timeout=rclpy.duration.Duration(seconds=0.05))
+    try:
+        t = self.tf_buffer.lookup_transform(
+            to_frame_rel,
+            from_frame_rel,
+            when,
+            timeout=rclpy.duration.Duration(seconds=0.05))
+    except TransformException as ex:
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
-But what happens after these 5 seconds? Let's just give it a try:
+But what happens after these 5 seconds? Build the package as usual then let's just give it a try:
 
 .. code-block:: console
 
@@ -70,13 +72,15 @@ Your code now would look like this:
 .. code-block:: python
 
     when = self.get_clock().now() - rclpy.time.Duration(seconds=5.0)
-    trans = self.tf_buffer.lookup_transform_full(
+    try:
+        t = self.tf_buffer.lookup_transform_full(
             target_frame=to_frame_rel,
             target_time=rclpy.time.Time(),
             source_frame=from_frame_rel,
             source_time=when,
             fixed_frame='world',
             timeout=rclpy.duration.Duration(seconds=0.05))
+    except TransformException as ex:
 
 The advanced API for ``lookup_transform_full()`` takes six arguments:
 
@@ -100,7 +104,7 @@ And at the current time, tf2 computes the transform from the ``world`` to the ``
 Checking the results
 --------------------
 
-Let's run the simulation again, this time with the advanced time-travel API:
+Build the package as usual then let's run the simulation again, this time with the advanced time-travel API:
 
 .. code-block:: console
 
