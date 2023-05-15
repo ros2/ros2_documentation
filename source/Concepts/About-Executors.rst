@@ -92,7 +92,7 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
    rclcpp::executors::StaticSingleThreadedExecutor executor;
    executor.add_node(node1);
    executor.add_node(node2);
-   executor.add_node(node2);
+   executor.add_node(node3);
    executor.spin();
 
 In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
