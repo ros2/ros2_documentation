@@ -88,7 +88,7 @@ Add to ``/etc/security/limits.conf`` (as sudo):
    <your username>    -   memlock   <limit in kB>
 
 A limit of ``-1`` is unlimited.
-If you choose this, you may need to accompany it with ``ulimit -l unlimited`` after editing the file.
+If you choose this, you may need to accompany it with ``ulimit -l unlimited`` (as root) after editing the file.
 
 After saving the file, log out and log back in.
 Then rerun the ``pendulum_demo`` invocation.
@@ -217,13 +217,14 @@ Then run the ``rttest_plot`` script on the resulting file:
 
 .. code-block:: bash
 
-   rttest_plot pendulum_demo_results
+   ros2 run rttest rttest_plot pendulum_demo_results
 
-This script will produce three files:
+This script will produce a number of files:
 
 ::
 
    pendulum_demo_results_plot_latency.svg
+   pendulum_demo_results_plot_latency_hist.svg
    pendulum_demo_results_plot_majflts.svg
    pendulum_demo_results_plot_minflts.svg
 
