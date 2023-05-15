@@ -603,7 +603,8 @@ Store message definitions in bag files with SQLite3 plugin
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 Now we support saving message definitions to the ``sqlite3`` database file in the same format
-as we are saving it to the ``mcap`` file. It will open an opportunity for third-party tools to have
+as we are saving it to the ``mcap`` file.
+This opens an opportunity for third-party tools to have
 the ability to deserialize rosbag2 files without having the correct version of all the original
 .msg files on the machine that is decoding the bag file recorded with ``sqlite3`` plugin.
 
@@ -616,16 +617,16 @@ New playback and recording controls
 
 Several pull requests have been added to enhance the user's control over playback of bags.
 Pull request `960 <https://github.com/ros2/rosbag2/pull/960>`_ adds the ability to play bag for
-a specified number of seconds. And pull request `1005 <https://github.com/ros2/rosbag2/pull/1005>`_
-allows to play bag until specified timestamp.
+a specified number of seconds.
+And pull request `1005 <https://github.com/ros2/rosbag2/pull/1005>`_ allows to play bag until specified timestamp.
 Another pull request `1007 <https://github.com/ros2/rosbag2/pull/1007>`_ adds the ability to
-stop playback remotely via service call. Stop will unpause player if it was in pause mode, stop
-playback and force exit from play() method if it was in progress.
+stop playback remotely via service call.
+Stop will unpause player if it was in pause mode, stop playback and force exit from play() method if it was in progress.
 
 Managing recording via service calls
 """"""""""""""""""""""""""""""""""""
 
-Adds options to control recording process from remote nodes.
+There are new options to control the recording process from remote nodes.
 The pull request `1131 <https://github.com/ros2/rosbag2/pull/1131>`_ adds the ability to pause and
 resume recording via service calls.
 Another pull request `1115 <https://github.com/ros2/rosbag2/pull/1115>`_ adds the ability to split
@@ -634,32 +635,33 @@ bags during recording by sending service call.
 Filtering topics via regular expression during playback
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-Sometimes need to replay only subset of topics from recorded bags and following two pull request
-adds such capability. The `1034 <https://github.com/ros2/rosbag2/pull/1034>`_ adds a new option
-``--topics-regex`` that allows filtering topics via regular expressions. The ``--topics-regex``
-option accepts multiple regular expressions separated by space.
-And the `1046 <https://github.com/ros2/rosbag2/pull/1046>`_ adds the ability to exclude some
+Users sometimes need to replay only a subset of topics from recorded bags and the following two pull request
+adds such capability.
+Pull request `1034 <https://github.com/ros2/rosbag2/pull/1034>`_ adds a new option
+``--topics-regex`` that allows filtering topics via regular expressions.
+The ``--topics-regex`` option accepts multiple regular expressions separated by space.
+And pull request `1046 <https://github.com/ros2/rosbag2/pull/1046>`_ adds the ability to exclude some
 certain topics from being replayed by providing regular expression in a new ``--exclude``
 (and ``-x``) option.
 
 Allow plugins to register their own CLI verb arguments
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 
-`1209 <https://github.com/ros2/rosbag2/pull/1209>`_ adds ability for ``rosbag2`` plugins
-register an optional Python entrypoint providing plugin-specific CLI argument values. As result
-the command line option ``--storage-preset-profile`` for ``ros2 bag record`` verb will have
-different valid options depending from the underlying storage plugin.
+Pull request `1209 <https://github.com/ros2/rosbag2/pull/1209>`_ adds the ability for ``rosbag2`` plugins to
+register an optional Python entrypoint providing plugin-specific CLI argument values.
+As a result the command line option ``--storage-preset-profile`` for ``ros2 bag record`` verb will have
+different valid options depending on the underlying storage plugin.
 
 Other changes
 """""""""""""
 
 The pull request `1038 <https://github.com/ros2/rosbag2/pull/1038>`_ adds the ability to record
-any key/value pair in 'custom' field in metadata.yaml file. It will be useful when need to save
-some hardware specific id or coordinates where recording was captured.
-And the `1180 <https://github.com/ros2/rosbag2/pull/1180>`_ adds option to change underlying
-node name for the recorder via providing the new command line ``--node-name`` option. This option
-might be used for creating remote distributed recording with multiple rosbag2 recorder instances.
-It will provide ability to send service calls for managing recording process to the dedicated
+any key/value pair in 'custom' field in metadata.yaml file.
+It is useful when users need to save some hardware specific id or coordinates where the recording was captured.
+And pull request `1180 <https://github.com/ros2/rosbag2/pull/1180>`_ adds an option to change the underlying
+node name for the recorder via providing the new command line ``--node-name`` option.
+This option might be used for creating remote distributed recording with multiple rosbag2 recorder instances.
+It provides the ability to send service calls for managing the recording process to the dedicated
 rosbag2 recorder instances.
 
 ``rosidl_python``
