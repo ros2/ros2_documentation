@@ -205,6 +205,10 @@ Once you have determined a unique integer for your group of ROS 2 nodes, you can
 3.2 The ``ROS_LOCALHOST_ONLY`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+``ROS_LOCALHOST_ONLY`` variable is deprecated.
+It can still be effective if it is set, and prevails over ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``.
+But it is highly recommended that you control the ROS 2 communication discovery range with ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``.
+
 By default, ROS 2 communication is not limited to localhost.
 ``ROS_LOCALHOST_ONLY`` environment variable allows you to limit ROS 2 communication to localhost only.
 This means your ROS 2 system, and its topics, services, and actions will not be visible to other computers on the local network.
@@ -248,6 +252,248 @@ You can set the environment variable with the following command:
       .. code-block:: console
 
         setx ROS_LOCALHOST_ONLY 1
+
+
+3.3 Improved Dynamic Discovery
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Iron Irwini or later, improved dynamic discovery options are available to control the ROS 2 communication range.
+By default, ROS 2 communication is not limited, so nodes on other hosts that are on the same subnet will be found automatically.
+Improved dynamic discovery provides the following environmental variable to control ROS 2 communication discovery.
+
+* ``ROS_AUTOMATIC_DISCOVERY_RANGE``: controls how far ROS nodes will try to discover each other.
+  Valid options are ``SUBNET``, ``LOCALHOST``, ``OFF``, and ``SYSTEM_DEFAULT``.
+  ``SUBNET`` is the default, and for DDS based middleware it means it will discover any node reachable via multicast.
+  ``LOCALHOST`` means a node will only try to discover other nodes on the same machine.
+  ``OFF`` means the node won't discover any other nodes, even on the same machine.
+  ``SYSTEM_DEFAULT`` means "don't change any discovery settings".
+* ``ROS_STATIC_PEERS``: is a semicolon (```;```) separated list of addresses that ROS should try to discover nodes on.
+  This allows connecting to nodes on specific machines (as long as their discovery range is not set to ``OFF``).
+
+For example, the following commands will limit the ROS 2 communication only with local host and specific peers:
+
+.. tabs::
+
+   .. group-tab:: Linux
+
+      .. code-block:: console
+
+        export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        export ROS_STATIC_PEERS=192.168.0.1;remote.com
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bashrc
+        echo "export ROS_STATIC_PEERS=192.168.0.1;remote.com" >> ~/.bashrc
+
+   .. group-tab:: macOS
+
+      .. code-block:: console
+
+        export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        export ROS_STATIC_PEERS=192.168.0.1;remote.com
+
+      To maintain this setting between shell sessions, you can add the command to your shell startup script:
+
+      .. code-block:: console
+
+        echo "export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST" >> ~/.bash_profile
+        echo "export ROS_STATIC_PEERS=192.168.0.1;remote.com" >> ~/.bash_profile
+
+   .. group-tab:: Windows
+
+      .. code-block:: console
+
+        set ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+        set ROS_STATIC_PEERS=192.168.0.1;remote.com
+
+      If you want to make this permanent between shell sessions, also run:
+
+      .. code-block:: console
+
+        setx ROS_AUTOMATIC_DISCOVERY_RANGE LOCALHOST
+        setx ROS_STATIC_PEERS 192.168.0.1;remote.com
+
+The combination of these two environment variables for local and remote nodes will enable and control the ROS 2 communication discovery range.
+The following tables complete the all possible combination for those two variables and how the discovery range behaves.
+
+A ``X`` indicates that nodes A and B will not discover each other and communicate.
+A ``O`` indicates that nodes A and B will discover each other and communicate.
+
+.. list-table:: Node A and B running in the same host
+   :widths: 20 20 20 20 20 20 20 20 20
+   :header-rows: 1
+
+   * - Same host
+     -
+     -
+     - Node B setting
+     -
+     -
+     -
+     -
+     -
+   * -
+     -
+     -
+     - No static peer
+     -
+     -
+     - With static peer
+     -
+     -
+   * -
+     -
+     -
+     - Off
+     - Localhost
+     - Subnet
+     - Off
+     - Localhost
+     - Subnet
+   * - Node A setting
+     - No static peer
+     - Off
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+   * -
+     -
+     - Localhost
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     -
+     - Subnet
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     - With static peer
+     - Off
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+   * -
+     -
+     - Localhost
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     -
+     - Subnet
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+
+
+.. list-table:: Node A and B running in the different hosts
+   :widths: 20 20 20 20 20 20 20 20 20
+   :header-rows: 1
+
+   * - Different hosts
+     -
+     -
+     - Node B setting
+     -
+     -
+     -
+     -
+     -
+   * -
+     -
+     -
+     - No static peer
+     -
+     -
+     - With static peer
+     -
+     -
+   * -
+     -
+     -
+     - Off
+     - Localhost
+     - Subnet
+     - Off
+     - Localhost
+     - Subnet
+   * - Node A setting
+     - No static peer
+     - Off
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+   * -
+     -
+     - Localhost
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     -
+     - Subnet
+     - ``X``
+     - ``X``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     - With static peer
+     - Off
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+     - ``X``
+   * -
+     -
+     - Localhost
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
+   * -
+     -
+     - Subnet
+     - ``X``
+     - ``O``
+     - ``O``
+     - ``X``
+     - ``O``
+     - ``O``
 
 
 Summary
