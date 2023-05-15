@@ -804,7 +804,7 @@ You should see the service waiting for requests:
 
 .. code-block:: console
 
-    [INFO] [1612977403.805799037] [ping_server]: Ready to serve
+    [INFO] [1612977403.805799037] [ping_server]: Ready to serve.
 
 On the second terminal, run the client node.
 
@@ -824,6 +824,6 @@ At the same time, the output in the server console has been updated:
 
 .. code-block:: console
 
-    [INFO] [1612977403.805799037] [ping_server]: Ready to serve
+    [INFO] [1612977403.805799037] [ping_server]: Ready to serve.
     [INFO] [1612977404.807314904] [ping_server]: Incoming request
     [INFO] [1612977404.836405125] [ping_server]: Sending back response
