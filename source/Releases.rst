@@ -23,6 +23,7 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
+   Releases/Release-Iron-Irwini.rst
    Releases/Release-Humble-Hawksbill.rst
    Releases/Release-Foxy-Fitzroy.rst
    Releases/Release-Rolling-Ridley.rst
@@ -47,7 +48,8 @@ Rows in the table marked in green are the currently supported distributions.
    -->
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
-     .rst-content table.docutils:not(.field-list) tr:nth-child(3) td {background-color: #33cc66;}
+     .rst-content tr:nth-child(2) {background-color: #33cc66;}
+     .rst-content tr:nth-child(4) {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -89,6 +91,10 @@ Rows in the table marked in green are the currently supported distributions.
      - Release date
      - Logo
      - EOL date
+   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
+     - May 23rd, 2023
+     - |iron|
+     - November 2024
    * - :doc:`Humble Hawksbill <Releases/Release-Humble-Hawksbill>`
      - May 23rd, 2022
      - |humble|
@@ -154,10 +160,10 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
-     - May 2023
-     - |iron|
-     - November 2024
+   * - J Turtle (TBD)
+     - May 2024
+     - TBD
+     - May 2029
 
 
 The expectation is to release new ROS 2 distributions once per year.
