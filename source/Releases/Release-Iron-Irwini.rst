@@ -92,6 +92,9 @@ Users can provide each publisher and subscription with callback functions that a
 
 See the tracking issue at https://github.com/ros2/rmw/issues/330 for more information.
 
+* C++ Demo of Matched Events: https://github.com/ros2/demos/blob/iron/demo_nodes_cpp/src/events/matched_event_detect.cpp
+* Python Demo of Matched Events: https://github.com/ros2/demos/blob/iron/demo_nodes_py/demo_nodes_py/events/matched_event_detect.py
+
 External configuration services of loggers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
