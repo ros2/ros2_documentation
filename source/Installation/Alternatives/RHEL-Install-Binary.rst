@@ -19,6 +19,8 @@ System requirements
 -------------------
 
 We currently support RHEL 9 64-bit.
+The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
+Most people will want to use a stable ROS distribution.
 
 System setup
 ------------
@@ -90,7 +92,9 @@ If you are going to build ROS packages or otherwise do development, you can also
 Install ROS 2
 -------------
 
-* Go to the `releases page <https://github.com/ros2/ros2/releases>`_
+Binary releases of Rolling Ridley are not provided.
+Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
+
 * Download the latest package for RHEL; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
   * Note: there may be more than one binary download option which might cause the file name to differ.
@@ -99,9 +103,9 @@ Install ROS 2
 
   .. code-block:: bash
 
-       mkdir -p ~/ros2_{DISTRO}
-       cd ~/ros2_{DISTRO}
-       tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+     mkdir -p ~/ros2_{DISTRO}
+     cd ~/ros2_{DISTRO}
+     tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
 Install dependencies using rosdep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
