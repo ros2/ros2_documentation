@@ -346,7 +346,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
 5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Let's create now the launch file to easily launch the simulation and the ROS controller with a single command.
+Let's create the launch file to easily launch the simulation and the ROS controller with a single command.
 In the ``my_package/launch`` folder create a new text file named ``robot_launch.py`` with this code:
 
 .. literalinclude:: Code/robot_launch.py
@@ -409,13 +409,13 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
     More details on ``webots_ros2_driver`` and ``WebotsLauncher`` arguments can be found `on the nodes reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Nodes>`_.
 
 6 Edit additional files
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs::
 
     .. group-tab:: Python
 
-        Finally, before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
+        Before you can start the launch file, you have to modify the ``setup.py`` file to include the extra files you added.
         Open ``my_package/setup.py`` and replace its contents with:
 
         .. literalinclude:: Code/setup.py
@@ -425,7 +425,7 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
 
     .. group-tab:: C++
 
-        Finally, before you can start the launch file, you have to modify ``CMakeLists.txt`` and ``my_robot_driver.xml`` files:
+        Before you can start the launch file, you have to modify ``CMakeLists.txt`` and ``my_robot_driver.xml`` files:
 
         * ``CMakeLists.txt`` defines the compilation rules of your plugin.
         * ``my_robot_driver.xml`` is necessary for the pluginlib to find your Webots ROS 2 plugin.
@@ -435,15 +435,12 @@ Finally, an optional part is added in order to shutdown all the nodes once Webot
         .. literalinclude:: Code/my_robot_driver.xml
             :language: xml
 
-        Finally, open ``my_package/CMakeLists.txt`` and replace its contents with:
+        Open ``my_package/CMakeLists.txt`` and replace its contents with:
 
         .. literalinclude:: Code/CMakeLists.txt
             :language: cmake
 
-        It exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()`` command.
-
-        Next, it defines a shared library of your C++ plugin ``src/MyRobotDriver.cpp``.
-        It sets the ``include`` directories to include and specifies the library dependencies using ``ament_target_dependencies()``.
+        The CMakeLists.txt exports the plugin configuration file with the ``pluginlib_export_plugin_description_file()``, defines a shared library of the C++ plugin ``src/MyRobotDriver.cpp``, and sets the include and library dependencies using ``ament_target_dependencies()``
 
         The file then installs the library, the directories ``launch``, ``resource``, and ``worlds`` to the ``share/my_package`` directory.
         Finally, it exports the include directories and libraries using ``ament_export_include_directories()`` and ``ament_export_libraries()``, respectively, and declares the package using ``ament_package()``.
@@ -627,13 +624,14 @@ In addition to your custom plugin, the ``webots_ros2_driver`` will parse the ``<
 
 
 10 Updating additional files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 You have to modify these two other files to launch your new node.
 
 .. tabs::
 
     .. group-tab:: Python
+    
         Edit ``setup.py`` and replace ``'console_scripts'`` with:
 
         .. literalinclude:: Code/setup_sensor.py
@@ -662,7 +660,7 @@ This will create an ``obstacle_avoider`` node that will be included in the ``Lau
 11 Test the obstacle avoidance code
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As in task ``7``, launch the simulation from a terminal in your ROS 2 workspace:
+Launch the simulation from a terminal in your ROS 2 workspace:
 
 .. tabs::
 
