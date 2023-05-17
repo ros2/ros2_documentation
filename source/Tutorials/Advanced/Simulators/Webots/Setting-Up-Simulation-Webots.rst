@@ -631,7 +631,7 @@ You have to modify these two other files to launch your new node.
 .. tabs::
 
     .. group-tab:: Python
-    
+
         Edit ``setup.py`` and replace ``'console_scripts'`` with:
 
         .. literalinclude:: Code/setup_sensor.py
