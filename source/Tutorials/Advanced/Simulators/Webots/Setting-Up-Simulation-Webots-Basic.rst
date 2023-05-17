@@ -3,7 +3,7 @@
     Tutorials/Simulators/Webots/Setting-up-a-Robot-Simulation-Webots
     Tutorials/Advanced/Simulators/Webots
 
-Setting up a robot simulation (Part 1)
+Setting up a robot simulation (Basic)
 ======================================
 
 **Goal:** Setup a robot simulation and control it from ROS 2.
@@ -160,7 +160,7 @@ A simple robot is already included in this ``my_world.wbt`` world file.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 interface for most sensors.
-More details on existing device interfaces and how to configure them is given in the second part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Part2`.
+More details on existing device interfaces and how to configure them is given in the second part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Advanced`.
 In this task, you will extend this interface by creating your own custom plugin.
 This custom plugin is a ROS node equivalent to a robot controller.
 You can use it to access the `Webots robot API  <https://cyberbotics.com/doc/reference/robot?tab-language=python>`_ and create your own topics and services to control your robot.
@@ -327,7 +327,7 @@ In the ``my_package/resource`` folder create a text file named ``my_robot.urdf``
                 </plugin>
 
 
-    This is namely used to pass parameters to existing Webots device plugins (see :doc:`./Setting-Up-Simulation-Webots-Part2`).
+    This is namely used to pass parameters to existing Webots device plugins (see :doc:`./Setting-Up-Simulation-Webots-Advanced`).
 
 5 Create the launch file
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -521,4 +521,4 @@ Next steps
 To improve the simulation, the robot's sensors can be used to detect obstacles and avoid them.
 The second part of the tutorial shows how to implement such behaviour:
 
-* :doc:`./Setting-Up-Simulation-Webots-Part2`.
+* :doc:`./Setting-Up-Simulation-Webots-Advanced`.

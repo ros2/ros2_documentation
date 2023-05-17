@@ -1,5 +1,5 @@
-Setting up a robot simulation (Part 2)
-======================================
+Setting up a robot simulation (Advanced)
+========================================
 
 **Goal:** Extend a robot simulation with an obstacle avoider node.
 
@@ -14,14 +14,14 @@ Setting up a robot simulation (Part 2)
 Background
 ----------
 
-In this tutorial you will extend the package created in the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Part1`.
+In this tutorial you will extend the package created in the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`.
 The aim is to implement a ROS 2 node that avoids obstacles using the robot's distance sensors.
 This tutorial focuses on using robot devices with the ``webots_ros2_driver`` interface.
 
 Prerequisites
 -------------
 
-This is a continuation of the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Part1`.
+This is a continuation of the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`.
 It is mandatory to start with the first part to set up the custom packages and necessary files.
 
 Tasks
@@ -30,7 +30,7 @@ Tasks
 1 Updating ``my_robot.urdf``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As mentioned in :doc:`./Setting-Up-Simulation-Webots-Part1`, ``webots_ros2_driver`` contains plugins to interface most of Webots devices with ROS 2 directly.
+As mentioned in :doc:`./Setting-Up-Simulation-Webots-Basic`, ``webots_ros2_driver`` contains plugins to interface most of Webots devices with ROS 2 directly.
 These plugins can be loaded using the ``<device>`` tag in the URDF file of the robot.
 The ``reference`` attribute should match the Webots device ``name`` parameter.
 The list of all existing interfaces and the corresponding parameters can be found `on the devices reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Devices>`_.

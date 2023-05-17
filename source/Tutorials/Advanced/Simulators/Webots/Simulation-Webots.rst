@@ -13,5 +13,5 @@ This set of tutorials will teach you how to configure the Webots simulator with 
    Installation-Ubuntu
    Installation-Windows
    Installation-MacOS
-   Setting-Up-Simulation-Webots-Part1
-   Setting-Up-Simulation-Webots-Part2
+   Setting-Up-Simulation-Webots-Basic
+   Setting-Up-Simulation-Webots-Advanced
