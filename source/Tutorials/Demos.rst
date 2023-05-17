@@ -18,7 +18,6 @@ External resources
 
 * `Bridging communication between ROS 1 and ROS 2 <https://github.com/ros2/ros1_bridge/blob/master/README.md>`__
 * `Motion planning for a MoveIt 2 arm <http://moveit2_tutorials.picknik.ai/>`__
-* `Using Turtlebot 2 <https://github.com/ros2/turtlebot2_demo>`__
 * Using Turtlebot 3 (community-contributed)
 
     - `Getting started <https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/>`__
