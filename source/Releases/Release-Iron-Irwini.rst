@@ -81,6 +81,29 @@ There are examples of this in action in https://github.com/ros2/demos/blob/iron/
 
 See https://github.com/ros2/rclcpp/pull/1947, https://github.com/ros2/rclpy/pull/966, and https://github.com/ros2/demos/pull/565 for more information.
 
+Improved discovery options
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Previous ROS 2 versions offered limited discovery options.
+The default behavior for DDS based RMW implementations was to discover any node reachable via multicast.
+It could be limited to the same machine by setting the environment variable ``ROS_LOCALHOST_ONLY``, but any additional configuration required configuring the middleware directly, usually via middleware specific XML files and environment variables.
+ROS Iron retains the same default discovery behavior, but deprecates ``ROS_LOCALHOST_ONLY`` in favor of more granular options.
+
+* ``ROS_AUTOMATIC_DISCOVERY_RANGE`` controls how far ROS nodes will try to discover each other. Valid options are:
+
+  * ``SUBNET`` - The default, and for DDS-based middlewares it will discover any node reachable via multicast.
+  * ``LOCALHOST`` - Will only try to discover other nodes on the same machine.
+  * ``OFF`` - Will not attempt to discover any other nodes automatically, even on the same machine.
+  * ``SYSTEM_DEFAULT`` - Will not change any discovery settings.  This is useful when you already have custom settings for your middleware and don't want ROS to change them.
+
+* ``ROS_STATIC_PEERS`` - A semicolon (``;``) separated list of addresses that ROS should try to discover nodes on.  This allows the user to connect to nodes on specifc machines (as long as their discovery range is not set to ``OFF``).
+
+For example, you might have several robots with ``ROS_AUTOMATIC_DISCOVERY_RANGE`` set to ``LOCALHOST`` so they don't communicate with each other.
+When you want to connect RViz to one of them, you add it's address to ``ROS_STATIC_PEERS`` in your terminal.
+Now you can use ROS 2 CLI and visualization tools to interact with the robot.
+
+See https://github.com/ros2/ros2/issues/1359 for more information about this feature.
+
 Matched events
 ^^^^^^^^^^^^^^
 
