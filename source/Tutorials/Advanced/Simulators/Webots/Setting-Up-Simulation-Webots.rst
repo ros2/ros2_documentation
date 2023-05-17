@@ -171,7 +171,7 @@ A simple robot is already included in this ``my_world.wbt`` world file.
     In case you want to learn how to create your own robot model in Webots, you can check this `tutorial <https://cyberbotics.com/doc/guide/tutorial-6-4-wheels-robot>`_.
 
 3 Edit the my_robot_driver plugin
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The ``webots_ros2_driver`` sub-package automatically creates a ROS 2 interface for most sensors.
 More details on existing device interfaces and how to configure them is given in :ref:`Updating my_robot.urdf`.
