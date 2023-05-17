@@ -47,7 +47,7 @@ Tasks
 
 1 Install ``webots_ros2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-You can either install the official released package, or install it from the last up-to-date sources committed on `Github <https://github.com/cyberbotics/webots_ros2>`_.
+You can either install the official released package, or install it from the latest up-to-date sources from `Github <https://github.com/cyberbotics/webots_ros2>`_.
 
 .. tabs::
 

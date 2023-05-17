@@ -47,7 +47,7 @@ Tasks
 1 Install WSL2
 ^^^^^^^^^^^^^^^
 
-On Windows, WSL (Windows Subsystem for Linux) allows to improve the user experience with ROS 2 compared to native Windows installation, as it runs on a Linux platform.
+On Windows, WSL (Windows Subsystem for Linux) improves the user experience with ROS 2 compared to native Windows installation, as it runs on a Linux platform.
 Install WSL with an Ubuntu version which is compatible with your ROS distribution and upgrade to WSL2 following the `official Microsoft tutorial <https://learn.microsoft.com/en-us/windows/wsl/install>`_.
 
 2 Install ROS 2 in WSL
@@ -57,7 +57,7 @@ Install ROS 2 inside Ubuntu WSL, following :doc:`../../../../Installation/Ubuntu
 
 3 Install ``webots_ros2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
-You can then either install ``webots_ros2`` from the official released package, or install it from the last up-to-date sources committed on `Github <https://github.com/cyberbotics/webots_ros2>`_.
+You can then either install ``webots_ros2`` from the official released package, or install it from the latest up-to-date sources from `Github <https://github.com/cyberbotics/webots_ros2>`_.
 
 The following commands must be run inside the WSL environment.
 
@@ -117,7 +117,8 @@ The following commands must be run inside the WSL environment.
 4 Launch the ``webots_ros2_universal_robot`` example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-WSL doesn't support hardware acceleration (yet). Therefore, Webots should be started on Windows, while the ROS part is running inside WSL.
+WSL doesn't support hardware acceleration (yet).
+Therefore, Webots should be started on Windows, while the ROS part is running inside WSL.
 To do so, the following commands must be run inside the WSL environment.
 
 First source the ROS 2 environment, if not done already.

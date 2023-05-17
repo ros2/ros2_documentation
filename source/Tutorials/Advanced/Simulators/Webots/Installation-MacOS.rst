@@ -15,7 +15,7 @@ Background
 ----------
 
 The ``webots_ros2`` package provides an interface between ROS 2 and Webots.
-It includes several sub-packages, including ``webots_ros2_driver``, which allows to start Webots and communicate with it.
+It includes several sub-packages, including ``webots_ros2_driver``, which allows you to start Webots and communicate with it.
 Other sub-packages are mainly examples that show multiple possible implementations using the interface.
 In this tutorial, you are going to install the package and learn how to run one of these examples.
 
@@ -37,7 +37,8 @@ This solution allows for native 3D hardware acceleration for Webots.
 The VM is responsible to run all the ROS part (including RViz) and connects to the host machine through TCP connection to start Webots.
 A shared folder allows the script to transfer the world and other resource files from the VM to macOS where Webots is running.
 
-The following steps explain how to create the VM image with the installation of the ``webots_ros2`` released package. It is also possible to install it from sources.
+The following steps explain how to create the VM image with the installation of the ``webots_ros2`` released package.
+It is also possible to install it from sources.
 In the :ref:`Preconfigured Images` section, you can find already configured images for every release of Webots (starting from R2023a) to download.
 
 1 Create the VM image
@@ -65,10 +66,10 @@ In the UTM software:
 2 Configure the VM
 ^^^^^^^^^^^^^^^^^^
 In this section, ROS 2 is installed in the VM and the shared folder is configured.
-The following instruction and command are all run inside the VM.
+The following instructions and commands are all run inside the VM.
 
 * Open a terminal in the started VM and install the ROS 2 distribution you need by following the instructions in :doc:`../../../../Installation/Ubuntu-Install-Debians`:
-* Create a folder in the VM to use as shared folder.
+* Create a folder in the VM to use as a shared folder.
   In this example, the shared folder in the VM is ``/home/ubuntu/shared``.
 
   .. code-block:: console
@@ -104,7 +105,7 @@ The following instruction and command are all run inside the VM.
 3 Install ``webots_ros2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-You can then either install ``webots_ros2`` from the official released package, or install it from the last up-to-date sources committed on `Github <https://github.com/cyberbotics/webots_ros2>`_.
+You can either install ``webots_ros2`` from the official released package, or install it from the latest up-to-date sources from `Github <https://github.com/cyberbotics/webots_ros2>`_.
 
 .. tabs::
 
