@@ -1,5 +1,5 @@
 Installation (macOS)
-======================================
+====================
 
 **Goal:** Install the ``webots_ros2`` package and run simulation examples on macOS.
 
