@@ -113,7 +113,6 @@ The following commands must be run inside the WSL environment.
             source install/local_setup.bash
 
 
-
 4 Launch the ``webots_ros2_universal_robot`` example
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
