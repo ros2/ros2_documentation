@@ -98,9 +98,9 @@ Install ROS 2
 
   .. code-block:: bash
 
-     mkdir -p ~/ros2_{DISTRO}
-     cd ~/ros2_{DISTRO}
-     tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
+       mkdir -p ~/ros2_{DISTRO}
+       cd ~/ros2_{DISTRO}
+       tar xf ~/Downloads/ros2-package-linux-x86_64.tar.bz2
 
 Install dependencies using rosdep
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

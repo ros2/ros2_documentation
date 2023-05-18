@@ -29,12 +29,12 @@ Install ROS 2
 
 .. note::
 
-   There may be more than one binary download option which might cause the file name to differ.
+    There may be more than one binary download option which might cause the file name to differ.
 
 .. note::
 
-   To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
-   Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
+    To install debug libraries for ROS 2, see `Extra Stuff for Debug`_.
+    Then continue on with downloading ``ros2-package-windows-debug-AMD64.zip``.
 
 * Unpack the zip file somewhere (we'll assume ``C:\dev\ros2_{DISTRO}``\ ).
 
