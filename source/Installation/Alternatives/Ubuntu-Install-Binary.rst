@@ -23,8 +23,6 @@ System requirements
 -------------------
 
 We currently support Ubuntu Linux Jammy (22.04) 64-bit x86 and 64-bit ARM.
-The Rolling Ridley distribution will change target platforms from time to time as new platforms are selected for development.
-Most people will want to use a stable ROS distribution.
 
 System setup
 ------------
@@ -59,9 +57,6 @@ If you are going to build ROS packages or otherwise do development, you can also
 
 Install ROS 2
 -------------
-
-Binary releases of Rolling Ridley are not provided.
-Instead you may download nightly :ref:`prerelease binaries <Prerelease_binaries>`.
 
 * Download the latest package for Ubuntu; let's assume that it ends up at ``~/Downloads/ros2-package-linux-x86_64.tar.bz2``.
 
