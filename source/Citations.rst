@@ -21,3 +21,16 @@ S. Macenski, T. Foote, B. Gerkey, C. Lalancette, W. Woodall, “Robot Operating 
         doi = {10.1126/scirobotics.abm6074},
         URL = {https://www.science.org/doi/abs/10.1126/scirobotics.abm6074}
     }
+
+If you use ROS 2 Composition in your work, please cite the 2023 IEEE RA-L paper `Impact of ROS 2 Node Composition in Robotic Systems <https://arxiv.org/abs/2305.09933>`_.
+
+S. Macenski, A. Soragna, M. Carroll, Z. Ge, “Impact of ROS 2 Node Composition in Robotic Systems”, IEEE Robotics and Autonomous Letters (RA-L), 2023.
+
+.. code-block::
+
+    @article{
+        author = {Steven Macenski  and Alberto Soragna and Michael Carroll  and Zhenpeng Ge },
+        title = {Impact of ROS 2 Node Composition in Robotic Systems},
+        journal = {IEEE Robotics and Autonomous Letters (RA-L)},
+        year = {2023},
+    }
