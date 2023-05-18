@@ -21,6 +21,8 @@ Ensuring security across machines
 Background
 ----------
 
+Before proceeding ensure you have completed the :doc:`Introducing-ros2-security` tutorial.
+
 The previous tutorials have used two ROS nodes on the same machine sending all network communications over the localhost interface.
 Let's extend that scenario to involve multiple machines, since the benefits of authentication and encryption then become more obvious.
 
