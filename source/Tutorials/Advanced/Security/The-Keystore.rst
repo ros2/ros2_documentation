@@ -21,6 +21,8 @@ Understanding the security keystore
 Background
 ----------
 
+Before proceeding ensure you have completed the :doc:`Introducing-ros2-security` tutorial.
+
 The ``sros2`` package can be used to create keys, certificates and policies necessary to enable ROS 2 security.
 However, the security configuration is extrememly flexible.
 A basic understanding of the ROS 2 Security Keystore will allow integration with an existing PKI (Public Key Infrastructure) and managment of sensitive key materials consistent with organizational policies.
@@ -41,7 +43,7 @@ For this tutorial, we use the directory ``~/sros2_demo/demo_keystore``.
 Public Key Materials
 ^^^^^^^^^^^^^^^^^^^^
 
-You will find three encryption certificates in the public directory at ``~/sros2_demo/demo_keys/public``; however, the identity and permissions certificates are actually just a link to the Certificate Authority (CA) certificate.
+You will find three encryption certificates in the public directory at ``~/sros2_demo/demo_keystore/public``; however, the identity and permissions certificates are actually just a link to the Certificate Authority (CA) certificate.
 
 In a public key infrastructure, the `Certificate Authority <https://en.wikipedia.org/wiki/Certificate_authority>`_ acts as a trust anchor: it validates the identities and permissions of participants.
 For ROS, that means all the nodes that participate in the ROS graph (which may extend to an entire fleet of individual robots).
@@ -58,7 +60,7 @@ Use ``openssl`` to view this x509 certificate and display it as text:
 
 .. code-block:: bash
 
-  cd ~/sros2_demo/demo_keys/public
+  cd ~/sros2_demo/demo_keystore/public
   openssl x509 -in ca.cert.pem -text -noout
 
 The output should look similar to the following::
@@ -106,7 +108,7 @@ Since this is a public certificate, it can be freely copied as needed to establi
 Private Key Materials
 ^^^^^^^^^^^^^^^^^^^^^
 
-Private key materials can be found in the keystore directory ``~/sros2_demo/demo_keys/private``.
+Private key materials can be found in the keystore directory ``~/sros2_demo/demo_keystore/private``.
 Similar to the ``public`` directory, this contains one certificate authority key ``ca.key.pem`` and symbolic links to it to be used as both an Identity and a Permissions CA private key.
 
 .. warning::
@@ -128,7 +130,7 @@ Use the following command to show details about this elliptic curve private key:
 
 .. code-block:: bash
 
-  cd ~/sros2_demo/demo_keys/private
+  cd ~/sros2_demo/demo_keystore/private
   openssl ec -in ca.key.pem -text -noout
 
 Your output should look similar to the following::
@@ -154,7 +156,7 @@ In addition to the private key itself, note that the public key is listed, and i
 Domain Governance Policy
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Find the domain governance policy in the enclave directory within the keystore, ``~/sros2_demo/demo_keys/enclaves``.
+Find the domain governance policy in the enclave directory within the keystore, ``~/sros2_demo/demo_keystore/enclaves``.
 The ``enclave`` directory contains XML governance policy document ``governance.xml``, as well as a copy of the document which has been signed by the Permissions CA as ``governance.p7s``.
 
 The ``governance.p7s`` file contains domain-wide settings such as how to handle unauthenticated participants, whether to encrypt discovery, and default rules for access to topics.
@@ -211,7 +213,7 @@ Begin with a new terminal session and enable security with the keystore created 
   export ROS_SECURITY_ENABLE=true
   export ROS_SECURITY_STRATEGY=Enforce
 
-  cd ~/sros2_demo/demo_keys/enclaves/talker_listener/listener
+  cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/listener
 
 Make a backup copy of ``permissions.p7s`` before beginning.
 
