@@ -70,6 +70,10 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
 Add include paths of needed packages.
 (e.g. **/opt/ros/iron/include/rclcpp**, **/opt/ros/iron/include/std_msgs**, etc.)
 
+.. note::
+
+    Add **/opt/ros/\{DISTRO\}/include** if using ROS 2 DISTRO before **humble**.
+
 .. image:: images/eclipse_c++_add_directory_path.png
    :target: images/eclipse_c++_add_directory_path.png
    :alt: eclipse_c++_add_directory_path
