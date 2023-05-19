@@ -1,9 +1,9 @@
 .. redirect-from::
 
-    Tutorials/Building-ROS2-Package-with-eclipse
+    Tutorials/Building-ROS2-Package-with-eclipse-2021-06
 
-Building a package with Eclipse [Updated on 2023-05]
-====================================================
+Building a package with Eclipse 2021-06
+=======================================
 
 .. contents:: Table of Contents
    :depth: 2
