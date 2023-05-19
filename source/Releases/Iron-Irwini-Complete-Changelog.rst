@@ -2931,6 +2931,24 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Audrow Nash, Brian, Chris Lalancette, Emerson Knapp, Jacob Perron, Jose Luis Rivero, Shane Loretz
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_core_generators <https://github.com/ros2/rosidl_core/tree/iron/rosidl_core_generators/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* [rolling] Update maintainers - 2022-11-07 (`#2 <https://github.com/ros2/rosidl_core/issues/2>`__)
+* Add generators and runtime configuration packages (`#1 <https://github.com/ros2/rosidl_core/issues/1>`__) Moved (and renamed) from rosidl_defaults. Related PR: https://github.com/ros2/rosidl_defaults/pull/22
+* Contributors: Audrow Nash, Jacob Perron
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_core_runtime <https://github.com/ros2/rosidl_core/tree/iron/rosidl_core_runtime/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* [rolling] Update maintainers - 2022-11-07 (`#2 <https://github.com/ros2/rosidl_core/issues/2>`__)
+* Add generators and runtime configuration packages (`#1 <https://github.com/ros2/rosidl_core/issues/1>`__) Moved (and renamed) from rosidl_defaults. Related PR: https://github.com/ros2/rosidl_defaults/pull/22
+* Contributors: Audrow Nash, Jacob Perron
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_generators <https://github.com/ros2/rosidl_defaults/tree/iron/rosidl_default_generators/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2949,6 +2967,27 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [rolling] Update maintainers - 2022-11-07 (`#25 <https://github.com/ros2/rosidl_defaults/issues/25>`__)
 * Move dependencies to rosidl_core and depend on action_msgs (`#22 <https://github.com/ros2/rosidl_defaults/issues/22>`__) Move implementation to new packages rosidl_core_generators and rosidl_runtime_generators The new packages are located in a separate repository: https://github.com/ros2/rosidl_core.git rosidl_defaults now depends on the new packages, plus message definitions required for Actions (namely action_msgs). This allows users to avoid having to explictly depend on action_msgs.
 * Contributors: Audrow Nash, Brian, Jacob Perron
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_dynamic_typesupport <https://github.com/ros2/rosidl_dynamic_typesupport/tree/iron/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Fix up the exports for rosidl_dynamic_typesupport. (`#5 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/5>`__)
+* Refactor dynamic message type support impl to use allocators (`#2 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/2>`__)
+* Runtime Interface Reflection: rosidl_dynamic_typesupport (`#1 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/1>`__)
+* Contributors: Chris Lalancette, William Woodall, methylDragon
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_dynamic_typesupport_fastrtps <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/tree/iron/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Remove more unnecessary semicolons (`#4 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/4>`__)
+* Dynamic Subscription (BONUS: Allocators): rosidl_dynamic_typesupport_fastrtps (`#3 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/3>`__)
+* Remove unnecessary semicolons. (`#2 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/2>`__)
+* Runtime Interface Reflection: rosidl_dynamic_typesupport_fastrtps (`#1 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/1>`__)
+* Contributors: Chris Lalancette, methylDragon
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
