@@ -1,6 +1,7 @@
 .. redirect-from::
 
     Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
+    Tutorials/Advanced/Simulators/Ignition
 
 .. _SimulatorsIgnition:
 
