@@ -6,7 +6,8 @@ jobs:
   test:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
       - name: Setup Python
         uses: actions/setup-python@v1
@@ -14,8 +15,26 @@ jobs:
           python-version: 3.8
 
       - name: Install dependencies with pip
-        run: |
-          pip install --no-warn-script-location --user --upgrade -r requirements.txt
+        run: pip install --no-warn-script-location --user --upgrade -r requirements.txt
 
-      - run: make html
-      - run: make test
+      - name: Test doc8
+        run: make test
+    
+  build:
+    needs: test
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies with pip
+        run: pip install --no-warn-script-location --user --upgrade -r requirements.txt
+
+      - name: Build the docs
+        run: make html
+
