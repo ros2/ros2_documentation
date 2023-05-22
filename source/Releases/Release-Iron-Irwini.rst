@@ -239,11 +239,11 @@ The ``EventsExecutor`` from iRobot has been merged into the main ``rclcpp`` code
 This alternative executor implementation uses event-driven callbacks from the middleware implementations to fire callbacks at the ``rclcpp`` layer.
 In addition to the push-based model, the `EventsExecutor` also moves timer management into a separate thread, which can allow for more accurate results and lower overhead, especially with many timers.
 
-The ``EventsExecutor`` has a substantial set of documentation and use-in-practice that make a strong candidate for inclusion the the ``rclcpp`` codebase.
+The ``EventsExecutor`` has a substantial set of documentation and use-in-practice that make it a strong candidate for inclusion in the ``rclcpp`` codebase.
 For information about the initial implementation proposal as well as performance benchmarks, see https://discourse.ros.org/t/ros2-middleware-change-proposal/15863.
 For more information about the design, see the design PR: https://github.com/ros2/design/pull/305.
 
-Since the API is the same, trying the ``EventsExecutor`` is as straighforward as replacing your current Execotr implmentation (eg. ``SingleThreadedExecutor``):
+Since the API is the same, trying the ``EventsExecutor`` is as straightforward as replacing your current Executor implementation (eg. ``SingleThreadedExecutor``):
 
 .. code-block:: C++
 
