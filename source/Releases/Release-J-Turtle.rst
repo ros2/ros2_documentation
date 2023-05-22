@@ -3,7 +3,7 @@
 .. _j-release:
 
 ROS 2 J Turtle (codename 'TBD'; May, 2024)
-==============================================
+==========================================
 
 .. contents:: Table of Contents
    :depth: 2

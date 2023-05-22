@@ -297,18 +297,18 @@ Branches
 
 It is good practice to have **separate branches** in a package's source repository for each ROS distribution it is targeting.
 These branches are typically named after the distribution they target.
-For example, a ``rolling`` branch for development targeted specifically at the Rolling distribution.
+For example, a ``humble`` branch for development targeted specifically at the Humble distribution.
 
 Releases are also made from these branches, targeting the appropriate distribution.
 Development targeted at a specific ROS distribution can happen on the appropriate branch.
-For example: Development commits targeting ``rolling`` are made to the ``rolling`` branch, and package releases for ``rolling`` are made from that same branch.
+For example: Development commits targeting ``foxy`` are made to the ``foxy`` branch, and package releases for ``foxy`` are made from that same branch.
 
 .. note::
     This requires the package maintainers to perform backports or forwardports as appropriate to keep all branches up to date with features.
     The maintainers must also perform general maintenance (bug fixes, etc.) on all branches from which package releases are still made.
 
     For example, if a feature is merged into the Rolling-specific branch (e.g. ``rolling`` or ``main``), and that feature is also appropriate
-    to the Rolling distribution (does not break API, etc.), then it is good practice to backport the feature to the Rolling-specific branch.
+    to the Humble distribution (does not break API, etc.), then it is good practice to backport the feature to the Humble-specific branch.
 
     The maintainers may make releases for those older distributions if there are new features or bug fixes available.
 
