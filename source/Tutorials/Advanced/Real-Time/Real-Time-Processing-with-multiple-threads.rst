@@ -11,29 +11,21 @@ Real-Time Processing with Multiple Threads
 Introduction
 ------------
 
-You will learn in this tutorial to design a ROS 2 application, in which some callbacks 
-are processed with real-time priority and some with default scheduling priority.
-The simplest approach is to use separate threads in which an Executor spins. The limitation is
-that all callbacks (subscription, timers etc.) are treated with the same priority. If you have
-a node with different requirements, e.g. one real-time callback and one non real-time callback, then see the Tutorial :doc:`Real-Time Processing with Callback Groups <../Real-Time-Processing-with-Callback-Groups>`.
+In this tutorial you will learn how to design a ROS 2 application with real-time and non real-time requirements. The simplest approach is to define a ROS 2 nodes and call the corresponding Executor in multiple threads with different real-time priorities. The limitation is
+that all callbacks (subscription, timers etc.) of the ROS 2 node are processed with the same priority. If you have multiple callbacks within
+a ROS 2 node with different timing requirements, e.g. one real-time callback and one non real-time callback, then see Tutorial :doc:`Real-Time Processing with Callback Groups <../Real-Time-Processing-with-Callback-Groups>`.
 
 
-Setup
------
-TODO 
+Application
+-----------
 
-The setup is to publish two topics and to receive these two topics by two subscriptions.
-One subscription callback will be processed with real-time priority and the other with default
-priority.
+The application consists of two publishers and two subscriptions. One subscription callback shall be processed with real-time priority and the other one with the default scheduling priority. The real-time setup is tested by counting the number of context switches of other kernel processes. It should be zero for the real-time callback.
 
-The source file of this tutorial is found here https://github.com/ros-realtime/ros2-realtime-examples/tree/rolling/minimal_scheduling/minimal_scheduling_real_time_tutorial.cpp
+The complete source file of this tutorial is available `here <https://github.com/ros-realtime/ros2-realtime-examples/tree/rolling/minimal_scheduling/minimal_scheduling_real_time_tutorial.cpp>`_.
 
 
 Subscriber configuration
 ------------------------
-
-TODO copy from code-example. 
-
 
 First, a subscriber is defined:
 
@@ -68,15 +60,16 @@ First, a subscriber is defined:
    ContextSwitchesCounter context_switches_counter_;
    };
 
-To test the real-time setup, the number of preemptions is used as a metric
+To test the real-time setup, the number of preemptions by other kernel processes is used as a metric
 (`context_switches_counter_.get`). 
 
 To assign the real-time priority of the thread, the parameters of the scheduler and scheduling priority 
 are passed as option, when executing the ROS 2 program: 
-.. code-block:: bash
-ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial --sched SCHED_FIFO --priority 80
 
-In the main function, these parameters are read using a library function (`SchedOptionReader`).
+.. code-block:: bash
+   ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial --sched SCHED_FIFO --priority 80
+
+In the main function, these parameters are parsed using the library function (`SchedOptionReader`).
 
 .. code-block:: cpp
 
@@ -92,7 +85,8 @@ In the main function, these parameters are read using a library function (`Sched
    }
    auto options = options_reader.get_options();
 
-Then, the Publisher and Subscribers are defined. Here, the Publisher publishes two messages, `topic` and `topic_rt`.
+Then, the Publisher and Subscribers are defined. Here, the Publisher will periodically send the two messages, `topic` and `topic_rt`.
+
 
 .. code-block:: cpp
 
@@ -102,10 +96,11 @@ Then, the Publisher and Subscribers are defined. Here, the Publisher publishes t
    auto node_sub = std::make_shared<MinimalSubscriber>("minimal_sub1", "topic");
    auto node_sub_rt = std::make_shared<MinimalSubscriber>("minimal_sub2", "topic_rt");
 
-To configure the execution of the nodes, a default Executor and a real-time Executor are defined. 
-Here, we are using the StaticSingleThreadedExecutor, however, you could also use the MultiThreadedExecutor. 
-Then the Publisher and the non real-time Subscriber is added to the `default_executor`. The real-time 
-Subscription is added to the `realtime_executor`:
+
+Executor configuration
+----------------------
+
+To configure the execution management in ROS 2, a default Executor and a real-time Executor are defined. At this moment, it is only a name, no real-time criticality is configured. In terms of ROS 2 both are an instance of a Static Single-Threaded-Executor. However, you could also use the MultiThreadedExecutor. In a second step, Publisher node and the non real-time Subscriber are added to the `default_executor`. The real-time Subscription is added to the `realtime_executor`:
 
 .. code-block:: cpp
 
@@ -120,19 +115,19 @@ Subscription is added to the `realtime_executor`:
    realtime_executor.add_node(node_sub_rt);
 
 
-The operating system provides multi-threading by means of creating different threads. These threads can be
-configured in terms of their scheduling policy. Therefore we can now, create one thread that will spin the
-default executor; and one thread that will spin the realtime executor:
+Thread configuration
+----------------------
+The operating system provides multi-threading by means of creating different threads. These threads can be configured in terms of their scheduling policy. Therefore we will now create two threads: one thread in which the `default_executor` will spin; and one in which the `realtime_executor` will spin.
 
 .. code-block:: cpp
 
-   // spin non real-time tasks in a separate thread
+   // processing of normal callbacks in first thread
    auto default_thread = std::thread(
       [&]() {
          default_executor.spin();
       });
 
-   // spin real-time tasks in a separate thread
+   // processing of real-time callbacks in second thread
    auto realtime_thread = std::thread(
       [&]() {
          realtime_executor.spin();
@@ -141,8 +136,9 @@ default executor; and one thread that will spin the realtime executor:
    set_thread_scheduling(realtime_thread.native_handle(), options.policy, options.priority);
 
 
-In this example, we are using a function to set the scheduling parameters. It calls the POSIX
-function `pthread_setschedparam` to assign the scheduler and scheduling priority to a thread:
+Then, we assign to the `realtime_thread` the priority, that was passed by the command line argument. We are not assigning any scheduling parameter to the `default_thread`, so that the Publisher and the non real-time Subscription will be processed with default Linux settings.
+For simplicity, we are using a helper-function `set_thread_scheduling` to set the scheduling parameter of the thread. It calls the POSIX
+function `pthread_setschedparam` to assign the scheduler type and scheduling priority to a thread:
 
 .. code-block:: cpp
 
@@ -156,14 +152,30 @@ function `pthread_setschedparam` to assign the scheduler and scheduling priority
       }
    }
 
-Finally, the main function will wait until the threads will finish (in this case never).
+Note, that this construction of the thread function calls the `spin()`-function of the Executor. That implies that all callbacks that are managed by the Executor will be processed by this thread and regarding the execution timing "inherit" the scheduling policy of this thread. Note also that only entire nodes can be added to an Executor, that implies that the scheduling policy applies to all entities (timers, subscriptions, etc.) of a node, that was added to the Executor.
 
-.. code-block:: cpp
-   
-   default_thread.join();
-   realtime_thread.join();
+It is important to understand, that there is no real-time Executor in ROS 2, but only by running the `executor.spin()` function inside a real-time Linux thread makes it real-time capable.
 
-   rclcpp::shutdown();
-   return 0;
-   }
+Output
+------
+
+We run the example with default and a real-time priority (80). The output shows the number of context switches of other kernel processes during computation. The number of context switches of the real-time callback (minimal_sub2) is reduced to zero compared to 8-49 context switched for the non real-time configuration (minimal_sub1).
+
+.. code-block:: bash
+   ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial
+   [WARN] [1680948979.971439054] [minimal_sub1]: [sub]    Involuntary context switches: '25'
+   [WARN] [1680948979.971483357] [minimal_sub2]: [sub]    Involuntary context switches: '20'
+   [WARN] [1680948980.473828433] [minimal_sub1]: [sub]    Involuntary context switches: '23'
+   [WARN] [1680948980.473872245] [minimal_sub2]: [sub]    Involuntary context switches: '21'
+   [WARN] [1680948980.972909968] [minimal_sub1]: [sub]    Involuntary context switches: '26'
+   [WARN] [1680948980.973096277] [minimal_sub2]: [sub]    Involuntary context switches: '15'
+
+   ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial --sched SCHED_FIFO --priority 80
+   [WARN] [1680947876.099416572] [minimal_sub1]: [sub]    Involuntary context switches: '8'
+   [INFO] [1680947876.099471567] [minimal_sub2]: [sub]    Involuntary context switches: '0'
+   [WARN] [1680947876.599197932] [minimal_sub1]: [sub]    Involuntary context switches: '49'
+   [INFO] [1680947876.599202498] [minimal_sub2]: [sub]    Involuntary context switches: '0'
+   [WARN] [1680947877.101378852] [minimal_sub1]: [sub]    Involuntary context switches: '25'
+   [INFO] [1680947877.101372018] [minimal_sub2]: [sub]    Involuntary context switches: '0'
+
 

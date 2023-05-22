@@ -7,12 +7,12 @@ Real-Time Processing with Callback Groups
    :local:
 
 
+TODO
 
 Introduction
 ------------
 
-You will learn in this tutorial to design a ROS 2 application, in which some callbacks 
-are exeuted with real-time priority and some are executed with default scheduling priority. Here we will be using callback groups.
+In this tutorial you will learn to design a ROS 2 application, in which some callbacks are processed with real-time priority and some are executed with default scheduling priority. In this tutorial callback groups will be used.
 For tips on how to use callback groups efficiently, see also :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
 
 
