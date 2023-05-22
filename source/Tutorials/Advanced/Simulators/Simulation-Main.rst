@@ -4,8 +4,12 @@
 
 .. _SimulationMain:
 
-Simulation
+Simulators
 ==========
+
+Several advanced robot simulators can be used with ROS 2, such as Gazebo, Webots, etc.
+Unlike turtlesim, they provide fairly realistic results relying on physics-based models for robots, sensors, actuators and objects.
+Hence, what you observe in simulation is very close to what you will get when transferring your ROS 2 controllers to a real robot.
 
 This set of tutorials will teach you how to configure different simulators with ROS 2.
 
@@ -16,5 +20,5 @@ This set of tutorials will teach you how to configure different simulators with 
 .. toctree::
    :maxdepth: 1
 
-   Webots
-   Ignition
+   Webots/Simulation-Webots
+   Ignition/Simulation-Ignition
