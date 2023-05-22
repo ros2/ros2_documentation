@@ -756,7 +756,7 @@ See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rcl
 Known Issues
 ------------
 
-* ``rmw_connextdds`` does on work with Windows Binary release packages.
+* ``rmw_connextdds`` does not work with Windows Binary release packages.
   RTI is not longer distributing ``RTI ConnextDDS 6.0.1`` which was used by the packaging jobs to create the binaries for Windows.
   Instead they now distribute ``RTI ConnextDDS 6.1.0`` which is ABI incompatible with the generated binaries.
   The solution is to rely on source builds of ROS 2 and ``rmw_connextdds`` on Windows.
