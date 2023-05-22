@@ -1,7 +1,7 @@
-.. _RealTimeTutorial:
+.. _RealTimeTutorialCallbackGroups:
 
-Real-Time Processing with Multiple Threads
-==========================================
+Real-Time Processing with Callback Groups
+======================================
 
 .. contents:: Table of Contents
    :local:
@@ -12,15 +12,12 @@ Introduction
 ------------
 
 You will learn in this tutorial to design a ROS 2 application, in which some callbacks 
-are processed with real-time priority and some with default scheduling priority.
-The simplest approach is to use separate threads in which an Executor spins. The limitation is
-that all callbacks (subscription, timers etc.) are treated with the same priority. If you have
-a node with different requirements, e.g. one real-time callback and one non real-time callback, then see the Tutorial :doc:`Real-Time Processing with Callback Groups <../Real-Time-Processing-with-Callback-Groups>`.
+are exeuted with real-time priority and some are executed with default scheduling priority. Here we will be using callback groups.
+For tips on how to use callback groups efficiently, see also :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
 
 
 Setup
 -----
-TODO 
 
 The setup is to publish two topics and to receive these two topics by two subscriptions.
 One subscription callback will be processed with real-time priority and the other with default
@@ -31,9 +28,6 @@ The source file of this tutorial is found here https://github.com/ros-realtime/r
 
 Subscriber configuration
 ------------------------
-
-TODO copy from code-example. 
-
 
 First, a subscriber is defined:
 
