@@ -1,14 +1,14 @@
 # Make file to generate documentation
 
-SOURCE     = source
-OUT        = build
-LINKCHECKDIR  = $(OUT)/linkcheck
-BUILD      = python3 -m sphinx
-OPTS       =-c .
+SOURCE			= source
+OUT        		= build
+LINKCHECKDIR  	= $(OUT)/linkcheck
+BUILD      		= python3 -m sphinx
+OPTS       		= -c .
 
 help:
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
-	@echo "  multiversion to build documentation for all branches"
+	@echo "  \033[0;34mmultiversion\033[0m to build documentation for all branches"
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
