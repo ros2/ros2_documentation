@@ -254,6 +254,9 @@ Since the API is the same, trying the ``EventsExecutor`` is as straightforward a
     executor.add_node(node);
     executor.spin();
 
+**Note** The ``EventsExecutor`` and ``TimersManager`` are currently in the `experimental` namespace.
+While it has been used as a standalone implementation for some time https://github.com/irobot-ros/events-executor, it was decided to use the `experimental` namespace for at least one release to give latitude in changing the API within the release.
+Use caution as it will not be subject to the same API/ABI guarantees that the non-experimental code has.
 
 ``rclpy``
 ^^^^^^^^^
