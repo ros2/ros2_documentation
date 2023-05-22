@@ -757,10 +757,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `dummy_sensors <https://github.com/ros2/demos/tree/iron/dummy_robot/dummy_sensors/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix unstable LaserScan status for rviz2 (`#616 <https://github.com/ros2/demos/issues/616>`__)
 * Added README.md for dummy_sensors (`#573 <https://github.com/ros2/demos/issues/573>`__)
 * Update the demos to C++17. (`#594 <https://github.com/ros2/demos/issues/594>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#589 <https://github.com/ros2/demos/issues/589>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Gary Bey
+* Contributors: Audrow Nash, Chen Lihui, Chris Lalancette, Gary Bey
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -987,6 +988,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `foonathan_memory_vendor <https://github.com/eProsima/foonathan_memory_vendor/tree/master/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Added support for QNX 7.1 build (#65)
 * Update upstream to release 0.7-3 (#62)(#63)
 * Fix CMake minimum required version (#60)
 
@@ -1074,11 +1076,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `intra_process_demo <https://github.com/ros2/demos/tree/iron/intra_process_demo/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix executable name in README (`#619 <https://github.com/ros2/demos/issues/619>`__)
 * Change all ROS2 -> ROS 2. (`#610 <https://github.com/ros2/demos/issues/610>`__)
 * Added README.md for intra_process_demo (`#595 <https://github.com/ros2/demos/issues/595>`__)
 * Update the demos to C++17. (`#594 <https://github.com/ros2/demos/issues/594>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#589 <https://github.com/ros2/demos/issues/589>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Gary Bey
+* Contributors: Audrow Nash, Chris Lalancette, Gary Bey, Yadunund
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1553,6 +1556,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `qt_gui_cpp <https://github.com/ros-visualization/qt_gui_core/tree/iron/qt_gui_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix ClassLoader warning by unloading plugin providers. (`#275 <https://github.com/ros-visualization/qt_gui_core/issues/275>`__)
+* Chen Lihui
 * fix shiboken error (`#267 <https://github.com/ros-visualization/qt_gui_core/issues/267>`__)
 * Conditionally run import tests when generators are built (`#269 <https://github.com/ros-visualization/qt_gui_core/issues/269>`__)
 * Add in LICENSE file
@@ -1580,6 +1585,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `quality_of_service_demo_py <https://github.com/ros2/demos/tree/iron/quality_of_service_demo/rclpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use non-deprecated rclpy import. (`#617 <https://github.com/ros2/demos/issues/617>`__)
 * Change all ROS2 -> ROS 2. (`#610 <https://github.com/ros2/demos/issues/610>`__)
 * Enable document generation using rosdoc2 (`#606 <https://github.com/ros2/demos/issues/606>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#589 <https://github.com/ros2/demos/issues/589>`__)
@@ -1591,6 +1597,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rcl <https://github.com/ros2/rcl/tree/iron/rcl/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Honor ROS_LOCALHOST_ONLY if enabled. (`#1071 <https://github.com/ros2/rcl/issues/1071>`__)
 * fix flaky test (`#1063 <https://github.com/ros2/rcl/issues/1063>`__)
 * Add enable_type_description_service node option - API only (`#1060 <https://github.com/ros2/rcl/issues/1060>`__)
 * Dynamic Subscription (BONUS: Allocators): rcl (`#1057 <https://github.com/ros2/rcl/issues/1057>`__)
@@ -1702,6 +1709,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclcpp <https://github.com/ros2/rclcpp/tree/iron/rclcpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix delivered message kind (`#2175 <https://github.com/ros2/rclcpp/issues/2175>`__) (`#2178 <https://github.com/ros2/rclcpp/issues/2178>`__)
 * Add support for logging service. (`#2122 <https://github.com/ros2/rclcpp/issues/2122>`__)
 * Picking ABI-incompatible executor changes (`#2170 <https://github.com/ros2/rclcpp/issues/2170>`__)
 * add events-executor and timers-manager in rclcpp (`#2155 <https://github.com/ros2/rclcpp/issues/2155>`__)
@@ -1788,7 +1796,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Update get_parameter_from_event to follow the function description (`#1922 <https://github.com/ros2/rclcpp/issues/1922>`__)
 * Add 'best available' QoS enum values and methods (`#1920 <https://github.com/ros2/rclcpp/issues/1920>`__)
 * use reinterpret_cast for function pointer conversion. (`#1919 <https://github.com/ros2/rclcpp/issues/1919>`__)
-* Contributors: Alberto Soragna, Alexander Hans, Alexis Paques, Andrew Symington, Audrow Nash, Barry Xu, Brian, Chen Lihui, Chris Lalancette, Christophe Bedard, Christopher Wecht, Cristóbal Arroyo, Daniel Reuter, Deepanshu Bansal, Emerson Knapp, Hubert Liberacki, Ivan Santiago Paunovic, Jacob Perron, Jeffery Hsu, Jochen Sprickerhof, Lei Liu, Mateusz Szczygielski, Michael Carroll, Miguel Company, Nikolai Morin, Shane Loretz, Silvio Traversaro, Tomoya Fujita, Tyler Weaver, William Woodall, Yadu, andrei, mauropasse, methylDragon, schrodinbug, uupks, ymski
+* Contributors: Alberto Soragna, Alexander Hans, Alexis Paques, Andrew Symington, Audrow Nash, Barry Xu, Brian, Chen Lihui, Chris Lalancette, Christophe Bedard, Christopher Wecht, Cristóbal Arroyo, Daniel Reuter, Deepanshu Bansal, Emerson Knapp, Hubert Liberacki, Ivan Santiago Paunovic, Jacob Perron, Jeffery Hsu, Jochen Sprickerhof, Lei Liu, Mateusz Szczygielski, Michael Carroll, Miguel Company, Nikolai Morin, Shane Loretz, Silvio Traversaro, Tomoya Fujita, Tyler Weaver, William Woodall, Yadu, andrei, mauropasse, mergify[bot], methylDragon, schrodinbug, uupks, ymski
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -1850,6 +1858,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rclpy <https://github.com/ros2/rclpy/tree/iron/rclpy/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix type in Node init args (`#1115 <https://github.com/ros2/rclpy/issues/1115>`__) (`#1122 <https://github.com/ros2/rclpy/issues/1122>`__)
 * Logging service support (`#1102 <https://github.com/ros2/rclpy/issues/1102>`__)
 * Use custom sourcedir for conf.py (`#1109 <https://github.com/ros2/rclpy/issues/1109>`__)
 * ServerGoalHandle should be destroyed before removing. (`#1113 <https://github.com/ros2/rclpy/issues/1113>`__)
@@ -1910,7 +1919,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Expose 'best available' QoS policies (`#928 <https://github.com/ros2/rclpy/issues/928>`__)
 * remove feedback callback when the goal has been completed. (`#927 <https://github.com/ros2/rclpy/issues/927>`__)
 * Allow to create a subscription with a callback that also receives the message info (`#922 <https://github.com/ros2/rclpy/issues/922>`__)
-* Contributors: Achille Verheye, Audrow Nash, Barry Xu, Brian, Brian Chen, Chen Lihui, Chris Lalancette, Cristóbal Arroyo, Deepanshu Bansal, Emerson Knapp, Erki Suurjaak, Felix Divo, Florian Vahl, Gonzo, GuiHome, Ivan Santiago Paunovic, Jacob Perron, Lei Liu, Lucas Wendland, Michael Carroll, Sebastian Freitag, Seulbae Kim, Shane Loretz, Steve Nogar, Takeshi Ishita, Tomoya Fujita, Tony Najjar, Yadu, Yuki Igarashi
+* Contributors: Achille Verheye, Audrow Nash, Barry Xu, Brian, Brian Chen, Chen Lihui, Chris Lalancette, Cristóbal Arroyo, Deepanshu Bansal, Emerson Knapp, Erki Suurjaak, Felix Divo, Florian Vahl, Gonzo, GuiHome, Ivan Santiago Paunovic, Jacob Perron, Lei Liu, Lucas Wendland, Michael Carroll, Sebastian Freitag, Seulbae Kim, Shane Loretz, Steve Nogar, Takeshi Ishita, Tomoya Fujita, Tony Najjar, Yadu, Yuki Igarashi, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2222,6 +2231,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ros2bag <https://github.com/ros2/rosbag2/tree/iron/ros2bag/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Cleanup the help text for ros2 bag record. (`#1329 <https://github.com/ros2/rosbag2/issues/1329>`__) (`#1333 <https://github.com/ros2/rosbag2/issues/1333>`__)
 * Enable document generation using rosdoc2 for ament_python pkgs (`#1260 <https://github.com/ros2/rosbag2/issues/1260>`__)
 * CLI: Get storage-specific values from plugin (`#1209 <https://github.com/ros2/rosbag2/issues/1209>`__)
 * Fix up some of the wording in the record help text. (`#1228 <https://github.com/ros2/rosbag2/issues/1228>`__)
@@ -2248,7 +2258,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add CLI verb for burst mode of playback (`#980 <https://github.com/ros2/rosbag2/issues/980>`__)
 * Add play-for specified number of seconds functionality (`#960 <https://github.com/ros2/rosbag2/issues/960>`__)
 * Make unpublished topics unrecorded by default (`#968 <https://github.com/ros2/rosbag2/issues/968>`__)
-* Contributors: Agustin Alba Chicar, Chris Lalancette, DensoADAS, Emerson Knapp, EsipovPA, Esteve Fernandez, Geoffrey Biggs, Hunter L.Allen, Keisuke Shima, Michael Orlov, Sean Kelly, Tony Peng, Yadu, james-rms, kylemarcey, ricardo-manriquez
+* Contributors: Agustin Alba Chicar, Chris Lalancette, DensoADAS, Emerson Knapp, EsipovPA, Esteve Fernandez, Geoffrey Biggs, Hunter L.Allen, Keisuke Shima, Michael Orlov, Sean Kelly, Tony Peng, Yadu, james-rms, kylemarcey, mergify[bot], ricardo-manriquez
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2300,10 +2310,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ros2doctor <https://github.com/ros2/ros2cli/tree/iron/ros2doctor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Shutdown ros2doctor hello when ctrl-c is received (`#829 <https://github.com/ros2/ros2cli/issues/829>`__)
 * Make all of the dependencies in pure Python packages exec_depend. (`#823 <https://github.com/ros2/ros2cli/issues/823>`__)
 * Enable document generation using rosdoc2 (`#811 <https://github.com/ros2/ros2cli/issues/811>`__) * Fix warnings for ros2component, ros2doctor, ros2interface, and ros2node
 * [rolling] Update maintainers - 2022-11-07 (`#776 <https://github.com/ros2/ros2cli/issues/776>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Yadu
+* Contributors: Audrow Nash, Chris Lalancette, Michael Carroll, Yadu
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2382,11 +2393,12 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ros2pkg <https://github.com/ros2/ros2cli/tree/iron/ros2pkg/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix typo in ros2pkg warning message. (`#828 <https://github.com/ros2/ros2cli/issues/828>`__)
 * Make all of the dependencies in pure Python packages exec_depend. (`#823 <https://github.com/ros2/ros2cli/issues/823>`__)
 * resolve `#790 <https://github.com/ros2/ros2cli/issues/790>`__ (`#801 <https://github.com/ros2/ros2cli/issues/801>`__)
 * Add alias library targets for CMake (`#718 <https://github.com/ros2/ros2cli/issues/718>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#776 <https://github.com/ros2/ros2cli/issues/776>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Kenji Brameld, RFRIEDM-Trimble
+* Contributors: Audrow Nash, Chris Lalancette, Kenji Brameld, RFRIEDM-Trimble, Tomoya Fujita
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2475,6 +2487,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_compression <https://github.com/ros2/rosbag2/tree/iron/rosbag2_compression/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Add in a missing cstdint include. (`#1321 <https://github.com/ros2/rosbag2/issues/1321>`__) (`#1322 <https://github.com/ros2/rosbag2/issues/1322>`__)
+* Fix warning from ClassLoader in sequential compression reader and writer (`#1299 <https://github.com/ros2/rosbag2/issues/1299>`__) (`#1316 <https://github.com/ros2/rosbag2/issues/1316>`__)
 * Add message definition read API (`#1292 <https://github.com/ros2/rosbag2/issues/1292>`__)
 * rosbag2_storage: add type description hash to topic metadata (`#1272 <https://github.com/ros2/rosbag2/issues/1272>`__)
 * rosbag2_cpp: move local message definition source out of MCAP plugin (`#1265 <https://github.com/ros2/rosbag2/issues/1265>`__)
@@ -2487,7 +2501,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * set default metadata of compressed message (in case compressor does not set it) (`#1060 <https://github.com/ros2/rosbag2/issues/1060>`__)
 * Speed optimization: Preparing copyless publish/subscribing by using const message for writing (`#1010 <https://github.com/ros2/rosbag2/issues/1010>`__)
 * Add the ability to record any key/value pair in 'custom' field in metadata.yaml (`#1038 <https://github.com/ros2/rosbag2/issues/1038>`__)
-* Contributors: Chris Lalancette, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Hunter L. Allen, Joshua Hampp, Michael Orlov, Tony Peng, james-rms
+* Contributors: Chris Lalancette, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Hunter L. Allen, Joshua Hampp, Michael Orlov, Tony Peng, james-rms, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2505,6 +2519,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_cpp <https://github.com/ros2/rosbag2/tree/iron/rosbag2_cpp/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Add recorder stop() API (`#1300 <https://github.com/ros2/rosbag2/issues/1300>`__) (`#1334 <https://github.com/ros2/rosbag2/issues/1334>`__)
 * Add type_hash in MessageDefinition struct (`#1296 <https://github.com/ros2/rosbag2/issues/1296>`__)
 * Add message definition read API (`#1292 <https://github.com/ros2/rosbag2/issues/1292>`__)
 * rosbag2_storage: add type description hash to topic metadata (`#1272 <https://github.com/ros2/rosbag2/issues/1272>`__)
@@ -2536,7 +2551,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Notification of significant events during bag recording and playback (`#908 <https://github.com/ros2/rosbag2/issues/908>`__)
 * Bugfix for "Playing the bags recorded with split by duration/size is playing only the last recorded .db3." (`#1022 <https://github.com/ros2/rosbag2/issues/1022>`__)
 * Improve test_time_controller test (`#1012 <https://github.com/ros2/rosbag2/issues/1012>`__)
-* Contributors: Chris Lalancette, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Geoffrey Biggs, Hunter L. Allen, Jorge Perez, Joshua Hampp, Kaju-Bubanja, Michael Orlov, Tony Peng, james-rms, rshanor
+* Contributors: Chris Lalancette, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Geoffrey Biggs, Hunter L. Allen, Jorge Perez, Joshua Hampp, Kaju-Bubanja, Michael Orlov, Tony Peng, james-rms, mergify[bot], rshanor
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2555,8 +2570,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_examples_py <https://github.com/ros2/rosbag2/tree/iron/rosbag2_examples/rosbag2_examples_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix a warning from python setuptools. (`#1312 <https://github.com/ros2/rosbag2/issues/1312>`__) (`#1314 <https://github.com/ros2/rosbag2/issues/1314>`__)
 * Add API samples for Python [rebased] (`#1253 <https://github.com/ros2/rosbag2/issues/1253>`__) * Add API samples for Python * Package Renaming and Move * linting + copyright * more linting --------- Co-authored-by: Geoffrey Biggs <gbiggs@killbots.net>
-* Contributors: David V. Lu!!
+* Contributors: David V. Lu!!, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2606,6 +2622,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_py <https://github.com/ros2/rosbag2/tree/iron/rosbag2_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Add binding to close the writer (`#1339 <https://github.com/ros2/rosbag2/issues/1339>`__) (`#1340 <https://github.com/ros2/rosbag2/issues/1340>`__)
 * Add type_hash in MessageDefinition struct (`#1296 <https://github.com/ros2/rosbag2/issues/1296>`__)
 * Store message definitions in SQLite3 storage plugin (`#1293 <https://github.com/ros2/rosbag2/issues/1293>`__)
 * Add message definition read API (`#1292 <https://github.com/ros2/rosbag2/issues/1292>`__)
@@ -2636,7 +2653,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Add play-for specified number of seconds functionality (`#960 <https://github.com/ros2/rosbag2/issues/960>`__)
 * Make unpublished topics unrecorded by default (`#968 <https://github.com/ros2/rosbag2/issues/968>`__)
 * Fix test rosbag2_py test compatibility with Python < 3.8 (`#987 <https://github.com/ros2/rosbag2/issues/987>`__)
-* Contributors: Agustin Alba Chicar, Chris Lalancette, Daisuke Nishimatsu, Emerson Knapp, Esteve Fernandez, Geoffrey Biggs, Hunter L. Allen, Michael Orlov, Scott K Logan, Sean Kelly, Tony Peng, james-rms, kylemarcey, ricardo-manriquez
+* Contributors: Agustin Alba Chicar, Chris Lalancette, Daisuke Nishimatsu, Emerson Knapp, Esteve Fernandez, Geoffrey Biggs, Hunter L. Allen, Michael Orlov, Scott K Logan, Sean Kelly, Tony Peng, james-rms, kylemarcey, mergify[bot], ricardo-manriquez
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2774,13 +2791,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_test_common <https://github.com/ros2/rosbag2/tree/iron/rosbag2_test_common/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Address flakiness in rosbag2_play_end_to_end tests (`#1297 <https://github.com/ros2/rosbag2/issues/1297>`__) (`#1330 <https://github.com/ros2/rosbag2/issues/1330>`__)
 * Update rosbag2 to C++17. (`#1238 <https://github.com/ros2/rosbag2/issues/1238>`__)
 * Use target_link_libraries instead of ament_target_dependencies (`#1202 <https://github.com/ros2/rosbag2/issues/1202>`__)
 * Add Michael Orlov as maintainer in rosbag2 packages (`#1215 <https://github.com/ros2/rosbag2/issues/1215>`__)
 * rosbag2_py: parametrize tests across storage plugins (`#1203 <https://github.com/ros2/rosbag2/issues/1203>`__)
 * Fix for ros2 bag play exit with non-zero code on SIGINT (`#1126 <https://github.com/ros2/rosbag2/issues/1126>`__)
 * Split up the include of rclcpp.hpp (`#1027 <https://github.com/ros2/rosbag2/issues/1027>`__)
-* Contributors: Chris Lalancette, Daisuke Nishimatsu, Michael Orlov, james-rms
+* Contributors: Chris Lalancette, Daisuke Nishimatsu, Michael Orlov, james-rms, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2795,6 +2813,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rosbag2_tests <https://github.com/ros2/rosbag2/tree/iron/rosbag2_tests/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Address flakiness in rosbag2_play_end_to_end tests (`#1297 <https://github.com/ros2/rosbag2/issues/1297>`__) (`#1330 <https://github.com/ros2/rosbag2/issues/1330>`__)
 * Add type_hash in MessageDefinition struct (`#1296 <https://github.com/ros2/rosbag2/issues/1296>`__)
 * rosbag2_cpp: move local message definition source out of MCAP plugin (`#1265 <https://github.com/ros2/rosbag2/issues/1265>`__)
 * Update rosbag2 to C++17. (`#1238 <https://github.com/ros2/rosbag2/issues/1238>`__)
@@ -2808,13 +2827,15 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Move sqlite3 storage implementation to rosbag2_storage_sqlite3 package (`#1113 <https://github.com/ros2/rosbag2/issues/1113>`__)
 * Readers/info can accept a single bag storage file, and detect its storage id automatically (`#1072 <https://github.com/ros2/rosbag2/issues/1072>`__)
 * Add the ability to record any key/value pair in 'custom' field in metadata.yaml (`#1038 <https://github.com/ros2/rosbag2/issues/1038>`__)
-* Contributors: Chris Lalancette, Daisuke Nishimatsu, Emerson Knapp, Hunter L. Allen, Michael Orlov, Tony Peng, james-rms
+* Contributors: Chris Lalancette, Daisuke Nishimatsu, Emerson Knapp, Hunter L. Allen, Michael Orlov, Tony Peng, james-rms, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosbag2_transport <https://github.com/ros2/rosbag2/tree/iron/rosbag2_transport/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Change subscriptions from GenericSubscripton to SubscriptionBase (`#1338 <https://github.com/ros2/rosbag2/issues/1338>`__)
+* Add recorder stop() API (`#1300 <https://github.com/ros2/rosbag2/issues/1300>`__) (`#1334 <https://github.com/ros2/rosbag2/issues/1334>`__)
 * Read message definitions from input files in bag_rewrite (`#1295 <https://github.com/ros2/rosbag2/issues/1295>`__)
 * Add message definition read API (`#1292 <https://github.com/ros2/rosbag2/issues/1292>`__)
 * Move rosbag2_transport::Recorder implementation to pimpl (`#1291 <https://github.com/ros2/rosbag2/issues/1291>`__)
@@ -2862,7 +2883,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Make unpublished topics unrecorded by default (`#968 <https://github.com/ros2/rosbag2/issues/968>`__)
 * Make peek_next_message_from_queue return a SharedPtr. (`#993 <https://github.com/ros2/rosbag2/issues/993>`__)
 * Change the topic names in test_record.cpp (`#988 <https://github.com/ros2/rosbag2/issues/988>`__)
-* Contributors: Agustin Alba Chicar, Bernardo Taveira, Brian, Chris Lalancette, Cristóbal Arroyo, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Esteve Fernandez, Geoffrey Biggs, Jorge Perez, Joshua Hampp, Michael Orlov, Misha Shalem, Sean Kelly, Tony Peng, james-rms, kylemarcey, rshanor
+* Contributors: Agustin Alba Chicar, Bernardo Taveira, Brian, Chris Lalancette, Cristóbal Arroyo, Daisuke Nishimatsu, DensoADAS, Emerson Knapp, Esteve Fernandez, Geoffrey Biggs, Jorge Perez, Joshua Hampp, Michael Orlov, Misha Shalem, Sean Kelly, Tony Peng, james-rms, kylemarcey, mergify[bot], rshanor
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2910,6 +2931,24 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Contributors: Audrow Nash, Brian, Chris Lalancette, Emerson Knapp, Jacob Perron, Jose Luis Rivero, Shane Loretz
 
 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_core_generators <https://github.com/ros2/rosidl_core/tree/iron/rosidl_core_generators/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* [rolling] Update maintainers - 2022-11-07 (`#2 <https://github.com/ros2/rosidl_core/issues/2>`__)
+* Add generators and runtime configuration packages (`#1 <https://github.com/ros2/rosidl_core/issues/1>`__) Moved (and renamed) from rosidl_defaults. Related PR: https://github.com/ros2/rosidl_defaults/pull/22
+* Contributors: Audrow Nash, Jacob Perron
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_core_runtime <https://github.com/ros2/rosidl_core/tree/iron/rosidl_core_runtime/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* [rolling] Update maintainers - 2022-11-07 (`#2 <https://github.com/ros2/rosidl_core/issues/2>`__)
+* Add generators and runtime configuration packages (`#1 <https://github.com/ros2/rosidl_core/issues/1>`__) Moved (and renamed) from rosidl_defaults. Related PR: https://github.com/ros2/rosidl_defaults/pull/22
+* Contributors: Audrow Nash, Jacob Perron
+
+
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 `rosidl_default_generators <https://github.com/ros2/rosidl_defaults/tree/iron/rosidl_default_generators/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2928,6 +2967,27 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * [rolling] Update maintainers - 2022-11-07 (`#25 <https://github.com/ros2/rosidl_defaults/issues/25>`__)
 * Move dependencies to rosidl_core and depend on action_msgs (`#22 <https://github.com/ros2/rosidl_defaults/issues/22>`__) Move implementation to new packages rosidl_core_generators and rosidl_runtime_generators The new packages are located in a separate repository: https://github.com/ros2/rosidl_core.git rosidl_defaults now depends on the new packages, plus message definitions required for Actions (namely action_msgs). This allows users to avoid having to explictly depend on action_msgs.
 * Contributors: Audrow Nash, Brian, Jacob Perron
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_dynamic_typesupport <https://github.com/ros2/rosidl_dynamic_typesupport/tree/iron/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Fix up the exports for rosidl_dynamic_typesupport. (`#5 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/5>`__)
+* Refactor dynamic message type support impl to use allocators (`#2 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/2>`__)
+* Runtime Interface Reflection: rosidl_dynamic_typesupport (`#1 <https://github.com/ros2/rosidl_dynamic_typesupport/issues/1>`__)
+* Contributors: Chris Lalancette, William Woodall, methylDragon
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rosidl_dynamic_typesupport_fastrtps <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/tree/iron/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Remove more unnecessary semicolons (`#4 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/4>`__)
+* Dynamic Subscription (BONUS: Allocators): rosidl_dynamic_typesupport_fastrtps (`#3 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/3>`__)
+* Remove unnecessary semicolons. (`#2 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/2>`__)
+* Runtime Interface Reflection: rosidl_dynamic_typesupport_fastrtps (`#1 <https://github.com/ros2/rosidl_dynamic_typesupport_fastrtps/issues/1>`__)
+* Contributors: Chris Lalancette, methylDragon
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3232,6 +3292,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_bag <https://github.com/ros-visualization/rqt_bag/tree/iron/rqt_bag/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Use default storage id (`#140 <https://github.com/ros-visualization/rqt_bag/issues/140>`__)
 * Use rosbag2_py API instead of direct bag parsing
 * [rolling] Update maintainers - 2022-11-07 (`#132 <https://github.com/ros-visualization/rqt_bag/issues/132>`__)
 * For get_entry_after, bump by 1 nanosecond otherwise always get the same message equal to the timestamp
@@ -3250,7 +3311,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix tuples for bisect calls (`#67 <https://github.com/ros-visualization/rqt_bag/issues/67>`__) (`#76 <https://github.com/ros-visualization/rqt_bag/issues/76>`__)
 * fix long topic names (`#114 <https://github.com/ros-visualization/rqt_common_plugins/issues/114>`__)
 * fix zoom behavior (`#76 <https://github.com/ros-visualization/rqt_common_plugins/issues/76>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Emerson Knapp, Ivan Santiago Paunovic, Kenji Brameld
+* Contributors: Audrow Nash, Chris Lalancette, Emerson Knapp, Ivan Santiago Paunovic, Kenji Brameld, Yadunund
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3275,12 +3336,13 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_graph <https://github.com/ros-visualization/rqt_graph/tree/iron/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Refresh rosgraph when params checkbox is clicked (`#87 <https://github.com/ros-visualization/rqt_graph/issues/87>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#83 <https://github.com/ros-visualization/rqt_graph/issues/83>`__)
 * Minor cleanup (`#80 <https://github.com/ros-visualization/rqt_graph/issues/80>`__)
 * Mirror rolling to galactic-devel
 * graph load/save into DOT file corrections for py3 (`#78 <https://github.com/ros-visualization/rqt_graph/issues/78>`__)
 * Remove repeated prefixes from buttons
-* Contributors: Audrow Nash, Chris Lalancette, David V. Lu!!, mergify[bot]
+* Contributors: Audrow Nash, Chris Lalancette, David V. Lu!!, Yadunund, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3305,8 +3367,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_gui_py <https://github.com/ros-visualization/rqt/tree/iron/rqt_gui_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix an exception raised when terminating with Ctrl+c (`#292 <https://github.com/ros-visualization/rqt/issues/292>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#283 <https://github.com/ros-visualization/rqt/issues/283>`__)
-* Contributors: Audrow Nash, Dharini Dutia, quarkytale
+* Contributors: Audrow Nash, Chen Lihui, Dharini Dutia, quarkytale
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3321,10 +3384,11 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_plot <https://github.com/ros-visualization/rqt_plot/tree/iron/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix regression from #87 (`#91 <https://github.com/ros-visualization/rqt_plot/issues/91>`__)
 * Changes the use of __slots_\_ for the field and field type getter (`#87 <https://github.com/ros-visualization/rqt_plot/issues/87>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#83 <https://github.com/ros-visualization/rqt_plot/issues/83>`__)
 * Fix fixed-size Array visualization (`#81 <https://github.com/ros-visualization/rqt_plot/issues/81>`__)
-* Contributors: Audrow Nash, Eloy Briceno, Jacob Perron, Michael Jeronimo
+* Contributors: Audrow Nash, Eloy Briceno, Jacob Perron, Michael Jeronimo, Yadunund
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3410,6 +3474,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix the display of array type elements. (`#41 <https://github.com/ros-visualization/rqt_topic/issues/41>`__)
 * Fix removal of topics while they are being monitored. (`#39 <https://github.com/ros-visualization/rqt_topic/issues/39>`__)
 * Contributors: Audrow Nash, Chris Lalancette, Jacob Perron
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`rti_connext_dds_cmake_module <https://github.com/ros2/rmw_connextdds/tree/iron/rti_connext_dds_cmake_module/CHANGELOG.rst>`__
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Use unified approach for checking the existence of environment variables (`#117 <https://github.com/ros2/rmw_connextdds/issues/117>`__)
+* Contributors: Christopher Wecht
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3612,8 +3684,9 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `sros2 <https://github.com/ros2/sros2/tree/iron/sros2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix SSH commands in SROS2_Linux.md (`#286 <https://github.com/ros2/sros2/issues/286>`__)
 * Make type of get_package_share_directory apparent for sphinx (`#284 <https://github.com/ros2/sros2/issues/284>`__)
-* Contributors: Yadu
+* Contributors: Boris Boutillier, Yadu
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3815,13 +3888,14 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `test_tracetools <https://github.com/ros2/ros2_tracing/tree/iron/test_tracetools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Disable tracing on Android (`#72 <https://github.com/ros2/ros2_tracing/issues/72>`__)
 * Add intra-process tracepoints (`#30 <https://github.com/ros2/ros2_tracing/issues/30>`__)
 * Allow requiring minimum lttng package version for is_lttng_installed (`#59 <https://github.com/ros2/ros2_tracing/issues/59>`__)
 * Disable tracing on macOS (`#53 <https://github.com/ros2/ros2_tracing/issues/53>`__)
 * Include tracepoints by default on Linux (`#31 <https://github.com/ros2/ros2_tracing/issues/31>`__)
 * Fix memory leak in tracetools::get_symbol() (`#43 <https://github.com/ros2/ros2_tracing/issues/43>`__)
 * Update tracing to C++17. (`#33 <https://github.com/ros2/ros2_tracing/issues/33>`__)
-* Contributors: Chris Lalancette, Christophe Bedard, ymski
+* Contributors: Chris Lalancette, Christophe Bedard, Przemysław Dąbrowski, ymski
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -3839,6 +3913,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `tf2 <https://github.com/ros2/geometry2/tree/iron/tf2/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Fix error code returned in BufferCore::walkToTopParent (`#602 <https://github.com/ros2/geometry2/issues/602>`__)
 * Depend on ament_cmake_ros to default SHARED to ON (`#591 <https://github.com/ros2/geometry2/issues/591>`__)
 * Fix a potential crash in TimeCache::findClosest (`#592 <https://github.com/ros2/geometry2/issues/592>`__)
 * Extend TimeCache API to provide rich ExtrapolationException infos (`#586 <https://github.com/ros2/geometry2/issues/586>`__)
@@ -4008,6 +4083,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `tracetools <https://github.com/ros2/ros2_tracing/tree/iron/tracetools/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Disable tracing on Android (`#72 <https://github.com/ros2/ros2_tracing/issues/72>`__)
 * Add intra-process tracepoints (`#30 <https://github.com/ros2/ros2_tracing/issues/30>`__)
 * Improve tracetools rosdoc2/doxygen output (`#57 <https://github.com/ros2/ros2_tracing/issues/57>`__)
 * Update README and other documentation (`#55 <https://github.com/ros2/ros2_tracing/issues/55>`__)
@@ -4017,7 +4093,8 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Fix memory leak in tracetools::get_symbol() (`#43 <https://github.com/ros2/ros2_tracing/issues/43>`__)
 * Add TRACEPOINT_ENABLED() and DO_TRACEPOINT() macros (`#46 <https://github.com/ros2/ros2_tracing/issues/46>`__)
 * Update tracing to C++17. (`#33 <https://github.com/ros2/ros2_tracing/issues/33>`__)
-* Contributors: Chris Lalancette, Christophe Bedard, ymski
+* Add new rclcpp_subscription_init tracepoint to support new intra-process comms
+* Contributors: Chris Lalancette, Christophe Bedard, Przemysław Dąbrowski, ymski
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -4061,11 +4138,13 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `turtlesim <https://github.com/ros/ros_tutorials/tree/iron/turtlesim/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+* Remove the range constraints from the holonomic parameter. (`#150 <https://github.com/ros/ros_tutorials/issues/150>`__) (`#151 <https://github.com/ros/ros_tutorials/issues/151>`__)
+* Add icon (`#148 <https://github.com/ros/ros_tutorials/issues/148>`__) (`#149 <https://github.com/ros/ros_tutorials/issues/149>`__)
 * Update turtlesim to C++17. (`#146 <https://github.com/ros/ros_tutorials/issues/146>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#145 <https://github.com/ros/ros_tutorials/issues/145>`__)
 * Add parameter to enable holonomic motion (`#131 <https://github.com/ros/ros_tutorials/issues/131>`__)
 * Add humble turtle (`#140 <https://github.com/ros/ros_tutorials/issues/140>`__)
-* Contributors: Audrow Nash, Chris Lalancette, Daisuke Sato
+* Contributors: Audrow Nash, Chris Lalancette, Daisuke Sato, mergify[bot]
 
 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
