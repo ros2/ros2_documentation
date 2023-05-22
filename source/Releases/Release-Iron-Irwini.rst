@@ -763,7 +763,7 @@ Known Issues
 
 * ``sros2`` on Windows requires users to downgrade the ``cryptography`` python module to ``cryptography==38.0.4`` as discussed `here <https://github.com/ros2/sros2/issues/285>`_.
 
-* ``ros1_bridge`` does not work with ROS Noetic packages from `upstream Ubuntu <https://packages.ubuntu.com/jammy/ros-core-dev>`_.
+* ``ros1_bridge`` does not work with ROS Noetic packages from `upstream Ubuntu <https://packages.ubuntu.com/jammy/ros-core-dev>`_.  The suggested workaround is to build ROS Noetic from sources, then build the ``ros1_bridge`` using that.
 
 Release Timeline
 ----------------
