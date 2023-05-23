@@ -84,7 +84,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
         rosbag2_cpp::Reader reader;
-        reader.open("/home/mroglan/subset");
+        reader.open("/path/to/subset");
         
         while (reader.has_next()) {
             rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
