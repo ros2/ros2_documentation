@@ -47,7 +47,7 @@ a new package:
 
 .. code-block:: console
 
-  ros2 pkg create --build-type ament_cmake bag_reading_cpp --dependencies rclcpp rosbag2_cpp turtlesim
+  ros2 pkg create --build-type ament_cmake --license Apache-2.0 bag_reading_cpp --dependencies rclcpp rosbag2_cpp turtlesim
 
 Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
