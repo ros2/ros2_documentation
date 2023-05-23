@@ -160,13 +160,11 @@ There is a new ROS 2 distribution released yearly on May 23rd (`World Turtle Day
      - Release date
      - Logo
      - EOL date
-   * - J Turtle (TBD)
+   * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
      - May 2024
      - TBD
      - May 2029
 
-
-The expectation is to release new ROS 2 distributions once per year.
 
 .. _rolling_distribution:
 
