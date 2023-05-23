@@ -230,3 +230,9 @@ Now run the script:
     ros2 run bag_reading_cpp simple_bag_reader
 
 You should see the (x, y) coordinates of the turtle printed to the console.
+
+Summary
+-------
+
+You created a C++ executable that reads data from a bag. 
+You then compiled and ran the executable which printed some information from the bag to the console.
