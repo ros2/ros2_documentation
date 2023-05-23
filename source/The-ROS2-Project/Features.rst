@@ -48,7 +48,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - :doc:`Demo <../Tutorials/Intermediate/Composition>`
      - Currently only in C++.
    * - Multiple executors (at level of callback groups) in same node
-     - `Demo <https://github.com/ros2/examples/tree/humble/rclcpp/executors/cbg_executor>`__
+     - `Demo <https://github.com/ros2/examples/tree/{DISTRO}/rclcpp/executors/cbg_executor>`__
      - Only in C++.
    * - Support for nodes with managed lifecycles
      - :doc:`Demo <../Tutorials/Demos/Managed-Nodes>`
