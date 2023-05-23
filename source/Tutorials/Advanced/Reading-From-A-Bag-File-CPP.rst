@@ -178,3 +178,73 @@ Finally, we close the bag reader and the file writer.
 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
+
+Now open the ``CMakeLists.txt`` file.
+
+Below the dependencies block, which contains ``find_package(rosbag2_cpp REQUIRED)``, add the following lines of code.
+
+.. code-block:: console
+
+    add_executable(simple_bag_reader src/simple_bag_reader.cpp)
+    ament_target_dependencies(simple_bag_reader rclcpp rosbag2_cpp turtlesim)
+
+    install(TARGETS
+      simple_bag_reader
+      DESTINATION lib/${PROJECT_NAME}
+    )
+
+3 Build and run
+^^^^^^^^^^^^^^^
+
+Navigate back to the root of your workspace and build your new package.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_reading_cpp
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      colcon build --packages-select bag_reading_cpp
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      colcon build --merge-install --packages-select bag_reading_cpp
+
+Next, source the setup files.
+
+.. tabs::
+
+  .. group-tab:: Linux
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: macOS
+
+    .. code-block:: console
+
+      source install/setup.bash
+
+  .. group-tab:: Windows
+
+    .. code-block:: console
+
+      call install/setup.bat
+
+Now run the script:
+
+.. code-block:: console
+
+    ros2 run bag_reading_cpp simple_bag_reader
+
+You will see the "Finished listing positions" message in the console. There will now be a text file saved
+in the location you specified containing the x and y coordinates of the turtle.
