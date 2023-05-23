@@ -79,31 +79,31 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
     #include "rosbag2_cpp/reader.hpp"
     #include "turtlesim/msg/pose.hpp"
 
-    int main() {
+    int main() 
+    {
+      rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
-        rclcpp::Serialization<turtlesim::msg::Pose> serialization;
-
-        rosbag2_cpp::Reader reader;
-        reader.open("/path/to/subset");
+      rosbag2_cpp::Reader reader;
+      reader.open("/path/to/subset");
         
-        while (reader.has_next()) {
-            rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
+      while (reader.has_next()) {
+        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
-            if (msg->topic_name != "/turtle1/pose") {
-              continue;
-            }
-
-            rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
-            turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
-
-            serialization.deserialize_message(&serialized_msg, ros_msg.get());
-
-            std::cout << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
+        if (msg->topic_name != "/turtle1/pose") {
+          continue;
         }
 
-        reader.close();
+        rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
+        turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
 
-        return 0;
+        serialization.deserialize_message(&serialized_msg, ros_msg.get());
+
+        std::cout << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
+      }
+
+      reader.close();
+
+      return 0;
     }
 
 2.1 Examine the code
@@ -130,7 +130,7 @@ We can now begin reading messages from the bag. To do so we first loop through e
 .. code-block:: C++
 
     while (reader.has_next()) {
-        rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
+      rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
 The serialized bag message has some metadata which we can access before deserializing the message: the topic name and the timestamp of the message.
 In this case, we are using the topic name to identify the messages we care about, the turtle's pose, and we are ignoring other messages.
