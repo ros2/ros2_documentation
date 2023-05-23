@@ -74,24 +74,19 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 .. code-block:: C++
 
     #include <iostream>
-    #include <fstream>
 
     #include "rclcpp/serialization.hpp"
     #include "rosbag2_cpp/reader.hpp"
     #include "turtlesim/msg/pose.hpp"
 
-    int main(int argc, char** argv) 
-    {
-        std::ofstream ofs;
-        ofs.open("/path/to/output.txt", std::ofstream::out | std::ostream::trunc);
+    int main(int argc, char** argv) {
 
         rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
         rosbag2_cpp::Reader reader;
-        reader.open("/path/to/subset");
+        reader.open("/home/mroglan/subset");
         
-        while (reader.has_next()) 
-        {
+        while (reader.has_next()) {
             rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
             if (msg->topic_name != "/turtle1/pose") continue;
@@ -101,14 +96,10 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 
             serialization.deserialize_message(&serialized_msg, ros_msg.get());
 
-            ofs << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
+            std::cout << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
         }
 
         reader.close();
-
-        ofs.close();
-
-        std::cout << "Finished listing positions!\n";
 
         return 0;
     }
@@ -119,14 +110,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 The ``#include`` statements at the top are the package dependencies.
 Note the inclusion of headers from the ``rosbag2_cpp`` package for the functions and structures necessary to work with bag files.
 
-First, we create a text file into which we will write the recored positions of the turtle.
-
-.. code-block:: C++
-
-    std::ofstream ofs;
-    ofs.open("/path/to/output.txt", std::ofstream::out | std::ostream::trunc);
-  
-Next, we need to instantiate an ``rclcpp::Serialization`` object which will handle the deserialization of our specified message, in this case the turtlesim ``Pose`` message.
+First, we need to instantiate an ``rclcpp::Serialization`` object which will handle the deserialization of our specified message, in this case the turtlesim ``Pose`` message.
 
 .. code-block:: C++
 
@@ -162,19 +146,18 @@ We then construct an ``rclcpp::SerializedMessage`` object from the serialized da
 
     serialization.deserialize_message(&serialized_msg, ros_msg.get());
 
-Our ``Pose`` message is now populated with the recorded pose of the turtle. We can then write an (x, y) coordinate to our text file.
+Our ``Pose`` message is now populated with the recorded pose of the turtle. 
+We can then print an (x, y) coordinate to the console.
 
 .. code-block:: C++
 
-    ofs << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
+    std::cout << '(' << ros_msg->x << ", " << ros_msg->y << ")\n";
 
-Finally, we close the bag reader and the file writer.
+Finally, we close the bag reader.
 
 .. code-block:: C++
 
     reader.close();
-
-    ofs.close();
 
 2.2 Add executable
 ~~~~~~~~~~~~~~~~~~
@@ -246,5 +229,4 @@ Now run the script:
 
     ros2 run bag_reading_cpp simple_bag_reader
 
-You will see the "Finished listing positions" message in the console. There will now be a text file saved
-in the location you specified containing the x and y coordinates of the turtle.
+You should see the (x, y) coordinates of the turtle printed to the console.
