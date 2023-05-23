@@ -125,9 +125,9 @@ templates_path = [
 smv_branch_whitelist = r'^(rolling|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(humble|galactic|foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'humble'
+smv_latest_version = 'iron'
 smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'galactic']
 
 distro_full_names = {
