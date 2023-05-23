@@ -756,7 +756,14 @@ See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rcl
 Known Issues
 ------------
 
-To come.
+* ``rmw_connextdds`` does not work with Windows Binary release packages.
+  RTI is not longer distributing ``RTI ConnextDDS 6.0.1`` which was used by the packaging jobs to create the binaries for Windows.
+  Instead they now distribute ``RTI ConnextDDS 6.1.0`` which is ABI incompatible with the generated binaries.
+  The solution is to rely on source builds of ROS 2 and ``rmw_connextdds`` on Windows.
+
+* ``sros2`` on Windows requires users to downgrade the ``cryptography`` python module to ``cryptography==38.0.4`` as discussed `here <https://github.com/ros2/sros2/issues/285>`_.
+
+* ``ros1_bridge`` does not work with ROS Noetic packages from `upstream Ubuntu <https://packages.ubuntu.com/jammy/ros-core-dev>`_.  The suggested workaround is to build ROS Noetic from sources, then build the ``ros1_bridge`` using that.
 
 Release Timeline
 ----------------
