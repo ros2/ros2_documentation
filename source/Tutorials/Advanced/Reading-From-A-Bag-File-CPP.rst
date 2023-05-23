@@ -129,8 +129,7 @@ We can now begin reading messages from the bag. To do so we first loop through e
 
 .. code-block:: C++
 
-    while (reader.has_next()) 
-    {
+    while (reader.has_next()) {
         rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
 The serialized bag message has some metadata which we can access before deserializing the message: the topic name and the timestamp of the message. In this case, we are using the topic name to identify the messages we care about, the turtle's pose, and we are ignoring other messages.
