@@ -79,7 +79,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
     #include "rosbag2_cpp/reader.hpp"
     #include "turtlesim/msg/pose.hpp"
 
-    int main(int argc, char** argv) {
+    int main() {
 
         rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
