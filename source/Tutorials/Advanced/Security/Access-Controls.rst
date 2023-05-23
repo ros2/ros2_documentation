@@ -21,6 +21,8 @@ Setting access controls
 Background
 ----------
 
+Before proceeding ensure you have completed the :doc:`Introducing-ros2-security` tutorial.
+
 Permissions are quite flexible and can be used to control many behaviors within the ROS graph.
 
 For this tutorial, we demonstrate a policy which only allows publishing messages on the default ``chatter`` topic.
@@ -37,7 +39,7 @@ Begin by making a backup of your permissions files, and open ``permissions.xml``
 
 .. code-block:: bash
 
-  cd ~/sros2_demo/demo_keys/enclaves/talker_listener/talker
+  cd ~/sros2_demo/demo_keystore/enclaves/talker_listener/talker
   mv permissions.p7s permissions.p7s~
   mv permissions.xml permissions.xml~
   vi permissions.xml
@@ -115,7 +117,7 @@ If the private key has been protected, additional steps may be required to unloc
 
   openssl smime -sign -text -in permissions.xml -out permissions.p7s \
     --signer permissions_ca.cert.pem \
-    -inkey ~/sros2_demo/demo_keys/private/permissions_ca.key.pem
+    -inkey ~/sros2_demo/demo_keystore/private/permissions_ca.key.pem
 
 
 Launch the node
