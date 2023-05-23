@@ -17,7 +17,7 @@ Background
 
 ``rosbag2`` doesn't just provide the ``ros2 bag`` command line tool.
 It also provides a C++ API for reading from and writing to a bag from your own source code.
-This allows you to read the contents from a bag without having play to the bag, which can be useful for certain use cases.
+This allows you to read the contents from a bag without having play to the bag, which can sometimes be useful.
 
 Prerequisites
 -------------
@@ -31,8 +31,8 @@ If it is not, you can install it using this command.
 
   sudo apt install ros-{DISTRO}-rosbag2
 
-This tutorial discusses using ROS 2 bags, including from the terminal.
-You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`, and we will be using the ``subset`` bag you created.
+This tutorial discusses using ROS 2 bags.
+You should have already completed the :doc:`basic ROS 2 bag tutorial <../Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data>`, and we will be using the ``subset`` bag you created there.
 
 Tasks
 -----
@@ -49,7 +49,7 @@ a new package:
 
   ros2 pkg create --build-type ament_cmake bag_reading_cpp --dependencies rclcpp rosbag2_cpp turtlesim
 
-Your terminal will return a message verifying the creation of your package ``bag_recorder_nodes`` and all its necessary files and folders.
+Your terminal will return a message verifying the creation of your package ``bag_reading_cpp`` and all its necessary files and folders.
 The ``--dependencies`` argument will automatically add the necessary dependency lines to ``package.xml`` and ``CMakeLists.txt``.
 In this case, the package will use the ``rosbag2_cpp`` package as well as the ``rclcpp`` package.
 A dependency on the ``turtlesim`` package is also required for working with the custom turtlesim messages.
@@ -62,7 +62,7 @@ As always, though, make sure to add the description, maintainer email and name, 
 
 .. code-block:: xml
 
-  <description>C++ bag writing tutorial</description>
+  <description>C++ bag reading tutorial</description>
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
