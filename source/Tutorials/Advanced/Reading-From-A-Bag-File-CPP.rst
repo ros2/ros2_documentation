@@ -141,7 +141,9 @@ In this case, we are using the topic name to identify the messages we care about
       continue;
     }
 
-We then construct an ``rclcpp::SerializedMessage`` object from the serialized data we just read. Additionally, we need to create a ROS 2 deserialized message which will hold the result of our deserialization. Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize_message`` method.
+We then construct an ``rclcpp::SerializedMessage`` object from the serialized data we just read.
+Additionally, we need to create a ROS 2 deserialized message which will hold the result of our deserialization.
+Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize_message`` method.
 
 .. code-block:: C++
     
