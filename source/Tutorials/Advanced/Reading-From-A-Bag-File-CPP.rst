@@ -89,7 +89,9 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
         while (reader.has_next()) {
             rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
-            if (msg->topic_name != "/turtle1/pose") continue;
+            if (msg->topic_name != "/turtle1/pose") {
+              continue;
+            }
 
             rclcpp::SerializedMessage serialized_msg(*msg->serialized_data);
             turtlesim::msg::Pose::SharedPtr ros_msg = std::make_shared<turtlesim::msg::Pose>();
