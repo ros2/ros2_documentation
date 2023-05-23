@@ -237,7 +237,7 @@ Introduction of a new executor type: the Events Executor
 
 The ``EventsExecutor`` from iRobot has been merged into the main ``rclcpp`` codebase.
 This alternative executor implementation uses event-driven callbacks from the middleware implementations to fire callbacks at the ``rclcpp`` layer.
-In addition to the push-based model, the `EventsExecutor` also moves timer management into a separate thread, which can allow for more accurate results and lower overhead, especially with many timers.
+In addition to the push-based model, the ``EventsExecutor`` also moves timer management into a separate thread, which can allow for more accurate results and lower overhead, especially with many timers.
 
 The ``EventsExecutor`` has a substantial set of documentation and use-in-practice that make it a strong candidate for inclusion in the ``rclcpp`` codebase.
 For information about the initial implementation proposal as well as performance benchmarks, see https://discourse.ros.org/t/ros2-middleware-change-proposal/15863.
@@ -254,8 +254,8 @@ Since the API is the same, trying the ``EventsExecutor`` is as straightforward a
     executor.add_node(node);
     executor.spin();
 
-**Note** The ``EventsExecutor`` and ``TimersManager`` are currently in the `experimental` namespace.
-While it has been used as a standalone implementation for some time https://github.com/irobot-ros/events-executor, it was decided to use the `experimental` namespace for at least one release to give latitude in changing the API within the release.
+**Note** The ``EventsExecutor`` and ``TimersManager`` are currently in the ``experimental`` namespace.
+While it has been used as a standalone implementation for some time https://github.com/irobot-ros/events-executor, it was decided to use the ``experimental`` namespace for at least one release to give latitude in changing the API within the release.
 Use caution as it will not be subject to the same API/ABI guarantees that the non-experimental code has.
 
 ``rclpy``
