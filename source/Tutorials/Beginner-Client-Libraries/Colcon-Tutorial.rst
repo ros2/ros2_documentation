@@ -231,6 +231,8 @@ To run tests for the packages we just built, run the following:
 
     You also need to specify ``--merge-install`` here since we used it for building above.
 
+.. _colcon-tutorial-source-the-environment:
+
 Source the environment
 ^^^^^^^^^^^^^^^^^^^^^^
 
