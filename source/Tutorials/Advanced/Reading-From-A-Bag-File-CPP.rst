@@ -78,13 +78,18 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
     #include "rosbag2_cpp/reader.hpp"
     #include "turtlesim/msg/pose.hpp"
 
-    int main() 
+    int main(int argc, char ** argv) 
     {
+      if (argc != 2) {
+        std::cerr << "Usage: " << argv[0] << " <bag>" << std::endl;
+        return 1;
+      }
+
       rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
       rosbag2_cpp::Reader reader;
-      reader.open("/path/to/subset");
-        
+      reader.open(argv[1]);
+      
       while (reader.has_next()) {
         rosbag2_storage::SerializedBagMessageSharedPtr msg = reader.read_next();
 
@@ -111,20 +116,31 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 The ``#include`` statements at the top are the package dependencies.
 Note the inclusion of headers from the ``rosbag2_cpp`` package for the functions and structures necessary to work with bag files.
 
-First, we need to instantiate an ``rclcpp::Serialization`` object which will handle the deserialization of our specified message, in this case the turtlesim ``Pose`` message.
+First, we check that the bag path has been provided as an argument.
+If not, we return an error.
+
+.. code-block:: C++
+
+    if (argc != 2) {
+      std::cerr << "Usage: " << argv[0] << " <bag>" << std::endl;
+      return 1;
+    }
+
+Next, we need to instantiate an ``rclcpp::Serialization`` object which will handle the deserialization of our specified message, in this case the turtlesim ``Pose`` message.
 
 .. code-block:: C++
 
     rclcpp::Serialization<turtlesim::msg::Pose> serialization;
 
-Then, we use rosbag2's reader to open the bag. Note that you should specify the path to the bag's directory, not a file within.
+Then, we use rosbag2's reader to open the bag.
 
 .. code-block:: C++
 
     rosbag2_cpp::Reader reader;
-    reader.open("/path/to/subset");
+    reader.open(argv[1]);
 
-We can now begin reading messages from the bag. To do so we first loop through each serialized message in the bag. 
+We can now begin reading messages from the bag. 
+To do so we first loop through each serialized message in the bag. 
 
 .. code-block:: C++
 
@@ -228,11 +244,12 @@ Next, source the setup files.
 
       call install/setup.bat
 
-Now run the script:
+Now, run the script.
+Make sure to replace ``/path/to/setup`` with the path to your ``setup`` bag.
 
 .. code-block:: console
 
-    ros2 run bag_reading_cpp simple_bag_reader
+    ros2 run bag_reading_cpp simple_bag_reader /path/to/setup
 
 You should see the (x, y) coordinates of the turtle printed to the console.
 
