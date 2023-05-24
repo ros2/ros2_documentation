@@ -16,7 +16,7 @@ Background
 
 ``rosbag2`` doesn't just provide the ``ros2 bag`` command line tool.
 It also provides a C++ API for reading from and writing to a bag from your own source code.
-This allows you to read the contents from a bag without having play to the bag, which can sometimes be useful.
+This allows you to read the contents from a bag without having to play the bag, which can sometimes be useful.
 
 Prerequisites
 -------------
