@@ -7,8 +7,11 @@ BUILD      		= python3 -m sphinx
 OPTS       		= -c .
 
 help:
+	$(eval BLUE=\033[0;34m)
+	$(eval NC=\033[0m)
+
 	@$(BUILD) -M help "$(SOURCE)" "$(OUT)" $(OPTS)
-	@echo "  \033[0;34mmultiversion\033[0m to build documentation for all branches"
+	@echo "  $(BLUE)multiversion$(NC) to build documentation for all branches"
 
 multiversion: Makefile
 	sphinx-multiversion $(OPTS) "$(SOURCE)" build/html
