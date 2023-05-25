@@ -56,7 +56,7 @@ The security environment variables are not set so security is not enabled for th
 .. code-block:: bash
 
   # Disable ROS Security for both terminals
-  export ROS_SECURITY_ENABLE=false
+  unset ROS_SECURITY_ENABLE
 
   # In terminal 1:
   ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
