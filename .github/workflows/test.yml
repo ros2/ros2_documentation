@@ -3,10 +3,7 @@ name: Test
 on:
   push:
     branches:
-      - 'foxy'
-      - 'humble'
-      - 'iron'
-      - 'rolling'
+      - '*'
   pull_request:
 
 jobs:
