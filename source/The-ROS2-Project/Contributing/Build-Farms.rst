@@ -54,7 +54,7 @@ The names of the jobs encode their type and purpose: [1]_
    * ``{distro}src_{platf}__{package}__{platform}__source`` build source packages of releases
    * ``{distro}bin_{platf}__{package}__{platform}__binary`` build binary packages of releases
 
-   For instance, the binary packaging job of rclcpp on ROS 2 Iron (running on Ubuntu Jammy amd64) is named ``Ibin_uJ64__rclcpp__ubuntu_focal_amd64__binary``.
+   For instance, the binary packaging job of rclcpp on ROS 2 Iron (running on Ubuntu Jammy amd64) is named ``Ibin_uJ64__rclcpp__ubuntu_jammy_amd64__binary``.
 
 * devel jobs:
 
