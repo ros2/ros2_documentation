@@ -32,6 +32,7 @@ You have also learned about :doc:`parameters <../Beginner-CLI-Tools/Understandin
 
 Tasks
 -----
+
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
@@ -53,7 +54,7 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
 
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
@@ -92,8 +93,7 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
 
       void timer_callback()
       {
-        std::string my_param =
-          this->get_parameter("my_parameter").get_parameter_value().get<std::string>();
+        std::string my_param = this->get_parameter("my_parameter").as_string();
 
         RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
 
@@ -137,7 +137,7 @@ Next the ``timer_`` is initialized with a period of 1000ms, which causes the ``t
       }
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
-Next the ``RCLCPP_INFO`` function ensures the message is logged.
+Next the ``RCLCPP_INFO`` function ensures the event is logged.
 The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
 In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
 
@@ -145,8 +145,7 @@ In the case that the user changed the parameter externally, this ensures it is a
 
     void timer_callback()
     {
-      std::string my_param =
-        this->get_parameter("my_parameter").get_parameter_value().get<std::string>();
+      std::string my_param = this->get_parameter("my_parameter").as_string();
 
       RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
 
@@ -154,7 +153,7 @@ In the case that the user changed the parameter externally, this ensures it is a
       this->set_parameters(all_new_parameters);
     }
 
-Last is the declaration of ``timer_``
+Last is the declaration of ``timer_``.
 
 .. code-block:: C++
 
@@ -214,7 +213,7 @@ Now open the ``CMakeLists.txt`` file. Below the dependency ``find_package(rclcpp
     ament_target_dependencies(minimal_param_node rclcpp)
 
     install(TARGETS
-      minimal_param_node
+        minimal_param_node
       DESTINATION lib/${PROJECT_NAME}
     )
 
@@ -270,7 +269,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -317,13 +316,13 @@ Open another terminal, source the setup files from inside ``ros2_ws`` again, and
     ros2 param list
 
 There you will see the custom parameter ``my_parameter``.
-To change it simply run the following line in the console:
+To change it, simply run the following line in the console:
 
 .. code-block:: console
 
     ros2 param set /minimal_param_node my_parameter earth
 
-You know it went well if you get the output ``Set parameter successful``.
+You know it went well if you got the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
 
 3.2 Change via a launch file
@@ -400,7 +399,7 @@ Then source the setup files in a new terminal:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -420,16 +419,18 @@ Now run the node using the launch file we have just created:
 
      ros2 launch cpp_parameters cpp_parameters_launch.py
 
-The terminal should return the following message every second:
+The terminal should return the following message the first time:
 
 .. code-block:: console
 
     [INFO] [custom_minimal_param_node]: Hello earth!
 
+Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
+
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from a launch file or the command line.
+You created a node with a custom parameter that can be set either from a launch file or the command line.
 You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
 
 Next steps

@@ -27,19 +27,19 @@ Actions are a form of asynchronous communication in ROS.
 Prerequisites
 -------------
 
-You will need the ``action_tutorials_interfaces`` package and the ``Fibonacci.action``
+You will need the ``custom_action_interfaces`` package and the ``Fibonacci.action``
 interface defined in the previous tutorial, :doc:`../Creating-an-Action`.
 
 Tasks
 -----
 
-1 Creating the action_tutorials_cpp package
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+1 Creating the custom_action_cpp package
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 As we saw in the :doc:`../../Beginner-Client-Libraries/Creating-Your-First-ROS2-Package` tutorial, we need to create a new package to hold our C++ and supporting code.
 
-1.1 Creating the action_tutorials_cpp package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1.1 Creating the custom_action_cpp package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Go into the action workspace you created in the :doc:`previous tutorial <../Creating-an-Action>` (remember to source the workspace), and create a new package for the C++ action server:
 
@@ -51,21 +51,21 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
     .. code-block:: bash
 
       cd ~/ros2_ws/src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
+      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
       cd ~/ros2_ws/src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
+      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      cd \dev\ros2_ws\src
-      ros2 pkg create --dependencies action_tutorials_interfaces rclcpp rclcpp_action rclcpp_components -- action_tutorials_cpp
+      cd \ros2_ws\src
+      ros2 pkg create --dependencies custom_action_interfaces rclcpp rclcpp_action rclcpp_components --license Apache-2.0 -- custom_action_cpp
 
 1.2 Adding in visibility control
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,12 +73,12 @@ Go into the action workspace you created in the :doc:`previous tutorial <../Crea
 In order to make the package compile and work on Windows, we need to add in some "visibility control".
 For more details, see :ref:`Windows Symbol Visibility in the Windows Tips and Tricks document <Windows_Symbol_Visibility>`.
 
-Open up ``action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h``, and put the following code in:
+Open up ``custom_action_cpp/include/custom_action_cpp/visibility_control.h``, and put the following code in:
 
 .. code-block:: c++
 
-  #ifndef ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
-  #define ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
+  #ifndef CUSTOM_ACTION_CPP__VISIBILITY_CONTROL_H_
+  #define CUSTOM_ACTION_CPP__VISIBILITY_CONTROL_H_
 
   #ifdef __cplusplus
   extern "C"
@@ -90,37 +90,37 @@ Open up ``action_tutorials_cpp/include/action_tutorials_cpp/visibility_control.h
 
   #if defined _WIN32 || defined __CYGWIN__
     #ifdef __GNUC__
-      #define ACTION_TUTORIALS_CPP_EXPORT __attribute__ ((dllexport))
-      #define ACTION_TUTORIALS_CPP_IMPORT __attribute__ ((dllimport))
+      #define CUSTOM_ACTION_CPP_EXPORT __attribute__ ((dllexport))
+      #define CUSTOM_ACTION_CPP_IMPORT __attribute__ ((dllimport))
     #else
-      #define ACTION_TUTORIALS_CPP_EXPORT __declspec(dllexport)
-      #define ACTION_TUTORIALS_CPP_IMPORT __declspec(dllimport)
+      #define CUSTOM_ACTION_CPP_EXPORT __declspec(dllexport)
+      #define CUSTOM_ACTION_CPP_IMPORT __declspec(dllimport)
     #endif
-    #ifdef ACTION_TUTORIALS_CPP_BUILDING_DLL
-      #define ACTION_TUTORIALS_CPP_PUBLIC ACTION_TUTORIALS_CPP_EXPORT
+    #ifdef CUSTOM_ACTION_CPP_BUILDING_DLL
+      #define CUSTOM_ACTION_CPP_PUBLIC CUSTOM_ACTION_CPP_EXPORT
     #else
-      #define ACTION_TUTORIALS_CPP_PUBLIC ACTION_TUTORIALS_CPP_IMPORT
+      #define CUSTOM_ACTION_CPP_PUBLIC CUSTOM_ACTION_CPP_IMPORT
     #endif
-    #define ACTION_TUTORIALS_CPP_PUBLIC_TYPE ACTION_TUTORIALS_CPP_PUBLIC
-    #define ACTION_TUTORIALS_CPP_LOCAL
+    #define CUSTOM_ACTION_CPP_PUBLIC_TYPE CUSTOM_ACTION_CPP_PUBLIC
+    #define CUSTOM_ACTION_CPP_LOCAL
   #else
-    #define ACTION_TUTORIALS_CPP_EXPORT __attribute__ ((visibility("default")))
-    #define ACTION_TUTORIALS_CPP_IMPORT
+    #define CUSTOM_ACTION_CPP_EXPORT __attribute__ ((visibility("default")))
+    #define CUSTOM_ACTION_CPP_IMPORT
     #if __GNUC__ >= 4
-      #define ACTION_TUTORIALS_CPP_PUBLIC __attribute__ ((visibility("default")))
-      #define ACTION_TUTORIALS_CPP_LOCAL  __attribute__ ((visibility("hidden")))
+      #define CUSTOM_ACTION_CPP_PUBLIC __attribute__ ((visibility("default")))
+      #define CUSTOM_ACTION_CPP_LOCAL  __attribute__ ((visibility("hidden")))
     #else
-      #define ACTION_TUTORIALS_CPP_PUBLIC
-      #define ACTION_TUTORIALS_CPP_LOCAL
+      #define CUSTOM_ACTION_CPP_PUBLIC
+      #define CUSTOM_ACTION_CPP_LOCAL
     #endif
-    #define ACTION_TUTORIALS_CPP_PUBLIC_TYPE
+    #define CUSTOM_ACTION_CPP_PUBLIC_TYPE
   #endif
 
   #ifdef __cplusplus
   }
   #endif
 
-  #endif  // ACTION_TUTORIALS_CPP__VISIBILITY_CONTROL_H_
+  #endif  // CUSTOM_ACTION_CPP__VISIBILITY_CONTROL_H_
 
 2 Writing an action server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -130,7 +130,7 @@ Let's focus on writing an action server that computes the Fibonacci sequence usi
 2.1 Writing the action server code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open up ``action_tutorials_cpp/src/fibonacci_action_server.cpp``, and put the following code in:
+Open up ``custom_action_cpp/src/fibonacci_action_server.cpp``, and put the following code in:
 
 .. literalinclude:: scripts/server.cpp
     :language: c++
@@ -209,7 +209,7 @@ In the previous section we put the action server code into place.
 To get it to compile and run, we need to do a couple of additional things.
 
 First we need to setup the CMakeLists.txt so that the action server is compiled.
-Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
+Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
 
 .. code-block:: cmake
 
@@ -219,13 +219,13 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
   target_compile_definitions(action_server
-    PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
+    PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
   ament_target_dependencies(action_server
-    "action_tutorials_interfaces"
+    "custom_action_interfaces"
     "rclcpp"
     "rclcpp_action"
     "rclcpp_components")
-  rclcpp_components_register_node(action_server PLUGIN "action_tutorials_cpp::FibonacciActionServer" EXECUTABLE fibonacci_action_server)
+  rclcpp_components_register_node(action_server PLUGIN "custom_action_cpp::FibonacciActionServer" EXECUTABLE fibonacci_action_server)
   install(TARGETS
     action_server
     ARCHIVE DESTINATION lib
@@ -238,7 +238,7 @@ And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and
 
   colcon build
 
-This should compile the entire workspace, including the ``fibonacci_action_server`` in the ``action_tutorials_cpp`` package.
+This should compile the entire workspace, including the ``fibonacci_action_server`` in the ``custom_action_cpp`` package.
 
 2.3 Running the action server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -248,7 +248,7 @@ Source the workspace we just built (``ros2_ws``), and try to run the action serv
 
 .. code-block:: bash
 
-  ros2 run action_tutorials_cpp fibonacci_action_server
+  ros2 run custom_action_cpp fibonacci_action_server
 
 3 Writing an action client
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -256,7 +256,7 @@ Source the workspace we just built (``ros2_ws``), and try to run the action serv
 3.1 Writing the action client code
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open up ``action_tutorials_cpp/src/fibonacci_action_client.cpp``, and put the following code in:
+Open up ``custom_action_cpp/src/fibonacci_action_client.cpp``, and put the following code in:
 
 .. literalinclude:: scripts/client.cpp
     :language: c++
@@ -337,7 +337,7 @@ In the previous section we put the action client code into place.
 To get it to compile and run, we need to do a couple of additional things.
 
 First we need to setup the CMakeLists.txt so that the action client is compiled.
-Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
+Open up ``custom_action_cpp/CMakeLists.txt``, and add the following right after the ``find_package`` calls:
 
 .. code-block:: cmake
 
@@ -347,13 +347,13 @@ Open up ``action_tutorials_cpp/CMakeLists.txt``, and add the following right aft
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
   target_compile_definitions(action_client
-    PRIVATE "ACTION_TUTORIALS_CPP_BUILDING_DLL")
+    PRIVATE "CUSTOM_ACTION_CPP_BUILDING_DLL")
   ament_target_dependencies(action_client
-    "action_tutorials_interfaces"
+    "custom_action_interfaces"
     "rclcpp"
     "rclcpp_action"
     "rclcpp_components")
-  rclcpp_components_register_node(action_client PLUGIN "action_tutorials_cpp::FibonacciActionClient" EXECUTABLE fibonacci_action_client)
+  rclcpp_components_register_node(action_client PLUGIN "custom_action_cpp::FibonacciActionClient" EXECUTABLE fibonacci_action_client)
   install(TARGETS
     action_client
     ARCHIVE DESTINATION lib
@@ -366,7 +366,7 @@ And now we can compile the package.  Go to the top-level of the ``ros2_ws``, and
 
   colcon build
 
-This should compile the entire workspace, including the ``fibonacci_action_client`` in the ``action_tutorials_cpp`` package.
+This should compile the entire workspace, including the ``fibonacci_action_client`` in the ``custom_action_cpp`` package.
 
 3.3 Running the action client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -377,7 +377,7 @@ Now source the workspace we just built (``ros2_ws``), and try to run the action 
 
 .. code-block:: bash
 
-  ros2 run action_tutorials_cpp fibonacci_action_client
+  ros2 run custom_action_cpp fibonacci_action_client
 
 You should see logged messages for the goal being accepted, feedback being printed, and the final result.
 

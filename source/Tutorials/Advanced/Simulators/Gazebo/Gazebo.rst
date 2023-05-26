@@ -2,6 +2,7 @@
 
     Tutorials/Simulators/Ignition/Setting-up-a-Robot-Simulation-Ignition
     Tutorials/Advanced/Simulators/Ignition
+    Tutorials/Advanced/Simulators/Gazebo
 
 Setting up a robot simulation (Gazebo)
 ======================================

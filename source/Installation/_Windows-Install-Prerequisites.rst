@@ -1,12 +1,12 @@
-Installing prerequisites
-------------------------
+System setup
+------------
 
 Install Chocolatey
 ^^^^^^^^^^^^^^^^^^
 
 Chocolatey is a package manager for Windows, install it by following their installation instructions:
 
-https://chocolatey.org/
+https://chocolatey.org/install
 
 You'll use Chocolatey to install some other developer tools.
 
@@ -32,7 +32,7 @@ Install OpenSSL
 ^^^^^^^^^^^^^^^
 
 Download the *Win64 OpenSSL v1.1.1n* OpenSSL installer from `this page <https://slproweb.com/products/Win32OpenSSL.html>`__.
-Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1n*.
+Scroll to the bottom of the page and download *Win64 OpenSSL v1.1.1t*.
 Don't download the Win32 or Light versions, or the v3.X.Y installers.
 
 Run the installer with default parameters, as the following commands assume you used the default installation directory.
@@ -124,7 +124,16 @@ Now install some additional python dependencies:
 
 .. code-block:: bash
 
-   python -m pip install -U catkin_pkg cryptography empy importlib-metadata lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
+   python -m pip install -U catkin_pkg cryptography empy importlib-metadata jsonschema lark==1.1.1 lxml matplotlib netifaces numpy opencv-python PyQt5 pillow psutil pycairo pydot pyparsing==2.4.7 pyyaml rosdistro
+
+Install miscellaneous prerequisites
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Next install xmllint:
+
+* Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
+* Unpack all archives into e.g. ``C:\xmllint``
+* Add ``C:\xmllint\bin`` to the ``PATH``.
 
 Install Qt5
 ^^^^^^^^^^^
@@ -151,8 +160,3 @@ RQt dependencies
 
 To run rqt_graph you need to `download <https://graphviz.gitlab.io/_pages/Download/Download_windows.html>`__ and install `Graphviz <https://graphviz.gitlab.io/>`__.
 The installer will ask if to add graphviz to PATH, choose to either add it to the current user or all users.
-
-Install additional DDS implementations (optional)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you would like to use another DDS or RTPS vendor besides the default, Fast DDS, you can find instructions `here </Installation/DDS-Implementations>`_.

@@ -1,8 +1,4 @@
-.. _latest_release:
-
 .. _humble-release:
-
-.. move this directive when next release page is created
 
 Humble Hawksbill (``humble``)
 =============================

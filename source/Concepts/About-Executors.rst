@@ -92,7 +92,7 @@ All three executors can be used with multiple nodes by calling ``add_node(..)`` 
    rclcpp::executors::StaticSingleThreadedExecutor executor;
    executor.add_node(node1);
    executor.add_node(node2);
-   executor.add_node(node2);
+   executor.add_node(node3);
    executor.spin();
 
 In the above example, the one thread of a Static Single-Threaded Executor is used to serve three nodes together.
@@ -165,7 +165,7 @@ This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <h
 Outlook
 -------
 
-While the three Executors of rclcpp work well for most applications there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
+While the three Executors of rclcpp work well for most applications, there are some issues that make them not suitable for real-time applications, which require well-defined execution times, determinism, and custom control over the execution order.
 Here is a summary of some of these issues:
 
 1. Complex and mixed scheduling semantics.
@@ -176,14 +176,14 @@ Here is a summary of some of these issues:
 4. No built-in control over triggering for specific topics.
 
 Additionally, the executor overhead in terms of CPU and memory usage is considerable.
-The Static Single-Threaded Executor reduces this overhead greatly but it might be not enough for some applications.
+The Static Single-Threaded Executor reduces this overhead greatly but it might not be enough for some applications.
 
 These issues have been partially addressed by the following developments:
 
 * `rclcpp WaitSet <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/wait_set.hpp>`_: The ``WaitSet`` class of rclcpp allows waiting directly on subscriptions, timers, service servers, action servers, etc. instead of using an Executor.
   It can be used to implement deterministic, user-defined processing sequences, possibly processing multiple messages from different subscriptions together.
   The `examples_rclcpp_wait_set package <https://github.com/ros2/examples/tree/{REPOS_FILE_BRANCH}/rclcpp/wait_set>`_ provides several examples for the use of this user-level wait set mechanism.
-* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc* developed for micro-ROS gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
+* `rclc Executor <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_: This Executor from the C Client Library *rclc*, developed for micro-ROS, gives the user fine-grained control over the execution order of callbacks and allows for custom trigger conditions to activate callbacks.
   Furthermore, it implements ideas of the Logical Execution Time (LET) semantics.
 
 Further information

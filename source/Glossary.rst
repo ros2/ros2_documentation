@@ -18,7 +18,7 @@ Glossary of terms used throughout this documentation:
 
    REP
         ROS Enhancement Proposal. A document that describes an enhancement, standardization, or convention for the ROS community.
-        The associated REP approval process allows the community to iterate on a proposal until some consensus has been made, at which point it can be ratified and implemented, at which point it becomes documentation.
+        The associated REP approval process allows the community to iterate on a proposal until some consensus has been made, at which point it can be ratified and implemented, which then becomes documentation.
         All REPs are viewable from the `REP index <http://www.ros.org/reps/rep-0000.html>`_.
 
    VCS
@@ -29,4 +29,4 @@ Glossary of terms used throughout this documentation:
 
    repository
        A collection of packages usually managed using a :term:`VCS` like git or mercurial and usually hosted on a site like GitHub or BitBucket.
-       In the context of this document repositories usually contain one or more |packages| of one type or another.
+       In the context of this document, repositories usually contain one or more |packages| of one type or another.

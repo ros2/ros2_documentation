@@ -105,11 +105,11 @@ Summary
 -------
 
 The significance of what you've done so far is that you've run two turtlesim nodes with one command.
-Once you learn to write your own launch files, you'll be able to run multiple nodes - and setup their configuration - in a similar way, with the ``ros2 launch`` command.
+Once you learn to write your own launch files, you'll be able to run multiple nodes - and set up their configuration - in a similar way, with the ``ros2 launch`` command.
 
 For more tutorials on ROS 2 launch files, see the :doc:`main launch file tutorial page<../../Intermediate/Launch/Launch-Main>`.
 
 Next steps
 ----------
 
-In the next tutorial, :doc:`../Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2bag``.
+In the next tutorial, :doc:`../Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data`, you'll learn about another helpful tool, ``ros2 bag``.

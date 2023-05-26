@@ -40,7 +40,6 @@ Examples of sub-commands that are available include:
 * run: Run ROS nodes
 * security: Configure security settings
 * service: Introspect/call ROS services
-* srv: Introspect ``srv`` types
 * test: Run a ROS launch test
 * topic: Introspect/publish ROS topics
 * trace: Tracing tools to get information on ROS nodes execution (only available on Linux)
@@ -54,11 +53,11 @@ Publish messages in one terminal with:
 
 .. code-block:: bash
 
-   $ ros2 topic pub /chatter std_msgs/String "data: Hello world"
+   $ ros2 topic pub /chatter std_msgs/msg/String "data: Hello world"
    publisher: beginning loop
-   publishing std_msgs.msg.String(data='Hello world')
+   publishing #1: std_msgs.msg.String(data='Hello world')
 
-   publishing std_msgs.msg.String(data='Hello world')
+   publishing #2: std_msgs.msg.String(data='Hello world')
 
 Echo messages received in another terminal with:
 
@@ -82,7 +81,7 @@ You can run ``ros2 daemon --help`` for more options for interacting with the dae
 Implementation
 --------------
 
-The source code for the ``ros2`` command is available at https://github.com/ros2/ros2cli
+The source code for the ``ros2`` command is available at https://github.com/ros2/ros2cli.
 
 The ``ros2`` tool has been implemented as a framework that can be extended via plugins.
 For example, the `sros2 <https://github.com/ros2/sros2>`__ package provides a ``security`` sub-command that is automatically detected by the ``ros2`` tool if the ``sros2`` package is installed.

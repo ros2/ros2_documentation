@@ -38,10 +38,12 @@ Open ``turtle_tf2_listener.cpp`` and take a look at the ``lookupTransform()`` ca
 
 .. code-block:: C++
 
-   transformStamped = tf_buffer_->lookupTransform(
-      toFrameRel,
-      fromFrameRel,
-      tf2::TimePointZero);
+   try {
+       t = tf_buffer_->lookupTransform(
+          toFrameRel,
+          fromFrameRel,
+          tf2::TimePointZero);
+   } catch (const tf2::TransformException & ex) {
 
 You can see that we specified a time equal to 0 by calling ``tf2::TimePointZero``.
 
@@ -58,16 +60,17 @@ Now, change this line to get the transform at the current time, ``this->get_cloc
 .. code-block:: C++
 
    rclcpp::Time now = this->get_clock()->now();
-   transformStamped = tf_buffer_->lookupTransform(
-      toFrameRel,
-      fromFrameRel,
-      now);
+   try {
+       t = tf_buffer_->lookupTransform(
+           toFrameRel, fromFrameRel,
+           now);
+   } catch (const tf2::TransformException & ex) {
 
-Now try to run the launch file.
+Now build the package and try to run the launch file.
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
+   ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You will notice that it fails and outputs something similar to this:
 
@@ -94,11 +97,13 @@ To fix this, edit your code as shown below (add the last timeout parameter):
 .. code-block:: C++
 
    rclcpp::Time now = this->get_clock()->now();
-   transformStamped = tf_buffer_->lookupTransform(
-      toFrameRel,
-      fromFrameRel,
-      now,
-      50ms);
+   try {
+       t = tf_buffer_->lookupTransform(
+           toFrameRel,
+           fromFrameRel,
+           now,
+           50ms);
+   } catch (const tf2::TransformException & ex) {
 
 The ``lookupTransform()`` can take four arguments, where the last one is an optional timeout.
 It will block for up to that duration waiting for it to timeout.
@@ -106,11 +111,11 @@ It will block for up to that duration waiting for it to timeout.
 3 Checking the results
 ^^^^^^^^^^^^^^^^^^^^^^
 
-You can now run the launch file.
+You can now build the package and run the launch file.
 
 .. code-block:: console
 
-   ros2 launch learning_tf2_cpp turtle_tf2_demo.launch.py
+   ros2 launch learning_tf2_cpp turtle_tf2_demo_launch.py
 
 You should notice that ``lookupTransform()`` will actually block until the transform between the two turtles becomes available (this will usually take a few milliseconds).
 Once the timeout has been reached (fifty milliseconds in this case), an exception will be raised only if the transform is still not available.

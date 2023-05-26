@@ -23,7 +23,7 @@ Background
 In previous tutorials you utilized message and service interfaces to learn about :doc:`topics <../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`, :doc:`services <../Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services>`, and simple publisher/subscriber (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>`/:doc:`Python<./Writing-A-Simple-Py-Publisher-And-Subscriber>`) and service/client (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>`/:doc:`Python<./Writing-A-Simple-Py-Service-And-Client>`) nodes.
 The interfaces you used were predefined in those cases.
 
-While it’s good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
+While it's good practice to use predefined interface definitions, you will probably need to define your own messages and services sometimes as well.
 This tutorial will introduce you to the simplest method of creating custom interface definitions.
 
 Prerequisites
@@ -49,17 +49,15 @@ Since we will use the pub/sub and service/client packages created in earlier tut
   ros2 pkg create --build-type ament_cmake tutorial_interfaces
 
 ``tutorial_interfaces`` is the name of the new package.
-Note that it is a CMake package; there currently isn’t a way to generate a ``.msg`` or ``.srv`` file in a pure Python package.
-You can create a custom interface in a CMake package, and then use it in a Python node, which will be covered in the last section.
+Note that it is, and can only be, a CMake package, but this doesn't restrict in which type of packages you can use your messages and services.
+You can create your own custom interfaces in a CMake package, and then use it in a C++ or Python node, which will be covered in the last section.
 
 The ``.msg`` and ``.srv`` files are required to be placed in directories called ``msg`` and ``srv`` respectively.
 Create the directories in ``ros2_ws/src/tutorial_interfaces``:
 
 .. code-block:: console
 
-  mkdir msg
-
-  mkdir srv
+  mkdir msg srv
 
 2 Create custom definitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -118,24 +116,22 @@ To convert the interfaces you defined into language-specific code (like C++ and 
 
 .. note::
 
-  The library name must match ${PROJECT_NAME} (see https://github.com/ros2/rosidl/issues/441#issuecomment-591025515).
+  The first argument (library name) in the rosidl_generate_interfaces must match ${PROJECT_NAME} (see https://github.com/ros2/rosidl/issues/441#issuecomment-591025515).
 
 4 ``package.xml``
 ^^^^^^^^^^^^^^^^^
 
-Because the interfaces rely on ``rosidl_default_generators`` for generating language-specific code, you need to declare a dependency on it.
-The ``<exec_depend>`` tag is used to specify runtime or execution-stage dependencies and the ``rosidl_interface_packages`` is the name of the dependency group to which the package belongs, declared using the ``<member_of_group>`` tag.
+Because the interfaces rely on ``rosidl_default_generators`` for generating language-specific code, you need to declare a build tool dependency on it.
+``rosidl_default_runtime`` is a runtime or execution-stage dependency, needed to be able to use the interfaces later.
+The ``rosidl_interface_packages`` is the name of the dependency group that your package, ``tutorial_interfaces``, should be associated with, declared using the ``<member_of_group>`` tag.
 
-Add the following lines to ``package.xml``
+Add the following lines within the ``<package>`` element of ``package.xml``:
 
 .. code-block:: xml
 
   <depend>geometry_msgs</depend>
-
-  <build_depend>rosidl_default_generators</build_depend>
-
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
-
   <member_of_group>rosidl_interface_packages</member_of_group>
 
 5 Build the ``tutorial_interfaces`` package
@@ -177,7 +173,7 @@ In a new terminal, run the following command from within your workspace (``ros2_
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -239,15 +235,15 @@ should return:
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
 For this step you can use the packages you created in previous tutorials.
-A few simple modifications to the nodes, ``CMakeLists`` and ``package`` files will allow you to use your new interfaces.
+A few simple modifications to the nodes, ``CMakeLists.txt`` and ``package.xml`` files will allow you to use your new interfaces.
 
 7.1 Testing ``Num.msg`` with pub/sub
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With some slight modifications to the publisher/subscriber package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`), you can see ``Num.msg`` in action.
-Since you’ll be changing the standard string msg to a numerical one, the output will be slightly different.
+With a few modifications to the publisher/subscriber package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Publisher-And-Subscriber>` or :doc:`Python <./Writing-A-Simple-Py-Publisher-And-Subscriber>`), you can see ``Num.msg`` in action.
+Since you'll be changing the standard string msg to a numerical one, the output will be slightly different.
 
-Publisher:
+**Publisher**
 
 .. tabs::
 
@@ -337,7 +333,7 @@ Publisher:
           main()
 
 
-Subscriber:
+**Subscriber**
 
 .. tabs::
 
@@ -419,7 +415,7 @@ Subscriber:
           main()
 
 
-CMakeLists.txt:
+**CMakeLists.txt**
 
 Add the following lines (C++ only):
 
@@ -445,7 +441,7 @@ Add the following lines (C++ only):
     ament_package()
 
 
-package.xml:
+**package.xml**
 
 Add the following line:
 
@@ -470,6 +466,8 @@ After making the above edits and saving all the changes, build the package:
 
   .. group-tab:: C++
 
+    On Linux/macOS:
+
     .. code-block:: console
 
       colcon build --packages-select cpp_pubsub
@@ -481,6 +479,8 @@ After making the above edits and saving all the changes, build the package:
       colcon build --merge-install --packages-select cpp_pubsub
 
   .. group-tab:: Python
+
+    On Linux/macOS:
 
     .. code-block:: console
 
@@ -528,10 +528,10 @@ Since ``Num.msg`` relays only an integer, the talker should only be publishing i
 7.2 Testing ``AddThreeInts.srv`` with service/client
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-With some slight modifications to the service/client package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`), you can see ``AddThreeInts.srv`` in action.
-Since you’ll be changing the original two integer request srv to a three integer request srv, the output will be slightly different.
+With a few modifications to the service/client package created in a previous tutorial (:doc:`C++ <./Writing-A-Simple-Cpp-Service-And-Client>` or :doc:`Python <./Writing-A-Simple-Py-Service-And-Client>`), you can see ``AddThreeInts.srv`` in action.
+Since you'll be changing the original two integer request srv to a three integer request srv, the output will be slightly different.
 
-Service:
+**Service**
 
 .. tabs::
 
@@ -602,7 +602,7 @@ Service:
       if __name__ == '__main__':
           main()
 
-Client:
+**Client**
 
 .. tabs::
 
@@ -713,8 +713,7 @@ Client:
           main()
 
 
-
-CMakeLists.txt:
+**CMakeLists.txt**
 
 Add the following lines (C++ only):
 
@@ -742,7 +741,7 @@ Add the following lines (C++ only):
     ament_package()
 
 
-package.xml:
+**package.xml**
 
 Add the following line:
 
@@ -767,6 +766,8 @@ After making the above edits and saving all the changes, build the package:
 
   .. group-tab:: C++
 
+    On Linux/macOS:
+
     .. code-block:: console
 
       colcon build --packages-select cpp_srvcli
@@ -779,6 +780,8 @@ After making the above edits and saving all the changes, build the package:
 
 
   .. group-tab:: Python
+
+    On Linux/macOS:
 
     .. code-block:: console
 
@@ -818,10 +821,10 @@ Then open two new terminals, source ``ros2_ws`` in each, and run:
 Summary
 -------
 
-In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces from within other packages.
+In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
 
-This is a simple method of interface creation and utilization.
-You can learn more about interfaces :doc:`here <../../Concepts/About-ROS-Interfaces>`.
+This tutorial only scratches the surface about defining custom interfaces.
+You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/About-ROS-Interfaces>`.
 
 Next steps
 ----------

@@ -132,7 +132,7 @@ Insert the following in the *Dockerfile*, and save it (also found
    WORKDIR /ros2_home
 
    # launch ros package
-   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
+   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener_launch.py"]
 
 -  **FROM**: creates a layer from the ros:foxy Docker image
 -  **RUN**: builds your container by installing vim into it and creating
@@ -346,7 +346,7 @@ one) and add the following in it (or download the file
          /ros_entrypoint.sh
 
    # run launch file
-   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
+   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener_launch.py"]
 
 Going through the lines shown, we can see how we can add custom packages
 from github in 4 steps:
@@ -401,7 +401,7 @@ from github in 4 steps:
 .. code-block:: bash
 
    # run launch file
-   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener.launch.py"]
+   CMD ["ros2", "launch", "demo_nodes_cpp", "talker_listener_launch.py"]
 
 Likewise, we can change the packages used, install their dependencies,
 and then run them.
@@ -594,7 +594,7 @@ needed) and run ROS2! For example:
 .. code-block:: bash
 
    root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# . install/setup.sh
-   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener.launch.py
+   root@ros2-deployment-xxxxxxxx:/opt/ros/overlay_ws# ros2 launch demo_nodes_cpp talker_listener_launch.py
 
 Final Remarks
 ---------------

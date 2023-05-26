@@ -134,7 +134,7 @@ In the class constructor we begin by creating the writer object we will use to w
 
 Now that we have a writer object, we can open the bag using it.
 We specify just the URI of the bag to create, leaving other options at their defaults.
-The default storage options are used, which means that an ``sqlite3``-format bag will be created.
+The default storage options are used, which means that an ``mcap``-format bag will be created.
 The default conversion options are used, too, which will perform no conversion, instead storing messages in the serialisation format they are received in.
 
 .. code-block:: C++
@@ -180,8 +180,6 @@ This is why we pass in the topic name and the topic type.
 The class contains two member variables.
 
 1. The subscription object.
-   Note that the template parameter is the type of the callback, not the type of the topic.
-   In this case the callback receives a ``rclcpp::SerializedMessage`` shared pointer, so this is what the template parameter must be.
 2. A managed pointer to the writer object used to write to the bag.
    Note the type of writer used here is the ``rosbag2_cpp::Writer``, the generic writer interface.
    Other writers may be available with different behaviours.

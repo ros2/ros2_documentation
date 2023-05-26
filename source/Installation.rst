@@ -32,7 +32,7 @@ We provide ROS 2 binary packages for the following platforms:
   * :doc:`Debian packages <Installation/Ubuntu-Install-Debians>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/Ubuntu-Install-Binary>`
 
-* RHEL 8
+* RHEL 9
 
   * :doc:`RPM packages <Installation/RHEL-Install-RPMs>` (recommended)
   * :doc:`"fat" archive <Installation/Alternatives/RHEL-Install-Binary>`
@@ -50,7 +50,7 @@ We support building ROS 2 from source on the following platforms:
 
 * :doc:`Ubuntu Linux <Installation/Alternatives/Ubuntu-Development-Setup>`
 * :doc:`Windows <Installation/Alternatives/Windows-Development-Setup>`
-* :doc:`RHEL <Installation/Alternatives/RHEL-Development-Setup>`
+* :doc:`RHEL/Fedora <Installation/Alternatives/RHEL-Development-Setup>`
 * :doc:`macOS <Installation/Alternatives/macOS-Development-Setup>`
 
 

@@ -2,8 +2,6 @@
 
    Installation/Windows-Development-Setup
 
-.. _windows-latest:
-
 Windows (source)
 ================
 
@@ -26,11 +24,6 @@ For example, for a Chinese-language Windows 10 installation, you may need to ins
 
 .. include:: ../_Windows-Install-Prerequisites.rst
 
-Additional prerequisites
-------------------------
-
-When building from source you'll need a few additional prerequisites installed.
-
 Install additional prerequisites from Chocolatey
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -41,27 +34,20 @@ Install additional prerequisites from Chocolatey
 You will need to append the Git cmd folder ``C:\Program Files\Git\cmd`` to the PATH (you can do this by clicking the Windows icon, typing "Environment Variables", then clicking on "Edit the system environment variables".
 In the resulting dialog, click "Environment Variables", the click "Path" on the bottom pane, then click "Edit" and add the path).
 
-
 Install Python prerequisites
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Installing additional Python dependencies:
+Install additional Python dependencies:
 
 .. code-block:: bash
 
    pip install -U colcon-common-extensions coverage flake8 flake8-blind-except flake8-builtins flake8-class-newline flake8-comprehensions flake8-deprecated flake8-docstrings flake8-import-order flake8-quotes mock mypy==0.931 pep8 pydocstyle pytest pytest-mock vcstool
 
-Install miscellaneous prerequisites
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Build ROS 2
+-----------
 
-Next install xmllint:
-
-* Download the `64 bit binary archives <https://www.zlatkovic.com/pub/libxml/64bit/>`__ of ``libxml2`` (and its dependencies ``iconv`` and ``zlib``) from https://www.zlatkovic.com/projects/libxml/
-* Unpack all archives into e.g. ``C:\xmllint``
-* Add ``C:\xmllint\bin`` to the ``PATH``.
-
-Get the ROS 2 code
-------------------
+Get ROS 2 code
+^^^^^^^^^^^^^^
 
 Now that we have the development tools we can get the ROS 2 source code.
 
@@ -83,15 +69,14 @@ Get the ``ros2.repos`` file which defines the repositories to clone from:
 
    vcs import --input https://raw.githubusercontent.com/ros2/ros2/{REPOS_FILE_BRANCH}/ros2.repos src
 
-Install additional DDS implementations (optional)
+Install additional RMW implementations (optional)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Fast DDS is bundled with the ROS 2 source and will always be built unless you put an ``COLCON_IGNORE`` file in the ``src\eProsima`` folder.
+The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at build or runtime.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
 
-If you would like to use another DDS or RTPS vendor besides the default, you can find instructions :doc:`here <../DDS-Implementations>`.
-
-Build the ROS 2 code
---------------------
+Build the code in the workspace
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. _windows-dev-build-ros2:
 
@@ -113,7 +98,7 @@ To build the ``\{DISTRO}`` folder tree:
    If you are doing a debug build use ``python_d path\to\colcon_executable`` ``colcon``.
    See `Extra stuff for debug mode`_ for more info on running Python code in debug builds on Windows.
 
-Environment setup
+Setup environment
 -----------------
 
 Start a command shell and source the ROS 2 setup file to set up the workspace:
@@ -126,8 +111,8 @@ This will automatically set up the environment for any DDS vendors that support 
 
 It is normal that the previous command, if nothing else went wrong, outputs "The system cannot find the path specified." exactly once.
 
-Test and run
-------------
+Try some examples
+-----------------
 
 Note that the first time you run any executable you will have to allow access to the network through a Windows Firewall popup.
 
@@ -166,26 +151,19 @@ You should see the ``talker`` saying that it's ``Publishing`` messages and the `
 This verifies both the C++ and Python APIs are working properly.
 Hooray!
 
-
 .. note::
 
    It is not recommended to build in the same cmd prompt that you've sourced the ``local_setup.bat``.
 
-Next steps after installing
----------------------------
+Next steps
+----------
+
 Continue with the :doc:`tutorials and demos <../../Tutorials>` to configure your environment, create your own workspace and packages, and learn ROS 2 core concepts.
-
-Additional RMW implementations (optional)
------------------------------------------
-The default middleware that ROS 2 uses is ``Fast DDS``, but the middleware (RMW) can be replaced at runtime.
-See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` on how to work with multiple RMWs.
-
 
 Extra stuff for Debug mode
 --------------------------
 
 If you want to be able to run all the tests in Debug mode, you'll need to install a few more things:
-
 
 * To be able to extract the Python source tarball, you can use PeaZip:
 
@@ -193,13 +171,11 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
 
    choco install -y peazip
 
-
 * You'll also need SVN, since some of the Python source-build dependencies are checked out via SVN:
 
 .. code-block:: bash
 
    choco install -y svn hg
-
 
 * You'll need to quit and restart the command prompt after installing the above.
 * Get and extract the Python 3.8.3 source from the ``tgz``:
@@ -215,7 +191,6 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    get_externals.bat
    build.bat -p x64 -d
 
-
 * Finally, copy the build products into the Python38 installation directories, next to the Release-mode Python executable and DLL's:
 
 .. code-block:: bash
@@ -228,7 +203,6 @@ If you want to be able to run all the tests in Debug mode, you'll need to instal
    copy python3_d.lib C:\Python38\libs /Y
    copy sqlite3_d.dll C:\Python38\DLLs /Y
    for %I in (*_d.pyd) do copy %I C:\Python38\DLLs /Y
-
 
 * Now, from a fresh command prompt, make sure that ``python_d`` works:
 
@@ -269,8 +243,8 @@ Stay up to date
 
 See :doc:`../Maintaining-a-Source-Checkout` to periodically refresh your source installation.
 
-Troubleshooting
----------------
+Troubleshoot
+------------
 
 Troubleshooting techniques can be found :ref:`here <windows-troubleshooting>`.
 

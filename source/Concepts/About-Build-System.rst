@@ -4,13 +4,13 @@ About the build system
 .. include:: ../../global_substitutions.txt
 
 Under everything is the build system.
-Iterating on ``catkin`` from ROS 1 we have created a set of |packages| under the moniker ``ament``.
-Some of the reasons for changing the name to ``ament`` are that we wanted it to not collide with ``catkin`` (in case we want mix them at some point) and to prevent confusion with existing ``catkin`` documentation.
+Iterating on ``catkin`` from ROS 1, we have created a set of |packages| under the moniker ``ament``.
+Some of the reasons for changing the name to ``ament`` are that we wanted it to not collide with ``catkin`` (in case we want to mix them at some point) and to prevent confusion with existing ``catkin`` documentation.
 ``ament``'s primary responsibility is to make it easier to develop and maintain ROS 2 core |packages|.
 However, this responsibility extends to any user who is willing to make use of our build system conventions and tools.
 Additionally it should make |packages| conventional, such that developers should be able to pick up any ``ament`` based |package| and make some assumptions about how it works, how to introspect it, and how to build or use it.
 
-``ament`` consists of a few important repositories which are all in the ``ament`` |GitHub|_ organization:
+``ament`` consists of a few important repositories which are all in the ``ament`` `GitHub organization <https://github.com/ament>`_:
 
 .. contents::
    :depth: 1
@@ -106,7 +106,7 @@ Here a list of the |packages| in the repository along with a short description:
 
 The ``ament_cmake_core`` |package| contains a lot of the CMake infrastructure that makes it possible to cleanly pass information between |packages| using conventional interfaces.
 This makes the |packages| have more decoupled build interfaces with other |packages|, promoting their reuse and encouraging conventions in the build systems of different |packages|.
-For instance it provides a standard way to pass include directories, libraries, definitions, and dependencies between |packages| so that consumers of this information can access this information in a conventional way.
+For instance, it provides a standard way to pass include directories, libraries, definitions, and dependencies between |packages| so that consumers of this information can access this information in a conventional way.
 
 The ``ament_cmake_core`` |package| also provides features of the ``ament`` build system like symbolic link installation, which allows you to symbolically link files from either the source space or the build space into the install space rather than copying them.
 This allows you to install once and then edit non-generated resources like Python code and configuration files without having to rerun the install step for them to take effect.

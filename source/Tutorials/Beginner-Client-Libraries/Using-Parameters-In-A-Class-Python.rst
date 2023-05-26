@@ -32,6 +32,7 @@ You have also learned about :doc:`parameters <../Beginner-CLI-Tools/Understandin
 
 Tasks
 -----
+
 1 Create a package
 ^^^^^^^^^^^^^^^^^^
 
@@ -53,7 +54,7 @@ The ``--dependencies`` argument will automatically add the necessary dependency 
 1.1 Update ``package.xml``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Because you used the ``--dependencies`` option during package creation, you don’t have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
+Because you used the ``--dependencies`` option during package creation, you don't have to manually add dependencies to ``package.xml`` or ``CMakeLists.txt``.
 
 As always, though, make sure to add the description, maintainer email and name, and license information to ``package.xml``.
 
@@ -111,7 +112,7 @@ The ``import`` statements at the top are used to import the package dependencies
 The next piece of code creates the class and the constructor.
 The line ``self.declare_parameter('my_parameter', 'world')`` of the constructor creates a parameter with the name ``my_parameter`` and a default value of ``world``.
 The parameter type is inferred from the default value, so in this case it would be set to a string type.
-Next the ``timer`` is initialized with a period of 1, which causes the ``timer_callback`` function to be executed once every second.
+Next the ``timer`` is initialized with a period of 1, which causes the ``timer_callback`` function to be executed once a second.
 
 .. code-block:: Python
 
@@ -124,7 +125,7 @@ Next the ``timer`` is initialized with a period of 1, which causes the ``timer_c
             self.timer = self.create_timer(1, self.timer_callback)
 
 The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
-Next the ``get_logger`` function ensures the message is logged.
+Next the ``get_logger`` function ensures the event is logged.
 The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
 In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
 
@@ -160,7 +161,7 @@ Here ROS 2 is initialized, an instance of the ``MinimalParam`` class is construc
 2.1.1 (Optional) Add ParameterDescriptor
 """"""""""""""""""""""""""""""""""""""""
 Optionally, you can set a descriptor for the parameter.
-Descriptors allow you to specify a text description of the parameter and parameters constraints, like making it read-only, specifying a range, etc.
+Descriptors allow you to specify a text description of the parameter and its constraints, like making it read-only, specifying a range, etc.
 For that to work, the ``__init__`` code has to be changed to:
 
 .. code-block:: Python
@@ -174,9 +175,7 @@ For that to work, the ``__init__`` code has to be changed to:
             from rcl_interfaces.msg import ParameterDescriptor
             my_parameter_descriptor = ParameterDescriptor(description='This parameter is mine!')
 
-            self.declare_parameter('my_parameter',
-                                   'world',
-                                   my_parameter_descriptor)
+            self.declare_parameter('my_parameter', 'world', my_parameter_descriptor)
 
             self.timer = self.create_timer(1, self.timer_callback)
 
@@ -207,7 +206,7 @@ Add the following line within the ``console_scripts`` brackets of the ``entry_po
       ],
   },
 
-Don’t forget to save.
+Don't forget to save.
 
 
 3 Build and run
@@ -261,7 +260,7 @@ Open a new terminal, navigate to ``ros2_ws``, and source the setup files:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -308,7 +307,7 @@ Open another terminal, source the setup files from inside ``ros2_ws`` again, and
     ros2 param list
 
 There you will see the custom parameter ``my_parameter``.
-To change it simply run the following line in the console:
+To change it, simply run the following line in the console:
 
 .. code-block:: console
 
@@ -317,7 +316,7 @@ To change it simply run the following line in the console:
 You know it went well if you get the output ``Set parameter successful``.
 If you look at the other terminal, you should see the output change to ``[INFO] [minimal_param_node]: Hello earth!``
 
-Since the node then set the parameter back to ``world``, further outputs show  ``[INFO] [minimal_param_node]: Hello world!``
+Since the node afterwards set the parameter back to ``world``, further outputs show  ``[INFO] [minimal_param_node]: Hello world!``
 
 3.2 Change via a launch file
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -355,7 +354,6 @@ By adding the two lines below, we ensure our output is printed in our console.
 
 Now open the ``setup.py`` file.
 Add the ``import`` statements to the top of the file, and the other new statement to the ``data_files`` parameter to include all launch files:
-
 
 .. code-block:: Python
 
@@ -401,7 +399,7 @@ Then source the setup files in a new terminal:
 
     .. code-block:: console
 
-      . install/setup.bash
+      source install/setup.bash
 
   .. group-tab:: macOS
 
@@ -421,17 +419,18 @@ Now run the node using the launch file we have just created:
 
      ros2 launch python_parameters python_parameters_launch.py
 
-The terminal should return the following message every second:
+The terminal should return the following message the first time:
 
 .. code-block:: console
 
     [INFO] [custom_minimal_param_node]: Hello earth!
 
+Further outputs should show  ``[INFO] [minimal_param_node]: Hello world!`` every second.
 
 Summary
 -------
 
-You created a node with a custom parameter, that can be set either from a launch file or the command line.
+You created a node with a custom parameter that can be set either from a launch file or the command line.
 You added the dependencies, executables, and a launch file to the package configuration files so that you could build and run them, and see the parameter in action.
 
 Next steps

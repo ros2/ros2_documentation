@@ -103,7 +103,7 @@ intersphinx_mapping = {
 #
 html_theme = 'sphinx_rtd_theme'
 html_theme_options = {
-    'analytics_id': 'UA-17821189-2',
+    'analytics_id': 'G-EVD5Z6G6NH',
     'collapse_navigation': False,
     'sticky_navigation': True,
     'navigation_depth': -1,
@@ -122,12 +122,12 @@ templates_path = [
 
 # smv_tag_whitelist = None
 
-smv_branch_whitelist = r'^(rolling|humble|galactic|foxy|eloquent|dashing|crystal)$'
+smv_branch_whitelist = r'^(rolling|iron|humble|galactic|foxy|eloquent|dashing|crystal)$'
 
 
-smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(humble|galactic|foxy|eloquent|dashing|crystal).*$'
+smv_released_pattern = r'^refs/(heads|remotes/[^/]+)/(iron|humble|galactic|foxy|eloquent|dashing|crystal).*$'
 smv_remote_whitelist = r'^(origin)$'
-smv_latest_version = 'humble'
+smv_latest_version = 'iron'
 smv_eol_versions = ['crystal', 'dashing', 'eloquent', 'galactic']
 
 distro_full_names = {
@@ -137,6 +137,7 @@ distro_full_names = {
     'foxy': 'Foxy Fitzroy',
     'galactic': 'Galactic Geochelone',
     'humble': 'Humble Hawksbill',
+    'iron': 'Iron Irwini',
     'rolling': 'Rolling Ridley',
 }
 
@@ -164,6 +165,13 @@ html_sourcelink_suffix = ''
 htmlhelp_basename = 'ros2_docsdoc'
 
 html_baseurl = 'https://docs.ros.org/en'
+
+# The sitemap_url_scheme is used by the sitemap generator to figure out how
+# to generate links.  Essentially, the sitemap generator uses the following:
+#
+# url = html_baseurl + '/' + sitemap_url_scheme
+
+sitemap_url_scheme = '{version}/{link}'
 
 class RedirectFrom(Directive):
 

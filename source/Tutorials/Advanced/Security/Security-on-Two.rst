@@ -21,6 +21,8 @@ Ensuring security across machines
 Background
 ----------
 
+Before proceeding ensure you have completed the :doc:`Introducing-ros2-security` tutorial.
+
 The previous tutorials have used two ROS nodes on the same machine sending all network communications over the localhost interface.
 Let's extend that scenario to involve multiple machines, since the benefits of authentication and encryption then become more obvious.
 
@@ -88,6 +90,11 @@ Since the keys are just text files, we can use ``scp`` to copy them.
 
       cd C:\dev\ros2\sros2_demo\demo_keystore
       scp -r talker USERNAME@Bob:/dev/ros2/sros2_demo/demo_keystore
+
+.. warning::
+
+  Note that in this case the entire keystore is shared across the different machines which may not be the desired behavior, as it may result in a security risk.
+  Please refer to :doc:`Deployment-Guidelines` for more information in this regard.
 
 That will be very quick, since it's just copying some very small text files.
 Now, we're ready to run a multi-machine talker/listener demo!

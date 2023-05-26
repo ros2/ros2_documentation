@@ -39,18 +39,20 @@ Edit the ``lookupTransform()`` call in ``turtle_tf2_listener.cpp`` file to
 .. code-block:: C++
 
     rclcpp::Time when = this->get_clock()->now() - rclcpp::Duration(5, 0);
-    t = tf_buffer_->lookupTransform(
-        toFrameRel,
-        fromFrameRel,
-        when,
-        50ms);
+    try {
+        t = tf_buffer_->lookupTransform(
+            toFrameRel,
+            fromFrameRel,
+            when,
+            50ms);
+    } catch (const tf2::TransformException & ex) {
 
 Now if you run this, during the first 5 seconds, the second turtle would not know where to go because we do not yet have a 5-second history of poses of the carrot.
-But what happens after these 5 seconds? Let's just give it a try:
+But what happens after these 5 seconds? Build the package then let's just give it a try:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay1.png
 
@@ -71,13 +73,15 @@ Your code now would look like this:
 
     rclcpp::Time now = this->get_clock()->now();
     rclcpp::Time when = now - rclcpp::Duration(5, 0);
-    t = tf_buffer_->lookupTransform(
-        toFrameRel,
-        now,
-        fromFrameRel,
-        when,
-        "world",
-        50ms);
+    try {
+        t = tf_buffer_->lookupTransform(
+            toFrameRel,
+            now,
+            fromFrameRel,
+            when,
+            "world",
+            50ms);
+    } catch (const tf2::TransformException & ex) {
 
 The advanced API for ``lookupTransform()`` takes six arguments:
 
@@ -101,11 +105,11 @@ And at the current time, tf2 computes the transform from the ``world`` to the ``
 Checking the results
 --------------------
 
-Let's run the simulation again, this time with the advanced time-travel API:
+Build the package then let's run the simulation again, this time with the advanced time-travel API:
 
 .. code-block:: console
 
-    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo.launch.py
+    ros2 launch learning_tf2_cpp turtle_tf2_fixed_frame_demo_launch.py
 
 .. image:: images/turtlesim_delay2.png
 

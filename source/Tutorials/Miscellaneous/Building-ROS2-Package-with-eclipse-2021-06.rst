@@ -48,6 +48,7 @@ We now import our ROS 2 project. The code is still in the old place.
    :target: images/eclipse_import_filesystem.png
    :alt: eclipse_import_filesystem
 
+Click the Advanced in the Options and check the **Create links in worksapce**.
 
 .. image:: images/eclipse_import_select_my_package.png
    :target: images/eclipse_import_select_my_package.png
@@ -66,6 +67,8 @@ We see in the source code that the C++ includes got resolved but not the ROS 2 o
    :target: images/eclipse_c++_path_and_symbols.png
    :alt: eclipse_c++_path_and_symbols
 
+Add include paths of needed packages.
+(e.g. **/opt/ros/iron/include/rclcpp**, **/opt/ros/iron/include/std_msgs**, etc.)
 
 .. image:: images/eclipse_c++_add_directory_path.png
    :target: images/eclipse_c++_add_directory_path.png
