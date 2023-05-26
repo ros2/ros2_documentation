@@ -162,6 +162,7 @@ Output
 We run the example with default and a real-time priority (80). The output shows the number of context switches of other kernel processes during computation. The number of context switches of the real-time callback (minimal_sub2) is reduced to zero compared to 8-49 context switched for the non real-time configuration (minimal_sub1).
 
 .. code-block:: cpp
+
    ros2 run minimal_scheduling minimal_scheduling_real_time_tutorial
    [WARN] [1680948979.971439054] [minimal_sub1]: [sub]    Involuntary context switches: '25'
    [WARN] [1680948979.971483357] [minimal_sub2]: [sub]    Involuntary context switches: '20'
