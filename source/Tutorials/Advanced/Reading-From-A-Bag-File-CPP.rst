@@ -65,7 +65,7 @@ As always, though, make sure to add the description, maintainer email and name, 
   <maintainer email="you@email.com">Your Name</maintainer>
   <license>Apache License 2.0</license>
 
-2 Write the C++ script
+2 Write the C++ Reader
 ^^^^^^^^^^^^^^^^^^^^^^
 
 Inside your package's ``src`` directory, create a new file called ``simple_bag_reader.cpp`` and paste the following code into it.
