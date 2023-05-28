@@ -138,7 +138,7 @@ There are two types of callback groups, where the type has to be specified at in
 * *Reentrant:* Callbacks of this group may be executed in parallel.
 
 Callbacks of different callback groups may always be executed in parallel.
-The Multi-Threaded Executor uses its threads as a pool to process a many callbacks as possible in parallel according to these conditions.
+The Multi-Threaded Executor uses its threads as a pool to process as many callbacks as possible in parallel according to these conditions.
 For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
 
 The Executor base class in rclcpp also has the function ``add_callback_group(..)``, which allows distributing callback groups to different Executors.
