@@ -1,19 +1,18 @@
-.. _InterfaceConcept:
-
 .. redirect-from::
 
     About-ROS-Interfaces
+    Concepts/About-ROS-Interfaces
 
-About ROS 2 interfaces
-======================
+Interfaces
+==========
 
 .. contents:: Table of Contents
    :local:
 
-1. Background
--------------
+Background
+----------
 
-ROS applications typically communicate through interfaces of one of three types: messages, services and actions.
+ROS applications typically communicate through interfaces of one of three types: :doc:`topics <About-Topics>`, :doc:`services <About-Services>`, or :doc:`actions <About-Actions>`.
 ROS 2 uses a simplified description language, the interface definition language (IDL), to describe these interfaces.
 This description makes it easy for ROS tools to automatically generate source code for the interface type in several target languages.
 
@@ -24,15 +23,18 @@ In this document we will describe the supported types:
 * action: ``.action`` files describe actions. They are composed of three parts: a goal, a result, and feedback.
   Each part is a message declaration itself.
 
+Messages
+--------
 
-2. Message description specification
-------------------------------------
+Messages are a way for a ROS 2 node to send data on the network to other ROS nodes, with no response expected.
+For instance, if a ROS 2 node reads temperature data from a sensor, it can then publish that data on the ROS 2 network using a ``Temperature`` message.
+Other nodes on the ROS 2 network can subscribe to that data and receive the ``Temperature`` message.
 
 Messages are described and defined in ``.msg`` files in the ``msg/`` directory of a ROS package.
 ``.msg`` files are composed of two parts: fields and constants.
 
-2.1 Fields
-^^^^^^^^^^
+Fields
+^^^^^^
 
 Each field consists of a type and a name, separated by a space, i.e:
 
@@ -49,11 +51,10 @@ For example:
    int32 my_int
    string my_string
 
-2.1.1 Field types
-~~~~~~~~~~~~~~~~~
+Field types
+~~~~~~~~~~~
 
 Field types can be:
-
 
 * a built-in-type
 * names of Message descriptions defined on their own, such as "geometry_msgs/PoseStamped"
@@ -128,7 +129,6 @@ Field types can be:
      - builtins.str
      - wstring
 
-
 *Every built-in-type can be used to define arrays:*
 
 .. list-table::
@@ -155,8 +155,7 @@ Field types can be:
      - builtins.str*
      - string
 
-
-All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software
+All types that are more permissive than their ROS definition enforce the ROS constraints in range and length by software.
 
 *Example of message definition using arrays and bounded types:*
 
@@ -173,14 +172,14 @@ All types that are more permissive than their ROS definition enforce the ROS con
    string<=10[] unbounded_array_of_strings_up_to_ten_characters_each
    string<=10[<=5] up_to_five_strings_up_to_ten_characters_each
 
-2.1.2 Field names
-~~~~~~~~~~~~~~~~~
+Field names
+~~~~~~~~~~~
 
 Field names must be lowercase alphanumeric characters with underscores for separating words.
 They must start with an alphabetic character, and they must not end with an underscore or have two consecutive underscores.
 
-2.1.3 Field default value
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Field default value
+~~~~~~~~~~~~~~~~~~~
 
 Default values can be set to any field in the message type.
 Currently default values are not supported for string arrays and complex types (i.e. types not present in the built-in-types table above; that applies to all nested messages).
@@ -200,16 +199,16 @@ For example:
    string full_name "John Doe"
    int32[] samples [-200, -100, 0, 100, 200]
 
-Note:
+.. note::
 
+  * string values must be defined in single ``'`` or double ``"`` quotes
+  * currently string values are not escaped
 
-* string values must be defined in single ``'`` or double ``"`` quotes
-* currently string values are not escaped
+Constants
+^^^^^^^^^
 
-2.2 Constants
-^^^^^^^^^^^^^
-
-Each constant definition is like a field description with a default value, except that this value can never be changed programatically. This value assignment is indicated by use of an equal '=' sign, e.g.
+Each constant definition is like a field description with a default value, except that this value can never be changed programatically.
+This value assignment is indicated by use of an equal '=' sign, e.g.
 
 .. code-block:: bash
 
@@ -228,8 +227,10 @@ For example:
 
    Constants names have to be UPPERCASE
 
-3. Service description specification
-------------------------------------
+Services
+--------
+
+Services are a request/response communication, where the client (requester) is waiting for the server (responder) to make a short computation and return a result.
 
 Services are described and defined in ``.srv`` files in the ``srv/`` directory of a ROS package.
 
@@ -248,33 +249,55 @@ We can of course get much more complicated (if you want to refer to a message fr
 
 .. code-block:: bash
 
-   #request constants
+   # request constants
    int8 FOO=1
    int8 BAR=2
-   #request fields
+   # request fields
    int8 foobar
    another_pkg/AnotherMessage msg
    ---
-   #response constants
+   # response constants
    uint32 SECRET=123456
-   #response fields
+   # response fields
    another_pkg/YetAnotherMessage val
    CustomMessageDefinedInThisPackage value
    uint32 an_integer
 
 You cannot embed another service inside of a service.
 
-4. New features in ROS 2 interfaces
------------------------------------
+Actions
+-------
 
-The ROS 2 IDL is closely related to the `ROS 1 IDL <https://wiki.ros.org/msg>`__.
-Most existing ROS 1 ``.msg`` and ``.srv`` files should be usable as-is with ROS 2.
-Atop ROS 1's existing feature set, the ROS 2 IDL introduces some new features, namely:
+Actions are a long-running request/response communication, where the action client (requester) is waiting for the action server (the responder) to take some action and return a result.
+In contrast to services, actions can be long-running (many seconds or minutes), provide feedback while they are happening, and can be interrupted.
 
+Action definitions have the following form:
 
-* **bounded arrays**: Whereas the ROS 1 IDL allows unbounded arrays (e.g., ``int32[] foo``) and fixed-size arrays (e.g., ``int32[5] bar``), the ROS 2 IDL further allows bounded arrays (e.g., ``int32[<=5] bat``).
-  There are use cases in which it's important to be able to place an upper bound on the size of an array without committing to always using that much space (e.g., in a real-time system in which you need to preallocate all memory that will be used during execution).
-* **bounded strings**: Whereas the ROS 1 IDL allows unbounded strings (e.g., ``string foo``), the ROS 2 IDL further allows bounded strings (e.g., ``string<=5 bar``).
-* **default values**: Whereas the ROS 1 IDL allows constant fields (e.g., ``int32 X=123``), the ROS 2 IDL further allows default values to be specified (e.g., ``int32 X 123``).
-  The default value is used when constructing a message/service object and can be subsequently overridden by assigning to the field.
-  You can also specify default values for action parts.
+.. code::
+
+   <request_type> <request_fieldname>
+   ---
+   <response_type> <response_fieldname>
+   ---
+   <feedback_type> <feedback_fieldname>
+
+Like services, the request fields are before and the response fields are after the first triple-dash (``---``), respectively.
+There is also a third set of fields after the second triple-dash, which is the fields to be sent when sending feedback.
+
+There can be arbitrary numbers of request fields (including zero), arbitrary numbers of response fields (including zero), and arbitrary numbers of feedback fields (including zero).
+
+The ``<request_type>``, ``<response_type>``, and ``<feedback_type>`` follow all of the same rules as the ``<type>`` for a message.
+The ``<request_fieldname>``, ``<response_fieldname>``, and ``<feedback_fieldname>`` follow all of the same rules as the ``<fieldname>`` for a message.
+
+For instance, the ``Fibonacci`` action definition contains the following:
+
+.. code::
+
+   int32 order
+   ---
+   int32[] sequence
+   ---
+   int32[] sequence
+
+This is an action definition where the action client is sending a single ``int32`` field representing the number of Fibonacci steps to take, and expecting the action server to produce an array of ``int32`` containing the complete steps.
+Along the way, the action server may also provide an intermediate array of ``int32`` contains the steps accomplished up until a certain point.

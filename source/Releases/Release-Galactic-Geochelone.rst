@@ -240,7 +240,7 @@ Tools to check for QoS incompatibilities
 
 Built on top of new QoS compatibility check APIs, ``ros2doctor`` and ``rqt_graph`` can now detect and report QoS incompatibilities between publishers and subscriptions.
 
-Given a publisher and a subscription with `incompatible QoS settings <../../Concepts/About-Quality-of-Service-Settings>`:
+Given a publisher and a subscription with `incompatible QoS settings <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`:
 
 Terminal 1:
 

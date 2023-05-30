@@ -10,7 +10,7 @@ Cross-compilation
    :depth: 2
    :local:
 
-For background information on cross-compilation, see the :doc:`conceptual article <../Concepts/About-Cross-Compilation>`.
+For background information on cross-compilation, see the :doc:`conceptual article <../Concepts/Intermediate/About-Cross-Compilation>`.
 
 This document provides you with details on how to cross-compile the ROS 2 software stack as well as provide examples for cross-compiling to systems based on the Arm cores.
 

@@ -1,14 +1,23 @@
-.. _ROS-2-Security:
+.. redirect-from::
 
-About ROS 2 Security
-====================
+   Concepts/About-Security
+
+ROS 2 Security
+==============
 
 .. contents:: Table of Contents
    :local:
 
-
 Overview
 --------
+
+ROS 2 includes the ability to secure communications among nodes within the ROS 2 computational graph.
+Similar to discovery, security happens through the underlying ROS 2 middleware (provided it has support for the corresponding security plugins).
+No additional software installation is needed to enable security; however, the middleware requires configuration files for each ROS graph participant.
+These files enable encryption and authentication, and define policies both for individual nodes and for the overall ROS graph.
+ROS 2 also adds a master "on/off" switch to control security behavior.
+
+ROS utilities can create the authoritative `trust anchor <https://en.wikipedia.org/wiki/Trust_anchor>`_ for a ROS application, or an external certificate authority can be used.
 
 Built-in ROS 2 security features enable control over communications throughout the ROS graph.
 This not only allows for encrypting data in transit between ROS domain participants, but also enables authentication of participants sending data, ensures the integrity of data being sent, and enables domain-wide access controls.
@@ -82,4 +91,4 @@ These variables generally assist ROS in managing enclaves and locating the secur
 Learn More
 ----------
 
-For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`../Tutorials/Advanced/Security/Introducing-ros2-security`.
+For more information and hands-on exercises enabling ROS 2 communications security, see the :doc:`../../Tutorials/Advanced/Security/Introducing-ros2-security`.
