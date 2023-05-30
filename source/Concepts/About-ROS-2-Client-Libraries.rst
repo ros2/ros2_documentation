@@ -67,7 +67,7 @@ This is avoided if possible when communicating between publishers and subscripti
 The ``rclpy`` repository is located on GitHub at `ros2/rclpy <https://github.com/ros2/rclpy>`_ and contains the |package| ``rclpy``.
 The generated |API| documentation is here:
 
-`api/rclpy/index.html <http://docs.ros2.org/foxy/api/rclpy/index.html>`_
+`api/rclpy/index.html <https://docs.ros.org/en/{DISTRO}/p/rclpy/>`_
 
 
 Community-maintained
