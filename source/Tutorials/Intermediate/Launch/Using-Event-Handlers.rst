@@ -251,7 +251,7 @@ It means that the launch process will shutdown when the turtlesim window is clos
 
 Finally, the ``OnShutdown`` event handler is used to register a callback function that is executed when the launch file is asked to shutdown.
 It logs a message to the console why the launch file is asked to shutdown.
-It logs the message with a reason for shutdown like the closure of turtlesim window or ``ctrl-c`` signal made by the user.
+It logs the message with a reason for shutdown like the closure of turtlesim window or :kbd:`ctrl-c` signal made by the user.
 
 .. code-block:: python
 

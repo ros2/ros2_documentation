@@ -648,7 +648,7 @@ Now run the node:
 
     ros2 run bag_recorder_nodes data_generator_node
 
-Wait for 30 seconds or so, then terminate the node with ``ctrl-c``.
+Wait for 30 seconds or so, then terminate the node with :kbd:`ctrl-c`.
 Next, play back the created bag.
 
 .. code-block:: console
