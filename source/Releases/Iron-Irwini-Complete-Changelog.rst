@@ -2310,7 +2310,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `ros2doctor <https://github.com/ros2/ros2cli/tree/iron/ros2doctor/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Shutdown ros2doctor hello when :kbd:`ctrl-c` is received (`#829 <https://github.com/ros2/ros2cli/issues/829>`__)
+* Shutdown ros2doctor hello when ctrl-c is received (`#829 <https://github.com/ros2/ros2cli/issues/829>`__)
 * Make all of the dependencies in pure Python packages exec_depend. (`#823 <https://github.com/ros2/ros2cli/issues/823>`__)
 * Enable document generation using rosdoc2 (`#811 <https://github.com/ros2/ros2cli/issues/811>`__) * Fix warnings for ros2component, ros2doctor, ros2interface, and ros2node
 * [rolling] Update maintainers - 2022-11-07 (`#776 <https://github.com/ros2/ros2cli/issues/776>`__)
@@ -2878,7 +2878,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 * Reduce message spam when topics to be recorded do not exist (`#1018 <https://github.com/ros2/rosbag2/issues/1018>`__)
 * Address flakiness in record_all_with_sim_time test (`#1014 <https://github.com/ros2/rosbag2/issues/1014>`__)
 * Add debug instrumentation for ``test_play_services`` (`#1013 <https://github.com/ros2/rosbag2/issues/1013>`__)
-* Fix for rosbag2::Player freeze when pressing :kbd:`ctrl-c` in pause mode (`#1002 <https://github.com/ros2/rosbag2/issues/1002>`__)
+* Fix for rosbag2::Player freeze when pressing ctrl+c in pause mode (`#1002 <https://github.com/ros2/rosbag2/issues/1002>`__)
 * Add the /bigobj flag to Windows Debug builds. (`#1009 <https://github.com/ros2/rosbag2/issues/1009>`__)
 * Make unpublished topics unrecorded by default (`#968 <https://github.com/ros2/rosbag2/issues/968>`__)
 * Make peek_next_message_from_queue return a SharedPtr. (`#993 <https://github.com/ros2/rosbag2/issues/993>`__)
@@ -3367,7 +3367,7 @@ This page is a list of the complete changes in all ROS 2 core packages since the
 `rqt_gui_py <https://github.com/ros-visualization/rqt/tree/iron/rqt_gui_py/CHANGELOG.rst>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Fix an exception raised when terminating with :kbd:`ctrl+c` (`#292 <https://github.com/ros-visualization/rqt/issues/292>`__)
+* Fix an exception raised when terminating with Ctrl+c (`#292 <https://github.com/ros-visualization/rqt/issues/292>`__)
 * [rolling] Update maintainers - 2022-11-07 (`#283 <https://github.com/ros-visualization/rqt/issues/283>`__)
 * Contributors: Audrow Nash, Chen Lihui, Dharini Dutia, quarkytale
 
