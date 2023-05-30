@@ -210,7 +210,7 @@ https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/intra_process_demo/src/cy
              reinterpret_cast<std::uintptr_t>(msg.get()));
            printf("  sleeping for 1 second...\n");
            if (!rclcpp::sleep_for(1s)) {
-             return;    // Return if the sleep failed (e.g. on ctrl-c).
+             return;    // Return if the sleep failed (e.g. on :kbd:`ctrl-c`).
            }
            printf("  done.\n");
            msg->data++;    // Increment the message's data.
