@@ -785,6 +785,29 @@ This allows the evaluation of the time between the message publishing and the ca
 
 See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rclcpp/pull/2091 for more information.
 
+Type Description Distribution
+"""""""""""""""""""""""""""""
+
+It is now possible to communicate information about the types of ROS 2 messages, so that systems with potentially-different types of the same name may discover their compatibility more transparently.
+This umbrella of capabilities, which is defined by a subset of REP-2011: Evolving Message Types, has had many parts land in Iron.
+
+First, the introduction of the new package `type_description_interfaces <https://index.ros.org/p/type_description_interfaces/github-ros2-rcl_interfaces/#iron>`__ provides a common way to communicate the descriptions of ROS 2 communication interface types (msg, srv, action).
+
+Next, a method to hash type descriptions has been decided on, the ROS Interface Hashing Standard (RIHS) - starting with the first version RIHS01.
+RIHS hashes are automatically calculated for all compiled ROS types at build time, and baked into the generated code so that they can be inspected by used code.
+These hashes are also communicated automatically during discovery, and included in `rmw_topic_endpoint_info_t` for graph introspection queries such as `get_publishers_info_by_topic`.
+
+The full `TypeDescription` data structure, as well as the raw source text (such as `.msg` file) that were used to generate it are now baked in by default to the message libraries, so they can be used by `typesupport` or end users.
+While we expect this data to provide value to most users, some users trying to minimize bytes in their install space can disable the feature when building ROS 2 Core by defining the CMake variable `ROSIDL_GENERATOR_C_DISABLE_TYPE_DESCRIPTION_CODEGEN`.
+
+Finally, the new service `type_description_interfaces/GetTypeDescription.srv` has been defined to allow nodes, on encountering an unknown RIHS type hash, to request the full definition from the node advertising that type.
+Work is in progress to provide this feature natively in ROS 2 Nodes, as an optional switch on node construction.
+This feature has not yet shipped, but is expected to be backported into Iron sometime mid-2023.
+Meanwhile, user nodes could implement this service indepedently, using the stable service interface.
+
+See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for the design proposal.
+See `Type Description Distribution <https://github.com/ros2/ros2/issues/1159>`__ for tracking development on the feature set.
+
 Known Issues
 ------------
 
