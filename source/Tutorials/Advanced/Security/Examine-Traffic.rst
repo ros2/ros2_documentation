@@ -27,9 +27,10 @@ In this tutorial we'll take a look at capturing live network traffic to show the
 
 .. note::
 
-  Please go through this tutorial to use different host system for talker and listener with ``rmw_fastrtps_cpp``.
   ``rmw_fastrtps_cpp`` uses `Shared Memory Transport <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/shared_memory/shared_memory.html>`_ by default to improve the performance in the transport layer when the endpoints are in the same host system.
-  Security enclaves still can be applied, effective and data will be encrypted, but we cannot capture live network traffic since the data will not be on the network interface.
+  Because of this improvement, we cannot capture live network traffic since the data will not be on the network interface.
+  In case of  ``rmw_fastrtps_cpp``, we need to do either going through this tutorial to use different host system or disabling shared memory transport with `Enabling UDP Transport <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/udp/udp.html#enabling-udp-transport>`_ and `How to set Fast-DDS XML configuration <https://github.com/ros2/rmw_fastrtps#full-qos-configuration>`_.
+  Security enclaves still can be applied, effective and data will be encrypted.
 
 Run the demo
 ------------
