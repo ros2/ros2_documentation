@@ -49,7 +49,6 @@ Rows in the table marked in green are the currently supported distributions.
    <style>
      .rst-content table.docutils:not(.field-list) tr:nth-child(1) td {background-color: #33cc66;}
      .rst-content tr:nth-child(2) {background-color: #33cc66;}
-     .rst-content tr:nth-child(4) {background-color: #33cc66;}
    </style>
 
 .. |rolling| image:: Releases/rolling-small.png
@@ -106,7 +105,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - June 5th, 2020
      - |foxy|
-     - May 2023
+     - May 31st, 2023
    * - :doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22nd, 2019
      - |eloquent|
