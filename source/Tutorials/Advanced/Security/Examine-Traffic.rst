@@ -25,6 +25,12 @@ ROS 2 communications security is all about protecting communications between nod
 Prior tutorials enabled security, but how can you **really** tell if traffic is being encrypted?
 In this tutorial we'll take a look at capturing live network traffic to show the difference between encrypted and unencrypted traffic.
 
+.. note::
+
+  ``rmw_fastrtps_cpp`` uses `Shared Memory Transport <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/shared_memory/shared_memory.html>`_ by default to improve the performance in the transport layer when the endpoints are in the same host system.
+  Security enclaves are still applied, and data will be encrypted.
+  However, you cannot capture live network traffic since the data will not be on the network interface.
+  If you are using  ``rmw_fastrtps_cpp``, you need to either go through this tutorial and use a different host system between the publisher and subscriber, or disable shared memory transport with `Enabling UDP Transport <https://fast-dds.docs.eprosima.com/en/latest/fastdds/transport/udp/udp.html#enabling-udp-transport>`_ and `How to set Fast-DDS XML configuration <https://github.com/ros2/rmw_fastrtps#full-qos-configuration>`_.
 
 Run the demo
 ------------
@@ -49,6 +55,9 @@ Start both the talker and the listener again, each in its own terminal.
 The security environment variables are not set so security is not enabled for these sessions.
 
 .. code-block:: bash
+
+  # Disable ROS Security for both terminals
+  unset ROS_SECURITY_ENABLE
 
   # In terminal 1:
   ros2 run demo_nodes_cpp talker --ros-args --enclave /talker_listener/talker
@@ -198,7 +207,7 @@ A typical data packet looks like the following::
     0x0150:  42ae f04d 0559 84c5 7116 1c51 91ba 3799  B..M.Y..q..Q..7.
     0x0160:  0000 0000                                ....
 
-The data in this RTPS packet is all encrpyted.
+The data in this RTPS packet is all encrypted.
 
 In addition to this data packet, you should see additional packets with node and enclave names; these support other ROS features such as parameters and services.
 Encryption options for these packets can also be controlled by security policy.
