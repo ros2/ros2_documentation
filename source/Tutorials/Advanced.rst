@@ -8,6 +8,7 @@ Advanced
    Advanced/Discovery-Server/Discovery-Server
    Advanced/Allocator-Template-Tutorial
    Advanced/FastDDS-Configuration
+   Advanced/Improved-Dynamic-Discovery
    Advanced/Recording-A-Bag-From-Your-Own-Node-CPP
    Advanced/Recording-A-Bag-From-Your-Own-Node-Py
    Advanced/Simulators/Simulation-Main
