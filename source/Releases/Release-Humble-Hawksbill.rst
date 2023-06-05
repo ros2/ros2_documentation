@@ -43,10 +43,6 @@ Installation
 
 `Install Humble Hawksbill <../../humble/Installation.html>`__
 
-New features in this ROS 2 release
-----------------------------------
-
-
 Changes in Patch Release 1 (2022-11-23)
 ---------------------------------------
 
@@ -61,7 +57,7 @@ This behavior matches that of ROS 1's ``rostopic`` (http://wiki.ros.org/ROS/YAML
 
 Related PR: `ros2/ros2cli#751 <https://github.com/ros2/ros2cli/pull/751>`_
 
-Changes since the Galactic release
+New features in this ROS 2 release
 ----------------------------------
 
 ament_cmake_gen_version_h
@@ -316,8 +312,8 @@ New actions
 
   * Related PRs: `ros2/launch_ros#260 <https://github.com/ros2/launch_ros/pull/260>`_ and `ros2/launch_ros#281 <https://github.com/ros2/launch_ros/pull/281>`_
 
-SROS2 Security enclaves now support Certificate Revocation Lists
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SROS2 Security enclaves support Certificate Revocation Lists
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Certificate Revocation Lists (CRLs) are a concept where particular certificates can be revoked before their expiration.
 As of Humble, it is now possible to put a CRL in an SROS2 security enclave and have it be honored.
@@ -445,6 +441,42 @@ See `ros2/rviz#849 <https://github.com/ros2/rviz/pull/849>`__ for more informati
 
 Changes since the Galactic release
 ----------------------------------
+
+C++ headers are installed in a subdirectory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In ROS 2 releases prior to Humble, C++ headers for all packages were installed into a single include directory.
+For instance, in Galactic, the directory structure looks like this (reduced for brevity):
+
+.. code::
+
+    /opt/ros/galactic/include/
+    ├── rcl
+    │   ├── node.h
+    ├── rclcpp
+    │   ├── node.hpp
+
+
+This structure can cause serious problems when trying to use overlays.
+That is, it is very possible to get the wrong set of header files due to include directory order.
+See https://colcon.readthedocs.io/en/released/user/overriding-packages.html for a detailed explanation of the problems.
+
+To help combat this, in Humble (and in all ROS 2 releases going forward), the directory structure has changed:
+
+.. code::
+
+    /opt/ros/humble/include
+    ├── rcl
+    │   └── rcl
+    │       ├── node.h
+    ├── rclcpp
+    │   └── rclcpp
+    │       ├── node.hpp
+
+Note that downstream packages that use these headers do *not* have to change; using ``#include <rclcpp/node.hpp>`` works as it always did before.
+However, when using IDEs that are looking for include directories, it may be necessary to add the individual include directories to the search path.
+
+See https://github.com/ros2/ros2/issues/1150 for more information, including the reasoning behind this change.
 
 common_interfaces
 ^^^^^^^^^^^^^^^^^
