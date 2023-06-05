@@ -1,8 +1,3 @@
-.. redirect-from::
-
-    Improved-Dynamic-Discovery
-    Tutorials/Improved-Dynamic-Discovery/Improved-Dynamic-Discovery
-
 .. _ImprovedDynamicDiscovery:
 
 Improved Dynamic Discovery
@@ -21,9 +16,8 @@ Improved Dynamic Discovery
 Overview
 --------
 
-Iron Irwini or later, improved dynamic discovery options are available to control the ROS 2 communication range.
-By default, ROS 2 communication is not limited, so nodes on other hosts that are on the same subnet will be found automatically.
-Improved dynamic discovery provides the following environmental variable to control ROS 2 communication discovery.
+By default, ROS 2 will attempt to find all nodes on all hosts on the same subnet automatically.
+However, the following options are available to control the ROS 2 discovery range.
 
 
 Configuration Parameters
