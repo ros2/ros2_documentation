@@ -24,20 +24,24 @@ This tutorial will explain how to manage external dependencies using ``rosdep``.
 What is rosdep?
 ---------------
 
-``rosdep`` is ROS's dependency management utility that can work with ROS packages and external libraries.
+``rosdep`` is dependency management utility that can work with packages and external libraries.
 ``rosdep`` is a command-line utility for identifying and installing dependencies to build or install a package.
 It can be or is invoked when:
 
-- Building a workspace and needing appropriate dependencies to build the packages within
+- Before building a workspace and needing appropriate dependencies to build the packages within
 - Install packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute
 - and more!
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
 
+While the name may suggest so, ``rosdep`` is semi-agnostic to ROS. You can utilize this powerful tool in non-ROS software project [1]_.
+
+.. [1] As you may see in this document, ``rosdep`` can be installed as a standalone Python package. To execute it, it relies on the ``rosdep keys`` to be available on the same host. The keys can be downloaded from a public github repo by just a few sinmple commands.
+
 A little about package.xml files
 --------------------------------
 
-A package's ``package.xml`` file contains a set of dependencies.
+``package.xml`` is the file in your software where ``rosdep`` finds the set of dependencies.
 The dependencies in this file are generally referred to as "rosdep keys".
 These are represented in the tags ``<depend>``, ``<test_depend>``, ``<exec_depend>``, ``<build_depend>``, and ``<build_export_depend>``.
 They specify in what situation each of the dependencies are required in.
@@ -57,27 +61,36 @@ How does rosdep work?
 These keys are then cross-referenced against a central index to find the appropriate ROS package or software library in various package managers.
 Finally, once the packages are found, they are installed and ready to go!
 
-The central index is known as ``rosdistro``, which `may be found here <https://github.com/ros/rosdistro>`_.
+The central index is known as ``rosdistro``, which `may be found online <https://github.com/ros/rosdistro>`_.
 We'll explore that more in the next section.
+
+Actually ``rosdep`` retrieves the central index on to your local host so that it doesn't have to access online every time it runs (On Debian/Ubuntu it's found at ``/etc/ros/rosdep/sources.list.d/20-default.list``, but you really don't need to mess with that at all).
 
 How do I know what keys to put in my package.xml?
 -------------------------------------------------
 
 Great question, I'm glad you asked!
 
-For ROS packages (e.g. ``nav2_bt_navigator``), you may simply place the name of the package.
-You can find a list of all released ROS packages in ``rosdistro`` at ``<distro>/distribution.yaml`` for your given ROS distribution.
+You'd have to manually skim through `rosdistro database`_, which has the following directory structure:
 
-For non-ROS package system dependencies, we will need to find the keys for a particular library.
-In general, there are two files of interest: ``rosdep/base.yaml`` and ``rosdep/python.yaml``.
-``base.yaml`` in general contains the ``apt`` system dependencies.
-``python.yaml`` in general contains the ``pip`` python dependencies.
+.. code-block:: yaml
 
-To find a key, search for your library in this file and find the name in ``yaml`` that contains it.
-This is the key to put in a ``package.xml`` file.
+  ardent
+  bouncy
+  :
+  noetic
+  releases
+  rolling
+  rosdep
 
-For example, imagine a package had a dependency on ``doxygen`` because it is a great piece of software that cares about quality documentation (hint hint).
-We would search ``base.yaml`` for ``doxygen`` and come across:
+In this snippet, almost alll directories above the ``rosdep`` directory are the major released ROS version.
+
+* If you think the package you want to depend in your package is ROS-based, AND has been released into ROS ecosystem [2]_, e.g. ``nav2_bt_navigator``, you may simply place the name of the package. You can find a list of all released ROS packages in ``rosdistro`` at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
+* For a package that is not released into ROS ecosystem, e.g. often called "system dependencies", we will need to find the keys for a particular library. In general, there are two files of interest: `rosdep/base.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml>`_ and `rosdep/python.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml>`_.
+   * ``base.yaml`` in general contains the ``apt`` system dependencies.
+   * ``python.yaml`` in general contains the ``pip`` python dependencies.
+
+To find a key, search for your library in these files and find the name. This is the key to put in a ``package.xml`` file. For example, imagine a package had a dependency on ``doxygen`` because it is a great piece of software that cares about quality documentation (hint hint). We would search ``rosdep/base.yaml`` for ``doxygen`` and come across:
 
 .. code-block:: yaml
 
@@ -96,6 +109,8 @@ We would search ``base.yaml`` for ``doxygen`` and come across:
 
 That means our rosdep key is ``doxygen``, which would resolve to those various names in different operating system's package managers for installation.
 
+.. [2] "released into ROS ecosystem" means the package is listed in one or more of the ``<distro>/distribution.yaml`` directories in the `rosdistro database`_.
+
 What if my library isn't in rosdistro?
 --------------------------------------
 
@@ -108,6 +123,14 @@ If for some reason these may not be contributed openly, it is possible to fork r
 
 How do I use the rosdep tool?
 -----------------------------
+
+rosdep installation
+~~~~~~~~~~~~~~~~~~~
+
+``apt-get install python3-rosdep`` or ``pip install rosdep``
+
+rosdep operation
+~~~~~~~~~~~~~~~~
 
 Now that we have some understanding of ``rosdep``, ``package.xml``, and ``rosdistro``, we're ready to use the utility itself!
 Firstly, if this is the first time using ``rosdep``, it must be initialized via:
@@ -136,3 +159,5 @@ Breaking that down:
 
 There are additional arguments and options available.
 Use ``rosdep -h`` to see them.
+
+.. _rosdistro database: https://github.com/ros/rosdistro
