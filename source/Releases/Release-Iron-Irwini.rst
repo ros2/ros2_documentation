@@ -160,19 +160,22 @@ See `Type Description Distribution <https://github.com/ros2/ros2/issues/1159>`__
 Dynamic Types and Dynamic Messages
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Alongside the type description distribution feature mentioned above, is the ability to construct and access dynamically created types at runtime (i.e., dynamic types.)
-This feature is available in Iron for FastDDS and ``rcl``, with new ``rmw`` interfaces for supporting the taking of messages as dynamic messages (i.e., messages built from or following the structure of the dynamic type.)
+Alongside the type description distribution feature mentioned above, is the ability to construct and access dynamically created types at runtime (i.e., dynamic types).
+This feature is available in Iron for Fast DDS and ``rcl``, with new ``rmw`` interfaces for supporting the taking of messages as dynamic messages (i.e., messages built from or following the structure of the dynamic type).
 
-First, utilities were introduced into `rosidl <https://index.ros.org/r/rosidl/github-ros2-rosidl/#iron>`__ were introduced to aid in the construction and manipulation of type descriptions.
+First, utilities were introduced into `rosidl <https://index.ros.org/r/rosidl/github-ros2-rosidl/#iron>`__ to aid in the construction and manipulation of type descriptions.
 
 Next, the `rosidl_dynamic_typesupport <https://index.ros.org/r/rosidl_dynamic_typesupport/github-ros2-rosidl_dynamic_typesupport/#iron>`__ package was written and provides a middleware-agnostic interface to construct dynamic types and dynamic messages at runtime.
 Types can be constructed at runtime either programmatically, or by parsing a ``type_description_interfaces/TypeDescription`` message.
 
-Note: The ``rosidl_dynamic_typesupport`` library requires serialization support libraries to implement the middleware-specific dynamic type behavior.
-A serialization support library for FastDDS was implemented in `rosidl_dynamic_typesupport_fastrtps <https://index.ros.org/r/rosidl_dynamic_typesupport_fastrtps/github-ros2-rosidl_dynamic_typesupport_fastrtps/#iron>`__.
-Ideally more middlewares will implement support libraries, expanding the number of middlewares that support this feature.
+.. note::
+
+   The ``rosidl_dynamic_typesupport`` library requires serialization support libraries to implement the middleware-specific dynamic type behavior.
+   A serialization support library for Fast DDS was implemented in `rosidl_dynamic_typesupport_fastrtps <https://index.ros.org/r/rosidl_dynamic_typesupport_fastrtps/github-ros2-rosidl_dynamic_typesupport_fastrtps/#iron>`__.
+   Ideally more middlewares will implement support libraries, expanding the number of middlewares that support this feature.
 
 Finally, to support the use of dynamic types and dynamic messages, new methods were added to `rmw <https://index.ros.org/r/rmw/github-ros2-rmw/#iron>`__ and `rcl <https://index.ros.org/r/rcl/github-ros2-rcl/#iron>`__ that support:
+
 - The ability to obtain of middleware-specific serialization support
 - The ability to construct message type support at runtime that use dynamic types
 - The ability to take dynamic messages using dynamic type
