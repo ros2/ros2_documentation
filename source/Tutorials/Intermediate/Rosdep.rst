@@ -54,6 +54,8 @@ They specify in what situation each of the dependencies are required in.
 
 These dependencies are manually populated in the ``package.xml`` file by the package's creators and should be an exhaustive list of any non-builtin libraries and packages it requires.
 
+You can find more in detail description about the types of dependencies, in e.g. `Catkin's document <http://docs.ros.org/en/melodic/api/catkin/html/howto/format2/catkin_library_dependencies.html>`_.
+
 How does rosdep work?
 ---------------------
 
