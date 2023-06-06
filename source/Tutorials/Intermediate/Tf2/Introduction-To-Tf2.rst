@@ -80,7 +80,7 @@ We can use ``tf2_tools`` to look at what tf2 is doing behind the scenes.
 1 Using view_frames
 ^^^^^^^^^^^^^^^^^^^
 
-``view_frames`` creates a diagram of the frames being broadcasted by tf2 over ROS.
+``view_frames`` creates a diagram of the frames being broadcast by tf2 over ROS.
 
 .. code-block:: console
 
@@ -93,7 +93,7 @@ You will see:
    Listening to tf data during 5 seconds...
    Generating graph in frames.pdf file...
 
-Here a tf2 listener is listening to the frames that are being broadcasted over ROS and drawing a tree of how the frames are connected.
+Here a tf2 listener is listening to the frames that are being broadcast over ROS and drawing a tree of how the frames are connected.
 To view the tree, open the resulting ``frames.pdf`` with your favorite PDF viewer.
 
 .. image:: images/turtlesim_frames.png
@@ -112,7 +112,7 @@ Usage:
 
 .. code-block:: console
 
-   ros2 run tf2_ros tf2_echo [reference_frame] [target_frame]
+   ros2 run tf2_ros tf2_echo [source_frame] [target_frame]
 
 Let's look at the transform of the ``turtle2`` frame with respect to ``turtle1`` frame which is equivalent to:
 
@@ -120,7 +120,7 @@ Let's look at the transform of the ``turtle2`` frame with respect to ``turtle1``
 
    ros2 run tf2_ros tf2_echo turtle2 turtle1
 
-You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcasted over ROS2.
+You will see the transform displayed as the ``tf2_echo`` listener receives the frames broadcasted over ROS 2.
 
 .. code-block:: console
 
