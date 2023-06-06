@@ -134,6 +134,56 @@ Be advised that the ``enable_logger_service`` option is disabled by default, so 
 
 See https://github.com/ros2/ros2/issues/1355 for more information.
 
+Type Description Distribution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+It is now possible to communicate information about the types of ROS 2 messages, so that systems with potentially-different types of the same name may discover their compatibility more transparently.
+This umbrella of capabilities, which is defined by a subset of REP-2011: Evolving Message Types, has had many parts land in Iron.
+
+First, the introduction of the new package `type_description_interfaces <https://index.ros.org/p/type_description_interfaces/github-ros2-rcl_interfaces/#iron>`__ provides a common way to communicate the descriptions of ROS 2 communication interface types (msg, srv, action).
+
+Next, a method to hash type descriptions has been decided on, the ROS Interface Hashing Standard (RIHS) - starting with the first version RIHS01.
+RIHS hashes are automatically calculated for all compiled ROS types at build time, and baked into the generated code so that they can be inspected.
+These hashes are also communicated automatically during discovery, and included in ``rmw_topic_endpoint_info_t`` for graph introspection queries such as ``get_publishers_info_by_topic``.
+
+The full ``TypeDescription`` data structure, as well as the raw source text (such as ``.msg`` file) that were used to generate it are now baked in by default to the message libraries, so they can be used by ``typesupport`` or end users.
+While we expect this data to provide value to most users, some users trying to minimize bytes in their install space can disable the feature when building ROS 2 Core by defining the CMake variable ``ROSIDL_GENERATOR_C_DISABLE_TYPE_DESCRIPTION_CODEGEN``.
+
+Finally, the new service ``type_description_interfaces/GetTypeDescription.srv`` has been defined to allow nodes, on encountering an unknown RIHS type hash, to request the full definition from the node advertising that type.
+Work is in progress to provide this feature natively in ROS 2 Nodes, as an optional switch on node construction.
+This feature has not yet shipped, but is expected to be backported into Iron sometime mid-2023.
+Meanwhile, user nodes could implement this service indepedently, using the stable service interface.
+
+See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for the design proposal.
+See `Type Description Distribution <https://github.com/ros2/ros2/issues/1159>`__ for tracking development on the feature set.
+
+Dynamic Types and Dynamic Messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Alongside the type description distribution feature mentioned above, is the ability to construct and access dynamically created types at runtime (i.e., dynamic types.)
+This feature is available in Iron for FastDDS and ``rcl``, with new ``rmw`` interfaces for supporting the taking of messages as dynamic messages (i.e., messages built from or following the structure of the dynamic type.)
+
+First, utilities were introduced into `rosidl <https://index.ros.org/r/rosidl/github-ros2-rosidl/#iron>`__ were introduced to aid in the construction and manipulation of type descriptions.
+
+Next, the `rosidl_dynamic_typesupport <https://index.ros.org/r/rosidl_dynamic_typesupport/github-ros2-rosidl_dynamic_typesupport/#iron>`__ package was written and provides a middleware-agnostic interface to construct dynamic types and dynamic messages at runtime.
+Types can be constructed at runtime either programmatically, or by parsing a ``type_description_interfaces/TypeDescription`` message.
+
+Note: The ``rosidl_dynamic_typesupport`` library requires serialization support libraries to implement the middleware-specific dynamic type behavior.
+A serialization support library for FastDDS was implemented in `rosidl_dynamic_typesupport_fastrtps <https://index.ros.org/r/rosidl_dynamic_typesupport_fastrtps/github-ros2-rosidl_dynamic_typesupport_fastrtps/#iron>`__.
+Ideally more middlewares will implement support libraries, expanding the number of middlewares that support this feature.
+
+Finally, to support the use of dynamic types and dynamic messages, new methods were added to `rmw <https://index.ros.org/r/rmw/github-ros2-rmw/#iron>`__ and `rcl <https://index.ros.org/r/rcl/github-ros2-rcl/#iron>`__ that support:
+- The ability to obtain of middleware-specific serialization support
+- The ability to construct message type support at runtime that use dynamic types
+- The ability to take dynamic messages using dynamic type
+
+Work is in progress to enable the use of dynamic types to create subscriptions in the client libraries (see the ``rclcpp`` issue below), though it is uncertain when the feature will land or be backported.
+This will allow users to subscribe to topics whose type descriptions are only known at runtime.
+In the meantime, users may write their own subscriptions that subscribe to dynamic types by using the new ``rmw`` and ``rcl`` features introduced as part of this feature set.
+
+See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for the design proposal.
+See `Dynamic Subscription <https://github.com/ros2/ros2/issues/1374>`__ for tracking development on the feature set, with `rclcpp <https://github.com/ros2/rclcpp/pull/2176>`__ needing the bulk of the work.
+
 ``launch``
 ^^^^^^^^^^
 
@@ -785,55 +835,6 @@ This allows the evaluation of the time between the message publishing and the ca
 
 See https://github.com/ros2/ros2_tracing/pull/30 and https://github.com/ros2/rclcpp/pull/2091 for more information.
 
-Type Description Distribution
-"""""""""""""""""""""""""""""
-
-It is now possible to communicate information about the types of ROS 2 messages, so that systems with potentially-different types of the same name may discover their compatibility more transparently.
-This umbrella of capabilities, which is defined by a subset of REP-2011: Evolving Message Types, has had many parts land in Iron.
-
-First, the introduction of the new package `type_description_interfaces <https://index.ros.org/p/type_description_interfaces/github-ros2-rcl_interfaces/#iron>`__ provides a common way to communicate the descriptions of ROS 2 communication interface types (msg, srv, action).
-
-Next, a method to hash type descriptions has been decided on, the ROS Interface Hashing Standard (RIHS) - starting with the first version RIHS01.
-RIHS hashes are automatically calculated for all compiled ROS types at build time, and baked into the generated code so that they can be inspected by used code.
-These hashes are also communicated automatically during discovery, and included in `rmw_topic_endpoint_info_t` for graph introspection queries such as `get_publishers_info_by_topic`.
-
-The full `TypeDescription` data structure, as well as the raw source text (such as `.msg` file) that were used to generate it are now baked in by default to the message libraries, so they can be used by `typesupport` or end users.
-While we expect this data to provide value to most users, some users trying to minimize bytes in their install space can disable the feature when building ROS 2 Core by defining the CMake variable `ROSIDL_GENERATOR_C_DISABLE_TYPE_DESCRIPTION_CODEGEN`.
-
-Finally, the new service `type_description_interfaces/GetTypeDescription.srv` has been defined to allow nodes, on encountering an unknown RIHS type hash, to request the full definition from the node advertising that type.
-Work is in progress to provide this feature natively in ROS 2 Nodes, as an optional switch on node construction.
-This feature has not yet shipped, but is expected to be backported into Iron sometime mid-2023.
-Meanwhile, user nodes could implement this service indepedently, using the stable service interface.
-
-See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for the design proposal.
-See `Type Description Distribution <https://github.com/ros2/ros2/issues/1159>`__ for tracking development on the feature set.
-
-Dynamic Types and Dynamic Messages
-""""""""""""""""""""""""""""""""""
-
-Alongside the type description distribution feature mentioned above, is the ability to construct and access dynamically created types at runtime (i.e., dynamic types.)
-This feature is available in Iron for FastDDS and `rcl`, with new `rmw` interfaces for supporting the taking of messages as dynamic messages (i.e., messages built from or following the structure of the dynamic type.)
-
-First, utilities were introduced into `rosidl <https://index.ros.org/r/rosidl/github-ros2-rosidl/#iron>`__ were introduced to aid in the construction and manipulation of type descriptions.
-
-Next, the `rosidl_dynamic_typesupport <https://index.ros.org/r/rosidl_dynamic_typesupport/github-ros2-rosidl_dynamic_typesupport/#iron>`__ package was written and provides a middleware-agnostic interface to construct dynamic types and dynamic messages at runtime.
-Types can be constructed at runtime either programmatically, or by parsing a `type_description_interfaces/TypeDescription` message.
-
-Note: The `rosidl_dynamic_typesupport` library requires serialization support libraries to implement the middleware-specific dynamic type behavior.
-A serialization support library for FastDDS was implemented in `rosidl_dynamic_typesupport_fastrtps <https://index.ros.org/r/rosidl_dynamic_typesupport_fastrtps/github-ros2-rosidl_dynamic_typesupport_fastrtps/#iron>`__.
-Ideally more middlewares will implement support libraries, expanding the number of middlewares that support this feature.
-
-Finally, to support the use of dynamic types and dynamic messages, new methods were added to `rmw <https://index.ros.org/r/rmw/github-ros2-rmw/#iron>`__ and `rcl <https://index.ros.org/r/rcl/github-ros2-rcl/#iron>`__ that support:
-- The ability to obtain of middleware-specific serialization support
-- The ability to construct message type support at runtime that use dynamic types
-- The ability to take dynamic messages using dynamic type
-
-Work is in progress to enable the use of dynamic types to create subscriptions in the client libraries (see `rclcpp` issue below), though it is uncertain when the feature will land or be backported.
-This will allow users to subscribe to topics whose type descriptions are only known at runtime.
-In the meantime, users may write their own subscriptions that subscribe to dynamic types by using the new `rmw` and `rcl` features introduced as part of this feature set.
-
-See `REP 2011 <https://github.com/ros-infrastructure/rep/pull/358>`__ for the design proposal.
-See `Dynamic Subscription <https://github.com/ros2/ros2/issues/1374>`__ for tracking development on the feature set, with `rclcpp <https://github.com/ros2/rclcpp/pull/2176>`__ needing the bulk of the work.
 Known Issues
 ------------
 
