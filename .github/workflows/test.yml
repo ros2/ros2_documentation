@@ -15,7 +15,7 @@ jobs:
           python-version: '3.10'
 
       - name: Install dependencies with pip
-        run: pip install --no-warn-script-location --user --upgrade -r requirements.txt
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
 
       - name: Test doc8
         run: make test
@@ -36,8 +36,7 @@ jobs:
         uses: ts-graphviz/setup-graphviz@v1
 
       - name: Install dependencies with pip
-        run: pip install --no-warn-script-location --user --upgrade -r requirements.txt
+        run: pip install --no-warn-script-location --user -r requirements.txt -c constraints.txt
 
       - name: Build the docs
         run: make html
-
