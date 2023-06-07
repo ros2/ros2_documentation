@@ -6,7 +6,7 @@ Humble Hawksbill (``humble``)
 .. toctree::
    :hidden:
 
-   Humble-Hawksbill-Complete-Changelog.rst
+   Humble-Hawksbill-Complete-Changelog
 
 .. contents:: Table of Contents
    :depth: 2
@@ -742,7 +742,7 @@ ros1_bridge
 ^^^^^^^^^^^
 
 Since there is no official ROS 1 distribution on Ubuntu Jammy and forward, ``ros1_bridge`` is now compatible with the Ubuntu-packaged versions of ROS 1.
-More details about using ``ros1_bridge`` with Jammy packages are available in `the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream.rst>`__.
+More details about using ``ros1_bridge`` with Jammy packages are available in :doc:`the how-to guides <../How-To-Guides/Using-ros1_bridge-Jammy-upstream>`.
 
 ros2cli
 ^^^^^^^
