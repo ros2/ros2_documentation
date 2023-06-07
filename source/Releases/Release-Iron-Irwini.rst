@@ -8,7 +8,7 @@ Iron Irwini (``iron``)
 .. toctree::
    :hidden:
 
-   Iron-Irwini-Complete-Changelog.rst
+   Iron-Irwini-Complete-Changelog
 
 .. contents:: Table of Contents
    :depth: 2
