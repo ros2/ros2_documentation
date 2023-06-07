@@ -221,8 +221,6 @@ Next steps
 ----------
 
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
-Taking inspiration from these previous tutorials could be a starting point:
+You can also implement a reset handler to automatically restart your ROS nodes when the simulation is reset from the Webots interface:
 
-* :doc:`../../Recording-A-Bag-From-Your-Own-Node-Py`.
-
-* :doc:`../../../Intermediate/Tf2/Tf2-Main`.
+* :doc:`./Simulation-Reset-Handler`.
