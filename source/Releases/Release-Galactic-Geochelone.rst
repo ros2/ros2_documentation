@@ -6,7 +6,7 @@ Galactic Geochelone (``galactic``)
 .. toctree::
    :hidden:
 
-   Galactic-Geochelone-Complete-Changelog.rst
+   Galactic-Geochelone-Complete-Changelog
 
 .. contents:: Table of Contents
    :depth: 2
