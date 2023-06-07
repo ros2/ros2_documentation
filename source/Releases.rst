@@ -23,13 +23,13 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
-   Releases/Release-Iron-Irwini.rst
-   Releases/Release-Humble-Hawksbill.rst
-   Releases/Release-Foxy-Fitzroy.rst
-   Releases/Release-Rolling-Ridley.rst
-   Releases/Development.rst
-   Releases/End-of-Life.rst
-   Releases/Release-Process.rst
+   Releases/Release-Iron-Irwini
+   Releases/Release-Humble-Hawksbill
+   Releases/Release-Foxy-Fitzroy
+   Releases/Release-Rolling-Ridley
+   Releases/Development
+   Releases/End-of-Life
+   Releases/Release-Process
 
 .. raw:: html
 

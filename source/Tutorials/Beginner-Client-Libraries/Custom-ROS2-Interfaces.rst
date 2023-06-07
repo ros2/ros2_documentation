@@ -1,6 +1,6 @@
 .. redirect-from::
 
-    Tutorials/Custom-ROS2-Interfaces.rst
+    Tutorials/Custom-ROS2-Interfaces
 
 .. _CustomInterfaces:
 
