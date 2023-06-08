@@ -202,58 +202,13 @@ Once you have determined a unique integer for your group of ROS 2 nodes, you can
 
         setx ROS_DOMAIN_ID <your_domain_id>
 
-3.2 The ``ROS_LOCALHOST_ONLY`` variable
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3.2 The ``ROS_AUTOMATIC_DISCOVERY_RANGE`` variable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By default, ROS 2 communication is not limited to localhost.
-``ROS_LOCALHOST_ONLY`` environment variable allows you to limit ROS 2 communication to localhost only.
-This means your ROS 2 system, and its topics, services, and actions will not be visible to other computers on the local network.
-Using ``ROS_LOCALHOST_ONLY`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic causing strange behaviors.
-You can set the environment variable with the following command:
-
-.. tabs::
-
-   .. group-tab:: Linux
-
-      .. code-block:: console
-
-        export ROS_LOCALHOST_ONLY=1
-
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
-
-      .. code-block:: console
-
-        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bashrc
-
-   .. group-tab:: macOS
-
-      .. code-block:: console
-
-        export ROS_LOCALHOST_ONLY=1
-
-      To maintain this setting between shell sessions, you can add the command to your shell startup script:
-
-      .. code-block:: console
-
-        echo "export ROS_LOCALHOST_ONLY=1" >> ~/.bash_profile
-
-   .. group-tab:: Windows
-
-      .. code-block:: console
-
-        set ROS_LOCALHOST_ONLY=1
-
-      If you want to make this permanent between shell sessions, also run:
-
-      .. code-block:: console
-
-        setx ROS_LOCALHOST_ONLY 1
-
-.. note::
-
-  As of Iron Irwni, the ``ROS_LOCALHOST_ONLY`` variable is deprecated.
-  It can still be effective if it is set, and prevails over ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``.
-  But it is highly recommended that you control the ROS 2 communication discovery range with ``ROS_AUTOMATIC_DISCOVERY_RANGE`` and ``ROS_STATIC_PEERS``. See :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>` for more details.
+``ROS_AUTOMATIC_DISCOVERY_RANGE`` environment variable allows you to limit ROS 2 discovery range.
+Using ``ROS_AUTOMATIC_DISCOVERY_RANGE`` is helpful in certain settings, such as classrooms, where multiple robots may publish to the same topic causing strange behaviors.
+See :ref:`Improved Dynamic Discovery <ImprovedDynamicDiscovery>` for more details.
 
 Summary
 -------

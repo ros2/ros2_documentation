@@ -141,7 +141,7 @@ Therefore add the following to ``.devcontainer/devcontainer.json``:
         },
         "containerEnv": {
             "DISPLAY": "unix:0",
-            "ROS_LOCALHOST_ONLY": "1",
+            "ROS_AUTOMATIC_DISCOVERY_RANGE": "LOCALHOST",
             "ROS_DOMAIN_ID": "42"
         },
         "runArgs": [
