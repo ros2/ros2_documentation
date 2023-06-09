@@ -34,7 +34,8 @@ It can be or is invoked when:
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
 
-While the name may suggest so, ``rosdep`` is semi-agnostic to ROS. You can utilize this powerful tool in non-ROS software project [1]_.
+While the name may suggest so, ``rosdep`` is semi-agnostic to ROS.
+You can utilize this powerful tool in non-ROS software project [1]_.
 
 .. [1] As you may see in this document, ``rosdep`` can be installed as a standalone Python package. To execute it, it relies on the ``rosdep keys`` to be available on the same host. The keys can be downloaded from a public github repo by just a few sinmple commands.
 
