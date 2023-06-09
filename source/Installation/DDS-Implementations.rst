@@ -6,7 +6,7 @@ It is compatible with multiple DDS or RTPS (the DDS wire protocol) vendors.
 There is currently support for eProsima's Fast DDS, RTI's Connext DDS, Eclipse Cyclone DDS, and GurumNetworks GurumDDS.
 See https://ros.org/reps/rep-2000.html for supported DDS vendors by distribution.
 
-In Rolling, the default DDS vendor is eProsima's Fast DDS.
+The default DDS vendor is eProsima's Fast DDS.
 
 * :doc:`Working with Eclipse Cyclone DDS <DDS-Implementations/Working-with-Eclipse-CycloneDDS>` explains how to utilize Cyclone DDS.
 * :doc:`Working with eProsima Fast DDS <DDS-Implementations/Working-with-eProsima-Fast-DDS>` explains how to utilize Fast DDS.
