@@ -36,7 +36,7 @@ Configuration Parameters
   This allows connecting to nodes on specific machines (as long as their discovery range is not set to ``OFF``).
 
 The combination of these two environment variables for local and remote nodes will enable and control the ROS 2 communication discovery range.
-The following tables complete the all possible combination for those two variables and how the discovery range behaves.
+The following tables highlight the discovery range behavior for possible combination.
 
 A ``X`` indicates that nodes A and B will not discover each other and communicate.
 A ``O`` indicates that nodes A and B will discover each other and communicate.
@@ -218,7 +218,7 @@ A ``O`` indicates that nodes A and B will discover each other and communicate.
 Examples
 --------
 
-For example, the following commands will limit the ROS 2 communication only with local host and specific peers:
+For example, the following commands will limit the ROS 2 communication only with localhost and specific peers:
 
 .. tabs::
 
