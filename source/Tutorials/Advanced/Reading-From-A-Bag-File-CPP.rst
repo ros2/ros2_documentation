@@ -73,6 +73,7 @@ Inside your package's ``src`` directory, create a new file called ``simple_bag_r
 .. code-block:: C++
 
     #include <iostream>
+    #include <memory>
 
     #include "rclcpp/serialization.hpp"
     #include "rosbag2_cpp/reader.hpp"
