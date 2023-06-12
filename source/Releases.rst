@@ -105,7 +105,7 @@ Rows in the table marked in green are the currently supported distributions.
    * - :doc:`Foxy Fitzroy <Releases/Release-Foxy-Fitzroy>`
      - June 5th, 2020
      - |foxy|
-     - May 31st, 2023
+     - June 20th, 2023
    * - :doc:`Eloquent Elusor <Releases/Release-Eloquent-Elusor>`
      - November 22nd, 2019
      - |eloquent|
