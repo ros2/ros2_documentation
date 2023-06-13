@@ -112,41 +112,38 @@ Note that the synchronous publisher will be publishing on topic ``sync_topic``, 
             // Create the asynchronous publisher on topic 'async_topic'
             async_publisher_ = this->create_publisher<std_msgs::msg::String>("async_topic", 10);
 
+            // Actions to run every time the timer expires
+            auto timer_callback = [this](){
+
+                // Create a new message to be sent
+                auto sync_message = std_msgs::msg::String();
+                sync_message.data = "SYNC: Hello, world! " + std::to_string(count_);
+
+                // Log the message to the console to show progress
+                RCLCPP_INFO(this->get_logger(), "Synchronously publishing: '%s'", sync_message.data.c_str());
+
+                // Publish the message using the synchronous publisher
+                sync_publisher_->publish(sync_message);
+
+                // Create a new message to be sent
+                auto async_message = std_msgs::msg::String();
+                async_message.data = "ASYNC: Hello, world! " + std::to_string(count_);
+
+                // Log the message to the console to show progress
+                RCLCPP_INFO(this->get_logger(), "Asynchronously publishing: '%s'", async_message.data.c_str());
+
+                // Publish the message using the asynchronous publisher
+                async_publisher_->publish(async_message);
+
+                // Prepare the count for the next message
+                count_++;
+            };
+
             // This timer will trigger the publication of new data every half a second
-            timer_ = this->create_wall_timer(
-                    500ms, std::bind(&SyncAsyncPublisher::timer_callback, this));
+            timer_ = this->create_wall_timer(500ms, timer_callback);
         }
 
     private:
-        /**
-         * Actions to run every time the timer expires
-         */
-        void timer_callback()
-        {
-            // Create a new message to be sent
-            auto sync_message = std_msgs::msg::String();
-            sync_message.data = "SYNC: Hello, world! " + std::to_string(count_);
-
-            // Log the message to the console to show progress
-            RCLCPP_INFO(this->get_logger(), "Synchronously publishing: '%s'", sync_message.data.c_str());
-
-            // Publish the message using the synchronous publisher
-            sync_publisher_->publish(sync_message);
-
-            // Create a new message to be sent
-            auto async_message = std_msgs::msg::String();
-            async_message.data = "ASYNC: Hello, world! " + std::to_string(count_);
-
-            // Log the message to the console to show progress
-            RCLCPP_INFO(this->get_logger(), "Asynchronously publishing: '%s'", async_message.data.c_str());
-
-            // Publish the message using the asynchronous publisher
-            async_publisher_->publish(async_message);
-
-            // Prepare the count for the next message
-            count_++;
-        }
-
         // This timer will trigger the publication of new data every half a second
         rclcpp::TimerBase::SharedPtr timer_;
 
@@ -322,13 +319,10 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
 
 .. code-block:: C++
 
-    #include <functional>
     #include <memory>
 
     #include "rclcpp/rclcpp.hpp"
     #include "std_msgs/msg/string.hpp"
-
-    using std::placeholders::_1;
 
     class SyncAsyncSubscriber : public rclcpp::Node
     {
@@ -337,26 +331,23 @@ In a new source file named ``src/sync_async_reader.cpp`` write the following con
         SyncAsyncSubscriber()
             : Node("sync_async_subscriber")
         {
+            // Lambda function to run every time a new message is received
+            auto topic_callback = [this](const std_msgs::msg::String & msg){
+                RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
+            };
+
             // Create the synchronous subscriber on topic 'sync_topic'
             // and tie it to the topic_callback
             sync_subscription_ = this->create_subscription<std_msgs::msg::String>(
-                "sync_topic", 10, std::bind(&SyncAsyncSubscriber::topic_callback, this, _1));
+                "sync_topic", 10, topic_callback);
 
             // Create the asynchronous subscriber on topic 'async_topic'
             // and tie it to the topic_callback
             async_subscription_ = this->create_subscription<std_msgs::msg::String>(
-                "async_topic", 10, std::bind(&SyncAsyncSubscriber::topic_callback, this, _1));
+                "async_topic", 10, topic_callback);
         }
 
     private:
-
-        /**
-         * Actions to run every time a new message is received
-         */
-        void topic_callback(const std_msgs::msg::String & msg) const
-        {
-            RCLCPP_INFO(this->get_logger(), "I heard: '%s'", msg.data.c_str());
-        }
 
         // A subscriber that listens to topic 'sync_topic'
         rclcpp::Subscription<std_msgs::msg::String>::SharedPtr sync_subscription_;
