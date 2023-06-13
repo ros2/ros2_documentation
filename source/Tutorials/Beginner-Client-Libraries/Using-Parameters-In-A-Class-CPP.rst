@@ -87,18 +87,15 @@ Inside the ``ros2_ws/src/cpp_parameters/src`` directory, create a new file calle
       {
         this->declare_parameter("my_parameter", "world");
 
-        timer_ = this->create_wall_timer(
-          1000ms, std::bind(&MinimalParam::timer_callback, this));
-      }
+        auto timer_callback = [this](){
+          std::string my_param = this->get_parameter("my_parameter").as_string();
 
-      void timer_callback()
-      {
-        std::string my_param = this->get_parameter("my_parameter").as_string();
+          RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
 
-        RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
-
-        std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
-        this->set_parameters(all_new_parameters);
+          std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+          this->set_parameters(all_new_parameters);
+        };
+        timer_ = this->create_wall_timer(1000ms, timer_callback);
       }
 
     private:
@@ -120,7 +117,13 @@ The ``#include`` statements at the top are the package dependencies.
 The next piece of code creates the class and the constructor.
 The first line of this constructor creates a parameter with the name ``my_parameter`` and a default value of ``world``.
 The parameter type is inferred from the default value, so in this case it would be set to a string type.
-Next the ``timer_`` is initialized with a period of 1000ms, which causes the ``timer_callback`` function to be executed once a second.
+Next, a `lambda function <https://en.cppreference.com/w/cpp/language/lambda>`_ called ``timer_callback`` is declared.
+It performs a by-reference capture of the current object ``this``, takes no input arguments and returns void.
+The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
+Then the ``RCLCPP_INFO`` function ensures the event is logged.
+The ``set_parameters`` function sets the parameter ``my_parameter`` back to the default string value ``world``.
+In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
+In the end, ``timer_`` is initialized with a period of 1000ms, which causes the ``timer_callback`` function to be executed once a second.
 
 .. code-block:: C++
 
@@ -132,26 +135,16 @@ Next the ``timer_`` is initialized with a period of 1000ms, which causes the ``t
       {
         this->declare_parameter("my_parameter", "world");
 
-        timer_ = this->create_wall_timer(
-          1000ms, std::bind(&MinimalParam::timer_callback, this));
+        auto timer_callback = [this](){
+          std::string my_param = this->get_parameter("my_parameter").as_string();
+
+          RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
+
+          std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
+          this->set_parameters(all_new_parameters);
+        };
+        timer_ = this->create_wall_timer(1000ms, timer_callback);
       }
-
-The first line of our ``timer_callback`` function gets the parameter ``my_parameter`` from the node, and stores it in ``my_param``.
-Next the ``RCLCPP_INFO`` function ensures the event is logged.
-The ``set_parameters`` function then sets the parameter ``my_parameter`` back to the default string value ``world``.
-In the case that the user changed the parameter externally, this ensures it is always reset back to the original.
-
-.. code-block:: C++
-
-    void timer_callback()
-    {
-      std::string my_param = this->get_parameter("my_parameter").as_string();
-
-      RCLCPP_INFO(this->get_logger(), "Hello %s!", my_param.c_str());
-
-      std::vector<rclcpp::Parameter> all_new_parameters{rclcpp::Parameter("my_parameter", "world")};
-      this->set_parameters(all_new_parameters);
-    }
 
 Last is the declaration of ``timer_``.
 
