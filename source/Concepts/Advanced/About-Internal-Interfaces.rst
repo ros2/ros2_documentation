@@ -182,7 +182,7 @@ See the :ref:`Type Specific Interfaces` section above for more details.
 
 For more information on what exactly is in the ``rosidl`` |API| (static and generated) see this page:
 
-The ``rcutils`` Repository
+The ``rcutils`` repository
 --------------------------
 
 ROS 2 C Utilities (``rcutils``) is a C |API| composed of macros, functions, and data structures used throughout the ROS 2 codebase.

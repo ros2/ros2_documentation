@@ -17,7 +17,7 @@ This manifest is required for the meta-build tool to function.
 
 The ROS 2 build system consists of 3 major concepts.
 
-Build Tool
+Build tool
 ----------
 
 This is the software that controls the compilation and testing of a single package.
