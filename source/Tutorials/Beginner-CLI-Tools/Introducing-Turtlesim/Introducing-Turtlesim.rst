@@ -151,7 +151,7 @@ Open a new terminal to install ``rqt`` and its plugins:
 
       sudo apt update
 
-      sudo apt install ~nros-{DISTRO}-rqt*
+      sudo apt install ros-{DISTRO}-rqt*
 
   .. group-tab:: RHEL
 
