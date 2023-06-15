@@ -14,7 +14,9 @@
 
 '''
 The implementation of this sphinx extensions is largely borrowed from the sphinx_sitemap extension
-(version: https://github.com/jdillard/sphinx-sitemap/blob/3bd87ef166bc9f3758d360ad4d23b524668b161d/sphinx_sitemap/__init__.py).
+(version: https://github.com/jdillard/sphinx-sitemap/blob/3bd87ef166bc9f3758d360ad4d23b524668b161d/sphinx_sitemap/__init__.py)
+with modifications made to add_html_link() to ignore any pages whose context contains the
+'skip_sitemap' key.
 '''
 
 
@@ -27,7 +29,7 @@ from xml.etree import ElementTree
 from sphinx.application import Sphinx
 from sphinx.util.logging import getLogger
 
-__version__ = "2.5.0"
+__version__ = "0.0.1"
 
 logger = getLogger(__name__)
 
@@ -131,6 +133,12 @@ def add_html_link(app: Sphinx, pagename: str, templatename, context, doctree):
     :param app: The Sphinx Application instance
     :param pagename: The current page being built
     """
+
+    # Return if the context contains `skip_sitemap`.
+    if 'skip_sitemap' in context.keys():
+        logger.debug(f"sphinx-sitemap-ros: Ignoring sitemap entry for {pagename} with reason \"{context['skip_sitemap']}\"")
+        return
+
     env = app.builder.env
     if app.builder.config.html_file_suffix is None:
         file_suffix = ".html"
@@ -163,7 +171,7 @@ def create_sitemap(app: Sphinx, exception):
         site_url.rstrip("/") + "/"
     else:
         logger.warning(
-            "sphinx-sitemap: html_baseurl is required in conf.py." "Sitemap not built.",
+            "sphinx-sitemap-ros: html_baseurl is required in conf.py." "Sitemap not built.",
             type="sitemap",
             subtype="configuration",
         )
@@ -171,7 +179,7 @@ def create_sitemap(app: Sphinx, exception):
 
     if app.env.app.sitemap_links.empty():  # type: ignore
         logger.info(
-            "sphinx-sitemap: No pages generated for %s" % app.config.sitemap_filename,
+            "sphinx-sitemap-ros: No pages generated for %s" % app.config.sitemap_filename,
             type="sitemap",
             subtype="information",
         )
@@ -223,7 +231,7 @@ def create_sitemap(app: Sphinx, exception):
     )
 
     logger.info(
-        "sphinx-sitemap: %s was generated for URL %s in %s"
+        "sphinx-sitemap-ros: %s was generated for URL %s in %s"
         % (app.config.sitemap_filename, site_url, filename),
         type="sitemap",
         subtype="information",
