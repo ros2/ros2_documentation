@@ -25,6 +25,7 @@ import time
 from docutils.parsers.rst import Directive
 
 sys.path.append(os.path.abspath('./sphinx-multiversion'))
+sys.path.append(os.path.abspath('plugins'))
 
 
 # The suffix(es) of source filenames.
@@ -73,7 +74,16 @@ pygments_style = 'sphinx'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-extensions = ['sphinx.ext.intersphinx', 'sphinx_tabs.tabs', 'sphinx_multiversion', 'sphinx_rtd_theme', 'sphinx.ext.ifconfig', 'sphinx_copybutton', 'sphinx.ext.graphviz']
+extensions = [
+    'sphinx.ext.graphviz',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.intersphinx',
+    'sphinx_copybutton',
+    'sphinx_multiversion',
+    'sphinx_tabs.tabs',
+    'sphinx_rtd_theme',
+    'sphinx_sitemap_ros',
+]
 
 # Intersphinx mapping
 
@@ -220,6 +230,8 @@ class RedirectFrom(Directive):
                     'canonical_url': os.path.relpath(
                         canonical_url, redirect_url
                     ),
+                    # Skip entry into sitemap.xml with reason 'redirect'.
+                    'skip_sitemap': 'redirect',
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
                         base_url=app.config.html_baseurl,
