@@ -232,9 +232,9 @@ See `the source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/log
 Logger level configuration: externally
 --------------------------------------
 
-You can use logger service to implement external configuration of loggers at runtime.
+You can use the node logger service to externally configure loggers at runtime.
 
-The following code shows how to enable logger service while creating node.
+The following code shows how to enable the logger service while creating the node.
 
 .. tabs::
 
@@ -252,7 +252,7 @@ The following code shows how to enable logger service while creating node.
         # Create a node with logger service enabled
         node = Node('NodeWithLoggerService', enable_logger_service=True)
 
-You will find 2 services under node `NodeWithLoggerService` by running `ros2 service list`
+If you run one of the nodes as configured above, you will find 2 services when running ``ros2 service list``:
 
 .. code-block:: bash
 
@@ -264,9 +264,9 @@ You will find 2 services under node `NodeWithLoggerService` by running `ros2 ser
 
 * get_logger_levels
 
-    Use this service to get logger levels by specified logger names.
+    Use this service to get logger levels for specified logger names.
 
-    Run `ros2 srvice call` to get logger levels for `NodeWithLoggerService` and `rcl`.
+    Run ``ros2 service call`` to get logger levels for ``NodeWithLoggerService`` and ``rcl``.
     .. code-block:: bash
 
         ros2 service call /NodeWithLoggerService/get_logger_levels rcl_interfaces/srv/GetLoggerLevels '{names: ["NodeWithLoggerService", "rcl"]}'
@@ -278,9 +278,9 @@ You will find 2 services under node `NodeWithLoggerService` by running `ros2 ser
 
 * set_logger_levels
 
-    Use this service to set logger levels by specified logger names.
+    Use this service to set logger levels for specified logger names.
 
-    Run `ros2 service call` to set logger levels for `NodeWithLoggerService` and `rcl`.
+    Run ``ros2 service call`` to set logger levels for ``NodeWithLoggerService`` and ``rcl``.
     .. code-block:: bash
 
         $ ros2 service call /NodeWithLoggerService/set_logger_levels rcl_interfaces/srv/SetLoggerLevels '{levels: [{name: "NodeWithLoggerService", level: 20}, {name: "rcl", level: 10}]}'
@@ -291,16 +291,25 @@ You will find 2 services under node `NodeWithLoggerService` by running `ros2 ser
         rcl_interfaces.srv.SetLoggerLevels_Response(results=[rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason=''), rcl_interfaces.msg.SetLoggerLevelsResult(successful=True, reason='')])
 
 
-There are demo code on how to set/get logger level via logger service.
+There is also demo code showing how to set or get the logger level via the logger service.
 
-  * rclcpp: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/logging/use_logger_service.cpp>`
-  * rclpy: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/logging/use_logger_service.py>`
+  * rclcpp: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_cpp/src/logging/use_logger_service.cpp>`__
+
+      .. code-block:: bash
+
+          $ ros2 run demo_nodes_cpp use_logger_service
+
+  * rclpy: `demo code <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/demo_nodes_py/demo_nodes_py/logging/use_logger_service.py>`__
+
+      .. code-block:: bash
+
+          $ ros2 run demo_nodes_py use_logger_service
 
 .. warning::
 
-    Currently, there is a limitation that `get_logger_levels` and `set_logger_levels` services are not thread-safe.
+    Currently, there is a limitation that ``get_logger_levels`` and ``set_logger_levels`` services are not thread-safe.
     This means that you need to ensure that only one thread is calling the services at a time.
-    Please see details to https://github.com/ros2/rcutils/issues/397
+    Please see the details in https://github.com/ros2/rcutils/issues/397
 
 Using the logger config component
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
