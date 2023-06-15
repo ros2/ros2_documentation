@@ -25,6 +25,7 @@ import time
 from docutils.parsers.rst import Directive
 
 sys.path.append(os.path.abspath('./sphinx-multiversion'))
+sys.path.append(os.path.abspath('plugins'))
 
 
 # The suffix(es) of source filenames.
@@ -81,7 +82,7 @@ extensions = [
     'sphinx_multiversion',
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
-    'sphinx_sitemap',
+    'sphinx_sitemap_ros',
 ]
 
 # Intersphinx mapping
@@ -238,6 +239,8 @@ class RedirectFrom(Directive):
                     'canonical_url': os.path.relpath(
                         canonical_url, redirect_url
                     ),
+                    # Skip entry into sitemap.xml with reason 'redirect'.
+                    'skip_sitemap': 'redirect',
                     'title': os.path.basename(redirect_url),
                     'metatags': redirect_html_fragment.format(
                         base_url=app.config.html_baseurl,
