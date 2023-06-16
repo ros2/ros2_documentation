@@ -88,6 +88,12 @@ You can either install the official released package, or install it from the lat
             sudo rosdep init && rosdep update
             rosdep install --from-paths src --ignore-src --rosdistro {DISTRO}
 
+        Fix some `python warnings <https://robotics.stackexchange.com/questions/24230/setuptoolsdeprecationwarning-in-ros2-humble/24349#24349>`_ (if not already done)
+
+        .. code-block:: console
+            echo 'export PYTHONWARNINGS="ignore:setup.py install is deprecated::setuptools.command.install"' >> ~/.bashrc
+            source ~/.bashrc
+
         Build the package using ``colcon``.
 
         .. code-block:: console
