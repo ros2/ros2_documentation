@@ -77,7 +77,7 @@ This message is composed of these fields:
 * phone_type: of type uint8, with several named constant values defined
 
 Note that it's possible to set default values for fields within a message definition.
-See :doc:`../../Concepts/About-ROS-Interfaces` for more ways you can customize interfaces.
+See :doc:`../../Concepts/Basic/About-Interfaces` for more ways you can customize interfaces.
 
 Next, we need to make sure that the msg file is turned into source code for C++, Python, and other languages.
 

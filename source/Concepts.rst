@@ -1,5 +1,3 @@
-.. _ConceptsHome:
-
 Concepts
 ========
 
@@ -8,6 +6,7 @@ Conceptual overviews provide relatively high-level, general background informati
 .. toctree::
    :maxdepth: 1
 
+<<<<<<< HEAD
    Concepts/About-Domain-ID
    Concepts/About-Different-Middleware-Vendors
    Concepts/About-Logging
@@ -102,6 +101,13 @@ and the Python listener node running in another terminal  will subscribe to mess
 
 You should see that these nodes discover each other automatically, and begin to exchange messages.
 
+=======
+   Concepts/Basic
+   Concepts/Intermediate
+   Concepts/Advanced
+
+
+>>>>>>> 5cdc08c8 (Rearrangement of the conceptual documents. (#3732))
 Related Content
 ^^^^^^^^^^^^^^^
 
@@ -111,4 +117,3 @@ For a brief video introduction to ROS 2, see this community contributed content:
 
 * `Getting started with ROS Part 1: Nodes, Parameters and Topics <https://youtu.be/46TPAKXBOF8>`_
 * `Getting started with ROS Part 2: Services and Actions <https://youtu.be/keZAJ83eEoM>`_
-

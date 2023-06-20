@@ -107,4 +107,4 @@ Windows
 Using RQt
 ----------
 
-See :doc:`Overview of RQt <../Concepts/About-RQt>`.
+See :doc:`Overview of RQt <../Concepts/Intermediate/About-RQt>`.

@@ -19,7 +19,7 @@ Background
 ----------
 
 With the introduction of DDS in ROS 2, Quality of Service (QoS) compatibility for publisher/subscriber nodes needs to be considered when recording and playing back data.
-More detail on how QoS works can be found :doc:`here <../Concepts/About-Quality-of-Service-Settings>`.
+More detail on how QoS works can be found :doc:`here <../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
 For the purposes of this guide, it is sufficient to know that only the reliability and durability policies affect whether publishers/subscribers are compatible and can receive data from one other.
 
 Ros2Bag adapts its requested/offered QoS profile when recording/playing data from a topic to prevent dropped messages.

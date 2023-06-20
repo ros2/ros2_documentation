@@ -1,8 +1,11 @@
-About Composition
-=================
+.. redirect-from::
+
+   Concepts/About-Composition
+
+Composition
+===========
 
 .. contents:: Table of Contents
-   :depth: 1
    :local:
 
 ROS 1 - Nodes vs. Nodelets
@@ -23,15 +26,12 @@ Having different APIs, which was the biggest drawback in ROS 1, is avoided in RO
 
    It is still possible to use the node-like style of "writing your own main" but for the common case it is not recommended.
 
-
 By making the process layout a deploy-time decision the user can choose between:
 
-
 * running multiple nodes in separate processes with the benefits of process/fault isolation as well as easier debugging of individual nodes and
-* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <../Tutorials/Demos/Intra-Process-Communication>`).
+* running multiple nodes in a single process with the lower overhead and optionally more efficient communication (see :doc:`Intra Process Communication <../../Tutorials/Demos/Intra-Process-Communication>`).
 
 Additionally ``ros2 launch`` can be used to automate these actions through specialized launch actions.
-
 
 Writing a Component
 -------------------
@@ -58,14 +58,11 @@ Additionally, once a component is created, it must be registered with the index 
 
    In order for the component_container to be able to find desired components, it must be executed or launched from a shell that has sourced the corresponding workspace.
 
-.. _composition-using-components:
-
 Using Components
 ----------------
 
 The `composition <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/composition>`__ package contains a couple of different approaches on how to use components.
 The three most common ones are:
-
 
 #. Start a (`generic container process <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp_components/src/component_container.cpp>`__) and call the ROS service `load_node <https://github.com/ros2/rcl_interfaces/blob/{REPOS_FILE_BRANCH}/composition_interfaces/srv/LoadNode.srv>`__ offered by the container.
    The ROS service will then load the component specified by the passed package name and library name and start executing it within the running process.
@@ -77,4 +74,4 @@ The three most common ones are:
 Practical application
 ---------------------
 
-Try the :doc:`Composition demos <../Tutorials/Intermediate/Composition>`.
+Try the :doc:`Composition demos <../../Tutorials/Intermediate/Composition>`.

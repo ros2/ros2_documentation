@@ -1,14 +1,13 @@
 .. redirect-from::
 
     Logging
+    Concepts/About-Logging
 
-About logging and logger configuration
-======================================
+Logging and logger configuration
+================================
 
 .. contents:: Table of Contents
-   :depth: 2
    :local:
-
 
 Overview
 --------
@@ -127,7 +126,7 @@ Logging subsystem design
 
 The image below shows the five main pieces to the logging subsystem and how they interact.
 
-.. figure:: images/ros2_logging_architecture.png
+.. figure:: ../images/ros2_logging_architecture.png
    :alt: ROS 2 logging architecture
    :width: 550px
    :align: center
@@ -185,7 +184,7 @@ Logging usage
   .. group-tab:: C++
 
     * See the `rclcpp logging demo <https://github.com/ros2/demos/tree/{REPOS_FILE_BRANCH}/logging_demo>`_ for some simple examples.
-    * See the :doc:`logging demo <../Tutorials/Demos/Logging-and-logger-configuration>` for example usage.
+    * See the :doc:`logging demo <../../Tutorials/Demos/Logging-and-logger-configuration>` for example usage.
     * See the `rclcpp documentation <https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html>`__ for an extensive list of functionality.
 
   .. group-tab:: Python

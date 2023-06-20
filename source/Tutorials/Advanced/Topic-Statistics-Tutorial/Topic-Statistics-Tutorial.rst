@@ -18,15 +18,14 @@ Enabling topic statistics (C++)
 Background
 ----------
 
-This is a short tutorial of how to enable :doc:`Topic Statistics<../../../Concepts/About-Topic-Statistics>`
-in ROS 2 and view the published statistics output using command line tools (:doc:`ros2topic<../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
+This is a short tutorial on how to enable topic statistics in ROS 2 and view the published statistics output using command line tools (:doc:`ros2topic <../../Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics>`).
 
 ROS 2 provides the integrated measurement of statistics for messages received by any subscription,
 called Topic Statistics.
 With Topic Statistics enabled for your subscription, you can characterize the performance of your
 system or use the data to help diagnose any present issues.
 
-For more details please see the :doc:`Topic Statistics Concepts Page<../../../Concepts/About-Topic-Statistics>`.
+For more details please see the :doc:`Topic Statistics Concepts Page <../../../Concepts/Intermediate/About-Topic-Statistics>`.
 
 Prerequisites
 -------------
@@ -242,7 +241,7 @@ then you will see that name instead of ``/statistics``.
 The subscriber node you created is publishing statistics, for the topic ``topic``, to the output topic
 ``/statistics``.
 
-We can visualize this using :doc:`RQt <../../../Concepts/About-RQt>`
+We can visualize this using :doc:`RQt <../../../Concepts/Intermediate/About-RQt>`
 
 .. image:: images/topic_stats_rqt.png
 

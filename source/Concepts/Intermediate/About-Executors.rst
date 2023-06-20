@@ -1,4 +1,6 @@
-.. _Executors:
+.. redirect-from::
+
+   Concepts/About-Executors
 
 Executors
 =========
@@ -9,7 +11,7 @@ Executors
 Overview
 --------
 
-Execution management in ROS 2 is explicated by the concept of Executors.
+Execution management in ROS 2 is handled by Executors.
 An Executor uses one or more threads of the underlying operating system to invoke the callbacks of subscriptions, timers, service servers, action servers, etc. on incoming messages and events.
 The explicit Executor class (in `executor.hpp <https://github.com/ros2/rclcpp/blob/{REPOS_FILE_BRANCH}/rclcpp/include/rclcpp/executor.hpp>`_ in rclcpp, in `executors.py <https://github.com/ros2/rclpy/blob/{REPOS_FILE_BRANCH}/rclpy/rclpy/executors.py>`_ in rclpy, or in `executor.h <https://github.com/ros2/rclc/blob/master/rclc/include/rclc/executor.h>`_ in rclc) provides more control over execution management than the spin mechanism in ROS 1, although the basic API is very similar.
 
@@ -53,7 +55,7 @@ In order not to counteract the QoS settings of the middleware, an incoming messa
 A *wait set* is used to inform the Executor about available messages on the middleware layer, with one binary flag per queue.
 The *wait set* is also used to detect when timers expire.
 
-.. image:: images/executors_basic_principle.png
+.. image:: ../images/executors_basic_principle.png
 
 The Single-Threaded Executor is also used by the container process for :doc:`components <./About-Composition>`, i.e. in all cases where nodes are created and executed without an explicit main function.
 
@@ -139,7 +141,7 @@ There are two types of callback groups, where the type has to be specified at in
 
 Callbacks of different callback groups may always be executed in parallel.
 The Multi-Threaded Executor uses its threads as a pool to process as many callbacks as possible in parallel according to these conditions.
-For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../How-To-Guides/Using-callback-groups>`.
+For tips on how to use callback groups efficiently, see :doc:`Using Callback Groups <../../How-To-Guides/Using-callback-groups>`.
 
 Since Galactic, the interface of the Executor base class in rclcpp has been refined by a new function ``add_callback_group(..)``.
 This allows distributing callback groups to different Executors.
@@ -157,7 +159,7 @@ In detail, it only reports whether there are any messages for a certain topic or
 The Executor uses this information to process the messages (including services and actions) in a round-robin fashion - but not in FIFO order.
 The following flow diagram visualizes this scheduling semantics.
 
-.. image:: images/executors_scheduling_semantics.png
+.. image:: ../images/executors_scheduling_semantics.png
 
 This semantics was first described in a `paper by Casini et al. at ECRTS 2019 <https://drops.dagstuhl.de/opus/volltexte/2019/10743/pdf/LIPIcs-ECRTS-2019-6.pdf>`_.
 (Note: The paper also explains that timer events are prioritized over all other messages. `This prioritization was removed in Eloquent. <https://github.com/ros2/rclcpp/pull/841>`_)
