@@ -10,7 +10,7 @@ Logging
    :depth: 2
    :local:
 
-See `the logging page <../../Concepts/About-Logging>` for details on available functionality.
+See `the logging page <../../Concepts/Intermediate/About-Logging>` for details on available functionality.
 
 Using log statements in code
 ----------------------------

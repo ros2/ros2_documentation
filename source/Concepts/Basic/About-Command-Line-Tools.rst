@@ -2,12 +2,12 @@
 
     Introspection-with-command-line-tools
     Tutorials/Introspection-with-command-line-tools
+    Concepts/About-Command-Line-Tools
 
 Introspection with command line tools
 =====================================
 
 .. contents:: Table of Contents
-   :depth: 1
    :local:
 
 ROS 2 includes a suite of command-line tools for introspecting a ROS 2 system.
@@ -25,24 +25,25 @@ To see all available sub-commands run:
 
 Examples of sub-commands that are available include:
 
-
-* action: Introspect/interact with ROS actions
-* bag: Record/play a rosbag
-* component: Manage component containers
-* daemon: Introspect/configure the ROS 2 daemon
-* doctor: Check ROS setup for potential issues
-* interface: Show information about ROS interfaces
-* launch: Run/introspect a launch file
-* lifecycle: Introspect/manage nodes with managed lifecycles
-* node: Introspect ROS nodes
-* param: Introspect/configure parameters on a node
-* pkg: Introspect ROS packages
-* run: Run ROS nodes
-* security: Configure security settings
-* service: Introspect/call ROS services
-* test: Run a ROS launch test
-* topic: Introspect/publish ROS topics
-* trace: Tracing tools to get information on ROS nodes execution (only available on Linux)
+* ``action``: Introspect/interact with ROS actions
+* ``bag``: Record/play a rosbag
+* ``component``: Manage component containers
+* ``daemon``: Introspect/configure the ROS 2 daemon
+* ``doctor``: Check ROS setup for potential issues
+* ``interface``: Show information about ROS interfaces
+* ``launch``: Run/introspect a launch file
+* ``lifecycle``: Introspect/manage nodes with managed lifecycles
+* ``multicast``: Multicast debugging commands
+* ``node``: Introspect ROS nodes
+* ``param``: Introspect/configure parameters on a node
+* ``pkg``: Introspect ROS packages
+* ``run``: Run ROS nodes
+* ``security``: Configure security settings
+* ``service``: Introspect/call ROS services
+* ``test``: Run a ROS launch test
+* ``topic``: Introspect/publish ROS topics
+* ``trace``: Tracing tools to get information on ROS nodes execution (only available on Linux)
+* ``wtf``: An alias for ``doctor``
 
 Example
 -------
@@ -72,7 +73,7 @@ Behind the scenes
 -----------------
 
 ROS 2 uses a distributed discovery process for nodes to connect to each other.
-As this process purposefully does not use a centralized discovery mechanism (like the ROS Master in ROS 1), it can take time for ROS nodes to discover all other participants in the ROS graph.
+As this process purposefully does not use a centralized discovery mechanism, it can take time for ROS nodes to discover all other participants in the ROS graph.
 Because of this, there is a long-running daemon in the background that stores information about the ROS graph to provide faster responses to queries, e.g. the list of node names.
 
 The daemon is automatically started when the relevant command-line tools are used for the first time.

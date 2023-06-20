@@ -1,6 +1,12 @@
+.. redirect-from::
+
+   Concepts/About-Domain-ID
 
 The ROS_DOMAIN_ID
 =================
+
+.. contents:: Table of Contents
+   :local:
 
 Overview
 --------

@@ -1,19 +1,22 @@
 .. redirect-from::
 
     About-Quality-of-Service-Settings
+    Concepts/About-Quality-of-Service-Settings
 
-About Quality of Service settings
-=================================
+Quality of Service settings
+===========================
 
+.. contents:: Table of Contents
+   :local:
 
 Overview
 --------
 
 ROS 2 offers a rich variety of Quality of Service (QoS) policies that allow you to tune communication between nodes.
 With the right set of Quality of Service policies, ROS 2 can be as reliable as TCP or as best-effort as UDP, with many, many possible states in between.
-Unlike ROS 1, which primarily only supported TCP, ROS 2 benefits from the flexibility of the underlying DDS transport in environments with lossy wireless networks where a “best effort” policy would be more suitable, or in real-time computing systems where the right Quality of Service profile is needed to meet deadlines.
+Unlike ROS 1, which primarily only supported TCP, ROS 2 benefits from the flexibility of the underlying DDS transport in environments with lossy wireless networks where a "best effort" policy would be more suitable, or in real-time computing systems where the right Quality of Service profile is needed to meet deadlines.
 
-A set of QoS “policies” combine to form a QoS “profile”.
+A set of QoS "policies" combine to form a QoS "profile".
 Given the complexity of choosing the correct QoS policies for a given scenario, ROS 2 provides a set of predefined QoS profiles for common use cases (e.g. sensor data).
 At the same time, developers are given the flexibility to control specific policies of the QoS profiles.
 
@@ -33,7 +36,7 @@ The base QoS profile currently includes settings for the following policies:
 
 * Depth
 
-  * *Queue size*: only honored if the “history” policy was set to “keep last”.
+  * *Queue size*: only honored if the "history" policy was set to "keep last".
 
 * Reliability
 
@@ -42,7 +45,7 @@ The base QoS profile currently includes settings for the following policies:
 
 * Durability
 
-  * *Transient local*: the publisher becomes responsible for persisting samples for “late-joining” subscriptions.
+  * *Transient local*: the publisher becomes responsible for persisting samples for "late-joining" subscriptions.
   * *Volatile*: no attempt is made to persist samples.
 
 * Deadline
@@ -55,25 +58,25 @@ The base QoS profile currently includes settings for the following policies:
 
 * Liveliness
 
-  * *Automatic*: the system will consider all of the node’s publishers to be alive for another “lease duration” when any one of its publishers has published a message.
-  * *Manual by topic*: the system will consider the publisher to be alive for another “lease duration” if it manually asserts that it is still alive (via a call to the publisher API).
+  * *Automatic*: the system will consider all of the node’s publishers to be alive for another "lease duration" when any one of its publishers has published a message.
+  * *Manual by topic*: the system will consider the publisher to be alive for another "lease duration" if it manually asserts that it is still alive (via a call to the publisher API).
 
 * Lease Duration
 
   * *Duration*: the maximum period of time a publisher has to indicate that it is alive before the system considers it to have lost liveliness (losing liveliness could be an indication of a failure).
 
-For each of the policies that is not a duration, there is also the option of “system default”, which uses the default of the underlying middleware.
-For each of the policies that is a duration, there also exists a “default” option that means the duration is unspecified, which the underlying middleware will usually interpret as an infinitely long duration.
+For each of the policies that is not a duration, there is also the option of "system default", which uses the default of the underlying middleware.
+For each of the policies that is a duration, there also exists a "default" option that means the duration is unspecified, which the underlying middleware will usually interpret as an infinitely long duration.
 
 Comparison to ROS 1
 ^^^^^^^^^^^^^^^^^^^
 
-The “history” and “depth” policies in ROS 2 combine to provide functionality akin to the queue size in ROS 1.
+The "history" and "depth" policies in ROS 2 combine to provide functionality akin to the queue size in ROS 1.
 
-The “reliability” policy in ROS 2 is akin to the use of either UDPROS (only in ``roscpp``) for “best effort”, or TCPROS (ROS 1 default) for “reliable”.
+The "reliability" policy in ROS 2 is akin to the use of either UDPROS (only in ``roscpp``) for "best effort", or TCPROS (ROS 1 default) for "reliable".
 Note however that even the reliable policy in ROS 2 is implemented using UDP, which allows for multicasting if appropriate.
 
-The “durability” policy “transient local”, combined with any depth, provides functionality similar to that of “latching” publishers.
+The "durability" policy "transient local", combined with any depth, provides functionality similar to that of "latching" publishers.
 The remaining policies in ROS 2 are not akin to anything that is available in ROS 1, meaning that ROS 2 is more featureful than ROS 1 in this respect.
 It is possible that in the future, even more QoS policies will be available in ROS 2.
 
@@ -89,8 +92,8 @@ The currently defined QoS profiles are:
 * Default QoS settings for publishers and subscriptions
 
   In order to make the transition from ROS 1 to ROS 2 easier, exercising a similar network behavior is desirable.
-  By default, publishers and subscriptions in ROS 2 have “keep last” for history with a queue size of 10, “reliable” for reliability, “volatile” for durability, and “system default” for liveliness.
-  Deadline, lifespan, and lease durations are also all set to “default”.
+  By default, publishers and subscriptions in ROS 2 have "keep last" for history with a queue size of 10, "reliable" for reliability, "volatile" for durability, and "system default" for liveliness.
+  Deadline, lifespan, and lease durations are also all set to "default".
 
 * Services
 
@@ -126,8 +129,8 @@ QoS compatibilities
 QoS profiles may be configured for publishers and subscriptions independently.
 A connection between a publisher and a subscription is only made if the pair has compatible QoS profiles.
 
-QoS profile compatibility is determined based on a “Request vs Offered” model.
-Subscriptions *request* a QoS profile that is the “minimum quality” that it is willing to accept, and publishers *offer* a QoS profile that is the “maximum quality” that it is able to provide.
+QoS profile compatibility is determined based on a "Request vs Offered" model.
+Subscriptions *request* a QoS profile that is the "minimum quality" that it is willing to accept, and publishers *offer* a QoS profile that is the "maximum quality" that it is able to provide.
 Connections are only made if every policy of the requested QoS profile is not more stringent than that of the offered QoS profile.
 Multiple subscriptions can be connected to a single publisher simultaneously even if their requested QoS profiles are different.
 The compatibility between a publisher and a subscription is unaffected by the presence of other publishers and subscriptions.

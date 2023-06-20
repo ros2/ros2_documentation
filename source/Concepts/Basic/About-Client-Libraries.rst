@@ -1,13 +1,12 @@
 .. redirect-from::
 
    Concepts/About-Client-Interfaces
+   Concepts/About-ROS-2-Client-Libraries
 
-.. include:: ../../global_substitutions.txt
+.. include:: ../../../global_substitutions.txt
 
-.. _ROS-2-Client-Libraries:
-
-About ROS 2 client libraries
-============================
+Client libraries
+================
 
 .. contents:: Table of Contents
    :local:
@@ -15,16 +14,15 @@ About ROS 2 client libraries
 Overview
 --------
 
-Client libraries are the APIs that allow users to implement their ROS code.
-Using client libraries, users gain access to ROS concepts such as nodes, topics, services, etc.
-Client libraries come in a variety of programming languages so that users may write ROS code in the language that is best-suited for their application.
+Client libraries are the APIs that allow users to implement their ROS 2 code.
+Using client libraries, users gain access to ROS 2 concepts such as nodes, topics, services, etc.
+Client libraries come in a variety of programming languages so that users may write ROS 2 code in the language that is best-suited for their application.
 For example, you might prefer to write visualization tools in Python because it makes prototyping iterations faster, while for parts of your system that are concerned with efficiency, the nodes might be better implemented in C++.
 
-Nodes written using different client libraries are able to share messages with each other because all client libraries implement code generators that provide users with the capability to interact with ROS interface files in the respective language.
+Nodes written using different client libraries are able to share messages with each other because all client libraries implement code generators that provide users with the capability to interact with ROS 2 interface files in the respective language.
 
-In addition to the language-specific communication tools, client libraries expose to users the core functionality that makes ROS “ROS”.
+In addition to the language-specific communication tools, client libraries expose to users the core functionality that makes ROS "ROS".
 For example, here is a list of functionality that can typically be accessed through a client library:
-
 
 * Names and namespaces
 * Time (real or simulated)
@@ -36,9 +34,9 @@ For example, here is a list of functionality that can typically be accessed thro
 Supported client libraries
 --------------------------
 
-The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both client libraries which utilize common functionality in the RCL.
+The C++ client library (``rclcpp``) and the Python client library (``rclpy``) are both client libraries which utilize common functionality in ``rcl``.
 
-The ``rclcpp`` Package
+The ``rclcpp`` package
 ~~~~~~~~~~~~~~~~~~~~~~
 
 The ROS Client Library for C++ (``rclcpp``) is the user facing, C++ idiomatic interface which provides all of the ROS client functionality like creating nodes, publishers, and subscriptions.
@@ -51,7 +49,7 @@ The generated |API| documentation is here:
 
 `api/rclcpp/index.html <http://docs.ros.org/en/{DISTRO}/p/rclcpp>`_
 
-The ``rclpy`` Package
+The ``rclpy`` package
 ~~~~~~~~~~~~~~~~~~~~~
 
 The ROS Client Library for Python (``rclpy``) is the Python counterpart to the C++ client library.
@@ -75,7 +73,6 @@ Community-maintained
 
 While the C++ and Python client libraries are maintained by the core ROS 2 team, members of the ROS 2 community maintain additional client libraries:
 
-* `Ada <https://github.com/ada-ros/ada4ros2>`__ Ada binding and tools for ROS 2 - workspace overlay.
 * `C <https://github.com/ros2/rclc>`__  ``rclc`` does not put a layer on top of rcl but complements rcl to make rcl+rclc a feature-complete client library in C. See `micro.ros.org <https://micro.ros.org/>`__ for tutorials.
 * `JVM and Android <https://github.com/ros2-java>`__ Java and Android bindings for ROS 2.
 * `.NET Core, UWP and C# <https://github.com/esteve/ros2_dotnet>`__ This is a collection of projects (bindings, code generator, examples and more) for writing ROS 2 applications for .NET Core and .NET Standard.
@@ -84,11 +81,13 @@ While the C++ and Python client libraries are maintained by the core ROS 2 team,
 
 Older, unmaintained client libraries are:
 
+* `Ada <https://github.com/ada-ros/ada4ros2>`__
 * `C# <https://github.com/firesurfer/rclcs>`__
 * `Objective C and iOS <https://github.com/esteve/ros2_objc>`__
+* `Zig <https://github.com/jacobperron/rclzig>`__
 
 
-Common functionality: the RCL
+Common functionality: ``rcl``
 -----------------------------
 
 Most of the functionality found in a client library is not specific to the programming language of the client library.
@@ -102,7 +101,7 @@ In addition to making the client libraries light-weight, an advantage of having 
 If any changes are made to the logic/behavior of the functionality in the core RCL -- namespaces, for example -- all client libraries that use the RCL will have these changes reflected.
 Furthermore, having the common core means that maintaining multiple client libraries becomes less work when it comes to bug fixes.
 
-`The API documentation for the RCL can be found here. <https://docs.ros2.org/latest/api/rcl/>`__
+The API documentation for ``rcl`` can be found `here <https://docs.ros.org/en/{DISTRO}/p/rcl/>`__.
 
 Language-specific functionality
 -------------------------------
