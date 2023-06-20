@@ -1,13 +1,19 @@
+.. redirect-from::
 
-About ROS 2 middleware implementations
-======================================
+   Concepts/About-Middleware-Implementations
 
-.. include:: ../../global_substitutions.txt
+ROS 2 middleware implementations
+================================
+
+.. contents:: Table of Contents
+   :local:
+
+.. include:: ../../../global_substitutions.txt
 
 ROS middleware implementations are sets of |packages| that implement some of the internal ROS interfaces, e.g. the ``rmw``, ``rcl``, and ``rosidl`` |APIs|.
 
 Common Packages for DDS Middleware Packages
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 All of the current ROS middleware implementations are based on full or partial DDS implementations.
 For example, there is a middleware implementation that uses RTI's Connext DDS and an implementation which uses eProsima's Fast DDS.
@@ -21,13 +27,13 @@ The ``rosidl_generator_dds_idl`` |package| generates a DDS ``.idl`` file for eac
 Currently DDS based ROS middleware implementations make use of this generator's output ``.idl`` files to generate pre-compiled type support that is vendor specific.
 
 Structure of ROS Middleware Implementations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------
 
 A ROS middleware implementation is typically made up of a few |packages| in a single repository:
 
--  ``<implementation_name>_cmake_module``: contains CMake Module for discovering and exposing required dependencies
--  ``rmw_<implementation_name>_<language>``: contains the implementation of the ``rmw`` |API| in a particular language, typically C++
--  ``rosidl_typesupport_<implementation_name>_<language>``: contains tools to generate static type support code for ``rosidl`` files, tailored to the implementation in a particular language, typically C or C++
+- ``<implementation_name>_cmake_module``: contains CMake Module for discovering and exposing required dependencies
+- ``rmw_<implementation_name>_<language>``: contains the implementation of the ``rmw`` |API| in a particular language, typically C++
+- ``rosidl_typesupport_<implementation_name>_<language>``: contains tools to generate static type support code for ``rosidl`` files, tailored to the implementation in a particular language, typically C or C++
 
 The ``<implementation_name>_cmake_module`` |package| contains any CMake Modules and functions needed to find the supporting dependencies for the middleware implementation.
 For example, ``rti_connext_dds_cmake_module`` provides wrapper logic around the CMake Module shipped with RTI Connext DDS to make sure that all packages that depend on it will select the same installation of RTI Connext DDS.
@@ -53,9 +59,3 @@ The rmw implementation for ``Fast DDS`` is on |GitHub|_ at `ros2/rmw_fastrtps_cp
 The rmw implementation for ``Connext DDS`` is on |GitHub|_ at `ros2/rmw_connextdds <https://github.com/ros2/rmw_connextdds>`_.
 
 The rmw implementation for ``GurumDDS`` is on |GitHub|_ at `ros/rmw_gurumdds <https://github.com/ros2/rmw_gurumdds>`_.
-
-To learn more about what is required to create a new middleware implementation for ROS see this page:
-
-.. warning::
-
-    TODO: Link to more detailed middleware implementation docs and/or tutorial.

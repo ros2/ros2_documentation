@@ -824,7 +824,7 @@ Summary
 In this tutorial, you learned how to create custom interfaces in their own package and how to utilize those interfaces in other packages.
 
 This tutorial only scratches the surface about defining custom interfaces.
-You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/About-ROS-Interfaces>`.
+You can learn more about it in :doc:`About ROS 2 interfaces <../../Concepts/Basic/About-Interfaces>`.
 
 Next steps
 ----------

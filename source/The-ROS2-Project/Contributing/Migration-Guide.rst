@@ -608,7 +608,7 @@ To further control how message delivery is handled, a quality of service
 The default profile is ``rmw_qos_profile_default``.
 For more details, see the
 `design document <https://design.ros2.org/articles/qos.html>`__
-and `concept overview <../../Concepts/About-Quality-of-Service-Settings>`.
+and `concept overview <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`.
 
 The creation of the outgoing message is different in the namespace:
 
