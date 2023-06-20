@@ -35,7 +35,7 @@ New features in this ROS 2 release
 * `image_transport <https://github.com/ros-perception/image_common/wiki/ROS2-Migration>`__
 * `navigation2 <https://github.com/ros-planning/navigation2/blob/master/README.md>`__
 * `rosbag2 <https://index.ros.org/r/rosbag2/github-ros2-rosbag2/#crystal>`__
-* `rqt <../../Concepts/About-RQt>`
+* `rqt <../../Concepts/Intermediate/About-RQt>`
 * Improvement in memory management
 * Introspection information about nodes
 * Launch system improvements

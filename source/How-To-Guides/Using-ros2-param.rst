@@ -5,7 +5,7 @@ Using the ``ros2 param`` command-line tool
    :depth: 1
    :local:
 
-Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../Concepts/About-ROS-2-Parameters>`.
+Parameters in ROS 2 can be get, set, listed, and described through a set of services as described in :doc:`the concept document <../Concepts/Basic/About-Parameters>`.
 The ``ros2 param`` command-line tool is a wrapper around these service calls that makes it easy to manipulate parameters from the command-line.
 
 ``ros2 param list``
@@ -82,7 +82,7 @@ The following string typed parameter would work:
 
 This command will remove a parameter from a particular node.
 However, note that this can only remove dynamic parameters (not declared parameters).
-See :doc:`the concept document <../Concepts/About-ROS-2-Parameters>` for more information.
+See :doc:`the concept document <../Concepts/Basic/About-Parameters>` for more information.
 
 .. code-block:: console
 
