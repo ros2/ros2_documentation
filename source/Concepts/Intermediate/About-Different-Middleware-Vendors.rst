@@ -1,9 +1,13 @@
 .. redirect-from::
 
     DDS-and-ROS-middleware-implementations
+    Concepts/About-Different-Middleware-Vendors
 
-About different ROS 2 DDS/RTPS vendors
-======================================
+Different ROS 2 middleware vendors
+==================================
+
+.. contents:: Table of Contents
+   :local:
 
 ROS 2 is built on top of DDS/RTPS as its middleware, which provides discovery, serialization and transportation.
 `This article <https://design.ros2.org/articles/ros_on_dds.html>`__ explains the motivation behind using DDS implementations, and/or the RTPS wire protocol of DDS, in detail.
@@ -47,7 +51,7 @@ Supported RMW implementations
      - ``rmw_gurumdds_cpp``
      - Community support. Support included in binaries, but GurumDDS installed separately.
 
-For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
+For practical information on working with multiple RMW implementations, see the :doc:`"Working with multiple RMW implementations" <../../How-To-Guides/Working-with-multiple-RMW-implementations>` tutorial.
 
 Multiple RMW implementations
 ----------------------------
@@ -55,7 +59,7 @@ Multiple RMW implementations
 The ROS 2 binary releases for currently active distros have built-in support for several RMW implementations out of the box (Fast DDS, RTI Connext Pro, Eclipse Cyclone DDS, GurumNetworks GurumDDS).
 The default is Fast DDS, which works without any additional installation steps because we distribute it with our binary packages.
 
-Other RMWs like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
+Other RMWs like Cyclone DDS, Connext or GurumDDS can be enabled by :doc:`installing additional packages <../../Installation/DDS-Implementations>`, but without having to rebuild anything or replace any existing packages.
 
 A ROS 2 workspace that has been built from source may build and install multiple RMW implementations simultaneously.
 While the core ROS 2 code is being compiled, any RMW implementation that is found will be built if the relevant DDS/RTPS implementation has been installed properly and the relevant environment variables have been configured.
@@ -78,4 +82,4 @@ The implementation identifier is the name of the ROS package that provides the R
 For example, if both ``rmw_cyclonedds_cpp`` and ``rmw_connextdds`` ROS packages are installed, ``rmw_connextdds`` would be the default.
 If ``rmw_fastrtps_cpp`` is ever installed, it would be the default.
 
-See the :doc:`guide <../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.
+See the :doc:`guide <../../How-To-Guides/Working-with-multiple-RMW-implementations>` for how to specify which RMW implementation is to be used when running the ROS 2 examples.

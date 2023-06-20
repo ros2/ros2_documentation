@@ -1,22 +1,36 @@
-About the build system
-======================
+.. redirect-from::
 
-.. include:: ../../global_substitutions.txt
+   Concepts/About-Build-System
 
-Under everything is the build system.
-Iterating on ``catkin`` from ROS 1, we have created a set of |packages| under the moniker ``ament``.
-Some of the reasons for changing the name to ``ament`` are that we wanted it to not collide with ``catkin`` (in case we want to mix them at some point) and to prevent confusion with existing ``catkin`` documentation.
-``ament``'s primary responsibility is to make it easier to develop and maintain ROS 2 core |packages|.
-However, this responsibility extends to any user who is willing to make use of our build system conventions and tools.
-Additionally it should make |packages| conventional, such that developers should be able to pick up any ``ament`` based |package| and make some assumptions about how it works, how to introspect it, and how to build or use it.
+The build system
+================
 
-``ament`` consists of a few important repositories which are all in the ``ament`` `GitHub organization <https://github.com/ament>`_:
-
-.. contents::
-   :depth: 1
+.. contents:: Table of Contents
    :local:
 
-The ``ament_package`` Package
+.. include:: ../../../global_substitutions.txt
+
+The build system is what allows developers to build their ROS 2 code as needed.
+ROS 2 relies heavily on the division of code into packages, with each package containing a manifest file (``package.xml``).
+This manifest file contains essential metadata about the package, including its dependencies on other packages.
+This manifest is required for the meta-build tool to function.
+
+The ROS 2 build system consists of 3 major concepts.
+
+Build tool
+----------
+
+This is the software that controls the compilation and testing of a single package.
+In ROS 2 this is usually CMake for C++, and setuptools for Python, but other build tools are supported.
+
+Build helpers
+-------------
+
+These are helper functions that hook into the build tool to developer experience.
+ROS 2 packages typically rely on the ``ament`` series of packages for this.
+``ament`` consists of a few important repositories which are all in the `GitHub organization <https://github.com/ament>`_.
+
+The ``ament_package`` package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Located on |GitHub|_ at `ament/ament_package <https://github.com/ament/ament_package>`_, this repository contains a single :term:`ament Python package` that provides various utilities for |ament packages|, e.g. templates for environment hooks.
@@ -59,7 +73,7 @@ Here is a list of common package types that you might run into in this software 
     ament Python package
         A :term:`Python package` that also follows the ``ament`` packaging guidelines.
 
-The ``ament_cmake`` Repository
+The ``ament_cmake`` repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Located on |GitHub|_ at `ament/ament_cmake <https://github.com/ament/ament_cmake>`_, this repository contains many "ament CMake" and pure CMake packages which provide the infrastructure in CMake that is required to create "ament CMake" packages.
@@ -98,7 +112,7 @@ Here a list of the |packages| in the repository along with a short description:
 -  ``ament_cmake_python``
 
    - provides CMake functions for |packages| that contain Python code
-   - see the :doc:`ament_cmake_python user documentation <../How-To-Guides/Ament-CMake-Python-Documentation>`
+   - see the :doc:`ament_cmake_python user documentation <../../How-To-Guides/Ament-CMake-Python-Documentation>`
 
 -  ``ament_cmake_test``
 
@@ -121,16 +135,17 @@ The environment setup files, often named something like ``setup.bash``, are a pl
 The developers are able to do this using an "environment hook" which is basically an arbitrary bit of shell code that can set or modify environment variables, define shell functions, setup auto-completion rules, etc...
 This feature is how, for example, ROS 1 set the ``ROS_DISTRO`` environment variable without ``catkin`` knowing anything about the ROS distribution.
 
-The ``ament_lint`` Repository
+The ``ament_lint`` repository
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Located on |GitHub|_ at `ament/ament_lint <https://github.com/ament/ament_lint>`_, this repository provides several |packages| which provide linting and testing services in a convenient and consistent manner.
 Currently there are |packages| to support C++ style linting using ``uncrustify``, static C++ code checks using ``cppcheck``, checking for copyright in source code, Python style linting using ``pep8``, and other things.
 The list of helper packages will likely grow in the future.
 
-Build tools
-~~~~~~~~~~~
+Meta-build tool
+---------------
 
-A build tool performs the task of building a workspace of packages together at once with a single invocation.
-For ROS 2 releases up to Ardent, the build tool providing this functionality is called ``ament_tools``.
-As of ROS 2 Bouncy, ``ament_tools`` has been superseded by ``colcon``, as described in `the universal build tool article <http://design.ros2.org/articles/build_tool.html>`_.
+This is a piece of software that knows how to topologically order a group of packages, and build or test them in the correct dependency order.
+This software will call into the Build Tool to do the actual work of compiling, testing, and installing the package.
+
+In ROS 2, the tool named `colcon <https://colcon.readthedocs.io/en/released/>`__ is used for this.

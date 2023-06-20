@@ -49,7 +49,7 @@ The namespace, which must start with a forward slash, is set to ``/demo``, which
 Passing remapping arguments to specific nodes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If multiple nodes are being run within a single process (e.g. using :doc:`Composition <../Concepts/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
+If multiple nodes are being run within a single process (e.g. using :doc:`Composition <../Concepts/Intermediate/About-Composition>`), remapping arguments can be passed to a specific node using its name as a prefix.
 For example, the following will pass the remapping arguments to the specified nodes:
 
 .. code-block:: bash
