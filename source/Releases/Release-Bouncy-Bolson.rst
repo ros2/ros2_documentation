@@ -43,7 +43,7 @@ New features in this ROS 2 release
 * Various improvements to the Python client library.
 * Support for publishing and subscribing to serialized data.
   This is the foundation for the upcoming work towards a native rosbag implementation.
-* More `command line tools <../../Concepts/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
+* More `command line tools <../../Concepts/Basic/About-Command-Line-Tools>`\ , e.g. for working with parameters and lifecycle states.
 * Binary packages / fat archives support three RMW implementations by default (without the need to build from source):
 
   * eProsima's Fast RTPS (default)

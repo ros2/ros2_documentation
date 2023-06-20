@@ -20,11 +20,11 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
    * - Discovery, transport and serialization over DDS
      - `Article <https://design.ros2.org/articles/ros_on_dds.html>`__
      -
-   * - Support for :doc:`multiple DDS implementations <../Concepts/About-Different-Middleware-Vendors>`, chosen at runtime
-     - :doc:`Concept <../Concepts/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../How-To-Guides/Working-with-multiple-RMW-implementations>`
+   * - Support for :doc:`multiple DDS implementations <../Concepts/Intermediate/About-Different-Middleware-Vendors>`, chosen at runtime
+     - :doc:`Concept <../Concepts/Intermediate/About-Different-Middleware-Vendors>`, :doc:`How-to Guide <../How-To-Guides/Working-with-multiple-RMW-implementations>`
      - Currently Eclipse Cyclone DDS, eProsima Fast DDS, and RTI Connext DDS are fully supported.
    * - Common core client library that is wrapped by language-specific libraries
-     - :doc:`Details <../Concepts/About-ROS-2-Client-Libraries>`
+     - :doc:`Details <../Concepts/Basic/About-Client-Libraries>`
      -
    * - Publish/subscribe over topics
      - `Sample code <https://github.com/ros2/examples>`__\ , `Article <https://design.ros2.org/articles/topic_and_service_names.html>`__
@@ -57,7 +57,7 @@ For planned future development, see the :doc:`Roadmap <Roadmap>`.
      - `Demo <https://github.com/ros2/sros2>`__
      -
    * - Command-line introspection tools using an extensible framework
-     - :doc:`Concept <../Concepts/About-Command-Line-Tools>`
+     - :doc:`Concept <../Concepts/Basic/About-Command-Line-Tools>`
      -
    * - Launch system for coordinating multiple nodes
      - :doc:`Tutorial <../Tutorials/Intermediate/Launch/Launch-system>`

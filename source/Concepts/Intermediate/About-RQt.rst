@@ -1,22 +1,20 @@
-.. _RQt_Overview_Usage:
-
 .. redirect-from::
 
    RQt-Overview-Usage
    Tutorials/RQt-Overview-Usage
+   Concepts/About-RQt
 
 Overview and usage of RQt
 =========================
 
 .. contents:: Table of Contents
-   :depth: 2
    :local:
 
 Overview
 --------
 
 RQt is a graphical user interface framework that implements various tools and interfaces in the form of plugins.
-One can run all the existing GUI tools as dockable windows within RQt!
+One can run all the existing GUI tools as dockable windows within RQt.
 The tools can still run in a traditional standalone method, but RQt makes it easier to manage all the various windows in a single screen layout.
 
 You can run any RQt tools/plugins easily by:
@@ -56,7 +54,7 @@ Installing From Debian
 Building From Source
 ^^^^^^^^^^^^^^^^^^^^
 
-See :doc:`Building RQt from Source <../How-To-Guides/RQt-Source-Install>`.
+See :doc:`Building RQt from Source <../../How-To-Guides/RQt-Source-Install>`.
 
 RQt Components Structure
 ------------------------

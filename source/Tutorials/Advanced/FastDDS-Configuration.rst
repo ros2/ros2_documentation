@@ -23,7 +23,7 @@ The interface between the ROS 2 stack and *Fast DDS* is provided by the ROS 2 mi
 This implementation is available in all ROS 2 distributions, both from binaries and from sources.
 
 ROS 2 RMW only allows for the configuration of certain middleware QoS
-(see :doc:`ROS 2 QoS policies <../../Concepts/About-Quality-of-Service-Settings>`).
+(see :doc:`ROS 2 QoS policies <../../Concepts/Intermediate/About-Quality-of-Service-Settings>`).
 However, ``rmw_fastrtps`` offers extended configuration capabilities to take full advantage of the features in *Fast DDS*.
 This tutorial will guide you through a series of examples explaining how to use XML files to unlock this extended configuration.
 

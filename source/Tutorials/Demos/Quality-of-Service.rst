@@ -13,7 +13,7 @@ Using quality-of-service settings for lossy networks
 Background
 ----------
 
-Please read the documentation page `about QoS settings <../../Concepts/About-Quality-of-Service-Settings>` for background information on available support in ROS 2.
+Please read the documentation page `about QoS settings <../../Concepts/Intermediate/About-Quality-of-Service-Settings>` for background information on available support in ROS 2.
 
 In this demo, we will spawn a node that publishes a camera image and another that subscribes to the image and shows it on the screen.
 We will then simulate a lossy network connection between them and show how different quality of service settings handle the bad link.

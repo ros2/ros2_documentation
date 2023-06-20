@@ -160,7 +160,7 @@ If you need more specific help (because environment setup files can come from di
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-See the `domain ID <../../Concepts/About-Domain-ID>` article for details on ROS domain IDs.
+See the `domain ID <../../Concepts/Intermediate/About-Domain-ID>` article for details on ROS domain IDs.
 
 Once you have determined a unique integer for your group of ROS 2 nodes, you can set the environment variable with the following command:
 
