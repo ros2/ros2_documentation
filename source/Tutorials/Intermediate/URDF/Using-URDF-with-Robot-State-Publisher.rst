@@ -42,9 +42,9 @@ Tasks
 
 .. code-block:: console
 
-  mkdir -p ~/second_ros2_ws/src  # change as needed
+  mkdir -p ~/second_ros2_ws/src
   cd ~/second_ros2_ws/src
-  ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy
+  ros2 pkg create urdf_tutorial_r2d2 --build-type ament_python --dependencies rclpy --license Apache-2.0
   cd urdf_tutorial_r2d2
 
 You should now see a ``urdf_tutorial_r2d2`` folder.
@@ -229,7 +229,7 @@ Edit the ``~/second_ros2_ws/src/urdf_tutorial_r2d2/setup.py`` file as follows:
   data_files=[
     ...
     (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
-    (os.path.join('share', package_name), glob('urdf/*'))
+    (os.path.join('share', package_name), glob('urdf/*')),
   ],
 
 - modify the ``entry_points`` table so you can later run 'state_publisher' from a console
@@ -272,8 +272,8 @@ See the `User Guide <http://wiki.ros.org/rviz/UserGuide>`__ for details on how t
 Summary
 -------
 
-You created a JointState publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
-The code used in these examples can be found `here <https://github.com/benbongalon/ros2-migration/tree/master/urdf_tutorial>`__.
+You created a ``JointState`` publisher node and coupled it with ``robot_state_publisher`` to simulate a walking robot.
+The code used in these examples is originally from `here <https://github.com/benbongalon/ros2-migration/tree/master/urdf_tutorial>`__.
 
 Credit is given to the authors of this
 `ROS 1 tutorial <http://wiki.ros.org/urdf/Tutorials/Using%20urdf%20with%20robot_state_publisher>`__
