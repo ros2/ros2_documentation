@@ -7,6 +7,7 @@ Below is a list of historic ROS 2 distributions that are no longer supported.
    :maxdepth: 1
 
    Release-Galactic-Geochelone
+   Release-Foxy-Fitzroy
    Release-Eloquent-Elusor
    Release-Dashing-Diademata
    Release-Crystal-Clemmys
