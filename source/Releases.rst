@@ -25,7 +25,6 @@ Rows in the table marked in green are the currently supported distributions.
 
    Releases/Release-Iron-Irwini
    Releases/Release-Humble-Hawksbill
-   Releases/Release-Foxy-Fitzroy
    Releases/Release-Rolling-Ridley
    Releases/Development
    Releases/End-of-Life
