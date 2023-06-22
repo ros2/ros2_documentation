@@ -13,7 +13,7 @@ Key Projects
 We are working on below ROS 2 projects and publish source code through https://github.com/intel/ or ROS 2 GitHub repo gradually.
 
 * `ROS2 OpenVINO <https://github.com/intel/ros2_openvino_toolkit>`__: ROS 2 package for Intel® Visual Inference and Neural Network Optimization Toolkit to develop multiplatform computer vision solutions.
-* `ROS2 RealSense Camera <https://github.com/intel/ros2_intel_realsense>`__: ROS 2 package for Intel® RealSense™ D400 serial cameras
+* `ROS2 RealSense Camera <https://github.com/IntelRealSense/realsense-ros>`__: ROS 2 package for Intel® RealSense™ D400 serial cameras
 * `ROS2 Movidius NCS <https://github.com/intel/ros2_intel_movidius_ncs>`__: ROS 2 package for object detection with Intel® Movidius™ Neural Computing Stick (NCS).
 * `ROS2 Object Messages <https://github.com/intel/ros2_object_msgs>`__: ROS 2 messages for object.
 * `ROS2 Object Analytics <https://github.com/intel/ros2_object_analytics>`__: ROS 2 package for object detection, tracking and 2D/3D localization.
