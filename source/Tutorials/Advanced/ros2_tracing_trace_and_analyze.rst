@@ -1,20 +1,16 @@
 How to use ros2_tracing to trace and analyze an application
 ===========================================================
 
-This guide shows how to use
-`ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and
-analyze a ROS 2 application. For this guide, the application will be
-`performance_test <https://gitlab.com/ApexAI/performance_test>`_.
+This guide shows how to use `ros2_tracing <https://github.com/ros2/ros2_tracing>`_ to trace and analyze a ROS 2 application.
+For this guide, the application will be `performance_test <https://gitlab.com/ApexAI/performance_test>`_.
 
 Overview
 --------
 
 This guide covers:
 
-1. installing tracing-related tools and building ROS 2 with the core
-   instrumentation enabled
-2. running and tracing a ``performance_test`` run
-3. analyzing the trace data using
+1. running and tracing a ``performance_test`` run
+2. analyzing the trace data using
    `tracetools_analysis <https://gitlab.com/ros-tracing/tracetools_analysis>`_
    to plot the callback durations
 
@@ -27,32 +23,37 @@ However, the guide will work if you are using a non-real-time system.
 
 .. note::
 
-  This guide was written for ROS 2 Rolling on Ubuntu 20.04. It should work on other ROS 2 distros or Ubuntu versions, but some things might need to be adjusted.
+  This guide was written for ROS 2 Rolling on Ubuntu 22.04. It should work on other ROS 2 distros or Ubuntu versions, but some things might need to be adjusted.
 
 Installing and building
 -----------------------
 
-First, make sure you have `installed all dependencies for ROS 2
-Rolling <https://docs.ros.org/en/rolling/Installation/Ubuntu-Development-Setup.html>`_.
+Install ROS2 on your Ubuntu or Debian here by following instructions `here <https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html>`_.
 
-Install `LTTng <https://lttng.org/docs/>`__ as well as ``babeltrace``.
-We will only install the LTTng userspace tracer.
+Install ``babeltrace`` and ros2trace.
 
 .. code-block:: bash
 
    $ sudo apt-get update
-   $ sudo apt-get install -y lttng-tools liblttng-ust-dev python3-lttng python3-babeltrace babeltrace
+   $ sudo apt-get install -y python3-babeltrace babeltrace ros-${ROS_DISTRO}-ros2trace ros-${ROS_DISTRO}-tracetools-analysis
+
+Source the ROS2 installation and verify tracing is enabled
+
+.. code-block:: bash
+
+   $ source /opt/ros/${ROS_DISTRO}/setup.bash
+   $ ros2 run tracetools status
+
+You should see ``Tracing enabled`` in the output.
 
 Then create a workspace, import the ROS 2 Rolling code-block, and clone
-``performance_test`` and ``tracetools_analysis``.
+``performance_test``.
 
 .. code-block:: bash
 
    $ cd ~/
    $ mkdir -p tracing_ws/src
-   $ cd tracing_ws/
-   $ vcs import src/ --input https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
-   $ cd src/
+   $ cd tracing_ws/src/
    $ git clone https://gitlab.com/ApexAI/performance_test.git
    $ git clone https://gitlab.com/ros-tracing/tracetools_analysis.git
    $ cd ..
@@ -66,22 +67,10 @@ Install dependencies with rosdep.
 
 Then build up to ``performance_test`` and configure it for ROS 2. See its
 `documentation <https://gitlab.com/ApexAI/performance_test#ros-2-middleware-plugins>`_.
-We also need to build ``ros2trace`` to set up tracing using the
-``ros2 trace`` command and ``tracetools_analysis`` to analyze the data.
 
 .. code-block:: bash
 
-   $ colcon build --packages-up-to ros2trace tracetools_analysis performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
-
-You should see the following message once ``tracetools`` is done
-building:
-
-.. code-block:: bash
-
-   LTTng found: tracing enabled
-
-This confirms that LTTng was properly detected and that the
-instrumentation built into the ROS 2 core is enabled.
+   $ colcon build --packages-up-to performance_test --cmake-args -DPERFORMANCE_TEST_RCLCPP_ENABLED=ON
 
 Next, we will run a ``performance_test`` experiment and trace it.
 
@@ -164,13 +153,15 @@ Tracing
 
    .. code-block:: bash
 
-      $ babeltrace ~/.ros/tracing/perf-test
+      $ babeltrace ~/.ros/tracing/perf-test | less
 
    The output of the above command is a human-readable version of the
    raw Common Trace Format (CTF) data, which is a list of trace events.
    Each event has a timestamp, an event type, some information on the
    process that generated the event, and the values of the fields of the
    given event type.
+
+   Use the arrow keys to scroll, or press q to exit.
 
    Next, we will analyze the trace.
 
@@ -193,7 +184,6 @@ Install Jupyter notebook and bokeh, and then open the sample notebook.
 
 .. code-block:: bash
 
-   $ sudo apt-get install -y jupyter-notebook
    $ pip3 install bokeh
    $ jupyter notebook ~/tracing_ws/src/tracetools_analysis/tracetools_analysis/analysis/callback_duration.ipynb
 
