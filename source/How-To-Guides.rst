@@ -50,6 +50,7 @@ If you are new and looking to learn the ropes, start with the :doc:`Tutorials <T
    How-To-Guides/Installing-on-Raspberry-Pi
    How-To-Guides/Using-callback-groups
    How-To-Guides/Setup-ROS-2-with-VSCode-and-Docker-Container
+   How-To-Guides/Vendoring-with-cmake-external-project
 
 .. toctree::
   :hidden:
