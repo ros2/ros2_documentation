@@ -91,7 +91,7 @@ Rows in the table marked in green are the currently supported distributions.
      - Logo
      - EOL date
    * - :doc:`Jazzy Jalisco <Releases/Release-Jazzy-Jalisco>`
-     - TBD
+     - May 23rd, 2024
      - |jazzy|
      - TBD
    * - :doc:`Iron Irwini <Releases/Release-Iron-Irwini>`
