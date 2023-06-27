@@ -54,32 +54,38 @@ To come.
 Release Timeline
 ----------------
 
-    Mon. March 18, 2022 - Alpha + RMW freeze
+    November, 2022 - Platform decisions
+        REP 2000 is updated with the target platforms and major dependency versions.
+
+    By January, 2023 - Rolling platform shift
+        Build farm is updated with the new platform versions and dependency versions for Jazy Jalisco (if necessary).
+
+    Mon. April 9, 2023 - Alpha + RMW freeze
         Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
 
-    Mon. April 1, 2022 - Freeze
+    Mon. April 15, 2023 - Freeze
         API and feature freeze for ROS Base [1]_ packages in Rolling Ridley.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 15, 2022 - Branch
+    Mon. April 22, 2023 - Branch
         Branch from Rolling Ridley.
         ``rosdistro`` is reopened for Rolling PRs for ROS Base [1]_ packages.
         Jazzy development shifts from ``ros-rolling-*`` packages to ``ros-jazzy-*`` packages.
 
-    Mon. April 22, 2022 - Beta
+    Mon. April 29, 2023 - Beta
         Updated releases of ROS Desktop [2]_ packages available.
         Call for general testing.
 
-    Mon. May 13, 2022 - Release Candidate
+    Mon. May 13, 2023 - Release Candidate
         Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
 
-    Fri. May 17, 2022 - Distro Freeze
+    Fri. May 17, 2023 - Distro Freeze
         Freeze rosdistro.
         No PRs for Jazzy on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
-    Mon. May 23, 2022 - General Availability
+    Tue. May 23, 2023 - General Availability
         Release announcement.
         ``rosdistro`` is reopened for Jazzy PRs.
 
