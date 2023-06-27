@@ -81,11 +81,11 @@ Release Timeline
         Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
 
-    Fri. May 17, 2023 - Distro Freeze
+    Mon. May 20, 2023 - Distro Freeze
         Freeze rosdistro.
         No PRs for Jazzy on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
-    Tue. May 23, 2023 - General Availability
+    Thu. May 23, 2023 - General Availability
         Release announcement.
         ``rosdistro`` is reopened for Jazzy PRs.
 
