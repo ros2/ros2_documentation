@@ -73,7 +73,7 @@ Next, we will run a ``performance_test`` experiment and trace it.
 Tracing
 -------
 
-**(Optional)** Step 0. Start an LTTng session daemon.
+**(Optional)** Step 0: Start an LTTng session daemon.
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    For userspace tracing, the daemon does not need to be started as ``root``.
