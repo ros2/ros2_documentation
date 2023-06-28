@@ -2,7 +2,7 @@
 
 .. _jazzy-release:
 
-Jazzy Jalisco (codename 'jazzy'; May, 2024)
+Jazzy Jalisco (``jazzy; May, 2024``)
 ===========================================
 
 .. contents:: Table of Contents
@@ -54,38 +54,38 @@ To come.
 Release Timeline
 ----------------
 
-    November, 2022 - Platform decisions
+    November, 2023 - Platform decisions
         REP 2000 is updated with the target platforms and major dependency versions.
 
     By January, 2023 - Rolling platform shift
         Build farm is updated with the new platform versions and dependency versions for Jazzy Jalisco.
 
-    Mon. April 9, 2023 - Alpha + RMW freeze
+    Mon. April 8, 2024 - Alpha + RMW freeze
         Preliminary testing and stabilization of ROS Base [1]_ packages, and API and feature freeze for RMW provider packages.
 
-    Mon. April 15, 2023 - Freeze
+    Mon. April 15, 2024 - Freeze
         API and feature freeze for ROS Base [1]_ packages in Rolling Ridley.
         Only bug fix releases should be made after this point.
         New packages can be released independently.
 
-    Mon. April 22, 2023 - Branch
+    Mon. April 22, 2024 - Branch
         Branch from Rolling Ridley.
         ``rosdistro`` is reopened for Rolling PRs for ROS Base [1]_ packages.
         Jazzy development shifts from ``ros-rolling-*`` packages to ``ros-jazzy-*`` packages.
 
-    Mon. April 29, 2023 - Beta
+    Mon. April 29, 2024 - Beta
         Updated releases of ROS Desktop [2]_ packages available.
         Call for general testing.
 
-    Mon. May 13, 2023 - Release Candidate
+    Mon. May 13, 2024 - Release Candidate
         Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
 
-    Mon. May 20, 2023 - Distro Freeze
+    Mon. May 20, 2024 - Distro Freeze
         Freeze rosdistro.
         No PRs for Jazzy on the ``rosdistro`` repo will be merged (reopens after the release announcement).
 
-    Thu. May 23, 2023 - General Availability
+    Thu. May 23, 2024 - General Availability
         Release announcement.
         ``rosdistro`` is reopened for Jazzy PRs.
 
