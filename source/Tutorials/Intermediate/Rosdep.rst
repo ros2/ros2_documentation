@@ -17,8 +17,6 @@ Managing Dependencies with rosdep
    :depth: 2
    :local:
 
-Author: Steve Macenski
-
 This tutorial will explain how to manage external dependencies using ``rosdep``.
 
 What is rosdep?
@@ -27,10 +25,10 @@ What is rosdep?
 ``rosdep`` is a dependency management utility that can work with packages and external libraries.
 It is most often used with ROS packages, but can also be used outside of ROS.
 ``rosdep`` is a command-line utility for identifying and installing dependencies to build or install a package.
-It can be or is invoked when:
+It can be or is invoked:
 
 - Before building a workspace and needing appropriate dependencies to build the packages within
-- Install packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute
+- When installing packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute.
 - and more!
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
@@ -40,6 +38,49 @@ It has the ability to work over a single package or over a directory of packages
     While the name suggests it is for ROS, ``rosdep`` is semi-agnostic to ROS.
     You can utilize this powerful tool in non-ROS software projects by installing it as a standalone Python package.
     Successfully running ``rosdep`` relies on ``rosdep keys`` to be available, which can be downloaded from a public git repository with a few simple commands.
+
+How do I use the rosdep tool?
+=============================
+
+rosdep installation
+-------------------
+
+``apt-get install python3-rosdep`` or ``pip install rosdep``
+
+rosdep operation
+----------------
+
+Now that we have some understanding of ``rosdep``, ``package.xml``, and ``rosdistro``, we're ready to use the utility itself!
+Firstly, if this is the first time using ``rosdep``, it must be initialized via:
+
+.. code-block:: bash
+
+    sudo rosdep init
+    rosdep update
+
+This will initialize rosdep and ``update`` will update the locally cached rosdistro index.
+It is a good idea to ``update`` rosdep on occasion to get the latest index.
+
+Finally, we can run ``rosdep install`` to install dependencies.
+Typically, this is run over a workspace with many packages in a single call to install all dependencies.
+A call for that would appear as the following, if in the root of the workspace with directory ``src`` containing source code.
+
+.. code-block:: bash
+
+    rosdep install --from-paths src -y --ignore-src
+
+Breaking that down:
+
+- ``--from-paths src`` specifies the path to check for ``package.xml`` files to resolve keys for
+- ``-y`` means to default yes to all prompts from the package manager to install without prompts
+- ``--ignore-src`` means to ignore installing dependencies, even if a rosdep key exists, if the package itself is also in the workspace.
+
+There are additional arguments and options available.
+Use ``rosdep -h`` to see them.
+
+More about how rosdep works
+===========================
+
 A little about package.xml files
 --------------------------------
 
@@ -55,8 +96,6 @@ They specify in what situation each of the dependencies are required in.
 - For mixed purposes, use ``depend``, which covers build, export, and execution time dependencies.
 
 These dependencies are manually populated in the ``package.xml`` file by the package's creators and should be an exhaustive list of any non-builtin libraries and packages it requires.
-
-You can find more in detail description about the types of dependencies, in e.g. `Catkin's document <http://docs.ros.org/en/melodic/api/catkin/html/howto/format2/catkin_library_dependencies.html>`_.
 
 How does rosdep work?
 ---------------------
@@ -89,8 +128,8 @@ You'd have to manually skim through `rosdistro database`_, which has the followi
 
 In this snippet, almost alll directories above the ``rosdep`` directory are the major released ROS version.
 
-* If you think the package you want to depend in your package is ROS-based, AND has been released into ROS ecosystem [2]_, e.g. ``nav2_bt_navigator``, you may simply place the name of the package. You can find a list of all released ROS packages in ``rosdistro`` at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
-* For a package that is not released into ROS ecosystem, e.g. often called "system dependencies", we will need to find the keys for a particular library. In general, there are two files of interest: `rosdep/base.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml>`_ and `rosdep/python.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml>`_.
+* If the package you want to depend in your package is ROS-based, AND has been released into ROS ecosystem [2]_, e.g. ``nav2_bt_navigator``, you may simply place the name of the package. You can find a list of all released ROS packages in ``rosdistro`` at ``<distro>/distribution.yaml`` (e.g. ``humble/distribution.yaml``) for your given ROS distribution.
+* If you want to depend on non-ROS package, something often called as e.g. "system dependencies", we will need to find the keys for a particular library. In general, there are two files of interest: `rosdep/base.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/base.yaml>`_ and `rosdep/python.yaml <https://github.com/ros/rosdistro/blob/master/rosdep/python.yaml>`_.
    * ``base.yaml`` in general contains the ``apt`` system dependencies.
    * ``python.yaml`` in general contains the ``pip`` python dependencies.
 
@@ -123,45 +162,5 @@ Pull requests for rosdistro are typically merged well within a week.
 
 `Detailed instructions may be found here <https://github.com/ros/rosdistro/blob/master/CONTRIBUTING.md#rosdep-rules-contributions>`_ for how to contribute new rosdep keys.
 If for some reason these may not be contributed openly, it is possible to fork rosdistro and maintain a alternate index for use.
-
-
-How do I use the rosdep tool?
------------------------------
-
-rosdep installation
-~~~~~~~~~~~~~~~~~~~
-
-``apt-get install python3-rosdep`` or ``pip install rosdep``
-
-rosdep operation
-~~~~~~~~~~~~~~~~
-
-Now that we have some understanding of ``rosdep``, ``package.xml``, and ``rosdistro``, we're ready to use the utility itself!
-Firstly, if this is the first time using ``rosdep``, it must be initialized via:
-
-.. code-block:: bash
-
-    sudo rosdep init
-    rosdep update
-
-This will initialize rosdep and ``update`` will update the locally cached rosdistro index.
-It is a good idea to ``update`` rosdep on occasion to get the latest index.
-
-Finally, we can run ``rosdep install`` to install dependencies.
-Typically, this is run over a workspace with many packages in a single call to install all dependencies.
-A call for that would appear as the following, if in the root of the workspace with directory ``src`` containing source code.
-
-.. code-block:: bash
-
-    rosdep install --from-paths src -y --ignore-src
-
-Breaking that down:
-
-- ``--from-paths src`` specifies the path to check for ``package.xml`` files to resolve keys for
-- ``-y`` means to default yes to all prompts from the package manager to install without prompts
-- ``--ignore-src`` means to ignore installing dependencies, even if a rosdep key exists, if the package itself is also in the workspace.
-
-There are additional arguments and options available.
-Use ``rosdep -h`` to see them.
 
 .. _rosdistro database: https://github.com/ros/rosdistro
