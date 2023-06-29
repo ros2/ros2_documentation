@@ -15,11 +15,11 @@ This guide covers:
 Prerequisites
 -------------
 
-This guide is aimed at real-time systems. See the `real-time system setup guide 
-<Real-Time-Operating-System-Setup/Real-Time-Linux/rt_linux_index.md>`_.
 This guide is aimed at real-time systems.
 See the :doc:`real-time system setup guide <../Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2>`.
 However, the guide will work if you are using a non-real-time system.
+
+.. note::
 
   This guide was written for ROS 2 Rolling on Ubuntu 22.04.
   It should work on other ROS 2 distros or Ubuntu versions, but some things might need to be adjusted.
@@ -37,6 +37,8 @@ Install ``babeltrace`` and ``ros2trace``.
 
 
 Source the ROS 2 installation and verify that tracing is enabled:
+
+.. code-block:: bash
 
    $ source /opt/ros/{DISTRO}/setup.bash
    $ ros2 run tracetools status
@@ -101,30 +103,30 @@ Step 1: Trace
 Step 2: Run Application
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-   In a second terminal, source the workspace.
+  In a second terminal, source the workspace.
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ # terminal 2
-      $ cd ~/tracing_ws
-      $ source install/setup.bash
+    $ # terminal 2
+    $ cd ~/tracing_ws
+    $ source install/setup.bash
 
-   Then run the ``performance_test`` experiment (or your own application).
-   We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don’t interfere with critical kernel threads.
-   We need to run ``performance_test`` as ``root`` to be able to use real-time priorities.
+  Then run the ``performance_test`` experiment (or your own application).
+  We simply create an experiment with a node publishing ~1 MB messages to another node as fast as possible for 60 seconds using the second highest real-time priority so that we don’t interfere with critical kernel threads.
+  We need to run ``performance_test`` as ``root`` to be able to use real-time priorities.
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ # terminal 2
-      $ sudo ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
+    $ # terminal 2
+    $ sudo ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
 
-   If that last command doesn’t work for you (with an error like: “error while loading shared libraries”), run the slightly-different command below.
-   This is because, for security reasons, we need to manually pass ``*PATH`` environment variables for some shared libraries to be found (see `this explanation <https://unix.stackexchange.com/a/251374>`_).
+  If that last command doesn’t work for you (with an error like: “error while loading shared libraries”), run the slightly-different command below.
+  This is because, for security reasons, we need to manually pass ``*PATH`` environment variables for some shared libraries to be found (see `this explanation <https://unix.stackexchange.com/a/251374>`_).
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ # terminal 2
-      $ sudo env PATH="$PATH" LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
+    $ # terminal 2
+    $ sudo env PATH="$PATH" LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ./install/performance_test/lib/performance_test/perf_test -c rclcpp-single-threaded-executor -p 1 -s 1 -r 0 -m Array1m --reliability RELIABLE --max-runtime 60 --use-rt-prio 98
 
   .. note::
     If you're not using a real-time kernel, simply run:
