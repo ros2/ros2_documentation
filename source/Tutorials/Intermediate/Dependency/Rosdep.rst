@@ -97,6 +97,8 @@ They specify in what situation each of the dependencies are required in.
 
 These dependencies are manually populated in the ``package.xml`` file by the package's creators and should be an exhaustive list of any non-builtin libraries and packages it requires.
 
+You can find more in detail about the `types of dependencies and how to define them in package.xml and CMakeLists.txt Catkin's document <./define_dependencies.rst>`_.
+
 How does rosdep work?
 ---------------------
 
