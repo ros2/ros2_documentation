@@ -24,7 +24,8 @@ This tutorial will explain how to manage external dependencies using ``rosdep``.
 What is rosdep?
 ---------------
 
-``rosdep`` is dependency management utility that can work with packages and external libraries.
+``rosdep`` is a dependency management utility that can work with packages and external libraries.
+It is most often used with ROS packages, but can also be used outside of ROS.
 ``rosdep`` is a command-line utility for identifying and installing dependencies to build or install a package.
 It can be or is invoked when:
 
@@ -34,15 +35,15 @@ It can be or is invoked when:
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
 
-While the name may suggest so, ``rosdep`` is semi-agnostic to ROS.
-You can utilize this powerful tool in non-ROS software project [1]_.
+.. note::
 
-.. [1] As you may see in this document, ``rosdep`` can be installed as a standalone Python package. To execute it, it relies on the ``rosdep keys`` to be available on the same host. The keys can be downloaded from a public github repo by just a few sinmple commands.
-
+    While the name suggests it is for ROS, ``rosdep`` is semi-agnostic to ROS.
+    You can utilize this powerful tool in non-ROS software projects by installing it as a standalone Python package.
+    Successfully running ``rosdep`` relies on ``rosdep keys`` to be available, which can be downloaded from a public git repository with a few simple commands.
 A little about package.xml files
 --------------------------------
 
-``package.xml`` is the file in your software where ``rosdep`` finds the set of dependencies.
+The ``package.xml`` is the file in your software where ``rosdep`` finds the set of dependencies.
 The dependencies in this file are generally referred to as "rosdep keys".
 These are represented in the tags ``<depend>``, ``<test_depend>``, ``<exec_depend>``, ``<build_depend>``, and ``<build_export_depend>``.
 They specify in what situation each of the dependencies are required in.
@@ -67,7 +68,7 @@ Finally, once the packages are found, they are installed and ready to go!
 The central index is known as ``rosdistro``, which `may be found online <https://github.com/ros/rosdistro>`_.
 We'll explore that more in the next section.
 
-Actually ``rosdep`` retrieves the central index on to your local host so that it doesn't have to access online every time it runs (On Debian/Ubuntu it's found at ``/etc/ros/rosdep/sources.list.d/20-default.list``, but you really don't need to mess with that at all).
+``rosdep`` works by retrieving the central index on to your local host so that it doesn't have to access the network every time it runs (on Debian/Ubuntu the configuration for it is stored in ``/etc/ros/rosdep/sources.list.d/20-default.list``).
 
 How do I know what keys to put in my package.xml?
 -------------------------------------------------
