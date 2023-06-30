@@ -49,6 +49,8 @@ In particular, :doc:`../../../Beginner-CLI-Tools/Introducing-Turtlesim/Introduci
         The Linux and ROS commands of this tutorial must be run in a pre-configured Linux Virtual Machine (VM).
         The following page :doc:`./Installation-MacOS` explains how to install the ``webots_ros2`` package on macOS.
 
+This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and Webots R2023b, as well as upcoming versions.
+
 Tasks
 -----
 
@@ -344,10 +346,10 @@ You have to specify in the constructor which world file the simulator will open.
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 15-17
+    :lines: 13-15
 
 Then, the ROS node interacting with the simulated robot is created.
-This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
+This node, named ``WebotsController``, is located in the ``webots_ros2_driver`` package.
 
 .. tabs::
 
@@ -366,33 +368,32 @@ This node, named ``driver``, is located in the ``webots_ros2_driver`` package.
 
 In your case, you need to run a single instance of this node, because you have a single robot in the simulation.
 But if you had more robots in the simulation, you would have to run one instance of this node per robot.
-``WEBOTS_CONTROLLER_URL`` is used to define the name of the robot the driver should connect to.
-The ``controller_url_prefix()`` method is mandatory, as it allows ``webots_ros2_driver`` to add the correct protocol prefix depending on your platform.
-The ``robot_description`` parameter holds the contents of the URDF file which refers to the ``MyRobotDriver`` plugin.
-You can see the ``driver`` node as the interface that connects your controller plugin to the target robot.
+The ``robot_name`` parameter is used to define the name of the robot the driver should connect to.
+The ``robot_description`` parameter holds the path to the URDF file which refers to the ``MyRobotDriver`` plugin.
+You can see the ``WebotsController`` node as the interface that connects your controller plugin to the target robot.
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 19-27
+    :lines: 17-22
 
 After that, the two nodes are set to be launched in the ``LaunchDescription`` constructor:
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 4
-    :lines: 29-31
+    :lines: 24-26
 
 Finally, an optional part is added in order to shutdown all the nodes once Webots terminates (e.g., when it gets closed from the graphical user interface).
 
 .. literalinclude:: Code/robot_launch.py
     :language: python
     :dedent: 8
-    :lines: 32-37
+    :lines: 27-32
 
 .. note::
 
-    More details on ``webots_ros2_driver`` and ``WebotsLauncher`` arguments can be found `on the nodes reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Nodes>`_.
+    More details on ``WebotsController`` and ``WebotsLauncher`` arguments can be found `on the nodes reference page <https://github.com/cyberbotics/webots_ros2/wiki/References-Nodes>`_.
 
 6 Edit additional files
 ^^^^^^^^^^^^^^^^^^^^^^^
