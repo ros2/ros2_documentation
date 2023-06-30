@@ -21,7 +21,7 @@ You need the following things installed to build ROS 2:
 #.
    **Xcode**
 
-   * If you don't already have it installed, install Xcode.
+   * If you don't already have it installed, install [Xcode](https://apps.apple.com/app/xcode/id497799835).
    * Note: Versions of Xcode later than 11.3.1 can no longer be installed on macOS Mojave, so you will need to install an older version manually, see: https://stackoverflow.com/a/61046761
    * Also, if you don't already have it installed, install the Command Line Tools:
 
@@ -62,13 +62,13 @@ You need the following things installed to build ROS 2:
 
    .. code-block:: bash
 
-       # Add the openssl dir for DDS-Security
-       # if you are using ZSH, then replace '.bashrc' with '.zshrc'
-       echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.bashrc
+      # Add the openssl dir for DDS-Security
+      # if you are using BASH, then replace '.zshrc' with '.bashrc'
+      echo "export OPENSSL_ROOT_DIR=$(brew --prefix openssl)" >> ~/.zshrc
 
-       # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
-       export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/usr/local/opt/qt@5
-       export PATH=$PATH:/usr/local/opt/qt@5/bin
+      # Add the Qt directory to the PATH and CMAKE_PREFIX_PATH
+      export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:$(brew --prefix qt@5)
+      export PATH=$PATH:$(brew --prefix qt@5)/bin
 
 #.
    Use ``python3 -m pip`` (just ``pip`` may install Python3 or Python2) to install more stuff:
@@ -84,7 +84,7 @@ You need the following things installed to build ROS 2:
         nose pep8 psutil pydocstyle pydot pygraphviz pyparsing==2.4.7 \
         pytest-mock rosdep rosdistro setuptools==59.6.0 vcstool
 
-   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (default: ``$HOME/Library/Python/<version>/bin``)
+   Please ensure that the ``$PATH`` environment variable contains the install location of the binaries (``$(brew --prefix)/bin``)
 
 #.
    *Optional*: if you want to build the ROS 1<->2 bridge, then you must also install ROS 1:
@@ -144,7 +144,7 @@ Source the ROS 2 setup file:
 
 .. code-block:: bash
 
-   . ~/ros2_{DISTRO}/install/setup.bash
+   . ~/ros2_{DISTRO}/install/setup.zsh
 
 This will automatically set up the environment for any DDS vendors that support was built for.
 
