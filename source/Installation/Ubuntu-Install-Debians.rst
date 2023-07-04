@@ -2,8 +2,8 @@
 
    Installation/Linux-Install-Debians
 
-Ubuntu (Debian)
-===============
+Ubuntu (Debian packages)
+========================
 
 .. contents:: Table of Contents
    :depth: 2

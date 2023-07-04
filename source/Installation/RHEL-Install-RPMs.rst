@@ -1,5 +1,5 @@
-RHEL (RPM)
-==========
+RHEL (RPM packages)
+===================
 
 .. contents:: Table of Contents
    :depth: 2
