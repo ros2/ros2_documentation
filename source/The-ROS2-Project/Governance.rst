@@ -333,8 +333,37 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
 
 .. raw:: html
 
-    <iframe src="https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    <!--
+    The below code comes from https://www.mpking.com/2021/04/making-google-calendar-embeddable.html.
+    The basic idea is that if we are on a desktop device (defined as anything that has more than 767 pixels),
+    then we show the monthly version of the calendar.  If we are on a device with 767 or less, show the agenda
+    version, which is much narrower.
+    -->
+    <style>
+      .responsiveCal {
+        position: relative; padding-bottom: 75%; height: 0; overflow: hidden;
+      }
 
+      .responsiveCal iframe {
+        position: absolute; top:0; left: 0; width: 100%; height: 100%;
+      }
 
+      @media all and (min-width: 768px) {
+        .deskContent {display:block;}
+        .phoneContent {display:none;}
+      }
+
+      @media all and (max-width: 767px) {
+        .deskContent {display:none;}
+        .phoneContent {display:block;}
+      }
+    </style>
+    <div class="responsiveCal">
+      <div class="deskContent">
+        <iframe src="https://calendar.google.com/calendar/embed?src=agf3kajirket8khktupm9go748%40group.calendar.google.com" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+      </div>
+      <div class="phoneContent"><iframe src="https://calendar.google.com/calendar/embed?mode=AGENDA&amp;height=400&amp;wkst=1&amp;src=agf3kajirket8khktupm9go748%40group.calendar.google.com" style="border: 0" width="280" height="500" frameborder="0" scrolling="no"></iframe>
+      </div>
+    </div>
 
 If you have an individual event or series of events that you'd like to post please contact info@openrobotics.org
