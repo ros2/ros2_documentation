@@ -336,7 +336,7 @@ It can be accessed via `iCal <https://calendar.google.com/calendar/ical/agf3kaji
     <!--
     The below code comes from https://www.mpking.com/2021/04/making-google-calendar-embeddable.html.
     The basic idea is that if we are on a desktop device (defined as anything that has more than 767 pixels),
-    then we show the monthly version of the calendar.  If we are on a device with 767 or less, show the agenda
+    then we show the monthly version of the calendar. If we are on a device with 767 or less, show the agenda
     version, which is much narrower.
     -->
     <style>
