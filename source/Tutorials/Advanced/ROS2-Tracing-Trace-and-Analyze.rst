@@ -21,8 +21,7 @@ However, the guide will work if you are using a non-real-time system.
 
 .. note::
 
-  This guide was written for ROS 2 Rolling on Ubuntu 22.04.
-  It should work on other ROS 2 distros or Ubuntu versions, but some things might need to be adjusted.
+  This guide should work with all current/non-EOL distros of ROS 2.
 
 Installing and building
 -----------------------
@@ -61,7 +60,7 @@ Install dependencies with rosdep.
 .. code-block:: bash
 
    $ rosdep update
-   $ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers"
+   $ rosdep install --from-paths src --ignore-src -y
 
 Then build and configure ``performance_test`` for ROS 2.
 See its `documentation <https://gitlab.com/ApexAI/performance_test/-/tree/master/performance_test#performance_test>`_.
@@ -75,30 +74,21 @@ Next, we will run a ``performance_test`` experiment and trace it.
 Tracing
 -------
 
-**(Optional)** Step 0: Start an LTTng session daemon.
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-   For userspace tracing, the daemon does not need to be started as ``root``.
-   Note that a non-root daemon will be spawned automatically by ``ros2 trace`` if it is not already running.
-
-   .. code-block:: bash
-
-      $ lttng-sessiond --daemonize
-
 Step 1: Trace
 ^^^^^^^^^^^^^
 
-   In one terminal, source the workspace and set up tracing.
-   When running the command, a list of ROS 2 userspace events will be printed.
-   It will also print the path to the directory that will contain the resulting trace (under ``~/.ros/tracing``).
-   Press enter to start tracing.
+  In one terminal, source the workspace and set up tracing.
+  When running the command, a list of ROS 2 userspace events will be printed.
+  It will also print the path to the directory that will contain the resulting trace (under ``~/.ros/tracing``).
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ # terminal 1
-      $ cd ~/tracing_ws
-      $ source install/setup.bash
-      $ ros2 trace --session-name perf-test --list
+    $ # terminal 1
+    $ cd ~/tracing_ws
+    $ source install/setup.bash
+    $ ros2 trace --session-name perf-test --list
+    
+  Press enter to start tracing.
 
 Step 2: Run Application
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -139,19 +129,19 @@ Step 2: Run Application
 Step 3: Validate Trace
 ^^^^^^^^^^^^^^^^^^^^^^
 
-   Once the experiment is done, in the first terminal, press enter again to stop tracing.
-   Use ``babeltrace`` to quickly look at the resulting trace.
+  Once the experiment is done, in the first terminal, press enter again to stop tracing.
+  Use ``babeltrace`` to quickly look at the resulting trace.
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ babeltrace ~/.ros/tracing/perf-test | less
+    $ babeltrace ~/.ros/tracing/perf-test | less
 
-   The output of the above command is a human-readable version of the raw Common Trace Format (CTF) data, which is a list of trace events.
-   Each event has a timestamp, an event type, some information on the process that generated the event, and the values of the fields of the given event type.
+  The output of the above command is a human-readable version of the raw Common Trace Format (CTF) data, which is a list of trace events.
+  Each event has a timestamp, an event type, some information on the process that generated the event, and the values of the fields of the given event type.
 
-   Use the arrow keys to scroll, or press q to exit.
+  Use the arrow keys to scroll, or press ``q`` to exit.
 
-   Next, we will analyze the trace.
+  Next, we will analyze the trace.
 
 Analysis
 --------
