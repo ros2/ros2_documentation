@@ -24,6 +24,8 @@ Prerequisites
 This is a continuation of the first part of the tutorial: :doc:`./Setting-Up-Simulation-Webots-Basic`.
 It is mandatory to start with the first part to set up the custom packages and necessary files.
 
+This tutorial is compatible with version 2023.1.0 of ``webots_ros2`` and Webots R2023b, as well as upcoming versions.
+
 Tasks
 -----
 
@@ -153,7 +155,7 @@ Go to the file ``robot_launch.py`` and replace ``def generate_launch_description
 
 .. literalinclude:: Code/robot_launch_sensor.py
     :language: python
-    :lines: 11-44
+    :lines: 10-40
 
 This will create an ``obstacle_avoider`` node that will be included in the ``LaunchDescription``.
 
@@ -221,8 +223,6 @@ Next steps
 ----------
 
 You might want to improve the plugin or create new nodes to change the behavior of the robot.
-Taking inspiration from these previous tutorials could be a starting point:
+You can also implement a reset handler to automatically restart your ROS nodes when the simulation is reset from the Webots interface:
 
-* :doc:`../../Recording-A-Bag-From-Your-Own-Node-Py`.
-
-* :doc:`../../../Intermediate/Tf2/Tf2-Main`.
+* :doc:`./Simulation-Reset-Handler`.
