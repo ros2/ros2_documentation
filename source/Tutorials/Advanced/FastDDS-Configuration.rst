@@ -43,15 +43,15 @@ Mixing synchronous and asynchronous publications in the same node
 
 In this first example, a node with two publishers, one of them with synchronous publication mode and the other one with asynchronous publication mode, will be created.
 
-When the publisher invokes the write operation, the data is copied into a queue,
-a background thread (asynchronous thread) is notified about the addition to the queue, and control of the thread is returned to the user before the data is actually sent.
-The background thread is in charge of consuming the queue and sending the data to every matched reader.
+``rmw_fastrtps`` uses synchronous publication mode by default.
 
-On the other hand, with synchronous publication mode the data is sent directly within the context of the user thread.
+With synchronous publication mode the data is sent directly within the context of the user thread.
 This entails that any blocking call occurring during the write operation would block the user thread, thus preventing the application from continuing its operation.
 However, this mode typically yields higher throughput rates at lower latencies, since there is no notification nor context switching between threads.
 
-``rmw_fastrtps`` uses synchronous publication mode by default.
+On the other hand, with asynchronous publication mode, each time the publisher invokes the write operation, the data is copied into a queue,
+a background thread (asynchronous thread) is notified about the addition to the queue, and control of the thread is returned to the user before the data is actually sent.
+The background thread is in charge of consuming the queue and sending the data to every matched reader.
 
 Create the node with the publishers
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
