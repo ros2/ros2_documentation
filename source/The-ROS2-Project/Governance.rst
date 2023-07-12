@@ -293,7 +293,7 @@ Real-time
 Security
 ^^^^^^^^
 
-* Lead(s): Jeremie Deray
+* Lead(s): Florencia Cabral
 * Resources:
 
  * `ROS 2 Security Working Group Community <https://github.com/ros-security/community>`__
