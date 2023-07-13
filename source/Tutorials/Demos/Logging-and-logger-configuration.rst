@@ -232,8 +232,8 @@ See `the source code <https://github.com/ros2/demos/blob/{REPOS_FILE_BRANCH}/log
 Logger level configuration: externally
 --------------------------------------
 
-You can use the node logger service to externally configure loggers at runtime.
-
+ROS 2 nodes have services available to configure the logging level externally at runtime.
+These services are disabled by default.
 The following code shows how to enable the logger service while creating the node.
 
 .. tabs::
@@ -267,6 +267,7 @@ If you run one of the nodes as configured above, you will find 2 services when r
     Use this service to get logger levels for specified logger names.
 
     Run ``ros2 service call`` to get logger levels for ``NodeWithLoggerService`` and ``rcl``.
+
     .. code-block:: bash
 
         ros2 service call /NodeWithLoggerService/get_logger_levels rcl_interfaces/srv/GetLoggerLevels '{names: ["NodeWithLoggerService", "rcl"]}'
@@ -281,6 +282,7 @@ If you run one of the nodes as configured above, you will find 2 services when r
     Use this service to set logger levels for specified logger names.
 
     Run ``ros2 service call`` to set logger levels for ``NodeWithLoggerService`` and ``rcl``.
+
     .. code-block:: bash
 
         $ ros2 service call /NodeWithLoggerService/set_logger_levels rcl_interfaces/srv/SetLoggerLevels '{levels: [{name: "NodeWithLoggerService", level: 20}, {name: "rcl", level: 10}]}'
