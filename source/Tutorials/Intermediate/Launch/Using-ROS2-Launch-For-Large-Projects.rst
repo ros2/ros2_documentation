@@ -485,9 +485,10 @@ Open ``setup.py`` and add the following lines so that the launch files from the 
 The ``data_files`` field should now look like this:
 
 .. code-block:: Python
-import os
-from glob import glob
-from setuptools import setup
+
+   import os
+   from glob import glob
+   from setuptools import setup
    ...
    
    data_files=[
