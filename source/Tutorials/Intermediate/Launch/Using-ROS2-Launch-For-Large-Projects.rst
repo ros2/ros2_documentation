@@ -486,6 +486,11 @@ The ``data_files`` field should now look like this:
 
 .. code-block:: Python
 
+   import os
+   from glob import glob
+   from setuptools import setup
+   ...
+
    data_files=[
          ...
          (os.path.join('share', package_name, 'launch'),
