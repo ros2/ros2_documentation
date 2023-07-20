@@ -31,7 +31,7 @@ The ``Ros2Supervisor``
 
 The ``Ros2Supervisor`` is made of two main parts:
 
-* A Webots Robot node added to the simulation world. Its Supervisor field is set to TRUE.
+* A Webots Robot node added to the simulation world. Its ``supervisor`` field is set to TRUE.
 * A ROS 2 node that connects to the Webots Robot as an extern controller (in a similar way to your own robot plugin).
 
 The ROS 2 node acts as a controller that calls Supervisor API functions to control or interact with the simulation world.
