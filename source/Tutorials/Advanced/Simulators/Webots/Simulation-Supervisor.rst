@@ -78,7 +78,7 @@ More information about the ``/clock`` topic can be found in the `ROS wiki <http:
 Import a Webots node
 --------------------
 
-The ``Ros2Supervisor`` node also allows to spawn Webots nodes from strings through a service.
+The ``Ros2Supervisor`` node also allows you to spawn Webots nodes from strings through a service.
 
 The service is named ``/Ros2Supervisor/spawn_node_from_string`` and is of type ``webots_ros2_msgs/srv/SpawnNodeFromString``.
 The ``SpawnNodeFromString`` type expects a ``data`` string as input and returns a ``success`` boolean.
