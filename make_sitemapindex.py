@@ -1,17 +1,30 @@
 from xml.etree.ElementTree import Element, SubElement, ElementTree
-from conf import distro_full_names, html_baseurl
 
 
-def make_sitemapindex(sitemap_file):
+class SitemapGenerator:
+    def __init__(self):
+        self.sitemapindex = Element('sitemapindex')
+        self.sitemapindex.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
 
-    sitemapindex = Element('sitemapindex')
-    sitemapindex.set('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9')
-    for distro in distro_full_names.keys():
-        node = SubElement(sitemapindex, 'sitemap')
-        SubElement(node, 'loc').text = f'{html_baseurl}/{distro}/sitemap.xml'
+    def generate_url(self, loc):
+        url = Element('url')
+        SubElement(url, 'loc').text = loc
+        return url
 
-    ElementTree(sitemapindex).write(sitemap_file, encoding='utf-8', xml_declaration=True)
+    def add_sitemap(self, distro, base_url):
+        node = SubElement(self.sitemapindex, 'sitemap')
+        SubElement(node, 'loc').text = f'{base_url}/{distro}/sitemap.xml'
+
+    def generate_sitemap_index(self):
+        ElementTree(self.sitemapindex).write('build/html/sitemap.xml', encoding='utf-8', xml_declaration=True)
+
 
 if __name__ == '__main__':
-    sitemap_file = 'build/html/sitemap.xml'
-    make_sitemapindex(sitemap_file)
+    from conf import distro_full_names, html_baseurl
+
+    sitemap_generator = SitemapGenerator()
+    for distro in distro_full_names.keys():
+        sitemap_url = f'{html_baseurl}/{distro}/sitemap.xml'
+        sitemap_generator.add_sitemap(distro, html_baseurl)
+    
+    sitemap_generator.generate_sitemap_index()
