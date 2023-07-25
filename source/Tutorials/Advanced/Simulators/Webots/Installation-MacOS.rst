@@ -218,6 +218,7 @@ The ``webots_ros2`` version is installed from the official repository (not from 
 You are welcome to download an image and upgrade the package, or install it from sources if necessary.
 
 * `Version 2023.0.2 for Webots R2023a <https://cyberbotics.com/files/ros2/webots_ros2_2023_0_2.utm.zip>`_ [6.6 GB]
+* `Version 2023.1.1 for Webots R2023b <https://cyberbotics.com/files/ros2/webots_ros2_2023_1_1.utm.zip>`_ [8.0 GB]
 
 When adding the downloaded image to the UTM software, you should also choose the path to the host shared folder before starting the VM in the drop-down menu (e.g. ``/Users/username/shared``).
 Once the VM is started, the ``WEBOTS_SHARED_FOLDER`` environment variable must always be set for the package to work properly in the virtual machine (VM).
