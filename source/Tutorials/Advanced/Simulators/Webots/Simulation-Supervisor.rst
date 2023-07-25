@@ -15,7 +15,7 @@ Background
 ----------
 
 In this tutorial, you will learn how to enable the ``Ros2Supervisor`` node which enhances the interface by creating additional services and topics to interact with the simulation.
-You can, for example, record animations or spawn Webots nodes directly from the ROS 2 interface.
+You can, for example, record animations or spawn Webots nodes directly from the ROS 2 interface while the simulation is running.
 These instructions list in details the current implemented features and how to use them.
 
 Prerequisites
