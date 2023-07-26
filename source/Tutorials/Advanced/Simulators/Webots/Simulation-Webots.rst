@@ -15,8 +15,4 @@ This set of tutorials will teach you how to configure the Webots simulator with 
    Installation-MacOS
    Setting-Up-Simulation-Webots-Basic
    Setting-Up-Simulation-Webots-Advanced
-<<<<<<< HEAD
-=======
-   Simulation-Reset-Handler
    Simulation-Supervisor
->>>>>>> 69be724 (Enhancement Add Ros2Supervisor tutorial (#3790))
