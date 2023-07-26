@@ -77,6 +77,8 @@ Release Timeline
         Updated releases of ROS Desktop [2]_ packages available.
         Call for general testing.
 
+    Wed, May 1, 2024 - Kick off of Tutorial Party
+        Tutorials hosted at https://github.com/osrf/ros2_test_cases are open for community testing.
     Mon. May 13, 2024 - Release Candidate
         Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
