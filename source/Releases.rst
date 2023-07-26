@@ -23,7 +23,6 @@ Rows in the table marked in green are the currently supported distributions.
 .. toctree::
    :hidden:
 
-   Releases/Release-Jazzy-Jalisco
    Releases/Release-Iron-Irwini
    Releases/Release-Humble-Hawksbill
    Releases/Release-Rolling-Ridley

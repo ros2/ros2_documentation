@@ -2,8 +2,8 @@
 
 .. _jazzy-release:
 
-Jazzy Jalisco (``jazzy; May, 2024``)
-===========================================
+Jazzy Jalisco (``jazzy``)
+=========================
 
 .. contents:: Table of Contents
    :depth: 2
@@ -57,7 +57,7 @@ Release Timeline
     November, 2023 - Platform decisions
         REP 2000 is updated with the target platforms and major dependency versions.
 
-    By January, 2023 - Rolling platform shift
+    By January, 2024 - Rolling platform shift
         Build farm is updated with the new platform versions and dependency versions for Jazzy Jalisco.
 
     Mon. April 8, 2024 - Alpha + RMW freeze
@@ -79,6 +79,7 @@ Release Timeline
 
     Wed, May 1, 2024 - Kick off of Tutorial Party
         Tutorials hosted at https://github.com/osrf/ros2_test_cases are open for community testing.
+
     Mon. May 13, 2024 - Release Candidate
         Release Candidate packages are built.
         Updated releases of ROS Desktop [2]_ packages available.
