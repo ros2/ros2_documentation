@@ -29,7 +29,7 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.5)
+   cmake_minimum_required(VERSION 3.14)
    project(my_project)
 
    ament_package()
@@ -74,14 +74,13 @@ The following best practice is proposed:
 
 - only cpp files are explicitly referenced in the call to ``add_library`` or ``add_executable``
 
-- allow to find headers via
+- allow to find headers to your library ``my_library`` via
 
 .. code-block:: cmake
 
-    target_include_directories(my_target
+    target_include_directories(my_library
       PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-        $<INSTALL_INTERFACE:include>)
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
 
 This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
 
@@ -93,12 +92,12 @@ Adding Dependencies
 There are two ways to link your packages against a new dependency.
 
 The first and recommended way is to use the ament macro ``ament_target_dependencies``.
-As an example, suppose we want to link ``my_target`` against the linear algebra library Eigen3.
+As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
 
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_target Eigen3)
+    ament_target_dependencies(my_library PUBLIC Eigen3::Eigen)
 
 It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
 It will also ensure that the include directories of all dependencies are ordered correctly when using overlay workspaces.
@@ -107,7 +106,7 @@ The second way is to use ``target_link_libraries``.
 
 The recommended way in modern CMake is to only use targets, exporting and linking against them.
 CMake targets are namespaced, similar to C++.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
+For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``, which is preferred.
 
 At least until ``Crystal Clemmys`` target names are not supported in the ``ament_target_dependencies`` macro.
 Sometimes it will be necessary to call the ``target_link_libaries`` CMake function.
@@ -116,7 +115,7 @@ In the example of Eigen3, the call should then look like
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    target_link_libraries(my_target Eigen3::Eigen)
+    target_link_libraries(my_library PUBLIC Eigen3::Eigen)
 
 This will also include necessary headers, libraries and their dependencies, but in contrast to ``ament_target_dependencies`` it might not correctly order the dependencies when using overlay workspaces.
 
@@ -125,30 +124,39 @@ This will also include necessary headers, libraries and their dependencies, but 
    It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
    If that is the case, file a bug against the corresponding package.
 
-Building a Library
+Building a Library and Node
 ^^^^^^^^^^^^^^^^^^
 
 When building a reusable library, some information needs to be exported for downstream packages to easily use it.
+ROS requires nodes to be installed in the ``lib/PROJECT_NAME`` directory, which is not the default for CMake.
+
+First, install the headers files which should be available to clients.
 
 .. code-block:: cmake
 
-    ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
-    ament_export_dependencies(some_dependency)
-
     install(
       DIRECTORY include/
-      DESTINATION include
+      DESTINATION include/${PROJECT_NAME}
     )
 
+Next, install the targets and create the export set ``my_libraryTargets``.
+Take special care to override the default RUNTIME directory for nodes. This allows the nodes to be started with ``ros2 run``.
+Additionally, the include directory is custom to support overlays in ``colcon``.
+
+Add all the nodes and libraries for your project to the ``TARGETS`` argument.
+
+.. code-block:: cmake
+
+    include(GNUInstallDirs)
     install(
-      TARGETS my_library
+      TARGETS my_library my_node
       EXPORT my_libraryTargets
-      LIBRARY DESTINATION lib
-      ARCHIVE DESTINATION lib
-      RUNTIME DESTINATION bin
-      INCLUDES DESTINATION include
+      RUNTIME DESTINATION lib/${PROJECT_NAME}
+      INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
     )
 
+    ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
+    ament_export_dependencies(some_dependency)
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
 Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
@@ -156,21 +164,16 @@ Note that it is not necessary to put all headers into a separate folder, only th
 Here is what's happening in the snippet above:
 
 - The ``ament_export_targets`` macro exports the targets for CMake.
-  This is necessary to allow your library's clients to use the ``target_link_libraries(client my_library::my_library)`` syntax.
-  ``ament_export_targets`` can take an arbitrary list of targets named as ``EXPORT`` in an install call and an additional option ``HAS_LIBRARY_TARGET``, which adds potential libraries to environment variables.
+  This is necessary to allow your library's clients to use the ``target_link_libraries(client PRIVATE my_library::my_library)`` syntax.
+  If the export set includes a library,  add the option ``HAS_LIBRARY_TARGET`` to  ``ament_export_targets``, which adds potential libraries to environment variables.
 
 - The ``ament_export_dependencies`` exports dependencies to downstream packages.
   This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
-
-- The first ``install`` commands installs the header files which should be available to clients.
 
 .. warning::
 
    Calling ``ament_export_targets``, ``ament_export_dependencies``, or other ament commands from a CMake subdirectory will not work as expected.
    This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
-
-- The last large install command installs the library.
-  Archive and library files will be exported to the lib folder, runtime binaries will be installed to the bin folder and the path to installed headers is ``include``.
 
 .. note::
 
