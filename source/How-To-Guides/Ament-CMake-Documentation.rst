@@ -80,7 +80,8 @@ The following best practice is proposed:
 
     target_include_directories(my_library
       PUBLIC
-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>")
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+        "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
 
 This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
 
@@ -147,12 +148,13 @@ Add all the nodes and libraries for your project to the ``TARGETS`` argument.
 
 .. code-block:: cmake
 
-    include(GNUInstallDirs)
     install(
       TARGETS my_library my_node
       EXPORT my_libraryTargets
+      LIBRARY DESTINATION lib
+      ARCHIVE DESTINATION lib
       RUNTIME DESTINATION lib/${PROJECT_NAME}
-      INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
+      INCLUDES DESTINATION include/${PROJECT_NAME}
     )
 
     ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
