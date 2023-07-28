@@ -166,18 +166,26 @@ The following tables show the compatibility of the different policy settings and
    * - Publisher
      - Subscription
      - Compatible
+     - Result
    * - Volatile
      - Volatile
      - Yes
+     - New messages only
    * - Volatile
      - Transient local
      - No
+     - No communication
    * - Transient local
      - Volatile
      - Yes
+     - New messages only
    * - Transient local
      - Transient local
      - Yes
+     - New and old messages
+
+To achieve a "latched" topic that is visible to late subscribers,
+both the publisher and subscriber must agree to use 'Transient Local'.
 
 *Compatibility of deadline QoS policies:*
 
