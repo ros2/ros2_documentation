@@ -29,7 +29,7 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.14)
+   cmake_minimum_required(VERSION 3.8)
    project(my_project)
 
    ament_package()
@@ -74,11 +74,11 @@ The following best practice is proposed:
 
 - only cpp files are explicitly referenced in the call to ``add_library`` or ``add_executable``
 
-- allow to find headers to your library ``my_library`` via
+- find headers via
 
 .. code-block:: cmake
 
-    target_include_directories(my_library
+    target_include_directories(my_target
       PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
         "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
@@ -93,7 +93,7 @@ Adding Dependencies
 There are two ways to link your packages against a new dependency.
 
 The first and recommended way is to use the ament macro ``ament_target_dependencies``.
-As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
+As an example, suppose we want to link ``my_target`` against the linear algebra library Eigen3.
 
 .. code-block:: cmake
 
@@ -107,16 +107,15 @@ The second way is to use ``target_link_libraries``.
 
 The recommended way in modern CMake is to only use targets, exporting and linking against them.
 CMake targets are namespaced, similar to C++.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``, which is preferred.
+For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
 
-At least until ``Crystal Clemmys`` target names are not supported in the ``ament_target_dependencies`` macro.
 Sometimes it will be necessary to call the ``target_link_libaries`` CMake function.
 In the example of Eigen3, the call should then look like
 
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    target_link_libraries(my_library PUBLIC Eigen3::Eigen)
+    target_link_libraries(my_target PUBLIC Eigen3::Eigen)
 
 This will also include necessary headers, libraries and their dependencies, but in contrast to ``ament_target_dependencies`` it might not correctly order the dependencies when using overlay workspaces.
 
@@ -125,11 +124,10 @@ This will also include necessary headers, libraries and their dependencies, but 
    It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
    If that is the case, file a bug against the corresponding package.
 
-Building a Library and Node
+Building a Library
 ^^^^^^^^^^^^^^^^^^
 
 When building a reusable library, some information needs to be exported for downstream packages to easily use it.
-ROS requires nodes to be installed in the ``lib/PROJECT_NAME`` directory, which is not the default for CMake.
 
 First, install the headers files which should be available to clients.
 
@@ -140,24 +138,22 @@ First, install the headers files which should be available to clients.
       DESTINATION include/${PROJECT_NAME}
     )
 
-Next, install the targets and create the export set ``my_libraryTargets``.
-Take special care to override the default RUNTIME directory for nodes. This allows the nodes to be started with ``ros2 run``.
-Additionally, the include directory is custom to support overlays in ``colcon``.
+Next, install the targets and create the export set ``export_${PROJECT_NAME}``.
+The include directory is custom to support overlays in ``colcon``.
 
-Add all the nodes and libraries for your project to the ``TARGETS`` argument.
+Add all the libraries for your project to the ``TARGETS`` argument.
 
 .. code-block:: cmake
 
     install(
-      TARGETS my_library my_node
-      EXPORT my_libraryTargets
+      TARGETS my_library
+      EXPORT export_${PROJECT_NAME}
       LIBRARY DESTINATION lib
       ARCHIVE DESTINATION lib
-      RUNTIME DESTINATION lib/${PROJECT_NAME}
-      INCLUDES DESTINATION include/${PROJECT_NAME}
+      RUNTIME DESTINATION bin
     )
 
-    ament_export_targets(my_libraryTargets HAS_LIBRARY_TARGET)
+    ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
     ament_export_dependencies(some_dependency)
 
 Here, we assume that the folder ``include`` contains the headers which need to be exported.
