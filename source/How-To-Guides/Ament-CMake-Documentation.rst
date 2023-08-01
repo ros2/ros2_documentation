@@ -19,7 +19,7 @@ Basics
 ------
 
 A basic CMake outline can be produced using ``ros2 pkg create <package_name>`` on the command line.
-The build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``.
+The build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``, which must be in the same directory.
 The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon to find the correct build order for your packages, to install the required dependencies in CI, and to provide the information for a release with ``bloom``.
 The ``CMakeLists.txt`` contains the commands to build and package executables and libraries and will be the main focus of this document.
 
@@ -85,21 +85,14 @@ It is recommended to at least cover the following warning levels:
 
 - For GCC and Clang: ``-Wall -Wextra -Wpedantic`` are highly recommended and ``-Wshadow`` is advisable
 
-With modern CMake, compiler flags can either be added on a per-target or per-directory level basis.
-
-Per-target:
-
-.. code-block:: cmake
-
-    target_compile_options(my_target PRIVATE -Wall -Wextra -Wpedantic)
-
-Per-directory level:
+It is currently recommended to use ``add_compile_options`` to add these options for all targets.
+This avoids cluttering the code with target-based compile options for all executables, libraries, and tests:
 
 .. code-block:: cmake
 
-    add_compile_options(-Wall -Wextra -Wpedantic)
-
-At the moment it is recommended to use the per-directory level function to avoid cluttering the code with target-based compile options for all executables, libraries, and tests.
+    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+      add_compile_options(-Wall -Wextra -Wpedantic)
+    endif()
 
 Finding dependencies
 ^^^^^^^^^^^^^^^^^^^^
@@ -152,7 +145,7 @@ Either libraries or executables can be created, and a single project can contain
 
         .. note::
 
-            Since Windows is one of the officially supported platforms, to have maximum impact any package should also build on Windows.
+            Since Windows is one of the officially supported platforms, to have maximum impact, any package should also build on Windows.
             The Windows library format enforces symbol visibility; that is, every symbol which should be used from a client has to be explicitly exported by the library (and symbols need to be implicitly imported).
 
             Since GCC and Clang builds do not generally do this, it is advised to use the logic in `the GCC wiki <https://gcc.gnu.org/wiki/Visibility>`__.
@@ -175,6 +168,7 @@ Either libraries or executables can be created, and a single project can contain
     .. group-tab:: Executables
 
         These should be created with a call to ``add_executable``, which should contain both the name of the target and the source files that should be compiled to create the executable.
+        The executable may also have to be linked with any libraries created in this package by using ``target_link_libraries``.
 
         Since executables aren't generally used by clients as a library, no header files need to be put in the ``include`` directory.
 
@@ -191,14 +185,15 @@ As an example, suppose we want to link ``my_library`` against the linear algebra
 .. code-block:: cmake
 
     find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_library Eigen3)
+    ament_target_dependencies(my_library PUBLIC Eigen3)
 
 It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
 
 The second way is to use ``target_link_libraries``.
 
 Modern CMake prefers to use only targets, exporting and linking against them.
-CMake targets are namespaced, similar to C++.
+CMake targets may be namespaced, similar to C++.
+Prefer to use the namespaced targets if they are available.
 For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``, which is preferred.
 
 In the example of Eigen3, the call should then look like
