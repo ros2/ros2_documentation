@@ -194,7 +194,7 @@ The second way is to use ``target_link_libraries``.
 Modern CMake prefers to use only targets, exporting and linking against them.
 CMake targets may be namespaced, similar to C++.
 Prefer to use the namespaced targets if they are available.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``, which is preferred.
+For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
 
 In the example of Eigen3, the call should then look like
 
