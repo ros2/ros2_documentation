@@ -399,7 +399,7 @@ There are, however, some changes w.r.t. ROS 1:
 * There is a new ``find-exec`` substitution.
 * ``arg`` has been replaced with ``var``.
   It looks at configurations defined either with ``arg`` or ``let`` tag.
-* ``eval`` and ``dirname`` substitutions haven't changed.
+* ``eval`` and ``dirname`` substitutions require escape characters for string values, e.g. ``if="$(eval 'variable == \'val1\'')"``.
 * ``anon`` substitution is not supported.
 
 Type inference rules
