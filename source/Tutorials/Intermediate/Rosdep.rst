@@ -22,11 +22,10 @@ What is rosdep?
 
 ``rosdep`` is a dependency management utility that can work with packages and external libraries.
 It is a command-line utility for identifying and installing dependencies to build or install a package.
-It can be or is invoked:
+``rosdep`` is *not* a package manager in its own right; it is a meta-package manager that uses its own knowledge of the system and the dependencies to find the appropriate package to install on a particular platform.
+The actual installation is done using the system package manager (e.g. ``apt`` on Debian/Ubuntu, ``dnf`` on Fedora/RHEL, etc).
 
-- Before building a workspace and needing appropriate dependencies to build the packages within
-- When installing packages (e.g. ``sudo apt install ros-{DISTRO}-demo-nodes-cpp``) to check the dependencies needed for it to execute.
-- and more!
+It is most often invoked before building a workspace, where it is used to install the dependencies of the packages within that workspace.
 
 It has the ability to work over a single package or over a directory of packages (e.g. workspace).
 
@@ -151,6 +150,11 @@ You can install it with:
 .. code-block:: bash
 
     apt-get install python3-rosdep
+
+.. note::
+
+    On Debian and Ubuntu, there is another, similarly named package called ``python3-rosdep2``.
+    If that package is installed, make sure to remove it before installing ``python3-rosdep``.
 
 If you are using ``rosdep`` outside of ROS, the system package may not be available.
 In that case, you can install it directly from https://pypi.org:
