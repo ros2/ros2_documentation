@@ -6,9 +6,10 @@
 ament_cmake user documentation
 ==============================
 
-ament_cmake is the build system for CMake based packages in ROS 2 (in particular, it will be used for most if not all C/C++ projects).
+``ament_cmake`` is the build system for CMake based packages in ROS 2 (in particular, it will be used for most C/C++ projects).
 It is a set of scripts enhancing CMake and adding convenience functionality for package authors.
-Knowing the basics of `CMake <https://cmake.org/cmake/help/v3.5/>`__ will be very helpful, an official tutorial can be found `here <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>`__.
+Before using ``ament_cmake``, it is very helpful to know the basics of `CMake <https://cmake.org/cmake/help/v3.8/>`__.
+An official tutorial can be found `here <https://cmake.org/cmake/help/latest/guide/tutorial/index.html>`__.
 
 .. contents:: Table of Contents
    :depth: 2
@@ -18,8 +19,8 @@ Basics
 ------
 
 A basic CMake outline can be produced using ``ros2 pkg create <package_name>`` on the command line.
-The basic build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``.
-The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon to find the correct build order for your packages, to install the required dependencies in CI as well as provide the information for a release with ``bloom``.
+The build information is then gathered in two files: the ``package.xml`` and the ``CMakeLists.txt``, which must be in the same directory.
+The ``package.xml`` must contain all dependencies and a bit of metadata to allow colcon to find the correct build order for your packages, to install the required dependencies in CI, and to provide the information for a release with ``bloom``.
 The ``CMakeLists.txt`` contains the commands to build and package executables and libraries and will be the main focus of this document.
 
 Basic project outline
@@ -29,23 +30,22 @@ The basic outline of the ``CMakeLists.txt`` of an ament package contains:
 
 .. code-block:: cmake
 
-   cmake_minimum_required(VERSION 3.8)
-   project(my_project)
+    cmake_minimum_required(VERSION 3.8)
+    project(my_project)
 
-   ament_package()
+    ament_package()
 
 The argument to ``project`` will be the package name and must be identical to the package name in the ``package.xml``.
 
 The project setup is done by ``ament_package()`` and this call must occur exactly once per package.
-``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs config (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
+``ament_package()`` installs the ``package.xml``, registers the package with the ament index, and installs configuration (and possibly target) files for CMake so that it can be found by other packages using ``find_package``.
 Since ``ament_package()`` gathers a lot of information from the ``CMakeLists.txt`` it should be the last call in your ``CMakeLists.txt``.
-Although it is possible to follow calls to ``ament_package()`` by calls to ``install`` functions copying files and directories, it is simpler to just keep ``ament_package()`` the last call.
 
 ``ament_package`` can be given additional arguments:
 
 - ``CONFIG_EXTRAS``: a list of CMake files (``.cmake`` or ``.cmake.in`` templates expanded by ``configure_file()``) which should be available to clients of the package.
   For an example of when to use these arguments, see the discussion in `Adding resources`_.
-  For more information on how to use template files, see `the official documentation <https://cmake.org/cmake/help/v3.5/command/configure_file.html>`__.
+  For more information on how to use template files, see `the official documentation <https://cmake.org/cmake/help/v3.8/command/configure_file.html>`__.
 
 - ``CONFIG_EXTRAS_POST``: same as ``CONFIG_EXTRAS``, but the order in which the files are added differs.
   While ``CONFIG_EXTRAS`` files are included before the files generated for the ``ament_export_*`` calls the files from ``CONFIG_EXTRAS_POST`` are included afterwards.
@@ -61,151 +61,10 @@ The only difference is again the order in which the files are added with the fol
 
 - files added by ``CONFIG_EXTRAS_POST``
 
-Adding files and headers
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-There are two main targets to build: libraries and executables which are built by ``add_library`` and ``add_executable`` respectively.
-
-With the separation of header files and implementation in C/C++, it is not always necessary to add both files as argument to ``add_library``/ ``add_executable``.
-
-The following best practice is proposed:
-
-- if you are building a library, put all headers which should be usable by clients and therefore must be installed into a subdirectory of the ``include`` folder named like the package, while all other files (``.c/.cpp`` and header files which should not be exported) are inside the ``src`` folder.
-
-- only cpp files are explicitly referenced in the call to ``add_library`` or ``add_executable``
-
-- find headers via
-
-.. code-block:: cmake
-
-    target_include_directories(my_target
-      PUBLIC
-        "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
-        "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
-
-This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
-
-In principle, using generator expressions here is not necessary if both folders are called ``include`` and top-level with respect to ``${CMAKE_CURRENT_SOURCE_DIR}`` and ``${CMAKE_INSTALL_DIR}``, but it is very common.
-
-Adding Dependencies
-^^^^^^^^^^^^^^^^^^^
-
-There are two ways to link your packages against a new dependency.
-
-The first and recommended way is to use the ament macro ``ament_target_dependencies``.
-As an example, suppose we want to link ``my_target`` against the linear algebra library Eigen3.
-
-.. code-block:: cmake
-
-    find_package(Eigen3 REQUIRED)
-    ament_target_dependencies(my_library PUBLIC Eigen3::Eigen)
-
-It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
-It will also ensure that the include directories of all dependencies are ordered correctly when using overlay workspaces.
-
-The second way is to use ``target_link_libraries``.
-
-The recommended way in modern CMake is to only use targets, exporting and linking against them.
-CMake targets are namespaced, similar to C++.
-For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
-
-Sometimes it will be necessary to call the ``target_link_libaries`` CMake function.
-In the example of Eigen3, the call should then look like
-
-.. code-block:: cmake
-
-    find_package(Eigen3 REQUIRED)
-    target_link_libraries(my_target PUBLIC Eigen3::Eigen)
-
-This will also include necessary headers, libraries and their dependencies, but in contrast to ``ament_target_dependencies`` it might not correctly order the dependencies when using overlay workspaces.
-
-.. note::
-
-   It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
-   If that is the case, file a bug against the corresponding package.
-
-Building a Library
-^^^^^^^^^^^^^^^^^^
-
-When building a reusable library, some information needs to be exported for downstream packages to easily use it.
-
-First, install the headers files which should be available to clients.
-
-.. code-block:: cmake
-
-    install(
-      DIRECTORY include/
-      DESTINATION include/${PROJECT_NAME}
-    )
-
-Next, install the targets and create the export set ``export_${PROJECT_NAME}``.
-The include directory is custom to support overlays in ``colcon``.
-
-Add all the libraries for your project to the ``TARGETS`` argument.
-
-.. code-block:: cmake
-
-    install(
-      TARGETS my_library
-      EXPORT export_${PROJECT_NAME}
-      LIBRARY DESTINATION lib
-      ARCHIVE DESTINATION lib
-      RUNTIME DESTINATION bin
-    )
-
-    ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
-    ament_export_dependencies(some_dependency)
-
-Here, we assume that the folder ``include`` contains the headers which need to be exported.
-Note that it is not necessary to put all headers into a separate folder, only those that should be included by clients.
-
-Here is what's happening in the snippet above:
-
-- The ``ament_export_targets`` macro exports the targets for CMake.
-  This is necessary to allow your library's clients to use the ``target_link_libraries(client PRIVATE my_library::my_library)`` syntax.
-  If the export set includes a library,  add the option ``HAS_LIBRARY_TARGET`` to  ``ament_export_targets``, which adds potential libraries to environment variables.
-
-- The ``ament_export_dependencies`` exports dependencies to downstream packages.
-  This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
-
-.. warning::
-
-   Calling ``ament_export_targets``, ``ament_export_dependencies``, or other ament commands from a CMake subdirectory will not work as expected.
-   This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
-
-.. note::
-
-   Windows DLLs are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
-   It is therefore advised to not leave out the ``RUNTIME`` install even when developing libraries on Unix based systems.
-
-- Regarding the ``include directory``, the install command only adds information to CMake, it does not actually install the includes folder.
-  This is done by copying the headers via ``install(DIRECTORY <dir> DESTINATION <dest>)`` as described above.
-
-- The ``EXPORT`` notation of the install call requires additional attention:
-  It installs the CMake files for the ``my_library`` target.
-  It is named exactly like the argument in ``ament_export_targets`` and could be named like the library.
-  However, this will then prohibit using the ``ament_target_dependencies`` way of including your library.
-  To allow for full flexibility, it is advised to prepend the export target with something like ``<target>Targets``.
-
-- All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament
-
-There are two additional functions which can be used but are superfluous for target based installs:
-
-.. code-block:: cmake
-
-    ament_export_include_directories(include)
-    ament_export_libraries(my_library)
-
-The first macro marks the directory of the exported include directories (this is achieved by ``INCLUDES DESTINATION`` in the target ``install`` call).
-The second macro marks the location of the installed library (this is done by the ``HAS_LIBRARY_TARGET`` argument in the call to ``ament_export_targets``).
-
-Some of the macros can take different types of arguments for non-target exports, but since the recommended way for modern Make is to use targets, we will not cover them here.
-Documentation of these options can be found in the source code itself.
-
 Compiler and linker options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-ROS 2 targets compilers which comply with the C++14 and C99 standard until at least ``Crystal Clemmys``.
+ROS 2 targets compilers which comply with the C++17 and C99 standard.
 Newer versions might be targeted in the future and are referenced `here <https://www.ros.org/reps/rep-2000.html>`__.
 Therefore it is customary to set the corresponding CMake flags:
 
@@ -215,50 +74,224 @@ Therefore it is customary to set the corresponding CMake flags:
       set(CMAKE_C_STANDARD 99)
     endif()
     if(NOT CMAKE_CXX_STANDARD)
-      set(CMAKE_CXX_STANDARD 14)
+      set(CMAKE_CXX_STANDARD 17)
     endif()
 
 To keep the code clean, compilers should throw warnings for questionable code and these warnings should be fixed.
 
 It is recommended to at least cover the following warning levels:
 
-- For Visual Studio, the default ``W1`` warnings are kept
+- For Visual Studio: the default ``W1`` warnings
 
-- For GCC and Clang: ``-Wall -Wextra -Wpedantic`` are required and ``-Wshadow -Werror`` are advisable (the latter makes warnings errors).
+- For GCC and Clang: ``-Wall -Wextra -Wpedantic`` are highly recommended and ``-Wshadow`` is advisable
 
-Although modern CMake advises to add compiler flags on a target basis, i.e. call
-
-.. code-block:: cmake
-
-    target_compile_options(my_target PRIVATE -Wall)
-
-it is at the moment recommended to use the directory level function ``add_compile_options(-Wall)`` to not clutter the code with target-based compile options for all executables and tests.
-
-Building libraries on Windows
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Since Linux, Mac and Windows are all officially supported platforms, to have maximum impact any package should also build on Windows.
-The Windows library format enforces symbol visibility:
-Every symbol which should be used from a client has to be explicitly exported by the library (and data symbols need to be implicitly imported).
-
-To keep this compatible with Clang and GCC builds, it is advised to use the logic in `the GCC wiki <https://gcc.gnu.org/wiki/Visibility>`__.
-To use it for a package called ``my_library``:
-
-- Copy the logic in the link into a header file called ``visibility_control.hpp``.
-
-- Replace ``DLL`` by ``MY_LIBRARY`` (for an example, see visibility control of `rviz_rendering <https://github.com/ros2/rviz/blob/ros2/rviz_rendering/include/rviz_rendering/visibility_control.hpp>`__).
-
-- Use the macros "MY_LIBRARY_PUBLIC" for all symbols you need to export (i.e. classes or functions).
-
-- In the project ``CMakeLists.txt`` use:
+It is currently recommended to use ``add_compile_options`` to add these options for all targets.
+This avoids cluttering the code with target-based compile options for all executables, libraries, and tests:
 
 .. code-block:: cmake
 
-    target_compile_definitions(my_library PRIVATE "MY_LIBRARY_BUILDING_LIBRARY")
+    if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+      add_compile_options(-Wall -Wextra -Wpedantic)
+    endif()
 
-For more details, see :ref:`Windows Symbol Visibility in the Windows Tips and Tricks document <Windows_Symbol_Visibility>`.
+Finding dependencies
+^^^^^^^^^^^^^^^^^^^^
 
-Testing and Linting
+Most ``ament_cmake`` projects will have dependencies on other packages.
+In CMake, this is accomplished by calling ``find_package``.
+For instance, if your package depends on ``rclcpp``, then the ``CMakeLists.txt`` file should contain:
+
+.. code-block:: cmake
+
+    find_package(rclcpp REQUIRED)
+
+.. note::
+
+    It should never be necessary to ``find_package`` a library that is not explicitly needed but is a dependency of another dependency that is explicitly needed.
+    If that is the case, file a bug against the corresponding package.
+
+Adding targets
+^^^^^^^^^^^^^^
+
+In CMake nomenclature, ``targets`` are the artifacts that this project will create.
+Either libraries or executables can be created, and a single project can contain zero or many of each of them.
+
+.. tabs::
+
+    .. group-tab:: Libraries
+
+        These are created with a call to ``add_library``, which should contain both the name of the target and the source files that should be compiled to create the library.
+
+        With the separation of header files and implementation in C/C++, it is not usually necessary to add header files as arguments to ``add_library``.
+
+        The following best practice is proposed:
+
+        - Put all headers which should be usable by clients of this library (and therefore must be installed) into a subdirectory of the ``include`` folder named like the package, while all other files (``.c/.cpp`` and header files which should not be exported) are inside the ``src`` folder
+
+        - Only ``.c/.cpp`` files are explicitly referenced in the call to ``add_library``
+
+        - Find headers to your library ``my_library`` via
+
+        .. code-block:: cmake
+
+            target_include_directories(my_library
+              PUBLIC
+                "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+                "$<INSTALL_INTERFACE:include/${PROJECT_NAME}>")
+
+        This adds all files in the folder ``${CMAKE_CURRENT_SOURCE_DIR}/include`` to the public interface during build time and all files in the include folder (relative to ``${CMAKE_INSTALL_DIR}``) when being installed.
+
+        ``ros2 pkg create`` creates a package layout that follows these rules.
+
+        .. note::
+
+            Since Windows is one of the officially supported platforms, to have maximum impact, any package should also build on Windows.
+            The Windows library format enforces symbol visibility; that is, every symbol which should be used from a client has to be explicitly exported by the library (and symbols need to be implicitly imported).
+
+            Since GCC and Clang builds do not generally do this, it is advised to use the logic in `the GCC wiki <https://gcc.gnu.org/wiki/Visibility>`__.
+            To use it for a package called ``my_library``:
+
+            - Copy the logic in the link into a header file called ``visibility_control.hpp``.
+
+            - Replace ``DLL`` by ``MY_LIBRARY`` (for an example, see visibility control of `rviz_rendering <https://github.com/ros2/rviz/blob/ros2/rviz_rendering/include/rviz_rendering/visibility_control.hpp>`__).
+
+            - Use the macros "MY_LIBRARY_PUBLIC" for all symbols you need to export (i.e. classes or functions).
+
+            - In the project ``CMakeLists.txt`` use:
+
+              .. code-block:: cmake
+
+                  target_compile_definitions(my_library PRIVATE "MY_LIBRARY_BUILDING_LIBRARY")
+
+            For more details, see :ref:`Windows Symbol Visibility in the Windows Tips and Tricks document <Windows_Symbol_Visibility>`.
+
+    .. group-tab:: Executables
+
+        These should be created with a call to ``add_executable``, which should contain both the name of the target and the source files that should be compiled to create the executable.
+        The executable may also have to be linked with any libraries created in this package by using ``target_link_libraries``.
+
+        Since executables aren't generally used by clients as a library, no header files need to be put in the ``include`` directory.
+
+In the case that a package has both libraries and executables, make sure to combine the advice from both "Libraries" and "Executables" above.
+
+Linking to dependencies
+^^^^^^^^^^^^^^^^^^^^^^^
+
+There are two ways to link your targets against a dependency.
+
+The first and recommended way is to use the ament macro ``ament_target_dependencies``.
+As an example, suppose we want to link ``my_library`` against the linear algebra library Eigen3.
+
+.. code-block:: cmake
+
+    find_package(Eigen3 REQUIRED)
+    ament_target_dependencies(my_library PUBLIC Eigen3)
+
+It includes the necessary headers and libraries and their dependencies to be correctly found by the project.
+
+The second way is to use ``target_link_libraries``.
+
+Modern CMake prefers to use only targets, exporting and linking against them.
+CMake targets may be namespaced, similar to C++.
+Prefer to use the namespaced targets if they are available.
+For instance, ``Eigen3`` defines the target ``Eigen3::Eigen``.
+
+In the example of Eigen3, the call should then look like
+
+.. code-block:: cmake
+
+    target_link_libraries(my_library PUBLIC Eigen3::Eigen)
+
+This will also include necessary headers, libraries and their dependencies.
+Note that this dependency must have been previously discovered via a call to ``find_package``.
+
+Installing
+^^^^^^^^^^
+
+.. tabs::
+
+    .. group-tab:: Libraries
+
+        When building a reusable library, some information needs to be exported for downstream packages to easily use it.
+
+        First, install the headers files which should be available to clients.
+        The include directory is custom to support overlays in ``colcon``; see https://colcon.readthedocs.io/en/released/user/overriding-packages.html#install-headers-to-a-unique-include-directory for more information.
+
+        .. code-block:: cmake
+
+            install(
+              DIRECTORY include/
+              DESTINATION include/${PROJECT_NAME}
+            )
+
+        Next, install the targets and create the export target (``export_${PROJECT_NAME}``) that other code will use to find this package.
+        Note that you can use a single ``install`` call to install all of the libraries in the project.
+
+        .. code-block:: cmake
+
+            install(
+              TARGETS my_library
+              EXPORT export_${PROJECT_NAME}
+              LIBRARY DESTINATION lib
+              ARCHIVE DESTINATION lib
+              RUNTIME DESTINATION bin
+            )
+
+            ament_export_targets(export_${PROJECT_NAME} HAS_LIBRARY_TARGET)
+            ament_export_dependencies(some_dependency)
+
+        Here is what's happening in the snippet above:
+
+        - The ``ament_export_targets`` macro exports the targets for CMake.
+          This is necessary to allow your library's clients to use the ``target_link_libraries(client PRIVATE my_library::my_library)`` syntax.
+          If the export set includes a library, add the option ``HAS_LIBRARY_TARGET`` to ``ament_export_targets``, which adds potential libraries to environment variables.
+
+        - The ``ament_export_dependencies`` exports dependencies to downstream packages.
+          This is necessary so that the user of the library does not have to call ``find_package`` for those dependencies, too.
+
+        .. warning::
+
+            Calling ``ament_export_targets``, ``ament_export_dependencies``, or other ament commands from a CMake subdirectory will not work as expected.
+            This is because the CMake subdirectory has no way of setting necessary variables in the parent scope where ``ament_package`` is called.
+
+        .. note::
+
+            Windows DLLs are treated as runtime artifacts and installed into the ``RUNTIME DESTINATION`` folder.
+            It is therefore advised to keep the ``RUNTIME`` install even when developing libraries on Unix based systems.
+
+        - The ``EXPORT`` notation of the install call requires additional attention:
+          It installs the CMake files for the ``my_library`` target.
+          It must be named exactly the same as the argument in ``ament_export_targets``.
+          To ensure that it can be used via ``ament_target_dependencies``, it should not be named exactly the same as the library name, but instead should have a prefix like ``export_`` (as shown above).
+
+        - All install paths are relative to ``CMAKE_INSTALL_PREFIX``, which is already set correctly by colcon/ament.
+
+        There are two additional functions which are available, but are superfluous for target based installs:
+
+        .. code-block:: cmake
+
+            ament_export_include_directories("include/${PROJECT_NAME}")
+            ament_export_libraries(my_library)
+
+        The first macro marks the directory of the exported include directories.
+        The second macro marks the location of the installed library (this is done by the ``HAS_LIBRARY_TARGET`` argument in the call to ``ament_export_targets``).
+        These should only be used if the downstream projects can't or don't want to use CMake target based dependencies.
+
+        Some of the macros can take different types of arguments for non-target exports, but since the recommended way for modern Make is to use targets, we will not cover them here.
+        Documentation of these options can be found in the source code itself.
+
+    .. group-tab:: Executables
+
+        When installing an executable, the following stanza *must be followed exactly* for the rest of the ROS tooling to find it:
+
+        .. code-block:: cmake
+
+            install(TARGETS my_exe
+                DESTINATION lib/${PROJECT_NAME})
+
+In the case that a package has both libraries and executables, make sure to combine the advice from both "Libraries" and "Executables" above.
+
+Linting and Testing
 -------------------
 
 In order to separate testing from building the library with colcon, wrap all calls to linters and tests in a conditional:
@@ -402,7 +435,7 @@ This extension point is useful when registering resources (see below).
 
 .. note::
 
-   It is possible to define custom extension points in a similar manner to ``ament_package`` and ``rosidl_generate_interfaces``, but this should hardly be necessary.
+    It is possible to define custom extension points in a similar manner to ``ament_package`` and ``rosidl_generate_interfaces``, but this should hardly be necessary.
 
 Adding extension points
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -418,7 +451,7 @@ To do so:
 
 .. code-block:: cmake
 
-   ament_execute_extensions(my_extension_point)
+    ament_execute_extensions(my_extension_point)
 
 Ament extensions work by defining a variable containing the name of the extension point and filling it with the macros to be executed.
 Upon calling ``ament_execute_extensions``, the scripts defined in the variable are then executed one after another.
@@ -476,7 +509,7 @@ Querying the ament index
 If necessary, it is possible to query the ament index for resources via CMake.
 To do so, there are three functions:
 
-``ament_index_has_resource``: obtain a prefix path to the resource if it exists with the following parameters:
+``ament_index_has_resource``: Obtain a prefix path to the resource if it exists with the following parameters:
 
 - ``var``: the output parameter: fill this variable with FALSE if the resource does not exist or the prefix path to the resource otherwise
 
