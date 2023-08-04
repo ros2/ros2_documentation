@@ -46,7 +46,7 @@ Missing or incorrect dependencies can lead to users not being able to use your p
 The dependencies in the ``package.xml`` file are generally referred to as "rosdep keys".
 These dependencies are manually populated in the ``package.xml`` file by the package's creators and should be an exhaustive list of any non-builtin libraries and packages it requires.
 
-These are represented in the following tags:
+These are represented in the following tags (see `REP-149 <https://ros.org/reps/rep-0149.html>`__ for the full specification):
 
 ``<depend>``
 ^^^^^^^^^^^^
