@@ -192,6 +192,6 @@ Breaking that down:
 - ``--ignore-src`` means to ignore installing dependencies, even if a rosdep key exists, if the package itself is also in the workspace.
 
 There are additional arguments and options available.
-Use ``rosdep -h`` to see them.
+Use ``rosdep -h`` to see them, or look at the more complete documentation for rosdep at http://docs.ros.org/en/independent/api/rosdep/html/ .
 
 .. [1] "released into the ROS ecosystem" means the package is listed in one or more of the ``<distro>/distribution.yaml`` directories in the `rosdistro database <https://github.com/ros/rosdistro>`_.
