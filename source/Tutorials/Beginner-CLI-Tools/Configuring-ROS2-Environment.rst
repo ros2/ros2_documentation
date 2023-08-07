@@ -155,7 +155,7 @@ Check that variables like ``ROS_DISTRO`` and ``ROS_VERSION`` are set.
   ROS_DISTRO={DISTRO}
 
 If the environment variables are not set correctly, return to the ROS 2 package installation section of the installation guide you followed.
-If you need more specific help (because environment setup files can come from different places), you can `get answers <https://answers.ros.org>`__ from the community.
+If you need more specific help (because environment setup files can come from different places), you can `get answers <https://robotics.stackexchange.com/>`__ from the community.
 
 3.1 The ``ROS_DOMAIN_ID`` variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -3,7 +3,7 @@
 Contact
 =======
 
-.. _Using ROS Answers:
+.. _Using Robotics Stack Exchange:
 
 Support
 -------
@@ -12,9 +12,9 @@ Different types of questions or discussions correspond to different avenues of c
 check the descriptions below to ensure you choose the right method.
 
 Need help troubleshooting your system?
-First, search `ROS Answers <https://answers.ros.org>`__ to see if others have had similar issues, and if their solution works for you.
+First, search `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if others have had similar issues, and if their solution works for you.
 
-If not, ask a new question on `ROS Answers <https://answers.ros.org>`__.
+If not, ask a new question on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__.
 Make sure to add tags, at the very least the ``ros2`` tag and the distro version you are running, e.g. ``{DISTRO}``.
 If your question is related to the documentation here, add a tag like ``docs``, or more specifically, ``tutorials``.
 
@@ -24,7 +24,7 @@ Contributing support
 ROS 2 users come from a wide range of technical backgrounds, use a variety of different operating systems, and don’t necessarily have any prior experience with ROS (1 or 2).
 So, it's important for users with any amount of experience to contribute support.
 
-If you see an issue on `ROS Answers <https://answers.ros.org/questions/tags:ros2/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
+If you see an issue on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ that is similar to something you’ve run into yourself, please consider providing some pointers to what helped in your situation.
 Don’t worry if you aren't sure if your response is correct.
 Simply say so, and other community members will jump in if necessary.
 
@@ -40,7 +40,7 @@ You can search for individual ROS 2 repositories on `ROS 2's GitHub <https://git
 
 Before opening an issue, check if other users have reported similar issues by searching across the ros2 and ament GitHub organizations: `example search query <https://github.com/search?q=user%3Aros2+user%3Aament+turtlesim&type=Issues>`__.
 
-Next, check `ROS Answers <https://answers.ros.org/>`__ to see if someone else has asked your question or reported your issue.
+Next, check `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ to see if someone else has asked your question or reported your issue.
 
 If it has not been reported, feel free to open an issue in the appropriate repository tracker.
 If it's not clear which tracker to use for a particular issue, file it in the `ros2/ros2 repository <https://github.com/ros2/ros2/issues>`__ and we'll have a look at it.
@@ -106,7 +106,7 @@ This also applies to crossposting.
 Try to pick the forum which you think matches best and ask there.
 If you are referred to a new forum, provide a link to the old discussion.
 
-On https://answers.ros.org you can edit your question to provide more details.
+On `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ you can edit your question to provide more details.
 The more details that you include in your question the easier it is for others to help you find your solution which makes it more likely for you to get a response.
 
 It's considered bad form to list your personal deadlines; community members answering questions also have them.
@@ -122,7 +122,7 @@ Content, links, and images unrelated to the topic are considered spam.
 For commercial posts, see also `this discussion <https://discourse.ros.org/t/sponsorship-notation-in-posts-on-ros-org/2078>`_.
 
 Minimize references to content behind pay walls.
-The content posted on `ROS Discourse <https://discourse.ros.org/>`__ and `ROS Answers <https://answers.ros.org/>`__ should "generally" be free and open to all users.
+The content posted on `ROS Discourse <https://discourse.ros.org/>`__ and `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ should "generally" be free and open to all users.
 Links to content behind pay walls such as private journal articles, text books, and paid news websites, while helpful and relevant, may not be accessible to all users.
 Where possible primary sources should be free and open with paid content playing a supporting role.
 

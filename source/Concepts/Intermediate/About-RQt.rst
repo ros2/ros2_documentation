@@ -72,7 +72,7 @@ Compared to building your own GUIs from scratch:
 * Standardized common procedures for GUI (start-shutdown hook, restore previous states).
 * Multiple widgets can be docked in a single window.
 * Easily turn your existing Qt widgets into RQt plugins.
-* Expect support at `ROS Answers <https://answers.ros.org>`__ (ROS community website for the questions).
+* Expect support at `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ (ROS community website for the questions).
 
 From system architecture's perspective:
 

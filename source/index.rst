@@ -98,10 +98,10 @@ If you're interested in the advancement of the ROS 2 project:
 Other ROS resources
 -------------------
 
-* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
+* `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
 
-  - Q&A community website, similar to `Stack Exchange <https://stackexchange.com/>`_
-  - See :ref:`Contact Page <Using ROS Answers>` for more information
+  - Community Q&A website.
+  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
 * `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
 
@@ -118,7 +118,7 @@ Other ROS resources
   - See which ROS distributions a package supports
   - Link to a package's repository, API documentation, or website
   - Inspect a package's license, build type, maintainers, status, and dependencies
-  - Get more info for a package on `ROS Answers <https://answers.ros.org/questions/>`__
+  - Get more info for a package on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__
 
 * `ROS Prerelease <http://prerelease.ros.org/>`__ (ROS 1)
 
