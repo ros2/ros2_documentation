@@ -98,10 +98,11 @@ If you're interested in the advancement of the ROS 2 project:
 Other ROS resources
 -------------------
 
-* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
+* `Robotics Stack Exchange - Q&A community website.<https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
+  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
-  - Q&A community website, similar to `Stack Exchange <https://stackexchange.com/>`_
-  - See :ref:`Contact Page <Using ROS Answers>` for more information
+* `Official ROS Discord Channel - Discussion and Support.<https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS 1, ROS 2)
+  - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
 
 * `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
 
@@ -139,8 +140,51 @@ Other ROS resources
 
   - ROS 1 and ROS 2 product landing page, with high-level description of ROS and links to other ROS sites
 
+* `Official Open Source Robotics Foundation Vimeo Channel <https://vimeo.com/osrfoundation>`__ (ROS 1, ROS 2)
+
+  - Videos of ROSCon Talks, community and working group meetings, and project demos.
+
+* `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)
+
+- Check the current status of ROS resources like Discourse or the ROS build farm.
+
+    * `ROSCon website <https://roscon.ros.org/>`__ (ROS 1, ROS 2)
+
+  - ROSCon is our annual ROS developer conference.
+  - This page also lists regional ROS events like ROSConJP and ROSConFr.
+
+* `Open Source Robotics Foundation Official Events Calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=America/Los_Angeles>`__ 
+
+  - This calendar is for official OSRF Events and working group meetings.
+  - `Submit your events here.<https://bit.ly/OSRFCalendarForm>`__
+
+* `Open Source Robotics Foundation Community Calendar <https://calendar.google.com/calendar/embed?src=c_3fc5c4d6ece9d80d49f136c1dcd54d7f44e1acefdbe87228c92ff268e85e2ea0%40group.calendar.google.com&ctz=America%2FLos_Angeles>
+
+  - This calendar is for unofficial ROS community events.
+  - `Submit your events here.<https://bit.ly/OSRFCommunityCalendar>`__
+
+Miscellaneous
+^^^^^^^^^^
+* `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
+
+* ROS 2 can be cited in an academic publication using `DOI: 10.1126/scirobotics.abm6074<https://www.science.org/doi/10.1126/scirobotics.abm6074>`__
+
+* `Purchase official ROS swag <https://spring.ros.org/>`__
+
+* ROS on social media
+
+  - `@OpenRoboticsOrg<https://twitter.com/OpenRoboticsOrg>`__ and `@rosorg<https://twitter.com/ROSOrg>`__ on Twitter
+  - `Open Robotics on LinkedIn<https://www.linkedin.com/company/open-source-robotics-foundation>`__
+
+* Visit the `Open Source Robotics Foundation website <https://www.openrobotics.org/>`__
+
+  - Tax deductible charitable donations to the Open Source Robotics Foundation can be sent via `DonorBox. <https://donorbox.org/support-open-robotics?utm_medium=qrcode&utm_source=qrcode>`__
+
 Deprecated
 ^^^^^^^^^^
+* `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
+
+  - ROS Answers was the ROS community Q&A website, until August,2023. The website is currently available as a read-only resource
 
 * `ROS 2 Docs <https://docs.ros2.org>`_
 
