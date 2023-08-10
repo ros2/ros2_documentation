@@ -124,8 +124,8 @@ If you need help, have an idea, or would like to contribute to the project, plea
 
   - Check the current status of ROS resources like Discourse or the ROS build farm.
 
-Other resources
-^^^^^^^^^^^^^^^
+General ROS project resources
+-----------------------------
 
 * `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
 
@@ -151,7 +151,7 @@ Other resources
   - ROS 1 and ROS 2 product landing page, with high-level description of ROS and links to other ROS sites
 
 Events
-^^^^^^
+------
 
 * `Official ROS Vimeo Channel <https://vimeo.com/osrfoundation>`__ (ROS 1, ROS 2)
 
@@ -173,7 +173,7 @@ Events
   - `Submit your events here <https://bit.ly/OSRFCommunityCalendar>`__ .
 
 Miscellaneous
-^^^^^^^^^^^^^
+-------------
 * `Purchase official ROS swag <https://spring.ros.org/>`__
 
 * ROS on social media
@@ -186,7 +186,7 @@ Miscellaneous
   - Tax deductible charitable donations to the Open Source Robotics Foundation can be sent via `DonorBox. <https://donorbox.org/support-open-robotics?utm_medium=qrcode&utm_source=qrcode>`__
 
 Deprecated
-^^^^^^^^^^
+----------
 * `ROS Answers <https://answers.ros.org/questions/>`__ (ROS 1, ROS 2)
 
   - ROS Answers was the ROS community Q&A website, until August, 2023. ROS Answers is currently available as a read-only resource.
