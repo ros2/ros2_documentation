@@ -152,7 +152,7 @@ Other ROS resources
   - ROSCon is our annual ROS developer conference.
   - This page also lists regional ROS events like ROSConJP and ROSConFr.
 
-* `Open Source Robotics Foundation official events calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=America/Los_Angeles>`__ 
+* `Open Source Robotics Foundation official events calendar <https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=America/Los_Angeles>`__
 
   - This calendar is for official OSRF Events and working group meetings.
   - `Submit your events here <https://bit.ly/OSRFCalendarForm>`__.
