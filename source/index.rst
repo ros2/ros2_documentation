@@ -94,18 +94,18 @@ If you're interested in the advancement of the ROS 2 project:
 * :doc:`Marketing <The-ROS2-Project/Marketing>`
 
   - Downloadable marketing materials
+  - `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
 
-Other ROS resources
--------------------
+ROS community resources
+-----------------------
 
-* `Robotics Stack Exchange - Q&A community website <https://robotics.stackexchange.com/>`__ . (ROS 1, ROS 2)
+If you need help, have an idea, or would like to contribute to the project, please visit our ROS community resources.
+
+* `Official ROS Discord Channel for discussion and support <https://discord.com/servers/open-robotics-1077825543698927656>`__ (ROS 1, ROS 2)
+
+* `Robotics Stack Exchange - community Q&A website <https://robotics.stackexchange.com/>`__ (ROS 1, ROS 2)
+
   - See :ref:`Contact Page <Using Robotics Stack Exchange>` for more information
-
-* `Official ROS Discord Channel for discussion and support <https://discord.com/servers/open-robotics-1077825543698927656>`__ .(ROS 1, ROS 2)
-
-* `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
-
-  - Proposals for new designs and conventions
 
 * `ROS Discourse <https://discourse.ros.org/>`__ (ROS 1, ROS 2)
 
@@ -119,6 +119,17 @@ Other ROS resources
   - Link to a package's repository, API documentation, or website
   - Inspect a package's license, build type, maintainers, status, and dependencies
   - Get more info for a package on `ROS Answers <https://answers.ros.org/questions/>`__
+
+* `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)
+
+  - Check the current status of ROS resources like Discourse or the ROS build farm.
+
+Other resources
+^^^^^^^^^^^^^^^
+
+* `ROS Enhancement Proposals (REPs) <https://ros.org/reps/rep-0000.html>`__ (ROS 1, ROS 2)
+
+  - Proposals for new designs and conventions
 
 * `ROS Prerelease <http://prerelease.ros.org/>`__ (ROS 1)
 
@@ -139,13 +150,12 @@ Other ROS resources
 
   - ROS 1 and ROS 2 product landing page, with high-level description of ROS and links to other ROS sites
 
-* `Official Open Source Robotics Foundation Vimeo Channel <https://vimeo.com/osrfoundation>`__ (ROS 1, ROS 2)
+Events
+^^^^^^
+
+* `Official ROS Vimeo Channel <https://vimeo.com/osrfoundation>`__ (ROS 1, ROS 2)
 
   - Videos of ROSCon Talks, community and working group meetings, and project demos.
-
-* `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)
-
-  - Check the current status of ROS resources like Discourse or the ROS build farm.
 
 * `ROSCon website <https://roscon.ros.org/>`__ (ROS 1, ROS 2)
 
@@ -164,10 +174,6 @@ Other ROS resources
 
 Miscellaneous
 ^^^^^^^^^^^^^
-* `Information about the ROS trademark <https://www.ros.org/blog/media/>`__
-
-* ROS 2 can be cited in an academic publication using `DOI: 10.1126/scirobotics.abm6074 <https://www.science.org/doi/10.1126/scirobotics.abm6074>`__
-
 * `Purchase official ROS swag <https://spring.ros.org/>`__
 
 * ROS on social media
