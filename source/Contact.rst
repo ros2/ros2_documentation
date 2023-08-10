@@ -3,7 +3,7 @@
 Contact
 =======
 
-.. _Using Robotics Stack Overflow:
+.. _Using Robotics Stack Exchange:
 
 Support
 -------
