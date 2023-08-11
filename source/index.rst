@@ -131,11 +131,6 @@ General ROS project resources
 
   - Proposals for new designs and conventions
 
-* `ROS Prerelease <http://prerelease.ros.org/>`__ (ROS 1)
-
-  - Generates commands to emulate the `ROS Buildfarm <https://build.ros.org/>`_ on your local machine
-  - Currently only shows ROS 1 distributions
-
 * `ROS Robots <https://robots.ros.org/>`__ (ROS 1, ROS 2)
 
   - Showcases robots projects from the community
