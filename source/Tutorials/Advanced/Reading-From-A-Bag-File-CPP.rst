@@ -1,7 +1,7 @@
 Reading from a bag file (C++)
 =============================
 
-**Goal:** Read data from a bag without having to play the bag.
+**Goal:** Read data from a bag without using the CLI.
 
 **Tutorial level:** Advanced
 
@@ -187,9 +187,9 @@ Note that the serialized message also has a timestamp metadata in addition to th
           continue;
         }
 
-We then construct an rclcpp::SerializedMessage object from the serialized data we just read. 
+We then construct an ``rclcpp::SerializedMessage`` object from the serialized data we just read. 
 Additionally, we need to create a ROS 2 deserialized message which will hold the result of our deserialization. 
-Then, we can pass both these objects to the rclcpp::Serialization::deserialize_message method.
+Then, we can pass both these objects to the ``rclcpp::Serialization::deserialize_message`` method.
 
 .. code-block:: C++
 
@@ -208,6 +208,17 @@ We also break out of the loop so that we publish the next message during the nex
 
       break;
     }
+
+We must also declare the private variables used throughout the node.
+
+.. code-block:: C++
+
+      rclcpp::TimerBase::SharedPtr timer_;
+      rclcpp::Publisher<turtlesim::msg::Pose>::SharedPtr publisher_;
+
+      rclcpp::Serialization<turtlesim::msg::Pose> serialization_;
+      rosbag2_cpp::Reader reader_;
+    };
 
 Lastly, we create the main function which will check that the user passes an argument for the bag file path and spins our node.
 
