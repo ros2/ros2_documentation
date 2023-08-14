@@ -118,7 +118,7 @@ If you need help, have an idea, or would like to contribute to the project, plea
   - See which ROS distributions a package supports
   - Link to a package's repository, API documentation, or website
   - Inspect a package's license, build type, maintainers, status, and dependencies
-  - Get more info for a package on `ROS Answers <https://answers.ros.org/questions/>`__
+  - Get more info for a package on `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__
 
 * `ROS resource status page <https://status.openrobotics.org/>`__ (ROS 1, ROS 2)
 
