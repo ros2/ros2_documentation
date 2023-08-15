@@ -387,21 +387,19 @@ For example, to additionally get the timestamp and location of the log calls, st
     .. code-block:: bash
 
       export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
-      ros2 run logging_demo logging_demo_main
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
       export RCUTILS_CONSOLE_OUTPUT_FORMAT="[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
-      ros2 run logging_demo logging_demo_main
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      set "RCUTILS_CONSOLE_OUTPUT_FORMAT=[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
-      ros2 run logging_demo logging_demo_main
+       # set "RCUTILS_CONSOLE_OUTPUT_FORMAT=[{severity} {time}] [{name}]: {message} ({function_name}() at {file_name}:{line_number})"
+       ros2 run logging_demo logging_demo_main
 
 You should see the timestamp in seconds and the function name, filename and line number additionally printed with each message.
 *The ``time`` option is only supported as of the ROS 2 Bouncy release.*
@@ -442,21 +440,19 @@ For example:
     .. code-block:: bash
 
       export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
-      ros2 run logging_demo logging_demo_main
 
   .. group-tab:: macOS
 
     .. code-block:: bash
 
       export RCUTILS_COLORIZED_OUTPUT=0  # 1 for forcing it
-      ros2 run logging_demo logging_demo_main
 
   .. group-tab:: Windows
 
     .. code-block:: bash
 
-      set "RCUTILS_COLORIZED_OUTPUT=0" :: 1 for forcing it
-      ros2 run logging_demo logging_demo_main
+       # set "RCUTILS_COLORIZED_OUTPUT=0"
+       ros2 run logging_demo logging_demo_main
 
 You should see that debug, warn, error and fatal logs aren't colorized now.
 
