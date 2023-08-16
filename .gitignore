@@ -1,5 +1,5 @@
 build/
-plugins/__pycache__
+*__pycache__
 _build/
 .idea/
 .vscode/
