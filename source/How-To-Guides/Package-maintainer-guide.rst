@@ -162,7 +162,7 @@ Responding to issues
 
 Package maintainers should also look at incoming issues on the repository and triage the problems that users are having.
 
-For issues that look like questions, the issue should be closed and the user redirected to https://answers.ros.org.
+For issues that look like questions, the issue should be closed and the user redirected to `Robotics Stack Exchange <https://robotics.stackexchange.com/>`__ .
 
 If an issue looks like a problem, but is not relevant to this particular repository, it should be moved to the appropriate repository with the GitHub "Transfer issue" button.
 
