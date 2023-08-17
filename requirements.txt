@@ -6,3 +6,4 @@ sphinx-copybutton==0.4.0
 sphinx-multiversion==0.2.4
 sphinx-rtd-theme==1.0.0
 sphinx-tabs==3.2.0
+sphinx-rtd-dark-mode==1.2.4

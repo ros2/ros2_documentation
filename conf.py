@@ -83,6 +83,7 @@ extensions = [
     'sphinx_tabs.tabs',
     'sphinx_rtd_theme',
     'sphinx_sitemap_ros',
+    'sphinx_rtd_dark_mode',
 ]
 
 # Intersphinx mapping
@@ -120,6 +121,9 @@ html_context = {
 templates_path = [
     "source/_templates",
 ]
+
+# user starts in light mode
+default_dark_mode = False
 
 # smv_tag_whitelist = None
 
