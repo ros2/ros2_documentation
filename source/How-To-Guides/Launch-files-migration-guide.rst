@@ -57,7 +57,8 @@ param
 * Used for passing a parameter to a node.
 * There's no global parameter concept in ROS 2.
   For that reason, it can only be used nested in a ``node`` tag.
-  Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``, ``command``.
+  Some attributes aren't supported in ROS 2: ``type``, ``textfile``, ``binfile``, ``executable``.
+* The ``command`` attribute is now ``value="$(command '...' )"``.
 
 Example
 ~~~~~~~
