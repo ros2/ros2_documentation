@@ -22,7 +22,7 @@ Setting up security
 Background
 ----------
 
-The ``sros2`` package provides the tools and instructions to use ROS2 on top of DDS-Security.
+The ``sros2`` package provides the tools and instructions to use ROS 2 on top of DDS-Security.
 The security features have been tested across platforms (Linux, macOS, and Windows) as well as across different languages (C++ and Python).
 The SROS2 has been designed to work with any secure middleware, although not all middleware is open source and support varies depending on the ROS distribution in use.
 Please reach out to the :ref:`ROS 2 Security Working Group <Security Working Group>` if you encounter any support issues.
@@ -80,7 +80,7 @@ Selecting an alternate middleware
 
 If you choose not to use the default middleware implementation, be sure to :doc:`change your DDS implementation <../../../Installation/DDS-Implementations/>` before proceeding.
 
-ROS2 allows you to change the DDS implementation at runtime.
+ROS 2 allows you to change the DDS implementation at runtime.
 See `how to work with mulitple RMW implementations <../../../How-To-Guides/Working-with-multiple-RMW-implementations>` to explore different middleware implementations.
 
 Note that secure communication between vendors is not supported.
