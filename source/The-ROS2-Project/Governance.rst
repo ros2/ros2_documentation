@@ -41,7 +41,6 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
 .. |robotis| image:: Governance/images/robotis.png
 .. |ros2| image:: Governance/images/ros2_logo.png
 .. |rosindustrial| image:: Governance/images/ros-industrial.png
-.. |samsung| image:: Governance/images/samsung.svg
 .. |sony| image:: Governance/images/sony.png
 .. |tri| image:: Governance/images/tri_logo_landscape-web.svg
 .. |windriver| image:: Governance/images/windriver.png
@@ -111,7 +110,7 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://ubuntu.com"><img alt="Ubuntu logo" src="../_images/ubuntu.svg" style="height: 35px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Canonical: Jeremie Deray</p></td>
+          <td class="tscclass" align="center"><p>Canonical: Mirko Ferrati</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://eprosima.com"><img alt="eProsima logo" src="../_images/eprosima.svg" style="height: 35px;" /></a></p></td>
@@ -152,10 +151,6 @@ The current members of the ROS 2 TSC are (23 as of 2022-02-01):
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://rosindustrial.org/about/description/"><img alt="ROS Industriallogo" src="../_images/ros-industrial.png" style="height: 35px;" /></a></p></td>
           <td class="tscclass" align="center"><p>ROS-Industrial: Matt Robinson</p></td>
-        </tr>
-        <tr class="tscclass">
-          <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.samsung.com"><img alt="Samsung logo" src="../_images/samsung.svg" style="height: 25px;" /></a></p></td>
-          <td class="tscclass" align="center"><p>Samsung: TBD</p></td>
         </tr>
         <tr class="tscclass">
           <td class="tscclass" align="center"><p><a class="reference internal" href="https://www.sony.com"><img alt="Sony logo" src="../_images/sony.png" style="height: 60px;" /></a></p></td>
