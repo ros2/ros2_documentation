@@ -3,7 +3,7 @@
 usage="usage: $(basename "$0") SETUP_FILE [PROTOCOL] [-h] -- analyze network trafic of ros2 nodes discovery messages
 
 positional arguments:
-    SETUP_FILE location setup.bash of ROS2
+    SETUP_FILE location setup.bash of ROS 2
     [optional] PROTOCOL if is SERVER it uses Discovery Service else it uses Simple Discovery
 
 options:
@@ -23,7 +23,7 @@ while getopts ':h:' option; do
 done
 shift $((OPTIND - 1))
 
-# First argument must be setup.bash of ROS2
+# First argument must be setup.bash of ROS 2
 SETUP_FILE=${1}
 
 if [ -z ${SETUP_FILE} ]
