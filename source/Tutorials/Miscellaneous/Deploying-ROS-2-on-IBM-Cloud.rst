@@ -14,23 +14,23 @@ Deploying on IBM Cloud Kubernetes [community-contributed]
 About
 -----
 
-This article describes how to get ROS2 running on IBM Cloud using Docker files. It first gives a brief overview of docker images and how they work locally and then explores IBM Cloud and how the user can deploy their containers on it.
-Afterwards, a short description of how the user can use their own custom packages for ROS2 from github on IBM Cloud is provided.
+This article describes how to get ROS 2 running on IBM Cloud using Docker files. It first gives a brief overview of docker images and how they work locally and then explores IBM Cloud and how the user can deploy their containers on it.
+Afterwards, a short description of how the user can use their own custom packages for ROS 2 from github on IBM Cloud is provided.
 A walkthrough of how to create a cluster and utilize Kubernetes on IBM Cloud is provided and finally the Docker image is deployed on the cluster.
 Originally published `here <https://github.com/mm-nasr/ros2_ibmcloud>`__ and `here <https://medium.com/@mahmoud-nasr/running-ros2-on-ibm-cloud-1b1284cbd487>`__.
 
-ROS2 on IBM Cloud
------------------
+ROS 2 on IBM Cloud
+------------------
 
-In this tutorial, we show how you can easily integrate and run ROS2 on
+In this tutorial, we show how you can easily integrate and run ROS 2 on
 IBM Cloud with your custom packages.
 
-ROS2 is the new generation of ROS which gives more control over
+ROS 2 is the new generation of ROS which gives more control over
 multi-robot formations. With the advancements of cloud computing, cloud
 robotics are becoming more important in today's age. In this tutorial,
-we will go through a short introduction on running ROS2 on IBM Cloud. By
+we will go through a short introduction on running ROS 2 on IBM Cloud. By
 the end of the tutorial, you will be able to create your own packages in
-ROS2 and deploy them to the cloud using docker files.
+ROS 2 and deploy them to the cloud using docker files.
 
 The following instructions assume you're using Linux and have been
 tested with Ubuntu 18.04 (Bionic Beaver).
@@ -91,17 +91,17 @@ You should obtain the following output:
    For more examples and ideas, visit:
     https://docs.docker.com/get-started/
 
-b) ROS2 Image
-^^^^^^^^^^^^^
+b) ROS 2 Image
+^^^^^^^^^^^^^^
 
 ROS
 `announced <https://discourse.ros.org/t/announcing-official-docker-images-for-ros2/7381/2>`__
 image containers for several ROS distributions in January 2019. More
-detailed instructions on the use of ROS2 docker images can be found
+detailed instructions on the use of ROS 2 docker images can be found
 `here <https://hub.docker.com/_/ros/>`__.
 
 Let's skip through that and get to real-deal right away; creating a
-local ROS2 docker. We'll create our own Dockerfile (instead of using a
+local ROS 2 docker. We'll create our own Dockerfile (instead of using a
 ready Image) since we'll need this method for deployment on IBM Cloud.
 First, we create a new directory which will hold our Dockerfile and any
 other files we need later on and navigate to it. Using your favorite
@@ -148,7 +148,7 @@ in action in just a few, but they act very similar to the
 publisher-subscriber example found in the `ROS
 wiki <https://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29>`__
 
-Now, we are ready to build the docker image to run ROS2 in it (yes, it
+Now, we are ready to build the docker image to run ROS 2 in it (yes, it
 is THAT easy!).
 
 **Note**: if you have errors due to insufficient privileges or
@@ -273,15 +273,15 @@ explained previously.
 You should now see your docker file running and providing similar output
 to that you saw when you ran it locally on your machine.
 
-Step 3: Using Custom ROS2 Packages
-------------------------------------
+Step 3: Using Custom ROS 2 Packages
+-----------------------------------
 
 So now we have the full pipeline working, from creating the Dockerfile,
 all the way to deploying it and seeing it work on IBM Cloud. But, what
 if we want to use a custom set of packages we (or someone else) created?
 
 Well that all has to do with how you set-up your Dockerfile. Lets use
-the example provided by ROS2 `here <https://hub.docker.com/_/ros/>`__.
+the example provided by ROS 2 `here <https://hub.docker.com/_/ros/>`__.
 Create a new directory with a new Dockerfile (or overwrite the existing
 one) and add the following in it (or download the file
 `here <https://github.com/mm-nasr/ros2_ibmcloud/blob/main/dockers/git_pkgs_docker/Dockerfile>`__)
@@ -436,7 +436,7 @@ image:
 
 You should see, again, the same output. However, this time we did it
 through custom packages from github, which allows us to utilize our
-personally created packages for ROS2 on IBM Cloud.
+personally created packages for ROS 2 on IBM Cloud.
 
 Extra: Deleting Docker Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -589,7 +589,7 @@ parameters of your cluster as well as its CPU and Memory Usage.
 4. On the top right corner, click on *Exec into pod*
 
 Now you are inside your docker image! You can source your workspace (if
-needed) and run ROS2! For example:
+needed) and run ROS 2! For example:
 
 .. code-block:: bash
 
@@ -599,4 +599,4 @@ needed) and run ROS2! For example:
 Final Remarks
 ---------------
 
-At this point, you are capable of creating your own docker image using ROS2 packages on github. It is also possible, with little changes to utilize local ROS2 packages as well. This could be the topic of another article. However, you are encouraged to check out the following `Dockerfile <https://github.com/mm-nasr/ros2_ibmcloud/tree/main/dockers/local_pkgs_docker>`__ which uses a local copy of the demos repository. Similarly, you can use your own local package.
+At this point, you are capable of creating your own docker image using ROS 2 packages on github. It is also possible, with little changes to utilize local ROS 2 packages as well. This could be the topic of another article. However, you are encouraged to check out the following `Dockerfile <https://github.com/mm-nasr/ros2_ibmcloud/tree/main/dockers/local_pkgs_docker>`__ which uses a local copy of the demos repository. Similarly, you can use your own local package.
