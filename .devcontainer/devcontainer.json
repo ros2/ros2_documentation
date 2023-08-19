@@ -3,14 +3,18 @@
 	"build": {
 		"dockerfile": "../docker/image/Dockerfile"
 	},
+	"postCreateCommand": "pip3 install --no-warn-script-location --user -r requirements.txt -c constraints.txt",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {}
 	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"george-alisson.html-preview-vscode"
-			]
+				"ritwickdey.LiveServer"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "bash"
+			}
 		}
 	}
 }
