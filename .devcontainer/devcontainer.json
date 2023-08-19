@@ -1,0 +1,16 @@
+{
+	"name": "ROS 2 Documentation",
+	"build": {
+		"dockerfile": "../docker/image/Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"george-alisson.html-preview-vscode"
+			]
+		}
+	}
+}
